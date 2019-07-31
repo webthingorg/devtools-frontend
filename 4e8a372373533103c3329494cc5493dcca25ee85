@@ -46,6 +46,30 @@
       "revId": "4e8a372373533103c3329494cc5493dcca25ee85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5304df2c_559577fa",
+        "filename": "luci-milo.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-07-31T16:32:53Z",
+      "side": 1,
+      "message": "Thanks, will add that in a follow up CL.",
+      "parentUuid": "e23d7ba2_2e173373",
+      "range": {
+        "startLine": 6,
+        "startChar": 67,
+        "endLine": 6,
+        "endChar": 73
+      },
+      "revId": "4e8a372373533103c3329494cc5493dcca25ee85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
