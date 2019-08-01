@@ -1,6 +1,7 @@
-dgozman@chromium.org
-pfeldman@chromium.org
-lushnikov@chromium.org
-einbinder@chromium.org
-luoe@chromium.org
-per-file BUILD.gn=*
+file://ENG_REVIEW_OWNERS
+
+machenbach@chromium.org
+petermarshall@chromium.org
+sigurds@chromium.org
+szuend@chromium.org
+tvanderlippe@chromium.org

@@ -9,7 +9,7 @@ from os import path
 import sys
 
 SCRIPTS_PATH = path.dirname(path.abspath(__file__))
-THIRD_PARTY_PATH = path.join(SCRIPTS_PATH, '..', '..', '..', '..')
+THIRD_PARTY_PATH = path.join(SCRIPTS_PATH, '..', 'third_party')
 NODE_PATH = path.join(THIRD_PARTY_PATH, 'node')
 ESLINT_PATH = path.join(THIRD_PARTY_PATH, 'devtools-node-modules', 'third_party', 'node_modules', 'eslint', 'bin', 'eslint.js')
 
