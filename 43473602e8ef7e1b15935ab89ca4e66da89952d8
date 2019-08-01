@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f2794e1_91c94786",
+        "filename": "third_party/node/node.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-01T18:16:19Z",
+      "side": 1,
+      "message": "This is copied from Chromium",
+      "parentUuid": "0473a5d8_60712eba",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "43473602e8ef7e1b15935ab89ca4e66da89952d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a6c76f9_02294b61",
         "filename": "third_party/node/node_modules.py",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2019-08-01T14:07:21Z",
       "side": 1,
       "message": "How is this file used?",
+      "revId": "43473602e8ef7e1b15935ab89ca4e66da89952d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d367e86_3df408d6",
+        "filename": "third_party/node/node_modules.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-01T18:16:19Z",
+      "side": 1,
+      "message": "This is used for eslint afaik",
+      "parentUuid": "0a6c76f9_02294b61",
       "revId": "43473602e8ef7e1b15935ab89ca4e66da89952d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
