@@ -2,6 +2,8 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+renderer_core_path = "//third_party/blink/renderer/core"
+
 import("//build/config/features.gni")
 import("//third_party/blink/public/public_features.gni")
 import("//third_party/blink/renderer/core/core.gni")
@@ -1203,8 +1205,6 @@ devtools_applications = [
 
 #-------------------------------------------------------------------------------
 
-visibility = [ "//third_party/blink/*" ]
-
 group("devtools_all_files") {
   data = all_devtools_files
   deps = [
@@ -1326,7 +1326,7 @@ action("supported_css_properties") {
   script = "scripts/build/generate_supported_css.py"
 
   inputs = [
-    "../core/css/css_properties.json5",
+    "$renderer_core_path/css/css_properties.json5",
   ]
 
   outputs = [
@@ -1341,7 +1341,7 @@ action("aria_properties") {
   script = "scripts/build/generate_aria.py"
 
   inputs = [
-    "../core/html/aria_properties.json5",
+    "$renderer_core_path/html/aria_properties.json5",
   ]
 
   outputs = [
@@ -1355,7 +1355,7 @@ action("aria_properties") {
 action("frontend_protocol_sources") {
   script = "scripts/build/code_generator_frontend.py"
   deps = [
-    "../core/inspector:protocol_version",
+    "$renderer_core_path/inspector:protocol_version",
   ]
   inputs = [
     "$blink_core_output_dir/inspector/protocol.json",

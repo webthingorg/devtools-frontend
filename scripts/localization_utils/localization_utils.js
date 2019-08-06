@@ -31,7 +31,7 @@ const cppSpecialCharactersMap = {
 };
 const IDSPrefix = 'IDS_DEVTOOLS_';
 
-const THIRD_PARTY_PATH = path.resolve(__dirname, '..', '..', '..', '..', '..');
+const THIRD_PARTY_PATH = path.resolve(__dirname, '..', '..', 'third_party');
 const SRC_PATH = path.resolve(THIRD_PARTY_PATH, '..');
 const GRD_PATH = path.resolve(__dirname, '..', '..', 'front_end', 'langpacks', 'devtools_ui_strings.grd');
 const REPO_NODE_MODULES_PATH = path.resolve(THIRD_PARTY_PATH, 'node', 'node_modules');
