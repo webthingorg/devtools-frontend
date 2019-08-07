@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3baffc0_8e1e4563",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-07T08:19:15Z",
+      "side": 1,
+      "message": "Should we add a separate fetch config to depot_tools similar as v8?",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 87
+      },
+      "revId": "04be3d0beabc0da46c713c82d258b269635b5757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b85bc696_9d0d4b32",
+        "filename": "scripts/build/generate_aria.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-07T08:19:15Z",
+      "side": 1,
+      "message": "Will those relative directories now work both in Chromium and stand-alone?",
+      "range": {
+        "startLine": 10,
+        "startChar": 39,
+        "endLine": 10,
+        "endChar": 71
+      },
+      "revId": "04be3d0beabc0da46c713c82d258b269635b5757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf6ae1f1_242e0fd4",
+        "filename": "v8/include/js_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-07T08:19:15Z",
+      "side": 1,
+      "message": "Don\u0027t know how to review this file.",
+      "revId": "04be3d0beabc0da46c713c82d258b269635b5757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
