@@ -127,3 +127,30 @@ npm test -- --target=Default
   [@ChromeDevTools]: http://twitter.com/ChromeDevTools
   [@DevToolsCommits]: http://twitter.com/DevToolsCommits
   [all open DevTools tickets]: https://bugs.chromium.org/p/chromium/issues/list?can=2&q=component%3APlatform%3EDevTools&sort=&groupby=&colspec=ID+Stars+Owner+Summary+Modified+Opened
+
+### GN workflow
+
+As standalone project, Chrome DevTools front-end can be checked out and built independently from Chromium.
+
+#### Checking out source
+
+[Get depot_tools](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) first.
+
+```bash
+mkdir devtools
+cd devtools
+git clone https://chromium.googlesource.com/devtools/devtools-frontend
+gclient config https://chromium.googlesource.com/devtools/devtools-frontend --unmanaged
+```
+
+#### Build
+```bash
+gclient sync
+gn gen out
+autoninja -C out
+```
+
+#### Run in Chromium (from M78 onwards)
+```bash
+chrome --custom-devtools-frontend=$(realpath out/resources/inspector)
+```
