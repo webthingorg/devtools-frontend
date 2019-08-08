@@ -36,11 +36,11 @@ try:
 except ImportError:
     import simplejson as json
 
-sys.path.append(
-    path.normpath(
-        path.join(
-            path.dirname(path.abspath(__file__)),
-            os.pardir, os.pardir, os.pardir, os.pardir, os.pardir, 'inspector_protocol')))
+sys.path.append(path.dirname(path.abspath(__file__)))
+
+from devtools_paths import third_party_path
+
+sys.path.append(path.join(third_party_path(), 'inspector_protocol'))
 import pdl  # pylint: disable=F0401
 
 type_traits = {
