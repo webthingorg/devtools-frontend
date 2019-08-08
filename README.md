@@ -151,6 +151,7 @@ autoninja -C out
 ```
 
 #### Run in Chromium (from M78 onwards)
+Build Chromium with the GN flag `debug_devtools=true`
 ```bash
-chrome --custom-devtools-frontend=$(realpath out/resources/inspector)
+<path-to-chrome>/chrome --custom-devtools-frontend=$(realpath out/resources/inspector)
 ```
