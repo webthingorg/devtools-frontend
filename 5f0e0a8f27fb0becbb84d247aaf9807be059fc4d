@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7202886d_af19c28b",
+        "filename": "scripts/build/generate_protocol_externs.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-08T11:05:11Z",
+      "side": 1,
+      "message": "Doesn\u0027t look like it was in third_party before. Did that change?",
+      "range": {
+        "startLine": 43,
+        "startChar": 26,
+        "endLine": 43,
+        "endChar": 42
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09939d9f_10372e56",
+        "filename": "scripts/devtools_paths.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-08T11:05:11Z",
+      "side": 1,
+      "message": "That\u0027s redundant since SCRIPTS_PATH is already abs.",
+      "range": {
+        "startLine": 13,
+        "startChar": 22,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0de281bf_c004a20b",
+        "filename": "scripts/devtools_paths.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-08T11:05:11Z",
+      "side": 1,
+      "message": "What if a developer has their checkout in a folder named renderer?",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7978288_36bd78d6",
+        "filename": "scripts/devtools_paths.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-08T11:05:11Z",
+      "side": 1,
+      "message": "nit: Not sure if you win much, but maybe it\u0027s more readable:\npath.normpath(path.join(ABS_DEVTOOLS_PATH, \u0027..\u0027, \u0027..\u0027, \u0027..\u0027, \u0027..\u0027))",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 84
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "515ec75a_8a0f138c",
+        "filename": "third_party/blink/renderer/core/inspector/browser_protocol.pdl",
+        "patchSetId": 3
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-08-08T11:05:11Z",
+      "side": 1,
+      "message": "Would be great if someone from devtools team could look at these changes. I\u0027m ignoring this.",
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
