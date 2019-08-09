@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9e07145_05d56864",
+        "filename": "scripts/build/generate_protocol_externs.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-09T06:37:48Z",
+      "side": 1,
+      "message": "inspector_protocol is pulled into third_party via DEPS both for this repo and for Chromium.\n\nThe reason the previous path name does not include \"third_party\" is because blink is already in \"third_party\".",
+      "parentUuid": "7202886d_af19c28b",
+      "range": {
+        "startLine": 43,
+        "startChar": 26,
+        "endLine": 43,
+        "endChar": 42
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09939d9f_10372e56",
         "filename": "scripts/devtools_paths.py",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "30deed00_ece7beab",
+        "filename": "scripts/devtools_paths.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-09T06:37:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09939d9f_10372e56",
+      "range": {
+        "startLine": 13,
+        "startChar": 22,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0de281bf_c004a20b",
         "filename": "scripts/devtools_paths.py",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2019-08-08T11:05:11Z",
       "side": 1,
       "message": "What if a developer has their checkout in a folder named renderer?",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daf8c306_9adada1e",
+        "filename": "scripts/devtools_paths.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-09T06:37:48Z",
+      "side": 1,
+      "message": "That would be very unfortunate. Is there a better way to detect in which kind of checkout we are, which also works when the files are copied onto bots for sharded runs?",
+      "parentUuid": "0de281bf_c004a20b",
       "range": {
         "startLine": 14,
         "startChar": 6,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c10eeda2_f0f564d9",
+        "filename": "scripts/devtools_paths.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-09T06:37:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c7978288_36bd78d6",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 84
+      },
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "515ec75a_8a0f138c",
         "filename": "third_party/blink/renderer/core/inspector/browser_protocol.pdl",
         "patchSetId": 3
@@ -105,6 +201,24 @@
       "writtenOn": "2019-08-08T11:05:11Z",
       "side": 1,
       "message": "Would be great if someone from devtools team could look at these changes. I\u0027m ignoring this.",
+      "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3881bfa_936cf277",
+        "filename": "third_party/blink/renderer/core/inspector/browser_protocol.pdl",
+        "patchSetId": 3
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-09T06:37:48Z",
+      "side": 1,
+      "message": "This is just copied from upstream",
+      "parentUuid": "515ec75a_8a0f138c",
       "revId": "5f0e0a8f27fb0becbb84d247aaf9807be059fc4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
