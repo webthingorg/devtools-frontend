@@ -3,14 +3,14 @@
 # found in the LICENSE file.
 
 vars = {
-  'build_revision': 'd35a96ac2e0fd0fe3d7c106036417b9c4ec96085',
+  'build_revision': 'f3d0ca5f46b7b190dbbdc6be508ca11dd5c54302',
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
 
   'devtools_node_modules_url': 'https://chromium.googlesource.com/external/github.com/ChromeDevTools/devtools-node-modules',
   'devtools_node_modules_revision': '08f835aae2a552cd8b449ec1be9d292cbacbfb8b',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools',
-  'depot_tools_revision': '447b45d42307021be3dc11d9e557b59e42f30ef8',
+  'depot_tools_revision': '72fbaf4d465e86222c92a21283a0d7406ca05323',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
   'inspector_protocol_revision': '51e2aa7bd607ed1472970251b1f1db917c907233',
