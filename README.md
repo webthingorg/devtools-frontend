@@ -75,5 +75,12 @@ Formats your Python code using [yapf](https://github.com/google/yapf)
   [all open DevTools tickets]: https://bugs.chromium.org/p/chromium/issues/list?can=2&q=component%3APlatform%3EDevTools&sort=&groupby=&colspec=ID+Stars+Owner+Summary+Modified+Opened
   [Test waterfall]: https://ci.chromium.org/p/devtools-frontend/g/main/console
 
+### Tests
 
+The tests are run through Karma.
+
+```
+npm i
+npx karma start
+```
 
