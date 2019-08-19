@@ -1677,6 +1677,7 @@
       setter: "SetFillPaint",
       getter: "FillPaint",
       converter: "ConvertSVGPaint",
+      affected_by_forced_colors: true,
     },
     {
       name: "fill-opacity",
@@ -2375,7 +2376,7 @@
       default_value: "1.0",
       type_name: "float",
       computed_style_custom_functions: ["setter"],
-      typedom_types: ["Keyword", "Number"]
+      typedom_types: ["Number"]
     },
     {
       name: "order",
@@ -3023,6 +3024,7 @@
       setter: "SetStrokePaint",
       getter: "StrokePaint",
       converter: "ConvertSVGPaint",
+      affected_by_forced_colors: true,
     },
     {
       name: "stroke-dasharray",
@@ -3174,6 +3176,7 @@
       typedom_types: ["Keyword"],
       converter: "ConvertStyleColor",
       style_builder_template: "color",
+      affected_by_forced_colors: true,
     },
     {
       name: "text-decoration-line",
@@ -3959,6 +3962,7 @@
       computed_style_custom_functions: ["getter", "setter"],
       converter: "ConvertStyleColor",
       style_builder_template: "color",
+      affected_by_forced_colors: true,
     },
     {
       name: "-webkit-text-emphasis-position",
@@ -4970,7 +4974,8 @@
     {
       name: "marker",
       longhands: ["marker-start", "marker-mid", "marker-end"],
-      property_methods: ["ParseShorthand"],
+      property_methods: ["ParseShorthand", "CSSValueFromComputedStyleInternal"],
+      svg: true,
     },
     {
       name: "offset",
