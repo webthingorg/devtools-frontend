@@ -7,12 +7,11 @@ import os
 import shutil
 import sys
 
-
 FILES = [
-  ['v8', 'include', 'js_protocol.pdl'],
-  ['third_party', 'blink', 'renderer', 'core', 'css', 'css_properties.json5'],
-  ['third_party', 'blink', 'renderer', 'core', 'html', 'aria_properties.json5'],
-  ['third_party', 'blink', 'renderer', 'core', 'inspector', 'browser_protocol.pdl'],
+    ['v8', 'include', 'js_protocol.pdl'],
+    ['third_party', 'blink', 'renderer', 'core', 'css', 'css_properties.json5'],
+    ['third_party', 'blink', 'renderer', 'core', 'html', 'aria_properties.json5'],
+    ['third_party', 'blink', 'renderer', 'core', 'inspector', 'browser_protocol.pdl'],
 ]
 
 
@@ -25,7 +24,8 @@ def parse_options(cli_args):
 
 def copy_files(options):
     for file in FILES:
-      shutil.copy(os.path.join(options.chromium_dir, *file), os.path.join(options.devtools_dir, *file))
+        shutil.copy(os.path.join(options.chromium_dir, *file), os.path.join(options.devtools_dir, *file))
+
 
 if __name__ == '__main__':
     OPTIONS = parse_options(sys.argv[1:])
