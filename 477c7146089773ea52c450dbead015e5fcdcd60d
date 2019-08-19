@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b22eb9b_49b307c8",
+        "filename": "package.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-19T18:19:48Z",
+      "side": 1,
+      "message": "Can we figure out a way to take these from the checked in version of node modules [0]? This is going to be necessary when we run tests on Chrome infrastructure.\n\nE.g. for ES-Lint [1] we use an explicit path for launching.\n\n[0] https://github.com/ChromeDevTools/devtools-node-modules\n[1] https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/master/scripts/local_node.py#14",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "477c7146089773ea52c450dbead015e5fcdcd60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
