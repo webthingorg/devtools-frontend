@@ -75,5 +75,17 @@ Formats your Python code using [yapf](https://github.com/google/yapf)
   [all open DevTools tickets]: https://bugs.chromium.org/p/chromium/issues/list?can=2&q=component%3APlatform%3EDevTools&sort=&groupby=&colspec=ID+Stars+Owner+Summary+Modified+Opened
   [Test waterfall]: https://ci.chromium.org/p/devtools-frontend/g/main/console
 
+### Tests
 
+The tests are run through Karma.
 
+```
+python scripts/run_tests.py
+```
+
+You can also specify with which Chrome binary to run tests by setting the
+`chrome-binary` variable.
+
+```
+python scripts/run_tests.py --chrome-binary=/path/to/chromium/build/chromium
+```
