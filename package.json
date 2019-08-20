@@ -37,6 +37,6 @@
   },
   "homepage": "https://devtools.chrome.com",
   "devDependencies": {
-    "ajv": "^5.1.5"
+    "ajv": "5.1.5"
   }
 }
