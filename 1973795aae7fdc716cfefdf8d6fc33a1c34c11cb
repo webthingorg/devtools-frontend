@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7c73bcb_35eba23e",
+        "filename": "README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-20T06:10:35Z",
+      "side": 1,
+      "message": "Can you add that we can use env var \"CHROME_BIN\" to specify path to Chrome/Chromium, e.g. `CHROME_BIN\u003d~/chromium/src/out/Release/chrome npx karma start`",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 15
+      },
+      "revId": "1973795aae7fdc716cfefdf8d6fc33a1c34c11cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
