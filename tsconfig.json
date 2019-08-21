@@ -1,0 +1,5 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./third_party/devtools-node-modules/third_party/node_modules/@types"]
+  }
+}

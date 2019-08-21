@@ -7,7 +7,7 @@ vars = {
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
 
   'devtools_node_modules_url': 'https://chromium.googlesource.com/external/github.com/ChromeDevTools/devtools-node-modules',
-  'devtools_node_modules_revision': '08f835aae2a552cd8b449ec1be9d292cbacbfb8b',
+  'devtools_node_modules_revision': '9f563a2b5303b181a5a938ed3cca7b015d8ddb46',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools',
   'depot_tools_revision': '447b45d42307021be3dc11d9e557b59e42f30ef8',
