@@ -100,30 +100,10 @@ TimelineModel.TimelineModel = class {
         return this._mainFrame && event.args.frame === this._mainFrame.frameId && !!event.args.data;
       case recordTypes.MarkDOMContent:
       case recordTypes.MarkLoad:
-      case recordTypes.MarkLCPCandidate:
-      case recordTypes.MarkLCPInvalidate:
         return !!event.args['data']['isMainFrame'];
       default:
         return false;
     }
-  }
-
-  /**
-   * @param {!SDK.TracingModel.Event} event
-   * @return {boolean}
-   */
-  isLCPCandidateEvent(event) {
-    return event.name === TimelineModel.TimelineModel.RecordType.MarkLCPCandidate &&
-        !!event.args['data']['isMainFrame'];
-  }
-
-  /**
-   * @param {!SDK.TracingModel.Event} event
-   * @return {boolean}
-   */
-  isLCPInvalidateEvent(event) {
-    return event.name === TimelineModel.TimelineModel.RecordType.MarkLCPInvalidate &&
-        !!event.args['data']['isMainFrame'];
   }
 
   /**
@@ -264,7 +244,8 @@ TimelineModel.TimelineModel = class {
           data = [];
           processData.set(pid, data);
         }
-        const to = i === frame.processes.length - 1 ? (frame.deletedTime || Infinity) : frame.processes[i + 1].time;
+        const to = i === frame.processes.length - 1 ? (frame.deletedTime || this._maximumRecordTime) :
+                                                      frame.processes[i + 1].time;
         data.push({from: frame.processes[i].time, to: to, main: !frame.parent, url: frame.processes[i].url});
       }
     }
@@ -894,10 +875,6 @@ TimelineModel.TimelineModel = class {
           return false;
         break;
 
-      case recordTypes.MarkLCPCandidate:
-        timelineData.backendNodeId = eventData['nodeId'];
-        break;
-
       case recordTypes.MarkDOMContent:
       case recordTypes.MarkLoad: {
         const frameId = TimelineModel.TimelineModel.eventFrameId(event);
@@ -1258,8 +1235,6 @@ TimelineModel.TimelineModel.RecordType = {
   MarkFirstPaint: 'firstPaint',
   MarkFCP: 'firstContentfulPaint',
   MarkFMP: 'firstMeaningfulPaint',
-  MarkLCPCandidate: 'largestContentfulPaint::Candidate',
-  MarkLCPInvalidate: 'largestContentfulPaint::Invalidate',
 
   TimeStamp: 'TimeStamp',
   ConsoleTime: 'ConsoleTime',
@@ -1838,7 +1813,7 @@ TimelineModel.InvalidationTracker = class {
 
   /**
    * @param {!Array.<string>=} types
-   * @return {!Iterator.<!TimelineModel.InvalidationTrackingEvent>}
+   * @return {!Generator<!TimelineModel.InvalidationTrackingEvent>}
    */
   _invalidationsOfTypes(types) {
     const invalidations = this._invalidations;

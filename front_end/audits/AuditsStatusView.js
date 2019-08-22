@@ -14,7 +14,6 @@ Audits.StatusView = class {
     this._progressWrapper = null;
     this._progressBar = null;
     this._statusText = null;
-    this._cancelButton = null;
 
     this._inspectedURL = '';
     this._textChangedAt = 0;
@@ -55,7 +54,6 @@ Audits.StatusView = class {
     this._progressWrapper = fragment.$('progress-wrapper');
     this._progressBar = fragment.$('progress-bar');
     this._statusText = fragment.$('status-text');
-    this._cancelButton = cancelButton;
     UI.ARIAUtils.markAsStatus(this._statusText);
 
     this._dialog.setDefaultFocusedElement(cancelButton);
@@ -84,15 +82,8 @@ Audits.StatusView = class {
     const parsedURL = this._inspectedURL.asParsedURL();
     const pageHost = parsedURL && parsedURL.host;
     const statusHeader = pageHost ? ls`Auditing ${pageHost}` : ls`Auditing your web page`;
-    this._renderStatusHeader(statusHeader);
-    this._dialog.show(dialogRenderElement);
-  }
-
-  /**
-   * @param {string=} statusHeader
-   */
-  _renderStatusHeader(statusHeader) {
     this._statusHeader.textContent = `${statusHeader}\u2026`;
+    this._dialog.show(dialogRenderElement);
   }
 
   hide() {
@@ -237,22 +228,6 @@ Audits.StatusView = class {
     } else {
       this._renderBugReportBody(err, this._inspectedURL);
     }
-  }
-
-  /**
-   * @param {string} statusHeader
-   * @param {string} text
-   */
-  renderText(statusHeader, text) {
-    this._renderStatusHeader(statusHeader);
-    this._commitTextChange(text);
-  }
-
-  /**
-   * @param {boolean} show
-   */
-  toggleCancelButton(show) {
-    this._cancelButton.style.visibility = show ? 'visible' : 'hidden';
   }
 
   /**

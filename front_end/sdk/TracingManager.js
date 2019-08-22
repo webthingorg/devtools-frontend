@@ -80,23 +80,15 @@ SDK.TracingManager = class extends SDK.SDKModel {
    * @param {!SDK.TracingManagerClient} client
    * @param {string} categoryFilter
    * @param {string} options
-   * @return {!Promise<!Object>}
+   * @return {!Promise}
    */
-  async start(client, categoryFilter, options) {
+  start(client, categoryFilter, options) {
     if (this._activeClient)
       throw new Error('Tracing is already started');
     const bufferUsageReportingIntervalMs = 500;
     this._activeClient = client;
-    const args = {
-      bufferUsageReportingInterval: bufferUsageReportingIntervalMs,
-      categories: categoryFilter,
-      options: options,
-      transferMode: SDK.TracingManager.TransferMode.ReportEvents
-    };
-    const response = await this._tracingAgent.invoke_start(args);
-    if (response[Protocol.Error])
-      this._activeClient = null;
-    return response;
+    return this._tracingAgent.start(
+        categoryFilter, options, bufferUsageReportingIntervalMs, SDK.TracingManager.TransferMode.ReportEvents);
   }
 
   stop() {

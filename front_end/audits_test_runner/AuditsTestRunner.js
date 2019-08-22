@@ -67,8 +67,7 @@ AuditsTestRunner.addStatusListener = function(onMessage) {
  */
 AuditsTestRunner.waitForResults = function() {
   return new Promise(resolve => {
-    TestRunner.addSniffer(Audits.AuditsPanel.prototype, '_buildReportUI',
-      (lhr, artifacts) => resolve({lhr, artifacts}));
+    TestRunner.addSniffer(Audits.AuditsPanel.prototype, '_buildReportUI', resolve);
   });
 };
 
