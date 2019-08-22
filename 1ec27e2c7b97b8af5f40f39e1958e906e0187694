@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6fd41258_cff426fb",
+        "filename": "front_end/browser_debugger/eventListenerBreakpoints.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-08-22T15:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcf7b25d_667cab77",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa435118_a72d0347",
         "filename": "front_end/common/ContentProvider.js",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b7433a6_3ce5f848",
+        "filename": "front_end/common/ContentProvider.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-08-22T15:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa435118_a72d0347",
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "1acb2f61_d85dcf68",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-08-22T15:29:25Z",
+      "side": 1,
+      "message": "Closure enforces that a function (in this case overrideCreateElementWithClass) must be defined before it is being used.",
+      "parentUuid": "f9570365_87a6e492",
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb03d1a8_f6c97400",
         "filename": "scripts/jsdoc_validator/src/org/chromium/devtools/jsdoc/checks/MethodAnnotationChecker.java",
         "patchSetId": 3
@@ -73,6 +133,24 @@
       "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3ebc62f_9724a16f",
+        "filename": "scripts/jsdoc_validator/src/org/chromium/devtools/jsdoc/checks/MethodAnnotationChecker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-08-22T15:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb03d1a8_f6c97400",
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
