@@ -6,6 +6,9 @@ vars = {
   'build_revision': 'f3d0ca5f46b7b190dbbdc6be508ca11dd5c54302',
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
 
+  'buildtools_revision': '74cfb57006f83cfe050817526db359d5c8a11628',
+  'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
+
   'devtools_node_modules_url': 'https://chromium.googlesource.com/external/github.com/ChromeDevTools/devtools-node-modules',
   'devtools_node_modules_revision': '9f563a2b5303b181a5a938ed3cca7b015d8ddb46',
 
@@ -14,6 +17,20 @@ vars = {
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
   'inspector_protocol_revision': '51e2aa7bd607ed1472970251b1f1db917c907233',
+
+  'clang_format_revision': '96636aa0e9f047f17447f2d45a094d0b59ed7917',
+
+  'chromium_git': 'https://chromium.googlesource.com',
+
+  # GN CIPD package version.
+  'gn_version': 'git_revision:152c5144ceed9592c20f0c8fd55769646077569b',
+
+  # Also, if you change these, update buildtools/DEPS too. Also update the
+  # libc++ svn_revision in //buildtools/deps_revisions.gni.
+  'clang_format_revision': '96636aa0e9f047f17447f2d45a094d0b59ed7917',
+  'libcxx_revision': '5938e0582bac570a41edb3d6a2217c299adc1bc6',
+  'libcxxabi_revision': '0d529660e32d77d9111912d73f2c74fc5fa2a858',
+  'libunwind_revision': '69d9b84cca8354117b9fe9705a4430d789ee599b',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
@@ -23,6 +40,53 @@ allowed_hosts = [
 ]
 
 deps = {
+  'buildtools':
+    Var('buildtools_url') + '@' + Var('buildtools_revision'),
+
+  'buildtools/clang_format/script':
+    Var('chromium_git') + '/chromium/llvm-project/cfe/tools/clang-format.git@' +
+    Var('clang_format_revision'),
+
+  'buildtools/linux64': {
+    'packages': [
+      {
+        'package': 'gn/gn/linux-amd64',
+        'version': Var('gn_version'),
+      }
+    ],
+    'dep_type': 'cipd',
+    'condition': 'host_os == "linux"',
+  },
+  'buildtools/mac': {
+    'packages': [
+      {
+        'package': 'gn/gn/mac-amd64',
+        'version': Var('gn_version'),
+      }
+    ],
+    'dep_type': 'cipd',
+    'condition': 'host_os == "mac"',
+  },
+  'buildtools/third_party/libc++/trunk':
+    Var('chromium_git') + '/chromium/llvm-project/libcxx.git' + '@' +
+    Var('libcxx_revision'),
+  'buildtools/third_party/libc++abi/trunk':
+    Var('chromium_git') + '/chromium/llvm-project/libcxxabi.git' + '@' +
+    Var('libcxxabi_revision'),
+  'buildtools/third_party/libunwind/trunk':
+    Var('chromium_git') + '/external/llvm.org/libunwind.git' + '@' +
+    Var('libunwind_revision'),
+  'buildtools/win': {
+    'packages': [
+      {
+        'package': 'gn/gn/windows-amd64',
+        'version': Var('gn_version'),
+      }
+    ],
+    'dep_type': 'cipd',
+    'condition': 'host_os == "win"',
+  },
+
   'devtools-frontend/build':
     Var('build_url') + '@' + Var('build_revision'),
 
@@ -111,5 +175,43 @@ hooks = [
     'action': ['python',
                'devtools-frontend/build/linux/sysroot_scripts/install-sysroot.py',
                '--arch=x64'],
+  },
+
+  # Pull clang-format binaries using checked-in hashes.
+  {
+    'name': 'clang_format_win',
+    'pattern': '.',
+    'condition': 'host_os == "win"',
+    'action': [ 'python',
+                'devtools-frontend/third_party/depot_tools/download_from_google_storage.py',
+                '--no_resume',
+                '--no_auth',
+                '--bucket', 'chromium-clang-format',
+                '-s', 'buildtools/win/clang-format.exe.sha1',
+    ],
+  },
+  {
+    'name': 'clang_format_mac',
+    'pattern': '.',
+    'condition': 'host_os == "mac"',
+    'action': [ 'python',
+                'devtools-frontend/third_party/depot_tools/download_from_google_storage.py',
+                '--no_resume',
+                '--no_auth',
+                '--bucket', 'chromium-clang-format',
+                '-s', 'buildtools/mac/clang-format.sha1',
+    ],
+  },
+  {
+    'name': 'clang_format_linux',
+    'pattern': '.',
+    'condition': 'host_os == "linux"',
+    'action': [ 'python',
+                'devtools-frontend/third_party/depot_tools/download_from_google_storage.py',
+                '--no_resume',
+                '--no_auth',
+                '--bucket', 'chromium-clang-format',
+                '-s', 'buildtools/linux64/clang-format.sha1',
+    ],
   },
 ]
