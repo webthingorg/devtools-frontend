@@ -9,6 +9,7 @@
         "TimelineIRModel.js",
         "TimelineJSProfile.js",
         "TimelineFrameModel.js",
-        "TimelineProfileTree.js"
+        "TimelineProfileTree.js",
+        "UiDevtoolsFrameModel.js"
     ]
 }
