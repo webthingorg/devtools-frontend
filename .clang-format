@@ -6,3 +6,5 @@ CommentPragmas: .*\@.*
 AllowShortBlocksOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 ReflowComments: false
+---
+Language: Java
