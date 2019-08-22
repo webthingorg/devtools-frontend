@@ -13,8 +13,13 @@ Timeline.PerformanceModel = class extends Common.Object {
     this._filters = [];
 
     this._timelineModel = new TimelineModel.TimelineModel();
-    this._frameModel =
-        new TimelineModel.TimelineFrameModel(event => Timeline.TimelineUIUtils.eventStyle(event).category.name);
+    if (TimelineModel.UiDevtoolsCommon.IsUiDevTools()) {
+      this._frameModel =
+          new TimelineModel.UiDevtoolsFrameModel(event => Timeline.TimelineUIUtils.eventStyle(event).category.name);
+    } else {
+      this._frameModel =
+          new TimelineModel.TimelineFrameModel(event => Timeline.TimelineUIUtils.eventStyle(event).category.name);
+    }
     /** @type {?SDK.FilmStripModel} */
     this._filmStripModel = null;
     /** @type {?TimelineModel.TimelineIRModel} */

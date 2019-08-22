@@ -28,7 +28,10 @@ Timeline.TimelineFlameChartView = class extends UI.VBox {
     this._networkSplitWidget = new UI.SplitWidget(false, false, 'timelineFlamechartMainView', 150);
 
     const mainViewGroupExpansionSetting = Common.settings.createSetting('timelineFlamechartMainViewGroupExpansion', {});
-    this._mainDataProvider = new Timeline.TimelineFlameChartDataProvider();
+    if (TimelineModel.UiDevtoolsCommon.IsUiDevTools())
+      this._mainDataProvider = new Timeline.UiDevtoolsFlameChartDataProvider();
+    else
+      this._mainDataProvider = new Timeline.TimelineFlameChartDataProvider();
     this._mainDataProvider.addEventListener(
         Timeline.TimelineFlameChartDataProvider.Events.DataChanged, () => this._mainFlameChart.scheduleUpdate());
     this._mainFlameChart = new PerfUI.FlameChart(this._mainDataProvider, this, mainViewGroupExpansionSetting);
