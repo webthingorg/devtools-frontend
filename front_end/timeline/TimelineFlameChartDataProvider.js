@@ -210,6 +210,8 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
   }
 
   _processGenericTrace() {
+    if (TimelineModel.UiDevtoolsCommon.IsUiDevTools())
+      this._appendFrames();
     const processGroupStyle = this._buildGroupStyle({shareHeaderLine: false});
     const threadGroupStyle = this._buildGroupStyle({padding: 2, nestingLevel: 1, shareHeaderLine: false});
     const eventEntryType = Timeline.TimelineFlameChartDataProvider.EntryType.Event;
@@ -663,7 +665,7 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
     const type = this._entryType(entryIndex);
     if (type === entryTypes.Event) {
       const event = /** @type {!SDK.TracingModel.Event} */ (this._entryData[entryIndex]);
-      if (this._model.isGenericTrace())
+      if (this._model.isGenericTrace() && !TimelineModel.UiDevtoolsCommon.IsUiDevTools())
         return this._genericTraceEventColor(event);
       if (this._performanceModel.timelineModel().isMarkerEvent(event))
         return Timeline.TimelineUIUtils.markerStyleForEvent(event).color;
