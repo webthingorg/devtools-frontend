@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a90d1b86_e8c7d7b7",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-22T13:40:27Z",
+      "side": 1,
+      "message": "I\u0027d prefer having this defined as a variable with clang_format_url to be consistent with the rest.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 80
+      },
+      "revId": "dd01a16878a7bdd46aad42af642ac395dd46eadb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
