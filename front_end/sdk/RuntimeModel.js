@@ -239,7 +239,7 @@ SDK.RuntimeModel = class extends SDK.SDKModel {
    * @param {string} sourceURL
    * @param {boolean} persistScript
    * @param {number} executionContextId
-   * @return {?Promise<!SDK.RuntimeModel.CompileScriptResult>}
+   * @return {!Promise<?SDK.RuntimeModel.CompileScriptResult>}
    */
   async compileScript(expression, sourceURL, persistScript, executionContextId) {
     const response = await this._agent.invoke_compileScript({
@@ -496,7 +496,7 @@ SDK.RuntimeModel = class extends SDK.SDKModel {
     });
 
     this._hasSideEffectSupport = SDK.RuntimeModel.isSideEffectFailure(response);
-    return this._hasSideEffectSupport;
+    return !!this._hasSideEffectSupport;
   }
 
   /**

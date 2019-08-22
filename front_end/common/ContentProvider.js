@@ -49,7 +49,7 @@ Common.ContentProvider.prototype = {
   contentEncoded() {},
 
   /**
-   * @return {!Promise<?string>}
+   * @return {!Promise<string>}
    */
   requestContent() {},
 
@@ -77,7 +77,7 @@ Common.ContentProvider.SearchMatch = class {
 };
 
 /**
- * @param {string} content
+ * @param {?string} content
  * @param {string} query
  * @param {boolean} caseSensitive
  * @param {boolean} isRegex
@@ -86,7 +86,7 @@ Common.ContentProvider.SearchMatch = class {
 Common.ContentProvider.performSearchInContent = function(content, query, caseSensitive, isRegex) {
   const regex = createSearchRegex(query, caseSensitive, isRegex);
 
-  const text = new TextUtils.Text(content);
+  const text = new TextUtils.Text(content || '');
   const result = [];
   for (let i = 0; i < text.lineCount(); ++i) {
     const lineContent = text.lineAt(i);

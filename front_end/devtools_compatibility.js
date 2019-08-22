@@ -1255,14 +1255,6 @@
         }
       });
 
-      // Document.prototype.createElementWithClass is a DevTools method, so we
-      // need to wait for DOMContentLoaded in order to override it.
-      if (window.document.head &&
-          (window.document.readyState === 'complete' || window.document.readyState === 'interactive'))
-        overrideCreateElementWithClass();
-      else
-        window.addEventListener('DOMContentLoaded', overrideCreateElementWithClass);
-
       function overrideCreateElementWithClass() {
         window.removeEventListener('DOMContentLoaded', overrideCreateElementWithClass);
 
@@ -1276,10 +1268,18 @@
           return element;
         };
       }
+
+      // Document.prototype.createElementWithClass is a DevTools method, so we
+      // need to wait for DOMContentLoaded in order to override it.
+      if (window.document.head &&
+          (window.document.readyState === 'complete' || window.document.readyState === 'interactive'))
+        overrideCreateElementWithClass();
+      else
+        window.addEventListener('DOMContentLoaded', overrideCreateElementWithClass);
     }
 
     // Custom Elements V0 polyfill
-    if (majorVersion <= 73 && !Document.prototype.registerElement) {
+    if (majorVersion <= 73 && Document.prototype.hasOwnProperty('registerElement')) {
       const fakeRegistry = new Map();
       Document.prototype.registerElement = function(typeExtension, options) {
         const {prototype, extends: localName} = options;
