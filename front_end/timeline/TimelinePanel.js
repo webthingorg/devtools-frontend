@@ -479,7 +479,10 @@ Timeline.TimelinePanel = class extends UI.Panel {
     };
 
     const mainTarget = /** @type {!SDK.Target} */ (SDK.targetManager.mainTarget());
-    this._controller = new Timeline.TimelineController(mainTarget, this);
+    if (TimelineModel.UiDevtoolsCommon.IsUiDevTools())
+      this._controller = new Timeline.UiDevtoolsController(mainTarget, this);
+    else
+      this._controller = new Timeline.TimelineController(mainTarget, this);
     this._setUIControlsEnabled(false);
     this._hideLandingPage();
     const response = await this._controller.startRecording(recordingOptions, enabledTraceProviders);
