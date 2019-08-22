@@ -9,11 +9,12 @@ from os import path
 import sys
 
 SCRIPTS_PATH = path.dirname(path.abspath(__file__))
-THIRD_PARTY_PATH = path.join(SCRIPTS_PATH, '..', 'third_party')
-NODE_PATH = path.join(THIRD_PARTY_PATH, 'node')
-ESLINT_PATH = path.join(THIRD_PARTY_PATH, 'devtools-node-modules', 'third_party', 'node_modules', 'eslint', 'bin', 'eslint.js')
-KARMA_PATH = path.join(THIRD_PARTY_PATH, 'devtools-node-modules', 'third_party', 'node_modules', 'karma', 'bin', 'karma')
-NODE_MODULES_PATH = path.join(THIRD_PARTY_PATH, 'devtools-node-modules', 'third_party', 'node_modules')
+ROOT_PATH = path.join(SCRIPTS_PATH, '..')
+PACKAGE_JSON_PATH = path.join(ROOT_PATH, 'package.json')
+NODE_PATH = path.join(ROOT_PATH, 'third_party', 'node')
+ESLINT_PATH = path.join(ROOT_PATH, 'node_modules', 'eslint', 'bin', 'eslint.js')
+KARMA_PATH = path.join(ROOT_PATH, 'node_modules', 'karma', 'bin', 'karma')
+NODE_MODULES_PATH = path.join(ROOT_PATH, 'node_modules')
 
 try:
     old_sys_path = sys.path[:]
@@ -37,3 +38,7 @@ def karma_path():
 
 def node_modules_path():
     return NODE_MODULES_PATH
+
+
+def package_json_path():
+    return PACKAGE_JSON_PATH
