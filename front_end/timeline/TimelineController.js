@@ -80,6 +80,12 @@ Timeline.TimelineController = class {
     if (options.captureFilmStrip)
       categoriesArray.push(disabledByDefault('devtools.screenshot'));
 
+    if (TimelineModel.UiDevtoolsCommon.IsUiDevTools()) {
+      Timeline.TimelineUIUtils.SetEventStylesMap(
+          TimelineModel.UiDevtoolsCommon.CategorizeEvents(Timeline.TimelineRecordStyle, Timeline.TimelineCategory));
+      Timeline.TimelineUIUtils.SetCategories(TimelineModel.UiDevtoolsCommon.categories(Timeline.TimelineCategory));
+    }
+
     this._extensionSessions =
         providers.map(provider => new Timeline.ExtensionTracingSession(provider, this._performanceModel));
     this._extensionSessions.forEach(session => session.start());
