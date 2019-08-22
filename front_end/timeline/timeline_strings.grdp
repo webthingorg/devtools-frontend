@@ -92,7 +92,7 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
     Allotted Time
   </message>
   <message name="IDS_DEVTOOLS_121ee86db6c7660edb3864de279ef742" desc="Time text content in Timeline Panel of the Performance panel">
-    <ph name="ELAPSED_TOFIXED_PRECISE_________">$1s<ex>2.12</ex></ph> sec
+    <ph name="ELAPSED_TOFIXED_PRECISE_________">$1s<ex>2.12</ex></ph> sec
   </message>
   <message name="IDS_DEVTOOLS_12ddabfc2210fb123f96a03f03816024" desc="Span text content in Timeline UIUtils of the Performance panel">
     Recurring handler took <ph name="NUMBER_MILLISTOSTRING_EVENT_DURATION__TRUE_">$1s<ex>20ms</ex></ph>
@@ -358,6 +358,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_5878904937ecbc1d0556f79782ab03cd" desc="Text in Timeline UIUtils of the Performance panel">
     Scroll Update
   </message>
+  <message name="IDS_DEVTOOLS_5936c61a9f71fdd7e0cfd388a4c37353" desc="Text in Timeline UIUtils of the Performance panel">
+    LCP
+  </message>
   <message name="IDS_DEVTOOLS_59cf59caeba8075dec6a745b083edd0c" desc="Text in Timeline UIUtils of the Performance panel">
     Time Waiting for Main Thread
   </message>
@@ -425,7 +428,7 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
     Frame Start
   </message>
   <message name="IDS_DEVTOOLS_6aafe894685594a908a8996d68e88028" desc="Text in Events Timeline Tree View of the Performance panel">
-    Hide records shorter than <ph name="DURATIONMS">$1d<ex>2</ex></ph> ms
+    Hide records shorter than <ph name="DURATIONMS">$1d<ex>2</ex></ph> ms
   </message>
   <message name="IDS_DEVTOOLS_6c906c5f560faeb38f51683bc22fb212" desc="Text in Timeline Tree View of the Performance panel">
     Group by Subdomain
@@ -706,7 +709,7 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
     Streamed
   </message>
   <message name="IDS_DEVTOOLS_be7e368875c5373b1cfbc3b97abc8742" desc="Text in Events Timeline Tree View of the Performance panel">
-    ≥ <ph name="DURATIONMS">$1d<ex>2</ex></ph> ms
+    ≥ <ph name="DURATIONMS">$1d<ex>2</ex></ph> ms
   </message>
   <message name="IDS_DEVTOOLS_be85f6b3661854c85ddbde4c1429b2a2" desc="Text in Timeline UIUtils of the Performance panel">
     (<ph name="CLIP___">$1s<ex>2</ex></ph>, <ph name="CLIP___">$2s<ex>2</ex></ph>)
@@ -733,7 +736,7 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
     Key Character
   </message>
   <message name="IDS_DEVTOOLS_c5374020999c64f3332f04b296f61a19" desc="Details text in Timeline UIUtils of the Performance panel">
-    <ph name="WIDTH">$1d<ex>2</ex></ph> × <ph name="HEIGHT">$2d<ex>2</ex></ph>
+    <ph name="WIDTH">$1d<ex>2</ex></ph> × <ph name="HEIGHT">$2d<ex>2</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_c5c7073f423645e437dd5d02419a911a" desc="Text in Timeline UIUtils of the Performance panel">
     Mouse Up
@@ -778,7 +781,7 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
     Evaluate Module
   </message>
   <message name="IDS_DEVTOOLS_d0c91aff68287a1a0003af56b91cadde" desc="Range text content in Counters Graph of the Performance panel">
-    [<ph name="MIN">$1s<ex>2</ex></ph> – <ph name="MAX">$2s<ex>10</ex></ph>]
+    [<ph name="MIN">$1s<ex>2</ex></ph> – <ph name="MAX">$2s<ex>10</ex></ph>]
   </message>
   <message name="IDS_DEVTOOLS_d14e91fe7abe33fc8a05c193fc812d68" desc="Text in Timeline UIUtils of the Performance panel">
     Mime Type
@@ -806,6 +809,9 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   </message>
   <message name="IDS_DEVTOOLS_d88a137b62e15eece2884fa04bc36099" desc="Text in Timeline Flame Chart View of the Performance panel">
     <ph name="THIS__STYLE_TITLE">$1s<ex>Frame</ex></ph> at <ph name="STARTTIME">$2s<ex>10ms</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_d9070adf25882bbae3339d42bd4efd62" desc="Text in Timeline UIUtils of the Performance panel">
+    Largest Contentful Paint
   </message>
   <message name="IDS_DEVTOOLS_d97477d6d8a838ead9348185bb5b6742" desc="Text in Timeline Flame Chart Data Provider of the Performance panel">
     Thread
@@ -859,7 +865,7 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
     <ph name="MINUTES">$1s<ex>2</ex></ph> m
   </message>
   <message name="IDS_DEVTOOLS_e2daed94bbd6483ac087b1da9a06e3fd" desc="Text in Timeline Flame Chart Data Provider of the Performance panel">
-    <ph name="NUMBER_PRECISEMILLISTOSTRING_FRAME_DURATION____">$1s<ex>10ms</ex></ph> ~ <ph name="_______FRAME_DURATION">$2.0f<ex>100.0</ex></ph> fps
+    <ph name="NUMBER_PRECISEMILLISTOSTRING_FRAME_DURATION____">$1s<ex>10ms</ex></ph> ~ <ph name="_______FRAME_DURATION">$2.0f<ex>100.0</ex></ph> fps
   </message>
   <message name="IDS_DEVTOOLS_e599161956d626eda4cb0a5ffb85271c" desc="Text in Timeline UIUtils of the Performance panel">
     Idle

@@ -149,6 +149,10 @@ Timeline.TimelineUIUtils = class {
     return eventStyles;
   }
 
+  static SetEventStylesMap(eventStyles) {
+    Timeline.TimelineUIUtils._eventStylesMap = eventStyles;
+  }
+
   /**
    * @param {!TimelineModel.TimelineIRModel.InputEvents} inputEventType
    * @return {?string}
@@ -1509,6 +1513,10 @@ Timeline.TimelineUIUtils = class {
       idle: new Timeline.TimelineCategory('idle', ls`Idle`, false, 'hsl(0, 0%, 98%)', 'hsl(0, 0%, 98%)')
     };
     return Timeline.TimelineUIUtils._categories;
+  }
+
+  static SetCategories(categories) {
+    Timeline.TimelineUIUtils._categories = categories;
   }
 
   /**
