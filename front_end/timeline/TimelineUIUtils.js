@@ -99,8 +99,6 @@ Timeline.TimelineUIUtils = class {
     eventStyles[type.MarkFirstPaint] = new Timeline.TimelineRecordStyle(ls`First Paint`, painting, true);
     eventStyles[type.MarkFCP] = new Timeline.TimelineRecordStyle(ls`First Contentful Paint`, rendering, true);
     eventStyles[type.MarkFMP] = new Timeline.TimelineRecordStyle(ls`First Meaningful Paint`, rendering, true);
-    eventStyles[type.MarkLCPCandidate] =
-        new Timeline.TimelineRecordStyle(ls`Largest Contentful Paint`, rendering, true);
     eventStyles[type.TimeStamp] = new Timeline.TimelineRecordStyle(ls`Timestamp`, scripting);
     eventStyles[type.ConsoleTime] = new Timeline.TimelineRecordStyle(ls`Console Time`, scripting);
     eventStyles[type.UserTiming] = new Timeline.TimelineRecordStyle(ls`User Timing`, scripting);
@@ -943,10 +941,6 @@ Timeline.TimelineUIUtils = class {
         contentHelper.appendTextRow(ls`Type`, eventData['type']);
         break;
 
-      case recordTypes.MarkLCPCandidate:
-        contentHelper.appendTextRow(ls`Type`, String(eventData['type']));
-        contentHelper.appendTextRow(ls`Size`, String(eventData['size']));
-        // Fall-through intended.
       case recordTypes.MarkFirstPaint:
       case recordTypes.MarkFCP:
       case recordTypes.MarkFMP:
@@ -1496,7 +1490,7 @@ Timeline.TimelineUIUtils = class {
   }
 
   /**
-   * @return {!Object.<string, !Timeline.TimelineCategory>}
+   * @return {!Object.<string|symbol, !Timeline.TimelineCategory>}
    */
   static categories() {
     if (Timeline.TimelineUIUtils._categories)
@@ -1705,8 +1699,6 @@ Timeline.TimelineUIUtils = class {
         return ls`FCP`;
       case recordTypes.MarkFMP:
         return ls`FMP`;
-      case recordTypes.MarkLCPCandidate:
-        return ls`LCP`;
     }
     return null;
   }
@@ -1756,10 +1748,6 @@ Timeline.TimelineUIUtils = class {
         break;
       case recordTypes.MarkFMP:
         color = '#134A26';
-        tall = true;
-        break;
-      case recordTypes.MarkLCPCandidate:
-        color = '#1A3422';
         tall = true;
         break;
       case recordTypes.TimeStamp:
@@ -1860,7 +1848,7 @@ Timeline.TimelineUIUtils = class {
     const url = frame.url;
     if (!trimAt)
       trimAt = 30;
-    return url.startsWith('about:') ? `"${frame.name.trimMiddle(trimAt)}"` : frame.url.trimEnd(trimAt);
+    return url.startsWith('about:') ? `"${frame.name.trimMiddle(trimAt)}"` : frame.url.trimEndWithMaxLength(trimAt);
   }
 };
 
