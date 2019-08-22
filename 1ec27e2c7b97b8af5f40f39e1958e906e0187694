@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcf7b25d_667cab77",
+        "filename": "front_end/browser_debugger/eventListenerBreakpoints.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-22T14:50:02Z",
+      "side": 1,
+      "message": "ultra-nit: no need for this?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa435118_a72d0347",
+        "filename": "front_end/common/ContentProvider.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-22T14:50:02Z",
+      "side": 1,
+      "message": "If the content is guaranteed to be set (as per line 89), why are we setting this to optional?",
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9570365_87a6e492",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-22T14:50:02Z",
+      "side": 1,
+      "message": "Why the move, out of interest?",
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb03d1a8_f6c97400",
+        "filename": "scripts/jsdoc_validator/src/org/chromium/devtools/jsdoc/checks/MethodAnnotationChecker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-22T14:50:02Z",
+      "side": 1,
+      "message": "Add a comment?",
+      "revId": "1ec27e2c7b97b8af5f40f39e1958e906e0187694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
