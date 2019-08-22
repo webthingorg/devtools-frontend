@@ -261,7 +261,7 @@ TimelineModel.TimelineFrameModel = class {
   _processCompositorEvents(event) {
     const eventNames = TimelineModel.TimelineModel.RecordType;
 
-    if (event.args['layerTreeId'] !== this._layerTreeId)
+    if (event.args['layerTreeId'] !== this._layerTreeId && !TimelineModel.UiDevtoolsCommon.IsUiDevTools())
       return;
 
     const timestamp = event.startTime;
