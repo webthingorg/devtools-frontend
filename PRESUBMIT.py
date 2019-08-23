@@ -25,7 +25,7 @@
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-"""DevTools JSDoc validator presubmit script
+"""DevTools presubmit script
 
 See http://dev.chromium.org/developers/how-tos/depottools/presubmit-scripts
 for more details about the presubmit API built into gcl.
@@ -144,6 +144,16 @@ def _CompileDevtoolsFrontend(input_api, output_api):
     return []
 
 
+def _CheckEmptyPackageDependencies(input_api, output_api):
+    assert_path = input_api.os_path.join(input_api.PresubmitLocalPath(), "scripts", "assert_empty_deps.py")
+    out, _ = input_api.subprocess.Popen([input_api.python_executable, assert_path],
+                                        stdout=input_api.subprocess.PIPE,
+                                        stderr=input_api.subprocess.STDOUT).communicate()
+    if "ERROR" in out:
+        return [output_api.PresubmitError(out)]
+    return []
+
+
 def _CheckOptimizeSVGHashes(input_api, output_api):
     if not input_api.platform.startswith('linux'):
         return []
@@ -186,6 +196,7 @@ def _CheckCSSViolations(input_api, output_api):
 def CheckChangeOnUpload(input_api, output_api):
     results = []
     results.extend(_CheckBuildGN(input_api, output_api))
+    results.extend(_CheckEmptyPackageDependencies(input_api, output_api))
     results.extend(_CheckFormat(input_api, output_api))
     results.extend(_CheckDevtoolsLocalizableResources(input_api, output_api))
     results.extend(_CheckDevtoolsLocalization(input_api, output_api))
