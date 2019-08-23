@@ -42,6 +42,15 @@ Build Chromium with the GN flag `debug_devtools=true`
 <path-to-chrome>/chrome --custom-devtools-frontend=$(realpath out/resources/inspector)
 ```
 
+#### Contributing
+[Chromium guidelines for code contributions](https://chromium.googlesource.com/chromium/src/+/master/docs/contributing.md) apply.
+
+Set up git email and user name:
+```
+git config user.email email@example.com
+git config user.name "First Last"
+```
+
 ### Hacking
 * DevTools documentation: [devtools.chrome.com](https://devtools.chrome.com)
 * [Debugging protocol docs](https://developer.chrome.com/devtools/docs/debugger-protocol) and [Chrome Debugging Protocol Viewer](http://chromedevtools.github.io/debugger-protocol-viewer/)
