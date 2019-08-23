@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2452db4e_9ac90c08",
+        "filename": "scripts/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-23T15:17:20Z",
+      "side": 1,
+      "message": "can we just use subprocess.check_call here?",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "18944bdd757feab37ba026a54b339ea9ec34898c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
