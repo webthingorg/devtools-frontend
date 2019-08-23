@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fb276ce9_8c1117f4",
+        "filename": "front_end/timeline/UIDevtoolsUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1346473
+      },
+      "writtenOn": "2019-08-23T15:46:55Z",
+      "side": 1,
+      "message": "I think this is one of the simplest ways to do it.\nI can think of another two options that we could do:\n1) We define a flag in the protocol that returns whether we are in ui_devtools or the normal devtools. Although this would mean more changes for the normal devtools.\n2) We include a special flag in the ui_devtools url. I haven\u0027t looked too much into this, but it isn\u0027t as simple as adding a query param to the ui_devtools url (ex: \u0027\u0026ui_devtools\u003dtrue\u0027), there may need to be changes elsewhere to support this.\n\nI guess another thing we can do is temporarily have this and leave a comment explaining that ui_devtools uses ws\u003d127.0.0.1:{port} and then say that we may/should change this in the future for a more obvious way to distinguish. \n\nDo you have any better ideas?",
+      "parentUuid": "b7b60153_c1e8830e",
+      "revId": "978cdee7a71c3df4ca1afe5385c3636ef83c7a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "564579b1_13733230",
         "filename": "front_end/timeline/timeline_strings.grdp",
         "patchSetId": 7
@@ -39,6 +57,30 @@
       "revId": "978cdee7a71c3df4ca1afe5385c3636ef83c7a96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eb394c5_b3b273fa",
+        "filename": "front_end/timeline/timeline_strings.grdp",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1346473
+      },
+      "writtenOn": "2019-08-23T15:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "564579b1_13733230",
+      "range": {
+        "startLine": 75,
+        "startChar": 69,
+        "endLine": 75,
+        "endChar": 71
+      },
+      "revId": "978cdee7a71c3df4ca1afe5385c3636ef83c7a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
