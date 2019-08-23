@@ -50,7 +50,7 @@ def _CheckFormat(input_api, output_api):
     original_sys_path = sys.path
     try:
         sys.path = sys.path + [input_api.os_path.join(input_api.PresubmitLocalPath(), "scripts")]
-        import local_node
+        import devtools_paths
     finally:
         sys.path = original_sys_path
 
@@ -79,8 +79,8 @@ def _CheckFormat(input_api, output_api):
     # Use eslint to autofix the braces.
     # Also fix semicolon to avoid confusing clang-format.
     eslint_process = popen([
-        local_node.node_path(),
-        local_node.eslint_path(), '--no-eslintrc', '--fix', '--env=es6', '--parser-options=ecmaVersion:9',
+        devtools_paths.node_path(),
+        devtools_paths.eslint_path(), '--no-eslintrc', '--fix', '--env=es6', '--parser-options=ecmaVersion:9',
         '--rule={"curly": [2, "multi-or-nest", "consistent"], "semi": 2}'
     ] + affected_files)
     eslint_process.communicate()
@@ -234,11 +234,11 @@ def _checkWithNodeScript(input_api, output_api, script_path, script_arguments=No
     original_sys_path = sys.path
     try:
         sys.path = sys.path + [input_api.os_path.join(input_api.PresubmitLocalPath(), "scripts")]
-        import local_node
+        import devtools_paths
     finally:
         sys.path = original_sys_path
 
-    node_path = local_node.node_path()
+    node_path = devtools_paths.node_path()
 
     if script_arguments is None:
         script_arguments = []
