@@ -28,11 +28,16 @@ def node_path():
         sys.path = old_sys_path
     return node.GetBinaryPath()
 
+RELATIVE_ROOT_PATH = path.join(path.dirname(__file__), '..')
+
 def eslint_path():
-    return path.join(third_party_path(), 'devtools-node-modules', 'third_party', 'node_modules', 'eslint', 'bin', 'eslint.js')
+    return path.join(RELATIVE_ROOT_PATH, 'node_modules', 'eslint', 'bin', 'eslint.js')
 
 def karma_path():
-    return path.join(third_party_path(), 'devtools-node-modules', 'third_party', 'node_modules', 'karma', 'bin', 'karma')
+    return path.join(RELATIVE_ROOT_PATH, 'node_modules', 'karma', 'bin', 'karma')
 
 def node_modules_path():
-    return path.join(third_party_path(), 'devtools-node-modules', 'third_party', 'node_modules')
+    return path.join(RELATIVE_ROOT_PATH, 'node_modules')
+
+def package_json_path():
+    return path.join(RELATIVE_ROOT_PATH, 'package.json')
