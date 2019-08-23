@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7b60153_c1e8830e",
+        "filename": "front_end/timeline/UIDevtoolsUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-23T14:05:21Z",
+      "side": 1,
+      "message": "I feel like we probably need a more obvious way to declare that we\u0027re dealing with the ui devtools. At the moment the presence of a param called `ws` isn\u0027t all that clear.",
+      "revId": "978cdee7a71c3df4ca1afe5385c3636ef83c7a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "564579b1_13733230",
         "filename": "front_end/timeline/timeline_strings.grdp",
         "patchSetId": 7
