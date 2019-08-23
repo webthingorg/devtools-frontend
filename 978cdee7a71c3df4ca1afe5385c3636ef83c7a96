@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "564579b1_13733230",
+        "filename": "front_end/timeline/timeline_strings.grdp",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-23T13:05:49Z",
+      "side": 1,
+      "message": "this needs to include a description so that translators have a context.",
+      "range": {
+        "startLine": 75,
+        "startChar": 69,
+        "endLine": 75,
+        "endChar": 71
+      },
+      "revId": "978cdee7a71c3df4ca1afe5385c3636ef83c7a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
