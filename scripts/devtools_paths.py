@@ -36,3 +36,6 @@ def karma_path():
 
 def node_modules_path():
     return path.join(third_party_path(), 'devtools-node-modules', 'third_party', 'node_modules')
+
+def package_json_path():
+    return path.join(root_path(), 'package.json')
