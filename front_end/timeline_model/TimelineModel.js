@@ -1838,7 +1838,7 @@ TimelineModel.InvalidationTracker = class {
 
   /**
    * @param {!Array.<string>=} types
-   * @return {!Iterator.<!TimelineModel.InvalidationTrackingEvent>}
+   * @return {!Generator<!TimelineModel.InvalidationTrackingEvent>}
    */
   _invalidationsOfTypes(types) {
     const invalidations = this._invalidations;
