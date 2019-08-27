@@ -46,6 +46,30 @@
       "revId": "18944bdd757feab37ba026a54b339ea9ec34898c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839aa20c_cf8c825d",
+        "filename": "scripts/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-27T09:19:40Z",
+      "side": 1,
+      "message": "Counter example: https://cs.chromium.org/chromium/src/v8/tools/try_perf.py?type\u003dcs\u0026q\u003dcheck_call+cwd+file:%5Esrc/v8/+package:%5Echromium$\u0026g\u003d0\u0026l\u003d121",
+      "parentUuid": "61e06e24_058e8a6f",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "18944bdd757feab37ba026a54b339ea9ec34898c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
