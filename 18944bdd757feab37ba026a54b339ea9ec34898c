@@ -70,6 +70,30 @@
       "revId": "18944bdd757feab37ba026a54b339ea9ec34898c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21d0cd71_fb276610",
+        "filename": "scripts/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-27T09:27:22Z",
+      "side": 1,
+      "message": "Done. Why _would_ the docs be accurate? Where would the fun be in that?",
+      "parentUuid": "839aa20c_cf8c825d",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "18944bdd757feab37ba026a54b339ea9ec34898c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
