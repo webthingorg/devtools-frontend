@@ -22,6 +22,30 @@
       "revId": "18944bdd757feab37ba026a54b339ea9ec34898c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61e06e24_058e8a6f",
+        "filename": "scripts/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-27T09:00:38Z",
+      "side": 1,
+      "message": "I don\u0027t know that we can. From the docs[1] it doesn\u0027t seem to support cwd, and we\u0027d need the command to run from the devtools root.\n\n[1] https://docs.python.org/2/library/subprocess.html#subprocess.check_call",
+      "parentUuid": "2452db4e_9ac90c08",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "18944bdd757feab37ba026a54b339ea9ec34898c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
