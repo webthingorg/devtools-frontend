@@ -125,20 +125,6 @@ hooks = [
     ],
   },
 
-  # Pull down NPM dependencies for WebUI toolchain.
-  {
-    'name': 'webui_node_modules',
-    'pattern': '.',
-    'action': [ 'python',
-                'devtools-frontend/third_party/depot_tools/download_from_google_storage.py',
-                '--no_resume',
-                '--extract',
-                '--no_auth',
-                '--bucket', 'chromium-nodejs',
-                '-s', 'devtools-frontend/third_party/node/node_modules.tar.gz.sha1',
-    ],
-  },
-
   {
     # Ensure that the DEPS'd "depot_tools" has its self-update capability
     # disabled.
@@ -149,15 +135,6 @@ hooks = [
         'devtools-frontend/third_party/depot_tools/update_depot_tools_toggle.py',
         '--disable',
     ],
-  },
-
-  {
-    'name': 'sysroot_x64',
-    'pattern': '.',
-    'condition': 'checkout_linux and checkout_x64',
-    'action': ['python',
-               'devtools-frontend/build/linux/sysroot_scripts/install-sysroot.py',
-               '--arch=x64'],
   },
 
   # Pull clang-format binaries using checked-in hashes.

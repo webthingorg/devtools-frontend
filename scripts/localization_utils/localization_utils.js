@@ -31,12 +31,11 @@ const cppSpecialCharactersMap = {
 };
 const IDSPrefix = 'IDS_DEVTOOLS_';
 
-const THIRD_PARTY_PATH = path.resolve(__dirname, '..', '..', 'third_party');
-const SRC_PATH = path.resolve(THIRD_PARTY_PATH, '..');
-const GRD_PATH = path.resolve(__dirname, '..', '..', 'front_end', 'langpacks', 'devtools_ui_strings.grd');
-const REPO_NODE_MODULES_PATH = path.resolve(THIRD_PARTY_PATH, 'node', 'node_modules');
-const escodegen = require(path.resolve(REPO_NODE_MODULES_PATH, 'escodegen'));
-const esprima = require(path.resolve(REPO_NODE_MODULES_PATH, 'esprima'));
+const SRC_PATH = path.resolve(__dirname, '..', '..');
+const GRD_PATH = path.resolve(SRC_PATH, 'front_end', 'langpacks', 'devtools_ui_strings.grd');
+const NODE_MODULES_PATH = path.resolve(SRC_PATH, 'node_modules');
+const escodegen = require(path.resolve(NODE_MODULES_PATH, 'escodegen'));
+const esprima = require(path.resolve(NODE_MODULES_PATH, 'esprima'));
 
 function getRelativeFilePathFromSrc(filePath) {
   return path.relative(SRC_PATH, filePath);
