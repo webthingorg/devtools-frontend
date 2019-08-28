@@ -1498,4 +1498,17 @@ if (external_devtools_frontend) {
       ]
     }
   }
+
+  group("devtools_unit_tests") {
+    data = [
+      # Needed for isolate script to execute.
+      "front_end/",
+      "karma.conf.js",
+      "node_modules/",
+      "scripts/devtools_paths.py",
+      "scripts/run_tests.py",
+      "tests/",
+      "tsconfig.json",
+    ]
+  }
 }
