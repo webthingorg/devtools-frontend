@@ -1119,6 +1119,7 @@ Runtime._remoteBase;
 function ServicePort() {
 }
 
+
 ServicePort.prototype = {
   /**
    * @param {function(string)} messageHandler
