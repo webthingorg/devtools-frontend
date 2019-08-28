@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a333e343_4b8104ae",
+        "filename": "front_end/devtools_app.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-28T08:16:54Z",
+      "side": 1,
+      "message": "nit: do we want to mark with comments why some are module and some are defer. Just for future folks joining in.",
+      "revId": "3b63c08c73d79b844b47919babc551cccf2baae6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "381a3858_aa848efc",
+        "filename": "front_end/root.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-28T08:16:54Z",
+      "side": 1,
+      "message": "Please add a license header.",
+      "revId": "3b63c08c73d79b844b47919babc551cccf2baae6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dc98a27_e1dd37cc",
+        "filename": "scripts/build/copy_devtools_modules.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-28T08:16:54Z",
+      "side": 1,
+      "message": "Some unusual encoding going on here.",
+      "revId": "3b63c08c73d79b844b47919babc551cccf2baae6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d608dba2_b72fdd8c",
+        "filename": "scripts/migration/refactor-to-es-module.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-28T08:16:54Z",
+      "side": 1,
+      "message": "Please add a license header. Overall, I feel like this script just needs a once over to add comments and the like. While I appreciate it\u0027s hopefully going to be a short-lived script that we can run and then remove, it\u0027s currently very difficult to understand and if it\u0027s getting checked in we should be neat and tidy about it.",
+      "revId": "3b63c08c73d79b844b47919babc551cccf2baae6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a76a47ee_4cfc6829",
+        "filename": "scripts/migration/refactor-to-es-module.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-08-28T08:16:54Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "revId": "3b63c08c73d79b844b47919babc551cccf2baae6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
