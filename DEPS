@@ -26,6 +26,10 @@ vars = {
   # Also, if you change these, update buildtools/DEPS too. Also update the
   # libc++ svn_revision in //buildtools/deps_revisions.gni.
   'clang_format_revision': '96636aa0e9f047f17447f2d45a094d0b59ed7917',
+
+  # Chromium build number for unit tests. It should be regularly updated to
+  # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
+  'chromium_build': '691584',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
@@ -172,6 +176,20 @@ hooks = [
                 '--no_auth',
                 '--bucket', 'chromium-clang-format',
                 '-s', 'buildtools/linux64/clang-format.sha1',
+    ],
+  },
+
+  # Pull chromium from common storage
+  {
+    'name': 'chromium_linux',
+    'pattern': '.',
+    'condition': 'host_os == "linux"',
+    'action': [ 'python',
+                'devtools-frontend/scripts/download_chromium.py',
+                'https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/' + Var('chromium_build') + '/chrome-linux.zip',
+                'devtools-frontend/third_party/chrome',
+                'chrome-linux/chrome',
+                Var('chromium_build'),
     ],
   },
 ]
