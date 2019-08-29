@@ -2,6 +2,10 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+"""
+Update manually maintained dependencies from Chromium.
+"""
+
 import argparse
 import os
 import shutil
@@ -14,18 +18,15 @@ FILES = [
     ['third_party', 'blink', 'renderer', 'core', 'inspector', 'browser_protocol.pdl'],
 ]
 
-
 def parse_options(cli_args):
     parser = argparse.ArgumentParser(description='Roll CodeMirror')
     parser.add_argument('chromium_dir', help='Chromium directory')
     parser.add_argument('devtools_dir', help='DevTools directory')
     return parser.parse_args(cli_args)
 
-
 def copy_files(options):
     for file in FILES:
         shutil.copy(os.path.join(options.chromium_dir, *file), os.path.join(options.devtools_dir, *file))
-
 
 if __name__ == '__main__':
     OPTIONS = parse_options(sys.argv[1:])

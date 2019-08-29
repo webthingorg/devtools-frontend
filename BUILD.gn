@@ -1508,6 +1508,7 @@ if (external_devtools_frontend) {
       "scripts/devtools_paths.py",
       "scripts/run_tests.py",
       "tests/",
+      "third_party/chrome/",
       "tsconfig.json",
     ]
   }
