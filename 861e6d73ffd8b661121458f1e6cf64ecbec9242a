@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0899745f_fb654ef3",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-29T13:13:44Z",
+      "side": 1,
+      "message": "We should, soon.\n\nOther option is for the script to load from LAST_CHANGE, but that might introduce the issue of Chrome breaking our tests.",
+      "parentUuid": "5e3d2fba_54bc39cc",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 108
+      },
+      "revId": "861e6d73ffd8b661121458f1e6cf64ecbec9242a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da553959_1cd49a2a",
         "filename": "DEPS",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-08-29T13:11:29Z",
       "side": 1,
       "message": "Can we either run this only on the trybots or also run this on all other platforms?",
+      "range": {
+        "startLine": 209,
+        "startChar": 18,
+        "endLine": 209,
+        "endChar": 37
+      },
+      "revId": "861e6d73ffd8b661121458f1e6cf64ecbec9242a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3ec1c61_84f0fe86",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-29T13:13:44Z",
+      "side": 1,
+      "message": "I\u0027ll implement this for other platforms as well. Currently this only works for linux, but does not break for other platforms.",
+      "parentUuid": "da553959_1cd49a2a",
       "range": {
         "startLine": 209,
         "startChar": 18,
