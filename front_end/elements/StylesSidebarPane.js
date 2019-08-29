@@ -624,7 +624,7 @@ Elements.StylesSidebarPane = class extends Elements.ElementsSidebarPane {
     let hasAnyVisibleBlock = false;
     for (const block of this._sectionBlocks)
       hasAnyVisibleBlock |= block.updateFilter();
-    this._noMatchesElement.classList.toggle('hidden', hasAnyVisibleBlock);
+    this._noMatchesElement.classList.toggle('hidden', !!hasAnyVisibleBlock);
   }
 
   /**
@@ -796,7 +796,7 @@ Elements.SectionBlock = class {
       hasAnyVisibleSection |= section._updateFilter();
     if (this._titleElement)
       this._titleElement.classList.toggle('hidden', !hasAnyVisibleSection);
-    return hasAnyVisibleSection;
+    return !!hasAnyVisibleSection;
   }
 
   /**
