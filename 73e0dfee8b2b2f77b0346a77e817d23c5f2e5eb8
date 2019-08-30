@@ -22,6 +22,30 @@
       "revId": "73e0dfee8b2b2f77b0346a77e817d23c5f2e5eb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2114e245_74f879d9",
+        "filename": "scripts/devtools_paths.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-08-30T15:43:28Z",
+      "side": 1,
+      "message": "Following up on this!",
+      "parentUuid": "faf95cff_16342331",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "73e0dfee8b2b2f77b0346a77e817d23c5f2e5eb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
