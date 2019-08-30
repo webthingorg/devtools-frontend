@@ -14,9 +14,12 @@ import sys
 def root_path():
     SCRIPTS_PATH = path.dirname(path.abspath(__file__))
     ABS_DEVTOOLS_PATH = path.dirname(SCRIPTS_PATH)
-    if 'third_party' in ABS_DEVTOOLS_PATH:
-        return path.normpath(path.join(ABS_DEVTOOLS_PATH, '..', '..'))
+    PARENT_PATH = path.dirname(ABS_DEVTOOLS_PATH)
+    if path.basename(PARENT_PATH) == 'third_party':
+        # integrated build
+        return path.dirname(PARENT_PATH)
     else:
+        # standalone build
         return ABS_DEVTOOLS_PATH
 
 # This is the third_party path relative to the root of the checkout.
