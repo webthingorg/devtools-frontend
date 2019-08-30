@@ -2821,9 +2821,10 @@
       name: "scroll-padding-block-end",
       property_methods: ["ParseSingleValue"],
       include_paths: ["third_party/blink/renderer/platform/geometry/length.h"],
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
       type_name: "Length",
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
       direction_aware_options: {
         resolver: "block-end",
         physical_group: "scroll-padding",
@@ -2833,9 +2834,10 @@
       name: "scroll-padding-block-start",
       property_methods: ["ParseSingleValue"],
       include_paths: ["third_party/blink/renderer/platform/geometry/length.h"],
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
       type_name: "Length",
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
       direction_aware_options: {
         resolver: "block-start",
         physical_group: "scroll-padding",
@@ -2847,16 +2849,18 @@
       field_group: "*",
       field_template: "<length>",
       default_value: "Length()",
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
     },
     {
       name: "scroll-padding-inline-end",
       property_methods: ["ParseSingleValue"],
       include_paths: ["third_party/blink/renderer/platform/geometry/length.h"],
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
       type_name: "Length",
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
       direction_aware_options: {
         resolver: "inline-end",
         physical_group: "scroll-padding",
@@ -2866,9 +2870,10 @@
       name: "scroll-padding-inline-start",
       property_methods: ["ParseSingleValue"],
       include_paths: ["third_party/blink/renderer/platform/geometry/length.h"],
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
       type_name: "Length",
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
       direction_aware_options: {
         resolver: "inline-start",
         physical_group: "scroll-padding",
@@ -2880,8 +2885,9 @@
       field_group: "*",
       field_template: "<length>",
       default_value: "Length()",
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
     },
     {
       name: "scroll-padding-right",
@@ -2889,8 +2895,9 @@
       field_group: "*",
       field_template: "<length>",
       default_value: "Length()",
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
     },
     {
       name: "scroll-padding-top",
@@ -2898,8 +2905,9 @@
       field_group: "*",
       field_template: "<length>",
       default_value: "Length()",
+      keywords: ["auto"],
       typedom_types: ["Keyword", "Length", "Percentage"],
-      converter: "ConvertLength",
+      converter: "ConvertLengthOrAuto",
     },
     {
       name: "scroll-snap-align",
@@ -4214,6 +4222,7 @@
     },
     {
       name: "margin-inline-start",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "inline-start",
@@ -4224,6 +4233,7 @@
     },
     {
       name: "margin-inline-end",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "inline-end",
@@ -4234,6 +4244,7 @@
     },
     {
       name: "margin-block-start",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "block-start",
@@ -4244,6 +4255,7 @@
     },
     {
       name: "margin-block-end",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "block-end",
@@ -4254,6 +4266,7 @@
     },
     {
       name: "padding-inline-start",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "inline-start",
@@ -4263,6 +4276,7 @@
     },
     {
       name: "padding-inline-end",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "inline-end",
@@ -4272,6 +4286,7 @@
     },
     {
       name: "padding-block-start",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "block-start",
@@ -4281,6 +4296,7 @@
     },
     {
       name: "padding-block-end",
+      layout_dependent: true,
       property_methods: ["ParseSingleValue"],
       direction_aware_options: {
         resolver: "block-end",
@@ -4831,6 +4847,18 @@
         "border-left-width"
       ],
       property_methods: ["ParseShorthand", "CSSValueFromComputedStyleInternal"],
+    },
+    {
+      name: "content-size",
+      property_methods: ["ParseSingleValue", "CSSValueFromComputedStyleInternal"],
+      field_group: "box",
+      field_template: "external",
+      keywords: ["none"],
+      default_value: "ContentSize()",
+      type_name: "ContentSize",
+      converter: "ConvertContentSize",
+      include_paths: ["third_party/blink/renderer/core/style/content_size.h"],
+      runtime_flag: "CSSContentSize"
     },
     {
       name: "flex",
