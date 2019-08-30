@@ -181,7 +181,7 @@ Timeline.TimelineController = class {
   /**
    * @param {string} categories
    * @param {boolean=} enableJSSampling
-   * @return {!Promise<!Object>}
+   * @return {!Promise<!Object|undefined>}
    */
   async _startRecordingWithCategories(categories, enableJSSampling) {
     SDK.targetManager.suspendAllTargets();
