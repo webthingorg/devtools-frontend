@@ -1,21 +1,29 @@
 # Copyright 2019 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
-
 """
-Helper to commonly used paths.
+Helper to find the path to the correct third_party directory
 """
 
 from os import path
 import sys
 
+# Following paths are relative to the checkout.
+# In the standalone build, this is the devtools-frontend directory.
+# In the integrated build, this is the src/chromium directory.
 def root_path():
     SCRIPTS_PATH = path.dirname(path.abspath(__file__))
-    return path.dirname(SCRIPTS_PATH)
+    ABS_DEVTOOLS_PATH = path.dirname(SCRIPTS_PATH)
+    if 'third_party' in ABS_DEVTOOLS_PATH:
+        return path.normpath(path.join(ABS_DEVTOOLS_PATH, '..', '..'))
+    else:
+        return ABS_DEVTOOLS_PATH
 
+# This is the third_party path relative to the root of the checkout.
 def third_party_path():
     return path.join(root_path(), 'third_party')
 
+# This points to the node binary downloaded as part of the checkout.
 def node_path():
     try:
         old_sys_path = sys.path[:]
@@ -25,6 +33,8 @@ def node_path():
         sys.path = old_sys_path
     return node.GetBinaryPath()
 
+# Following paths are relative to the devtools directory, and thus relative
+# to this script. They point to files from this repository.
 RELATIVE_ROOT_PATH = path.join(path.dirname(__file__), '..')
 
 def eslint_path():
