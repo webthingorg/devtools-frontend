@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b3b18496_2432e8e2",
+        "filename": "front_end/timeline/UIDevtoolsUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001380
+      },
+      "writtenOn": "2019-09-02T21:13:48Z",
+      "side": 1,
+      "message": "Paul, do you have any other suggestion? I prefer 1) if we can obtain the info when initializing the devtools UI somehow.\n\nAnother way that I could think of is always fetch dom and check nodeName \u003d\u003d RootWindow, although this is a bit hacky.",
+      "parentUuid": "fb276ce9_8c1117f4",
+      "revId": "978cdee7a71c3df4ca1afe5385c3636ef83c7a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "564579b1_13733230",
         "filename": "front_end/timeline/timeline_strings.grdp",
         "patchSetId": 7
