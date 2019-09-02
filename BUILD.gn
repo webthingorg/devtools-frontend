@@ -1487,29 +1487,34 @@ if (external_devtools_frontend) {
         ".eslintignore",
         ".eslintrc.js",
         "front_end/",
+        "node_modules/",
         "scripts/devtools_paths.py",
         "scripts/lint_javascript.py",
         "//testing/scripts/common.py",
         "//testing/scripts/run_devtools_check.py",
         "//testing/xvfb.py",
-        "//third_party/devtools-node-modules/",
         "//third_party/node/node.py",
         "//third_party/node/linux/node-linux-x64/",
       ]
     }
-  }
 
-  group("devtools_unit_tests") {
-    data = [
-      # Needed for isolate script to execute.
-      "front_end/",
-      "karma.conf.js",
-      "node_modules/",
-      "scripts/devtools_paths.py",
-      "scripts/run_tests.py",
-      "tests/",
-      "third_party/chrome/",
-      "tsconfig.json",
-    ]
+    group("devtools_unit_tests") {
+      data = [
+        # Needed for isolate script to execute.
+        "front_end/",
+        "karma.conf.js",
+        "node_modules/",
+        "scripts/devtools_paths.py",
+        "scripts/run_tests.py",
+        "tests/",
+        "third_party/chrome/",
+        "tsconfig.json",
+        "//testing/scripts/common.py",
+        "//testing/scripts/run_devtools_check.py",
+        "//testing/xvfb.py",
+        "//third_party/node/node.py",
+        "//third_party/node/linux/node-linux-x64/",
+      ]
+    }
   }
 }
