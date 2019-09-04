@@ -46,6 +46,9 @@ def eslint_path():
 def karma_path():
     return path.join(RELATIVE_ROOT_PATH, 'node_modules', 'karma', 'bin', 'karma')
 
+def license_checker_path():
+    return path.join(RELATIVE_ROOT_PATH, 'node_modules', 'license-checker', 'bin', 'license-checker')
+
 def node_modules_path():
     return path.join(RELATIVE_ROOT_PATH, 'node_modules')
 

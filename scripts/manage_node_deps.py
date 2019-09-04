@@ -12,6 +12,17 @@ import devtools_paths
 import shutil
 import json
 
+LICENSES = [
+    'MIT',
+    'Apache-2.0',
+    'BSD',
+    'BSD-2-Clause',
+    'BSD-3-Clause',
+    'CC0-1.0',
+    'CC-BY-3.0',
+    'ISC',
+]
+
 # List all DEPS here.
 DEPS = {
   '@types/chai': '4.2.0',
@@ -24,12 +35,10 @@ DEPS = {
   'karma-chrome-launcher': '3.1.0',
   'karma-mocha': '1.3.0',
   'karma-typescript': '4.1.1',
+  'license-checker': '25.0.1',
   'mocha': '6.2.0',
   'typescript': '3.5.3'
 }
-
-def popen(arguments, cwd=None):
-    return subprocess.Popen(arguments, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 def clean_node_modules():
     # Clean the node_modules folder first. That way only the packages listed above
@@ -70,6 +79,17 @@ def strip_private_fields():
 
     return False
 
+def ensure_licenses():
+    exec_command = [
+        devtools_paths.node_path(),
+        devtools_paths.license_checker_path(),
+        '--onlyAllow',
+        ('%s' % (';'.join(LICENSES)))
+    ]
+
+    license_result = subprocess.check_call(exec_command, cwd=devtools_paths.root_path())
+    return license_result != 0
+
 def install_deps():
     clean_node_modules()
 
@@ -91,6 +111,10 @@ def install_deps():
         return True
 
     errors_found = strip_private_fields()
+    if errors_found:
+        return True
+
+    errors_found = ensure_licenses()
     return errors_found
 
 npm_errors_found = install_deps()
