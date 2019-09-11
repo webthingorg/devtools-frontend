@@ -19,7 +19,7 @@ FILES = [
 ]
 
 def parse_options(cli_args):
-    parser = argparse.ArgumentParser(description='Roll CodeMirror')
+    parser = argparse.ArgumentParser(description='Roll dependencies from Chromium.')
     parser.add_argument('chromium_dir', help='Chromium directory')
     parser.add_argument('devtools_dir', help='DevTools directory')
     return parser.parse_args(cli_args)
