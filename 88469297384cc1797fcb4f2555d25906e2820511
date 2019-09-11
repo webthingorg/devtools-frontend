@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4b4f233_2bd10977",
+        "filename": "scripts/run_web_tests.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2019-09-11T15:58:54Z",
+      "side": 1,
+      "message": "Maybe add a local patch branch to make sure if you work on Chromium as well, you don\u0027t conflate the two. E.g. `git checkout devtools-frontend-test-branch`",
+      "range": {
+        "startLine": 27,
+        "startChar": 28,
+        "endLine": 27,
+        "endChar": 58
+      },
+      "revId": "88469297384cc1797fcb4f2555d25906e2820511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a085372a_b73d30ab",
+        "filename": "scripts/run_web_tests.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2019-09-11T15:58:54Z",
+      "side": 1,
+      "message": "Does this patch rely on a specific commit in Chromium? We might have to hard-code that for now and make sure the patch file is kept up-to-date with master.",
+      "range": {
+        "startLine": 29,
+        "startChar": 57,
+        "endLine": 29,
+        "endChar": 71
+      },
+      "revId": "88469297384cc1797fcb4f2555d25906e2820511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1e50fce_81b35df7",
+        "filename": "scripts/run_web_tests.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2019-09-11T15:58:54Z",
+      "side": 1,
+      "message": "Would be great to customize this, especially to configure Ninja accordingly. (I have two targets, one for my DevTools work and one for my other C++ work)",
+      "range": {
+        "startLine": 36,
+        "startChar": 47,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "88469297384cc1797fcb4f2555d25906e2820511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5c12881_fc559c8c",
+        "filename": "scripts/run_web_tests.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2019-09-11T15:58:54Z",
+      "side": 1,
+      "message": "Can we add an option to only run specific tests?",
+      "range": {
+        "startLine": 39,
+        "startChar": 117,
+        "endLine": 39,
+        "endChar": 136
+      },
+      "revId": "88469297384cc1797fcb4f2555d25906e2820511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
