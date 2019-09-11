@@ -12,4 +12,7 @@ front_end/formatter_worker/acorn/
 front_end/terminal/xterm.js/
 front_end/protocol_externs.js
 front_end/javascript_metadata/NativeFunctions.js
+front_end/SupportedCSSProperties.js
+front_end/InspectorBackendCommands.js
+front_end/accessibility/ARIAProperties.js
 scripts/
