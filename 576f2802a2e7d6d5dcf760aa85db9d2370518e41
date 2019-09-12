@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de514714_17d24002",
+        "filename": "DEPS",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-09-12T13:34:31Z",
+      "side": 1,
+      "message": "nit: indent to level of opening bracket, e.g. like here:\nhttps://cs.chromium.org/chromium/src/v8/DEPS?l\u003d402",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 18
+      },
+      "revId": "576f2802a2e7d6d5dcf760aa85db9d2370518e41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
