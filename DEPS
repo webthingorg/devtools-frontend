@@ -104,6 +104,13 @@ hooks = [
     ],
   },
   {
+    'name': 'sysroot_x64',
+    'pattern': '.',
+    'condition': 'checkout_linux and checkout_x64',
+    'action': ['python', 'devtools-frontend/build/linux/sysroot_scripts/install-sysroot.py',
+    '--arch=x64'],
+  },
+  {
     'name': 'node_mac',
     'pattern': '.',
     'condition': 'host_os == "mac"',
