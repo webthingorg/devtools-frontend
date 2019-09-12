@@ -91,6 +91,13 @@ deps = {
 hooks = [
   # Pull down Node binaries for WebUI toolchain.
   {
+    'name': 'sysroot_x64',
+    'pattern': '.',
+    'condition': 'checkout_linux and checkout_x64',
+    'action': ['python', 'devtools-frontend/build/linux/sysroot_scripts/install-sysroot.py',
+    '--arch=x64'],
+  },
+  {
     'name': 'node_linux64',
     'pattern': '.',
     'condition': 'host_os == "linux"',
