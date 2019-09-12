@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d52450d_d78c07b2",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-09-12T13:16:27Z",
+      "side": 1,
+      "message": "Can we move this further up, so that this is not between node_linux64 and node_mac?",
+      "range": {
+        "startLine": 107,
+        "startChar": 3,
+        "endLine": 112,
+        "endChar": 4
+      },
+      "revId": "467d6b6a8747f7f02f0fffeca953c3adb0f98081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
