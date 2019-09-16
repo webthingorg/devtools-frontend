@@ -1,5 +1,5 @@
 diff --git a/DEPS b/DEPS
-index 2788f113db01..1de113f8f1bc 100644
+index 3b871e6178c3..239db61aa8e2 100644
 --- a/DEPS
 +++ b/DEPS
 @@ -235,6 +235,11 @@ vars = {
@@ -14,7 +14,7 @@ index 2788f113db01..1de113f8f1bc 100644
    # the commit queue can handle CLs rolling libprotobuf-mutator
    # and whatever else without interference from each other.
    'libprotobuf-mutator': '439e81f8f4847ec6e2bf11b3aa634a5d8485633d',
-@@ -872,6 +877,9 @@ deps = {
+@@ -883,6 +888,9 @@ deps = {
    'src/third_party/devtools-node-modules':
      Var('chromium_git') + '/external/github.com/ChromeDevTools/devtools-node-modules' + '@' + Var('devtools_node_modules_revision'),
  
@@ -25,7 +25,7 @@ index 2788f113db01..1de113f8f1bc 100644
      Var('chromium_git') + '/chromium/dom-distiller/dist.git' + '@' + '3093c3e238768ab27ff756bd7563ccbb12129d9f',
  
 diff --git a/PRESUBMIT.py b/PRESUBMIT.py
-index bdaca7ad0d9e..677c3895cb1b 100644
+index 42dcbe7f4f17..16d5c0a489eb 100644
 --- a/PRESUBMIT.py
 +++ b/PRESUBMIT.py
 @@ -17,6 +17,7 @@ _EXCLUDED_PATHS = (
@@ -37,10 +37,10 @@ index bdaca7ad0d9e..677c3895cb1b 100644
      r"^third_party[\\/]sqlite[\\/].*",
      r"^v8[\\/].*",
 diff --git a/chrome/browser/flag-metadata.json b/chrome/browser/flag-metadata.json
-index 2d9bb43a2210..02bf9c21d1fe 100644
+index 8d705318121c..37d63b7132bf 100644
 --- a/chrome/browser/flag-metadata.json
 +++ b/chrome/browser/flag-metadata.json
-@@ -1134,7 +1134,7 @@
+@@ -1129,7 +1129,7 @@
    },
    {
      "name": "enable-devtools-experiments",
@@ -180,10 +180,10 @@ index f977569611d6..b1fb0fe9820b 100644
  
  # Unhandled Tap enable means Contextual Search aka Tap to Search.
 diff --git a/third_party/blink/renderer/devtools/BUILD.gn b/third_party/blink/renderer/devtools/BUILD.gn
-index 9c41a56c318f..f6b83783656a 100644
+index 917c44c00756..b99a42c91427 100644
 --- a/third_party/blink/renderer/devtools/BUILD.gn
 +++ b/third_party/blink/renderer/devtools/BUILD.gn
-@@ -6,1554 +6,1557 @@ import("//build/config/features.gni")
+@@ -6,1555 +6,1558 @@ import("//build/config/features.gni")
  import("//third_party/blink/public/public_features.gni")
  import("//third_party/blink/renderer/core/core.gni")
  
@@ -1140,6 +1140,7 @@ index 9c41a56c318f..f6b83783656a 100644
 -all_devtools_files += lighthouse_locale_files
 -
 -devtools_test_files = [
+-  "//third_party/axe-core/axe.js",
 -  "front_end/accessibility_test_runner/AccessibilityPaneTestRunner.js",
 -  "front_end/accessibility_test_runner/module.json",
 -  "front_end/application_test_runner/AppcacheTestRunner.js",
@@ -2427,6 +2428,7 @@ index 9c41a56c318f..f6b83783656a 100644
 +  all_devtools_files += lighthouse_locale_files
 +
 +  devtools_test_files = [
++    "//third_party/axe-core/axe.js",
 +    "front_end/accessibility_test_runner/AccessibilityPaneTestRunner.js",
 +    "front_end/accessibility_test_runner/module.json",
 +    "front_end/application_test_runner/AppcacheTestRunner.js",
