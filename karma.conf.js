@@ -11,9 +11,13 @@ module.exports = function(config) {
       included: false,
       served: true
     },{
+      pattern: 'tests/**/*.js',
+      type: 'module'
+    },{
       pattern: 'tests/**/*.ts',
       type: 'module'
-    }],
+    }
+    ],
 
     reporters: ["dots"],
 
