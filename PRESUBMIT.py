@@ -25,7 +25,7 @@
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-"""DevTools JSDoc validator presubmit script
+"""DevTools presubmit script
 
 See http://dev.chromium.org/developers/how-tos/depottools/presubmit-scripts
 for more details about the presubmit API built into gcl.
@@ -50,7 +50,7 @@ def _CheckFormat(input_api, output_api):
     original_sys_path = sys.path
     try:
         sys.path = sys.path + [input_api.os_path.join(input_api.PresubmitLocalPath(), "scripts")]
-        import local_node
+        import devtools_paths
     finally:
         sys.path = original_sys_path
 
@@ -59,8 +59,9 @@ def _CheckFormat(input_api, output_api):
     with open(eslint_ignore_path, 'r') as ignore_manifest:
         for line in ignore_manifest:
             ignore_files.append(line.strip())
-    formattable_files = [affected_file for affected_file in affected_files
-                         if all(ignore_file not in affected_file for ignore_file in ignore_files)]
+    formattable_files = [
+        affected_file for affected_file in affected_files if all(ignore_file not in affected_file for ignore_file in ignore_files)
+    ]
     if len(formattable_files) == 0:
         return []
 
@@ -78,8 +79,8 @@ def _CheckFormat(input_api, output_api):
     # Use eslint to autofix the braces.
     # Also fix semicolon to avoid confusing clang-format.
     eslint_process = popen([
-        local_node.node_path(),
-        local_node.eslint_path(), '--no-eslintrc', '--fix', '--env=es6', '--parser-options=ecmaVersion:9',
+        devtools_paths.node_path(),
+        devtools_paths.eslint_path(), '--no-eslintrc', '--fix', '--env=es6', '--parser-options=ecmaVersion:9',
         '--rule={"curly": [2, "multi-or-nest", "consistent"], "semi": 2}'
     ] + affected_files)
     eslint_process.communicate()
@@ -88,7 +89,7 @@ def _CheckFormat(input_api, output_api):
     popen(format_args).communicate()
 
     return [
-        output_api.PresubmitError("ERROR: Found formatting violations in third_party/blink/renderer/devtools.\n"
+        output_api.PresubmitError("ERROR: Found formatting violations in devtools frontend.\n"
                                   "Ran clang-format on diff\n"
                                   "Use git status to check the formatting changes"),
         output_api.PresubmitError(format_out),
@@ -143,6 +144,16 @@ def _CompileDevtoolsFrontend(input_api, output_api):
     return []
 
 
+def _CheckEmptyPackageDependencies(input_api, output_api):
+    assert_path = input_api.os_path.join(input_api.PresubmitLocalPath(), "scripts", "assert_empty_deps.py")
+    out, _ = input_api.subprocess.Popen([input_api.python_executable, assert_path],
+                                        stdout=input_api.subprocess.PIPE,
+                                        stderr=input_api.subprocess.STDOUT).communicate()
+    if "ERROR" in out:
+        return [output_api.PresubmitError(out)]
+    return []
+
+
 def _CheckOptimizeSVGHashes(input_api, output_api):
     if not input_api.platform.startswith('linux'):
         return []
@@ -185,6 +196,7 @@ def _CheckCSSViolations(input_api, output_api):
 def CheckChangeOnUpload(input_api, output_api):
     results = []
     results.extend(_CheckBuildGN(input_api, output_api))
+    results.extend(_CheckEmptyPackageDependencies(input_api, output_api))
     results.extend(_CheckFormat(input_api, output_api))
     results.extend(_CheckDevtoolsLocalizableResources(input_api, output_api))
     results.extend(_CheckDevtoolsLocalization(input_api, output_api))
@@ -236,11 +248,11 @@ def _checkWithNodeScript(input_api, output_api, script_path, script_arguments=No
     original_sys_path = sys.path
     try:
         sys.path = sys.path + [input_api.os_path.join(input_api.PresubmitLocalPath(), "scripts")]
-        import local_node
+        import devtools_paths
     finally:
         sys.path = original_sys_path
 
-    node_path = local_node.node_path()
+    node_path = devtools_paths.node_path()
 
     if script_arguments is None:
         script_arguments = []

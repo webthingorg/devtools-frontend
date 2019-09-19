@@ -2,9 +2,13 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+renderer_core_path = "//third_party/blink/renderer/core"
+
 import("//build/config/features.gni")
 import("//third_party/blink/public/public_features.gni")
 import("//third_party/blink/renderer/core/core.gni")
+
+if (external_devtools_frontend) {
 
 all_devtools_files = [
   "front_end/accessibility/AccessibilityModel.js",
@@ -959,7 +963,7 @@ lighthouse_locale_files = [
 all_devtools_files += lighthouse_locale_files
 
 devtools_test_files = [
-  "//third_party/axe-core/axe.js",
+  "third_party/axe-core/axe.js",
   "front_end/accessibility_test_runner/AccessibilityPaneTestRunner.js",
   "front_end/accessibility_test_runner/module.json",
   "front_end/application_test_runner/AppcacheTestRunner.js",
@@ -1264,8 +1268,6 @@ devtools_applications = [
 
 #-------------------------------------------------------------------------------
 
-visibility = [ "//third_party/blink/*" ]
-
 group("devtools_all_files") {
   data = all_devtools_files
   deps = [
@@ -1396,7 +1398,7 @@ action("supported_css_properties") {
   script = "scripts/build/generate_supported_css.py"
 
   inputs = [
-    "../core/css/css_properties.json5",
+    "$renderer_core_path/css/css_properties.json5",
   ]
 
   outputs = [
@@ -1411,7 +1413,7 @@ action("aria_properties") {
   script = "scripts/build/generate_aria.py"
 
   inputs = [
-    "../core/html/aria_properties.json5",
+    "$renderer_core_path/html/aria_properties.json5",
   ]
 
   outputs = [
@@ -1425,7 +1427,7 @@ action("aria_properties") {
 action("frontend_protocol_sources") {
   script = "scripts/build/code_generator_frontend.py"
   deps = [
-    "../core/inspector:protocol_version",
+    "$renderer_core_path/inspector:protocol_version",
   ]
   inputs = [
     "$blink_core_output_dir/inspector/protocol.json",
@@ -1528,6 +1530,7 @@ group("devtools_closure_compile") {
     "scripts/closure/",
     "scripts/compile_frontend.py",
     "scripts/dependency_preprocessor.py",
+    "scripts/devtools_paths.py",
     "scripts/jsdoc_validator/",
     "scripts/special_case_namespaces.json",
     "scripts/utils.py",
@@ -1547,14 +1550,35 @@ if (is_linux && !is_chromeos) {
       ".eslintignore",
       ".eslintrc.js",
       "front_end/",
+      "node_modules/",
+      "scripts/devtools_paths.py",
       "scripts/lint_javascript.py",
-      "scripts/local_node.py",
       "//testing/scripts/common.py",
       "//testing/scripts/run_devtools_check.py",
       "//testing/xvfb.py",
-      "//third_party/devtools-node-modules/",
       "//third_party/node/node.py",
       "//third_party/node/linux/node-linux-x64/",
     ]
   }
+
+  group("devtools_unit_tests") {
+    data = [
+      # Needed for isolate script to execute.
+      "front_end/",
+      "karma.conf.js",
+      "node_modules/",
+      "scripts/devtools_paths.py",
+      "scripts/run_tests.py",
+      "tests/",
+      "third_party/chrome/",
+      "tsconfig.json",
+      "//testing/scripts/common.py",
+      "//testing/scripts/run_devtools_check.py",
+      "//testing/xvfb.py",
+      "//third_party/node/node.py",
+      "//third_party/node/linux/node-linux-x64/",
+    ]
+  }
+}
+
 }
