@@ -6,6 +6,9 @@ vars = {
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
   'build_revision': '76a4ca1e1b2a53499cefc2f791ec1710dc8c0347',
 
+  'buildtools_revision': '74cfb57006f83cfe050817526db359d5c8a11628',
+  'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
+
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools',
   'depot_tools_revision': 'c6be56ecedf91cd65eb888cd56c1099181505113',
 
@@ -39,6 +42,7 @@ deps = {
   'buildtools/clang_format/script':
     Var('chromium_git') + Var('clang_format_url') + '@' +
     Var('clang_format_revision'),
+
   'buildtools/linux64': {
     'packages': [
       {
