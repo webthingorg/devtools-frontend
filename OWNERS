@@ -1,3 +1,5 @@
+file://ENG_REVIEW_OWNERS
+
 aerotwist@chromium.org
 bmeurer@chromium.org
 dgozman@chromium.org
@@ -6,6 +8,5 @@ lomitch@microsoft.com
 luoe@chromium.org
 lushnikov@chromium.org
 pfeldman@chromium.org
-yangguo@chromium.org
 
 per-file BUILD.gn=*
