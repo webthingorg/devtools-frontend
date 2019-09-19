@@ -4,40 +4,34 @@
 
 module.exports = function(config) {
   const options = {
-    basePath: "",
+    basePath: '',
 
     files: [{
       pattern: 'front_end/**/*.js',
       included: false,
       served: true
-    },{
+    }, {
       pattern: 'tests/**/*.ts',
       type: 'module'
     }],
 
-    reporters: ["dots"],
+    reporters: ['dots'],
 
     preprocessors: {
-      './tests/**/*.ts': ['karma-typescript']
+      'tests/**/*.ts': 'karma-typescript'
     },
 
-    browsers: ["ChromeHeadless"],
+    browsers: ['ChromeHeadless'],
 
-    frameworks: ["mocha", "chai", "karma-typescript"],
+    frameworks: ['mocha', 'chai', 'karma-typescript'],
 
     karmaTypescriptConfig: {
       compilerOptions: {
-        target: "esnext",
-        module: "esnext",
-        typeRoots: ["./third_party/devtools-node-modules/third_party/node_modules/@types"]
+        target: 'esnext',
+        module: 'esnext',
       },
       coverageOptions: {
         instrumentation: false
-      },
-      bundlerOptions: {
-        resolve: {
-          directories: ["./third_party/devtools-node-modules/third_party/node_modules"]
-        }
       }
     },
 
@@ -46,10 +40,10 @@ module.exports = function(config) {
     },
 
     plugins: [
-      "karma-chrome-launcher",
-      "karma-mocha",
-      "karma-chai",
-      "karma-typescript"
+      'karma-chrome-launcher',
+      'karma-mocha',
+      'karma-chai',
+      'karma-typescript'
     ],
 
     singleRun: true

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
-    "typeRoots": ["../../../devtools-node-modules/third_party/node_modules/@types"]
+    "target": "esnext",
+    "module": "esnext"
   }
 }
