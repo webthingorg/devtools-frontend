@@ -31,6 +31,7 @@ module.exports = function(config) {
         module: "esnext",
         typeRoots: ["./third_party/devtools-node-modules/third_party/node_modules/@types"]
       },
+      exclude: ['scripts'],
       coverageOptions: {
         instrumentation: false
       },
