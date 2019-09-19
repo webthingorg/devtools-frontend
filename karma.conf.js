@@ -30,6 +30,7 @@ module.exports = function(config) {
         target: 'esnext',
         module: 'esnext',
       },
+      exclude: ['scripts'],
       coverageOptions: {
         instrumentation: false
       }
