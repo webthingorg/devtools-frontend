@@ -149,9 +149,9 @@ Search.SearchResultsPane.SearchResultsTreeElement = class extends UI.TreeElement
       const resultLabel = searchResult.matchLabel(i);
       labelSpan.textContent = resultLabel;
       if (typeof resultLabel === 'number' && !isNaN(resultLabel))
-        UI.ARIAUtils.setAccessibleName(labelSpan, ls`Line ${resultLabel}`);
+        {UI.ARIAUtils.setAccessibleName(labelSpan, ls`Line ${resultLabel}`);}
       else
-        UI.ARIAUtils.setAccessibleName(labelSpan, ls`${resultLabel}`);
+        {UI.ARIAUtils.setAccessibleName(labelSpan, ls`${resultLabel}`);}
       anchor.appendChild(labelSpan);
 
       const contentSpan = this._createContentSpan(lineContent, matchRanges);

@@ -4,13 +4,13 @@
 
 module.exports = function(config) {
   const options = {
-    basePath: "",
+    basePath: '',
 
     files: [{
       pattern: 'front_end/**/*.js',
       included: false,
       served: true
-    },{
+    }, {
       pattern: 'tests/**/*.ts',
       type: 'module'
     }],
@@ -22,23 +22,18 @@ module.exports = function(config) {
       './front_end/common/*.js': ['karma-coverage-istanbul-instrumenter']
     },
 
-    browsers: ["ChromeHeadless"],
+    browsers: ['ChromeHeadless'],
 
-    frameworks: ["mocha", "chai", "karma-typescript"],
+    frameworks: ['mocha', 'chai', 'karma-typescript'],
 
     karmaTypescriptConfig: {
       compilerOptions: {
         target: "esnext",
         module: "esnext",
-        typeRoots: ["../../../../third_party/devtools-node-modules/third_party/node_modules/@types"]
       },
+      exclude: ['scripts'],
       coverageOptions: {
         instrumentation: false
-      },
-      bundlerOptions: {
-        resolve: {
-          directories: ["../../../../third_party/devtools-node-modules/third_party/node_modules"]
-        }
       },
       exclude: [
         "scripts"
@@ -54,8 +49,8 @@ module.exports = function(config) {
       "karma-mocha",
       "karma-chai",
       "karma-typescript",
-      require('../../../../third_party/devtools-node-modules/third_party/node_modules/karma-coverage-istanbul-instrumenter'),
-      require('../../../../third_party/devtools-node-modules/third_party/node_modules/karma-coverage-istanbul-reporter')
+      require('karma-coverage-istanbul-instrumenter'),
+      require('karma-coverage-istanbul-reporter')
     ],
 
     coverageIstanbulInstrumenter: {
