@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53089412_8a0a45d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2019-09-20T13:30:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1559ba0_afdcba07",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 55
+      },
+      "revId": "07c3d7dd3e65540cefac1dccb840c5be0caf763d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80e0dbd8_ffdb94b8",
         "filename": "tests/front_end/platform/dom-extension.js",
         "patchSetId": 1
