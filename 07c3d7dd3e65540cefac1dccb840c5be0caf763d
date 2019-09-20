@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1559ba0_afdcba07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-09-20T13:23:21Z",
+      "side": 1,
+      "message": "Nit: double message in the commit message",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 55
+      },
+      "revId": "07c3d7dd3e65540cefac1dccb840c5be0caf763d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e0dbd8_ffdb94b8",
+        "filename": "tests/front_end/platform/dom-extension.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-09-20T13:23:21Z",
+      "side": 1,
+      "message": "Could you include in a comment the DOM structure? For examples, see https://cs.chromium.org/chromium/src/third_party/blink/web_tests/accessibility/option-removed-from-shadow-dom-crash.html?l\u003d31-37\u0026rcl\u003d0cd3cf9aec61f93ecaf3c628e0a1c489b2bacd46",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "07c3d7dd3e65540cefac1dccb840c5be0caf763d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cbbfab0_ed00329c",
+        "filename": "tests/front_end/platform/dom-extension.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-09-20T13:23:21Z",
+      "side": 1,
+      "message": "This should be a separate test case. If I understand correctly, the test case is testing \"Does not traverse nodes with undefined className\"",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 61
+      },
+      "revId": "07c3d7dd3e65540cefac1dccb840c5be0caf763d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04906c09_8a6a1ce0",
+        "filename": "tests/front_end/platform/dom-extension.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-09-20T13:23:21Z",
+      "side": 1,
+      "message": "There are a lot of asserts in this testcase. Can these be split up? If I understand the test case correctly, it does these things:\n\n1. Light dom projection on slots\n2. Slot without classname (e.g. no projection)\n3. Slot projected in correct location\n4. Projection with simple text\n5. Projection with Element",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 38
+      },
+      "revId": "07c3d7dd3e65540cefac1dccb840c5be0caf763d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
