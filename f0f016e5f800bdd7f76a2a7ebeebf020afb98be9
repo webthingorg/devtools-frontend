@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec277e1_92d8cdfe",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-01T13:11:47Z",
+      "side": 1,
+      "message": "nit: whitespace",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 4
+      },
+      "revId": "f0f016e5f800bdd7f76a2a7ebeebf020afb98be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b21b3b5_0007b9e3",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-01T13:11:47Z",
+      "side": 1,
+      "message": "We have a very weird organically grown naming convention on tryservers. Taking it all into account I suggest:\ndevtools_frontend_linux_rel",
+      "range": {
+        "startLine": 129,
+        "startChar": 13,
+        "endLine": 129,
+        "endChar": 30
+      },
+      "revId": "f0f016e5f800bdd7f76a2a7ebeebf020afb98be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
