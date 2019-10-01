@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2c1258fc_a0ce8dd0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-01T13:12:30Z",
+      "side": 1,
+      "message": "nit: stand",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "f0f016e5f800bdd7f76a2a7ebeebf020afb98be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ec277e1_92d8cdfe",
         "filename": "cr-buildbucket.cfg",
         "patchSetId": 2
