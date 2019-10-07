@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85244e04_031ff9bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-07T13:15:58Z",
+      "side": 1,
+      "message": "This sounds misleading. The change you make will make CQ block on the trybot.\n\nOr did you want to do something else? Has the corresponding CI builder been green (or lets say correct) for a couple of days?\n\nAlternatively you could also make the trybot experimental with 100%, like:\nhttps://chromium.googlesource.com/v8/v8/+/refs/heads/infra/config/commit-queue.cfg#123\n\nLike that it will run all the time, but not block yet.",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "3a60bcefced75cbc2f14fcea84a429db9419787c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
