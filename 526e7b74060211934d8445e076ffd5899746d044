@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f00bd01e_b2a312ce",
+        "filename": "test/e2e/elements/elements-example.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-10-16T14:11:25Z",
+      "side": 1,
+      "message": ";",
+      "revId": "526e7b74060211934d8445e076ffd5899746d044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f51f71b2_319787ad",
+        "filename": "test/e2e/runner.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-10-16T14:11:25Z",
+      "side": 1,
+      "message": ";",
+      "revId": "526e7b74060211934d8445e076ffd5899746d044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c560334b_95ed88cb",
+        "filename": "test/e2e/runner.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-10-16T14:11:25Z",
+      "side": 1,
+      "message": "Let\u0027s avoid single-letter variable names. In this case we can use `exception` or `error`.",
+      "range": {
+        "startLine": 81,
+        "startChar": 11,
+        "endLine": 81,
+        "endChar": 12
+      },
+      "revId": "526e7b74060211934d8445e076ffd5899746d044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00d4a995_ab573288",
+        "filename": "test/e2e/runner.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-10-16T14:11:25Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "526e7b74060211934d8445e076ffd5899746d044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
