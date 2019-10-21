@@ -3,8 +3,17 @@
   <message name="IDS_DEVTOOLS_05dedc41542c728955023577fd58be7a" desc="Text for screen reader to announce a collapsed group">
     <ph name="GROUPNAME">$1s<ex>Network</ex></ph> collapsed
   </message>
+  <message name="IDS_DEVTOOLS_05749a736c8cdc6b2bfb051e0cab6b16" desc="Label for left window resizer for Overview grids">
+    Left Resizer
+  </message>
+  <message name="IDS_DEVTOOLS_19adc2af5b53a592831e2516b777a821" desc="Label for the window for Overview grids">
+    Overview grid window
+  </message>
   <message name="IDS_DEVTOOLS_28d0edd045e05cf5af64e35ae0c4c6ef" desc="Text in Network Priorities of the Performance panel">
     Low
+  </message>
+  <message name="IDS_DEVTOOLS_29bf226e186bf57b52fac1b0ba1f88ff" desc="Accessibility label for OverviewGrid.Window start value with units">
+    <ph name="STARTVALUE">$1s<ex>15.5</ex></ph> <ph name="THIS__CALCULATORPARAMS_UNITS">$2s<ex>ms</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_2bd10b449de36fcff52a5d91a97a7365" desc="Element text content in Line Level Profile of the Performance panel">
     %.<ph name="FRACTIONDIGITS">$1s<ex>3</ex></ph>f
@@ -47,6 +56,9 @@
   </message>
   <message name="IDS_DEVTOOLS_90c96ccfe47a731972d5e64deb5fea36" desc="Title of a setting under the Memory category that can be invoked through the Command Menu">
     Hide live memory allocation annotations
+  </message>
+  <message name="IDS_DEVTOOLS_9bef5d9aafb07ca8a7c5a6c7e062b6e4" desc="Label for right window resizer for Overview grids">
+    Right Resizer
   </message>
   <message name="IDS_DEVTOOLS_b5b8e20937205384be7b9e0c29a28fdb" desc="Text in Network Priorities of the Performance panel">
     Lowest
