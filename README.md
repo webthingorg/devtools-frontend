@@ -33,7 +33,7 @@ autoninja -C out
 
 #### Run in Chromium (from M79 onwards)
 ```bash
-<path-to-chrome>/chrome --custom-devtools-frontend=$(realpath out/resources/inspector)
+<path-to-chrome>/chrome --custom-devtools-frontend=file://$(realpath out/resources/inspector)
 ```
 
 ### Getting Started (as part of Chromium)
