@@ -45,6 +45,7 @@ LayerViewer.LayerTreeOutline = class extends Common.Object {
     this._treeOutline.element.addEventListener('mousemove', this._onMouseMove.bind(this), false);
     this._treeOutline.element.addEventListener('mouseout', this._onMouseMove.bind(this), false);
     this._treeOutline.element.addEventListener('contextmenu', this._onContextMenu.bind(this), true);
+    UI.ARIAUtils.setAccessibleName(this._treeOutline.contentElement, ls`Layers Tree Pane`);
 
     this._lastHoveredNode = null;
     this.element = this._treeOutline.element;
