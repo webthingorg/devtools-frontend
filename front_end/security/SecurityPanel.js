@@ -414,6 +414,7 @@ Security.SecurityPanelSidebarTree = class extends UI.TreeOutlineInShadow {
       const group = Security.SecurityPanelSidebarTree.OriginGroup[key];
       const element = this._createOriginGroupElement(this._originGroupTitles.get(group));
       this._originGroups.set(group, element);
+      UI.ARIAUtils.setAccessibleName(element.childrenListElement, /** @type{string} */ (element.title));
       this.appendChild(element);
     }
 
@@ -488,6 +489,7 @@ Security.SecurityPanelSidebarTree = class extends UI.TreeOutlineInShadow {
       } else {
         newParent.title = ls`Main origin (non-secure)`;
       }
+      UI.ARIAUtils.setAccessibleName(newParent.childrenListElement, newParent.title);
     } else {
       switch (securityState) {
         case Protocol.Security.SecurityState.Secure:
