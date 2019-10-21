@@ -22,6 +22,30 @@
       "revId": "682a3ab72ff88997fa1e6e7d6bb15c6939326e81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3019552f_b56f82cb",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-21T21:00:30Z",
+      "side": 1,
+      "message": "I\u0027ll change the type to `|undefined` instead of `?`. However, if you search for the following regular expression in our codebase, you will find this pattern:  `  this._(\\w+?);`",
+      "parentUuid": "030de002_150d8358",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 26
+      },
+      "revId": "682a3ab72ff88997fa1e6e7d6bb15c6939326e81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
