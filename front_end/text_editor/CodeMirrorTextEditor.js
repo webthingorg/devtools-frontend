@@ -1043,27 +1043,46 @@ TextEditor.CodeMirrorTextEditor = class extends UI.VBox {
    * @param {number} height
    */
   _updatePaddingBottom(width, height) {
-    if (!this._options.padBottom) {
-      return;
+    let newPaddingBottom = 0;
+    const linesElement = this._codeMirrorElement.getElementsByClassName('CodeMirror-lines')[0];
+
+    if (this._options.padBottom) {
+      const scrollInfo = this._codeMirror.getScrollInfo();
+      const lineCount = this._codeMirror.lineCount();
+      if (lineCount > 1) {
+        newPaddingBottom =
+            Math.max(scrollInfo.clientHeight - this._codeMirror.getLineHandle(this._codeMirror.lastLine()).height, 0);
+      }
     }
-    const scrollInfo = this._codeMirror.getScrollInfo();
-    let newPaddingBottom;
-    const linesElement = this._codeMirrorElement.querySelector('.CodeMirror-lines');
-    const lineCount = this._codeMirror.lineCount();
-    if (lineCount <= 1) {
-      newPaddingBottom = 0;
-    } else {
-      newPaddingBottom =
-          Math.max(scrollInfo.clientHeight - this._codeMirror.getLineHandle(this._codeMirror.lastLine()).height, 0);
-    }
+
     newPaddingBottom += 'px';
-    linesElement.style.paddingBottom = newPaddingBottom;
-    this._codeMirror.setSize(width, height);
+    if (linesElement.style.paddingBottom !== newPaddingBottom) {
+      linesElement.style.paddingBottom = newPaddingBottom;
+      this._codeMirror.setSize(width, height);
+    }
   }
 
-  _resizeEditor() {
+  /**
+   * @param {boolean} padBottom
+   */
+  togglePadBottom(padBottom) {
+    if (this._options.padBottom === padBottom) {
+      return;
+    }
+
+    this._options.padBottom = padBottom;
+    this._resizeEditor(true);
+  }
+
+  /**
+   * @param {boolean} forceResize
+   */
+  _resizeEditor(forceResize) {
     const parentElement = this.element.parentElement;
-    if (!parentElement || !this.isShowing()) {
+    if (!parentElement) {
+      return;
+    }
+    if (!forceResize && !this.isShowing()) {
       return;
     }
     this._codeMirror.operation(() => {
@@ -1088,7 +1107,7 @@ TextEditor.CodeMirrorTextEditor = class extends UI.VBox {
     if (this._autocompleteController) {
       this._autocompleteController.clearAutocomplete();
     }
-    this._resizeEditor();
+    this._resizeEditor(false);
     this._editorSizeInSync = true;
     if (this._selectionSetScheduled) {
       delete this._selectionSetScheduled;
@@ -1156,7 +1175,7 @@ TextEditor.CodeMirrorTextEditor = class extends UI.VBox {
     // We do not show "scroll beyond end of file" span for one line documents, so we need to check if "document has one line" changed.
     const hasOneLine = this._codeMirror.lineCount() === 1;
     if (hasOneLine !== this._hasOneLine) {
-      this._resizeEditor();
+      this._resizeEditor(false);
     }
     this._hasOneLine = hasOneLine;
 

@@ -14,7 +14,7 @@ SourceFrame.SourcesTextEditor = class extends TextEditor.CodeMirrorTextEditor {
       lineNumbers: true,
       lineWrapping: false,
       bracketMatchingSetting: Common.moduleSetting('textEditorBracketMatching'),
-      padBottom: true
+      padBottom: Common.moduleSetting('allowScrollPastEof').get()
     };
     if (codeMirrorOptions) {
       Object.assign(defaultCodeMirrorOptions, codeMirrorOptions);
@@ -66,6 +66,7 @@ SourceFrame.SourcesTextEditor = class extends TextEditor.CodeMirrorTextEditor {
     Common.moduleSetting('textEditorAutoDetectIndent').addChangeListener(this._onUpdateEditorIndentation, this);
     Common.moduleSetting('showWhitespacesInEditor').addChangeListener(this._updateWhitespace, this);
     Common.moduleSetting('textEditorCodeFolding').addChangeListener(this._updateCodeFolding, this);
+    Common.moduleSetting('allowScrollPastEof').addChangeListener(this._updateScrollPastEof, this);
     this._updateCodeFolding();
 
     /** @type {?UI.AutocompleteConfig} */
@@ -514,6 +515,7 @@ SourceFrame.SourcesTextEditor = class extends TextEditor.CodeMirrorTextEditor {
     Common.moduleSetting('textEditorAutoDetectIndent').removeChangeListener(this._onUpdateEditorIndentation, this);
     Common.moduleSetting('showWhitespacesInEditor').removeChangeListener(this._updateWhitespace, this);
     Common.moduleSetting('textEditorCodeFolding').removeChangeListener(this._updateCodeFolding, this);
+    Common.moduleSetting('allowScrollPastEof').removeChangeListener(this._updateScrollPastEof, this);
   }
 
   /**
@@ -544,6 +546,10 @@ SourceFrame.SourcesTextEditor = class extends TextEditor.CodeMirrorTextEditor {
       this.uninstallGutter('CodeMirror-foldgutter');
       this.codeMirror().setOption('foldGutter', false);
     }
+  }
+
+  _updateScrollPastEof() {
+    this.togglePadBottom(Common.moduleSetting('allowScrollPastEof').get());
   }
 
   /**
