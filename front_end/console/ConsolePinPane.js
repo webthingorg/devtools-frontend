@@ -3,8 +3,12 @@
 // found in the LICENSE file.
 
 Console.ConsolePinPane = class extends UI.ThrottledWidget {
-  constructor() {
+  /**
+   * @param {!UI.ToolbarButton} liveExpressionButton
+   */
+  constructor(liveExpressionButton) {
     super(true, 250);
+    this._liveExpressionButton = liveExpressionButton;
     this.registerRequiredCSS('console/consolePinPane.css');
     this.registerRequiredCSS('object_ui/objectValue.css');
     this.contentElement.classList.add('console-pins', 'monospace');
@@ -64,6 +68,7 @@ Console.ConsolePinPane = class extends UI.ThrottledWidget {
     pin.element().remove();
     this._pins.delete(pin);
     this._savePins();
+    this._liveExpressionButton.element.focus();
   }
 
   /**
