@@ -18,7 +18,7 @@ The frontend is available on [chromium.googlesource.com](https://chromium.google
 
 As standalone project, Chrome DevTools front-end can be checked out and built independently from Chromium.
 
-#### Checking out source
+#### Checking out source as standalone
 
 [Get depot_tools](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) first.
 
@@ -28,6 +28,11 @@ cd devtools
 git clone https://chromium.googlesource.com/devtools/devtools-frontend
 gclient config https://chromium.googlesource.com/devtools/devtools-frontend --unmanaged
 ```
+
+#### Checking out source as part of Chromium
+
+Follow [instructions](https://www.chromium.org/developers/how-tos/get-the-code) to check out Chromium. DevTools frontend can be found
+under `chromium/src/third_party/devtools-frontend/src/`.
 
 #### Build
 ```bash
