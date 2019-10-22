@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "19a6d1db_5d5f0dee",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-22T19:24:56Z",
+      "side": 1,
+      "message": "There\u0027s a disconnect between your comment here and the names of your variables. The variables are \"value\", but you\u0027re stating that they can\u0027t be within 0.5% of each other. \"Value\" and \"Percent\" are distinct units. Can you clarify?",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75c62334_cdf5c6df",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-22T19:24:56Z",
+      "side": 1,
+      "message": "Suggest adding a comment stating that there is no else here because the values were set initially.",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "027ef3d7_7e8cf998",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-22T19:24:56Z",
+      "side": 1,
+      "message": "Use shorthand: `return {rawStartValue, rawEndValue};`",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85c715e0_5fa68633",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-22T19:24:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure I really understand the value of precalculating the fixed-length strings here if you\u0027re just going to concatenate them with \u0027%\u0027 later.",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "efac9de1_e908c235",
         "filename": "front_end/perf_ui/OverviewGrid.js",
         "patchSetId": 1
@@ -13,6 +81,30 @@
       "writtenOn": "2019-10-22T18:22:10Z",
       "side": 1,
       "message": "???",
+      "range": {
+        "startLine": 491,
+        "startChar": 41,
+        "endLine": 491,
+        "endChar": 42
+      },
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf3d362_44634792",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-22T19:24:56Z",
+      "side": 1,
+      "message": "This is a shorthand way to coerce a string to a number.",
+      "parentUuid": "efac9de1_e908c235",
       "range": {
         "startLine": 491,
         "startChar": 41,
