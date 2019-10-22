@@ -40,19 +40,63 @@ Resources.DatabaseQueryView = class extends UI.VBox {
     this._promptElement = this._promptContainer.createChild('div');
     this._promptElement.className = 'database-query-prompt';
     this._promptElement.addEventListener('keydown', this._promptKeyDown.bind(this));
+    this._promptElement.addEventListener('focusin', () => {
+      this._selectedQueryIndex = -1;
+    });
 
     this._prompt = new UI.TextPrompt();
     this._prompt.initialize(this.completions.bind(this), ' ');
     this._proxyElement = this._prompt.attach(this._promptElement);
 
     this.element.addEventListener('click', this._messagesClicked.bind(this), true);
-    this.element.tabIndex = 0;
-    this.element.addEventListener('focus', this._prompt.focus.bind(this._prompt));
+    this.element.addEventListener('keydown', this._onKeyDown.bind(this));
+
+    /** @type {!Array<!HTMLDivElement>} */
+    this._queryResultsWithDataGrids = [];
+    this._selectedQueryIndex = -1;
   }
 
   _messagesClicked() {
+    this._prompt.focus();
     if (!this._prompt.isCaretInsidePrompt() && !this.element.hasSelection()) {
       this._prompt.moveCaretToEndOfPrompt();
+    }
+  }
+
+  /**
+   * @param {!Event} e
+   */
+  _onKeyDown(e) {
+    let index;
+    if (e.key === 'ArrowUp') {
+      index = this._selectedQueryIndex - 1;
+      if (this._selectedQueryIndex === -1) {
+        index = this._queryResultsWithDataGrids.length - 1;
+      } else if (this._selectedQueryIndex === 0) {
+        index = 0;
+      }
+      this._selectQuery(index);
+      e.consume();
+    } else if (e.key === 'ArrowDown') {
+      if (this._selectedQueryIndex !== -1) {
+        index = this._selectedQueryIndex + 1;
+        if (index >= this._queryResultsWithDataGrids.length) {
+          this._prompt.focus();
+          return;
+        }
+        this._selectQuery(index);
+        e.consume();
+      }
+    }
+  }
+
+  /**
+   * @param {number} index
+   */
+  _selectQuery(index) {
+    this._selectedQueryIndex = index;
+    if (index >= 0) {
+      this._queryResultsWithDataGrids[index].focus();
     }
   }
 
@@ -138,6 +182,9 @@ Resources.DatabaseQueryView = class extends UI.VBox {
       dataGrid.renderInline();
       dataGrid.autoSizeColumns(5);
       view = dataGrid.asWidget();
+
+      // DataGrids have tabIndex = 0 by default
+      dataGrid.element.tabIndex = -1;
     }
     this._appendViewQueryResult(trimmedQuery, view);
 
@@ -154,6 +201,9 @@ Resources.DatabaseQueryView = class extends UI.VBox {
     const resultElement = this._appendQueryResult(query);
     if (view) {
       view.show(resultElement);
+      resultElement.tabIndex = -1;
+      UI.ARIAUtils.setAccessibleName(resultElement, ls`Result for query: ${query}, selected table`);
+      this._queryResultsWithDataGrids.push(resultElement);
     } else {
       resultElement.remove();
     }

@@ -365,6 +365,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   <message name="IDS_DEVTOOLS_e00a7ac13697ba51e098449fd644935b" desc="Text in Background Service View of the Application panel">
     Show events from other domains
   </message>
+  <message name="IDS_DEVTOOLS_e10c702f63fd90297f0266f5f6d94cba" desc="Aria text for table selected in WebSQL DatabaseQueryView in Application panel">
+    Result for query: <ph name="QUERY">$1s<ex>"SELECT * FROM LOGS"</ex></ph>, selected table
+  </message>
   <message name="IDS_DEVTOOLS_e307db07b3975fef922a80d07455ee5e" desc="Text in Database Table View of the Application panel">
     Database
   </message>
