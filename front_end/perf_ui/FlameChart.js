@@ -467,6 +467,7 @@ PerfUI.FlameChart = class extends UI.VBox {
     }
     const groups = this._rawTimelineData.groups;
     this._keyboardFocusedGroup = groupIndex;
+    this._scrollGroupIntoView(groupIndex);
     if (!groups[groupIndex].selectable) {
       this._deselectAllGroups();
     } else {
@@ -498,6 +499,26 @@ PerfUI.FlameChart = class extends UI.VBox {
    */
   _isGroupFocused(index) {
     return index === this._selectedGroup || index === this._keyboardFocusedGroup;
+  }
+
+  /**
+   * @param {number} index
+   */
+  _scrollGroupIntoView(index) {
+    const groups = this._rawTimelineData.groups;
+    const groupOffsets = this._groupOffsets;
+    const groupTop = groupOffsets[index];
+
+    let nextOffset = groupOffsets[index + 1];
+    if (index === groups.length - 1) {
+      nextOffset += groups[index].style.padding;
+    }
+
+    // For the top group, scroll all the way to the top of the chart
+    // to accommodate the bar with time markers
+    const scrollTop = index === 0 ? 0 : groupTop;
+
+    this._chartViewport.setScrollOffset(scrollTop, nextOffset - scrollTop);
   }
 
   /**
@@ -545,6 +566,7 @@ PerfUI.FlameChart = class extends UI.VBox {
     this._resetCanvas();
     this._draw();
 
+    this._scrollGroupIntoView(groupIndex);
     // We only want to read expanded/collapsed state on user inputted expand/collapse
     if (!propagatedExpand) {
       const groupName = groups[groupIndex].name;
@@ -696,7 +718,6 @@ PerfUI.FlameChart = class extends UI.VBox {
     const groupIndexToSelect = this._keyboardFocusedGroup + 1;
     if (allGroups[groupIndexToSelect].style.nestingLevel > allGroups[this._keyboardFocusedGroup].style.nestingLevel) {
       this._selectGroup(groupIndexToSelect);
-      this._expandGroup(groupIndexToSelect, true /* setExpanded */, true /* propagatedExpand */);
     }
   }
 
