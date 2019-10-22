@@ -202,6 +202,17 @@ export function markAsHidden(element) {
 
 /**
  * @param {!Element} element
+ * @param {number=} min
+ * @param {number=} max
+ */
+export function markAsSlider(element, min = 0, max = 100) {
+  element.setAttribute('role', 'slider');
+  element.setAttribute('aria-valuemin', String(min));
+  element.setAttribute('aria-valuemax', String(max));
+}
+
+/**
+ * @param {!Element} element
  * @param {number} level
  */
 export function markAsHeading(element, level) {
@@ -351,7 +362,7 @@ export function setPressed(element, value) {
  * @param {!Element} element
  * @param {number} value
  */
-export function setProgressBarCurrentPercentage(element, value) {
+export function setValueNow(element, value) {
   element.setAttribute('aria-valuenow', value);
 }
 
@@ -529,6 +540,7 @@ self.UI.ARIAUtils = {
   markAsOption,
   markAsRadioGroup,
   markAsHidden,
+  markAsSlider,
   markAsHeading,
   markAsPoliteLiveRegion,
   setPlaceholder,
@@ -545,7 +557,7 @@ self.UI.ARIAUtils = {
   setSelected,
   setInvalid,
   setPressed,
-  setProgressBarCurrentPercentage,
+  setValueNow,
   setAccessibleName,
   setDescription,
   setActiveDescendant,
