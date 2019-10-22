@@ -58,6 +58,13 @@ Audits.StatusView = class {
     this._cancelButton = cancelButton;
     UI.ARIAUtils.markAsStatus(this._statusText);
 
+    if (Audits.StatusView.StatusPhases.length) {
+      const phases = Audits.StatusView.StatusPhases;
+      const minValue = phases[0].progressBarValue;
+      const maxValue = phases[phases.length - 1].progressBarValue;
+      UI.ARIAUtils.markAsProgressBar(this._progressBar, minValue, maxValue);
+    }
+
     this._dialog.setDefaultFocusedElement(cancelButton);
     this._dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.SetExactWidthMaxHeight);
     this._dialog.setMaxContentSize(new UI.Size(500, 400));
@@ -128,10 +135,12 @@ Audits.StatusView = class {
       clearTimeout(this._scheduledFastFactTimeout);
     } else if (nextPhase && (!this._currentPhase || this._currentPhase.order < nextPhase.order)) {
       this._currentPhase = nextPhase;
-      this._scheduleTextChange(this._getMessageForPhase(nextPhase));
+      const text = this._getMessageForPhase(nextPhase);
+      this._scheduleTextChange(text);
       this._scheduleFastFactCheck();
       this._resetProgressBarClasses();
       this._progressBar.classList.add(nextPhase.progressBarClass);
+      UI.ARIAUtils.setProgressBarValue(this._progressBar, nextPhase.progressBarValue, text);
     }
   }
 
@@ -300,12 +309,14 @@ Audits.StatusView.StatusPhases = [
   {
     id: 'loading',
     progressBarClass: 'loading',
+    progressBarValue: 0,
     statusMessagePrefix: 'Loading page',
     order: 10,
   },
   {
     id: 'gathering',
     progressBarClass: 'gathering',
+    progressBarValue: 1,
     message: ls`Lighthouse is gathering information about the page to compute your score.`,
     statusMessagePrefix: 'Gathering',
     order: 20,
@@ -313,6 +324,7 @@ Audits.StatusView.StatusPhases = [
   {
     id: 'auditing',
     progressBarClass: 'auditing',
+    progressBarValue: 2,
     message: ls`Almost there! Lighthouse is now generating your report.`,
     statusMessagePrefix: 'Auditing',
     order: 30,
