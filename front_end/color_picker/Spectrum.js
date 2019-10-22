@@ -71,10 +71,16 @@ ColorPicker.Spectrum = class extends UI.VBox {
     this._hueElement = toolsContainer.createChild('div', 'spectrum-hue');
     this._hueElement.tabIndex = 0;
     this._hueElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionHue.bind(this)));
+    UI.ARIAUtils.setAccessibleName(this._hueElement, ls`Change hue`);
+    UI.ARIAUtils.markAsSlider(this._hueElement, 0, 360);
+    UI.ARIAUtils.setValueNow(this._hueElement, 0);
     this._hueSlider = this._hueElement.createChild('div', 'spectrum-slider');
     this._alphaElement = toolsContainer.createChild('div', 'spectrum-alpha');
     this._alphaElement.tabIndex = 0;
     this._alphaElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionAlpha.bind(this)));
+    UI.ARIAUtils.setAccessibleName(this._alphaElement, ls`Change alpha`);
+    UI.ARIAUtils.markAsSlider(this._alphaElement, 0, 1);
+    UI.ARIAUtils.setValueNow(this._alphaElement, 1);
     this._alphaElementBackground = this._alphaElement.createChild('div', 'spectrum-alpha-background');
     this._alphaSlider = this._alphaElement.createChild('div', 'spectrum-slider');
 
@@ -224,6 +230,8 @@ ColorPicker.Spectrum = class extends UI.VBox {
       const newHue = 1 - positionFraction;
       hsva[0] = Number.constrain(newHue, 0, 1);
       this._innerSetColor(hsva, '', undefined /* colorName */, undefined, ColorPicker.Spectrum._ChangeSource.Other);
+      const colorValues = this._color().canonicalHSLA();
+      UI.ARIAUtils.setValueNow(this._hueElement, colorValues[0]);
     }
 
     /**
@@ -238,6 +246,8 @@ ColorPicker.Spectrum = class extends UI.VBox {
       const newAlpha = Math.round(positionFraction * 100) / 100;
       hsva[3] = Number.constrain(newAlpha, 0, 1);
       this._innerSetColor(hsva, '', undefined /* colorName */, undefined, ColorPicker.Spectrum._ChangeSource.Other);
+      const colorValues = this._color().canonicalHSLA();
+      UI.ARIAUtils.setValueNow(this._alphaElement, colorValues[3]);
     }
 
     /**
