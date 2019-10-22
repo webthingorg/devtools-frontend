@@ -2,7 +2,8 @@
   "dependencies": [
       "workspace",
       "diff",
-      "persistence"
+      "persistence",
+      "formatter"
   ],
   "scripts": [
       "WorkspaceDiff.js"
