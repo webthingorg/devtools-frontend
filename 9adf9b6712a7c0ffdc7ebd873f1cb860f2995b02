@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0908ea35_8ebe07db",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-22T16:35:38Z",
+      "side": 1,
+      "message": "It\u0027s already nullable due to the ? inside of the \u003c\u003e parameter of Promise.",
+      "parentUuid": "67b5910c_59adadac",
+      "range": {
+        "startLine": 1698,
+        "startChar": 13,
+        "endLine": 1698,
+        "endChar": 62
+      },
+      "revId": "9adf9b6712a7c0ffdc7ebd873f1cb860f2995b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6b4636c_a95ac8b5",
         "filename": "front_end/elements/ElementsTreeOutline.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "9adf9b6712a7c0ffdc7ebd873f1cb860f2995b02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d1c333d_dbe79bc5",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1722,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-10-22T16:35:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e6b4636c_a95ac8b5",
+      "range": {
+        "startLine": 1722,
+        "startChar": 48,
+        "endLine": 1722,
+        "endChar": 58
+      },
+      "revId": "9adf9b6712a7c0ffdc7ebd873f1cb860f2995b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
