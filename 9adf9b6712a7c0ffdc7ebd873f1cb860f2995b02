@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "14d86f38_fe39b988",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1715,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-22T17:22:28Z",
+      "side": 1,
+      "message": "nit: comment?",
+      "range": {
+        "startLine": 1715,
+        "startChar": 57,
+        "endLine": 1715,
+        "endChar": 62
+      },
+      "revId": "9adf9b6712a7c0ffdc7ebd873f1cb860f2995b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e6b4636c_a95ac8b5",
         "filename": "front_end/elements/ElementsTreeOutline.js",
         "patchSetId": 2
