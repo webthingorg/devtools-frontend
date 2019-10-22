@@ -243,6 +243,8 @@ export default class OverlayModel extends SDK.SDKModel {
     const showRulers = Common.moduleSetting('showMetricsRulers').get();
     const highlightConfig =
         {showInfo: mode === 'all', showRulers: showRulers, showStyles, showExtensionLines: showRulers};
+    highlightConfig.showDarkTheme = UI.themeSupport.themeName() === 'dark';
+
     if (mode === 'all' || mode === 'content') {
       highlightConfig.contentColor = Common.Color.PageHighlight.Content.toProtocolRGBA();
     }
