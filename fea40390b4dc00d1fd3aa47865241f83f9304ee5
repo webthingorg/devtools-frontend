@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "23c7f4f9_30ac1f41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T10:27:00Z",
+      "side": 1,
+      "message": "Yeah probably should have done this earlier, as some pieces already went into V8. How much details should I add in the issue? Or is basic one liner enough for tracking?",
+      "parentUuid": "54868bd9_2ec7bb69",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2942f7b4_8e1a4534",
         "filename": "front_end/bindings/BlackboxManager.js",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-10-22T07:04:06Z",
       "side": 1,
       "message": "Can you undo the changes to this file? Don\u0027t seem to be necessary.",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "413ee791_7c4ff869",
+        "filename": "front_end/bindings/BlackboxManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T10:27:00Z",
+      "side": 1,
+      "message": "The changes above are necessary, and this one is effect of formatting of touched files.",
+      "parentUuid": "2942f7b4_8e1a4534",
       "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "06d70163_e303cd81",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T10:27:00Z",
+      "side": 1,
+      "message": "Not sure I understand - what should TODO and bug number reference here?",
+      "parentUuid": "07acf3cd_c33ff03b",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16d7a9d9_9a107a1c",
         "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c9cb75d_5059b8f0",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T10:27:00Z",
+      "side": 1,
+      "message": "Ack, good catch. Moved it out to constant but forgot to add here.",
+      "parentUuid": "16d7a9d9_9a107a1c",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "f21b216c_6e8e1412",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T10:27:00Z",
+      "side": 1,
+      "message": "That\u0027s how .editorconfig in frontend is configured, so any touched file will have a newline added, just like `git cl format` formats any modified files. That said, it could be probably easier/useful to just add newlines to all existing files in one sweep. (cc Tim?)",
+      "parentUuid": "97c39511_9d60df7a",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d131e994_909e383e",
         "filename": "front_end/sdk/Script.js",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2019-10-22T07:04:06Z",
       "side": 1,
       "message": "Why do we need the fetch here?",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82db39a2_7e1f6f0c",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T10:27:00Z",
+      "side": 1,
+      "message": "This is a trick which is also the easiest way to convert base64 to binary like ArrayBuffer. As extra benefit, unlike atob + manually converting string to ArrayBuffer afterwards, it\u0027s asynchronous and not blocking the main thread, which is useful for large data blobs like here.",
+      "parentUuid": "d131e994_909e383e",
       "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
