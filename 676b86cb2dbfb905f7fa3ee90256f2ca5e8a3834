@@ -45,6 +45,29 @@
       "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3b71499_ac231469",
+        "filename": "front_end/profiler/CPUProfileFlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-22T18:28:44Z",
+      "side": 1,
+      "message": "Can we avoid this (i.e. not passing units) and always call formatValue?",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 5
+      },
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
