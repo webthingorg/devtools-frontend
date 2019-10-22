@@ -120,7 +120,10 @@ Network.NetworkItemView = class extends UI.TabbedPane {
 
   _maybeAppendInitiatorPanel() {
     const initiator = this._request.initiator();
-    if (initiator && initiator.stack && !this._initiatorView) {
+    const initiatorGraph = SDK.networkLog.initiatorGraphForRequest(this._request);
+    // append the panel if request call stack or request initiator chain exists
+    if (((initiator && initiator.stack) || (initiatorGraph.initiators.size > 1 || initiatorGraph.initiated.size > 1)) &&
+        !this._initiatorView) {
       this._initiatorView = new Network.RequestInitiatorView(this._request);
       this.appendTab(
           Network.NetworkItemView.Tabs.Initiator, ls`Initiator`, this._initiatorView, ls`Request initiator call stack`);

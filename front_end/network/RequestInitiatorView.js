@@ -71,6 +71,48 @@ Network.RequestInitiatorView = class extends UI.VBox {
   }
 
   /**
+   * @param {!SDK.NetworkLog.InitiatorGraph} initiatorGraph
+   * @return {!UI.TreeOutlineInShadow}
+   */
+  _buildRequestChainTree(initiatorGraph) {
+    const root = new UI.TreeOutlineInShadow();
+    const initiators = initiatorGraph.initiators;
+    let parent = root;
+    for (const request of Array.from(initiators).reverse()) {
+      const treeElement = new UI.TreeElement(request.url());
+      parent.appendChild(treeElement);
+      if (parent !== root) {
+        parent.expand();
+      }
+      parent = treeElement;
+    }
+
+    // parent should be this._request tree element now
+    parent.select();
+    parent.titleElement.style.fontWeight = 'bold';
+
+    const initiated = initiatorGraph.initiated;
+    this._depthFirstSearchTreeBuilder(initiated, parent, this._request);
+    return root;
+  }
+
+  /**
+   * @param {!Map<!SDK.NetworkRequest, !SDK.NetworkRequest>} initiated
+   * @param {!UI.TreeElement} parentElement
+   * @param {!SDK.NetworkRequest} parentRequest
+   */
+  _depthFirstSearchTreeBuilder(initiated, parentElement, parentRequest) {
+    for (const request of initiated.keys()) {
+      if (initiated.get(request) === parentRequest) {
+        const treeElement = new UI.TreeElement(request.url());
+        parentElement.appendChild(treeElement);
+        parentElement.expand();
+        this._depthFirstSearchTreeBuilder(initiated, treeElement, request);
+      }
+    }
+  }
+
+  /**
    * @override
    */
   wasShown() {
@@ -81,6 +123,15 @@ Network.RequestInitiatorView = class extends UI.VBox {
         Network.RequestInitiatorView.createStackTracePreview(this._request, this._linkifier, true);
     if (this._stackTracePreview) {
       this._appendExpandableSection(this._stackTracePreview.element, ls`Request call stack`, true);
+    }
+
+    if (this._initiatorGraph) {
+      return;
+    }
+    this._initiatorGraph = SDK.networkLog.initiatorGraphForRequest(this._request);
+    if (this._initiatorGraph.initiators.size > 1 || this._initiatorGraph.initiated.size > 1) {
+      this._appendExpandableSection(
+          this._buildRequestChainTree(this._initiatorGraph).element, ls`Request initiator chain`, true);
     }
   }
 };
