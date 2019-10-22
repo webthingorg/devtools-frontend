@@ -196,9 +196,18 @@ MobileThrottling.ThrottlingSettingsTab = class extends UI.VBox {
      * @return {!UI.ListWidget.ValidatorResult}
      */
     function titleValidator(item, index, input) {
+      const maxLength = 50;
       const value = input.value.trim();
-      const valid = value.length > 0 && value.length < 50;
-      return {valid};
+      let errorMessage;
+      if (!value.length) {
+        errorMessage = ls`Profile name cannot be empty`;
+      } else if (value.length > maxLength) {
+        errorMessage = ls`Profile name must be less than ${maxLength} characters`;
+      }
+      if (errorMessage) {
+        return {valid: false, errorMessage};
+      }
+      return {valid: true};
     }
 
     /**
@@ -208,9 +217,27 @@ MobileThrottling.ThrottlingSettingsTab = class extends UI.VBox {
      * @return {!UI.ListWidget.ValidatorResult}
      */
     function throughputValidator(item, index, input) {
+      const minThroughput = 0;
+      const maxThroughput = 10000000;
       const value = input.value.trim();
-      const valid = !value || (/^[\d]+(\.\d+)?|\.\d+$/.test(value) && value >= 0 && value <= 10000000);
-      return {valid};
+      const parsedValue = Number(value);
+
+      if (!value) {
+        return {valid: true};
+      }
+
+      let errorMessage;
+      if (Number.isNaN(parsedValue)) {
+        errorMessage = ls`Throughput must be a number`;
+      } else if (value < minThroughput) {
+        errorMessage = ls`Throughput must be greater than or equal to ${minThroughput}`;
+      } else if (value > maxThroughput) {
+        errorMessage = ls`Throughput must be less than or equal to ${maxThroughput}`;
+      }
+      if (errorMessage) {
+        return {valid: false, errorMessage};
+      }
+      return {valid: true};
     }
 
     /**
@@ -220,9 +247,27 @@ MobileThrottling.ThrottlingSettingsTab = class extends UI.VBox {
      * @return {!UI.ListWidget.ValidatorResult}
      */
     function latencyValidator(item, index, input) {
+      const minLatency = 0;
+      const maxLatency = 10000000;
       const value = input.value.trim();
-      const valid = !value || (/^[\d]+$/.test(value) && value >= 0 && value <= 1000000);
-      return {valid};
+      const parsedValue = Number(value);
+
+      if (!value) {
+        return {valid: true};
+      }
+
+      let errorMessage;
+      if (!Number.isInteger(parsedValue)) {
+        errorMessage = ls`Latency must be an integer`;
+      } else if (value < minLatency) {
+        errorMessage = ls`Latency must be greater than or equal to ${minLatency}`;
+      } else if (value > maxLatency) {
+        errorMessage = ls`Latency must be less than or equal to ${maxLatency}`;
+      }
+      if (errorMessage) {
+        return {valid: false, errorMessage};
+      }
+      return {valid: true};
     }
   }
 };
