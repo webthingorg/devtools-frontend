@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54868bd9_2ec7bb69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2019-10-22T07:04:06Z",
+      "side": 1,
+      "message": "Please file a crbug and include a Bug: line here, so we can track things properly later.",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2942f7b4_8e1a4534",
+        "filename": "front_end/bindings/BlackboxManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2019-10-22T07:04:06Z",
+      "side": 1,
+      "message": "Can you undo the changes to this file? Don\u0027t seem to be necessary.",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07acf3cd_c33ff03b",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2019-10-22T07:04:06Z",
+      "side": 1,
+      "message": "Can you leave a TODO with the bug number here.",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16d7a9d9_9a107a1c",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2019-10-22T07:04:06Z",
+      "side": 1,
+      "message": "Nit: Use WasmSourceMap.FAKE_URL here?",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c39511_9d60df7a",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2019-10-22T07:04:06Z",
+      "side": 1,
+      "message": "You seem to be adding newlines in .js files?",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d131e994_909e383e",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2019-10-22T07:04:06Z",
+      "side": 1,
+      "message": "Why do we need the fetch here?",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
