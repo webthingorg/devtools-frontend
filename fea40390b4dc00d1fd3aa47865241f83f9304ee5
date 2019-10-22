@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "96b9c3e7_ff1b5978",
+        "filename": "front_end/bindings/BlackboxManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T12:23:09Z",
+      "side": 1,
+      "message": "Like in other one, resolving here assuming this comment is about a newline.",
+      "parentUuid": "413ee791_7c4ff869",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07acf3cd_c33ff03b",
         "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
         "patchSetId": 1
@@ -142,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "554c67d5_74c5289a",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T12:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9cb75d_5059b8f0",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97c39511_9d60df7a",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 1
@@ -192,6 +228,24 @@
       "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "404b33a5_775ed2b3",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T12:23:09Z",
+      "side": 1,
+      "message": "I\u0027ll mark this as resolved here as this is a non-issue.",
+      "parentUuid": "33054007_afa05923",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
