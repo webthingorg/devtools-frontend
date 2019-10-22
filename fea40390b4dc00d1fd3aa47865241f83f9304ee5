@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "161c5c20_d87e6dee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-22T14:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23c7f4f9_30ac1f41",
+      "revId": "fea40390b4dc00d1fd3aa47865241f83f9304ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2942f7b4_8e1a4534",
         "filename": "front_end/bindings/BlackboxManager.js",
         "patchSetId": 1
