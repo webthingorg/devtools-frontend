@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67b5910c_59adadac",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-10-22T15:57:58Z",
+      "side": 1,
+      "message": "Since we can now return null for the promise, does this need to be updated?",
+      "range": {
+        "startLine": 1698,
+        "startChar": 13,
+        "endLine": 1698,
+        "endChar": 62
+      },
+      "revId": "9adf9b6712a7c0ffdc7ebd873f1cb860f2995b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6b4636c_a95ac8b5",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1722,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-10-22T15:57:58Z",
+      "side": 1,
+      "message": "nit: while we are here, can we add param comments on these?",
+      "range": {
+        "startLine": 1722,
+        "startChar": 48,
+        "endLine": 1722,
+        "endChar": 58
+      },
+      "revId": "9adf9b6712a7c0ffdc7ebd873f1cb860f2995b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
