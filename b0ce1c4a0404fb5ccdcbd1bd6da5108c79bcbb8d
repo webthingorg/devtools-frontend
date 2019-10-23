@@ -46,6 +46,30 @@
       "revId": "b0ce1c4a0404fb5ccdcbd1bd6da5108c79bcbb8d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5a3bbdf_df46f321",
+        "filename": "front_end/source_frame/SourcesTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T23:12:56Z",
+      "side": 1,
+      "message": "Thanks for clarifying.",
+      "parentUuid": "308d5932_792b7b87",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 48
+      },
+      "revId": "b0ce1c4a0404fb5ccdcbd1bd6da5108c79bcbb8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
