@@ -22,6 +22,30 @@
       "revId": "28c66f1df4dc2b1c75ae701e271c444cba3319df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54990349_81987de1",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T20:54:10Z",
+      "side": 1,
+      "message": "Originally, it would just lose focus.  After this change, the \"Search\" toggle toolbar button will gain focus after the sidebar is closed via the [Esc] key or close button.",
+      "parentUuid": "7b531efa_420069d2",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 7
+      },
+      "revId": "28c66f1df4dc2b1c75ae701e271c444cba3319df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
