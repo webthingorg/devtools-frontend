@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b531efa_420069d2",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-10-23T18:25:27Z",
+      "side": 1,
+      "message": "what happens with this case (pressing escape key with search tab open)?",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 7
+      },
+      "revId": "28c66f1df4dc2b1c75ae701e271c444cba3319df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
