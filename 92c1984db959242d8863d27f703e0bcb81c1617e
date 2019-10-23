@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61022b0a_e4287edc",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T20:32:22Z",
+      "side": 1,
+      "message": "How about we add something like this to DataGrid?\n  /**\n   * @param {boolean} focusable\n   */\n  setFocusable(focusable) {\n    this.element.tabIndex \u003d focusable ? 0 : -1;\n  }",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 56
+      },
+      "revId": "92c1984db959242d8863d27f703e0bcb81c1617e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
