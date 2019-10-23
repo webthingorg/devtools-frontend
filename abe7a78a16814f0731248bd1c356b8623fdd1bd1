@@ -34,6 +34,24 @@
       "revId": "abe7a78a16814f0731248bd1c356b8623fdd1bd1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f6f166_33c32097",
+        "filename": "front_end/sdk/wasm_source_map/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-23T18:11:58Z",
+      "side": 1,
+      "message": "I\u0027ve added a LICENSES.deps file and a command to reproduce as requested.",
+      "parentUuid": "32a2b0bd_91a67144",
+      "revId": "abe7a78a16814f0731248bd1c356b8623fdd1bd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
