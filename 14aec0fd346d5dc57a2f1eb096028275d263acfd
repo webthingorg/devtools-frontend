@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d72f98d0_0915d109",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T16:21:38Z",
+      "side": 1,
+      "message": "This is an expensive call. I tried it locally and if you use the arrow key to cycle through the network requests, you can tell. \n\nDo you need to build the entire graph?\n\nAlso, we should only create the graph if needed.",
+      "range": {
+        "startLine": 123,
+        "startChar": 42,
+        "endLine": 123,
+        "endChar": 66
+      },
+      "revId": "14aec0fd346d5dc57a2f1eb096028275d263acfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f767689d_dfc637b5",
+        "filename": "front_end/network/RequestInitiatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T16:21:38Z",
+      "side": 1,
+      "message": "This encountered an exception caused by this recursing to the maximum stack size. I was testing on cnn.com at the time.",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 30
+      },
+      "revId": "14aec0fd346d5dc57a2f1eb096028275d263acfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
