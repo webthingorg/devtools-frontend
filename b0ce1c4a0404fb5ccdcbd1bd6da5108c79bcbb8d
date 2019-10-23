@@ -22,6 +22,30 @@
       "revId": "b0ce1c4a0404fb5ccdcbd1bd6da5108c79bcbb8d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "308d5932_792b7b87",
+        "filename": "front_end/source_frame/SourcesTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T20:52:12Z",
+      "side": 1,
+      "message": "We can\u0027t set infobars as an alert individually because a view with multiple infobars will only read the last infobar.  This is because each following infobar will interrupt the previous infobar\u0027s announcement.  I solved this by placing all infobars into a div and setting the div as an alert.",
+      "parentUuid": "a9540cd5_cb0c245b",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 48
+      },
+      "revId": "b0ce1c4a0404fb5ccdcbd1bd6da5108c79bcbb8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
