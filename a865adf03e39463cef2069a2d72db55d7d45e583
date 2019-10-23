@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80e1e910_9018434d",
+        "filename": ".npmignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-23T08:16:53Z",
+      "side": 1,
+      "message": "The files in third_party and v8 are required for building. I guess these are not interesting for users who consume via npm?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "a865adf03e39463cef2069a2d72db55d7d45e583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
