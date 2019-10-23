@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "781add11_ef4ce258",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T23:23:28Z",
+      "side": 1,
+      "message": "Can we make this required, so that we can avoid conditional checks on calculator?",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 57
+      },
+      "revId": "2c191b439dc2fb5735108f0a5460621daf9a9f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4787294a_5982aab2",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T23:23:28Z",
+      "side": 1,
+      "message": "nit: windowPosition",
+      "range": {
+        "startLine": 459,
+        "startChar": 8,
+        "endLine": 459,
+        "endChar": 18
+      },
+      "revId": "2c191b439dc2fb5735108f0a5460621daf9a9f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b5be5cc_6a6fcfa5",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T23:23:28Z",
+      "side": 1,
+      "message": "(100 * left).toFixed(2) ?",
+      "range": {
+        "startLine": 482,
+        "startChar": 38,
+        "endLine": 482,
+        "endChar": 50
+      },
+      "revId": "2c191b439dc2fb5735108f0a5460621daf9a9f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
