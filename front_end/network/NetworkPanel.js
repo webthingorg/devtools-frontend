@@ -104,9 +104,8 @@ Network.NetworkPanel = class extends UI.Panel {
       splitWidget.hideSidebar();
       event.consume();
     });
-    const closeSidebar = new UI.ToolbarButton(Common.UIString('Close'), 'largeicon-delete');
-    closeSidebar.addEventListener(UI.ToolbarButton.Events.Click, () => splitWidget.hideSidebar());
-    tabbedPane.rightToolbar().appendToolbarItem(closeSidebar);
+    this._closeSidebar = new UI.ToolbarButton(Common.UIString('Close'), 'largeicon-delete');
+    tabbedPane.rightToolbar().appendToolbarItem(this._closeSidebar);
     splitWidget.setSidebarWidget(tabbedPane);
     splitWidget.setMainWidget(panel);
     splitWidget.setDefaultFocusedChild(panel);
@@ -211,6 +210,10 @@ Network.NetworkPanel = class extends UI.Panel {
       } else {
         splitWidget.hideSidebar();
       }
+    });
+    this._closeSidebar.addEventListener(UI.ToolbarButton.Events.Click, () => {
+      splitWidget.hideSidebar();
+      searchToggle.element.focus();
     });
     this._panelToolbar.appendToolbarItem(searchToggle);
     this._panelToolbar.appendSeparator();
