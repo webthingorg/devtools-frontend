@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ff007af_6926ccc1",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T15:41:59Z",
+      "side": 1,
+      "message": "This should be a string.",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "6118d9bd1182aaabc30d764737114b1473b55310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8784e1ad_eb24309f",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-23T15:41:59Z",
+      "side": 1,
+      "message": "Move this down to where it\u0027s set.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 22
+      },
+      "revId": "6118d9bd1182aaabc30d764737114b1473b55310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
