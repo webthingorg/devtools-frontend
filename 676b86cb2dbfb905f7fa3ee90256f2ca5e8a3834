@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b8204ffc_9216de2b",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19a6d1db_5d5f0dee",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75c62334_cdf5c6df",
         "filename": "front_end/perf_ui/OverviewGrid.js",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec4a5b31_b57f1a53",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T17:35:49Z",
+      "side": 1,
+      "message": "Removed this from code.",
+      "parentUuid": "75c62334_cdf5c6df",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cd772f34_6a278271",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "027ef3d7_7e8cf998",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85c715e0_5fa68633",
         "filename": "front_end/perf_ui/OverviewGrid.js",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7f6a64e_dcb8f7db",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85c715e0_5fa68633",
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "6720c529_88d0a917",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T17:35:49Z",
+      "side": 1,
+      "message": "Changing to Number(...) for clarity",
+      "parentUuid": "9bf3d362_44634792",
+      "range": {
+        "startLine": 491,
+        "startChar": 41,
+        "endLine": 491,
+        "endChar": 42
+      },
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59ec7d20_19456428",
         "filename": "front_end/perf_ui/OverviewGrid.js",
         "patchSetId": 1
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "56010478_ac3f9e07",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T17:35:49Z",
+      "side": 1,
+      "message": "Changing to Number(...) for clarity",
+      "parentUuid": "59ec7d20_19456428",
+      "range": {
+        "startLine": 492,
+        "startChar": 42,
+        "endLine": 492,
+        "endChar": 43
+      },
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3b71499_ac231469",
         "filename": "front_end/profiler/CPUProfileFlameChart.js",
         "patchSetId": 1
@@ -160,6 +280,30 @@
       "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9201fef6_db61af4b",
+        "filename": "front_end/profiler/CPUProfileFlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-23T17:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3b71499_ac231469",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 5
+      },
+      "revId": "676b86cb2dbfb905f7fa3ee90256f2ca5e8a3834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
