@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cee7416_d59c22cc",
+        "filename": "front_end/sdk/wasm_source_map/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2019-10-23T08:55:14Z",
+      "side": 1,
+      "message": "What about the license situation here? Especially, do we have the rights to bundle and distribute the generated binary code here?",
+      "revId": "abe7a78a16814f0731248bd1c356b8623fdd1bd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
