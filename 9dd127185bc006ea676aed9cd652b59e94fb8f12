@@ -46,6 +46,30 @@
       "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "310913c3_c9a319f7",
+        "filename": "front_end/audits_worker/AuditsService.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-10-24T20:16:18Z",
+      "side": 1,
+      "message": "LH will be in one language and DT in another. We\u0027ll need to define the story, but based on the DT locale we can change the LH locale.",
+      "parentUuid": "50ff48ac_fd6b199a",
+      "range": {
+        "startLine": 135,
+        "startChar": 8,
+        "endLine": 135,
+        "endChar": 51
+      },
+      "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
