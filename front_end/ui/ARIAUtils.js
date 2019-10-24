@@ -218,6 +218,14 @@ export function markAsPoliteLiveRegion(element) {
 
 /**
  * @param {!Element} element
+ * @return {boolean}
+ */
+UI.ARIAUtils.hasRole = function(element) {
+  return element.hasAttribute('role');
+};
+
+/**
+ * @param {!Element} element
  * @param {?string} placeholder
  */
 export function setPlaceholder(element, placeholder) {
