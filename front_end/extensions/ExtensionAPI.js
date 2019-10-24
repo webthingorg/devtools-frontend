@@ -649,6 +649,16 @@ self.injectedExtensionAPI = function(
   let forwardTimer = null;
 
   function forwardKeyboardEvent(event) {
+    // Check if the event should be forwarded.
+    // This is a workaround for crbug.com/923338.
+    const focused = document.activeElement;
+    if (focused) {
+      const isInput = focused.nodeName === 'INPUT' || focused.nodeName === 'TEXTAREA';
+      if (isInput && !(event.ctrlKey || event.altKey || event.metaKey)) {
+        return;
+      }
+    }
+
     let modifiers = 0;
     if (event.shiftKey) {
       modifiers |= 1;
