@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c66fa997_050f0a06",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-24T16:19:35Z",
+      "side": 1,
+      "message": "It is possible to make it required here, but it has to be optional in the OverviewGrid.Window because the Layers Profile Pane Overview Grid doesn\u0027t have or need a calculator (goes from 0-100 and doesn\u0027t need to format values).  I\u0027ll probably leave it optional here as well since making it required here doesn\u0027t remove any of the checks and allows developers to access all the container functions on a unitless overview grid.",
+      "parentUuid": "781add11_ef4ce258",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 57
+      },
+      "revId": "2c191b439dc2fb5735108f0a5460621daf9a9f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4787294a_5982aab2",
         "filename": "front_end/perf_ui/OverviewGrid.js",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2019-10-23T23:23:28Z",
       "side": 1,
       "message": "(100 * left).toFixed(2) ?",
+      "range": {
+        "startLine": 482,
+        "startChar": 38,
+        "endLine": 482,
+        "endChar": 50
+      },
+      "revId": "2c191b439dc2fb5735108f0a5460621daf9a9f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724d9763_c5ac51aa",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-10-24T16:19:35Z",
+      "side": 1,
+      "message": "Rob didn\u0027t like that I rounded it here since I was just going to make it into a percent: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1873138/1/front_end/perf_ui/OverviewGrid.js#482\n\nI ended up moving it into the _updateResizeElementPositionValue function",
+      "parentUuid": "0b5be5cc_6a6fcfa5",
       "range": {
         "startLine": 482,
         "startChar": 38,
