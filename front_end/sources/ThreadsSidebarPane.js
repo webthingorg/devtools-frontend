@@ -108,6 +108,16 @@ Sources.ThreadsSidebarPane = class extends UI.VBox {
 
   /**
    * @override
+   * @param {?Element} fromElement
+   * @param {?Element} toElement
+   * @return {boolean}
+   */
+  updateSelectedItemARIA(fromElement, toElement) {
+    return false;
+  }
+
+  /**
+   * @override
    * @param {!SDK.DebuggerModel} debuggerModel
    */
   modelAdded(debuggerModel) {
@@ -116,6 +126,16 @@ Sources.ThreadsSidebarPane = class extends UI.VBox {
     if (currentTarget === debuggerModel.target()) {
       this._list.selectItem(debuggerModel);
     }
+  }
+
+  /**
+   * @override
+   * @param {?Element} fromElement
+   * @param {?Element} toElement
+   * @return {boolean}
+   */
+  updateSelectedItemARIA(fromElement, toElement) {
+    return false;
   }
 
   /**
