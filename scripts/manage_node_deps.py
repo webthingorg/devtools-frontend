@@ -75,10 +75,31 @@ def strip_private_fields():
     return False
 
 
+def remove_package_json_entries():
+    with open(devtools_paths.package_json_path(), 'r+') as pkg_file:
+        try:
+            pkg_data = json.load(pkg_file)
+
+            # Remove the dependencies and devDependencies from the root package.json
+            # so that they can't be used to overwrite the node_modules managed by this file.
+            for key in pkg_data.keys():
+                if key.find(u'dependencies') == 0 or key.find(u'devDependencies') == 0:
+                    pkg_data.pop(key)
+
+            pkg_file.truncate(0)
+            pkg_file.seek(0)
+            json.dump(pkg_data, pkg_file, indent=2, sort_keys=True)
+        except:
+            print('Unable to fix: %s' % pkg)
+            return True
+    return False
+
+
+
 def install_deps():
     clean_node_modules()
 
-    exec_command = ['npm', 'install', '--no-save']
+    exec_command = ['npm', 'install', '--save-dev']
     for pkg, version in DEPS.items():
         exec_command.append('%s@%s' % (pkg, version))
 
@@ -92,6 +113,10 @@ def install_deps():
         return True
 
     errors_found = strip_private_fields()
+    if errors_found:
+        return True
+
+    errors_found = remove_package_json_entries()
     return errors_found
 
 
