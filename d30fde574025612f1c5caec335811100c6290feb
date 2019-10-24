@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47bc2078_aa8ca4ec",
+        "filename": "scripts/deps/roll_to_chromium.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-24T11:35:41Z",
+      "side": 1,
+      "message": "nit: I don\u0027t understand \"from\" in this context. That sound like this script will change the DEPS that come from chrome and into devtools. But the code seems to update devtools in chrome.",
+      "range": {
+        "startLine": 5,
+        "startChar": 40,
+        "endLine": 5,
+        "endChar": 53
+      },
+      "revId": "d30fde574025612f1c5caec335811100c6290feb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e85b741e_b925904c",
+        "filename": "scripts/deps/roll_to_chromium.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-24T11:35:41Z",
+      "side": 1,
+      "message": "nit: 80 char and some more below.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 110
+      },
+      "revId": "d30fde574025612f1c5caec335811100c6290feb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
