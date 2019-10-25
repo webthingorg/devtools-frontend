@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "a42f4663_b6f34904",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-25T13:49:18Z",
+      "side": 1,
+      "message": "nit: Here we usually use \"\"\". Was this a correct-all?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d57dacf0_0236df87",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-25T13:49:18Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 7
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ee21f7c_55615826",
+        "filename": "scripts/build/special_case_namespaces.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-25T13:49:18Z",
+      "side": 1,
+      "message": "nit: New file - current year?",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "150bbd28_5ff373cb",
         "filename": "scripts/build/special_case_namespaces.py",
         "patchSetId": 3
@@ -13,6 +82,98 @@
       "writtenOn": "2019-10-25T13:32:07Z",
       "side": 1,
       "message": "nit: long line \nI know the majority of this work is just moving files, but maybe this change is an opportunity to follow the formatting guidelines?",
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95bdddb5_164d561f",
+        "filename": "scripts/compile_frontend.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-25T13:49:18Z",
+      "side": 1,
+      "message": "nit: Is this name not misleading? Or, if this name is adequate, then the surrounding script\u0027s name should be changed too IMO.",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d38ae80_76b2f19d",
+        "filename": "scripts/test/run_lint_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-25T13:49:18Z",
+      "side": 1,
+      "message": "nit: This looked simpler before.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79907fe6_f6466b37",
+        "filename": "scripts/test/run_lint_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-25T13:49:18Z",
+      "side": 1,
+      "message": "Let\u0027s maybe in some other CL curate the tab size down to 2-space as in other python files.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 4
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3439b328_acb11e36",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-10-25T13:49:18Z",
+      "side": 1,
+      "message": "New file - compact copyright header? Or do you want to treat it as a move of the old file?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 53
+      },
       "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
