@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3260847_902710eb",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-25T21:35:03Z",
+      "side": 1,
+      "message": "Let\u0027s create a new method on SDK.networkLog that quickly checks if the request is part of another requests chain.",
+      "range": {
+        "startLine": 130,
+        "startChar": 29,
+        "endLine": 130,
+        "endChar": 68
+      },
+      "revId": "3d99fdb3f2a8f657587f0cb096b8b42f6a62ea39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
