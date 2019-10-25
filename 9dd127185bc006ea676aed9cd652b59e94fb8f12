@@ -70,6 +70,53 @@
       "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7331b21_37ff9710",
+        "filename": "front_end/audits_worker/AuditsService.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-25T21:22:19Z",
+      "side": 1,
+      "message": "I imagine when we introduce i18n/locales.js for the DevTools, we will use it to determine the DT locale, then we\u0027ll use that to lookup the LH locale? Does that sound reasonable?\n\nIf so, I wonder if we should create method that mimics this? Or we could hold off on adding this change until we land the i18n work.",
+      "parentUuid": "310913c3_c9a319f7",
+      "range": {
+        "startLine": 135,
+        "startChar": 8,
+        "endLine": 135,
+        "endChar": 51
+      },
+      "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c2686f0_85a4d432",
+        "filename": "front_end/audits_worker/AuditsService.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-25T21:22:19Z",
+      "side": 1,
+      "message": "If the locale is en-US, we shouldn\u0027t fetch anything, right?",
+      "range": {
+        "startLine": 136,
+        "startChar": 8,
+        "endLine": 136,
+        "endChar": 117
+      },
+      "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
