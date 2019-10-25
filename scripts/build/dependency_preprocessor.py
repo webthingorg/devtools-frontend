@@ -23,7 +23,9 @@ try:
 except ImportError:
     import json
 
-special_case_namespaces_path = path.join(path.dirname(path.abspath(__file__)), 'special_case_namespaces.json')
+type_check_mappings_path = path.join(path.dirname(path.abspath(__file__)), 'type_check_mappings.json')
+with open(type_check_mappings_path) as json_file:
+    type_check_mappings = json.load(json_file)
 
 
 class DependencyPreprocessor(object):
@@ -34,8 +36,8 @@ class DependencyPreprocessor(object):
         self.module_descriptors = descriptors.modules
         self.modules = set(self.descriptors.sorted_modules())
         shutil.copytree(devtools_frontend_path, self.temp_frontend_path)
-        with open(special_case_namespaces_path) as json_file:
-            self._special_case_namespaces = json.load(json_file)
+        with open(type_check_mappings_path) as json_file:
+            self._type_check_mappings = type_check_mappings
 
     def enforce_dependencies(self):
         arg_list = []
@@ -55,7 +57,7 @@ class DependencyPreprocessor(object):
         parallelize(poison_module, arg_list)
 
     def _map_module_to_namespace(self, module):
-        return self._special_case_namespaces.get(module, self._to_camel_case(module))
+        return self._type_check_mappings.get(module, self._to_camel_case(module))
 
     def _to_camel_case(self, snake_string):
         components = snake_string.split('_')
