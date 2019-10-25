@@ -241,6 +241,7 @@ export class _ExpandableContainerWidget extends UI.VBox {
     this.contentElement.createChild('slot');
     this._view = view;
     view[UI.ViewManager._ExpandableContainerWidget._symbol] = this;
+    this.setDefaultFocusedElement(this._titleElement);
   }
 
   /**
