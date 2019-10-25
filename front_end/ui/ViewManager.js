@@ -233,6 +233,7 @@ export class _ExpandableContainerWidget extends UI.VBox {
     const titleText = view.title();
     this._titleElement.createTextChild(titleText);
     UI.ARIAUtils.setAccessibleName(this._titleElement, titleText);
+    UI.ARIAUtils.setExpanded(this._titleElement, false);
     this._titleElement.tabIndex = 0;
     this._titleElement.addEventListener('click', this._toggleExpanded.bind(this), false);
     this._titleElement.addEventListener('keydown', this._onTitleKeyDown.bind(this), false);
