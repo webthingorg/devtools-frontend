@@ -41,7 +41,7 @@ var AuditsService = class {  // eslint-disable-line
   /**
    * @return {!Promise<!ReportRenderer.RunnerResult>}
    */
-  start(params) {
+  async start(params) {
     if (Root.Runtime.queryParam('isUnderTest')) {
       this._disableLoggingForTest();
       params.flags.maxWaitForLoad = 2 * 1000;
@@ -50,6 +50,8 @@ var AuditsService = class {  // eslint-disable-line
     self.listenForStatus(message => {
       this.statusUpdate(message[1]);
     });
+
+    await this._requestAndRegisterLocaleData(params);
 
     return Promise.resolve()
         .then(_ => self.runLighthouseInWorker(this, params.url, params.flags, params.categoryIDs))
@@ -121,6 +123,32 @@ var AuditsService = class {  // eslint-disable-line
 
   _disableLoggingForTest() {
     console.log = () => undefined;  // eslint-disable-line no-console
+  }
+
+  async _requestAndRegisterLocaleData(params) {
+    const locale = Root.Runtime.queryParam('locale');
+    if (locale && locale !== 'en-US') {
+      let localizedStrings;
+      // request the locale file
+      try {
+        const lhLocale = this._getLighthouseLocale(locale);
+        const data = await self.runtime.module('audits_worker').fetchResource(`lighthouse/locales/${lhLocale}.json`);
+        if (data && data !== '') {
+          localizedStrings = JSON.parse(data);
+        }
+      } catch (e) {
+        console.error(e.message);
+      }
+      if (localizedStrings) {
+        self.registerLocaleData(locale, localizedStrings);
+        params.flags['locale'] = locale;
+      }
+    }
+  }
+
+  async _getLighthouseLocale(locale) {
+    // convert DevTools locale to lighthouse locale
+    return self.lookupLocale(locale);
   }
 };
 
