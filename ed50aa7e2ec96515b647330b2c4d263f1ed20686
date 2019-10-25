@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "462321ca_120a2f18",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-25T15:52:13Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the only call site - this simply makes Promise propagate error properly upstream, and moves previous error handling to that callsite. This was necessary because there are now two different implementors of SDK.SourceMap and they should have consistent error handling. The actual runtime behaviour hasn\u0027t changed.",
+      "parentUuid": "995a7ca9_4ccd3225",
+      "range": {
+        "startLine": 229,
+        "startChar": 10,
+        "endLine": 230,
+        "endChar": 24
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd7fb6cc_5531717d",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 10
@@ -45,6 +69,30 @@
       "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da44a8d_e2f0a89a",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-25T15:52:13Z",
+      "side": 1,
+      "message": "This class uses `@implements` for an interface, which also needs an `@override` notation for implemented methods.",
+      "parentUuid": "cd7fb6cc_5531717d",
+      "range": {
+        "startLine": 662,
+        "startChar": 5,
+        "endLine": 662,
+        "endChar": 14
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e559ecb7_daf7a786",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-25T15:52:13Z",
+      "side": 1,
+      "message": "Yes - this reveals issue in reported V8 locations where in some places line number is set to a non-zero value, but `columnNumber` still correctly points to an absolute bytecode offset. This means our code still works fine, but I think it\u0027s still useful to have an internal warning to see when this is happening until it\u0027s fixed.\n\nThe location refactoring is tracked separately in https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1013527.",
+      "parentUuid": "d1542abf_052b50f7",
+      "range": {
+        "startLine": 712,
+        "startChar": 5,
+        "endLine": 712,
+        "endChar": 63
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7769500_095c327e",
         "filename": "front_end/sdk/wasm_source_map/README",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2019-10-25T15:23:13Z",
       "side": 1,
       "message": "nit: build",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 19
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf6e5b9a_472b668e",
+        "filename": "front_end/sdk/wasm_source_map/README",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-10-25T15:52:13Z",
+      "side": 1,
+      "message": "I meant `built` as in past tense of a verb rather than noun (short for `pre-built`). Do you think it\u0027s worth changing?",
+      "parentUuid": "e7769500_095c327e",
       "range": {
         "startLine": 6,
         "startChar": 14,
