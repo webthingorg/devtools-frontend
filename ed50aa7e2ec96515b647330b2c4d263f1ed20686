@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "995a7ca9_4ccd3225",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-25T15:23:13Z",
+      "side": 1,
+      "message": "What are the consequences of this rejection? DevTools currently has the policy of never throwing/rejecting except if it thinks that the error is non-recoverable and DevTools must be closed anyway.\n\nMy concern here is that this will make DevTools on sites with sourceMaps that can\u0027t be loaded unusable. I see that you modified the call site below, is that the only call site?",
+      "range": {
+        "startLine": 229,
+        "startChar": 10,
+        "endLine": 230,
+        "endChar": 24
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7fb6cc_5531717d",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-25T15:23:13Z",
+      "side": 1,
+      "message": "I\u0027m confused: Why is there an override here, but no extends above?",
+      "range": {
+        "startLine": 662,
+        "startChar": 5,
+        "endLine": 662,
+        "endChar": 14
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1542abf_052b50f7",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-25T15:23:13Z",
+      "side": 1,
+      "message": "Did you deliberately not return null or undefined here?",
+      "range": {
+        "startLine": 712,
+        "startChar": 5,
+        "endLine": 712,
+        "endChar": 63
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7769500_095c327e",
+        "filename": "front_end/sdk/wasm_source_map/README",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-25T15:23:13Z",
+      "side": 1,
+      "message": "nit: build",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 19
+      },
+      "revId": "ed50aa7e2ec96515b647330b2c4d263f1ed20686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
