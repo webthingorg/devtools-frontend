@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "150bbd28_5ff373cb",
+        "filename": "scripts/build/special_case_namespaces.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-10-25T13:32:07Z",
+      "side": 1,
+      "message": "nit: long line \nI know the majority of this work is just moving files, but maybe this change is an opportunity to follow the formatting guidelines?",
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
