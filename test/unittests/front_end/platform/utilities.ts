@@ -279,4 +279,8 @@ describe('Utilities', () => {
       }
     }
   });
+
+  it('break', () => {
+    assert.isTrue(false);
+  });
 });
