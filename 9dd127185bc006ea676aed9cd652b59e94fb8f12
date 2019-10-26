@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "882bedf9_52f0d36e",
+        "filename": "front_end/audits_worker/AuditsService.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-10-26T00:02:05Z",
+      "side": 1,
+      "message": "I extracted the call into a _getLighthouseLocale function. I think it makes more sense to determine the locale once i18n works.",
+      "parentUuid": "a7331b21_37ff9710",
+      "range": {
+        "startLine": 135,
+        "startChar": 8,
+        "endLine": 135,
+        "endChar": 51
+      },
+      "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c2686f0_85a4d432",
         "filename": "front_end/audits_worker/AuditsService.js",
         "patchSetId": 1
@@ -117,6 +141,30 @@
       "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e2d26a8_244bcf71",
+        "filename": "front_end/audits_worker/AuditsService.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-10-26T00:02:05Z",
+      "side": 1,
+      "message": "Good catch, added a condition to guard that.",
+      "parentUuid": "6c2686f0_85a4d432",
+      "range": {
+        "startLine": 136,
+        "startChar": 8,
+        "endLine": 136,
+        "endChar": 117
+      },
+      "revId": "9dd127185bc006ea676aed9cd652b59e94fb8f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
