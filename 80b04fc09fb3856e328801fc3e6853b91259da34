@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1de05f06_cc594cdb",
+        "filename": "front_end/network/NetworkLogViewColumns.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-28T22:39:32Z",
+      "side": 1,
+      "message": "Where is this called?",
+      "range": {
+        "startLine": 271,
+        "startChar": 2,
+        "endLine": 271,
+        "endChar": 11
+      },
+      "revId": "80b04fc09fb3856e328801fc3e6853b91259da34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
