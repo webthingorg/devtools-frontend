@@ -138,7 +138,7 @@ Coverage.CoverageView = class extends UI.VBox {
     const enable = !this._toggleRecordAction.toggled();
 
     if (enable) {
-      this._startRecording(false);
+      this._startRecording({reload: false, jsCoveragePerBlock: false});
     } else {
       this.stopRecording();
     }
@@ -148,25 +148,30 @@ Coverage.CoverageView = class extends UI.VBox {
     const enable = !this._toggleRecordAction.toggled();
 
     if (enable) {
-      await this._startRecording(false);
+      await this._startRecording({reload: false, jsCoveragePerBlock: false});
     }
   }
 
   /**
-   * @param {boolean} reload
+   * @param {?{reload: (boolean|undefined), jsCoveragePerBlock: (boolean|undefined)}} options - a collection of options controlling the appearance of the pane.
+   *   The options object can have the following properties:
+   *   - **reload** - `{boolean}` - Reload page for coverage recording
+   *   - **jsCoveragePerBlock** - `{boolean}` - Collect per Block coverage if `true`, per function coverage otherwise.
    */
-  async _startRecording(reload) {
+  async _startRecording(options) {
     this._reset();
     const mainTarget = SDK.targetManager.mainTarget();
     if (!mainTarget) {
       return;
     }
 
+    const {reload, jsCoveragePerBlock} = options || {};
+
     if (!this._model || reload) {
       this._model = mainTarget.model(Coverage.CoverageModel);
     }
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.CoverageStarted);
-    const success = await this._model.start();
+    const success = await this._model.start(jsCoveragePerBlock === true);
     if (!success) {
       return;
     }
@@ -345,7 +350,7 @@ Coverage.CoverageView.ActionDelegate = class {
         coverageView._toggleRecording();
         break;
       case 'coverage.start-with-reload':
-        coverageView._startRecording(true);
+        coverageView._startRecording({reload: true, jsCoveragePerBlock: false});
         break;
       default:
         console.assert(false, `Unknown action: ${actionId}`);
