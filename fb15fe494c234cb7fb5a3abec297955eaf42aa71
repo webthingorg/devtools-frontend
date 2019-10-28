@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1ecfc8f_31b0f466",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a42f4663_b6f34904",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d57dacf0_0236df87",
         "filename": "PRESUBMIT.py",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a3af38_745b5638",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d57dacf0_0236df87",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 7
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cc522c19_5f1f5cc2",
+        "filename": "scripts/build/special_case_namespaces.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ee21f7c_55615826",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "150bbd28_5ff373cb",
         "filename": "scripts/build/special_case_namespaces.py",
         "patchSetId": 3
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "aaff73df_56ba6be8",
+        "filename": "scripts/build/special_case_namespaces.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "git cl format --python enforces this formatting. I know that there is a 80-char limit because Chromium apparently uses PEP 8. But as long as tooling does something else, I\u0027m hesitant to apply formatting styles manually.",
+      "parentUuid": "150bbd28_5ff373cb",
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95bdddb5_164d561f",
         "filename": "scripts/compile_frontend.py",
         "patchSetId": 3
@@ -99,6 +189,30 @@
       "writtenOn": "2019-10-25T13:49:18Z",
       "side": 1,
       "message": "nit: Is this name not misleading? Or, if this name is adequate, then the surrounding script\u0027s name should be changed too IMO.",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3178a3db_3642a999",
+        "filename": "scripts/compile_frontend.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "compile_frontend is misleading. That\u0027s why I\u0027m moving and also renaming this. Infra scripts currently refer to compile_frontend, so we cannot remove it just yet.",
+      "parentUuid": "95bdddb5_164d561f",
       "range": {
         "startLine": 30,
         "startChar": 17,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "920376db_caa67b35",
+        "filename": "scripts/test/run_lint_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "Yes, because we are importing devtools_paths from the parent directory.",
+      "parentUuid": "3d38ae80_76b2f19d",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79907fe6_f6466b37",
         "filename": "scripts/test/run_lint_check.py",
         "patchSetId": 3
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "1c4eeb47_58d562b2",
+        "filename": "scripts/test/run_lint_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79907fe6_f6466b37",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 4
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3439b328_acb11e36",
         "filename": "scripts/test/run_type_check.py",
         "patchSetId": 3
@@ -168,6 +330,30 @@
       "writtenOn": "2019-10-25T13:49:18Z",
       "side": 1,
       "message": "New file - compact copyright header? Or do you want to treat it as a move of the old file?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 53
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c6babe7_b40d41df",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T07:33:39Z",
+      "side": 1,
+      "message": "This is rather a move than a new file.",
+      "parentUuid": "3439b328_acb11e36",
       "range": {
         "startLine": 1,
         "startChar": 0,
