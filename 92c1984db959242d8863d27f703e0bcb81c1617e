@@ -22,6 +22,30 @@
       "revId": "92c1984db959242d8863d27f703e0bcb81c1617e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9139372_341bd8f3",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1334577
+      },
+      "writtenOn": "2019-10-28T19:09:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "61022b0a_e4287edc",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 56
+      },
+      "revId": "92c1984db959242d8863d27f703e0bcb81c1617e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
