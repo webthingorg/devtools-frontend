@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a20c0986_f1d62fa8",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-28T20:30:01Z",
+      "side": 1,
+      "message": "nit: extra line",
+      "revId": "a36584313cdb753df16adcd22c1030d25eb41a21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
