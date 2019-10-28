@@ -31,7 +31,7 @@
 /**
  * @unrestricted
  */
-FormatterWorker.JavaScriptFormatter = class {
+export class JavaScriptFormatter {
   /**
    * @param {!FormatterWorker.FormattedContentBuilder} builder
    */
@@ -373,4 +373,13 @@ FormatterWorker.JavaScriptFormatter = class {
     }
     return '';
   }
-};
+}
+
+/* Legacy exported object */
+self.FormatterWorker = self.FormatterWorker || {};
+
+/* Legacy exported object */
+FormatterWorker = FormatterWorker || {};
+
+/** @constructor */
+FormatterWorker.JavaScriptFormatter = JavaScriptFormatter;

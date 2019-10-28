@@ -1,5 +1,6 @@
 {
-    "scripts": [
+    "scripts": [],
+    "modules": [
         "headlesscodemirror.js"
     ],
     "skip_compilation": [
