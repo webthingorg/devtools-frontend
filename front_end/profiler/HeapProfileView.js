@@ -333,7 +333,7 @@ Profiler.SamplingHeapProfileTypeBase = class extends Profiler.ProfileType {
   }
 
   /**
-   * return {!Promise<!Protocol.HeapProfiler.SamplingHeapProfile>}
+   * @return {!Promise<!Protocol.HeapProfiler.SamplingHeapProfile>}
    */
   _stopSampling() {
     throw 'Not implemented';
@@ -387,7 +387,7 @@ Profiler.SamplingHeapProfileType = class extends Profiler.SamplingHeapProfileTyp
 
   /**
    * @override
-   * return {!Promise<!Protocol.HeapProfiler.SamplingHeapProfile>}
+   * @return {!Promise<!Protocol.HeapProfiler.SamplingHeapProfile>}
    */
   _stopSampling() {
     clearTimeout(this._updateTimer);
@@ -446,7 +446,7 @@ Profiler.SamplingNativeHeapProfileType = class extends Profiler.SamplingHeapProf
 
   /**
    * @override
-   * return {!Promise<!Protocol.HeapProfiler.SamplingHeapProfile>}
+   * @return {!Promise<!Protocol.HeapProfiler.SamplingHeapProfile>}
    */
   _stopSampling() {
     return this.profileBeingRecorded().heapProfilerModel().stopNativeSampling();

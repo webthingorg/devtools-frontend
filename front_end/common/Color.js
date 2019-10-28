@@ -180,7 +180,7 @@ export default class Color {
 
   /**
    * @param {string} value
-   * return {number}
+   * @return {number}
    */
   static _parsePercentOrNumber(value) {
     if (isNaN(value.replace('%', ''))) {
@@ -199,7 +199,7 @@ export default class Color {
 
   /**
    * @param {string} value
-   * return {number}
+   * @return {number}
    */
   static _parseRgbNumeric(value) {
     const parsed = Color._parsePercentOrNumber(value);
@@ -215,7 +215,7 @@ export default class Color {
 
   /**
    * @param {string} value
-   * return {number}
+   * @return {number}
    */
   static _parseHueNumeric(value) {
     const angle = value.replace(/(deg|g?rad|turn)$/, '');
@@ -236,7 +236,7 @@ export default class Color {
 
   /**
    * @param {string} value
-   * return {number}
+   * @return {number}
    */
   static _parseSatLightNumeric(value) {
     if (value.indexOf('%') !== value.length - 1 || isNaN(value.replace('%', ''))) {
@@ -248,7 +248,7 @@ export default class Color {
 
   /**
    * @param {string} value
-   * return {number}
+   * @return {number}
    */
   static _parseAlphaNumeric(value) {
     return Color._parsePercentOrNumber(value);
