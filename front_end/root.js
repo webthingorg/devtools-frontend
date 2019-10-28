@@ -19,3 +19,7 @@ import './persistence/persistence.js';
 import './browser_sdk/browser_sdk.js';
 import './extensions/extensions.js';
 import './console_counters/console_counters.js';
+import './text_utils/text_utils.js';
+
+// TODO(crbug.com/1006759): This should be lazy-loaded instead.
+import './heap_snapshot_model/heap_snapshot_model.js';

@@ -263,6 +263,10 @@ common_closure_args = [
 GENERATED_SKIP_COMPILATION_FILES = [
     'SupportedCSSProperties.js',
     'InspectorBackendCommands.js',
+    'formatter_worker/acorn/acorn.js',
+    'formatter_worker/acorn/acorn_loose.js',
+    'cm_web_modes/css.js',
+    'cm_web_modes/xml.js',
 ]
 
 
