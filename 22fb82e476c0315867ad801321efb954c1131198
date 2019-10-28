@@ -22,6 +22,30 @@
       "revId": "22fb82e476c0315867ad801321efb954c1131198",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0149d2c1_9489f551",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-28T12:12:10Z",
+      "side": 1,
+      "message": "Right, removed, thanks!",
+      "parentUuid": "01f345e7_9b28faf4",
+      "range": {
+        "startLine": 74,
+        "startChar": 64,
+        "endLine": 74,
+        "endChar": 91
+      },
+      "revId": "22fb82e476c0315867ad801321efb954c1131198",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
