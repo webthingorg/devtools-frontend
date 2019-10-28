@@ -25,7 +25,7 @@ module.exports = function(config) {
 
     preprocessors: {
       './test/unittests/**/*.ts': ['karma-typescript'],
-      './front_end/common/*.js': ['karma-coverage-istanbul-instrumenter']
+      './front_end/**/*.js': ['karma-coverage-istanbul-instrumenter']
     },
 
     browsers: ['ChromeHeadless'],
