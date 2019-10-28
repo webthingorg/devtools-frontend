@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e006e12_feb965e4",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-28T16:56:13Z",
+      "side": 1,
+      "message": "Rob, Amanda, can you confirm that this is has been reviewed and is the preferred approach for this?",
+      "range": {
+        "startLine": 490,
+        "startChar": 0,
+        "endLine": 501,
+        "endChar": 3
+      },
+      "revId": "14ce217f9fdcc45278875c82e0e6e42e72cce80c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
