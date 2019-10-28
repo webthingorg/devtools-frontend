@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d9358ee_7fbcc625",
+        "filename": "scripts/lint_javascript.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-10-28T20:52:37Z",
+      "side": 1,
+      "message": "I assume this is to fix the same type of issue described here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1883723",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "79731dbf2c77a3d141d8b18efcf0c3ba0355d53f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
