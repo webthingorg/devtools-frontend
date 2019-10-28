@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01f345e7_9b28faf4",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T11:52:22Z",
+      "side": 1,
+      "message": "Do we really need this, when jsCoveragePerBlock is already typed to boolean?",
+      "range": {
+        "startLine": 74,
+        "startChar": 64,
+        "endLine": 74,
+        "endChar": 91
+      },
+      "revId": "22fb82e476c0315867ad801321efb954c1131198",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
