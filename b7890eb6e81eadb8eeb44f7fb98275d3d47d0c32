@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6d5cb1d_a0db7509",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-28T16:50:58Z",
+      "side": 1,
+      "message": "Comment",
+      "range": {
+        "startLine": 628,
+        "startChar": 108,
+        "endLine": 628,
+        "endChar": 112
+      },
+      "revId": "b7890eb6e81eadb8eeb44f7fb98275d3d47d0c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c662d03_d85f04f0",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1411,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-28T16:50:58Z",
+      "side": 1,
+      "message": "Extra line",
+      "revId": "b7890eb6e81eadb8eeb44f7fb98275d3d47d0c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
