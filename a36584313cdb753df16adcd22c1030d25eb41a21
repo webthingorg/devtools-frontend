@@ -16,6 +16,24 @@
       "revId": "a36584313cdb753df16adcd22c1030d25eb41a21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d739d1c_00a5c724",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1330653
+      },
+      "writtenOn": "2019-10-28T22:18:16Z",
+      "side": 1,
+      "message": "Presubmit said it wants one and only one newline at the end of file, so I added it to make it happy",
+      "parentUuid": "a20c0986_f1d62fa8",
+      "revId": "a36584313cdb753df16adcd22c1030d25eb41a21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
