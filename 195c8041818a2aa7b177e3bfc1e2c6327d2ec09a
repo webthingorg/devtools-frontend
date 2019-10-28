@@ -46,6 +46,30 @@
       "revId": "195c8041818a2aa7b177e3bfc1e2c6327d2ec09a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92124289_14ba9d84",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T08:59:49Z",
+      "side": 1,
+      "message": "Yeah. Once infra switches to directly use scripts/test/run_type_check.py, we can remove compile_frontend.py",
+      "parentUuid": "495ee95c_94fdfa36",
+      "range": {
+        "startLine": 1819,
+        "startChar": 15,
+        "endLine": 1819,
+        "endChar": 34
+      },
+      "revId": "195c8041818a2aa7b177e3bfc1e2c6327d2ec09a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
