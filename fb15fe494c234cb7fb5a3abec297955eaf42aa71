@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "a91ff3e5_444efaab",
+        "filename": "scripts/compile_frontend.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-10-28T08:49:53Z",
+      "side": 1,
+      "message": "The path infra should be using is the new scripts/test/run_type_check.py",
+      "parentUuid": "9af86bb8_67b5cd8c",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "fb15fe494c234cb7fb5a3abec297955eaf42aa71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d38ae80_76b2f19d",
         "filename": "scripts/test/run_lint_check.py",
         "patchSetId": 3
