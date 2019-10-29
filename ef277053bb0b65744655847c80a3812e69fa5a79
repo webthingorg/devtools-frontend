@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59fbce7e_fc3c6ef4",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-10-29T22:23:31Z",
+      "side": 1,
+      "message": "Can you use [\u0027-a\u0027] as the args when calling _checkWithNodeScript instead (see how \u0027--autofix\u0027 is passed in _CheckDevtoolsLocalizableResources)? Otherwise it might be confusing as \u0027-a\u0027 is not an affected file.",
+      "range": {
+        "startLine": 112,
+        "startChar": 8,
+        "endLine": 112,
+        "endChar": 41
+      },
+      "revId": "ef277053bb0b65744655847c80a3812e69fa5a79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
