@@ -22,6 +22,30 @@
       "revId": "f814ca9791fcbdfda5eb18f8109c88541dc68323",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90033faf_dfe53a06",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-10-29T23:57:40Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "37eeeab3_ce6c90f6",
+      "range": {
+        "startLine": 841,
+        "startChar": 40,
+        "endLine": 841,
+        "endChar": 54
+      },
+      "revId": "f814ca9791fcbdfda5eb18f8109c88541dc68323",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
