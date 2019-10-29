@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3c66d35_3c83ba87",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2019-10-29T09:10:43Z",
+      "side": 1,
+      "message": "Unreleated change, but I don\u0027t know what the policy is about things such as this.",
+      "revId": "011f2a74ce85064771427510718946dd2be154f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
