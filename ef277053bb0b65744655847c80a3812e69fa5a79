@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5145965c_4c3fa3cb",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-10-29T23:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2ccce2a_1fbb2c33",
+      "range": {
+        "startLine": 97,
+        "startChar": 62,
+        "endLine": 97,
+        "endChar": 78
+      },
+      "revId": "ef277053bb0b65744655847c80a3812e69fa5a79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5196348f_b2bb4cc2",
         "filename": "PRESUBMIT.py",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-29T22:28:34Z",
       "side": 1,
       "message": "Maybe organize this so we don\u0027t call any of these function if check_all_files is True. Same comment for _CheckDevtoolsLocalization.\n\nif check_all_files \u003d\u003d False:\n    devtools_root \u003d input_api.PresubmitLocalPath()\n    devtools_front_end \u003d input_api.os_path.join(devtools_root, \u0027front_end\u0027)\n    affected_front_end_files \u003d _getAffectedFiles(input_api, [devtools_front_end], [], [\u0027.js\u0027, \u0027module.json\u0027, \u0027.grd\u0027, \u0027.grdp\u0027])\n    if len(affected_front_end_files) \u003d\u003d 0:\n        return []\n...",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 17
+      },
+      "revId": "ef277053bb0b65744655847c80a3812e69fa5a79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4949940_316d791e",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-10-29T23:07:01Z",
+      "side": 1,
+      "message": "This will save a couple of cycles for commit but will decrease readability. As most of the code is shared and this will only impact on commit are you ok leaving it like this?",
+      "parentUuid": "5196348f_b2bb4cc2",
       "range": {
         "startLine": 98,
         "startChar": 4,
@@ -68,6 +116,30 @@
       "revId": "ef277053bb0b65744655847c80a3812e69fa5a79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "480b7a64_95d5cbe2",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-10-29T23:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59fbce7e_fc3c6ef4",
+      "range": {
+        "startLine": 112,
+        "startChar": 8,
+        "endLine": 112,
+        "endChar": 41
+      },
+      "revId": "ef277053bb0b65744655847c80a3812e69fa5a79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
