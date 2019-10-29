@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "667ab28a_4cb8430a",
+        "filename": "karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-10-29T16:00:18Z",
+      "side": 1,
+      "message": "Doesn\u0027t this take a long, long time to run? I\u0027d rather add to this incrementally for now.",
+      "revId": "f06bb86726adefa17300c6af619c13ef6268e64c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db36bf06_c4eb2922",
+        "filename": "test/unittests/front_end/ui/Fragment.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-10-29T16:00:18Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure there\u0027s a fragment find function (denoted with fragment.$) but I don\u0027t see any tests for that here?",
+      "revId": "f06bb86726adefa17300c6af619c13ef6268e64c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
