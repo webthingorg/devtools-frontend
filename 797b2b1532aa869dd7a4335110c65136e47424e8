@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "832c771a_7d846355",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-29T09:44:22Z",
+      "side": 1,
+      "message": "Nit: What do you think about keeping the no-selection css class private to the datagrid by moving this into a method there?",
+      "range": {
+        "startLine": 2077,
+        "startChar": 6,
+        "endLine": 2077,
+        "endChar": 61
+      },
+      "revId": "797b2b1532aa869dd7a4335110c65136e47424e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "102099a6_af1d26da",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-29T09:44:22Z",
+      "side": 1,
+      "message": "Nit: Why did you add a border for .data-grid but remove it here?",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "797b2b1532aa869dd7a4335110c65136e47424e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
