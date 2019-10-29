@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f8b730f_8cab4684",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-10-29T13:45:54Z",
+      "side": 1,
+      "message": "Can we put this in a separate file so that we have a better overview of all the checks we do?",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 31
+      },
+      "revId": "d9098a4085d96664f54b648a488afed93e757bc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fc82141_7a830052",
+        "filename": "front_end/css_overview/cssOverviewCompletedView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-10-29T13:45:54Z",
+      "side": 1,
+      "message": "Nit: extract css variable for this.",
+      "range": {
+        "startLine": 96,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 15
+      },
+      "revId": "d9098a4085d96664f54b648a488afed93e757bc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
