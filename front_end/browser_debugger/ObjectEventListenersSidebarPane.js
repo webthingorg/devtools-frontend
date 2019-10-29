@@ -14,7 +14,17 @@ BrowserDebugger.ObjectEventListenersSidebarPane = class extends UI.VBox {
 
     this._eventListenersView = new EventListeners.EventListenersView(this.update.bind(this));
     this._eventListenersView.show(this.element);
-    this.setDefaultFocusedChild(this._eventListenersView);
+  }
+
+  /**
+   * @override
+   */
+  focus() {
+    if (this._eventListenersView.isEmpty()) {
+      this.parentWidget().focus();
+    } else {
+      this._eventListenersView.focus();
+    }
   }
 
   /**

@@ -27,7 +27,6 @@ EventListeners.EventListenersView = class extends UI.VBox {
     this.element.appendChild(this._treeOutline.element);
     this._emptyHolder = createElementWithClass('div', 'gray-info-message');
     this._emptyHolder.textContent = Common.UIString('No event listeners');
-    this._emptyHolder.tabIndex = -1;
     this._linkifier = new Components.Linkifier();
     /** @type {!Map<string, !EventListeners.EventListenersTreeElement>} */
     this._treeItemMap = new Map();
@@ -37,11 +36,16 @@ EventListeners.EventListenersView = class extends UI.VBox {
    * @override
    */
   focus() {
-    if (!this._emptyHolder.parentNode) {
+    if (!this.isEmpty()) {
       this._treeOutline.forceSelect();
-    } else {
-      this._emptyHolder.focus();
     }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isEmpty() {
+    return this._treeOutline.rootElement().childCount() === 0;
   }
 
   /**
