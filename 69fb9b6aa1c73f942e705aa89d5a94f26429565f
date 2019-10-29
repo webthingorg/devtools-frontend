@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c67ad009_3ed699b8",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-10-29T18:01:45Z",
+      "side": 1,
+      "message": "\u0027altGlyph\u0027 is not lowercased in the set.",
+      "revId": "69fb9b6aa1c73f942e705aa89d5a94f26429565f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
