@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ef8dd18_336ef315",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-10-29T15:30:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "832c771a_7d846355",
+      "range": {
+        "startLine": 2077,
+        "startChar": 6,
+        "endLine": 2077,
+        "endChar": 61
+      },
+      "revId": "797b2b1532aa869dd7a4335110c65136e47424e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "102099a6_af1d26da",
         "filename": "front_end/network/networkLogView.css",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "797b2b1532aa869dd7a4335110c65136e47424e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "453bb843_06e57e64",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-10-29T15:30:41Z",
+      "side": 1,
+      "message": "Because of the waterfall column. The datagrid in the network tool actually doesn\u0027t contain the waterfall canvas, so adding a border to the grid looks really odd, as it splits out the waterfall column. The follow up change to the network tool addresses this by adding a border around the div that contains both the datagrid and waterfall",
+      "parentUuid": "102099a6_af1d26da",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "797b2b1532aa869dd7a4335110c65136e47424e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
