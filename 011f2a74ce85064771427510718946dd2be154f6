@@ -34,6 +34,24 @@
       "revId": "011f2a74ce85064771427510718946dd2be154f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66ef0c7c_633232bd",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2019-10-29T12:11:40Z",
+      "side": 1,
+      "message": "Thanks for the clarification!",
+      "parentUuid": "03e345c9_9a785828",
+      "revId": "011f2a74ce85064771427510718946dd2be154f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
