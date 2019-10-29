@@ -94,22 +94,28 @@ def _CheckFormat(input_api, output_api):
     ]
 
 
-def _CheckDevtoolsLocalizableResources(input_api, output_api):  # pylint: disable=invalid-name
+def _CheckDevtoolsLocalizableResources(input_api, output_api, verify_all_files=False):  # pylint: disable=invalid-name
     devtools_root = input_api.PresubmitLocalPath()
     devtools_front_end = input_api.os_path.join(devtools_root, 'front_end')
     affected_front_end_files = _getAffectedFiles(input_api, [devtools_front_end], [], ['.js', 'module.json', '.grd', '.grdp'])
-    if len(affected_front_end_files) == 0:
+    if len(affected_front_end_files) == 0 and verify_all_files == False:
         return []
     script_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'check_localizable_resources.js')
     args = ['--autofix']
     return _checkWithNodeScript(input_api, output_api, script_path, args)
 
 
-def _CheckDevtoolsLocalization(input_api, output_api):  # pylint: disable=invalid-name
+def _CheckDevtoolsLocalization(input_api, output_api, verify_all_files=False):  # pylint: disable=invalid-name
     devtools_root = input_api.PresubmitLocalPath()
     devtools_front_end = input_api.os_path.join(devtools_root, 'front_end')
-    affected_front_end_files = _getAffectedFiles(input_api, [devtools_front_end], ['D'], ['.js', '.grdp'])
-    if len(affected_front_end_files) == 0:
+    file_suffix_verification = ['.js', '.grdp']
+    args = []
+    if verify_all_files == True:
+        affected_front_end_files = ['-a']
+    else:
+        affected_front_end_files = _getAffectedFiles(input_api, [devtools_front_end], ['D'], file_suffix_verification)
+
+    if len(affected_front_end_files) == 0 and verify_all_files == False:
         return []
     script_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'check_localizability.js')
     return _checkWithNodeScript(input_api, output_api, script_path, affected_front_end_files)
@@ -173,8 +179,6 @@ def _CommonChecks(input_api, output_api):
     results.extend(input_api.canned_checks.CheckChangeHasNoCrAndHasOnlyOneEol(input_api, output_api))
     results.extend(input_api.canned_checks.CheckChangeHasNoStrayWhitespace(input_api, output_api))
     results.extend(input_api.canned_checks.CheckGenderNeutral(input_api, output_api))
-    results.extend(_CheckDevtoolsLocalizableResources(input_api, output_api))
-    results.extend(_CheckDevtoolsLocalization(input_api, output_api))
     return results
 
 
@@ -186,12 +190,16 @@ def CheckChangeOnUpload(input_api, output_api):
     results.extend(_CheckDevtoolsStyle(input_api, output_api))
     results.extend(_CheckOptimizeSVGHashes(input_api, output_api))
     results.extend(_CheckCSSViolations(input_api, output_api))
+    results.extend(_CheckDevtoolsLocalizableResources(input_api, output_api))
+    results.extend(_CheckDevtoolsLocalization(input_api, output_api))
     return results
 
 
 def CheckChangeOnCommit(input_api, output_api):
     results = []
     results.extend(_CommonChecks(input_api, output_api))
+    results.extend(_CheckDevtoolsLocalizableResources(input_api, output_api, True))
+    results.extend(_CheckDevtoolsLocalization(input_api, output_api, True))
     results.extend(input_api.canned_checks.CheckChangeHasDescription(input_api, output_api))
     return results
 
