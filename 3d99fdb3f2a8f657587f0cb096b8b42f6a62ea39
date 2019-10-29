@@ -46,6 +46,30 @@
       "revId": "3d99fdb3f2a8f657587f0cb096b8b42f6a62ea39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34a413f3_0db76435",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-29T17:58:30Z",
+      "side": 1,
+      "message": "Seems reasonable since most resources will have an initiator.",
+      "parentUuid": "d787d84f_cb221595",
+      "range": {
+        "startLine": 130,
+        "startChar": 29,
+        "endLine": 130,
+        "endChar": 68
+      },
+      "revId": "3d99fdb3f2a8f657587f0cb096b8b42f6a62ea39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
