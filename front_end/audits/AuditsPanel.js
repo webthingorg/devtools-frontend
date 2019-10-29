@@ -67,7 +67,9 @@ Audits.AuditsPanel = class extends UI.Panel {
   }
 
   _renderToolbar() {
-    const toolbar = new UI.Toolbar('', this.element);
+    const auditsToolbarContainer = this.element.createChild('div', 'audits-toolbar-container');
+
+    const toolbar = new UI.Toolbar('', auditsToolbarContainer);
 
     this._newButton = new UI.ToolbarButton(Common.UIString('Perform an audit\u2026'), 'largeicon-add');
     toolbar.appendToolbarItem(this._newButton);
@@ -82,7 +84,38 @@ Audits.AuditsPanel = class extends UI.Panel {
     toolbar.appendToolbarItem(this._clearButton);
     this._clearButton.addEventListener(UI.ToolbarButton.Events.Click, this._clearAll.bind(this));
 
+    this._settingsPane = new UI.HBox();
+    this._settingsPane.show(this.contentElement);
+    this._settingsPane.element.classList.add('audits-settings-pane');
+    this._showSettingsPaneSetting = Common.settings.createSetting('auditsShowSettingsToolbar', false);
+
+    this._rightToolbar = new UI.Toolbar('', auditsToolbarContainer);
+    this._rightToolbar.appendSeparator();
+    this._rightToolbar.appendToolbarItem(
+      new UI.ToolbarSettingToggle(this._showSettingsPaneSetting, 'largeicon-settings-gear', ls`Audits settings`));
+    this._showSettingsPaneSetting.addChangeListener(this._updateSettingsPaneVisibility.bind(this));
+    this._updateSettingsPaneVisibility();
+
     this._refreshToolbarUI();
+  }
+
+  _updateSettingsPaneVisibility() {
+    this._settingsPane.element.classList.toggle('hidden', !this._showSettingsPaneSetting.get());
+  }
+
+  /**
+   * @param {UI.Toolbar=} toolbar
+   */
+  _setSettingsPane(toolbar) {
+    if (toolbar) {
+      this._rightToolbar.element.classList.toggle('hidden', false);
+      this._settingsPane.element.appendChild(toolbar.element);
+    } else {
+      this._rightToolbar.element.classList.toggle('hidden', true);
+      for (const child of this._settingsPane.element.children) {
+        child.remove();
+      }
+    }
   }
 
   _renderStartView() {
@@ -93,6 +126,7 @@ Audits.AuditsPanel = class extends UI.Panel {
     this.contentElement.classList.toggle('in-progress', false);
 
     this._startView.show(this.contentElement);
+    this._setSettingsPane(this._startView.settingsToolbar());
     this._startView.setUnauditableExplanation(this._unauditableExplanation);
     this._startView.setStartButtonEnabled(!this._unauditableExplanation);
     if (!this._unauditableExplanation) {
@@ -129,6 +163,7 @@ Audits.AuditsPanel = class extends UI.Panel {
    * @param {!ReportRenderer.RunnerResultArtifacts=} artifacts
    */
   _renderReport(lighthouseResult, artifacts) {
+    this._setSettingsPane(null);
     this.contentElement.classList.toggle('in-progress', false);
     this._startView.hideWidget();
     this._statusView.hide();

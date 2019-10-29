@@ -241,6 +241,13 @@ Audits.Presets = [
     title: ls`SEO`,
     description: ls`Is this page optimized for search engine results ranking`
   },
+  // {
+  //   setting: Common.settings.createSetting('audits.cat_gas', false),
+  //   plugin: true,
+  //   configID: 'google-ads-speed',
+  //   title: ls`Google Ads Speed`, // TODO do not i18n?
+  //   description: ls`TODO`
+  // },
 ];
 
 /** @typedef {{setting: !Common.Setting, description: string, setFlags: function(!Object, string), options: (!Array|undefined), title: (string|undefined)}} */
@@ -261,36 +268,14 @@ Audits.RuntimeSettings = [
     ],
   },
   {
-    setting: Common.settings.createSetting('audits.throttling', 'default'),
+    // This setting is disabled, but we keep it around to show in the UI.
+    setting: Common.settings.createSetting('audits.throttling', true),
+    title: ls`Simulated throttling`,
+    disabled: true,
+    learnMore: 'https://www.example.com',
     setFlags: (flags, value) => {
-      switch (value) {
-        case 'devtools':
-          flags.throttlingMethod = 'devtools';
-          break;
-        case 'off':
-          flags.throttlingMethod = 'provided';
-          break;
-        default:
-          flags.throttlingMethod = 'simulate';
-      }
+      flags.throttlingMethod = 'simulate';
     },
-    options: [
-      {
-        label: ls`Simulated Slow 4G, 4x CPU Slowdown`,
-        value: 'default',
-        title: ls`Throttling is simulated, resulting in faster audit runs with similar measurement accuracy`
-      },
-      {
-        label: ls`Applied Slow 4G, 4x CPU Slowdown`,
-        value: 'devtools',
-        title: ls`Typical DevTools throttling, with actual traffic shaping and CPU slowdown applied`
-      },
-      {
-        label: ls`No throttling`,
-        value: 'off',
-        title: ls`No network or CPU throttling used. (Useful when not evaluating performance)`
-      },
-    ],
   },
   {
     setting: Common.settings.createSetting('audits.clear_storage', true),
