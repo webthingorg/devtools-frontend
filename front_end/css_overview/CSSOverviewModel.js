@@ -19,10 +19,6 @@ CssOverview.CSSOverviewModel = class extends SDK.SDKModel {
     this._overlayAgent = target.overlayAgent();
   }
 
-  getFlattenedDocument() {
-    return this._domAgent.getFlattenedDocument(-1, true);
-  }
-
   highlightNode(node) {
     const highlightConfig = {contentColor: Common.Color.PageHighlight.Content.toProtocolRGBA(), showInfo: true};
 
@@ -37,11 +33,30 @@ CssOverview.CSSOverviewModel = class extends SDK.SDKModel {
     const borderColors = new Map();
     const fontSizes = new Map();
     const fontWeights = new Map();
+    const unusedRules = [];
     const snapshotConfig = {
       computedStyles: [
-        'background-color', 'color', 'fill', 'border-top-width', 'border-top-color', 'border-bottom-width',
-        'border-bottom-color', 'border-left-width', 'border-left-color', 'border-right-width', 'border-right-color',
-        'font-size', 'font-weight'
+        'background-color',
+        'color',
+        'fill',
+        'border-top-width',
+        'border-top-color',
+        'border-bottom-width',
+        'border-bottom-color',
+        'border-left-width',
+        'border-left-color',
+        'border-right-width',
+        'border-right-color',
+        'font-size',
+        'font-weight',
+        'position',
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'display',
+        'width',
+        'height'
       ]
     };
 
@@ -75,16 +90,19 @@ CssOverview.CSSOverviewModel = class extends SDK.SDKModel {
       return validNodes.indexOf(nodeName) !== -1;
     };
 
+    let elementCount = 0;
     const {documents, strings} = await this._domSnapshotAgent.invoke_captureSnapshot(snapshotConfig);
     for (const {nodes, layout} of documents) {
+      // Track the number of elements in the documents.
+      elementCount += layout.nodeIndex.length;
+
       for (let idx = 0; idx < layout.styles.length; idx++) {
         const styles = layout.styles[idx];
         const nodeIdx = layout.nodeIndex[idx];
         const nodeId = nodes.backendNodeId[nodeIdx];
         const nodeName = nodes.nodeName[nodeIdx];
 
-        const [backgroundColorIdx, textColorIdx, fillIdx, borderTopWidthIdx, borderTopColorIdx, borderBottomWidthIdx, borderBottomColorIdx, borderLeftWidthIdx, borderLeftColorIdx, borderRightWidthIdx, borderRightColorIdx, fontSizeIdx, fontWeightIdx] =
-            styles;
+        const [backgroundColorIdx, textColorIdx, fillIdx, borderTopWidthIdx, borderTopColorIdx, borderBottomWidthIdx, borderBottomColorIdx, borderLeftWidthIdx, borderLeftColorIdx, borderRightWidthIdx, borderRightColorIdx, fontSizeIdx, fontWeightIdx, positionIdx, topIdx, rightIdx, bottomIdx, leftIdx, displayIdx, widthIdx, heightIdx] = styles;
 
         storeColor(backgroundColorIdx, nodeId, backgroundColors);
         storeColor(textColorIdx, nodeId, textColors);
@@ -120,10 +138,74 @@ CssOverview.CSSOverviewModel = class extends SDK.SDKModel {
           const fontWeightInstances = (fontWeights.get(fontWeight) || 0) + 1;
           fontWeights.set(fontWeight, fontWeightInstances);
         }
+
+        this._checkForUnusedPositionValues(
+            unusedRules, nodeId, strings, positionIdx, topIdx, leftIdx, rightIdx, bottomIdx);
+        this._checkForUnusedWidthAndHeightValues(unusedRules, nodeId, strings, displayIdx, widthIdx, heightIdx);
       }
     }
 
-    return {backgroundColors, textColors, fillColors, borderColors, fontSizes, fontWeights};
+    return {backgroundColors, textColors, fillColors, borderColors, fontSizes, fontWeights, unusedRules, elementCount};
+  }
+
+  _checkForUnusedPositionValues(unusedRules, nodeId, strings, positionIdx, topIdx, leftIdx, rightIdx, bottomIdx) {
+    if (strings[positionIdx] !== 'static') {
+      return;
+    }
+
+    if (strings[topIdx] !== 'auto') {
+      unusedRules.push({
+        reason: ls`Top applied to a statically positioned element`,
+        rule: `top: ${strings[topIdx]}`,
+        nodeId,
+      });
+    }
+
+    if (strings[leftIdx] !== 'auto') {
+      unusedRules.push({
+        reason: ls`Left applied to a statically positioned element`,
+        rule: `left: ${strings[leftIdx]}`,
+        nodeId,
+      });
+    }
+
+    if (strings[rightIdx] !== 'auto') {
+      unusedRules.push({
+        reason: ls`Right applied to a statically positioned element`,
+        rule: `right: ${strings[rightIdx]}`,
+        nodeId,
+      });
+    }
+
+    if (strings[bottomIdx] !== 'auto') {
+      unusedRules.push({
+        reason: ls`Bottom applied to a statically positioned element`,
+        rule: `bottom: ${strings[bottomIdx]}`,
+        nodeId,
+      });
+    }
+  }
+
+  _checkForUnusedWidthAndHeightValues(unusedRules, nodeId, strings, displayIdx, widthIdx, heightIdx) {
+    if (strings[displayIdx] !== 'inline') {
+      return;
+    }
+
+    if (strings[widthIdx] !== 'auto') {
+      unusedRules.push({
+        reason: `Width applied to an inline element`,
+        rule: `width: ${strings[widthIdx]}`,
+        nodeId,
+      });
+    }
+
+    if (strings[heightIdx] !== 'auto') {
+      unusedRules.push({
+        reason: `Height applied to an inline element`,
+        rule: `height: ${strings[heightIdx]}`,
+        nodeId,
+      });
+    }
   }
 
   getComputedStyleForNode(nodeId) {
