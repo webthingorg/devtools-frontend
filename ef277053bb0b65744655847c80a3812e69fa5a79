@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "e2ccce2a_1fbb2c33",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-29T22:28:34Z",
+      "side": 1,
+      "message": "To keep the terminology consistent, use check in stead off verify (i.e. check_all_files).",
+      "range": {
+        "startLine": 97,
+        "startChar": 62,
+        "endLine": 97,
+        "endChar": 78
+      },
+      "revId": "ef277053bb0b65744655847c80a3812e69fa5a79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5196348f_b2bb4cc2",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-29T22:28:34Z",
+      "side": 1,
+      "message": "Maybe organize this so we don\u0027t call any of these function if check_all_files is True. Same comment for _CheckDevtoolsLocalization.\n\nif check_all_files \u003d\u003d False:\n    devtools_root \u003d input_api.PresubmitLocalPath()\n    devtools_front_end \u003d input_api.os_path.join(devtools_root, \u0027front_end\u0027)\n    affected_front_end_files \u003d _getAffectedFiles(input_api, [devtools_front_end], [], [\u0027.js\u0027, \u0027module.json\u0027, \u0027.grd\u0027, \u0027.grdp\u0027])\n    if len(affected_front_end_files) \u003d\u003d 0:\n        return []\n...",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 17
+      },
+      "revId": "ef277053bb0b65744655847c80a3812e69fa5a79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59fbce7e_fc3c6ef4",
         "filename": "PRESUBMIT.py",
         "patchSetId": 5
