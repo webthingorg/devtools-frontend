@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "770a21b5_8aa8f696",
+        "filename": "test/unittests/front_end/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-10-29T16:02:02Z",
+      "side": 1,
+      "message": "what is \u0027it\u0027 here? Looks like the initializing values?",
+      "revId": "0759f2b491ff3036909b271a67e78f60514f3fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e960c4f7_476a7e33",
+        "filename": "test/unittests/front_end/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-10-29T16:02:02Z",
+      "side": 1,
+      "message": "Same - need to avoid \u0027it\u0027",
+      "revId": "0759f2b491ff3036909b271a67e78f60514f3fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
