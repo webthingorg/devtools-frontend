@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bc1f893_39ffed95",
+        "filename": "front_end/common/common_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-29T08:44:18Z",
+      "side": 1,
+      "message": "Nit: Is there a convention on how to write JavaScript inside devtools?",
+      "range": {
+        "startLine": 27,
+        "startChar": 108,
+        "endLine": 27,
+        "endChar": 118
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b27c68f_1cebb891",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-29T08:44:18Z",
+      "side": 1,
+      "message": "Nit: Maybe use the ls syntax here?",
+      "range": {
+        "startLine": 230,
+        "startChar": 17,
+        "endLine": 230,
+        "endChar": 32
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9fc8c4d_c12fdeea",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-29T08:44:18Z",
+      "side": 1,
+      "message": "Why did you decide to use an object instead of two parameters?",
+      "range": {
+        "startLine": 162,
+        "startChar": 24,
+        "endLine": 162,
+        "endChar": 31
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa74c21b_1895c3dc",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-29T08:44:18Z",
+      "side": 1,
+      "message": "What about maybe using \n\nconst {reload, jsCoveragePerBlock} \u003d {reload: false, jsCoveragePerBlock: false, ...options}; \n\nto initialize with default values instead of having to do the comparison with true here?",
+      "range": {
+        "startLine": 175,
+        "startChar": 44,
+        "endLine": 175,
+        "endChar": 62
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
