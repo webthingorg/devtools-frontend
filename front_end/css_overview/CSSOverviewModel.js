@@ -85,8 +85,10 @@ CssOverview.CSSOverviewModel = class extends SDK.SDKModel {
     };
 
     const isSVGNode = nodeName => {
-      const validNodes =
-          ['altGlyph', 'circle', 'ellipse', 'path', 'polygon', 'polyline', 'rect', 'text', 'textPath', 'tref', 'tspan'];
+      const validNodes = [
+        'altGlyph', 'circle', 'ellipse', 'path', 'polygon', 'polyline', 'rect', 'svg', 'text', 'textPath', 'tref',
+        'tspan'
+      ];
       return validNodes.indexOf(nodeName) !== -1;
     };
 
@@ -142,8 +144,8 @@ CssOverview.CSSOverviewModel = class extends SDK.SDKModel {
         CssOverview.CSSOverviewUnusedRules.checkForUnusedPositionValues(
             unusedRules, nodeId, strings, positionIdx, topIdx, leftIdx, rightIdx, bottomIdx);
 
-        // Ignore SVGs as, despite being inline by default, they can have width & height specified.
-        if (strings[nodeName] !== 'svg') {
+        // Ignore SVG elements as, despite being inline by default, they can have width & height specified.
+        if (!isSVGNode(strings[nodeName])) {
           CssOverview.CSSOverviewUnusedRules.checkForUnusedWidthAndHeightValues(
               unusedRules, nodeId, strings, displayIdx, widthIdx, heightIdx);
         }
