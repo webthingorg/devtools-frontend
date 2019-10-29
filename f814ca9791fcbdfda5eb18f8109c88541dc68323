@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37eeeab3_ce6c90f6",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-29T22:50:39Z",
+      "side": 1,
+      "message": "bad_reputation",
+      "range": {
+        "startLine": 841,
+        "startChar": 40,
+        "endLine": 841,
+        "endChar": 54
+      },
+      "revId": "f814ca9791fcbdfda5eb18f8109c88541dc68323",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
