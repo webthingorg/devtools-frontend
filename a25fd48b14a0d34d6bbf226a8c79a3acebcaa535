@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99856109_b24c5b3f",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-10-29T16:14:13Z",
+      "side": 1,
+      "message": "Drive-by comment: a set seems better here",
+      "revId": "a25fd48b14a0d34d6bbf226a8c79a3acebcaa535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
