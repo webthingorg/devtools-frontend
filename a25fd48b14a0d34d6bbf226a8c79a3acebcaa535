@@ -16,6 +16,24 @@
       "revId": "a25fd48b14a0d34d6bbf226a8c79a3acebcaa535",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c83fce22_b377463d",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-10-29T16:18:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99856109_b24c5b3f",
+      "revId": "a25fd48b14a0d34d6bbf226a8c79a3acebcaa535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
