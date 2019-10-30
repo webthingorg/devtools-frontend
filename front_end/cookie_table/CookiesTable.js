@@ -96,9 +96,10 @@ CookieTable.CookiesTable = class extends UI.VBox {
 
     if (editable) {
       this._dataGrid = new DataGrid.DataGrid(
-          columns, this._onUpdateCookie.bind(this), this._onDeleteCookie.bind(this), refreshCallback);
+          ls`Editable Cookies`, columns, this._onUpdateCookie.bind(this), this._onDeleteCookie.bind(this),
+          refreshCallback);
     } else {
-      this._dataGrid = new DataGrid.DataGrid(columns);
+      this._dataGrid = new DataGrid.DataGrid(ls`Cookies`, columns);
     }
     this._dataGrid.setStriped(true);
     this._dataGrid.setName('cookiesTable');
