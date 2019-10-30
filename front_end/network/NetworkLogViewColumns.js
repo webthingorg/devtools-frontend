@@ -495,8 +495,6 @@ Network.NetworkLogViewColumns = class {
         Common.UIString('Latency'), setWaterfallMode.bind(this, waterfallSortIds.Latency),
         this._activeWaterfallSortId === waterfallSortIds.Latency);
 
-    contextMenu.show();
-
     /**
      * @param {!Network.NetworkLogViewColumns.WaterfallSortIds} sortId
      * @this {Network.NetworkLogViewColumns}
