@@ -728,7 +728,8 @@ Timeline.TimelineUIUtils = class {
      * @return {?Element}
      */
     function linkifyLocation(scriptId, url, lineNumber, columnNumber) {
-      return linkifier.linkifyScriptLocation(target, scriptId, url, lineNumber, columnNumber, 'timeline-details');
+      const options = {columnNumber, className: 'timeline-details'};
+      return linkifier.linkifyScriptLocation(target, scriptId, url, lineNumber, options);
     }
 
     /**
@@ -736,7 +737,7 @@ Timeline.TimelineUIUtils = class {
      */
     function linkifyTopCallFrame() {
       const frame = TimelineModel.TimelineData.forEvent(event).topFrame();
-      return frame ? linkifier.maybeLinkifyConsoleCallFrame(target, frame, 'timeline-details') : null;
+      return frame ? linkifier.maybeLinkifyConsoleCallFrame(target, frame, {className: 'timeline-details'}) : null;
     }
   }
 
@@ -2477,7 +2478,8 @@ Timeline.TimelineDetailsContentHelper = class {
     if (!this._linkifier || !this._target) {
       return;
     }
-    const link = this._linkifier.maybeLinkifyScriptLocation(this._target, null, url, startLine, startColumn);
+    const link =
+        this._linkifier.maybeLinkifyScriptLocation(this._target, null, url, startLine, {columnNumber: startColumn});
     if (!link) {
       return;
     }
