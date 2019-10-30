@@ -67,6 +67,10 @@
     border-left-width: 0;
 }
 
+:host-context(.-theme-with-dark-background) .shadow-editor-button-right {
+    color: #ffffff;
+}
+
 .shadow-editor-button-left:hover, .shadow-editor-button-right:hover {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
