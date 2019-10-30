@@ -29,18 +29,20 @@
  */
 DataGrid.DataGrid = class extends Common.Object {
   /**
+   * @param {string} gridName
    * @param {!Array.<!DataGrid.DataGrid.ColumnDescriptor>} columnsArray
    * @param {function(!NODE_TYPE, string, string, string)=} editCallback
    * @param {function(!NODE_TYPE)=} deleteCallback
    * @param {function()=} refreshCallback
    */
-  constructor(columnsArray, editCallback, deleteCallback, refreshCallback) {
+  constructor(gridName, columnsArray, editCallback, deleteCallback, refreshCallback) {
     super();
     this.element = createElementWithClass('div', 'data-grid');
     UI.appendStyle(this.element, 'data_grid/dataGrid.css');
     this.element.tabIndex = 0;
     this.element.addEventListener('keydown', this._keyDown.bind(this), false);
     this.element.addEventListener('contextmenu', this._contextMenu.bind(this), true);
+    UI.ARIAUtils.setAccessibleName(ls`${gridName} Data Grid`, this.element);
 
     this._editCallback = editCallback;
     this._deleteCallback = deleteCallback;
