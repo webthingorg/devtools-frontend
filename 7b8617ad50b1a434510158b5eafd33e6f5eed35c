@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0012d19_86a712d8",
+        "filename": "front_end/sources/AddSourceMapURLDialog.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-10-30T06:03:20Z",
+      "side": 1,
+      "message": "is this comment needed?",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "7b8617ad50b1a434510158b5eafd33e6f5eed35c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
