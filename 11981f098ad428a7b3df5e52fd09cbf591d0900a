@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a330c14_2ef065c6",
+        "filename": "front_end/Images/src/optimize_svg.hashes",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-10-30T22:31:21Z",
+      "side": 1,
+      "message": "`yarn ` edits this file. Seems to sort the keys in an unstable way, because some of these properties changed order. I reverted the automated change and copied the new hash to the current file.",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "11981f098ad428a7b3df5e52fd09cbf591d0900a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
