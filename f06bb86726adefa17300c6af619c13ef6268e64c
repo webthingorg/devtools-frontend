@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "58194625_a426a28e",
+        "filename": "karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2019-10-30T10:39:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "667ab28a_4cb8430a",
+      "revId": "f06bb86726adefa17300c6af619c13ef6268e64c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db36bf06_c4eb2922",
         "filename": "test/unittests/front_end/ui/Fragment.ts",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "f06bb86726adefa17300c6af619c13ef6268e64c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff256ea4_0c58c662",
+        "filename": "test/unittests/front_end/ui/Fragment.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2019-10-30T10:39:34Z",
+      "side": 1,
+      "message": "the closest thing I found to a find function is the \"$\" function and I covered it in the new patch",
+      "parentUuid": "db36bf06_c4eb2922",
+      "revId": "f06bb86726adefa17300c6af619c13ef6268e64c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
