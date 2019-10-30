@@ -57,6 +57,9 @@
   <message name="IDS_DEVTOOLS_1d76fdc8e9a79fa435ee5a2afa4c9bb8" desc="Text in Debugger Paused Message of the Sources panel">
     Paused before potential out-of-memory crash
   </message>
+  <message name="IDS_DEVTOOLS_1d770934d44de09b0d24f04fd01708ba" desc="Accessible text for an item with an indeterminate checked state.">
+    mixed
+  </message>
   <message name="IDS_DEVTOOLS_1f15646f60fc3c1dea747963f02d51ac" desc="Text in Sources Panel of the Sources panel">
     Group by folder
   </message>
@@ -243,6 +246,9 @@
   <message name="IDS_DEVTOOLS_74662a9a81d3f50d9d1f3dddf044b550" desc="A context menu item in the Navigator View of the Sources panel">
     Exclude folder
   </message>
+  <message name="IDS_DEVTOOLS_74a80c311113cbbeedaed227123280ab" desc="Context menu item that reveals the source code location of a breakpoint in the Sources panel.">
+    Reveal location
+  </message>
   <message name="IDS_DEVTOOLS_74ff4bad28abee3489bd8ca138b80bb6" desc="Text in Filtered UISource Code List Provider of the Sources panel">
     No files found
   </message>
@@ -275,6 +281,9 @@
   </message>
   <message name="IDS_DEVTOOLS_88da81657234efcab8a23679d2e97b8e" desc="Text in the GoToLine dialog of the Sources pane that describes the current line number, file line number range, and use of the GoToLine dialog">
     Current line: <ph name="CURRENTLINENUMBER">$1s<ex>1</ex></ph>. Type a line number between 1 and <ph name="LINESCOUNT">$2s<ex>100</ex></ph> to navigate to.
+  </message>
+  <message name="IDS_DEVTOOLS_8fc1dde0c79d8adcaf674b3d679d3596" desc="Accessibility label for hit breakpoints in the Sources panel">
+    <ph name="CHECKEDDESCRIPTION">$1s<ex>checked</ex></ph> breakpoint hit
   </message>
   <message name="IDS_DEVTOOLS_906646d2d69e110dcd4cfc74e5790f6f" desc="Text in Debugger Paused Message of the Sources panel">
     Paused on event listener
