@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b483d940_2b1fbc25",
+        "filename": "front_end/resources/ServiceWorkerCacheViews.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-30T09:27:46Z",
+      "side": 1,
+      "message": "All callers are passing true here, could you remove the argument?",
+      "range": {
+        "startLine": 253,
+        "startChar": 20,
+        "endLine": 253,
+        "endChar": 25
+      },
+      "revId": "6ce12512258b255180d21c3ae8e7177cf2048fa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d79c42fd_b7e550f5",
+        "filename": "front_end/resources/ServiceWorkerCacheViews.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-30T09:27:46Z",
+      "side": 1,
+      "message": "These two conditionals do not make sense to me. In any case, the _loadingPromise will be returned.\nAlso: Forcing now doesn\u0027t make sense, since we can\u0027t cancel the promise?\nI\u0027d just try to remove the first conditional and test the UI by hand to verify that it works reasonably.",
+      "range": {
+        "startLine": 254,
+        "startChar": 4,
+        "endLine": 261,
+        "endChar": 5
+      },
+      "revId": "6ce12512258b255180d21c3ae8e7177cf2048fa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6524e186_2588cdd0",
+        "filename": "front_end/resources/ServiceWorkerCacheViews.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-30T09:27:46Z",
+      "side": 1,
+      "message": "This will cause this method to sometimes return this array (when you call it quickly twice in a row, the second call will return these values).\n\nCould you move the code below into this promise?\n\nAdditionally, inspecting loadAllCacheData, it seems that it is possible that the callback just never happens. In that case, we will end up with a stuck UI. \n\nHow about promisifying loadAllCacheData, and have it reject the promise if the fetch fails? A catch handler could handle this case here then.",
+      "range": {
+        "startLine": 265,
+        "startChar": 8,
+        "endLine": 265,
+        "endChar": 40
+      },
+      "revId": "6ce12512258b255180d21c3ae8e7177cf2048fa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
