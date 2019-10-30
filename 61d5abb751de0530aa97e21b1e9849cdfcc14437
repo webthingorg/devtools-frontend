@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8d04a4f_49197156",
+        "filename": "front_end/common/UIString.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-10-30T15:50:43Z",
+      "side": 1,
+      "message": "nit: no need to duplicate.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 3
+      },
+      "revId": "61d5abb751de0530aa97e21b1e9849cdfcc14437",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
