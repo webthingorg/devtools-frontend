@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2de416d8_ae5db3f9",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-10-30T15:54:02Z",
+      "side": 1,
+      "message": "nit: Magic values ftw. Could you explain why they had to be changed?",
+      "range": {
+        "startLine": 59,
+        "startChar": 80,
+        "endLine": 59,
+        "endChar": 82
+      },
+      "revId": "922e92dd5cbe5fa530c0dc615025bad98c8fa5ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74cbce00_c5723a6a",
+        "filename": "front_end/css_overview/cssOverviewCompletedView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-10-30T15:54:02Z",
+      "side": 1,
+      "message": "The amount of effort succinctly described in 40 characters.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 54
+      },
+      "revId": "922e92dd5cbe5fa530c0dc615025bad98c8fa5ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
