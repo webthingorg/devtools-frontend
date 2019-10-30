@@ -129,7 +129,7 @@ Resources.DatabaseQueryView = class extends UI.VBox {
   }
 
   _queryFinished(query, columnNames, values) {
-    const dataGrid = DataGrid.SortableDataGrid.create(columnNames, values);
+    const dataGrid = DataGrid.SortableDataGrid.create(ls`Database Query`, columnNames, values);
     const trimmedQuery = query.trim();
 
     let view = null;
