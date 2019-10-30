@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "595be190_4543ea36",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-10-30T23:38:13Z",
+      "side": 1,
+      "message": "The SR was reading out values with more than two digits of precision (e.g. 0.75999999999999).",
+      "range": {
+        "startLine": 250,
+        "startChar": 51,
+        "endLine": 250,
+        "endChar": 65
+      },
+      "revId": "93be9ccc0aa9248fafd4337f643995eb0c705802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
