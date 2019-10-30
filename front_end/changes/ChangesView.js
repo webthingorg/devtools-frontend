@@ -37,7 +37,7 @@ Changes.ChangesView = class extends UI.VBox {
     this._editor.show(mainWidget.element.createChild('div', 'editor-container'));
     this._editor.hideWidget();
 
-    this._editor.element.addEventListener('click', this._click.bind(this), false);
+    self.onInvokeElement(this._editor.element, this._click.bind(this));
 
     this._toolbar = new UI.Toolbar('changes-toolbar', mainWidget.element);
     const revertButton = new UI.ToolbarButton(Common.UIString('Revert all changes'), 'largeicon-undo');
