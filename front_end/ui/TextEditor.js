@@ -130,17 +130,18 @@ UI.TextEditor.Events = Events;
 
 /**
  * @typedef {{
-  *  bracketMatchingSetting: (!Common.Setting|undefined),
-  *  devtoolsAccessibleName: (string|undefined),
-  *  lineNumbers: boolean,
-  *  lineWrapping: boolean,
-  *  mimeType: (string|undefined),
-  *  autoHeight: (boolean|undefined),
-  *  padBottom: (boolean|undefined),
-  *  maxHighlightLength: (number|undefined),
-  *  placeholder: (string|undefined)
-  * }}
-  */
+ *  bracketMatchingSetting: (!Common.Setting|undefined),
+ *  devtoolsAccessibleName: (string|undefined),
+ *  inputStyle: (string|undefined),
+ *  lineNumbers: boolean,
+ *  lineWrapping: boolean,
+ *  mimeType: (string|undefined),
+ *  autoHeight: (boolean|undefined),
+ *  padBottom: (boolean|undefined),
+ *  maxHighlightLength: (number|undefined),
+ *  placeholder: (string|undefined)
+ * }}
+ */
 UI.TextEditor.Options;
 
 /**

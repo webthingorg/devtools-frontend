@@ -97,6 +97,7 @@ if (external_devtools_frontend) {
     "front_end/changes/ChangesView.js",
     "front_end/changes/changesSidebar.css",
     "front_end/changes/ChangesSidebar.js",
+		"front_end/changes/ChangesTextEditor.js",
     "front_end/changes/module.json",
     "front_end/cm/active-line.js",
     "front_end/cm/brace-fold.js",
