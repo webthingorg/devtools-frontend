@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "67026cfe_f27f0b22",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-10-30T22:34:10Z",
+      "side": 1,
+      "message": "How should this button be styled for :focus?",
+      "revId": "11981f098ad428a7b3df5e52fd09cbf591d0900a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30454841_d7f2e147",
         "filename": "front_end/audits/audits_strings.grdp",
         "patchSetId": 4
