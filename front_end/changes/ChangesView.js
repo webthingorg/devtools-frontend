@@ -34,7 +34,9 @@ Changes.ChangesView = class extends UI.VBox {
       maxHighlightLength: Infinity  // This is to avoid CodeMirror bailing out of highlighting big diffs.
     });
     this._editor.setReadOnly(true);
-    this._editor.show(mainWidget.element.createChild('div', 'editor-container'));
+    const editorContainer = mainWidget.element.createChild('div', 'editor-container');
+    UI.ARIAUtils.markAsTabpanel(editorContainer);
+    this._editor.show(editorContainer);
     this._editor.hideWidget();
 
     this._editor.element.addEventListener('click', this._click.bind(this), false);
