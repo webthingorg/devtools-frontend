@@ -60,7 +60,7 @@ Profiler.LiveHeapProfileView = class extends UI.VBox {
       },
       {id: 'url', title: ls`Script URL`, fixedWidth: false, sortable: true, tooltip: ls`URL of the script source`}
     ];
-    const dataGrid = new DataGrid.SortableDataGrid(columns);
+    const dataGrid = new DataGrid.SortableDataGrid(columns, ls`Heap Profile`);
     dataGrid.setResizeMethod(DataGrid.DataGrid.ResizeMethod.Last);
     dataGrid.element.classList.add('flex-auto');
     dataGrid.element.addEventListener('keydown', this._onKeyDown.bind(this), false);

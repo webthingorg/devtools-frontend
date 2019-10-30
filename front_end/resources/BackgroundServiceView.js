@@ -219,7 +219,7 @@ Resources.BackgroundServiceView = class extends UI.VBox {
       {id: 'swScope', title: ls`SW Scope`, weight: 2},
       {id: 'instanceId', title: ls`Instance ID`, weight: 10},
     ]);
-    const dataGrid = new DataGrid.DataGrid(columns);
+    const dataGrid = new DataGrid.DataGrid(columns, ls`Background Services`);
     dataGrid.setStriped(true);
 
     dataGrid.addEventListener(

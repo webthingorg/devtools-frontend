@@ -42,6 +42,12 @@
   <message name="IDS_DEVTOOLS_6ad170a0581c9c116ca254758bd0c5b9" desc="Label for the number of ID selectors in the CSS Overview report">
     ID selectors
   </message>
+  <message name="IDS_DEVTOOLS_73fb584b387b5afbecdcb04f5d7063bf" desc="Data grid name for Unused Rules data grids">
+    Unused Rules
+  </message>
+  <message name="IDS_DEVTOOLS_7a22f93df0e10b5c99543e7696bfc1ee" desc="Data grid name for Media Query data grids">
+    Media Query
+  </message>
   <message name="IDS_DEVTOOLS_811b0dc0576a9743353448d08b400f45" desc="Label for the number of Attribute selectors in the CSS Overview report">
     Attribute selectors
   </message>

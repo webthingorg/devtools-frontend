@@ -43,7 +43,7 @@ CssOverview.CSSOverviewCompletedView = class extends UI.PanelWithSidebar {
       {id: 'sourceURL', title: ls`Source`, visible: true, sortable: true, weight: 40}
     ];
 
-    this._mediaQueryGrid = new DataGrid.SortableDataGrid(this._mediaQueryColumns);
+    this._mediaQueryGrid = new DataGrid.SortableDataGrid(this._mediaQueryColumns, ls`Media Query`);
     this._mediaQueryGrid.element.classList.add('media-query-grid');
     this._mediaQueryGrid.setStriped(true);
     this._mediaQueryGrid.addEventListener(
@@ -61,7 +61,7 @@ CssOverview.CSSOverviewCompletedView = class extends UI.PanelWithSidebar {
       {id: 'reason', title: ls`Reason`, visible: true, sortable: true, weight: 50}
     ];
 
-    this._unusedRulesGrid = new DataGrid.SortableDataGrid(this._unusedRulesColumns);
+    this._unusedRulesGrid = new DataGrid.SortableDataGrid(this._unusedRulesColumns, ls`Unused Rules`);
     this._unusedRulesGrid.element.classList.add('unused-rules-grid');
     this._unusedRulesGrid.setStriped(true);
     this._unusedRulesGrid.addEventListener(
@@ -69,7 +69,7 @@ CssOverview.CSSOverviewCompletedView = class extends UI.PanelWithSidebar {
 
     this._elementGridColumns = [{id: 'nodeId', title: ls`Element`, visible: true, sortable: true, weight: 100}];
 
-    this._elementGrid = new DataGrid.SortableDataGrid(this._elementGridColumns);
+    this._elementGrid = new DataGrid.SortableDataGrid(this._elementGridColumns, ls`Element`);
     this._elementGrid.element.classList.add('element-grid');
     this._elementGrid.element.addEventListener('mouseover', this._onMouseOver.bind(this));
     this._elementGrid.setStriped(true);

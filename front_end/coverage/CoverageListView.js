@@ -35,7 +35,7 @@ Coverage.CoverageListView = class extends UI.VBox {
       },
       {id: 'bars', title: '', width: '250px', fixedWidth: false, sortable: true}
     ];
-    this._dataGrid = new DataGrid.SortableDataGrid(columns);
+    this._dataGrid = new DataGrid.SortableDataGrid(columns, ls`Coverage List`);
     this._dataGrid.setResizeMethod(DataGrid.DataGrid.ResizeMethod.Last);
     this._dataGrid.element.classList.add('flex-auto');
     this._dataGrid.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
