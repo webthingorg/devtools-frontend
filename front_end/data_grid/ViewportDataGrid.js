@@ -8,13 +8,14 @@
  */
 DataGrid.ViewportDataGrid = class extends DataGrid.DataGrid {
   /**
+   * @param {string} gridName
    * @param {!Array.<!DataGrid.DataGrid.ColumnDescriptor>} columnsArray
    * @param {function(!NODE_TYPE, string, string, string)=} editCallback
    * @param {function(!NODE_TYPE)=} deleteCallback
    * @param {function()=} refreshCallback
    */
-  constructor(columnsArray, editCallback, deleteCallback, refreshCallback) {
-    super(columnsArray, editCallback, deleteCallback, refreshCallback);
+  constructor(gridName, columnsArray, editCallback, deleteCallback, refreshCallback) {
+    super(gridName, columnsArray, editCallback, deleteCallback, refreshCallback);
 
     this._onScrollBound = this._onScroll.bind(this);
     this.scrollContainer.addEventListener('scroll', this._onScrollBound, true);
