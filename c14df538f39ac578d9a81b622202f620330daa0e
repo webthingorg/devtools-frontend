@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0408fb27_221c34a0",
+        "filename": "front_end/common/common_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-30T08:57:16Z",
+      "side": 1,
+      "message": "I think the convention is JavaScript, thanks!",
+      "parentUuid": "8bc1f893_39ffed95",
+      "range": {
+        "startLine": 27,
+        "startChar": 108,
+        "endLine": 27,
+        "endChar": 118
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b27c68f_1cebb891",
         "filename": "front_end/coverage/CoverageListView.js",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cea8247e_37c1f599",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-30T08:57:16Z",
+      "side": 1,
+      "message": "This is old code, you are right in principle, but I would prefer migrating the whole file in one go.",
+      "parentUuid": "7b27c68f_1cebb891",
+      "range": {
+        "startLine": 230,
+        "startChar": 17,
+        "endLine": 230,
+        "endChar": 32
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "339f81c8_22593490",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-30T08:57:16Z",
+      "side": 1,
+      "message": "Because it is easier to read at the call sites, and the function is called very infrequently, so it is not a performance issue.",
+      "parentUuid": "f9fc8c4d_c12fdeea",
+      "range": {
+        "startLine": 162,
+        "startChar": 24,
+        "endLine": 162,
+        "endChar": 31
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa74c21b_1895c3dc",
         "filename": "front_end/coverage/CoverageView.js",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f2ef35a_444b24a8",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-10-30T08:57:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa74c21b_1895c3dc",
+      "range": {
+        "startLine": 175,
+        "startChar": 44,
+        "endLine": 175,
+        "endChar": 62
+      },
+      "revId": "c14df538f39ac578d9a81b622202f620330daa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
