@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34fd019d_5a1fb6bb",
+        "filename": "front_end/inline_editor/cssShadowEditor.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-10-30T21:54:06Z",
+      "side": 1,
+      "message": "I just realized I\u0027m only targeting the right button here. Hold on while I fix that.",
+      "revId": "25dc905fab23748cb73a5677e49abec8afb9933f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
