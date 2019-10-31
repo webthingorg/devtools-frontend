@@ -12,6 +12,9 @@ WebAudio.GraphVisualizer.GraphView = class extends Common.Object {
 
     this.contextId = contextId;
 
+    /** @type {boolean} */
+    this.dirty = false;
+
     /** @type {!Map<!Protocol.WebAudio.GraphObjectId, !WebAudio.GraphVisualizer.NodeView>} */
     this._nodes = new Map();
     /** @type {!Map<!Protocol.WebAudio.GraphObjectId, !WebAudio.GraphVisualizer.EdgeView>} */
@@ -141,6 +144,14 @@ WebAudio.GraphVisualizer.GraphView = class extends Common.Object {
     return this._nodes.get(nodeId);
   }
 
+  /**
+   * @param {string} edgeId
+   * @return {?WebAudio.GraphVisualizer.EdgeView}
+   */
+  getEdgeById(edgeId) {
+    return this._edges.get(edgeId);
+  }
+
   /** @return {!Map<!Protocol.WebAudio.GraphObjectId, !WebAudio.GraphVisualizer.NodeView>} */
   getNodes() {
     return this._nodes;
@@ -157,6 +168,31 @@ WebAudio.GraphVisualizer.GraphView = class extends Common.Object {
    */
   getNodeIdByParamId(paramId) {
     return this._paramIdToNodeIdMap.get(paramId);
+  }
+
+  /**
+   * Find all the edgeIds between the source and destination nodes.
+   * @param {!Protocol.WebAudio.GraphObjectId} sourceId
+   * @param {!Protocol.WebAudio.GraphObjectId} destinationId
+   * @return {!Set<!Protocol.WebAudio.GraphObjectId>}
+   */
+  getEdgeIdsBetweenNodes(sourceId, destinationId) {
+    const outEdges = this._outboundEdgeMap.get(sourceId);
+    const inEdges = this._inboundEdgeMap.get(destinationId);
+    if (!outEdges || !inEdges)
+      {return new Set();}
+    return WebAudio.GraphVisualizer.getSetIntersection(outEdges, inEdges);
+  }
+
+  /**
+   * Find all the inbound and outbound edgeIds for the given node.
+   * @param {!Protocol.WebAudio.GraphObjectId} nodeId
+   * @return {!{inEdgeIds: !Set<string>, outEdgeIds: !Set<string>}}
+   */
+  getInOutEdgeIdsOfNode(nodeId) {
+    const outEdgeIds = this._outboundEdgeMap.get(nodeId) || new Set();
+    const inEdgeIds = this._inboundEdgeMap.get(nodeId) || new Set();
+    return {inEdgeIds, outEdgeIds};
   }
 
   /**
@@ -195,7 +231,17 @@ WebAudio.GraphVisualizer.GraphView = class extends Common.Object {
     this._notifyShouldRedraw();
   }
 
+  isDirty() {
+    return this.dirty;
+  }
+
+  /** @param {boolean} dirty */
+  setDirty(dirty) {
+    this.dirty = dirty;
+  }
+
   _notifyShouldRedraw() {
+    this.dirty = true;
     this.dispatchEventToListeners(WebAudio.GraphVisualizer.GraphView.Events.ShouldRedraw, this);
   }
 };
@@ -203,4 +249,19 @@ WebAudio.GraphVisualizer.GraphView = class extends Common.Object {
 /** @enum {symbol} */
 WebAudio.GraphVisualizer.GraphView.Events = {
   ShouldRedraw: Symbol('ShouldRedraw')
+};
+
+/**
+ * Find the intersection of two Sets.
+ * @param {!Set} setA
+ * @param {!Set} setB
+ * @return {!Set}
+ */
+WebAudio.GraphVisualizer.getSetIntersection = (setA, setB) => {
+  const _intersection = new Set();
+  for (const elem of setB) {
+    if (setA.has(elem))
+      {_intersection.add(elem);}
+  }
+  return _intersection;
 };
