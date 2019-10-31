@@ -22,6 +22,30 @@
       "revId": "93be9ccc0aa9248fafd4337f643995eb0c705802",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4680d9e1_20280b05",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-10-31T17:05:24Z",
+      "side": 1,
+      "message": "This was happening because screen reader couldn\u0027t convert it to exact decimal value it was passed as aria-valuenow. So, using aria-valuetext which is an alternative to aria-valuenow. Now, it reads out value same value that appears in screen which has only two digits of precision. Updated Gif in the description to reflect this change.",
+      "parentUuid": "595be190_4543ea36",
+      "range": {
+        "startLine": 250,
+        "startChar": 51,
+        "endLine": 250,
+        "endChar": 65
+      },
+      "revId": "93be9ccc0aa9248fafd4337f643995eb0c705802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
