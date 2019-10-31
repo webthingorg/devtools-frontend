@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-ProtocolMonitor.ProtocolMonitor = class extends UI.VBox {
+export default class ProtocolMonitorImpl extends UI.VBox {
   constructor() {
     super(true);
     this._nodes = [];
@@ -256,7 +256,7 @@ ProtocolMonitor.ProtocolMonitor = class extends UI.VBox {
   }
 };
 
-ProtocolMonitor.ProtocolMonitor.ProtocolNode = class extends DataGrid.SortableDataGridNode {
+export class ProtocolNode extends DataGrid.SortableDataGridNode {
   constructor(data) {
     super(data);
     this.hasError = false;
@@ -305,8 +305,7 @@ ProtocolMonitor.ProtocolMonitor.ProtocolNode = class extends DataGrid.SortableDa
   }
 };
 
-
-ProtocolMonitor.ProtocolMonitor.InfoWidget = class extends UI.VBox {
+export class InfoWidget extends UI.VBox {
   constructor() {
     super();
     this._tabbedPane = new UI.TabbedPane();
@@ -336,3 +335,18 @@ ProtocolMonitor.ProtocolMonitor.InfoWidget = class extends UI.VBox {
     this._tabbedPane.changeTabView('response', SourceFrame.JSONView.createViewSync(data.response));
   }
 };
+
+/* Legacy exported object */
+self.ProtocolMonitor = self.ProtocolMonitor || {};
+
+/* Legacy exported object */
+ProtocolMonitor = ProtocolMonitor || {};
+
+ProtocolMonitor.ProtocolMonitor = ProtocolMonitorImpl;
+
+ProtocolMonitor.ProtocolMonitor.InfoWidget = InfoWidget;
+
+/**
+ * @constructor
+ */
+ProtocolMonitor.ProtocolMonitor.ProtocolNode = ProtocolNode;
