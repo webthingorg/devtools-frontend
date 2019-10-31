@@ -11,6 +11,8 @@ import './protocol/protocol.js';
 import './sdk/sdk.js';
 import './ui/ui.js';
 
+import './data_grid/data_grid.js';
+
 import './services/services.js';
 import './workspace/workspace.js';
 import './bindings/bindings.js';

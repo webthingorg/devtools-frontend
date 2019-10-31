@@ -2,13 +2,11 @@
     "dependencies": [
         "ui"
     ],
-    "scripts": [
-        "DataGrid.js",
-        "ViewportDataGrid.js",
-        "SortableDataGrid.js",
-        "ShowMoreDataGridNode.js"
-    ],
+    "scripts": [],
     "resources": [
         "dataGrid.css"
+    ],
+    "modules": [
+        "data_grid.js"
     ]
 }
