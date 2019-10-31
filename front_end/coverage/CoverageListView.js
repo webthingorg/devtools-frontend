@@ -301,6 +301,10 @@ Coverage.CoverageListView.GridNode = class extends DataGrid.SortableDataGridNode
           cell.title = ls
           `JS coverage with per function granularity: Once a function was executed, the whole function is marked as covered.`;
         }
+        if (this._coverageInfo.type() & Coverage.CoverageType.JavaScript) {
+          cell.title = ls
+          `JS coverage with per block granularity: Once a block of JavaScript was executed, that block is marked as covered.`;
+        }
         break;
       case 'size':
         const sizeSpan = cell.createChild('span');
@@ -326,15 +330,25 @@ Coverage.CoverageListView.GridNode = class extends DataGrid.SortableDataGridNode
         if (this._coverageInfo.unusedSize() > 0) {
           const unusedSizeBar = barContainer.createChild('div', 'bar bar-unused-size');
           unusedSizeBar.style.width = this._percentageString(this._coverageInfo.unusedSize(), this._maxSize, 4);
-          unusedSizeBar.title = ls`${this._coverageInfo.unusedSize()} bytes (${
-              unusedPercent}) belong to functions that have not (yet) been executed.`;
+          if (this._coverageInfo.type() & Coverage.CoverageType.JavaScriptCoarse) {
+            unusedSizeBar.title = ls`${this._coverageInfo.unusedSize()} bytes (${
+                unusedPercent}) belong to functions that have not (yet) been executed.`;
+          } else if (this._coverageInfo.type() & Coverage.CoverageType.JavaScript) {
+            unusedSizeBar.title = ls`${this._coverageInfo.unusedSize()} bytes (${
+                unusedPercent}) belong to blocks of JavaScript that have not (yet) been executed.`;
+          }
         }
         if (this._coverageInfo.usedSize() > 0) {
           const usedSizeBar = barContainer.createChild('div', 'bar bar-used-size');
           const usedPercentageString = this._percentageString(this._coverageInfo.usedSize(), this._maxSize, 4);
           usedSizeBar.style.width = usedPercentageString;
-          usedSizeBar.title = ls`${this._coverageInfo.usedSize()} bytes (${
-              usedPercent}) belong to functions that have executed at least once.`;
+          if (this._coverageInfo.type() & Coverage.CoverageType.JavaScriptCoarse) {
+            usedSizeBar.title = ls`${this._coverageInfo.usedSize()} bytes (${
+                usedPercent}) belong to functions that have executed at least once.`;
+          } else {
+            usedSizeBar.title = ls`${this._coverageInfo.usedSize()} bytes (${
+                usedPercent}) belong to blocks of JavaScript that have executed at least once.`;
+          }
         }
         UI.ARIAUtils.setAccessibleName(barContainer, ls`${unusedPercent} of file unused, ${usedPercent} of file used`);
     }
