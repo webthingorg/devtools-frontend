@@ -1,0 +1,9 @@
+{
+  "dependencies": [
+    "platform",
+    "dagre_layout"
+  ],
+  "scripts": [
+    "WebAudioWorker.js"
+  ]
+}
