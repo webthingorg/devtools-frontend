@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bebb723a_c47a0bea",
+        "filename": "front_end/common/UIString.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-10-31T22:33:26Z",
+      "side": 1,
+      "message": "Nit: pretty sure this is already checked in?",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 1
+      },
+      "revId": "58e0602ceca78466398286c553b0fd3377186ec7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
