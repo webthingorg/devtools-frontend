@@ -809,6 +809,11 @@ if (external_devtools_frontend) {
   all_devtools_files += lighthouse_locale_files
 
   all_devtools_modules = [
+    "front_end/data_grid/data_grid.js",
+    "front_end/data_grid/ViewportDataGrid.js",
+    "front_end/data_grid/SortableDataGrid.js",
+    "front_end/data_grid/ShowMoreDataGridNode.js",
+    "front_end/data_grid/DataGrid.js",
     "front_end/console_counters/console_counters.js",
     "front_end/console_counters/WarningErrorCounter.js",
     "front_end/extensions/extensions.js",
@@ -1208,6 +1213,11 @@ if (external_devtools_frontend) {
   ]
 
   copied_devtools_modules = [
+    "$resources_out_dir/data_grid/data_grid.js",
+    "$resources_out_dir/data_grid/ViewportDataGrid.js",
+    "$resources_out_dir/data_grid/SortableDataGrid.js",
+    "$resources_out_dir/data_grid/ShowMoreDataGridNode.js",
+    "$resources_out_dir/data_grid/DataGrid.js",
     "$resources_out_dir/console_counters/console_counters.js",
     "$resources_out_dir/console_counters/WarningErrorCounter.js",
     "$resources_out_dir/extensions/extensions.js",
