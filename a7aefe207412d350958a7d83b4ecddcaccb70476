@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e389adb9_12bb5d3c",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-31T09:05:18Z",
+      "side": 1,
+      "message": "Nit: What do you think about changing this to `Coverage.CoverageType.JavaScriptBlock` and have `Coverage.CoverageType.JavaScript` as `Coverage.CoverageType.JavaScriptCoarse || Coverage.CoverageType.JavaScriptBlock`?",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "a7aefe207412d350958a7d83b4ecddcaccb70476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f62b04b_9d8bd05d",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-31T09:05:18Z",
+      "side": 1,
+      "message": "Nit: Has this already been added to Host.UserMetrics.Action or why isn\u0027t that part of this cl?",
+      "range": {
+        "startLine": 212,
+        "startChar": 59,
+        "endLine": 212,
+        "endChar": 81
+      },
+      "revId": "a7aefe207412d350958a7d83b4ecddcaccb70476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc4ca85d_7cdfc8a2",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-31T09:05:18Z",
+      "side": 1,
+      "message": "Nit: Shouldn\u0027t this already be a boolean?",
+      "range": {
+        "startLine": 214,
+        "startChar": 44,
+        "endLine": 214,
+        "endChar": 71
+      },
+      "revId": "a7aefe207412d350958a7d83b4ecddcaccb70476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63cba265_aaabae7e",
+        "filename": "front_end/coverage/coverage_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-10-31T09:05:18Z",
+      "side": 1,
+      "message": "Nit: This sounds strange",
+      "range": {
+        "startLine": 30,
+        "startChar": 142,
+        "endLine": 30,
+        "endChar": 184
+      },
+      "revId": "a7aefe207412d350958a7d83b4ecddcaccb70476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
