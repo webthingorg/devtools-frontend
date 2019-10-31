@@ -22,6 +22,30 @@
       "revId": "7b8617ad50b1a434510158b5eafd33e6f5eed35c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "709e21ab_6563fd8e",
+        "filename": "front_end/sources/AddSourceMapURLDialog.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1330653
+      },
+      "writtenOn": "2019-10-31T20:35:40Z",
+      "side": 1,
+      "message": "Needed? No. But in our discussions about adding parameter comments, we\u0027ve opted for adding comments where it\u0027s not intuitive as to what you\u0027re passing in. Here I had to go look up what parameter was passed to super, so I logged it here in a comment.",
+      "parentUuid": "a0012d19_86a712d8",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "7b8617ad50b1a434510158b5eafd33e6f5eed35c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
