@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4278fa7d_d06e1027",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-10-31T00:50:54Z",
+      "side": 1,
+      "message": "remove conditional?",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 7
+      },
+      "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "868f8f8a_b17fc9d0",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-10-31T00:50:54Z",
+      "side": 1,
+      "message": "I suppose `order` was given in increments of 10 so that new phases could be added in between without changing the others. I don\u0027t see a good reason to actually do this, so there\u0027s room for refactor here.\n\nHow about removing `progressBarValue` and `order`, use `Audits.StatusView.StatusPhases.length` for the max progress bar value, and have `this._getPhaseForMessage` also return the index of the phase found (to use in place of `order`)?",
+      "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
