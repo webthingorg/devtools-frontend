@@ -19,3 +19,6 @@ import './persistence/persistence.js';
 import './browser_sdk/browser_sdk.js';
 import './extensions/extensions.js';
 import './console_counters/console_counters.js';
+
+// TODO: Make lazy-loaded.
+import './data_grid/data_grid.js';
