@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f77b5051_05a0db36",
+        "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-01T11:17:48Z",
+      "side": 1,
+      "message": "Both need `/** @constructor */`",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 42
+      },
+      "revId": "866bf54fb2d360458d2e6864e6518df1a2d4b75e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
