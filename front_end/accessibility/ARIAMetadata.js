@@ -4,7 +4,7 @@
 /**
  * @unrestricted
  */
-Accessibility.ARIAMetadata = class {
+export default class ARIAMetadata {
   /**
    * @param {?Object} config
    */
@@ -50,12 +50,12 @@ Accessibility.ARIAMetadata = class {
 
     return [];
   }
-};
+}
 
 /**
  * @return {!Accessibility.ARIAMetadata}
  */
-Accessibility.ariaMetadata = function() {
+function ariaMetadata() {
   if (!Accessibility.ARIAMetadata._instance) {
     Accessibility.ARIAMetadata._instance = new Accessibility.ARIAMetadata(Accessibility.ARIAMetadata._config || null);
   }
@@ -65,7 +65,7 @@ Accessibility.ariaMetadata = function() {
 /**
  * @unrestricted
  */
-Accessibility.ARIAMetadata.Attribute = class {
+export class Attribute {
   /**
    * @param {!Object} config
    */
@@ -84,4 +84,23 @@ Accessibility.ARIAMetadata.Attribute = class {
   getEnum() {
     return this._enum;
   }
-};
+}
+
+/* Legacy exported object */
+self.Accessibility = self.Accessibility || {};
+
+/* Legacy exported object */
+Accessibility = Accessibility || {};
+
+// TODO(http://crbug.com/1006759): Add type information if necessary
+Accessibility.ARIAMetadata = ARIAMetadata;
+
+/**
+ * @unrestricted
+ */
+Accessibility.ARIAMetadata.Attribute = Attribute;
+
+/**
+ * @return {!Accessibility.ARIAMetadata}
+ */
+Accessibility.ariaMetadata = ariaMetadata;
