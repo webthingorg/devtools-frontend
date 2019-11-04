@@ -11,6 +11,8 @@ front_end/cm_headless/
 front_end/cm_modes/
 front_end/cm_web_modes/
 front_end/diff/diff_match_patch.js
+front_end/dom3d/oss/babylon4.js
+front_end/dom3d/oss/babylon.gui.js
 front_end/formatter_worker/acorn/
 front_end/protocol_externs.js
 front_end/javascript_metadata/NativeFunctions.js

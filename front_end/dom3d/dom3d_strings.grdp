@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grit-part>
+  <message name="IDS_DEVTOOLS_0501b0466dc03cde54ed1fb640c3d58e" desc="Tooltip text that appears when hovering over the refresh button in the DOM 3D View tool">
+    Take new snapshot
+  </message>
+  <message name="IDS_DEVTOOLS_1bc7f8458bbaff2b675c83c3751f2918" desc="Label of a radio button that toggles if screen texture should be used in the snapshot in the DOM 3D View tool">
+    Use screen texture
+  </message>
+  <message name="IDS_DEVTOOLS_1d8f75fc4f2a83b149511f55de747d1e" desc="Label of a radio button that toggles if background color should be used in the snapshot in the DOM 3D View tool">
+    Use background color
+  </message>
+  <message name="IDS_DEVTOOLS_20f442d8f866f7c41e5e77804045c1a7" desc="Title for 3D View tool">
+    3D View
+  </message>
+  <message name="IDS_DEVTOOLS_48c3dd4b5c36b9e611ea9126cec7bbd3" desc="Label of a radio button that toggles if heatmap should use rainbow colors in the snapshot in the DOM 3D View tool">
+    Heatmap - Rainbow
+  </message>
+  <message name="IDS_DEVTOOLS_4abc2494932fbdd10477d093b899c050" desc="Text that indicates how many levels the snapshot will capture in the DOM 3D View tool">
+    Nesting level for page: <ph name="THIS__SLIDERVALUE">$1s<ex>3</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_4ea339ae469fd1f49dc3575370afc31a" desc="Label for action in zindex panel side view">
+    Show all parents
+  </message>
+  <message name="IDS_DEVTOOLS_58ce3760887209a24ad2a689f50dec3f" desc="Label for action in zindex panel side view">
+    Keep only parents with new stacking context
+  </message>
+  <message name="IDS_DEVTOOLS_5eaf5ea1a61327af51f7e711bc06fd01" desc="Label of a checkbox that toggles if parent DOM elements should be included in the snapshot in the DOM 3D View tool">
+    Include parents
+  </message>
+  <message name="IDS_DEVTOOLS_64571879ba0c06f6cdadde8c2f83e401" desc="Label of a checkbox that toggles if child DOM elements should be included in the snapshot in the DOM 3D View tool">
+    Include children
+  </message>
+  <message name="IDS_DEVTOOLS_6e92e26dd79f2c830500b6db51dd711a" desc="Title of the color type settings section in the snapshot in the DOM 3D View tool">
+    Color type
+  </message>
+  <message name="IDS_DEVTOOLS_703995f652dc4d986f47f6cf5d640234" desc="Aria label for level slider in DOM view">
+    Nesting level for page
+  </message>
+  <message name="IDS_DEVTOOLS_75b84a0c01e7f3ae1a3d543bc02957f9" desc="Title for tab">
+    Z-index
+  </message>
+  <message name="IDS_DEVTOOLS_7d961b8030c6099ee907f4f4b5fe6b3d" desc="Title of DOM tab">
+    DOM
+  </message>
+  <message name="IDS_DEVTOOLS_85c1220f2a1ab44954155eadf6102468" desc="Tooltip text that appears when hovering over the rotation button in the DOM 3D View tool">
+    Reset elements in view and center camera
+  </message>
+  <message name="IDS_DEVTOOLS_ac2d5807264d96dc9f8d3473cbf5f095" desc="Text of a button used to show all elements of a snapshot after it is taken in the DOM 3D View tool">
+    Show all elements
+  </message>
+  <message name="IDS_DEVTOOLS_be2208fe06ea1003d06ad902dc55e349" desc="Label for side panel control on z index view">
+    Show only elements with stacking context
+  </message>
+  <message name="IDS_DEVTOOLS_cbc0f91826f07b6611d4490102000678" desc="Text of a button used to isolate the selected element of a snapshot after it is taken in the DOM 3D View tool">
+    Isolate selected element
+  </message>
+  <message name="IDS_DEVTOOLS_d57fe4941d6bdc0414e90e0698baadd8" desc="Label of a radio button that toggles if heatmap should use purple to white colors in the snapshot in the DOM 3D View tool">
+    Heatmap - Purple to White
+  </message>
+  <message name="IDS_DEVTOOLS_da4470989724f2134ce3b7cba04c53b3" desc="Label of a radio button that toggles if heatmap should use blue to yellow colors in the snapshot in the DOM 3D View tool">
+    Heatmap - Blue to Yellow
+  </message>
+  <message name="IDS_DEVTOOLS_e1af3608f6965f5d8a8520d9c3180647" desc="Label for side panel control on z index view">
+    Highlight elements with stacking context
+  </message>
+  <message name="IDS_DEVTOOLS_e54d5d57d8f7866cec39ba18eb0b7175" desc="Label for side panel control on z index view">
+    Hide elements with the same paint order as their parent.
+  </message>
+</grit-part>

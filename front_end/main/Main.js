@@ -147,6 +147,9 @@ Main.Main = class {
         'timelineV8RuntimeCallStats', 'Timeline: V8 Runtime Call Stats on Timeline', true);
     Root.Runtime.experiments.register('timelineWebGL', 'Timeline: WebGL-based flamechart');
 
+    // 3D View
+    Root.Runtime.experiments.register('Dom3DPanel', 'Enable 3D View');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
