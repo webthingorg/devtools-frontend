@@ -95,7 +95,6 @@ Network.NetworkLogView = class extends UI.VBox {
     this._highlightedNode = null;
 
     this.linkifier = new Components.Linkifier();
-    this.badgePool = new ProductRegistry.BadgePool();
 
     this._recording = false;
     this._needsRefresh = false;
@@ -1106,7 +1105,6 @@ Network.NetworkLogView = class extends UI.VBox {
 
     this._timeCalculator.setWindow(null);
     this.linkifier.reset();
-    this.badgePool.reset();
 
     if (this._activeGroupLookup) {
       this._activeGroupLookup.reset();
