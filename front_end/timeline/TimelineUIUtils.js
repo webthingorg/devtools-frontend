@@ -673,7 +673,7 @@ Timeline.TimelineUIUtils = class {
       case recordType.ResourceFinish: {
         const url = TimelineModel.TimelineData.forEvent(event).url;
         if (url) {
-          details = Components.Linkifier.linkifyURL(url);
+          details = Components.Linkifier.linkifyURL(url, {tabStop: true});
         }
         break;
       }
@@ -728,7 +728,7 @@ Timeline.TimelineUIUtils = class {
      * @return {?Element}
      */
     function linkifyLocation(scriptId, url, lineNumber, columnNumber) {
-      const options = {columnNumber, className: 'timeline-details'};
+      const options = {columnNumber, className: 'timeline-details', tabStop: true};
       return linkifier.linkifyScriptLocation(target, scriptId, url, lineNumber, options);
     }
 
@@ -737,7 +737,9 @@ Timeline.TimelineUIUtils = class {
      */
     function linkifyTopCallFrame() {
       const frame = TimelineModel.TimelineData.forEvent(event).topFrame();
-      return frame ? linkifier.maybeLinkifyConsoleCallFrame(target, frame, {className: 'timeline-details'}) : null;
+      return frame ?
+          linkifier.maybeLinkifyConsoleCallFrame(target, frame, {className: 'timeline-details', tabStop: true}) :
+          null;
     }
   }
 
@@ -886,7 +888,7 @@ Timeline.TimelineUIUtils = class {
       case recordTypes.ResourceFinish:
         url = timelineData.url;
         if (url) {
-          contentHelper.appendElementRow(ls`Resource`, Components.Linkifier.linkifyURL(url));
+          contentHelper.appendElementRow(ls`Resource`, Components.Linkifier.linkifyURL(url, {tabStop: true}));
         }
         if (eventData['requestMethod']) {
           contentHelper.appendTextRow(ls`Request Method`, eventData['requestMethod']);
@@ -975,13 +977,13 @@ Timeline.TimelineUIUtils = class {
         relatedNodeLabel = ls`Owner Element`;
         url = timelineData.url;
         if (url) {
-          contentHelper.appendElementRow(ls`Image URL`, Components.Linkifier.linkifyURL(url));
+          contentHelper.appendElementRow(ls`Image URL`, Components.Linkifier.linkifyURL(url, {tabStop: true}));
         }
         break;
       case recordTypes.ParseAuthorStyleSheet:
         url = eventData['styleSheetUrl'];
         if (url) {
-          contentHelper.appendElementRow(ls`Stylesheet URL`, Components.Linkifier.linkifyURL(url));
+          contentHelper.appendElementRow(ls`Stylesheet URL`, Components.Linkifier.linkifyURL(url, {tabStop: true}));
         }
         break;
       case recordTypes.UpdateLayoutTree:  // We don't want to see default details.
@@ -1329,7 +1331,7 @@ Timeline.TimelineUIUtils = class {
     const sendRequest = request.children[0];
     const topFrame = TimelineModel.TimelineData.forEvent(sendRequest).topFrame();
     if (topFrame) {
-      const link = linkifier.maybeLinkifyConsoleCallFrame(target, topFrame);
+      const link = linkifier.maybeLinkifyConsoleCallFrame(target, topFrame, {tabStop: true});
       if (link) {
         contentHelper.appendElementRow(title, link);
       }
@@ -1338,7 +1340,7 @@ Timeline.TimelineUIUtils = class {
       if (initiator) {
         const initiatorURL = TimelineModel.TimelineData.forEvent(initiator).url;
         if (initiatorURL) {
-          const link = linkifier.maybeLinkifyScriptLocation(target, null, initiatorURL, 0);
+          const link = linkifier.maybeLinkifyScriptLocation(target, null, initiatorURL, 0, {tabStop: true});
           if (link) {
             contentHelper.appendElementRow(title, link);
           }
@@ -1415,10 +1417,19 @@ Timeline.TimelineUIUtils = class {
       contentHelper.appendTextRow(ls`Pending for`, Number.preciseMillisToString(delay, 1));
 
       const link = createElementWithClass('span', 'devtools-link');
+      UI.ARIAUtils.markAsLink(link);
+      link.tabIndex = 0;
       link.textContent = ls`Reveal`;
       link.addEventListener('click', () => {
         Timeline.TimelinePanel.instance().select(
             Timeline.TimelineSelection.fromTraceEvent(/** @type {!SDK.TracingModel.Event} */ (initiator)));
+      });
+      link.addEventListener('keydown', event => {
+        if (isEnterKey(event)) {
+          Timeline.TimelinePanel.instance().select(
+              Timeline.TimelineSelection.fromTraceEvent(/** @type {!SDK.TracingModel.Event} */ (initiator)));
+          event.consume(true);
+        }
       });
       contentHelper.appendElementRow(ls`Initiator`, link);
 
@@ -1607,9 +1618,17 @@ Timeline.TimelineUIUtils = class {
     img.alt = Components.ImagePreview.defaultAltTextForImageURL(imageURL);
     const paintProfilerButton = container.createChild('a');
     paintProfilerButton.textContent = ls`Paint Profiler`;
+    UI.ARIAUtils.markAsLink(container);
+    container.tabIndex = 0;
     container.addEventListener(
         'click', () => Timeline.TimelinePanel.instance().select(Timeline.TimelineSelection.fromTraceEvent(event)),
         false);
+    container.addEventListener('keydown', keyEvent => {
+      if (isEnterKey(keyEvent)) {
+        Timeline.TimelinePanel.instance().select(Timeline.TimelineSelection.fromTraceEvent(event));
+        keyEvent.consume(true);
+      }
+    });
     return container;
   }
 
@@ -2478,8 +2497,8 @@ Timeline.TimelineDetailsContentHelper = class {
     if (!this._linkifier || !this._target) {
       return;
     }
-    const link =
-        this._linkifier.maybeLinkifyScriptLocation(this._target, null, url, startLine, {columnNumber: startColumn});
+    const link = this._linkifier.maybeLinkifyScriptLocation(
+        this._target, null, url, startLine, {columnNumber: startColumn, tabStop: true});
     if (!link) {
       return;
     }
@@ -2497,7 +2516,7 @@ Timeline.TimelineDetailsContentHelper = class {
       return;
     }
     const locationContent = createElement('span');
-    const link = this._linkifier.maybeLinkifyScriptLocation(this._target, null, url, startLine);
+    const link = this._linkifier.maybeLinkifyScriptLocation(this._target, null, url, startLine, {tabStop: true});
     if (!link) {
       return;
     }
@@ -2533,6 +2552,7 @@ Timeline.TimelineDetailsContentHelper = class {
         parentElement.createChild('div', 'timeline-details-view-row-value timeline-details-view-row-stack-trace');
     const callFrameContents =
         Components.JSPresentationUtils.buildStackTracePreviewContents(this._target, this._linkifier, stackTrace);
+    callFrameContents.links.forEach(link => link.tabIndex = 0);
     stackTraceElement.appendChild(callFrameContents.element);
   }
 
