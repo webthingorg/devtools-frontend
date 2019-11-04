@@ -161,7 +161,7 @@ Resources.IDBDataView = class extends UI.SimpleView {
     columns.push({id: 'value', title: Common.UIString('Value'), sortable: false});
 
     const dataGrid = new DataGrid.DataGrid(
-        columns, undefined, this._deleteButtonClicked.bind(this), this._updateData.bind(this, true));
+        ls`Indexed DB`, columns, undefined, this._deleteButtonClicked.bind(this), this._updateData.bind(this, true));
     dataGrid.setStriped(true);
     dataGrid.addEventListener(DataGrid.DataGrid.Events.SelectedNode, event => this._updateToolbarEnablement(), this);
     return dataGrid;
