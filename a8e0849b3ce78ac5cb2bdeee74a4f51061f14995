@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "314dab9e_350ee95d",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-11-04T14:16:50Z",
+      "side": 1,
+      "message": "Let\u0027s add a line break to fit into 80 chars/line.",
+      "range": {
+        "startLine": 1738,
+        "startChar": 13,
+        "endLine": 1738,
+        "endChar": 116
+      },
+      "revId": "a8e0849b3ce78ac5cb2bdeee74a4f51061f14995",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
