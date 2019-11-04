@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1e7332_99e42dd1",
+        "filename": "front_end/network_test_runner/ProductRegistryTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-04T20:06:49Z",
+      "side": 0,
+      "message": "is there another PR that eliminates these from files like this?\n\n//src/third_party/blink/web_tests/http/tests/devtools/tracing/timeline-misc/timeline-event-details.js",
+      "range": {
+        "startLine": 15,
+        "startChar": 18,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "2d156ac2a51deeb64a84a0afe71d2e27a7b1e4f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
