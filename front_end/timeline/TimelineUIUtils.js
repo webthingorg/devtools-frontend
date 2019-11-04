@@ -310,7 +310,15 @@ Timeline.TimelineUIUtils = class {
         return Timeline.TimelineUIUtils.colorForId(frame.url);
       }
     }
-    return Timeline.TimelineUIUtils.eventStyle(event).category.color;
+
+    const checkpoints = event.args.checkpoints ? event.args.checkpoints.replace(/^,+|,+$/g, '').split(',') : [];
+
+    const color = Timeline.TimelineUIUtils.eventStyle(event).category.color;
+    if (checkpoints.length > 0) {
+      const parsedColor = Common.Color.parse(color);
+      return parsedColor.setAlpha(0.3).asString(Common.Color.Format.RGBA) || '';
+    }
+    return color;
   }
 
   /**
@@ -839,6 +847,10 @@ Timeline.TimelineUIUtils = class {
       contentHelper.appendTextRow(ls`Total Time`, Number.millisToString(event.duration, true));
       contentHelper.appendTextRow(ls`Self Time`, Number.millisToString(event.selfTime, true));
     }
+
+    const checkpoints = event.args.checkpoints ? event.args.checkpoints.replace(/^,+|,+$/g, '').split(',') : [];
+    contentHelper.appendTextRow(
+        ls`Checkpoints`, checkpoints.map(x => Number.millisToString(parseInt(x, 10), true)).join(', '));
 
     if (model.isGenericTrace()) {
       for (const key in event.args) {

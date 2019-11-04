@@ -75,6 +75,9 @@
   <message name="IDS_DEVTOOLS_0a9d131e2c626ead31d9ecb8c54e3372" desc="Text in UIDevtools Utils of the Performance panel">
     View::OnPaintBackground
   </message>
+  <message name="IDS_DEVTOOLS_0b584912c4fa746206884e080303ed49" desc="Text in UIDevtools Utils of the Performance panel">
+    Checkpoints
+  </message>
   <message name="IDS_DEVTOOLS_0d015d96f63a8c12d96b8399482b593f" desc="Text in Timeline UIUtils of the Performance panel">
     Uncategorized
   </message>

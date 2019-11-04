@@ -748,6 +748,7 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
             this._asyncColorByInteractionPhase, phase, Timeline.TimelineUIUtils.interactionPhaseColor);
       }
       const category = Timeline.TimelineUIUtils.eventStyle(event).category;
+
       return patchColorAndCache(this._asyncColorByCategory, category, () => category.color);
     }
     if (type === entryTypes.Frame) {
@@ -883,6 +884,18 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
           context.fillRect(barX, barY + barHeight - 3, width, 2);
         }
       }
+
+      if (event.name === TimelineModel.TimelineModel.RecordType.StreamingCompileScript && event.args.checkpoints) {
+        context.fillStyle = Timeline.TimelineUIUtils.eventStyle(event).category.color;
+        const ts = event.args.checkpoints ? event.args.checkpoints.replace(/^,+|,+$/g, '').split(',') : [];
+        for (let i = 1; i < ts.length;) {
+          const start = ts[i++] * timeToPixels;
+          const end = ts[i++] * timeToPixels;
+
+          context.fillRect(barX + start, barY, end - start, barHeight);
+        }
+      }
+
       if (TimelineModel.TimelineData.forEvent(event).warning) {
         paintWarningDecoration(barX, barWidth - 1.5);
       }
@@ -927,7 +940,8 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
 
     if (type === entryTypes.Event) {
       const event = /** @type {!SDK.TracingModel.Event} */ (this._entryData[entryIndex]);
-      return !!TimelineModel.TimelineData.forEvent(event).warning;
+      const checkpoints = event.args.checkpoints ? event.args.checkpoints.replace(/^,+|,+$/g, '').split(',') : [];
+      return checkpoints.length || !!TimelineModel.TimelineData.forEvent(event).warning;
     }
     return false;
   }
