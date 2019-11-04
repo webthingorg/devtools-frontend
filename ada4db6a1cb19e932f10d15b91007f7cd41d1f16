@@ -22,6 +22,30 @@
       "revId": "ada4db6a1cb19e932f10d15b91007f7cd41d1f16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afd410da_2ca16229",
+        "filename": "front_end/console_test_runner/ConsoleTestRunner.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2019-11-04T21:32:53Z",
+      "side": 1,
+      "message": "You are correct, there is no test around the title output when both error and warning are presented. The tests that this change affected still have the same expectation. See http\\tests\\devtools\\console\\console-revoke-error.js and console-revoke-error-in-worker.js and their expectation files. Since they are only testing errors, the output is the same (\"3 errors\"). If a  warning is included, the expectations would be different. https://imgur.com/a/PsgTEVc",
+      "parentUuid": "ce64a71a_3e980338",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 353,
+        "endChar": 3
+      },
+      "revId": "ada4db6a1cb19e932f10d15b91007f7cd41d1f16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
