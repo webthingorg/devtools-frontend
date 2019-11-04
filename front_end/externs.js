@@ -755,6 +755,10 @@ dagre.layout = function(graph, options) {};
 // `cm` and `CodeMirror`.
 const Dagre = dagre;
 
+const fabric = {};
+
+const Fabric = fabric;
+
 const ESTree = {};
 
 /**
