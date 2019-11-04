@@ -150,16 +150,16 @@ export default class Linkifier {
    * @param {?string} scriptId
    * @param {string} sourceURL
    * @param {number} lineNumber
-   * @param {number=} columnNumber
-   * @param {string=} classes
+   * @param {!Components.LinkifyOptions=} options
    * @return {?Element}
    */
-  maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, columnNumber, classes) {
+  maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
+    const parsedOptions = Object.assign({className: '', columnNumber: 0}, options);
+    const {columnNumber, className} = parsedOptions;
     let fallbackAnchor = null;
     if (sourceURL) {
-      fallbackAnchor = Linkifier.linkifyURL(
-          sourceURL,
-          {className: classes, lineNumber: lineNumber, columnNumber: columnNumber, maxLength: this._maxLength});
+      fallbackAnchor =
+          Linkifier.linkifyURL(sourceURL, Object.assign({lineNumber, maxLength: this._maxLength}, options));
     }
     if (!target || target.isDisposed()) {
       return fallbackAnchor;
@@ -170,13 +170,13 @@ export default class Linkifier {
     }
 
     const rawLocation =
-        (scriptId ? debuggerModel.createRawLocationByScriptId(scriptId, lineNumber, columnNumber || 0) : null) ||
-        debuggerModel.createRawLocationByURL(sourceURL, lineNumber, columnNumber || 0);
+        (scriptId ? debuggerModel.createRawLocationByScriptId(scriptId, lineNumber, columnNumber) : null) ||
+        debuggerModel.createRawLocationByURL(sourceURL, lineNumber, columnNumber);
     if (!rawLocation) {
       return fallbackAnchor;
     }
 
-    const anchor = Linkifier._createLink('', classes || '');
+    const anchor = Linkifier._createLink('', className, options);
     const info = Linkifier._linkInfo(anchor);
     info.enableDecorator = this._useLinkDecorator;
     info.fallback = fallbackAnchor;
@@ -194,39 +194,35 @@ export default class Linkifier {
    * @param {?string} scriptId
    * @param {string} sourceURL
    * @param {number} lineNumber
-   * @param {number=} columnNumber
-   * @param {string=} classes
+   * @param {!Components.LinkifyOptions=} options
    * @return {!Element}
    */
-  linkifyScriptLocation(target, scriptId, sourceURL, lineNumber, columnNumber, classes) {
-    const scriptLink = this.maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, columnNumber, classes);
+  linkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
+    const scriptLink = this.maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options);
     return scriptLink ||
-        Linkifier.linkifyURL(
-            sourceURL,
-            {className: classes, lineNumber: lineNumber, columnNumber: columnNumber, maxLength: this._maxLength});
+        Linkifier.linkifyURL(sourceURL, Object.assign({lineNumber, maxLength: this._maxLength}, options));
   }
 
   /**
    * @param {!SDK.DebuggerModel.Location} rawLocation
    * @param {string} fallbackUrl
-   * @param {string=} classes
+   * @param {string=} className
    * @return {!Element}
    */
-  linkifyRawLocation(rawLocation, fallbackUrl, classes) {
+  linkifyRawLocation(rawLocation, fallbackUrl, className) {
     return this.linkifyScriptLocation(
         rawLocation.debuggerModel.target(), rawLocation.scriptId, fallbackUrl, rawLocation.lineNumber,
-        rawLocation.columnNumber, classes);
+        {columnNumber: rawLocation.columnNumber, className});
   }
 
   /**
    * @param {?SDK.Target} target
    * @param {!Protocol.Runtime.CallFrame} callFrame
-   * @param {string=} classes
+   * @param {!Components.LinkifyOptions=} options
    * @return {?Element}
    */
-  maybeLinkifyConsoleCallFrame(target, callFrame, classes) {
-    return this.maybeLinkifyScriptLocation(
-        target, callFrame.scriptId, callFrame.url, callFrame.lineNumber, callFrame.columnNumber, classes);
+  maybeLinkifyConsoleCallFrame(target, callFrame, options) {
+    return this.maybeLinkifyScriptLocation(target, callFrame.scriptId, callFrame.url, callFrame.lineNumber, options);
   }
 
   /**
@@ -371,7 +367,8 @@ export default class Linkifier {
       linkText += ':' + (lineNumber + 1);
     }
     const title = linkText !== url ? url : '';
-    const link = Linkifier._createLink(linkText, className, maxLength, title, url, preventClick);
+    const linkOptions = {maxLength, title, href: url, preventClick, tabStop: options.tabStop};
+    const link = Linkifier._createLink(linkText, className, linkOptions);
     const info = Linkifier._linkInfo(link);
     if (typeof lineNumber === 'number') {
       info.lineNumber = lineNumber;
@@ -389,7 +386,7 @@ export default class Linkifier {
    * @return {!Element}
    */
   static linkifyRevealable(revealable, text, fallbackHref) {
-    const link = Linkifier._createLink(text, '', UI.MaxLengthForDisplayedURLs, undefined, fallbackHref);
+    const link = Linkifier._createLink(text, '', {maxLength: UI.MaxLengthForDisplayedURLs, href: fallbackHref});
     Linkifier._linkInfo(link).revealable = revealable;
     return link;
   }
@@ -397,13 +394,12 @@ export default class Linkifier {
   /**
    * @param {string} text
    * @param {string} className
-   * @param {number=} maxLength
-   * @param {string=} title
-   * @param {string=} href
-   * @param {boolean=} preventClick
+   * @param {!Components._CreateLinkOptions=} options
    * @returns{!Element}
    */
-  static _createLink(text, className, maxLength, title, href, preventClick) {
+  static _createLink(text, className, options) {
+    options = options || {};
+    const {maxLength, title, href, preventClick, tabStop} = options;
     const link = createElementWithClass('span', className);
     link.classList.add('devtools-link');
     if (title) {
@@ -439,6 +435,7 @@ export default class Linkifier {
       link.classList.add('devtools-link-prevent-click');
     }
     UI.ARIAUtils.markAsLink(link);
+    link.tabIndex = tabStop ? 0 : -1;
     return link;
   }
 
@@ -654,6 +651,39 @@ export let _decorator = null;
 export const _sourceCodeAnchors = Symbol('Linkifier.anchors');
 export const _infoSymbol = Symbol('Linkifier.info');
 export const _untruncatedNodeTextSymbol = Symbol('Linkifier.untruncatedNodeText');
+
+/**
+ * @typedef {{
+ *     text: (string|undefined),
+ *     className: (string|undefined),
+ *     lineNumber: (number|undefined),
+ *     columnNumber: (number|undefined),
+ *     preventClick: (boolean|undefined),
+ *     maxLength: (number|undefined),
+ *     tabStop: (boolean|undefined)
+ * }}
+ */
+Components.LinkifyURLOptions;
+
+/**
+ * @typedef {{
+ *     className: (string|undefined),
+ *     columnNumber: (number|undefined),
+ *     tabStop: (boolean|undefined)
+ * }}
+ */
+Components.LinkifyOptions;
+
+/**
+ * @typedef {{
+ *     maxLength: (number|undefined),
+ *     title: (string|undefined),
+ *     href: (string|undefined),
+ *     preventClick: (boolean|undefined),
+ *     tabStop: (boolean|undefined)
+ * }}
+ */
+Components._CreateLinkOptions;
 
 /**
  * The maximum length before strings are considered too long for finding URLs.
