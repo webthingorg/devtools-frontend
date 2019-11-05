@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f2b5fe35_04055c1b",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T01:24:16Z",
+      "side": 1,
+      "message": "nope. could add one in Settings.js",
+      "parentUuid": "4072ccae_dfa84c94",
+      "range": {
+        "startLine": 58,
+        "startChar": 48,
+        "endLine": 58,
+        "endChar": 61
+      },
+      "revId": "e2340e071e28d0fc2c8979e09097368dadab742a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aef3fd5c_79de2706",
         "filename": "front_end/audits/AuditsStartView.js",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2019-11-05T01:08:00Z",
       "side": 1,
       "message": "possible to do in our stylesheet or painful because of shadow DOM?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 33
+      },
+      "revId": "e2340e071e28d0fc2c8979e09097368dadab742a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7602e729_86cdc714",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T01:24:16Z",
+      "side": 1,
+      "message": "shadow dom was the reason. IDK how to do it any other way",
+      "parentUuid": "aef3fd5c_79de2706",
       "range": {
         "startLine": 62,
         "startChar": 0,

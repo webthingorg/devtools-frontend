@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "54034505_b2733eb9",
+        "filename": "front_end/audits/AuditsPanel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T01:24:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4cee8b8_cfbe5b52",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 18
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73f6db37_832fe828",
         "filename": "front_end/audits/AuditsPanel.js",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "5c94da38edc74665afea9b57c261590439947b7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfc454d7_4c3b311c",
+        "filename": "front_end/audits/AuditsPanel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T01:24:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73f6db37_832fe828",
+      "range": {
+        "startLine": 112,
+        "startChar": 11,
+        "endLine": 112,
+        "endChar": 24
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
