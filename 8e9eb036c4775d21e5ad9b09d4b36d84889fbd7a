@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16b8311f_5a99dfe5",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-11-05T19:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c74636cd_40b96958",
+      "range": {
+        "startLine": 144,
+        "startChar": 103,
+        "endLine": 144,
+        "endChar": 107
+      },
+      "revId": "8e9eb036c4775d21e5ad9b09d4b36d84889fbd7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf9c57a3_aaf4b6eb",
         "filename": "front_end/sources/ScopeChainSidebarPane.js",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "59159a72_05619dea",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-11-05T19:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf9c57a3_aaf4b6eb",
+      "range": {
+        "startLine": 174,
+        "startChar": 108,
+        "endLine": 174,
+        "endChar": 112
+      },
+      "revId": "8e9eb036c4775d21e5ad9b09d4b36d84889fbd7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "351d17db_ca37f4ff",
         "filename": "front_end/sources/ScopeChainSidebarPane.js",
         "patchSetId": 6
@@ -68,6 +116,30 @@
       "revId": "8e9eb036c4775d21e5ad9b09d4b36d84889fbd7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f86df59d_00512c2c",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-11-05T19:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351d17db_ca37f4ff",
+      "range": {
+        "startLine": 179,
+        "startChar": 113,
+        "endLine": 179,
+        "endChar": 117
+      },
+      "revId": "8e9eb036c4775d21e5ad9b09d4b36d84889fbd7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
