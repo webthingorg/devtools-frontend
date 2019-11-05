@@ -330,6 +330,9 @@
   <message name="IDS_DEVTOOLS_a570cb902fdec05031ec1a25634bdbdb" desc="Text in Outline Quick Open of the Sources panel">
     Open a JavaScript or CSS file to see symbols
   </message>
+  <message name="IDS_DEVTOOLS_a61d66ea2dc9a1d4adfaea89174810d0" desc="Infobar to show how to enable code coverage in the Sources panel">
+    Reload with code coverage enabled?
+  </message>
   <message name="IDS_DEVTOOLS_a6e75eb31dc77e8d077fb6f92909e191" desc="A context menu item in the Navigator View of the Sources panel">
     Open folder
   </message>
@@ -402,6 +405,9 @@
   <message name="IDS_DEVTOOLS_c322e65e12002c3bd486ff62ff5b1fd6" desc="Text in Debugger Paused Message of the Sources panel">
     node removal
   </message>
+  <message name="IDS_DEVTOOLS_c3aaf54f38def1f10879b2770f1e35cb" desc="Infobar to show how to enable code coverage in the Sources panel">
+    open the coverage report
+  </message>
   <message name="IDS_DEVTOOLS_c42094126c68a61cc5359460681e1d90" desc="Text in Snippets Plugin of the Sources panel">
     ⌘+Enter
   </message>
@@ -473,6 +479,9 @@
   </message>
   <message name="IDS_DEVTOOLS_eb2f2225858078738d498794cd737d18" desc="Error message for tooltip showing that a file in Sources could not be loaded">
     Unable to load this content.
+  </message>
+  <message name="IDS_DEVTOOLS_ebc46627019f0e914c2cebf039c69edf" desc="Infobar to show how to enable code coverage in the Sources panel">
+    Click to <ph name="LINK">$1s<ex>{}</ex></ph> tool and use <ph name="TOOLBARSTARTRECORDING_ELEMENT">$2s<ex>{}</ex></ph> or <ph name="TOOLBARWITHRELOAD_ELEMENT">$3s<ex>{}</ex></ph> to start recording the coverage
   </message>
   <message name="IDS_DEVTOOLS_ed5eceb0fe85ceeeabf4b4b93eeca711" desc="A context menu item in the Sources Panel of the Sources panel">
     Continue to here

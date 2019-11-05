@@ -544,7 +544,7 @@ Coverage.CoverageModel.Events = {
 /** @type {number} */
 Coverage.CoverageModel._coveragePollingPeriodMs = 200;
 
-SDK.SDKModel.register(Coverage.CoverageModel, SDK.Target.Capability.None, false);
+SDK.SDKModel.register(Coverage.CoverageModel, SDK.Target.Capability.None, true);
 
 Coverage.URLCoverageInfo = class {
   /**
