@@ -283,6 +283,11 @@
         },
         {
             "type": "@Common.Revealer",
+            "destination": "Sources panel",
+            "className": "Sources.SourcesPanel.URLRevealer"
+        },
+        {
+            "type": "@Common.Revealer",
             "contextTypes": [
                 "SDK.DebuggerPausedDetails"
             ],
@@ -905,7 +910,8 @@
         "color_picker",
         "event_listeners",
         "object_ui",
-        "formatter"
+        "formatter",
+        "coverage"
     ],
     "scripts": [
         "AddSourceMapURLDialog.js",
