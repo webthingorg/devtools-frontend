@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c74636cd_40b96958",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-05T17:38:29Z",
+      "side": 1,
+      "message": "/* comment */",
+      "range": {
+        "startLine": 144,
+        "startChar": 103,
+        "endLine": 144,
+        "endChar": 107
+      },
+      "revId": "8e9eb036c4775d21e5ad9b09d4b36d84889fbd7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf9c57a3_aaf4b6eb",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-05T17:38:29Z",
+      "side": 1,
+      "message": "/* comment */",
+      "range": {
+        "startLine": 174,
+        "startChar": 108,
+        "endLine": 174,
+        "endChar": 112
+      },
+      "revId": "8e9eb036c4775d21e5ad9b09d4b36d84889fbd7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "351d17db_ca37f4ff",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-05T17:38:29Z",
+      "side": 1,
+      "message": "/* comment */",
+      "range": {
+        "startLine": 179,
+        "startChar": 113,
+        "endLine": 179,
+        "endChar": 117
+      },
+      "revId": "8e9eb036c4775d21e5ad9b09d4b36d84889fbd7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
