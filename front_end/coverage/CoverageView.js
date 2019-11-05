@@ -168,7 +168,7 @@ Coverage.CoverageView = class extends UI.VBox {
    * @return {boolean}
    */
   isBlockCoverageSelected() {
-    const coverageType = this._coverageTypeComboBox.selectedOption().value;
+    const coverageType = Number(this._coverageTypeComboBox.selectedOption().value);
     return coverageType === Coverage.CoverageType.JavaScriptPerBlock;
   }
 
