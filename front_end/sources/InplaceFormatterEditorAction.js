@@ -66,6 +66,9 @@ Sources.InplaceFormatterEditorAction = class {
     if (Persistence.persistence.binding(uiSourceCode)) {
       return true;
     }
+    if (Sources.sourceFormatter.isFormatted(uiSourceCode)) {
+      return false;
+    }
     return uiSourceCode.contentType().isStyleSheet();
   }
 
