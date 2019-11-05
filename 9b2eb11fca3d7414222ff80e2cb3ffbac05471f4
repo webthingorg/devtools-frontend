@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "624fd1af_21331794",
+        "filename": "front_end/data_grid/ViewportDataGrid.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-05T11:03:53Z",
+      "side": 1,
+      "message": "nit: export",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 5
+      },
+      "revId": "9b2eb11fca3d7414222ff80e2cb3ffbac05471f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
