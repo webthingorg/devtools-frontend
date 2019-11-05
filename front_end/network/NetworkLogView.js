@@ -666,11 +666,7 @@ Network.NetworkLogView = class extends UI.VBox {
    */
   _setHidden(value) {
     this._columns.setHidden(value);
-    if (value) {
-      this._summaryToolbar.element.classList.add('hidden');
-    } else {
-      this._summaryToolbar.element.classList.remove('hidden');
-    }
+    UI.ARIAUtils.setHidden(this._summaryToolbar.element, value);
   }
 
   /**

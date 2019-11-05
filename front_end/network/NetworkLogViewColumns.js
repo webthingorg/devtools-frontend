@@ -269,11 +269,7 @@ Network.NetworkLogViewColumns = class {
    * @param {boolean} value
    */
   setHidden(value) {
-    if (value) {
-      this._splitWidget.element.classList.add('hidden');
-    } else {
-      this._splitWidget.element.classList.remove('hidden');
-    }
+    UI.ARIAUtils.setHidden(this._splitWidget.element, value);
   }
 
   /**
