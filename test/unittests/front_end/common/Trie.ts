@@ -4,10 +4,12 @@
 
 const { assert } = chai;
 
-import { default as Trie } from '../../../../front_end/common/Trie.js';
+import * as Common from '../../../../front_end/common/common.js';
+
+const {Trie} = Common;
 
 describe('Trie', () => {
-  let trie: Trie;
+  let trie: Common.Trie;
   beforeEach(() => {
     trie = new Trie();
   });

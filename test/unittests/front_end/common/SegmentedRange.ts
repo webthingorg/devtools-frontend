@@ -4,7 +4,10 @@
 
 const { assert } = chai;
 
-import { default as SegmentedRange, Segment } from '../../../../front_end/common/SegmentedRange.js';
+import * as Common from '../../../../front_end/common/common.js';
+
+const {SegmentedRange} = Common;
+const {Segment} = SegmentedRange;
 
 describe('Segment', () => {
   it('calculates intersections', () => {
@@ -22,7 +25,7 @@ describe('Segment', () => {
 });
 
 describe('SegmentedRange', () => {
-  let segmentedRange: SegmentedRange;
+  let segmentedRange: Common.SegmentedRange;
 
   function mergeSegments(first, second) {
     const inOrder = first.end >= second.begin;

@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import Trie from './Trie.js';
+
 /**
  * @unrestricted
  */
@@ -35,7 +37,7 @@ export default class TextDictionary {
   constructor() {
     /** @type {!Map<string, number>} */
     this._words = new Map();
-    this._index = new Common.Trie();
+    this._index = new Trie();
   }
 
   /**

@@ -4,9 +4,12 @@
 
 const {assert} = chai;
 
-import {default as ResourceType, ResourceCategory} from '../../../../front_end/common/ResourceType.js';
+import * as Common from '../../../../front_end/common/common.js';
 import {default as WorkspaceImpl, ProjectStore, projectTypes} from '../../../../front_end/workspace/WorkspaceImpl.js';
 import {default as UISourceCode} from '../../../../front_end/workspace/UISourceCode.js';
+
+const {ResourceType} = Common;
+const {ResourceCategory} = ResourceType;
 
 describe('ProjectStore', () => {
   it('can be instantiated correctly', () => {

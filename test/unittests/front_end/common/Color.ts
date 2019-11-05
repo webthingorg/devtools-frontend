@@ -4,8 +4,10 @@
 
 const {assert} = chai;
 
-import '../../../../front_end/common/Settings.js';
-import {default as Color, Generator} from '../../../../front_end/common/Color.js';
+import * as Common from '../../../../front_end/common/common.js';
+
+const {Color} = Common;
+const {Generator} = Color;
 
 describe('Color', () => {
   it('can be instantiated without issues', () => {

@@ -4,7 +4,9 @@
 
 const {assert} = chai;
 
-import {default as ParsedURL} from '../../../../front_end/common/ParsedURL.js';
+import * as Common from '../../../../front_end/common/common.js';
+
+const {ParsedURL} = Common;
 
 describe('Parsed URL', () => {
   it('recognizes valid URLs', () => {

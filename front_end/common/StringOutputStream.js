@@ -21,7 +21,7 @@ export class OutputStream {
 }
 
 /**
- * @implements {Common.OutputStream}
+ * @implements {OutputStream}
  */
 export default class StringOutputStream {
   constructor() {

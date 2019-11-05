@@ -4,8 +4,10 @@
 
 const {assert} = chai;
 
-import {default as StringOutputStream} from '../../../../front_end/common/StringOutputStream.js';
+import * as Common from '../../../../front_end/common/common.js';
 import {default as TempFile, TempFileBackingStorage} from '../../../../front_end/bindings/TempFile.js';
+
+const {StringOutputStream} = Common;
 
 describe('TempFile', () => {
   it('can be initialized successfully', () => {

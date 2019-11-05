@@ -2,37 +2,43 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import './EventTarget.js';
-import './Object.js';
-import './UIString.js';
-
-// Do not reorder these imports as it breaks dependencies.
+import '../platform/platform.js';
 
 import * as App from './App.js';
 import * as AppProvider from './AppProvider.js';
 import * as CharacterIdMap from './CharacterIdMap.js';
-import * as Color from './Color.js';
-import * as Console from './Console.js';
+import * as ColorModule from './Color.js';
+import * as ConsoleModule from './Console.js';
 import * as ContentProvider from './ContentProvider.js';
 import * as EventTarget from './EventTarget.js';
 import * as JavaScriptMetaData from './JavaScriptMetaData.js';
 import * as Linkifier from './Linkifier.js';
-import * as Object from './Object.js';
-import * as ParsedURL from './ParsedURL.js';
+import * as ObjectModule from './Object.js';
+import * as ParsedURLModule from './ParsedURL.js';
 import * as Progress from './Progress.js';
 import * as QueryParamHandler from './QueryParamHandler.js';
-import * as ResourceType from './ResourceType.js';
+import * as ResourceTypeModule from './ResourceType.js';
 import * as Revealer from './Revealer.js';
 import * as Runnable from './Runnable.js';
-import * as SegmentedRange from './SegmentedRange.js';
+import * as SegmentedRangeModule from './SegmentedRange.js';
 import * as Settings from './Settings.js';
 import * as StaticContentProvider from './StaticContentProvider.js';
-import * as StringOutputStream from './StringOutputStream.js';
-import * as TextDictionary from './TextDictionary.js';
+import * as StringOutputStreamModule from './StringOutputStream.js';
+import * as TextDictionaryModule from './TextDictionary.js';
 import * as Throttler from './Throttler.js';
-import * as Trie from './Trie.js';
+import * as TrieModule from './Trie.js';
 import * as UIString from './UIString.js';
 import * as Worker from './Worker.js';
+
+const Color = Object.assign(ColorModule.default, ColorModule);
+const Console = Object.assign(ConsoleModule.default, ConsoleModule);
+const ResourceType = Object.assign(ResourceTypeModule.default, ResourceTypeModule);
+const ObjectWrapper = Object.assign(ObjectModule.default, ObjectModule);
+const ParsedURL = Object.assign(ParsedURLModule.default, ParsedURLModule);
+const SegmentedRange = Object.assign(SegmentedRangeModule.default, SegmentedRangeModule);
+const StringOutputStream = Object.assign(StringOutputStreamModule.default, StringOutputStreamModule);
+const TextDictionary = Object.assign(TextDictionaryModule.default, TextDictionaryModule);
+const Trie = Object.assign(TrieModule.default, TrieModule);
 
 export {
   App,
@@ -44,7 +50,7 @@ export {
   EventTarget,
   JavaScriptMetaData,
   Linkifier,
-  Object,
+  ObjectWrapper,
   ParsedURL,
   Progress,
   QueryParamHandler,
