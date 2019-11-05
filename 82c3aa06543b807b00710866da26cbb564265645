@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c44f06bf_525b35dc",
+        "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-05T11:07:03Z",
+      "side": 1,
+      "message": "I am surprised these does not require `@constructor` to compile.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 53
+      },
+      "revId": "82c3aa06543b807b00710866da26cbb564265645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd1105a3_8fdd566f",
+        "filename": "front_end/protocol_monitor/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-05T11:07:03Z",
+      "side": 1,
+      "message": "This is not ESM yet, so we will need to migrate that first. I will work on that and let you know.",
+      "range": {
+        "startLine": 14,
+        "startChar": 73,
+        "endLine": 14,
+        "endChar": 85
+      },
+      "revId": "82c3aa06543b807b00710866da26cbb564265645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41da7f5d_982c61b6",
+        "filename": "front_end/protocol_monitor/protocol_monitor.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-05T11:07:03Z",
+      "side": 1,
+      "message": "nit: not necessary, as this folder only has 1 import.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "82c3aa06543b807b00710866da26cbb564265645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
