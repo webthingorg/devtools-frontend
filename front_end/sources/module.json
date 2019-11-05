@@ -905,7 +905,8 @@
         "color_picker",
         "event_listeners",
         "object_ui",
-        "formatter"
+        "formatter",
+        "coverage"
     ],
     "scripts": [
         "AddSourceMapURLDialog.js",
