@@ -6,28 +6,28 @@
 
 .audits-start-view {
   font-family: Roboto, sans-serif;
-  font-size: 13px;
+  font-size: var(--font-size);
   line-height: 18px;
+
+  --color-blue: #0535C1;
+  --color-bg: white;
+  --font-size: 14px;
+  --report-font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
 .audits-start-view header {
-  padding: 0 16px;
-  display: flex;
+  padding: 16px 16px 0 16px;
+  display: grid;
+  justify-items: center;
 }
 
 .audits-logo {
-    width: 150px;
-    height: 150px;
+    width: 75px;
+    height: 75px;
     flex-shrink: 0;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-right: 20px;
     background-image: url(Images/audits_logo.svg);
-}
-
-.audits-start-view-text {
-  color: #757575;
-  margin-top: 24px;
 }
 
 .audits-start-view-text h1 {
@@ -38,43 +38,33 @@
 }
 
 .audits-start-view-text p {
-  margin-top: 0;
-}
-
-.audits-start-view-text .text {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.audits-start-view form {
-  padding: 0 16px;
-}
-
-.audits-form-section {
-  border-top: 1px solid #ebebeb;
-  display: flex;
-  padding: 16px 8px;
-}
-
-.audits-form-section:last-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.audits-form-section-label {
-  display: flex;
-  width: 160px;
-}
-
-.audits-form-section-label i {
-  width: 16px;
-  height: 16px;
-  display: block;
+  max-width: 50%;
+  margin: 0 auto;
   text-align: center;
 }
 
-.audits-icon-label {
-  margin: 0 14px;
+.audits-start-view form {
+  padding: 8px 16px;
+}
+
+.audits-form-section {
+  padding: 8px;
+}
+
+.audits-form-section:first-child,
+.audits-form-section:last-child {
+  border-top: 1px solid #ebebeb;
+}
+
+.audits-form-section-label {
+  margin: 7px 0 7px;
+  font-weight: 500;
+}
+
+.audits-form-section input {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
 }
 
 .audits-form-section-label i span {
@@ -88,7 +78,7 @@
 
 .audits-radio {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .audits-radio:last-child {
@@ -99,12 +89,41 @@
   align-items: center;
 }
 
+.audits-start-button-container button {
+  margin: 8px auto;
+  padding: 6px 14px 6px 14px;
+  font-family: var(--report-font-family);
+  font-weight: 500;
+  font-size: var(--font-size);
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  color: var(--color-bg);
+  background-color: var(--color-blue);
+  transition: 0.1s all;
+}
+.audits-start-button-container button:focus {
+  /* TODO: how to handle? the primary button is focused initially, but that messes with the design. */
+  /* outline-width: 1px; */
+  /* background-color: var(--accent-color-hover); */
+}
+.audits-start-button-container button:hover {
+  background-color: #042790;
+  border: 1px solid #0535C1;
+}
+.audits-start-button-container button:disabled {
+  background-color: #cccccc;
+  border: none;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 .audits-start-view .toolbar-dropdown-arrow {
   display: none;
 }
 
 .audits-launcher-row {
-  padding-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .audits-launcher-row:last-of-type {
