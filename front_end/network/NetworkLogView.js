@@ -645,15 +645,26 @@ Network.NetworkLogView = class extends UI.VBox {
     }
     hintText.createChild('br');
     hintText.appendChild(UI.XLink.create(
-        'https://developers.google.com/web/tools/chrome-devtools/network/?utm_source=devtools&utm_campaign=2019Q1',
+        'https://developers.google.cfom/web/tools/chrome-devtools/network/?utm_source=devtools&utm_campaign=2019Q1',
         'Learn more'));
+
+    this._setHidden(true);
   }
 
   _hideRecordingHint() {
+    this._setHidden(false);
     if (this._recordingHint) {
       this._recordingHint.remove();
     }
     this._recordingHint = null;
+  }
+
+  /**
+   * @param {boolean} value
+   */
+  _setHidden(value) {
+    this._columns.setHidden(value);
+    UI.ARIAUtils.setHidden(this._summaryToolbar.element, value);
   }
 
   /**
