@@ -2,12 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import './EventTarget.js';
-import './Object.js';
-import './UIString.js';
-
-// Do not reorder these imports as it breaks dependencies.
-
 import * as App from './App.js';
 import * as AppProvider from './AppProvider.js';
 import * as CharacterIdMap from './CharacterIdMap.js';

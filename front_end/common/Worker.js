@@ -46,7 +46,7 @@ export default class WorkerWrapper {
 
       /**
        * @param {!Event} event
-       * @this {Common.Worker}
+       * @this {WorkerWrapper}
        */
       function onMessage(event) {
         console.assert(event.data === 'workerReady');

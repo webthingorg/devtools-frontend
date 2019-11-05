@@ -23,8 +23,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import EventTarget from './EventTarget.js'; // eslint-disable-line no-unused-vars
+
 /**
- * @implements {Common.EventTarget}
+ * @implements {EventTarget}
  * @unrestricted
  */
 export default class ObjectWrapper {
