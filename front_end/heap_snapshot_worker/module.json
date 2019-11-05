@@ -1,5 +1,6 @@
 {
-    "scripts": [
+    "scripts": [],
+    "modules": [
         "AllocationProfile.js",
         "HeapSnapshot.js",
         "HeapSnapshotLoader.js",
