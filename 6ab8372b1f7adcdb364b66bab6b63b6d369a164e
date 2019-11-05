@@ -22,6 +22,30 @@
       "revId": "6ab8372b1f7adcdb364b66bab6b63b6d369a164e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d92cebd4_c287a16d",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-05T14:50:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7716bba_d5509e56",
+      "range": {
+        "startLine": 1606,
+        "startChar": 10,
+        "endLine": 1606,
+        "endChar": 19
+      },
+      "revId": "6ab8372b1f7adcdb364b66bab6b63b6d369a164e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
