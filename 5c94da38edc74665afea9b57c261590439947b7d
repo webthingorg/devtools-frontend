@@ -1,0 +1,337 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4cee8b8_cfbe5b52",
+        "filename": "front_end/audits/AuditsPanel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "toggleSettingsVisibility ?\n\nif you keep a method like this just add a comment that this is for the settings pane AND settings toggle icon",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 18
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f6db37_832fe828",
+        "filename": "front_end/audits/AuditsPanel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "lets do a toggle hidden here and on 115 too",
+      "range": {
+        "startLine": 112,
+        "startChar": 11,
+        "endLine": 112,
+        "endChar": 24
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0548a644_33c160a8",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "the primary-button class isn\u0027t used anymore?\n\ni dont know what that primary flag does at this point but let\u0027s confirm if we want it or not",
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10f896f0_85772194",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "earlier comment about text-button etc.",
+      "range": {
+        "startLine": 96,
+        "startChar": 32,
+        "endLine": 96,
+        "endChar": 38
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7891c94e_e880ea98",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "ruh roh https://imgur.com/1Wt3yLZ",
+      "range": {
+        "startLine": 106,
+        "startChar": 52,
+        "endLine": 106,
+        "endChar": 56
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cbe7a02_9f309a37",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "can you merge these two elements into a \u003cp  class\u003d\"audits-start-view-text\"\u003e",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 13
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f98e8c3_40e54832",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "let\u0027s do the responsive mode. this layout looks super whack in a wide window.\n(i agree the report is unusable in a wide\u0026short window, but i dont think we should let our  startview be so awkward. also wide \u0026 tall is common enough and its pretty funny looking there. :) \n\n-----------\n\ni just tried out the wide layout and it was pretty straightforward. heres what i did\n\n- flip .audits-start-views vbox to hbox. (though, i think we\u0027ll have to use our own styles instead of vbox/hbox to write effective media queries without !important)\n- added this CSS in the appropriate places\n\n.audits-start-view {\n    display: flex;\n}\n\n.audits-start-view \u003e header {\n    flex: 2 1;\n}\n.audits-start-view form {\n    display: contents;\n}\n\n.audits-form-section {\n    flex: 1 1;\n    border-top: 0;\n}\n\nthe breakpoint feels like its around 560px",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c253eccf_32e05287",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "and this\u0027ll drop the ` p` now",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "777ad169_f4d21b97",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "set this to `0 40px` and you can drop the max-width",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 8
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee8c2268_ac5c964b",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "i doublechecked a few of these against the mock and they lgtm! nice.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 9
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da5a3b9_cee70822",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "this first-child business was only need when community plugins were in here\nin that case i think an extra wrapper div (around categories+plugins) would be better. \nmostly moot now\n\nyou can drop the first-child,last-child now.",
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81f3a049_43f9c855",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "sorry this one is annoying but the triple declaration caught my eye.\n\nthe radio buttons dont line up against the checkboxes. I figure you were going for that?",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 8
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a57cf0c_d9632edb",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "ruh roh https://imgur.com/oUQ26vX",
+      "range": {
+        "startLine": 92,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 7
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94b0c72b_b2a54ec9",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "im talking to yuin but I think we should drop our own custom styling for this button.  Since the start-view is very much devtools, i think its best to keep the visual language more consistent. \n\nthe \"Take snapshot\" button in Memory panel looks great and I think we should just leverage all those .text-button looks.  We can then delete all these custom styles and also the focus/hover/disabled states.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 2
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c27e0c6_af1ec313",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "add `, .audits-radio ` here and drop the margin-bottom from that rule above?\neasier to keep in sync",
+      "range": {
+        "startLine": 125,
+        "startChar": 20,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

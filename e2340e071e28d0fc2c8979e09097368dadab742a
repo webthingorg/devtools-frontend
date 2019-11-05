@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf54e123_47b00390",
+        "filename": "front_end/audits/AuditsController.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "flagging now as we don\u0027t have the doc posted that this points to.",
+      "range": {
+        "startLine": 268,
+        "startChar": 15,
+        "endLine": 268,
+        "endChar": 40
+      },
+      "revId": "e2340e071e28d0fc2c8979e09097368dadab742a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4072ccae_dfa84c94",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "the _ indicates we can\u0027t access this. is there a method to get the same thing?",
+      "range": {
+        "startLine": 58,
+        "startChar": 48,
+        "endLine": 58,
+        "endChar": 61
+      },
+      "revId": "e2340e071e28d0fc2c8979e09097368dadab742a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef3fd5c_79de2706",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-05T01:08:00Z",
+      "side": 1,
+      "message": "possible to do in our stylesheet or painful because of shadow DOM?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 33
+      },
+      "revId": "e2340e071e28d0fc2c8979e09097368dadab742a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
