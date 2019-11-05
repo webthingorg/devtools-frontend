@@ -658,6 +658,14 @@ Network.NetworkLogView = class extends UI.VBox {
   }
 
   /**
+   * @param {boolean} value
+   */
+  _setHidden(value) {
+    this._columns.setHidden(value);
+    UI.ARIAUtils.setHidden(this._summaryToolbar.element, value);
+  }
+
+  /**
    * @override
    * @return {!Array.<!Element>}
    */
