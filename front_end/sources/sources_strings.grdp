@@ -78,6 +78,9 @@
   <message name="IDS_DEVTOOLS_27cd6a52dd9de75342d5115dc6bca6ba" desc="Text in Debugger Plugin of the Sources panel">
     Associated files are available via file tree or <ph name="UI_SHORTCUTREGISTRY_SHORTCUTTITLEFORACTION__QUICKOPEN_SHOW__">$1s<ex>Ctrl+P Ctrl+O</ex></ph>.
   </message>
+  <message name="IDS_DEVTOOLS_2fd1327e2b4a214b10ccb260f0aa93de" desc="Infobar to show how to enable code coverage in the Sources panel">
+    Reload with Code Coverage enabled?
+  </message>
   <message name="IDS_DEVTOOLS_30af0d86fe286708503f94e65c4da3f6" desc="Text in Debugger Paused Message of the Sources panel">
     Paused on breakpoint
   </message>
@@ -357,6 +360,9 @@
   <message name="IDS_DEVTOOLS_b16d05636bde9fe84392fd4af198e9c1" desc="Title of the 'Quick source' tool in the bottom drawer">
     Quick source
   </message>
+  <message name="IDS_DEVTOOLS_b18e56f8541089e31a032aced9ad1339" desc="Infobar to show how to enable Code Coverage in the Sources panel">
+    Click to <ph name="LINK">$1s<ex>{}</ex></ph> tool and use <ph name="TOOLBARWITHRELOAD_ELEMENT">$2s<ex>{}</ex></ph> to reload with coverage enabled.
+  </message>
   <message name="IDS_DEVTOOLS_b1a3aaa0de38001a39eeaf44c523a98c" desc="Icon title in Tabbed Editor Container of the Sources panel">
     Changes to this file were not saved to file system.
   </message>
@@ -401,6 +407,9 @@
   </message>
   <message name="IDS_DEVTOOLS_c322e65e12002c3bd486ff62ff5b1fd6" desc="Text in Debugger Paused Message of the Sources panel">
     node removal
+  </message>
+  <message name="IDS_DEVTOOLS_c3aaf54f38def1f10879b2770f1e35cb" desc="Infobar to show how to enable code coverage in the Sources panel">
+    open the coverage report
   </message>
   <message name="IDS_DEVTOOLS_c42094126c68a61cc5359460681e1d90" desc="Text in Snippets Plugin of the Sources panel">
     ⌘+Enter
