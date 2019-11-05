@@ -29,6 +29,15 @@ Coverage.CoverageDecorationManager = class {
     Workspace.workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this._onUISourceCodeAdded, this);
   }
 
+  /**
+   * @param {!Workspace.UISourceCode} uiSourceCode
+   * @returns boolean
+   */
+  static hasCoverage(uiSourceCode) {
+    const decorations = uiSourceCode.decorationsForType(Coverage.CoverageDecorationManager._decoratorType);
+    return !!(decorations && decorations.size);
+  }
+
   reset() {
     for (const uiSourceCode of Workspace.workspace.uiSourceCodes()) {
       uiSourceCode.removeDecorationsForType(Coverage.CoverageDecorationManager._decoratorType);
