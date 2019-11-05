@@ -412,10 +412,9 @@ SourcesTestRunner._resumedScript = function() {
   }
 };
 
-SourcesTestRunner.showUISourceCode = function(uiSourceCode, callback) {
+SourcesTestRunner.showUISourceCode = async function(uiSourceCode, callback) {
   const panel = UI.panels.sources;
-  panel.showUISourceCode(uiSourceCode);
-  const sourceFrame = panel.visibleView;
+  const sourceFrame = await panel.showUISourceCode(uiSourceCode);
 
   if (sourceFrame.loaded) {
     callback(sourceFrame);

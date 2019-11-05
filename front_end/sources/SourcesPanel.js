@@ -362,18 +362,19 @@ Sources.SourcesPanel = class extends UI.Panel {
    * @param {number=} lineNumber 0-based
    * @param {number=} columnNumber
    * @param {boolean=} omitFocus
+   * @return {!Promise<?UI.Widget>}
    */
-  showUISourceCode(uiSourceCode, lineNumber, columnNumber, omitFocus) {
+  async showUISourceCode(uiSourceCode, lineNumber, columnNumber, omitFocus) {
     if (omitFocus) {
       const wrapperShowing =
           Sources.SourcesPanel.WrapperView._instance && Sources.SourcesPanel.WrapperView._instance.isShowing();
       if (!this.isShowing() && !wrapperShowing) {
-        return;
+        return null;
       }
     } else {
       this._showEditor();
     }
-    this._sourcesView.showSourceLocation(uiSourceCode, lineNumber, columnNumber, omitFocus);
+    return this._sourcesView.showSourceLocation(uiSourceCode, lineNumber, columnNumber, omitFocus);
   }
 
   _showEditor() {
