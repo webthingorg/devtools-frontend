@@ -205,6 +205,30 @@
     },
     {
       "key": {
+        "uuid": "21de323a_b7ad6529",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "OK. For the report, maybe later we could remove the score gauge sticky head for small viewports.",
+      "parentUuid": "1f98e8c3_40e54832",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c253eccf_32e05287",
         "filename": "front_end/audits/auditsStartView.css",
         "patchSetId": 8
@@ -228,6 +252,30 @@
     },
     {
       "key": {
+        "uuid": "532a76ea_19d2e58c",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c253eccf_32e05287",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "777ad169_f4d21b97",
         "filename": "front_end/audits/auditsStartView.css",
         "patchSetId": 8
@@ -248,6 +296,30 @@
       "revId": "5c94da38edc74665afea9b57c261590439947b7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeca162d_1c139309",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "777ad169_f4d21b97",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 8
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -291,6 +363,24 @@
     },
     {
       "key": {
+        "uuid": "833cb91c_684079b1",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5da5a3b9_cee70822",
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81f3a049_43f9c855",
         "filename": "front_end/audits/auditsStartView.css",
         "patchSetId": 8
@@ -311,6 +401,30 @@
       "revId": "5c94da38edc74665afea9b57c261590439947b7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f06dac1_8cda7aeb",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81f3a049_43f9c855",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 8
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -337,6 +451,30 @@
     },
     {
       "key": {
+        "uuid": "317c2a44_8dfa070e",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a57cf0c_d9632edb",
+      "range": {
+        "startLine": 92,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 7
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94b0c72b_b2a54ec9",
         "filename": "front_end/audits/auditsStartView.css",
         "patchSetId": 8
@@ -348,6 +486,30 @@
       "writtenOn": "2019-11-05T01:08:00Z",
       "side": 1,
       "message": "im talking to yuin but I think we should drop our own custom styling for this button.  Since the start-view is very much devtools, i think its best to keep the visual language more consistent. \n\nthe \"Take snapshot\" button in Memory panel looks great and I think we should just leverage all those .text-button looks.  We can then delete all these custom styles and also the focus/hover/disabled states.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 2
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "623117c7_157c6975",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "Want to confirm that we still want this change (after talking to yuin)",
+      "parentUuid": "94b0c72b_b2a54ec9",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -380,6 +542,30 @@
       "revId": "5c94da38edc74665afea9b57c261590439947b7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73113e4d_61e9d0f1",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1310420
+      },
+      "writtenOn": "2019-11-05T21:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c27e0c6_af1ec313",
+      "range": {
+        "startLine": 125,
+        "startChar": 20,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
