@@ -86,6 +86,9 @@ Sources.ScriptFormatterEditorAction = class {
     if (Persistence.persistence.binding(uiSourceCode)) {
       return false;
     }
+    if (Sources.sourceFormatter.isFormatted(uiSourceCode)) {
+      return false;
+    }
     return uiSourceCode.contentType().hasScripts();
   }
 

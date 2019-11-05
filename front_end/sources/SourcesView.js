@@ -376,8 +376,17 @@ Sources.SourcesView = class extends UI.VBox {
    * @param {number=} columnNumber
    * @param {boolean=} omitFocus
    * @param {boolean=} omitHighlight
+   * @return {!Promise<?UI.Widget>}
    */
-  showSourceLocation(uiSourceCode, lineNumber, columnNumber, omitFocus, omitHighlight) {
+  async showSourceLocation(uiSourceCode, lineNumber, columnNumber, omitFocus, omitHighlight) {
+    const isFormatted = Sources.sourceFormatter.isFormatted(uiSourceCode);
+
+    // Make sure source code with coverage data is always formatted
+    if (!isFormatted && Coverage.CoverageDecorationManager.hasCoverage(uiSourceCode)) {
+      const formatData = await Sources.sourceFormatter.format(uiSourceCode);
+      uiSourceCode = formatData.formattedSourceCode;
+    }
+
     this._historyManager.updateCurrentState();
     this._editorContainer.showFile(uiSourceCode);
     const currentSourceFrame = this.currentSourceFrame();
@@ -388,6 +397,8 @@ Sources.SourcesView = class extends UI.VBox {
     if (!omitFocus) {
       this.visibleView().focus();
     }
+
+    return this.visibleView();
   }
 
   /**

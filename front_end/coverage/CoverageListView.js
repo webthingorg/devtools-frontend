@@ -134,20 +134,14 @@ Coverage.CoverageListView = class extends UI.VBox {
     if (!node) {
       return;
     }
+
     const coverageInfo = /** @type {!Coverage.CoverageListView.GridNode} */ (node)._coverageInfo;
-    let sourceCode = Workspace.workspace.uiSourceCodeForURL(coverageInfo.url());
+    const sourceCode = Workspace.workspace.uiSourceCodeForURL(coverageInfo.url());
     if (!sourceCode) {
       return;
     }
-    const content = (await sourceCode.requestContent()).content || '';
-    if (TextUtils.isMinified(content)) {
-      const formatData = await Sources.sourceFormatter.format(sourceCode);
-      sourceCode = formatData.formattedSourceCode;
-    }
-    if (this._dataGrid.selectedNode !== node) {
-      return;
-    }
-    Common.Revealer.reveal(sourceCode);
+
+    return Common.Revealer.reveal(sourceCode);
   }
 
   _sortingChanged() {
