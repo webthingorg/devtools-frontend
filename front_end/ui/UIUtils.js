@@ -1665,6 +1665,7 @@ export function bindInput(input, apply, validate, numeric, modifierMultiplier, e
     const {valid, errorMessage} = validate(input.value);
     input.classList.toggle('error-input', !valid);
     setErrorMessage(errorElement, errorMessage);
+    setInvalid(input, valid);
   }
 
   function onChange() {
@@ -1674,6 +1675,7 @@ export function bindInput(input, apply, validate, numeric, modifierMultiplier, e
       apply(input.value);
     }
     setErrorMessage(errorElement, errorMessage);
+    setInvalid(input, valid);
   }
 
   /**
@@ -1686,6 +1688,7 @@ export function bindInput(input, apply, validate, numeric, modifierMultiplier, e
         apply(input.value);
       }
       setErrorMessage(errorElement, errorMessage);
+      setInvalid(input, valid);
       event.preventDefault();
       return;
     }
@@ -1713,6 +1716,18 @@ export function bindInput(input, apply, validate, numeric, modifierMultiplier, e
   function setErrorMessage(errorElement, errorMessage) {
     if (errorElement) {
       errorElement.textContent = errorMessage || '';
+    }
+  }
+
+  /**
+   * @param {!Element} input
+   * @param {boolean} valid
+   */
+  function setInvalid(input, valid) {
+    if (valid) {
+      UI.ARIAUtils.setInvalid(input, false);
+    } else {
+      UI.ARIAUtils.setInvalid(input, true);
     }
   }
 
