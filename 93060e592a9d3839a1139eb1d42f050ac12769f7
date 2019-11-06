@@ -22,6 +22,30 @@
       "revId": "93060e592a9d3839a1139eb1d42f050ac12769f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71c348e0_f1d60af7",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-06T12:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ca8589c_e82e5c5b",
+      "range": {
+        "startLine": 317,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 6
+      },
+      "revId": "93060e592a9d3839a1139eb1d42f050ac12769f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
