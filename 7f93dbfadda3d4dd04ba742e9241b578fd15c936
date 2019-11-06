@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8becb0cb_667cdb88",
+        "filename": "front_end/common/AppProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-06T09:48:53Z",
+      "side": 1,
+      "message": "Is this done just to get the appropriate side-effects elsewhere?",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5df8ed87_017c7dea",
+        "filename": "front_end/common/ContentProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-06T09:48:53Z",
+      "side": 1,
+      "message": "I think we probably need some comments as to why we are importing even though the imported values are not used.",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "819ec2cd_01660e61",
+        "filename": "front_end/common/StaticContentProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-06T09:48:53Z",
+      "side": 1,
+      "message": "Same on the comments",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c497b8d_ec45aa63",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-06T09:48:53Z",
+      "side": 1,
+      "message": "What\u0027s going on here? This seems like a very peculiar thing to do.",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec36bd56_d5ad121f",
+        "filename": "karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-06T09:48:53Z",
+      "side": 1,
+      "message": "Thinking about yesterday\u0027s debug issue. We should maybe add a DEBUG flag at the top that toggles off coverage, and switches singleRun. wdyt?",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
