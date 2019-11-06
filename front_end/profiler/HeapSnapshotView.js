@@ -62,7 +62,7 @@ Profiler.HeapSnapshotView = class extends UI.SimpleView {
     this._splitWidget = new UI.SplitWidget(false, true, 'heapSnapshotSplitViewState', 200, 200);
     this._splitWidget.show(this._searchableView.element);
 
-    this._containmentDataGrid = new Profiler.HeapSnapshotContainmentDataGrid(this);
+    this._containmentDataGrid = new Profiler.HeapSnapshotContainmentDataGrid(ls`Containment`, this);
     this._containmentDataGrid.addEventListener(DataGrid.DataGrid.Events.SelectedNode, this._selectionChanged, this);
     this._containmentWidget = this._containmentDataGrid.asWidget();
     this._containmentWidget.setMinimumSize(50, 25);
