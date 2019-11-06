@@ -42,6 +42,9 @@
   <message name="IDS_DEVTOOLS_4ab5093468559edd5940ac59f1c6ac02" desc="Text in Audits Status View">
     Try to navigate to the URL in a fresh <ph name="LOCKED_1">Chrome</ph> profile without any other tabs or extensions open and try again.
   </message>
+  <message name="IDS_DEVTOOLS_52fd41176082906baabdbd89029ba1f0" desc="Text in Audits Status View">
+    Community Plugins (Beta)
+  </message>
   <message name="IDS_DEVTOOLS_55f562701dc2cc775f9adc0478644b2a" desc="Tooltip text that appears when hovering over the largeicon add button in the Audits Panel">
     Perform an audit…
   </message>
@@ -71,6 +74,9 @@
   </message>
   <message name="IDS_DEVTOOLS_6565973a762b83f476e9a76a0015b539" desc="Help text in Audits Controller">
     At least one category must be selected.
+  </message>
+  <message name="IDS_DEVTOOLS_66d76bd9ac778187ff927254609b497a" desc="Help text in Audits Controller">
+    What is the speed and overall quality of ads on this page
   </message>
   <message name="IDS_DEVTOOLS_67aa731132e0e7bbabb1b3d3c363e7d6" desc="Help text in Audits Controller">
     Multiple tabs are being controlled by the same service worker. Close your other tabs on the same origin to audit this page.
@@ -119,6 +125,9 @@
   </message>
   <message name="IDS_DEVTOOLS_a99169b94755be554b65f8dcc2c2b842" desc="Text in the pop-up dialog when lighthouse is gathering information in the Audits panel">
     <ph name="LOCKED_1">Lighthouse</ph> is gathering information about the page to compute your score.
+  </message>
+  <message name="IDS_DEVTOOLS_abef61c6093b932176b80c40ce8a4023" desc="Text in Audits Controller">
+    Publisher Ads
   </message>
   <message name="IDS_DEVTOOLS_af1b98adf7f686b84cd0b443e022b7a0" desc="Title in the Audits Start View for list of categories to run during audit">
     Categories

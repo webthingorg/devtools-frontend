@@ -74,15 +74,19 @@ Audits.StartView = class extends UI.Widget {
 
     // Populate the categories
     const categoryFormElements = fragment.$('categories-form-elements');
+    const pluginFormElements = fragment.$('plugins-form-elements');
     for (const preset of Audits.Presets) {
+      const formElements = preset.plugin ? pluginFormElements : categoryFormElements;
       preset.setting.setTitle(preset.title);
       const checkbox = new UI.ToolbarSettingCheckbox(preset.setting);
-      const row = categoryFormElements.createChild('div', 'vbox audits-launcher-row');
+      const row = formElements.createChild('div', 'vbox audits-launcher-row');
       row.title = preset.description;
       row.appendChild(checkbox.element);
     }
     UI.ARIAUtils.markAsGroup(categoryFormElements);
     UI.ARIAUtils.setAccessibleName(categoryFormElements, ls`Categories`);
+    UI.ARIAUtils.markAsGroup(pluginFormElements);
+    UI.ARIAUtils.setAccessibleName(pluginFormElements, ls`Community Plugins (Beta)`);
   }
 
   _render() {
@@ -111,11 +115,19 @@ Audits.StartView = class extends UI.Widget {
           </div>
         </header>
         <form>
-          <div class="audits-form-section">
-            <div class="audits-form-section-label">
-              ${ls`Categories`}
+          <div class="audits-form-categories">
+            <div class="audits-form-section">
+              <div class="audits-form-section-label">
+                ${ls`Categories`}
+              </div>
+              <div class="audits-form-elements" $="categories-form-elements"></div>
             </div>
-            <div class="audits-form-elements" $="categories-form-elements"></div>
+            <div class="audits-form-section">
+              <div class="audits-form-section-label">
+                <div class="audits-icon-label">${ls`Community Plugins (Beta)`}</div>
+              </div>
+              <div class="audits-form-elements" $="plugins-form-elements"></div>
+            </div>
           </div>
           <div class="audits-form-section">
             <div class="audits-form-section-label">
