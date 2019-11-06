@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ec2299e_81b02c53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-06T16:48:35Z",
+      "side": 1,
+      "message": "It covers dynamic import as well! In that case it will format it as \nimport(\"foo\") with no space and as an expression.",
+      "parentUuid": "5b397337_b1742c6f",
+      "revId": "acf629e4dceaa9ea0a1925d7aab534e5a18c6b00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e376b67f_718c5c60",
         "filename": "front_end/formatter_worker/JavaScriptFormatter.js",
         "patchSetId": 1
