@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd995e10_327980c5",
+        "filename": "front_end/inline_editor/cssShadowEditor.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2019-11-06T18:37:36Z",
+      "side": 1,
+      "message": "It\u0027s odd to me that you have to provide a color value specifically for dark theme. Do buttons not have a \"color\" attribute for ThemeSupport to invert?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "a12204133115e891ce7ef3d2d8746f7504c29053",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
