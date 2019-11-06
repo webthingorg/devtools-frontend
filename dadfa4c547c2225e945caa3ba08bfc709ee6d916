@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "4eaf6577_ceb5025f",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T00:58:47Z",
+      "side": 1,
+      "message": "😄, nice!",
+      "parentUuid": "035c3d29_668b37d6",
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc815bf5_36a23cb1",
         "filename": "scripts/test/run_localization_check.py",
         "patchSetId": 3
@@ -73,6 +91,30 @@
       "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd0e1eeb_e7606ce9",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T00:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc815bf5_36a23cb1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +153,24 @@
     },
     {
       "key": {
+        "uuid": "3705a1f2_4522d222",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T00:58:47Z",
+      "side": 1,
+      "message": "Thanks for tips! will do.",
+      "parentUuid": "e698a333_75b3f81d",
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3e82425_340a56fd",
         "filename": "scripts/test/run_localization_check.py",
         "patchSetId": 3
@@ -131,6 +191,30 @@
       "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24e3bef2_9ddccc7e",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T00:58:47Z",
+      "side": 1,
+      "message": "left this for testing, this should be taken out.",
+      "parentUuid": "f3e82425_340a56fd",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "7dd0ecdd_bfbf73fa",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T00:58:47Z",
+      "side": 1,
+      "message": "same here, this was mostly for testing.",
+      "parentUuid": "6ec90d23_f5c89231",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 20
+      },
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cc19f33_14912d15",
         "filename": "scripts/test/run_localization_check.py",
         "patchSetId": 3
@@ -180,6 +288,30 @@
     },
     {
       "key": {
+        "uuid": "b4f13785_8fdcbf45",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T00:58:47Z",
+      "side": 1,
+      "message": "if the arguments are already in the global variables is there any benefit on moving them in here? I can refactor the code to be initialized in main and take out the globals but I want to keep the logic as consistent as possible between the run_*_check.py scripts. thoughts?",
+      "parentUuid": "6cc19f33_14912d15",
+      "range": {
+        "startLine": 103,
+        "startChar": 52,
+        "endLine": 103,
+        "endChar": 54
+      },
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4415dde_ee0cd1db",
         "filename": "scripts/test/run_localization_check.py",
         "patchSetId": 3
@@ -191,6 +323,30 @@
       "writtenOn": "2019-11-04T17:13:35Z",
       "side": 1,
       "message": "pass the list of arguments in here.",
+      "range": {
+        "startLine": 104,
+        "startChar": 46,
+        "endLine": 104,
+        "endChar": 48
+      },
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46fee946_3ded0b5d",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T00:58:47Z",
+      "side": 1,
+      "message": "same answer as line 103",
+      "parentUuid": "e4415dde_ee0cd1db",
       "range": {
         "startLine": 104,
         "startChar": 46,
