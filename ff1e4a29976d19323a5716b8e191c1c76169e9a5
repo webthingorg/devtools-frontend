@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b67303d_f80e2b80",
+        "filename": "commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-06T08:39:09Z",
+      "side": 1,
+      "message": "Please don\u0027t add builders to CQ in the CL in which they get added first time. We first need to see a builder working in production before blocking CQ on it.",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 27
+      },
+      "revId": "ff1e4a29976d19323a5716b8e191c1c76169e9a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff0e925c_57f96cbe",
+        "filename": "commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-06T08:39:09Z",
+      "side": 1,
+      "message": "Please remove this. There is nothing windows specific in infra/config presubmit.",
+      "range": {
+        "startLine": 72,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "ff1e4a29976d19323a5716b8e191c1c76169e9a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47ac7d2e_217851f6",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-06T08:39:09Z",
+      "side": 1,
+      "message": "Did you add any win10 bots to the pool of devtools before landing this change?",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "ff1e4a29976d19323a5716b8e191c1c76169e9a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
