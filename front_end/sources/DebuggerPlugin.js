@@ -143,6 +143,9 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
       this._prettyPrintInfobar = null;
       this._detectMinified();
     }
+
+    this._codeCoverageInfobar = null;
+    this._askForCoverage();
   }
 
   /**
@@ -1565,9 +1568,51 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
     this._textEditor.attachInfobar(this._sourceMapInfobar);
   }
 
-  _detectMinified() {
+  _askForCoverage() {
+    if (Coverage.CoverageDecorationManager.hasCoverage(this._uiSourceCode)) {
+      return;
+    }
+
+    this._codeCoverageInfobar = UI.Infobar.create(
+        UI.Infobar.Type.Info, ls`Reload with Code Coverage enabled?`,
+        Common.settings.createSetting('codeCoverageInfobarDisabled', false));
+    if (!this._codeCoverageInfobar) {
+      return;
+    }
+
+    this._codeCoverageInfobar.setCloseCallback(() => this._codeCoverageInfobar = null);
+
+    const toolbarWithReload = new UI.Toolbar('');
+    const buttonWithReload = new UI.ToolbarButton('', 'largeicon-refresh');
+    toolbarWithReload.appendToolbarItem(buttonWithReload);
+    toolbarWithReload.element.style.display = 'inline-block';
+    toolbarWithReload.element.style.verticalAlign = 'middle';
+    toolbarWithReload.element.style.marginBottom = '3px';
+    toolbarWithReload.element.style.pointerEvents = 'none';
+
+    const link = createElementWithClass('span', 'link');
+    link.textContent = ls`open the coverage report`;
+    link.addEventListener('click', () => {
+      UI.viewManager.showView('coverage');
+    });
+
+    const element = this._codeCoverageInfobar.createDetailsRowMessage();
+    element.appendChild(UI.formatLocalized(
+        'Click to %s tool and use %s to reload with coverage enabled.', [link, toolbarWithReload.element]));
+    this._textEditor.attachInfobar(this._codeCoverageInfobar);
+  }
+
+  _checkIfSourceIsAlreadyFormatted() {
     const content = this._uiSourceCode.content();
     if (!content || !TextUtils.isMinified(content)) {
+      return true;
+    }
+
+    return Sources.sourceFormatter.hasFormatted(this._uiSourceCode);
+  }
+
+  _detectMinified() {
+    if (this._checkIfSourceIsAlreadyFormatted()) {
       return;
     }
 

@@ -1116,6 +1116,46 @@ Sources.SourcesPanel.UISourceCodeRevealer = class {
   }
 };
 
+/** @typedef {{ url: string, formatted: (boolean|undefined) }} */
+Sources.SourcesPanel.URLRevealerParameters;
+
+/**
+ * @implements {Common.Revealer}
+ * @unrestricted
+ */
+Sources.SourcesPanel.URLRevealer = class {
+  /**
+   * @override
+   * @param {!Object} parameters
+   * @param {boolean=} omitFocus
+   * @return {!Promise}
+   */
+  async reveal(parameters, omitFocus) {
+    if (!parameters.url) {
+      // This is intentionally not resolving to keep this from
+      // interfering with the Promise.race in Common.Revealer.reveal
+      // in case we are not interested in handling this reveal.
+      return new Promise(() => {});
+    }
+
+    const {url, format} = /** @type {!Sources.SourcesPanel.URLRevealerParameters} */ (parameters);
+    let sourceCode = Workspace.workspace.uiSourceCodeForURL(url);
+    if (!sourceCode) {
+      throw new Error('Internal error: not a valid url for a source code');
+    }
+
+    if (format) {
+      const content = (await sourceCode.requestContent()).content || '';
+      if (TextUtils.isMinified(content)) {
+        const formatData = await Sources.sourceFormatter.format(sourceCode);
+        sourceCode = formatData.formattedSourceCode;
+      }
+    }
+
+    Sources.SourcesPanel.instance().showUISourceCode(sourceCode, undefined, undefined, omitFocus);
+  }
+};
+
 /**
  * @implements {Common.Revealer}
  * @unrestricted
