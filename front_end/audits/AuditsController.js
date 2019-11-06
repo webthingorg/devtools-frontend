@@ -241,6 +241,13 @@ Audits.Presets = [
     title: ls`SEO`,
     description: ls`Is this page optimized for search engine results ranking`
   },
+  {
+    setting: Common.settings.createSetting('audits.cat_pubads', false),
+    plugin: true,
+    configID: 'lighthouse-plugin-publisher-ads',
+    title: ls`Publisher Ads`,
+    description: ls`What is the speed and overall quality of ads on this page`
+  },
 ];
 
 /** @typedef {{setting: !Common.Setting, description: string, setFlags: function(!Object, string), options: (!Array|undefined), title: (string|undefined)}} */
