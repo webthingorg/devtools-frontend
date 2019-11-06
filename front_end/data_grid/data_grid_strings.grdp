@@ -6,6 +6,9 @@
   <message name="IDS_DEVTOOLS_28de94c6a82d4419a4014addb8aba93c" desc="Show last text content in Show More Data Grid Node of a data grid">
     Show <ph name="THIS__CHUNKSIZE">$1d<ex>5</ex></ph> after
   </message>
+  <message name="IDS_DEVTOOLS_9e25d0f4adf625500b161c1f2f035c69" desc="Label for all data grids">
+    <ph name="GRIDNAME">$1s<ex>Performance</ex></ph> Data Grid
+  </message>
   <message name="IDS_DEVTOOLS_b33d161950658a73abe8675d311345d2" desc="A context menu item in the Data Grid of a data grid">
     Edit &quot;<ph name="THIS__COLUMNS_COLUMNID__TITLE">$1s<ex>pattern</ex></ph>&quot;
   </message>
