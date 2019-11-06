@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b610aa8_201fc5d3",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-06T19:23:52Z",
+      "side": 1,
+      "message": "What do you think about putting this behind a devtools experiment? That way we control when we roll it out and provide ourselves an easy way to test during development.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 115
+      },
+      "revId": "3a30c81befd46f14f255367cf70a602d0764b881",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
