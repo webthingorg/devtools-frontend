@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cf44780a_b36fcf48",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T01:05:45Z",
+      "side": 1,
+      "message": "D is a filter to avoid including Deleted files as part of the loc check.",
+      "parentUuid": "dbf6e302_43e2d64c",
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "feb9b15c_ff3dcf8d",
         "filename": "PRESUBMIT.py",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82369d9d_20ee9de2",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-11-06T01:05:45Z",
+      "side": 1,
+      "message": "this was done by cl format 😞",
+      "parentUuid": "feb9b15c_ff3dcf8d",
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
