@@ -428,6 +428,30 @@
     },
     {
       "key": {
+        "uuid": "df44280f_a9706e99",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-06T00:22:28Z",
+      "side": 1,
+      "message": "I\u0027m still seeing this not aligned https://imgur.com/CGywBVA",
+      "parentUuid": "2f06dac1_8cda7aeb",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 8
+      },
+      "revId": "5c94da38edc74665afea9b57c261590439947b7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a57cf0c_d9632edb",
         "filename": "front_end/audits/auditsStartView.css",
         "patchSetId": 8
