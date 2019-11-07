@@ -22,6 +22,30 @@
       "revId": "4e378a0df0a8f1edc46612de9a4b75fbfc260751",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72984ccb_9bc47432",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-11-07T20:14:30Z",
+      "side": 1,
+      "message": "Yes. It would download right into the parent directory of devtools-frontend/",
+      "parentUuid": "3ed2cc1a_5538b4a5",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 21
+      },
+      "revId": "4e378a0df0a8f1edc46612de9a4b75fbfc260751",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
