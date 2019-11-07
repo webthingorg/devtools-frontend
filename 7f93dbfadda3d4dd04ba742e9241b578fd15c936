@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "904ce453_cabaf050",
+        "filename": "front_end/common/AppProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-07T14:31:18Z",
+      "side": 1,
+      "message": "Yes it is used in the JSDoc as a type.",
+      "parentUuid": "8becb0cb_667cdb88",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5df8ed87_017c7dea",
         "filename": "front_end/common/ContentProvider.js",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e0f10b3_1bd6c299",
+        "filename": "front_end/common/ContentProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-07T14:31:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5df8ed87_017c7dea",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c3a47690_f6e08151",
+        "filename": "front_end/common/StaticContentProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-07T14:31:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "819ec2cd_01660e61",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c497b8d_ec45aa63",
         "filename": "front_end/common/common.js",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "f59e7e0e_3aff0e86",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-07T14:31:18Z",
+      "side": 1,
+      "message": "Resolved IRL. We decided to port this into a `common-legacy` file to make it clear that is the legacy way of resolving variables.",
+      "parentUuid": "0c497b8d_ec45aa63",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec36bd56_d5ad121f",
         "filename": "karma.conf.js",
         "patchSetId": 2
@@ -84,6 +156,24 @@
       "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a2810fa_857283ef",
+        "filename": "karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-07T14:31:18Z",
+      "side": 1,
+      "message": "Sure! Let\u0027s put that in a separate CL though.",
+      "parentUuid": "ec36bd56_d5ad121f",
+      "revId": "7f93dbfadda3d4dd04ba742e9241b578fd15c936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
