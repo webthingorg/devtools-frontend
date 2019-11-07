@@ -22,6 +22,30 @@
       "revId": "610b649a5ea28db11e4d8465027131e1fa79bf76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4915472b_3c773e0d",
+        "filename": "front_end/accessibility/ARIAMetadata.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-07T15:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6fa55cf_f099b8e4",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 8
+      },
+      "revId": "610b649a5ea28db11e4d8465027131e1fa79bf76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
