@@ -12,6 +12,10 @@
     ],
     "dependencies": ["elements"],
     "scripts": [
+        "ARIAProperties.js"
+    ],
+    "modules": [
+        "accessibility.js",
         "AccessibilityModel.js",
         "AccessibilitySidebarView.js",
         "AccessibilityNodeView.js",
