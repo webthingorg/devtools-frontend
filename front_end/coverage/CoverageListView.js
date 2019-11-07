@@ -361,7 +361,8 @@ Coverage.CoverageListView.GridNode = class extends DataGrid.SortableDataGridNode
    * @return {string}
    */
   _percentageString(value, max, numDecimalPlaces) {
-    return (value / max * 100).toFixed(numDecimalPlaces) + '%';
+    // If file size is 0, coverage is reported as being 0%
+    return ((max ? (value / max) : 1) * 100).toFixed(numDecimalPlaces) + '%';
   }
 
   /**
