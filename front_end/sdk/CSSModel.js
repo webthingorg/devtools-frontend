@@ -550,6 +550,14 @@ export default class CSSModel extends SDK.SDKModel {
   }
 
   /**
+   *
+   * @return {!Array<SDK.CSSStyleSheetHeader>}
+   */
+  getAllStyleSheetHeaders() {
+    return Array.from(this._styleSheetIdToHeader.values());
+  }
+
+  /**
    * @param {!Protocol.CSS.CSSStyleSheetHeader} header
    */
   _styleSheetAdded(header) {
