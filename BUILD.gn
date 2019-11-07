@@ -129,12 +129,8 @@ if (external_devtools_frontend) {
     "front_end/cm_web_modes/htmlmixed.js",
     "front_end/cm_web_modes/javascript.js",
     "front_end/cm_web_modes/xml.js",
-    "front_end/color_picker/ContrastDetails.js",
-    "front_end/color_picker/ContrastInfo.js",
-    "front_end/color_picker/ContrastOverlay.js",
     "front_end/color_picker/module.json",
     "front_end/color_picker/spectrum.css",
-    "front_end/color_picker/Spectrum.js",
     "front_end/common/module.json",
     "front_end/components/imagePreview.css",
     "front_end/components/jsUtils.css",
@@ -772,6 +768,11 @@ if (external_devtools_frontend) {
   all_devtools_files += lighthouse_locale_files
 
   all_devtools_modules = [
+    "front_end/color_picker/color_picker.js",
+    "front_end/color_picker/Spectrum.js",
+    "front_end/color_picker/ContrastOverlay.js",
+    "front_end/color_picker/ContrastInfo.js",
+    "front_end/color_picker/ContrastDetails.js",
     "front_end/formatter_worker.unbundled.js",
     "front_end/heap_snapshot_worker.unbundled.js",
     "front_end/heap_snapshot_model/heap_snapshot_model.js",
@@ -1207,6 +1208,11 @@ if (external_devtools_frontend) {
   ]
 
   copied_devtools_modules = [
+    "$resources_out_dir/color_picker/color_picker.js",
+    "$resources_out_dir/color_picker/Spectrum.js",
+    "$resources_out_dir/color_picker/ContrastOverlay.js",
+    "$resources_out_dir/color_picker/ContrastInfo.js",
+    "$resources_out_dir/color_picker/ContrastDetails.js",
     "$resources_out_dir/heap_snapshot_model/heap_snapshot_model.js",
     "$resources_out_dir/heap_snapshot_model/HeapSnapshotModel.js",
     "$resources_out_dir/heap_snapshot_worker/heap_snapshot_worker.js",
