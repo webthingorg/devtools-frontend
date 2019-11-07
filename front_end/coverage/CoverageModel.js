@@ -53,6 +53,8 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
     this._cssBacklog = [];
     /** @type {?boolean} */
     this._performanceTraceRecording = false;
+
+    this._cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetAdded, this._handleStyleSheetAdded.bind(this));
   }
 
   /**
@@ -105,6 +107,15 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
     if (this._currentPollPromise || this._suspensionState !== Coverage.SuspensionState.Active) {
       return;
     }
+
+    const headers = this._cssModel.getAllStyleSheetHeaders();
+    for (const header of headers) {
+      const styleSheetHeader = /** @type {!SDK.CSSStyleSheetHeader} */ (header);
+      this._addCoverage(
+          styleSheetHeader, styleSheetHeader.contentLength, styleSheetHeader.startLine, styleSheetHeader.startColumn,
+          [], Coverage.CoverageType.CSS, Date.now());
+    }
+
     await this._pollLoop();
   }
 
@@ -281,6 +292,7 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
     return results.flat();
   }
 
+
   /**
    * @param {!Array<!Protocol.Profiler.ScriptCoverage>} scriptsCoverage
    * @return {!Array<!Coverage.CoverageInfo>}
@@ -315,6 +327,14 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
       }
     }
     return updatedEntries;
+  }
+
+  _handleStyleSheetAdded(event) {
+    const styleSheetHeader = /** @type {!SDK.CSSStyleSheetHeader} */ (event.data);
+
+    this._addCoverage(
+        styleSheetHeader, styleSheetHeader.contentLength, styleSheetHeader.startLine, styleSheetHeader.startColumn, [],
+        Coverage.CoverageType.CSS, Date.now());
   }
 
   /**
