@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7031211_91be09ed",
+        "filename": "commit-queue.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-07T08:32:50Z",
+      "side": 1,
+      "message": "This is not needed. The infra/config specific presubmit is not in any way platform dependent and only verifies the configs there.",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 7
+      },
+      "revId": "4318674aa433921d0b809f11be1eff4522cccee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
