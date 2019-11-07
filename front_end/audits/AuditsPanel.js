@@ -305,7 +305,7 @@ Audits.AuditsPanel = class extends UI.Panel {
    * 1. To workaround some odd device metrics emulation bugs like occuluding viewports
    * 2. To get the attractive device outline
    *
-   * We also set flags.deviceScreenEmulationMethod = 'provided' to let LH only apply UA emulation
+   * We also set flags.internalDisableDeviceScreenEmulation = true to let LH only apply UA emulation
    */
   async _setupEmulationAndProtocolConnection() {
     const flags = this._controller.getFlags();
@@ -338,7 +338,7 @@ Audits.AuditsPanel = class extends UI.Panel {
     await this._protocolService.attach();
     this._isLHAttached = true;
   }
-
+  internalDisableDeviceScreenEmulation
   async _resetEmulationAndProtocolConnection() {
     if (!this._isLHAttached) {
       return;
