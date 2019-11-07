@@ -18,6 +18,7 @@ export default class TracingModel {
     this._minimumRecordTime = 0;
     this._maximumRecordTime = 0;
     this._devToolsMetadataEvents = [];
+    this._v8CoverageEvents = [];
     /** @type {!Array<!Event>} */
     this._asyncEvents = [];
     /** @type {!Map<string, !AsyncEvent>} */
@@ -137,6 +138,13 @@ export default class TracingModel {
   }
 
   /**
+   * @return {!Array.<!Event>}
+   */
+  v8CoverageEvents() {
+    return this._v8CoverageEvents;
+  }
+
+  /**
    * @param {!Array.<!SDK.TracingManager.EventPayload>} events
    */
   addEvents(events) {
@@ -237,6 +245,9 @@ export default class TracingModel {
     event._setBackingStorage(backingStorage);
     if (event.hasCategory(DevToolsMetadataEventCategory)) {
       this._devToolsMetadataEvents.push(event);
+    }
+    if (event.hasCategory(V8CoverageCategory)) {
+      this._v8CoverageEvents.push(event);
     }
 
     if (payload.ph !== phase.Metadata) {
@@ -499,6 +510,7 @@ export const MetadataEvent = {
 export const LegacyTopLevelEventCategory = 'toplevel';
 
 export const DevToolsMetadataEventCategory = 'disabled-by-default-devtools.timeline';
+export const V8CoverageCategory = 'disabled-by-default-v8.coverage';
 export const DevToolsTimelineEventCategory = 'disabled-by-default-devtools.timeline';
 export const FrameLifecycleEventCategory = 'cc,devtools';
 
@@ -1028,6 +1040,7 @@ SDK.TracingModel.Phase = Phase;
 SDK.TracingModel.MetadataEvent = MetadataEvent;
 SDK.TracingModel.LegacyTopLevelEventCategory = LegacyTopLevelEventCategory;
 SDK.TracingModel.DevToolsMetadataEventCategory = DevToolsMetadataEventCategory;
+SDK.TracingModel.V8CoverageCategory = V8CoverageCategory;
 SDK.TracingModel.DevToolsTimelineEventCategory = DevToolsTimelineEventCategory;
 SDK.TracingModel.FrameLifecycleEventCategory = FrameLifecycleEventCategory;
 

@@ -21,6 +21,7 @@ Timeline.TimelineController = class {
 
     const backingStorage = new Bindings.TempFileBackingStorage();
     this._tracingModel = new SDK.TracingModel(backingStorage);
+    this._coverageModel = target.model(Coverage.CoverageModel);
 
     /** @type {!Array<!Timeline.ExtensionTracingSession>} */
     this._extensionSessions = [];
@@ -29,6 +30,10 @@ Timeline.TimelineController = class {
 
   dispose() {
     SDK.targetManager.unobserveModels(SDK.CPUProfilerModel, this);
+  }
+
+  coverageModel() {
+    return this._coverageModel;
   }
 
   /**
@@ -55,7 +60,8 @@ Timeline.TimelineController = class {
     }
     const categoriesArray = [
       '-*', 'devtools.timeline', disabledByDefault('devtools.timeline'), disabledByDefault('devtools.timeline.frame'),
-      'v8.execute', TimelineModel.TimelineModel.Category.Console, TimelineModel.TimelineModel.Category.UserTiming
+      disabledByDefault('v8.coverage'), 'v8.execute', TimelineModel.TimelineModel.Category.Console,
+      TimelineModel.TimelineModel.Category.UserTiming
     ];
     categoriesArray.push(TimelineModel.TimelineModel.Category.LatencyInfo);
 
@@ -84,6 +90,8 @@ Timeline.TimelineController = class {
     if (options.captureFilmStrip) {
       categoriesArray.push(disabledByDefault('devtools.screenshot'));
     }
+
+    this._coverageModel.start(false);
 
     this._extensionSessions =
         providers.map(provider => new Timeline.ExtensionTracingSession(provider, this._performanceModel));
@@ -238,7 +246,22 @@ Timeline.TimelineController = class {
     this._injectCpuProfileEvents();
     await SDK.targetManager.resumeAllTargets();
     this._tracingModel.tracingComplete();
-    this._client.loadingComplete(this._tracingModel);
+    const hasCoverage = await this._injectCoverageData();
+    this._client.loadingComplete(this._tracingModel, hasCoverage ? this._coverageModel : null);
+  }
+
+  async _injectCoverageData() {
+    const metadataEvents = this._tracingModel.v8CoverageEvents().filter(
+        e => e.name === 'CoverageAfterInvoke' && e.args.data.scripts && e.args.data.scripts.length > 0);
+    if (metadataEvents.length) {
+      await this._coverageModel.stop();
+      this._coverageModel.reset();
+      for (const e of metadataEvents) {
+        this._coverageModel.injectJSCoverage(e.args.data.scripts, e.startTime);
+      }
+      return true;
+    }
+    return false;
   }
 
   /**

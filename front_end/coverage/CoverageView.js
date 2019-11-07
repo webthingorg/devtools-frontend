@@ -181,13 +181,13 @@ Coverage.CoverageView = class extends UI.VBox {
     this._coverageTypeComboBox.setSelectedIndex(selectedIndex);
   }
 
-  async ensureRecordingStarted() {
+  async stopAndReset() {
     const enabled = this._toggleRecordAction.toggled();
 
     if (enabled) {
       await this.stopRecording();
     }
-    await this._startRecording({reload: false, jsCoveragePerBlock: false});
+    this._reset();
   }
 
   /**
@@ -286,6 +286,18 @@ Coverage.CoverageView = class extends UI.VBox {
     this._updateStats();
     this._listView.update(this._model.entries());
     this._decorationManager.update(updatedEntries);
+  }
+
+  updateViewsFromModel(model) {
+    this._listView.reset();
+    if (this._landingPage.isShowing()) {
+      this._landingPage.detach();
+    }
+    this._listView.show(this._coverageResultsElement);
+    this._model = model;
+    this._decorationManager =
+        new Coverage.CoverageDecorationManager(/** @type {!Coverage.CoverageModel} */ (this._model));
+    this._updateViews(this._model.coverageInfos());
   }
 
   _updateStats() {

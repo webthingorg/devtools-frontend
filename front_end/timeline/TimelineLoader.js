@@ -83,7 +83,7 @@ Timeline.TimelineLoader = class {
   cancel() {
     this._tracingModel = null;
     this._backingStorage.reset();
-    this._client.loadingComplete(null);
+    this._client.loadingComplete(null, null);
     this._client = null;
     if (this._canceledCallback) {
       this._canceledCallback();
@@ -222,7 +222,8 @@ Timeline.TimelineLoader = class {
       this._buffer = '';
     }
     this._tracingModel.tracingComplete();
-    this._client.loadingComplete(this._tracingModel);
+    // TODO(chromium:1022031): Support loading of coverage from trace events.
+    this._client.loadingComplete(this._tracingModel, null);
   }
 
   /**
@@ -262,8 +263,9 @@ Timeline.TimelineLoader.Client.prototype = {
 
   /**
    * @param {?SDK.TracingModel} tracingModel
+   * * @param {?Coverage.CoverageModel} coverageModel
    */
-  loadingComplete(tracingModel) {},
+  loadingComplete(tracingModel, coverageModel) {},
 };
 
 /**
