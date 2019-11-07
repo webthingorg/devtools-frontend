@@ -55,6 +55,10 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
     this._performanceTraceRecording = false;
   }
 
+  coverageInfos() {
+    return this._coverageByContentProvider.values();
+  }
+
   /**
    * @param {boolean} jsCoveragePerBlock - Collect per Block coverage if `true`, per function coverage otherwise.
    * @return {!Promise<boolean>}
@@ -279,6 +283,13 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
       results.push(this._processJSCoverage(freshRawCoverageData, now));
     }
     return results.flat();
+  }
+
+  injectJSCoverage(scripts, timestamp) {
+    const updates = this._processJSCoverage(scripts, timestamp);
+    if (updates.length) {
+      this.dispatchEventToListeners(Coverage.CoverageModel.Events.CoverageUpdated, updates);
+    }
   }
 
   /**

@@ -507,6 +507,10 @@ Timeline.TimelinePanel = class extends UI.Panel {
     console.assert(!this._statusPane, 'Status pane is already opened.');
     this._setState(Timeline.TimelinePanel.State.StartPending);
 
+    if (!this._recordingPageReload) {
+      this._startCoverage.set(false);
+    }
+
     const recordingOptions = {
       enableJSSampling: !this._disableCaptureJSProfileSetting.get(),
       capturePictures: this._captureLayersAndPicturesSetting.get(),
@@ -517,7 +521,7 @@ Timeline.TimelinePanel = class extends UI.Panel {
     if (recordingOptions.startCoverage) {
       await UI.viewManager.showView('coverage')
           .then(() => UI.viewManager.view('coverage').widget())
-          .then(widget => widget.ensureRecordingStarted());
+          .then(widget => widget.stopAndReset());
     }
 
     this._showRecordingStarted();
@@ -788,7 +792,7 @@ Timeline.TimelinePanel = class extends UI.Panel {
    * @override
    * @param {?SDK.TracingModel} tracingModel
    */
-  loadingComplete(tracingModel) {
+  loadingComplete(tracingModel, coverageModel) {
     delete this._loader;
     this._setState(Timeline.TimelinePanel.State.Idle);
 
@@ -809,10 +813,10 @@ Timeline.TimelinePanel = class extends UI.Panel {
     this._setModel(this._performanceModel);
     this._historyManager.addRecording(this._performanceModel);
 
-    if (this._startCoverage.get()) {
+    if (coverageModel) {
       UI.viewManager.showView('coverage')
           .then(() => UI.viewManager.view('coverage').widget())
-          .then(widget => widget.stopRecording())
+          .then(widget => widget.updateViewsFromModel(coverageModel))
           .then(() => this._updateOverviewControls());
     }
   }
