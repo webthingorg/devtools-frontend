@@ -68,6 +68,8 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
       // Note there's no JS coverage since JS won't ever return
       // coverage twice, even after it's restarted.
       this._clearCSS();
+
+      this._cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetAdded, this._handleStyleSheetAdded, this);
       promises.push(this._cssModel.startCoverage());
     }
     if (this._cpuProfilerModel) {
@@ -89,6 +91,7 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
     }
     if (this._cssModel) {
       promises.push(this._cssModel.stopCoverage());
+      this._cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetAdded, this._handleStyleSheetAdded, this);
     }
     await Promise.all(promises);
   }
@@ -105,6 +108,7 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
     if (this._currentPollPromise || this._suspensionState !== Coverage.SuspensionState.Active) {
       return;
     }
+
     await this._pollLoop();
   }
 
@@ -243,6 +247,12 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
         this._coverageByURL.delete(entry.url());
       }
     }
+
+    for (const styleSheetHeader of this._cssModel.getAllStyleSheetHeaders()) {
+      this._addCoverage(
+          styleSheetHeader, styleSheetHeader.contentLength, styleSheetHeader.startLine, styleSheetHeader.startColumn,
+          [], Coverage.CoverageType.CSS, Date.now());
+    }
   }
 
   /**
@@ -315,6 +325,14 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
       }
     }
     return updatedEntries;
+  }
+
+  _handleStyleSheetAdded(event) {
+    const styleSheetHeader = /** @type {!SDK.CSSStyleSheetHeader} */ (event.data);
+
+    this._addCoverage(
+        styleSheetHeader, styleSheetHeader.contentLength, styleSheetHeader.startLine, styleSheetHeader.startColumn, [],
+        Coverage.CoverageType.CSS, Date.now());
   }
 
   /**
