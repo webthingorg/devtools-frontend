@@ -16,6 +16,24 @@
       "revId": "d7c8cb763e78b5e315f9e222e0d7e17cdc7bb99d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc7970b5_328a7a65",
+        "filename": "front_end/common/common-legacy.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-07T15:47:56Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "d7a143da_d298e711",
+      "revId": "d7c8cb763e78b5e315f9e222e0d7e17cdc7bb99d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
