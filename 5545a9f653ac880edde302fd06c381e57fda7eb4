@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e0013d3_bfac2844",
+        "filename": "front_end/audits/AuditsPanel.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-07T22:44:37Z",
+      "side": 1,
+      "message": "psst",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 38
+      },
+      "revId": "5545a9f653ac880edde302fd06c381e57fda7eb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bd9250d_8eb23da3",
+        "filename": "front_end/audits/AuditsStartView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-07T22:44:37Z",
+      "side": 1,
+      "message": "this Beta text will link to github but i\u0027m happy to do that as a followup.",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 84
+      },
+      "revId": "5545a9f653ac880edde302fd06c381e57fda7eb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20108b6b_a7f7a5e8",
+        "filename": "front_end/audits/auditsStartView.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-11-07T22:44:37Z",
+      "side": 1,
+      "message": "kinda odd to see this in the wide view\n\nalso you can spot the 1px border-top in wide view as well. \n\nIMO we should only apply these borders for narrow view.\n\nhappy for this to be a followup",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 35
+      },
+      "revId": "5545a9f653ac880edde302fd06c381e57fda7eb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
