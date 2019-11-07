@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7a143da_d298e711",
+        "filename": "front_end/common/common-legacy.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-07T15:47:23Z",
+      "side": 1,
+      "message": "Presumably the next step is migrate side-effects from each of the files and place those in here?",
+      "revId": "d7c8cb763e78b5e315f9e222e0d7e17cdc7bb99d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
