@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36604b40_8a4d069c",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2019-11-08T03:50:42Z",
+      "side": 1,
+      "message": "Could you move the argument parsing code inside main() or wrap inside a function, and have main() calls it?  That way the code will only get executed when the program is run directly (entry from main()), and not executed when imported as a module.\n\nSome wrapping options https://www.reddit.com/r/learnpython/comments/3do2wr/where_to_put_argparse/",
+      "revId": "ed06cf516013d96a490e4fca5fa27a7bfac75ab6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

@@ -301,6 +301,30 @@
     },
     {
       "key": {
+        "uuid": "eab1589a_429e3f81",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2019-11-08T03:50:42Z",
+      "side": 1,
+      "message": "I think the function names should be snake case, the camel case in PRESUBMIT.py might came from the older guideline? See Official Style Guide section in here :)\nhttps://chromium.googlesource.com/chromiumos/docs/+/master/styleguide/python.md",
+      "parentUuid": "7dd0ecdd_bfbf73fa",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 20
+      },
+      "revId": "dadfa4c547c2225e945caa3ba08bfc709ee6d916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6cc19f33_14912d15",
         "filename": "scripts/test/run_localization_check.py",
         "patchSetId": 3
