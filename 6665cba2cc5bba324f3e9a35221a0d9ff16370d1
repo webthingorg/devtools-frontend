@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc4a301d_5d3a82ce",
+        "filename": "test/unittests/front_end/ui/Geometry.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-08T13:43:46Z",
+      "side": 1,
+      "message": "Can we use values that are somewhat bigger? This just feels really arbitrary and hard to confirm that it\u0027s genuinely doing the right thing.",
+      "revId": "6665cba2cc5bba324f3e9a35221a0d9ff16370d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
