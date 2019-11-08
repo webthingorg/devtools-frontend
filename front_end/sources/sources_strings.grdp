@@ -477,6 +477,9 @@
   <message name="IDS_DEVTOOLS_ed5eceb0fe85ceeeabf4b4b93eeca711" desc="A context menu item in the Sources Panel of the Sources panel">
     Continue to here
   </message>
+  <message name="IDS_DEVTOOLS_edab5a458648f46be1637b8e28564bf8" desc="Text for Status Bar in Sources Panel">
+    No Coverage Data available
+  </message>
   <message name="IDS_DEVTOOLS_f0044321a791b3a9942860e8df9d8bea" desc="Text in the JavaScript Debugging pane of the Sources pane when a DOM breakpoint is hit because a descendant is added">
     Descendant <ph name="TARGETNODELINK">$1s<ex>node</ex></ph> added
   </message>
