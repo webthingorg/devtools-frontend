@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1c26966_0ed2a0e7",
+        "filename": "front_end/inline_editor/inline_editor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-08T13:37:12Z",
+      "side": 1,
+      "message": "Side-effect imports?",
+      "revId": "d12e20b81774b129e74359ae34034caef57c07af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
