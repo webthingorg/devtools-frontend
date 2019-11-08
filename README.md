@@ -15,6 +15,9 @@ In order to make changes to DevTools frontend, build, run, test, and submit chan
 
 #### Standalone workflow
 As a standalone project, Chrome DevTools frontend can be checked out and built independently from Chromium. The main advantage is not having to check out and build Chromium. However, there is also no way to run layout tests in this workflow.
+
+Please be aware that DevTools follows additional [development
+guidelines](DESIGN_GUIDELINES.md).
 <details>
 
 ##### Checking out source
@@ -140,6 +143,8 @@ Please refer to the [overview document](https://docs.google.com/document/d/1c2KL
 * [awesome-chrome-devtools](https://github.com/paulirish/awesome-chrome-devtools): recommended tools and resources
 * Contributing to DevTools: [bit.ly/devtools-contribution-guide](http://bit.ly/devtools-contribution-guide)
 * Contributing To Chrome DevTools Protocol: [docs.google.com](https://docs.google.com/document/d/1c-COD2kaK__5iMM5SEx-PzNA7HFmgttcYfOHHX0HaOM/edit?usp=sharing)
+* DevTools Design Review Guidelines:
+  [DESGN_GUIDELINES.MD](DESIGN_GUIDELINES.MD)
 
 ### Useful Commands
 
