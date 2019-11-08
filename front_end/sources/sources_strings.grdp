@@ -18,6 +18,9 @@
   <message name="IDS_DEVTOOLS_06a75795f2a3be3930c707d64fd488c0" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Show trailing whitespace characters
   </message>
+  <message name="IDS_DEVTOOLS_06c883a79771ecda24de1687ed7915ba" desc="Text for Coverage Status Bar Item in Sources Panel">
+    Show Details
+  </message>
   <message name="IDS_DEVTOOLS_08355a3ae65d425a4a6bac94ce97dcb4" desc="A context menu item in the Debugger Plugin of the Sources panel">
     Edit breakpoint…
   </message>
@@ -462,6 +465,9 @@
   <message name="IDS_DEVTOOLS_de1b7eb1c5cad7712d521bade538de6e" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Search in anonymous and content scripts
   </message>
+  <message name="IDS_DEVTOOLS_e2b006f205f5b430df0e3bef43f975c3" desc="Text for Coverage Status Bar Item in Sources Panel">
+    Enable Coverage
+  </message>
   <message name="IDS_DEVTOOLS_e3de97b1a66edbe3fceddb1d5db2df2d" desc="A context menu item in the Watch Expressions Sidebar Pane of the Sources panel">
     Copy value
   </message>
@@ -476,6 +482,9 @@
   </message>
   <message name="IDS_DEVTOOLS_ed5eceb0fe85ceeeabf4b4b93eeca711" desc="A context menu item in the Sources Panel of the Sources panel">
     Continue to here
+  </message>
+  <message name="IDS_DEVTOOLS_edab5a458648f46be1637b8e28564bf8" desc="Text for Coverage Status Bar Item in Sources Panel">
+    No Coverage Data available
   </message>
   <message name="IDS_DEVTOOLS_f0044321a791b3a9942860e8df9d8bea" desc="Text in the JavaScript Debugging pane of the Sources pane when a DOM breakpoint is hit because a descendant is added">
     Descendant <ph name="TARGETNODELINK">$1s<ex>node</ex></ph> added
