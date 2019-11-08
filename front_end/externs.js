@@ -1533,3 +1533,5 @@ class ServicePort {
   close() {
   }
 }
+
+const fabric = {};
