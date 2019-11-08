@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3803e1fc_03a107c7",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-08T13:29:39Z",
+      "side": 0,
+      "message": "Does this mean that `git cl format` no longer works in the repo? I didn\u0027t see a spot where clang was re-introduced?",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 53
+      },
+      "revId": "f44777e9223e2d8262a085ac48864bb3427218f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
