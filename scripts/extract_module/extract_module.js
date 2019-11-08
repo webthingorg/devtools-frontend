@@ -31,6 +31,7 @@ const APPLICATION_DESCRIPTORS = [
   'toolbox.json',
   'integration_test_runner.json',
   'formatter_worker.json',
+  'web_audio_worker.json',
   'heap_snapshot_worker.json',
 ];
 
