@@ -22,6 +22,30 @@
       "revId": "a12204133115e891ce7ef3d2d8746f7504c29053",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae59d4ee_fee7e35a",
+        "filename": "front_end/inline_editor/cssShadowEditor.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-11-08T00:58:13Z",
+      "side": 1,
+      "message": "Great question... I went back to this PR and did some more research on how ThemeSupport works. You are correct in that there is no default color attribute for button - so ThemeSupport has nothing to invert.\n\nThe proper fix for this then to add the color attribute to the class so ThemeSupport *can* invert it, rather than making a new rule that targets the dark-theme only.\n\nI\u0027ll go make that change now!\n\nBonus: our Edge theme fix is still forwards compatible 😊",
+      "parentUuid": "bd995e10_327980c5",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "a12204133115e891ce7ef3d2d8746f7504c29053",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
