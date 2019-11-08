@@ -233,6 +233,11 @@ input::placeholder {
     box-shadow: 0 0 0 1px #ff1a00;
 }
 
+.input-validation-error {
+  color: var(--input-validation-error);
+  margin: 0 5px;
+}
+
 .chrome-select {
     -webkit-appearance: none;
     -webkit-user-select: none;
