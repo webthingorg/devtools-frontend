@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4c06fc5a_7cea7cce",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-08T10:06:40Z",
+      "side": 1,
+      "message": "I asked Brandon about it but didn\u0027t get a reply yet. Will fix this in a new cl in case this shouldn\u0027t be there.",
+      "parentUuid": "14be8229_9d5c9e0c",
+      "range": {
+        "startLine": 319,
+        "startChar": 39,
+        "endLine": 319,
+        "endChar": 42
+      },
+      "revId": "b77eeaa990be92950cf61c12ed94f6ba59a1ed03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4621bdfe_6f81961f",
         "filename": "front_end/coverage/CoverageModel.js",
         "patchSetId": 5
@@ -39,6 +63,24 @@
       "revId": "b77eeaa990be92950cf61c12ed94f6ba59a1ed03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "189815d2_a9a14d84",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-08T10:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4621bdfe_6f81961f",
+      "revId": "b77eeaa990be92950cf61c12ed94f6ba59a1ed03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
