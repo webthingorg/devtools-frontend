@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3161a17b_a6712611",
+        "filename": "front_end/diff/diff_match_patch.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-08T13:37:53Z",
+      "side": 1,
+      "message": "self?",
+      "revId": "28271c1f91f7ae4c2069041871b017b9ba1719d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
