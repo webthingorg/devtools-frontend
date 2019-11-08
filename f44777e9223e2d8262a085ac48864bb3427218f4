@@ -22,6 +22,30 @@
       "revId": "f44777e9223e2d8262a085ac48864bb3427218f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0feeeac1_283932bd",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-11-08T13:36:36Z",
+      "side": 0,
+      "message": "git cl format seems to continue to work. Both on my linux workstation and on the windows VM I just set up.",
+      "parentUuid": "3803e1fc_03a107c7",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 53
+      },
+      "revId": "f44777e9223e2d8262a085ac48864bb3427218f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
