@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5dc167a_883b4455",
+        "filename": "front_end/color_picker/color_picker.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-08T13:31:16Z",
+      "side": 1,
+      "message": "Side-effect imports first?",
+      "revId": "ad2972ad6658da0664f10cca5043ce70859c222c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
