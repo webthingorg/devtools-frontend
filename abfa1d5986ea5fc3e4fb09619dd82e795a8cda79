@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6788ca7f_416065a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-11-08T23:39:34Z",
+      "side": 1,
+      "message": "this can be dropped since we\u0027re in devtools-frontend now 😊",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "abfa1d5986ea5fc3e4fb09619dd82e795a8cda79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
