@@ -46,6 +46,30 @@
       "revId": "f44777e9223e2d8262a085ac48864bb3427218f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf15de35_52f5d7dc",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-09T20:15:49Z",
+      "side": 0,
+      "message": "After `gclient sync -D` this appears to be broken. Presubmits are crashing because of this issue. Reverting this CL.",
+      "parentUuid": "0feeeac1_283932bd",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 53
+      },
+      "revId": "f44777e9223e2d8262a085ac48864bb3427218f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
