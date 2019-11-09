@@ -252,7 +252,7 @@ class ReleaseBuilder(object):
                 output.write(read_file(js_file))
 
     def _rollup_worker(self, output):
-        js_entrypoint = join(self.application_dir, self.app_file('unbundled.js'))
+        js_entrypoint = join(self.application_dir, self.app_file('js'))
         rollup_process = subprocess.Popen(
             [devtools_paths.node_path(), devtools_paths.rollup_path()] + ROLLUP_ARGS + ['--input', js_entrypoint],
             stdout=subprocess.PIPE,

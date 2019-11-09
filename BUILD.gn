@@ -764,8 +764,8 @@ if (external_devtools_frontend) {
   all_devtools_files += lighthouse_locale_files
 
   all_devtools_modules = [
-    "front_end/formatter_worker.unbundled.js",
-    "front_end/heap_snapshot_worker.unbundled.js",
+    "front_end/formatter_worker.js",
+    "front_end/heap_snapshot_worker.js",
     "front_end/heap_snapshot_model/heap_snapshot_model.js",
     "front_end/heap_snapshot_model/HeapSnapshotModel.js",
     "front_end/heap_snapshot_worker/heap_snapshot_worker.js",
@@ -1833,7 +1833,7 @@ if (external_devtools_frontend) {
         ":frontend_protocol_sources",
         ":supported_css_properties",
       ]
-      sources = generated_scripts + generated_worker_bundles
+      sources = generated_scripts
       outputs = [
         "$resources_out_debug_dir/{{source_file_part}}",
       ]
