@@ -128,15 +128,6 @@ hooks = [
     ],
   },
 
-  {
-    'name': 'sysroot_x64',
-    'pattern': '.',
-    'condition': 'checkout_linux and checkout_x64',
-    'action': ['python',
-               'devtools-frontend/build/linux/sysroot_scripts/install-sysroot.py',
-               '--arch=x64'],
-  },
-
   # Pull clang-format binaries using checked-in hashes.
   {
     'name': 'clang_format_win',
