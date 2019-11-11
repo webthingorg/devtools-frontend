@@ -23,7 +23,9 @@ vars = {
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
-  'chromium_build': '709754',
+  'chromium_linux': '714172',
+  # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
+  'chromium_win': '714167',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
@@ -177,15 +179,28 @@ hooks = [
 
   # Pull chromium from common storage
   {
-    'name': 'chromium_linux',
+    'name': 'download_chromium_linux',
     'pattern': '.',
     'condition': 'host_os == "linux"',
     'action': [ 'python',
                 'devtools-frontend/scripts/deps/download_chromium.py',
-                'https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/' + Var('chromium_build') + '/chrome-linux.zip',
+                'https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/' + Var('chromium_linux') + '/chrome-linux.zip',
                 'devtools-frontend/third_party/chrome',
                 'chrome-linux/chrome',
-                Var('chromium_build'),
+                Var('chromium_linux'),
+    ],
+  },
+
+  {
+    'name': 'download_chromium_win',
+    'pattern': '.',
+    'condition': 'host_os == "win"',
+    'action': [ 'python',
+                'devtools-frontend/scripts/deps/download_chromium.py',
+                'https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/' + Var('chromium_win') + '/chrome-win.zip',
+                'devtools-frontend/third_party/chrome',
+                '',
+                Var('chromium_win'),
     ],
   },
 ]
