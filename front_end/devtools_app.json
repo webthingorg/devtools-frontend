@@ -11,7 +11,6 @@
     { "name": "css_overview" },
     { "name": "cookie_table" },
     { "name": "dagre_layout", "type": "remote" },
-    { "name": "devices" },
     { "name": "elements" },
     { "name": "emulated_devices" , "type": "remote" },
     { "name": "har_importer" },
