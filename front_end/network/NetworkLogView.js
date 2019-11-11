@@ -817,7 +817,8 @@ Network.NetworkLogView = class extends UI.VBox {
     } else {
       appendChunk(ls`${nodeCount} requests`);
       this._summaryToolbar.appendSeparator();
-      appendChunk(ls`${Number.bytesToString(transferSize)} transferred`, ls`${transferSize} B transferred`);
+      appendChunk(
+          ls`${Number.bytesToString(transferSize)} transferred another word 2`, ls`${transferSize} B transferred`);
       this._summaryToolbar.appendSeparator();
       appendChunk(ls`${Number.bytesToString(resourceSize)} resources`, ls`${resourceSize} B resources`);
     }

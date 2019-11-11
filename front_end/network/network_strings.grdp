@@ -354,6 +354,9 @@
   <message name="IDS_DEVTOOLS_722e6ea747a62b7f93bb017d3dd04cbd" desc="Op codes continuation frame of map in Resource Web Socket Frame View of the Network panel">
     Continuation Frame
   </message>
+  <message name="IDS_DEVTOOLS_83e3a11110ae1cb0b4f0fcfcb345d669" desc="Network Title">
+    <ph name="NUMBER_BYTESTOSTRING_TRANSFERSIZE_">$1s<ex>2 B</ex></ph> transferred another word 2
+  </message>
   <message name="IDS_DEVTOOLS_ca092ce554360617d7bb503ff16dcb7c" desc="Text for toggling the view of header data (e.g. query string parameters) from parsed to source in the headers tab">
     View source
   </message>
@@ -566,9 +569,6 @@
   </message>
   <message name="IDS_DEVTOOLS_9ffaf77e2c524827dff95993361e7115" desc="Text in Network Item View of the Network panel">
     Raw response data
-  </message>
-  <message name="IDS_DEVTOOLS_a00705e19cc5f358d77688d197604cc3" desc="Text in Network Log View of the Network panel">
-    <ph name="NUMBER_BYTESTOSTRING_TRANSFERSIZE_">$1s<ex>4 B</ex></ph> transferred
   </message>
   <message name="IDS_DEVTOOLS_a0820b213c0f695e95fc0c278a05400f" desc="Text in Blocked URLs Pane of the Network panel">
     <ph name="COUNT">$1d<ex>4</ex></ph> blocked
