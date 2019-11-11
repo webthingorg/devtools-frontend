@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e68a7b8_5c1e8b3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-11T11:55:48Z",
+      "side": 1,
+      "message": "This should probably be ...running unit...",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "cfa1e2e0db54200158bc1935634c0b7b7ac25857",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6a290ae_7918afd9",
+        "filename": "DEPS",
+        "patchSetId": 5
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-11T11:55:48Z",
+      "side": 1,
+      "message": "I don\u0027t know the format of this file. But is this needed here?",
+      "range": {
+        "startLine": 190,
+        "startChar": 16,
+        "endLine": 190,
+        "endChar": 19
+      },
+      "revId": "cfa1e2e0db54200158bc1935634c0b7b7ac25857",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a9cf6e1_b8ead39a",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-11T11:55:48Z",
+      "side": 1,
+      "message": "The tests fail because CHROME_BIN is not set. Maybe this needs a fallback?",
+      "range": {
+        "startLine": 45,
+        "startChar": 13,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "cfa1e2e0db54200158bc1935634c0b7b7ac25857",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
