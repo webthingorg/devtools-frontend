@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56732735_656560c4",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-11-12T22:33:27Z",
+      "side": 1,
+      "message": "I think I\u0027m missing something--what\u0027s the difference between this and the way it was before?",
+      "revId": "40926283ac5a1010b78ac1ddd0d2b961475d79f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
