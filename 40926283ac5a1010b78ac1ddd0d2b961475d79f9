@@ -16,6 +16,24 @@
       "revId": "40926283ac5a1010b78ac1ddd0d2b961475d79f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e61f07c_020c0c2d",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-12T22:40:23Z",
+      "side": 1,
+      "message": "Thanks, for pointing it out there was a rebase issue earlier. Fixed it in Patchset 3 now, there is no added change in Toolbar.js",
+      "parentUuid": "56732735_656560c4",
+      "revId": "40926283ac5a1010b78ac1ddd0d2b961475d79f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
