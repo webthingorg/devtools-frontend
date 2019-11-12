@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2b95376_5392830b",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-12T15:53:09Z",
+      "side": 1,
+      "message": "What do you think about removing the byte values? I don\u0027t know if that is a useful information to developers.",
+      "range": {
+        "startLine": 812,
+        "startChar": 13,
+        "endLine": 812,
+        "endChar": 58
+      },
+      "revId": "5726ae303abbadafc0c3c30058304426a2f13afe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
