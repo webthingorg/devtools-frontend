@@ -171,6 +171,7 @@ export class Spectrum extends UI.VBox {
     this._addColorToolbar = new UI.Toolbar('add-color-toolbar');
     const addColorButton = new UI.ToolbarButton(Common.UIString('Add to palette'), 'largeicon-add');
     addColorButton.addEventListener(UI.ToolbarButton.Events.Click, this._addColorToCustomPalette, this);
+    addColorButton.element.addEventListener('keydown', this._onAddColorKeydown.bind(this));
     this._addColorToolbar.appendToolbarItem(addColorButton);
 
     this._colorPickedBound = this._colorPicked.bind(this);
@@ -728,6 +729,16 @@ export class Spectrum extends UI.VBox {
     this._showPalette(this._customPaletteSetting.get(), false);
     const colorElements = this._paletteContainer.querySelectorAll('.spectrum-palette-color');
     colorElements[colorElements.length - 1].focus();
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onAddColorKeydown(event) {
+    if (isEnterOrSpaceKey(event)) {
+      this._addColorToCustomPalette(event);
+      event.consume(true);
+    }
   }
 
   /**
