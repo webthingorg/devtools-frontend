@@ -493,7 +493,6 @@ export class ToolbarButton extends ToolbarItem {
     super(createElementWithClass('button', 'toolbar-button'));
     this.element.addEventListener('click', this._clicked.bind(this), false);
     this.element.addEventListener('mousedown', this._mouseDown.bind(this), false);
-    this.element.addEventListener('keydown', this._keydown.bind(this), false);
 
     this._glyphElement = UI.Icon.create('', 'toolbar-glyph hidden');
     this.element.appendChild(this._glyphElement);
