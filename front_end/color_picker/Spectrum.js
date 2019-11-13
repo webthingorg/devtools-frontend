@@ -171,6 +171,7 @@ export class Spectrum extends UI.VBox {
     this._addColorToolbar = new UI.Toolbar('add-color-toolbar');
     const addColorButton = new UI.ToolbarButton(Common.UIString('Add to palette'), 'largeicon-add');
     addColorButton.addEventListener(UI.ToolbarButton.Events.Click, this._addColorToCustomPalette, this);
+    addColorButton.element.addEventListener('keydown', this._onAddColorKeydown.bind(this));
     this._addColorToolbar.appendToolbarItem(addColorButton);
 
     this._colorPickedBound = this._colorPicked.bind(this);
@@ -374,6 +375,7 @@ export class Spectrum extends UI.VBox {
       if (palette.mutable) {
         colorElement.__mutable = true;
         colorElement.__color = palette.colors[i];
+        colorElement.tabIndex = -1;
         colorElement.addEventListener('contextmenu', this._showPaletteColorContextMenu.bind(this, i));
       } else if (palette === MaterialPalette) {
         colorElement.classList.add('has-material-shades');
@@ -717,14 +719,23 @@ export class Spectrum extends UI.VBox {
     }
   }
 
-  /**
-   * @param {!Common.Event} event
-   */
-  _addColorToCustomPalette(event) {
+  _addColorToCustomPalette() {
     const palette = this._customPaletteSetting.get();
     palette.colors.push(this.colorString());
     this._customPaletteSetting.set(palette);
     this._showPalette(this._customPaletteSetting.get(), false);
+    const colorElements = this._paletteContainer.querySelectorAll('.spectrum-palette-color');
+    colorElements[colorElements.length - 1].focus();
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onAddColorKeydown(event) {
+    if (isEnterOrSpaceKey(event)) {
+      this._addColorToCustomPalette();
+      event.consume(true);
+    }
   }
 
   /**
