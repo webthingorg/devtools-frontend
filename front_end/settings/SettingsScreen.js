@@ -79,6 +79,7 @@ Settings.SettingsScreen = class extends UI.VBox {
     // Settings screen is fullscreen and has its own close button, unlike other dialogs
     // This also prevents screen readers (NVDA) from dismissing the dialog on Enter keypresses
     dialog.setOutsideClickCallback(event => event.consume());
+    dialog.setPointerEventsBehavior(UI.GlassPane.PointerEventsBehavior.PierceGlassPane);
 
     settingsScreen.show(dialog.contentElement);
     dialog.show();
