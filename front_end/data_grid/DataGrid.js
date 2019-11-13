@@ -988,6 +988,16 @@ export default class DataGridImpl extends Common.Object {
       nextSelectedNode.reveal();
       nextSelectedNode.select();
     }
+
+    if ((event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' ||
+         event.key === 'ArrowRight') &&
+        document.activeElement !== this.element) {
+      // crbug.com/1005449
+      // navigational keys pressed but current DataGrid panel has lost focus;
+      // re-focus to ensure subsequent keydowns can be registered within this DataGrid
+      this.element.focus();
+    }
+
     if (handled) {
       event.consume(true);
     }
