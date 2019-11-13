@@ -108,7 +108,6 @@ ProtocolMonitor.ProtocolMonitor = class extends UI.VBox {
       contextMenu.headerSection().appendCheckboxItem(
           columnConfig.title, this._toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible);
     }
-    contextMenu.show();
   }
 
   /**
