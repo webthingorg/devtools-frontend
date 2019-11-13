@@ -234,6 +234,8 @@ if (external_devtools_frontend) {
     "front_end/extensions_test_runner/ExtensionsNetworkTestRunner.js",
     "front_end/extensions_test_runner/ExtensionsTestRunner.js",
     "front_end/extensions_test_runner/module.json",
+    "front_end/fabricjs/fabric.js",
+    "front_end/fabricjs/module.json",
     "front_end/formatter/module.json",
     "front_end/formatter_worker.json",
     "front_end/formatter_worker/acorn/acorn.js",
@@ -1562,6 +1564,7 @@ if (external_devtools_frontend) {
     "$resources_out_dir/cm_modes/cm_modes_module.js",
     "$resources_out_dir/dagre_layout/dagre_layout_module.js",
     "$resources_out_dir/emulated_devices/emulated_devices_module.js",
+    "$resources_out_dir/fabricjs/fabricjs_module.js",
   ]
 
   generated_test_modules = [
