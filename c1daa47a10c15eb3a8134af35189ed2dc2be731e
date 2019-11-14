@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "31bdc99c_31d853d3",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2019-11-14T21:03:09Z",
+      "side": 1,
+      "message": "I will remove the conditional in my refactor.",
+      "parentUuid": "4278fa7d_d06e1027",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 7
+      },
+      "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "868f8f8a_b17fc9d0",
         "filename": "front_end/audits/AuditsStatusView.js",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2019-10-31T00:50:54Z",
       "side": 1,
       "message": "I suppose `order` was given in increments of 10 so that new phases could be added in between without changing the others. I don\u0027t see a good reason to actually do this, so there\u0027s room for refactor here.\n\nHow about removing `progressBarValue` and `order`, use `Audits.StatusView.StatusPhases.length` for the max progress bar value, and have `this._getPhaseForMessage` also return the index of the phase found (to use in place of `order`)?",
+      "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0bc14d_7702679c",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2019-11-14T21:03:09Z",
+      "side": 1,
+      "message": "I like the idea of using the index for \u0027order\u0027 and progress bar value, I will get this refactored!\n\nI originally had something similar (against the chromium.src repo) but there was some concern over readability and I was worried about it getting out of sync with \u0027order\u0027 [1].\n\n[1]: https://crrev.com/c/1817320/4/third_party/blink/renderer/devtools/front_end/audits/AuditsStatusView.js#57",
+      "parentUuid": "868f8f8a_b17fc9d0",
       "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
