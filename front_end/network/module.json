@@ -179,6 +179,7 @@
         "browser_sdk",
         "mobile_throttling",
         "har_importer",
+        "webtreemap",
         "persistence"
     ],
     "scripts": [
@@ -202,6 +203,7 @@
         "RequestInitiatorView.js",
         "RequestResponseView.js",
         "RequestPreviewView.js",
+        "RequestSourceMapView.js",
         "RequestTimingView.js",
         "ResourceWebSocketFrameView.js",
         "SignedExchangeInfoView.js",
@@ -221,6 +223,7 @@
         "requestCookiesView.css",
         "requestHeadersTree.css",
         "requestHeadersView.css",
+        "requestSourceMapView.css",
         "requestHTMLView.css",
         "requestInitiatorView.css",
         "signedExchangeInfoTree.css",
