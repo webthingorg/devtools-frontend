@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3640f6a4_7d80fd2e",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2019-11-14T03:35:26Z",
+      "side": 1,
+      "message": "Note to reviewers: we also toyed with directly calling doUpdate() in wasShown() above. Do you have any preference?",
+      "revId": "e0f875f8956a2bcb8dd7bb83aed41add50e76403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
