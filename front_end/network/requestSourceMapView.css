@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2019 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.request-sourcemap-view {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.treemap-container {
+  flex-grow: 1;
+  position: relative;
+  contain: strict;
+  will-change: transform;
+}
+
+
+/* Adapted from https://github.com/paulirish/webtreemap-cdt/blob/master/src/styles-to-add.css */
+.webtreemap-node {
+  cursor: pointer;
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: white;
+  color: hsla(210, 16%, 13%, 1);
+  text-align: center;
+  padding: 2px;
+  /* Keep 1px border in sync with webtreemap's layoutChildren() */
+  border: solid 1px #ababab;
+  transition: top 150ms, left 150ms, width 150ms, height 150ms;
+}
+
+
+.webtreemap-node:hover {
+  background: #ddd;
+}

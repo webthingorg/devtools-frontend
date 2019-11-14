@@ -38,6 +38,13 @@
  */
 Object.observe = function(object, callback) {};
 
+/**
+ * @param {!Iterable<*>} iter
+ * @return {!Object}
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries
+ */
+Object.fromEntries = function(iter) {};
+
 /** @type {boolean} */
 Event.prototype.isMetaOrCtrlForTest;
 
@@ -1196,6 +1203,40 @@ Lighthouse.ReportGenerator.generateReportHtml;
  * @return {string}
  */
 Lighthouse.ReportGenerator.replaceStrings;
+
+
+const webtreemap = {};
+
+/**
+ * @typedef {{
+  *     id: string,
+  *     size: number,
+  *     children: (!Array<webtreemap.Node>|undefined),
+  *     dom: (HTMLElement|undefined),
+  * }}
+  */
+webtreemap.Node;
+
+/**
+ * @constructor
+ * @param {webtreemap.Node} node
+ * @param {Object} options
+ */
+webtreemap.TreeMap = function(node, options) {};
+/**
+ * @param {Element} elem
+ */
+webtreemap.TreeMap.prototype.render = function(elem) {};
+/**
+ * @param {webtreemap.Node} node
+ * @param {Element} elem
+ */
+webtreemap.TreeMap.prototype.layout = function(node, elem) {};
+
+/**
+ * @param {!Array<webtreemap.Node>} nodes
+ */
+webtreemap.sort = function(nodes) {};
 
 /** @interface */
 class InspectorFrontendHostAPI {
