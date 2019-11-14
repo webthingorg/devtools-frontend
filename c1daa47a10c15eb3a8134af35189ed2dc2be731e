@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c80266a0_b30f65e6",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2019-11-14T21:31:06Z",
+      "side": 1,
+      "message": "Done (and I removed most of the code here too).",
+      "parentUuid": "31bdc99c_31d853d3",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 7
+      },
+      "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "868f8f8a_b17fc9d0",
         "filename": "front_end/audits/AuditsStatusView.js",
         "patchSetId": 4
@@ -81,6 +105,24 @@
       "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1b63905_c1327fae",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2019-11-14T21:31:06Z",
+      "side": 1,
+      "message": "Done with one change. Instead of having `this._getPhaseForMessage` return the index I use `StatusPhases.indexOf(phase)`.\n\nLet me know what you think.",
+      "parentUuid": "2c0bc14d_7702679c",
+      "revId": "c1daa47a10c15eb3a8134af35189ed2dc2be731e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
