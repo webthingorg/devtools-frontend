@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca9ab1a9_9eb6d355",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-11-14T17:59:06Z",
+      "side": 1,
+      "message": "should this be added to scripts/devtools_paths.py so it\u0027s with all the other paths?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "f2b72648a0ab827b032e96b644b2dfb0b980946b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
