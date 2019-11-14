@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65cdb9b9_583b828b",
+        "filename": "commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-14T12:02:50Z",
+      "side": 1,
+      "message": "Please always make experimental when creating a builder first time.",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 77
+      },
+      "revId": "526df426a83b7ae3d05ac8bdf55ef74e869e60a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6186cec5_d9b172e8",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-14T12:02:50Z",
+      "side": 1,
+      "message": "Lets not use the baremetals yet as we only have three. We\u0027d double the demand on them with this CL.",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 40
+      },
+      "revId": "526df426a83b7ae3d05ac8bdf55ef74e869e60a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
