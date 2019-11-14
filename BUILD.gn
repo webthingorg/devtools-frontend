@@ -234,6 +234,8 @@ if (external_devtools_frontend) {
     "front_end/extensions_test_runner/ExtensionsNetworkTestRunner.js",
     "front_end/extensions_test_runner/ExtensionsTestRunner.js",
     "front_end/extensions_test_runner/module.json",
+    "front_end/fabricjs/fabric.js",
+    "front_end/fabricjs/module.json",
     "front_end/formatter/module.json",
     "front_end/formatter_worker.json",
     "front_end/formatter_worker/acorn/acorn.js",
@@ -660,13 +662,21 @@ if (external_devtools_frontend) {
     "front_end/web_audio/webAudio.css",
     "front_end/web_audio/WebAudioModel.js",
     "front_end/web_audio/WebAudioView.js",
+    "front_end/web_audio/graph_visualizer/graphVisualizer.css",
     "front_end/web_audio/graph_visualizer/Types.js",
     "front_end/web_audio/graph_visualizer/GraphStyle.js",
     "front_end/web_audio/graph_visualizer/GraphManager.js",
     "front_end/web_audio/graph_visualizer/NodeRendererUtility.js",
     "front_end/web_audio/graph_visualizer/NodeView.js",
+    "front_end/web_audio/graph_visualizer/EdgeRendererUtility.js",
     "front_end/web_audio/graph_visualizer/EdgeView.js",
     "front_end/web_audio/graph_visualizer/GraphView.js",
+    "front_end/web_audio/graph_visualizer/GraphRendererUtility.js",
+    "front_end/web_audio/graph_visualizer/GraphRenderer.js",
+    "front_end/web_audio_worker.js",
+    "front_end/web_audio_worker.json",
+    "front_end/web_audio_worker/module.json",
+    "front_end/web_audio_worker/WebAudioWorker.js",
     "front_end/worker_main/WorkerMain.js",
     "front_end/worker_main/module.json",
     "front_end/worker_service/module.json",
@@ -1184,6 +1194,7 @@ if (external_devtools_frontend) {
     "front_end/Images/searchNext.png",
     "front_end/Images/searchPrev.png",
     "front_end/Images/securityIcons.svg",
+    "front_end/Images/seeWholeGraph.svg",
     "front_end/Images/speech.png",
     "front_end/Images/smallIcons.svg",
     "front_end/Images/toolbarResizerVertical.png",
@@ -1504,6 +1515,7 @@ if (external_devtools_frontend) {
     "$resources_out_dir/shell.js",
     "$resources_out_dir/toolbox.html",
     "$resources_out_dir/toolbox.js",
+    "$resources_out_dir/web_audio_worker.js",
     "$resources_out_dir/worker_app.html",
     "$resources_out_dir/worker_app.js",
   ]
@@ -1562,6 +1574,7 @@ if (external_devtools_frontend) {
     "$resources_out_dir/cm_modes/cm_modes_module.js",
     "$resources_out_dir/dagre_layout/dagre_layout_module.js",
     "$resources_out_dir/emulated_devices/emulated_devices_module.js",
+    "$resources_out_dir/fabricjs/fabricjs_module.js",
   ]
 
   generated_test_modules = [
@@ -1606,6 +1619,7 @@ if (external_devtools_frontend) {
     "node_app",
     "shell",
     "toolbox",
+    "web_audio_worker",
     "worker_app",
   ]
 
