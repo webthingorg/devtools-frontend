@@ -113,6 +113,29 @@ const Utils = {
   },
 
   /**
+   * @param {!Array<string>} strings
+   * @return {string}
+   */
+  commonPrefix(strings) {
+    if (!strings.length) {
+      return '';
+    }
+
+    const max_word = strings.reduce(function(a, b) {
+      return a > b ? a : b;
+    });
+    let prefix = strings.reduce(function(a, b) {
+      return a > b ? b : a;
+    });
+
+    while (max_word.indexOf(prefix) !== 0) {
+      prefix = prefix.slice(0, -1);
+    }
+
+    return prefix;
+  },
+
+  /**
    * @param {string} line
    * @return {string}
    */
@@ -385,7 +408,7 @@ export function isMinified(text) {
     lastPosition = eolIndex - 1;
   } while (--linesToCheck >= 0 && lastPosition > 0);
   return false;
-}
+};
 
 /* Legacy exported object */
 self.TextUtils = self.TextUtils || {};
