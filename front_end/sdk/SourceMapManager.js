@@ -29,6 +29,8 @@ export default class SourceMapManager extends Common.Object {
     /** @type {!Platform.Multimap<string, !T>} */
     this._sourceMapIdToClients = new Platform.Multimap();
 
+    SDK.sourceMapManagerObserver().addManager(this);
+
     SDK.targetManager.addEventListener(SDK.TargetManager.Events.InspectedURLChanged, this._inspectedURLChanged, this);
   }
 
@@ -231,6 +233,7 @@ export default class SourceMapManager extends Common.Object {
   }
 
   dispose() {
+    SDK.sourceMapManagerObserver().removeManager(this);
     SDK.targetManager.removeEventListener(
         SDK.TargetManager.Events.InspectedURLChanged, this._inspectedURLChanged, this);
   }
@@ -244,6 +247,57 @@ export const Events = {
   SourceMapChanged: Symbol('SourceMapChanged')
 };
 
+
+export class SourceMapManagerObserver extends Common.Object {
+  constructor() {
+    super();
+    this._managers = new Set();
+  }
+  /**
+   * @param {!SDK.SourceMapManager} sourceMapManager
+   */
+  addManager(sourceMapManager) {
+    this._managers.add(sourceMapManager);
+  }
+  /**
+   * @param {!SDK.SourceMapManager} sourceMapManager
+   */
+  removeManager(sourceMapManager) {
+    this._managers.delete(sourceMapManager);
+  }
+
+  /**
+   * @param {string} url
+   * @return {?SDK.SourceMap}
+   */
+  sourceMapForURL(url) {
+    for (const manager of this._managers) {
+      // BROKEN by https://chromium-review.googlesource.com/c/chromium/src/+/1848697
+      const clients = Array.from(manager._resolvedSourceMapId.keys());
+      for (const client of clients) {
+        const relativeSourceURL = manager._relativeSourceURL.get(client);
+
+        if (url === relativeSourceURL) {
+          const sourceMapId = manager._resolvedSourceMapId.get(client);
+          const sourceMap = manager._sourceMapById.get(sourceMapId);
+          return sourceMap;
+        }
+      }
+    }
+    return null;
+  }
+}
+
+/**
+ * @return {!SDK.SourceMapManagerObserver}
+ */
+export function sourceMapManagerObserver() {
+  if (!SDK.SourceMapManagerObserver._instance) {
+    SDK.SourceMapManagerObserver._instance = new SDK.SourceMapManagerObserver();
+  }
+  return SDK.SourceMapManagerObserver._instance;
+}
+
 /* Legacy exported object */
 self.SDK = self.SDK || {};
 
@@ -254,3 +308,8 @@ SDK = SDK || {};
 SDK.SourceMapManager = SourceMapManager;
 
 SDK.SourceMapManager.Events = Events;
+
+/** @constructor */
+SDK.SourceMapManagerObserver = SourceMapManagerObserver;
+
+SDK.sourceMapManagerObserver = sourceMapManagerObserver;

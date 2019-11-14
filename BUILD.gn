@@ -409,6 +409,8 @@ if (external_devtools_frontend) {
     "front_end/network/RequestInitiatorView.js",
     "front_end/network/RequestPreviewView.js",
     "front_end/network/RequestResponseView.js",
+    "front_end/network/RequestSourceMapView.js",
+    "front_end/network/requestSourceMapView.css",
     "front_end/network/RequestTimingView.js",
     "front_end/network/ResourceWebSocketFrameView.js",
     "front_end/network/signedExchangeInfoTree.css",
@@ -745,6 +747,8 @@ if (external_devtools_frontend) {
     "front_end/web_audio/graph_visualizer/NodeView.js",
     "front_end/web_audio/graph_visualizer/EdgeView.js",
     "front_end/web_audio/graph_visualizer/GraphView.js",
+    "front_end/webtreemap/webtreemap.js",
+    "front_end/webtreemap/module.json",
     "front_end/worker_main/WorkerMain.js",
     "front_end/worker_main/module.json",
     "front_end/worker_service/module.json",
@@ -1474,6 +1478,7 @@ if (external_devtools_frontend) {
     "$resources_out_dir/timeline_model/timeline_model_module.js",
     "$resources_out_dir/timeline/timeline_module.js",
     "$resources_out_dir/web_audio/web_audio_module.js",
+    "$resources_out_dir/webtreemap/webtreemap_module.js",
     "$resources_out_dir/workspace_diff/workspace_diff_module.js",
   ]
 
