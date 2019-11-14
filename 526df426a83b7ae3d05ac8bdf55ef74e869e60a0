@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "98d3e558_8aee68ab",
+        "filename": "commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-11-14T13:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65cdb9b9_583b828b",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 77
+      },
+      "revId": "526df426a83b7ae3d05ac8bdf55ef74e869e60a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6186cec5_d9b172e8",
         "filename": "cr-buildbucket.cfg",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "526df426a83b7ae3d05ac8bdf55ef74e869e60a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69f1c97f_64cb4568",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-11-14T13:26:08Z",
+      "side": 1,
+      "message": "Done.\nCorrect me if I am wrong, but once this successfully runs only devtools tests we should remove the builder above and make this one baremetal?",
+      "parentUuid": "6186cec5_d9b172e8",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 40
+      },
+      "revId": "526df426a83b7ae3d05ac8bdf55ef74e869e60a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
