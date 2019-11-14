@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2f5fc53_c4c38af3",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-14T09:55:59Z",
+      "side": 1,
+      "message": "Could you land these as a separate clean-up CL first, and use them in CoverageListView? I think it makes a lot of sense to have these methods here.",
+      "range": {
+        "startLine": 636,
+        "startChar": 2,
+        "endLine": 636,
+        "endChar": 16
+      },
+      "revId": "8ff8df9c96a12db2099074f3378b8399759b0619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d8290c9_84757ff2",
+        "filename": "front_end/sources/CoveragePlugin.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-14T09:55:59Z",
+      "side": 1,
+      "message": "This is a great idea, thanks!",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 22
+      },
+      "revId": "8ff8df9c96a12db2099074f3378b8399759b0619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf58b26a_a6a6f358",
+        "filename": "front_end/sources/CoveragePlugin.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-14T09:55:59Z",
+      "side": 1,
+      "message": "I\u0027d like \u0027Coverage: x%\u0027 better",
+      "range": {
+        "startLine": 73,
+        "startChar": 25,
+        "endLine": 73,
+        "endChar": 74
+      },
+      "revId": "8ff8df9c96a12db2099074f3378b8399759b0619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00aa1e56_eee3ee43",
+        "filename": "front_end/sources/CoveragePlugin.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-14T09:55:59Z",
+      "side": 1,
+      "message": "Coverage: n/a is shorter.",
+      "range": {
+        "startLine": 76,
+        "startChar": 28,
+        "endLine": 76,
+        "endChar": 54
+      },
+      "revId": "8ff8df9c96a12db2099074f3378b8399759b0619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
