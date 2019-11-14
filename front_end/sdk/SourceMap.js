@@ -88,6 +88,13 @@ export default class SourceMap {
   mappings() {
   }
 
+  /**
+   * @param {string} resourceContent
+   * @return {?SDK.TextSourceMap.SourceMappedBytes}
+   */
+  attributableSourceBytes(resourceContent) {
+  }
+
   dispose() {
   }
 }
@@ -205,6 +212,7 @@ export class TextSourceMap {
 
     /** @type {?Array<!SourceMapEntry>} */
     this._mappings = null;
+    this._attributableSourceBytes = null;
     /** @type {!Map<string, !TextSourceMap.SourceInfo>} */
     this._sourceInfos = new Map();
     if (this._json.sections) {
@@ -303,6 +311,22 @@ export class TextSourceMap {
     const index = mappings.upperBound(
         undefined, (unused, entry) => lineNumber - entry.lineNumber || columnNumber - entry.columnNumber);
     return index ? mappings[index - 1] : null;
+  }
+
+  /**
+   * Same as findEntry, but mapped entry must be on the requested lineNumber.
+   * @param {number} lineNumber in compiled resource
+   * @param {number} columnNumber in compiled resource
+   * @return {?SDK.SourceMapEntry}
+   */
+  _findExactEntry(lineNumber, columnNumber) {
+    const entry = this.findEntry(lineNumber, columnNumber);
+    const hasLineMatch = entry && entry.lineNumber === lineNumber;
+    if (!entry || !hasLineMatch) {
+      return null;
+    }
+
+    return entry;
   }
 
   /**
@@ -560,6 +584,67 @@ export class TextSourceMap {
   }
 
   /**
+   * Calculate the number of bytes contributed by each source file to the compiled file
+   * @override
+   * @param {string} resourceContent
+   * @return {?SDK.TextSourceMap.SourceMappedBytes}
+   */
+  attributableSourceBytes(resourceContent) {
+    if (this._attributableSourceBytes === null) {
+      const perSourceBytes = new Map();
+      const text = new TextUtils.Text(resourceContent);
+      const namedCursors = this._computeSourceStartCursors(text);
+
+      const lastCursor = new TextUtils.TextCursor(text.lineEndings());
+      lastCursor.advance(text.value().length - 1);
+      namedCursors.push({sourceURL: null, cursor: lastCursor});
+
+      for (let i = 1; i < namedCursors.length; i++) {
+        const {cursor: nextCursor} = namedCursors[i];
+        const {sourceURL, cursor} = namedCursors[i - 1];
+
+        const bytes = nextCursor.offset() - cursor.offset();
+        const bytesSoFar = perSourceBytes.get(sourceURL) || 0;
+        perSourceBytes.set(sourceURL, bytesSoFar + bytes);
+      }
+
+      this._attributableSourceBytes = perSourceBytes;
+    }
+    return this._attributableSourceBytes;
+  }
+
+  /**
+   *
+   * @param {!TextUtils.Text} text
+   * @return {!Array<!SDK.TextSourceMap.NamedTextCursor>}
+   */
+  _computeSourceStartCursors(text) {
+    const resourceLines = text.value().split('\n');
+    const namedCursors = [];
+    let previousSourceURL;
+
+    for (let line = 0, offset = 0; line < resourceLines.length; line++) {
+      const lineText = resourceLines[line];
+      const numCols = lineText.length;
+
+      for (let column = 0; column < numCols; column++, offset++) {
+        const entry = this._findExactEntry(line, column);
+        const sourceURL = entry ? entry.sourceURL : null;
+
+        // Create a TextCursor at the start of the new source
+        if (sourceURL !== previousSourceURL) {
+          const cursor = new TextUtils.TextCursor(text.lineEndings());
+          cursor.advance(offset);
+          namedCursors.push({sourceURL, cursor});
+          previousSourceURL = sourceURL;
+        }
+      }
+    }
+
+    return namedCursors;
+  }
+
+  /**
    * @override
    */
   dispose() {
@@ -736,6 +821,13 @@ export class WasmSourceMap {
   /**
    * @override
    */
+  attributableSourceBytes() {
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * @override
+   */
   dispose() {
     this._resolver.free();
   }
@@ -761,6 +853,12 @@ SDK.SourceMapEntry = SourceMapEntry;
 
 /** @constructor */
 SDK.TextSourceMap = TextSourceMap;
+
+/** @typedef {{sourceURL: ?string, cursor: TextUtils.TextCursor}} */
+SDK.TextSourceMap.NamedTextCursor;
+
+/** @typedef {Map<?string, number>} */
+SDK.TextSourceMap.SourceMappedBytes;
 
 /** @constructor */
 SDK.WasmSourceMap = WasmSourceMap;

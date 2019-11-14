@@ -81,6 +81,14 @@ Network.NetworkItemView = class extends UI.TabbedPane {
         Network.NetworkItemView.Tabs.Timing, Common.UIString('Timing'),
         new Network.RequestTimingView(request, calculator), Common.UIString('Request and response timeline'));
 
+    if (request.sourceMap()) {
+      this._sourceMapView = new Network.RequestSourceMapView(request);
+      this.appendTab(
+          Network.NetworkItemView.Tabs.SourceMap, ls`Source Map`, this._sourceMapView,
+          ls`Visualization of attached source map`);
+    }
+
+    this._request = request;
     /** @type {?Network.RequestCookiesView} */
     this._cookiesView = null;
   }
@@ -185,5 +193,6 @@ Network.NetworkItemView.Tabs = {
   Preview: 'preview',
   Response: 'response',
   Timing: 'timing',
+  SourceMap: 'sourcemap',
   WsFrames: 'webSocketFrames'
 };
