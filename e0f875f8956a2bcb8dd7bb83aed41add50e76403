@@ -16,6 +16,24 @@
       "revId": "e0f875f8956a2bcb8dd7bb83aed41add50e76403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5541ae74_4e0db0b2",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-14T17:06:44Z",
+      "side": 1,
+      "message": "Updating a private variable is not ideal. Calling a method to update seems better indeed.",
+      "parentUuid": "3640f6a4_7d80fd2e",
+      "revId": "e0f875f8956a2bcb8dd7bb83aed41add50e76403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
