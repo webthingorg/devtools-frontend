@@ -34,6 +34,24 @@
       "revId": "e0f875f8956a2bcb8dd7bb83aed41add50e76403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a940486b_ff55d53a",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2019-11-14T22:53:46Z",
+      "side": 1,
+      "message": "Hmmmm I was thinking of it as more \"protected\" based on how it\u0027s used in TimelineLayersView.js. But, happy to call the doUpdate() method directly!",
+      "parentUuid": "5541ae74_4e0db0b2",
+      "revId": "e0f875f8956a2bcb8dd7bb83aed41add50e76403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
