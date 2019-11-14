@@ -93,6 +93,30 @@
       "revId": "526df426a83b7ae3d05ac8bdf55ef74e869e60a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bca5f89_c8a709dd",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-14T13:28:37Z",
+      "side": 1,
+      "message": "We could keep the builder above, but make only this one run on baremetal. And very closely make this one also run on CQ and not the other. The other one can stay as optional builder.",
+      "parentUuid": "69f1c97f_64cb4568",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 40
+      },
+      "revId": "526df426a83b7ae3d05ac8bdf55ef74e869e60a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
