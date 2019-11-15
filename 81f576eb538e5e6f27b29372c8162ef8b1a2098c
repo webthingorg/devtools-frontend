@@ -46,6 +46,30 @@
       "revId": "81f576eb538e5e6f27b29372c8162ef8b1a2098c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32e72171_9632c05c",
+        "filename": "commit-queue.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-15T13:11:29Z",
+      "side": 1,
+      "message": "I think at this point of the project it\u0027s also fine if we loose the history. Most builders are still rather new.",
+      "parentUuid": "aee9afd1_b749313f",
+      "range": {
+        "startLine": 34,
+        "startChar": 37,
+        "endLine": 34,
+        "endChar": 54
+      },
+      "revId": "81f576eb538e5e6f27b29372c8162ef8b1a2098c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
