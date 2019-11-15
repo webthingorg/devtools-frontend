@@ -492,7 +492,6 @@ Network.NetworkPanel = class extends UI.Panel {
   _hideRequestPanel() {
     this._clearNetworkItemView();
     this._splitWidget.hideMain();
-    this._networkLogView.resetFocus();
     this._updateUI();
   }
 
@@ -794,6 +793,7 @@ Network.NetworkPanel.ActionDelegate = class {
           return false;
         }
         panel._hideRequestPanel();
+        panel._networkLogView.resetFocus();
         return true;
       case 'network.search':
         const selection = UI.inspectorView.element.window().getSelection();
