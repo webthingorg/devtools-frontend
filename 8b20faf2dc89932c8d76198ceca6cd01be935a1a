@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0160bd85_85a89859",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-15T21:53:23Z",
+      "side": 1,
+      "message": "you don\u0027t need devtools prefix anymore 😊",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "8b20faf2dc89932c8d76198ceca6cd01be935a1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0966633e_6ea94900",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-15T21:53:23Z",
+      "side": 1,
+      "message": "There is one issue I\u0027m noticing. If you use the mouse to close the details panel, the selected item in the datagrid is lost, which isn\u0027t happening prior to this change (or in beta).",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "8b20faf2dc89932c8d76198ceca6cd01be935a1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
