@@ -240,8 +240,7 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
       if (!urlEntry || !urlEntry._coverageInfoByLocation.delete(key)) {
         continue;
       }
-      urlEntry._size -= entry._size;
-      urlEntry._usedSize -= entry._usedSize;
+      urlEntry._updateSizes(-entry._usedSize, -entry._size);
       if (!urlEntry._coverageInfoByLocation.size) {
         this._coverageByURL.delete(entry.url());
       }
@@ -479,7 +478,7 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
     if (!isNewUrlCoverage && coverageInfo._usedSize === oldUsedSize) {
       return null;
     }
-    urlCoverage._usedSize += coverageInfo._usedSize - oldUsedSize;
+    urlCoverage._updateSizes(coverageInfo._usedSize - oldUsedSize, 0);
     return coverageInfo;
   }
 
@@ -568,11 +567,13 @@ Coverage.CoverageModel._coveragePollingPeriodMs = 200;
 
 SDK.SDKModel.register(Coverage.CoverageModel, SDK.Target.Capability.None, false);
 
-Coverage.URLCoverageInfo = class {
+Coverage.URLCoverageInfo = class extends Common.Object {
   /**
    * @param {string} url
    */
   constructor(url) {
+    super();
+
     this._url = url;
     /** @type {!Map<string, !Coverage.CoverageInfo>} */
     this._coverageInfoByLocation = new Map();
@@ -619,6 +620,28 @@ Coverage.URLCoverageInfo = class {
   }
 
   /**
+   * @return {number}
+   */
+  usedPercentage() {
+    // Per convention, empty files are reported as 100 % uncovered
+    if (this._size === 0) {
+      return 0;
+    }
+    return this._usedSize / this._size * 100;
+  }
+
+  /**
+   * @return {number}
+   */
+  unusedPercentage() {
+    // Per convention, empty files are reported as 100 % uncovered
+    if (this._size === 0) {
+      return 100;
+    }
+    return this._usedSize / this._size * 100;
+  }
+
+  /**
    * @return {boolean}
    */
   isContentScript() {
@@ -627,6 +650,13 @@ Coverage.URLCoverageInfo = class {
 
   entries() {
     return this._coverageInfoByLocation.values();
+  }
+
+  _updateSizes(usedSize, size) {
+    this._usedSize += usedSize;
+    this._size += size;
+
+    this.dispatchEventToListeners(Coverage.URLCoverageInfo.Events.SizesChanged);
   }
 
   /**
@@ -657,11 +687,17 @@ Coverage.URLCoverageInfo = class {
 
     entry = new Coverage.CoverageInfo(contentProvider, contentLength, lineOffset, columnOffset, type);
     this._coverageInfoByLocation.set(key, entry);
-    this._size += contentLength;
+    this._updateSizes(0, contentLength);
 
     return entry;
   }
 };
+
+/** @enum {symbol} */
+Coverage.URLCoverageInfo.Events = {
+  SizesChanged: Symbol('SizesChanged')
+};
+
 
 Coverage.CoverageInfo = class {
   /**
