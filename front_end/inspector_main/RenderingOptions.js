@@ -34,15 +34,15 @@ InspectorMain.RenderingOptionsView = class extends UI.VBox {
     this.registerRequiredCSS('inspector_main/renderingOptions.css');
 
     this._appendCheckbox(
-        ls`Paint flashing`,
-        ls
+      ls`Paint flashing`,
+      ls
         `Highlights areas of the page (green) that need to be repainted. May not be suitable for people prone to photosensitive epilepsy.`,
-        Common.moduleSetting('showPaintRects'));
+      Common.moduleSetting('showPaintRects'));
     this._appendCheckbox(
-        ls`Layout Shift Regions`,
-        ls
+      ls`Layout Shift Regions`,
+      ls
         `Highlights areas of the page (blue) that were shifted. May not be suitable for people prone to photosensitive epilepsy.`,
-        Common.moduleSetting('showLayoutShiftRegions'));
+      Common.moduleSetting('showLayoutShiftRegions'));
         this._appendCheckbox(
             ls`Layer borders`, ls`Shows layer borders (orange/olive) and tiles (cyan).`,
             Common.moduleSetting('showDebugBorders'));
@@ -50,10 +50,10 @@ InspectorMain.RenderingOptionsView = class extends UI.VBox {
             ls`FPS meter`, ls`Plots frames per second, frame rate distribution, and GPU memory.`,
             Common.moduleSetting('showFPSCounter'));
     this._appendCheckbox(
-        ls`Scrolling performance issues`,
-        ls
+      ls`Scrolling performance issues`,
+      ls
         `Highlights elements (teal) that can slow down scrolling, including touch & wheel event handlers and other main-thread scrolling situations.`,
-        Common.moduleSetting('showScrollBottleneckRects'));
+      Common.moduleSetting('showScrollBottleneckRects'));
         this._appendCheckbox(
             ls`Highlight ad frames`, ls`Highlights frames (red) detected to be ads.`,
             Common.moduleSetting('showAdHighlights'));
@@ -70,6 +70,8 @@ InspectorMain.RenderingOptionsView = class extends UI.VBox {
         this._appendSelect(
             ls`Forces CSS prefers-reduced-motion media feature`,
             Common.moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
+        this._appendSelect(
+            ls`Forces CSS forced-colors media feature`, Common.moduleSetting('emulatedCSSMediaFeatureForcedColors'));
   }
 
   /**

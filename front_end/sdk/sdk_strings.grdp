@@ -33,6 +33,9 @@
   <message name="IDS_DEVTOOLS_10bdea5cc4e1689c7db90eb7bf7f45c0" desc="Title of a setting under the Rendering drawer">
     Emulate CSS media type
   </message>
+  <message name="IDS_DEVTOOLS_1417c4a001fd28de0393265dfd381ef0" desc="Title of media query that can be emulated via the Rendering drawer">
+    Emulate CSS forced-colors: none
+  </message>
   <message name="IDS_DEVTOOLS_185bf49541541933dc3fd1fb89d3fea3" desc="Title of a setting under the Console category in Settings">
     Enable custom formatters
   </message>
@@ -68,6 +71,9 @@
   </message>
   <message name="IDS_DEVTOOLS_25121e2acd3c495847c5592661c2a2f9" desc="Tooltip to explain why a cookie was blocked">
     This set-cookie&apos;s Domain attribute was invalid with regards to the current host url.
+  </message>
+  <message name="IDS_DEVTOOLS_27717127402f526f802b8d10acffbbeb" desc="Title of media query that can be emulated via the Rendering drawer">
+    Emulate CSS forced-colors: active
   </message>
   <message name="IDS_DEVTOOLS_27d7b4e470e9a00b0fc6cf26fb3c5100" desc="Tooltip to explain why a cookie was blocked">
     This cookie&apos;s domain is not configured to match the request url&apos;s domain, even though they share a common TLD+1 (TLD+1 of foo.bar.example.com is example.com).
@@ -240,6 +246,9 @@
   <message name="IDS_DEVTOOLS_83f2229658949472d34f78e19475fcdd" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Show layer borders
   </message>
+  <message name="IDS_DEVTOOLS_85f66e5b2a78e440b2d690c7fce23f40" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
+    Do not emulate CSS forced-colors
+  </message>
   <message name="IDS_DEVTOOLS_9028784c589c0c809700c7fbc66a5d96" desc="Text in Network Manager">
     Resource interpreted as <ph name="NETWORKREQUEST_RESOURCETYPE___TITLE__">$1s<ex>application</ex></ph> but transferred with MIME type <ph name="NETWORKREQUEST_MIMETYPE">$2s<ex>image</ex></ph>: &quot;<ph name="NETWORKREQUEST_URL__">$3s<ex>https://example.com</ex></ph>&quot;.
   </message>
@@ -318,6 +327,9 @@
   <message name="IDS_DEVTOOLS_beff15b1acf49b84bf1080cceb920ebf" desc="Title of a media query that can be emulated via the Rendering drawer">
     prefers-color-scheme: dark
   </message>
+  <message name="IDS_DEVTOOLS_c0b6422cf3496c2fae94890100ec1f82" desc="Title of a media query that can be emulated via the Rendering drawer">
+    forced-colors: none
+  </message>
   <message name="IDS_DEVTOOLS_c3905c37f4127686d512a7665206852e" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     activated
   </message>
@@ -354,11 +366,17 @@
   <message name="IDS_DEVTOOLS_dcd9c13c4f8ae68ea7ae92edf9191264" desc="Text in Server Timing">
     Deprecated syntax found. Please use: &lt;name&gt;;dur=&lt;duration&gt;;desc=&lt;description&gt;
   </message>
+  <message name="IDS_DEVTOOLS_deb2445ce20e1860132194d820ed22ba" desc="Title of a media query that can be emulated via the Rendering drawer">
+    forced-colors: active
+  </message>
   <message name="IDS_DEVTOOLS_df9f4292c1d025cbada13b25744d34e5" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Do not emulate CSS media type
   </message>
   <message name="IDS_DEVTOOLS_dfc84699a635ac79c7512494a2ebec91" desc="Tooltip to explain why a cookie was blocked">
     This set-cookie had the &quot;Secure&quot; attribute but was not received over a secure connection.
+  </message>
+  <message name="IDS_DEVTOOLS_e05fa728e3352b5d3a7cf434295b32cf" desc="Title of a setting under the Rendering drawer">
+    Emulate CSS media feature forced-colors
   </message>
   <message name="IDS_DEVTOOLS_e1e4c8c9ccd9fc39c391da4bcd093fb2" desc="Text in Debugger Model">
     Block

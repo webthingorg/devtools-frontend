@@ -270,6 +270,33 @@
         {
             "type": "setting",
             "category": "Rendering",
+            "settingName": "emulatedCSSMediaFeatureForcedColors",
+            "settingType": "enum",
+            "storageType": "session",
+            "defaultValue": "",
+            "options": [
+                {
+                    "title": "Do not emulate CSS forced-colors",
+                    "text": "No emulation",
+                    "value": ""
+                },
+                {
+                    "title": "Emulate CSS forced-colors: none",
+                    "text": "forced-colors: none",
+                    "value": "none"
+                },
+                {
+                    "title": "Emulate CSS forced-colors: active",
+                    "text": "forced-colors: active",
+                    "value": "active"
+                }
+            ],
+            "tags": "query",
+            "title": "Emulate CSS media feature forced-colors"
+        },
+        {
+            "type": "setting",
+            "category": "Rendering",
             "settingName": "emulatedCSSMediaFeaturePrefersColorScheme",
             "settingType": "enum",
             "storageType": "session",
@@ -286,35 +313,35 @@
                     "value": "light"
                 },
                 {
-                  "title": "Emulate CSS prefers-color-scheme: dark",
-                  "text": "prefers-color-scheme: dark",
-                  "value": "dark"
+                    "title": "Emulate CSS prefers-color-scheme: dark",
+                    "text": "prefers-color-scheme: dark",
+                    "value": "dark"
                 }
             ],
             "tags": "query",
             "title": "Emulate CSS media feature prefers-color-scheme"
         },
         {
-          "type": "setting",
-          "category": "Rendering",
-          "settingName": "emulatedCSSMediaFeaturePrefersReducedMotion",
-          "settingType": "enum",
-          "storageType": "session",
-          "defaultValue": "",
-          "options": [
-              {
-                  "title": "Do not emulate CSS prefers-reduced-motion",
-                  "text": "No emulation",
-                  "value": ""
-              },
-              {
-                  "title": "Emulate CSS prefers-reduced-motion: reduce",
-                  "text": "prefers-reduced-motion: reduce",
-                  "value": "reduce"
-              }
-          ],
-          "tags": "query",
-          "title": "Emulate CSS media feature prefers-reduced-motion"
+            "type": "setting",
+            "category": "Rendering",
+            "settingName": "emulatedCSSMediaFeaturePrefersReducedMotion",
+            "settingType": "enum",
+            "storageType": "session",
+            "defaultValue": "",
+            "options": [
+                {
+                    "title": "Do not emulate CSS prefers-reduced-motion",
+                    "text": "No emulation",
+                    "value": ""
+                },
+                {
+                    "title": "Emulate CSS prefers-reduced-motion: reduce",
+                    "text": "prefers-reduced-motion: reduce",
+                    "value": "reduce"
+                }
+            ],
+            "tags": "query",
+            "title": "Emulate CSS media feature prefers-reduced-motion"
         },
         {
             "type": "setting",

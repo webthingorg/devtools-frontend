@@ -27,6 +27,7 @@ export default class EmulationModel extends SDK.SDKModel {
     const mediaTypeSetting = Common.moduleSetting('emulatedCSSMedia');
     const mediaFeaturePrefersColorSchemeSetting = Common.moduleSetting('emulatedCSSMediaFeaturePrefersColorScheme');
     const mediaFeaturePrefersReducedMotionSetting = Common.moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion');
+    const mediaFeatureForcedColorsSetting = Common.moduleSetting('emulatedCSSMediaFeatureForcedColors');
     // Note: this uses a different format than what the CDP API expects,
     // because we want to update these values per media type/feature
     // without having to search the `features` array (inefficient) or
@@ -35,6 +36,7 @@ export default class EmulationModel extends SDK.SDKModel {
       ['type', mediaTypeSetting.get()],
       ['prefers-color-scheme', mediaFeaturePrefersColorSchemeSetting.get()],
       ['prefers-reduced-motion', mediaFeaturePrefersReducedMotionSetting.get()],
+      ['forced-colors', mediaFeatureForcedColorsSetting.get()],
     ]);
     mediaTypeSetting.addChangeListener(() => {
       this._mediaConfiguration.set('type', mediaTypeSetting.get());
@@ -46,6 +48,10 @@ export default class EmulationModel extends SDK.SDKModel {
     });
     mediaFeaturePrefersReducedMotionSetting.addChangeListener(() => {
       this._mediaConfiguration.set('prefers-reduced-motion', mediaFeaturePrefersReducedMotionSetting.get());
+      this._updateCssMedia();
+    });
+    mediaFeatureForcedColorsSetting.addChangeListener(() => {
+      this._mediaConfiguration.set('forced-colors', mediaFeatureForcedColorsSetting.get());
       this._updateCssMedia();
     });
     this._updateCssMedia();
@@ -194,6 +200,10 @@ export default class EmulationModel extends SDK.SDKModel {
       {
         name: 'prefers-reduced-motion',
         value: this._mediaConfiguration.get('prefers-reduced-motion'),
+      },
+      {
+        name: 'forced-colors',
+        value: this._mediaConfiguration.get('forced-colors'),
       },
     ];
     this._emulateCSSMedia(type, features);
