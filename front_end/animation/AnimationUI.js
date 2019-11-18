@@ -28,13 +28,16 @@ Animation.AnimationUI = class {
     this._svg.addEventListener('contextmenu', this._onContextMenu.bind(this));
     this._activeIntervalGroup = this._svg.createSVGChild('g');
     UI.installDragHandle(
-        this._activeIntervalGroup, this._mouseDown.bind(this, Animation.AnimationUI.MouseEvents.AnimationDrag, null),
+        this._activeIntervalGroup, this._mouseDown.bind(this, Animation.AnimationUI.Events.AnimationDrag, null),
         this._mouseMove.bind(this), this._mouseUp.bind(this), '-webkit-grabbing', '-webkit-grab');
+    Animation.AnimationUI.installDragHandleKeyboard(
+        this._activeIntervalGroup, this._keydownMove.bind(this, Animation.AnimationUI.Events.AnimationDrag, null));
 
     /** @type {!Array.<{group: ?Element, animationLine: ?Element, keyframePoints: !Object.<number, !Element>, keyframeRender: !Object.<number, !Element>}>} */
     this._cachedElements = [];
 
     this._movementInMs = 0;
+    this._keyboardMovementRateMs = 50;
     this._color = Animation.AnimationUI.Color(this._animation);
   }
 
@@ -134,6 +137,7 @@ Animation.AnimationUI = class {
     circle.setAttribute('cy', Animation.AnimationUI.Options.AnimationHeight);
     circle.style.stroke = this._color;
     circle.setAttribute('r', Animation.AnimationUI.Options.AnimationMargin / 2);
+    circle.setAttribute('tabindex', 0);
 
     if (keyframeIndex <= 0) {
       circle.style.fill = this._color;
@@ -147,15 +151,16 @@ Animation.AnimationUI = class {
 
     let eventType;
     if (keyframeIndex === 0) {
-      eventType = Animation.AnimationUI.MouseEvents.StartEndpointMove;
+      eventType = Animation.AnimationUI.Events.StartEndpointMove;
     } else if (keyframeIndex === -1) {
-      eventType = Animation.AnimationUI.MouseEvents.FinishEndpointMove;
+      eventType = Animation.AnimationUI.Events.FinishEndpointMove;
     } else {
-      eventType = Animation.AnimationUI.MouseEvents.KeyframeMove;
+      eventType = Animation.AnimationUI.Events.KeyframeMove;
     }
     UI.installDragHandle(
         circle, this._mouseDown.bind(this, eventType, keyframeIndex), this._mouseMove.bind(this),
         this._mouseUp.bind(this), 'ew-resize');
+    Animation.AnimationUI.installDragHandleKeyboard(circle, this._keydownMove.bind(this, eventType, keyframeIndex));
   }
 
   /**
@@ -188,6 +193,7 @@ Animation.AnimationUI = class {
                                       parentElement.createSVGChild('g', 'animation-keyframe-step');
     }
     const group = cache[keyframeIndex];
+    group.setAttribute('tabindex', 0);
     group.style.transform = 'translateX(' + leftDistance.toFixed(2) + 'px)';
 
     if (easing === 'linear') {
@@ -291,8 +297,8 @@ Animation.AnimationUI = class {
    */
   _delay() {
     let delay = this._animation.source().delay();
-    if (this._mouseEventType === Animation.AnimationUI.MouseEvents.AnimationDrag ||
-        this._mouseEventType === Animation.AnimationUI.MouseEvents.StartEndpointMove) {
+    if (this._mouseEventType === Animation.AnimationUI.Events.AnimationDrag ||
+        this._mouseEventType === Animation.AnimationUI.Events.StartEndpointMove) {
       delay += this._movementInMs;
     }
     // FIXME: add support for negative start delay
@@ -304,11 +310,12 @@ Animation.AnimationUI = class {
    */
   _duration() {
     let duration = this._animation.source().duration();
-    if (this._mouseEventType === Animation.AnimationUI.MouseEvents.FinishEndpointMove) {
+    if (this._mouseEventType === Animation.AnimationUI.Events.FinishEndpointMove) {
       duration += this._movementInMs;
-    } else if (this._mouseEventType === Animation.AnimationUI.MouseEvents.StartEndpointMove) {
+    } else if (this._mouseEventType === Animation.AnimationUI.Events.StartEndpointMove) {
       duration -= Math.max(this._movementInMs, -this._animation.source().delay());
-    }  // Cannot have negative delay
+      // Cannot have negative delay
+    }
     return Math.max(0, duration);
   }
 
@@ -318,7 +325,7 @@ Animation.AnimationUI = class {
    */
   _offset(i) {
     let offset = this._keyframes[i].offsetAsNumber();
-    if (this._mouseEventType === Animation.AnimationUI.MouseEvents.KeyframeMove && i === this._keyframeMoved) {
+    if (this._mouseEventType === Animation.AnimationUI.Events.KeyframeMove && i === this._keyframeMoved) {
       console.assert(i > 0 && i < this._keyframes.length - 1, 'First and last keyframe cannot be moved');
       offset += this._movementInMs / this._animation.source().duration();
       offset = Math.max(offset, this._keyframes[i - 1].offsetAsNumber());
@@ -328,7 +335,7 @@ Animation.AnimationUI = class {
   }
 
   /**
-   * @param {!Animation.AnimationUI.MouseEvents} mouseEventType
+   * @param {!Animation.AnimationUI.Events} mouseEventType
    * @param {?number} keyframeIndex
    * @param {!Event} event
    */
@@ -367,7 +374,7 @@ Animation.AnimationUI = class {
     this._movementInMs = (event.clientX - this._downMouseX) / this._timeline.pixelMsRatio();
 
     // Commit changes
-    if (this._mouseEventType === Animation.AnimationUI.MouseEvents.KeyframeMove) {
+    if (this._mouseEventType === Animation.AnimationUI.Events.KeyframeMove) {
       this._keyframes[this._keyframeMoved].setOffset(this._offset(this._keyframeMoved));
     } else {
       this._animation.setTiming(this._duration(), this._delay());
@@ -379,6 +386,35 @@ Animation.AnimationUI = class {
     delete this._mouseEventType;
     delete this._downMouseX;
     delete this._keyframeMoved;
+  }
+
+  _keydownMove(mouseEventType, keyframeIndex, event) {
+    this._mouseEventType = mouseEventType;
+    this._keyframeMoved = keyframeIndex;
+    switch (event.key) {
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        this._movementInMs = -this._keyboardMovementRateMs;
+        break;
+      case 'ArrowRight':
+      case 'ArrowDown':
+        this._movementInMs = this._keyboardMovementRateMs;
+        break;
+      default:
+        return;
+    }
+    if (this._mouseEventType === Animation.AnimationUI.Events.KeyframeMove) {
+      this._keyframes[this._keyframeMoved].setOffset(this._offset(this._keyframeMoved));
+    } else {
+      this._animation.setTiming(this._duration(), this._delay());
+    }
+    this._movementInMs = 0;
+    this.redraw();
+
+    delete this._mouseEventType;
+    delete this._keyframeMoved;
+
+    event.consume(true);
   }
 
   /**
@@ -405,7 +441,7 @@ Animation.AnimationUI = class {
 /**
  * @enum {string}
  */
-Animation.AnimationUI.MouseEvents = {
+Animation.AnimationUI.Events = {
   AnimationDrag: 'AnimationDrag',
   KeyframeMove: 'KeyframeMove',
   StartEndpointMove: 'StartEndpointMove',
@@ -431,4 +467,8 @@ Animation.AnimationUI.Colors = {
   'Green': Common.Color.parse('#0F9D58'),
   'Brown': Common.Color.parse('#795548'),
   'Cyan': Common.Color.parse('#00BCD4')
+};
+
+Animation.AnimationUI.installDragHandleKeyboard = function(element, elementDrag) {
+  element.addEventListener('keydown', elementDrag, false);
 };
