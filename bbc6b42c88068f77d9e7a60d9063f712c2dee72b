@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8381de52_9a76703f",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-18T16:47:59Z",
+      "side": 1,
+      "message": "Could you give this a name that makes it clear the the arguments are /added/ to the current sizes?",
+      "range": {
+        "startLine": 481,
+        "startChar": 16,
+        "endLine": 481,
+        "endChar": 28
+      },
+      "revId": "bbc6b42c88068f77d9e7a60d9063f712c2dee72b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bad2fd25_3bfea79b",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-18T16:47:59Z",
+      "side": 1,
+      "message": "Could you move this to the 3rd CL?",
+      "range": {
+        "startLine": 659,
+        "startChar": 4,
+        "endLine": 659,
+        "endChar": 80
+      },
+      "revId": "bbc6b42c88068f77d9e7a60d9063f712c2dee72b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
