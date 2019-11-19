@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c6f86df5_98e59228",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-19T20:01:05Z",
+      "side": 1,
+      "message": "I dont see the arrow keys working except in the case of custom colors. Can you take a look?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "f4eb4fb6a543925f8823d923d6284639613b949a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "614de5ab_4b1b4733",
         "filename": "front_end/color_picker/Spectrum.js",
         "patchSetId": 4
