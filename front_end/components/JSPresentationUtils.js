@@ -29,6 +29,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import './stack-preview.js';
+
 /**
  * @param {?SDK.Target} target
  * @param {!Components.Linkifier} linkifier
@@ -41,6 +43,9 @@ export function buildStackTracePreviewContents(target, linkifier, stackTrace, co
   element.style.display = 'inline-block';
   const shadowRoot = UI.createShadowRootWithCoreStyles(element, 'components/jsUtils.css');
   const contentElement = shadowRoot.createChild('table', 'stack-preview-container');
+  const stackPreview = createElement('stack-preview');
+  stackPreview.state = { value: 42 };
+  contentElement.appendChild(stackPreview);
   let totalHiddenCallFramesCount = 0;
   let totalCallFramesCount = 0;
   /** @type {!Array<!Element>} */

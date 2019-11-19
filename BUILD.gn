@@ -1635,6 +1635,7 @@ if (external_devtools_frontend) {
     ":frontend_protocol_sources",
     ":supported_css_properties",
     ":copy_devtools_modules",
+    "//front_end/components",
   ]
 
   if (debug_devtools) {
