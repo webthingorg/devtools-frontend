@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-Console.ConsolePinPane = class extends UI.ThrottledWidget {
+export default class ConsolePinPane extends UI.ThrottledWidget {
   /**
    * @param {!UI.ToolbarButton} liveExpressionButton
    */
@@ -45,7 +45,7 @@ Console.ConsolePinPane = class extends UI.ThrottledWidget {
     if (target) {
       const targetPinElement = target.enclosingNodeOrSelfWithClass('console-pin');
       if (targetPinElement) {
-        const targetPin = targetPinElement[Console.ConsolePin._PinSymbol];
+        const targetPin = targetPinElement[ConsolePin._PinSymbol];
         contextMenu.editSection().appendItem(ls`Edit expression`, targetPin.focus.bind(targetPin));
         contextMenu.editSection().appendItem(ls`Remove expression`, this._removePin.bind(this, targetPin));
         targetPin.appendToContextMenu(contextMenu);
@@ -76,7 +76,7 @@ Console.ConsolePinPane = class extends UI.ThrottledWidget {
    * @param {boolean=} userGesture
    */
   addPin(expression, userGesture) {
-    const pin = new Console.ConsolePin(expression, this);
+    const pin = new ConsolePin(expression, this);
     this.contentElement.appendChild(pin.element());
     this._pins.add(pin);
     this._savePins();
@@ -102,9 +102,12 @@ Console.ConsolePinPane = class extends UI.ThrottledWidget {
 
   _updatedForTest() {
   }
-};
+}
 
-Console.ConsolePin = class extends Common.Object {
+/**
+ * @unrestricted
+ */
+export class ConsolePin extends Common.Object {
   /**
    * @param {string} expression
    * @param {!Console.ConsolePinPane} pinPane
@@ -130,7 +133,7 @@ Console.ConsolePin = class extends Common.Object {
     this._pinPreview = fragment.$('preview');
     const nameElement = fragment.$('name');
     nameElement.title = expression;
-    this._pinElement[Console.ConsolePin._PinSymbol] = this;
+    this._pinElement[ConsolePin._PinSymbol] = this;
 
     /** @type {?SDK.RuntimeModel.EvaluationResult} */
     this._lastResult = null;
@@ -283,6 +286,22 @@ Console.ConsolePin = class extends Common.Object {
     const isError = result && result.exceptionDetails && !SDK.RuntimeModel.isSideEffectFailure(result);
     this._pinElement.classList.toggle('error-level', !!isError);
   }
-};
+}
+
+/* Legacy exported object */
+self.Console = self.Console || {};
+
+/* Legacy exported object */
+Console = Console || {};
+
+/**
+ * @constructor
+ */
+Console.ConsolePinPane = ConsolePinPane;
+
+/**
+ * @constructor
+ */
+Console.ConsolePin = ConsolePin;
 
 Console.ConsolePin._PinSymbol = Symbol('pinSymbol');
