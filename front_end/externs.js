@@ -1173,6 +1173,15 @@ DetailsRenderer.DetailsJSON;
  */
 DetailsRenderer.NodeDetailsJSON;
 
+/**
+ * @typedef {{
+ *     url: string,
+ *     line: string,
+ *     column: string
+ * }}
+ */
+DetailsRenderer.UILocationDetailsJSON;
+
 /** @typedef {{
  *     wastedMs: (number|undefined),
  *     wastedBytes: (number|undefined),
