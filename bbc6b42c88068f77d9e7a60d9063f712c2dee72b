@@ -45,6 +45,30 @@
       "revId": "bbc6b42c88068f77d9e7a60d9063f712c2dee72b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61933f8_cdc2a0c7",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-19T07:42:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bad2fd25_3bfea79b",
+      "range": {
+        "startLine": 659,
+        "startChar": 4,
+        "endLine": 659,
+        "endChar": 80
+      },
+      "revId": "bbc6b42c88068f77d9e7a60d9063f712c2dee72b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
