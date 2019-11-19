@@ -1,0 +1,14 @@
+import("//third_party/typescript/typescript.gni")
+
+group("components") {
+  public_deps = [
+    ":stack-preview"
+  ]
+}
+
+ts_library("stack-preview") {
+  sources = [
+    "JSPresentationUtils.js",
+    "stack-preview.ts",
+  ]
+}

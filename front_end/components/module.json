@@ -17,5 +17,8 @@
     "resources": [
         "imagePreview.css",
         "jsUtils.css"
+    ],
+    "typescript": [
+        "stack-preview.js"
     ]
 }
