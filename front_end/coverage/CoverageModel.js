@@ -99,6 +99,7 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
   reset() {
     this._coverageByURL = new Map();
     this._coverageByContentProvider = new Map();
+    this.dispatchEventToListeners(Coverage.CoverageModel.Events.CoverageReset);
   }
 
   /**
@@ -215,6 +216,15 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
    */
   entries() {
     return Array.from(this._coverageByURL.values());
+  }
+
+  /**
+   *
+   * @param {string} url
+   * @return {?Coverage.URLCoverageInfo}
+   */
+  getCoverageForUrl(url) {
+    return this._coverageByURL.get(url);
   }
 
   /**
@@ -559,7 +569,8 @@ Coverage.CoverageModel = class extends SDK.SDKModel {
 
 /** @enum {symbol} */
 Coverage.CoverageModel.Events = {
-  CoverageUpdated: Symbol('CoverageUpdated')
+  CoverageUpdated: Symbol('CoverageUpdated'),
+  CoverageReset: Symbol('CoverageReset'),
 };
 
 /** @type {number} */
