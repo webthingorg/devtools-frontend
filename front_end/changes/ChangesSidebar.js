@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-Changes.ChangesSidebar = class extends UI.Widget {
+export default class ChangesSidebar extends UI.Widget {
   /**
    * @param {!WorkspaceDiff.WorkspaceDiff} workspaceDiff
    */
@@ -87,16 +87,16 @@ Changes.ChangesSidebar = class extends UI.Widget {
       treeElement.select(true);
     }
   }
-};
+}
 
 /**
  * @enum {symbol}
  */
-Changes.ChangesSidebar.Events = {
+export const Events = {
   SelectedUISourceCodeChanged: Symbol('SelectedUISourceCodeChanged')
 };
 
-Changes.ChangesSidebar.UISourceCodeTreeElement = class extends UI.TreeElement {
+export class UISourceCodeTreeElement extends UI.TreeElement {
   /**
    * @param {!Workspace.UISourceCode} uiSourceCode
    */
@@ -138,4 +138,25 @@ Changes.ChangesSidebar.UISourceCodeTreeElement = class extends UI.TreeElement {
   dispose() {
     Common.EventTarget.removeEventListeners(this._eventListeners);
   }
-};
+}
+
+/* Legacy exported object */
+self.Changes = self.Changes || {};
+
+/* Legacy exported object */
+Changes = Changes || {};
+
+/**
+ * @constructor
+ */
+Changes.ChangesSidebar = ChangesSidebar;
+
+/**
+ * @enum {symbol}
+ */
+Changes.ChangesSidebar.Events = Events;
+
+/**
+ * @constructor
+ */
+Changes.ChangesSidebar.UISourceCodeTreeElement = UISourceCodeTreeElement;
