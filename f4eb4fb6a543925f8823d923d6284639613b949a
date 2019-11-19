@@ -69,6 +69,30 @@
       "revId": "f4eb4fb6a543925f8823d923d6284639613b949a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba5a5f06_d0c846c8",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-19T20:54:43Z",
+      "side": 1,
+      "message": "Pulled it into helper function.",
+      "parentUuid": "614de5ab_4b1b4733",
+      "range": {
+        "startLine": 722,
+        "startChar": 2,
+        "endLine": 722,
+        "endChar": 26
+      },
+      "revId": "f4eb4fb6a543925f8823d923d6284639613b949a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
