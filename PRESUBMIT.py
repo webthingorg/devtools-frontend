@@ -49,6 +49,9 @@ def _CheckChangesAreExclusiveToDirectory(input_api, output_api):
         return False
 
     def FileIsInDir(file, dirs):
+        # Addition of new third_party folders must have a new entry in `.gitignore`
+        if file == '.gitignore':
+            return True
         for dir in dirs:
             if IsParentDir(file, dir):
                 return True
