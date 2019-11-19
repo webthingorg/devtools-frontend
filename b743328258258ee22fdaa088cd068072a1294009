@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee24265b_cea0dfc5",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-19T12:16:28Z",
+      "side": 1,
+      "message": "unused size?",
+      "range": {
+        "startLine": 639,
+        "startChar": 16,
+        "endLine": 639,
+        "endChar": 25
+      },
+      "revId": "b743328258258ee22fdaa088cd068072a1294009",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
