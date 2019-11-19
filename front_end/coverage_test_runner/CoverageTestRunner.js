@@ -43,7 +43,6 @@ CoverageTestRunner.resumeCoverageModel = async function() {
   await coverageView._model.postResumeModel();
 };
 
-
 /**
  * @return {!Promise}
  */
@@ -52,6 +51,22 @@ CoverageTestRunner.pollCoverage = async function() {
   // Make sure not to have two instances of _pollAndCallback running at the same time.
   await coverageView._model._currentPollPromise;
   return coverageView._model._pollAndCallback();
+};
+
+/**
+ * @return {!Promise}
+ */
+CoverageTestRunner.resetCoverage = function() {
+  const coverageView = self.runtime.sharedInstance(Coverage.CoverageView);
+  return coverageView._model.reset();
+};
+
+/**
+ * @return {!Promise<Coverage.CoverageModel>}
+ */
+CoverageTestRunner.getCoverageModel = function() {
+  const coverageView = self.runtime.sharedInstance(Coverage.CoverageView);
+  return coverageView._model;
 };
 
 /**
