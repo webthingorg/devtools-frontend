@@ -117,6 +117,30 @@
       "revId": "bbc6b42c88068f77d9e7a60d9063f712c2dee72b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51af8a37_8c834cdb",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-11-19T10:34:49Z",
+      "side": 1,
+      "message": "Yes, remove it and merge with 1917538",
+      "parentUuid": "1e25021d_c16087d1",
+      "range": {
+        "startLine": 659,
+        "startChar": 4,
+        "endLine": 659,
+        "endChar": 80
+      },
+      "revId": "bbc6b42c88068f77d9e7a60d9063f712c2dee72b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
