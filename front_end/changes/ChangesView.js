@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-Changes.ChangesView = class extends UI.VBox {
+export default class ChangesView extends UI.VBox {
   constructor() {
     super(true);
     this.registerRequiredCSS('changes/changesView.css');
@@ -331,20 +331,10 @@ Changes.ChangesView = class extends UI.VBox {
                                         spacesPadding(this._maxLineDigits);
     return base + spacesPadding(1) + current;
   }
-};
-
-/**
- * @typedef {!{
- *  baselineLineNumber: number,
- *  currentLineNumber: number,
- *  tokens: !Array<!{text: string, className: string}>,
- *  type: !Changes.ChangesView.RowType
- * }}
- */
-Changes.ChangesView.Row;
+}
 
 /** @enum {string} */
-Changes.ChangesView.RowType = {
+export const RowType = {
   Deletion: 'deletion',
   Addition: 'addition',
   Equal: 'equal',
@@ -354,7 +344,7 @@ Changes.ChangesView.RowType = {
 /**
  * @implements {Common.Revealer}
  */
-Changes.ChangesView.DiffUILocationRevealer = class {
+export class DiffUILocationRevealer {
   /**
    * @override
    * @param {!Object} diffUILocation
@@ -370,4 +360,33 @@ Changes.ChangesView.DiffUILocationRevealer = class {
     await UI.viewManager.showView('changes.changes');
     changesView._changesSidebar.selectUISourceCode(diffUILocation.uiSourceCode, omitFocus);
   }
-};
+}
+
+/* Legacy exported object */
+self.Changes = self.Changes || {};
+
+/* Legacy exported object */
+Changes = Changes || {};
+
+/**
+ * @constructor
+ */
+Changes.ChangesView = ChangesView;
+
+/** @enum {string} */
+Changes.ChangesView.RowType = RowType;
+
+/**
+ * @typedef {!{
+  *  baselineLineNumber: number,
+  *  currentLineNumber: number,
+  *  tokens: !Array<!{text: string, className: string}>,
+  *  type: !Changes.ChangesView.RowType
+  * }}
+  */
+Changes.ChangesView.Row;
+
+/**
+ * @implements {Common.Revealer}
+ */
+Changes.ChangesView.DiffUILocationRevealer = DiffUILocationRevealer;
