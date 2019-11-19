@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dca609ed_c8cca795",
+        "filename": "front_end/devices/DevicesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-19T20:01:43Z",
+      "side": 1,
+      "message": "can this be a link that opens in a new tab?",
+      "range": {
+        "startLine": 13,
+        "startChar": 52,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "c0a8599b15e6b7328b4ebdd1522c598868e97e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
