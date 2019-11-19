@@ -58,6 +58,9 @@ def _CheckChangesAreExclusiveToDirectory(input_api, output_api):
     for dirs in EXCLUSIVE_CHANGE_DIRECTORIES:
         affected_in_dir = filter(lambda f: FileIsInDir(f, dirs), affected_files)
         num_in_dir = len(affected_in_dir)
+        # Addition of new third_party folders must have a new entry in `.gitignore`
+        if '.gitignore' in affected_files:
+            num_in_dir = num_in_dir + 1
         if num_in_dir == 0:
             continue
         if num_in_dir < num_affected:
