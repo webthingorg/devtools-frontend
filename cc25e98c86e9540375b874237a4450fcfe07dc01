@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "368f4a8f_2aa46528",
+        "filename": "front_end/changes/ChangesSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-19T15:14:49Z",
+      "side": 1,
+      "message": "References in files should just be `UISourceCodeTreeElement`.",
+      "range": {
+        "startLine": 83,
+        "startChar": 28,
+        "endLine": 83,
+        "endChar": 74
+      },
+      "revId": "cc25e98c86e9540375b874237a4450fcfe07dc01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
