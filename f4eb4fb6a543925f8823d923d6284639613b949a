@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "614de5ab_4b1b4733",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-19T17:43:48Z",
+      "side": 1,
+      "message": "this is still used as an event listener. did you want to pull this into a helper function?",
+      "range": {
+        "startLine": 722,
+        "startChar": 2,
+        "endLine": 722,
+        "endChar": 26
+      },
+      "revId": "f4eb4fb6a543925f8823d923d6284639613b949a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
