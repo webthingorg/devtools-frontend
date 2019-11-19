@@ -16,6 +16,24 @@
       "revId": "a134b02047cc3c4a54dbae2670633d4528abf11d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68d5c294_0b2cd3c9",
+        "filename": "front_end/sources/CoveragePlugin.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-19T10:35:42Z",
+      "side": 1,
+      "message": "Good catch! Thanks",
+      "parentUuid": "b000e224_44641999",
+      "revId": "a134b02047cc3c4a54dbae2670633d4528abf11d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "faa7a74f_5ada797f",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-11-19T10:35:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2f5fc53_c4c38af3",
+      "range": {
+        "startLine": 636,
+        "startChar": 2,
+        "endLine": 636,
+        "endChar": 16
+      },
+      "revId": "8ff8df9c96a12db2099074f3378b8399759b0619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d8290c9_84757ff2",
         "filename": "front_end/sources/CoveragePlugin.js",
         "patchSetId": 5
