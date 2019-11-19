@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e84899f_64c6dcc0",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2019-11-19T22:54:02Z",
+      "side": 1,
+      "message": "this is pre-existing, but it sure is odd that these typedefs don\u0027t even match the type. It isn\u0027t marked as an array. I wouldn\u0027t expect this to pass type checking - I can only assume it isn\u0027t even being checked.",
+      "revId": "0b915a7d1cda33dbb16fca4da967b1023f7f6a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
