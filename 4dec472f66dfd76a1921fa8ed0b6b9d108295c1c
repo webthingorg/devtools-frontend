@@ -69,6 +69,30 @@
       "revId": "4dec472f66dfd76a1921fa8ed0b6b9d108295c1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0aee20c_690bafa5",
+        "filename": "front_end/ui/ListControl.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-11-20T21:40:34Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure that\u0027s also something that came up with Rob/Joel in the past--we weren\u0027t wild about ListControl not handling aria by default.",
+      "parentUuid": "5c9c2ca5_3c544953",
+      "range": {
+        "startLine": 494,
+        "startChar": 4,
+        "endLine": 502,
+        "endChar": 5
+      },
+      "revId": "4dec472f66dfd76a1921fa8ed0b6b9d108295c1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
