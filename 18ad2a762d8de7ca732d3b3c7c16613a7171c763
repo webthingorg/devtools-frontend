@@ -22,6 +22,30 @@
       "revId": "18ad2a762d8de7ca732d3b3c7c16613a7171c763",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b6327e9_89c592d7",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-11-20T10:39:21Z",
+      "side": 1,
+      "message": "If we change the manual config files and do not use lucicfg to copy them to generated folder this will complain.",
+      "parentUuid": "2c301397_e882df39",
+      "range": {
+        "startLine": 15,
+        "startChar": 30,
+        "endLine": 15,
+        "endChar": 53
+      },
+      "revId": "18ad2a762d8de7ca732d3b3c7c16613a7171c763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
