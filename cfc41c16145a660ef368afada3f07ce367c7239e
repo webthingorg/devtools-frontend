@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6315cdf_e2bf72e6",
+        "filename": "front_end/sources/CallStackSidebarPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-20T01:03:43Z",
+      "side": 1,
+      "message": "Can you use find here instead of a loop with a break?\n\nfindIndex \u003d this._items.find(...",
+      "range": {
+        "startLine": 428,
+        "startChar": 4,
+        "endLine": 434,
+        "endChar": 5
+      },
+      "revId": "cfc41c16145a660ef368afada3f07ce367c7239e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
