@@ -22,6 +22,30 @@
       "revId": "cfc41c16145a660ef368afada3f07ce367c7239e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cb305d0_d3b7ce95",
+        "filename": "front_end/sources/CallStackSidebarPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-11-20T02:03:45Z",
+      "side": 1,
+      "message": "UI.ListModel.find() doesn\u0027t let you set a starting index, so I can\u0027t think of a good way to use it here",
+      "parentUuid": "e6315cdf_e2bf72e6",
+      "range": {
+        "startLine": 428,
+        "startChar": 4,
+        "endLine": 434,
+        "endChar": 5
+      },
+      "revId": "cfc41c16145a660ef368afada3f07ce367c7239e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
