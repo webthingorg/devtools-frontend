@@ -34,6 +34,24 @@
       "revId": "04c264c5a01d738053c3b8348e0d1f9297ed77a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f791bdab_2e6f0df1",
+        "filename": "front_end/ui/XLink.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-11-20T12:18:14Z",
+      "side": 1,
+      "message": "Done: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1026576",
+      "parentUuid": "8a1b6441_7671315b",
+      "revId": "04c264c5a01d738053c3b8348e0d1f9297ed77a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
