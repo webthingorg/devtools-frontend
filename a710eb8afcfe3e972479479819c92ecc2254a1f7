@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d0f2a14_2431741c",
+        "filename": "front_end/console/ConsolePinPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-20T17:00:23Z",
+      "side": 1,
+      "message": "This needs to be on ConsolePin and put just after the class declaration",
+      "range": {
+        "startLine": 307,
+        "startChar": 8,
+        "endLine": 307,
+        "endChar": 29
+      },
+      "revId": "a710eb8afcfe3e972479479819c92ecc2254a1f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
