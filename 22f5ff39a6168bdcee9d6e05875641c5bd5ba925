@@ -22,6 +22,30 @@
       "revId": "22f5ff39a6168bdcee9d6e05875641c5bd5ba925",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed6179df_e939e4dd",
+        "filename": "front_end/console/ConsolePrompt.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-20T15:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cc1dc38_5f54fe6f",
+      "range": {
+        "startLine": 385,
+        "startChar": 2,
+        "endLine": 385,
+        "endChar": 3
+      },
+      "revId": "22f5ff39a6168bdcee9d6e05875641c5bd5ba925",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
