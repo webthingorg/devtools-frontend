@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a0aa300_19edfabf",
+        "filename": "front_end/devices/DevicesView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-20T16:44:58Z",
+      "side": 1,
+      "message": "WDYT about converting this to a tabbable link so that keyboard users can invoke it, and adding a little more padding to the top and left side. (similar padding to the Network Conditions panel)",
+      "range": {
+        "startLine": 13,
+        "startChar": 52,
+        "endLine": 13,
+        "endChar": 76
+      },
+      "revId": "be3e193c13dffe6da0399d6aeec85a89c4917e46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
