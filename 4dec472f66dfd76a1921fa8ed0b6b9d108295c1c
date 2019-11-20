@@ -22,6 +22,53 @@
       "revId": "4dec472f66dfd76a1921fa8ed0b6b9d108295c1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b1d0c81_aa3e0bf1",
+        "filename": "front_end/ui/ListControl.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-20T17:57:13Z",
+      "side": 1,
+      "message": "On second thought, I don\u0027t think this a good approach either. See below for another option.",
+      "parentUuid": "bfb46ec3_027dd977",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "4dec472f66dfd76a1921fa8ed0b6b9d108295c1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c9c2ca5_3c544953",
+        "filename": "front_end/ui/ListControl.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-20T17:57:13Z",
+      "side": 1,
+      "message": "What if we make a function UI.ARIAUtils.updatedSelected(oldElement, newElement) that does the above. Then each ListControl\u0027s delegate can simply call or not call UI.ARIAUtils.updatedSelected.\n\nThis does mean, that by default selection won\u0027t happen.\n\nThoughts?",
+      "range": {
+        "startLine": 494,
+        "startChar": 4,
+        "endLine": 502,
+        "endChar": 5
+      },
+      "revId": "4dec472f66dfd76a1921fa8ed0b6b9d108295c1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
