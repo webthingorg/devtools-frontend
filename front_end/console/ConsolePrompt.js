@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-Console.ConsolePrompt = class extends UI.Widget {
+export default class ConsolePrompt extends UI.Widget {
   constructor() {
     super();
     this.registerRequiredCSS('console/consolePrompt.css');
@@ -103,7 +103,7 @@ Console.ConsolePrompt = class extends UI.Widget {
       this._previewRequestForTest = this._textChangeThrottler.schedule(this._requestPreviewBound, asSoonAsPossible);
     }
     this._updatePromptIcon();
-    this.dispatchEventToListeners(Console.ConsolePrompt.Events.TextChanged);
+    this.dispatchEventToListeners(Events.TextChanged);
   }
 
   /**
@@ -175,7 +175,7 @@ Console.ConsolePrompt = class extends UI.Widget {
     } else {
       this._initialText = text;
     }
-    this.dispatchEventToListeners(Console.ConsolePrompt.Events.TextChanged);
+    this.dispatchEventToListeners(Events.TextChanged);
   }
 
   /**
@@ -377,12 +377,12 @@ Console.ConsolePrompt = class extends UI.Widget {
 
   _editorSetForTest() {
   }
-};
+}
 
 /**
  * @unrestricted
  */
-Console.ConsoleHistoryManager = class {
+export class ConsoleHistoryManager {
   constructor() {
     /**
      * @type {!Array.<string>}
@@ -474,6 +474,24 @@ Console.ConsoleHistoryManager = class {
   }
 };
 
-Console.ConsolePrompt.Events = {
+export const Events = {
   TextChanged: Symbol('TextChanged')
 };
+
+/* Legacy exported object */
+self.Console = self.Console || {};
+
+/* Legacy exported object */
+Console = Console || {};
+
+/**
+ * @constructor
+ */
+Console.ConsolePrompt = ConsolePrompt;
+
+Console.ConsolePrompt.Events = Events;
+
+/**
+ * @constructor
+ */
+Console.ConsoleHistoryManager = ConsoleHistoryManager;
