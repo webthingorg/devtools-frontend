@@ -26,15 +26,24 @@ export default class ARIAAttributesPane extends Accessibility.AccessibilitySubPa
     const attributes = node.attributes();
     for (let i = 0; i < attributes.length; ++i) {
       const attribute = attributes[i];
-      if (Accessibility.ARIAAttributesPane._attributes.indexOf(attribute.name) < 0) {
+      if (!this._isARIAAttribute(attribute)) {
         continue;
       }
+
       this._treeOutline.appendChild(new Accessibility.ARIAAttributesTreeElement(this, attribute, target));
     }
 
     const foundAttributes = (this._treeOutline.rootElement().childCount() !== 0);
     this._noPropertiesInfo.classList.toggle('hidden', foundAttributes);
     this._treeOutline.element.classList.toggle('hidden', !foundAttributes);
+  }
+
+  /**
+   * @param {!SDK.DOMNode.Attribute} attribute
+   * @return {boolean}
+   */
+  _isARIAAttribute(attribute) {
+    return attribute.name === 'role' || attribute.name.startsWith('aria-');
   }
 }
 
@@ -192,7 +201,6 @@ export class ARIAAttributesTreeElement extends UI.TreeElement {
   }
 }
 
-
 /**
  * @unrestricted
  */
@@ -224,45 +232,6 @@ export class ARIAAttributePrompt extends UI.TextPrompt {
   }
 }
 
-const _attributes = [
-  'role',
-  'aria-busy',
-  'aria-checked',
-  'aria-disabled',
-  'aria-expanded',
-  'aria-grabbed',
-  'aria-hidden',
-  'aria-invalid',
-  'aria-pressed',
-  'aria-selected',
-  'aria-activedescendant',
-  'aria-atomic',
-  'aria-autocomplete',
-  'aria-controls',
-  'aria-describedby',
-  'aria-dropeffect',
-  'aria-flowto',
-  'aria-haspopup',
-  'aria-label',
-  'aria-labelledby',
-  'aria-level',
-  'aria-live',
-  'aria-multiline',
-  'aria-multiselectable',
-  'aria-orientation',
-  'aria-owns',
-  'aria-posinset',
-  'aria-readonly',
-  'aria-relevant',
-  'aria-required',
-  'aria-setsize',
-  'aria-sort',
-  'aria-valuemax',
-  'aria-valuemin',
-  'aria-valuenow',
-  'aria-valuetext',
-];
-
 /* Legacy exported object */
 self.Accessibility = self.Accessibility || {};
 
@@ -283,6 +252,3 @@ Accessibility.ARIAAttributesTreeElement = ARIAAttributesTreeElement;
  * @constructor
  */
 Accessibility.ARIAAttributesPane.ARIAAttributePrompt = ARIAAttributePrompt;
-
-/** @type {!Array<string>} */
-Accessibility.ARIAAttributesPane._attributes = _attributes;
