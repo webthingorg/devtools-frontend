@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49184700_9f64958a",
+        "filename": "front_end/security/SecurityModel.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-20T19:20:28Z",
+      "side": 1,
+      "message": "Rename certificateHasSha1Signature",
+      "range": {
+        "startLine": 140,
+        "startChar": 9,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "240a113a3101bd87228345f96d7861e43e7ea63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b266a5d3_2d64fe58",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-20T19:20:28Z",
+      "side": 1,
+      "message": "I just renamed this to certificateHasSha1Signature\nhttps://chromium-review.googlesource.com/c/chromium/src/+/1921334",
+      "range": {
+        "startLine": 878,
+        "startChar": 61,
+        "endLine": 878,
+        "endChar": 95
+      },
+      "revId": "240a113a3101bd87228345f96d7861e43e7ea63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a814816_a5549068",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-20T19:20:28Z",
+      "side": 1,
+      "message": "Renamed to certificateHasSha1Signature",
+      "range": {
+        "startLine": 905,
+        "startChar": 69,
+        "endLine": 905,
+        "endChar": 103
+      },
+      "revId": "240a113a3101bd87228345f96d7861e43e7ea63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
