@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2574464_2e169b83",
+        "filename": "front_end/ui/XLink.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-11-20T09:56:09Z",
+      "side": 1,
+      "message": "Our eslint config wouldn\u0027t let me use optional catch binding :( https://v8.dev/features/optional-catch-binding",
+      "revId": "04c264c5a01d738053c3b8348e0d1f9297ed77a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
