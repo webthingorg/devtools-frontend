@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68f6e43a_b3c14d2d",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-20T13:18:47Z",
+      "side": 1,
+      "message": "Did you prepare this in the other repos? For this rename to be smooth, you need to duplicate the entries in chromium/src (MB,testing) and in tools/build first.\n\nThen after rename, delete the old entries.",
+      "range": {
+        "startLine": 155,
+        "startChar": 13,
+        "endLine": 155,
+        "endChar": 32
+      },
+      "revId": "ea6829e468516da20c93c1edd94cecbaa8fb9f02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
