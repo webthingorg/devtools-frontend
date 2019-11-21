@@ -116,6 +116,47 @@
       "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7495fcb_c99cf6fa",
+        "filename": "front_end/audits/lighthouse/report.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3989,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2019-11-21T17:44:01Z",
+      "side": 1,
+      "message": "I wrote up how Lighthouse builds for DevTools. It explains why this file is special 😊\n\nhttps://gist.github.com/connorjclark/c0592ee4c2fcf888a708dbfc62da6ecc\n\nI think this file needs to remain as-is, to support the dual use cases mentioned in my brain dump.",
+      "parentUuid": "6578801c_36f1294b",
+      "range": {
+        "startLine": 3989,
+        "startChar": 2,
+        "endLine": 3989,
+        "endChar": 3
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81d83572_b8f36569",
+        "filename": "front_end/audits/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2019-11-21T17:44:01Z",
+      "side": 1,
+      "message": "we 100% need `report.js` here. I think generator can go though - can you confirm by trying the Export as HTML feature in the LH report?",
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
