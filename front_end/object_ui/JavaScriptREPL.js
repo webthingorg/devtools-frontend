@@ -53,7 +53,7 @@ export default class JavaScriptREPL {
    */
   static async evaluateAndBuildPreview(text, throwOnSideEffect, timeout, allowErrors, objectGroup) {
     const executionContext = UI.context.flavor(SDK.ExecutionContext);
-    const isTextLong = text.length > ObjectUI.JavaScriptREPL._MaxLengthForEvaluation;
+    const isTextLong = text.length > _MaxLengthForEvaluation;
     if (!text || !executionContext || (throwOnSideEffect && isTextLong)) {
       return {preview: createDocumentFragment(), result: null};
     }
