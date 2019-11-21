@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "e1c510a0_e99c320c",
+        "filename": "front_end/audits/lighthouse/report.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3989,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T18:20:57Z",
+      "side": 1,
+      "message": "Oh I see now. You are *shipping* report.js in the generated report. Right... That is an issue indeed.\n\nWe might indeed make it non-es-modules for now, but if we can figure out a solution to ship with ES modules at some point, that would be great.\n\n@Paul let\u0027s not use es-modules for this file for now and defer that to the LightHouse team to resolve, WDYT?",
+      "parentUuid": "3574409b_dbbdec3c",
+      "range": {
+        "startLine": 3989,
+        "startChar": 2,
+        "endLine": 3989,
+        "endChar": 3
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81d83572_b8f36569",
         "filename": "front_end/audits/module.json",
         "patchSetId": 4
@@ -238,6 +262,24 @@
       "side": 1,
       "message": "The standalone HTML file created by \"Export as HTML\" is created by loading all the report assets (report.js being one) from cachedResources.",
       "parentUuid": "8d79eae4_ca7b0875",
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb317dec_75880f48",
+        "filename": "front_end/audits/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T18:20:57Z",
+      "side": 1,
+      "message": "Could you point me to that location? We should use dynamic imports for any javascript file.",
+      "parentUuid": "58ed0803_afc0029f",
       "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
