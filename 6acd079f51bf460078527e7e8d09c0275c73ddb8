@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "74259b8b_e717cc46",
+        "filename": "front_end/event_listeners/EventListenersUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T15:38:22Z",
+      "side": 1,
+      "message": "The Impl is the function that is declared in the function (yes they shared the same name initially). So the exported function is without the Impl, but the nested one is defined as Impl.",
+      "parentUuid": "57d86f74_5c02ff1a",
+      "revId": "6acd079f51bf460078527e7e8d09c0275c73ddb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1b57403_2e81440b",
         "filename": "front_end/event_listeners/event_listeners.js",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-11-21T15:24:45Z",
       "side": 1,
       "message": "Missing side-effect imports?",
+      "revId": "6acd079f51bf460078527e7e8d09c0275c73ddb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15e1d944_0cfcce18",
+        "filename": "front_end/event_listeners/event_listeners.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T15:38:22Z",
+      "side": 1,
+      "message": "Not necessary in this case, ordering is already correct.",
+      "parentUuid": "d1b57403_2e81440b",
       "revId": "6acd079f51bf460078527e7e8d09c0275c73ddb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
