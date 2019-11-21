@@ -12,13 +12,30 @@ lucicfg.config(
     ],
     fail_on_warnings = True,
 )
-# Copy the not-yet migrated files to the generated outputs
-# TODO(https://crbug.com/1011908) Migrate the configuration in these files to starlark
+
 [lucicfg.emit(dest = f, data = io.read_file(f)) for f in (
     'commit-queue.cfg',
-    'cr-buildbucket.cfg',
     'luci-logdog.cfg',
     'luci-milo.cfg',
     'luci-scheduler.cfg',
-    'project.cfg',
 )]
+
+luci.project(
+    name = 'devtools-frontend',
+    buildbucket = 'cr-buildbucket.appspot.com',
+    swarming = 'chromium-swarm.appspot.com',
+    acls = [
+        acl.entry(
+            [
+                acl.BUILDBUCKET_READER,
+                acl.LOGDOG_READER,
+                acl.PROJECT_CONFIGS_READER,
+                acl.SCHEDULER_READER,
+            ],
+            groups = ["all"],
+        ),
+    ],
+)
+
+exec('//buckets/ci.star')
+exec('//buckets/try.star')
