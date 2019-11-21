@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "629fef89_8c3ec824",
+        "filename": "front_end/audits/AuditsReportRenderer.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-21T15:08:59Z",
+      "side": 1,
+      "message": "It\u0027s not used externally.",
+      "parentUuid": "2d3a6397_b45d7451",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 5
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84152b6b_4772e8c1",
         "filename": "front_end/audits/lighthouse/report.js",
         "patchSetId": 4
@@ -68,6 +92,30 @@
       "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6578801c_36f1294b",
+        "filename": "front_end/audits/lighthouse/report.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3989,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-21T15:08:59Z",
+      "side": 1,
+      "message": "It\u0027s at the bottom of the file.",
+      "parentUuid": "554f4eff_5bf8e8de",
+      "range": {
+        "startLine": 3989,
+        "startChar": 2,
+        "endLine": 3989,
+        "endChar": 3
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
