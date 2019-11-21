@@ -69,15 +69,7 @@ if (external_devtools_frontend) {
     "front_end/css_overview/cssOverviewStartView.css",
     "front_end/css_overview/cssOverviewProcessingView.css",
     "front_end/css_overview/cssOverviewCompletedView.css",
-    "front_end/css_overview/CSSOverviewController.js",
-    "front_end/css_overview/CSSOverviewStartView.js",
-    "front_end/css_overview/CSSOverviewProcessingView.js",
-    "front_end/css_overview/CSSOverviewCompletedView.js",
-    "front_end/css_overview/CSSOverviewUnusedDeclarations.js",
-    "front_end/css_overview/CSSOverviewModel.js",
-    "front_end/css_overview/CSSOverviewSidebarPanel.js",
     "front_end/css_overview/cssOverviewSidebarPanel.css",
-    "front_end/css_overview/CSSOverviewPanel.js",
     "front_end/css_overview/module.json",
     "front_end/changes/changesView.css",
     "front_end/changes/changesSidebar.css",
@@ -711,6 +703,15 @@ if (external_devtools_frontend) {
   all_devtools_files += lighthouse_locale_files
 
   all_devtools_modules = [
+    "front_end/css_overview/css_overview.js",
+    "front_end/css_overview/CSSOverviewUnusedDeclarations.js",
+    "front_end/css_overview/CSSOverviewStartView.js",
+    "front_end/css_overview/CSSOverviewSidebarPanel.js",
+    "front_end/css_overview/CSSOverviewProcessingView.js",
+    "front_end/css_overview/CSSOverviewPanel.js",
+    "front_end/css_overview/CSSOverviewModel.js",
+    "front_end/css_overview/CSSOverviewController.js",
+    "front_end/css_overview/CSSOverviewCompletedView.js",
     "front_end/console/console.js",
     "front_end/console/ConsoleContextSelector.js",
     "front_end/console/ConsoleFilter.js",
@@ -1218,6 +1219,15 @@ if (external_devtools_frontend) {
   ]
 
   copied_devtools_modules = [
+    "$resources_out_dir/css_overview/css_overview.js",
+    "$resources_out_dir/css_overview/CSSOverviewUnusedDeclarations.js",
+    "$resources_out_dir/css_overview/CSSOverviewStartView.js",
+    "$resources_out_dir/css_overview/CSSOverviewSidebarPanel.js",
+    "$resources_out_dir/css_overview/CSSOverviewProcessingView.js",
+    "$resources_out_dir/css_overview/CSSOverviewPanel.js",
+    "$resources_out_dir/css_overview/CSSOverviewModel.js",
+    "$resources_out_dir/css_overview/CSSOverviewController.js",
+    "$resources_out_dir/css_overview/CSSOverviewCompletedView.js",
     "$resources_out_dir/console/console.js",
     "$resources_out_dir/console/ConsoleContextSelector.js",
     "$resources_out_dir/console/ConsoleFilter.js",
@@ -1881,7 +1891,9 @@ if (external_devtools_frontend) {
       script = "scripts/build/build_debug_applications.py"
       inputs = all_devtools_files + application_templates
       stamp = "$resources_out_debug_dir/build.stamp"
-      outputs = [ stamp ]
+      outputs = [
+        stamp,
+      ]
 
       args = [
         "--input_path",
@@ -1889,7 +1901,7 @@ if (external_devtools_frontend) {
         "--output_path",
         rebase_path(resources_out_debug_dir, root_build_dir),
         "--build_stamp",
-        rebase_path(stamp, root_build_dir)
+        rebase_path(stamp, root_build_dir),
       ]
     }
 
