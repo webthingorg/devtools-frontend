@@ -2259,11 +2259,11 @@ if (typeof module !== 'undefined' && module.exports) {
  * @param {HTMLTableElement} tableEl
  * @return {Array<HTMLTableRowElement>}
  */
-function getTableRows(tableEl) {
+export function getTableRows(tableEl) {
   return Array.from(tableEl.tBodies[0].rows);
 }
 
-class ReportUIFeatures {
+export class ReportUIFeatures {
   /**
    * @param {DOM} dom
    */
@@ -2834,7 +2834,7 @@ class ReportUIFeatures {
   }
 }
 
-class DropDown {
+export class DropDown {
   /**
    * @param {DOM} dom
    */
@@ -3056,7 +3056,7 @@ if (typeof module !== 'undefined' && module.exports) {
 /** @typedef {import('./util.js')} Util */
 /** @typedef {'failed'|'warning'|'manual'|'passed'|'notApplicable'} TopLevelClumpId */
 
-class CategoryRenderer {
+export class CategoryRenderer {
   /**
    * @param {DOM} dom
    * @param {DetailsRenderer} detailsRenderer
@@ -3520,7 +3520,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 /** @typedef {import('./dom.js')} DOM */
 
-class PerformanceCategoryRenderer extends CategoryRenderer {
+export class PerformanceCategoryRenderer extends CategoryRenderer {
   /**
    * @param {LH.ReportResult.AuditRef} audit
    * @return {Element}
@@ -3767,14 +3767,14 @@ if (typeof module !== 'undefined' && module.exports) {
 /**
  * An always-increasing counter for making unique SVG ID suffixes.
  */
-const getUniqueSuffix = (() => {
+export const getUniqueSuffix = (() => {
   let svgSuffix = 0;
   return function() {
     return svgSuffix++;
   };
 })();
 
-class PwaCategoryRenderer extends CategoryRenderer {
+export class PwaCategoryRenderer extends CategoryRenderer {
   /**
    * @param {LH.ReportResult.Category} category
    * @param {Object<string, LH.Result.ReportGroup>} [groupDefinitions]
@@ -3977,7 +3977,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 /* globals self, Util, DetailsRenderer, CategoryRenderer, PerformanceCategoryRenderer, PwaCategoryRenderer */
 
-class ReportRenderer {
+export class ReportRenderer {
   /**
    * @param {DOM} dom
    */
