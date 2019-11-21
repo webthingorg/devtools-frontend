@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "3574409b_dbbdec3c",
+        "filename": "front_end/audits/lighthouse/report.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3989,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2019-11-21T18:17:35Z",
+      "side": 1,
+      "message": "We could probably use esmodules for this file, but we would lose cross browser support for the standalone HTML this creates. Additionally we would have to port all of the Lighthouse renderer code to esmodules, and transpile down to non-esmodules (again, I\u0027m assuming we would want to maintain cross browser support), which would add a lot of complexity to our build process. Right now, we can just \"write for the browser\" and concat all these source files together (https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/report/html/html-report-assets.js#L11). I haven\u0027t discussed this with anyone on the team yet, but I\u0027m not sure it will be something we want to do.\n\nI\u0027m happy with all the other changes in this CL, but making this particular file use esmodules has a lot of other implications and needs more research on the Lighthouse side.",
+      "parentUuid": "04122d0e_792eb16f",
+      "range": {
+        "startLine": 3989,
+        "startChar": 2,
+        "endLine": 3989,
+        "endChar": 3
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81d83572_b8f36569",
         "filename": "front_end/audits/module.json",
         "patchSetId": 4
@@ -196,6 +220,24 @@
       "side": 1,
       "message": "It is in the modules array and we load it in the `audits.js`, so I think this is not a problem?",
       "parentUuid": "81d83572_b8f36569",
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58ed0803_afc0029f",
+        "filename": "front_end/audits/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2019-11-21T18:17:35Z",
+      "side": 1,
+      "message": "The standalone HTML file created by \"Export as HTML\" is created by loading all the report assets (report.js being one) from cachedResources.",
+      "parentUuid": "8d79eae4_ca7b0875",
       "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
