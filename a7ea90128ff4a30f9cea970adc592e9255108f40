@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "faef5857_b51bf4bf",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-21T21:00:30Z",
+      "side": 1,
+      "message": "can index ever be out of range here?",
+      "range": {
+        "startLine": 510,
+        "startChar": 21,
+        "endLine": 510,
+        "endChar": 40
+      },
+      "revId": "a7ea90128ff4a30f9cea970adc592e9255108f40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "963597c2_b6c7f5fd",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-21T21:00:30Z",
+      "side": 1,
+      "message": "related to the above comment - would it make sense if index is out of range or 0, to set scrolltop to 0 at the top of the function, and then skip the other logic?",
+      "range": {
+        "startLine": 519,
+        "startChar": 22,
+        "endLine": 519,
+        "endChar": 34
+      },
+      "revId": "a7ea90128ff4a30f9cea970adc592e9255108f40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
