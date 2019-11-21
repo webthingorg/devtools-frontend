@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "04122d0e_792eb16f",
+        "filename": "front_end/audits/lighthouse/report.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3989,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T18:03:28Z",
+      "side": 1,
+      "message": "Imo we should make this file non-special and integrate it like any other module.\n\n\nI think I understand what you mean with dual use case, but I think that is orthogonal to moving to ES modules. Instead of exporting your symbols on the global scope, using `export` should be equivalent. That should not prohibit you from using the report-generator for the HTML use case.\n\nAm I missing something?",
+      "parentUuid": "a7495fcb_c99cf6fa",
+      "range": {
+        "startLine": 3989,
+        "startChar": 2,
+        "endLine": 3989,
+        "endChar": 3
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81d83572_b8f36569",
         "filename": "front_end/audits/module.json",
         "patchSetId": 4
@@ -154,6 +178,24 @@
       "writtenOn": "2019-11-21T17:44:01Z",
       "side": 1,
       "message": "we 100% need `report.js` here. I think generator can go though - can you confirm by trying the Export as HTML feature in the LH report?",
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d79eae4_ca7b0875",
+        "filename": "front_end/audits/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T18:03:28Z",
+      "side": 1,
+      "message": "It is in the modules array and we load it in the `audits.js`, so I think this is not a problem?",
+      "parentUuid": "81d83572_b8f36569",
       "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
