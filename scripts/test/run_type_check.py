@@ -282,6 +282,15 @@ GENERATED_SKIP_COMPILATION_FILES = [
     'cm/foldcode.js',
     'cm/foldgutter.js',
     'cm/brace-fold.js',
+    'cm_modes/clike.js',
+    'cm_modes/coffeescript.js',
+    'cm_modes/php.js',
+    'cm_modes/python.js',
+    'cm_modes/shell.js',
+    'cm_modes/livescript.js',
+    'cm_modes/markdown.js',
+    'cm_modes/clojure.js',
+    'cm_modes/jsx.js',
 ]
 
 
