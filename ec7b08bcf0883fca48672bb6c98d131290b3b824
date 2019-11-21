@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c98551d1_81a97fdc",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-21T16:02:50Z",
+      "side": 1,
+      "message": "This shape of this changed. It\u0027s now a URL instead of a hostname. You can use \u0027new URL(url)\u0027 and grab the hostname property.",
+      "range": {
+        "startLine": 850,
+        "startChar": 62,
+        "endLine": 850,
+        "endChar": 83
+      },
+      "revId": "ec7b08bcf0883fca48672bb6c98d131290b3b824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
