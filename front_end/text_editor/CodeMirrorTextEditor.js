@@ -330,12 +330,12 @@ TextEditor.CodeMirrorTextEditor = class extends UI.VBox {
      * @param {!Root.Runtime.Extension} extension
      * @param {!Object} instance
      */
-    function installMode(extension, instance) {
+    async function installMode(extension, instance) {
       if (TextEditor.CodeMirrorTextEditor._loadedMimeModeExtensions.has(extension)) {
         return;
       }
       const mode = /** @type {!TextEditor.CodeMirrorMimeMode} */ (instance);
-      mode.install(extension);
+      await mode.install(extension);
       TextEditor.CodeMirrorTextEditor._loadedMimeModeExtensions.add(extension);
     }
   }
@@ -1776,8 +1776,9 @@ TextEditor.CodeMirrorMimeMode = function() {};
 TextEditor.CodeMirrorMimeMode.prototype = {
   /**
    * @param {!Root.Runtime.Extension} extension
+   * @return {!Promise}
    */
-  install(extension) {}
+  async install(extension) {}
 };
 
 /**
