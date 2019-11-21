@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3a6397_b45d7451",
+        "filename": "front_end/audits/AuditsReportRenderer.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T14:40:29Z",
+      "side": 1,
+      "message": "nit: export",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 5
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84152b6b_4772e8c1",
+        "filename": "front_end/audits/lighthouse/report.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 2262,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T14:40:29Z",
+      "side": 1,
+      "message": "This code is auto-generated afaik, thus the changes have to be made in the LightHouse repo as well.",
+      "range": {
+        "startLine": 2262,
+        "startChar": 0,
+        "endLine": 2262,
+        "endChar": 6
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "554f4eff_5bf8e8de",
+        "filename": "front_end/audits/lighthouse/report.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3989,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-21T14:40:29Z",
+      "side": 1,
+      "message": "There are no legacy exports here. How did the old code expose it\u0027s symbols? 😮",
+      "range": {
+        "startLine": 3989,
+        "startChar": 2,
+        "endLine": 3989,
+        "endChar": 3
+      },
+      "revId": "5903d31494b0a7727aa3041805f9e42091d97a42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
