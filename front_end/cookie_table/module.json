@@ -4,7 +4,9 @@
         "sdk",
         "data_grid"
     ],
-    "scripts": [
+    "scripts": [],
+    "modules": [
+        "cookes_table.js",
         "CookiesTable.js"
     ]
 }
