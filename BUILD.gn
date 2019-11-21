@@ -28,20 +28,10 @@ if (external_devtools_frontend) {
     "front_end/audits_worker/AuditsService.js",
     "front_end/audits_worker/lighthouse/lighthouse-dt-bundle.js",
     "front_end/audits_worker/module.json",
-    "front_end/audits/AuditsPanel.js",
-    "front_end/audits/AuditsController.js",
-    "front_end/audits/AuditsReportSelector.js",
-    "front_end/audits/AuditsReportRenderer.js",
-    "front_end/audits/AuditsStartView.js",
-    "front_end/audits/AuditsProtocolService.js",
-    "front_end/audits/AuditsStatusView.js",
     "front_end/audits/auditsDialog.css",
     "front_end/audits/auditsStartView.css",
     "front_end/audits/auditsPanel.css",
-    "front_end/audits/RadioSetting.js",
     "front_end/audits/lighthouse/report.css",
-    "front_end/audits/lighthouse/report.js",
-    "front_end/audits/lighthouse/report-generator.js",
     "front_end/audits/lighthouse/template.html",
     "front_end/audits/lighthouse/templates.html",
     "front_end/audits/module.json",
@@ -711,6 +701,17 @@ if (external_devtools_frontend) {
   all_devtools_files += lighthouse_locale_files
 
   all_devtools_modules = [
+    "front_end/audits/audits.js",
+    "front_end/audits/RadioSetting.js",
+    "front_end/audits/AuditsStatusView.js",
+    "front_end/audits/AuditsStartView.js",
+    "front_end/audits/AuditsReportSelector.js",
+    "front_end/audits/AuditsReportRenderer.js",
+    "front_end/audits/AuditsProtocolService.js",
+    "front_end/audits/AuditsPanel.js",
+    "front_end/audits/AuditsController.js",
+    "front_end/audits/lighthouse/report-generator.js",
+    "front_end/audits/lighthouse/report.js",
     "front_end/console/console.js",
     "front_end/console/ConsoleContextSelector.js",
     "front_end/console/ConsoleFilter.js",
@@ -1218,6 +1219,15 @@ if (external_devtools_frontend) {
   ]
 
   copied_devtools_modules = [
+    "$resources_out_dir/audits/audits.js",
+    "$resources_out_dir/audits/RadioSetting.js",
+    "$resources_out_dir/audits/AuditsStatusView.js",
+    "$resources_out_dir/audits/AuditsStartView.js",
+    "$resources_out_dir/audits/AuditsReportSelector.js",
+    "$resources_out_dir/audits/AuditsReportRenderer.js",
+    "$resources_out_dir/audits/AuditsProtocolService.js",
+    "$resources_out_dir/audits/AuditsPanel.js",
+    "$resources_out_dir/audits/AuditsController.js",
     "$resources_out_dir/console/console.js",
     "$resources_out_dir/console/ConsoleContextSelector.js",
     "$resources_out_dir/console/ConsoleFilter.js",
@@ -1881,7 +1891,9 @@ if (external_devtools_frontend) {
       script = "scripts/build/build_debug_applications.py"
       inputs = all_devtools_files + application_templates
       stamp = "$resources_out_debug_dir/build.stamp"
-      outputs = [ stamp ]
+      outputs = [
+        stamp,
+      ]
 
       args = [
         "--input_path",
@@ -1889,7 +1901,7 @@ if (external_devtools_frontend) {
         "--output_path",
         rebase_path(resources_out_debug_dir, root_build_dir),
         "--build_stamp",
-        rebase_path(stamp, root_build_dir)
+        rebase_path(stamp, root_build_dir),
       ]
     }
 
