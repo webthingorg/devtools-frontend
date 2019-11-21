@@ -505,18 +505,32 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
     // The eager evaluation on works sort of reliably within the top-most scope of
     // the selected call frame, so don't even try outside the top-most scope.
     const [scope] = selectedCallFrame.scopeChain();
-    if (scope && scope.startLocation() && scope.endLocation()) {
-      if (editorLineNumber < scope.startLocation().lineNumber) {
+    const scopeStartLocation = scope && scope.startLocation();
+    const scopeEndLocation = scope && scope.endLocation();
+
+    if (scopeStartLocation && scopeEndLocation) {
+      const scopeUIStartLocation = Bindings.debuggerWorkspaceBinding.rawLocationToUILocation(scopeStartLocation);
+      const scopeUIEndLocation = Bindings.debuggerWorkspaceBinding.rawLocationToUILocation(scopeEndLocation);
+
+      const scopeStartLocationLineNumber =
+          scopeUIStartLocation ? scopeUIStartLocation.lineNumber : scope.startLocation().lineNumber;
+      const scopeStartLocationColNumber =
+          scopeUIStartLocation ? scopeUIStartLocation.columnNumber : scope.startLocation().columnNumber;
+      const scopeEndLocationLineNumber =
+          scopeUIEndLocation ? scopeUIEndLocation.lineNumber : scope.endLocation().lineNumber;
+      const scopeEndLocationColNumber =
+          scopeUIEndLocation ? scopeUIEndLocation.columnNumber : scope.endLocation().columnNumber;
+
+      if (editorLineNumber < scopeStartLocationLineNumber) {
         return null;
       }
-      if (editorLineNumber === scope.startLocation().lineNumber &&
-          startHighlight < scope.startLocation().columnNumber) {
+      if (editorLineNumber === scopeStartLocationLineNumber && startHighlight < scopeStartLocationColNumber) {
         return null;
       }
-      if (editorLineNumber > scope.endLocation().lineNumber) {
+      if (editorLineNumber > scopeEndLocationLineNumber) {
         return null;
       }
-      if (editorLineNumber === scope.endLocation().lineNumber && endHighlight > scope.endLocation().columnNumber) {
+      if (editorLineNumber === scopeEndLocationLineNumber && endHighlight > scopeEndLocationColNumber) {
         return null;
       }
     }
