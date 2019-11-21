@@ -22,6 +22,30 @@
       "revId": "f2b72648a0ab827b032e96b644b2dfb0b980946b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b9f528_6679dcd9",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2019-11-21T21:54:30Z",
+      "side": 1,
+      "message": "Thanks, sounds reasonable, done!",
+      "parentUuid": "ca9ab1a9_9eb6d355",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "f2b72648a0ab827b032e96b644b2dfb0b980946b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
