@@ -700,6 +700,9 @@ TimelineModel.TimelineModel = class {
                 !asyncEvent.causedFrame) {
               continue;
             }
+            if (data['is_coalesced']) {
+              continue;
+            }
             const rendererMain = data['INPUT_EVENT_LATENCY_RENDERER_MAIN_COMPONENT'];
             if (rendererMain) {
               const time = rendererMain['time'] / 1000;
