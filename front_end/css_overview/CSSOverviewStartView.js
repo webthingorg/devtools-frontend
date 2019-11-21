@@ -5,7 +5,7 @@
 /**
  * @unrestricted
  */
-CssOverview.CSSOverviewStartView = class extends UI.Widget {
+export class CSSOverviewStartView extends UI.Widget {
   constructor(controller) {
     super();
     this.registerRequiredCSS('css_overview/cssOverviewStartView.css');
@@ -31,4 +31,13 @@ CssOverview.CSSOverviewStartView = class extends UI.Widget {
     this.contentElement.appendChild(fragment.element());
     this.contentElement.style.overflow = 'auto';
   }
-};
+}
+
+/* Legacy exported object */
+self.CssOverview = self.CssOverview || {};
+
+/* Legacy exported object */
+CssOverview = CssOverview || {};
+
+// TODO(http://crbug.com/1006759): Add type information if necessary
+CssOverview.CSSOverviewStartView = CSSOverviewStartView;
