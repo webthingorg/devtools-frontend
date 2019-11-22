@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9998ac10_580d82ad",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-11-22T17:13:14Z",
+      "side": 1,
+      "message": "This line has a code smell in the cast. I\u0027m supposing `element` is of type `Element` or `HTMLElement`. Is it possible to use the proper title (where its `title` attribute is initialized) instead?\n\nAlternatively: it looks like the `childrenListElement` property is probably initialized within the `_createOriginGroupElement` function. Perhaps we could have the _createOriginGroupElement function call `setAccessibleName` before it returns? I think this is probably the right thing to do.",
+      "revId": "3f1675536016c27124f3c4b9703824b24880c338",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
