@@ -16,6 +16,24 @@
       "revId": "8ba5b70b8b7f10c4fe98ffe62daa674fca21b19d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd19535b_983fa343",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-22T15:07:38Z",
+      "side": 1,
+      "message": "Yes. Closure must know that imports for files of type 3 should be ignored (just like we have `skip_compilation` right now). Here is an example: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1924205/2/front_end/components/module.json",
+      "parentUuid": "c77e7363_06bf73df",
+      "revId": "8ba5b70b8b7f10c4fe98ffe62daa674fca21b19d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
