@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b0b32aa_d411ff8e",
+        "filename": "front_end/common/common-legacy.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-22T14:50:06Z",
+      "side": 1,
+      "message": "Oh no. Surely there\u0027s something we can do here.",
+      "revId": "dc41237b66858f6cd611b947143d8601cec8e449",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
