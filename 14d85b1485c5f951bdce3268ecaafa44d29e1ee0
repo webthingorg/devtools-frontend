@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ddee42a_80a5314f",
+        "filename": "front_end/object_ui/JavaScriptREPL.js.orig",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2019-11-22T13:58:32Z",
+      "side": 1,
+      "message": "Don\u0027t need this file",
+      "range": {
+        "startLine": 1,
+        "startChar": 23,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "14d85b1485c5f951bdce3268ecaafa44d29e1ee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
