@@ -22,6 +22,30 @@
       "revId": "14d85b1485c5f951bdce3268ecaafa44d29e1ee0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "261e29d8_9fb8b6b7",
+        "filename": "front_end/object_ui/JavaScriptREPL.js.orig",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2019-11-22T14:14:13Z",
+      "side": 1,
+      "message": "Nice catch, thanks!",
+      "parentUuid": "7ddee42a_80a5314f",
+      "range": {
+        "startLine": 1,
+        "startChar": 23,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "14d85b1485c5f951bdce3268ecaafa44d29e1ee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
