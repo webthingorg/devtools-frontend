@@ -34,6 +34,24 @@
       "revId": "debf0135d712db91cb2acb99aca50e1c059e01d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "653eaa92_ab03619b",
+        "filename": "front_end/console/ConsolePrompt.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-11-22T09:21:08Z",
+      "side": 1,
+      "message": "Doing it separately sounds good, to keep this patch minimal. Let\u0027s just add a TODO to sdk/ConsoleModel.js so we don\u0027t forget.",
+      "parentUuid": "aa105f12_c918defa",
+      "revId": "debf0135d712db91cb2acb99aca50e1c059e01d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
