@@ -1,0 +1,7 @@
+{
+  "modules": [
+    { "name": "web_audio_worker", "type": "autostart" },
+    { "name": "platform", "type": "autostart" },
+    { "name": "dagre_layout", "type": "autostart" }
+  ]
+}
