@@ -16,6 +16,24 @@
       "revId": "debf0135d712db91cb2acb99aca50e1c059e01d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa105f12_c918defa",
+        "filename": "front_end/console/ConsolePrompt.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2019-11-22T09:18:13Z",
+      "side": 1,
+      "message": "Just inspected all call-sites for SDK.consoleModel.evaluateCommandInConsole. All call-sites pass \u0027false\u0027. Should we remove it in this CL or in a followup?\n\nI didn\u0027t want to do too much, in case we need to revert before branch cut in two weeks.",
+      "parentUuid": "7becbe89_5b508e9f",
+      "revId": "debf0135d712db91cb2acb99aca50e1c059e01d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
