@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b2a0c6d_3b69c261",
+        "filename": "buckets/ci.star",
+        "patchSetId": 12
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-22T08:51:54Z",
+      "side": 1,
+      "message": "nit: Please keep the same order of keys across builders.",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "682dc0df6941cd20932ec9605dfbabcef61c58b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
