@@ -22,6 +22,30 @@
       "revId": "565152e954bb15490f9a8ec17499bd20a2e120c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0736971_4843d746",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-22T15:28:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aae1f20c_ebc42e37",
+      "range": {
+        "startLine": 736,
+        "startChar": 3,
+        "endLine": 736,
+        "endChar": 7
+      },
+      "revId": "565152e954bb15490f9a8ec17499bd20a2e120c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
