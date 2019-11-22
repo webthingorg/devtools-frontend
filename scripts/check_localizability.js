@@ -45,8 +45,13 @@ async function main() {
     let filePathPromises = [localizationUtils.getFilesFromDirectory(frontendPath, filePaths, ['.grdp'])];
     if (process.argv[2] === '-a')
       filePathPromises.push(localizationUtils.getFilesFromDirectory(frontendPath, filePaths, ['.js']));
-    else
-      filePaths = process.argv.slice(2).filter(localizationUtils.shouldParseDirectory);
+    else {
+      // esprima has a bug parsing a valid JSON format, so exclude them. (case insensitive search)
+      const excludeFunction =  file => !/(.*)?\.json$/i.test(file);
+      filePaths = process.argv.slice(2).filter( file => {
+        return excludeFunction(file) && localizationUtils.shouldParseDirectory(file);
+      });
+    }
     await Promise.all(filePathPromises);
 
     filePaths.push(localizationUtils.SHARED_STRINGS_PATH);
