@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aae1f20c_ebc42e37",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-22T15:19:22Z",
+      "side": 1,
+      "message": "Nit: remove comment",
+      "range": {
+        "startLine": 736,
+        "startChar": 3,
+        "endLine": 736,
+        "endChar": 7
+      },
+      "revId": "565152e954bb15490f9a8ec17499bd20a2e120c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
