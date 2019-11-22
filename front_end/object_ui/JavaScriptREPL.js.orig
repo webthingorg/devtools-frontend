@@ -32,8 +32,20 @@ export default class JavaScriptREPL {
    * @param {string} text
    * @return {string}
    */
+<<<<<<< HEAD
+  static async preprocessExpression(text) {
+    text = JavaScriptREPL.wrapObjectLiteral(text);
+    let preprocessed = false;
+    if (text.indexOf('await') !== -1) {
+      const preprocessedText = await Formatter.formatterWorkerPool().preprocessTopLevelAwaitExpressions(text);
+      preprocessed = !!preprocessedText;
+      text = preprocessedText || text;
+    }
+    return {text, preprocessed};
+=======
   static preprocessExpression(text) {
-    return JavaScriptREPL.wrapObjectLiteral(text);
+    return ObjectUI.JavaScriptREPL.wrapObjectLiteral(text);
+>>>>>>> Remove top-level await pre-processing
   }
 
   /**
@@ -51,7 +63,11 @@ export default class JavaScriptREPL {
       return {preview: createDocumentFragment(), result: null};
     }
 
-    const expression = JavaScriptREPL.preprocessExpression(text);
+<<<<<<< HEAD
+    const wrappedResult = await JavaScriptREPL.preprocessExpression(text);
+=======
+    const expression = ObjectUI.JavaScriptREPL.preprocessExpression(text);
+>>>>>>> Remove top-level await pre-processing
     const options = {
       expression: expression,
       generatePreview: true,
@@ -61,8 +77,14 @@ export default class JavaScriptREPL {
       objectGroup: objectGroup,
       disableBreaks: true
     };
-    const result = await executionContext.evaluate(options, false /* userGesture */, false /* awaitPromise */);
+<<<<<<< HEAD
+    const result = await executionContext.evaluate(
+        options, false /* userGesture */, wrappedResult.preprocessed /* awaitPromise */);
     const preview = JavaScriptREPL._buildEvaluationPreview(result, allowErrors);
+=======
+    const result = await executionContext.evaluate(options, false /* userGesture */, false /* awaitPromise */);
+    const preview = ObjectUI.JavaScriptREPL._buildEvaluationPreview(result, allowErrors);
+>>>>>>> Remove top-level await pre-processing
     return {preview, result};
   }
 
