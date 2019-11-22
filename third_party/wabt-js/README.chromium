@@ -1,0 +1,12 @@
+Name: wabt.js
+Short Name: wabt.js
+URL: https://github.com/AssemblyScript/wabt.js
+Version: 1.0.12-nightly.20191122
+Date: Nov 22, 2019
+Revision: aa557af
+License: Apache 2.0
+License File: src/LICENSE
+Security Critical: No
+
+Description:
+JS bindings for WebAssembly compiled Wabt (Wasm disassembly) library.
