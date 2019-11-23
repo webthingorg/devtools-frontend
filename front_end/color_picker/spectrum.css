@@ -51,7 +51,8 @@
 }
 
 .spectrum-hue[data-keyboard-focus="true"] .spectrum-slider,
-.spectrum-alpha[data-keyboard-focus="true"] .spectrum-slider {
+.spectrum-alpha[data-keyboard-focus="true"] .spectrum-slider,
+.spectrum-color[data-keyboard-focus="true"] .spectrum-dragger {
   border: 1px solid var(--accent-color-hover);
   width: 14px;
   height: 14px;
