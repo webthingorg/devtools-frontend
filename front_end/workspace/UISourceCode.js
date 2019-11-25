@@ -75,6 +75,8 @@ export default class UISourceCode extends Common.Object {
     this._workingCopy = null;
     /** @type {?function() : string} */
     this._workingCopyGetter = null;
+    /** @type {?string} */
+    this._originalFormattedContent = null;
   }
 
   /**
@@ -413,6 +415,13 @@ export default class UISourceCode extends Common.Object {
   }
 
   /**
+   * @param {string} content
+   */
+  setOriginalFormattedContent(content) {
+    this._originalFormattedContent = content;
+  }
+
+  /**
   * @param {function(): string } workingCopyGetter
   */
   setWorkingCopyGetter(workingCopyGetter) {
@@ -467,6 +476,13 @@ export default class UISourceCode extends Common.Object {
    */
   loadError() {
     return (this._content && this._content.error);
+  }
+
+  /**
+   * @return {?string}
+   */
+  originalFormattedContent() {
+    return this._originalFormattedContent;
   }
 
   /**

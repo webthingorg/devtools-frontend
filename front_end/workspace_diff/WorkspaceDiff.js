@@ -283,7 +283,19 @@ export class UISourceCodeDiff extends Common.Object {
       return null;
     }
 
-    const baseline = await this._originalContent();
+    let current = this._uiSourceCode.workingCopy();
+    const originalContent = await this._originalContent();
+    let baseline;
+    if (!TextUtils.isMinified(current) && originalContent) {
+      if (!this._uiSourceCode.originalFormattedContent()) {
+        const formatResult = await Formatter.formatterWorkerPool().format(
+            this._uiSourceCode.mimeType(), originalContent, Common.moduleSetting('textEditorIndent').get());
+        this._uiSourceCode.setOriginalFormattedContent(formatResult.content);
+      }
+      baseline = this._uiSourceCode.originalFormattedContent();
+    } else {
+      baseline = originalContent || '';
+    }
     if (baseline.length > 1024 * 1024) {
       return null;
     }
@@ -292,7 +304,6 @@ export class UISourceCodeDiff extends Common.Object {
       return null;
     }
 
-    let current = this._uiSourceCode.workingCopy();
     if (!current && !this._uiSourceCode.contentLoaded()) {
       current = (await this._uiSourceCode.requestContent()).content;
     }
