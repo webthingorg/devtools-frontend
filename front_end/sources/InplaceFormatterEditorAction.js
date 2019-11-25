@@ -106,6 +106,9 @@ Sources.InplaceFormatterEditorAction = class {
      * @param {!Formatter.FormatterSourceMapping} formatterMapping
      */
   _formattingComplete(uiSourceCode, formattedContent, formatterMapping) {
+    if (!uiSourceCode.originalFormattedContent() && !uiSourceCode.isDirty()) {
+      uiSourceCode.setOriginalFormattedContent(formattedContent);
+    }
     if (uiSourceCode.workingCopy() === formattedContent) {
       return;
     }

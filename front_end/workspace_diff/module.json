@@ -1,8 +1,9 @@
 {
   "dependencies": [
-    "workspace",
-    "diff",
-    "persistence"
+      "workspace",
+      "diff",
+      "persistence",
+      "formatter"
   ],
   "scripts": [],
   "modules": [
