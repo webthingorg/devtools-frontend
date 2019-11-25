@@ -1330,6 +1330,9 @@ class DetailsRenderer {
         case 'node': {
           return this.renderNode(value);
         }
+        case 'source-location': {
+          return this.renderSourceLocation(value);
+        }
         case 'url': {
           return this.renderTextURL(value.value);
         }
@@ -1490,6 +1493,36 @@ class DetailsRenderer {
     if (item.selector) element.setAttribute('data-selector', item.selector);
     if (item.snippet) element.setAttribute('data-snippet', item.snippet);
 
+    return element;
+  }
+
+  /**
+   * @param {LH.Audit.Details.SourceLocationValue} item
+   * @return {Element|null}
+   * @protected
+   */
+  renderSourceLocation(item) {
+    if (!item.url) {
+      return null;
+    }
+
+    // Lines are shown as one-indexed.
+    const line = item.line + 1;
+    const column = item.column;
+
+    let element;
+    if (item.urlProvider === 'network') {
+      element = this.renderTextURL(item.url);
+      this._dom.find('a', element).textContent += `:${line}:${column}`;
+    } else {
+      element = this._renderText(`${item.url}:${line}:${column} (from sourceURL)`);
+    }
+
+    element.classList.add('lh-source-location');
+    element.setAttribute('data-source-url', item.url);
+    // DevTools expects zero-indexed lines.
+    element.setAttribute('data-source-line', String(item.line));
+    element.setAttribute('data-source-column', String(item.column));
     return element;
   }
 
@@ -2443,7 +2476,8 @@ class ReportUIFeatures {
     /** @type {Array<HTMLTableElement>} */
     const tables = Array.from(this._document.querySelectorAll('.lh-table'));
     const tablesWithUrls = tables
-      .filter(el => el.querySelector('td.lh-table-column--url'))
+      .filter(el =>
+        el.querySelector('td.lh-table-column--url, td.lh-table-column--source-location'))
       .filter(el => {
         const containingAudit = el.closest('.lh-audit');
         if (!containingAudit) throw new Error('.lh-table not within audit');

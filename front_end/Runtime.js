@@ -261,6 +261,7 @@ class Runtime {
      */
     function cacheResource(path, content) {
       if (!content) {
+        console.trace();
         console.error('Failed to load resource: ' + path);
         return;
       }
@@ -884,6 +885,12 @@ class Module {
    * @param {string} resourceName
    */
   _modularizeURL(resourceName) {
+    if (resourceName.includes('third_party')) return resourceName;
+    // TODO this doesn't change anything ...
+    // note: none of these variations work:
+    // ../../third_party/lighthouse/report-assets/template.html
+    // ../third_party/lighthouse/report-assets/template.html
+    // //third_party/lighthouse/report-assets/template.html
     return Runtime.normalizePath(this._name + '/' + resourceName);
   }
 

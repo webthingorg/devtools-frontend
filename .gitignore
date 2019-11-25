@@ -34,4 +34,5 @@ karma-coverage
 !/third_party/blink
 !/third_party/pyjson5
 !/third_party/typescript
+!/third_party/lighthouse
 .DS_Store

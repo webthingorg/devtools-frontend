@@ -26,14 +26,10 @@ if (external_devtools_frontend) {
     "front_end/audits_worker.js",
     "front_end/audits_worker.json",
     "front_end/audits_worker/AuditsService.js",
-    "front_end/audits_worker/lighthouse/lighthouse-dt-bundle.js",
     "front_end/audits_worker/module.json",
     "front_end/audits/auditsDialog.css",
     "front_end/audits/auditsStartView.css",
     "front_end/audits/auditsPanel.css",
-    "front_end/audits/lighthouse/report.css",
-    "front_end/audits/lighthouse/template.html",
-    "front_end/audits/lighthouse/templates.html",
     "front_end/audits/module.json",
     "front_end/audits_test_runner/AuditsTestRunner.js",
     "front_end/audits_test_runner/module.json",
@@ -582,6 +578,10 @@ if (external_devtools_frontend) {
     "front_end/worker_service/ServiceDispatcher.js",
     "front_end/workspace/module.json",
     "front_end/workspace_diff/module.json",
+    "//third_party/lighthouse/lighthouse-dt-bundle.js",
+    "//third_party/lighthouse/report-assets/report.css",
+    "//third_party/lighthouse/report-assets/template.html",
+    "//third_party/lighthouse/report-assets/templates.html",
   ]
 
   lighthouse_locale_files = [
@@ -714,8 +714,6 @@ if (external_devtools_frontend) {
     "front_end/css_overview/CSSOverviewController.js",
     "front_end/css_overview/CSSOverviewCompletedView.js",
     "front_end/audits/audits.js",
-    "front_end/audits/lighthouse/report-generator.js",
-    "front_end/audits/lighthouse/report.js",
     "front_end/audits/RadioSetting.js",
     "front_end/audits/AuditsStatusView.js",
     "front_end/audits/AuditsStartView.js",
@@ -1037,6 +1035,8 @@ if (external_devtools_frontend) {
     "front_end/common/Trie.js",
     "front_end/common/UIString.js",
     "front_end/common/Worker.js",
+    "//third_party/lighthouse/report-assets/report-generator.js",
+    "//third_party/lighthouse/report-assets/report.js",
   ]
 
   devtools_test_files = [
