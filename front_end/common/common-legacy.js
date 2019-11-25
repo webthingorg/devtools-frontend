@@ -2,33 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import '../platform/platform.js';
-
-import * as AppModule from './App.js';
-import * as AppProviderModule from './AppProvider.js';
-import * as CharacterIdMapModule from './CharacterIdMap.js';
-import * as ColorModule from './Color.js';
-import * as ConsoleModule from './Console.js';
-import * as ContentProviderModule from './ContentProvider.js';
-import * as EventTargetModule from './EventTarget.js';
-import * as JavaScriptMetaDataModule from './JavaScriptMetaData.js';
-import * as LinkifierModule from './Linkifier.js';
-import * as ObjectModule from './Object.js';
-import * as ParsedURLModule from './ParsedURL.js';
-import * as ProgressModule from './Progress.js';
-import * as QueryParamHandlerModule from './QueryParamHandler.js';
-import * as ResourceTypeModule from './ResourceType.js';
-import * as RevealerModule from './Revealer.js';
-import * as RunnableModule from './Runnable.js';
-import * as SegmentedRangeModule from './SegmentedRange.js';
-import * as SettingsModule from './Settings.js';
-import * as StaticContentProviderModule from './StaticContentProvider.js';
-import * as StringOutputStreamModule from './StringOutputStream.js';
-import * as TextDictionaryModule from './TextDictionary.js';
-import * as ThrottlerModule from './Throttler.js';
-import * as TrieModule from './Trie.js';
-import * as UIStringModule from './UIString.js';
-import * as WorkerModule from './Worker.js';
+import {App as AppModule, AppProvider as AppProviderModule, CharacterIdMap as CharacterIdMapModule, Color as ColorModule, Console as ConsoleModule, ContentProvider as ContentProviderModule, EventTarget as EventTargetModule, JavaScriptMetaData as JavaScriptMetaDataModule, Linkifier as LinkifierModule, ObjectWrapper as ObjectWrapperModule, ParsedURL as ParsedURLModule, Progress as ProgressModule, QueryParamHandler as QueryParamHandlerModule, ResourceType as ResourceTypeModule, Revealer as RevealerModule, Runnable as RunnableModule, SegmentedRange as SegmentedRangeModule, Settings as SettingsModule, StaticContentProvider as StaticContentProviderModule, StringOutputStream as StringOutputStreamModule, TextDictionary as TextDictionaryModule, Throttler as ThrottlerModule, Trie as TrieModule, UIString as UIStringModule, Worker as WorkerModule,} from './common.js';
 
 const App = Object.assign(AppModule.App, AppModule);
 const AppProvider = Object.assign(AppProviderModule.AppProvider, AppProviderModule);
@@ -39,7 +13,7 @@ const ContentProvider = Object.assign(ContentProviderModule.ContentProvider, Con
 const EventTarget = Object.assign(EventTargetModule.EventTarget, EventTargetModule);
 const JavaScriptMetaData = Object.assign(JavaScriptMetaDataModule.JavaScriptMetaData, JavaScriptMetaDataModule);
 const Linkifier = Object.assign(LinkifierModule.Linkifier, LinkifierModule);
-const ObjectWrapper = Object.assign(ObjectModule.ObjectWrapper, ObjectModule);
+const ObjectWrapper = Object.assign(ObjectWrapperModule.ObjectWrapper, ObjectWrapperModule);
 const ParsedURL = Object.assign(ParsedURLModule.ParsedURL, ParsedURLModule);
 const Progress = Object.assign(ProgressModule.Progress, ProgressModule);
 const QueryParamHandler = Object.assign(QueryParamHandlerModule.QueryParamHandler, QueryParamHandlerModule);
