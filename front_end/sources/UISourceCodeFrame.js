@@ -72,7 +72,7 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
     /** @type {!Array<!Sources.UISourceCodeFrame.Plugin>} */
     this._plugins = [];
 
-    this._initializeUISourceCode();
+    this._loadingPluginsPromise = this._initializeUISourceCode();
 
     /**
      * @return {!Promise<!Common.DeferredContent>}
@@ -154,7 +154,7 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
     Persistence.persistence.unsubscribeFromBindingEvent(this._uiSourceCode, this._boundOnBindingChanged);
   }
 
-  _initializeUISourceCode() {
+  async _initializeUISourceCode() {
     this._uiSourceCodeEventListeners = [
       this._uiSourceCode.addEventListener(
           Workspace.UISourceCode.Events.WorkingCopyChanged, this._onWorkingCopyChanged, this),
@@ -171,7 +171,7 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
     this._installMessageAndDecorationListeners();
     this._updateStyle();
     this._decorateAllTypes();
-    this._refreshHighlighterType();
+    await this._refreshHighlighterType();
     if (Root.Runtime.experiments.isEnabled('sourcesPrettyPrint')) {
       const supportedPrettyTypes = new Set(['text/html', 'text/css', 'text/javascript']);
       this.setCanPrettyPrint(supportedPrettyTypes.has(this.highlighterType()), true);
@@ -204,14 +204,14 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
     this._uiSourceCode.removeWorkingCopyGetter();
   }
 
-  _refreshHighlighterType() {
+  async _refreshHighlighterType() {
     const binding = Persistence.persistence.binding(this._uiSourceCode);
     const highlighterType = binding ? binding.network.mimeType() : this._uiSourceCode.mimeType();
     if (this.highlighterType() === highlighterType) {
       return;
     }
     this._disposePlugins();
-    this.setHighlighterType(highlighterType);
+    await this.setHighlighterType(highlighterType);
     this._ensurePluginsLoaded();
   }
 
@@ -261,10 +261,10 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
    * @param {?string} content
    * @param {?string} loadError
    */
-  setContent(content, loadError) {
+  async setContent(content, loadError) {
     this._disposePlugins();
     this._rowMessageBuckets.clear();
-    super.setContent(content, loadError);
+    await super.setContent(content, loadError);
     for (const message of this._allMessages()) {
       this._addMessageToSource(message);
     }
