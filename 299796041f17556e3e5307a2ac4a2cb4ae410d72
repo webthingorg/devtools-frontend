@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b675d00f_6b924c15",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-25T14:27:44Z",
+      "side": 1,
+      "message": "Make this the following:\n\n```\nURLCoverageInfo.Events \u003d {\n  SizesChanged: Symbol(\u0027SizesChanged\u0027)\n};\n```\n\nThat way we don\u0027t have a clash on the Events export.",
+      "range": {
+        "startLine": 688,
+        "startChar": 0,
+        "endLine": 690,
+        "endChar": 2
+      },
+      "revId": "299796041f17556e3e5307a2ac4a2cb4ae410d72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
