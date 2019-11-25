@@ -463,8 +463,9 @@ SourcesTestRunner.waitForScriptSource = function(scriptName, callback) {
       SourcesTestRunner.waitForScriptSource.bind(SourcesTestRunner, scriptName, callback));
 };
 
-SourcesTestRunner.objectForPopover = function(sourceFrame, lineNumber, columnNumber) {
-  const debuggerPlugin = SourcesTestRunner.debuggerPlugin(sourceFrame);
+SourcesTestRunner.objectForPopover = async function(sourceFrame, lineNumber, columnNumber) {
+  await sourceFrame._loadingPluginsPromise;
+  const debuggerPlugin = await SourcesTestRunner.debuggerPlugin(sourceFrame);
   const {x, y} = debuggerPlugin._textEditor.cursorPositionToCoordinates(lineNumber, columnNumber);
   const promise = TestRunner.addSnifferPromise(ObjectUI.ObjectPopoverHelper, 'buildObjectPopover');
   debuggerPlugin._getPopoverRequest({x, y}).show(new UI.GlassPane());

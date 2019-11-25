@@ -309,7 +309,7 @@ export class SourceFrameImpl extends UI.SimpleView {
         if (this._shouldAutoPrettyPrint && TextUtils.isMinified(content || '')) {
           await this._setPretty(true);
         } else {
-          this.setContent(this._rawContent, null);
+          await this.setContent(this._rawContent, null);
         }
       }
     }
@@ -476,9 +476,9 @@ export class SourceFrameImpl extends UI.SimpleView {
   /**
    * @param {string} highlighterType
    */
-  setHighlighterType(highlighterType) {
+  async setHighlighterType(highlighterType) {
     this._highlighterType = highlighterType;
-    this._updateHighlighterType('');
+    await this._updateHighlighterType('');
   }
 
   /**
@@ -492,15 +492,15 @@ export class SourceFrameImpl extends UI.SimpleView {
   /**
    * @param {string} content
    */
-  _updateHighlighterType(content) {
-    this._textEditor.setMimeType(this._simplifyMimeType(content, this._highlighterType));
+  async _updateHighlighterType(content) {
+    return this._textEditor.setMimeType(this._simplifyMimeType(content, this._highlighterType));
   }
 
   /**
    * @param {?string} content
    * @param {?string} loadError
    */
-  setContent(content, loadError) {
+  async setContent(content, loadError) {
     this._muteChangeEventsForSetContent = true;
     if (!this._loaded) {
       this._loaded = true;
@@ -523,7 +523,7 @@ export class SourceFrameImpl extends UI.SimpleView {
       this._textEditor.setSelection(selection);
     }
 
-    this._updateHighlighterType(content || '');
+    await this._updateHighlighterType(content || '');
     this._wasShownOrLoaded();
 
     if (this._delayedFindSearchMatches) {
