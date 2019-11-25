@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96ac80bd_240347d5",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-11-25T12:15:00Z",
+      "side": 1,
+      "message": "I imagine this is done to ensure this method always returns a promise.\n\nCould we instead mark `emulateGeolocation` as `async`? That way we wouldn’t have to insert these strange-looking `return`s.",
+      "revId": "bb6382a7b7c9b3179216986f8fc66cc3d78fc12c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
