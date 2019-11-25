@@ -731,16 +731,15 @@ export class _AgentPrototype {
       return Promise.resolve(null);
     }
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       const callback = (error, result) => {
         if (error && !test.suppressRequestErrors && error.code !== Protocol.DevToolsStubErrorCode &&
             error.code !== _GenericError && error.code !== _ConnectionClosedErrorCode) {
           console.error('Request ' + method + ' failed. ' + JSON.stringify(error));
         }
 
-
         if (error) {
-          resolve(null);
+          reject(error);
           return;
         }
         const args = this._replyArgs[method];
