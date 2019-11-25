@@ -107,6 +107,7 @@ export default class CoverageModel extends SDK.SDKModel {
   reset() {
     this._coverageByURL = new Map();
     this._coverageByContentProvider = new Map();
+    this.dispatchEventToListeners(Coverage.CoverageModel.Events.CoverageReset);
   }
 
   /**
@@ -223,6 +224,15 @@ export default class CoverageModel extends SDK.SDKModel {
    */
   entries() {
     return Array.from(this._coverageByURL.values());
+  }
+
+  /**
+   *
+   * @param {string} url
+   * @return {?Coverage.URLCoverageInfo}
+   */
+  getCoverageForUrl(url) {
+    return this._coverageByURL.get(url);
   }
 
   /**
@@ -565,16 +575,24 @@ export default class CoverageModel extends SDK.SDKModel {
   }
 }
 
+/** @enum {symbol} */
+CoverageModel.Events = {
+  CoverageUpdated: Symbol('CoverageUpdated'),
+  CoverageReset: Symbol('CoverageReset'),
+};
+
 SDK.SDKModel.register(CoverageModel, SDK.Target.Capability.None, false);
 
 /**
  * @unrestricted
  */
-export class URLCoverageInfo {
+export class URLCoverageInfo extends Common.Object {
   /**
    * @param {string} url
    */
   constructor(url) {
+    super();
+
     this._url = url;
     /** @type {!Map<string, !Coverage.CoverageInfo>} */
     this._coverageInfoByLocation = new Map();
@@ -634,6 +652,10 @@ export class URLCoverageInfo {
   _addToSizes(usedSize, size) {
     this._usedSize += usedSize;
     this._size += size;
+
+    if (usedSize !== 0 || size !== 0) {
+      this.dispatchEventToListeners(Coverage.URLCoverageInfo.Events.SizesChanged);
+    }
   }
 
   /**
@@ -669,6 +691,11 @@ export class URLCoverageInfo {
     return entry;
   }
 }
+
+/** @enum {symbol} */
+URLCoverageInfo.Events = {
+  SizesChanged: Symbol('SizesChanged')
+};
 
 /**
  * @unrestricted
