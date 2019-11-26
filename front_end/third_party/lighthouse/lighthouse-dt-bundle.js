@@ -1,4 +1,4 @@
-// lighthouse, browserified. 5.7.0 (005c2e6f48e7cc4bfefaa4b0551122edbe04a993)
+// lighthouse, browserified. 5.7.1 (7ca73fc92ec274c405051cd915853a5dc278837b)
 require=function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a;}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r);},p,p.exports,r,e,n,t);}return n[i].exports;}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o;}return r;}()({"../audits/accessibility/accesskeys":[function(require,module,exports){
 (function(__filename){
 
@@ -68001,7 +68001,7 @@ arguments[4][94][0].apply(exports,arguments);
 arguments[4][95][0].apply(exports,arguments);
 },{"./support/isBuffer":190,"_process":158,"dup":95,"inherits":113}],192:[function(require,module,exports){
 module.exports={
-"version":"5.7.0"};
+"version":"5.7.1"};
 
 },{}],193:[function(require,module,exports){
 
