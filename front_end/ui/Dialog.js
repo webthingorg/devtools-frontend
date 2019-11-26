@@ -34,7 +34,6 @@ export default class Dialog extends UI.GlassPane {
     this.registerRequiredCSS('ui/dialog.css');
     this.contentElement.tabIndex = 0;
     this.contentElement.addEventListener('focus', () => this.widget().focus(), false);
-    this.contentElement.addEventListener('keydown', this._onKeyDown.bind(this), false);
     this.widget().setDefaultFocusedElement(this.contentElement);
     this.setPointerEventsBehavior(UI.GlassPane.PointerEventsBehavior.BlockedByGlassPane);
     this.setOutsideClickCallback(event => {
@@ -42,6 +41,8 @@ export default class Dialog extends UI.GlassPane {
       event.consume(true);
     });
     UI.ARIAUtils.markAsModalDialog(this.contentElement);
+    /** @type {!UI.Dialog.OutsideTabIndexBehavior} */
+    this._tabIndexBehavior = OutsideTabIndexBehavior.DisableAllOutsideTabIndex;
     /** @type {!Map<!HTMLElement, number>} */
     this._tabIndexMap = new Map();
     /** @type {?UI.WidgetFocusRestorer} */
@@ -63,6 +64,10 @@ export default class Dialog extends UI.GlassPane {
   show(where) {
     const document = /** @type {!Document} */ (
         where instanceof Document ? where : (where || UI.inspectorView.element).ownerDocument);
+    this._targetDocument = /** @type {!Document} */ document;
+    this._targetDocumentKeyDownHandler = this._onKeyDown.bind(this);
+    this._targetDocument.addEventListener('keydown', this._targetDocumentKeyDownHandler, true);
+
     if (UI.Dialog._instance) {
       UI.Dialog._instance.hide();
     }
@@ -78,6 +83,10 @@ export default class Dialog extends UI.GlassPane {
   hide() {
     this._focusRestorer.restore();
     super.hide();
+
+    if (this._targetDocument && this._targetDocumentKeyDownHandler) {
+      this._targetDocument.removeEventListener('keydown', this._targetDocumentKeyDownHandler, true);
+    }
     this._restoreTabIndexOnElements();
     delete UI.Dialog._instance;
   }
@@ -96,15 +105,47 @@ export default class Dialog extends UI.GlassPane {
   }
 
   /**
+   * @param {!UI.Dialog.OutsideTabIndexBehavior} tabIndexBehavior
+   */
+  setOutsideTabIndexBehavior(tabIndexBehavior) {
+    this._tabIndexBehavior = tabIndexBehavior;
+  }
+
+  /**
    * @param {!Document} document
    */
   _disableTabIndexOnElements(document) {
+    if (this._tabIndexBehavior === OutsideTabIndexBehavior.PreserveTabIndex) {
+      return;
+    }
+
+    const exclusionSet = /** @type {!Set.<HTMLElement>} */ new Set();
+    if (this._tabIndexBehavior === OutsideTabIndexBehavior.PreserveMainViewTabIndex) {
+      const mainView =
+          /** @type {HTMLElement} */ UI.inspectorView.ownerSplit() ? UI.inspectorView.ownerSplit().mainWidget() : null;
+      if (mainView && mainView.element) {
+        for (let node = mainView.element; node; node = node.traverseNextNode(mainView.element)) {
+          if (!(node instanceof HTMLElement)) {
+            continue;
+          }
+
+          const element = /** @type {!HTMLElement} */ (node);
+          const tabIndex = element.tabIndex;
+          if (tabIndex < 0) {
+            continue;
+          }
+
+          exclusionSet.add(element);
+        }
+      }
+    }
+
     this._tabIndexMap.clear();
     for (let node = document; node; node = node.traverseNextNode(document)) {
       if (node instanceof HTMLElement) {
         const element = /** @type {!HTMLElement} */ (node);
         const tabIndex = element.tabIndex;
-        if (tabIndex >= 0) {
+        if (tabIndex >= 0 && !exclusionSet.has(element)) {
           this._tabIndexMap.set(element, tabIndex);
           element.tabIndex = -1;
         }
@@ -131,6 +172,13 @@ export default class Dialog extends UI.GlassPane {
   }
 }
 
+/** @enum {symbol} */
+export const OutsideTabIndexBehavior = {
+  DisableAllOutsideTabIndex: Symbol('DisableAllTabIndex'),
+  PreserveMainViewTabIndex: Symbol('PreserveMainViewTabIndex'),
+  PreserveTabIndex: Symbol('PreserveTabIndex')
+};
+
 /* Legacy exported object*/
 self.UI = self.UI || {};
 
@@ -139,3 +187,6 @@ UI = UI || {};
 
 /** @constructor */
 UI.Dialog = Dialog;
+
+/** @enum {symbol} */
+UI.Dialog.OutsideTabIndexBehavior = OutsideTabIndexBehavior;
