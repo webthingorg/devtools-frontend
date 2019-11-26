@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "63f09195_25a80781",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-26T22:32:26Z",
+      "side": 1,
+      "message": "Thanks for catching that issue. It was caused by the change in size of the dragger on focus element style. This is fixed now by keeping size of the dragger same and only changing border property to reflect focus.",
+      "parentUuid": "aedc3105_04c83ba7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 76
+      },
+      "revId": "305433f9fe26363015a0ecf06bc0b4fef90b30fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26d96a4c_5bbb3806",
         "filename": "front_end/color_picker/Spectrum.js",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-11-26T00:06:40Z",
       "side": 1,
       "message": "should this have the focus by default?",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 22
+      },
+      "revId": "305433f9fe26363015a0ecf06bc0b4fef90b30fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04cb74c6_fc9ef3f0",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-26T22:32:26Z",
+      "side": 1,
+      "message": "Made this._colorElement to have default focus instead of this.contentElement because this._colorElement is the first interactive element in the color-picker popover. This behavior is similar to color-picker in Mozilla Firefox.",
+      "parentUuid": "26d96a4c_5bbb3806",
       "range": {
         "startLine": 55,
         "startChar": 9,
