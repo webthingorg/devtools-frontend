@@ -16,6 +16,24 @@
       "revId": "0b915a7d1cda33dbb16fca4da967b1023f7f6a4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57f2d0a7_6b1b4339",
+        "filename": "front_end/audits/AuditsStatusView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2019-11-26T02:31:22Z",
+      "side": 1,
+      "message": "I haven\u0027t tested locally but I think this is defining the typedef used on line 154 [1].\n\nThat is based on my reading of the closure docs [2].\n\nIt is definitely strange that it is not providing typings for the array.\nWe should clean this up by creating a var for the typedef [1] and add typings for the array.\n\nBecause, as you mentioned, this is preexisting code it should be done in a different change.\n\n[1]: https://crrev.com/c/1872382/8/front_end/audits/AuditsStatusView.js#154\n[2]: https://github.com/google/closure-compiler/wiki/Annotating-Types#typedef",
+      "parentUuid": "6e84899f_64c6dcc0",
+      "revId": "0b915a7d1cda33dbb16fca4da967b1023f7f6a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
