@@ -48,10 +48,11 @@ export class Spectrum extends UI.VBox {
 
     super(true);
     this.registerRequiredCSS('color_picker/spectrum.css');
-    this.contentElement.tabIndex = 0;
-    this.setDefaultFocusedElement(this.contentElement);
 
     this._colorElement = this.contentElement.createChild('div', 'spectrum-color');
+    this._colorElement.tabIndex = 0;
+    this.setDefaultFocusedElement(this._colorElement);
+    this._colorElement.addEventListener('keydown', this._onDraggerKeydown.bind(this, positionColor.bind(this)));
     this._colorDragElement = this._colorElement.createChild('div', 'spectrum-sat fill')
                                  .createChild('div', 'spectrum-val fill')
                                  .createChild('div', 'spectrum-dragger');
@@ -70,11 +71,11 @@ export class Spectrum extends UI.VBox {
 
     this._hueElement = toolsContainer.createChild('div', 'spectrum-hue');
     this._hueElement.tabIndex = 0;
-    this._hueElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionHue.bind(this)));
+    this._hueElement.addEventListener('keydown', this._onDraggerKeydown.bind(this, positionHue.bind(this)));
     this._hueSlider = this._hueElement.createChild('div', 'spectrum-slider');
     this._alphaElement = toolsContainer.createChild('div', 'spectrum-alpha');
     this._alphaElement.tabIndex = 0;
-    this._alphaElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionAlpha.bind(this)));
+    this._alphaElement.addEventListener('keydown', this._onDraggerKeydown.bind(this, positionAlpha.bind(this)));
     this._alphaElementBackground = this._alphaElement.createChild('div', 'spectrum-alpha-background');
     this._alphaSlider = this._alphaElement.createChild('div', 'spectrum-slider');
 
@@ -250,10 +251,40 @@ export class Spectrum extends UI.VBox {
      */
     function positionColor(event) {
       const hsva = this._hsv.slice();
-      hsva[1] = Number.constrain((event.x - this._colorOffset.left) / this.dragWidth, 0, 1);
-      hsva[2] = Number.constrain(1 - (event.y - this._colorOffset.top) / this.dragHeight, 0, 1);
+      const colorPosition = getUpdatedColorPosition(this._colorDragElement, this._colorElement, event);
+      this._colorOffset = this._colorElement.totalOffset();
+      hsva[1] = Number.constrain((colorPosition.x - this._colorOffset.left) / this.dragWidth, 0, 1);
+      hsva[2] = Number.constrain(1 - (colorPosition.y - this._colorOffset.top) / this.dragHeight, 0, 1);
 
       this._innerSetColor(hsva, '', undefined /* colorName */, undefined, _ChangeSource.Other);
+    }
+
+    /**
+     * @param {!Element} dragElement
+     * @param {!Element} dragAreaElement
+     * @param {!Event} event
+     * @return {{x: number, y: number}};
+     */
+    function getUpdatedColorPosition(dragElement, dragAreaElement, event) {
+      const elementPosition = dragElement.getBoundingClientRect();
+      // Constants to move dragElement horizontally or vertically when using Arrow keys
+      const verticalX = elementPosition.x + elementPosition.width / 2;
+      const horizontalY = elementPosition.y + elementPosition.width / 2;
+      // Units to move dragElement per Arrow keystroke
+      const xUnit = dragAreaElement.offsetWidth / elementPosition.width;
+      const yUnit = dragAreaElement.offsetHeight / elementPosition.width;
+      switch (event.key) {
+        case 'ArrowLeft':
+          return {x: elementPosition.left - xUnit, y: horizontalY};
+        case 'ArrowRight':
+          return {x: elementPosition.right + xUnit, y: horizontalY};
+        case 'ArrowDown':
+          return {x: verticalX, y: elementPosition.bottom + yUnit};
+        case 'ArrowUp':
+          return {x: verticalX, y: elementPosition.top - yUnit};
+        default:
+          return {x: event.x, y: event.y};
+      }
     }
   }
 
@@ -308,16 +339,16 @@ export class Spectrum extends UI.VBox {
   }
 
   /**
-   * @param {function(!Event)} sliderNewPosition
+   * @param {function(!Event)} draggerNewPosition
    * @param {!Event} event
    */
-  _onSliderKeydown(sliderNewPosition, event) {
+  _onDraggerKeydown(draggerNewPosition, event) {
     switch (event.key) {
       case 'ArrowLeft':
       case 'ArrowRight':
       case 'ArrowDown':
       case 'ArrowUp':
-        sliderNewPosition(event);
+        draggerNewPosition(event);
         event.consume(true);
     }
   }
