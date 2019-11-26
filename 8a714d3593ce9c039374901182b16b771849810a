@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e25dd48_f5dd0fac",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:21:05Z",
+      "side": 1,
+      "message": "Can we just use a single error message here? Soemthing like\n\nProfile Name must be between 1 and 50 characters in length\n\nThen we can have a single path through this function",
+      "range": {
+        "startLine": 201,
+        "startChar": 11,
+        "endLine": 201,
+        "endChar": 23
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "492e037a_7e47bbbb",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:21:05Z",
+      "side": 1,
+      "message": "This should match how its presented in the UI (and in other places in the CR)",
+      "range": {
+        "startLine": 202,
+        "startChar": 26,
+        "endLine": 202,
+        "endChar": 38
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "594ce1b2_ccfb9f96",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:21:05Z",
+      "side": 1,
+      "message": "should this occur before we attempt to parse the value?",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 19
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b00c5682_bcb729de",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:21:05Z",
+      "side": 1,
+      "message": "same comment as above, can we have a single path through that shows the valid ranges?\n\ne.g.\n\nThroughput must be a number in the range of x and y\n(or similar)",
+      "range": {
+        "startLine": 229,
+        "startChar": 7,
+        "endLine": 235,
+        "endChar": 7
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dad623d_19a7fbed",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:21:05Z",
+      "side": 1,
+      "message": "same comments as above in this function",
+      "range": {
+        "startLine": 248,
+        "startChar": 13,
+        "endLine": 248,
+        "endChar": 29
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
