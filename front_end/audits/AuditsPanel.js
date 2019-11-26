@@ -8,7 +8,7 @@
 export default class AuditsPanel extends UI.Panel {
   constructor() {
     super('audits');
-    this.registerRequiredCSS('audits/lighthouse/report.css');
+    this.registerRequiredCSS('third_party/lighthouse/report-assets/report.css');
     this.registerRequiredCSS('audits/auditsPanel.css');
 
     this._protocolService = new Audits.ProtocolService();
@@ -177,7 +177,7 @@ export default class AuditsPanel extends UI.Panel {
     const dom = new DOM(/** @type {!Document} */ (this._auditResultsElement.ownerDocument));
     const renderer = new Audits.ReportRenderer(dom);
 
-    const templatesHTML = Root.Runtime.cachedResources['audits/lighthouse/templates.html'];
+    const templatesHTML = Root.Runtime.cachedResources['third_party/lighthouse/report-assets/templates.html'];
     const templatesDOM = new DOMParser().parseFromString(templatesHTML, 'text/html');
     if (!templatesDOM) {
       return;
