@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a011cce7_d3dbd2aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:52:58Z",
+      "side": 1,
+      "message": "This seems to only repro on CSS - JS creates a \u003cfilename\u003e:formatted file in the sources panel. Should we look to do something similar here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "8fa9f90f83bcb88c63dd306447d3388fed33866b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b7af74a_2a255f3a",
+        "filename": "front_end/workspace_diff/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:52:58Z",
+      "side": 1,
+      "message": "are these whitespace only changes intentional?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 6
+      },
+      "revId": "8fa9f90f83bcb88c63dd306447d3388fed33866b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
