@@ -97,7 +97,10 @@ Resources.AppManifestView = class extends UI.VBox {
   async _updateManifest(immediately) {
     const {url, data, errors} = await this._resourceTreeModel.fetchAppManifest();
     const installabilityErrors = await this._resourceTreeModel.getInstallabilityErrors();
-    this._throttler.schedule(() => this._renderManifest(url, data, errors, installabilityErrors), immediately);
+    const manifestIcons = await this._resourceTreeModel.getManifestIcons();
+
+    this._throttler.schedule(
+        () => this._renderManifest(url, data, errors, installabilityErrors, manifestIcons), immediately);
   }
 
   /**
@@ -106,7 +109,7 @@ Resources.AppManifestView = class extends UI.VBox {
    * @param {!Array<!Protocol.Page.AppManifestError>} errors
    * @param {!Array<string>} installabilityErrors
    */
-  async _renderManifest(url, data, errors, installabilityErrors) {
+  async _renderManifest(url, data, errors, installabilityErrors, manifestIcons) {
     if (!data && !errors.length) {
       this._emptyView.showWidget();
       this._reportView.hideWidget();
@@ -163,6 +166,26 @@ Resources.AppManifestView = class extends UI.VBox {
     const icons = parsedManifest['icons'] || [];
     this._iconsSection.clearContent();
 
+    if (manifestIcons.primary) {
+      const image = createElement('img');
+      image.style.maxWidth = '200px';
+      image.style.maxHeight = '200px';
+      image.src = 'data:image/png;base64,' + manifestIcons.primary;
+      image.alt = ls`Primary manifest icon from ${url}`;
+      const title = ls`Primary Icon\nas used by chrome`;
+      const field = this._iconsSection.appendField(title);
+      field.appendChild(image);
+    }
+    if (manifestIcons.badge) {
+      const image = createElement('img');
+      image.style.maxWidth = '200px';
+      image.style.maxHeight = '200px';
+      image.src = 'data:image/png;base64,' + manifestIcons.badge;
+      image.alt = ls`Badge from manifest at ${url}`;
+      const title = ls`Badge Icon\nas used by chrome`;
+      const field = this._iconsSection.appendField(title);
+      field.appendChild(image);
+    }
     for (const icon of icons) {
       const title = (icon['sizes'] || '') + '\n' + (icon['type'] || '');
       const field = this._iconsSection.appendField(title);
