@@ -46,6 +46,30 @@
       "revId": "9fd15ddbd03f3f5d6fb97ff65d44c4f7ae9be6cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60fabb58_f4ed893c",
+        "filename": "front_end/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-26T17:03:03Z",
+      "side": 0,
+      "message": "LGTM",
+      "parentUuid": "690c2f52_255e51f6",
+      "range": {
+        "startLine": 1,
+        "startChar": 3,
+        "endLine": 1,
+        "endChar": 53
+      },
+      "revId": "9fd15ddbd03f3f5d6fb97ff65d44c4f7ae9be6cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
