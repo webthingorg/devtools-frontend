@@ -8,7 +8,9 @@
   "dependencies": [
       "common"
   ],
-  "scripts": [
+  "scripts": [],
+  "modules": [
+    "javascript_metadata.js",
     "NativeFunctions.js",
     "JavaScriptMetadata.js"
   ],
