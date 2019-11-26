@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aedc3105_04c83ba7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:06:40Z",
+      "side": 1,
+      "message": "If you use the arrow keys at the sides, then you can get unexpected behavior. For example, if you hold the left arrow key down, it moves all the way to the left, and then down",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 76
+      },
+      "revId": "305433f9fe26363015a0ecf06bc0b4fef90b30fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26d96a4c_5bbb3806",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-26T00:06:40Z",
+      "side": 1,
+      "message": "should this have the focus by default?",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 22
+      },
+      "revId": "305433f9fe26363015a0ecf06bc0b4fef90b30fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
