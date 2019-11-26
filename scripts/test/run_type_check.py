@@ -282,8 +282,6 @@ GENERATED_SKIP_COMPILATION_FILES = [
     'cm/foldcode.js',
     'cm/foldgutter.js',
     'cm/brace-fold.js',
-    'audits/lighthouse/report.js',
-    'audits/lighthouse/report-generator.js',
     'javascript_metadata/NativeFunction.js'
 ]
 
