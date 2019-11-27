@@ -22,6 +22,30 @@
       "revId": "bc1e7ba9a982dae2d4a96fa5998b4765c442a2fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce3d711b_bab09444",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2019-11-27T17:58:52Z",
+      "side": 0,
+      "message": "Yeah that should work - I was updating expectations and re-enabling tests in https://chromium-review.googlesource.com/c/chromium/src/+/1890432, but never finished that CL.",
+      "parentUuid": "f9d97df6_1f02ddd0",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 19
+      },
+      "revId": "bc1e7ba9a982dae2d4a96fa5998b4765c442a2fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
