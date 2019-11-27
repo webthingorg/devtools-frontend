@@ -195,9 +195,13 @@ export class ThrottlingSettingsTab extends UI.VBox {
      * @return {!UI.ListWidget.ValidatorResult}
      */
     function titleValidator(item, index, input) {
+      const maxLength = 49;
       const value = input.value.trim();
-      const valid = value.length > 0 && value.length < 50;
-      return {valid};
+      if (!value.length || value.length > maxLength) {
+        const errorMessage = ls`Profile Name characters length must be between 1 and ${maxLength} inclusive`;
+        return {valid: false, errorMessage};
+      }
+      return {valid: true};
     }
 
     /**
@@ -207,9 +211,15 @@ export class ThrottlingSettingsTab extends UI.VBox {
      * @return {!UI.ListWidget.ValidatorResult}
      */
     function throughputValidator(item, index, input) {
+      const minThroughput = 0;
+      const maxThroughput = 10000000;
       const value = input.value.trim();
-      const valid = !value || (/^[\d]+(\.\d+)?|\.\d+$/.test(value) && value >= 0 && value <= 10000000);
-      return {valid};
+      const parsedValue = Number(value);
+      if (Number.isNaN(parsedValue) || parsedValue < minThroughput || parsedValue > maxThroughput) {
+        const errorMessage = ls`Throughput must be a number between ${minThroughput} and ${maxThroughput} inclusive`;
+        return {valid: false, errorMessage};
+      }
+      return {valid: true};
     }
 
     /**
@@ -219,9 +229,15 @@ export class ThrottlingSettingsTab extends UI.VBox {
      * @return {!UI.ListWidget.ValidatorResult}
      */
     function latencyValidator(item, index, input) {
+      const minLatency = 0;
+      const maxLatency = 1000000;
       const value = input.value.trim();
-      const valid = !value || (/^[\d]+$/.test(value) && value >= 0 && value <= 1000000);
-      return {valid};
+      const parsedValue = Number(value);
+      if (!Number.isInteger(parsedValue) || parsedValue < minLatency || parsedValue > maxLatency) {
+        const errorMessage = ls`Latency must be an integer between ${minLatency} and ${maxLatency} inclusive`;
+        return {valid: false, errorMessage};
+      }
+      return {valid: true};
     }
   }
 }
