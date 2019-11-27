@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b36e2b7_00469bca",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T19:03:57Z",
+      "side": 1,
+      "message": "Done. Using value doesn\u0027t have technical problem as Number.isNaN(parsedValue) returns true if value is not a number. But, it\u0027s better to have parsedValue as it makes more readable. So, updated it to parsedValue.",
+      "parentUuid": "79e7bdf8_8477bcd1",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 45
+      },
+      "revId": "c0ca04ee5c03bcc11e96ed0eb686368f4760d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a978fb2b_d45f6e23",
         "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "c0ca04ee5c03bcc11e96ed0eb686368f4760d59b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f32e3cd_772543e8",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T19:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a978fb2b_d45f6e23",
+      "range": {
+        "startLine": 236,
+        "startChar": 44,
+        "endLine": 236,
+        "endChar": 50
+      },
+      "revId": "c0ca04ee5c03bcc11e96ed0eb686368f4760d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
