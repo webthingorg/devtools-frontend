@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "018cd73d_4698a459",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-27T13:49:27Z",
+      "side": 1,
+      "message": "Should be in a separate CL.",
+      "range": {
+        "startLine": 652,
+        "startChar": 4,
+        "endLine": 652,
+        "endChar": 37
+      },
+      "revId": "b9a20a76888630ddccf220356ab186787fa3878b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f247e6_f9caa303",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-27T13:49:27Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1242,
+        "startChar": 4,
+        "endLine": 1242,
+        "endChar": 46
+      },
+      "revId": "b9a20a76888630ddccf220356ab186787fa3878b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
