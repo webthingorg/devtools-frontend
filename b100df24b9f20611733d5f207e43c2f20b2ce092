@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3364e416_35380f4a",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-11-27T21:17:57Z",
+      "side": 1,
+      "message": "Would it be worth exploring changing these values at all? (latency of 1,000,000 and throughput of 10,000,000)?\n\nI\u0027m supposing latency is measured in milliseconds and throughput is measured in bits per second (although feel free to correct me). Having a latency of 1,000 seconds for a network request is going to be pretty painful.\n\nWith respect to throughput, 10 million bits per second translates to 1.25 megabytes per second, which is a reasonable value for rate limiting (cursory searches suggest that is within the appropriate range for 4G LTE in the United States ca. 5 years ago).\n\nBoth of those having been said: I\u0027d like to see the units in the error messages.",
+      "revId": "b100df24b9f20611733d5f207e43c2f20b2ce092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
