@@ -28,7 +28,16 @@ const PLATFORM = getPlatform();
 const PYTHON = process.platform === 'win32' ? 'python.bat' : 'python';
 
 const CURRENT_PATH = process.env.PWD;  // Using env.PWD to account for symlinks.
-const CHROMIUM_SRC_PATH = CUSTOM_CHROMIUM_PATH || path.resolve(CURRENT_PATH, '..', '..', '..');
+const isThirdParty = CURRENT_PATH.includes('third_party');
+const getChromiumSrcPath = (isThirdParty) => {
+  if (isThirdParty)
+    // Assume we're in `chromium/src/third_party/devtools-frontend/src`.
+    return path.resolve(CURRENT_PATH, '..', '..', '..');
+  // Assume we're in `devtools/devtools-frontend`, where `devtools` is
+  // on the same level as `chromium`.
+  return path.resolve(CURRENT_PATH, '..', '..', 'chromium', 'src');
+};
+const CHROMIUM_SRC_PATH = CUSTOM_CHROMIUM_PATH || getChromiumSrcPath(isThirdParty);
 const RELEASE_PATH = path.resolve(CHROMIUM_SRC_PATH, 'out', TARGET);
 const BLINK_TEST_PATH = path.resolve(CHROMIUM_SRC_PATH, 'third_party', 'blink', 'tools', 'run_web_tests.py');
 const DEVTOOLS_PATH = path.resolve(CHROMIUM_SRC_PATH, 'third_party', 'devtools-frontend', 'src');
