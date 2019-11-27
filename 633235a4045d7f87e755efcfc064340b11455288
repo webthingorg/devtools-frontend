@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6452c998_f2ce0e31",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-11-27T14:54:41Z",
+      "side": 1,
+      "message": "need to create this group",
+      "range": {
+        "startLine": 26,
+        "startChar": 31,
+        "endLine": 26,
+        "endChar": 39
+      },
+      "revId": "633235a4045d7f87e755efcfc064340b11455288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
