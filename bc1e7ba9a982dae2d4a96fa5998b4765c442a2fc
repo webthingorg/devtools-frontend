@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9d97df6_1f02ddd0",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-27T17:56:22Z",
+      "side": 0,
+      "message": "I think this change will also fix compiler-script-mapping.js, which is failing currently due to an extra line being generated\n\nerror: Error: Could not load content for http://127.0.0.1:8000/devtools/resources/source-map.json_ : HTTP status code: 404\n\n\nRemoving this call should cause the test to match TestExpectations.\n\nWDYT about removing the entry in TestExpecations as part of this change",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 19
+      },
+      "revId": "bc1e7ba9a982dae2d4a96fa5998b4765c442a2fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
