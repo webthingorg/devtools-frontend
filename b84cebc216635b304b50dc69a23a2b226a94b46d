@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62f8c5ec_8f4168b3",
+        "filename": "test/unittests/front_end/common/Throttler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-27T13:30:37Z",
+      "side": 1,
+      "message": "Hmm, accessing private vars isn\u0027t great. Presumably there are no getters?",
+      "revId": "b84cebc216635b304b50dc69a23a2b226a94b46d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3d24b9c_1503a153",
+        "filename": "test/unittests/front_end/common/Throttler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-27T13:30:37Z",
+      "side": 1,
+      "message": "Do we not need to use the resolver for something?",
+      "revId": "b84cebc216635b304b50dc69a23a2b226a94b46d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
