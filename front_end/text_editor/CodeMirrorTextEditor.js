@@ -1777,7 +1777,7 @@ TextEditor.CodeMirrorMimeMode.prototype = {
   /**
    * @param {!Root.Runtime.Extension} extension
    */
-  install(extension) {}
+  async install(extension) {}
 };
 
 /**
