@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "01c8a84a_dd63eec2",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-27T13:53:40Z",
+      "side": 1,
+      "message": "Ugh, branch fail. Done.",
+      "parentUuid": "018cd73d_4698a459",
+      "range": {
+        "startLine": 652,
+        "startChar": 4,
+        "endLine": 652,
+        "endChar": 37
+      },
+      "revId": "b9a20a76888630ddccf220356ab186787fa3878b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9f247e6_f9caa303",
         "filename": "BUILD.gn",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "b9a20a76888630ddccf220356ab186787fa3878b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "399a7375_b406bfd2",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-27T13:53:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9f247e6_f9caa303",
+      "range": {
+        "startLine": 1242,
+        "startChar": 4,
+        "endLine": 1242,
+        "endChar": 46
+      },
+      "revId": "b9a20a76888630ddccf220356ab186787fa3878b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
