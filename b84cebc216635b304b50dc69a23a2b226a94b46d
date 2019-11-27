@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "085cd94f_b9962f55",
+        "filename": "test/unittests/front_end/common/Throttler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2019-11-27T15:47:02Z",
+      "side": 1,
+      "message": "This is an old test and that is why we accessed the variables directly\nI will remove this test since it does not increase the coverage and there are no getters",
+      "parentUuid": "62f8c5ec_8f4168b3",
+      "revId": "b84cebc216635b304b50dc69a23a2b226a94b46d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d24b9c_1503a153",
         "filename": "test/unittests/front_end/common/Throttler.ts",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "b84cebc216635b304b50dc69a23a2b226a94b46d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf07b455_5a206d49",
+        "filename": "test/unittests/front_end/common/Throttler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2019-11-27T15:47:02Z",
+      "side": 1,
+      "message": "since it was not used in the tests and removing it does not affect the results of the tests it will be removed",
+      "parentUuid": "c3d24b9c_1503a153",
+      "revId": "b84cebc216635b304b50dc69a23a2b226a94b46d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
