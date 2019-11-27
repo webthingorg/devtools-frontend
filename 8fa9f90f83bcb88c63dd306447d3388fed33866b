@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b806d147_912d1de2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T01:59:46Z",
+      "side": 1,
+      "message": "Yes, it repros only for CSS. \nCSS and JS are using different formatter and editor. \nCSS - CSSFormatter and InplaceFormatterEditorAction\nJS  - JavaScriptFormatter and ScriptFormatterEditorAction\n\nAs CSS uses InplaceFormatterEditorAction it needs to do the formatting in the same file instead of doing the formatting in \u003cfilename\u003e:formatted file as in JS",
+      "parentUuid": "a011cce7_d3dbd2aa",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "8fa9f90f83bcb88c63dd306447d3388fed33866b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b7af74a_2a255f3a",
         "filename": "front_end/workspace_diff/module.json",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "8fa9f90f83bcb88c63dd306447d3388fed33866b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8366a300_0f1c6e6f",
+        "filename": "front_end/workspace_diff/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T01:59:46Z",
+      "side": 1,
+      "message": "Removed the extra spaces added unintentionally",
+      "parentUuid": "4b7af74a_2a255f3a",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 6
+      },
+      "revId": "8fa9f90f83bcb88c63dd306447d3388fed33866b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
