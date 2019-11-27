@@ -83,5 +83,7 @@ def properties_from_file(file_name):
 
 
 properties = properties_from_file(sys.argv[1])
-with open(sys.argv[2], "w") as f:
-    f.write("SDK.CSSMetadata._generatedProperties = %s;" % json.dumps(properties))
+
+for i in [2, 3]:
+    with open(sys.argv[i], "w") as f:
+        f.write("SDK.CSSMetadata._generatedProperties = %s;" % json.dumps(properties))
