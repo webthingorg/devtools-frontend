@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83394195_70461367",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T00:17:43Z",
+      "side": 1,
+      "message": "Done! It makes more sense to alert user with all in one error message that guides towards successful next input. Then, going through multiple error messages to get the whole idea of valid input.",
+      "parentUuid": "2e25dd48_f5dd0fac",
+      "range": {
+        "startLine": 201,
+        "startChar": 11,
+        "endLine": 201,
+        "endChar": 23
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "492e037a_7e47bbbb",
         "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "8a714d3593ce9c039374901182b16b771849810a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6feaee74_91dfc0cf",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T00:17:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "492e037a_7e47bbbb",
+      "range": {
+        "startLine": 202,
+        "startChar": 26,
+        "endLine": 202,
+        "endChar": 38
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4d28379b_b938bb79",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T00:17:43Z",
+      "side": 1,
+      "message": "That if block was to return early for the case where there wasn\u0027t any inputs entered as it is an optional value. This if block has been removed from the new patch to make it more readable.",
+      "parentUuid": "594ce1b2_ccfb9f96",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 19
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b00c5682_bcb729de",
         "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b246901c_5554009a",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T00:17:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b00c5682_bcb729de",
+      "range": {
+        "startLine": 229,
+        "startChar": 7,
+        "endLine": 235,
+        "endChar": 7
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3dad623d_19a7fbed",
         "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
         "patchSetId": 4
@@ -114,6 +210,30 @@
       "revId": "8a714d3593ce9c039374901182b16b771849810a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c568f54_f1e8e52f",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-11-27T00:17:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dad623d_19a7fbed",
+      "range": {
+        "startLine": 248,
+        "startChar": 13,
+        "endLine": 248,
+        "endChar": 29
+      },
+      "revId": "8a714d3593ce9c039374901182b16b771849810a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
