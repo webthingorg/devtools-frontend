@@ -22,6 +22,30 @@
       "revId": "115e08aaefbd6149fa3e952409cf913117cc5c9c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "052ec68b_2ec6f64d",
+        "filename": "front_end/web_audio/graph_visualizer/EdgeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-11-27T15:12:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f575904_f13c3680",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 3
+      },
+      "revId": "115e08aaefbd6149fa3e952409cf913117cc5c9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
