@@ -72,6 +72,12 @@ class Descriptors:
         result['has_html'] = self.has_html
         return json.dumps(result)
 
+    def all_module_entry_points(self):
+        modules = collections.OrderedDict()
+        for name in self.sorted_modules():
+            modules[path.join(name, "%s.js" % name)] = True
+        return modules.keys()
+
     def all_compiled_files(self):
         files = collections.OrderedDict()
         for name in self.sorted_modules():
