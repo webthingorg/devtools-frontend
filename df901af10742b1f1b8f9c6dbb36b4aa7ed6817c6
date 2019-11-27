@@ -46,6 +46,30 @@
       "revId": "df901af10742b1f1b8f9c6dbb36b4aa7ed6817c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b111ba92_d6dec146",
+        "filename": "scripts/npm_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2019-11-27T17:50:25Z",
+      "side": 1,
+      "message": "I would like a bit more descriptive error including instructions on how to fix it. E.g. point out to the user that they need to make them siblings.",
+      "parentUuid": "a6458b15_01e72c64",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 30
+      },
+      "revId": "df901af10742b1f1b8f9c6dbb36b4aa7ed6817c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
