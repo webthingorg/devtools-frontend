@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f575904_f13c3680",
+        "filename": "front_end/web_audio/graph_visualizer/EdgeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-27T14:44:25Z",
+      "side": 1,
+      "message": "Nit: comment can be removed if the exported symbol is a function.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 3
+      },
+      "revId": "115e08aaefbd6149fa3e952409cf913117cc5c9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
