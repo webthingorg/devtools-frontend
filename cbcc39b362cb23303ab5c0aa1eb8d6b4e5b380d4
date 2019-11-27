@@ -70,6 +70,30 @@
       "revId": "cbcc39b362cb23303ab5c0aa1eb8d6b4e5b380d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4118774f_fc6a3d03",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-11-27T16:56:59Z",
+      "side": 1,
+      "message": "We will be adding locale files for localization, which will be json. If you don\u0027t mind including json here, please do so. If not, we\u0027ll update the script when we add them.",
+      "parentUuid": "d840cd6b_236c457e",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 39
+      },
+      "revId": "cbcc39b362cb23303ab5c0aa1eb8d6b4e5b380d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
