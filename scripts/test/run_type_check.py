@@ -260,6 +260,30 @@ common_closure_args = [
     '--checks-only',
 ]
 
+GENERATED_SKIP_COMPILATION_FILES = [
+    'SupportedCSSProperties.js',
+    'InspectorBackendCommands.js',
+    'accessibility/ARIAProperties.js',
+    'sdk/wasm_source_map/pkg/wasm_source_map.js',
+    'formatter_worker/acorn/acorn.js',
+    'formatter_worker/acorn/acorn_loose.js',
+    'cm_web_modes/css.js',
+    'cm_web_modes/xml.js',
+    'cm_headless/headlesscodemirror.js',
+    'diff/diff_match_patch.js',
+    'cm/codemirror.js',
+    'cm/multiplex.js',
+    'cm/matchbrackets.js',
+    'cm/closebrackets.js',
+    'cm/mark-selection.js',
+    'cm/comment.js',
+    'cm/overlay.js',
+    'cm/active-line.js',
+    'cm/foldcode.js',
+    'cm/foldgutter.js',
+    'cm/brace-fold.js',
+    'javascript_metadata/NativeFunction.js'
+]
 
 def check_conditional_dependencies(modules_by_name):
     errors_found = False
