@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79e7bdf8_8477bcd1",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-27T16:38:55Z",
+      "side": 1,
+      "message": "parsedValue?",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 45
+      },
+      "revId": "c0ca04ee5c03bcc11e96ed0eb686368f4760d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a978fb2b_d45f6e23",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-11-27T16:38:55Z",
+      "side": 1,
+      "message": "parsedValue?",
+      "range": {
+        "startLine": 236,
+        "startChar": 44,
+        "endLine": 236,
+        "endChar": 50
+      },
+      "revId": "c0ca04ee5c03bcc11e96ed0eb686368f4760d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
