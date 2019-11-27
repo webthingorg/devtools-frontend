@@ -18,12 +18,7 @@ export class ContrastInfo extends Common.Object {
     /** @type {?Common.Color} */
     this._bgColor = null;
 
-    if (!contrastInfo) {
-      return;
-    }
-
-    if (!contrastInfo.computedFontSize || !contrastInfo.computedFontWeight || !contrastInfo.backgroundColors ||
-        contrastInfo.backgroundColors.length !== 1) {
+    if (!contrastInfo || !contrastInfo.computedFontSize || !contrastInfo.computedFontWeight) {
       return;
     }
 
@@ -31,6 +26,11 @@ export class ContrastInfo extends Common.Object {
     const isLargeFont = ContrastInfo.computeIsLargeFont(contrastInfo.computedFontSize, contrastInfo.computedFontWeight);
 
     this._contrastRatioThresholds = _ContrastThresholds[(isLargeFont ? 'largeFont' : 'normalFont')];
+
+    if (!contrastInfo.backgroundColors || contrastInfo.backgroundColors.length !== 1) {
+      return;
+    }
+
     const bgColorText = contrastInfo.backgroundColors[0];
     const bgColor = Common.Color.parse(bgColorText);
     if (bgColor) {

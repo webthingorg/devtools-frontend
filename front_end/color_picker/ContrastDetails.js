@@ -32,11 +32,6 @@ export class ContrastDetails extends Common.Object {
     /** @type {boolean} */
     this._contrastUnknown = false;
 
-    // This will not be visible if we don't get ContrastInfo,
-    // e.g. for a non-font color property such as border-color.
-    /** @type {boolean} */
-    this._visible = false;
-
     const contrastValueRow = this._element.createChild('div');
     contrastValueRow.addEventListener('click', this._topRowClicked.bind(this));
     const contrastValueRowContents = contrastValueRow.createChild('div', 'container');
@@ -91,13 +86,6 @@ export class ContrastDetails extends Common.Object {
   }
 
   _update() {
-    if (this._contrastInfo.isNull()) {
-      this.setVisible(false);
-      return;
-    }
-
-    this.setVisible(true);
-
     const contrastRatio = this._contrastInfo.contrastRatio();
     const fgColor = this._contrastInfo.color();
     const bgColor = this._contrastInfo.bgColor();
@@ -152,21 +140,6 @@ export class ContrastDetails extends Common.Object {
   static _showHelp() {
     Host.InspectorFrontendHost.openInNewTab(
         'https://developers.google.com/web/fundamentals/accessibility/accessible-styles#color_and_contrast');
-  }
-
-  /**
-   * @param {boolean} visible
-   */
-  setVisible(visible) {
-    this._visible = visible;
-    this._element.classList.toggle('hidden', !visible);
-  }
-
-  /**
-   * @return {boolean}
-   */
-  visible() {
-    return this._visible;
   }
 
   /**
