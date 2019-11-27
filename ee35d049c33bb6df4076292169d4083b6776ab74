@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "084f0f6e_9b8c8499",
+        "filename": "buckets/try.star",
+        "patchSetId": 22
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-11-27T16:16:02Z",
+      "side": 1,
+      "message": "the original property (in cfg file) looks like this:\nbuild_numbers: YES",
+      "parentUuid": "1185efe6_9525ff6a",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "ee35d049c33bb6df4076292169d4083b6776ab74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79a6c1e0_de3a9885",
         "filename": "main.star",
         "patchSetId": 22
