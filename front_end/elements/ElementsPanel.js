@@ -920,8 +920,6 @@ Elements.ElementsPanel = class extends UI.Panel {
   }
 };
 
-Elements.ElementsPanel._elementsSidebarViewTitleSymbol = Symbol('title');
-
 /** @enum {symbol} */
 Elements.ElementsPanel._splitMode = {
   Vertical: Symbol('Vertical'),
