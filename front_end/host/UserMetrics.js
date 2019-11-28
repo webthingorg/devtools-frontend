@@ -141,7 +141,7 @@ export const Action = {
   CoverageStartedPerBlock: 35,
 };
 
-export const _PanelCodes = {
+const _PanelCodes = {
   elements: 1,
   resources: 2,
   network: 3,
@@ -184,8 +184,6 @@ Host.UserMetrics = UserMetrics;
 
 /** @enum {number} */
 Host.UserMetrics.Action = Action;
-
-Host.UserMetrics._PanelCodes = _PanelCodes;
 
 /** @type {!Host.UserMetrics} */
 Host.userMetrics = new UserMetrics();

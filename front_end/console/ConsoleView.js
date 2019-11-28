@@ -1244,12 +1244,12 @@ export default class ConsoleView extends UI.VBox {
   }
 }
 
-export const persistedHistorySize = 300;
+const persistedHistorySize = 300;
 
 /**
  * @unrestricted
  */
-export class ConsoleViewFilter {
+class ConsoleViewFilter {
   /**
    * @param {function()} filterChangedCallback
    */
@@ -1473,7 +1473,7 @@ export class ConsoleCommand extends Console.ConsoleViewMessage {
 /**
  * @unrestricted
  */
-export class ConsoleCommandResult extends Console.ConsoleViewMessage {
+class ConsoleCommandResult extends Console.ConsoleViewMessage {
   /**
    * @override
    * @return {!Element}
@@ -1567,7 +1567,7 @@ export class ActionDelegate {
 }
 
 /** @type {symbol} */
-export const _messageSortingTimeSymbol = Symbol('messageSortingTime');
+const _messageSortingTimeSymbol = Symbol('messageSortingTime');
 
 /* Legacy exported object */
 self.Console = self.Console || {};
@@ -1579,7 +1579,6 @@ Console = Console || {};
  * @constructor
  */
 Console.ConsoleView = ConsoleView;
-Console.ConsoleView.persistedHistorySize = persistedHistorySize;
 
 /**
  * @typedef {{messageIndex: number, matchIndex: number}}
@@ -1591,30 +1590,10 @@ Console.ConsoleView.RegexMatchRange;
  */
 Console.ConsoleView.ActionDelegate = ActionDelegate;
 
-/** @type {symbol} */
-Console.ConsoleView._messageSortingTimeSymbol = _messageSortingTimeSymbol;
-
-/**
- * @constructor
- */
-Console.ConsoleViewFilter = ConsoleViewFilter;
-
 /**
  * @constructor
  */
 Console.ConsoleCommand = ConsoleCommand;
-
-/**
- * The maximum length before strings are considered too long for syntax highlighting.
- * @const
- * @type {number}
- */
-Console.ConsoleCommand.MaxLengthToIgnoreHighlighter = 10000;
-
-/**
- * @constructor
- */
-Console.ConsoleCommandResult = ConsoleCommandResult;
 
 /**
  * @constructor
