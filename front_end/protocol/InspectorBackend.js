@@ -277,7 +277,7 @@ const test = {
   onMessageReceived: null,
 };
 
-export class SessionRouter {
+class SessionRouter {
   /**
    * @param {!Connection} connection
    */
@@ -616,7 +616,7 @@ export class TargetBase {
 /**
  * @unrestricted
  */
-export class _AgentPrototype {
+class _AgentPrototype {
   /**
    * @param {string} domain
    */
@@ -790,7 +790,7 @@ export class _AgentPrototype {
 /**
  * @unrestricted
  */
-export class _DispatcherPrototype {
+class _DispatcherPrototype {
   constructor() {
     this._eventArgs = {};
   }
@@ -855,16 +855,6 @@ Protocol.Error = ProtocolError;
 /** @constructor */
 Protocol.InspectorBackend = InspectorBackend;
 
-/**
- * @unrestricted
- */
-Protocol.InspectorBackend._AgentPrototype = _AgentPrototype;
-
-/**
- * @unrestricted
- */
-Protocol.InspectorBackend._DispatcherPrototype = _DispatcherPrototype;
-
 /** @interface */
 Protocol.Connection = Connection;
 
@@ -872,9 +862,6 @@ Protocol.Connection = Connection;
 Protocol.inspectorBackend = new InspectorBackend();
 
 Protocol.test = test;
-
-/** @constructor */
-Protocol.SessionRouter = SessionRouter;
 
 /** @constructor */
 Protocol.TargetBase = TargetBase;

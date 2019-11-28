@@ -173,19 +173,19 @@ export default class Tooltip {
   }
 }
 
-export const Timing = {
+const Timing = {
   // Max time between tooltips showing that no opening delay is required.
   'InstantThreshold': 300,
   // Wait time before opening a tooltip.
   'OpeningDelay': 600
 };
 
-export const _symbol = Symbol('Tooltip');
+const _symbol = Symbol('Tooltip');
 
 /** @type {!Array.<!Element>} */
-export const _nativeOverrideContainer = [];
+const _nativeOverrideContainer = [];
 
-export const _nativeTitle = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'title');
+const _nativeTitle = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'title');
 
 Object.defineProperty(HTMLElement.prototype, 'title', {
   /**
@@ -214,11 +214,3 @@ UI = UI || {};
 
 /** @constructor */
 UI.Tooltip = Tooltip;
-
-UI.Tooltip.Timing = Timing;
-UI.Tooltip._symbol = _symbol;
-
-/** @type {!Array.<!Element>} */
-UI.Tooltip._nativeOverrideContainer = _nativeOverrideContainer;
-
-UI.Tooltip._nativeTitle = _nativeTitle;

@@ -306,7 +306,7 @@ export const calculateAngle = function(u, v) {
  * @param {number} deg
  * @return {number}
  */
-export const degreesToRadians = function(deg) {
+const degreesToRadians = function(deg) {
   return deg * Math.PI / 180;
 };
 
@@ -314,7 +314,7 @@ export const degreesToRadians = function(deg) {
  * @param {number} rad
  * @return {number}
  */
-export const radiansToDegrees = function(rad) {
+const radiansToDegrees = function(rad) {
   return rad * 180 / Math.PI;
 };
 
@@ -644,18 +644,6 @@ UI.Geometry.multiplyVectorByMatrixAndNormalize = multiplyVectorByMatrixAndNormal
  * @return {number}
  */
 UI.Geometry.calculateAngle = calculateAngle;
-
-/**
- * @param {number} deg
- * @return {number}
- */
-UI.Geometry.degreesToRadians = degreesToRadians;
-
-/**
- * @param {number} rad
- * @return {number}
- */
-UI.Geometry.radiansToDegrees = radiansToDegrees;
 
 /** @constructor */
 UI.Size = Size;
