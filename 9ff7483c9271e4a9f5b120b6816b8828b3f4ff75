@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1ebf0c1_fde2cee0",
+        "filename": "scripts/npm_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-28T11:41:01Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 118,
+        "startChar": 21,
+        "endLine": 121,
+        "endChar": 51
+      },
+      "revId": "9ff7483c9271e4a9f5b120b6816b8828b3f4ff75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
