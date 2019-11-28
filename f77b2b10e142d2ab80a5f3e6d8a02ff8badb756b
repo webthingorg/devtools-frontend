@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "f1f0098a_4d9c79b1",
+        "filename": "test/bootperf/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-11-28T13:37:51Z",
+      "side": 1,
+      "message": "Shall we suggest setting the CPU scaling governor for better results? I have a script here: https://pastebin.com/BuaZjTTj",
+      "range": {
+        "startLine": 1,
+        "startChar": 5,
+        "endLine": 1,
+        "endChar": 8
+      },
+      "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "223749cf_c42e7af6",
         "filename": "test/bootperf/README.md",
         "patchSetId": 2
@@ -59,6 +82,30 @@
       "writtenOn": "2019-11-28T13:32:03Z",
       "side": 1,
       "message": "We already download a chromium for running karma. We should use the same downloaded binary for this. This is where they can be found: https://cs.chromium.org/chromium/src/third_party/devtools-frontend/src/scripts/test/run_unittests.py?q\u003drun_unitte\u0026sq\u003dpackage:chromium\u0026g\u003d0\u0026l\u003d62",
+      "range": {
+        "startLine": 4,
+        "startChar": 69,
+        "endLine": 4,
+        "endChar": 146
+      },
+      "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96fad05e_f8c50798",
+        "filename": "test/bootperf/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-11-28T13:37:51Z",
+      "side": 1,
+      "message": "Also, can we run this in --headless? I\u0027d like to be able to use my workstation while running this a thousand times. Also over SSH.",
+      "parentUuid": "2d44aa77_ec538bf6",
       "range": {
         "startLine": 4,
         "startChar": 69,
