@@ -343,7 +343,8 @@ Resources.ServiceWorkerCacheView = class extends UI.SimpleView {
   async _requestContent(request) {
     const isText = request.resourceType().isTextType();
     const contentData = {error: null, content: null, encoded: !isText};
-    const response = await this._cache.requestCachedResponse(request.url(), request.requestHeaders());
+    const response =
+        await this._cache.requestCachedResponse(request.url(), request.requestHeaders()).catch(err => null);
     if (response) {
       contentData.content = isText ? window.atob(response.body) : response.body;
     }

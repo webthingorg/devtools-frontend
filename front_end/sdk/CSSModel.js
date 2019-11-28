@@ -866,7 +866,7 @@ export class ComputedStyleLoader {
     if (promise) {
       return promise;
     }
-    promise = this._cssModel._agent.getComputedStyleForNode(nodeId).then(parsePayload.bind(this));
+    promise = this._cssModel._agent.getComputedStyleForNode(nodeId).catch(err => null).then(parsePayload.bind(this));
     this._nodeIdToPromise.set(nodeId, promise);
     return promise;
 

@@ -957,7 +957,7 @@ export class DOMNode {
    * @return {!Promise<?SDK.RemoteObject>}
    */
   async resolveToObject(objectGroup) {
-    const object = await this._agent.resolveNode(this.id, undefined, objectGroup);
+    const object = await this._agent.resolveNode(this.id, undefined, objectGroup).catch(err => null);
     return object && this._domModel._runtimeModel.createRemoteObject(object);
   }
 
@@ -982,7 +982,7 @@ export class DOMNode {
       // User agent shadow root, keep climbing up.
       node = ancestor;
     }
-    this._agent.setInspectedNode(node.id);
+    this._agent.setInspectedNode(node.id).catch(err => null);
   }
 
   /**
@@ -1319,7 +1319,7 @@ export default class DOMModel extends SDK.SDKModel {
    * @return {!Promise<?Protocol.DOM.NodeId>}
    */
   pushNodeByPathToFrontend(path) {
-    return this.requestDocument().then(() => this._agent.pushNodeByPathToFrontend(path));
+    return this.requestDocument().then(() => this._agent.pushNodeByPathToFrontend(path).catch(err => null));
   }
 
   /**

@@ -212,7 +212,7 @@ export default class CSSOverviewModel extends SDK.SDKModel {
   }
 
   getComputedStyleForNode(nodeId) {
-    return this._cssAgent.getComputedStyleForNode(nodeId);
+    return this._cssAgent.getComputedStyleForNode(nodeId).catch(err => null);
   }
 
   async getMediaQueries() {
