@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "2d44aa77_ec538bf6",
+        "filename": "test/bootperf/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-11-28T13:32:03Z",
+      "side": 1,
+      "message": "We already download a chromium for running karma. We should use the same downloaded binary for this. This is where they can be found: https://cs.chromium.org/chromium/src/third_party/devtools-frontend/src/scripts/test/run_unittests.py?q\u003drun_unitte\u0026sq\u003dpackage:chromium\u0026g\u003d0\u0026l\u003d62",
+      "range": {
+        "startLine": 4,
+        "startChar": 69,
+        "endLine": 4,
+        "endChar": 146
+      },
+      "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c2d62ea_06b221cd",
         "filename": "test/bootperf/README.md",
         "patchSetId": 2
@@ -64,6 +87,29 @@
         "startChar": 0,
         "endLine": 6,
         "endChar": 116
+      },
+      "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d30e4b4b_e67bd26a",
+        "filename": "test/bootperf/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-11-28T13:32:03Z",
+      "side": 1,
+      "message": "This does not work for me because:\n\nError: Cannot find module \u0027puppeteer\u0027\n\nI think you did not actually check in puppeteer to node_modules?",
+      "range": {
+        "startLine": 6,
+        "startChar": 19,
+        "endLine": 6,
+        "endChar": 115
       },
       "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
