@@ -92,10 +92,10 @@ export default class Icon extends HTMLSpanElement {
   }
 }
 
-export const _positionRegex = /^[a-z][1-9][0-9]*$/;
+const _positionRegex = /^[a-z][1-9][0-9]*$/;
 
 /** @enum {!Icon.SpriteSheet} */
-export const SpriteSheets = {
+const SpriteSheets = {
   'smallicons': {cellWidth: 10, cellHeight: 10, padding: 10},
   'mediumicons': {cellWidth: 16, cellHeight: 16, padding: 0},
   'largeicons': {cellWidth: 28, cellHeight: 24, padding: 0},
@@ -259,11 +259,6 @@ UI = UI || {};
 
 /** @constructor */
 UI.Icon = Icon;
-
-UI.Icon._positionRegex = _positionRegex;
-
-/** @enum {!Icon.SpriteSheet} */
-UI.Icon.SpriteSheets = SpriteSheets;
 
 /** @enum {!Icon.Descriptor} */
 UI.Icon.Descriptors = Descriptors;

@@ -30,20 +30,6 @@
  */
 Sources.TabbedEditorContainerDelegate = function() {};
 
-Sources.TabbedEditorContainerDelegate.prototype = {
-  /**
-   * @param {!Workspace.UISourceCode} uiSourceCode
-   * @return {!UI.Widget}
-   */
-  viewForFile(uiSourceCode) {},
-
-  /**
-  * @param {!Sources.UISourceCodeFrame} sourceFrame
-  * @param {!Workspace.UISourceCode} uiSourceCode
-  */
-  recycleUISourceCodeFrame(sourceFrame, uiSourceCode) {},
-};
-
 /**
  * @unrestricted
  */

@@ -383,13 +383,6 @@ Timeline.TimelineController = class {
  */
 Timeline.TimelineController.Client = function() {};
 
-Timeline.TimelineController.Client.prototype = {
-  /**
-   * @param {number} usage
-   */
-  recordingProgress(usage) {},
-};
-
 /**
  * @typedef {!{
  *   enableJSSampling: (boolean|undefined),

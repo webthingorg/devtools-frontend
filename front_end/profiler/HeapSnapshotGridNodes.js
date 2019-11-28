@@ -440,34 +440,6 @@ Profiler.HeapSnapshotGridNode.Events = {
  */
 Profiler.HeapSnapshotGridNode.ChildrenProvider = function() {};
 
-Profiler.HeapSnapshotGridNode.ChildrenProvider.prototype = {
-  dispose() {},
-
-  /**
-   * @param {number} snapshotObjectId
-   * @return {!Promise<number>}
-   */
-  nodePosition(snapshotObjectId) {},
-
-  /**
-   * @return {!Promise<boolean>}
-   */
-  isEmpty() {},
-
-  /**
-   * @param {number} startPosition
-   * @param {number} endPosition
-   * @return {!Promise<!HeapSnapshotModel.ItemsRange>}
-   */
-  serializeItemsRange(startPosition, endPosition) {},
-
-  /**
-   * @param {!HeapSnapshotModel.ComparatorConfig} comparator
-   * @return {!Promise<?>}
-   */
-  sortAndRewind(comparator) {}
-};
-
 /**
  * @unrestricted
  */

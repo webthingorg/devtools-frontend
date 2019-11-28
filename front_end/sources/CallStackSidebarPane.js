@@ -393,7 +393,6 @@ Sources.CallStackSidebarPane = class extends UI.SimpleView {
 };
 
 Sources.CallStackSidebarPane._debuggerCallFrameSymbol = Symbol('debuggerCallFrame');
-Sources.CallStackSidebarPane._elementSymbol = Symbol('element');
 Sources.CallStackSidebarPane._defaultMaxAsyncStackChainDepth = 32;
 
 /**

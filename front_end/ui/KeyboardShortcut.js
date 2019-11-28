@@ -278,7 +278,7 @@ export const Keys = {
   },
 };
 
-export const KeyBindings = {};
+const KeyBindings = {};
 
 (function() {
 for (const key in Keys) {
@@ -307,8 +307,6 @@ UI.KeyboardShortcut.Modifiers = Modifiers;
 
 /** @type {!Object.<string, !UI.KeyboardShortcut.Key>} */
 UI.KeyboardShortcut.Keys = Keys;
-
-UI.KeyboardShortcut.KeyBindings = KeyBindings;
 
 /** @typedef {!{code: number, name: (string|!Object.<string, string>)}} */
 UI.KeyboardShortcut.Key;

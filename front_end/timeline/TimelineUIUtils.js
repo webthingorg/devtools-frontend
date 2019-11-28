@@ -2068,9 +2068,6 @@ Timeline.TimelineUIUtils.NetworkCategory = {
 };
 
 
-Timeline.TimelineUIUtils._aggregatedStatsKey = Symbol('aggregatedStats');
-
-
 /**
  * @unrestricted
  */
@@ -2302,76 +2299,6 @@ Timeline.TimelineCategory.Events = {
  */
 Timeline.TimelineMarkerStyle;
 
-
-/**
- * @unrestricted
- */
-Timeline.TimelinePopupContentHelper = class {
-  /**
-   * @param {string} title
-   */
-  constructor(title) {
-    this._contentTable = createElement('table');
-    const titleCell = this._createCell(Common.UIString('%s - Details', title), 'timeline-details-title');
-    titleCell.colSpan = 2;
-    const titleRow = createElement('tr');
-    titleRow.appendChild(titleCell);
-    this._contentTable.appendChild(titleRow);
-  }
-
-  /**
-   * @return {!Element}
-   */
-  contentTable() {
-    return this._contentTable;
-  }
-
-  /**
-   * @param {string|number} content
-   * @param {string=} styleName
-   */
-  _createCell(content, styleName) {
-    const text = createElement('label');
-    text.createTextChild(String(content));
-    const cell = createElement('td');
-    cell.className = 'timeline-details';
-    if (styleName) {
-      cell.className += ' ' + styleName;
-    }
-    cell.textContent = content;
-    return cell;
-  }
-
-  /**
-   * @param {string} title
-   * @param {string|number} content
-   */
-  appendTextRow(title, content) {
-    const row = createElement('tr');
-    row.appendChild(this._createCell(title, 'timeline-details-row-title'));
-    row.appendChild(this._createCell(content, 'timeline-details-row-data'));
-    this._contentTable.appendChild(row);
-  }
-
-  /**
-   * @param {string} title
-   * @param {!Node|string} content
-   */
-  appendElementRow(title, content) {
-    const row = createElement('tr');
-    const titleCell = this._createCell(title, 'timeline-details-row-title');
-    row.appendChild(titleCell);
-    const cell = createElement('td');
-    cell.className = 'details';
-    if (content instanceof Node) {
-      cell.appendChild(content);
-    } else {
-      cell.createTextChild(content || '');
-    }
-    row.appendChild(cell);
-    this._contentTable.appendChild(row);
-  }
-};
 
 /**
  * @unrestricted

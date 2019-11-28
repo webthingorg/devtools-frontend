@@ -1869,5 +1869,3 @@ Sources.DebuggerPlugin.BreakpointDecoration = class {
 
 Sources.DebuggerPlugin.BreakpointDecoration.bookmarkSymbol = Symbol('bookmark');
 Sources.DebuggerPlugin.BreakpointDecoration._elementSymbolForTest = Symbol('element');
-
-Sources.DebuggerPlugin.continueToLocationDecorationSymbol = Symbol('bookmark');

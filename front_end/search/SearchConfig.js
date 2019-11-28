@@ -198,59 +198,7 @@ Search.SearchConfig.QueryTerm = class {
  */
 Search.SearchResult = function() {};
 
-Search.SearchResult.prototype = {
-  /**
-   * @return {string}
-   */
-  label() {},
-
-  /**
-   * @return {string}
-   */
-  description() {},
-
-  /**
-   * @return {number}
-   */
-  matchesCount() {},
-
-  /**
-   * @param {number} index
-   * @return {string}
-   */
-  matchLabel(index) {},
-
-  /**
-   * @param {number} index
-   * @return {string}
-   */
-  matchLineContent(index) {},
-
-  /**
-   * @param {number} index
-   * @return {!Object}
-   */
-  matchRevealable(index) {}
-};
-
 /**
  * @interface
  */
 Search.SearchScope = function() {};
-
-Search.SearchScope.prototype = {
-  /**
-   * @param {!Search.SearchConfig} searchConfig
-   * @param {!Common.Progress} progress
-   * @param {function(!Search.SearchResult)} searchResultCallback
-   * @param {function(boolean)} searchFinishedCallback
-   */
-  performSearch(searchConfig, progress, searchResultCallback, searchFinishedCallback) {},
-
-  /**
-   * @param {!Common.Progress} progress
-   */
-  performIndexing(progress) {},
-
-  stopSearch() {}
-};

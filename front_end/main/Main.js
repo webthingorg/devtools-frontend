@@ -685,22 +685,6 @@ Main.Main.PauseListener = class {
 };
 
 /**
- * @param {string} method
- * @param {?Object} params
- * @return {!Promise}
- */
-Main.sendOverProtocol = function(method, params) {
-  return new Promise((resolve, reject) => {
-    Protocol.test.sendRawMessage(method, params, (err, ...results) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(results);
-    });
-  });
-};
-
-/**
  * @implements {UI.ActionDelegate}
  * @unrestricted
  */

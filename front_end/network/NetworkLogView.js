@@ -2026,13 +2026,3 @@ Network.NetworkLogView.Filter;
  * @interface
  */
 Network.GroupLookupInterface = function() {};
-
-Network.GroupLookupInterface.prototype = {
-  /**
-   * @param {!SDK.NetworkRequest} request
-   * @return {?Network.NetworkGroupNode}
-   */
-  groupNodeForRequest: function(request) {},
-
-  reset: function() {}
-};

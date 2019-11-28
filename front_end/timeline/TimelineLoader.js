@@ -250,22 +250,6 @@ Timeline.TimelineLoader.TransferChunkLengthBytes = 5000000;
  */
 Timeline.TimelineLoader.Client = function() {};
 
-Timeline.TimelineLoader.Client.prototype = {
-  loadingStarted() {},
-
-  /**
-   * @param {number=} progress
-   */
-  loadingProgress(progress) {},
-
-  processingStarted() {},
-
-  /**
-   * @param {?SDK.TracingModel} tracingModel
-   */
-  loadingComplete(tracingModel) {},
-};
-
 /**
  * @enum {symbol}
  */

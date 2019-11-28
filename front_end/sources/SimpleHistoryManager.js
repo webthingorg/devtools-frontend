@@ -32,15 +32,6 @@
  */
 Sources.HistoryEntry = function() {};
 
-Sources.HistoryEntry.prototype = {
-  /**
-   * @return {boolean}
-   */
-  valid() {},
-
-  reveal() {}
-};
-
 /**
  * @unrestricted
  */

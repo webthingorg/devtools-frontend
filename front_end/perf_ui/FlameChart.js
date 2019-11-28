@@ -33,27 +33,6 @@
  */
 PerfUI.FlameChartDelegate = function() {};
 
-PerfUI.FlameChartDelegate.prototype = {
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   * @param {boolean} animate
-   */
-  windowChanged(startTime, endTime, animate) {},
-
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   */
-  updateRangeSelection(startTime, endTime) {},
-
-  /**
-   * @param {!PerfUI.FlameChart} flameChart
-   * @param {?PerfUI.FlameChart.Group} group
-   */
-  updateSelectedGroup(flameChart, group) {},
-};
-
 /**
  * @unrestricted
  * @implements {PerfUI.TimelineGrid.Calculator}
@@ -2139,120 +2118,10 @@ PerfUI.FlameChart.TimelineData = class {
   }
 };
 
-PerfUI.FlameChartDataProvider.prototype = {
-  /**
-   * @return {number}
-   */
-  minimumBoundary() {},
-
-  /**
-   * @return {number}
-   */
-  totalTime() {},
-
-  /**
-   * @param {number} value
-   * @param {number=} precision
-   * @return {string}
-   */
-  formatValue(value, precision) {},
-
-  /**
-   * @return {number}
-   */
-  maxStackDepth() {},
-
-  /**
-   * @return {?PerfUI.FlameChart.TimelineData}
-   */
-  timelineData() {},
-
-  /**
-   * @param {number} entryIndex
-   * @return {?Element}
-   */
-  prepareHighlightedEntryInfo(entryIndex) {},
-
-  /**
-   * @param {number} entryIndex
-   * @return {boolean}
-   */
-  canJumpToEntry(entryIndex) {},
-
-  /**
-   * @param {number} entryIndex
-   * @return {?string}
-   */
-  entryTitle(entryIndex) {},
-
-  /**
-   * @param {number} entryIndex
-   * @return {?string}
-   */
-  entryFont(entryIndex) {},
-
-  /**
-   * @param {number} entryIndex
-   * @return {string}
-   */
-  entryColor(entryIndex) {},
-
-  /**
-   * @param {number} entryIndex
-   * @param {!CanvasRenderingContext2D} context
-   * @param {?string} text
-   * @param {number} barX
-   * @param {number} barY
-   * @param {number} barWidth
-   * @param {number} barHeight
-   * @param {number} unclippedBarX
-   * @param {number} timeToPixelRatio
-   * @return {boolean}
-   */
-  decorateEntry(entryIndex, context, text, barX, barY, barWidth, barHeight, unclippedBarX, timeToPixelRatio) {},
-
-  /**
-   * @param {number} entryIndex
-   * @return {boolean}
-   */
-  forceDecoration(entryIndex) {},
-
-  /**
-   * @param {number} entryIndex
-   * @return {string}
-   */
-  textColor(entryIndex) {},
-};
-
 /**
  * @interface
  */
 PerfUI.FlameChartMarker = function() {};
-
-PerfUI.FlameChartMarker.prototype = {
-  /**
-   * @return {number}
-   */
-  startTime() {},
-
-  /**
-   * @return {string}
-   */
-  color() {},
-
-  /**
-   * @return {?string}
-   */
-  title() {},
-
-  /**
-   * @param {!CanvasRenderingContext2D} context
-   * @param {number} x
-   * @param {number} height
-   * @param {number} pixelsPerMillisecond
-   */
-  draw(context, x, height, pixelsPerMillisecond) {},
-};
 
 /** @enum {symbol} */
 PerfUI.FlameChart.Events = {

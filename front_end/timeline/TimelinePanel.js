@@ -1005,10 +1005,6 @@ Timeline.TimelinePanel.ViewMode = {
   EventLog: 'EventLog'
 };
 
-// Define row and header height, should be in sync with styles for timeline graphs.
-Timeline.TimelinePanel.rowHeight = 18;
-Timeline.TimelinePanel.headerHeight = 20;
-
 /** @typedef {{selection: ?Timeline.TimelineSelection, windowLeftTime: number, windowRightTime: number}} */
 Timeline.TimelinePanel.ModelSelectionData;
 
@@ -1105,24 +1101,6 @@ Timeline.TimelineSelection.Type = {
  * @interface
  */
 Timeline.TimelineModeViewDelegate = function() {};
-
-Timeline.TimelineModeViewDelegate.prototype = {
-  /**
-   * @param {?Timeline.TimelineSelection} selection
-   */
-  select(selection) {},
-
-  /**
-   * @param {?Array<!SDK.TracingModel.Event>} events
-   * @param {number} time
-   */
-  selectEntryAtTime(events, time) {},
-
-  /**
-   * @param {?SDK.TracingModel.Event} event
-   */
-  highlightEvent(event) {},
-};
 
 /**
  * @unrestricted

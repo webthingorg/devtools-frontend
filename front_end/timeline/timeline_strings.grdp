@@ -247,9 +247,6 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_361beede47de122bfb91fe1da6e3f1a7" desc="Text in Timeline Loader of the Performance panel">
     Legacy Timeline format is not supported.
   </message>
-  <message name="IDS_DEVTOOLS_38108192a74ae7b3deda8762ff299109" desc="Text in Timeline UIUtils of the Performance panel">
-    <ph name="TITLE">$1s<ex>title</ex></ph> - Details
-  </message>
   <message name="IDS_DEVTOOLS_390afae8f87b5024e0c32c4e6ce3e2da" desc="Text in Timeline UIUtils of the Performance panel">
     Run Microtasks
   </message>

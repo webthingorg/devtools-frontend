@@ -95,7 +95,7 @@ export default class SourceMap {
 /**
  * @unrestricted
  */
-export class SourceMapV3 {
+class SourceMapV3 {
   constructor() {
     /** @type {number} */ this.version;
     /** @type {string|undefined} */ this.file;
@@ -164,7 +164,7 @@ export class SourceMapEntry {
 /**
  * @unrestricted
  */
-export class EditResult {
+class EditResult {
   /**
    * @param {!SourceMap} map
    * @param {!Array<!TextUtils.SourceEdit>} compiledEdits
@@ -754,9 +754,6 @@ SDK = SDK || {};
 SDK.SourceMap = SourceMap;
 
 /** @constructor */
-SDK.SourceMapV3 = SourceMapV3;
-
-/** @constructor */
 SDK.SourceMapEntry = SourceMapEntry;
 
 /** @constructor */
@@ -764,6 +761,3 @@ SDK.TextSourceMap = TextSourceMap;
 
 /** @constructor */
 SDK.WasmSourceMap = WasmSourceMap;
-
-/** @constructor */
-SDK.SourceMap.EditResult = EditResult;

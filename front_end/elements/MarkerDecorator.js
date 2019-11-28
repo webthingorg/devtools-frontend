@@ -7,14 +7,6 @@
  */
 Elements.MarkerDecorator = function() {};
 
-Elements.MarkerDecorator.prototype = {
-  /**
-   * @param {!SDK.DOMNode} node
-   * @return {?{title: string, color: string}}
-   */
-  decorate(node) {}
-};
-
 /**
  * @implements {Elements.MarkerDecorator}
  * @unrestricted

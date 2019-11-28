@@ -365,32 +365,6 @@ PerfUI.TimelineOverviewCalculator = class {
  */
 PerfUI.TimelineOverview = function() {};
 
-PerfUI.TimelineOverview.prototype = {
-  /**
-   * @param {!Element} parentElement
-   * @param {?Element=} insertBefore
-   */
-  show(parentElement, insertBefore) {},
-
-  update() {},
-
-  dispose() {},
-
-  reset() {},
-
-  /**
-   * @param {number} x
-   * @return {!Promise<?Element>}
-   */
-  overviewInfoPromise(x) {},
-
-  /**
-   * @param {!Event} event
-   * @return {boolean}
-   */
-  onClick(event) {},
-};
-
 /**
  * @implements {PerfUI.TimelineOverview}
  * @unrestricted

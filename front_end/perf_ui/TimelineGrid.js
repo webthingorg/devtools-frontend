@@ -276,30 +276,3 @@ PerfUI.TimelineGrid.DividersData;
  * @interface
  */
 PerfUI.TimelineGrid.Calculator = function() {};
-
-PerfUI.TimelineGrid.Calculator.prototype = {
-  /**
-   * @param {number} time
-   * @return {number}
-   */
-  computePosition(time) {},
-
-  /**
-   * @param {number} time
-   * @param {number=} precision
-   * @return {string}
-   */
-  formatValue(time, precision) {},
-
-  /** @return {number} */
-  minimumBoundary() {},
-
-  /** @return {number} */
-  zeroTime() {},
-
-  /** @return {number} */
-  maximumBoundary() {},
-
-  /** @return {number} */
-  boundarySpan() {}
-};

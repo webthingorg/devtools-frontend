@@ -113,7 +113,7 @@ export default class Context {
 }
 
 /** @enum {symbol} */
-export const Events = {
+const Events = {
   FlavorChanged: Symbol('FlavorChanged')
 };
 
@@ -125,9 +125,6 @@ UI = UI || {};
 
 /** @constructor */
 UI.Context = Context;
-
-/** @enum {symbol} */
-UI.Context.Events = Events;
 
 /** @type {!Context} */
 UI.context = new Context();

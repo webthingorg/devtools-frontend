@@ -7,29 +7,6 @@
  */
 PerfUI.ChartViewportDelegate = function() {};
 
-PerfUI.ChartViewportDelegate.prototype = {
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   * @param {boolean} animate
-   */
-  windowChanged(startTime, endTime, animate) {},
-
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   */
-  updateRangeSelection(startTime, endTime) {},
-
-  /**
-   * @param {number} width
-   * @param {number} height
-   */
-  setSize(width, height) {},
-
-  update() {}
-};
-
 /**
  * @unrestricted
  */

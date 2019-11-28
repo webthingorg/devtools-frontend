@@ -676,14 +676,6 @@ Sources.SourcesView.Events = {
  */
 Sources.SourcesView.EditorAction = function() {};
 
-Sources.SourcesView.EditorAction.prototype = {
-  /**
-   * @param {!Sources.SourcesView} sourcesView
-   * @return {!UI.ToolbarButton}
-   */
-  button(sourcesView) {}
-};
-
 /**
  * @implements {UI.ActionDelegate}
  * @unrestricted

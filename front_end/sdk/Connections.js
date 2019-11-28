@@ -5,7 +5,7 @@
 /**
  * @implements {Protocol.Connection}
  */
-export class MainConnection {
+class MainConnection {
   constructor() {
     this._onMessage = null;
     this._onDisconnect = null;
@@ -92,7 +92,7 @@ export class MainConnection {
 /**
  * @implements {Protocol.Connection}
  */
-export class WebSocketConnection {
+class WebSocketConnection {
   /**
    * @param {string} url
    * @param {function()} onWebSocketDisconnect
@@ -198,7 +198,7 @@ export class WebSocketConnection {
 /**
  * @implements {Protocol.Connection}
  */
-export class StubConnection {
+class StubConnection {
   constructor() {
     this._onMessage = null;
     this._onDisconnect = null;
@@ -335,7 +335,7 @@ export async function initMainConnection(createMainTarget, websocketConnectionLo
  * @param {function()} websocketConnectionLost
  * @return {!Protocol.Connection}
  */
-export function _createMainConnection(websocketConnectionLost) {
+function _createMainConnection(websocketConnectionLost) {
   const wsParam = Root.Runtime.queryParam('ws');
   const wssParam = Root.Runtime.queryParam('wss');
   if (wsParam || wssParam) {
@@ -355,16 +355,6 @@ self.SDK = self.SDK || {};
 SDK = SDK || {};
 
 /** @constructor */
-SDK.MainConnection = MainConnection;
-
-/** @constructor */
-SDK.WebSocketConnection = WebSocketConnection;
-
-/** @constructor */
-SDK.StubConnection = StubConnection;
-
-/** @constructor */
 SDK.ParallelConnection = ParallelConnection;
 
 SDK.initMainConnection = initMainConnection;
-SDK._createMainConnection = _createMainConnection;

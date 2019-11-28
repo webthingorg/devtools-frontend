@@ -219,11 +219,11 @@ export default class Fragment {
 }
 
 export const _textMarker = '{{template-text}}';
-export const _textMarkerRegex = /{{template-text}}/;
+const _textMarkerRegex = /{{template-text}}/;
 export const _attributeMarker = index => 'template-attribute' + index;
-export const _attributeMarkerRegex = /template-attribute\d+/;
-export const _class = index => 'template-class-' + index;
-export const _templateCache = new Map();
+const _attributeMarkerRegex = /template-attribute\d+/;
+const _class = index => 'template-class-' + index;
+const _templateCache = new Map();
 
 /**
  * @param {!Array<string>} strings
@@ -244,11 +244,7 @@ UI = UI || {};
 UI.Fragment = Fragment;
 
 UI.Fragment._textMarker = _textMarker;
-UI.Fragment._textMarkerRegex = _textMarkerRegex;
 UI.Fragment._attributeMarker = _attributeMarker;
-UI.Fragment._attributeMarkerRegex = _attributeMarkerRegex;
-UI.Fragment._class = _class;
-UI.Fragment._templateCache = _templateCache;
 
 UI.html = html;
 

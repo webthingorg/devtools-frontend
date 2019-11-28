@@ -688,31 +688,3 @@ Profiler.ProfileDataGridTree.propertyComparators = [{}, {}];
  * @interface
  */
 Profiler.ProfileDataGridNode.Formatter = function() {};
-
-Profiler.ProfileDataGridNode.Formatter.prototype = {
-  /**
-   * @param {number} value
-   * @param {!Profiler.ProfileDataGridNode} node
-   * @return {string}
-   */
-  formatValue(value, node) {},
-
-  /**
-   * @param {number} value
-   * @return {string}
-   */
-  formatValueAccessibleText(value) {},
-
-  /**
-   * @param {number} value
-   * @param {!Profiler.ProfileDataGridNode} node
-   * @return {string}
-   */
-  formatPercent(value, node) {},
-
-  /**
-   * @param  {!Profiler.ProfileDataGridNode} node
-   * @return {?Element}
-   */
-  linkifyNode(node) {}
-};

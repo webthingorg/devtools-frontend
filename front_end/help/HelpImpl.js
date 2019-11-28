@@ -22,7 +22,7 @@ export function latestReleaseNote() {
   return Help._latestReleaseNote;
 }
 
-export function _showReleaseNoteIfNeeded() {
+function _showReleaseNoteIfNeeded() {
   _innerShowReleaseNoteIfNeeded(
       _releaseNoteVersionSetting.get(), latestReleaseNote().version,
       Common.settings.moduleSetting('help.show-release-note').get());
@@ -33,7 +33,7 @@ export function _showReleaseNoteIfNeeded() {
  * @param {number} latestVersion
  * @param {boolean} showReleaseNote
  */
-export function _innerShowReleaseNoteIfNeeded(lastSeenVersion, latestVersion, showReleaseNote) {
+function _innerShowReleaseNoteIfNeeded(lastSeenVersion, latestVersion, showReleaseNote) {
   if (!lastSeenVersion) {
     _releaseNoteVersionSetting.set(latestVersion);
     return;
@@ -103,9 +103,6 @@ Help = Help || {};
 
 Help.releaseNoteViewId = releaseNoteViewId;
 Help.latestReleaseNote = latestReleaseNote;
-Help._showReleaseNoteIfNeeded = _showReleaseNoteIfNeeded;
-Help._innerShowReleaseNoteIfNeeded = _innerShowReleaseNoteIfNeeded;
-Help._releaseNoteVersionSetting = _releaseNoteVersionSetting;
 
 /** @typedef {!{title: string, subtitle: string, link: string}} */
 Help.ReleaseNoteHighlight;

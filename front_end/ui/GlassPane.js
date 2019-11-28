@@ -410,10 +410,10 @@ export const MarginBehavior = {
 };
 
 /** @type {!Map<!Document, !Element>} */
-export const _containers = new Map();
+const _containers = new Map();
 
 /** @type {!Set<!GlassPane>} */
-export const _panes = new Set();
+const _panes = new Set();
 
 /* Legacy exported object*/
 self.UI = self.UI || {};
@@ -435,9 +435,3 @@ UI.GlassPane.SizeBehavior = SizeBehavior;
 
 /** @enum {symbol} */
 UI.GlassPane.MarginBehavior = MarginBehavior;
-
-/** @type {!Map<!Document, !Element>} */
-UI.GlassPane._containers = _containers;
-
-/** @type {!Set<!GlassPane>} */
-UI.GlassPane._panes = _panes;

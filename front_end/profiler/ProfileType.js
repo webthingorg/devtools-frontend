@@ -244,23 +244,3 @@ Profiler.ProfileType.Events = {
  * @interface
  */
 Profiler.ProfileType.DataDisplayDelegate = function() {};
-
-Profiler.ProfileType.DataDisplayDelegate.prototype = {
-  /**
-   * @param {?Profiler.ProfileHeader} profile
-   * @return {?UI.Widget}
-   */
-  showProfile(profile) {},
-
-  /**
-   * @param {!Protocol.HeapProfiler.HeapSnapshotObjectId} snapshotObjectId
-   * @param {string} perspectiveName
-   */
-  showObject(snapshotObjectId, perspectiveName) {},
-
-  /**
-   * @param {number} nodeIndex
-   * @return {!Promise<?Element>}
-   */
-  async linkifyObject(nodeIndex) {}
-};

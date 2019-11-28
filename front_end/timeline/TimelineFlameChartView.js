@@ -510,8 +510,3 @@ Timeline.TimelineFlameChartMarker = class {
     context.restore();
   }
 };
-
-/** @enum {string} */
-Timeline.TimelineFlameChartView._ColorBy = {
-  URL: 'URL',
-};

@@ -188,5 +188,3 @@ Sources.ScopeChainSidebarPane = class extends UI.VBox {
   _sidebarPaneUpdatedForTest() {
   }
 };
-
-Sources.ScopeChainSidebarPane._pathSymbol = Symbol('path');

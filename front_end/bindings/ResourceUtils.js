@@ -44,7 +44,7 @@ export function resourceForURL(url) {
 /**
  * @param {function(!SDK.Resource)} callback
  */
-export function forAllResources(callback) {
+function forAllResources(callback) {
   for (const resourceTreeModel of SDK.targetManager.models(SDK.ResourceTreeModel)) {
     resourceTreeModel.forAllResources(callback);
   }
@@ -146,7 +146,6 @@ self.Bindings = self.Bindings || {};
 Bindings = Bindings || {};
 
 Bindings.resourceForURL = resourceForURL;
-Bindings.forAllResources = forAllResources;
 Bindings.displayNameForURL = displayNameForURL;
 Bindings.metadataForURL = metadataForURL;
 Bindings.resourceMetadata = resourceMetadata;
