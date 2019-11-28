@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 // Some settings that control the shape of the graph (in pixels).
-WebAudio.GraphVisualizer.GraphStyles = {
+export const GraphStyles = {
   PortPadding: 4,
   InputPortRadius: 10,
   AudioParamRadius: 5,
@@ -18,13 +18,27 @@ WebAudio.GraphVisualizer.GraphStyles = {
   GraphMargin: 20,
 };
 
-WebAudio.GraphVisualizer.GraphStyles.TotalInputPortHeight =
-    WebAudio.GraphVisualizer.GraphStyles.InputPortRadius * 2 + WebAudio.GraphVisualizer.GraphStyles.PortPadding;
+export const TotalInputPortHeight = GraphStyles.InputPortRadius * 2 + GraphStyles.PortPadding;
+export const TotalOutputPortHeight = GraphStyles.TotalInputPortHeight;
+export const TotalParamPortHeight = GraphStyles.AudioParamRadius * 2 + GraphStyles.PortPadding;
 
-WebAudio.GraphVisualizer.GraphStyles.TotalOutputPortHeight = WebAudio.GraphVisualizer.GraphStyles.TotalInputPortHeight;
+export const NodeLabelFontStyle = '14px Segoe UI, Arial';
+export const ParamLabelFontStyle = '12px Segoe UI, Arial';
 
-WebAudio.GraphVisualizer.GraphStyles.TotalParamPortHeight =
-    WebAudio.GraphVisualizer.GraphStyles.AudioParamRadius * 2 + WebAudio.GraphVisualizer.GraphStyles.PortPadding;
 
-WebAudio.GraphVisualizer.GraphStyles.NodeLabelFontStyle = '14px Segoe UI, Arial';
-WebAudio.GraphVisualizer.GraphStyles.ParamLabelFontStyle = '12px Segoe UI, Arial';
+/* Legacy exported object */
+self.WebAudio = self.WebAudio || {};
+
+/* Legacy exported object */
+WebAudio = WebAudio || {};
+
+/* Legacy exported object */
+WebAudio.GraphVisualizer = WebAudio.GraphVisualizer || {};
+
+WebAudio.GraphVisualizer.GraphStyles = GraphStyles;
+
+WebAudio.GraphVisualizer.GraphStyles.TotalInputPortHeight = TotalInputPortHeight;
+WebAudio.GraphVisualizer.GraphStyles.TotalOutputPortHeight = TotalOutputPortHeight;
+WebAudio.GraphVisualizer.GraphStyles.TotalParamPortHeight = TotalParamPortHeight;
+WebAudio.GraphVisualizer.GraphStyles.NodeLabelFontStyle = NodeLabelFontStyle;
+WebAudio.GraphVisualizer.GraphStyles.ParamLabelFontStyle = ParamLabelFontStyle;
