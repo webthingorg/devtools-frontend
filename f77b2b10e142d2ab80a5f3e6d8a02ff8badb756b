@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a1c2ed9_6833fd28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-28T13:24:45Z",
+      "side": 1,
+      "message": "The performance tests will probably differ a lot. As a follow-up, we should consider using statistical test methods such as https://github.com/polymer/tachometer to obtain reliable performance results.",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "223749cf_c42e7af6",
+        "filename": "test/bootperf/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-28T13:24:45Z",
+      "side": 1,
+      "message": "Can we add the other options for Linux/Windows as well?",
+      "range": {
+        "startLine": 4,
+        "startChar": 68,
+        "endLine": 4,
+        "endChar": 117
+      },
+      "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c2d62ea_06b221cd",
+        "filename": "test/bootperf/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-28T13:24:45Z",
+      "side": 1,
+      "message": "```\nError: Cannot find module \u0027puppeteer\u0027\n```\n\nWe need to have a CL first to update the node_modules.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 116
+      },
+      "revId": "f77b2b10e142d2ab80a5f3e6d8a02ff8badb756b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
