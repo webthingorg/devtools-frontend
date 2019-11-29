@@ -9,7 +9,9 @@ import './TimelineIRModel.js';
 import './TimelineJSProfile.js';
 import './TimelineFrameModel.js';
 import './TimelineProfileTree.js';
+import './InputModel.js';
 
+import * as InputModel from './InputModel.js';
 import * as TimelineFrameModel from './TimelineFrameModel.js';
 import * as TimelineIRModel from './TimelineIRModel.js';
 import * as TimelineJSProfile from './TimelineJSProfile.js';
@@ -19,6 +21,7 @@ import * as TimelineProfileTree from './TimelineProfileTree.js';
 import * as TracingLayerTree from './TracingLayerTree.js';
 
 export {
+  InputModel,
   TimelineFrameModel,
   TimelineIRModel,
   TimelineJSProfile,

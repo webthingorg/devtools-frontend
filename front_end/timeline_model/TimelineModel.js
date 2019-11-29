@@ -34,6 +34,8 @@
 export class TimelineModelImpl {
   constructor() {
     this._reset();
+    this._inputModel =  // new TimelineModel.InputModel(SDK.targetManager.mainTarget());
+        SDK.targetManager.mainTarget().model(TimelineModel.InputModel);
   }
 
   /**
@@ -203,6 +205,18 @@ export class TimelineModelImpl {
     this._resetProcessingState();
   }
 
+  replayEvents() {
+    for (const track of this._tracks) {
+      if (track.name === TimelineModel.TimelineModel.RendererMainThreadName) {
+        for (const event of track.syncEvents()) {
+          if (event.name === TimelineModel.TimelineModel.RecordType.EventDispatch) {
+            this._inputModel.dispatchMouseEvent(event.args.data);
+            this._inputModel.dispatchKeyEvent(event.args.data);
+          }
+        }
+      }
+    }
+  }
   /**
    * @param {!SDK.TracingModel} tracingModel
    */
