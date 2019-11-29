@@ -21,7 +21,6 @@ all_devtools_files = [
   "front_end/application_test_runner/ResourcesTestRunner.js",
   "front_end/application_test_runner/ResourceTreeTestRunner.js",
   "front_end/application_test_runner/ServiceWorkersTestRunner.js",
-  "front_end/audits_worker.js",
   "front_end/audits_worker.json",
   "front_end/audits_worker/AuditsService.js",
   "front_end/audits_worker/lighthouse/lighthouse-dt-bundle.js",
@@ -522,7 +521,6 @@ all_devtools_files = [
   "front_end/worker_main/WorkerMain.js",
   "front_end/worker_main/module.json",
   "front_end/worker_service/module.json",
-  "front_end/worker_service/ServiceDispatcher.js",
   "front_end/workspace/module.json",
   "front_end/workspace_diff/module.json",
 ]
@@ -581,6 +579,11 @@ lighthouse_locale_files = [
 all_devtools_files += lighthouse_locale_files
 
 all_devtools_modules = [
+  "front_end/audits_worker/module.json",
+  "front_end/audits_worker.json",
+  "front_end/worker_service/module.json",
+  "front_end/worker_service/worker_service.js",
+  "front_end/worker_service/ServiceDispatcher.js",
   "front_end/snippets/snippets.js",
   "front_end/snippets/SnippetsQuickOpen.js",
   "front_end/snippets/ScriptSnippetFileSystem.js",
@@ -796,6 +799,7 @@ all_devtools_modules = [
   "front_end/cm/matchbrackets.js",
   "front_end/cm/multiplex.js",
   "front_end/cm/overlay.js",
+  "front_end/audits_worker.unbundled.js",
   "front_end/formatter_worker.unbundled.js",
   "front_end/heap_snapshot_worker.unbundled.js",
   "front_end/heap_snapshot_model/heap_snapshot_model.js",
@@ -1241,6 +1245,9 @@ application_templates = [
 ]
 
 copied_devtools_modules = [
+  "$resources_out_dir/audits_worker/module.json",
+  "$resources_out_dir/worker_service/module.json",
+  "$resources_out_dir/audits_worker.json",
   "$resources_out_dir/snippets/snippets.js",
   "$resources_out_dir/snippets/SnippetsQuickOpen.js",
   "$resources_out_dir/snippets/ScriptSnippetFileSystem.js",
@@ -1693,7 +1700,6 @@ copied_devtools_modules = [
 ]
 
 generated_applications = [
-  "$resources_out_dir/audits_worker.js",
   "$resources_out_dir/devtools_app.html",
   "$resources_out_dir/devtools_app.js",
   "$resources_out_dir/inspector.html",
@@ -1792,6 +1798,7 @@ generated_test_modules = [
 ]
 
 generated_worker_bundles = [
+  "$resources_out_dir/audits_worker.js",
   "$resources_out_dir/formatter_worker.js",
   "$resources_out_dir/heap_snapshot_worker.js",
 ]
