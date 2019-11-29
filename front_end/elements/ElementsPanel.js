@@ -920,8 +920,6 @@ export default class ElementsPanel extends UI.Panel {
   }
 }
 
-export const _elementsSidebarViewTitleSymbol = Symbol('title');
-
 /** @enum {symbol} */
 export const _splitMode = {
   Vertical: Symbol('Vertical'),
