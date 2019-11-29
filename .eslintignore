@@ -4,6 +4,7 @@ front_end/.eslintrc.js
 front_end/InspectorBackendCommands.js
 front_end/SupportedCSSProperties.js
 front_end/accessibility/ARIAProperties.js
+front_end/audits_worker.js
 front_end/formatter_worker.js
 front_end/heap_snapshot_worker.js
 front_end/audits_worker/lighthouse/
