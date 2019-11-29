@@ -70,6 +70,30 @@
       "revId": "c0a8599b15e6b7328b4ebdd1522c598868e97e65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa081dd9_65b18e3e",
+        "filename": "front_end/devices/DevicesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-11-29T13:35:54Z",
+      "side": 1,
+      "message": "Done. Sadly trying to tab into the link does not work, which seems to be an issue with the pane as a whole not being tabbable.\n\nSubmitting this for now and filed crbug.com/1029499 to track that issue.",
+      "parentUuid": "3804b69d_605c96a7",
+      "range": {
+        "startLine": 13,
+        "startChar": 52,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "c0a8599b15e6b7328b4ebdd1522c598868e97e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
