@@ -354,6 +354,12 @@
   <message name="IDS_DEVTOOLS_722e6ea747a62b7f93bb017d3dd04cbd" desc="Op codes continuation frame of map in Resource Web Socket Frame View of the Network panel">
     Continuation Frame
   </message>
+  <message name="IDS_DEVTOOLS_79e965ed81aa76ef2e18086b19b4dcf2" desc="">
+    Shows only requests with issues
+  </message>
+  <message name="IDS_DEVTOOLS_87df7d3cc3f8253a91b7e7d11cbc890a" desc="">
+    Only show issues
+  </message>
   <message name="IDS_DEVTOOLS_b85f4d2fed0fc1c5f95fd4a49ff6f2e7" desc="A tag of Network Conditions tool that can be searched in the command menu">
     user-agent
   </message>
