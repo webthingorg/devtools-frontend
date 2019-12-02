@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b8b244b_29a0779d",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-02T17:28:36Z",
+      "side": 1,
+      "message": "API incompatibility error: New parameters should not be added to the front of the parameter list. (Also: you\u0027re adding a fifth parameter here which is kind of gross).\n\nSuggest instead: Change your constructor to be prototyped as:\n\n    constructor(columnsArrayOrOptions, optionalEditCallback, optionalDeleteCallback, optionalRefreshCallback) {\n      let columnsArray, editCallback, deleteCallback, refreshCallback;\n      if (Array.is(columnsArrayOrOptions)) {\n        // original implementation\n        Common.console.warn(\u0027Expected \n        columnsArray \u003d columnsArrayOrOptions;\n        editCallback \u003d optionalEditCallback;\n        deleteCallback \u003d optionalDeleteCallback;\n        refreshCallback \u003d optionalRefreshCallback;\n      }\n      else {\n        { gridName, columnsArray, editCallback, deleteCallback, refreshCallback } \u003d columnsArrayOrOptions;\n      }\n    // ...\n\nIf preserving API compatibility isn\u0027t necessary, I suggest eliminating the set of parameters altogether and just going with an options bag.",
+      "revId": "dabb0c9b6ea4c85f30630f3abc817825749528c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
