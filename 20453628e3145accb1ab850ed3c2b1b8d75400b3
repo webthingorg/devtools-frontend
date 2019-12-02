@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c412f46_c70fdff8",
+        "filename": "front_end/profiler/HeapSnapshotDataGrids.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T14:52:49Z",
+      "side": 1,
+      "message": "Good catch, thanks!",
+      "parentUuid": "161ba49c_895a9079",
+      "range": {
+        "startLine": 153,
+        "startChar": 2,
+        "endLine": 153,
+        "endChar": 7
+      },
+      "revId": "20453628e3145accb1ab850ed3c2b1b8d75400b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9e9bf50_cf767b4b",
         "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c606caf5_1ae42002",
+        "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T14:52:49Z",
+      "side": 1,
+      "message": "Since the other method\u0027s return types are also wrong, I\u0027m leaving this to be fixed in the future.",
+      "parentUuid": "a9e9bf50_cf767b4b",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 23
+      },
+      "revId": "20453628e3145accb1ab850ed3c2b1b8d75400b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f587422_6f9c6def",
         "filename": "front_end/profiler/HeapSnapshotView.js",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "20453628e3145accb1ab850ed3c2b1b8d75400b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b2bf4e9_e4d722e2",
+        "filename": "front_end/profiler/HeapSnapshotView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T14:52:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f587422_6f9c6def",
+      "range": {
+        "startLine": 65,
+        "startChar": 77,
+        "endLine": 65,
+        "endChar": 104
+      },
+      "revId": "20453628e3145accb1ab850ed3c2b1b8d75400b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
