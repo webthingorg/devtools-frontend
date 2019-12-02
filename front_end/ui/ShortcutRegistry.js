@@ -135,7 +135,13 @@ export default class ShortcutRegistry {
       return;
     }
     for (const action of actions) {
-      if (await action.execute()) {
+      let result;
+      try {
+        result = await action.execute();
+      } catch (e) {
+        console.error(e);
+      }
+      if (result) {
         return;
       }
     }

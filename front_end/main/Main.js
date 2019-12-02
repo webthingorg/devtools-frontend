@@ -517,8 +517,11 @@ Main.Main.SearchActionDelegate = class {
    * @suppressGlobalPropertiesCheck
    */
   handleAction(context, actionId) {
-    const searchableView = UI.SearchableView.fromElement(document.deepActiveElement()) ||
-        UI.inspectorView.currentPanelDeprecated().searchableView();
+    let searchableView = UI.SearchableView.fromElement(document.deepActiveElement());
+    if (!searchableView) {
+      searchableView =
+          UI.inspectorView.currentPanelDeprecated() ? UI.inspectorView.currentPanelDeprecated().searchableView() : null;
+    }
     if (!searchableView) {
       return false;
     }
