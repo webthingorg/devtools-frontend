@@ -22,6 +22,30 @@
       "revId": "b2e92067f7426d04de314a9deddb67df71dc0267",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1a9d958_66e35050",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-12-02T12:05:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10dd044a_c7f8dcbb",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 34
+      },
+      "revId": "b2e92067f7426d04de314a9deddb67df71dc0267",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
