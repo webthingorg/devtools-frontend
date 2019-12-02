@@ -45,6 +45,30 @@
       "revId": "2d203e80283253e0e657c7d49eff8b864953d87e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18663f27_ede0621c",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-02T14:27:50Z",
+      "side": 1,
+      "message": "Good catch! I moved the imageErrors.push up to take this into account",
+      "parentUuid": "c58aac96_64f83a7b",
+      "range": {
+        "startLine": 181,
+        "startChar": 13,
+        "endLine": 181,
+        "endChar": 18
+      },
+      "revId": "2d203e80283253e0e657c7d49eff8b864953d87e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
