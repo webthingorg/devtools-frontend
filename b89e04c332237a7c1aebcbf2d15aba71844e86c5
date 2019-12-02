@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98cbd4c4_521420ff",
+        "filename": "scripts/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-02T14:57:55Z",
+      "side": 1,
+      "message": "Infra team has reviewed a couple of files in /scripts as well. But there a also several that I don\u0027t feel like owning.",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 44
+      },
+      "revId": "b89e04c332237a7c1aebcbf2d15aba71844e86c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
