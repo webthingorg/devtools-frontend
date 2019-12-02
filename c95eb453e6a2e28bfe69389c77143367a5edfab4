@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81f7a6c6_e379de92",
+        "filename": "front_end/main/Main.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-02T22:29:28Z",
+      "side": 1,
+      "message": "We\u0027re already in an interior block. Instead of using a ternary:\n\n    if (!searchableView) {\n      const currentPanel \u003d UI.inspectorView.currentPanelDeprecated();\n      if (currentPanel) {\n        searchableView \u003d currentPanel.searchableView();\n      }\n      if (!searchableView) {\n        return false;\n      }\n    }",
+      "revId": "c95eb453e6a2e28bfe69389c77143367a5edfab4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f849b957_3a1f995f",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-02T22:29:28Z",
+      "side": 1,
+      "message": "An alternative way to write this might be:\n\n    try {\n      const result \u003d await action.execute();\n      if (result) {\n        return result;\n      }\n    } catch (e) {\n      console.error(e);\n      throw e;\n    }\n\nI am concerned about swallowing the exception here. It is not a desirable outcome, as the state of the application is undefined.\n\nSuggest: within the `catch` at least, either `throw` or `return` so that successive actions are not executed.",
+      "revId": "c95eb453e6a2e28bfe69389c77143367a5edfab4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
