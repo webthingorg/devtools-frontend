@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "161ba49c_895a9079",
+        "filename": "front_end/profiler/HeapSnapshotDataGrids.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-02T10:50:53Z",
+      "side": 1,
+      "message": "Why did you change this function to async?",
+      "range": {
+        "startLine": 153,
+        "startChar": 2,
+        "endLine": 153,
+        "endChar": 7
+      },
+      "revId": "20453628e3145accb1ab850ed3c2b1b8d75400b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9e9bf50_cf767b4b",
+        "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-02T10:50:53Z",
+      "side": 1,
+      "message": "WDYT about returning null here?",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 23
+      },
+      "revId": "20453628e3145accb1ab850ed3c2b1b8d75400b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f587422_6f9c6def",
+        "filename": "front_end/profiler/HeapSnapshotView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-02T10:50:53Z",
+      "side": 1,
+      "message": "WDYT about storing the result of this call in a const and using that in all the constructor calls?",
+      "range": {
+        "startLine": 65,
+        "startChar": 77,
+        "endLine": 65,
+        "endChar": 104
+      },
+      "revId": "20453628e3145accb1ab850ed3c2b1b8d75400b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
