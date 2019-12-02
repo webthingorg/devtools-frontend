@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cf6d9ff8_afb8665d",
+        "filename": "front_end/main/Main.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-12-02T22:40:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81f7a6c6_e379de92",
+      "revId": "c95eb453e6a2e28bfe69389c77143367a5edfab4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f849b957_3a1f995f",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "c95eb453e6a2e28bfe69389c77143367a5edfab4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9bb4adc_5af84d8c",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1334845
+      },
+      "writtenOn": "2019-12-02T22:40:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f849b957_3a1f995f",
+      "revId": "c95eb453e6a2e28bfe69389c77143367a5edfab4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
