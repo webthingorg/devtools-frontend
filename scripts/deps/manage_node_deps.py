@@ -36,7 +36,8 @@ DEPS = {
     "mocha": "6.2.0",
     "puppeteer": "2.0.0",
     "rollup": "^1.23.1",
-    "typescript": "3.5.3"
+    "typescript": "3.5.3",
+    "yargs": "15.0.2"
 }
 
 
