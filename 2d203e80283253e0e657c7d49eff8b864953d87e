@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c58aac96_64f83a7b",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-02T11:30:32Z",
+      "side": 1,
+      "message": "Nit: line 171 already continues the for-loop, so this can\u0027t happen.",
+      "range": {
+        "startLine": 181,
+        "startChar": 13,
+        "endLine": 181,
+        "endChar": 18
+      },
+      "revId": "2d203e80283253e0e657c7d49eff8b864953d87e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
