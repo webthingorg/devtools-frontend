@@ -25,7 +25,7 @@ DEPS = {
     "escodegen": "1.12.0",
     "eslint": "6.0.1",
     "esprima": "git+https://git@github.com/ChromeDevTools/esprima.git#4d0f0e18bd8d3731e5f931bf573af3394cbf7cbe",
-    "handlebars": "^4.3.1",
+    "handlebars": "4.3.1",
     "karma": "4.2.0",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "3.1.0",
@@ -35,8 +35,9 @@ DEPS = {
     "karma-typescript": "4.1.1",
     "mocha": "6.2.0",
     "puppeteer": "2.0.0",
-    "rollup": "^1.23.1",
-    "typescript": "3.5.3"
+    "rollup": "1.23.1",
+    "typescript": "3.5.3",
+    "yargs": "15.0.2"
 }
 
 
@@ -85,6 +86,33 @@ def strip_private_fields():
     return False
 
 
+def install_missing_deps():
+    with open(devtools_paths.package_lock_json_path(), 'r+') as pkg_lock_file:
+        try:
+            pkg_lock_data = json.load(pkg_lock_file)
+            existing_deps = pkg_lock_data[u'dependencies']
+            new_deps = []
+
+            # Find any new DEPS and add them in.
+            for dep, version in DEPS.items():
+                if not (existing_deps[dep] and existing_deps[dep]['version'] == version):
+                    new_deps.append("%s@%s" % (dep, version))
+
+            # Now install.
+            if len(new_deps) > 0:
+                exec_command = ['npm', 'install', '--save-dev']
+                exec_command.extend(new_deps)
+
+                npm_proc_result = subprocess.check_call(exec_command, cwd=devtools_paths.root_path())
+                if npm_proc_result != 0:
+                    return True
+
+        except Exception as exception:
+            print('Unable to fix: %s' % exception)
+            return True
+    return False
+
+
 def append_package_json_entries():
     with open(devtools_paths.package_json_path(), 'r+') as pkg_file:
         try:
@@ -127,6 +155,10 @@ def install_deps():
     clean_node_modules()
 
     errors_found = append_package_json_entries()
+    if errors_found:
+        return True
+
+    errors_found = install_missing_deps()
     if errors_found:
         return True
 
