@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99894cc0_5ff30aaa",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-02T17:45:30Z",
+      "side": 1,
+      "message": "You seem to have snuck in a change that also alters the CSS class choice for the button, making no reference to it in the description. I would only expect this change to be replacing the call to ARIAUtils.markAsMenuButton.",
+      "revId": "b2fb593b95e24a55798fcb2df51ef961131b62b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
