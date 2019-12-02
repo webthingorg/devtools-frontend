@@ -16,6 +16,24 @@
       "revId": "b100df24b9f20611733d5f207e43c2f20b2ce092",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e90b392_0821c2e6",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2019-12-02T23:25:58Z",
+      "side": 1,
+      "message": "Yes, latency is measured in ms and throughput is measured in kb/s.\n \nI have uploaded a new patch with units attached to error message. \nThe intention of this change is to give error messages to users. Regarding changing the upper limits of latency and throughput value I would prefer to explore separately.",
+      "parentUuid": "3364e416_35380f4a",
+      "revId": "b100df24b9f20611733d5f207e43c2f20b2ce092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
