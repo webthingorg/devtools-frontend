@@ -932,7 +932,9 @@ export default class StylePropertyTreeElement extends UI.TreeElement {
     this._removePrompt();
     this.editingEnded(context);
     const isEditingName = context.isEditingName;
-    const nameValueEntered = isEditingName && this.nameElement.textContent.includes(':');
+    // If the underlying property has been ripped out, always assume that the value having been entered was
+    // a name-value pair and attempt to process it via the SDK.
+    const nameValueEntered = (isEditingName && this.nameElement.textContent.includes(':')) || !this.property;
 
     // Determine where to move to before making changes
     let createNewProperty, moveToSelector;
