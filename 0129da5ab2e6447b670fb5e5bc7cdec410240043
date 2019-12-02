@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d7c0954_71914b85",
+        "filename": "front_end/sources/SourcesView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-02T17:35:52Z",
+      "side": 1,
+      "message": "Was this just a bug before? I don\u0027t really understand why it would have just said \"Empty\" previously.",
+      "revId": "0129da5ab2e6447b670fb5e5bc7cdec410240043",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
