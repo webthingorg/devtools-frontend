@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e327462_1ff22cda",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T10:14:48Z",
+      "side": 1,
+      "message": "Let\u0027s narrow the use case down to only filter for cookies that have been blocked because of SameSite\u003dNone without Secure. We can always widen the scope later on.",
+      "range": {
+        "startLine": 133,
+        "startChar": 42,
+        "endLine": 133,
+        "endChar": 58
+      },
+      "revId": "cb4f8b2d6eb29c879bd28025836c6b827aa63527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ada9506b_ac83e997",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T10:14:48Z",
+      "side": 1,
+      "message": "other id?",
+      "range": {
+        "startLine": 133,
+        "startChar": 9,
+        "endLine": 133,
+        "endChar": 22
+      },
+      "revId": "cb4f8b2d6eb29c879bd28025836c6b827aa63527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae51e3d4_a81923b2",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T10:14:48Z",
+      "side": 1,
+      "message": "nit: stray change?",
+      "revId": "cb4f8b2d6eb29c879bd28025836c6b827aa63527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74ddd36f_bf25e94f",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T10:14:48Z",
+      "side": 1,
+      "message": "Could you add a category here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "cb4f8b2d6eb29c879bd28025836c6b827aa63527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ca15ac_3cf39c81",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T10:14:48Z",
+      "side": 1,
+      "message": "nit: JSDoc comment, and maybe let\u0027s not use target as that has a specific meaning.",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 8
+      },
+      "revId": "cb4f8b2d6eb29c879bd28025836c6b827aa63527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccec6a48_59e45c1c",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T10:14:48Z",
+      "side": 1,
+      "message": "Let\u0027s classify the kind of issue here, and have a category for cookies with the samesite/non-secure issue.",
+      "range": {
+        "startLine": 53,
+        "startChar": 15,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "cb4f8b2d6eb29c879bd28025836c6b827aa63527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74b209af_6c26f5f1",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-02T10:14:48Z",
+      "side": 1,
+      "message": "nit: we don\u0027t need this yet, so let\u0027s remove it.",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 8
+      },
+      "revId": "cb4f8b2d6eb29c879bd28025836c6b827aa63527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
