@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10dd044a_c7f8dcbb",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-02T11:45:25Z",
+      "side": 1,
+      "message": "Nit: add print of failure from the subprocess.",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 34
+      },
+      "revId": "b2e92067f7426d04de314a9deddb67df71dc0267",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
