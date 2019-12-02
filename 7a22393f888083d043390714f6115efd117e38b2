@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "088ca649_05ec0df9",
+        "filename": "scripts/test/run_boot_perf_check.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-02T17:13:41Z",
+      "side": 1,
+      "message": "nit: unused",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 21
+      },
+      "revId": "7a22393f888083d043390714f6115efd117e38b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c650ca3_88213778",
+        "filename": "scripts/test/run_boot_perf_check.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-02T17:13:41Z",
+      "side": 1,
+      "message": "Nit: instead of regex matching, you can do `argv.index(\u0027--chrome-binary\u0027)` and then argv[index + 1]`",
+      "range": {
+        "startLine": 85,
+        "startChar": 27,
+        "endLine": 85,
+        "endChar": 33
+      },
+      "revId": "7a22393f888083d043390714f6115efd117e38b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
