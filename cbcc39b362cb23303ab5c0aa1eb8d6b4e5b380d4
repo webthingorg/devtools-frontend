@@ -94,6 +94,30 @@
       "revId": "cbcc39b362cb23303ab5c0aa1eb8d6b4e5b380d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c14ef320_c0cca00e",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000191
+      },
+      "writtenOn": "2019-12-03T17:55:08Z",
+      "side": 1,
+      "message": "I would prefer to wait until the json files are added. We will probably want to make a note when we do that json is only used for locale files. (Sometimes json is also used for manifest files, which we may not wish to compress).",
+      "parentUuid": "4118774f_fc6a3d03",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 39
+      },
+      "revId": "cbcc39b362cb23303ab5c0aa1eb8d6b4e5b380d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
