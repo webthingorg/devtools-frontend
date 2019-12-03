@@ -195,7 +195,7 @@ TestRunner.addSnifferPromise = function(receiver, methodName) {
       // In case of exception the override won't be called.
       try {
         Array.prototype.push.call(arguments, result);
-        resolve.apply(this, arguments);
+        resolve.apply(this, [arguments]);
       } catch (e) {
         reject('Exception in overridden method \'' + methodName + '\': ' + e);
         TestRunner.completeTest();
