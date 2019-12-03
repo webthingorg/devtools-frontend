@@ -177,7 +177,7 @@ all_devtools_files = [
   "front_end/integration_test_runner.js",
   "front_end/integration_test_runner.json",
   "front_end/javascript_metadata/module.json",
-  "front_end/js_main/JsMain.js",
+
   "front_end/js_main/module.json",
   "front_end/js_profiler/module.json",
   "front_end/layer_viewer/layerDetailsView.css",
@@ -581,6 +581,8 @@ lighthouse_locale_files = [
 all_devtools_files += lighthouse_locale_files
 
 all_devtools_modules = [
+  "front_end/js_main/js_main.js",
+  "front_end/js_main/JsMain.js",
   "front_end/snippets/snippets.js",
   "front_end/snippets/SnippetsQuickOpen.js",
   "front_end/snippets/ScriptSnippetFileSystem.js",
@@ -1241,6 +1243,8 @@ application_templates = [
 ]
 
 copied_devtools_modules = [
+  "$resources_out_dir/js_main/js_main.js",
+  "$resources_out_dir/js_main/JsMain.js",
   "$resources_out_dir/snippets/snippets.js",
   "$resources_out_dir/snippets/SnippetsQuickOpen.js",
   "$resources_out_dir/snippets/ScriptSnippetFileSystem.js",
