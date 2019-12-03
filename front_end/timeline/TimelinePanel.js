@@ -606,9 +606,9 @@ Timeline.TimelinePanel = class extends UI.Panel {
     if (this._state !== Timeline.TimelinePanel.State.Idle) {
       return;
     }
-    this._recordingPageReload = true;
-    this._startRecording();
-    Host.userMetrics.actionTaken(Host.UserMetrics.Action.TimelinePageReloadStarted);
+    if (this._performanceModel.tracingModel()) {
+      this._performanceModel.timelineModel().replayEvents();
+    }
   }
 
   _onClearButton() {
