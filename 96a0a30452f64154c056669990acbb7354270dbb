@@ -22,6 +22,30 @@
       "revId": "96a0a30452f64154c056669990acbb7354270dbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36db6a4c_c4a61dee",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-12-03T13:55:28Z",
+      "side": 1,
+      "message": "I wanted to add comments but JSON is not that powerful. The last three are ones that I know we maintain. Everything else may be broken right now.",
+      "parentUuid": "ea0fad01_56e7bce7",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "96a0a30452f64154c056669990acbb7354270dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
