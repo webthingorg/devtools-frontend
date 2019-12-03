@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fbddd84_b3c84326",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-03T12:30:01Z",
+      "side": 1,
+      "message": "Nit: the Change-Id must be the last thing in the commit message. I\u0027ve moved this up",
+      "revId": "a8000e98e28c9a4e578f337a766994d8e0251db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
