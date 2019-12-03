@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35ce4dd7_2faed0a1",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T22:13:34Z",
+      "side": 1,
+      "message": "Eliminate the `this._targetDocumentKeyDownHandler` by assigning this field in the constructor instead of on show(). The odds of you initializing a Dialog that you won\u0027t then show is fairly low and might suggest a usage error anyway, and I\u0027m willing to have us pay that incremental memory cost.",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f3dad56_4500cea1",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T22:13:34Z",
+      "side": 1,
+      "message": "I think you should promote this function to a top-level function in this file.\n\nI don\u0027t see you closing over anything exterior except for the global `UI` (see comment below) here. It doesn\u0027t need to be a function. However, I think it\u0027s fair for it to be a function. Just move this to after the class and don\u0027t export it. I can imagine it becoming exported in the future.",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb8fa5ba_cd7a0866",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T22:13:34Z",
+      "side": 1,
+      "message": "This suggests to me that you should pass in a parameter of `{?OwnerSplit}` as a parameter to `getMainViewTabIndexElements`.",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b7b7df6_cdbbf7b0",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T22:13:34Z",
+      "side": 1,
+      "message": "Within `getMainViewTabIndexElements()`, you make reference to `UI.inspectorView`, but if this code does not find `UI` in the global scope, then `getMainViewTabIndexElements` will fail. \n\nCursorily looking, UI.inspectorView is defined in /main/Main.js, and is not exported. May not be possible to do at this time (or perhaps /main/Main.js should store a singleton into a different module which can be accessed later). I\u0027m not sure we need to do anything there, but just a thought.",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
