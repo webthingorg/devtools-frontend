@@ -187,10 +187,7 @@ all_devtools_files = [
   "front_end/layers/module.json",
   "front_end/layers_test_runner/LayersTestRunner.js",
   "front_end/layers_test_runner/module.json",
-  "front_end/main/ExecutionContextSelector.js",
-  "front_end/main/Main.js",
   "front_end/main/module.json",
-  "front_end/main/SimpleApp.js",
   "front_end/protocol_monitor/protocolMonitor.css",
   "front_end/protocol_monitor/module.json",
   "front_end/mobile_throttling/module.json",
@@ -581,6 +578,10 @@ lighthouse_locale_files = [
 all_devtools_files += lighthouse_locale_files
 
 all_devtools_modules = [
+  "front_end/main/main.js",
+  "front_end/main/SimpleApp.js",
+  "front_end/main/MainImpl.js",
+  "front_end/main/ExecutionContextSelector.js",
   "front_end/snippets/snippets.js",
   "front_end/snippets/SnippetsQuickOpen.js",
   "front_end/snippets/ScriptSnippetFileSystem.js",
@@ -1241,6 +1242,10 @@ application_templates = [
 ]
 
 copied_devtools_modules = [
+  "$resources_out_dir/main/main.js",
+  "$resources_out_dir/main/SimpleApp.js",
+  "$resources_out_dir/main/MainImpl.js",
+  "$resources_out_dir/main/ExecutionContextSelector.js",
   "$resources_out_dir/snippets/snippets.js",
   "$resources_out_dir/snippets/SnippetsQuickOpen.js",
   "$resources_out_dir/snippets/ScriptSnippetFileSystem.js",
