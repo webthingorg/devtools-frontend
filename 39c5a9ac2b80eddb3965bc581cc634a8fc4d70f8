@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "074158f3_64b66fe7",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T22:19:49Z",
+      "side": 1,
+      "message": "I am not sure what to make of this. I\u0027m not sure if.... \"usage\" is the proper term here.  It feels very misleading in the context of what we\u0027re measuring.\n\nI won\u0027t block on this though because I\u0027ve been sitting here trying to think of a better term and coming up empty.",
+      "revId": "39c5a9ac2b80eddb3965bc581cc634a8fc4d70f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
