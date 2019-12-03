@@ -1211,7 +1211,6 @@ export class LongClickController extends Common.Object {
      */
     function keyDown(e) {
       if (this._editKey(e)) {
-        e.consume(true);
         const callback = this._callback;
         this._longClickInterval = setTimeout(callback.bind(null, e), LongClickController.TIME_MS);
       }
@@ -1223,7 +1222,6 @@ export class LongClickController extends Common.Object {
      */
     function keyUp(e) {
       if (this._editKey(e)) {
-        e.consume(true);
         this.reset();
       }
     }
