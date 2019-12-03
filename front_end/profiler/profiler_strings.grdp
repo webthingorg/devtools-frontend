@@ -66,6 +66,9 @@
   <message name="IDS_DEVTOOLS_2def01e5dee6051b68f5b1e5e2fc8ad4" desc="Text in Heap Snapshot View of a profiler tool">
     System Objects
   </message>
+  <message name="IDS_DEVTOOLS_2def84b486af6b261b41e0d80f67c42f" desc="Profile type for memory tool sidebar tree elements">
+    Profile type: <ph name="THIS_PROFILE_PROFILETYPE___NAME">$1s<ex>HEAP SNAPSHOTS</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_2ebf8a926edeb0ca7de35c9b563ba797" desc="Filter label text in the Memory tool to filter class names for a heap snapshot">
     Class filter
   </message>
