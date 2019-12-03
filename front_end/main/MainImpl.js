@@ -31,7 +31,7 @@
 /**
  * @unrestricted
  */
-Main.Main = class {
+export class MainImpl {
   /**
    * @suppressGlobalPropertiesCheck
    */
@@ -471,13 +471,13 @@ Main.Main = class {
     const suspended = SDK.targetManager.allTargetsSuspended();
     UI.inspectorView.onSuspendStateChanged(suspended);
   }
-};
+}
 
 /**
  * @implements {UI.ActionDelegate}
  * @unrestricted
  */
-Main.Main.ZoomActionDelegate = class {
+export class ZoomActionDelegate {
   /**
    * @override
    * @param {!UI.Context} context
@@ -502,13 +502,13 @@ Main.Main.ZoomActionDelegate = class {
     }
     return false;
   }
-};
+}
 
 /**
  * @implements {UI.ActionDelegate}
  * @unrestricted
  */
-Main.Main.SearchActionDelegate = class {
+export class SearchActionDelegate {
   /**
    * @override
    * @param {!UI.Context} context
@@ -534,12 +534,12 @@ Main.Main.SearchActionDelegate = class {
     }
     return false;
   }
-};
+}
 
 /**
  * @implements {UI.ToolbarItem.Provider}
  */
-Main.Main.MainMenuItem = class {
+export class MainMenuItem {
   constructor() {
     this._item = new UI.ToolbarMenuButton(this._handleContextMenu.bind(this), true);
     this._item.setTitle(Common.UIString('Customize and control DevTools'));
@@ -660,12 +660,12 @@ Main.Main.MainMenuItem = class {
     const helpSubMenu = contextMenu.footerSection().appendSubMenuItem(Common.UIString('Help'));
     helpSubMenu.appendItemsAtLocation('mainMenuHelp');
   }
-};
+}
 
 /**
  * @unrestricted
  */
-Main.Main.PauseListener = class {
+export class PauseListener {
   constructor() {
     SDK.targetManager.addModelListener(
         SDK.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this._debuggerPaused, this);
@@ -682,14 +682,14 @@ Main.Main.PauseListener = class {
     UI.context.setFlavor(SDK.Target, debuggerModel.target());
     Common.Revealer.reveal(debuggerPausedDetails);
   }
-};
+}
 
 /**
  * @param {string} method
  * @param {?Object} params
  * @return {!Promise}
  */
-Main.sendOverProtocol = function(method, params) {
+export function sendOverProtocol(method, params) {
   return new Promise((resolve, reject) => {
     Protocol.test.sendRawMessage(method, params, (err, ...results) => {
       if (err) {
@@ -698,13 +698,13 @@ Main.sendOverProtocol = function(method, params) {
       return resolve(results);
     });
   });
-};
+}
 
 /**
  * @implements {UI.ActionDelegate}
  * @unrestricted
  */
-Main.ReloadActionDelegate = class {
+export class ReloadActionDelegate {
   /**
    * @override
    * @param {!UI.Context} context
@@ -719,6 +719,43 @@ Main.ReloadActionDelegate = class {
     }
     return false;
   }
-};
+}
 
-new Main.Main();
+new MainImpl();
+
+/* Legacy exported object */
+self.Main = self.Main || {};
+
+/* Legacy exported object */
+Main = Main || {};
+
+/**
+ * @constructor
+ */
+Main.Main = MainImpl;
+
+/**
+ * @constructor
+ */
+Main.Main.ZoomActionDelegate = ZoomActionDelegate;
+
+/**
+ * @constructor
+ */
+Main.Main.SearchActionDelegate = SearchActionDelegate;
+
+/**
+ * @constructor
+ */
+Main.Main.MainMenuItem = MainMenuItem;
+
+/**
+ * @constructor
+ */
+Main.Main.PauseListener = PauseListener;
+
+/**
+ * @constructor
+ */
+Main.ReloadActionDelegate = ReloadActionDelegate;
+Main.sendOverProtocol = sendOverProtocol;
