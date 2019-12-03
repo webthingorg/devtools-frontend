@@ -16,6 +16,24 @@
       "revId": "c8cf521f1947fabefb60f95e219ce0b5670e2808",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9753f434_d4990f69",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1334577
+      },
+      "writtenOn": "2019-12-03T23:07:39Z",
+      "side": 1,
+      "message": "Can remove. I was torn between whether or not it was needed, needed another opinion. I agree, it does say \"${profile_type}\" 1 of 1, so it seems it is part of it, so I will remove it.",
+      "parentUuid": "0d32cb4d_f8b8949a",
+      "revId": "c8cf521f1947fabefb60f95e219ce0b5670e2808",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
