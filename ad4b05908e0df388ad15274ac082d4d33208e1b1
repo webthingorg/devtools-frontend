@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade66e0e_048e5bbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2019-12-03T06:15:43Z",
+      "side": 1,
+      "message": "nit: Please include a link to the failed bot in the commit message of the revert in the future. Thanks!",
+      "range": {
+        "startLine": 11,
+        "startChar": 38,
+        "endLine": 11,
+        "endChar": 61
+      },
+      "revId": "ad4b05908e0df388ad15274ac082d4d33208e1b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
