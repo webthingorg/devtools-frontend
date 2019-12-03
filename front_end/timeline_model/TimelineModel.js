@@ -203,6 +203,14 @@ export class TimelineModelImpl {
     this._resetProcessingState();
   }
 
+  replayEvents() {
+    let inputModel = new TimelineModel.InputModel(SDK.targetManager.mainTarget())
+    for (const track of this._tracks) {
+      if (track.name === TimelineModel.TimelineModel.RendererMainThreadName) {
+        inputModel.replayEvents(track.syncEvents());
+      }
+    }
+  }
   /**
    * @param {!SDK.TracingModel} tracingModel
    */
