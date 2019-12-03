@@ -16,6 +16,24 @@
       "revId": "39c5a9ac2b80eddb3965bc581cc634a8fc4d70f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25c29aab_29c0c5d6",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-03T22:23:11Z",
+      "side": 1,
+      "message": "Hmm. Would \"Coverage Visualization\", or even just \"Visualization\" be better? I\u0027m not super attached to the title",
+      "parentUuid": "074158f3_64b66fe7",
+      "revId": "39c5a9ac2b80eddb3965bc581cc634a8fc4d70f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
