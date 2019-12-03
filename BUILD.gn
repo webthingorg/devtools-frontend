@@ -350,11 +350,8 @@ all_devtools_files = [
   "front_end/resources/ServiceWorkersView.js",
   "front_end/resources/StorageItemsView.js",
   "front_end/shell.json",
-  "front_end/screencast/InputModel.js",
   "front_end/screencast/module.json",
-  "front_end/screencast/ScreencastApp.js",
   "front_end/screencast/screencastView.css",
-  "front_end/screencast/ScreencastView.js",
   "front_end/sdk/module.json",
   "front_end/sdk_test_runner/module.json",
   "front_end/sdk_test_runner/PageMockTestRunner.js",
@@ -581,6 +578,10 @@ lighthouse_locale_files = [
 all_devtools_files += lighthouse_locale_files
 
 all_devtools_modules = [
+  "front_end/screencast/screencast.js",
+  "front_end/screencast/ScreencastView.js",
+  "front_end/screencast/ScreencastApp.js",
+  "front_end/screencast/InputModel.js",
   "front_end/snippets/snippets.js",
   "front_end/snippets/SnippetsQuickOpen.js",
   "front_end/snippets/ScriptSnippetFileSystem.js",
@@ -1241,6 +1242,10 @@ application_templates = [
 ]
 
 copied_devtools_modules = [
+  "$resources_out_dir/screencast/screencast.js",
+  "$resources_out_dir/screencast/ScreencastView.js",
+  "$resources_out_dir/screencast/ScreencastApp.js",
+  "$resources_out_dir/screencast/InputModel.js",
   "$resources_out_dir/snippets/snippets.js",
   "$resources_out_dir/snippets/SnippetsQuickOpen.js",
   "$resources_out_dir/snippets/ScriptSnippetFileSystem.js",
