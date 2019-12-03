@@ -1186,10 +1186,13 @@ export default class DataGridImpl extends Common.Object {
     if (!isContextMenuKey && target.isSelfOrDescendant(this._headerTableBody)) {
       if (this._headerContextMenuCallback) {
         this._headerContextMenuCallback(contextMenu);
-      } else {
-        contextMenu.show();
       }
+      contextMenu.show();
       return;
+    } else if (isContextMenuKey && this._headerContextMenuCallback) {
+      // Add header context menu to a subsection available from contextMenuKey
+      const headerSubMenu = contextMenu.defaultSection().appendSubMenuItem(ls`Header Options`);
+      this._headerContextMenuCallback(headerSubMenu);
     }
 
     const gridNode = isContextMenuKey ? this.selectedNode : this.dataGridNodeFromNode(target);
