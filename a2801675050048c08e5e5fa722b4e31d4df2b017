@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8af91f19_fb7b06d3",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-03T21:27:30Z",
+      "side": 1,
+      "message": "I just realized this parameter is unused. Let me remove that.",
+      "revId": "a2801675050048c08e5e5fa722b4e31d4df2b017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
