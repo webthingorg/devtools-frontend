@@ -5,7 +5,7 @@
 /**
  * @implements {Common.Runnable}
  */
-JsMain.JsMain = class extends Common.Object {
+export class JsMainImpl extends Common.Object {
   /**
    * @override
    */
@@ -17,3 +17,14 @@ JsMain.JsMain = class extends Common.Object {
     }, Components.TargetDetachedDialog.webSocketConnectionLost);
   }
 };
+
+/* Legacy exported object */
+self.JsMain = self.JsMain || {};
+
+/* Legacy exported object */
+JsMain = JsMain || {};
+
+/**
+ * @constructor
+ */
+JsMain.JsMain = JsMainImpl;
