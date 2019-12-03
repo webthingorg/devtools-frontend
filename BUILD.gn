@@ -280,7 +280,6 @@ all_devtools_files = [
   "front_end/perf_ui/pieChart.css",
   "front_end/perf_ui/timelineGrid.css",
   "front_end/perf_ui/timelineOverviewInfo.css",
-  "front_end/performance_monitor/PerformanceMonitor.js",
   "front_end/performance_monitor/performanceMonitor.css",
   "front_end/performance_monitor/module.json",
   "front_end/performance_test_runner/module.json",
@@ -581,6 +580,8 @@ lighthouse_locale_files = [
 all_devtools_files += lighthouse_locale_files
 
 all_devtools_modules = [
+  "front_end/performance_monitor/performance_monitor.js",
+  "front_end/performance_monitor/PerformanceMonitor.js",
   "front_end/snippets/snippets.js",
   "front_end/snippets/SnippetsQuickOpen.js",
   "front_end/snippets/ScriptSnippetFileSystem.js",
@@ -1241,6 +1242,8 @@ application_templates = [
 ]
 
 copied_devtools_modules = [
+  "$resources_out_dir/performance_monitor/performance_monitor.js",
+  "$resources_out_dir/performance_monitor/PerformanceMonitor.js",
   "$resources_out_dir/snippets/snippets.js",
   "$resources_out_dir/snippets/SnippetsQuickOpen.js",
   "$resources_out_dir/snippets/ScriptSnippetFileSystem.js",
