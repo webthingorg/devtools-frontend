@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aaa12b6_7bd5c59c",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T18:54:47Z",
+      "side": 1,
+      "message": "This change is weird. Maybe we should add a different API to dialog like \"setOutsideClickBehavior(NONE)\"?",
+      "revId": "7d80e0091f3f9fec96b9c8361458bb6d5c453687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f846d908_9ddf8d71",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T18:54:47Z",
+      "side": 1,
+      "message": "This is a misleading type annotation that suggests that `this._targetDocument` is always non-falsy. Prefer:\n\n    /** @type {?Document} */\n    this._targetDocument;\n\nwithin the constructor.",
+      "revId": "7d80e0091f3f9fec96b9c8361458bb6d5c453687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f9535e6_1dd6babe",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T18:54:47Z",
+      "side": 1,
+      "message": "This looks like you\u0027ve written odd JS just to please Closure. \n\n    const mainView \u003d UI.inspectorView.ownerSplit();\n    if (!mainView || !mainView.element) {\n      return;\n    }\n    \n    for (let node ...)\n\nPlease try to avoid ternaries and try to avoid duplicate-calls. A repeated expression evaluation like `UI.inspectorView.ownerSplit()` cannot be optimized away because the runtime can\u0027t infer that there won\u0027t be side effects.",
+      "revId": "7d80e0091f3f9fec96b9c8361458bb6d5c453687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df6f33bf_83aee530",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-03T18:54:47Z",
+      "side": 1,
+      "message": "Can\u0027t be `!` because `this._ownerSplitWidget` is not initialized in the constructor. Change to ? or throw an error if it isn\u0027t set.",
+      "revId": "7d80e0091f3f9fec96b9c8361458bb6d5c453687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
