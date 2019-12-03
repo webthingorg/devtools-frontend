@@ -529,6 +529,9 @@
   <message name="IDS_DEVTOOLS_d7778d0c64b6ba21494c97f77a66885a" desc="Text to filter result items">
     Filter
   </message>
+  <message name="IDS_DEVTOOLS_d9e39d238ea8f70b277a68d9c07b5046" desc="Error message in the Geolocations settings pane that declares timezone ID input invalid">
+    Timezone ID must contain &quot;/&quot;
+  </message>
   <message name="IDS_DEVTOOLS_dc30bc0c7914db5918da4263fce93ad2" desc="Text to clear content">
     Clear
   </message>

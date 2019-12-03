@@ -321,9 +321,6 @@
   <message name="IDS_DEVTOOLS_d15305d7a4e34e02489c74a5ef542f36" desc="Text in Sensors View of the Device Toolbar">
     Off
   </message>
-  <message name="IDS_DEVTOOLS_d9e39d238ea8f70b277a68d9c07b5046" desc="Error message in the Geolocations settings pane that declares timezone ID input invalid">
-    Timezone ID must contain &quot;/&quot;
-  </message>
   <message name="IDS_DEVTOOLS_da31f3ff326e70f6b08748520c553920" desc="Text in Sensors View of the Device Toolbar">
     γ (gamma)
   </message>

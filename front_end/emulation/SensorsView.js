@@ -96,6 +96,8 @@ Emulation.SensorsView = class extends UI.VBox {
     const latitudeGroup = this._fieldsetElement.createChild('div', 'latlong-group');
     const longitudeGroup = this._fieldsetElement.createChild('div', 'latlong-group');
     const timezoneGroup = this._fieldsetElement.createChild('div', 'latlong-group');
+    const errorMessageGroup = this._fieldsetElement.createChild('div', 'input-validation-error');
+    UI.ARIAUtils.markAsAlert(errorMessageGroup);
 
     const cmdOrCtrl = Host.isMac() ? '\u2318' : 'Ctrl';
     const modifierKeyMessage = ls`Adjust with mousewheel or up/down keys. ${cmdOrCtrl}: ±10, Shift: ±1, Alt: ±0.01`;
@@ -127,7 +129,7 @@ Emulation.SensorsView = class extends UI.VBox {
     this._timezoneInput.value = 'Europe/Berlin';
     this._timezoneSetter = UI.bindInput(
         this._timezoneInput, this._applyGeolocationUserInput.bind(this),
-        SDK.EmulationModel.Geolocation.timezoneIdValidator, false);
+        SDK.EmulationModel.Geolocation.timezoneIdValidator, false, undefined, errorMessageGroup);
     this._timezoneSetter(String(geolocation.timezoneId));
     timezoneGroup.appendChild(UI.createLabel(ls`Timezone ID`, 'timezone-title', this._timezoneInput));
   }
