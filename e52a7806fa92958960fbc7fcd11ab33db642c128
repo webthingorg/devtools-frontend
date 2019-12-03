@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66dcdfff_fefaad23",
+        "filename": "scripts/test/run_boot_perf_check.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-12-03T10:09:16Z",
+      "side": 1,
+      "message": "Let\u0027s put this into devtools_paths. I expect this to be relevant elsewhere.",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 30
+      },
+      "revId": "e52a7806fa92958960fbc7fcd11ab33db642c128",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
