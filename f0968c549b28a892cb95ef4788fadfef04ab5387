@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f22f9d74_37ee00cf",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-12-04T20:16:14Z",
+      "side": 1,
+      "message": "this comment is misleading, since there are two fields. \"Download\" and \"Upload\". Can we show the right field name here?",
+      "range": {
+        "startLine": 220,
+        "startChar": 15,
+        "endLine": 220,
+        "endChar": 26
+      },
+      "revId": "f0968c549b28a892cb95ef4788fadfef04ab5387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
