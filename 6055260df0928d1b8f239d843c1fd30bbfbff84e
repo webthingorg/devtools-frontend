@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "08e54ee3_2934186c",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-04T00:03:50Z",
+      "side": 1,
+      "message": "Good point - for some reason in my head I thought the key down handler could be externally reassigned. Moved to the constructor.",
+      "parentUuid": "35ce4dd7_2faed0a1",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f3dad56_4500cea1",
         "filename": "front_end/ui/Dialog.js",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5251275d_6a98480a",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-04T00:03:50Z",
+      "side": 1,
+      "message": "Done. I\u0027ve made it private for now and renamed View to Widget to be more consistent with other uses.",
+      "parentUuid": "0f3dad56_4500cea1",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f05b659e_5b264785",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-04T00:03:50Z",
+      "side": 1,
+      "message": "Good idea, done.",
+      "parentUuid": "bb8fa5ba_cd7a0866",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b7b7df6_cdbbf7b0",
         "filename": "front_end/ui/Dialog.js",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "740edf49_3ca8d25f",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-04T00:03:50Z",
+      "side": 1,
+      "message": "Indeed - `UI.inspectorView` is used throughout the codebase and is assumed to be globally available (along with `UI`). For example, SearchableView.js has the same pattern of referring to `UI.inspectorView...` and then assigning `UI \u003d UI || {}` at the bottom. Given how common references to `UI` are everywhere, I think it\u0027s safe to keep as-is.",
+      "parentUuid": "2b7b7df6_cdbbf7b0",
+      "revId": "6055260df0928d1b8f239d843c1fd30bbfbff84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
