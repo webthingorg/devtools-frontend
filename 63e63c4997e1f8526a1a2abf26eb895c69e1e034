@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a6fee37_48a515b6",
+        "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-04T01:01:37Z",
+      "side": 1,
+      "message": "renamed to _highlightedBreakpoint, also renamed oldHitBreakpoint in _update() to oldHighlightedBreakpoint",
+      "parentUuid": "19cbf2ec_54e0b3f5",
+      "revId": "63e63c4997e1f8526a1a2abf26eb895c69e1e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4188a980_7de23793",
         "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
         "patchSetId": 12
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0c4bf0d6_d08c350d",
+        "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-04T01:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4188a980_7de23793",
+      "revId": "63e63c4997e1f8526a1a2abf26eb895c69e1e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48939fa8_5fec88e5",
         "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
         "patchSetId": 12
@@ -50,6 +86,24 @@
       "revId": "63e63c4997e1f8526a1a2abf26eb895c69e1e034",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f99ec68e_ec23dc50",
+        "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-04T01:01:37Z",
+      "side": 1,
+      "message": "Thanks for the links, I\u0027ve updated it to return 0 if the types are equal",
+      "parentUuid": "48939fa8_5fec88e5",
+      "revId": "63e63c4997e1f8526a1a2abf26eb895c69e1e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
