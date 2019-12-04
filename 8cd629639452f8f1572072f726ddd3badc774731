@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cf8f3eb_2326d62f",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1150325
+      },
+      "writtenOn": "2019-12-04T05:42:29Z",
+      "side": 1,
+      "message": "I\u0027m in the process of publishing the doc.",
+      "revId": "8cd629639452f8f1572072f726ddd3badc774731",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
