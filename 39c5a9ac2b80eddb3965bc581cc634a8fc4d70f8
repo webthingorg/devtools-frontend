@@ -34,6 +34,24 @@
       "revId": "39c5a9ac2b80eddb3965bc581cc634a8fc4d70f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fba9bd65_ad39b24c",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-04T15:45:49Z",
+      "side": 1,
+      "message": "I\u0027m going to submit as is for now. If we come up with a better title, I\u0027m happy to update with a new CL in the future",
+      "parentUuid": "25c29aab_29c0c5d6",
+      "revId": "39c5a9ac2b80eddb3965bc581cc634a8fc4d70f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
