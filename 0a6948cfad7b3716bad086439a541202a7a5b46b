@@ -16,6 +16,24 @@
       "revId": "0a6948cfad7b3716bad086439a541202a7a5b46b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "833bd438_2d04e31f",
+        "filename": "front_end/profiler/HeapSnapshotDataGrids.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-04T17:33:57Z",
+      "side": 1,
+      "message": "I dont think so, for instance, say you filter and the node that was selected remains on the grid, wouldn\u0027t you expect that to retain selection?\n\nExample: https://imgur.com/vBeOVQk",
+      "parentUuid": "3f002315_94c7226c",
+      "revId": "0a6948cfad7b3716bad086439a541202a7a5b46b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
