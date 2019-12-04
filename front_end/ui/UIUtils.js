@@ -1652,24 +1652,28 @@ registerCustomElement('div', 'dt-close-button', class extends HTMLDivElement {
  * @param {function(string):{valid: boolean, errorMessage: (string|undefined)}} validate
  * @param {boolean} numeric
  * @param {number=} modifierMultiplier
+ * @param {!Element=} errorElement
  * @return {function(string)}
  */
-export function bindInput(input, apply, validate, numeric, modifierMultiplier) {
+export function bindInput(input, apply, validate, numeric, modifierMultiplier, errorElement) {
   input.addEventListener('change', onChange, false);
   input.addEventListener('input', onInput, false);
   input.addEventListener('keydown', onKeyDown, false);
   input.addEventListener('focus', input.select.bind(input), false);
 
   function onInput() {
-    input.classList.toggle('error-input', !validate(input.value));
+    const {valid, errorMessage} = validate(input.value);
+    input.classList.toggle('error-input', !valid);
+    setErrorMessage(errorElement, errorMessage);
   }
 
   function onChange() {
-    const {valid} = validate(input.value);
+    const {valid, errorMessage} = validate(input.value);
     input.classList.toggle('error-input', !valid);
     if (valid) {
       apply(input.value);
     }
+    setErrorMessage(errorElement, errorMessage);
   }
 
   /**
@@ -1677,10 +1681,11 @@ export function bindInput(input, apply, validate, numeric, modifierMultiplier) {
    */
   function onKeyDown(event) {
     if (isEnterKey(event)) {
-      const {valid} = validate(input.value);
+      const {valid, errorMessage} = validate(input.value);
       if (valid) {
         apply(input.value);
       }
+      setErrorMessage(errorElement, errorMessage);
       event.preventDefault();
       return;
     }
@@ -1702,15 +1707,26 @@ export function bindInput(input, apply, validate, numeric, modifierMultiplier) {
   }
 
   /**
+   * @param {!Element=} errorElement
+   * @param {string=} errorMessage
+   */
+  function setErrorMessage(errorElement, errorMessage) {
+    if (errorElement) {
+      errorElement.textContent = errorMessage || '';
+    }
+  }
+
+  /**
    * @param {string} value
    */
   function setValue(value) {
     if (value === input.value) {
       return;
     }
-    const {valid} = validate(value);
+    const {valid, errorMessage} = validate(value);
     input.classList.toggle('error-input', !valid);
     input.value = value;
+    setErrorMessage(errorElement, errorMessage);
   }
 
   return setValue;
