@@ -12,4 +12,7 @@
   <message name="IDS_DEVTOOLS_9f8e4d5e9b6d7a439dc6b5ebc5eedca4" desc="Text in Cookies Table of the Cookies table in the Application panel">
     SameSite
   </message>
+  <message name="IDS_DEVTOOLS_d678d46c4cf97ef8c9886d02c3a3e8f4" desc="Label for Context Menu entry">
+    Show in Network Panel
+  </message>
 </grit-part>
