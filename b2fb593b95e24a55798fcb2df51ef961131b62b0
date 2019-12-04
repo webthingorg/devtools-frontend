@@ -16,6 +16,24 @@
       "revId": "b2fb593b95e24a55798fcb2df51ef961131b62b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "303b3b99_e99e99e4",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-12-04T20:55:54Z",
+      "side": 1,
+      "message": "addressed this change in description",
+      "parentUuid": "99894cc0_5ff30aaa",
+      "revId": "b2fb593b95e24a55798fcb2df51ef961131b62b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
