@@ -178,7 +178,7 @@ Resources.CookieItemsView = class extends Resources.StorageItemsView {
     this._cookiesTable.setCookieDomain(host);
 
     const shownCookies = this.filter(allCookies, cookie => `${cookie.name()} ${cookie.value()} ${cookie.domain()}`);
-    this._cookiesTable.setCookies(shownCookies);
+    this._cookiesTable.setCookies(shownCookies, this._model.getCookieToBlockedReasonsMap());
     this.setCanFilter(true);
     this.setCanDeleteAll(true);
     this.setCanDeleteSelected(!!this._cookiesTable.selectedCookie());
