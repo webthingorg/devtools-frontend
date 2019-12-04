@@ -34,6 +34,24 @@
       "revId": "0a6948cfad7b3716bad086439a541202a7a5b46b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a54b758_ef1c462d",
+        "filename": "front_end/profiler/HeapSnapshotDataGrids.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-04T18:09:36Z",
+      "side": 1,
+      "message": "You know, I didn\u0027t think about the `return` statement and thought it just unconditionally deselected. Good note.",
+      "parentUuid": "833bd438_2d04e31f",
+      "revId": "0a6948cfad7b3716bad086439a541202a7a5b46b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
