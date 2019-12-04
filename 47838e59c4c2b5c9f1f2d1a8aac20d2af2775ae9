@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee109281_87d3930d",
+        "filename": "front_end/cookie_table/CookiesTable.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-04T17:30:07Z",
+      "side": 1,
+      "message": "Is this always getting displayed (also in the network view?)",
+      "range": {
+        "startLine": 552,
+        "startChar": 2,
+        "endLine": 552,
+        "endChar": 22
+      },
+      "revId": "47838e59c4c2b5c9f1f2d1a8aac20d2af2775ae9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a5e034c_61b4ba98",
+        "filename": "front_end/network/RequestCookiesView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-04T17:30:07Z",
+      "side": 1,
+      "message": "Do we need to parse the cookie at all? Is this field always present? What about cached requests?",
+      "range": {
+        "startLine": 169,
+        "startChar": 23,
+        "endLine": 169,
+        "endChar": 44
+      },
+      "revId": "47838e59c4c2b5c9f1f2d1a8aac20d2af2775ae9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "732ab74a_873c44e2",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-04T17:30:07Z",
+      "side": 1,
+      "message": "If this may be null, the code above (where my other comment is) needs revisiting. If this is for JSDoc only, please do a cast.",
+      "range": {
+        "startLine": 76,
+        "startChar": 11,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "47838e59c4c2b5c9f1f2d1a8aac20d2af2775ae9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
