@@ -875,7 +875,7 @@ export default class NetworkRequest extends Common.Object {
    */
   get responseCookies() {
     if (!this._responseCookies) {
-      this._responseCookies = SDK.CookieParser.parseSetCookie(this.responseHeaderValue('Set-Cookie'));
+      this._responseCookies = SDK.CookieParser.parseSetCookie(this.responseHeaderValue('Set-Cookie'), this.domain);
     }
     return this._responseCookies;
   }
