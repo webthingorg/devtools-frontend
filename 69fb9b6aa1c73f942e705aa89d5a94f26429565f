@@ -16,6 +16,24 @@
       "revId": "69fb9b6aa1c73f942e705aa89d5a94f26429565f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d8feff2_0ae3d361",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-04T09:24:08Z",
+      "side": 1,
+      "message": "Fix: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1888210",
+      "parentUuid": "c67ad009_3ed699b8",
+      "revId": "69fb9b6aa1c73f942e705aa89d5a94f26429565f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
