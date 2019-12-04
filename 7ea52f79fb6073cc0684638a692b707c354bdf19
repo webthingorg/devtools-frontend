@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34c72382_397704ec",
+        "filename": "front_end/ui/Dialog.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-04T21:29:10Z",
+      "side": 1,
+      "message": "why do we need to declare this here?",
+      "revId": "7ea52f79fb6073cc0684638a692b707c354bdf19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
