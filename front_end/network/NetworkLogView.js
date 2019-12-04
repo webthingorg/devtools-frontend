@@ -129,10 +129,10 @@ Network.NetworkLogView = class extends UI.VBox {
         UI.FilterUI.Events.FilterChanged, this._filterChanged.bind(this), this);
     filterBar.addFilter(this._resourceCategoryFilterUI);
 
-    this._onlyIssuesFilterUI = new UI.CheckboxFilterUI(
-        'only-show-issues', ls`Only show requests with SameSite issues`, true, this._networkShowIssuesOnlySetting);
+    this._onlyIssuesFilterUI =
+        new UI.CheckboxFilterUI('only-show-issues', ls`Has blocked cookies`, true, this._networkShowIssuesOnlySetting);
     this._onlyIssuesFilterUI.addEventListener(UI.FilterUI.Events.FilterChanged, this._filterChanged.bind(this), this);
-    this._onlyIssuesFilterUI.element().title = ls`Only show requests with SameSite issues`;
+    this._onlyIssuesFilterUI.element().title = ls`Only show requests with blocked response cookies`;
     filterBar.addFilter(this._onlyIssuesFilterUI);
 
 
@@ -342,6 +342,33 @@ Network.NetworkLogView = class extends UI.VBox {
    */
   static _requestSchemeFilter(value, request) {
     return request.scheme === value;
+  }
+
+  /**
+   * @param {string} value
+   * @param {!SDK.NetworkRequest} request
+   * @return {boolean}
+   */
+  static _requestCookieDomainFilter(value, request) {
+    return request.allCookiesIncludingBlockedOnes().some(cookie => cookie.domain() === value);
+  }
+
+  /**
+   * @param {string} value
+   * @param {!SDK.NetworkRequest} request
+   * @return {boolean}
+   */
+  static _requestCookieNameFilter(value, request) {
+    return request.allCookiesIncludingBlockedOnes().some(cookie => cookie.name() === value);
+  }
+
+  /**
+   * @param {string} value
+   * @param {!SDK.NetworkRequest} request
+   * @return {boolean}
+   */
+  static _requestCookieValueFilter(value, request) {
+    return request.allCookiesIncludingBlockedOnes().some(cookie => cookie.value() === value);
   }
 
   /**
@@ -1221,12 +1248,17 @@ Network.NetworkLogView = class extends UI.VBox {
     for (let i = 0, l = responseHeaders.length; i < l; ++i) {
       this._suggestionBuilder.addItem(Network.NetworkLogView.FilterType.HasResponseHeader, responseHeaders[i].name);
     }
-    const cookies = request.responseCookies;
-    for (let i = 0, l = cookies ? cookies.length : 0; i < l; ++i) {
-      const cookie = cookies[i];
+
+    for (const cookie of request.responseCookies) {
       this._suggestionBuilder.addItem(Network.NetworkLogView.FilterType.SetCookieDomain, cookie.domain());
       this._suggestionBuilder.addItem(Network.NetworkLogView.FilterType.SetCookieName, cookie.name());
       this._suggestionBuilder.addItem(Network.NetworkLogView.FilterType.SetCookieValue, cookie.value());
+    }
+
+    for (const cookie of request.allCookiesIncludingBlockedOnes()) {
+      this._suggestionBuilder.addItem(Network.NetworkLogView.FilterType.CookieDomain, cookie.domain());
+      this._suggestionBuilder.addItem(Network.NetworkLogView.FilterType.CookieName, cookie.name());
+      this._suggestionBuilder.addItem(Network.NetworkLogView.FilterType.CookieValue, cookie.value());
     }
 
     this._staleRequests.add(request);
@@ -1557,6 +1589,15 @@ Network.NetworkLogView = class extends UI.VBox {
 
       case Network.NetworkLogView.FilterType.SetCookieValue:
         return Network.NetworkLogView._requestSetCookieValueFilter.bind(null, value);
+
+      case Network.NetworkLogView.FilterType.CookieDomain:
+        return Network.NetworkLogView._requestCookieDomainFilter.bind(null, value);
+
+      case Network.NetworkLogView.FilterType.CookieName:
+        return Network.NetworkLogView._requestCookieNameFilter.bind(null, value);
+
+      case Network.NetworkLogView.FilterType.CookieValue:
+        return Network.NetworkLogView._requestCookieValueFilter.bind(null, value);
 
       case Network.NetworkLogView.FilterType.Priority:
         return Network.NetworkLogView._requestPriorityFilter.bind(null, PerfUI.uiLabelToNetworkPriority(value));
@@ -2008,6 +2049,9 @@ Network.NetworkLogView.FilterType = {
   SetCookieDomain: 'set-cookie-domain',
   SetCookieName: 'set-cookie-name',
   SetCookieValue: 'set-cookie-value',
+  CookieDomain: 'cookie-domain',
+  CookieName: 'cookie-name',
+  CookieValue: 'cookie-value',
   StatusCode: 'status-code'
 };
 
