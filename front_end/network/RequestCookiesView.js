@@ -166,14 +166,16 @@ Network.RequestCookiesView = class extends UI.Widget {
           continue;
         }
 
-        const cookie = parsedCookies[0];
-        responseCookieToBlockedReasons.set(cookie, blockedCookie.blockedReasons.map(blockedReason => {
-          return {
-            attribute: SDK.NetworkRequest.setCookieBlockedReasonToAttribute(blockedReason),
-            uiString: SDK.NetworkRequest.setCookieBlockedReasonToUiString(blockedReason)
-          };
-        }));
-        responseCookies.push(cookie);
+        const cookie = blockedCookie.cookie;
+        if (cookie) {
+          responseCookieToBlockedReasons.set(cookie, blockedCookie.blockedReasons.map(blockedReason => {
+            return {
+              attribute: SDK.NetworkRequest.setCookieBlockedReasonToAttribute(blockedReason),
+              uiString: SDK.NetworkRequest.setCookieBlockedReasonToUiString(blockedReason)
+            };
+          }));
+          responseCookies.push(cookie);
+        }
       }
     }
 
