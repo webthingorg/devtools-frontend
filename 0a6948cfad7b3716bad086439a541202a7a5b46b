@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f002315_94c7226c",
+        "filename": "front_end/profiler/HeapSnapshotDataGrids.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-04T17:19:39Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you just deselect all nodes, not just filtered nodes?\n\nI think that happens regardless, just picking on naming.",
+      "revId": "0a6948cfad7b3716bad086439a541202a7a5b46b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
