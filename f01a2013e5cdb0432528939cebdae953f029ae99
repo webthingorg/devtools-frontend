@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be65fc7c_a93f21d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-12-05T18:07:03Z",
+      "side": 1,
+      "message": "Can you file a bug for this?",
+      "revId": "f01a2013e5cdb0432528939cebdae953f029ae99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aa3ade1_8e83f9f9",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-12-05T18:07:03Z",
+      "side": 1,
+      "message": "Wow.... All the exports",
+      "revId": "f01a2013e5cdb0432528939cebdae953f029ae99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
