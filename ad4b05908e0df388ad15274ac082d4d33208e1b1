@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67deb0cc_77759bf3",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-12-05T06:43:23Z",
+      "side": 0,
+      "message": "removing this concerns me, since this class is used in the toolbar control. Are there any other side effects for other consumers?",
+      "range": {
+        "startLine": 1214,
+        "startChar": 10,
+        "endLine": 1214,
+        "endChar": 17
+      },
+      "revId": "ad4b05908e0df388ad15274ac082d4d33208e1b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

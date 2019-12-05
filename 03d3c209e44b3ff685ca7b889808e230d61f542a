@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93bd32fd_15dfb58e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-12-05T06:43:23Z",
+      "side": 1,
+      "message": "no need to prefix anymore",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8f19b14_7fb13c3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-12-05T06:43:23Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef4f58ca_befb035b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-12-05T06:43:23Z",
+      "side": 1,
+      "message": "Can we break the change so that we only change one part of the behavior at a time?",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a758333f_4f2a30d7",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-12-05T06:43:23Z",
+      "side": 1,
+      "message": "why are the focus event listeners needed here?",
+      "range": {
+        "startLine": 452,
+        "startChar": 37,
+        "endLine": 452,
+        "endChar": 42
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
