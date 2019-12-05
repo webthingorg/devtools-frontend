@@ -57,3 +57,63 @@ def builder(
     swarming_tags=swarming_tags,
     **kvargs
   )
+
+def generate_ci_configs(configurations, builders):
+  SERVICE_ACCOUNT='devtools-frontend-ci-builder@chops-service-accounts.iam.gserviceaccount.com'
+
+  for c in configurations:
+    builders_refs=[]
+
+    def ci_builder(**kvargs):
+      category=kvargs.pop('console_category')
+      builder(
+          bucket=c.bucket_name,
+          mastername="client.devtools-frontend.integration",
+          service_account=SERVICE_ACCOUNT,
+          schedule="triggered",
+          **kvargs
+      )
+      builders_refs.append((kvargs['name'], category))
+    
+    luci.bucket(
+        name=c.bucket_name,
+        acls=[
+          acls.readers,
+          acl.entry(
+              roles=acl.BUILDBUCKET_TRIGGERER,
+              users=[
+                SERVICE_ACCOUNT,
+                'luci-scheduler@appspot.gserviceaccount.com',
+              ]
+          ),
+        ],
+    )
+    for b in builders:
+      ci_builder(
+        name=b.name + c.name_suffix,
+        recipe_name=b.recipe_name,
+        dimensions=dimensions.default_ubuntu,
+        execution_timeout=2 * time.hour,
+        console_category='Linux'
+      )
+    luci.console_view(
+      name=c.view.lower(),
+      title=c.view,
+      repo=defaults.repo,
+      refs=[c.branch],
+      favicon=defaults.favicon,
+      header={
+        'tree_status_host': 'devtools-status.appspot.com'
+      },
+      entries=[
+        luci.console_view_entry(builder=name, category=category)
+        for name, category in builders_refs
+      ]
+    )
+    luci.gitiles_poller(
+      name='devtools-frontend-trigger-'+c.view.lower(),
+      bucket=c.bucket_name,
+      repo=defaults.repo,
+      refs=[c.branch],
+      triggers=[name for name, _ in builders_refs]
+    )
