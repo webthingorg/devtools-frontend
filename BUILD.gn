@@ -463,6 +463,8 @@ all_devtools_files = [
   "front_end/timeline/TimelineUIUtils.js",
   "front_end/timeline/UIDevtoolsController.js",
   "front_end/timeline/UIDevtoolsUtils.js",
+  "front_end/third_party/fabricjs/fabric.js",
+  "front_end/third_party/fabricjs/module.json",
   "front_end/toolbox_bootstrap/module.json",
   "front_end/toolbox_bootstrap/Toolbox.js",
   "front_end/toolbox.js",
@@ -1787,6 +1789,7 @@ generated_remote_modules = [
   "$resources_out_dir/audits_worker/audits_worker_module.js",
   "$resources_out_dir/dagre_layout/dagre_layout_module.js",
   "$resources_out_dir/emulated_devices/emulated_devices_module.js",
+  "$resources_out_dir/fabricjs/fabricjs_module.js",
 ]
 
 generated_test_modules = [
