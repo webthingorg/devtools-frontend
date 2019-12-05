@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f82ec9e_99f5df30",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2019-12-05T06:33:55Z",
+      "side": 1,
+      "message": "one side effect of this change is that the sliders now respond to up and down arrow keys. Is that intentional?",
+      "range": {
+        "startLine": 74,
+        "startChar": 54,
+        "endLine": 74,
+        "endChar": 71
+      },
+      "revId": "6ec0cbd0478e5c722605a32b4532e6e89aee8d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
