@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b59fa83b_c6f04c4e",
+        "filename": "buckets/ci.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-05T14:26:11Z",
+      "side": 1,
+      "message": "to be replaced with actual name tomorrow",
+      "range": {
+        "startLine": 19,
+        "startChar": 27,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "953381ad41a40c099634504fea84ad0841b62ffa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
