@@ -506,6 +506,30 @@
     },
     {
       "key": {
+        "uuid": "77c84a7e_2da09584",
+        "filename": "lib/builders.star",
+        "patchSetId": 25
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-05T12:13:55Z",
+      "side": 1,
+      "message": "YAGNI 😉",
+      "parentUuid": "0d1faaec_2568d763",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 34
+      },
+      "revId": "9770a7b013116e39b098da6265f739aef8106b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fff560e5_7faea7fa",
         "filename": "main.star",
         "patchSetId": 25

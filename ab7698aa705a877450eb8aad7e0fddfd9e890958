@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "04310045_38e0da35",
+        "filename": "buckets/ci.star",
+        "patchSetId": 29
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-05T12:13:55Z",
+      "side": 1,
+      "message": "nit: Looks like you made a 2-space indent everywhere now. I think after ( it should stay 4-space like in python. One reason e.g. is the structure after parenthesized if:\nif (\n    foo, bar):\n  next line\n\nOf course that\u0027s for python and not necessarily starlark...",
+      "revId": "ab7698aa705a877450eb8aad7e0fddfd9e890958",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bd02f2f_94fe8283",
+        "filename": "buckets/ci.star",
+        "patchSetId": 29
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-05T12:13:55Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 62,
+        "startChar": 13,
+        "endLine": 62,
+        "endChar": 14
+      },
+      "revId": "ab7698aa705a877450eb8aad7e0fddfd9e890958",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1361d18b_4f7b6588",
+        "filename": "buckets/try.star",
+        "patchSetId": 29
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-05T12:13:55Z",
+      "side": 1,
+      "message": "nit: whitespace",
+      "range": {
+        "startLine": 126,
+        "startChar": 22,
+        "endLine": 126,
+        "endChar": 23
+      },
+      "revId": "ab7698aa705a877450eb8aad7e0fddfd9e890958",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b7a8607_298bee0d",
         "filename": "generated/luci-scheduler.cfg",
         "patchSetId": 29
