@@ -65,6 +65,29 @@
     },
     {
       "key": {
+        "uuid": "f87e0eb7_36454632",
+        "filename": "generated/luci-scheduler.cfg",
+        "patchSetId": 29
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-05T12:21:13Z",
+      "side": 1,
+      "message": "why this difference? We would like sheriffs to be able to trigger the infra builder.",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "ab7698aa705a877450eb8aad7e0fddfd9e890958",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b7a8607_298bee0d",
         "filename": "generated/luci-scheduler.cfg",
         "patchSetId": 29
