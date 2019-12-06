@@ -16,6 +16,24 @@
       "revId": "3f1675536016c27124f3c4b9703824b24880c338",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a7961df_86b5be46",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-12-06T01:15:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9998ac10_580d82ad",
+      "revId": "3f1675536016c27124f3c4b9703824b24880c338",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
