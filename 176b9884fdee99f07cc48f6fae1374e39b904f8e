@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec8faf7_6bda16a5",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-06T09:59:28Z",
+      "side": 0,
+      "message": "\"Better use https:// twice, just to be sure.\"",
+      "revId": "176b9884fdee99f07cc48f6fae1374e39b904f8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
