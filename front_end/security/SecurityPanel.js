@@ -447,6 +447,7 @@ export class SecurityPanelSidebarTree extends UI.TreeOutlineInShadow {
     originGroup.setCollapsible(false);
     originGroup.expand();
     originGroup.listItemElement.classList.add('security-sidebar-origins');
+    UI.ARIAUtils.setAccessibleName(originGroup.childrenListElement, originGroupTitle);
     return originGroup;
   }
 
@@ -496,6 +497,7 @@ export class SecurityPanelSidebarTree extends UI.TreeOutlineInShadow {
       } else {
         newParent.title = ls`Main origin (non-secure)`;
       }
+      UI.ARIAUtils.setAccessibleName(newParent.childrenListElement, newParent.title);
     } else {
       switch (securityState) {
         case Protocol.Security.SecurityState.Secure:
