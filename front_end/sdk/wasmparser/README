@@ -1,0 +1,9 @@
+Code from https://github.com/EricSL/wasmparser/commit/94f68c163e44898c8f3add219dc6859b21074820
+
+Custom build steps:
+
+ * Run: `tsc -t ES5 -m ESNext`
+ * Copy resulting code for WasmDis.js and WasmParser.js
+ * Manually change imports to include '.js' extension
+ * Manually add legacy import code to bottom of file
+ * Manually remove source map

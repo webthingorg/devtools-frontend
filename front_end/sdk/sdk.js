@@ -63,6 +63,8 @@ import * as Target from './Target.js';
 import * as TargetManager from './TargetManager.js';
 import * as TracingManager from './TracingManager.js';
 import * as TracingModel from './TracingModel.js';
+import * as WasmDis from './wasmparser/WasmDis.js';
+import * as WasmParser from './wasmparser/WasmParser.js';
 
 export {
   ChildTargetManager,
@@ -115,4 +117,6 @@ export {
   TargetManager,
   TracingManager,
   TracingModel,
+  WasmDis,
+  WasmParser,
 };
