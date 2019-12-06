@@ -32,6 +32,11 @@ WebAudio.GraphVisualizer.Size;
 WebAudio.GraphVisualizer.Point;
 
 /**
+ * @typedef {{width: (?number|undefined), height: (?number|undefined), contextId: !Protocol.WebAudio.GraphObjectId}}
+ */
+WebAudio.GraphVisualizer.LayoutMetadata;
+
+/**
  * @typedef {{
  *   inputPortSectionHeight: number,
  *   outputPortSectionHeight: number,
@@ -53,7 +58,7 @@ WebAudio.GraphVisualizer.PortTypes = PortTypes;
  * @typedef {{
  *   id: string,
  *   type: !WebAudio.GraphVisualizer.PortTypes,
- *   label: (string|undefined),
+ *   label: string,
  *   x: number,
  *   y: number,
  * }}

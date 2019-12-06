@@ -53,6 +53,8 @@
 .context-detail-title {
   font-size: 15px;
   font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .context-detail-subtitle {
@@ -63,7 +65,7 @@
 
 .context-detail-row {
   flex-direction: row;
-  display: flex;
+  /* display: flex; */
   line-height: 18px;
   padding-left: 24px;
 }
@@ -72,6 +74,7 @@
   color: hsla(0, 0%, 46%, 1);
   overflow: hidden;
   width: 130px;
+  float: left;
 }
 
 .context-detail-row-value {
@@ -79,6 +82,9 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  float: left;
+  margin-left: 8px;
+  /* min-width: 61px;  If uncommented, detail value will be moved to the next line at the same time. */
 }
 
 .context-summary-container {
