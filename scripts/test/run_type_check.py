@@ -292,7 +292,6 @@ common_closure_args = [
     '--checks-only',
 ]
 
-
 def check_conditional_dependencies(modules_by_name):
     errors_found = False
     for name in modules_by_name:
