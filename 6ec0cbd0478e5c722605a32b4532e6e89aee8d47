@@ -22,6 +22,76 @@
       "revId": "6ec0cbd0478e5c722605a32b4532e6e89aee8d47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2be1af21_8b83be53",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1330653
+      },
+      "writtenOn": "2019-12-06T00:41:49Z",
+      "side": 1,
+      "message": "Using up/down arrow keys is good for SR users that don\u0027t know the orientation of the slider, so even if it wasn\u0027t intentional, I think it\u0027s goodness 😊",
+      "parentUuid": "4f82ec9e_99f5df30",
+      "range": {
+        "startLine": 74,
+        "startChar": 54,
+        "endLine": 74,
+        "endChar": 71
+      },
+      "revId": "6ec0cbd0478e5c722605a32b4532e6e89aee8d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4a33a0b_5002d087",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1330653
+      },
+      "writtenOn": "2019-12-06T00:41:49Z",
+      "side": 1,
+      "message": "When arrowing around, these feel like big jumps to me. Can you make them a bit smaller? Maybe half or a quarter of this size would feel a bit better",
+      "range": {
+        "startLine": 274,
+        "startChar": 6,
+        "endLine": 275,
+        "endChar": 73
+      },
+      "revId": "6ec0cbd0478e5c722605a32b4532e6e89aee8d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a5010f9_edfc696c",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1330653
+      },
+      "writtenOn": "2019-12-06T00:41:49Z",
+      "side": 1,
+      "message": "this is still a slider, why rename it?",
+      "range": {
+        "startLine": 345,
+        "startChar": 5,
+        "endLine": 345,
+        "endChar": 12
+      },
+      "revId": "6ec0cbd0478e5c722605a32b4532e6e89aee8d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
