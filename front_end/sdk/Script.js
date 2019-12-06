@@ -66,6 +66,7 @@ export default class Script {
     this._originalContentProvider = null;
     this._originalSource = null;
     this.originStackTrace = originStackTrace;
+    this._lineMap = null;
   }
 
   /**
@@ -96,6 +97,13 @@ export default class Script {
    */
   isContentScript() {
     return this._isContentScript;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isWasmDisassembly() {
+    return !!this._lineMap && !this.sourceMapURL;
   }
 
   /**
@@ -149,11 +157,33 @@ export default class Script {
     }
 
     try {
-      const source = await this.debuggerModel.target().debuggerAgent().getScriptSource(this.scriptId);
-      if (source && this.hasSourceURL) {
-        this._source = SDK.Script._trimSourceURLComment(source);
+      const sourceOrBytecode =
+          await this.debuggerModel.target().debuggerAgent().invoke_getScriptSource({scriptId: this.scriptId});
+      const source = sourceOrBytecode.scriptSource;
+      if (source) {
+        if (this.hasSourceURL) {
+          this._source = SDK.Script._trimSourceURLComment(source);
+        } else {
+          this._source = source;
+        }
       } else {
-        this._source = source || '';
+        this._source = '';
+        if (sourceOrBytecode.bytecode) {
+          const response = await fetch(`data:application/wasm;base64,${sourceOrBytecode.bytecode}`);
+          const buffer = await response.arrayBuffer();
+          const data = new Uint8Array(buffer);
+
+          // TODO: put this in a worker!
+          const parser = new SDK.WasmParser.BinaryReader();
+          parser.setData(data, 0, data.length);
+          const dis = new SDK.WasmDis.WasmDisassembler();
+          dis.addOffsets = true;
+          dis.disassembleChunk(parser);
+          const result = dis.getResult();
+          this._source = result.lines.join('\n');
+          this._lineMap = result.offsets;
+          this.endLine = this._lineMap.length;
+        }
       }
 
       if (this._originalSource === null) {
@@ -261,6 +291,30 @@ export default class Script {
       return new SDK.DebuggerModel.Location(this.debuggerModel, this.scriptId, lineNumber, columnNumber);
     }
     return null;
+  }
+
+  /**
+   * @param {number} lineNumber
+   * @return {?SDK.DebuggerModel.Location}
+   */
+  wasmByteLocation(lineNumber) {
+    if (lineNumber < this._lineMap.length) {
+      return new SDK.DebuggerModel.Location(this.debuggerModel, this.scriptId, 0, this._lineMap[lineNumber]);
+    }
+    return null;
+  }
+
+  /**
+   * @param {!SDK.DebuggerModel.Location} byteOffset
+   * @return {number}
+   */
+  wasmDisassemblyLine(byteOffset) {
+    let line = 0;
+    // TODO: Implement binary search if necessary for large wasm modules
+    while (line < this._lineMap.length && byteOffset > this._lineMap[line]) {
+      line++;
+    }
+    return line;
   }
 
   /**
