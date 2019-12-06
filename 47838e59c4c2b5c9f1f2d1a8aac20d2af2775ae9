@@ -116,6 +116,30 @@
       "revId": "47838e59c4c2b5c9f1f2d1a8aac20d2af2775ae9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0e9d002_2a665b38",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-06T14:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "732ab74a_873c44e2",
+      "range": {
+        "startLine": 76,
+        "startChar": 11,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "47838e59c4c2b5c9f1f2d1a8aac20d2af2775ae9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
