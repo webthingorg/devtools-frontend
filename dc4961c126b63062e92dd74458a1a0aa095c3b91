@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88fa9ebd_db7f21fc",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-06T14:27:28Z",
+      "side": 1,
+      "message": "There\u0027s a lot happening on this one line. Could we split it up for improved readability?\n\n    const extraValues \u003d valueObj.values.filter(extraVal \u003d\u003e !curList.includes(extraVal));\n    _propertyDataMap[prop].values \u003d curList.concat(extraValues);\n\nAnd maybe even `const someNiceName \u003d _propertyDataMap[prop];` outside the loop, since it\u0027s used three times.",
+      "revId": "dc4961c126b63062e92dd74458a1a0aa095c3b91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
