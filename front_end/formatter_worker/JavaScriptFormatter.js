@@ -172,6 +172,18 @@ export class JavaScriptFormatter {
       if (AT.punctuator(token, '?:')) {
         return 'sts';
       }
+    } else if (node.type === 'MemberExpression') {
+      // If a MemberExpression has an integer literal as the left-hand-side it
+      // must have a space before it. Otherwise `1 .toString()` could get
+      // reformated as `1.toString()` which would incorrectly parse the '.' as
+      // part of the integer.
+      //
+      // We'll also needlessly put spaces after things like '1.0', '0x1', '01',
+      // or '1e0'; treating those differently would be more complicated.
+      if (node.object.type === 'Literal' && AT.punctuator(token, '.') && typeof node.object.value === 'number' &&
+          Number.isInteger(node.object.value)) {
+        return 'st';
+      }
     } else if (node.type === 'VariableDeclarator') {
       if (AT.punctuator(token, '=')) {
         return 'sts';
