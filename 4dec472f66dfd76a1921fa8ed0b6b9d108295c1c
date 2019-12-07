@@ -93,6 +93,30 @@
       "revId": "4dec472f66dfd76a1921fa8ed0b6b9d108295c1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7183224_3d3a2e62",
+        "filename": "front_end/ui/ListControl.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-12-07T00:37:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0aee20c_690bafa5",
+      "range": {
+        "startLine": 494,
+        "startChar": 4,
+        "endLine": 502,
+        "endChar": 5
+      },
+      "revId": "4dec472f66dfd76a1921fa8ed0b6b9d108295c1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
