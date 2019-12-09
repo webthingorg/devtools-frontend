@@ -89,6 +89,17 @@ export class ParsedURL {
   }
 
   /**
+   * @return {?ParsedURL}
+   */
+  static fromString(string) {
+    const parsedURL = new ParsedURL(string.toString());
+    if (parsedURL.isValid) {
+      return parsedURL;
+    }
+    return null;
+  }
+
+  /**
    * @param {string} fileSystemPath
    * @return {string}
    */
@@ -164,7 +175,7 @@ export class ParsedURL {
    * @return {string}
    */
   static extractPath(url) {
-    const parsedURL = url.asParsedURL();
+    const parsedURL = Common.ParsedURL.fromString(url);
     return parsedURL ? parsedURL.path : '';
   }
 
@@ -173,7 +184,7 @@ export class ParsedURL {
    * @return {string}
    */
   static extractOrigin(url) {
-    const parsedURL = url.asParsedURL();
+    const parsedURL = Common.ParsedURL.fromString(url);
     return parsedURL ? parsedURL.securityOrigin() : '';
   }
 
@@ -228,12 +239,12 @@ export class ParsedURL {
     }
 
     // Return absolute URLs as-is.
-    const parsedHref = trimmedHref.asParsedURL();
+    const parsedHref = Common.ParsedURL.fromString(trimmedHref);
     if (parsedHref && parsedHref.scheme) {
       return trimmedHref;
     }
 
-    const parsedURL = baseURL.asParsedURL();
+    const parsedURL = Common.ParsedURL.fromString(baseURL);
     if (!parsedURL) {
       return null;
     }
@@ -415,17 +426,6 @@ export class ParsedURL {
     return this.url;
   }
 }
-
-/**
- * @return {?ParsedURL}
- */
-String.prototype.asParsedURL = function() {
-  const parsedURL = new ParsedURL(this.toString());
-  if (parsedURL.isValid) {
-    return parsedURL;
-  }
-  return null;
-};
 
 /* Legacy exported object */
 self.Common = self.Common || {};
