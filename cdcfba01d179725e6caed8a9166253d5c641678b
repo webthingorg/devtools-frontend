@@ -116,6 +116,30 @@
       "revId": "cdcfba01d179725e6caed8a9166253d5c641678b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06e7146e_753b5c26",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T15:26:34Z",
+      "side": 0,
+      "message": "Will do.\n\nI\u0027m not up to speed on this discussion, but I don\u0027t see why we\u0027d have to support multiple Node.js versions. We could just pick a version, codify it in .nvmrc, and ask contributors to use that version.",
+      "parentUuid": "014acacd_def4ed75",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "cdcfba01d179725e6caed8a9166253d5c641678b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
