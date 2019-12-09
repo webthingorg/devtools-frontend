@@ -118,6 +118,30 @@
       "revId": "cbcc39b362cb23303ab5c0aa1eb8d6b4e5b380d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a1d4eee_4bf7b7c3",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-12-09T16:54:19Z",
+      "side": 1,
+      "message": "I\u0027m fine with that.",
+      "parentUuid": "c14ef320_c0cca00e",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 39
+      },
+      "revId": "cbcc39b362cb23303ab5c0aa1eb8d6b4e5b380d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
