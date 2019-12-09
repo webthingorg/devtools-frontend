@@ -53,8 +53,8 @@ export default class JavaScriptAutocomplete {
           silent: true,
           returnByValue: false,
           generatePreview: false,
-          throwOnSideEffect: functionCall.possibleSideEffects,
-          timeout: functionCall.possibleSideEffects ? 500 : undefined
+          throwOnSideEffect: true,
+          timeout: 500,
         },
         /* userGesture */ false, /* awaitPromise */ false);
     if (!result || result.exceptionDetails || !result.object || result.object.type !== 'function') {
@@ -71,8 +71,8 @@ export default class JavaScriptAutocomplete {
             silent: true,
             returnByValue: false,
             generatePreview: false,
-            throwOnSideEffect: functionCall.possibleSideEffects,
-            timeout: functionCall.possibleSideEffects ? 500 : undefined
+            throwOnSideEffect: true,
+            timeout: 500,
           },
           /* userGesture */ false, /* awaitPromise */ false);
       return (result && !result.exceptionDetails && result.object) ? result.object : null;
@@ -191,7 +191,7 @@ export default class JavaScriptAutocomplete {
     }
 
     const expression = await Formatter.formatterWorkerPool().findLastExpression(text.substring(0, mapMatch.index));
-    if (!expression) {
+    if (expression === null) {
       return [];
     }
 
@@ -203,8 +203,8 @@ export default class JavaScriptAutocomplete {
           silent: true,
           returnByValue: false,
           generatePreview: false,
-          throwOnSideEffect: expression.possibleSideEffects,
-          timeout: expression.possibleSideEffects ? 500 : undefined
+          throwOnSideEffect: true,
+          timeout: 500,
         },
         /* userGesture */ false, /* awaitPromise */ false);
     if (result.error || !!result.exceptionDetails || result.object.subtype !== 'map') {
@@ -297,17 +297,17 @@ export default class JavaScriptAutocomplete {
     if (!executionContext) {
       return [];
     }
-    let expression;
+    let expression = null;
     if (fullText.endsWith('.') || fullText.endsWith('[')) {
       expression = await Formatter.formatterWorkerPool().findLastExpression(fullText.substring(0, fullText.length - 1));
     }
-    if (!expression) {
+    if (expression === null) {
       if (fullText.endsWith('.')) {
         return [];
       }
-      expression = {baseExpression: '', possibleSideEffects: false};
+      expression = '';
     }
-    const needsNoSideEffects = expression.possibleSideEffects;
+    const needsNoSideEffects = true;
     const expressionString = expression.baseExpression;
 
 

@@ -254,7 +254,7 @@ export function format(mimeType, text, indentString) {
 
 /**
  * @param {string} content
- * @return {?{baseExpression: string, possibleSideEffects:boolean, receiver: string, argumentIndex: number, functionName: string}}
+ * @return {?{baseExpression: string, receiver: string, argumentIndex: number, functionName: string}}
  */
 export function findLastFunctionCall(content) {
   if (content.length > 10000) {
@@ -288,14 +288,13 @@ export function findLastFunctionCall(content) {
   const argumentIndex = base.baseNode['arguments'].length - 1;
   const baseExpression =
       `(${base.baseExpression.substring(callee.start - base.baseNode.start, callee.end - base.baseNode.start)})`;
-  const possibleSideEffects = _nodeHasPossibleSideEffects(callee);
   let receiver = '(function(){return this})()';
   if (callee.type === 'MemberExpression') {
     const receiverBase = callee['object'];
     receiver =
         base.baseExpression.substring(receiverBase.start - base.baseNode.start, receiverBase.end - base.baseNode.start);
   }
-  return {baseExpression, receiver, possibleSideEffects, argumentIndex, functionName};
+  return {baseExpression, receiver, argumentIndex, functionName};
 }
 
 /**
@@ -369,7 +368,7 @@ export function argumentsList(content) {
 
 /**
  * @param {string} content
- * @return {?{baseExpression: string, possibleSideEffects:boolean}}
+ * @return {string|null}
  */
 export function findLastExpression(content) {
   if (content.length > 10000) {
@@ -396,9 +395,8 @@ export function findLastExpression(content) {
   if (!base) {
     return null;
   }
-  const {baseExpression, baseNode} = base;
-  const possibleSideEffects = _nodeHasPossibleSideEffects(baseNode);
-  return {baseExpression, possibleSideEffects};
+  const {baseExpression} = base;
+  return baseExpression;
 }
 
 /**
@@ -441,28 +439,6 @@ export function _lastCompleteExpression(content, suffix, types) {
     baseExpression = `(${baseExpression})`;
   }
   return {baseNode, baseExpression};
-}
-
-/**
- * @param {!ESTree.Node} baseNode
- * @return {boolean}
- */
-export function _nodeHasPossibleSideEffects(baseNode) {
-  const sideEffectFreeTypes = new Set([
-    'MemberExpression', 'Identifier', 'BinaryExpression', 'Literal', 'TemplateLiteral', 'TemplateElement',
-    'ObjectExpression', 'ArrayExpression', 'Property', 'ThisExpression'
-  ]);
-  let possibleSideEffects = false;
-  const sideEffectwalker = new FormatterWorker.ESTreeWalker(node => {
-    if (!possibleSideEffects && !sideEffectFreeTypes.has(node.type)) {
-      possibleSideEffects = true;
-    }
-    if (possibleSideEffects) {
-      return FormatterWorker.ESTreeWalker.SkipSubtree;
-    }
-  });
-  sideEffectwalker.walk(/** @type {!ESTree.Node} */ (baseNode));
-  return possibleSideEffects;
 }
 
 /**
@@ -516,5 +492,4 @@ FormatterWorker.findLastFunctionCall = findLastFunctionCall;
 FormatterWorker.argumentsList = argumentsList;
 FormatterWorker.findLastExpression = findLastExpression;
 FormatterWorker._lastCompleteExpression = _lastCompleteExpression;
-FormatterWorker._nodeHasPossibleSideEffects = _nodeHasPossibleSideEffects;
 FormatterWorker.FormatterWorkerContentParser = FormatterWorkerContentParser;
