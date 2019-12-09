@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8a0c1bc1_ffb4219d",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-09T10:42:09Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "a50f35a0_74fad40b",
+      "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30afa4bb_57c3727e",
         "filename": "front_end/resources/AppManifestView.js",
         "patchSetId": 1
@@ -33,6 +51,70 @@
       "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "055054cf_f779d71c",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-09T10:42:09Z",
+      "side": 1,
+      "message": "I didn\u0027t know about this api - thanks for fixing that.",
+      "parentUuid": "30afa4bb_57c3727e",
+      "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db71fe8b_832c7272",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-09T10:42:09Z",
+      "side": 1,
+      "message": "This seems to break the existing code because in line 198, the properties naturalWidth and naturalHeight of the returned object will be accessed.",
+      "range": {
+        "startLine": 253,
+        "startChar": 13,
+        "endLine": 253,
+        "endChar": 20
+      },
+      "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baeab0fe_65eac5eb",
+        "filename": "front_end/ui/reportView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-09T10:42:09Z",
+      "side": 1,
+      "message": "Why is the identation different? Isn\u0027t there an autoformatting that should have taken care of that?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 28
+      },
+      "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
