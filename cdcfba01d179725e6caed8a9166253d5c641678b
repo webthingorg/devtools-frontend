@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80ba24e3_e6bb62c2",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T15:16:49Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d1eeba1b_7e26dcd3",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 15
+      },
+      "revId": "cdcfba01d179725e6caed8a9166253d5c641678b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b6f23c_8b0e331e",
         "filename": "package.json",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "cdcfba01d179725e6caed8a9166253d5c641678b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdcc1e52_29aad5f0",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T15:16:49Z",
+      "side": 0,
+      "message": "TIL, done. FWIW the other check-* scripts seem to be working now, to the extent that they at least don\u0027t print obvious errors.",
+      "parentUuid": "b7b6f23c_8b0e331e",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "cdcfba01d179725e6caed8a9166253d5c641678b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
