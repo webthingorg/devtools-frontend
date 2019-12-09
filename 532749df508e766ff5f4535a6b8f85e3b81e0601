@@ -22,6 +22,30 @@
       "revId": "532749df508e766ff5f4535a6b8f85e3b81e0601",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "230ea97f_cd71bae5",
+        "filename": "scripts/json_validator/module.schema.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T13:57:21Z",
+      "side": 1,
+      "message": "Good call; done!",
+      "parentUuid": "ae199869_6c78797a",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "532749df508e766ff5f4535a6b8f85e3b81e0601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
