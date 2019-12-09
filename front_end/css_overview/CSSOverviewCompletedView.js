@@ -498,7 +498,8 @@ export class ElementDetailsView extends UI.Widget {
       {id: 'sourceURL', title: ls`Source`, visible: true, sortable: false, hideable: true, weight: 100}
     ];
 
-    this._elementGrid = new DataGrid.SortableDataGrid(this._elementGridColumns);
+    this._elementGrid =
+        new DataGrid.SortableDataGrid({gridName: ls`CSS Overview Elements`, columnsArray: this._elementGridColumns});
     this._elementGrid.element.classList.add('element-grid');
     this._elementGrid.element.addEventListener('mouseover', this._onMouseOver.bind(this));
     this._elementGrid.setStriped(true);

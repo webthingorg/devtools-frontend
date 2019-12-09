@@ -98,8 +98,10 @@ export default class NetworkLogViewColumns {
     this._popoverHelper.setTimeout(300, 300);
 
     /** @type {!DataGrid.SortableDataGrid<!Network.NetworkNode>} */
-    this._dataGrid =
-        new DataGrid.SortableDataGrid(this._columns.map(NetworkLogViewColumns._convertToDataGridDescriptor));
+    this._dataGrid = new DataGrid.SortableDataGrid({
+      gridName: ls`Network Log`,
+      columnsArray: this._columns.map(NetworkLogViewColumns._convertToDataGridDescriptor)
+    });
     this._dataGrid.element.addEventListener('mousedown', event => {
       if (!this._dataGrid.selectedNode && event.button) {
         event.consume();

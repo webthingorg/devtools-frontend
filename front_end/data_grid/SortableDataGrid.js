@@ -8,13 +8,10 @@
  */
 export default class SortableDataGrid extends DataGrid.ViewportDataGrid {
   /**
-   * @param {!Array<!DataGrid.DataGrid.ColumnDescriptor>} columnsArray
-   * @param {function(!NODE_TYPE, string, string, string)=} editCallback
-   * @param {function(!NODE_TYPE)=} deleteCallback
-   * @param {function()=} refreshCallback
+   * @param {!DataGrid.DataGrid.Parameters} dataGridParameters
    */
-  constructor(columnsArray, editCallback, deleteCallback, refreshCallback) {
-    super(columnsArray, editCallback, deleteCallback, refreshCallback);
+  constructor(dataGridParameters) {
+    super(dataGridParameters);
     /** @type {function(!NODE_TYPE, !NODE_TYPE):number} */
     this._sortingFunction = DataGrid.SortableDataGrid.TrivialComparator;
     this.setRootNode(/** @type {!DataGrid.SortableDataGridNode<!NODE_TYPE>} */ (new DataGrid.SortableDataGridNode()));
@@ -72,9 +69,10 @@ export default class SortableDataGrid extends DataGrid.ViewportDataGrid {
   /**
    * @param {!Array.<string>} columnNames
    * @param {!Array.<string>} values
+   * @param {string} gridName
    * @return {?DataGrid.SortableDataGrid<!DataGrid.SortableDataGridNode>}
    */
-  static create(columnNames, values) {
+  static create(columnNames, values, gridName) {
     const numColumns = columnNames.length;
     if (!numColumns) {
       return null;
@@ -92,7 +90,7 @@ export default class SortableDataGrid extends DataGrid.ViewportDataGrid {
         data[j] = values[numColumns * i + j];
       }
 
-      const node = new DataGrid.SortableDataGridNode(data);
+      const node = new DataGrid.SortableDataGridNode({gridName, columnsArray: data});
       node.selectable = false;
       nodes.push(node);
     }
