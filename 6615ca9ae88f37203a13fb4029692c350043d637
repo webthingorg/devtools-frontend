@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ccf6a5c_505a93c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T09:15:26Z",
+      "side": 1,
+      "message": "Maybe add something like:\n\nInstead of trying to guess whether some JavaScript code has side-effects or not in the DevTools front-end, this patch relies on V8\u0027s more robust capability to figure that out.",
+      "revId": "6615ca9ae88f37203a13fb4029692c350043d637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
