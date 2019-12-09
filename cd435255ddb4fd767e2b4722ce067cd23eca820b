@@ -46,6 +46,30 @@
       "revId": "cd435255ddb4fd767e2b4722ce067cd23eca820b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5494058_765db2a6",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-09T21:51:49Z",
+      "side": 1,
+      "message": "Hmmm,I\u0027m not sure what else would make more sense. The only other role I\u0027ve used that\u0027s read out the expanded/collapsed state is button, but that wouldn\u0027t really fit here. If we stick with treeitem we should probably mark its parent as tree to satisfy the required context roles for treeitem: https://www.w3.org/TR/wai-aria-1.1/#treeitem",
+      "parentUuid": "68fd88c9_bcdf75e1",
+      "range": {
+        "startLine": 379,
+        "startChar": 17,
+        "endLine": 379,
+        "endChar": 31
+      },
+      "revId": "cd435255ddb4fd767e2b4722ce067cd23eca820b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
