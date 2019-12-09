@@ -22,6 +22,30 @@
       "revId": "1eb54e4849ad7b368177663cfa1da9cd350b1bfc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab0f263e_58fdabab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T14:25:37Z",
+      "side": 1,
+      "message": "Yep. I\u0027ll let you take care of that one ;)",
+      "parentUuid": "44dab2e2_be2dd797",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "1eb54e4849ad7b368177663cfa1da9cd350b1bfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
