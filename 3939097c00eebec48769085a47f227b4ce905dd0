@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3108213b_f6946a16",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T15:22:39Z",
+      "side": 1,
+      "message": "Nit: Can this be moved to line 36 instead to be consistent with the \"formatting because JSON does not have comments\"?",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "3939097c00eebec48769085a47f227b4ce905dd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
