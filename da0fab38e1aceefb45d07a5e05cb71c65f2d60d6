@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b652bf3d_c27130a1",
+        "filename": "scripts/migration/move-side-effects-to-legacy.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T11:48:34Z",
+      "side": 1,
+      "message": "Nit: move this in the `AssignmentExpression` block before line 39. This if-statement currently implicitly assumes that it is inside an `AssignmentExpression`.",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 23
+      },
+      "revId": "da0fab38e1aceefb45d07a5e05cb71c65f2d60d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "274f4441_73d2e786",
+        "filename": "scripts/migration/move-side-effects-to-legacy.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T11:48:34Z",
+      "side": 1,
+      "message": "Nit: add comment to state why we keep type-defs in a separate array. (I was confused at first, until I realized that it is used to put all type-defs at the end of the file)",
+      "range": {
+        "startLine": 111,
+        "startChar": 21,
+        "endLine": 111,
+        "endChar": 60
+      },
+      "revId": "da0fab38e1aceefb45d07a5e05cb71c65f2d60d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d906581_2aaffdb6",
+        "filename": "scripts/migration/move-side-effects-to-legacy.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T11:48:34Z",
+      "side": 1,
+      "message": "Why is ARIAUtils not in there? What about `platform/utilities.js`?",
+      "range": {
+        "startLine": 123,
+        "startChar": 8,
+        "endLine": 123,
+        "endChar": 62
+      },
+      "revId": "da0fab38e1aceefb45d07a5e05cb71c65f2d60d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
