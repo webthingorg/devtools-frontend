@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "e9baeb4b_ae441ae1",
+        "filename": "lib/builders.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-09T10:50:52Z",
+      "side": 1,
+      "message": "I was planning to transition to such a construct once we have a few more deviations from the common parameters.",
+      "parentUuid": "ae9ea435_7ff0ee1f",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31c1a704_b2d14b9c",
         "filename": "lib/builders.star",
         "patchSetId": 3
