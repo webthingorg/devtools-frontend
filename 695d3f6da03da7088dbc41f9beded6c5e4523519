@@ -16,6 +16,24 @@
       "revId": "695d3f6da03da7088dbc41f9beded6c5e4523519",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d704aa0_2e1aac10",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T14:22:11Z",
+      "side": 1,
+      "message": "Sure, I generally avoid single-char identifiers in new code. I\u0027ll go ahead and update this despite being unrelated to the change. Thanks!\n\nBtw, I think `f` was supposed to stand for \"fulfill\", but \"reject\" is actually the more accurate term here.",
+      "parentUuid": "e1c7090d_00a6449e",
+      "revId": "695d3f6da03da7088dbc41f9beded6c5e4523519",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
