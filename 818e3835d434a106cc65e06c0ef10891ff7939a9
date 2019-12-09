@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d5d6456_72d9dddd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T12:24:53Z",
+      "side": 1,
+      "message": "Normally we add the new test in a Chromium CL (and have it disabled in the TestExpectations), then land the change in DevTools and then (after the roll is finished) enable the test in Chromium.\n\nCould you create the test and let me review it before submitting this CL?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "818e3835d434a106cc65e06c0ef10891ff7939a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
