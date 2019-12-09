@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1eeba1b_7e26dcd3",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T14:43:33Z",
+      "side": 0,
+      "message": "Move this down below with the other working scripts.",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 15
+      },
+      "revId": "cdcfba01d179725e6caed8a9166253d5c641678b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b6f23c_8b0e331e",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T14:43:33Z",
+      "side": 0,
+      "message": "These were below to say \"Yes we checked them and they are working\". The other checks are presumed \"Not working\" until we verified they are.",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "cdcfba01d179725e6caed8a9166253d5c641678b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
