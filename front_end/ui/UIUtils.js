@@ -2210,6 +2210,7 @@ export function createExpandableText(text, maxLength) {
   const expandElement = fragment.createChild('span');
   const totalBytes = Number.bytesToString(2 * text.length);
   if (text.length < 10000000) {
+    expandElement.setAttribute('data-type', 'expandable-text-button');
     expandElement.setAttribute('data-text', ls`Show more (${totalBytes})`);
     expandElement.classList.add('expandable-inline-button');
     expandElement.addEventListener('click', clickHandler);
@@ -2226,6 +2227,7 @@ export function createExpandableText(text, maxLength) {
   }
 
   const copyButton = fragment.createChild('span', 'expandable-inline-button');
+  copyButton.setAttribute('data-type', 'expandable-text-button');
   copyButton.setAttribute('data-text', ls`Copy`);
   copyButton.addEventListener('click', () => {
     Host.InspectorFrontendHost.copyText(text);

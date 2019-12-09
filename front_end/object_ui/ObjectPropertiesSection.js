@@ -982,6 +982,14 @@ export class ObjectPropertyTreeElement extends UI.TreeElement {
       contextMenu.viewSection().appendItem(ls`Expand recursively`, this.expandRecursively.bind(this, Number.MAX_VALUE));
       contextMenu.viewSection().appendItem(ls`Collapse children`, this.collapseChildren.bind(this));
     }
+    const valueElementButtons = this.valueElement.querySelectorAll('[data-type="expandable-text-button"]');
+    if (valueElementButtons.length) {
+      valueElementButtons.forEach(button => {
+        contextMenu.clipboardSection().appendItem(button.getAttribute('data-text'), () => {
+          button.click();
+        });
+      });
+    }
     contextMenu.show();
   }
 
