@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4650f6d7_e5e2dc16",
+        "filename": "lib/builders.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-09T15:11:23Z",
+      "side": 1,
+      "message": "nit: If this is only used once below, the data could also be inlined without repeating anything.",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 29
+      },
+      "revId": "1ac5bf4be4557cf92f80a90e9cf6caafbec4e5c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
