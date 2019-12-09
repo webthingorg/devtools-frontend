@@ -96,7 +96,7 @@ Media.EventDisplayTable = class extends UI.VBox {
       }
     }
 
-    const datagrid = new DataGrid.SortableDataGrid(gridColumnDescs);
+    const datagrid = new DataGrid.SortableDataGrid({gridName: ls`Event Display`, columnsArray: gridColumnDescs});
     if (default_sort) {
       datagrid.sortNodes(sortFunctionMap.get(default_sort), !datagrid.isSortOrderAscending());
 

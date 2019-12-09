@@ -35,11 +35,11 @@ Profiler.HeapSnapshotSortableDataGrid = class extends DataGrid.DataGrid {
   /**
    * @param {?SDK.HeapProfilerModel} heapProfilerModel
    * @param {!Profiler.ProfileType.DataDisplayDelegate} dataDisplayDelegate
-   * @param {!Array.<!DataGrid.DataGrid.ColumnDescriptor>} columns
+   * @param {!DataGrid.DataGrid.Parameters} dataGridParameters
    */
-  constructor(heapProfilerModel, dataDisplayDelegate, columns) {
+  constructor(heapProfilerModel, dataDisplayDelegate, dataGridParameters) {
     // TODO(allada) This entire class needs to be converted to use the templates in DataGridNode.
-    super(columns);
+    super(dataGridParameters);
     this._heapProfilerModel = heapProfilerModel;
     this._dataDisplayDelegate = dataDisplayDelegate;
     const tooltips = [
@@ -336,10 +336,10 @@ Profiler.HeapSnapshotViewportDataGrid = class extends Profiler.HeapSnapshotSorta
   /**
    * @param {?SDK.HeapProfilerModel} heapProfilerModel
    * @param {!Profiler.ProfileType.DataDisplayDelegate} dataDisplayDelegate
-   * @param {!Array.<!DataGrid.DataGrid.ColumnDescriptor>} columns
+   * @param {!DataGrid.DataGrid.Parameters} dataGridParameters
    */
-  constructor(heapProfilerModel, dataDisplayDelegate, columns) {
-    super(heapProfilerModel, dataDisplayDelegate, columns);
+  constructor(heapProfilerModel, dataDisplayDelegate, dataGridParameters) {
+    super(heapProfilerModel, dataDisplayDelegate, dataGridParameters);
     this.scrollContainer.addEventListener('scroll', this._onScroll.bind(this), true);
     this._topPaddingHeight = 0;
     this._bottomPaddingHeight = 0;
@@ -627,22 +627,23 @@ Profiler.HeapSnapshotContainmentDataGrid = class extends Profiler.HeapSnapshotSo
   /**
    * @param {?SDK.HeapProfilerModel} heapProfilerModel
    * @param {!Profiler.ProfileType.DataDisplayDelegate} dataDisplayDelegate
-   * @param {!Array.<!DataGrid.DataGrid.ColumnDescriptor>=} columns
+   * @param {!DataGrid.DataGrid.Parameters} dataGridParameters
    */
-  constructor(heapProfilerModel, dataDisplayDelegate, columns) {
-    columns = columns || (/** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-                {id: 'object', title: ls`Object`, disclosure: true, sortable: true},
-                {id: 'distance', title: ls`Distance`, width: '70px', sortable: true, fixedWidth: true},
-                {id: 'shallowSize', title: ls`Shallow Size`, width: '110px', sortable: true, fixedWidth: true}, {
-                  id: 'retainedSize',
-                  title: ls`Retained Size`,
-                  width: '110px',
-                  sortable: true,
-                  fixedWidth: true,
-                  sort: DataGrid.DataGrid.Order.Descending
-                }
-              ]));
-    super(heapProfilerModel, dataDisplayDelegate, columns);
+  constructor(heapProfilerModel, dataDisplayDelegate, dataGridParameters) {
+    dataGridParameters.columnsArray =
+        dataGridParameters.columnsArray || (/** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
+          {id: 'object', title: ls`Object`, disclosure: true, sortable: true},
+          {id: 'distance', title: ls`Distance`, width: '70px', sortable: true, fixedWidth: true},
+          {id: 'shallowSize', title: ls`Shallow Size`, width: '110px', sortable: true, fixedWidth: true}, {
+            id: 'retainedSize',
+            title: ls`Retained Size`,
+            width: '110px',
+            sortable: true,
+            fixedWidth: true,
+            sort: DataGrid.DataGrid.Order.Descending
+          }
+        ]));
+    super(heapProfilerModel, dataDisplayDelegate, dataGridParameters);
   }
 
   /**
@@ -693,7 +694,7 @@ Profiler.HeapSnapshotRetainmentDataGrid = class extends Profiler.HeapSnapshotCon
       {id: 'shallowSize', title: ls`Shallow Size`, width: '110px', sortable: true, fixedWidth: true},
       {id: 'retainedSize', title: ls`Retained Size`, width: '110px', sortable: true, fixedWidth: true}
     ]);
-    super(heapProfilerModel, dataDisplayDelegate, columns);
+    super(heapProfilerModel, dataDisplayDelegate, {gridName: ls`Heap Snapshot Retainment`, columnsArray: columns});
   }
 
   /**
@@ -755,7 +756,7 @@ Profiler.HeapSnapshotConstructorsDataGrid = class extends Profiler.HeapSnapshotV
         fixedWidth: true
       }
     ]);
-    super(heapProfilerModel, dataDisplayDelegate, columns);
+    super(heapProfilerModel, dataDisplayDelegate, {gridName: ls`Heap Snapshot Constructors`, columnsArray: columns});
     this._profileIndex = -1;
     this._objectIdToSelect = null;
   }
@@ -917,7 +918,7 @@ Profiler.HeapSnapshotDiffDataGrid = class extends Profiler.HeapSnapshotViewportD
       {id: 'removedSize', title: ls`Freed Size`, width: '75px', sortable: true, fixedWidth: true},
       {id: 'sizeDelta', title: ls`Size Delta`, width: '75px', sortable: true, fixedWidth: true}
     ]);
-    super(heapProfilerModel, dataDisplayDelegate, columns);
+    super(heapProfilerModel, dataDisplayDelegate, {gridName: ls`Heap Snapshot Diff`, columnsArray: columns});
   }
 
   /**
@@ -996,7 +997,7 @@ Profiler.AllocationDataGrid = class extends Profiler.HeapSnapshotViewportDataGri
       },
       {id: 'name', title: ls`Function`, disclosure: true, sortable: true},
     ]);
-    super(heapProfilerModel, dataDisplayDelegate, columns);
+    super(heapProfilerModel, dataDisplayDelegate, {gridName: ls`Allocation`, columnsArray: columns});
     this._linkifier = new Components.Linkifier();
   }
 

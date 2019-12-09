@@ -29,18 +29,17 @@
  */
 export default class DataGridImpl extends Common.Object {
   /**
-   * @param {!Array.<!DataGrid.DataGrid.ColumnDescriptor>} columnsArray
-   * @param {function(!NODE_TYPE, string, string, string)=} editCallback
-   * @param {function(!NODE_TYPE)=} deleteCallback
-   * @param {function()=} refreshCallback
+   * @param {!DataGrid.DataGrid.Parameters} dataGridParameters
    */
-  constructor(columnsArray, editCallback, deleteCallback, refreshCallback) {
+  constructor(dataGridParameters) {
     super();
+    const {gridName, columnsArray, editCallback, deleteCallback, refreshCallback} = dataGridParameters;
     this.element = createElementWithClass('div', 'data-grid');
     UI.appendStyle(this.element, 'data_grid/dataGrid.css');
     this.element.tabIndex = 0;
     this.element.addEventListener('keydown', this._keyDown.bind(this), false);
     this.element.addEventListener('contextmenu', this._contextMenu.bind(this), true);
+    UI.ARIAUtils.setAccessibleName(this.element, ls`${gridName} Data Grid`);
 
     this._editCallback = editCallback;
     this._deleteCallback = deleteCallback;
@@ -2346,6 +2345,17 @@ DataGrid = DataGrid || {};
 
 /**
  * @typedef {{
+ *   gridName: string,
+ *   columnsArray: !Array.<!DataGrid.DataGrid.ColumnDescriptor>,
+ *   editCallback: (function(!NODE_TYPE, string, string, string)|undefined),
+ *   deleteCallback: (function(!NODE_TYPE)|undefined),
+ *   refreshCallback: (function()|undefined)
+ * }}
+ */
+DataGrid.Parameters;
+
+/**
+ * @typedef {{
  *   id: string,
  *   title: (string|undefined),
  *   titleDOMFragment: (?DocumentFragment|undefined),
@@ -2398,6 +2408,17 @@ DataGrid.DataGrid.Align = Align;
 
 /** @enum {string} */
 DataGrid.DataGrid.ResizeMethod = ResizeMethod;
+
+/**
+ * @typedef {{
+  *   gridName: string,
+  *   columnsArray: !Array.<!DataGrid.DataGrid.ColumnDescriptor>,
+  *   editCallback: (function(!NODE_TYPE, string, string, string)|undefined),
+  *   deleteCallback: (function(!NODE_TYPE)|undefined),
+  *   refreshCallback: (function()|undefined)
+  * }}
+  */
+DataGrid.DataGrid.Parameters = DataGrid.Parameters;
 
 /**
  * @typedef {{
