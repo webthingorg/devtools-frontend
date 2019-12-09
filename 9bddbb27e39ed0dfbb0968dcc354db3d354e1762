@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a23ab524_2947176e",
+        "filename": "buckets/ci.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-09T10:13:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04814b45_a54f194e",
+      "range": {
+        "startLine": 19,
+        "startChar": 27,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c051e79_09e37867",
         "filename": "buckets/ci.star",
         "patchSetId": 3
@@ -69,6 +93,30 @@
       "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "047d159b_b439b3af",
+        "filename": "buckets/ci.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-09T10:13:05Z",
+      "side": 1,
+      "message": "Added an exception parameter to specify this.",
+      "parentUuid": "5c051e79_09e37867",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 8
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "214244da_fc10d515",
+        "filename": "lib/builders.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-09T10:13:05Z",
+      "side": 1,
+      "message": "I was not able to understand how one can declare structs in Starlark... So I added some documentation.",
+      "parentUuid": "169a3369_aaaab20b",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31c1a704_b2d14b9c",
         "filename": "lib/builders.star",
         "patchSetId": 3
@@ -109,6 +181,24 @@
       "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be50b924_e49777e8",
+        "filename": "lib/builders.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-09T10:13:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c1a704_b2d14b9c",
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -132,6 +222,30 @@
       "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "490170a1_91f8c7c1",
+        "filename": "lib/builders.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-09T10:13:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e772006_b478906b",
+      "range": {
+        "startLine": 114,
+        "startChar": 39,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
