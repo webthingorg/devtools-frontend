@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b2688c8_496189d1",
+        "filename": "front_end/devtools_app.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T12:10:58Z",
+      "side": 1,
+      "message": "This needs to be included in a separate CL. If we include it now, it fails with:\n\n```\nException: Module descriptor ../../third_party/devtools-frontend/src/front_end/fabricjs/module.json referenced in ../../third_party/devtools-frontend/src/front_end/devtools_app.json is missing\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "ddd182ab95193a7038b89a7280914b805be0b277",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
