@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e682d785_6f4834d4",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-09T20:53:40Z",
+      "side": 1,
+      "message": "Is this contained within a group and a tree?",
+      "range": {
+        "startLine": 379,
+        "startChar": 17,
+        "endLine": 379,
+        "endChar": 31
+      },
+      "revId": "cd435255ddb4fd767e2b4722ce067cd23eca820b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
