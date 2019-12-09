@@ -9,13 +9,13 @@ load(
 generate_ci_configs(
     configurations = [
       struct(
-        bucket_name="ci",
+        name="ci",
         branch='refs/heads/master',
         view='Main',
         name_suffix = ''
       ),
       struct(
-        bucket_name="beta",
+        name="beta",
         branch='refs/heads/chromium/3987',
         view='Beta',
         name_suffix = ' beta'
