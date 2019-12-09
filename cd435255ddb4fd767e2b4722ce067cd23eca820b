@@ -22,6 +22,30 @@
       "revId": "cd435255ddb4fd767e2b4722ce067cd23eca820b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68fd88c9_bcdf75e1",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-09T21:06:27Z",
+      "side": 1,
+      "message": "Hmm, I don\u0027t believe so. I\u0027m trying to figure out the best way to mark it since the expand/collapse requires one of these roles: alert, alertdialog, application, article, banner, button, columnheader, combobox, complementary, contentinfo, definition, dialog, directory, document, form, grid, gridcell, group, heading, img, link, list, listbox, listitem, log, main, marquee, math, menu, menubar, navigation, note, presentation, radiogroup, region, row, rowgroup, rowheader, search, separator, status, tab, tablist, tabpanel, timer, toolbar, tooltip, tree, treegrid, treeitem (https://www.w3.org/WAI/GL/wiki/Using_the_WAI-ARIA_aria-expanded_state_to_mark_expandable_and_collapsible_regions)\n\nI tried listitem, but wasn\u0027t seeing the expanded/collapsed messages. Any thoughts on what to mark it as?\n\nI was trying to base off front_end\\accessibility\\AXBreadcrumbsPane.js, which Idk if also is in tree/group.",
+      "parentUuid": "e682d785_6f4834d4",
+      "range": {
+        "startLine": 379,
+        "startChar": 17,
+        "endLine": 379,
+        "endChar": 31
+      },
+      "revId": "cd435255ddb4fd767e2b4722ce067cd23eca820b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
