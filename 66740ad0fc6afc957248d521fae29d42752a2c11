@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "123c0c5b_8920b273",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-09T23:28:33Z",
+      "side": 1,
+      "message": "This works fine, but it feels less than ideal that we have to query the DOM like this to figure out if there\u0027s anything we need to put in the context menu. It might be possible to solve this with UI.ContextMenu.Provider, like Linkifier does IIRC",
+      "range": {
+        "startLine": 985,
+        "startChar": 50,
+        "endLine": 985,
+        "endChar": 66
+      },
+      "revId": "66740ad0fc6afc957248d521fae29d42752a2c11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
