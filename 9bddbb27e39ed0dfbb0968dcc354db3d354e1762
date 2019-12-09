@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9beef7dc_1b426d72",
+        "filename": "buckets/ci.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-09T08:57:28Z",
+      "side": 1,
+      "message": "Please add a TODO that we need to replace this with the real branch. I assume the CL can\u0027t land without adding at least a working branch. Or should we create a fake ref called refs/heads/beta? Wonder though if the milo view might get confused then when we update it.",
+      "range": {
+        "startLine": 19,
+        "startChar": 27,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c051e79_09e37867",
+        "filename": "buckets/ci.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-09T08:57:28Z",
+      "side": 1,
+      "message": "Don\u0027t add this one on beta. We have not taught the recipe how to fetch chromium at beta. Unless we do that, we can\u0027t run layout tests.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 8
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169a3369_aaaab20b",
+        "filename": "lib/builders.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-09T08:57:28Z",
+      "side": 1,
+      "message": "Could those structs be also declared here and only initialized in the ci file? Otherwise it\u0027s hard to guess the structure here. Ideally, a reader should be able to understand all code in lib/ without needing to read the code in ci.star.",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c1a704_b2d14b9c",
+        "filename": "lib/builders.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-09T08:57:28Z",
+      "side": 1,
+      "message": "nit: Please add some empty lines for readability. E.g. here.",
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e772006_b478906b",
+        "filename": "lib/builders.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-09T08:57:28Z",
+      "side": 1,
+      "message": "nit: space around +",
+      "range": {
+        "startLine": 114,
+        "startChar": 39,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "9bddbb27e39ed0dfbb0968dcc354db3d354e1762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
