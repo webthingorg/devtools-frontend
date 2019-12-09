@@ -45,6 +45,30 @@
       "revId": "66740ad0fc6afc957248d521fae29d42752a2c11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f694c9e_f49f383e",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1330301
+      },
+      "writtenOn": "2019-12-09T23:42:48Z",
+      "side": 1,
+      "message": "yeah, the challenge with this is that there is no class that encapsulates the expandable text components. UIUtils.createExpandableText returns a document fragment with abbreviated text and inline buttons. I started to look into creating an ExpandableText class (which could properly implement ContextMenu.Provider), but then all call sites need to be updated to own an instance of the class and it quickly grows outside the scope of an a11y bug fix.",
+      "parentUuid": "123c0c5b_8920b273",
+      "range": {
+        "startLine": 985,
+        "startChar": 50,
+        "endLine": 985,
+        "endChar": 66
+      },
+      "revId": "66740ad0fc6afc957248d521fae29d42752a2c11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
