@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "1acf8cae_b655cd63",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T11:32:33Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "db71fe8b_832c7272",
+      "range": {
+        "startLine": 253,
+        "startChar": 13,
+        "endLine": 253,
+        "endChar": 20
+      },
+      "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baeab0fe_65eac5eb",
         "filename": "front_end/ui/reportView.css",
         "patchSetId": 1
