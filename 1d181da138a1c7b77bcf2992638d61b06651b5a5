@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05f05b99_d0da44ec",
+        "filename": "front_end/accessibility/ARIAAttributesView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T12:32:39Z",
+      "side": 0,
+      "message": "We should keep trailing comma\u0027s. Was this automatically removed by ESLint? If so, we should update the ESLint configuration to keep using trailing comma\u0027s.",
+      "range": {
+        "startLine": 263,
+        "startChar": 18,
+        "endLine": 263,
+        "endChar": 19
+      },
+      "revId": "1d181da138a1c7b77bcf2992638d61b06651b5a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
