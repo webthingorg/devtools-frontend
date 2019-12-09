@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "09a0e0f8_4f798c19",
+        "filename": "buckets/ci.star",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-09T10:53:56Z",
+      "side": 1,
+      "message": "I\u0027d wrap creating these structs in methods declared in the lib, see other comment. The methods can take default params.",
+      "parentUuid": "7fc2ae65_21f9555f",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 5
+      },
+      "revId": "7317d044fd21664301fa7cf35d05e430758139c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24d564dc_89543ab8",
         "filename": "lib/builders.star",
         "patchSetId": 7
