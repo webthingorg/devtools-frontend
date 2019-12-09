@@ -1,0 +1,18 @@
+/*
+ * Copyright 2019 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.web-audio-whole-graph-button {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  cursor: pointer;
+
+  opacity: 0.8;
+  background-color: #fff;
+  border-radius: 3px;
+  height: 24px;
+  width: 24px;
+}
