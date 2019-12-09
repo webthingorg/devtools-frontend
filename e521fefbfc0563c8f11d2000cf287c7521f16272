@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a50f35a0_74fad40b",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T08:25:49Z",
+      "side": 1,
+      "message": "there was a typo in the string here: it\u0027s -\u003e its",
+      "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30afa4bb_57c3727e",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-09T08:25:49Z",
+      "side": 1,
+      "message": "We can use RegExp#test instead of String#match since we don\u0027t actually need the match object",
+      "revId": "e521fefbfc0563c8f11d2000cf287c7521f16272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
