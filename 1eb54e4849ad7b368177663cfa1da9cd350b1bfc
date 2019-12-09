@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44dab2e2_be2dd797",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-09T13:59:44Z",
+      "side": 1,
+      "message": "Does that mean we have no remaining issues in our `module.json` definitions? In that case, let\u0027s do a follow-up CL and add it to the presubmit.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "1eb54e4849ad7b368177663cfa1da9cd350b1bfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
