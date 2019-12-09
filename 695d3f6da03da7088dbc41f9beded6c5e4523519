@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1c7090d_00a6449e",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2019-12-09T14:11:23Z",
+      "side": 1,
+      "message": "Do you think it\u0027s a good idea to update these single-char variable names to be a little bit more meaningful (and what\u0027s \"f\" short for anyway)? On the other hand I know it\u0027s not within the scope of this ticket so..",
+      "revId": "695d3f6da03da7088dbc41f9beded6c5e4523519",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
