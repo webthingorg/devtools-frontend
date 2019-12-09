@@ -106,7 +106,7 @@ export default class DebuggerWorkspaceBinding {
    * @param {!SDK.DebuggerModel.Location} rawLocation
    * @return {?Workspace.UILocation}
    */
-  rawLocationToUILocation(rawLocation) {
+  async rawLocationToUILocationAsync(rawLocation) {
     for (let i = 0; i < this._sourceMappings.length; ++i) {
       const uiLocation = this._sourceMappings[i].rawLocationToUILocation(rawLocation);
       if (uiLocation) {
@@ -114,7 +114,7 @@ export default class DebuggerWorkspaceBinding {
       }
     }
     const modelData = this._debuggerModelToData.get(rawLocation.debuggerModel);
-    return modelData._rawLocationToUILocation(rawLocation);
+    return modelData._rawLocationToUILocationAsync(rawLocation);
   }
 
   /**
@@ -136,7 +136,7 @@ export default class DebuggerWorkspaceBinding {
    * @param {number} columnNumber
    * @return {!Array<!SDK.DebuggerModel.Location>}
    */
-  uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  async uiLocationToRawLocationsAsync(uiSourceCode, lineNumber, columnNumber) {
     let locations = [];
     for (let i = 0; i < this._sourceMappings.length && !locations.length; ++i) {
       locations = this._sourceMappings[i].uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
@@ -145,7 +145,7 @@ export default class DebuggerWorkspaceBinding {
       return locations;
     }
     for (const modelData of this._debuggerModelToData.values()) {
-      locations.push(...modelData._uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber));
+      locations.push(...await modelData._uiLocationToRawLocationsAsync(uiSourceCode, lineNumber, columnNumber));
     }
     return locations;
   }
@@ -304,7 +304,7 @@ class ModelData {
    * @param {!SDK.DebuggerModel.Location} rawLocation
    * @return {?Workspace.UILocation}
    */
-  _rawLocationToUILocation(rawLocation) {
+  async _rawLocationToUILocationAsync(rawLocation) {
     let uiLocation = null;
     uiLocation = uiLocation || this._compilerMapping.rawLocationToUILocation(rawLocation);
     uiLocation = uiLocation || this._resourceMapping.rawLocationToUILocation(rawLocation);
@@ -319,7 +319,7 @@ class ModelData {
    * @param {number} columnNumber
    * @return {!Array<!SDK.DebuggerModel.Location>}
    */
-  _uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  async _uiLocationToRawLocationsAsync(uiSourceCode, lineNumber, columnNumber) {
     let locations = this._compilerMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
     locations = locations.length ?
         locations :
@@ -376,9 +376,9 @@ class Location extends Bindings.LiveLocationWithPool {
    * @override
    * @return {?Workspace.UILocation}
    */
-  uiLocation() {
+  uiLocationAsync() {
     const debuggerModelLocation = this._rawLocation;
-    return this._binding.rawLocationToUILocation(debuggerModelLocation);
+    return this._binding.rawLocationToUILocationAsync(debuggerModelLocation);
   }
 
   /**
@@ -399,7 +399,7 @@ class Location extends Bindings.LiveLocationWithPool {
   }
 }
 
-class StackTraceTopFrameLocation extends Bindings.LiveLocationWithPool {
+export class StackTraceTopFrameLocation extends Bindings.LiveLocationWithPool {
   /**
    * @param {!Array<!SDK.DebuggerModel.Location>} rawLocations
    * @param {!DebuggerWorkspaceBinding} binding

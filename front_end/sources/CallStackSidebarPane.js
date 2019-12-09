@@ -504,10 +504,12 @@ Sources.CallStackSidebarPane.Item = class {
    * @param {!Bindings.LiveLocation} liveLocation
    */
   _update(liveLocation) {
-    const uiLocation = liveLocation.uiLocation();
-    this.isBlackboxed = uiLocation ? Bindings.blackboxManager.isBlackboxedUISourceCode(uiLocation.uiSourceCode) : false;
-    this.linkText = uiLocation ? uiLocation.linkText() : '';
-    this.uiLocation = uiLocation;
-    this.updateDelegate(this);
+    liveLocation.uiLocationAsync().then(uiLocation => {
+      this.isBlackboxed =
+          uiLocation ? Bindings.blackboxManager.isBlackboxedUISourceCode(uiLocation.uiSourceCode) : false;
+      this.linkText = uiLocation ? uiLocation.linkText() : '';
+      this.uiLocation = uiLocation;
+      this.updateDelegate(this);
+    });
   }
 };

@@ -1426,7 +1426,7 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
       const start = this._transformer.editorToRawLocation(editorLocation[0], 0);
       const end = this._transformer.editorToRawLocation(editorLocation[0] + 1, 0);
       this._breakpointManager
-          .possibleBreakpoints(this._uiSourceCode, new TextUtils.TextRange(start[0], start[1], end[0], end[1]))
+          .possibleBreakpointsAsync(this._uiSourceCode, new TextUtils.TextRange(start[0], start[1], end[0], end[1]))
           .then(addInlineDecorations.bind(this, editorLocation[0]));
     }
 
@@ -1662,7 +1662,7 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
       const lineLength = Math.min(this._textEditor.line(editorLineNumber).length, 1024);
       const start = this._transformer.editorToRawLocation(editorLineNumber, 0);
       const end = this._transformer.editorToRawLocation(editorLineNumber, lineLength);
-      const locations = await this._breakpointManager.possibleBreakpoints(
+      const locations = await this._breakpointManager.possibleBreakpointsAsync(
           this._uiSourceCode, new TextUtils.TextRange(start[0], start[1], end[0], end[1]));
       if (locations && locations.length) {
         this._setBreakpoint(locations[0].lineNumber, locations[0].columnNumber, condition, enabled);

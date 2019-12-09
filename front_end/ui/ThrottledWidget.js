@@ -19,7 +19,7 @@ export default class ThrottledWidget extends UI.VBox {
    * @protected
    * @return {!Promise<?>}
    */
-  doUpdate() {
+  doUpdateAsync() {
     return Promise.resolve();
   }
 
@@ -36,7 +36,7 @@ export default class ThrottledWidget extends UI.VBox {
      */
     function innerUpdate() {
       if (this.isShowing()) {
-        return this.doUpdate();
+        return this.doUpdateAsync();
       }
       this._updateWhenVisible = true;
       return Promise.resolve();
