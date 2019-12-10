@@ -366,31 +366,3 @@ export const _mimeTypeByExtension = new Map([
   // Font
   ['ttf', 'font/opentype'], ['otf', 'font/opentype'], ['ttc', 'font/opentype'], ['woff', 'application/font-woff']
 ]);
-
-/* Legacy exported object */
-self.Common = self.Common || {};
-Common = Common || {};
-
-/**
- * @enum {!ResourceType}
- */
-Common.resourceTypes = resourceTypes;
-
-/**
- * @enum {!ResourceCategory}
- */
-Common.resourceCategories = resourceCategories;
-
-/**
- * @constructor
- */
-Common.ResourceCategory = ResourceCategory;
-
-/**
- * @constructor
- */
-Common.ResourceType = ResourceType;
-
-Common.ResourceType._mimeTypeByName = _mimeTypeByName;
-Common.ResourceType._resourceTypeByExtension = _resourceTypeByExtension;
-Common.ResourceType._mimeTypeByExtension = _mimeTypeByExtension;
