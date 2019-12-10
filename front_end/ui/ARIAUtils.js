@@ -378,6 +378,10 @@ export function setSelected(element, value) {
   element.setAttribute('aria-selected', !!value);
 }
 
+export function unsetSelectable(element) {
+  element.removeAttribute('aria-selected');
+}
+
 /**
  * @param {!Element} element
  * @param {boolean} value
@@ -615,6 +619,7 @@ self.UI.ARIAUtils = {
   AutocompleteInteractionModel,
   setAutocomplete,
   setSelected,
+  unsetSelectable,
   setInvalid,
   setPressed,
   setProgressBarValue,
