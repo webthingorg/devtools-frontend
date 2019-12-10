@@ -1890,7 +1890,11 @@ group("devtools_all_files") {
   ]
 }
 
-devtools_frontend_resources_deps = [
+devtools_typescript_deps = [
+  "front_end/common:common",
+]
+
+devtools_frontend_resources_deps = devtools_typescript_deps + [
   ":aria_properties",
   ":build_release_devtools",
   ":copy_embedder_scripts",
