@@ -46,6 +46,30 @@
       "revId": "14ce217f9fdcc45278875c82e0e6e42e72cce80c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8482134_d6a4d9c5",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T22:02:55Z",
+      "side": 1,
+      "message": "This has (more or less) been the industry standard way of doing these kinds of announcements for screen readers for about at least a decade. I don\u0027t really know why we haven\u0027t solved this problem from a web platform perspective. \n\nBut yes, this is the preferred approach.",
+      "parentUuid": "5e2c6346_7b7a0074",
+      "range": {
+        "startLine": 490,
+        "startChar": 0,
+        "endLine": 501,
+        "endChar": 3
+      },
+      "revId": "14ce217f9fdcc45278875c82e0e6e42e72cce80c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

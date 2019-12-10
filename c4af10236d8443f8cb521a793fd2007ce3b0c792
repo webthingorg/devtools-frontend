@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b43447cf_3b1c02d6",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T22:02:55Z",
+      "side": 1,
+      "message": "Suggest removing the implementation details from the comments. First, it\u0027s innaccurate (hideFromLayout is no longer _-prefixed) and someone can read the implementation to see how the implementation works. That having been said, much of the comment body is good.",
+      "revId": "c4af10236d8443f8cb521a793fd2007ce3b0c792",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0762c14b_de78162b",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T22:02:55Z",
+      "side": 1,
+      "message": "Promote the ID to a constant and reference it via the constant name here and below (on this diff, line 557, where you otherwise say document[MessageElementSymbol].id). Since it\u0027s unconditionally assigned, and since the MessageElementSymbol is not exported from this file, there\u0027s not really any reason to do that extra dereference.",
+      "revId": "c4af10236d8443f8cb521a793fd2007ce3b0c792",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
