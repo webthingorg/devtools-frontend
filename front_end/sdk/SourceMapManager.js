@@ -167,7 +167,7 @@ export default class SourceMapManager extends Common.Object {
 
       sourceMapPromise
           .catch(e => {
-            Common.console.warn('DevTools failed to parse SourceMap: ' + sourceMapURL);
+            Common.console.warn(`DevTools failed to load SourceMap: ${e.message}`);
           })
           .then(onSourceMap.bind(this, sourceMapId));
     }
