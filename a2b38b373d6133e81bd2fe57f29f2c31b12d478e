@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ea57398_742c6dfc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-10T09:07:28Z",
+      "side": 1,
+      "message": "I think this is only interpreted as footer if it\u0027s added without newline with the other desciptors below.\n\nThere is also:\nTBR\u003dmachenbach@chromium.org\n\nwhich is part of the commit description with newline. That\u0027s the legacy way.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "a2b38b373d6133e81bd2fe57f29f2c31b12d478e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
