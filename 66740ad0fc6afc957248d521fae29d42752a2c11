@@ -93,6 +93,30 @@
       "revId": "66740ad0fc6afc957248d521fae29d42752a2c11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8b3869_bc1c6169",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-10T17:08:17Z",
+      "side": 1,
+      "message": "I know it\u0027s a bit more work, but I\u0027m also in favor of trying to avoid querySelector to find the buttons, It would be really easy to change the class and then this querySelector would break. AFAIK, this util is only used in 2 places: ObjectPropertiesSection.js and ConsoleViewMessage.js. I bet the ConsoleViewMessage.js has the same A11y issue, and adding the class with contextMenu provider might be worth it?",
+      "parentUuid": "4f694c9e_f49f383e",
+      "range": {
+        "startLine": 985,
+        "startChar": 50,
+        "endLine": 985,
+        "endChar": 66
+      },
+      "revId": "66740ad0fc6afc957248d521fae29d42752a2c11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
