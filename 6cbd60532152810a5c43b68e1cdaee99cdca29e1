@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cd24b56_d790ab65",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-10T15:50:39Z",
+      "side": 1,
+      "message": "This won\u0027t return priority now. Does it have users that might be interested in it? Could we make this method private or remove it?",
+      "range": {
+        "startLine": 389,
+        "startChar": 2,
+        "endLine": 389,
+        "endChar": 12
+      },
+      "revId": "6cbd60532152810a5c43b68e1cdaee99cdca29e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
