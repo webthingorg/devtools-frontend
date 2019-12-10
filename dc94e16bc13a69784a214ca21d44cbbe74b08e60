@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e53a8d8e_f9434dd0",
+        "filename": "scripts/migration/get-mappings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-12-10T13:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86f51ec9_481e0704",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "dc94e16bc13a69784a214ca21d44cbbe74b08e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7f4a0d3_bc841e83",
         "filename": "scripts/migration/replace-internal-references.ts",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "dc94e16bc13a69784a214ca21d44cbbe74b08e60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48f0fd78_cc781ece",
+        "filename": "scripts/migration/replace-internal-references.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-12-10T13:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7f4a0d3_bc841e83",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 72
+      },
+      "revId": "dc94e16bc13a69784a214ca21d44cbbe74b08e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
