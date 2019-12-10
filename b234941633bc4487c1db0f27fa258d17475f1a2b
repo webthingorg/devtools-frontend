@@ -81,6 +81,24 @@
       "revId": "b234941633bc4487c1db0f27fa258d17475f1a2b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df83a6f_78206709",
+        "filename": "test/unittests/front_end/formatter_worker/FormattedContentBuilder.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-10T18:04:51Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "5f99697a_c4c19fe0",
+      "revId": "b234941633bc4487c1db0f27fa258d17475f1a2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
