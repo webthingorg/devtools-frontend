@@ -19,5 +19,7 @@ def properties_from_file(file_name):
 
 
 ARIA_PROPERTIES = properties_from_file(sys.argv[1])
-with open(sys.argv[2], "w") as f:
-    f.write("Accessibility.ARIAMetadata._config = %s;" % json.dumps(ARIA_PROPERTIES))
+
+for i in [2, 3]:
+    with open(sys.argv[i], "w") as f:
+        f.write("Accessibility.ARIAMetadata._config = %s;" % json.dumps(ARIA_PROPERTIES))

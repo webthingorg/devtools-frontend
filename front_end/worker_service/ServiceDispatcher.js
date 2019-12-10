@@ -1,28 +1,26 @@
 // Copyright 2016 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-/**
- * @interface
- */
-function Service() {
-}
 
-Service.prototype = {
+/** @interface */
+class Service {
   /**
    * @return {!Promise}
    */
-  dispose() {},
+  dispose() {
+  }
 
   /**
    * @return {function(string)}
    */
-  setNotify(notify) {}
-};
+  setNotify() {
+  }
+}
 
 /**
  * @unrestricted
  */
-ServiceDispatcher = class {
+class ServiceDispatcher {
   /**
    * @param {!ServicePort} port
    */
@@ -135,13 +133,13 @@ ServiceDispatcher = class {
     const message = {id: messageId, error: error};
     this._port.send(JSON.stringify(message));
   }
-};
+}
 
 /**
  * @implements {ServicePort}
  * @unrestricted
  */
-WorkerServicePort = class {
+class WorkerServicePort {
   /**
    * @param {!Port|!Worker} port
    */
@@ -185,10 +183,16 @@ WorkerServicePort = class {
   _onMessage(event) {
     this._messageHandler(event.data);
   }
-};
+}
 
 const dispatchers = [];
 
 const worker = /** @type {!Object} */ (self);
 const servicePort = new WorkerServicePort(/** @type {!Worker} */ (worker));
 dispatchers.push(new ServiceDispatcher(servicePort));
+
+self.WorkerService = self.WorkerService || {};
+
+WorkerService = WorkerService || {};
+
+WorkerService.Service = Service;

@@ -20,6 +20,7 @@ import re
 import shutil
 import sys
 import subprocess
+import traceback
 
 from modular_build import read_file, write_file, bail_error
 import modular_build
@@ -38,7 +39,7 @@ try:
 finally:
     sys.path = original_sys_path
 
-ROLLUP_ARGS = ['--no-treeshake', '--format', 'iife', '--context', 'self']
+ROLLUP_ARGS = ['--no-treeshake', '--format', 'esm', '--context', 'self']
 
 
 def main(argv):
@@ -217,6 +218,8 @@ class ReleaseBuilder(object):
                 output.write('\n/* Module %s */\n' % name)
                 output.write('\nself[\'%s\'] = self[\'%s\'] || {};\n' % (namespace, namespace))
                 modular_build.concatenate_scripts(desc.get('scripts'), join(self.application_dir, name), self.output_dir, output)
+
+                self._rollup_module(desc, name)
             else:
                 non_autostart.add(name)
 
@@ -226,9 +229,7 @@ class ReleaseBuilder(object):
 
     def _concatenate_application_script(self, output):
         if not self.descriptors.extends:
-            runtime_contents = read_file(join(self.application_dir, 'Runtime.js'))
-            output.write('/* Runtime.js */\n')
-            output.write(runtime_contents)
+            output.write('self.Root = self.Root || {allDescriptors: []};')
             output.write('Root.allDescriptors.push(...%s);' % self._release_module_descriptors())
             output.write('/* Application descriptor %s */\n' % self.app_file('json'))
             output.write('Root.applicationDescriptor = %s;' % self.descriptors.application_json())
@@ -253,15 +254,38 @@ class ReleaseBuilder(object):
 
     def _rollup_worker(self, output):
         js_entrypoint = join(self.application_dir, self.app_file('unbundled.js'))
+        # TODO(crbug.com/1013129): do not bundle Runtime.js into the workers
+        self._rollup_entrypoint(output, js_entrypoint, [])
+
+    def _rollup_module(self, module, module_name):
+        modules = module.get('modules')
+        if modules:
+            rollup_output = StringIO()
+
+            entrypoint_file = join(join(self.application_dir, module_name), module_name + '.js')
+            rollup_external_entrypoints = [
+                path.abspath(join(self.application_dir, entrypoint)) for entrypoint in self.descriptors.all_module_entry_points()
+            ]
+            self._rollup_entrypoint(rollup_output, entrypoint_file, rollup_external_entrypoints)
+
+            output_entrypoint_file = join(self.output_dir, join(module_name, module_name + '.js'))
+            write_file(output_entrypoint_file, minify_js(rollup_output.getvalue()))
+
+            rollup_output.close()
+
+    def _rollup_entrypoint(self, output, js_entrypoint, rollup_external_entrypoints):
         rollup_process = subprocess.Popen(
-            [devtools_paths.node_path(), devtools_paths.rollup_path()] + ROLLUP_ARGS + ['--input', js_entrypoint],
+            [devtools_paths.node_path(), devtools_paths.rollup_path()] + ROLLUP_ARGS +
+            ['--external', ','.join(rollup_external_entrypoints), '--input', js_entrypoint],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE)
         out, error = rollup_process.communicate()
 
         if rollup_process.returncode != 0:
-            print('Error while running rollup:')
+            print('Error while running rollup on entrypoint %s:' % js_entrypoint)
             print(error)
+            print()
+            traceback.print_stack()
             sys.exit(1)
 
         output.write(minify_js(out))
@@ -279,6 +303,8 @@ class ReleaseBuilder(object):
         output_file_path = concatenated_module_filename(module_name, self.output_dir)
         write_file(output_file_path, minify_js(output.getvalue()))
         output.close()
+
+        self._rollup_module(module, module_name)
 
 
 if __name__ == '__main__':

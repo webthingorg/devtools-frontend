@@ -26,10 +26,10 @@ const LighthousePort = class {
 
 /**
  * @implements {LighthousePort}
- * @implements {Service}
+ * @implements {WorkerService.Service}
  * @unrestricted
  */
-var AuditsService = class {  // eslint-disable-line
+class AuditsService {
   /**
    * @override
    * @param {function(string)}
@@ -122,10 +122,11 @@ var AuditsService = class {  // eslint-disable-line
   _disableLoggingForTest() {
     console.log = () => undefined;  // eslint-disable-line no-console
   }
-};
+}
 
 // Make lighthouse and traceviewer happy.
 global = self;
+global.AuditsService = AuditsService;
 global.isVinn = true;
 global.document = {};
 global.document.documentElement = {};

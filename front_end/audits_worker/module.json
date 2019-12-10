@@ -4,12 +4,13 @@
     ],
     "extensions": [
         {
-            "type": "@Service",
+            "type": "@WorkerService.Service",
             "factoryName": "AuditsService",
             "name": "AuditsService"
         }
     ],
-    "scripts": [
+    "scripts": [],
+    "modules": [
         "lighthouse/lighthouse-dt-bundle.js",
         "AuditsService.js"
     ],

@@ -40,6 +40,7 @@ except ImportError:
 
 cmdline_parser = optparse.OptionParser()
 cmdline_parser.add_option("--output_js_dir")
+cmdline_parser.add_option("--output_frontend_dir")
 
 try:
     arg_options, arg_values = cmdline_parser.parse_args()
@@ -47,13 +48,16 @@ try:
         raise Exception("Exactly one plain argument expected (found %s)" % len(arg_values))
     input_json_filename = arg_values[0]
     output_js_dirname = arg_options.output_js_dir
+    output_frontend_dir_name = arg_options.output_frontend_dir
     if not output_js_dirname:
         raise Exception("Output .js directory must be specified")
+    if not output_frontend_dir_name:
+        raise Exception("Frontend .js directory must be specified")
 except Exception:
     # Work with python 2 and 3 http://docs.python.org/py3k/howto/pyporting.html
     exc = sys.exc_info()[1]
     sys.stderr.write("Failed to parse command-line arguments: %s\n\n" % exc)
-    sys.stderr.write("Usage: <script> some.json --output_js_dir <output_js_dir>\n")
+    sys.stderr.write("Usage: <script> some.json --output_js_dir <output_js_dir> --output_frontend_dir <output_frontend_dir>\n")
     exit(1)
 
 
@@ -288,9 +292,10 @@ class Generator:
 
 Generator.go()
 
-backend_js_file = open(output_js_dirname + "/InspectorBackendCommands.js", "w")
+for directory in [output_js_dirname, output_frontend_dir_name]:
+    backend_js_file = open(directory + "/InspectorBackendCommands.js", "w")
 
-backend_js_file.write(
-    Templates.backend_js.substitute(None, domainInitializers="".join(Generator.backend_js_domain_initializer_list)))
+    backend_js_file.write(
+        Templates.backend_js.substitute(None, domainInitializers="".join(Generator.backend_js_domain_initializer_list)))
 
-backend_js_file.close()
+    backend_js_file.close()

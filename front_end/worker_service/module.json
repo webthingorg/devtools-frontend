@@ -1,5 +1,7 @@
 {
-    "scripts": [
+    "scripts": [],
+    "modules": [
+        "worker_service.js",
         "ServiceDispatcher.js"
     ]
 }
