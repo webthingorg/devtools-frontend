@@ -375,6 +375,7 @@ TestRunner._setupTestHelpers = function(target) {
   TestRunner.DebuggerAgent = target.debuggerAgent();
   TestRunner.EmulationAgent = target.emulationAgent();
   TestRunner.HeapProfilerAgent = target.heapProfilerAgent();
+  TestRunner.InputAgent = target.inputAgent();
   TestRunner.InspectorAgent = target.inspectorAgent();
   TestRunner.NetworkAgent = target.networkAgent();
   TestRunner.OverlayAgent = target.overlayAgent();
