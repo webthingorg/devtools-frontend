@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9d04d359_f5c829a7",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-12-10T22:33:38Z",
+      "side": 1,
+      "message": "Removed \u0027Data Grid\u0027 suffix.",
+      "parentUuid": "6265bc5c_126609f7",
+      "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4daf1eac_ada0334c",
         "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2019-12-10T16:55:14Z",
       "side": 1,
       "message": "I saw below a call of `SortableDataGrid.create`. Why is there a difference, and why doesn\u0027t the `create` function accept the object as a single parameter also?",
+      "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48fb72ed_a35ee44a",
+        "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-12-10T22:33:38Z",
+      "side": 1,
+      "message": "The difference is that create(...) takes in a value array and creates generic ColumnDescriptors based on the column names and # of columns.\n\nThis is different than the DataGrid constructor that just creates the frame/columns of the data grid and populates to values with DataGridNodes later.\n\nWe could theoretically add the two other create(...) parameters within DataGrid.DataGrid.Parameter, but I feel like the added clutter outweighs the actual utility.",
+      "parentUuid": "4daf1eac_ada0334c",
       "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05fbaae8_884f8a79",
+        "filename": "front_end/resources/BackgroundServiceView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-12-10T22:33:38Z",
+      "side": 1,
+      "message": "Changed to \"display name\" and from \"columnsArray\" to \"columns\"",
+      "parentUuid": "f353d063_1bc43a1a",
+      "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

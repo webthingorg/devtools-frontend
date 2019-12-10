@@ -16,6 +16,24 @@
       "revId": "dabb0c9b6ea4c85f30630f3abc817825749528c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5047ad87_8ce1f2f8",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-12-10T22:33:38Z",
+      "side": 1,
+      "message": "Created options bag parameter for Data Grids",
+      "parentUuid": "1b8b244b_29a0779d",
+      "revId": "dabb0c9b6ea4c85f30630f3abc817825749528c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

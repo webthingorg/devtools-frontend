@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0306ceed_93b6cc3c",
+        "filename": "front_end/profiler/HeapSnapshotDataGrids.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2019-12-10T22:33:38Z",
+      "side": 1,
+      "message": "FYI: I cannot use the DataGrid.DataGrid.Parameter object here because the columns parameter here needs to be optional.",
+      "revId": "6b5011262eba9f3f646488bcc328f88d09a69d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
