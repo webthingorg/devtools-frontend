@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6265bc5c_126609f7",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T16:55:14Z",
+      "side": 1,
+      "message": "This is a little weird, too. All the examples I saw before include the grid-name being localized. Also, what if the developer doesn\u0027t want the name to be called \"Something Data Grid\"? But here you\u0027re also combining a localized string into another localized string.\n\nI suspect you should not be combining the strings in this way, and I also suspect that you don\u0027t need the suffix \"Data Grid.\" It would probably be sufficient to just pass in the localized strings which are already being passed in. If not, you can correct the experience at the place where the data grid is being initialized.",
+      "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4daf1eac_ada0334c",
+        "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T16:55:14Z",
+      "side": 1,
+      "message": "I saw below a call of `SortableDataGrid.create`. Why is there a difference, and why doesn\u0027t the `create` function accept the object as a single parameter also?",
+      "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f353d063_1bc43a1a",
+        "filename": "front_end/resources/BackgroundServiceView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T16:55:14Z",
+      "side": 1,
+      "message": "I\u0027m a little uncomfortable with some of your names on the interface object passed to DataGrid.\n\nThe parameter object here is named \"data grid options,\" right? It seems duplicative to name the name parameter \"grid name.\" And this is a good example about columns, too: naming a property \"columns array\" feels like the bad version of Hungarian notation. Naming it \"columns\" would likely still indicate that an array needs to be passed in, and look at this case as well as the ones below, where your local variable declarations of columns is named \"columns\". You\u0027d get to use the property shorthand.\n\nFor the grid name, I\u0027d suggest some kind of name that suggests that it would be localized, like \"display name.\" \"grid name\" does not suggest to me that it\u0027s localized.",
+      "revId": "4987dd9d09551396bd5e3002c5e25f7debdf7d25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
