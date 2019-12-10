@@ -84,6 +84,9 @@ Timeline.TimelineController = class {
     if (options.captureFilmStrip) {
       categoriesArray.push(disabledByDefault('devtools.screenshot'));
     }
+    if (options.recordInputEvents) {
+      categoriesArray.push(disabledByDefault('devtools.timeline.inputs'));
+    }
 
     this._extensionSessions =
         providers.map(provider => new Timeline.ExtensionTracingSession(provider, this._performanceModel));
@@ -128,6 +131,17 @@ Timeline.TimelineController = class {
           Promise.race([Promise.all(extensionCompletionPromises), new Promise(r => setTimeout(r, 5000))]));
     }
     return Promise.all(tracingStoppedPromises);
+  }
+
+  replayEvents() {
+  }
+
+  pauseReplay() {
+    this._inputModel.pause();
+  }
+
+  replayStopped() {
+    this._client.replayStopped();
   }
 
   /**
@@ -396,6 +410,7 @@ Timeline.TimelineController.Client.prototype = {
  *   capturePictures: (boolean|undefined),
  *   captureFilmStrip: (boolean|undefined),
  *   startCoverage: (boolean|undefined)
+ *   captureInputEvents: (boolean|undefined),
  * }}
  */
 Timeline.TimelineController.RecordingOptions;
