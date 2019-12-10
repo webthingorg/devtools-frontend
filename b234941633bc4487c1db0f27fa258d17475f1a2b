@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43998b17_429435b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2019-12-10T16:19:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ee0722d_5db7167a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "b234941633bc4487c1db0f27fa258d17475f1a2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ef12bc_b79aa8df",
         "filename": "test/unittests/front_end/formatter_worker/FormattedContentBuilder.ts",
         "patchSetId": 11
@@ -39,6 +63,24 @@
       "revId": "b234941633bc4487c1db0f27fa258d17475f1a2b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f99697a_c4c19fe0",
+        "filename": "test/unittests/front_end/formatter_worker/FormattedContentBuilder.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2019-12-10T16:19:21Z",
+      "side": 1,
+      "message": "we will add this format rule to `git cl format` at some point in the future",
+      "parentUuid": "25ef12bc_b79aa8df",
+      "revId": "b234941633bc4487c1db0f27fa258d17475f1a2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
