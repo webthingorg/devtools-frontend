@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c69dfbd_a7b95ac0",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-10T13:55:28Z",
+      "side": 1,
+      "message": "To speed this up, it could be worth making `baseList` a set (Set#has being 𝒪(1) vs. Array#includes being 𝒪(n)). That could be a separate CL though. Consider this comment a TODO :)",
+      "range": {
+        "startLine": 338,
+        "startChar": 69,
+        "endLine": 338,
+        "endChar": 77
+      },
+      "revId": "62cf7de0cb2250d977d91572a9e330922e4cd85e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
