@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d1c3396_472b88e3",
+        "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T18:55:24Z",
+      "side": 1,
+      "message": "I\u0027m not going to block on this. I\u0027d just note: I think you could probably do a better job sorting these (I\u0027d guess: type, file, line, column). *That* you\u0027d only sort by type seems odd to me.",
+      "revId": "c1a45d6b6c7f276fd6205f50b59df1ed89f0d0d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
