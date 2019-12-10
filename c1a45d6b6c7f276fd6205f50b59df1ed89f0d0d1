@@ -16,6 +16,24 @@
       "revId": "c1a45d6b6c7f276fd6205f50b59df1ed89f0d0d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45248a0b_553fbe9c",
+        "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-10T21:19:38Z",
+      "side": 1,
+      "message": "Agreed, I looked into sorting them based on the DOMNode they\u0027re attached to but decided to just leave it with the current behavior",
+      "parentUuid": "8d1c3396_472b88e3",
+      "revId": "c1a45d6b6c7f276fd6205f50b59df1ed89f0d0d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
