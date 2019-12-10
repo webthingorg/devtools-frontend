@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d05b36cc_890e809e",
+        "filename": "front_end/host/ResourceLoader.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-10T14:05:34Z",
+      "side": 1,
+      "message": "Nit: what we really want here is `??` (nullish coalescing) instead of `||`, for both cases on this line. E.g. in the hypothetical case where `response.netError \u003d\u003d\u003d 0` we can then short-circuit.\n\n(Not sure if our current eslint config already supports this language feature though…)",
+      "revId": "57282fde2a1361c090e5efb7733a31d2056c6227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c71f11e_2247c0ee",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-10T14:05:34Z",
+      "side": 1,
+      "message": "e → error (let’s avoid single-char identifiers when we can be more descriptive)",
+      "revId": "57282fde2a1361c090e5efb7733a31d2056c6227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
