@@ -416,6 +416,7 @@ all_devtools_files = [
   "front_end/timeline/ExtensionTracingSession.js",
   "front_end/timeline/historyToolbarButton.css",
   "front_end/timeline/invalidationsTree.css",
+  "front_end/timeline/InputModel.js",
   "front_end/timeline/module.json",
   "front_end/timeline/PerformanceModel.js",
   "front_end/timeline/TimelineController.js",
