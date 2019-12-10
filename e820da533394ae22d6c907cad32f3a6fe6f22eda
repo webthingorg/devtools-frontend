@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73882226_abf28a32",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-10T22:41:07Z",
+      "side": 1,
+      "message": "I went and looked at themeName().\n\nI see other components in `ThemeSupport` relying on this behavior, so I won\u0027t block this CL on that. I\u0027d prefer, however, that an API existed like `ThemeSupport#isDarkTheme()` for this kind of check. \"Theme name\" sounds like a user-presentable datum.",
+      "revId": "e820da533394ae22d6c907cad32f3a6fe6f22eda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
