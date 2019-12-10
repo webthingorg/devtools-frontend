@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86f51ec9_481e0704",
+        "filename": "scripts/migration/get-mappings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-10T12:09:04Z",
+      "side": 1,
+      "message": "Nit: this is a large if. I would prefer to split this up into multiple ifs with a comment describing what we are matching on. That makes it a lot easier to get a grasp of what the state of the ast is at this point in time.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "dc94e16bc13a69784a214ca21d44cbbe74b08e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7f4a0d3_bc841e83",
+        "filename": "scripts/migration/replace-internal-references.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-10T12:09:04Z",
+      "side": 1,
+      "message": "Nit: could you add a comment here what this transformation does?",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 72
+      },
+      "revId": "dc94e16bc13a69784a214ca21d44cbbe74b08e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
