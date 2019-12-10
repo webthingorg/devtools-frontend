@@ -60,7 +60,7 @@ export class CodeMirrorTextEditor extends UI.VBox {
       lineWiseCopyCut: false,
       tabIndex: 0,
       pollInterval: Math.pow(2, 31) - 1,  // ~25 days
-      inputStyle: 'devToolsAccessibleTextArea'
+      inputStyle: options.inputStyle || 'devToolsAccessibleTextArea'
     });
     this._codeMirrorElement = this.element.lastElementChild;
 
@@ -1870,7 +1870,7 @@ CodeMirror.inputStyles.devToolsAccessibleTextArea = class extends CodeMirror.inp
    * @param {boolean=} typing
    */
   reset(typing) {
-    if (typing || this.contextMenuPending || this.composing || this.cm.somethingSelected()) {
+    if (this.shouldNotModifyTextArea(!!typing)) {
       super.reset(typing);
       return;
     }
@@ -1893,6 +1893,14 @@ CodeMirror.inputStyles.devToolsAccessibleTextArea = class extends CodeMirror.inp
     const caretPosition = cursor.ch - start.ch;
     this.textarea.setSelectionRange(caretPosition, caretPosition);
     this.prevInput = this.textarea.value;
+  }
+
+  /**
+   * @param {boolean} typing
+   * @return {boolean}
+   */
+  shouldNotModifyTextArea(typing) {
+    return typing || this.contextMenuPending || this.composing || this.cm.somethingSelected();
   }
 
   /**
