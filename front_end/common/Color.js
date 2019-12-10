@@ -30,6 +30,8 @@
 /**
  * @unrestricted
  */
+import {moduleSetting} from './Settings.js';
+
 export class Color {
   /**
    * @param {!Array.<number>} rgba
@@ -428,7 +430,7 @@ export class Color {
   static detectColorFormat(color) {
     const cf = Format;
     let format;
-    const formatSetting = Common.moduleSetting('colorFormat').get();
+    const formatSetting = moduleSetting('colorFormat').get();
     if (formatSetting === cf.Original) {
       format = cf.Original;
     } else if (formatSetting === cf.RGB) {
@@ -985,26 +987,3 @@ export class Generator {
 Color.hsva2rgba._tmpHSLA = [0, 0, 0, 0];
 
 Color.calculateContrastRatio._blendedFg = [0, 0, 0, 0];
-
-/* Legacy exported object */
-self.Common = self.Common || {};
-Common = Common || {};
-
-/**
- * @constructor
- */
-Common.Color = Color;
-
-Common.Color.Regex = Regex;
-
-/**
- * @enum {string}
- */
-Common.Color.Format = Format;
-Common.Color.Nicknames = Nicknames;
-Common.Color.PageHighlight = PageHighlight;
-
-/**
- * @constructor
- */
-Common.Color.Generator = Generator;
