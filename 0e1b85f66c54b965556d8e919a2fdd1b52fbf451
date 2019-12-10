@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f54200b7_a61a9c74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-10T15:36:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d83e4291_eaf388be",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "0e1b85f66c54b965556d8e919a2fdd1b52fbf451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6f8921b_f330e3a6",
         "filename": "front_end/accessibility/ARIAAttributesView.js",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "0e1b85f66c54b965556d8e919a2fdd1b52fbf451",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8b2403d_ac6f23d0",
+        "filename": "front_end/accessibility/ARIAAttributesView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-10T15:36:23Z",
+      "side": 1,
+      "message": "I added a reminder in my calendar to check every 6 months as a first step. But a better solution would be great. Should we move this discussion to some other place?",
+      "parentUuid": "f6f8921b_f330e3a6",
+      "range": {
+        "startLine": 235,
+        "startChar": 31,
+        "endLine": 235,
+        "endChar": 73
+      },
+      "revId": "0e1b85f66c54b965556d8e919a2fdd1b52fbf451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
