@@ -46,6 +46,30 @@
       "revId": "cfc41c16145a660ef368afada3f07ce367c7239e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2611d9da_ea6e4baa",
+        "filename": "front_end/sources/CallStackSidebarPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-12-10T23:16:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9cb305d0_d3b7ce95",
+      "range": {
+        "startLine": 428,
+        "startChar": 4,
+        "endLine": 434,
+        "endChar": 5
+      },
+      "revId": "cfc41c16145a660ef368afada3f07ce367c7239e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
