@@ -166,14 +166,16 @@ export default class RequestCookiesView extends UI.Widget {
           continue;
         }
 
-        const cookie = parsedCookies[0];
-        responseCookieToBlockedReasons.set(cookie, blockedCookie.blockedReasons.map(blockedReason => {
-          return {
-            attribute: SDK.NetworkRequest.setCookieBlockedReasonToAttribute(blockedReason),
-            uiString: SDK.NetworkRequest.setCookieBlockedReasonToUiString(blockedReason)
-          };
-        }));
-        responseCookies.push(cookie);
+        const cookie = blockedCookie.cookie || parsedCookies[0];
+        if (cookie) {
+          responseCookieToBlockedReasons.set(cookie, blockedCookie.blockedReasons.map(blockedReason => {
+            return {
+              attribute: SDK.NetworkRequest.setCookieBlockedReasonToAttribute(blockedReason),
+              uiString: SDK.NetworkRequest.setCookieBlockedReasonToUiString(blockedReason)
+            };
+          }));
+          responseCookies.push(cookie);
+        }
       }
     }
 
