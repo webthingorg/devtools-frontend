@@ -84,6 +84,9 @@ Timeline.TimelineController = class {
     if (options.captureFilmStrip) {
       categoriesArray.push(disabledByDefault('devtools.screenshot'));
     }
+    if (options.recordInputEvents) {
+      categoriesArray.push(disabledByDefault('devtools.timeline.inputs'));
+    }
 
     this._extensionSessions =
         providers.map(provider => new Timeline.ExtensionTracingSession(provider, this._performanceModel));
@@ -395,7 +398,8 @@ Timeline.TimelineController.Client.prototype = {
  *   enableJSSampling: (boolean|undefined),
  *   capturePictures: (boolean|undefined),
  *   captureFilmStrip: (boolean|undefined),
- *   startCoverage: (boolean|undefined)
+ *   startCoverage: (boolean|undefined)，
+ *   recordInputEvents: (boolean|undefined)
  * }}
  */
 Timeline.TimelineController.RecordingOptions;
