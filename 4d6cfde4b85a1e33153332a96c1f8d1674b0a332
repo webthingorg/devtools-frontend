@@ -46,6 +46,30 @@
       "revId": "4d6cfde4b85a1e33153332a96c1f8d1674b0a332",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "920d03b1_7638558a",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2019-12-11T15:48:54Z",
+      "side": 1,
+      "message": "Fair enough. I was just assuming (similar to V8) that we use assertions defensively and if they ever show up in an output, its a bug even for negative tests.",
+      "parentUuid": "6ab70ce7_ebac64ea",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "4d6cfde4b85a1e33153332a96c1f8d1674b0a332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
