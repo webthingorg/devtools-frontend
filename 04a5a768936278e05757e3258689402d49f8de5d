@@ -34,6 +34,24 @@
       "revId": "04a5a768936278e05757e3258689402d49f8de5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "540cb595_6c880830",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-12-11T18:41:27Z",
+      "side": 0,
+      "message": "Do we have other examples of this (i.e. menu items added for accessibility)? If so, what pattern do they follow with regards to show via a mouse right-click?",
+      "parentUuid": "744dde2a_a730a9ea",
+      "revId": "04a5a768936278e05757e3258689402d49f8de5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
