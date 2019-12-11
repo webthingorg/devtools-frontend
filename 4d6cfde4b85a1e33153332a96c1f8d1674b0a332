@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa4b2687_0cd8141c",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2019-12-11T15:39:29Z",
+      "side": 1,
+      "message": "My preference here would be to include a stack trace, otherwise it might be hard to track down the specific assertion especially when the detailed message is missing.\n\nStack trace could be obtained by either `new Error().stack` or Error.captureStackTrace(someObject); someObject.stack;\n\nWdyt?",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "4d6cfde4b85a1e33153332a96c1f8d1674b0a332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
