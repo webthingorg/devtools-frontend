@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e2bb6b5_25d4be03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-12-11T23:35:16Z",
+      "side": 1,
+      "message": "Is there a bug for this?",
+      "revId": "054b44961b4b5e5d57e6cb65bdb32dd68f6ba4fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "544f02fe_dbaee88f",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2019-12-11T23:35:16Z",
+      "side": 1,
+      "message": "Do we understand why the reentrancy occurs? Can we avoid it somehow?\n\nI had a look at other dispose() functions and don\u0027t see early returns being used, so I\u0027m guessing reentrency is not common. Is this case special?",
+      "range": {
+        "startLine": 909,
+        "startChar": 0,
+        "endLine": 911,
+        "endChar": 7
+      },
+      "revId": "054b44961b4b5e5d57e6cb65bdb32dd68f6ba4fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
