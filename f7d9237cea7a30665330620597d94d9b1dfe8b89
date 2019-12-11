@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "371fa76e_89ac2c9b",
+        "filename": "front_end/common/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-11T17:17:37Z",
+      "side": 1,
+      "message": "Using the compiler output is a separate issue that will be fixed in a follow-up CL. It requires changes to the build system and how DevTools is bundled itself, which would be too big to do in 1 CL.\n\nFor now, this tests that TSC is hooked up correctly and the Ninja template definition is working as intended.",
+      "parentUuid": "dfb6e8a8_b7ffb594",
+      "revId": "f7d9237cea7a30665330620597d94d9b1dfe8b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2120521d_24735ae6",
         "filename": "tsconfig.json",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2019-12-11T17:05:55Z",
       "side": 1,
       "message": "We might want to skip `checkJs` as it is likely to produce a large number of failures.",
+      "revId": "f7d9237cea7a30665330620597d94d9b1dfe8b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3a8e389_d450daee",
+        "filename": "tsconfig.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-11T17:17:37Z",
+      "side": 1,
+      "message": "We will have \"bridges\" from JavaScript to newly-written TypeScript and we need to make sure the \"bridges\" are typed correctly. E.g. we can\u0027t simply write in `.ts` and assume that the integrations are correct. As such, we will always need some JS to be checked as well. The question will be, how much.\n\nThis CL only adds the checking to an existing file and makes sure that TSC is hooked up correctly. It also makes sure that we can have different BUILD.gn to be able to parallelize the porting process.",
+      "parentUuid": "2120521d_24735ae6",
       "revId": "f7d9237cea7a30665330620597d94d9b1dfe8b89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
