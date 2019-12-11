@@ -5,27 +5,45 @@
  */
 
 ::slotted(input.dt-radio-button) {
-    height: 17px;
-    width: 17px;
-    min-width: 17px;
-    border: 1px solid rgb(165, 165, 165);
-    background-image: linear-gradient(to bottom, rgb(252, 252, 252), rgb(223, 223, 223));
-    border-radius: 8px;
-    -webkit-appearance: none;
-    vertical-align: middle;
-    margin: 0 5px 5px 0;
+  height: 17px;
+  width: 17px;
+  min-width: 17px;
+  border: 1px solid rgb(165, 165, 165);
+  background-image: linear-gradient(to bottom, rgb(252, 252, 252), rgb(223, 223, 223));
+  border-radius: 8px;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  margin: 0 5px 5px 0;
+}
+
+:host-context(.-theme-with-dark-background) ::slotted(input.dt-radio-button) {
+  background: linear-gradient(to bottom, rgb(3, 3, 3), rgb(32, 32, 32));
 }
 
 ::slotted(input.dt-radio-button:active:not(:disabled)) {
-    background-image: linear-gradient(to bottom, rgb(194, 194, 194), rgb(239, 239, 239));
+  background-image: linear-gradient(to bottom, rgb(194, 194, 194), rgb(239, 239, 239));
+}
+
+:host-context(.-theme-with-dark-background) ::slotted(input.dt-radio-button:active:not(:disabled)) {
+  background-image: linear-gradient(to bottom, rgb(61, 61, 61), rgb(16, 16, 16));
 }
 
 ::slotted(input.dt-radio-button:checked) {
-    background: url(Images/radioDot.png) center no-repeat,
-                linear-gradient(to bottom, rgb(252, 252, 252), rgb(223, 223, 223));
+  background: url(Images/radioDot.png) center no-repeat,
+              linear-gradient(to bottom, rgb(252, 252, 252), rgb(223, 223, 223));
+}
+
+:host-context(.-theme-with-dark-background) ::slotted(input.dt-radio-button:checked) {
+  background: url(Images/radioDot-dark-theme.png) center no-repeat,
+              linear-gradient(to bottom, rgb(3, 3, 3), rgb(32, 32, 32));
 }
 
 ::slotted(input.dt-radio-button:checked:active) {
-    background: url(Images/radioDot.png) center no-repeat,
-                linear-gradient(to bottom, rgb(194, 194, 194), rgb(239, 239, 239));
+  background: url(Images/radioDot.png) center no-repeat,
+              linear-gradient(to bottom, rgb(194, 194, 194), rgb(239, 239, 239));
+}
+
+:host-context(.-theme-with-dark-background) ::slotted(input.dt-radio-button:checked:active) {
+  background: url(Images/radioDot-dark-theme.png) center no-repeat,
+              linear-gradient(to bottom, rgb(61, 61, 61), rgb(16, 16, 16));
 }
