@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e6128d1_4c0c079e",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-11T23:04:14Z",
+      "side": 1,
+      "message": "nit: I think unsetSelected might be clearer, but I can see why you\u0027d want to differentiate it from setSelected",
+      "range": {
+        "startLine": 381,
+        "startChar": 16,
+        "endLine": 381,
+        "endChar": 31
+      },
+      "revId": "788bfd429ccac76d1abfe92691e9de7b341300e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
