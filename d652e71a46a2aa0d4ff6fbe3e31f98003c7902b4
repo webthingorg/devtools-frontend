@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce3676ac_7a453bc8",
+        "filename": "front_end/timeline/InputModel.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-11T15:08:18Z",
+      "side": 1,
+      "message": "One way of suppressing the JSCompiler warning is by adding the following above this line:\n\n    /**\n     * @fileoverview Foo\n     * @suppress {checkTypes}\n     */\n\nTim, any suggestions on the \"proper\" solution here? :)",
+      "revId": "d652e71a46a2aa0d4ff6fbe3e31f98003c7902b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
