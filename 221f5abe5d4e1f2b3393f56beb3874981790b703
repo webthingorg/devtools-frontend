@@ -116,6 +116,30 @@
       "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "452cf4fa_558abec9",
+        "filename": "front_end/sdk/wasmparser/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-11T16:40:56Z",
+      "side": 1,
+      "message": "Once we are in TypeScript land, yes that would be possible. However, importing without the file extension is non-standard and will not work for now.\n\nCan you upstream the fix to use the proper file extensions? I am okay with manual changes after the `npm i` output, but would remove the `tsc` step here.",
+      "parentUuid": "5096f62d_5a0e8b9b",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
