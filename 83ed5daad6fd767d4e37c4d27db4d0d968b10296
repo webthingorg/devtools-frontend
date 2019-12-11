@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c418ca8a_1b30b781",
+        "filename": "front_end/resources/DatabaseQueryView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-11T18:29:15Z",
+      "side": 1,
+      "message": "You should probably check for modifiers.",
+      "revId": "83ed5daad6fd767d4e37c4d27db4d0d968b10296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
