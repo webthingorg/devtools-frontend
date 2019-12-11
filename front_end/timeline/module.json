@@ -216,6 +216,28 @@
                     "shortcut": "Meta+Right"
                 }
             ]
+        },
+        {
+            "type": "action",
+            "actionId": "timeline.replay-pause",
+            "iconClass": "largeicon-play",
+            "toggleable": true,
+            "toggledIconClass": "largeicon-pause",
+            "toggleWithRedColor": true,
+            "contextTypes": [
+                "Timeline.TimelinePanel"
+            ],
+            "className": "Timeline.TimelinePanel.ActionDelegate",
+            "options": [
+                {
+                    "value": true,
+                    "title": "Replay"
+                },
+                {
+                    "value": false,
+                    "title": "Pause replay"
+                }
+            ]
         }
     ],
     "dependencies": [
@@ -227,11 +249,13 @@
         "extensions",
         "data_grid",
         "profiler",
-        "mobile_throttling"
+        "mobile_throttling",
+        "sdk"
     ],
     "scripts": [
         "CountersGraph.js",
         "ExtensionTracingSession.js",
+        "InputModel.js",
         "PerformanceModel.js",
         "TimelineController.js",
         "TimelineDetailsView.js",
