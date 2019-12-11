@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ae3a754c_a4825f7f",
+        "filename": "front_end/sdk/wasmparser/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2019-12-11T16:36:41Z",
+      "side": 1,
+      "message": "Out for review now, looks promising.",
+      "parentUuid": "6993e84c_63d3b7f6",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 94
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "53d736f0_8e1e5b9d",
         "filename": "front_end/sdk/wasmparser/README",
         "patchSetId": 4
@@ -59,6 +83,30 @@
       "writtenOn": "2019-12-09T12:30:03Z",
       "side": 1,
       "message": "If we use the upstream version, can we `npm i` this instead?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5096f62d_5a0e8b9b",
+        "filename": "front_end/sdk/wasmparser/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2019-12-11T16:36:41Z",
+      "side": 1,
+      "message": "I don\u0027t think so. The javascript compiled by npm is incompatible with DevTools, doing things like importing files without the .js extension. I\u0027m hopeful that your work on updating our module system will make this possible in the future.",
+      "parentUuid": "53d736f0_8e1e5b9d",
       "range": {
         "startLine": 3,
         "startChar": 0,
