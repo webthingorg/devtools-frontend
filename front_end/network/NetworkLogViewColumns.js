@@ -486,8 +486,6 @@ export default class NetworkLogViewColumns {
         Common.UIString('Latency'), setWaterfallMode.bind(this, waterfallSortIds.Latency),
         this._activeWaterfallSortId === waterfallSortIds.Latency);
 
-    contextMenu.show();
-
     /**
      * @param {!WaterfallSortIds} sortId
      * @this {NetworkLogViewColumns}
