@@ -75,6 +75,7 @@ export class NetworkNode extends DataGrid.SortableDataGridNode {
    * @suppressGlobalPropertiesCheck
    */
   backgroundColor() {
+<<<<<<< HEAD
     const bgColors = _backgroundColors;
     const hasFocus = document.hasFocus();
     const isSelected = this.dataGrid.element === document.activeElement;
@@ -83,6 +84,10 @@ export class NetworkNode extends DataGrid.SortableDataGridNode {
     if (this.selected && hasFocus && isSelected && isFailed) {
       return bgColors.FocusSelectedHasError;
     } else if (this.selected && hasFocus && isSelected) {
+=======
+    const bgColors = Network.NetworkNode._backgroundColors;
+    if (this.selected && (this.dataGrid.element === document.activeElement) && document.hasFocus()) {
+>>>>>>> c4a1de68... Revert "Fix background on rows with error network logview"
       return bgColors.FocusSelected;
     } else if (this.selected) {
       return bgColors.Selected;
@@ -267,7 +272,6 @@ export const _backgroundColors = {
   InitiatedPath: '--network-grid-initiated-path-color',
   Selected: '--network-grid-selected-color',
   FocusSelected: '--network-grid-focus-selected-color',
-  FocusSelectedHasError: '--network-grid-focus-selected-color-has-error',
   FromFrame: '--network-grid-from-frame-color',
 };
 
