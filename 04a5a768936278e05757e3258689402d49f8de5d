@@ -16,6 +16,24 @@
       "revId": "04a5a768936278e05757e3258689402d49f8de5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "744dde2a_a730a9ea",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-11T18:07:50Z",
+      "side": 0,
+      "message": "I don\u0027t feel too strongly, I feel it may be redundant with the header menu available when right-clicking on the headers themselves, but I don\u0027t think it would be too bad to add it to both. Anyone else have strong opinions either way?",
+      "parentUuid": "1b253273_fff3de33",
+      "revId": "04a5a768936278e05757e3258689402d49f8de5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
