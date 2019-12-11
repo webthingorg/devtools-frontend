@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "93a25818_3252383b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-11T14:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4d2e601_bfc615ee",
+      "revId": "8010aa5f9908b5441cf03ec247a3c26cf57dc28f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad2ac788_6fc3d7b3",
         "filename": "front_end/sdk/Cookie.js",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-12-11T13:19:24Z",
       "side": 1,
       "message": "Drive-by question: can we use private fields already, or does our tooling not handle them yet?",
+      "revId": "8010aa5f9908b5441cf03ec247a3c26cf57dc28f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b16ee5ff_debcb79a",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-11T14:47:11Z",
+      "side": 1,
+      "message": "What do you mean by private fields?",
+      "parentUuid": "ad2ac788_6fc3d7b3",
       "revId": "8010aa5f9908b5441cf03ec247a3c26cf57dc28f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
