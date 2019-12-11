@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7973c39_d4a8ff50",
+        "filename": "front_end/ui/ListControl.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-11T00:10:22Z",
+      "side": 0,
+      "message": "This wasn\u0027t supposed to be here and breaks the functionality of updateSelectedItemARIA",
+      "revId": "bbddcc4a938adbd38ec1a5a3ff07e54e389d9391",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
