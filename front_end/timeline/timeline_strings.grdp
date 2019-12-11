@@ -358,6 +358,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_55b4b48b80795ee9b6a3220ca415786d" desc="Text in Timeline UIUtils of the Performance panel">
     Schedule Style Recalculation
   </message>
+  <message name="IDS_DEVTOOLS_56e8fac7007de50d714790732d5acfb9" desc="Title of an action in the timeline tool to replay user inputs">
+    Replay
+  </message>
   <message name="IDS_DEVTOOLS_571d0a86e3e15c23eb715c4e8b46b7b8" desc="Text in Timeline UIUtils of the Performance panel">
     ''' (<ph name="NETWORKDURATIONSTR">$1s<ex>1ms</ex></ph> <ph name="CACHEORNETWORKLABEL">$2s<ex>network transfer</ex></ph> + <ph name="PROCESSINGDURATIONSTR">$3s<ex>1ms</ex></ph> resource loading)
   </message>
@@ -929,6 +932,9 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   </message>
   <message name="IDS_DEVTOOLS_e2daed94bbd6483ac087b1da9a06e3fd" desc="Text in Timeline Flame Chart Data Provider of the Performance panel">
     <ph name="NUMBER_PRECISEMILLISTOSTRING_FRAME_DURATION____">$1s<ex>10ms</ex></ph> ~ <ph name="_______FRAME_DURATION">$2.0f<ex>100.0</ex></ph> fps
+  </message>
+  <message name="IDS_DEVTOOLS_e38f802cdc46fc8aa76002b7b1f1ce9d" desc="Title of an action in the timeline tool to pause replaying user inputs">
+    Pause replay
   </message>
   <message name="IDS_DEVTOOLS_e43eecf7486865246d49c311c7c57524" desc="Text in Timeline UIUtils of the Performance panel">
     Parse and Compile
