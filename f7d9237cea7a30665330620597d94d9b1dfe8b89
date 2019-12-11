@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfb6e8a8_b7ffb594",
+        "filename": "front_end/common/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-11T17:05:55Z",
+      "side": 1,
+      "message": "So maybe I\u0027m a little confused. Is this change just to introduce type-checking, not transpilation?\n\nI would have expected the file to be named .ts.",
+      "revId": "f7d9237cea7a30665330620597d94d9b1dfe8b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2120521d_24735ae6",
+        "filename": "tsconfig.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-11T17:05:55Z",
+      "side": 1,
+      "message": "We might want to skip `checkJs` as it is likely to produce a large number of failures.",
+      "revId": "f7d9237cea7a30665330620597d94d9b1dfe8b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
