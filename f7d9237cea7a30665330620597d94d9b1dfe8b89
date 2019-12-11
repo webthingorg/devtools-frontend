@@ -69,6 +69,24 @@
       "revId": "f7d9237cea7a30665330620597d94d9b1dfe8b89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c29fc3fc_0634dd8b",
+        "filename": "tsconfig.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-11T17:33:12Z",
+      "side": 1,
+      "message": "One thing you might consider doing then is leveraging TypeScript\u0027s .d.ts support. These are ambient files that can be built automatically as of TypeScript 3.7:\n\nhttps://voxpelli.com/2019/10/use-type-script-3-7-to-generate/",
+      "parentUuid": "c3a8e389_d450daee",
+      "revId": "f7d9237cea7a30665330620597d94d9b1dfe8b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
