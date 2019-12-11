@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ace2226_c9f56483",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-12-11T03:46:19Z",
+      "side": 1,
+      "message": "both commits could share this title. it\u0027d help if they would more easily distinguishable. im thinking..:\n\nAudits: migrate webtests into the frontend repo",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "b217a59a496d5ea2d78474b936cee7a4cd8655c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef5f1c42_34266a1a",
+        "filename": "front_end/audits_test_runner/AuditsTestRunner.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2019-12-11T03:46:19Z",
+      "side": 1,
+      "message": "delete?",
+      "range": {
+        "startLine": 120,
+        "startChar": 5,
+        "endLine": 120,
+        "endChar": 10
+      },
+      "revId": "b217a59a496d5ea2d78474b936cee7a4cd8655c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
