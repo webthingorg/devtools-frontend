@@ -3,6 +3,16 @@
     "module": "esnext",
     "target": "esnext",
     "checkJs": true,
-    "allowJs": true
+    "allowJs": true,
+
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   }
 }
