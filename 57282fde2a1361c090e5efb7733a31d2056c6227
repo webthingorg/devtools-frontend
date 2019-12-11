@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dc8c275c_34578c3e",
+        "filename": "front_end/host/ResourceLoader.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-11T09:12:56Z",
+      "side": 1,
+      "message": "I\u0027d love that, but the closure can\u0027t handle it yet :(",
+      "parentUuid": "d05b36cc_890e809e",
+      "revId": "57282fde2a1361c090e5efb7733a31d2056c6227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c71f11e_2247c0ee",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "57282fde2a1361c090e5efb7733a31d2056c6227",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc33b952_f99efed3",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-11T09:12:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c71f11e_2247c0ee",
+      "revId": "57282fde2a1361c090e5efb7733a31d2056c6227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
