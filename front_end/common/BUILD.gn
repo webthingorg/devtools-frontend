@@ -7,11 +7,18 @@ import("../../third_party/typescript/typescript.gni")
 group("common") {
   public_deps = [
     ":trie",
+    ":event_target",
   ]
 }
 
 ts_library("trie") {
   sources = [
     "Trie.js",
+  ]
+}
+
+ts_library("event_target") {
+  sources = [
+    "EventTarget.js",
   ]
 }
