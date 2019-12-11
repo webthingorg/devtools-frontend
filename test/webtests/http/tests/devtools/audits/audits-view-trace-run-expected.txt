@@ -1,0 +1,62 @@
+Tests that audits panel renders View Trace button.
+
+
+========== Audits Start Audit State ==========
+[x] Performance
+[ ] Progressive Web App
+[ ] Best practices
+[ ] Accessibility
+[ ] SEO
+[ ] Publisher Ads
+[x] Clear storage
+[x] Simulated throttling
+Generate report: enabled visible
+
+=============== Audits run ===============
+bootup-time
+critical-request-chains
+diagnostics
+dom-size
+efficient-animated-content
+estimated-input-latency
+final-screenshot
+first-contentful-paint
+first-cpu-idle
+first-meaningful-paint
+font-display
+interactive
+main-thread-tasks
+mainthread-work-breakdown
+max-potential-fid
+metrics
+network-requests
+network-rtt
+network-server-latency
+offscreen-images
+performance-budget
+redirects
+render-blocking-resources
+resource-summary
+screenshot-thumbnails
+speed-index
+third-party-summary
+time-to-first-byte
+total-blocking-time
+total-byte-weight
+unminified-css
+unminified-javascript
+unused-css-rules
+user-timings
+uses-long-cache-ttl
+uses-optimized-images
+uses-rel-preconnect
+uses-rel-preload
+uses-responsive-images
+uses-text-compression
+uses-webp-images
+TEST ENDED EARLY DUE TO UNCAUGHT ERROR:
+TypeError: Cannot read property 'click' of null
+    at eval (http://127.0.0.1:8000/devtools/audits/audits-view-trace-run.js:32:19)
+    at async http://localhost:8000/inspector-sources/test_runner/TestRunner.js:17:23
+=== DO NOT COMMIT THIS INTO -expected.txt ===
+
