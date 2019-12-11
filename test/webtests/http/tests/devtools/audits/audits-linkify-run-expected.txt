@@ -1,0 +1,7 @@
+Tests that the report linkifies elements to other DevTools panels.
+
+
+Clicking: html
+
+Showing view: elements
+
