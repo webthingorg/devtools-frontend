@@ -474,10 +474,10 @@ PerfUI.FlameChart = class extends UI.VBox {
       this._flameChartDelegate.updateSelectedGroup(this, groups[groupIndex]);
       this._resetCanvas();
       this._draw();
-
-      const groupName = groups[groupIndex].name;
-      UI.ARIAUtils.alert(ls`${groupName} selected`, this._canvas);
     }
+
+    const groupName = groups[groupIndex].name;
+    UI.ARIAUtils.alert(ls`${groupName} selected`, this._canvas);
   }
 
   _deselectAllGroups() {
