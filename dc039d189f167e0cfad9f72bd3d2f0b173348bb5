@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28cf5dd9_a7b02e2a",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-11T09:52:36Z",
+      "side": 1,
+      "message": "Should this string be localizable?",
+      "range": {
+        "startLine": 170,
+        "startChar": 32,
+        "endLine": 170,
+        "endChar": 85
+      },
+      "revId": "dc039d189f167e0cfad9f72bd3d2f0b173348bb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
