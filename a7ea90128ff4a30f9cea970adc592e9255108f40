@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b74ef6aa_ba0436d9",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1334577
+      },
+      "writtenOn": "2019-12-11T23:39:09Z",
+      "side": 1,
+      "message": "No, but you are right I should check here, so like other methods I added a check",
+      "parentUuid": "faef5857_b51bf4bf",
+      "range": {
+        "startLine": 510,
+        "startChar": 21,
+        "endLine": 510,
+        "endChar": 40
+      },
+      "revId": "a7ea90128ff4a30f9cea970adc592e9255108f40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "963597c2_b6c7f5fd",
         "filename": "front_end/perf_ui/FlameChart.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "a7ea90128ff4a30f9cea970adc592e9255108f40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d73983f8_32ae511c",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1334577
+      },
+      "writtenOn": "2019-12-11T23:39:09Z",
+      "side": 1,
+      "message": "In case of negative index, am returning like other methods because can\u0027t say what that case would be (shouldn\u0027t really happen).",
+      "parentUuid": "963597c2_b6c7f5fd",
+      "range": {
+        "startLine": 519,
+        "startChar": 22,
+        "endLine": 519,
+        "endChar": 34
+      },
+      "revId": "a7ea90128ff4a30f9cea970adc592e9255108f40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
