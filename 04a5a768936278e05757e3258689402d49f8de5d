@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b253273_fff3de33",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-11T00:01:40Z",
+      "side": 0,
+      "message": "Do we feel that strongly about not showing the header options in this menu for mouse users?  It might be confusing for people who open the context menu both ways",
+      "revId": "04a5a768936278e05757e3258689402d49f8de5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
