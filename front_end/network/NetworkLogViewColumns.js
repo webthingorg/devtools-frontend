@@ -413,7 +413,7 @@ Network.NetworkLogViewColumns = class {
   }
 
   /**
-   * @param {!UI.ContextMenu} contextMenu
+   * @param {!UI.ContextSubMenu} contextMenu
    */
   _innerHeaderContextMenu(contextMenu) {
     const columnConfigs = this._columns.filter(columnConfig => columnConfig.hideable);
@@ -487,8 +487,6 @@ Network.NetworkLogViewColumns = class {
     waterfallSubMenu.defaultSection().appendCheckboxItem(
         Common.UIString('Latency'), setWaterfallMode.bind(this, waterfallSortIds.Latency),
         this._activeWaterfallSortId === waterfallSortIds.Latency);
-
-    contextMenu.show();
 
     /**
      * @param {!Network.NetworkLogViewColumns.WaterfallSortIds} sortId
