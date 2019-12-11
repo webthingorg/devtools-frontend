@@ -22,6 +22,30 @@
       "revId": "dc039d189f167e0cfad9f72bd3d2f0b173348bb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f285667f_739abde3",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-11T12:15:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28cf5dd9_a7b02e2a",
+      "range": {
+        "startLine": 170,
+        "startChar": 32,
+        "endLine": 170,
+        "endChar": 85
+      },
+      "revId": "dc039d189f167e0cfad9f72bd3d2f0b173348bb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
