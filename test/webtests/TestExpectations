@@ -1,0 +1,2 @@
+# Temporarily disabled to land DOM breakpoint test fixes in chromium
+crbug.com/963183 http/tests/devtools/a11y-axe-core/sources/dom-breakpoints-pane-a11y-test.js [ Pass Failure ]
