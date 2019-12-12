@@ -1,0 +1,192 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae95223b_b82fe171",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "This will also hit when x or y are 0, not just when they\u0027re null or undefined. Is that intended?",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cef25273_2308a522",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "In which situation do we end up here? AFAICT String.fromCharCode(foo) never returns the empty string.",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8234325_bea5e401",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "no need for the outer () here",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b12a6277_8995d91d",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "Can this lookup fail?",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43be2c2a_6563e10f",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "Let\u0027s make this and KeyboardEventTypes and MouseEventTypes below maps.\n\n    InputModel.MouseEventTypes \u003d new Map([\n      [\u0027mousedown\u0027, \u0027mousePressed\u0027],\n      [\u0027mouseup\u0027, \u0027mouseReleased\u0027],\n      [\u0027mousemove\u0027, \u0027mouseMoved\u0027],\n      [\u0027wheel\u0027, \u0027mouseWheel\u0027],\n    ]);\n\nThey\u0027re conceptually the data structure we\u0027re after here, and that way we nicely avoid walking the prototype chain in case of failing lookups (which can happen in e.g. _dispatchNextEvent).",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a668ab7_9b7fee6f",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "`switch` might be a little more explicit here:\n\n    switch (this._state) {\n      case State.Recording: {\n        this._stopRecording();\n        break;\n      }\n      case State.Idle: {\n        this._startRecording();\n        break;\n      }\n    }\n\nSame for the other ones below.\n\nWDYT?",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c84d9e2f_54f2daf5",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "Nit: since we don\u0027t need the return value here, let\u0027s make that a little more explicit:\n\n      tracingStoppedPromises.push(new Promise(resolve \u003d\u003e {\n        this._tracingCompleteCallback \u003d resolve;\n      }));",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 99
+      },
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d02ec7b7_292748dd",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "Can any of these promises reject?\n\n(In that case, we could use `allSettled` instead, assuming we really don\u0027t care about the distinction.)",
+      "range": {
+        "startLine": 296,
+        "startChar": 23,
+        "endLine": 296,
+        "endChar": 45
+      },
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb394a9_1ada6185",
+        "filename": "front_end/input/inputTimeline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "Have you tested this using the DevTools dark theme? Does it still look good?\n\nIf not, instead of hardcoding #ccc here we could use one of the global var()s, since these already adjust to the dark theme.",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a9614f_48653f66",
+        "filename": "front_end/input/inputTimeline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:59:37Z",
+      "side": 1,
+      "message": "Nit: we\u0027ve decided to use 2-space indents for new CSS files. (I know it\u0027s currently inconsistent...)",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
