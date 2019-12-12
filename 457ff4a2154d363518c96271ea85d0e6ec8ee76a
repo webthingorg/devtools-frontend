@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10d80a87_a6913b3c",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T13:14:00Z",
+      "side": 1,
+      "message": "We have SVG assets as well. CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1962301",
+      "revId": "457ff4a2154d363518c96271ea85d0e6ec8ee76a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
