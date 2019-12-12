@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-Sources.SourceFormatData = class {
+Formatter.SourceFormatData = class {
   /**
    * @param {!Workspace.UISourceCode} originalSourceCode
    * @param {!Workspace.UISourceCode} formattedSourceCode
@@ -20,26 +20,26 @@ Sources.SourceFormatData = class {
 
   /**
    * @param {!Object} object
-   * @return {?Sources.SourceFormatData}
+   * @return {?Formatter.SourceFormatData}
    */
   static _for(object) {
-    return object[Sources.SourceFormatData._formatDataSymbol];
+    return object[Formatter.SourceFormatData._formatDataSymbol];
   }
 };
 
-Sources.SourceFormatData._formatDataSymbol = Symbol('formatData');
+Formatter.SourceFormatData._formatDataSymbol = Symbol('formatData');
 
-Sources.SourceFormatter = class {
+Formatter.SourceFormatter = class {
   constructor() {
     this._projectId = 'formatter:';
     this._project = new Bindings.ContentProviderBasedProject(
         Workspace.workspace, this._projectId, Workspace.projectTypes.Formatter, 'formatter',
         true /* isServiceProject */);
 
-    /** @type {!Map<!Workspace.UISourceCode, !{promise: !Promise<!Sources.SourceFormatData>, formatData: ?Sources.SourceFormatData}>} */
+    /** @type {!Map<!Workspace.UISourceCode, !{promise: !Promise<!Formatter.SourceFormatData>, formatData: ?Formatter.SourceFormatData}>} */
     this._formattedSourceCodes = new Map();
-    this._scriptMapping = new Sources.SourceFormatter.ScriptMapping();
-    this._styleMapping = new Sources.SourceFormatter.StyleMapping();
+    this._scriptMapping = new Formatter.SourceFormatter.ScriptMapping();
+    this._styleMapping = new Formatter.SourceFormatter.StyleMapping();
     Workspace.workspace.addEventListener(
         Workspace.Workspace.Events.UISourceCodeRemoved, this._onUISourceCodeRemoved, this);
   }
@@ -61,7 +61,7 @@ Sources.SourceFormatter = class {
    * @return {?Workspace.UISourceCode}
    */
   discardFormattedUISourceCode(formattedUISourceCode) {
-    const formatData = Sources.SourceFormatData._for(formattedUISourceCode);
+    const formatData = Formatter.SourceFormatData._for(formattedUISourceCode);
     if (!formatData) {
       return null;
     }
@@ -71,10 +71,10 @@ Sources.SourceFormatter = class {
   }
 
   /**
-   * @param {!Sources.SourceFormatData} formatData
+   * @param {!Formatter.SourceFormatData} formatData
    */
   _discardFormatData(formatData) {
-    delete formatData.formattedSourceCode[Sources.SourceFormatData._formatDataSymbol];
+    delete formatData.formattedSourceCode[Formatter.SourceFormatData._formatDataSymbol];
     this._scriptMapping._setSourceMappingEnabled(formatData, false);
     this._styleMapping._setSourceMappingEnabled(formatData, false);
     this._project.removeFile(formatData.formattedSourceCode.url());
@@ -94,7 +94,7 @@ Sources.SourceFormatter = class {
    */
   getOriginalUISourceCode(uiSourceCode) {
     const formatData =
-        /** @type {?Sources.SourceFormatData} */ (uiSourceCode[Sources.SourceFormatData._formatDataSymbol]);
+        /** @type {?Formatter.SourceFormatData} */ (uiSourceCode[Formatter.SourceFormatData._formatDataSymbol]);
     if (!formatData) {
       return uiSourceCode;
     }
@@ -103,7 +103,7 @@ Sources.SourceFormatter = class {
 
   /**
    * @param {!Workspace.UISourceCode} uiSourceCode
-   * @return {!Promise<!Sources.SourceFormatData>}
+   * @return {!Promise<!Formatter.SourceFormatData>}
    */
   async format(uiSourceCode) {
     const cacheEntry = this._formattedSourceCodes.get(uiSourceCode);
@@ -123,7 +123,7 @@ Sources.SourceFormatter = class {
     return resultPromise;
 
     /**
-     * @this Sources.SourceFormatter
+     * @this Formatter.SourceFormatter
      * @param {string} formattedContent
      * @param {!Formatter.FormatterSourceMapping} formatterMapping
      */
@@ -143,8 +143,8 @@ Sources.SourceFormatter = class {
           Common.StaticContentProvider.fromString(formattedURL, uiSourceCode.contentType(), formattedContent);
       const formattedUISourceCode =
           this._project.addContentProvider(formattedURL, contentProvider, uiSourceCode.mimeType());
-      const formatData = new Sources.SourceFormatData(uiSourceCode, formattedUISourceCode, formatterMapping);
-      formattedUISourceCode[Sources.SourceFormatData._formatDataSymbol] = formatData;
+      const formatData = new Formatter.SourceFormatData(uiSourceCode, formattedUISourceCode, formatterMapping);
+      formattedUISourceCode[Formatter.SourceFormatData._formatDataSymbol] = formatData;
       this._scriptMapping._setSourceMappingEnabled(formatData, true);
       this._styleMapping._setSourceMappingEnabled(formatData, true);
       cacheEntry.formatData = formatData;
@@ -167,7 +167,7 @@ Sources.SourceFormatter = class {
 /**
  * @implements {Bindings.DebuggerSourceMapping}
  */
-Sources.SourceFormatter.ScriptMapping = class {
+Formatter.SourceFormatter.ScriptMapping = class {
   constructor() {
     Bindings.debuggerWorkspaceBinding.addSourceMapping(this);
   }
@@ -179,7 +179,7 @@ Sources.SourceFormatter.ScriptMapping = class {
    */
   rawLocationToUILocation(rawLocation) {
     const script = rawLocation.script();
-    const formatData = script && Sources.SourceFormatData._for(script);
+    const formatData = script && Formatter.SourceFormatData._for(script);
     if (!formatData) {
       return null;
     }
@@ -211,7 +211,7 @@ Sources.SourceFormatter.ScriptMapping = class {
    * @return {!Array<!SDK.DebuggerModel.Location>}
    */
   uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
-    const formatData = Sources.SourceFormatData._for(uiSourceCode);
+    const formatData = Formatter.SourceFormatData._for(uiSourceCode);
     if (!formatData) {
       return [];
     }
@@ -242,7 +242,7 @@ Sources.SourceFormatter.ScriptMapping = class {
   }
 
   /**
-   * @param {!Sources.SourceFormatData} formatData
+   * @param {!Formatter.SourceFormatData} formatData
    * @param {boolean} enabled
    */
   _setSourceMappingEnabled(formatData, enabled) {
@@ -252,11 +252,11 @@ Sources.SourceFormatter.ScriptMapping = class {
     }
     if (enabled) {
       for (const script of scripts) {
-        script[Sources.SourceFormatData._formatDataSymbol] = formatData;
+        script[Formatter.SourceFormatData._formatDataSymbol] = formatData;
       }
     } else {
       for (const script of scripts) {
-        delete script[Sources.SourceFormatData._formatDataSymbol];
+        delete script[Formatter.SourceFormatData._formatDataSymbol];
       }
     }
     for (const script of scripts) {
@@ -289,10 +289,10 @@ Sources.SourceFormatter.ScriptMapping = class {
 /**
  * @implements {Bindings.CSSWorkspaceBinding.SourceMapping}
  */
-Sources.SourceFormatter.StyleMapping = class {
+Formatter.SourceFormatter.StyleMapping = class {
   constructor() {
     Bindings.cssWorkspaceBinding.addSourceMapping(this);
-    this._headersSymbol = Symbol('Sources.SourceFormatter.StyleMapping._headersSymbol');
+    this._headersSymbol = Symbol('Formatter.SourceFormatter.StyleMapping._headersSymbol');
   }
 
   /**
@@ -302,7 +302,7 @@ Sources.SourceFormatter.StyleMapping = class {
    */
   rawLocationToUILocation(rawLocation) {
     const styleHeader = rawLocation.header();
-    const formatData = styleHeader && Sources.SourceFormatData._for(styleHeader);
+    const formatData = styleHeader && Formatter.SourceFormatData._for(styleHeader);
     if (!formatData) {
       return null;
     }
@@ -317,7 +317,7 @@ Sources.SourceFormatter.StyleMapping = class {
    * @return {!Array<!SDK.CSSLocation>}
    */
   uiLocationToRawLocations(uiLocation) {
-    const formatData = Sources.SourceFormatData._for(uiLocation.uiSourceCode);
+    const formatData = Formatter.SourceFormatData._for(uiLocation.uiSourceCode);
     if (!formatData) {
       return [];
     }
@@ -329,7 +329,7 @@ Sources.SourceFormatter.StyleMapping = class {
   }
 
   /**
-   * @param {!Sources.SourceFormatData} formatData
+   * @param {!Formatter.SourceFormatData} formatData
    * @param {boolean} enable
    */
   _setSourceMappingEnabled(formatData, enable) {
@@ -337,10 +337,10 @@ Sources.SourceFormatter.StyleMapping = class {
     const headers = this._headersForUISourceCode(original);
     if (enable) {
       original[this._headersSymbol] = headers;
-      headers.forEach(header => header[Sources.SourceFormatData._formatDataSymbol] = formatData);
+      headers.forEach(header => header[Formatter.SourceFormatData._formatDataSymbol] = formatData);
     } else {
       original[this._headersSymbol] = null;
-      headers.forEach(header => delete header[Sources.SourceFormatData._formatDataSymbol]);
+      headers.forEach(header => delete header[Formatter.SourceFormatData._formatDataSymbol]);
     }
     headers.forEach(header => Bindings.cssWorkspaceBinding.updateLocations(header));
   }
@@ -365,4 +365,4 @@ Sources.SourceFormatter.StyleMapping = class {
   }
 };
 
-Sources.sourceFormatter = new Sources.SourceFormatter();
+Formatter.sourceFormatter = new Formatter.SourceFormatter();
