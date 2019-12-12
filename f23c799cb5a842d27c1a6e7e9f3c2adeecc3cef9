@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1590fcf0_615c9240",
+        "filename": "front_end/integration_test_runner.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2019-12-12T17:48:15Z",
+      "side": 1,
+      "message": "Nit: We should remove or add a TODO / FIXME",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 178
+      },
+      "revId": "f23c799cb5a842d27c1a6e7e9f3c2adeecc3cef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
