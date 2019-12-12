@@ -136,45 +136,29 @@ export function flushResults() {
   _results = [];
 }
 
-export function _executeTestScript() {
+export async function _executeTestScript() {
   const testScriptURL = /** @type {string} */ (Root.Runtime.queryParam('test'));
-  fetch(testScriptURL)
-      .then(data => data.text())
-      .then(testScript => {
-        if (_isDebugTest()) {
-          _innerAddResult = console.log;
-          _innerCompleteTest = () => console.log('Test completed');
+  if (_isDebugTest()) {
+    _innerAddResult = console.log;
+    _innerCompleteTest = () => console.log('Test completed');
 
-          // Auto-start unit tests
-          if (!self.testRunner) {
-            eval(`(function test(){${testScript}})()\n//# sourceURL=${testScriptURL}`);
-          } else {
-            self.eval(`function test(){${testScript}}\n//# sourceURL=${testScriptURL}`);
-          }
-          return;
-        }
+    // Auto-start unit tests
+    self.test = async function() {
+      // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
+      await eval(`import("${testScriptURL}")`);
+    };
+    return;
+  }
 
-        // Convert the test script into an expression (if needed)
-        testScript = testScript.trimRight();
-        if (testScript.endsWith(';')) {
-          testScript = testScript.slice(0, testScript.length - 1);
-        }
-
-        (async function() {
-          try {
-            await eval(testScript + `\n//# sourceURL=${testScriptURL}`);
-          } catch (err) {
-            addResult('TEST ENDED EARLY DUE TO UNCAUGHT ERROR:');
-            addResult(err && err.stack || err);
-            addResult('=== DO NOT COMMIT THIS INTO -expected.txt ===');
-            completeTest();
-          }
-        })();
-      })
-      .catch(error => {
-        addResult(`Unable to execute test script because of error: ${error}`);
-        completeTest();
-      });
+  try {
+    // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
+    await eval(`import("${testScriptURL}")`);
+  } catch (err) {
+    addResult('TEST ENDED EARLY DUE TO UNCAUGHT ERROR:');
+    addResult(err && err.stack || err);
+    addResult('=== DO NOT COMMIT THIS INTO -expected.txt ===');
+    completeTest();
+  }
 }
 
 /**
@@ -1538,7 +1522,7 @@ export class _TestObserver {
   TestRunner._initializeTargetForStartupTest =
       override(Main.Main._instanceForTest, '_initializeTarget', () => undefined).bind(Main.Main._instanceForTest);
   await addSnifferPromise(Main.Main._instanceForTest, '_showAppUI');
-  _executeTestScript();
+  await _executeTestScript();
 })();
 
 /** @type {!{logToStderr: function(), navigateSecondaryWindow: function(string), notifyDone: function()}|undefined} */
