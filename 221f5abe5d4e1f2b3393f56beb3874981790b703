@@ -164,6 +164,30 @@
       "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c14dfcb8_65f14e50",
+        "filename": "front_end/sdk/wasmparser/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-12T14:37:00Z",
+      "side": 1,
+      "message": "Oh sorry I meant that you do `npm i` in a brand new folder on your computer and then copy the relevant files into here. E.g. you download the artifact from NPM and obtain the build output.\n\nWe don\u0027t have managed_node_deps for the front_end yet. That would be nice to have. Do you mind filing a bug for that?",
+      "parentUuid": "a00e4d08_99e66663",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
