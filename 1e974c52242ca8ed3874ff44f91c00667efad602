@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2695ee6_8a2fbb1c",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T15:05:44Z",
+      "side": 1,
+      "message": "Let\u0027s make this a map, since that\u0027s how we\u0027re using it.",
+      "revId": "1e974c52242ca8ed3874ff44f91c00667efad602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff7faf1c_bf9ac5bc",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T15:05:44Z",
+      "side": 1,
+      "message": "Does _propertyValues have to be a POJO for some reason? If not, let\u0027s make it a map, because that\u0027s how we\u0027re using it.",
+      "range": {
+        "startLine": 107,
+        "startChar": 11,
+        "endLine": 107,
+        "endChar": 26
+      },
+      "revId": "1e974c52242ca8ed3874ff44f91c00667efad602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
