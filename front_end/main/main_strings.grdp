@@ -18,6 +18,9 @@
   <message name="IDS_DEVTOOLS_1cf59b16fd253d6ff4bbee7c237cea0d" desc="Text in Main">
     Show console
   </message>
+  <message name="IDS_DEVTOOLS_2ab5656e27a0ed871c8de44368f807c6" desc="Title of the styles side pane in Elements panel">
+    Styles Pane
+  </message>
   <message name="IDS_DEVTOOLS_2ac43aa43bf473f9a9c09b4b608619d3" desc="A tag of theme preference settings that can be searched in the command menu">
     light
   </message>
@@ -65,6 +68,9 @@
   </message>
   <message name="IDS_DEVTOOLS_75def4784fa71c4ccde7762316ed0e3e" desc="Text in the Shortcuts page in settings to explain a keyboard shortcut in the Section">
     Find next/previous
+  </message>
+  <message name="IDS_DEVTOOLS_787ae37366b7a8c53f381abfd315c647" desc="Text that refers to the Elements Panel">
+    Elements Panel
   </message>
   <message name="IDS_DEVTOOLS_8645bf45e76c3f958ae99c114c419743" desc="Text in Main">
     Hide console drawer

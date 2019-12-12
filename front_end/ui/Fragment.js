@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-export default class Fragment {
+export class Fragment {
   /**
    * @param {!Element} element
    */
@@ -232,40 +232,3 @@ const _templateCache = new Map();
 export const html = (strings, ...vararg) => {
   return Fragment.cached(strings, ...vararg).element();
 };
-
-/* Legacy exported object*/
-self.UI = self.UI || {};
-
-/* Legacy exported object*/
-UI = UI || {};
-
-/** @constructor */
-UI.Fragment = Fragment;
-
-UI.Fragment._textMarker = _textMarker;
-UI.Fragment._attributeMarker = _attributeMarker;
-
-UI.html = html;
-
-/**
- * @typedef {!{
-  *   template: !Element,
-  *   binds: !Array<!Fragment._Bind>
-  * }}
-  */
-UI.Fragment._Template;
-
-/**
-  * @typedef {!{
-  *   elementId: (string|undefined),
-  *
-  *   attr: (!{
-  *     index: number,
-  *     names: !Array<string>,
-  *     values: !Array<string>
-  *   }|undefined),
-  *
-  *   replaceNodeIndex: (number|undefined)
-  * }}
-  */
-UI.Fragment._Bind;

@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import './Widget.js';
-import './GlassPane.js';
+// import './Widget.js';
+// import './GlassPane.js';
 
 import * as Action from './Action.js';
 import * as ActionDelegate from './ActionDelegate.js';

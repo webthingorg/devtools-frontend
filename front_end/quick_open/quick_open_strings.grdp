@@ -6,6 +6,9 @@
   <message name="IDS_DEVTOOLS_532ce4f18bb96f70d8ee338082ad7ed0" desc="Title of quick open dialog">
     Quick open
   </message>
+  <message name="IDS_DEVTOOLS_af9ccba3ec4346e3acf785f9bea514d8" desc="Text to show a tool or panel">
+    Show <ph name="EXTENSION_TITLE__">$1s</ph>
+  </message>
   <message name="IDS_DEVTOOLS_c986e2ac993abbee8febcc7e21ebb4d8" desc="Aria-placeholder text for quick open dialog prompt">
     Type question mark to see available commands
   </message>

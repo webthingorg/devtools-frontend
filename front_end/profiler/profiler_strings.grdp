@@ -336,6 +336,9 @@
   <message name="IDS_DEVTOOLS_c33e404a441c6ba9648f88af3c68a1ca" desc="Text in Heap Snapshot View of a profiler tool">
     Statistics
   </message>
+  <message name="IDS_DEVTOOLS_c9cc8cce247e49bae79f15173ce97354" desc="Text to save something">
+    Save
+  </message>
   <message name="IDS_DEVTOOLS_ca0dbad92a874b2f69b549293387925e" desc="Text in Heap Snapshot View of a profiler tool">
     Code
   </message>

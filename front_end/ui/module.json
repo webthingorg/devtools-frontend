@@ -8,11 +8,12 @@
     "scripts": [
     ],
     "modules": [
+        "ui.js",
+        "ui-legacy.js",
         "Action.js",
         "ActionDelegate.js",
         "ARIAUtils.js",
         "ContextFlavorListener.js",
-        "ui.js",
         "XElement.js",
         "Widget.js",
         "View.js",

@@ -28,6 +28,20 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+import * as Common from '../common/common.js';
+
+import {Dialog} from './Dialog.js';
+import {Size} from './Geometry.js';
+import {GlassPane, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';
+import {Icon} from './Icon.js';
+import {KeyboardShortcut} from './KeyboardShortcut.js';
+import {Toolbar, ToolbarButton} from './Toolbar.js';
+import {TreeOutline} from './Treeoutline.js';
+import {Widget} from './Widget.js';
+import {XLink} from './XLink.js';
+import {XWidget} from './XWidget.js';
+
 export const highlightedSearchResultClassName = 'highlighted-search-result';
 export const highlightedCurrentSearchResultClassName = 'current-search-result';
 
@@ -99,8 +113,8 @@ class DragHandler {
   _createGlassPane() {
     this._glassPaneInUse = true;
     if (!DragHandler._glassPaneUsageCount++) {
-      DragHandler._glassPane = new UI.GlassPane();
-      DragHandler._glassPane.setPointerEventsBehavior(UI.GlassPane.PointerEventsBehavior.BlockedByGlassPane);
+      DragHandler._glassPane = new GlassPane();
+      DragHandler._glassPane.setPointerEventsBehavior(PointerEventsBehavior.BlockedByGlassPane);
       DragHandler._glassPane.show(DragHandler._documentForMouseOut);
     }
   }
@@ -373,7 +387,7 @@ function _modifiedHexValue(hexString, event) {
   // If no shortcut keys are pressed then increase hex value by 1.
   // Keys can be pressed together to increase RGB channels. e.g trying different shades.
   let delta = 0;
-  if (UI.KeyboardShortcut.eventHasCtrlOrMeta(mouseEvent)) {
+  if (KeyboardShortcut.eventHasCtrlOrMeta(mouseEvent)) {
     delta += Math.pow(16, channelLen * 2);
   }
   if (mouseEvent.shiftKey) {
@@ -421,7 +435,7 @@ function _modifiedFloatNumber(number, event, modifierMultiplier) {
   // When alt is pressed, increase by 0.1.
   // Otherwise increase by 1.
   let delta = 1;
-  if (UI.KeyboardShortcut.eventHasCtrlOrMeta(mouseEvent)) {
+  if (KeyboardShortcut.eventHasCtrlOrMeta(mouseEvent)) {
     delta = 100;
   } else if (mouseEvent.shiftKey) {
     delta = 10;
@@ -557,29 +571,29 @@ export function handleElementValueModifications(event, element, finishHandler, s
 Number.preciseMillisToString = function(ms, precision) {
   precision = precision || 0;
   const format = '%.' + precision + 'f\xa0ms';
-  return Common.UIString(format, ms);
+  return Common.UIString.UIString(format, ms);
 };
 
-/** @type {!Common.UIStringFormat} */
-export const _microsFormat = new Common.UIStringFormat('%.0f\xa0\u03bcs');
+/** @type {!Common.UIString.UIStringFormat} */
+export const _microsFormat = new Common.UIString.UIStringFormat('%.0f\xa0\u03bcs');
 
-/** @type {!Common.UIStringFormat} */
-export const _subMillisFormat = new Common.UIStringFormat('%.2f\xa0ms');
+/** @type {!Common.UIString.UIStringFormat} */
+export const _subMillisFormat = new Common.UIString.UIStringFormat('%.2f\xa0ms');
 
-/** @type {!Common.UIStringFormat} */
-export const _millisFormat = new Common.UIStringFormat('%.0f\xa0ms');
+/** @type {!Common.UIString.UIStringFormat} */
+export const _millisFormat = new Common.UIString.UIStringFormat('%.0f\xa0ms');
 
-/** @type {!Common.UIStringFormat} */
-export const _secondsFormat = new Common.UIStringFormat('%.2f\xa0s');
+/** @type {!Common.UIString.UIStringFormat} */
+export const _secondsFormat = new Common.UIString.UIStringFormat('%.2f\xa0s');
 
-/** @type {!Common.UIStringFormat} */
-export const _minutesFormat = new Common.UIStringFormat('%.1f\xa0min');
+/** @type {!Common.UIString.UIStringFormat} */
+export const _minutesFormat = new Common.UIString.UIStringFormat('%.1f\xa0min');
 
-/** @type {!Common.UIStringFormat} */
-export const _hoursFormat = new Common.UIStringFormat('%.1f\xa0hrs');
+/** @type {!Common.UIString.UIStringFormat} */
+export const _hoursFormat = new Common.UIString.UIStringFormat('%.1f\xa0hrs');
 
-/** @type {!Common.UIStringFormat} */
-export const _daysFormat = new Common.UIStringFormat('%.1f\xa0days');
+/** @type {!Common.UIString.UIStringFormat} */
+export const _daysFormat = new Common.UIString.UIStringFormat('%.1f\xa0days');
 
 /**
  * @param {number} ms
@@ -642,22 +656,22 @@ Number.secondsToString = function(seconds, higherResolution) {
  */
 Number.bytesToString = function(bytes) {
   if (bytes < 1024) {
-    return Common.UIString('%.0f\xa0B', bytes);
+    return Common.UIString.UIString('%.0f\xa0B', bytes);
   }
 
   const kilobytes = bytes / 1024;
   if (kilobytes < 100) {
-    return Common.UIString('%.1f\xa0KB', kilobytes);
+    return Common.UIString.UIString('%.1f\xa0KB', kilobytes);
   }
   if (kilobytes < 1024) {
-    return Common.UIString('%.0f\xa0KB', kilobytes);
+    return Common.UIString.UIString('%.0f\xa0KB', kilobytes);
   }
 
   const megabytes = kilobytes / 1024;
   if (megabytes < 100) {
-    return Common.UIString('%.1f\xa0MB', megabytes);
+    return Common.UIString.UIString('%.1f\xa0MB', megabytes);
   } else {
-    return Common.UIString('%.0f\xa0MB', megabytes);
+    return Common.UIString.UIString('%.0f\xa0MB', megabytes);
   }
 };
 
@@ -690,7 +704,7 @@ export function formatLocalized(format, substitutions) {
     a.appendChild(typeof b === 'string' ? createTextNode(b) : b);
     return a;
   }
-  return String.format(Common.UIString(format), substitutions, formatters, createElement('span'), append)
+  return String.format(Common.UIString.UIString(format), substitutions, formatters, createElement('span'), append)
       .formattedResult;
 }
 
@@ -698,21 +712,21 @@ export function formatLocalized(format, substitutions) {
  * @return {string}
  */
 export function openLinkExternallyLabel() {
-  return Common.UIString('Open in new tab');
+  return Common.UIString.UIString('Open in new tab');
 }
 
 /**
  * @return {string}
  */
 export function copyLinkAddressLabel() {
-  return Common.UIString('Copy link address');
+  return Common.UIString.UIString('Copy link address');
 }
 
 /**
  * @return {string}
  */
 export function anotherProfilerActiveLabel() {
-  return Common.UIString('Another profiler is already active');
+  return Common.UIString.UIString('Another profiler is already active');
 }
 
 /**
@@ -728,7 +742,7 @@ export function asyncStackTraceLabel(description) {
     }
     return ls`${description} (async)`;
   }
-  return Common.UIString('Async Call');
+  return Common.UIString.UIString('Async Call');
 }
 
 /**
@@ -831,19 +845,14 @@ function _windowBlurred(document, event) {
 function _focusChanged(event) {
   const document = event.target && event.target.ownerDocument;
   const element = document ? document.deepActiveElement() : null;
-  UI.Widget.focusWidgetForNode(element);
-  UI.XWidget.focusWidgetForNode(element);
+  Widget.focusWidgetForNode(element);
+  XWidget.focusWidgetForNode(element);
   if (!UI._keyboardFocus) {
     return;
   }
 
   UI.markAsFocusedByKeyboard(element);
 }
-
-UI.markAsFocusedByKeyboard = function(element) {
-  element.setAttribute('data-keyboard-focus', 'true');
-  element.addEventListener('blur', () => element.removeAttribute('data-keyboard-focus'), {once: true, capture: true});
-};
 
 /**
  * @unrestricted
@@ -1035,7 +1044,7 @@ export function revertDomChanges(domChanges) {
 /**
  * @param {!Element} element
  * @param {?Element=} containerElement
- * @return {!UI.Size}
+ * @return {!Size}
  */
 export function measurePreferredSize(element, containerElement) {
   const oldParent = element.parentElement;
@@ -1051,7 +1060,7 @@ export function measurePreferredSize(element, containerElement) {
   } else {
     element.remove();
   }
-  return new UI.Size(result.width, result.height);
+  return new Size(result.width, result.height);
 }
 
 /**
@@ -1164,7 +1173,7 @@ export function animateFunction(window, func, params, duration, animationComplet
 /**
  * @unrestricted
  */
-export class LongClickController extends Common.Object {
+export class LongClickController extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Element} element
    * @param {function(!Event)} callback
@@ -1219,7 +1228,7 @@ export class LongClickController extends Common.Object {
 
     /**
      * @param {!Event} e
-     * @this {UI.LongClickController}
+     * @this {LongClickController}
      */
     function keyUp(e) {
       if (this._editKey(e)) {
@@ -1230,7 +1239,7 @@ export class LongClickController extends Common.Object {
 
     /**
      * @param {!Event} e
-     * @this {UI.LongClickController}
+     * @this {LongClickController}
      */
     function mouseDown(e) {
       if (e.which !== 1) {
@@ -1268,7 +1277,7 @@ LongClickController.TIME_MS = 200;
 
 /**
  * @param {!Document} document
- * @param {!Common.Setting} themeSetting
+ * @param {!Common.Settings.Setting} themeSetting
  */
 export function initializeUIUtils(document, themeSetting) {
   document.body.classList.toggle('inactive', !document.hasFocus());
@@ -1287,7 +1296,7 @@ export function initializeUIUtils(document, themeSetting) {
 
   const body = /** @type {!Element} */ (document.body);
   appendStyle(body, 'ui/inspectorStyle.css');
-  UI.GlassPane.setContainer(/** @type {!Element} */ (document.body));
+  GlassPane.setContainer(/** @type {!Element} */ (document.body));
 }
 
 /**
@@ -1295,7 +1304,7 @@ export function initializeUIUtils(document, themeSetting) {
  * @return {string}
  */
 export function beautifyFunctionName(name) {
-  return name || Common.UIString('(anonymous)');
+  return name || Common.UIString.UIString('(anonymous)');
 }
 
 /**
@@ -1537,7 +1546,7 @@ registerCustomElement('span', 'dt-icon-label', class extends HTMLSpanElement {
   constructor() {
     super();
     const root = createShadowRootWithCoreStyles(this);
-    this._iconElement = UI.Icon.create();
+    this._iconElement = Icon.create();
     this._iconElement.style.setProperty('margin-right', '4px');
     root.appendChild(this._iconElement);
     root.createChild('slot');
@@ -1602,9 +1611,9 @@ registerCustomElement('div', 'dt-close-button', class extends HTMLDivElement {
     this._buttonElement = root.createChild('div', 'close-button');
     UI.ARIAUtils.setAccessibleName(this._buttonElement, ls`Close`);
     UI.ARIAUtils.markAsButton(this._buttonElement);
-    const regularIcon = UI.Icon.create('smallicon-cross', 'default-icon');
-    this._hoverIcon = UI.Icon.create('mediumicon-red-cross-hover', 'hover-icon');
-    this._activeIcon = UI.Icon.create('mediumicon-red-cross-active', 'active-icon');
+    const regularIcon = Icon.create('smallicon-cross', 'default-icon');
+    this._hoverIcon = Icon.create('mediumicon-red-cross-hover', 'hover-icon');
+    this._activeIcon = Icon.create('mediumicon-red-cross-active', 'active-icon');
     this._buttonElement.appendChild(regularIcon);
     this._buttonElement.appendChild(this._hoverIcon);
     this._buttonElement.appendChild(this._activeIcon);
@@ -1810,7 +1819,7 @@ export function measureTextWidth(context, text) {
  */
 export class ThemeSupport {
   /**
-   * @param {!Common.Setting} setting
+   * @param {!Common.Settings.Setting} setting
    */
   constructor(setting) {
     const systemPreferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
@@ -2008,7 +2017,7 @@ export class ThemeSupport {
    * @return {string}
    */
   patchColorText(text, colorUsage) {
-    const color = Common.Color.parse(text);
+    const color = Common.Color.Color.parse(text);
     if (!color) {
       return text;
     }
@@ -2021,7 +2030,7 @@ export class ThemeSupport {
   }
 
   /**
-   * @param {!Common.Color} color
+   * @param {!Common.Color.Color} color
    * @param {!ThemeSupport.ColorUsage} colorUsage
    * @return {!Common.Color}
    */
@@ -2029,8 +2038,8 @@ export class ThemeSupport {
     const hsla = color.hsla();
     this._patchHSLA(hsla, colorUsage);
     const rgba = [];
-    Common.Color.hsl2rgb(hsla, rgba);
-    return new Common.Color(rgba, color.format());
+    Common.Color.Color.hsl2rgb(hsla, rgba);
+    return new Common.Color.Color(rgba, color.format());
   }
 
   /**
@@ -2078,7 +2087,7 @@ ThemeSupport.ColorUsage = {
  * @return {!Element}
  */
 export function createDocumentationLink(article, title) {
-  return UI.XLink.create('https://developers.google.com/web/tools/chrome-devtools/' + article, title);
+  return XLink.create('https://developers.google.com/web/tools/chrome-devtools/' + article, title);
 }
 
 /**
@@ -2131,13 +2140,13 @@ export class MessageDialog {
    * @return {!Promise}
    */
   static async show(message, where) {
-    const dialog = new UI.Dialog();
-    dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.MeasureContent);
+    const dialog = new Dialog();
+    dialog.setSizeBehavior(SizeBehavior.MeasureContent);
     dialog.setDimmed(true);
     const shadowRoot = createShadowRootWithCoreStyles(dialog.contentElement, 'ui/confirmDialog.css');
     const content = shadowRoot.createChild('div', 'widget');
     await new Promise(resolve => {
-      const okButton = createTextButton(Common.UIString('OK'), resolve, '', true);
+      const okButton = createTextButton(Common.UIString.UIString('OK'), resolve, '', true);
       content.createChild('div', 'message').createChild('span').textContent = message;
       content.createChild('div', 'button').appendChild(okButton);
       dialog.setOutsideClickCallback(event => {
@@ -2158,16 +2167,16 @@ export class ConfirmDialog {
    * @return {!Promise<boolean>}
    */
   static async show(message, where) {
-    const dialog = new UI.Dialog();
-    dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.MeasureContent);
+    const dialog = new Dialog();
+    dialog.setSizeBehavior(SizeBehavior.MeasureContent);
     dialog.setDimmed(true);
     const shadowRoot = createShadowRootWithCoreStyles(dialog.contentElement, 'ui/confirmDialog.css');
     const content = shadowRoot.createChild('div', 'widget');
     content.createChild('div', 'message').createChild('span').textContent = message;
     const buttonsBar = content.createChild('div', 'button');
     const result = await new Promise(resolve => {
-      buttonsBar.appendChild(createTextButton(Common.UIString('OK'), () => resolve(true), '', true));
-      buttonsBar.appendChild(createTextButton(Common.UIString('Cancel'), () => resolve(false)));
+      buttonsBar.appendChild(createTextButton(Common.UIString.UIString('OK'), () => resolve(true), '', true));
+      buttonsBar.appendChild(createTextButton(Common.UIString.UIString('Cancel'), () => resolve(false)));
       dialog.setOutsideClickCallback(event => {
         event.consume();
         resolve(false);
@@ -2180,14 +2189,14 @@ export class ConfirmDialog {
 }
 
 /**
- * @param {!UI.ToolbarButton} toolbarButton
+ * @param {!ToolbarButton} toolbarButton
  * @return {!Element}
  */
 export function createInlineButton(toolbarButton) {
   const element = createElement('span');
   const shadowRoot = createShadowRootWithCoreStyles(element, 'ui/inlineButton.css');
   element.classList.add('inline-button');
-  const toolbar = new UI.Toolbar('');
+  const toolbar = new Toolbar('');
   toolbar.appendToolbarItem(toolbarButton);
   shadowRoot.appendChild(toolbar.element);
   return element;
@@ -2246,7 +2255,7 @@ export class Renderer {
   /**
    * @param {!Object} object
    * @param {!UI.Renderer.Options=} options
-   * @return {!Promise<?{node: !Node, tree: ?UI.TreeOutline}>}
+   * @return {!Promise<?{node: !Node, tree: ?TreeOutline}>}
    */
   render(object, options) {
   }
@@ -2255,7 +2264,7 @@ export class Renderer {
 /**
    * @param {!Object} object
    * @param {!UI.Renderer.Options=} options
-   * @return {!Promise<?{node: !Node, tree: ?UI.TreeOutline}>}
+   * @return {!Promise<?{node: !Node, tree: ?TreeOutline}>}
    */
 Renderer.render = async function(object, options) {
   if (!object) {
@@ -2287,90 +2296,3 @@ export function formatTimestamp(timestamp, full) {
     return valueString.padStart(length, '0');
   }
 }
-
-/* Legacy exported object*/
-self.UI = self.UI || {};
-
-/* Legacy exported object*/
-UI = UI || {};
-
-/** @type {?ThemeSupport} */
-UI.themeSupport;
-
-UI.highlightedSearchResultClassName = highlightedSearchResultClassName;
-UI.highlightedCurrentSearchResultClassName = highlightedCurrentSearchResultClassName;
-UI.StyleValueDelimiters = StyleValueDelimiters;
-UI.MaxLengthForDisplayedURLs = MaxLengthForDisplayedURLs;
-
-/** @constructor */
-UI.ElementFocusRestorer = ElementFocusRestorer;
-
-/** @constructor */
-UI.LongClickController = LongClickController;
-
-/** @constructor */
-UI.ThemeSupport = ThemeSupport;
-
-/** @constructor */
-UI.MessageDialog = MessageDialog;
-
-/** @constructor */
-UI.ConfirmDialog = ConfirmDialog;
-
-/** @constructor */
-UI.CheckboxLabel = CheckboxLabel;
-
-/** @interface */
-UI.Renderer = Renderer;
-
-/** @typedef {!{title: (string|!Element|undefined), editable: (boolean|undefined) }} */
-UI.Renderer.Options;
-
-UI.installDragHandle = installDragHandle;
-UI.elementDragStart = elementDragStart;
-UI.isBeingEdited = isBeingEdited;
-UI.isEditing = isEditing;
-UI.markBeingEdited = markBeingEdited;
-UI.createReplacementString = createReplacementString;
-UI.handleElementValueModifications = handleElementValueModifications;
-UI.formatLocalized = formatLocalized;
-UI.openLinkExternallyLabel = openLinkExternallyLabel;
-UI.copyLinkAddressLabel = copyLinkAddressLabel;
-UI.anotherProfilerActiveLabel = anotherProfilerActiveLabel;
-UI.asyncStackTraceLabel = asyncStackTraceLabel;
-UI.installComponentRootStyles = installComponentRootStyles;
-UI.measuredScrollbarWidth = measuredScrollbarWidth;
-UI.createShadowRootWithCoreStyles = createShadowRootWithCoreStyles;
-UI.highlightSearchResult = highlightSearchResult;
-UI.highlightSearchResults = highlightSearchResults;
-UI.runCSSAnimationOnce = runCSSAnimationOnce;
-UI.highlightRangesWithStyleClass = highlightRangesWithStyleClass;
-UI.applyDomChanges = applyDomChanges;
-UI.revertDomChanges = revertDomChanges;
-UI.measurePreferredSize = measurePreferredSize;
-UI.startBatchUpdate = startBatchUpdate;
-UI.endBatchUpdate = endBatchUpdate;
-UI.invokeOnceAfterBatchUpdate = invokeOnceAfterBatchUpdate;
-UI.animateFunction = animateFunction;
-UI.initializeUIUtils = initializeUIUtils;
-UI.beautifyFunctionName = beautifyFunctionName;
-UI.registerCustomElement = registerCustomElement;
-UI.createTextButton = createTextButton;
-UI.createInput = createInput;
-UI.createLabel = createLabel;
-UI.createRadioLabel = createRadioLabel;
-UI.createIconLabel = createIconLabel;
-UI.createSlider = createSlider;
-UI.appendStyle = appendStyle;
-UI.bindInput = bindInput;
-UI.trimText = trimText;
-UI.trimTextMiddle = trimTextMiddle;
-UI.trimTextEnd = trimTextEnd;
-UI.measureTextWidth = measureTextWidth;
-UI.createDocumentationLink = createDocumentationLink;
-UI.loadImage = loadImage;
-UI.loadImageFromData = loadImageFromData;
-UI.createFileSelectorElement = createFileSelectorElement;
-UI.createInlineButton = createInlineButton;
-UI.createExpandableText = createExpandableText;
-UI.formatTimestamp = formatTimestamp;
