@@ -22,6 +22,30 @@
       "revId": "2b240ce0c3f973f633aee4bd87637d2f77f51d11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e0cc147_abe4f105",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-12T14:33:57Z",
+      "side": 1,
+      "message": "I simply did a local Chromium build with only this change and compared the output sizes.",
+      "parentUuid": "184c082d_68d89c42",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "2b240ce0c3f973f633aee4bd87637d2f77f51d11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
