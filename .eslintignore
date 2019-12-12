@@ -18,3 +18,6 @@ front_end/protocol_externs.js
 front_end/javascript_metadata/NativeFunctions.js
 front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 scripts/
+
+// This uses dynamic import which seems to break the eslint-parser
+front_end/test_runner/TestRunner.js
