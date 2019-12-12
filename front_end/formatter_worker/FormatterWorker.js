@@ -448,21 +448,7 @@ export function _lastCompleteExpression(content, suffix, types) {
  * @return {boolean}
  */
 export function _nodeHasPossibleSideEffects(baseNode) {
-  const sideEffectFreeTypes = new Set([
-    'MemberExpression', 'Identifier', 'BinaryExpression', 'Literal', 'TemplateLiteral', 'TemplateElement',
-    'ObjectExpression', 'ArrayExpression', 'Property', 'ThisExpression'
-  ]);
-  let possibleSideEffects = false;
-  const sideEffectwalker = new FormatterWorker.ESTreeWalker(node => {
-    if (!possibleSideEffects && !sideEffectFreeTypes.has(node.type)) {
-      possibleSideEffects = true;
-    }
-    if (possibleSideEffects) {
-      return FormatterWorker.ESTreeWalker.SkipSubtree;
-    }
-  });
-  sideEffectwalker.walk(/** @type {!ESTree.Node} */ (baseNode));
-  return possibleSideEffects;
+  return true;
 }
 
 /**
