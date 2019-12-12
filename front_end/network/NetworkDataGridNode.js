@@ -71,11 +71,22 @@ Network.NetworkNode = class extends DataGrid.SortableDataGridNode {
   }
 
   /**
+   * @return {boolean}
+   */
+  _isFailed() {
+    return false;
+  }
+
+  /**
    * @return {string}
    * @suppressGlobalPropertiesCheck
    */
   backgroundColor() {
+<<<<<<< HEAD   (1b0a7b Audits: fix exporting as HTML.)
     const bgColors = Network.NetworkNode._backgroundColors;
+=======
+    const bgColors = _backgroundColors;
+>>>>>>> CHANGE (e40d15 Reland "Fix background on rows with error network logview")
     const hasFocus = document.hasFocus();
     const isSelected = this.dataGrid.element === document.activeElement;
     const isFailed = this._isFailed();
