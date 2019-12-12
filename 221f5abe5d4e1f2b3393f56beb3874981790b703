@@ -140,6 +140,30 @@
       "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a00e4d08_99e66663",
+        "filename": "front_end/sdk/wasmparser/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2019-12-12T14:34:38Z",
+      "side": 1,
+      "message": "I can fix the extensions upstream. I\u0027ll see if that\u0027s enough to get rid of the manual steps.\n\n`npm i` wants to install it in src/node_modules rather than src/front_end/third_party, should I copy the dist folder from an external install?",
+      "parentUuid": "452cf4fa_558abec9",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
