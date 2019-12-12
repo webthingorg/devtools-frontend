@@ -52,6 +52,8 @@ Timeline.TimelinePanel = class extends UI.Panel {
         /** @type {!UI.Action }*/ (UI.actionRegistry.action('timeline.toggle-recording'));
     this._recordReloadAction =
         /** @type {!UI.Action }*/ (UI.actionRegistry.action('timeline.record-reload'));
+    this._replayPauseAction =
+        /** @type {!UI.Action }*/ (UI.actionRegistry.action('timeline.replay-pause'));
 
     this._historyManager = new Timeline.TimelineHistoryManager();
 
@@ -76,7 +78,6 @@ Timeline.TimelinePanel = class extends UI.Panel {
     if (!Root.Runtime.experiments.isEnabled('recordCoverageWithPerformanceTracing')) {
       this._startCoverage.set(false);
     }
-
 
     this._showMemorySetting = Common.settings.createSetting('timelineShowMemory', false);
     this._showMemorySetting.setTitle(Common.UIString('Memory'));
@@ -219,6 +220,13 @@ Timeline.TimelinePanel = class extends UI.Panel {
     this._panelToolbar.appendSeparator();
     this._panelToolbar.appendToolbarItem(this._loadButton);
     this._panelToolbar.appendToolbarItem(this._saveButton);
+
+    // Input replay
+    if (Root.Runtime.experiments.isEnabled('timelineReplayEvent')) {
+      this._panelToolbar.appendSeparator();
+      this._replayPauseButton = UI.Toolbar.createActionButton(this._replayPauseAction);
+      this._panelToolbar.appendToolbarItem(this._replayPauseButton);
+    }
 
     // History
     this._panelToolbar.appendSeparator();
@@ -511,7 +519,8 @@ Timeline.TimelinePanel = class extends UI.Panel {
       enableJSSampling: !this._disableCaptureJSProfileSetting.get(),
       capturePictures: this._captureLayersAndPicturesSetting.get(),
       captureFilmStrip: this._showScreenshotsSetting.get(),
-      startCoverage: this._startCoverage.get()
+      startCoverage: this._startCoverage.get(),
+      recordInputEvents: Root.Runtime.experiments.isEnabled('timelineReplayEvent')
     };
 
     if (recordingOptions.startCoverage) {
@@ -590,6 +599,11 @@ Timeline.TimelinePanel = class extends UI.Panel {
     this._dropTarget.setEnabled(this._state === state.Idle);
     this._loadButton.setEnabled(this._state === state.Idle);
     this._saveButton.setEnabled(this._state === state.Idle && !!this._performanceModel);
+    if (this._replayPauseButton) {
+      this._replayPauseButton.setEnabled(
+          !!this._performanceModel && (this._state === state.Idle || this._state === state.Replaying));
+      this._replayPauseButton.setToggled(this._state === state.Replaying);
+    }
   }
 
   _toggleRecording() {
@@ -624,6 +638,17 @@ Timeline.TimelinePanel = class extends UI.Panel {
   _reset() {
     self.runtime.sharedInstance(PerfUI.LineLevelProfile.Performance).reset();
     this._setModel(null);
+  }
+
+  _toggleReplay() {
+    console.assert(this._performanceModel.tracingModel());
+    if (this._state === Timeline.TimelinePanel.State.Idle) {
+      this._setState(Timeline.TimelinePanel.State.Replaying);
+      this._inputModel.startReplay(this._performanceModel.timelineModel().tracks(), this.replayStopped.bind(this));
+    } else if (this._state === Timeline.TimelinePanel.State.Replaying) {
+      this._setState(Timeline.TimelinePanel.State.Idle);
+      this._inputModel.pause();
+    }
   }
 
   /**
@@ -808,6 +833,7 @@ Timeline.TimelinePanel = class extends UI.Panel {
     this._performanceModel.setTracingModel(tracingModel);
     this._setModel(this._performanceModel);
     this._historyManager.addRecording(this._performanceModel);
+    this._inputModel = new Timeline.InputModel(/** @type {!SDK.Target} */ (SDK.targetManager.mainTarget()));
 
     if (this._startCoverage.get()) {
       UI.viewManager.showView('coverage')
@@ -815,6 +841,10 @@ Timeline.TimelinePanel = class extends UI.Panel {
           .then(widget => widget.stopRecording())
           .then(() => this._updateOverviewControls());
     }
+  }
+
+  replayStopped() {
+    this._setState(Timeline.TimelinePanel.State.Idle);
   }
 
   _showRecordingStarted() {
@@ -992,7 +1022,8 @@ Timeline.TimelinePanel.State = {
   Recording: Symbol('Recording'),
   StopPending: Symbol('StopPending'),
   Loading: Symbol('Loading'),
-  RecordingFailed: Symbol('RecordingFailed')
+  RecordingFailed: Symbol('RecordingFailed'),
+  Replaying: Symbol('Replaying')
 };
 
 /**
@@ -1284,6 +1315,9 @@ Timeline.TimelinePanel.ActionDelegate = class {
         return true;
       case 'timeline.load-from-file':
         panel._selectFileToLoad();
+        return true;
+      case 'timeline.replay-pause':
+        panel._toggleReplay();
         return true;
       case 'timeline.jump-to-previous-frame':
         panel._jumpToFrame(-1);
