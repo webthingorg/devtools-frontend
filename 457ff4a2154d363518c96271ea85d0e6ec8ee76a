@@ -34,6 +34,24 @@
       "revId": "457ff4a2154d363518c96271ea85d0e6ec8ee76a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9adc7f_787e84ec",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000191
+      },
+      "writtenOn": "2019-12-12T18:56:33Z",
+      "side": 1,
+      "message": "OK, I did some tests, and it looks like SVG will compress well, so that makes sense to me. (gzip compression is pretty much free when there is significant, around 2:1 or better, compression. i.e. decompress time is less than the additional load time would be).\n\nI haven\u0027t experimented as much with brotli. I know that decompression can be a bit slower than gzip, so it might be worth doing some metrics first.",
+      "parentUuid": "daeccca4_7e1d5579",
+      "revId": "457ff4a2154d363518c96271ea85d0e6ec8ee76a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
