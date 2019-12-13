@@ -28,7 +28,8 @@ module.exports = function(config) {
       './test/unittests/**/*.ts': ['karma-typescript'],
       './front_end/common/*.js': ['karma-coverage-istanbul-instrumenter'],
       './front_end/workspace/*.js': ['karma-coverage-istanbul-instrumenter'],
-      './front_end/ui/*.js': ['karma-coverage-istanbul-instrumenter']
+      './front_end/ui/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/sdk/*.js': ['karma-coverage-istanbul-instrumenter']
     },
 
     browsers: ['ChromeHeadless'],
