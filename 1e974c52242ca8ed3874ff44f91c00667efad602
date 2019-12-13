@@ -39,6 +39,30 @@
       "revId": "1e974c52242ca8ed3874ff44f91c00667efad602",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15c53701_bd6ebc45",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-13T10:08:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff7faf1c_bf9ac5bc",
+      "range": {
+        "startLine": 107,
+        "startChar": 11,
+        "endLine": 107,
+        "endChar": 26
+      },
+      "revId": "1e974c52242ca8ed3874ff44f91c00667efad602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

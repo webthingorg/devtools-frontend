@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cde23668_0f6bb2b3",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-13T10:08:35Z",
+      "side": 1,
+      "message": "no need for .entries() here (entries is the default iterator for map)",
+      "revId": "25eac4ab48df49a423dc9131b34316db9426219c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
