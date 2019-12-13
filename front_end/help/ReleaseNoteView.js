@@ -20,21 +20,35 @@ export default class ReleaseNoteView extends UI.VBox {
     const hbox = createElementWithClass('div', 'hbox');
     const container = hbox.createChild('div', 'release-note-container');
     const contentContainer = container.createChild('ul');
+    UI.ARIAUtils.setAccessibleName(contentContainer, Common.UIString(Help.latestReleaseNote().header));
+
+    let linkNumber = 1;
     for (const highlight of releaseNote.highlights) {
       const listItem = contentContainer.createChild('li');
-      const title = UI.XLink.create(highlight.link, highlight.title + ' ', 'release-note-title');
-      title.title = '';
-      listItem.appendChild(title);
-      const subtitle = UI.XLink.create(highlight.link, highlight.subtitle + ' ', 'release-note-subtitle');
-      subtitle.title = '';
-      listItem.appendChild(subtitle);
+      const linkWrapper = UI.XLink.create(highlight.link, '', 'release-note-link');
+      linkWrapper.textContent = '';
+      UI.ARIAUtils.markAsLink(linkWrapper);
+      UI.ARIAUtils.setAccessibleName(
+          linkWrapper, `${highlight.title}: ${highlight.subtitle} ${linkNumber} of ${releaseNote.highlights.length}`);
+
+      const title = linkWrapper.createChild('div', 'release-note-title');
+      title.textContent = highlight.title;
+
+      const subtitle = linkWrapper.createChild('div', 'release-note-subtitle');
+      subtitle.textContent = highlight.subtitle;
+
+      listItem.appendChild(linkWrapper);
+      linkNumber++;
     }
 
     const actionContainer = container.createChild('div', 'release-note-action-container');
-    actionContainer.appendChild(UI.createTextButton(Common.UIString('Learn more'), event => {
+    const learnMore = UI.createTextButton(Common.UIString('Learn more'), event => {
       event.consume(true);
       Host.InspectorFrontendHost.openInNewTab(releaseNote.link);
-    }));
+    });
+    UI.ARIAUtils.markAsLink(learnMore);
+    actionContainer.appendChild(learnMore);
+
     actionContainer.appendChild(UI.createTextButton(Common.UIString('Close'), event => {
       event.consume(true);
       UI.inspectorView.closeDrawerTab(Help.releaseNoteViewId, true);
@@ -42,10 +56,15 @@ export default class ReleaseNoteView extends UI.VBox {
 
     const imageLink = UI.XLink.create(releaseNote.link, ' ');
     imageLink.classList.add('release-note-image');
-    imageLink.title = '';
+    imageLink.title = Common.UIString(Help.latestReleaseNote().header);
+    imageLink.tabIndex = -1;
+
     hbox.appendChild(imageLink);
     const image = imageLink.createChild('img');
     image.src = 'Images/whatsnew.png';
+    image.title = imageLink.title;
+    image.alt = image.title;
+
     return hbox;
   }
 }
