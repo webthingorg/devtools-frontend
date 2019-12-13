@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3300f963_ed95ebcf",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Yeah, my mistake. Changed to `(\u0027x\u0027 in eventData)`",
+      "parentUuid": "ae95223b_b82fe171",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cef25273_2308a522",
         "filename": "front_end/input/InputModel.js",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a561e548_5f85e529",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Yeah you are right, this check is incorrect.\n\nActually I just realize keyCode and charCode is deprecated in the spec:\nhttps://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/charCode\nI removed the usage of keyCode and charCode from _dispatchKeyEvent.",
+      "parentUuid": "cef25273_2308a522",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "112e0cc4_80575368",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8234325_bea5e401",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b12a6277_8995d91d",
         "filename": "front_end/input/InputModel.js",
         "patchSetId": 5
@@ -67,6 +121,24 @@
       "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039476f6_82cb462d",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "I don\u0027t think it will. I checked `if (InputModel.KeyboardEventTypes.has(eventData.type))` before calling this.\nAdded a console.assert to ensure this.",
+      "parentUuid": "b12a6277_8995d91d",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b769fdb2_891d2648",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43be2c2a_6563e10f",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a668ab7_9b7fee6f",
         "filename": "front_end/input/InputTimeline.js",
         "patchSetId": 5
@@ -101,6 +191,24 @@
       "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b6e1403_3b18b08b",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a668ab7_9b7fee6f",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -127,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "b8f72e0f_74ae4b63",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c84d9e2f_54f2daf5",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 99
+      },
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d02ec7b7_292748dd",
         "filename": "front_end/input/InputTimeline.js",
         "patchSetId": 5
@@ -147,6 +279,30 @@
       "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "661742b5_772a27a6",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Ha, actually, I don\u0027t know why I didn\u0027t remove the list here. (maybe didn\u0027t pay attention when copying this...)\nRemoved the list.",
+      "parentUuid": "d02ec7b7_292748dd",
+      "range": {
+        "startLine": 296,
+        "startChar": 23,
+        "endLine": 296,
+        "endChar": 45
+      },
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -173,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "4118420c_19293e89",
+        "filename": "front_end/input/inputTimeline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "This `-header` style actually isn\u0027t used in the input panel. (copied wrong code)\nRemoved.",
+      "parentUuid": "6bb394a9_1ada6185",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0a9614f_48653f66",
         "filename": "front_end/input/inputTimeline.css",
         "patchSetId": 5
@@ -187,6 +367,24 @@
       "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e815344_11fbe71a",
+        "filename": "front_end/input/inputTimeline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2019-12-13T14:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0a9614f_48653f66",
+      "revId": "fce4f304b5799f7e8cd6ebb32cdd0e6238e543db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
