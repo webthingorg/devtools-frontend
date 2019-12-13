@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af6504fe_e4fa9fe6",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2019-12-13T23:06:21Z",
+      "side": 1,
+      "message": "loc this",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 116
+      },
+      "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
