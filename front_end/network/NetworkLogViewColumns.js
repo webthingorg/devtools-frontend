@@ -253,7 +253,9 @@ export default class NetworkLogViewColumns {
     this._waterfallColumn.setRowHeight(largeRows ? 41 : 21);
     this._waterfallScroller.classList.toggle('small', !largeRows);
     this._waterfallHeaderElement.classList.toggle('small', !largeRows);
-    this._waterfallColumn.setHeaderHeight(this._waterfallScroller.offsetTop);
+    window.requestAnimationFrame(() => {
+      this._waterfallColumn.setHeaderHeight(this._waterfallScroller.offsetTop);
+    });
   }
 
   /**
