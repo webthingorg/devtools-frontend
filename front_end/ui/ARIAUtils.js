@@ -102,6 +102,13 @@ export function markAsTab(element) {
 /**
  * @param {!Element} element
  */
+export function markAsTablist(element) {
+  element.setAttribute('role', 'tablist');
+}
+
+/**
+ * @param {!Element} element
+ */
 export function markAsTabpanel(element) {
   element.setAttribute('role', 'tabpanel');
 }
@@ -586,6 +593,7 @@ self.UI.ARIAUtils = {
   markAsMenuButton,
   markAsProgressBar,
   markAsTab,
+  markAsTablist,
   markAsTabpanel,
   markAsTree,
   markAsTreeitem,
