@@ -22,6 +22,30 @@
       "revId": "1e712080bcec10651f026f09453343669bdf7052",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c4dee39_508ae69b",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-13T15:52:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aa08a96_0ebea677",
+      "range": {
+        "startLine": 29,
+        "startChar": 23,
+        "endLine": 29,
+        "endChar": 27
+      },
+      "revId": "1e712080bcec10651f026f09453343669bdf7052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
