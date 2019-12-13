@@ -2,13 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-export default class GlassPane {
+import {Icon} from './Icon.js';
+import {measuredScrollbarWidth} from './UIUtils.js';
+import {Widget} from './Widget.js';
+
+export class GlassPane {
   constructor() {
-    this._widget = new UI.Widget(true);
+    this._widget = new Widget(true);
     this._widget.markAsRoot();
     this.element = this._widget.element;
     this.contentElement = this._widget.contentElement;
-    this._arrowElement = UI.Icon.create('', 'arrow hidden');
+    this._arrowElement = Icon.create('', 'arrow hidden');
     this.element.shadowRoot.appendChild(this._arrowElement);
 
     this.registerRequiredCSS('ui/glassPane.css');
@@ -17,7 +21,7 @@ export default class GlassPane {
     this._onMouseDownBound = this._onMouseDown.bind(this);
     /** @type {?function(!Event)} */
     this._onClickOutsideCallback = null;
-    /** @type {?UI.Size} */
+    /** @type {?Size} */
     this._maxSize = null;
     /** @type {?number} */
     this._positionX = null;
@@ -76,7 +80,7 @@ export default class GlassPane {
   }
 
   /**
-   * @param {?UI.Size} size
+   * @param {?Size} size
    */
   setMaxContentSize(size) {
     this._maxSize = size;
@@ -172,7 +176,7 @@ export default class GlassPane {
 
     const showArrow = this._marginBehavior === GlassPane.MarginBehavior.Arrow;
     const gutterSize = showArrow ? 8 : (this._marginBehavior === GlassPane.MarginBehavior.NoMargin ? 0 : 3);
-    const scrollbarSize = UI.measuredScrollbarWidth(this.element.ownerDocument);
+    const scrollbarSize = measuredScrollbarWidth(this.element.ownerDocument);
     const arrowSize = 10;
 
     const container = _containers.get(/** @type {!Document} */ (this.element.ownerDocument));
@@ -346,7 +350,7 @@ export default class GlassPane {
 
   /**
    * @protected
-   * @return {!UI.Widget}
+   * @return {!Widget}
    */
   widget() {
     return this._widget;
@@ -414,27 +418,3 @@ const _containers = new Map();
 
 /** @type {!Set<!GlassPane>} */
 const _panes = new Set();
-
-/* Legacy exported object*/
-self.UI = self.UI || {};
-
-/* Legacy exported object*/
-UI = UI || {};
-
-/** @constructor */
-UI.GlassPane = GlassPane;
-
-/** @enum {symbol} */
-UI.GlassPane.PointerEventsBehavior = PointerEventsBehavior;
-
-/** @enum {symbol} */
-UI.GlassPane.AnchorBehavior = AnchorBehavior;
-
-/** @enum {symbol} */
-UI.GlassPane.SizeBehavior = SizeBehavior;
-
-/** @enum {symbol} */
-UI.GlassPane.MarginBehavior = MarginBehavior;
-
-/** @type {!Set<!GlassPane>} */
-UI.GlassPane._panes = _panes;

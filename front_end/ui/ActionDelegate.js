@@ -5,21 +5,12 @@
 /**
  * @interface
  */
-export default class ActionDelegate {
+export class ActionDelegate {
   /**
-   * @param {!UI.Context} context
+   * @param {!Context} context
    * @param {string} actionId
    * @return {boolean}
    */
   handleAction(context, actionId) {
   }
 }
-
-/* Legacy exported object*/
-self.UI = self.UI || {};
-
-/* Legacy exported object*/
-UI = UI || {};
-
-/** @interface */
-UI.ActionDelegate = ActionDelegate;
