@@ -9,11 +9,20 @@
   <message name="IDS_DEVTOOLS_28de94c6a82d4419a4014addb8aba93c" desc="Show last text content in Show More Data Grid Node of a data grid">
     Show <ph name="THIS__CHUNKSIZE">$1d<ex>5</ex></ph> after
   </message>
+  <message name="IDS_DEVTOOLS_2d5a6142cafca178453badd688713c74" desc="Accessible text for a datagrid cell">
+    <ph name="COLUMN_TITLE">$1s<ex>Url</ex></ph>: <ph name="THIS_SELECTEDNODE_CELLACCESSIBLETEXTARRAY_COLUMN_ID_">$2s<ex>https://bing.com</ex></ph>, '''
+  </message>
+  <message name="IDS_DEVTOOLS_ab9e4513214bf27d08823cfb6f41fc22" desc="Accessible Text for a Datagrid Row">
+    <ph name="THIS__DISPLAYNAME">$1s<ex>Coverage List</ex></ph> Row <ph name="THIS_SELECTEDNODE_EXISTINGELEMENT___ROWINDEX">$2s<ex>1</ex></ph> <ph name="EXPANDTEXT">$3s<ex>expanded</ex></ph>: '''
+  </message>
   <message name="IDS_DEVTOOLS_b33d161950658a73abe8675d311345d2" desc="A context menu item in the Data Grid of a data grid">
     Edit &quot;<ph name="THIS__COLUMNS_COLUMNID__TITLE">$1s<ex>pattern</ex></ph>&quot;
   </message>
   <message name="IDS_DEVTOOLS_d73d1ee203c4075522513de6fe5557c8" desc="Show next text content in Show More Data Grid Node of a data grid">
     Show <ph name="THIS__CHUNKSIZE">$1d<ex>5</ex></ph> before
+  </message>
+  <message name="IDS_DEVTOOLS_dd588192f7d9db20bd10ed54893f5fcc" desc="Default Accessible Text for a Datagrid">
+    <ph name="THIS__DISPLAYNAME">$1s<ex>Coverage List</ex></ph> datagrid, use the up and down arrow keys to navigate the table.
   </message>
   <message name="IDS_DEVTOOLS_e199c6bb662785b037c5f330f58878ce" desc="Show all text content in Show More Data Grid Node of a data grid">
     Show all <ph name="TOTALSIZE">$1d<ex>5</ex></ph>
