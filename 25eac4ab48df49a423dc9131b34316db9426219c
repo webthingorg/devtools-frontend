@@ -16,6 +16,24 @@
       "revId": "25eac4ab48df49a423dc9131b34316db9426219c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a5091f1_a56e2918",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2019-12-13T12:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cde23668_0f6bb2b3",
+      "revId": "25eac4ab48df49a423dc9131b34316db9426219c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
