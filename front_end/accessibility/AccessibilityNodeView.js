@@ -346,25 +346,34 @@ export class AXValueSourceTreeElement extends AXNodePropertyTreeElement {
   appendIDRefValueElement(value) {
     const relatedNodes = value.relatedNodes;
 
-    const idrefs = value.value.trim().split(/\s+/);
-    if (idrefs.length === 1) {
-      const idref = idrefs[0];
-      const matchingNode = relatedNodes.find(node => node.idref === idref);
-      if (matchingNode) {
-        this.appendRelatedNodeWithIdref(matchingNode, 0, idref);
-      } else {
-        this.listItemElement.appendChild(new Accessibility.AXRelatedNodeElement({idref: idref}).render());
+    // Content attribute is empty, but if the relationship was set via the IDL
+    // then there may be related nodes.
+    if (!value.value) {
+      for (const i = 0; i < relatedNodes.length; ++i) {
+        const node = relatedNodes[i];
+        this.appendRelatedNodeWithIdref(matchingNode, 0, node.idref);
       }
-
     } else {
-      // TODO(aboxhall): exclamation mark if not idreflist type
-      for (let i = 0; i < idrefs.length; ++i) {
-        const idref = idrefs[i];
+      const idrefs = value.value.trim().split(/\s+/);
+      if (idrefs.length === 1) {
+        const idref = idrefs[0];
         const matchingNode = relatedNodes.find(node => node.idref === idref);
         if (matchingNode) {
-          this.appendRelatedNodeWithIdref(matchingNode, i, idref);
+          this.appendRelatedNodeWithIdref(matchingNode, 0, idref);
         } else {
-          this.appendChild(new Accessibility.AXRelatedNodeSourceTreeElement({idref: idref}));
+          this.listItemElement.appendChild(new Accessibility.AXRelatedNodeElement({idref: idref}).render());
+        }
+
+      } else {
+        // TODO(aboxhall): exclamation mark if not idreflist type
+        for (let i = 0; i < idrefs.length; ++i) {
+          const idref = idrefs[i];
+          const matchingNode = relatedNodes.find(node => node.idref === idref);
+          if (matchingNode) {
+            this.appendRelatedNodeWithIdref(matchingNode, i, idref);
+          } else {
+            this.appendChild(new Accessibility.AXRelatedNodeSourceTreeElement({idref: idref}));
+          }
         }
       }
     }
