@@ -213,6 +213,9 @@
   <message name="IDS_DEVTOOLS_4202ef115ebede37eb22297113f5fb32" desc="Text in Network Data Grid Node of the Network panel">
     Redirect
   </message>
+  <message name="IDS_DEVTOOLS_421cb918982a1a5a54eed4d2c2d5656c" desc="Text in Network Log View of the Network panel">
+    Copy as fetch (for nodejs)
+  </message>
   <message name="IDS_DEVTOOLS_42d61b587a0123390822777d84e0f6bd" desc="Text in Signed Exchange Info View of the Network panel">
     Response code
   </message>
@@ -401,6 +404,9 @@
   </message>
   <message name="IDS_DEVTOOLS_842ad9796db643e88bd614ac51a99734" desc="Text in Request Initiator View of the Network panel">
     This request has no initiator data.
+  </message>
+  <message name="IDS_DEVTOOLS_e79e9c31092411ab80a5442c9cdc3273" desc="Text in Network Log View of the Network panel">
+    Copy all as fetch (for nodejs)
   </message>
   <message name="IDS_DEVTOOLS_f5a6d40aab4d260009df79b7dab7e6a0" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Microsoft Edge — iPhone</ph>
