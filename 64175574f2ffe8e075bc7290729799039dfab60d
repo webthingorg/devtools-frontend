@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7703991_192f0e68",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-14T00:16:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c5c6fba2_ce6d3399",
+      "range": {
+        "startLine": 23,
+        "startChar": 53,
+        "endLine": 23,
+        "endChar": 68
+      },
+      "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af6504fe_e4fa9fe6",
         "filename": "front_end/help/ReleaseNoteView.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e55c00_85a54e52",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-14T00:16:15Z",
+      "side": 1,
+      "message": "I spent some time looking into the best localization solution here - unfortunately the Release Notes text is only in English and outside of any GRDP files that would be translated (the text is stored as a hardcoded JSON blob in the ReleaseNoteText.js).\n\nUntil we migrate the release notes text somehow to be localizable there\u0027s not really a great GRDP definition to generalize the contents of this string. The only inserted word is \u0027of\u0027 and is meant to mimic the behavior of screen readers for lists items (1 of 5, etc). Because elements can\u0027t both have the link and list item role (and I\u0027d rather use existing \u003cx-link\u003e instead of attaching addition event handlers), this is just a convenience feature that was manually added for screen readers.\n\nwontfix, for now - once we decide on a loc strategy for the release notes text we should re-examine this description string.",
+      "parentUuid": "af6504fe_e4fa9fe6",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 116
+      },
+      "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4dff8fa_54f80e9f",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-14T00:16:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6d2f9582_a8cfacf0",
+      "range": {
+        "startLine": 45,
+        "startChar": 42,
+        "endLine": 45,
+        "endChar": 71
+      },
+      "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7bd20ce_4e247c95",
         "filename": "front_end/help/ReleaseNoteView.js",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80bf4a59_e8f811b9",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-14T00:16:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c7bd20ce_4e247c95",
+      "range": {
+        "startLine": 59,
+        "startChar": 22,
+        "endLine": 59,
+        "endChar": 38
+      },
+      "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
