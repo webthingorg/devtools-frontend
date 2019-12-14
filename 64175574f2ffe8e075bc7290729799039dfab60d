@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "94c94357_6f98f559",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-14T00:44:33Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s what I tried - the trouble is that we have to come up with a new template definition in the help_strings.grdp file for this string (enforced by presubmit), which is hard to describe in a general way and may change significantly once we figure out the localization story for What\u0027s New.",
+      "parentUuid": "5671ced4_786e37fa",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 116
+      },
+      "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d2f9582_a8cfacf0",
         "filename": "front_end/help/ReleaseNoteView.js",
         "patchSetId": 1
