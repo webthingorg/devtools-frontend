@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "5671ced4_786e37fa",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-14T00:23:13Z",
+      "side": 1,
+      "message": "he just meant us ls`` here as well. The string itself is fine as is",
+      "parentUuid": "22e55c00_85a54e52",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 116
+      },
+      "revId": "64175574f2ffe8e075bc7290729799039dfab60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d2f9582_a8cfacf0",
         "filename": "front_end/help/ReleaseNoteView.js",
         "patchSetId": 1
