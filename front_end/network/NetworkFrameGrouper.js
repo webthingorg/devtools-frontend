@@ -72,6 +72,7 @@ export class FrameGroupNode extends Network.NetworkGroupNode {
       cell.appendChild(UI.Icon.create('largeicon-navigator-frame', 'network-frame-group-icon'));
       cell.createTextChild(name);
       cell.title = name;
+      this.cellAccessibleTextMap.set(columnId, cell.textContent);
     }
   }
 }
