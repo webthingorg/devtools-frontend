@@ -16,6 +16,24 @@
       "revId": "808592cc0ef192f3421e48db227849577be72e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5460ec2e_d1cc7778",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-16T10:41:31Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s a concrete policy right now. For this change I was trying to match the surrounding code style, but I\u0027d be happy to make the relevant changes throughout this file if you prefer. WDYT?",
+      "parentUuid": "10ffc91a_d066d889",
+      "revId": "808592cc0ef192f3421e48db227849577be72e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
