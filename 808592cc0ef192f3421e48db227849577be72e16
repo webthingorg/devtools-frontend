@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10ffc91a_d066d889",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2019-12-16T10:36:26Z",
+      "side": 1,
+      "message": "Quick question: do we prefer string concatenation over string templates? Or it just doesn\u0027t matter.",
+      "revId": "808592cc0ef192f3421e48db227849577be72e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
