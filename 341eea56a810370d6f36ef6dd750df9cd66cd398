@@ -46,6 +46,30 @@
       "revId": "341eea56a810370d6f36ef6dd750df9cd66cd398",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847019d_931134f9",
+        "filename": "BUILD.gn",
+        "patchSetId": 12
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-16T15:49:01Z",
+      "side": 1,
+      "message": "You can find the cl at crrev.com/c/1969477",
+      "parentUuid": "4d6d16f9_47601846",
+      "range": {
+        "startLine": 713,
+        "startChar": 2,
+        "endLine": 713,
+        "endChar": 44
+      },
+      "revId": "341eea56a810370d6f36ef6dd750df9cd66cd398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
