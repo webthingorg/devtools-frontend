@@ -812,6 +812,7 @@ export class NetworkRequestNode extends NetworkNode {
    */
   _renderPrimaryCell(cell, columnId, text) {
     const columnIndex = this.dataGrid.indexOfVisibleColumn(columnId);
+    let hasImage = false;
     if (columnIndex === 0) {
       const leftPadding = this.leftPadding ? this.leftPadding + 'px' : '';
       cell.style.setProperty('padding-left', leftPadding);
@@ -836,6 +837,7 @@ export class NetworkRequestNode extends NetworkNode {
       iconElement.classList.add(this._request.resourceType().name());
 
       cell.appendChild(iconElement);
+      hasImage = true;
     }
 
     if (columnId === 'name') {
@@ -848,6 +850,8 @@ export class NetworkRequestNode extends NetworkNode {
       cell.createTextChild(text);
       cell.title = text;
     }
+    const imageAlt = hasImage ? ls`graphic: ${this._request.resourceType().title()}, ` : '';
+    this.cellAccessibleTextMap.set(columnId, ls`${imageAlt}${cell.textContent}`);
   }
 
   /**
@@ -1046,6 +1050,17 @@ export class NetworkRequestNode extends NetworkNode {
 export class NetworkGroupNode extends NetworkNode {
   /**
    * @override
+   * @param {!Element} element
+   * @protected
+   */
+  createCells(element) {
+    super.createCells(element);
+    const primaryColumn = this.dataGrid._visibleColumnsArray[0];
+    this.nodeAccessibleText = ls`${primaryColumn.title}: ${this.cellAccessibleTextMap.get(primaryColumn.id)}`;
+  }
+
+  /**
+   * @override
    * @param {!Element} cell
    * @param {string} columnId
    */
@@ -1055,6 +1070,7 @@ export class NetworkGroupNode extends NetworkNode {
       const leftPadding = this.leftPadding ? this.leftPadding + 'px' : '';
       cell.style.setProperty('padding-left', leftPadding);
       cell.classList.add('disclosure');
+      this.cellAccessibleTextMap.set(columnId, cell.textContent);
     }
   }
 
