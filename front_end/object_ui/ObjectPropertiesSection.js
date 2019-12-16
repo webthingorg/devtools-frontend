@@ -946,6 +946,7 @@ export class ObjectPropertyTreeElement extends UI.TreeElement {
       return;
     }
 
+    // TODO(mathias): support all valid JavaScript identifiers.
     const useDotNotation = /^(_|\$|[A-Z])(_|\$|[A-Z]|\d)*$/i;
     const isInteger = /^[1-9]\d*$/;
 
@@ -957,7 +958,7 @@ export class ObjectPropertyTreeElement extends UI.TreeElement {
     } else if (isInteger.test(name)) {
       this.nameElement.title = parentPath + '[' + name + ']';
     } else {
-      this.nameElement.title = parentPath + '["' + JSON.stringify(name) + '"]';
+      this.nameElement.title = parentPath + '[' + JSON.stringify(name) + ']';
     }
   }
 
