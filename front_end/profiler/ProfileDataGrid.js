@@ -162,12 +162,12 @@ Profiler.ProfileDataGridNode = class extends DataGrid.DataGridNode {
     let cell;
     switch (columnId) {
       case 'self':
-        cell = this._createValueCell(this.self, this.selfPercent);
+        cell = this._createValueCell(this.self, this.selfPercent, columnId);
         cell.classList.toggle('highlight', this._searchMatchedSelfColumn);
         break;
 
       case 'total':
-        cell = this._createValueCell(this.total, this.totalPercent);
+        cell = this._createValueCell(this.total, this.totalPercent, columnId);
         cell.classList.toggle('highlight', this._searchMatchedTotalColumn);
         break;
 
@@ -203,9 +203,10 @@ Profiler.ProfileDataGridNode = class extends DataGrid.DataGridNode {
   /**
    * @param {number} value
    * @param {number} percent
+   * @param {string} columnId
    * @return {!Element}
    */
-  _createValueCell(value, percent) {
+  _createValueCell(value, percent, columnId) {
     const cell = createElementWithClass('td', 'numeric-column');
     const div = cell.createChild('div', 'profile-multiple-values');
     const valueSpan = div.createChild('span');
@@ -217,7 +218,9 @@ Profiler.ProfileDataGridNode = class extends DataGrid.DataGridNode {
     UI.ARIAUtils.markAsHidden(valueSpan);
     UI.ARIAUtils.markAsHidden(percentSpan);
     const valueAccessibleText = this.tree._formatter.formatValueAccessibleText(value, this);
-    UI.ARIAUtils.setAccessibleName(div, ls`${valueAccessibleText}, ${percentText}`);
+    const cellAccessibleText = ls`${valueAccessibleText}, ${percentText}`;
+    this.cellAccessibleTextMap.set(columnId, cellAccessibleText);
+    UI.ARIAUtils.setAccessibleName(div, cellAccessibleText);
     return cell;
   }
 
