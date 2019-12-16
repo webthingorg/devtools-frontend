@@ -35,7 +35,7 @@ export default class CoverageListView extends UI.VBox {
       },
       {id: 'bars', title: ls`Usage Visualization`, width: '250px', fixedWidth: false, sortable: true}
     ];
-    this._dataGrid = new DataGrid.SortableDataGrid({displayName: ls`Coverage List`, columns});
+    this._dataGrid = new DataGrid.SortableDataGrid({displayName: ls`Coverage grid`, columns});
     this._dataGrid.setResizeMethod(DataGrid.DataGrid.ResizeMethod.Last);
     this._dataGrid.element.classList.add('flex-auto');
     this._dataGrid.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
@@ -308,7 +308,9 @@ export class GridNode extends DataGrid.SortableDataGridNode {
         const sizeSpan = cell.createChild('span');
         sizeSpan.textContent = Number.withThousandsSeparator(this._coverageInfo.size() || 0);
         UI.ARIAUtils.markAsHidden(sizeSpan);
-        UI.ARIAUtils.setAccessibleName(cell, ls`${this._coverageInfo.size() || 0} bytes`);
+        const sizeAccessibleName = ls`${this._coverageInfo.size() || 0} bytes`;
+        this.cellAccessibleTextMap.set(columnId, sizeAccessibleName);
+        UI.ARIAUtils.setAccessibleName(cell, sizeAccessibleName);
         break;
       case 'unusedSize':
         const unusedSize = this._coverageInfo.unusedSize() || 0;
@@ -319,7 +321,9 @@ export class GridNode extends DataGrid.SortableDataGridNode {
         unusedPercentsSpan.textContent = unusedPercentFormatted;
         UI.ARIAUtils.markAsHidden(unusedPercentsSpan);
         UI.ARIAUtils.markAsHidden(unusedSizeSpan);
-        UI.ARIAUtils.setAccessibleName(cell, ls`${unusedSize} bytes, ${unusedPercentFormatted}`);
+        const unusedSizeAccessibleName = ls`${unusedSize} bytes, ${unusedPercentFormatted}`;
+        this.cellAccessibleTextMap.set(columnId, unusedSizeAccessibleName);
+        UI.ARIAUtils.setAccessibleName(cell, unusedSizeAccessibleName);
         break;
       case 'bars':
         const barContainer = cell.createChild('div', 'bar-container');
@@ -347,8 +351,9 @@ export class GridNode extends DataGrid.SortableDataGridNode {
                 usedPercent} %) belong to blocks of JavaScript that have executed at least once.`;
           }
         }
-        UI.ARIAUtils.setAccessibleName(
-            barContainer, ls`${unusedPercent} % of file unused, ${usedPercent} % of file used`);
+        const barsAccesibleName = ls`${unusedPercent} % of file unused, ${usedPercent} % of file used`;
+        this.cellAccessibleTextMap.set(columnId, barsAccesibleName);
+        UI.ARIAUtils.setAccessibleName(barContainer, barsAccesibleName);
     }
     return cell;
   }
