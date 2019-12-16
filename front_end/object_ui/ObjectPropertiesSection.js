@@ -957,7 +957,7 @@ export class ObjectPropertyTreeElement extends UI.TreeElement {
     } else if (isInteger.test(name)) {
       this.nameElement.title = parentPath + '[' + name + ']';
     } else {
-      this.nameElement.title = parentPath + '["' + JSON.stringify(name) + '"]';
+      this.nameElement.title = parentPath + '[' + JSON.stringify(name) + ']';
     }
   }
 
