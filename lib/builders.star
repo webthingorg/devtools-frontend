@@ -77,14 +77,14 @@ def builder_descriptor(name, recipe_name, is_master_only=False):
     is_master_only=is_master_only
   )
 
+SERVICE_ACCOUNT='devtools-frontend-ci-builder@chops-service-accounts.iam.gserviceaccount.com'
+
 def generate_ci_configs(configurations, builders):
   # Generate full configuration for ci builders:
   #   bucket, builders, console, scheduler.
   # Arguments:
   #   - configurations: [] of config_section
   #   - builders: [] of builder_descriptor
-
-  SERVICE_ACCOUNT='devtools-frontend-ci-builder@chops-service-accounts.iam.gserviceaccount.com'
 
   luci.bucket(
       name="ci",

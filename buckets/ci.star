@@ -6,6 +6,7 @@ load(
   'config_section',
   'builder_descriptor',
   'generate_ci_configs',
+  'SERVICE_ACCOUNT'
 )
 
 defaults.build_numbers.set(True)
@@ -54,4 +55,40 @@ luci.list_view(
     title="Infra",
     favicon=defaults.favicon,
     entries =[luci.list_view_entry(builder="Auto-roll - devtools deps")],
+)
+
+###
+# Chromium side
+###
+
+builder(
+    name="Chromium Linux",
+    bucket="ci",
+    mastername="client.devtools-frontend.integration",
+    service_account=SERVICE_ACCOUNT,
+    recipe_name="chromium_integration",
+    dimensions=dimensions.default_ubuntu,
+    execution_timeout=2 * time.hour
+)
+
+luci.console_view(
+    name='chromium',
+    title='Chromium',
+    repo='https://chromium.googlesource.com/chromium/src',
+    refs=['refs/heads/master'],
+    favicon=defaults.favicon,
+    header={
+      'tree_status_host': 'devtools-status.appspot.com'
+    },
+    entries=[
+      luci.console_view_entry(builder='Chromium Linux', category='Linux')
+    ]
+)
+
+luci.gitiles_poller(
+    name='devtools-frontend-trigger-chromium',
+    bucket="ci",
+    repo='https://chromium.googlesource.com/chromium/src',
+    refs=['refs/heads/master'],
+    triggers=['Chromium Linux']
 )
