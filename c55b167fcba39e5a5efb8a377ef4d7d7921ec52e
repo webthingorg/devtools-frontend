@@ -22,6 +22,30 @@
       "revId": "c55b167fcba39e5a5efb8a377ef4d7d7921ec52e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ebf8c3_bc815c3c",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T14:26:32Z",
+      "side": 1,
+      "message": "I prefer this version, as there is only 1 case where this `obtainRelativePath` is necessary. The amount of duplicate code would be triple what we have now.\n\nSubmitting for now per personal preferences. We maybe should can come up with a styling guide for this.",
+      "parentUuid": "fc361dba_2c6bb07f",
+      "range": {
+        "startLine": 123,
+        "startChar": 85,
+        "endLine": 123,
+        "endChar": 108
+      },
+      "revId": "c55b167fcba39e5a5efb8a377ef4d7d7921ec52e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
