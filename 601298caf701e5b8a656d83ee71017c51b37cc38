@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "19548d26_3b65311e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1370891
+      },
+      "writtenOn": "2019-12-16T10:48:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "341b1320_e618aa15",
+      "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c20c6dd_d940e7f5",
         "filename": "front_end/object_ui/ObjectPropertiesSection.js",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-12-16T10:20:34Z",
       "side": 1,
       "message": "We don\u0027t need the capture result so let\u0027s make this a non-capturing group.",
+      "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "168a7cac_399b56f2",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1370891
+      },
+      "writtenOn": "2019-12-16T10:48:59Z",
+      "side": 1,
+      "message": "That\u0027s true, but then there are double the beginning and end characters.\nWith the capturing block it looks more clean than ^0$|^[1-9]\\d*$\n\nBut I can change it, if you prefer it that way.",
+      "parentUuid": "4c20c6dd_d940e7f5",
       "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true

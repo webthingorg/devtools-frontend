@@ -34,6 +34,24 @@
       "revId": "5650965324e1acebdeae58379c1167b8af705527",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc73857f_49425af3",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1370891
+      },
+      "writtenOn": "2019-12-16T10:48:59Z",
+      "side": 0,
+      "message": "So, should I also remove the double brackets in this change? Because there is already the change open where someone changed it.",
+      "parentUuid": "73ec300e_fb73e1a2",
+      "revId": "5650965324e1acebdeae58379c1167b8af705527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
