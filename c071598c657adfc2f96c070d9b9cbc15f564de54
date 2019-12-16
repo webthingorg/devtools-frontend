@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1379ab1_c0de2e64",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Role*",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70fec712_08d5007d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "wants its* accessible",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f687be0e_dd8fe0f5",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Suggest: omit \"grid\", replace the string with something to the effect of \"Code coverage.\" Describe what you\u0027re displaying rather than how.",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67bbf56_d79c19b6",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Do we consistently not care about singular throughout? (I do realize that makes localization easier).",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5fcaae6_cbd99090",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "This pattern of\n\n    this.cellAccessibleTextMap.set(columnId, name);\n    UI.ARIAUtils.setAccessibleName(cell, name);\n\noccurs three times here, it seems as if it could be broken out into a subroutine.",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c7f33c_f0dc7fea",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Is it possible for the elements to have focusable children? Would `focusin` be preferable here? (I\u0027m not sure, just asking to verify we\u0027ve explored this possibility).",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e082d623_b41bff49",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Nit: I think our code convention is to prefix the variable name, not postfix.",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd895b52_23677364",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Can you add to the documentation of this function what the semantics are for \"read grid name\"? I was going to suggest a change, but now that I understand the purpose I don\u0027t really think that it should be changed. But, I had to read the function a few times to grok it.",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9f1014b_4cb43573",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "This is a weird place to add a newline. You can add newlines in any location in backtick strings.",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c829d373_a33d1946",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "I like this level of description. However, do we have prior art of directing the user to use \"browse mode\"? In Windows Narrator, isn\u0027t this called Scan Mode? @Amanda, can you comment?",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6f83ab2_f8ff1c3c",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "I\u0027m a little uncomfortable with concatenating these strings in this way. @Vidal, can you leave a note here?\n\nAlso, you always hang a suffixed comma.",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73909101_b3e5e50e",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "The location of this line seems out of place? \n\nIt seems you could just say `const hasImage \u003d columnIndex \u003d\u003d\u003d 0;`",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9dcef49_46cad94b",
+        "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Here\u0027s another instance of the pattern I recognized in CoverageListView.\n\nMaybe the function belongs as a helper on DataGridNode?",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bc78d6a_4d0368f3",
+        "filename": "front_end/profiler/ProfileDataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-16T22:33:39Z",
+      "side": 1,
+      "message": "Here again",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
