@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ba91b0c_1437c17a",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-16T13:21:36Z",
+      "side": 1,
+      "message": "Do you think it makes sense to handle the error from page_handler.cc:79 here?",
+      "range": {
+        "startLine": 455,
+        "startChar": 10,
+        "endLine": 455,
+        "endChar": 18
+      },
+      "revId": "b0d486223aac721e002ecbeb6842e889b0524a3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
