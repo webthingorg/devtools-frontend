@@ -22,6 +22,30 @@
       "revId": "b0d486223aac721e002ecbeb6842e889b0524a3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7839c2bd_571871f0",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-16T13:57:46Z",
+      "side": 1,
+      "message": "I wanted to keep the code aligned with the getInstallabilityErrors implementation above",
+      "parentUuid": "1ba91b0c_1437c17a",
+      "range": {
+        "startLine": 455,
+        "startChar": 10,
+        "endLine": 455,
+        "endChar": 18
+      },
+      "revId": "b0d486223aac721e002ecbeb6842e889b0524a3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
