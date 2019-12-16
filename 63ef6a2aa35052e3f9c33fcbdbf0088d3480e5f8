@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8202a0fe_56aeaa9e",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T15:15:03Z",
+      "side": 1,
+      "message": "This const is not necessary once `ui-legacy` exports all the symbols, right?",
+      "range": {
+        "startLine": 570,
+        "startChar": 7,
+        "endLine": 570,
+        "endChar": 22
+      },
+      "revId": "63ef6a2aa35052e3f9c33fcbdbf0088d3480e5f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fbe784c_50276c59",
+        "filename": "front_end/ui/GlassPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T15:15:03Z",
+      "side": 1,
+      "message": "Is there a specific reason that `_panes` couldn\u0027t be exported itself?",
+      "range": {
+        "startLine": 423,
+        "startChar": 3,
+        "endLine": 423,
+        "endChar": 28
+      },
+      "revId": "63ef6a2aa35052e3f9c33fcbdbf0088d3480e5f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e7a94d3_9e270f87",
+        "filename": "front_end/ui/Tooltip.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T15:15:03Z",
+      "side": 1,
+      "message": "Same question here: can we export `_symbol` instead?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 29
+      },
+      "revId": "63ef6a2aa35052e3f9c33fcbdbf0088d3480e5f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d363f5c3_615c1c1e",
+        "filename": "front_end/ui/View.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T15:15:03Z",
+      "side": 1,
+      "message": "😞",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 21
+      },
+      "revId": "63ef6a2aa35052e3f9c33fcbdbf0088d3480e5f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fcfc3f5_667c623d",
+        "filename": "karma.conf.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T15:15:03Z",
+      "side": 1,
+      "message": "These changes should be in a different CL I think? I saw another CL with changes like this one.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "63ef6a2aa35052e3f9c33fcbdbf0088d3480e5f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
