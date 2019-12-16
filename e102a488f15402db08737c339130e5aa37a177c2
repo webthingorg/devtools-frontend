@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9a62965_fc27682d",
+        "filename": "front_end/audits/module.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T13:38:24Z",
+      "side": 1,
+      "message": "Why do need to be scripts? We will be removing the ability to have scripts in `module.json` soon.",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 60
+      },
+      "revId": "e102a488f15402db08737c339130e5aa37a177c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
