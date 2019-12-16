@@ -39,7 +39,13 @@ export default class DataGridImpl extends Common.Object {
     this.element.tabIndex = 0;
     this.element.addEventListener('keydown', this._keyDown.bind(this), false);
     this.element.addEventListener('contextmenu', this._contextMenu.bind(this), true);
-    UI.ARIAUtils.setAccessibleName(this.element, displayName);
+    this.element.addEventListener('focus', () => {
+      this.updateGridAccessibleName(true /* readGridName */);
+    });
+
+    this.element.setAttribute('role', 'application');
+    this._displayName = displayName;
+    this.updateGridAccessibleName();
 
     this._editCallback = editCallback;
     this._deleteCallback = deleteCallback;
@@ -192,6 +198,25 @@ export default class DataGridImpl extends Common.Object {
   setHasSelection(hasSelected) {
     // 'no-selection' class causes datagrid to have a focus-indicator border
     this.element.classList.toggle('no-selection', !hasSelected);
+  }
+
+  /**
+   * @param {boolean=} readGridName
+   */
+  updateGridAccessibleName(readGridName) {
+    let accessibleText;
+    if (this.selectedNode && this.selectedNode.existingElement()) {
+      let expandText = '';
+      if (this.selectedNode.hasChildren()) {
+        expandText = this.selectedNode.expanded ? ls`expanded` : ls`collapsed`;
+      }
+      const rowHeader = readGridName ? ls`${this._displayName} Row ${expandText}` : expandText;
+      accessibleText = ls`${rowHeader}: ${this.selectedNode.nodeAccessibleText}`;
+    } else {
+      accessibleText = ls`${
+          this._displayName}, use the up and down arrow keys to navigate and interact with the rows of the table; Use browse mode to read cell by cell.`;
+    }
+    UI.ARIAUtils.setAccessibleName(this.element, accessibleText);
   }
 
   /**
@@ -955,6 +980,7 @@ export default class DataGridImpl extends Common.Object {
           this.selectedNode.parent.collapse();
         }
       }
+      this.updateGridAccessibleName();
     } else if (event.key === 'ArrowRight') {
       if (!this.selectedNode.revealed) {
         this.selectedNode.reveal();
@@ -972,6 +998,7 @@ export default class DataGridImpl extends Common.Object {
           }
         }
       }
+      this.updateGridAccessibleName();
     } else if (event.keyCode === 8 || event.keyCode === 46) {
       if (this._deleteCallback) {
         handled = true;
@@ -1482,6 +1509,11 @@ export class DataGridNode extends Common.Object {
 
     /** @type {boolean} */
     this._isRoot = false;
+
+    /** @type {string} */
+    this.nodeAccessibleText = '';
+    /** @type {!Map<string, !string>}} */
+    this.cellAccessibleTextMap = new Map();
   }
 
   /**
@@ -1545,8 +1577,12 @@ export class DataGridNode extends Common.Object {
   createCells(element) {
     element.removeChildren();
     const columnsArray = this.dataGrid._visibleColumnsArray;
+    this.nodeAccessibleText = '';
     for (let i = 0; i < columnsArray.length; ++i) {
-      element.appendChild(this.createCell(columnsArray[i].id));
+      const column = columnsArray[i];
+      const cell = element.appendChild(this.createCell(column.id));
+      this.nodeAccessibleText +=
+          ls`${column.title}: ${this.cellAccessibleTextMap.get(column.id) || cell.textContent}, `;
     }
     element.appendChild(this._createTDWithClass('corner'));
   }
@@ -1816,7 +1852,6 @@ export class DataGridNode extends Common.Object {
     } else if (data !== null) {
       DataGrid.DataGrid.setElementText(cell, /** @type {string} */ (data), !!this.dataGrid._columns[columnId].longText);
     }
-
     return cell;
   }
 
@@ -2081,6 +2116,7 @@ export class DataGridNode extends Common.Object {
     if (this._element) {
       this._element.classList.add('selected');
       this.dataGrid.setHasSelection(true);
+      this.dataGrid.updateGridAccessibleName();
     }
 
     if (!supressSelectedEvent) {
@@ -2110,6 +2146,7 @@ export class DataGridNode extends Common.Object {
     if (this._element) {
       this._element.classList.remove('selected');
       this.dataGrid.setHasSelection(false);
+      this.dataGrid.updateGridAccessibleName();
     }
 
     if (!supressDeselectedEvent) {
