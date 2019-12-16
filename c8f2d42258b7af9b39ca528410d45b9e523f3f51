@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86b4ec8e_1020803a",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2019-12-16T14:01:13Z",
+      "side": 1,
+      "message": "Is this for javascript only?",
+      "parentUuid": "59567c4a_5e904c7d",
+      "range": {
+        "startLine": 159,
+        "startChar": 26,
+        "endLine": 159,
+        "endChar": 44
+      },
+      "revId": "c8f2d42258b7af9b39ca528410d45b9e523f3f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d81c0d89_3d27c72d",
         "filename": "front_end/formatter/SourceFormatter.js",
         "patchSetId": 3
