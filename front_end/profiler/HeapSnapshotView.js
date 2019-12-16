@@ -1064,6 +1064,9 @@ Profiler.HeapSnapshotProfileType = class extends Profiler.ProfileType {
     SDK.targetManager.addModelListener(
         SDK.HeapProfilerModel, SDK.HeapProfilerModel.Events.ReportHeapSnapshotProgress,
         this._reportHeapSnapshotProgress, this);
+    this._recordRawHeapSnapshot = Common.settings.createSetting('recordRawHeapSnapshot', false);
+    /** @type {?UI.CheckboxLabel} */
+    this._customContent = null;
   }
 
   /**
@@ -1139,6 +1142,27 @@ Profiler.HeapSnapshotProfileType = class extends Profiler.ProfileType {
 
   /**
    * @override
+   * @return {?Element}
+   */
+  customContent() {
+    const checkboxSetting = UI.SettingsUI.createSettingCheckbox(
+        ls
+        `Record raw heap snapshot (contains more internal nodes which might help with retainer cycles, but is not recommended due to amount of internal details)`,
+        this._recordRawHeapSnapshot, true);
+        this._customContent = /** @type {!UI.CheckboxLabel} */ (checkboxSetting);
+        return checkboxSetting;
+  }
+
+  /**
+   * @override
+   * @param {boolean} enable
+   */
+  setCustomContentEnabled(enable) {
+    this._customContent.checkboxElement.disabled = !enable;
+  }
+
+  /**
+   * @override
    * @param {string} title
    * @return {!Profiler.ProfileHeader}
    */
@@ -1160,7 +1184,7 @@ Profiler.HeapSnapshotProfileType = class extends Profiler.ProfileType {
     this.addProfile(profile);
     profile.updateStatus(Common.UIString('Snapshotting\u2026'));
 
-    await heapProfilerModel.takeHeapSnapshot(true);
+    await heapProfilerModel.takeHeapSnapshot(true, this._recordRawHeapSnapshot.get());
     // ------------ ASYNC ------------
     profile = this.profileBeingRecorded();
     profile.title = Common.UIString('Snapshot %d', profile.uid);
