@@ -151,6 +151,20 @@ export default class DebuggerWorkspaceBinding {
   }
 
   /**
+   * @param {!Workspace.UISourceCode} uiSourceCode
+   * @param {number} lineNumber
+   * @param {number} columnNumber
+   * @return {!Array<!SDK.DebuggerModel.Location>}
+   */
+  uiLocationToRawLocationsForSourceFormatter(uiSourceCode, lineNumber, columnNumber) {
+    const locations = [];
+    for (const modelData of this._debuggerModelToData.values()) {
+      locations.push(...modelData._uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber));
+    }
+    return locations;
+  }
+
+  /**
    * @param {!Workspace.UILocation} uiLocation
    * @return {!Workspace.UILocation}
    */
@@ -320,6 +334,18 @@ class ModelData {
    * @return {!Array<!SDK.DebuggerModel.Location>}
    */
   _uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+    // TODO(szuend): Make this function async and delegate to the language component in
+    //               addition to {_uiLocationToRawLocationsExcludeAsync}.
+    return this._uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber);
+  }
+
+  /**
+   * @param {!Workspace.UISourceCode} uiSourceCode
+   * @param {number} lineNumber
+   * @param {number} columnNumber
+   * @return {!Array<!SDK.DebuggerModel.Location>}
+   */
+  _uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber) {
     let locations = this._compilerMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
     locations = locations.length ?
         locations :
