@@ -330,6 +330,14 @@ export function setCheckboxAsIndeterminate(element) {
  * @param {!Element} element
  * @param {boolean} value
  */
+export function setDisabled(element, value) {
+  element.setAttribute('aria-disabled', !!value);
+}
+
+/**
+ * @param {!Element} element
+ * @param {boolean} value
+ */
 export function setExpanded(element, value) {
   element.setAttribute('aria-expanded', !!value);
 }
@@ -566,3 +574,69 @@ export function alert(message, element) {
 
   document[AlertElementSymbol].textContent = message.trimEndWithMaxLength(10000);
 }
+
+/** Legacy exported object */
+self.UI = self.UI || {};
+
+/* Legacy exported object*/
+UI = UI || {};
+
+self.UI.ARIAUtils = {
+  nextId,
+  bindLabelToControl,
+  markAsAlert,
+  markAsButton,
+  markAsCheckbox,
+  markAsCombobox,
+  markAsModalDialog,
+  markAsGroup,
+  markAsLink,
+  markAsMenuButton,
+  markAsProgressBar,
+  markAsTab,
+  markAsTabpanel,
+  markAsTree,
+  markAsTreeitem,
+  markAsTextBox,
+  markAsMenu,
+  markAsMenuItem,
+  markAsMenuItemSubMenu,
+  markAsList,
+  markAsListitem,
+  markAsListBox,
+  markAsMultiSelectable,
+  markAsOption,
+  markAsRadioGroup,
+  markAsHidden,
+  markAsSlider,
+  markAsHeading,
+  markAsPoliteLiveRegion,
+  setPlaceholder,
+  markAsPresentation,
+  markAsStatus,
+  ensureId,
+  setAriaValueText,
+  setAriaValueNow,
+  setAriaValueMinMax,
+  setControls,
+  setChecked,
+  setCheckboxAsIndeterminate,
+  setExpanded,
+  unsetExpandable,
+  setHidden,
+  AutocompleteInteractionModel,
+  setAutocomplete,
+  setSelected,
+  clearSelected,
+  setInvalid,
+  setPressed,
+  setProgressBarValue,
+  setValueNow,
+  setValueText,
+  setAccessibleName,
+  setDescription,
+  setActiveDescendant,
+  alert,
+  hasRole,
+  setDisabled,
+};
