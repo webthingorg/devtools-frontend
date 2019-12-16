@@ -8,6 +8,8 @@ let node_modules_path = external_devtools_frontend
     ? ''
     : '../../../../third_party/devtools-node-modules/third_party/node_modules/';
 
+const IS_DEBUG = (!!process.env.DEBUG);
+
 module.exports = function(config) {
   const options = {
     basePath: '',
@@ -26,12 +28,12 @@ module.exports = function(config) {
 
     preprocessors: {
       './test/unittests/**/*.ts': ['karma-typescript'],
-      './front_end/common/*.js': ['karma-coverage-istanbul-instrumenter'],
-      './front_end/workspace/*.js': ['karma-coverage-istanbul-instrumenter'],
-      './front_end/ui/*.js': ['karma-coverage-istanbul-instrumenter']
+      './front_end/common/*.js': (IS_DEBUG ? [] : ['karma-coverage-istanbul-instrumenter']),
+      './front_end/workspace/*.js': (IS_DEBUG ? [] : ['karma-coverage-istanbul-instrumenter']),
+      './front_end/ui/*.js': (IS_DEBUG ? [] : ['karma-coverage-istanbul-instrumenter'])
     },
 
-    browsers: ['ChromeHeadless'],
+    browsers: (IS_DEBUG ? ['Chrome'] : ['ChromeHeadless']),
 
     frameworks: ['mocha', 'chai', 'karma-typescript'],
 
@@ -61,7 +63,7 @@ module.exports = function(config) {
 
     coverageIstanbulReporter: {reports: ['text', 'html'], dir: 'karma-coverage'},
 
-    singleRun: true
+    singleRun: !IS_DEBUG
   };
 
   config.set(options);
