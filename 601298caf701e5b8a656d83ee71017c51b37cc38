@@ -69,6 +69,24 @@
       "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f760426_412458d7",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-16T10:52:09Z",
+      "side": 1,
+      "message": "What I meant is:\n\n    const isInteger \u003d /^(?:0|[1-9]\\d*)$/;\n\n(`(foo)` is a capturing group. `(?:foo)` is a non-capturing group.)",
+      "parentUuid": "168a7cac_399b56f2",
+      "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
