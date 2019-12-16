@@ -170,10 +170,11 @@ export default class HeapProfilerModel extends SDK.SDKModel {
 
   /**
    * @param {boolean} reportProgress
+   * @param {boolean} rawSnapshot
    * @return {!Promise}
    */
-  takeHeapSnapshot(reportProgress) {
-    return this._heapProfilerAgent.takeHeapSnapshot(reportProgress);
+  takeHeapSnapshot(reportProgress, rawSnapshot) {
+    return this._heapProfilerAgent.takeHeapSnapshot(reportProgress, rawSnapshot);
   }
 
   /**
