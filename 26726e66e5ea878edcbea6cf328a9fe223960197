@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ecebbe3_19a9a1c5",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-16T15:54:38Z",
+      "side": 1,
+      "message": "Not sure if this is expected, but for certain errors I was not able to get the status column to expand far enough to read the whole message. Might not be worth addressing, but there may be a max width limit on the status column somewhere. I don\u0027t think its worth blocking the CL, but it might be nice to be able to expand to get the whole message.\n\nExample: https://imgur.com/ORBPgO8\n\nRepro: I used the chrome://network-error/-605 with preserve log option checked.",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 1
+      },
+      "revId": "26726e66e5ea878edcbea6cf328a9fe223960197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
