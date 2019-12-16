@@ -2033,7 +2033,7 @@ action("generate_devtools_grd") {
            rebase_path(outfile, root_build_dir),
          ]
 }
-
+#test.
 action("devtools_extension_api") {
   script = "scripts/build/generate_devtools_extension_api.py"
 
