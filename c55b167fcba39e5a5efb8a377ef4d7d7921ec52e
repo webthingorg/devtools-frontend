@@ -94,6 +94,30 @@
       "revId": "c55b167fcba39e5a5efb8a377ef4d7d7921ec52e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd930326_2ca84e1f",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-16T14:34:19Z",
+      "side": 1,
+      "message": "The call in the for loop looks as follows:\n\nobtainRelativePath(moduleName)\n\nThat looks like you could have defined \n\n (moduleName) \u003d\u003e (filename) \u003d\u003e {\n      ...\n      });\n\nAm I missing somethig?",
+      "parentUuid": "f662a889_a9be7070",
+      "range": {
+        "startLine": 123,
+        "startChar": 85,
+        "endLine": 123,
+        "endChar": 108
+      },
+      "revId": "c55b167fcba39e5a5efb8a377ef4d7d7921ec52e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
