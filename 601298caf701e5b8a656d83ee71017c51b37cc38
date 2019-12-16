@@ -87,6 +87,24 @@
       "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a97482e4_7c8bd7d0",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1370891
+      },
+      "writtenOn": "2019-12-16T11:06:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f760426_412458d7",
+      "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
