@@ -34,6 +34,24 @@
       "revId": "808592cc0ef192f3421e48db227849577be72e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3074c499_719754b6",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-16T10:46:13Z",
+      "side": 1,
+      "message": "Switched to template literals. You\u0027re right, this feels better and more consistent now :) Thanks for the suggestion!",
+      "parentUuid": "5460ec2e_d1cc7778",
+      "revId": "808592cc0ef192f3421e48db227849577be72e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
