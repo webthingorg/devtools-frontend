@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "66a9488d_c25813b5",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2019-12-16T14:04:24Z",
+      "side": 1,
+      "message": "See getOriginalUISourceCode in SourceFormatter. If this introduces cyclic dependencies try moving the assert to the call sites.",
+      "parentUuid": "59567c4a_5e904c7d",
+      "range": {
+        "startLine": 159,
+        "startChar": 26,
+        "endLine": 159,
+        "endChar": 44
+      },
+      "revId": "c8f2d42258b7af9b39ca528410d45b9e523f3f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d81c0d89_3d27c72d",
         "filename": "front_end/formatter/SourceFormatter.js",
         "patchSetId": 3
