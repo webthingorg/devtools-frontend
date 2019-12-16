@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "341b1320_e618aa15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-16T10:20:34Z",
+      "side": 1,
+      "message": "Can you reference a Chromium issue here?\n\nBug: chromium:1234\n\nIf there\u0027s no bug for this yet please file one explaining the problem.",
+      "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c20c6dd_d940e7f5",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-16T10:20:34Z",
+      "side": 1,
+      "message": "We don\u0027t need the capture result so let\u0027s make this a non-capturing group.",
+      "revId": "601298caf701e5b8a656d83ee71017c51b37cc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

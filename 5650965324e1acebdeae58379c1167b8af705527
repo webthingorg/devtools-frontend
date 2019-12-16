@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d547aa14_024e7513",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-16T10:20:34Z",
+      "side": 0,
+      "message": "Unrelated to this change, but not to self: this looks broken. JSON.stringify already outputs quotes for string values, so you\u0027d get [\"\"value\"\"]. I\u0027ve filed https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1034441, which you could re-use for this CL if you add a comment there explaining your change.",
+      "revId": "5650965324e1acebdeae58379c1167b8af705527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
