@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6367446c_3f0ad030",
+        "filename": "front_end/third_party/wasmparser/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-16T16:37:16Z",
+      "side": 1,
+      "message": "Should be `modules` with an empty `scripts` array.",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 10
+      },
+      "revId": "0b1376424a4c7b0b1b27132b9c78eb91fc4e06e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
