@@ -52,6 +52,24 @@
       "revId": "808592cc0ef192f3421e48db227849577be72e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8744d30a_6a3ec11c",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2019-12-16T11:46:04Z",
+      "side": 1,
+      "message": "I was modifying some other code just then, and had the thought of switching, but didn\u0027t know the policy. I\u0027ll switch over to template literals when appropriate on my changes as well. Thanks!",
+      "parentUuid": "3074c499_719754b6",
+      "revId": "808592cc0ef192f3421e48db227849577be72e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
