@@ -253,7 +253,14 @@ export default class NetworkLogViewColumns {
     this._waterfallColumn.setRowHeight(largeRows ? 41 : 21);
     this._waterfallScroller.classList.toggle('small', !largeRows);
     this._waterfallHeaderElement.classList.toggle('small', !largeRows);
-    this._waterfallColumn.setHeaderHeight(this._waterfallScroller.offsetTop);
+
+    // Request an animation frame because under certain conditions
+    // (see crbug.com/1019723) this._waterfallScroller.offsetTop does
+    // not return the value it's supposed to return as of the applied
+    // css classes.
+    window.requestAnimationFrame(() => {
+      this._waterfallColumn.setHeaderHeight(this._waterfallScroller.offsetTop);
+    });
   }
 
   /**
