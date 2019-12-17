@@ -22,6 +22,30 @@
       "revId": "1feff59d014ed6a9c881717b6ea2f9e714829bac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a9d3817_29e46a2c",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T20:47:14Z",
+      "side": 1,
+      "message": "Updated to use aria-live to work with VoiceOver",
+      "parentUuid": "cf4d07a6_8b74a000",
+      "range": {
+        "startLine": 219,
+        "startChar": 4,
+        "endLine": 219,
+        "endChar": 65
+      },
+      "revId": "1feff59d014ed6a9c881717b6ea2f9e714829bac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
