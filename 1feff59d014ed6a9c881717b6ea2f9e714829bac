@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf4d07a6_8b74a000",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1330653
+      },
+      "writtenOn": "2019-12-17T02:14:35Z",
+      "side": 1,
+      "message": "This isn\u0027t updating the text for Voice Over 😞. It reads out the first aria-label, but it doesn\u0027t read out the new contents once it\u0027s been updated. \n\nHowever, a user can still navigate this like a normal table, and it\u0027s not a regression from the previous behavior since you couldn\u0027t read the contents of the selected element before either.\n\nMy opinion: This should be safe to check in given there is no regression on mac (unless someone finds something else) and is a significant improvement on windows (works with both NVDA and Narrator). We can file a bug on the platform and see how long it will take to get that fixed. Alternatively, maybe this pattern would work well with an aria-live region in place of the aria-label? AFAIK those behave well on mac",
+      "range": {
+        "startLine": 219,
+        "startChar": 4,
+        "endLine": 219,
+        "endChar": 65
+      },
+      "revId": "1feff59d014ed6a9c881717b6ea2f9e714829bac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
