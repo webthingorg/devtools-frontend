@@ -295,7 +295,7 @@ Generating results...
 
 =============== Lighthouse Results ===============
 URL: http://127.0.0.1:8000/devtools/audits/resources/audits-basic.html
-Version: 5.7.0
+Version: 5.7.1
 TestedAsMobileDevice: true
 ViewportDimensions: {
   "innerWidth": 981,
