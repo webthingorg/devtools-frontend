@@ -1105,8 +1105,9 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
         if (value.preview && propertyCount + entryCount < 10) {
           formatter.appendObjectPreview(nameValuePair, value.preview, false /* isEntry */);
         } else {
-          nameValuePair.appendChild(ObjectUI.ObjectPropertiesSection.createValueElement(
-              value, false /* wasThrown */, false /* showPreview */));
+          const propertyValue = ObjectUI.ObjectPropertiesSection.createPropertyValue(
+              value, false /* wasThrown */, false /* showPreview */);
+          nameValuePair.appendChild(propertyValue.element);
         }
         ++renderedNameCount;
       }
