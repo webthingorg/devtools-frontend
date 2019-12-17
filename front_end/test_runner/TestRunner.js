@@ -24,13 +24,6 @@ export function _isStartupTest() {
 }
 
 /**
- * @param {string} messageType
- */
-export function _consoleOutputHook(messageType) {
-  addResult(messageType + ': ' + Array.prototype.slice.call(arguments, 1));
-}
-
-/**
  * This monkey patches console functions in DevTools context so the console
  * messages are shown in the right places, instead of having all of the console
  * messages printed at the top of the test expectation file (default behavior).
@@ -39,9 +32,16 @@ export function _printDevToolsConsole() {
   if (_isDebugTest()) {
     return;
   }
-  console.log = _consoleOutputHook.bind(null, 'log');
-  console.error = _consoleOutputHook.bind(null, 'error');
-  console.info = _consoleOutputHook.bind(null, 'info');
+  console.log = (...args) => {
+    args.forEach(addResult);
+  };
+  console.error = (...args) => {
+    addResult(`CONSOLE ERROR:`);
+    args.forEach(addResult);
+  };
+  console.info = (...args) => {
+    args.forEach(addResult);
+  };
   console.assert = (assertionCondition, ...args) => {
     if (!assertionCondition) {
       addResult(`ASSERTION FAILURE: ${args.join(' ')}`);
@@ -49,26 +49,20 @@ export function _printDevToolsConsole() {
   };
 }
 
-/**
- * @param {string|!Event} message
- * @param {string} source
- * @param {number} lineno
- * @param {number} colno
- * @param {!Error} error
- */
-function completeTestOnError(message, source, lineno, colno, error) {
-  addResult('TEST ENDED IN ERROR: ' + error.stack);
+self['onerror'] = (message, source, lineno, colno, error) => {
+  addResult('TEST THREW ERROR: ' + error);
   completeTest();
-}
-
-self['onerror'] = completeTestOnError;
+};
+self.addEventListener('unhandledrejection', (event) => {
+  addResult(`PROMISE FAILURE: ${event.reason}`);
+  completeTest();
+});
 _printDevToolsConsole();
 
-// TODO(crbug.com/1032477): Re-enable once test timeouts are handled in Chromium
-// setTimeout(() => {
-//   addResult('TEST TIMED OUT!');
-//   completeTest();
-// }, 6000);
+setTimeout(() => {
+  addResult('TEST TIMED OUT!');
+  completeTest();
+}, 6000);
 
 /** @type {!Array<string>} */
 let _results = [];
@@ -141,45 +135,29 @@ export function flushResults() {
   _results = [];
 }
 
-export function _executeTestScript() {
+export async function _executeTestScript() {
   const testScriptURL = /** @type {string} */ (Root.Runtime.queryParam('test'));
-  fetch(testScriptURL)
-      .then(data => data.text())
-      .then(testScript => {
-        if (_isDebugTest()) {
-          _innerAddResult = console.log;
-          _innerCompleteTest = () => console.log('Test completed');
+  if (_isDebugTest()) {
+    _innerAddResult = console.log;
+    _innerCompleteTest = () => console.log('Test completed');
 
-          // Auto-start unit tests
-          if (!self.testRunner) {
-            eval(`(function test(){${testScript}})()\n//# sourceURL=${testScriptURL}`);
-          } else {
-            self.eval(`function test(){${testScript}}\n//# sourceURL=${testScriptURL}`);
-          }
-          return;
-        }
+    // Auto-start unit tests
+    self.test = async function() {
+      // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
+      await eval(`import("${testScriptURL}")`);
+    };
+    return;
+  }
 
-        // Convert the test script into an expression (if needed)
-        testScript = testScript.trimRight();
-        if (testScript.endsWith(';')) {
-          testScript = testScript.slice(0, testScript.length - 1);
-        }
-
-        (async function() {
-          try {
-            await eval(testScript + `\n//# sourceURL=${testScriptURL}`);
-          } catch (err) {
-            addResult('TEST ENDED EARLY DUE TO UNCAUGHT ERROR:');
-            addResult(err && err.stack || err);
-            addResult('=== DO NOT COMMIT THIS INTO -expected.txt ===');
-            completeTest();
-          }
-        })();
-      })
-      .catch(error => {
-        addResult(`Unable to execute test script because of error: ${error}`);
-        completeTest();
-      });
+  try {
+    // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
+    await eval(`import("${testScriptURL}")`);
+  } catch (err) {
+    addResult('TEST ENDED EARLY DUE TO UNCAUGHT ERROR:');
+    addResult(err && err.stack || err);
+    addResult('=== DO NOT COMMIT THIS INTO -expected.txt ===');
+    completeTest();
+  }
 }
 
 /**
@@ -1543,7 +1521,7 @@ export class _TestObserver {
   TestRunner._initializeTargetForStartupTest =
       override(Main.Main._instanceForTest, '_initializeTarget', () => undefined).bind(Main.Main._instanceForTest);
   await addSnifferPromise(Main.Main._instanceForTest, '_showAppUI');
-  _executeTestScript();
+  await _executeTestScript();
 })();
 
 /** @type {!{logToStderr: function(), navigateSecondaryWindow: function(string), notifyDone: function()}|undefined} */
