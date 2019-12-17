@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "34520433_222e7d66",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:59:54Z",
+      "side": 1,
+      "message": "This method will never be called since our ListControl here is in NonViewport mode",
+      "parentUuid": "52a5eabf_3b48d529",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2588fd0b_81a719e5",
         "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
         "patchSetId": 13
@@ -33,6 +51,24 @@
       "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "344ae3a5_4276c251",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:59:54Z",
+      "side": 1,
+      "message": "Nope, we\u0027re just allowing createElementForItem to handle setting the checked state of the checkbox instead of this function.",
+      "parentUuid": "2588fd0b_81a719e5",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f450143c_2d35e4ce",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bb4da6d_7ef75984",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "703d3a6a_bc6a8a14",
         "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
         "patchSetId": 13
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "aa2d2451_110340f7",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:59:54Z",
+      "side": 1,
+      "message": "We\u0027ve only got isEnterKey as far as I can tell",
+      "parentUuid": "703d3a6a_bc6a8a14",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19b1f712_8f274bd3",
         "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
         "patchSetId": 13
@@ -81,6 +153,24 @@
       "writtenOn": "2019-12-17T20:12:16Z",
       "side": 1,
       "message": "I suspect that the concatenation in this format isn\u0027t particularly localizable. Suggest: \"Breakpoint hit: ${checkedDescriptionText\".",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c830af66_c77c8e63",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:59:54Z",
+      "side": 1,
+      "message": "Hmmm, I\u0027m not opposed to changing it but the DOM breakpoints have already been merged with the same description so we\u0027d have to update them as well. Is there a particular reason to put \"breakpoint hit\" first?",
+      "parentUuid": "19b1f712_8f274bd3",
       "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "cc15b3a6_e09de9a3",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:59:54Z",
+      "side": 1,
+      "message": "Thanks, I think this is something that was necessary in an earlier iteration but was rendered obsolete.",
+      "parentUuid": "46d720da_0436fdd8",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03310f7e_cd34e6f9",
         "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
         "patchSetId": 13
@@ -118,6 +226,24 @@
       "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54d94937_3632292b",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03310f7e_cd34e6f9",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
