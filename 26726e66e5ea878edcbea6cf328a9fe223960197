@@ -22,6 +22,30 @@
       "revId": "26726e66e5ea878edcbea6cf328a9fe223960197",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baf4db52_7c31d781",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2019-12-17T08:25:37Z",
+      "side": 1,
+      "message": "Thanks for the feedback. On my machine I can expand the column without any limit (as long as the other columns leave enough room).\n\nScreenshot: https://imgur.com/a/9bEmWp5\n\nI\u0027ll land this for now but feel free to report a bug if expanding the column does not work for you.",
+      "parentUuid": "0ecebbe3_19a9a1c5",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 1
+      },
+      "revId": "26726e66e5ea878edcbea6cf328a9fe223960197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
