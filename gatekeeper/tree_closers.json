@@ -21,6 +21,15 @@
         "*"
       ],
       "excluded_steps": [
+        "webkit_layout_from_devtools (with patch)",
+        "webkit_layout_from_devtools (retry shards with patch)",
+        "webkit_layout_from_devtools (without patch)",
+        "webkit_layout_tests (with patch)",
+        "webkit_layout_tests (retry shards with patch)",
+        "webkit_layout_tests (without patch)",
+        "webkit_unit_tests_ng (with patch)",
+        "webkit_unit_tests_ng (retry shards with patch)",
+        "webkit_unit_tests_ng (without patch)",
         "Failure reason",
         "steps",
         "* (flakes)"
