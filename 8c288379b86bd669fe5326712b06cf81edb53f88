@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "74098202_38132ca4",
+        "filename": "front_end/data_grid/data_grid_strings.grdp",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T20:52:21Z",
+      "side": 1,
+      "message": "yes, I\u0027ll file a bug on the script. We can safely check them in as they are.",
+      "parentUuid": "4abb6355_2bf11c71",
+      "range": {
+        "startLine": 31,
+        "startChar": 60,
+        "endLine": 31,
+        "endChar": 121
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f296fc_6d3a5e8e",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 12
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Good call. I actually ended up dropping this altogether due to other feedback",
       "parentUuid": "04f296fc_6d3a5e8e",
+      "range": {
+        "startLine": 854,
+        "startChar": 31,
+        "endLine": 854,
+        "endChar": 33
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab84212b_c2b5386b",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T20:52:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d519df_8e99fe6f",
       "range": {
         "startLine": 854,
         "startChar": 31,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "0e749657_17459a5e",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T20:52:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a861734_6ad897f1",
+      "range": {
+        "startLine": 1063,
+        "startChar": 9,
+        "endLine": 1063,
+        "endChar": 28
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00b219d9_0eaa9c11",
         "filename": "front_end/network/network_strings.grdp",
         "patchSetId": 12
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "Removed string",
       "parentUuid": "00b219d9_0eaa9c11",
+      "range": {
+        "startLine": 370,
+        "startChar": 24,
+        "endLine": 370,
+        "endChar": 59
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "517e36bb_42de333a",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 12
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T20:52:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5285684f_120ba910",
       "range": {
         "startLine": 370,
         "startChar": 24,
