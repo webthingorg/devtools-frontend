@@ -387,6 +387,24 @@
     },
     {
       "key": {
+        "uuid": "bb74e100_fcb84dd4",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T20:42:20Z",
+      "side": 1,
+      "message": "Done. Thanks for the advice, that makes alot of sense!",
+      "parentUuid": "081ee184_c2e565eb",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73909101_b3e5e50e",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 7
