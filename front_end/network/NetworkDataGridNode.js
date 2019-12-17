@@ -812,7 +812,8 @@ export class NetworkRequestNode extends NetworkNode {
    */
   _renderPrimaryCell(cell, columnId, text) {
     const columnIndex = this.dataGrid.indexOfVisibleColumn(columnId);
-    if (columnIndex === 0) {
+    const isFirstCell = (columnIndex === 0);
+    if (isFirstCell) {
       const leftPadding = this.leftPadding ? this.leftPadding + 'px' : '';
       cell.style.setProperty('padding-left', leftPadding);
       this._nameCell = cell;
@@ -1050,6 +1051,17 @@ export class NetworkRequestNode extends NetworkNode {
 export class NetworkGroupNode extends NetworkNode {
   /**
    * @override
+   * @param {!Element} element
+   * @protected
+   */
+  createCells(element) {
+    super.createCells(element);
+    const primaryColumn = this.dataGrid.visibleColumnsArray[0];
+    this.nodeAccessibleText = ls`${primaryColumn.title}: ${this.cellAccessibleTextMap.get(primaryColumn.id)}`;
+  }
+
+  /**
+   * @override
    * @param {!Element} cell
    * @param {string} columnId
    */
@@ -1059,6 +1071,7 @@ export class NetworkGroupNode extends NetworkNode {
       const leftPadding = this.leftPadding ? this.leftPadding + 'px' : '';
       cell.style.setProperty('padding-left', leftPadding);
       cell.classList.add('disclosure');
+      this.setCellAccessibleName(cell.textContent, cell, columnId);
     }
   }
 
