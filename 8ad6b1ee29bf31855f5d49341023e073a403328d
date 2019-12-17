@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1215addc_0e4b0b66",
+        "filename": "test/unittests/front_end/ui/utils/measured-scrollbar-width.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-17T14:03:09Z",
+      "side": 1,
+      "message": "Nit: if the test fails, it will not properly cleanup the style element. This should be in a teardown instead.",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "8ad6b1ee29bf31855f5d49341023e073a403328d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
