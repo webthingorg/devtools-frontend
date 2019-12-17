@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5ded0db7_b3fe96b9",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2019-12-17T08:48:23Z",
+      "side": 1,
+      "message": "Yes to the LayoutTests. Both code-paths are actually run.\n\nAdded an assert {uiLocationToRawLocationsForUnformattedJavaScript} to check that the contentType is a script.\n\nAdded an assert to verify that the uiSourceCode is the same as the unformatted one on the second call-site. The first passes in {formatData.originalSourceCode}.",
+      "parentUuid": "66a9488d_c25813b5",
+      "range": {
+        "startLine": 159,
+        "startChar": 26,
+        "endLine": 159,
+        "endChar": 44
+      },
+      "revId": "c8f2d42258b7af9b39ca528410d45b9e523f3f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d81c0d89_3d27c72d",
         "filename": "front_end/formatter/SourceFormatter.js",
         "patchSetId": 3
@@ -93,6 +117,30 @@
       "revId": "c8f2d42258b7af9b39ca528410d45b9e523f3f51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6220364_34b6c51e",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2019-12-17T08:48:23Z",
+      "side": 1,
+      "message": "Reverted to old code. I am not used to the \u0027not-not\u0027 so I found this easier to read, but since it is used everywhere in the code-base I reverted it.",
+      "parentUuid": "d81c0d89_3d27c72d",
+      "range": {
+        "startLine": 284,
+        "startChar": 78,
+        "endLine": 284,
+        "endChar": 86
+      },
+      "revId": "c8f2d42258b7af9b39ca528410d45b9e523f3f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
