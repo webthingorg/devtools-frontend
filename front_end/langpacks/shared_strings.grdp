@@ -88,6 +88,9 @@
   <message name="IDS_DEVTOOLS_29296fcb28eb4edf5d0049b6cac7bbd1" desc="Text for a percentage value">
     <ph name="SCALE">$1.0f<ex>13.0</ex></ph>%%
   </message>
+  <message name="IDS_DEVTOOLS_29bf226e186bf57b52fac1b0ba1f88ff" desc="Button title denoting the number of items found">
+    <ph name="NODES_LENGTH">$1s<ex>12</ex></ph> <ph name="ITEMLABEL">$2s<ex>items</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_29e9d8e295b1d5b3002d2d3d5baa4c37" desc="Text for keyboard shortcuts">
     Shortcuts
   </message>

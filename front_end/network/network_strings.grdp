@@ -366,6 +366,9 @@
   <message name="IDS_DEVTOOLS_722e6ea747a62b7f93bb017d3dd04cbd" desc="Op codes continuation frame of map in Resource Web Socket Frame View of the Network panel">
     Continuation Frame
   </message>
+  <message name="IDS_DEVTOOLS_aeae6ab0fe50cc851d390f6c498a6cef" desc="Accessible text added to describe primary network row graphics">
+    graphic: <ph name="THIS__REQUEST_RESOURCETYPE___TITLE__">$1s<ex>Document</ex></ph>, '''
+  </message>
   <message name="IDS_DEVTOOLS_b67f775562210192587e38f66a6ae380" desc="Label for a filter in the Network panel">
     Has blocked cookies
   </message>
@@ -407,6 +410,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e48c00bc05b642164b5520137b66d011" desc="Text in Network Log View of the Network panel">
     Copy all as Node.js fetch
+  </message>
+  <message name="IDS_DEVTOOLS_f0275d2ae1aaf69b3b06259723647d35" desc="Accessible text for the primary column of the network row">
+    <ph name="IMAGEALT">$1s<ex>graphic: Document</ex></ph><ph name="CELL_TEXTCONTENT">$2s<ex>https://bing.com</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_f5a6d40aab4d260009df79b7dab7e6a0" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Microsoft Edge — iPhone</ph>
