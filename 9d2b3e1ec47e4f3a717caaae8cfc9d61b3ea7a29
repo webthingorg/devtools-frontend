@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8af9ad5d_a458a943",
+        "filename": "front_end/changes/ChangesTextEditor.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T17:27:30Z",
+      "side": 1,
+      "message": "Looking at the CSS and this, should the class name be \"changes-diff-gutter\"?",
+      "revId": "9d2b3e1ec47e4f3a717caaae8cfc9d61b3ea7a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b3127e_b500f63f",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 1902,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T17:27:30Z",
+      "side": 1,
+      "message": "I\u0027m displeased with this function name, and I\u0027m not really sure how to make it better, which makes it altogether vexing. At the very least, let\u0027s name it in the affirmative instead of the negative, e.g., \"shouldTextAreaBeReadOnly\" or something.\n\nAt the very least, let\u0027s throw some documentation about what its purpose is, etc.\n\nAlso, please indicate what \"typing\" means.",
+      "revId": "9d2b3e1ec47e4f3a717caaae8cfc9d61b3ea7a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
