@@ -847,12 +847,11 @@ export class NetworkDispatcher {
 
   /**
    * @unrestricted
-   * @param {boolean} isServiceWorker
    * @param {string} url
    * @param {string} firstPartyUrl
    * @param {!Array<!Protocol.Network.BlockedCookieWithReason>} blockedCookies
    */
-  cookiesBlocked(isServiceWorker, url, firstPartyUrl, blockedCookies) {
+  cookiesChanged(url, firstPartyUrl, blockedCookies) {
     // TODO(chromium:1032063): Implement this protocol message handler.
   }
 
