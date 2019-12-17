@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "943eb0b1_d0a2c0f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T17:55:23Z",
+      "side": 1,
+      "message": "This should be linked formally so it can\u0027t be merged without the change. See: http://www.chromium.org/developers/gerrit-guide#TOC-How-do-I-build-on-other-ongoing-Gerrit-reviews-",
+      "revId": "908bcb1ebd43e052c398592125b823f173e938b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
