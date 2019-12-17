@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9436ad3e_658626df",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T18:45:25Z",
+      "side": 1,
+      "message": "Seems odd given that the linkifier parameters can include a tab-stop, to need to include this.",
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
