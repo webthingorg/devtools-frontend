@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "583e6f26_2c3ffc69",
+        "filename": "test/webtests/TestExpectations",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2019-12-17T18:41:54Z",
+      "side": 1,
+      "message": "any advice on steps I can take to resolve this? This is an important test",
+      "range": {
+        "startLine": 2,
+        "startChar": 81,
+        "endLine": 2,
+        "endChar": 86
+      },
+      "revId": "6a3eff70748a5b834b7c2ea4ac17e33ec98d6e51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
