@@ -1,0 +1,509 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b182ca1d_d0cad1a3",
+        "filename": "BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "nit: indentation seems off",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe81056_df867c96",
+        "filename": "front_end/media/ChevronTabbedPanel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "no need to quote these properties",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3316c0c_2c7b0186",
+        "filename": "front_end/media/ChevronTabbedPanel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "e -\u003e event",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "736fc806_63a356bd",
+        "filename": "front_end/media/ChevronTabbedPanel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Is there a tracking bug for this?",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed31a6f6_91fd5286",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Is this an HTMLElement? In that case we can just do `this._pseudo_color_protection_element.remove()`",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a65b2fbc_633f6da4",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "needs_update -\u003e needsUpdate",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0e9ab8a_f947560f",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "\u0027x\u0027 -\u003e \u0027\\xD7\u0027",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83161f2f_f5ab85d5",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Can we avoid for-in here? Let\u0027s use for-of instead",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67868c1f_005dc04e",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "_previousTabs",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d07ff5f7_167bdadb",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "newTabs",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24e6c195_360eb72e",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "tabData",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b77a1ee6_fbe24ce6",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "propertiesView",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69dedd61_9d0a25e8",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "tabElements",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba123672_cfc44543",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Avoid for-in. Can we use for-of here? Same for other uses below",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "688afbb0_3f5177ee",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "newTab. same for other identifiers in this CL that contain an underscore",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99ec2ca5_045b8195",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "no need to quote property names, here and below",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95404ed9_2e8bde4f",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "IIUC the rest of this should never be reached. In that case, let\u0027s codify that by adding\n\n    throw new Error(\u0027Unreachable\u0027);\n\nbelow",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d13ddf69_14bf3dfa",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Yes, please feel free to add this!",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0a01a2d_1306cddc",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Let\u0027s use Math.floor instead of ~~.\n\nAlso, please divide by 1000 instead of 1024. I know DevTools is currently confusing MiB with MB in e.g. the Network panel, but for new code we can get it right. \n\nkB \u003d 1000 bytes\nKiB \u003d 1024 bytes\n\nkB/s \u003d 1000 bytes per second\n\nIn the future (not in this CL), we could even think of using Intl.NumberFormat here (but we\u0027d need to figure out how that ties in with localization):\n\n```\nconst formatter \u003d new Intl.NumberFormat(\u0027en\u0027, {\n  style: \u0027unit\u0027,\n  unit: \u0027kilobyte-per-second\u0027,\n});\nformatter.format(1_234_567);\n```",
+      "range": {
+        "startLine": 261,
+        "startChar": 33,
+        "endLine": 261,
+        "endChar": 37
+      },
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af2ae096_ceaadb03",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "nit: lowercase \"bytes\"",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d91d254_6ae55fc6",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Please use the proper CLDR suffixes here (matching Intl.NumberFormat):\n\n    [\u0027bytes\u0027, \u0027kB\u0027, \u0027MB\u0027, \u0027GB\u0027, \u0027TB\u0027]",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3255ba57_41ea6863",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "1024 -\u003e 1000",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a0a7926_f520b301",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Same as before, only use underscores as prefix, use camelCasing elsewhere",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf028f24_e1a25c18",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Can we make this an actual Map?",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bc139df_d0612759",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "All these string literals need to be localizable:\n\n   ls`Resolution`",
+      "range": {
+        "startLine": 292,
+        "startChar": 51,
+        "endLine": 292,
+        "endChar": 61
+      },
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f4c5e32_91d62d9b",
+        "filename": "front_end/media/chevronTabbedPanel.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Nit: space after `:` for both declarations",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecb2891e_f6ea54e3",
+        "filename": "front_end/media/chevronTabbedPanel.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "Let\u0027s use the proper pseudo-elements ::before (instead of the :before alias) and similarly, ::after. Same for the other selectors below.",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9221fd1a_120f26fb",
+        "filename": "front_end/media/chevronTabbedPanel.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "typo: ;; -\u003e ;",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b2ff17_0408569b",
+        "filename": "front_end/media/playerPropertiesView.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-17T13:53:05Z",
+      "side": 1,
+      "message": "space after :",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
