@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52a5eabf_3b48d529",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T20:12:16Z",
+      "side": 1,
+      "message": "This seems suspect, and probably problematic for virtualization?",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2588fd0b_81a719e5",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T20:12:16Z",
+      "side": 1,
+      "message": "Are we removing the notion of disabled breakpoints?",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bb4da6d_7ef75984",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T20:12:16Z",
+      "side": 1,
+      "message": "This sort function violates the rules of comparison functions in that it does not return 0 for equal items. This may cause items to be partitioned incorrectly.\n\nhttps://devblogs.microsoft.com/oldnewthing/20031023-00/?p\u003d42063",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "703d3a6a_bc6a8a14",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T20:12:16Z",
+      "side": 1,
+      "message": "Don\u0027t we have a helper like `isSpaceKey`?",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19b1f712_8f274bd3",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T20:12:16Z",
+      "side": 1,
+      "message": "I suspect that the concatenation in this format isn\u0027t particularly localizable. Suggest: \"Breakpoint hit: ${checkedDescriptionText\".",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46d720da_0436fdd8",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T20:12:16Z",
+      "side": 1,
+      "message": "Why this refactor? Doesn\u0027t seem to be necessary.",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03310f7e_cd34e6f9",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-17T20:12:16Z",
+      "side": 1,
+      "message": "Feel like I\u0027d prefer \n\n    const isEmpty \u003d this._breakpoints.length \u003d\u003d\u003d 0;\n    this._list.element.classList.toggle(\u0027hidden\u0027, isEmpty);\n    this._emptyElement.classList.toggle(\u0027hidden\u0027, !isEmpty);\n\nI have a notion that the semantic meaning of the comparisons could be lost in the jumble.",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
