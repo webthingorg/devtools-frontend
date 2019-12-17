@@ -16,6 +16,24 @@
       "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df382dbe_147dd007",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-17T23:07:34Z",
+      "side": 1,
+      "message": "I looked into the history of buildStackTracePreviewContents() a while back and apparently the entire reason it returns a list of all its links is so callers can set tabIndex on them. Given that, I decided to just follow the existing pattern here.",
+      "parentUuid": "9436ad3e_658626df",
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
