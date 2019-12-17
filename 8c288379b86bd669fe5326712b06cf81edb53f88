@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f82cb65_df6035a9",
+        "filename": "front_end/data_grid/data_grid_strings.grdp",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T19:45:50Z",
+      "side": 1,
+      "message": "use one underscore as word separator (guess this is a bug on the localization script)",
+      "range": {
+        "startLine": 31,
+        "startChar": 60,
+        "endLine": 31,
+        "endChar": 121
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04f296fc_6d3a5e8e",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T19:45:50Z",
+      "side": 1,
+      "message": "I recommend dropping the ls in here as imageAlt is already localized above.",
+      "range": {
+        "startLine": 854,
+        "startChar": 31,
+        "endLine": 854,
+        "endChar": 33
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "656f3a8d_4a7f071e",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T19:45:50Z",
+      "side": 1,
+      "message": "This one is tricky as this will end up like this `{0}:{1}` which is not wrong but forces a localization call on a non recommended type(an id). This is how I would do it:\nconst columnLocalizedTitle \u003d ls`${primaryColumn.title}`\nthis.nodeAccessibleText \u003d`${columnLocalizedTitle}:  ${this.cellAccessibleTextMap.get(primaryColumn.id)}\n\nThat way you end up with only 1 localization call on the title.",
+      "range": {
+        "startLine": 1063,
+        "startChar": 9,
+        "endLine": 1063,
+        "endChar": 28
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00b219d9_0eaa9c11",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 12
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T19:45:50Z",
+      "side": 1,
+      "message": "remove extra underscores",
+      "range": {
+        "startLine": 370,
+        "startChar": 24,
+        "endLine": 370,
+        "endChar": 59
+      },
+      "revId": "8c288379b86bd669fe5326712b06cf81edb53f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

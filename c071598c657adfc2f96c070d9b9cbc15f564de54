@@ -369,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "081ee184_c2e565eb",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T19:45:50Z",
+      "side": 1,
+      "message": "This is another tricky scenario from the localization perspective as some the recommended approaches start conflicting with each other; \n- The recommended approach is variable substitution over concatenation\n- Only inject variables when necessary, i.e., do not extract common substrings from similar messages.\n\nBut considering that this will end up like `{0}: {1}` (please check my other comment regarding this) and assuming {1} is a not preferred localizable term (application data). I suggest this (which probable also addresses Rob comments):\n\nfunction createCells(element) {\n    element.removeChildren();\n    const columnsArray \u003d this.dataGrid._visibleColumnsArray;\n    const myAccessibleTextArray \u003d [];\n    for (let i \u003d 0; i \u003c columnsArray.length; ++i) {\n      const column \u003d columnsArray[i];\n      const cell \u003d element.appendChild(this.createCell(column.id));\n      const localizedTitle \u003d ls`${column.title}`\n      myAccessibleTextArray.push(`${localizedTitle} : ${this.cellAccessibleTextMap.get(column.id) || cell.textContent}`)\n    }\n    this.nodeAccessibleText \u003d myAccessibleTextArray.join(\u0027,\u0027)\n}",
+      "parentUuid": "8b35d2d7_3b3e43e2",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "73909101_b3e5e50e",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 7
@@ -401,6 +419,29 @@
       "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb8b78d_6a83a43c",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-17T19:45:50Z",
+      "side": 1,
+      "message": "similar to my other comments regarding calling localization on ${cell.textContent}",
+      "range": {
+        "startLine": 854,
+        "startChar": 48,
+        "endLine": 854,
+        "endChar": 60
+      },
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
       "key": {
