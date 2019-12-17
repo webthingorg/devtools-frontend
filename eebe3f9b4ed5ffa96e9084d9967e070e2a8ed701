@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c73888e9_1e8c4d8c",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2019-12-17T12:29:06Z",
+      "side": 1,
+      "message": "I like this use of unicode property escapes!",
+      "range": {
+        "startLine": 950,
+        "startChar": 38,
+        "endLine": 950,
+        "endChar": 46
+      },
+      "revId": "eebe3f9b4ed5ffa96e9084d9967e070e2a8ed701",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
