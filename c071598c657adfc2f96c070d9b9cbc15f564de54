@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "054c8c52_6f7ff918",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1379ab1_c0de2e64",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70fec712_08d5007d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -33,6 +51,24 @@
       "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "228a65dd_6ff4b720",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70fec712_08d5007d",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1eed0415_314508c5",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f687be0e_dd8fe0f5",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f67bbf56_d79c19b6",
         "filename": "front_end/coverage/CoverageListView.js",
         "patchSetId": 7
@@ -67,6 +121,24 @@
       "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa0f5dd_660516a5",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Good catch. Updated",
+      "parentUuid": "f67bbf56_d79c19b6",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "7babfcf6_bcfefe34",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5fcaae6_cbd99090",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72c7f33c_f0dc7fea",
         "filename": "front_end/data_grid/DataGrid.js",
         "patchSetId": 7
@@ -101,6 +191,24 @@
       "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e3f16bd_5a78ddc3",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "currently no, the datagrid does not contain any focusable children, but if a focusable target is added to the grid, focusin may be prefered. I\u0027ll update",
+      "parentUuid": "72c7f33c_f0dc7fea",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "3b8c1be4_dbefe4ff",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Ah, I always get this confused. Fixed",
+      "parentUuid": "e082d623_b41bff49",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd895b52_23677364",
         "filename": "front_end/data_grid/DataGrid.js",
         "patchSetId": 7
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "26d778ad_66635f6a",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done. Let me know if you prefer different documentation style/location",
+      "parentUuid": "bd895b52_23677364",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9f1014b_4cb43573",
         "filename": "front_end/data_grid/DataGrid.js",
         "patchSetId": 7
@@ -152,6 +296,24 @@
       "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0507d53a_fdad7c3b",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Hmm. this was done by closure. I don\u0027t want to add a real newline in the back tick, or the \\n char will show up in the aria-label. I tried a few different versions of adding line breaks, but closure wants this...",
+      "parentUuid": "a9f1014b_4cb43573",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +351,24 @@
     },
     {
       "key": {
+        "uuid": "8b35d2d7_3b3e43e2",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Hmmm. Fixed the trailing comma. I can\u0027t currently think of a way to get all the rows in the accessible text together without appending like this. I know it\u0027s not preferred, but it is used in a few places (IndexedDB, TimelineUIUtils). I am open to suggestions if anyone has a fix",
+      "parentUuid": "a6f83ab2_f8ff1c3c",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "73909101_b3e5e50e",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 7
@@ -203,6 +383,24 @@
       "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34bac6ec_bb325600",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73909101_b3e5e50e",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +421,24 @@
     },
     {
       "key": {
+        "uuid": "9bd54f70_adaa9965",
+        "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9dcef49_46cad94b",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bc78d6a_4d0368f3",
         "filename": "front_end/profiler/ProfileDataGrid.js",
         "patchSetId": 7
@@ -237,6 +453,24 @@
       "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85fc0dcb_6753268d",
+        "filename": "front_end/profiler/ProfileDataGrid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-17T16:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc78d6a_4d0368f3",
+      "revId": "c071598c657adfc2f96c070d9b9cbc15f564de54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
