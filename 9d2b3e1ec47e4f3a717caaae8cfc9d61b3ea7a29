@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7a8aaf84_ec638fd8",
+        "filename": "front_end/changes/ChangesTextEditor.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-18T21:28:14Z",
+      "side": 1,
+      "message": "I\u0027ve renamed this one to \"changes-diff-gutter-marker\" and renamed \"changes-diff-markers\" to \"changes-diff-gutter\"",
+      "parentUuid": "8af9ad5d_a458a943",
+      "revId": "9d2b3e1ec47e4f3a717caaae8cfc9d61b3ea7a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87b3127e_b500f63f",
         "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "9d2b3e1ec47e4f3a717caaae8cfc9d61b3ea7a29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba98bdf_0d272921",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 1902,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-18T21:28:14Z",
+      "side": 1,
+      "message": "I\u0027ve renamed this to textAreaBusy and added some comments that hopefully clear things up.",
+      "parentUuid": "87b3127e_b500f63f",
+      "revId": "9d2b3e1ec47e4f3a717caaae8cfc9d61b3ea7a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
