@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f84122d_4f014952",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-18T09:29:34Z",
+      "side": 1,
+      "message": "In the future, couldn\u0027t we just always bypass the text trimming in favor of using CSS?\n\nIf so, let\u0027s add a TODO saying this is the longer-term goal.\n\nIf this is not feasible for some reason, let\u0027s explain this reasoning a bit in the commit message.",
+      "range": {
+        "startLine": 405,
+        "startChar": 23,
+        "endLine": 405,
+        "endChar": 42
+      },
+      "revId": "989db4878b010106ee23391d23c0955d8456fd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
