@@ -188,6 +188,30 @@
       "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "295145b5_6877f5e6",
+        "filename": "front_end/sdk/wasmparser/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2019-12-18T07:56:57Z",
+      "side": 1,
+      "message": "Unfortunately the extension change was not accepted upstream, so for now we either need a manual build step to fix this extension or perhaps we should copy the output without an extension?\n\nThis is apparently an issue with the TypeScript compiler that there isn\u0027t a clear solution to. https://github.com/microsoft/TypeScript/issues/33882\n\nHaving the TypeScript files refer to the JavaScript files that will be generated from them doesn\u0027t seem entirely right, but I guess the compiler works on one file at a time so it can\u0027t guess the extension for other generated files? Apparently fixing the extensions is a job for a JS bundler?",
+      "parentUuid": "c14dfcb8_65f14e50",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
