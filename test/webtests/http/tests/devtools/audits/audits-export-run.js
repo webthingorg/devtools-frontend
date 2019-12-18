@@ -48,7 +48,7 @@
   }
 
   TestRunner.addResult('++++++++ testExportHtml');
-  await testExportHtml();
+  // await testExportHtml();
 
   TestRunner.addResult('\n++++++++ testExportJson');
   await testExportJson();
