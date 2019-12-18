@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec7fe71d_ae9fcadd",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-18T08:44:11Z",
+      "side": 1,
+      "message": "I usually format these as one pair per line. WDYT?",
+      "revId": "52f81a01f911e4ec7ffecce5a82ec1d37f9d97f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
