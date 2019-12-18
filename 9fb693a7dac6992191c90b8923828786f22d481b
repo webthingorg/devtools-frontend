@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21323f85_4e416f12",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-18T10:41:23Z",
+      "side": 1,
+      "message": "I don\u0027t think this builder will work here. When checking out chromium, the directory layout is different. Now devtools is not in root dir and also the dependencies are wired differently.\n\nI also don\u0027t think we can break this in chromium tree.\n\nMaybe you could separate the abstractions for blink and stand-alone builder generation? Otherwise there will be several exceptions.",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 42
+      },
+      "revId": "9fb693a7dac6992191c90b8923828786f22d481b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffb5cf92_2192ec99",
+        "filename": "lib/builders.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-18T10:41:23Z",
+      "side": 1,
+      "message": "nit: views is maybe misleading as we also don\u0027t specify the builder in a bucket. View sounds like it is just not showing up on a milo console, while still existing.",
+      "range": {
+        "startLine": 74,
+        "startChar": 42,
+        "endLine": 74,
+        "endChar": 56
+      },
+      "revId": "9fb693a7dac6992191c90b8923828786f22d481b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
