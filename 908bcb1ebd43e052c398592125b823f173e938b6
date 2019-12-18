@@ -16,6 +16,24 @@
       "revId": "908bcb1ebd43e052c398592125b823f173e938b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a30e170_c2703e60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-18T02:31:31Z",
+      "side": 1,
+      "message": "Woops, this used to have two dependencies which is why that other CL was linked in the description. fixed.",
+      "parentUuid": "943eb0b1_d0a2c0f2",
+      "revId": "908bcb1ebd43e052c398592125b823f173e938b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
