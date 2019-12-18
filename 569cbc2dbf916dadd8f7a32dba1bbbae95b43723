@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1ab0a56a_febc4b55",
+        "filename": "front_end/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-18T23:40:53Z",
+      "side": 1,
+      "message": "I expected that as well, though as it turns out, for text-overflow to have an effect, white-space must be set to nowrap.\n\nWe definitely need `white-space: normal` here (otherwise, the content will be covered by the next column). This causes `text-overflow: ellipsis` to be disabled, for free.\n\nSee: https://css-tricks.com/almanac/properties/t/text-overflow/",
+      "parentUuid": "790a5880_38ee9d55",
+      "revId": "569cbc2dbf916dadd8f7a32dba1bbbae95b43723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aba4e875_ead3e3cf",
         "filename": "front_end/data_grid/dataGrid.css",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "569cbc2dbf916dadd8f7a32dba1bbbae95b43723",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a80a6d95_ec5c1ccf",
+        "filename": "front_end/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2019-12-18T23:40:53Z",
+      "side": 1,
+      "message": "Each data grid row has some extra space ::before the content, for icons if needed, like the tree expand icon.\n\nFor the \"show more\" buttons specifically, there is no icon (transparent), but there still is empty space plus margin. This empty space only appears before the first button however, so, buttons which end up on the second or third line become misaligned with the first.\n\nBy removing the space all the buttons stay left aligned consistently.\n\nYou can see the subtle effect of this in the Before and After gifs: in the Before gif, the buttons are to the right of the tree expand icon, whereas in the After gif, the buttons are immediately below of the tree expand icon. IMO this makes a lot more visual sense because the buttons themselves apply to the current level of the tree, not the subtree of the last node.",
+      "parentUuid": "aba4e875_ead3e3cf",
+      "revId": "569cbc2dbf916dadd8f7a32dba1bbbae95b43723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
