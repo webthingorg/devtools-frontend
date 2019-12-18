@@ -1,0 +1,10 @@
+{
+  "scripts": [
+    "WasmDis.js",
+    "WasmParser.js"
+  ],
+  "skip_compilation": [
+    "WasmDis.js",
+    "WasmParser.js"
+  ]
+}
