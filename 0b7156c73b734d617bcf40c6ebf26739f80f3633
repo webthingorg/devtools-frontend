@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d2ee01a_9415a801",
+        "filename": "front_end/event_listeners/EventListenersView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-18T16:57:10Z",
+      "side": 1,
+      "message": "Nit: Our convention is to prefix the variable names\n\n    /* wasThrown: */ false\n\ninstead of postfix, as you\u0027ve done here.",
+      "revId": "0b7156c73b734d617bcf40c6ebf26739f80f3633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8320bb9f_6a590775",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-18T16:57:10Z",
+      "side": 1,
+      "message": "Unsure: Should `UI.formatLocalized` be replaced with an ls-backtick string?",
+      "revId": "0b7156c73b734d617bcf40c6ebf26739f80f3633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ba353a_e74f825b",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-18T16:57:10Z",
+      "side": 1,
+      "message": "Nit: Prefix instead of postfix",
+      "revId": "0b7156c73b734d617bcf40c6ebf26739f80f3633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
