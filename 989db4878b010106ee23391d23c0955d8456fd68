@@ -22,6 +22,30 @@
       "revId": "989db4878b010106ee23391d23c0955d8456fd68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a1cca74_d91a1778",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2019-12-18T10:02:59Z",
+      "side": 1,
+      "message": "I provided a toggle instead of using CSS trimming for all the long URLs because there are other cases that rely on the current behavior. For example, the \"Elements\" panel shows URLs for \u003cscript\u003e tags. These URLs use the same _createLink(). I think the current trimming behavior for the \u003cscript\u003e tag is better because it truncates in the middle, leaving the end of the js file path shown, which sometimes contain important parameters (e.g. timestamp, file extensions).\n\nAnother part of implementation is to figure out the max width in every case. For now the text trimming is using call-site-supplied max length, or the global default max URL length. Updating each case to use CSS to control the length/width needs more time to investigate. But eventually this has the added benefit of localization -- we can support different languages much easier because we will use style instead of char length for trimming!\n\nSo ideally I would want to investigate each use case, and if there are no strong reason to keep the current behavior, I can switch them over one by one, but I cannot say for sure that we can use CSS trimming in all use cases. So should I add a TODO, and in the mean time explain this logic somewhere also?",
+      "parentUuid": "1f84122d_4f014952",
+      "range": {
+        "startLine": 405,
+        "startChar": 23,
+        "endLine": 405,
+        "endChar": 42
+      },
+      "revId": "989db4878b010106ee23391d23c0955d8456fd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
