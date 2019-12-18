@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "30a8c8e9_ef6a0af0",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-18T00:25:49Z",
+      "side": 1,
+      "message": "At the time I wrote this, our presubmit wouldn\u0027t allow that. Fixed all occurrences",
+      "parentUuid": "50c96089_d5504ea5",
+      "revId": "d4cb7ac520823cc0e0741263f8ac466e5ff1a02a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4e2a0c3_93d3c2fa",
         "filename": "front_end/components/Linkifier.js",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "d4cb7ac520823cc0e0741263f8ac466e5ff1a02a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eba99ccd_1b67fb81",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-18T00:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4e2a0c3_93d3c2fa",
+      "revId": "d4cb7ac520823cc0e0741263f8ac466e5ff1a02a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
