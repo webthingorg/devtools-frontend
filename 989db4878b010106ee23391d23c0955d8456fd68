@@ -46,6 +46,30 @@
       "revId": "989db4878b010106ee23391d23c0955d8456fd68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e6e86c2_4cb34b50",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-18T10:19:16Z",
+      "side": 1,
+      "message": "Great explanation, thanks!\n\nIMHO you could pretty much copy-paste what you just wrote into the commit message. Let\u0027s also file a tracking bug to investigate increasing our usage of `bypassURLShortening` so we don\u0027t forget.",
+      "parentUuid": "4a1cca74_d91a1778",
+      "range": {
+        "startLine": 405,
+        "startChar": 23,
+        "endLine": 405,
+        "endChar": 42
+      },
+      "revId": "989db4878b010106ee23391d23c0955d8456fd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
