@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3385d610_159ec91f",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2019-12-18T13:18:50Z",
+      "side": 1,
+      "message": "nit: Looks like 80char limit isn\u0027t a thing here. But could you make the account name a constant and nicify the indentation here?",
+      "range": {
+        "startLine": 222,
+        "startChar": 102,
+        "endLine": 224,
+        "endChar": 5
+      },
+      "revId": "2070ed5c42b4ffe87058c4da3402027e952ccbae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
