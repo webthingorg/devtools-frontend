@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d78e0230_94070b8d",
+        "filename": "front_end/audits/AuditsPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-18T23:05:28Z",
+      "side": 1,
+      "message": "It would be nice to have UIUtils methods for forcing or checking data-keyboard-focus, especially to make sure that it gets removed on blur properly etc.",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 87
+      },
+      "revId": "a8af3c2cbdf8e86fc4ee4732fcc5837a7063aade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
