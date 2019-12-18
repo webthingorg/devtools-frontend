@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "1f47d2c9_9c5e6afa",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2019-12-18T18:25:46Z",
+      "side": 1,
+      "message": "UI.formatLocalized is ok in this case as it will end up calling localization, but instead of returning the localized string it will return a \u003cspan\u003e element with the localized strings. This mix between \"Common.UIString\" vs \"ls\" vs \"UI.*\" is really confusing, there is already a plan to move everything to a single namespace which will address this.",
+      "parentUuid": "8320bb9f_6a590775",
+      "revId": "0b7156c73b734d617bcf40c6ebf26739f80f3633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7ba353a_e74f825b",
         "filename": "front_end/sources/DebuggerPlugin.js",
         "patchSetId": 5
