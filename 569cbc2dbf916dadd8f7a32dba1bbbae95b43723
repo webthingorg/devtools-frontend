@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "790a5880_38ee9d55",
+        "filename": "front_end/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-18T23:23:14Z",
+      "side": 1,
+      "message": "I\u0027m also confused a bit by this. I would have expected a reset here of `text-overflow: ellipsis` based on the screenshots you\u0027ve shared.",
+      "revId": "569cbc2dbf916dadd8f7a32dba1bbbae95b43723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aba4e875_ead3e3cf",
+        "filename": "front_end/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-18T23:23:14Z",
+      "side": 1,
+      "message": "What purpose does this serve?",
+      "revId": "569cbc2dbf916dadd8f7a32dba1bbbae95b43723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
