@@ -90,8 +90,11 @@ export default class StartView extends UI.Widget {
     this._populateRuntimeSettingAsToolbarCheckbox('audits.throttling', this._settingsToolbar);
 
     this._startButton = UI.createTextButton(
-        ls`Generate report`, () => this._controller.dispatchEventToListeners(Audits.Events.RequestAuditStart), '',
-        true /* primary */);
+        ls`Generate report`,
+        () => this._controller.dispatchEventToListeners(
+            Audits.Events.RequestAuditStart,
+            /* keyboardInitiated */ this._startButton.getAttribute('data-keyboard-focus')),
+        '', /* primary */ true);
     this.setDefaultFocusedElement(this._startButton);
 
     const auditsDescription = ls
