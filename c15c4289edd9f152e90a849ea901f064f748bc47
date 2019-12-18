@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78dad228_2f4193be",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-18T21:58:10Z",
+      "side": 1,
+      "message": "This is why I\u0027m observing the issue. Calling \u003ccheckbox\u003e.click(), instead of synchronously invoking the handler, is causing focus to change to the checkbox element itself. Although `this.focus()` is subsequently called on the next line, the call to `click()` causes the `blur` event to fire, which removes the attribute `data-keyboard-focus\u003d\"true\"`.\n\nInstead of going through the checkbox click handler, you should just call `this._checkboxClicked(item);` here.",
+      "revId": "c15c4289edd9f152e90a849ea901f064f748bc47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
