@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36ef318b_0f1a5304",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-19T14:47:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21323f85_4e416f12",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 42
+      },
+      "revId": "9fb693a7dac6992191c90b8923828786f22d481b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffb5cf92_2192ec99",
         "filename": "lib/builders.star",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "9fb693a7dac6992191c90b8923828786f22d481b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87433578_d09029a9",
+        "filename": "lib/builders.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2019-12-19T14:47:48Z",
+      "side": 1,
+      "message": "Found a better name. I hope :)",
+      "parentUuid": "ffb5cf92_2192ec99",
+      "range": {
+        "startLine": 74,
+        "startChar": 42,
+        "endLine": 74,
+        "endChar": 56
+      },
+      "revId": "9fb693a7dac6992191c90b8923828786f22d481b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
