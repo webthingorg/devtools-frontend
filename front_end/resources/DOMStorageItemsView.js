@@ -53,9 +53,9 @@ Resources.DOMStorageItemsView = class extends Resources.StorageItemsView {
     this._dataGrid.setStriped(true);
     this._dataGrid.setName('DOMStorageItemsView');
 
-    this._splitWidget = new UI.SplitWidget(false, false);
+    this._splitWidget =
+        new UI.SplitWidget(/* isVertical: */ false, /* secondIsSidebar: */ true, 'domStorageSplitViewState');
     this._splitWidget.show(this.element);
-    this._splitWidget.setSecondIsSidebar(true);
 
     this._previewPanel = new UI.VBox();
     const resizer = this._previewPanel.element.createChild('div', 'preview-panel-resizer');
