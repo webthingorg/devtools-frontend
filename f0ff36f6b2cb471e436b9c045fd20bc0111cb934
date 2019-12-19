@@ -16,6 +16,24 @@
       "revId": "f0ff36f6b2cb471e436b9c045fd20bc0111cb934",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73afe8a5_3f9d467d",
+        "filename": "front_end/resources/DOMStorageItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-19T23:14:50Z",
+      "side": 0,
+      "message": "Ah I see, it\u0027s changed as part of the constructor call.",
+      "parentUuid": "1fe28ea4_09dbe4a4",
+      "revId": "f0ff36f6b2cb471e436b9c045fd20bc0111cb934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
