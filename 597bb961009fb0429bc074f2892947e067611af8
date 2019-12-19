@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b74f038_ba5490b9",
+        "filename": "front_end/performance_test_runner/TimelineTestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-19T16:53:09Z",
+      "side": 1,
+      "message": "Notwithstanding my +1 on your other test, I think I\u0027d just as soon see you check in something that doesn\u0027t require your tests to reach all the way into random DOM elements. For example,\n\n    const timeLineViewElement \u003d widget._overviewPane.element;\n\nthat one\u0027s pretty good. I start to dislike \n\n    const mainFlameChartElement \u003d widget._flameChart._mainFlameChart.contentElement;\n    const networkFlameChartElement \u003d widget._flameChart._networkFlameChart.contentElement;\n\nSince we\u0027re changing the test runner anyway, can we do the dotting-into-elements here in the PerformanceTestRunner rather than the tests?",
+      "revId": "597bb961009fb0429bc074f2892947e067611af8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
