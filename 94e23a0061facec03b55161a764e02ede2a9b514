@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b78c3ec9_f33b2f3d",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-19T16:56:13Z",
+      "side": 1,
+      "message": "I\u0027ve inlined this for now. Happy to move this to a global function in front_end/platform/utilities.js if you think that makes more sense. Just let me know.",
+      "revId": "94e23a0061facec03b55161a764e02ede2a9b514",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
