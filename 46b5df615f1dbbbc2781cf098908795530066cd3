@@ -22,6 +22,30 @@
       "revId": "46b5df615f1dbbbc2781cf098908795530066cd3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a737e679_b1faa1a5",
+        "filename": "test/unittests/front_end/ui/Widget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2019-12-19T11:51:18Z",
+      "side": 1,
+      "message": "is it possible to include the file and add the tests then fix the ES imports later? (so we can have more files to include in the Fix-it)",
+      "parentUuid": "12a9a5c2_3e545851",
+      "range": {
+        "startLine": 13,
+        "startChar": 40,
+        "endLine": 13,
+        "endChar": 69
+      },
+      "revId": "46b5df615f1dbbbc2781cf098908795530066cd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
