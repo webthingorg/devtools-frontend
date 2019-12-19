@@ -1642,21 +1642,6 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
   }
 
   /**
-   * @param {boolean} onlyDisable
-   */
-  toggleBreakpointOnCurrentLine(onlyDisable) {
-    if (this._muted) {
-      return;
-    }
-
-    const selection = this._textEditor.selection();
-    if (!selection) {
-      return;
-    }
-    this._toggleBreakpoint(selection.startLine, onlyDisable);
-  }
-
-  /**
    * @param {number} lineNumber
    * @param {number} columnNumber
    * @param {string} condition
