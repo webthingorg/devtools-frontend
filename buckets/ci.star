@@ -19,6 +19,13 @@ generate_ci_configs(
         name_suffix = ''
       ),
       config_section(
+        name="chromium",
+        repo='https://chromium.googlesource.com/chromium/src',
+        branch='refs/heads/master',
+        view='Chromium',
+        name_suffix = ' (chromium)'
+      ),
+      config_section(
         name="beta",
         branch='refs/heads/chromium/3987',
         view='Beta',
@@ -29,11 +36,12 @@ generate_ci_configs(
       builder_descriptor(
         name='DevTools Linux',
         recipe_name='chromium_integration',
-        is_master_only=True
+        excluded_from=['beta']
       ),
       builder_descriptor(
         name="Stand-alone Linux",
         recipe_name="devtools/devtools-frontend",
+        excluded_from=['chromium']
       ),
     ]
 )
