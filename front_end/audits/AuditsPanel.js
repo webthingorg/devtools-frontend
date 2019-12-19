@@ -285,10 +285,10 @@ export default class AuditsPanel extends UI.Panel {
 
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.AuditsFinished);
 
-      await this._resetEmulationAndProtocolConnection();
+      // await this._resetEmulationAndProtocolConnection();
       this._buildReportUI(lighthouseResponse.lhr, lighthouseResponse.artifacts);
     } catch (err) {
-      await this._resetEmulationAndProtocolConnection();
+      // await this._resetEmulationAndProtocolConnection();
       if (err instanceof Error) {
         this._statusView.renderBugReport(err);
       }
@@ -297,7 +297,7 @@ export default class AuditsPanel extends UI.Panel {
 
   async _cancelAudit() {
     this._statusView.updateStatus(ls`Cancelling`);
-    await this._resetEmulationAndProtocolConnection();
+    // await this._resetEmulationAndProtocolConnection();
     this._renderStartView();
   }
 
