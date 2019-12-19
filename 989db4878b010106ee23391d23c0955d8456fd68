@@ -70,6 +70,30 @@
       "revId": "989db4878b010106ee23391d23c0955d8456fd68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4c1eaac_131555cc",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2019-12-19T00:40:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e6e86c2_4cb34b50",
+      "range": {
+        "startLine": 405,
+        "startChar": 23,
+        "endLine": 405,
+        "endChar": 42
+      },
+      "revId": "989db4878b010106ee23391d23c0955d8456fd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
