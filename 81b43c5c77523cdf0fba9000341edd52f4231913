@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "eed82b36_617bb5a1",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2019-12-19T23:52:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c830af66_c77c8e63",
+      "revId": "81b43c5c77523cdf0fba9000341edd52f4231913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46d720da_0436fdd8",
         "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
         "patchSetId": 13
