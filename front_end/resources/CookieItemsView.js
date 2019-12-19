@@ -49,9 +49,8 @@ Resources.CookieItemsView = class extends Resources.StorageItemsView {
 
     this._cookiesTable.setMinimumSize(0, 50);
 
-    this._splitWidget = new UI.SplitWidget(false, false);
+    this._splitWidget = new UI.SplitWidget(false, true, 'cookieItemsSplitViewState');
     this._splitWidget.show(this.element);
-    this._splitWidget.setSecondIsSidebar(true);
 
     this._previewPanel = new UI.VBox();
     const resizer = this._previewPanel.element.createChild('div', 'preview-panel-resizer');
