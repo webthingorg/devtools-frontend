@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32cabc92_78017938",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-19T23:13:16Z",
+      "side": 1,
+      "message": "If possible, please include an after GIF screencap.",
+      "revId": "a08436d541e94d80f4602d28694fa668965574c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "974e6f6c_a44aec16",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-19T23:13:16Z",
+      "side": 1,
+      "message": "While we\u0027re updating this line, let\u0027s annotate the names of the variables before false/true:\n\n    /* variableName: */ false\n\nThis is our convention for booleans and some numeric/string literals when the purpose of the value can\u0027t be inferred by the literal value.",
+      "revId": "a08436d541e94d80f4602d28694fa668965574c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "615471a6_bbd19395",
+        "filename": "front_end/resources/DOMStorageItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-19T23:13:16Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "a08436d541e94d80f4602d28694fa668965574c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

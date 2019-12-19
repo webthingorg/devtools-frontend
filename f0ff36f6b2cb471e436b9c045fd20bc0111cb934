@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fe28ea4_09dbe4a4",
+        "filename": "front_end/resources/DOMStorageItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-19T23:13:16Z",
+      "side": 0,
+      "message": "I\u0027m not sure that I understand the purpose behind removing these lines. Changing these will affect subsequent calls to SplitWidget#sidebarSide(), for example. (I\u0027m unsure whether this is used here).\n\nBut if the second item is the \"sidebar\" before, why wouldn\u0027t it continue to be now?",
+      "revId": "f0ff36f6b2cb471e436b9c045fd20bc0111cb934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
