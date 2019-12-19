@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "988494ce_a2a5714c",
+        "filename": "BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Interesting, git cl format doesn\u0027t seem to autoformat BUILD files here like I\u0027m used to.\n\nI\u0027ve put everything in front_end/media into alphabetical order now (so there will be a bigger delta next patchset).",
+      "parentUuid": "b182ca1d_d0cad1a3",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fe81056_df867c96",
         "filename": "front_end/media/ChevronTabbedPanel.js",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afa2951e_1b7ec28c",
+        "filename": "front_end/media/ChevronTabbedPanel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fe81056_df867c96",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "070daead_f2607669",
+        "filename": "front_end/media/ChevronTabbedPanel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3316c0c_2c7b0186",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "736fc806_63a356bd",
         "filename": "front_end/media/ChevronTabbedPanel.js",
         "patchSetId": 9
@@ -67,6 +121,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "756f50eb_e12822ec",
+        "filename": "front_end/media/ChevronTabbedPanel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "This was something I meant to do before uploading - it slipped through though, but now it is implemented.",
+      "parentUuid": "736fc806_63a356bd",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "a40f3602_2335dcf1",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed31a6f6_91fd5286",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a65b2fbc_633f6da4",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -101,6 +191,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6d560f1_49b8abaa",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a65b2fbc_633f6da4",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "88b42017_60d056c5",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0e9ab8a_f947560f",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83161f2f_f5ab85d5",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -135,6 +261,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d50dffc_572aebb1",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83161f2f_f5ab85d5",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "1d687d8f_14db8e03",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67868c1f_005dc04e",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d07ff5f7_167bdadb",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -169,6 +331,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e0b6ab_08e1ff23",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d07ff5f7_167bdadb",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "09c30081_5c6f0486",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e6c195_360eb72e",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b77a1ee6_fbe24ce6",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -203,6 +401,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36f633de_4b36da95",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b77a1ee6_fbe24ce6",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "5f80a1a7_e45c77af",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69dedd61_9d0a25e8",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba123672_cfc44543",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -237,6 +471,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e638359d_7358a999",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba123672_cfc44543",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "272bf844_b70b327f",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "688afbb0_3f5177ee",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ec2ca5_045b8195",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -271,6 +541,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b4fbec0_4828adda",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ec2ca5_045b8195",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -291,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "b5ef9ce9_a532537e",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95404ed9_2e8bde4f",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d13ddf69_14bf3dfa",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -305,6 +611,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b73c69c6_2e69e1b4",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d13ddf69_14bf3dfa",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -331,6 +655,30 @@
     },
     {
       "key": {
+        "uuid": "c4b65acd_70fc45bd",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a01a2d_1306cddc",
+      "range": {
+        "startLine": 261,
+        "startChar": 33,
+        "endLine": 261,
+        "endChar": 37
+      },
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af2ae096_ceaadb03",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -345,6 +693,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2160cd69_6904f734",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af2ae096_ceaadb03",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -365,6 +731,24 @@
     },
     {
       "key": {
+        "uuid": "e9a99710_5c52b000",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d91d254_6ae55fc6",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3255ba57_41ea6863",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -379,6 +763,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1accfe17_fbca84cd",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3255ba57_41ea6863",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -399,6 +801,24 @@
     },
     {
       "key": {
+        "uuid": "2ed9ae2e_fc876c83",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a0a7926_f520b301",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf028f24_e1a25c18",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 9
@@ -413,6 +833,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ff55a7b_b705efe3",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf028f24_e1a25c18",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -439,6 +877,30 @@
     },
     {
       "key": {
+        "uuid": "f82dd117_4b021c7f",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bc139df_d0612759",
+      "range": {
+        "startLine": 292,
+        "startChar": 51,
+        "endLine": 292,
+        "endChar": 61
+      },
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f4c5e32_91d62d9b",
         "filename": "front_end/media/chevronTabbedPanel.css",
         "patchSetId": 9
@@ -453,6 +915,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5f5cb37_7d7dd51c",
+        "filename": "front_end/media/chevronTabbedPanel.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f4c5e32_91d62d9b",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -473,6 +953,24 @@
     },
     {
       "key": {
+        "uuid": "62201ef8_c2fbe6c0",
+        "filename": "front_end/media/chevronTabbedPanel.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecb2891e_f6ea54e3",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9221fd1a_120f26fb",
         "filename": "front_end/media/chevronTabbedPanel.css",
         "patchSetId": 9
@@ -490,6 +988,24 @@
     },
     {
       "key": {
+        "uuid": "a4c04531_1c24696c",
+        "filename": "front_end/media/chevronTabbedPanel.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9221fd1a_120f26fb",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b2ff17_0408569b",
         "filename": "front_end/media/playerPropertiesView.css",
         "patchSetId": 9
@@ -504,6 +1020,24 @@
       "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eea0870_f0a78cea",
+        "filename": "front_end/media/playerPropertiesView.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2019-12-19T00:51:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b2ff17_0408569b",
+      "revId": "122fbda933dc4b33f38d83eb7a99a0b008d814b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
