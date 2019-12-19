@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6715e533_6b6e43d2",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-19T08:18:35Z",
+      "side": 1,
+      "message": "ls`No Decoder`\n\n(all hardcoded strings need localization)",
+      "revId": "2ad59f19c45c85e637157264d043d1f7f3ad5b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8228b9d2_cc45bf31",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2019-12-19T08:18:35Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "2ad59f19c45c85e637157264d043d1f7f3ad5b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
