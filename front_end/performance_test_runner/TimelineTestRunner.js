@@ -152,6 +152,13 @@ PerformanceTestRunner.stopTimeline = function() {
   });
 };
 
+PerformanceTestRunner.getTimelineWidgetWithPerfTrace = async function() {
+  await PerformanceTestRunner.startTimeline();
+  await TestRunner.reloadPagePromise();
+  await PerformanceTestRunner.stopTimeline();
+  return await UI.viewManager.view('timeline').widget();
+};
+
 PerformanceTestRunner.evaluateWithTimeline = async function(actions) {
   await PerformanceTestRunner.startTimeline();
   await TestRunner.evaluateInPageAnonymously(actions);
