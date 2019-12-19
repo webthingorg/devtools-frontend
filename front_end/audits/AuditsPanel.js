@@ -359,10 +359,10 @@ export default class AuditsPanel extends UI.Panel {
 
     Emulation.InspectedPagePlaceholder.instance().update(true);
 
-    const resourceTreeModel = SDK.targetManager.mainTarget().model(SDK.ResourceTreeModel);
-    // reload to reset the page state
-    const inspectedURL = await this._controller.getInspectedURL();
-    await resourceTreeModel.navigate(inspectedURL);
+    // const resourceTreeModel = SDK.targetManager.mainTarget().model(SDK.ResourceTreeModel);
+    // // reload to reset the page state
+    // const inspectedURL = await this._controller.getInspectedURL();
+    // await resourceTreeModel.navigate(inspectedURL);
   }
 }
 
