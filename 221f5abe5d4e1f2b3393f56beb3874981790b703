@@ -212,6 +212,30 @@
       "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a93fee11_d0236d43",
+        "filename": "front_end/sdk/wasmparser/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2019-12-19T11:19:50Z",
+      "side": 1,
+      "message": "Let\u0027s try that in a separate PR: https://github.com/wasdk/wasmparser/pull/25 This is the standard way in TypeScript to load JavaScript files.\n\nLet\u0027s see what they say. If they reject again, I guess we have to maintain our fork...",
+      "parentUuid": "295145b5_6877f5e6",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
