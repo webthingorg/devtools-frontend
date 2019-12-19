@@ -72,19 +72,20 @@ def builder(
   )
 
 
-def config_section(name, branch, view, name_suffix):
+def config_section(name, branch, view, name_suffix, repo=defaults.repo):
   return struct(
     name=name,
     branch=branch,
+    repo=repo,
     view=view,
     name_suffix=name_suffix
   )
 
-def builder_descriptor(name, recipe_name, is_master_only=False):
+def builder_descriptor(name, recipe_name, excluded_from=[]):
   return struct(
     name=name,
     recipe_name=recipe_name,
-    is_master_only=is_master_only
+    excluded_from=excluded_from
   )
 
 def generate_ci_configs(configurations, builders):
@@ -127,7 +128,7 @@ def generate_ci_configs(configurations, builders):
       builders_refs.append((kvargs['name'], category))
 
     for b in builders:
-      if c.branch.endswith('master') or not b.is_master_only:
+      if c.name not in b.excluded_from:
         ci_builder(
           name=b.name + c.name_suffix,
           recipe_name=b.recipe_name,
@@ -139,7 +140,7 @@ def generate_ci_configs(configurations, builders):
     luci.console_view(
       name=c.view.lower(),
       title=c.view,
-      repo=defaults.repo,
+      repo=c.repo,
       refs=[c.branch],
       favicon=defaults.favicon,
       header={
@@ -154,7 +155,7 @@ def generate_ci_configs(configurations, builders):
     luci.gitiles_poller(
       name='devtools-frontend-trigger-' + c.name,
       bucket="ci",
-      repo=defaults.repo,
+      repo=c.repo,
       refs=[c.branch],
       triggers=[name for name, _ in builders_refs]
     )
