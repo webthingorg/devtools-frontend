@@ -181,6 +181,7 @@ class InspectorFrontendHostStub {
    * @param {boolean} forceSaveAs
    */
   save(url, content, forceSaveAs) {
+    console.log('....');
     let buffer = this._urlsBeingSaved.get(url);
     if (!buffer) {
       buffer = [];
