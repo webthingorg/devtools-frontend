@@ -2315,6 +2315,8 @@ class ReportUIFeatures {
     this._document.addEventListener('keyup', this.onKeyUp);
     this._document.addEventListener('copy', this.onCopy);
 
+    // return;
+
     const topbarLogo = this._dom.find('.lh-topbar__logo', this._document);
     topbarLogo.addEventListener('click', () => this._toggleDarkTheme());
 
@@ -2337,6 +2339,8 @@ class ReportUIFeatures {
     if (turnOffTheLights) {
       this._toggleDarkTheme(true);
     }
+
+    return;
 
     // There is only a sticky header when at least 2 categories are present.
     if (Object.keys(this.json.categories).length >= 2) {
