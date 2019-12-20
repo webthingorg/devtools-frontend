@@ -158,6 +158,7 @@ export default class AuditsPanel extends UI.Panel {
    * @param {!ReportRenderer.RunnerResultArtifacts=} artifacts
    */
   _renderReport(lighthouseResult, artifacts) {
+    // TODO ---- something in here.
     this._toggleSettingsDisplay(false);
     this.contentElement.classList.toggle('in-progress', false);
     this._startView.hideWidget();
@@ -195,6 +196,8 @@ export default class AuditsPanel extends UI.Panel {
     });
     Audits.ReportRenderer.handleDarkMode(el);
 
+    return;
+
     const features = new Audits.ReportUIFeatures(dom);
     features.setBeforePrint(this._beforePrint.bind(this));
     features.setAfterPrint(this._afterPrint.bind(this));
@@ -219,10 +222,9 @@ export default class AuditsPanel extends UI.Panel {
       return;
     }
 
-    const optionElement = new Audits.ReportSelector.Item(
-        lighthouseResult, () => this._renderReport(lighthouseResult, artifacts), this._renderStartView.bind(this));
-    this._reportSelector.prepend(optionElement);
-    this._refreshToolbarUI();
+    // const optionElement = new Audits.ReportSelector.Item(
+    //     lighthouseResult, () => this._renderReport(lighthouseResult, artifacts), this._renderStartView.bind(this));
+    // this._reportSelector.prepend(optionElement);
     this._renderReport(lighthouseResult);
   }
 
@@ -285,10 +287,10 @@ export default class AuditsPanel extends UI.Panel {
 
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.AuditsFinished);
 
-      await this._resetEmulationAndProtocolConnection();
+      // await this._resetEmulationAndProtocolConnection();
       this._buildReportUI(lighthouseResponse.lhr, lighthouseResponse.artifacts);
     } catch (err) {
-      await this._resetEmulationAndProtocolConnection();
+      // await this._resetEmulationAndProtocolConnection();
       if (err instanceof Error) {
         this._statusView.renderBugReport(err);
       }
@@ -297,7 +299,7 @@ export default class AuditsPanel extends UI.Panel {
 
   async _cancelAudit() {
     this._statusView.updateStatus(ls`Cancelling`);
-    await this._resetEmulationAndProtocolConnection();
+    // await this._resetEmulationAndProtocolConnection();
     this._renderStartView();
   }
 
