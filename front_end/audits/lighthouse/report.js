@@ -2315,6 +2315,8 @@ class ReportUIFeatures {
     this._document.addEventListener('keyup', this.onKeyUp);
     this._document.addEventListener('copy', this.onCopy);
 
+    // return;
+
     const topbarLogo = this._dom.find('.lh-topbar__logo', this._document);
     topbarLogo.addEventListener('click', () => this._toggleDarkTheme());
 
@@ -2357,6 +2359,8 @@ class ReportUIFeatures {
         window.addEventListener('resize', this._updateStickyHeaderOnScroll);
       }
     }
+
+    return;
 
     // Show the metric descriptions by default when there is an error.
     const hasMetricError = report.categories.performance && report.categories.performance.auditRefs
