@@ -34,6 +34,24 @@
       "revId": "94e23a0061facec03b55161a764e02ede2a9b514",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e271a31f_3e8d7bd0",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2019-12-20T09:33:46Z",
+      "side": 1,
+      "message": "I think either way should be fine for now. You are right; once we are using JS modules we don\u0027t have the problems of globals hanging around then it will be cleaner.",
+      "parentUuid": "9cbfaabe_72d7915e",
+      "revId": "94e23a0061facec03b55161a764e02ede2a9b514",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
