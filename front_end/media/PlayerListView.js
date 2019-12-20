@@ -123,11 +123,13 @@ Media.PlayerListView = class extends UI.VBox {
     if (changeType === Media.MediaModel.MediaChangeTypeKeys.Property) {
       for (const change of changes) {
         // Sometimes frame_title can be an empty string.
-        if (change.name === 'frame_title' && change.value) {
-          this.setMediaElementPlayerTitle(playerID, change.value, false);
+        if (change.name === Media.PlayerPropertiesView.PlayerProperties.kFrameTitle) {
+          if (change.value) {
+            this.setMediaElementPlayerTitle(playerID, change.value, false);
+          }
         }
 
-        if (change.name === 'frame_url') {
+        if (change.name === Media.PlayerPropertiesView.PlayerProperties.kFrameUrl) {
           const url_path_component = change.value.substring(change.value.lastIndexOf('/') + 1);
           this.setMediaElementPlayerTitle(playerID, url_path_component, true);
         }
