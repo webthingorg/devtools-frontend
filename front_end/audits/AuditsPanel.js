@@ -215,15 +215,15 @@ export default class AuditsPanel extends UI.Panel {
    * @param {!ReportRenderer.RunnerResultArtifacts=} artifacts
    */
   _buildReportUI(lighthouseResult, artifacts) {
-    if (lighthouseResult === null) {
-      return;
-    }
+    // if (lighthouseResult === null) {
+    //   return;
+    // }
 
-    const optionElement = new Audits.ReportSelector.Item(
-        lighthouseResult, () => this._renderReport(lighthouseResult, artifacts), this._renderStartView.bind(this));
-    this._reportSelector.prepend(optionElement);
-    this._refreshToolbarUI();
-    this._renderReport(lighthouseResult);
+    // const optionElement = new Audits.ReportSelector.Item(
+    //     lighthouseResult, () => this._renderReport(lighthouseResult, artifacts), this._renderStartView.bind(this));
+    // this._reportSelector.prepend(optionElement);
+    // this._refreshToolbarUI();
+    // this._renderReport(lighthouseResult);
   }
 
   /**
@@ -271,7 +271,8 @@ export default class AuditsPanel extends UI.Panel {
 
       this._renderStatusView(inspectedURL);
 
-      const lighthouseResponse = await this._protocolService.startLighthouse(inspectedURL, categoryIDs, flags);
+      // const lighthouseResponse = await this._protocolService.startLighthouse(inspectedURL, categoryIDs, flags);
+      const lighthouseResponse = {};
 
       if (lighthouseResponse && lighthouseResponse.fatal) {
         const error = new Error(lighthouseResponse.message);
@@ -285,10 +286,10 @@ export default class AuditsPanel extends UI.Panel {
 
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.AuditsFinished);
 
-      await this._resetEmulationAndProtocolConnection();
+      // await this._resetEmulationAndProtocolConnection();
       this._buildReportUI(lighthouseResponse.lhr, lighthouseResponse.artifacts);
     } catch (err) {
-      await this._resetEmulationAndProtocolConnection();
+      // await this._resetEmulationAndProtocolConnection();
       if (err instanceof Error) {
         this._statusView.renderBugReport(err);
       }
@@ -297,7 +298,7 @@ export default class AuditsPanel extends UI.Panel {
 
   async _cancelAudit() {
     this._statusView.updateStatus(ls`Cancelling`);
-    await this._resetEmulationAndProtocolConnection();
+    // await this._resetEmulationAndProtocolConnection();
     this._renderStartView();
   }
 
