@@ -2338,6 +2338,8 @@ class ReportUIFeatures {
       this._toggleDarkTheme(true);
     }
 
+    // return; // OK
+
     // There is only a sticky header when at least 2 categories are present.
     if (Object.keys(this.json.categories).length >= 2) {
       this._setupStickyHeaderElements();
@@ -2357,6 +2359,8 @@ class ReportUIFeatures {
         window.addEventListener('resize', this._updateStickyHeaderOnScroll);
       }
     }
+
+    // return; CRASH
 
     // Show the metric descriptions by default when there is an error.
     const hasMetricError = report.categories.performance && report.categories.performance.auditRefs
@@ -2809,8 +2813,10 @@ class ReportUIFeatures {
   }
 
   _updateStickyHeaderOnScroll() {
+    
     // Show sticky header when the score scale begins to go underneath the topbar.
     const topbarBottom = this.topbarEl.getBoundingClientRect().bottom;
+    return;
     const scoreScaleTop = this.scoreScaleEl.getBoundingClientRect().top;
     const showStickyHeader = topbarBottom >= scoreScaleTop;
 
