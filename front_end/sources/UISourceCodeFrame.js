@@ -71,6 +71,8 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
 
     /** @type {!Array<!Sources.UISourceCodeFrame.Plugin>} */
     this._plugins = [];
+    /** @type {?function()} */
+    this._prettyPrintCallback = null;
 
     this._initializeUISourceCode();
 
@@ -332,6 +334,13 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
     this._updateStyle();
   }
 
+  /**
+   * @param {!function()} callback
+   */
+  setPrettyPrintCallback(callback) {
+    this._prettyPrintCallback = callback;
+  }
+
   _ensurePluginsLoaded() {
     if (!this.loaded || this._plugins.length) {
       return;
@@ -342,7 +351,8 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
 
     // The order of these plugins matters for toolbar items
     if (Sources.DebuggerPlugin.accepts(pluginUISourceCode)) {
-      this._plugins.push(new Sources.DebuggerPlugin(this.textEditor, pluginUISourceCode, this.transformer()));
+      this._plugins.push(new Sources.DebuggerPlugin(
+          this.textEditor, pluginUISourceCode, this.transformer(), this._prettyPrintCallback));
     }
     if (Sources.CSSPlugin.accepts(pluginUISourceCode)) {
       this._plugins.push(new Sources.CSSPlugin(this.textEditor));

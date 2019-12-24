@@ -19,8 +19,18 @@ Sources.ScriptFormatterEditorAction = class {
     const uiSourceCode = /** @type {!Workspace.UISourceCode} */ (event.data);
     this._updateButton(uiSourceCode);
 
-    if (this._isFormatableScript(uiSourceCode) && this._pathsToFormatOnLoad.has(uiSourceCode.url()) &&
-        !Formatter.sourceFormatter.hasFormatted(uiSourceCode)) {
+    if (!this._isFormatableScript(uiSourceCode)) {
+      return;
+    }
+
+    if (this._sourcesView) {
+      const frame = this._sourcesView.currentSourceFrame();
+      if (frame) {
+        frame.setPrettyPrintCallback(this._toggleFormatScriptSource.bind(this));
+      }
+    }
+
+    if (this._pathsToFormatOnLoad.has(uiSourceCode.url()) && !Formatter.sourceFormatter.hasFormatted(uiSourceCode)) {
       this._showFormatted(uiSourceCode);
     }
   }
