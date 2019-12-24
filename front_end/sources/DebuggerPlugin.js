@@ -33,12 +33,14 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
    * @param {!SourceFrame.SourcesTextEditor} textEditor
    * @param {!Workspace.UISourceCode} uiSourceCode
    * @param {!SourceFrame.Transformer} transformer
+   * @param {!function()=} prettyPrintCallback
    */
-  constructor(textEditor, uiSourceCode, transformer) {
+  constructor(textEditor, uiSourceCode, transformer, prettyPrintCallback) {
     super();
     this._textEditor = textEditor;
     this._uiSourceCode = uiSourceCode;
     this._transformer = transformer;
+    this._prettyPrintCallback = prettyPrintCallback;
 
     /** @type {?Workspace.UILocation} */
     this._executionLocation = null;
@@ -1555,7 +1557,8 @@ Sources.DebuggerPlugin = class extends Sources.UISourceCodeFrame.Plugin {
 
     this._prettyPrintInfobar = UI.Infobar.create(
         UI.Infobar.Type.Info, Common.UIString('Pretty-print this minified file?'),
-        Common.settings.createSetting('prettyPrintInfobarDisabled', false));
+        Common.settings.createSetting('prettyPrintInfobarDisabled', false), this._prettyPrintCallback,
+        'pretty print');  // TODO localize
     if (!this._prettyPrintInfobar) {
       return;
     }

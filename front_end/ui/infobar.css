@@ -65,14 +65,10 @@
 }
 
 .infobar-toggle {
-    color: hsl(214, 92%, 50%);
+    color: #757575;
     cursor: pointer;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-
-.infobar-toggle:hover {
-    color: hsl(214, 92%, 30%);
 }
 
 .info-icon {
