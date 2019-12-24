@@ -118,8 +118,14 @@ Sources.ScopeChainSidebarPane = class extends UI.VBox {
    */
   _createScopeSectionTreeElement(scope, extraProperties) {
     let emptyPlaceholder = null;
-    if (scope.type() === Protocol.Debugger.ScopeType.Local || Protocol.Debugger.ScopeType.Closure) {
-      emptyPlaceholder = ls`No variables`;
+    switch (scope.type()) {
+      case Protocol.Debugger.ScopeType.Closure:
+      case Protocol.Debugger.ScopeType.Local:
+        emptyPlaceholder = ls`No variables`;
+        break;
+      case Protocol.Debugger.ScopeType.Stack:
+        emptyPlaceholder = ls`Empty stack`;
+        break;
     }
 
     let title = scope.typeName();

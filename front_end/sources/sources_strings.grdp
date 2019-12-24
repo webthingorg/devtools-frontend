@@ -255,6 +255,9 @@
   <message name="IDS_DEVTOOLS_74ff4bad28abee3489bd8ca138b80bb6" desc="Text in Filtered UISource Code List Provider of the Sources panel">
     No files found
   </message>
+  <message name="IDS_DEVTOOLS_772f2c05b2929cbc1da5b0cbec2e1e5e" desc="">
+    Empty stack
+  </message>
   <message name="IDS_DEVTOOLS_77898d40c8a26a07d05eedb991359804" desc="Text in Script Origin Plugin of the Sources panel">
     (source mapped from <ph name="COMPONENTS_LINKIFIER_LINKIFYURL_ORIGINURL_">$1s<ex>example.com</ex></ph>)
   </message>
