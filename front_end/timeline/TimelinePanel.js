@@ -702,6 +702,7 @@ Timeline.TimelinePanel = class extends UI.Panel {
   }
 
   _showLandingPage() {
+    this._overviewPane.hideWidget();
     if (this._landingPage) {
       this._landingPage.show(this._statusPaneContainer);
       return;
@@ -747,6 +748,7 @@ Timeline.TimelinePanel = class extends UI.Panel {
 
   _hideLandingPage() {
     this._landingPage.detach();
+    this._overviewPane.showWidget();
   }
 
   /**
