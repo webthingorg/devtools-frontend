@@ -595,12 +595,15 @@ class ModelBreakpoint {
       newState = null;
     } else if (debuggerLocation) {
       const script = debuggerLocation.script();
-      if (script.sourceURL) {
-        newState = new Breakpoint.State(
-            script.sourceURL, null, null, debuggerLocation.lineNumber, debuggerLocation.columnNumber, condition);
-      } else {
-        newState = new Breakpoint.State(
-            null, script.scriptId, script.hash, debuggerLocation.lineNumber, debuggerLocation.columnNumber, condition);
+      if (script) {
+        if (script.sourceURL) {
+          newState = new Breakpoint.State(
+              script.sourceURL, null, null, debuggerLocation.lineNumber, debuggerLocation.columnNumber, condition);
+        } else {
+          newState = new Breakpoint.State(
+              null, script.scriptId, script.hash, debuggerLocation.lineNumber, debuggerLocation.columnNumber,
+              condition);
+        }
       }
     } else if (this._breakpoint._currentState && this._breakpoint._currentState.url) {
       const position = this._breakpoint._currentState;
