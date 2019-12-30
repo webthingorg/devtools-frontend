@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a9395f3_3fd61438",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-30T19:21:45Z",
+      "side": 1,
+      "message": "I added this because I figured restoring focus to a specific element might be useful even if the focusRestorer _element has lost focus when restoring. I\u0027m open to moving this logic back inside the toggleRecord Function or doing something slightly different.",
+      "range": {
+        "startLine": 822,
+        "startChar": 2,
+        "endLine": 824,
+        "endChar": 5
+      },
+      "revId": "d8736cd5ac86dada486ebe71a73dd80ff78dbc10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
