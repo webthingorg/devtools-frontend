@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5a9317a6_d4908388",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-30T20:14:54Z",
+      "side": 1,
+      "message": "That makes sense. and I think your thoughts around focusRestorer are correct as well. My origininal impl was just to focus() on the caller button as you describe. I think it may make more sense to go back to that impl and then decide if it should be additionally abstracted",
+      "parentUuid": "d46cb8ba_8ce04899",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b6e2cc5_a589e780",
         "filename": "front_end/profiler/ProfilesPanel.js",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61eb02d6_f71f96b1",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-30T20:14:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b6e2cc5_a589e780",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b8e67daa_09583d36",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-30T20:14:54Z",
+      "side": 1,
+      "message": "Makes sense. I\u0027m going to remove based on other comment, but If we re-add, I\u0027ll update the name",
+      "parentUuid": "b96c1c44_419239ce",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e25a3c90_f954ac1f",
         "filename": "front_end/ui/UIUtils.js",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e50281_ceb6f862",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-30T20:14:54Z",
+      "side": 1,
+      "message": "Makes sense. I\u0027m going to remove based on other comment, but If we re-add, I will flip the order.",
+      "parentUuid": "e25a3c90_f954ac1f",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
