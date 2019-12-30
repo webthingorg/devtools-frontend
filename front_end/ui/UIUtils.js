@@ -819,11 +819,14 @@ export class ElementFocusRestorer {
     element.focus();
   }
 
-  restore() {
+  /**
+   * @param {boolean=} forceFocus
+   */
+  restore(forceFocus) {
     if (!this._element) {
       return;
     }
-    if (this._element.hasFocus() && this._previous) {
+    if ((this._element.hasFocus() || forceFocus) && this._previous) {
       this._previous.focus();
     }
     this._previous = null;
