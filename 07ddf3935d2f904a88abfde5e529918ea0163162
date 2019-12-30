@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d46cb8ba_8ce04899",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-30T20:02:03Z",
+      "side": 1,
+      "message": "I don\u0027t understand this assertion \"this triggers logic to disable the start button\". Your `toggleRecord()` function is synchronous; on the same turn of the crank, you unconditionally restore focus. \n\nI don\u0027t really understand why you need to use a focus restorer at all. My understanding of a focus restorer is that it\u0027s supposed to restore focus after some intervening asynchronous UI operation (such as a modal dialog popup). It seems apropos to me to just call `this.element.focus()` at the end, unconditionally.\n\nYour use of `ElementFocusRestorer` initially had me looking at the behavior following stopping profiling. But re-reading your commit message, it looks to me instead that \"something under the hood is triggering a UI change, thereby removing focus, so I\u0027m going to restore focus once I\u0027m done.\" I\u0027d be on board if it was asynchronous, but it looks like the wrong approach for a function that doesn\u0027t use `await`.",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b6e2cc5_a589e780",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-30T20:02:03Z",
+      "side": 1,
+      "message": "`focusRestorer` is never reassigned; this should never be falsy.",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b96c1c44_419239ce",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-30T20:02:03Z",
+      "side": 1,
+      "message": "I\u0027m not entirely opposed to this, but \"force\" suggests something else in my mind. I\u0027d suggest an alternative name, like, \"alwaysRestore\" or \"ignoreIncorrectFocus\" or something. Something that communicates the behavior, to wit, that we ignore whether the element we\u0027re looking at already has focus.",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e25a3c90_f954ac1f",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-30T20:02:03Z",
+      "side": 1,
+      "message": "You should reverse the order of these checks (forceFocus || element.hasFocus()); querying the DOM will intrinsically be slower than a quick bit-check.",
+      "revId": "07ddf3935d2f904a88abfde5e529918ea0163162",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
