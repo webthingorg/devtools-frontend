@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4263eeaf_4e5e709d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-31T19:42:34Z",
+      "side": 1,
+      "message": "Can you add before/after GIFs of this behavior, please?",
+      "revId": "63c26f4580cf89d2fccbfecbda6a1001512ddd8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
