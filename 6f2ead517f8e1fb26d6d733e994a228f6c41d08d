@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d779a9e2_7dc95b82",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-31T22:19:10Z",
+      "side": 1,
+      "message": "nit: should this be the isEnterOrSpace?",
+      "range": {
+        "startLine": 1418,
+        "startChar": 12,
+        "endLine": 1418,
+        "endChar": 22
+      },
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cc97460_3f0d7c36",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-31T22:19:10Z",
+      "side": 1,
+      "message": "same here, do we want to allow space as well?",
+      "range": {
+        "startLine": 1617,
+        "startChar": 10,
+        "endLine": 1617,
+        "endChar": 20
+      },
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9436ad3e_658626df",
         "filename": "front_end/timeline/TimelineUIUtils.js",
         "patchSetId": 7
@@ -31,6 +77,24 @@
       "side": 1,
       "message": "I looked into the history of buildStackTracePreviewContents() a while back and apparently the entire reason it returns a list of all its links is so callers can set tabIndex on them. Given that, I decided to just follow the existing pattern here.",
       "parentUuid": "9436ad3e_658626df",
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ebe4615_97b7c611",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2019-12-31T22:19:10Z",
+      "side": 1,
+      "message": "I agree with Rob. I\u0027d like to see a change to buildStackTracePreviewContents() to pass the tabstop option into the maybeLinkifyConsoleCallFrame() call it makes since that is now supported. That way we get rid of the need to pass the links back to add tabstops.\n\nI\u0027m indifferent if its part of this change or a follow up",
+      "parentUuid": "df382dbe_147dd007",
       "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
