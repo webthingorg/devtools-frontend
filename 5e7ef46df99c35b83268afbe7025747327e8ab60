@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87fa549a_a745af1b",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-31T19:47:25Z",
+      "side": 1,
+      "message": "I\u0027m confused: I don\u0027t see a lexical `self` in scope here. This is the first place at which the identifier `self` appears in this file.",
+      "revId": "5e7ef46df99c35b83268afbe7025747327e8ab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
