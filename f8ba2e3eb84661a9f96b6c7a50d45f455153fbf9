@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ea6c234_c9d7b6f3",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2019-12-31T23:02:13Z",
+      "side": 1,
+      "message": "Should we be removing the aria-disabled attribute in case of !value?",
+      "revId": "f8ba2e3eb84661a9f96b6c7a50d45f455153fbf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
