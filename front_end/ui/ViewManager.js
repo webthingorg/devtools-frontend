@@ -202,6 +202,7 @@ export class ContainerWidget extends VBox {
       const shouldFocus = this.element.hasFocus();
       this.setDefaultFocusedElement(null);
       this._view[widgetSymbol] = widget;
+      this._widget = widget;
       widget.show(this.element);
       if (shouldFocus) {
         widget.focus();
@@ -217,6 +218,7 @@ export class ContainerWidget extends VBox {
   wasShown() {
     this._materialize().then(() => {
       this._wasShownForTest();
+      this._widget.show(this.element);
     });
   }
 
@@ -253,6 +255,16 @@ export class _ExpandableContainerWidget extends VBox {
     UI.ARIAUtils.setControls(this._titleElement, this.contentElement.createChild('slot'));
     this._view = view;
     view[_ExpandableContainerWidget._symbol] = this;
+  }
+
+  /**
+   * @override
+   */
+  async wasShown() {
+    if (this._widget) {
+      await this._materializePromise;
+      this._widget.show(this.element);
+    }
   }
 
   /**
