@@ -22,6 +22,7 @@ export default class AXBreadcrumbsPane extends Accessibility.AccessibilitySubPan
 
     this._hoveredBreadcrumb = null;
     this._rootElement = this.element.createChild('div', 'ax-breadcrumbs');
+    this._axNode = null;
 
     this._rootElement.addEventListener('keydown', this._onKeyDown.bind(this), true);
     this._rootElement.addEventListener('mousemove', this._onMouseMove.bind(this), false);
@@ -48,6 +49,7 @@ export default class AXBreadcrumbsPane extends Accessibility.AccessibilitySubPan
    * @override
    */
   setAXNode(axNode) {
+    this._axNode = axNode;
     const hadFocus = this.element.hasFocus();
     super.setAXNode(axNode);
 
@@ -65,11 +67,44 @@ export default class AXBreadcrumbsPane extends Accessibility.AccessibilitySubPan
     }
     ancestorChain.reverse();
 
+    for (let i = 0; i < ancestorChain.length; i++) {
+      let ancestor = ancestorChain[i];
+      if (ancestor.role().value == 'generic') {
+        let j = i + 1;
+        let count = 0;
+        while (j < ancestorChain.length && ancestorChain[j].role().value == 'generic') {
+          ancestorChain[j].setHidden(true);
+          count++;
+          j++;
+        }
+        ancestor.setExpanded(false);
+        ancestor.setNumberOfCollapsedDescendants(count + 1);
+      }
+    }
+
+    axNode.setAncestorChain(ancestorChain);
+    let breadcrumb = this._buildAncestorBreadcrumbs(axNode, false);
+    this._inspectedNodeBreadcrumb = breadcrumb;
+    this._inspectedNodeBreadcrumb.setPreselected(true, hadFocus);
+    this._setPreselectedBreadcrumb(this._inspectedNodeBreadcrumb);
+  }
+
+  /**
+   * @param {!Accessibility.AccessibilityNode} axNode
+   * @return {!Accessibility.AXBreadcrumb} breadcrumb
+   */
+  _buildAncestorBreadcrumbs(axNode) {
+    let ancestorChain = axNode.ancestorChain();
     let depth = 0;
     let breadcrumb = null;
     let parent = null;
-    for (ancestor of ancestorChain) {
-      breadcrumb = new Accessibility.AXBreadcrumb(ancestor, depth, (ancestor === axNode));
+    let descendant = null;
+    let node = null;
+    for (descendant of ancestorChain) {
+      if (descendant.hidden()) {
+        continue;
+      }
+      breadcrumb = new Accessibility.AXBreadcrumb(descendant, depth, (descendant === axNode));
       if (parent) {
         parent.appendChild(breadcrumb);
       } else {
@@ -79,28 +114,36 @@ export default class AXBreadcrumbsPane extends Accessibility.AccessibilitySubPan
       depth++;
     }
 
-    this._inspectedNodeBreadcrumb = breadcrumb;
-    this._inspectedNodeBreadcrumb.setPreselected(true, hadFocus);
+    return breadcrumb;
+  }
 
-    this._setPreselectedBreadcrumb(this._inspectedNodeBreadcrumb);
+  _rebuildBreadcrumbsFromGivenNode(axNode) {
+    let start = this._axNode.ancestorChain().indexOf(axNode);
+    for (let i = start; i < this._axNode.ancestorChain().length; i++) {
+    }
+  }
 
+  addInspectedNodeDescendants(axNode) {
     /**
      * @param {!Accessibility.AXBreadcrumb} parentBreadcrumb
      * @param {!Accessibility.AccessibilityNode} axNode
      * @param {number} localDepth
      */
-    function append(parentBreadcrumb, axNode, localDepth) {
+    function append(parentBreadcrumb, axNode) {
+      let localDepth = parentBreadcrumb.depth();
       const childBreadcrumb = new Accessibility.AXBreadcrumb(axNode, localDepth, false);
       parentBreadcrumb.appendChild(childBreadcrumb);
 
       // In most cases there will be no children here, but there are some special cases.
       for (const child of axNode.children()) {
+        if (expandChildren)
+          child.setHidden(false);
         append(childBreadcrumb, child, localDepth + 1);
       }
     }
 
     for (const child of axNode.children()) {
-      append(this._inspectedNodeBreadcrumb, child, depth);
+      append(this._inspectedNodeBreadcrumb, child);
     }
   }
 
@@ -328,6 +371,7 @@ export class AXBreadcrumb {
     this._element.appendChild(this._nodeElement);
     this._nodeWrapper = createElementWithClass('div', 'wrapper');
     this._nodeElement.appendChild(this._nodeWrapper);
+    this._depth = depth;
 
     this._selectionElement = createElementWithClass('div', 'selection fill');
     this._nodeElement.appendChild(this._selectionElement);
@@ -357,6 +401,12 @@ export class AXBreadcrumb {
       }
     }
 
+    if (this._axNode.numberOfCollapsedDescendants() > 0) {
+      this._generic_counter =
+          new AXBreadcrumbCounter(this, this._axNode.numberOfCollapsedDescendants(), this._nodeWrapper);
+      const counterElement = createElementWithClass('span', 'monospace');
+    }
+
     if (this._axNode.hasOnlyUnloadedChildren()) {
       this._nodeElement.classList.add('children-unloaded');
     }
@@ -371,6 +421,10 @@ export class AXBreadcrumb {
    */
   element() {
     return this._element;
+  }
+
+  rebuildDescendantsChain() {
+    let chain =
   }
 
   /**
@@ -495,6 +549,13 @@ export class AXBreadcrumb {
   }
 
   /**
+   * @return {integer}
+   */
+  depth() {
+    return this._depth;
+  }
+
+  /**
    * @param {string} name
    */
   _appendNameElement(name) {
@@ -524,6 +585,57 @@ export class AXBreadcrumb {
     ignoredNodeElement.textContent = ls`Ignored`;
     ignoredNodeElement.classList.add('ax-breadcrumbs-ignored-node');
     this._nodeWrapper.appendChild(ignoredNodeElement);
+  }
+}
+
+class AXBreadcrumbCounter {
+  /**
+   * @param {!Accessibility.AXBreadcrumbsPane}
+   * @param {int}
+   * @param {node wrapper}
+   */
+  constructor(axBreadcrumb, axNode, count, wrapper) {
+    this._enclosingBreadcrumbs = axBreadcrumb;
+    this._axNode = axNode;
+    this._count = count;
+    this._expanded = false;
+    this._nodeWrapper = wrapper;
+
+    // Construct the actual element
+    this._counterElement = createElementWithClass('span', 'monospace');
+    this._counterElement.setTextContentTruncatedIfNeeded(this._count || '');
+    this._counterElement.classList.add('generic-container-counter');
+    this._nodeWrapper.appendChild(this._counterElement);
+
+    this._counterElement.addEventListener('click', this._onClick.bind(this), false);
+  }
+
+  setExpanded(expanded) {
+    this._expanded = expanded;
+  }
+
+  getExpanded() {
+    return this._expanded;
+  }
+
+  _onClick() {
+    let ancestorChain = this._parentAXNode.ancestorChain();
+    if (this._expanded) {
+      console.log('should close this element list');
+    } else {
+      console.log('should expand this list');
+    }
+
+    // invert the hiding on the generic containers.
+    for (let i = 0; i < ancestorChain.length; i++) {
+      let ancestor = ancestorChain[i];
+      ancestor.setHidden(!ancestor.hidden());
+    }
+
+    this._expanded = !(this._expanded);
+    event.stopPropagation();
+
+    this._enclosingBreadcrumb._buildAncestorBreadcrumbs(this._axNode);
   }
 }
 

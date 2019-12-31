@@ -36,6 +36,10 @@ export class AccessibilityNode {
     this._properties = payload.properties || null;
     this._childIds = payload.childIds || null;
     this._parentNode = null;
+    this._expanded = true;
+    this._number_of_collapsed_descendants = 0;
+    this._hidden = false;
+    this._ancestorChain = [];
   }
 
   /**
@@ -223,6 +227,55 @@ export class AccessibilityNode {
       string += '\n' + child.printSelfAndChildren(inspectedNode, (leadingSpace || '') + '  ');
     }
     return string;
+  }
+
+  setHidden(hidden) {
+    this._hidden = true;
+  }
+
+  hidden() {
+    return this._hidden;
+  }
+  /**
+   * @param {bool}
+   */
+  setExpanded(expanded) {
+    this._expanded = expanded;
+  }
+
+  /**
+   * @return {bool}
+   */
+  expanded() {
+    return this._expanded;
+  }
+
+  /**
+   * @param {int}
+   */
+  setNumberOfCollapsedDescendants(descendants) {
+    this._number_of_collapsed_descendants = descendants;
+  }
+
+  /**
+   * @return {int}
+   */
+  numberOfCollapsedDescendants() {
+    return this._number_of_collapsed_descendants;
+  }
+
+  /**
+   * @param node list
+   */
+  setAncestorChain(ancestorChain) {
+    this._ancestorChain = ancestorChain;
+  }
+
+  /**
+   * @return nodelist
+   */
+  ancestorChain() {
+    return this._ancestorChain;
   }
 }
 
