@@ -16,6 +16,24 @@
       "revId": "5e7ef46df99c35b83268afbe7025747327e8ab60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb28cd77_4379b0dd",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-01T00:05:59Z",
+      "side": 1,
+      "message": "It\u0027s defined in DOMExtensions. Every other use of onInvokeElement refers to it as \"self.onInvokeElement,\" but it works without the \"self.\" Should I change it?",
+      "parentUuid": "87fa549a_a745af1b",
+      "revId": "5e7ef46df99c35b83268afbe7025747327e8ab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
