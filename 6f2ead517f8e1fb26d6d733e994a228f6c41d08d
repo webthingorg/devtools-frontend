@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ca2e6e46_b55a5ddd",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-01T00:05:44Z",
+      "side": 1,
+      "message": "No, space doesn\u0027t activate links per the ARIA authoring practices: https://www.w3.org/TR/wai-aria-practices/#link",
+      "parentUuid": "d779a9e2_7dc95b82",
+      "range": {
+        "startLine": 1418,
+        "startChar": 12,
+        "endLine": 1418,
+        "endChar": 22
+      },
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cc97460_3f0d7c36",
         "filename": "front_end/timeline/TimelineUIUtils.js",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71994fc6_be8b4cc5",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-01T00:05:44Z",
+      "side": 1,
+      "message": "same here",
+      "parentUuid": "4cc97460_3f0d7c36",
+      "range": {
+        "startLine": 1617,
+        "startChar": 10,
+        "endLine": 1617,
+        "endChar": 20
+      },
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,24 @@
       "side": 1,
       "message": "I agree with Rob. I\u0027d like to see a change to buildStackTracePreviewContents() to pass the tabstop option into the maybeLinkifyConsoleCallFrame() call it makes since that is now supported. That way we get rid of the need to pass the links back to add tabstops.\n\nI\u0027m indifferent if its part of this change or a follow up",
       "parentUuid": "df382dbe_147dd007",
+      "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a54ad2ae_de3c6525",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-01T00:05:44Z",
+      "side": 1,
+      "message": "Fair enough, I\u0027ve add a tabStops option to buildStackTracePreviewContents() and pulled it and the other optional arguments into an object",
+      "parentUuid": "5ebe4615_97b7c611",
       "revId": "6f2ead517f8e1fb26d6d733e994a228f6c41d08d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
