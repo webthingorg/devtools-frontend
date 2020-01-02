@@ -199,7 +199,7 @@ Profiler.ProfileFlameChartDataProvider = class {
 Profiler.CPUProfileFlameChart = class extends UI.VBox {
   /**
    * @param {!UI.SearchableView} searchableView
-   * @param {!PerfUI.FlameChartDataProvider} dataProvider
+   * @param {!Profiler.ProfileFlameChartDataProvider} dataProvider
    */
   constructor(searchableView, dataProvider) {
     super();
