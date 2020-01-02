@@ -39,6 +39,30 @@
       "revId": "054b44961b4b5e5d57e6cb65bdb32dd68f6ba4fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3f6a287_801c4c00",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-02T20:47:45Z",
+      "side": 1,
+      "message": "No, I don\u0027t understand how this reentrancy occurs. I just see the evidence of it in NFE reports: Can\u0027t read property \u0027editor\u0027 of undefined. In this case, the only time that \u0027editor\u0027 is accessed in this function is in the following lines (912) belonging to `this._editing`, which is later `delete`d. It is also deleted in other functions such as _attributeEditingCommitted.\n\nTL;DR: the `this._editing` value is polymorphic and is not defined within the class, and as a result, Closure doesn\u0027t detect and enforce truthiness constraints around `this._editing`. (It would be analogous to being declared `:any` in TypeScript).\n\nI think, however, what I\u0027ll do instead is invert the meaning of this check and not do an early return, scoping out the `this._editing` parts to be restricted to that.",
+      "parentUuid": "544f02fe_dbaee88f",
+      "range": {
+        "startLine": 909,
+        "startChar": 0,
+        "endLine": 911,
+        "endChar": 7
+      },
+      "revId": "054b44961b4b5e5d57e6cb65bdb32dd68f6ba4fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
