@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82e0ba9c_54365253",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-01-02T15:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "212f4623_439edfcd",
+      "range": {
+        "startLine": 176,
+        "startChar": 10,
+        "endLine": 176,
+        "endChar": 40
+      },
+      "revId": "221f5abe5d4e1f2b3393f56beb3874981790b703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6993e84c_63d3b7f6",
         "filename": "front_end/sdk/wasmparser/README",
         "patchSetId": 4
