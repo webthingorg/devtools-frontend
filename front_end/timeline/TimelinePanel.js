@@ -146,6 +146,8 @@ Timeline.TimelinePanel = class extends UI.Panel {
    */
   wasShown() {
     UI.context.setFlavor(Timeline.TimelinePanel, this);
+    // Record the performance tool load time.
+    Host.userMetrics.panelLoaded('timeline', 'DevTools.Launch.Timeline');
   }
 
   /**
