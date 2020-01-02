@@ -16,6 +16,24 @@
       "revId": "c3cc5a15f35ade14bc9bcbe3b53e2b403a2d96d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af6bf5b9_e7c16344",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-01-02T18:54:46Z",
+      "side": 1,
+      "message": "Added \u0027Hovered\u0027 groups for non-selectable groups.  Let me know if you think this is clear enough.  I can also change it to \"{GroupName} hovered - no groups selected\" but I believe just \"hovered\" provides enough information.",
+      "parentUuid": "4e87f93b_425126a6",
+      "revId": "c3cc5a15f35ade14bc9bcbe3b53e2b403a2d96d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
