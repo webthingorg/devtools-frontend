@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a3d5abc_b89a16c1",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-03T20:26:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6a6e76a_0a65525b",
+      "revId": "dcf5bc1fe6002dc9e0927822396761f72a155684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bda77940_c53d291e",
         "filename": "front_end/sources/sources_strings.grdp",
         "patchSetId": 17
@@ -33,6 +51,24 @@
       "revId": "dcf5bc1fe6002dc9e0927822396761f72a155684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90fc6852_c835cc0e",
+        "filename": "front_end/sources/sources_strings.grdp",
+        "patchSetId": 17
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-03T20:26:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bda77940_c53d291e",
+      "revId": "dcf5bc1fe6002dc9e0927822396761f72a155684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
