@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0121141_222cd197",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-01-03T21:03:29Z",
+      "side": 1,
+      "message": "Silly question, when does this occur?",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "76e25d1680c8673fd71b944afd3e9c7736a54e3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
