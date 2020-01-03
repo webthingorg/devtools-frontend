@@ -22,6 +22,30 @@
       "revId": "cc1661ee7acdd1d7df6d3482edcf5809025bac33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "850be5d2_e113d198",
+        "filename": "BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-03T10:50:05Z",
+      "side": 1,
+      "message": "That seems like a bug and `formatter_worker` should be added as well.\n\nThis Ninja configuration is brittle anyways and we are working on fixing it.",
+      "parentUuid": "b419d65a_9a9a62c2",
+      "range": {
+        "startLine": 1794,
+        "startChar": 0,
+        "endLine": 1794,
+        "endChar": 61
+      },
+      "revId": "cc1661ee7acdd1d7df6d3482edcf5809025bac33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
