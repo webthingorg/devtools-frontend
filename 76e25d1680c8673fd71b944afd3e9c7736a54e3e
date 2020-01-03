@@ -22,6 +22,30 @@
       "revId": "76e25d1680c8673fd71b944afd3e9c7736a54e3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2848efc_300d2bc4",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-03T22:23:49Z",
+      "side": 1,
+      "message": "Honestly I haven\u0027t been able to make this occur organically, and I\u0027m not really sure what case it handles. My best guess is maybe if you somehow had a logpoint and a breakpoint at the same point, but the UI doesn\u0027t seem to let that happen.",
+      "parentUuid": "b0121141_222cd197",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "76e25d1680c8673fd71b944afd3e9c7736a54e3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
