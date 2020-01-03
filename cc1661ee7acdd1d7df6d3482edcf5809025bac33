@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b419d65a_9a9a62c2",
+        "filename": "BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-01-03T10:46:49Z",
+      "side": 1,
+      "message": "Not clear on why these lines are required for wasmparser_worker and heap_snapshot_worker but not for formatter_worker.",
+      "range": {
+        "startLine": 1794,
+        "startChar": 0,
+        "endLine": 1794,
+        "endChar": 61
+      },
+      "revId": "cc1661ee7acdd1d7df6d3482edcf5809025bac33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
