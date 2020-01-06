@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c506e3f6_b2e324ff",
+        "filename": "front_end/resources/ApplicationCacheItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-06T10:54:21Z",
+      "side": 1,
+      "message": "Remove defaults?",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 14
+      },
+      "revId": "bf15d11b5d9bfbd51014ed2f1c1f50c834e010e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
