@@ -16,6 +16,24 @@
       "revId": "e91b960307b31c14d2ddc9ffb8eacaf9f407fe76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "023a88d1_fa2e4995",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-06T22:55:35Z",
+      "side": 1,
+      "message": "Fair enough, I was just copying the pattern from ExpandableContainerWidget",
+      "parentUuid": "c9cce743_92a47810",
+      "revId": "e91b960307b31c14d2ddc9ffb8eacaf9f407fe76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
