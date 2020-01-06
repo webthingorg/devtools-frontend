@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9cce743_92a47810",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-06T17:21:46Z",
+      "side": 1,
+      "message": "This name is likely to be confusing. The item is a widget and apparently also contains a widget. I think you should probably rename it to be more specific.\n\nHaving said so, it\u0027s not clear to me why you need to store this when it\u0027s already accessible via `this._view[widgetSymbol]`.",
+      "revId": "e91b960307b31c14d2ddc9ffb8eacaf9f407fe76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
