@@ -137,6 +137,7 @@ all_devtools_files = [
   "front_end/extensions_test_runner/ExtensionsTestRunner.js",
   "front_end/extensions_test_runner/module.json",
   "front_end/extensions/module.json",
+  "front_end/formatter/module.json",
   "front_end/formatter_worker.json",
   "front_end/formatter_worker/acorn/acorn_loose.js",
   "front_end/formatter_worker/acorn/acorn.js",
@@ -414,11 +415,19 @@ all_devtools_files = [
   "front_end/web_audio/audioContextSelector.css",
   "front_end/web_audio/module.json",
   "front_end/web_audio/webAudio.css",
+  "front_end/web_audio/graph_visualizer/graphVisualizer.css",
+  "front_end/web_audio_worker.js",
+  "front_end/web_audio_worker.json",
+  "front_end/web_audio_worker/WebAudioWorker.js",
+  "front_end/web_audio_worker/module.json",
   "front_end/worker_main/module.json",
   "front_end/worker_service/module.json",
   "front_end/worker_service/ServiceDispatcher.js",
   "front_end/workspace_diff/module.json",
   "front_end/workspace/module.json",
+  # CHANGES
+  "front_end/third_party/fabricjs/fabric.js",
+  "front_end/third_party/fabricjs/module.json",
 ]
 
 lighthouse_locale_files = [
@@ -1068,10 +1077,14 @@ all_devtools_modules = [
   "front_end/ui/ZoomManager.js",
   "front_end/web_audio/AudioContextContentBuilder.js",
   "front_end/web_audio/AudioContextSelector.js",
+  "front_end/web_audio/graph_visualizer/EdgeRendererUtility.js",
   "front_end/web_audio/graph_visualizer/EdgeView.js",
   "front_end/web_audio/graph_visualizer/GraphManager.js",
+  "front_end/web_audio/graph_visualizer/GraphRenderer.js",
+  "front_end/web_audio/graph_visualizer/GraphRendererUtility.js",
   "front_end/web_audio/graph_visualizer/GraphStyle.js",
   "front_end/web_audio/graph_visualizer/GraphView.js",
+  "front_end/web_audio/graph_visualizer/NodeRendererUtility.js",
   "front_end/web_audio/graph_visualizer/NodeRendererUtility.js",
   "front_end/web_audio/graph_visualizer/NodeView.js",
   "front_end/web_audio/graph_visualizer/Types.js",
@@ -1249,6 +1262,7 @@ devtools_image_files = [
   "front_end/Images/searchNext.png",
   "front_end/Images/searchPrev.png",
   "front_end/Images/securityIcons.svg",
+  "front_end/Images/seeWholeGraph.svg",
   "front_end/Images/smallIcons.svg",
   "front_end/Images/speech.png",
   "front_end/Images/toolbarResizerVertical.png",
@@ -1856,8 +1870,11 @@ copied_devtools_modules = [
   "$resources_out_dir/ui/ZoomManager.js",
   "$resources_out_dir/web_audio/AudioContextContentBuilder.js",
   "$resources_out_dir/web_audio/AudioContextSelector.js",
+  "$resources_out_dir/web_audio/graph_visualizer/EdgeRendererUtility.js",
   "$resources_out_dir/web_audio/graph_visualizer/EdgeView.js",
   "$resources_out_dir/web_audio/graph_visualizer/GraphManager.js",
+  "$resources_out_dir/web_audio/graph_visualizer/GraphRenderer.js",
+  "$resources_out_dir/web_audio/graph_visualizer/GraphRendererUtility.js",
   "$resources_out_dir/web_audio/graph_visualizer/GraphStyle.js",
   "$resources_out_dir/web_audio/graph_visualizer/GraphView.js",
   "$resources_out_dir/web_audio/graph_visualizer/NodeRendererUtility.js",
@@ -1889,6 +1906,7 @@ generated_applications = [
   "$resources_out_dir/shell.js",
   "$resources_out_dir/toolbox.html",
   "$resources_out_dir/toolbox.js",
+  "$resources_out_dir/web_audio_worker.js",
   "$resources_out_dir/worker_app.html",
   "$resources_out_dir/worker_app.js",
 ]
@@ -1943,12 +1961,15 @@ generated_non_autostart_non_remote_modules = [
   "$resources_out_dir/timeline/timeline_module.js",
   "$resources_out_dir/web_audio/web_audio_module.js",
   "$resources_out_dir/workspace_diff/workspace_diff_module.js",
+  "$resources_out_dir/dagre_layout/dagre_layout_module.js",
+  "$resources_out_dir/fabricjs/fabricjs_module.js",
 ]
 
 generated_remote_modules = [
   "$resources_out_dir/audits_worker/audits_worker_module.js",
-  "$resources_out_dir/dagre_layout/dagre_layout_module.js",
   "$resources_out_dir/emulated_devices/emulated_devices_module.js",
+  ##### "$resources_out_dir/dagre_layout/dagre_layout_module.js",
+  ##### "$resources_out_dir/fabricjs/fabricjs_module.js",
 ]
 
 generated_test_modules = [
@@ -1993,6 +2014,7 @@ devtools_applications = [
   "node_app",
   "shell",
   "toolbox",
+  "web_audio_worker",
   "worker_app",
 ]
 

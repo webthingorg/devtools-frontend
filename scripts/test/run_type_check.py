@@ -119,6 +119,7 @@ APPLICATION_DESCRIPTORS = [
     'toolbox',
     'integration_test_runner',
     'formatter_worker',
+    'web_audio_worker',
     'heap_snapshot_worker',
 ]
 
