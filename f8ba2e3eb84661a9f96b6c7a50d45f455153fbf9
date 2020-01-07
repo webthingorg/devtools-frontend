@@ -16,6 +16,24 @@
       "revId": "f8ba2e3eb84661a9f96b6c7a50d45f455153fbf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dbac466_f9757dec",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-07T03:35:20Z",
+      "side": 1,
+      "message": "It looks like it doesn\u0027t matter whether we remove aria-disabled or set it to false as far as the spec is concerned: https://www.w3.org/WAI/PF/aria/states_and_properties#valuetype_true-false\n\nAs opposed to something like aria-selected, which reads out \"not selected\" when false",
+      "parentUuid": "3ea6c234_c9d7b6f3",
+      "revId": "f8ba2e3eb84661a9f96b6c7a50d45f455153fbf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
