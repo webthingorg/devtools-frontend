@@ -34,6 +34,24 @@
       "revId": "5e7ef46df99c35b83268afbe7025747327e8ab60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7d181cb_fe7b7ffe",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-07T22:18:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cb28cd77_4379b0dd",
+      "revId": "5e7ef46df99c35b83268afbe7025747327e8ab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
