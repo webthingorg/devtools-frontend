@@ -50,11 +50,18 @@ def builder(
     swarming_tags=defaults.swarming_tags,
     **kvargs):
   """Create builder with dtf defaults"""
-  mastername=kvargs.pop('mastername')
-  properties=kvargs.pop('properties', {})
-  properties.update(mastername=mastername)
-  kvargs['properties']=properties
-  kvargs['executable']=recipe(recipe_name)
+  mastername = kvargs.pop('mastername')
+  properties = kvargs.pop('properties', {})
+  unfrozen_pops = {k: v for k, v in properties.items() }
+  unfrozen_pops.update({
+    "mastername": mastername, 
+    "$build/goma": {
+      "server_host": "goma.chromium.org",
+      "rpc_extra_params": "?prod",
+    }
+  })
+  kvargs['properties'] = unfrozen_pops
+  kvargs['executable'] = recipe(recipe_name)
 
   luci.builder(
     swarming_tags=swarming_tags,
