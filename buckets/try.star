@@ -3,6 +3,7 @@ load('//lib/builders.star',
   'acls',
   'defaults',
   'dimensions',
+  'goma_rbe_prod_default',
 )
 
 BUCKET_NAME='try'
@@ -24,7 +25,7 @@ luci.bucket(
 
 try_builders=[]
 
-def try_builder(**kvargs):
+def try_builder_common(**kvargs):
   builder(
     bucket=BUCKET_NAME,
     mastername="tryserver.devtools-frontend",
@@ -34,16 +35,16 @@ def try_builder(**kvargs):
   try_builders.append(kvargs['name'])
 
 def presubmit_builder(name, dimensions):
-  try_builder(
+  try_builder_common(
     name=name,
     recipe_name="run_presubmit",
     dimensions=dimensions,
-      properties={
-        "runhooks":True,
-        "solution_name":"devtools-frontend"
-      },
-      priority=25,
-      execution_timeout=5 * time.minute,
+    properties={
+      "runhooks":True,
+      "solution_name":"devtools-frontend"
+    },
+    priority=25,
+    execution_timeout=5 * time.minute,
   )
 
 presubmit_builder(
@@ -55,6 +56,12 @@ presubmit_builder(
   name="dtf_presubmit_win64",
   dimensions=dimensions.win10,
 )
+
+def try_builder(**kvargs):
+  try_builder_common(
+    properties=goma_rbe_prod_default,
+    **kvargs
+  )
 
 try_builder(
   name="devtools_frontend_linux_blink_rel",
