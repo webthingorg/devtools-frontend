@@ -66,6 +66,9 @@
   <message name="IDS_DEVTOOLS_1fbbb6684f67ee895ff5dc2e429697ce" desc="Screen reader label for a select box that chooses the breakpoint type in the Sources panel when editing a breakpoint">
     Breakpoint type
   </message>
+  <message name="IDS_DEVTOOLS_2008cb8227a88af1294d03958b21917c" desc="Label of a button in the Sources panel to pretty print the current file">
+    Pretty Print
+  </message>
   <message name="IDS_DEVTOOLS_216a9080bf22a993b2d7f9331d34cc68" desc="Text in Sources Panel of the Sources panel">
     Don&apos;t pause on exceptions
   </message>

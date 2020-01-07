@@ -12,6 +12,9 @@
   <message name="IDS_DEVTOOLS_03342349032c8ef8f5898c49a088de55" desc="Text in the Shortcuts page in settings to explain a keyboard shortcut in the Console Section">
     Accept suggestion
   </message>
+  <message name="IDS_DEVTOOLS_04ecb21c98e7dd2a5b586a3ebacf5979" desc="Text on a button on to close the infobar and never show the infobar in the future">
+    Never Show
+  </message>
   <message name="IDS_DEVTOOLS_0c89face91afb1a048a34349404d11c0" desc="Text in the Shortcuts page to explain a keyboard shortcut (add the selected variable to watch in debugger)">
     Add selection to watch
   </message>
@@ -231,9 +234,6 @@
   <message name="IDS_DEVTOOLS_a950da8e902568f9a6879abe4313efe7" desc="Text content of content element">
     Once page is reloaded, <ph name="LOCKED_1">DevTools</ph> will automatically reconnect.
   </message>
-  <message name="IDS_DEVTOOLS_addec426932e71323700afa1911f8f1c" desc="Text on a button to show more info in the infobar">
-    more
-  </message>
   <message name="IDS_DEVTOOLS_ae240dc70adad29732bb1fdf0c746b84" desc="Text to show how many kilobytes the data size is. The number has 1 digit decimal point">
     <ph name="KILOBYTES">$1.1f<ex>2.2</ex></ph> KB
   </message>
@@ -309,8 +309,8 @@
   <message name="IDS_DEVTOOLS_e9947a82726be2fb77368eb27c082402" desc="Placeholder text in Soft Drop Down">
     (no item selected)
   </message>
-  <message name="IDS_DEVTOOLS_f68d3333dcde01f3ef29184f1bcdf1c5" desc="Text on a button to close the infobar or never show the info">
-    never show
+  <message name="IDS_DEVTOOLS_f5395c9793af8a11b406ca7c1ac70da9" desc="Text on a button to show more info in the infobar">
+    Learn More
   </message>
   <message name="IDS_DEVTOOLS_f6c46678b34ad4b4c0241c9487a26b59" desc="Text in the Shortcuts page to explain a keyboard shortcut (increment value by a number in Styles pane) ">
     Increment by <ph name="__">$1f<ex>2.4</ex></ph>

@@ -14,8 +14,10 @@ export class Infobar {
    * @param {!Type} type
    * @param {string} text
    * @param {!Common.Setting=} disableSetting
+   * @param {?function()=} actionCallback
+   * @param {?string=} actionButtonText
    */
-  constructor(type, text, disableSetting) {
+  constructor(type, text, disableSetting, actionCallback, actionButtonText) {
     this.element = createElementWithClass('div', 'flex-none');
     this._shadowRoot = createShadowRootWithCoreStyles(this.element, 'ui/infobar.css');
     this._contentElement = this._shadowRoot.createChild('div', 'infobar infobar-' + type);
@@ -26,14 +28,20 @@ export class Infobar {
     this._mainRowText.textContent = text;
     this._detailsRows = this._contentElement.createChild('div', 'infobar-details-rows hidden');
 
-    this._toggleElement =
-        createTextButton(ls`more`, this._onToggleDetails.bind(this), 'infobar-toggle link-style hidden');
+    if (actionCallback && actionButtonText) {
+      this._actionCallback = actionCallback;
+      const actionButton =
+          createTextButton(actionButtonText, this._onAction.bind(this), 'infobar-toggle primary-button');
+      this._mainRow.appendChild(actionButton);
+    }
+
+    this._toggleElement = createTextButton(ls`Learn More`, this._onToggleDetails.bind(this), 'infobar-toggle hidden');
     this._mainRow.appendChild(this._toggleElement);
 
     /** @type {?Common.Setting} */
     this._disableSetting = disableSetting || null;
     if (disableSetting) {
-      const disableButton = createTextButton(ls`never show`, this._onDisable.bind(this), 'infobar-toggle link-style');
+      const disableButton = createTextButton(ls`Never Show`, this._onDisable.bind(this), 'infobar-toggle');
       this._mainRow.appendChild(disableButton);
     }
 
@@ -49,13 +57,15 @@ export class Infobar {
    * @param {!Type} type
    * @param {string} text
    * @param {!Common.Setting=} disableSetting
+   * @param {!function()=} actionCallback
+   * @param {!string} actionButtonText
    * @return {?Infobar}
    */
-  static create(type, text, disableSetting) {
+  static create(type, text, disableSetting, actionCallback, actionButtonText) {
     if (disableSetting && disableSetting.get()) {
       return null;
     }
-    return new Infobar(type, text, disableSetting);
+    return new Infobar(type, text, disableSetting, actionCallback, actionButtonText);
   }
 
   dispose() {
@@ -103,6 +113,11 @@ export class Infobar {
     this._detailsRows.classList.remove('hidden');
     this._toggleElement.remove();
     this._onResize();
+  }
+
+  _onAction() {
+    this._actionCallback();
+    this.dispose();
   }
 
   /**

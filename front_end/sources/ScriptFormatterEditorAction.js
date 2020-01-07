@@ -63,7 +63,7 @@ Sources.ScriptFormatterEditorAction = class {
     this._sourcesView.addEventListener(Sources.SourcesView.Events.EditorClosed, this._editorClosed.bind(this));
 
     this._button = new UI.ToolbarButton(Common.UIString('Pretty print'), 'largeicon-pretty-print');
-    this._button.addEventListener(UI.ToolbarButton.Events.Click, this._toggleFormatScriptSource, this);
+    this._button.addEventListener(UI.ToolbarButton.Events.Click, this.toggleFormatScriptSource, this);
     this._updateButton(sourcesView.currentUISourceCode());
 
     return this._button;
@@ -92,7 +92,7 @@ Sources.ScriptFormatterEditorAction = class {
   /**
    * @param {!Common.Event} event
    */
-  _toggleFormatScriptSource(event) {
+  toggleFormatScriptSource(event) {
     const uiSourceCode = this._sourcesView.currentUISourceCode();
     if (!this._isFormatableScript(uiSourceCode)) {
       return;
