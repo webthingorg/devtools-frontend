@@ -3,6 +3,7 @@ load('//lib/builders.star',
   'acls',
   'defaults',
   'dimensions',
+  'goma_rbe_prod_default',
 )
 
 BUCKET_NAME='try'
@@ -38,12 +39,12 @@ def presubmit_builder(name, dimensions):
     name=name,
     recipe_name="run_presubmit",
     dimensions=dimensions,
-      properties={
-        "runhooks":True,
-        "solution_name":"devtools-frontend"
-      },
-      priority=25,
-      execution_timeout=5 * time.minute,
+    properties={
+      "runhooks":True,
+      "solution_name":"devtools-frontend"
+    },
+    priority=25,
+    execution_timeout=5 * time.minute,
   )
 
 presubmit_builder(
@@ -62,6 +63,7 @@ try_builder(
   dimensions=dimensions.ubuntu,
   execution_timeout=2 * time.hour,
   build_numbers=True,
+  properties=goma_rbe_prod_default,
 )
 
 try_builder(
@@ -70,6 +72,7 @@ try_builder(
   dimensions=dimensions.baremetal_ubuntu,
   execution_timeout=2 * time.hour,
   build_numbers=True,
+  properties=goma_rbe_prod_default,
 )
 
 try_builder(
@@ -77,6 +80,7 @@ try_builder(
   recipe_name="devtools/devtools-frontend",
   dimensions=dimensions.ubuntu,
   execution_timeout=2 * time.hour,
+  properties=goma_rbe_prod_default,
 )
 
 luci.list_view(

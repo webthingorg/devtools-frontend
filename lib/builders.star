@@ -9,6 +9,13 @@ defaults=struct(
   **{a: getattr(luci.builder.defaults, a) for a in dir(luci.builder.defaults)}
 )
 
+goma_rbe_prod_default= {
+  "$build/goma" : {
+    "server_host": "goma.chromium.org",
+    "rpc_extra_params": "?prod",
+  },
+}
+
 acls=struct(
   readers=acl.entry(
     roles=acl.BUILDBUCKET_READER,
@@ -50,11 +57,12 @@ def builder(
     swarming_tags=defaults.swarming_tags,
     **kvargs):
   """Create builder with dtf defaults"""
-  mastername=kvargs.pop('mastername')
-  properties=kvargs.pop('properties', {})
-  properties.update(mastername=mastername)
-  kvargs['properties']=properties
-  kvargs['executable']=recipe(recipe_name)
+  mastername = kvargs.pop('mastername')
+  properties = kvargs.pop('properties', {})
+  unfrozen_pops = {k: v for k, v in properties.items() }
+  unfrozen_pops.update(mastername=mastername)
+  kvargs['properties'] = unfrozen_pops
+  kvargs['executable'] = recipe(recipe_name)
 
   luci.builder(
     swarming_tags=swarming_tags,
@@ -111,6 +119,7 @@ def generate_ci_configs(configurations, builders):
           mastername="client.devtools-frontend.integration",
           service_account=SERVICE_ACCOUNT,
           schedule="triggered",
+          properties=goma_rbe_prod_default,
           **kvargs
       )
       builders_refs.append((kvargs['name'], category))
