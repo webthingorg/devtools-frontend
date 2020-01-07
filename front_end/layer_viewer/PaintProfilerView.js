@@ -382,6 +382,12 @@ export class PaintProfilerCommandLogView extends UI.ThrottledWidget {
     this._log = [];
   }
 
+  focus() {
+    if (this._treeOutline) {
+      this._treeOutline.focus();
+    }
+  }
+
   /**
    * @param {!Array.<!SDK.PaintProfilerLogItem>} log
    */
