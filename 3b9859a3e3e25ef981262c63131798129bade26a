@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d7ef72b_bbebeba6",
+        "filename": "lib/builders.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-01-07T12:27:34Z",
+      "side": 1,
+      "message": "For some reason the properties dict here is frozen and we cannot update it. Maybe passing a dict as an argument gets it frozen.",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 43
+      },
+      "revId": "3b9859a3e3e25ef981262c63131798129bade26a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
