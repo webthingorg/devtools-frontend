@@ -1,7 +1,8 @@
 {
-  "scripts": [
+  "modules": [
     "fabric.js"
   ],
+  "scripts": [],
   "skip_compilation": [
     "fabric.js"
   ]

@@ -20,3 +20,6 @@ front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 front_end/third_party/
 front_end/wasmparser_worker.js
 scripts/
+
+// For WIP fabric.js clang
+front_end/third_party/fabricjs/fabric.js
