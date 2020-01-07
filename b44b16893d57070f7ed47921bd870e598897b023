@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac5a63c9_b4a9920b",
+        "filename": "BUILD.gn",
+        "patchSetId": 15
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1130280
+      },
+      "writtenOn": "2020-01-07T23:22:27Z",
+      "side": 1,
+      "message": "With the current BUILD.gn, I am getting these errors from |git cl upload|:\n\nDevTools BUILD.gn checker detected errors!\nThere\u0027s an issue with: /Users/------/devtools-standalone/devtools-frontend/BUILD.gn\nCheck that you\u0027ve included [third_party/fabricjs] modules in: generated_non_autostart_non_remote_modules\nFound extraneous modules [fabricjs] in: generated_non_autostart_non_remote_modules\nMissing file in BUILD.gn for all_devtools_files: \"front_end/web_audio_worker/WebAudioWorker.js\",\n\nI think everything is in place. What\u0027s wrong here?",
+      "range": {
+        "startLine": 1105,
+        "startChar": 2,
+        "endLine": 1105,
+        "endChar": 49
+      },
+      "revId": "b44b16893d57070f7ed47921bd870e598897b023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
