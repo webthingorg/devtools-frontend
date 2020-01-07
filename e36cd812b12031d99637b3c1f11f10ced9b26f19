@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f625c732_0515717c",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-01-07T13:26:23Z",
+      "side": 1,
+      "message": "Would it be a problem to just pass this to the presubmit builder as well? It might make the configs here simpler. How about adding it on the builder level?\n\nIn the end we\u0027d want the rbe backend be used by default. Ideally we\u0027d just define it in the builder_defaults on the bucket level once.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 9
+      },
+      "revId": "e36cd812b12031d99637b3c1f11f10ced9b26f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
