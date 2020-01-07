@@ -3,6 +3,7 @@ load('//lib/builders.star',
   'acls',
   'defaults',
   'dimensions',
+  'goma_rbe_prod_default',
 )
 
 BUCKET_NAME='try'
@@ -25,6 +26,10 @@ luci.bucket(
 try_builders=[]
 
 def try_builder(**kvargs):
+  properties = kvargs.pop('properties', {})
+  unfrozen_pops = {k: v for k, v in properties.items() }
+  unfrozen_pops.update(goma_rbe_prod_default)
+  kvargs['properties'] = unfrozen_pops
   builder(
     bucket=BUCKET_NAME,
     mastername="tryserver.devtools-frontend",
@@ -38,12 +43,12 @@ def presubmit_builder(name, dimensions):
     name=name,
     recipe_name="run_presubmit",
     dimensions=dimensions,
-      properties={
-        "runhooks":True,
-        "solution_name":"devtools-frontend"
-      },
-      priority=25,
-      execution_timeout=5 * time.minute,
+    properties={
+      "runhooks":True,
+      "solution_name":"devtools-frontend"
+    },
+    priority=25,
+    execution_timeout=5 * time.minute,
   )
 
 presubmit_builder(
