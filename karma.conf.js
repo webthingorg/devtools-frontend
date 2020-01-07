@@ -36,6 +36,14 @@ module.exports = function(config) {
       './front_end/workspace/*.js': instrumenterPreprocessors,
       './front_end/ui/**/*.js': instrumenterPreprocessors,
       './front_end/sdk/*.js':instrumenterPreprocessors,
+      './front_end/common/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/workspace/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/ui/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/text_utils/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/inline_editor/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/protocol/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/persistence/*.js': ['karma-coverage-istanbul-instrumenter'],
+      './front_end/formatter_worker/*.js': ['karma-coverage-istanbul-instrumenter']
     },
 
     browsers,
