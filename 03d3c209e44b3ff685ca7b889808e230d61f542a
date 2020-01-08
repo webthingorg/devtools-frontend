@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16af2c89_17410e90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-08T18:43:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93bd32fd_15dfb58e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8f19b14_7fb13c3d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cf443cd4_fde3391e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-08T18:43:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8f19b14_7fb13c3d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef4f58ca_befb035b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -68,6 +116,30 @@
       "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbeb8db1_607b1dff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-08T18:43:42Z",
+      "side": 1,
+      "message": "Same Keydown handler is used by Arrow/Enter/Esc keys and since the fix are inter-related keeping it in a single change.",
+      "parentUuid": "ef4f58ca_befb035b",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
