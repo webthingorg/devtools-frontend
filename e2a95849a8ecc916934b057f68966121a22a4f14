@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d97c4c0f_6fff9e39",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "this test should be joined with the first one since they both seem to test the exact same action",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7f06c0_507e8dac",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "nit: no need for \"if present\" because it is implied",
+      "range": {
+        "startLine": 46,
+        "startChar": 38,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c25aa69_b1027efc",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "prefer to use \"displayName function\" so the test\u0027s full name becomes \"UISourceCode displayName function does something\"",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 25
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bfb6a6d_80bc691e",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "prefer if \"context\" was used here",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 10
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0239c14_d30a68a3",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "nit: can you add more context to this to differentiate it from the next one?",
+      "range": {
+        "startLine": 55,
+        "startChar": 7,
+        "endLine": 55,
+        "endChar": 20
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30b52737_ef656937",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "prefer to use context",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 21
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00bdc664_9791f85f",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "try to describe the action you are testing instead of only the special condition of that action\nfor example here it is better to say \"returns an empty array after initialisation\"",
+      "range": {
+        "startLine": 92,
+        "startChar": 9,
+        "endLine": 92,
+        "endChar": 21
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eab42f4_2ce12866",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "this would be better if it was directly under the main describe block\ni.e. \"UISourceCode can add and retrieve a message\" is more clear than \"UISourceCode messages can add and retrieve a message\" because messages is not the entity that did the action",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 40
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8d92700_f2e74aed",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "\"removeMessage function\" here is more descriptive",
+      "range": {
+        "startLine": 150,
+        "startChar": 9,
+        "endLine": 150,
+        "endChar": 15
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bed9269c_05cad47d",
+        "filename": "test/unittests/front_end/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-08T10:01:02Z",
+      "side": 1,
+      "message": "what is the action being tested here?",
+      "range": {
+        "startLine": 309,
+        "startChar": 7,
+        "endLine": 309,
+        "endChar": 36
+      },
+      "revId": "e2a95849a8ecc916934b057f68966121a22a4f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
