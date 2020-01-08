@@ -16,6 +16,24 @@
       "revId": "c248d8aaa021c0d874e9bfbf3709086333c03d2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c414c8de_84cb2cf2",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-08T23:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca3ccab3_430e6c81",
+      "revId": "c248d8aaa021c0d874e9bfbf3709086333c03d2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
