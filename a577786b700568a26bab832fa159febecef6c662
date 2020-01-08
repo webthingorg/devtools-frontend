@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a12466e1_525cfcef",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-01-08T19:43:04Z",
+      "side": 1,
+      "message": "Please comment if you think this wording could be improved, I want to make sure its as clear as possible.",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
