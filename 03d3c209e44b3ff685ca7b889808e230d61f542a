@@ -91,6 +91,30 @@
       "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e62236a2_9f123a88",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-08T18:35:11Z",
+      "side": 1,
+      "message": "Focus is needed here to update color value in text-box and sliders.\nKeydown handler updates focus position in the grid.\nSo, when user presses arrow keys they can get updated color values in text-box and sliders.",
+      "parentUuid": "a758333f_4f2a30d7",
+      "range": {
+        "startLine": 452,
+        "startChar": 37,
+        "endLine": 452,
+        "endChar": 42
+      },
+      "revId": "03d3c209e44b3ff685ca7b889808e230d61f542a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
