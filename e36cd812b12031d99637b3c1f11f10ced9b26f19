@@ -69,6 +69,30 @@
       "revId": "e36cd812b12031d99637b3c1f11f10ced9b26f19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94b0a23d_f86e5ef8",
+        "filename": "lib/builders.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-01-08T09:18:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4eeb05a_b2d1c6eb",
+      "range": {
+        "startLine": 62,
+        "startChar": 36,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "e36cd812b12031d99637b3c1f11f10ced9b26f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
