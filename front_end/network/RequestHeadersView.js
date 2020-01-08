@@ -621,7 +621,9 @@ export class RequestHeadersView extends UI.VBox {
     this._refreshHeadersTitle(title, headersTreeElement, length);
 
     if (provisionalHeaders) {
-      const cautionText = Common.UIString('Provisional headers are shown');
+      const cautionText = this._request.cachedInMemory() || this._request.cached() ? ls
+      `Provisional headers are shown. This request was not sent over the network and was served from a local cache.`: ls
+      `Provisional headers are shown`;
       const cautionFragment = createDocumentFragment();
       cautionFragment.createChild('span', '', 'dt-icon-label').type = 'smallicon-warning';
       cautionFragment.createChild('div', 'caution').textContent = cautionText;
