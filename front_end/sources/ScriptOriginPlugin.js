@@ -24,9 +24,9 @@ Sources.ScriptOriginPlugin = class extends Sources.UISourceCodeFrame.Plugin {
 
   /**
    * @override
-   * @return {!Array<!UI.ToolbarItem>}
+   * @return {!Promise<!Array<!UI.ToolbarItem>>}
    */
-  rightToolbarItems() {
+  async rightToolbarItems() {
     const originURL = Bindings.CompilerScriptMapping.uiSourceCodeOrigin(this._uiSourceCode);
     if (originURL) {
       const item = UI.formatLocalized('(source mapped from %s)', [Components.Linkifier.linkifyURL(originURL)]);
@@ -34,7 +34,7 @@ Sources.ScriptOriginPlugin = class extends Sources.UISourceCodeFrame.Plugin {
     }
 
     // Handle anonymous scripts with an originStackTrace.
-    const script = Sources.ScriptOriginPlugin._script(this._uiSourceCode);
+    const script = await Sources.ScriptOriginPlugin._script(this._uiSourceCode);
     if (!script || !script.originStackTrace) {
       return [];
     }
@@ -45,10 +45,10 @@ Sources.ScriptOriginPlugin = class extends Sources.UISourceCodeFrame.Plugin {
 
   /**
    * @param {!Workspace.UISourceCode} uiSourceCode
-   * @return {?SDK.Script}
+   * @return {!Promise<?SDK.Script>}
    */
-  static _script(uiSourceCode) {
-    const locations = Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, 0, 0);
+  static async _script(uiSourceCode) {
+    const locations = await Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, 0, 0);
     for (const location of locations) {
       const script = location.script();
       if (script && script.originStackTrace) {

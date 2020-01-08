@@ -52,9 +52,9 @@ Resources.DatabaseTableView = class extends UI.SimpleView {
 
   /**
    * @override
-   * @return {!Array.<!UI.ToolbarItem>}
+   * @return {!Promise<!Array<!UI.ToolbarItem>>}
    */
-  syncToolbarItems() {
+  async toolbarItems() {
     return [this.refreshButton, this._visibleColumnsInput];
   }
 

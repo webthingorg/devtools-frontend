@@ -80,9 +80,9 @@ Sources.CoveragePlugin = class extends Sources.UISourceCodeFrame.Plugin {
 
   /**
    * @override
-   * @return {!Array<!UI.ToolbarItem>}
+   * @return {!Promise<!Array<!UI.ToolbarItem>>}
    */
-  rightToolbarItems() {
+  async rightToolbarItems() {
     return [this._text];
   }
 };

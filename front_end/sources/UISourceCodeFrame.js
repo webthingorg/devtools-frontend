@@ -578,14 +578,14 @@ Sources.UISourceCodeFrame = class extends SourceFrame.SourceFrame {
 
   /**
    * @override
-   * @return {!Array<!UI.ToolbarItem>}
+   * @return {!Promise<!Array<!UI.ToolbarItem>>}
    */
-  syncToolbarItems() {
-    const leftToolbarItems = super.syncToolbarItems();
+  async toolbarItems() {
+    const leftToolbarItems = await super.toolbarItems();
     const rightToolbarItems = [];
     for (const plugin of this._plugins) {
       leftToolbarItems.pushAll(plugin.leftToolbarItems());
-      rightToolbarItems.pushAll(plugin.rightToolbarItems());
+      rightToolbarItems.pushAll(await plugin.rightToolbarItems());
     }
 
     if (!rightToolbarItems.length) {
@@ -866,9 +866,9 @@ Sources.UISourceCodeFrame.Plugin = class {
   }
 
   /**
-   * @return {!Array<!UI.ToolbarItem>}
+   * @return {!Promise<!Array<!UI.ToolbarItem>>}
    */
-  rightToolbarItems() {
+  async rightToolbarItems() {
     return [];
   }
 

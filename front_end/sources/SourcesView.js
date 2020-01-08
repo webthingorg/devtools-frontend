@@ -364,9 +364,9 @@ Sources.SourcesView = class extends UI.VBox {
     this._scriptViewToolbar.removeToolbarItems();
     const view = this.visibleView();
     if (view instanceof UI.SimpleView) {
-      for (const item of (/** @type {?UI.SimpleView} */ (view)).syncToolbarItems()) {
-        this._scriptViewToolbar.appendToolbarItem(item);
-      }
+      (/** @type {?UI.SimpleView} */ (view)).toolbarItems().then(items => {
+        items.map(item => this._scriptViewToolbar.appendToolbarItem(item));
+      });
     }
   }
 
