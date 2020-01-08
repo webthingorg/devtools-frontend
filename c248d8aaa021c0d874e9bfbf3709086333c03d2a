@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca3ccab3_430e6c81",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-08T01:30:14Z",
+      "side": 1,
+      "message": "I notice that you\u0027re not looking at any modifiers here (alt/ctrl/shift). One thing that you might consider -- I noticed that you already reduced travel. You could take advantage of the availability of the modifiers such that, for example, if you\u0027re holding Shift, that perhaps the actual change is just one pixel?",
+      "revId": "c248d8aaa021c0d874e9bfbf3709086333c03d2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
