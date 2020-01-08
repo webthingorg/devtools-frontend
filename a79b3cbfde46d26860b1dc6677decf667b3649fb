@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "beaa49fe_19a05d6f",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-01-08T15:06:19Z",
+      "side": 1,
+      "message": "Maybe this should have a different mastername (e.g. chromium.devtools-frontend)? Not sure how e.g. gatekeeper treats this. It usually tracks revisions and here we\u0027d have different consoles with different kinds of revisions.",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 72
+      },
+      "revId": "a79b3cbfde46d26860b1dc6677decf667b3649fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
