@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fe5197e6_9297c02b",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-01-08T19:57:15Z",
+      "side": 1,
+      "message": "Removed this function in new commit.",
+      "parentUuid": "7a030ea7_c2772643",
+      "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a791ec1f_4b8317fd",
         "filename": "front_end/profiler/IsolateSelector.js",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0ef5029_63f862cc",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-01-08T19:57:15Z",
+      "side": 1,
+      "message": "Removed this function in new commit.",
+      "parentUuid": "a791ec1f_4b8317fd",
+      "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -68,6 +104,24 @@
       "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587c279e_08cc4435",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-01-08T19:57:15Z",
+      "side": 1,
+      "message": "I guess in this scenario, less is more.  Removed the aria-label from the parent element, so all the info in the child elements are read.",
+      "parentUuid": "b7013b53_4a5cc9c8",
+      "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
