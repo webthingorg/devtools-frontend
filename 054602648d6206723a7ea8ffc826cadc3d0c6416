@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a030ea7_c2772643",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-08T01:11:58Z",
+      "side": 1,
+      "message": "Out of curiosity, why does updateStats call into updateHeapAndTrendTitle but updateTitle doesn\u0027t?",
+      "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a791ec1f_4b8317fd",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-08T01:11:58Z",
+      "side": 1,
+      "message": "Capitalize \"And\" or consider a different name (e.g., _updateTitles).",
+      "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "916f6f25_82da7735",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-08T01:11:58Z",
+      "side": 1,
+      "message": "Could we achieve the same effect just by assigning a different role to this element? It seems to me that all of these data are already part of the parent element and we don\u0027t need to construct this text explicitly.",
+      "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
