@@ -9,6 +9,9 @@
   <message name="IDS_DEVTOOLS_19dcdfb6d075db15609e75214f67189f" desc="A context menu item in the Spectrum of the Color Picker">
     Remove all to the right
   </message>
+  <message name="IDS_DEVTOOLS_1cfdcfebce0c6bb24c2511c195e271c0" desc="Aria label for swatch in Color Picker">
+    Move color swatch position using arrow keys with or without Alt, Ctrl, Shift keys. Alt moves ±1px, Ctrl moves ±10px, Shift moves ±20px
+  </message>
   <message name="IDS_DEVTOOLS_2e8882b1e1deaa1bb50cbdfe188755f6" desc="Swatch copy icon title in Spectrum of the Color Picker">
     Copy color to clipboard
   </message>
