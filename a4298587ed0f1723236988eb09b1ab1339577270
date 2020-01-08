@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "648e3ede_c60c2fc3",
+        "filename": "karma.conf.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-08T13:51:41Z",
+      "side": 1,
+      "message": "can you remove dupes and change it to use instrumenterPreprocessors?",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 83
+      },
+      "revId": "a4298587ed0f1723236988eb09b1ab1339577270",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
