@@ -50,6 +50,24 @@
       "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7013b53_4a5cc9c8",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-08T01:22:39Z",
+      "side": 1,
+      "message": "FWIW: Removing the aria-label attribute from these elements seems (for the most part) to get this announced correctly. The only thing unexpected is that NVDA appears to read out the emoji for up-arrow or down-arrow; this can be addressed by giving that emoji a separate aria-label I think for \"increasing\" or \"decreasing\".",
+      "parentUuid": "916f6f25_82da7735",
+      "revId": "054602648d6206723a7ea8ffc826cadc3d0c6416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
