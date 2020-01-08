@@ -135,9 +135,18 @@ Profiler.IsolateSelector = class extends UI.VBox {
       return;
     }
     const changeRateText = Number.bytesToString(Math.abs(changeRateBytesPerSecond));
-    const changeText = changeRateBytesPerSecond > 0 ? ls`\u2B06${changeRateText}/s` : ls`\u2B07${changeRateText}/s`;
-    element.classList.toggle('increasing', changeRateBytesPerSecond > 0);
+    let changeText, changeLabel;
+    if (changeRateBytesPerSecond > 0) {
+      changeText = ls`\u2B06${changeRateText}/s`;
+      element.classList.toggle('increasing', true);
+      changeLabel = ls`increasing by ${changeRateText} per second`;
+    } else {
+      changeText = ls`\u2B07${changeRateText}/s`;
+      element.classList.toggle('increasing', false);
+      changeLabel = ls`decreasing by ${changeRateText} per second`;
+    }
     element.textContent = changeText;
+    UI.ARIAUtils.setAccessibleName(element, changeLabel);
   }
 
   /**
@@ -257,6 +266,5 @@ Profiler.IsolateSelector.ListItem = class {
       titleDiv.textContent = title;
       titleDiv.title = title;
     }
-    UI.ARIAUtils.setAccessibleName(this.element, titles.join(' '));
   }
 };
