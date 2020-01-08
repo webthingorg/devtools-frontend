@@ -235,6 +235,7 @@ Profiler.IsolateSelector.ListItem = class {
   updateStats() {
     this._heapDiv.textContent = Number.bytesToString(this._isolate.usedHeapSize());
     Profiler.IsolateSelector._formatTrendElement(this._isolate.usedHeapSizeGrowRate(), this._trendDiv);
+    this._updateHeapandTrendTitle();
   }
 
   updateTitle() {
@@ -258,5 +259,14 @@ Profiler.IsolateSelector.ListItem = class {
       titleDiv.title = title;
     }
     UI.ARIAUtils.setAccessibleName(this.element, titles.join(' '));
+  }
+
+  _updateHeapandTrendTitle() {
+    const title = this._nameDiv.textContent;
+    const trendText = this._trendDiv.textContent;
+    const heapSize = this._heapDiv.textContent;
+    const isolateItemLabel =
+        trendText ? ls`${title}. Size: ${heapSize} Trend: ${trendText}` : ls`${title}. Size: ${heapSize}`;
+    UI.ARIAUtils.setAccessibleName(this.element, isolateItemLabel);
   }
 };

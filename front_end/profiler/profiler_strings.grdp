@@ -285,6 +285,9 @@
   <message name="IDS_DEVTOOLS_9794a8cf80d4f6b67dca3c7381847486" desc="Text in Heap Profile View of a profiler tool">
     Self Size (bytes)
   </message>
+  <message name="IDS_DEVTOOLS_9ab77483d5ad314b699699fca7f5a6ef" desc="Accessiblity label for Isolate Selector List Item without trend">
+    <ph name="TITLES_JOIN_____">$1s<ex>www.bing.com</ex></ph>. Size: <ph name="HEAPSIZE">$2s<ex>22.0 MB</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_9ccdcfe3ec0fcd5347317f78efd9af9b" desc="Data grid name for Heap Snapshot Constructors data grids">
     Heap Snapshot Constructors
   </message>
@@ -444,6 +447,9 @@
   </message>
   <message name="IDS_DEVTOOLS_fbbe8b507083defdbfe14a341551c77b" desc="Text in CPUProfile View of a profiler tool">
     CPU profiles show where the execution time is spent in your page&apos;s JavaScript functions.
+  </message>
+  <message name="IDS_DEVTOOLS_ff6a09a42de2f78207f08a20544bf40b" desc="Accessiblity label for Isolate Selector List Item with trend">
+    <ph name="TITLES_JOIN_____">$1s<ex>www.bing.com</ex></ph>. Size: <ph name="HEAPSIZE">$2s<ex>22.0 MB</ex></ph> Trend: <ph name="TRENDTEXT">$3s<ex>⬆6.5 KB/s</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_ffd4ebcdf9ad139d4cd2c84d853f4f34" desc="Text in Heap Profile View of a profiler tool">
     Total Size (bytes)
