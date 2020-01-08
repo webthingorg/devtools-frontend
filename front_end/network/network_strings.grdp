@@ -399,6 +399,12 @@
   <message name="IDS_DEVTOOLS_da3211be40e2b7282b37431dc1e6ceb6" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Googlebot Desktop</ph>
   </message>
+  <message name="IDS_DEVTOOLS_de9b14d980b77c264d42463f407180be" desc="Message to explain lack of raw headers for a particular network request">
+    Provisional headers are shown
+  </message>
+  <message name="IDS_DEVTOOLS_0a05adfdc6d70f6743f9cdc30ca52716" desc="Message to explain lack of raw headers for a particular network request served from local cache">
+    Provisional headers are shown. This request was not sent over the network and was served from a local cache.
+  </message>
   <message name="IDS_DEVTOOLS_e4217cfa8bdee0baaa2249db59b8671b" desc="Text for toggling the view of header data (e.g. query string parameters) from source to parsed in the headers tab">
     View parsed
   </message>
@@ -836,9 +842,6 @@
   </message>
   <message name="IDS_DEVTOOLS_de99618e7e2cc63c7262c12965fa31f3" desc="Latency format in Network Time Calculator of the Network panel">
     <ph name="PH1">$1s<ex>20ms</ex></ph> latency
-  </message>
-  <message name="IDS_DEVTOOLS_de9b14d980b77c264d42463f407180be" desc="Text in Request Headers View of the Network panel">
-    Provisional headers are shown
   </message>
   <message name="IDS_DEVTOOLS_df080c10e2e9f1e98c180fe2645f6132" desc="Text in Request Headers View of the Network panel">
     Request URL
