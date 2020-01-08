@@ -242,12 +242,11 @@ export default class RequestCookiesView extends UI.Widget {
     this._request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this._cookiesUpdated, this);
     this._request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this._cookiesUpdated, this);
 
-    if (this._gotCookies()) {
-      this._refreshRequestCookiesView();
+    this._refreshRequestCookiesView();
+    if (this._gotCookies())
       this._emptyWidget.hideWidget();
-    } else {
+    else
       this._emptyWidget.showWidget();
-    }
   }
 
   /**
@@ -270,12 +269,11 @@ export default class RequestCookiesView extends UI.Widget {
       return;
     }
 
-    if (this._gotCookies()) {
-      this._refreshRequestCookiesView();
+    this._refreshRequestCookiesView();
+    if (this._gotCookies())
       this._emptyWidget.hideWidget();
-    } else {
+    else
       this._emptyWidget.showWidget();
-    }
   }
 }
 
