@@ -46,6 +46,29 @@
       "revId": "e36cd812b12031d99637b3c1f11f10ced9b26f19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4eeb05a_b2d1c6eb",
+        "filename": "lib/builders.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-01-08T08:02:05Z",
+      "side": 1,
+      "message": "Is it not possible to squeeze in the goma defaults here? Then there are no changes in try.star required and also not in ci_builder.\n\nEven easier would be if the property would show up in the bucket\u0027s builder_defaults, e.g. like here: https://chromium.googlesource.com/v8/v8/+/refs/heads/infra/config/cr-buildbucket.cfg#2034\n\nNot sure yet how to add that in starlark, but that\u0027d just be a 3-line change I think... for each bucket.",
+      "range": {
+        "startLine": 62,
+        "startChar": 36,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "e36cd812b12031d99637b3c1f11f10ced9b26f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
