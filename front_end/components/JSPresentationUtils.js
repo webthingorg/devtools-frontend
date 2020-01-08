@@ -32,11 +32,11 @@
 /**
  * @param {?SDK.Target} target
  * @param {!Components.Linkifier} linkifier
- * @param {!Protocol.Runtime.StackTrace=} stackTrace
- * @param {function()=} contentUpdated
+ * @param {!Components.JSPresentationUtils.Options=} options
  * @return {{element: !Element, links: !Array<!Element>}}
  */
-export function buildStackTracePreviewContents(target, linkifier, stackTrace, contentUpdated) {
+export function buildStackTracePreviewContents(target, linkifier, options = {}) {
+  const {stackTrace, contentUpdated, tabStops} = options;
   const element = createElementWithClass('span', 'monospace');
   element.style.display = 'inline-block';
   const shadowRoot = UI.createShadowRootWithCoreStyles(element, 'components/jsUtils.css');
@@ -58,7 +58,7 @@ export function buildStackTracePreviewContents(target, linkifier, stackTrace, co
       const row = createElement('tr');
       row.createChild('td').textContent = '\n';
       row.createChild('td', 'function-name').textContent = UI.beautifyFunctionName(stackFrame.functionName);
-      const link = linkifier.maybeLinkifyConsoleCallFrame(target, stackFrame);
+      const link = linkifier.maybeLinkifyConsoleCallFrame(target, stackFrame, {tabStop: !!tabStops});
       if (link) {
         link.addEventListener('contextmenu', populateContextMenu.bind(null, link));
         const uiLocation = Components.Linkifier.uiLocation(link);
@@ -155,3 +155,12 @@ Components = Components || {};
 Components.JSPresentationUtils = {};
 
 Components.JSPresentationUtils.buildStackTracePreviewContents = buildStackTracePreviewContents;
+
+/**
+ * @typedef {{
+ *   stackTrace: (!Protocol.Runtime.StackTrace|undefined),
+ *   contentUpdated: (function()|undefined),
+ *   tabStops: (boolean|undefined)
+ * }}
+ */
+Components.JSPresentationUtils.Options;
