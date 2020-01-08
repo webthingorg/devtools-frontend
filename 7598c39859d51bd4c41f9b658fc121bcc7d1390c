@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "faf9dc8a_44ec1827",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-01-08T01:50:20Z",
+      "side": 1,
+      "message": "I\u0027ve renamed this to be `toggleScrollPastEof` to be explicitly clear what the public API is for.\n\nI decided to leave the property name for object `padBottom` as it affects the CodeMirror configuration interface, and CodeMirror is used in other places where scrolling isn\u0027t meaningful or used. That said, I\u0027m open to also changing that to `allowScrollPastEof` or something similar, because I can\u0027t explicitly think of a reason to use `padBottom` other than for scrolling/overflow purposes.",
+      "parentUuid": "8ce6da08_779967df",
+      "revId": "7598c39859d51bd4c41f9b658fc121bcc7d1390c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77468b37_b4ae1d5f",
         "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "7598c39859d51bd4c41f9b658fc121bcc7d1390c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea986c0_6e971af2",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-01-08T01:50:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "77468b37_b4ae1d5f",
+      "revId": "7598c39859d51bd4c41f9b658fc121bcc7d1390c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c54f43c6_9600bad9",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-01-08T01:50:20Z",
+      "side": 1,
+      "message": "Good question... to be honest, I forgot why I added this parameter. After some testing the feature works without it, so I\u0027ve removed the modifications to `_resizeEditor`.",
+      "parentUuid": "1f43b21f_5246e85a",
+      "revId": "7598c39859d51bd4c41f9b658fc121bcc7d1390c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cb89152_8ee43831",
         "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c1dc0341_2c87be09",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-01-08T01:50:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8cb89152_8ee43831",
+      "revId": "7598c39859d51bd4c41f9b658fc121bcc7d1390c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "580a37f2_ba5f4d38",
         "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
         "patchSetId": 1
@@ -84,6 +156,24 @@
       "revId": "7598c39859d51bd4c41f9b658fc121bcc7d1390c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba7fdc1e_0ce761aa",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-01-08T01:50:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "580a37f2_ba5f4d38",
+      "revId": "7598c39859d51bd4c41f9b658fc121bcc7d1390c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
