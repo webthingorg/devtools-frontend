@@ -592,6 +592,7 @@ all_devtools_modules = [
   "front_end/css_overview/CSSOverviewStartView.js",
   "front_end/css_overview/CSSOverviewUnusedDeclarations.js",
   "front_end/data_grid/data_grid.js",
+  "front_end/data_grid/data_grid-legacy.js",
   "front_end/data_grid/DataGrid.js",
   "front_end/data_grid/ShowMoreDataGridNode.js",
   "front_end/data_grid/SortableDataGrid.js",
@@ -1445,6 +1446,7 @@ copied_devtools_modules = [
   "$resources_out_dir/css_overview/CSSOverviewStartView.js",
   "$resources_out_dir/css_overview/CSSOverviewUnusedDeclarations.js",
   "$resources_out_dir/data_grid/data_grid.js",
+  "$resources_out_dir/data_grid/data_grid-legacy.js",
   "$resources_out_dir/data_grid/DataGrid.js",
   "$resources_out_dir/data_grid/ShowMoreDataGridNode.js",
   "$resources_out_dir/data_grid/SortableDataGrid.js",
@@ -2188,8 +2190,11 @@ action("generate_devtools_grd") {
     "front_end",
   ]
 
-  args = ["--file-list", "{{response_file_name}}", "--relative_path_dirs" ] +
-         rebase_path(relative_path_dirs, root_build_dir) +
+  args = [
+           "--file-list",
+           "{{response_file_name}}",
+           "--relative_path_dirs",
+         ] + rebase_path(relative_path_dirs, root_build_dir) +
          [
            "--images",
            rebase_path("front_end/Images", root_build_dir),
