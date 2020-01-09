@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f97fb23b_f42e59b9",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-09T14:42:18Z",
+      "side": 1,
+      "message": "Much nicer! Thanks :)",
+      "revId": "a84d76261dcfead50e7ffe7216104698a9bcbb4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
