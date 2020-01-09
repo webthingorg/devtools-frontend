@@ -26,12 +26,16 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import {ContrastDetails, Events as ContrastDetailsEvents} from './ContrastDetails.js';
+import {ContrastInfo} from './ContrastInfo.js';  // eslint-disable-line no-unused-vars
+import {ContrastOverlay} from './ContrastOverlay.js';
+
 /**
  * @unrestricted
  */
 export class Spectrum extends UI.VBox {
   /**
-   * @param {?ColorPicker.ContrastInfo=} contrastInfo
+   * @param {?ContrastInfo=} contrastInfo
    */
   constructor(contrastInfo) {
     /**
@@ -133,8 +137,8 @@ export class Spectrum extends UI.VBox {
     // Color contrast business.
     if (contrastInfo) {
       this._contrastInfo = contrastInfo;
-      this._contrastOverlay = new ColorPicker.ContrastOverlay(this._contrastInfo, this._colorElement);
-      this._contrastDetails = new ColorPicker.ContrastDetails(
+      this._contrastOverlay = new ContrastOverlay(this._contrastInfo, this._colorElement);
+      this._contrastDetails = new ContrastDetails(
           this._contrastInfo, this.contentElement, this._toggleColorPicker.bind(this),
           this._contrastPanelExpanded.bind(this));
 
@@ -193,7 +197,7 @@ export class Spectrum extends UI.VBox {
      * @param {function(!Event)} callback
      * @param {!Event} event
      * @return {boolean}
-     * @this {ColorPicker.Spectrum}
+     * @this {Spectrum}
      */
     function dragStart(callback, event) {
       this._colorOffset = this._colorElement.totalOffset();
@@ -222,7 +226,7 @@ export class Spectrum extends UI.VBox {
 
     /**
      * @param {!Event} event
-     * @this {ColorPicker.Spectrum}
+     * @this {Spectrum}
      */
     function positionHue(event) {
       const hsva = this._hsv.slice();
@@ -238,7 +242,7 @@ export class Spectrum extends UI.VBox {
 
     /**
      * @param {!Event} event
-     * @this {ColorPicker.Spectrum}
+     * @this {Spectrum}
      */
     function positionAlpha(event) {
       const hsva = this._hsv.slice();
@@ -254,7 +258,7 @@ export class Spectrum extends UI.VBox {
 
     /**
      * @param {!Event} event
-     * @this {ColorPicker.Spectrum}
+     * @this {Spectrum}
      */
     function positionColor(event) {
       const hsva = this._hsv.slice();
@@ -422,7 +426,7 @@ export class Spectrum extends UI.VBox {
   _showLightnessShades(colorElement, colorText, event) {
     /**
      * @param {!Element} element
-     * @this {!ColorPicker.Spectrum}
+     * @this {!Spectrum}
      */
     function closeLightnessShades(element) {
       this._shadesContainer.classList.add('hidden');
@@ -1028,7 +1032,7 @@ export class Spectrum extends UI.VBox {
 
     if (this._contrastDetails) {
       this._contrastDetails.addEventListener(
-          ColorPicker.ContrastDetails.Events.BackgroundColorPickerWillBeToggled,
+          ContrastDetailsEvents.BackgroundColorPickerWillBeToggled,
           this._contrastDetailsBackgroundColorPickedToggledBound);
     }
   }
@@ -1040,7 +1044,7 @@ export class Spectrum extends UI.VBox {
     this._toggleColorPicker(false);
     if (this._contrastDetails) {
       this._contrastDetails.removeEventListener(
-          ColorPicker.ContrastDetails.Events.BackgroundColorPickerWillBeToggled,
+          ContrastDetailsEvents.BackgroundColorPickerWillBeToggled,
           this._contrastDetailsBackgroundColorPickedToggledBound);
     }
   }
@@ -1296,25 +1300,3 @@ export class Swatch {
     UI.ARIAUtils.setPressed(this._swatchOverlayElement, false);
   }
 }
-
-/* Legacy exported object */
-self.ColorPicker = self.ColorPicker || {};
-
-/* Legacy exported object */
-ColorPicker = ColorPicker || {};
-
-/** @constructor */
-ColorPicker.Spectrum = Spectrum;
-
-/** @constructor */
-ColorPicker.Spectrum.PaletteGenerator = PaletteGenerator;
-
-ColorPicker.Spectrum._ChangeSource = _ChangeSource;
-
-/** @constructor */
-ColorPicker.Spectrum.Swatch = Swatch;
-
-ColorPicker.Spectrum.Events = Events;
-
-/** @typedef {{ title: string, colors: !Array<string>, colorNames: !Array<string>, mutable: boolean }} */
-ColorPicker.Spectrum.Palette;
