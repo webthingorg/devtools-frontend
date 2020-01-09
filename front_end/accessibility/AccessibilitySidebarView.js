@@ -1,21 +1,27 @@
 // Copyright 2015 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
+import {AccessibilityModel, AccessibilityNode} from './AccessibilityModel.js';  // eslint-disable-line no-unused-vars
+import {AXNodeSubPane} from './AccessibilityNodeView.js';
+import {ARIAAttributesPane} from './ARIAAttributesView.js';
+import {AXBreadcrumbsPane} from './AXBreadcrumbsPane.js';
+
 /**
  * @unrestricted
  */
-export default class AccessibilitySidebarView extends UI.ThrottledWidget {
+export class AccessibilitySidebarView extends UI.ThrottledWidget {
   constructor() {
     super();
     this._node = null;
     this._axNode = null;
     this._skipNextPullNode = false;
     this._sidebarPaneStack = UI.viewManager.createStackLocation();
-    this._breadcrumbsSubPane = new Accessibility.AXBreadcrumbsPane(this);
+    this._breadcrumbsSubPane = new AXBreadcrumbsPane(this);
     this._sidebarPaneStack.showView(this._breadcrumbsSubPane);
-    this._ariaSubPane = new Accessibility.ARIAAttributesPane();
+    this._ariaSubPane = new ARIAAttributesPane();
     this._sidebarPaneStack.showView(this._ariaSubPane);
-    this._axNodeSubPane = new Accessibility.AXNodeSubPane();
+    this._axNodeSubPane = new AXNodeSubPane();
     this._sidebarPaneStack.showView(this._axNodeSubPane);
     this._sidebarPaneStack.widget().show(this.element);
     UI.context.addFlavorChangeListener(SDK.DOMNode, this._pullNode, this);
@@ -30,7 +36,7 @@ export default class AccessibilitySidebarView extends UI.ThrottledWidget {
   }
 
   /**
-   * @return {?Accessibility.AccessibilityNode}
+   * @return {?AccessibilityNode}
    */
   axNode() {
     return this._axNode;
@@ -47,7 +53,7 @@ export default class AccessibilitySidebarView extends UI.ThrottledWidget {
   }
 
   /**
-   * @param {?Accessibility.AccessibilityNode} axNode
+   * @param {?AccessibilityNode} axNode
    */
   accessibilityNodeCallback(axNode) {
     if (!axNode) {
@@ -83,7 +89,7 @@ export default class AccessibilitySidebarView extends UI.ThrottledWidget {
     if (!node) {
       return Promise.resolve();
     }
-    const accessibilityModel = node.domModel().target().model(Accessibility.AccessibilityModel);
+    const accessibilityModel = node.domModel().target().model(AccessibilityModel);
     accessibilityModel.clear();
     return accessibilityModel.requestPartialAXTree(node).then(() => {
       this.accessibilityNodeCallback(accessibilityModel.axNodeForDOMNode(node));
@@ -166,12 +172,16 @@ export class AccessibilitySubPane extends UI.SimpleView {
   constructor(name) {
     super(name);
 
+    /**
+     * @protected
+     * @suppress {accessControls}
+     */
     this._axNode = null;
     this.registerRequiredCSS('accessibility/accessibilityProperties.css');
   }
 
   /**
-   * @param {?Accessibility.AccessibilityNode} axNode
+   * @param {?AccessibilityNode} axNode
    * @protected
    */
   setAXNode(axNode) {
@@ -218,19 +228,3 @@ export class AccessibilitySubPane extends UI.SimpleView {
     return treeOutline;
   }
 }
-
-/* Legacy exported object */
-self.Accessibility = self.Accessibility || {};
-
-/* Legacy exported object */
-Accessibility = Accessibility || {};
-
-/**
- * @constructor
- */
-Accessibility.AccessibilitySidebarView = AccessibilitySidebarView;
-
-/**
- * @constructor
- */
-Accessibility.AccessibilitySubPane = AccessibilitySubPane;
