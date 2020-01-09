@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f939ae7_9fae91e0",
+        "filename": "front_end/accessibility/accessibility-legacy.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-09T12:37:20Z",
+      "side": 1,
+      "message": "This should not be here. The ARIAProperties needs an `export const config` and import it here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "99a98ca7a3fa0101fec83bfd7c68130f76e3194c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
