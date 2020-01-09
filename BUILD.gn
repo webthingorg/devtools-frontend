@@ -566,6 +566,7 @@ all_devtools_modules = [
   "front_end/console_counters/console_counters.js",
   "front_end/console_counters/WarningErrorCounter.js",
   "front_end/console/console.js",
+  "front_end/console/console-legacy.js",
   "front_end/console/ConsoleContextSelector.js",
   "front_end/console/ConsoleFilter.js",
   "front_end/console/ConsolePanel.js",
@@ -1419,6 +1420,7 @@ copied_devtools_modules = [
   "$resources_out_dir/console_counters/console_counters.js",
   "$resources_out_dir/console_counters/WarningErrorCounter.js",
   "$resources_out_dir/console/console.js",
+  "$resources_out_dir/console/console-legacy.js",
   "$resources_out_dir/console/ConsoleContextSelector.js",
   "$resources_out_dir/console/ConsoleFilter.js",
   "$resources_out_dir/console/ConsolePanel.js",
@@ -2188,8 +2190,11 @@ action("generate_devtools_grd") {
     "front_end",
   ]
 
-  args = ["--file-list", "{{response_file_name}}", "--relative_path_dirs" ] +
-         rebase_path(relative_path_dirs, root_build_dir) +
+  args = [
+           "--file-list",
+           "{{response_file_name}}",
+           "--relative_path_dirs",
+         ] + rebase_path(relative_path_dirs, root_build_dir) +
          [
            "--images",
            rebase_path("front_end/Images", root_build_dir),
