@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20fca488_40310f8c",
+        "filename": "front_end/audits/audits-legacy.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-09T14:37:36Z",
+      "side": 1,
+      "message": "Nit: TODO",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 68
+      },
+      "revId": "62a33e84d9981b5237cb7be962f091e95f985f29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
