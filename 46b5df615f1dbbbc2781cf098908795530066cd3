@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "45da6f19_7edf057b",
+        "filename": "test/unittests/front_end/ui/Icon.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-09T13:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "533e19d6_863f975b",
+      "revId": "46b5df615f1dbbbc2781cf098908795530066cd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12a9a5c2_3e545851",
         "filename": "test/unittests/front_end/ui/Widget.ts",
         "patchSetId": 6
