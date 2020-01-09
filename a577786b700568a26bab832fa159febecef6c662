@@ -22,6 +22,30 @@
       "revId": "a577786b700568a26bab832fa159febecef6c662",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d364125_7ddc961d",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-09T09:27:48Z",
+      "side": 1,
+      "message": "I think we should add an explanation for why there only provisional headers shown here or maybe link to a web.dev article with further information about the topic.",
+      "parentUuid": "a12466e1_525cfcef",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
