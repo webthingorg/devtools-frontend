@@ -46,6 +46,30 @@
       "revId": "a577786b700568a26bab832fa159febecef6c662",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef158fa2_bfabc148",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-01-09T17:44:49Z",
+      "side": 1,
+      "message": "The explanation for why there are only provisional headers is because the request was not sent over the network, which I worded out in the second sentence. Do you have any suggestions for what specifically to say instead? Or do you have any other questions about what is happening here? I\u0027d be happy to explain in more detail if it doesn\u0027t make sense.\n\nPersonally, I don\u0027t think this is worth an article - I\u0027m hoping that a properly worded message will be enough.",
+      "parentUuid": "8d364125_7ddc961d",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
