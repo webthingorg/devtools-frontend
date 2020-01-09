@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b7a83e0_60581f4a",
+        "filename": "front_end/network/RequestCookiesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-09T09:31:46Z",
+      "side": 1,
+      "message": "WDYT about moving this to a separate function or into refreshRequestCookiesView to reduce code duplication?",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 5
+      },
+      "revId": "a56285ec0734c9fed48d0cc36235ad23fd282fe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
