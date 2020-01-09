@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3097c409_ad029c82",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-09T13:02:50Z",
+      "side": 1,
+      "message": "Does it matter that these are refreshed in sequence? If not, we should use Promise.all here. That is, we should kick off all the refresh tasks and then wait for all of them to finish, instead of kicking off a refresh task, waiting for its completion, then repeating that N times.",
+      "revId": "82f9471258a33d90e1dd9a79c3a2aadb338546ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
