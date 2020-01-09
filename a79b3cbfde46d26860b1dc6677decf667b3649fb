@@ -22,6 +22,30 @@
       "revId": "a79b3cbfde46d26860b1dc6677decf667b3649fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07c49942_a873263d",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-01-09T10:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beaa49fe_19a05d6f",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 72
+      },
+      "revId": "a79b3cbfde46d26860b1dc6677decf667b3649fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
