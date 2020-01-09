@@ -16,6 +16,7 @@
     ],
     "modules": [
         "accessibility.js",
+        "accessibility-legacy.js",
         "AccessibilityModel.js",
         "AccessibilitySidebarView.js",
         "AccessibilityNodeView.js",

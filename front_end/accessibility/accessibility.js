@@ -16,6 +16,7 @@ import * as AccessibilitySidebarView from './AccessibilitySidebarView.js';
 import * as AccessibilityStrings from './AccessibilityStrings.js';
 import * as ARIAAttributesView from './ARIAAttributesView.js';
 import * as ARIAMetadata from './ARIAMetadata.js';
+import {config} from './ARIAProperties.js';
 import * as AXBreadcrumbsPane from './AXBreadcrumbsPane.js';
 
 export {
@@ -26,4 +27,5 @@ export {
   ARIAAttributesView,
   ARIAMetadata,
   AXBreadcrumbsPane,
+  config
 };
