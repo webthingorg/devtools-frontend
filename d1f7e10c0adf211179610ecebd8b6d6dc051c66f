@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "486539b4_23a3e18b",
+        "filename": "front_end/coverage/CoverageDecorationManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-09T16:25:16Z",
+      "side": 1,
+      "message": "Let\u0027s not do these sequentially, but rather in parallel. \n\n    const startLocationsPromise \u003d this._rawLocationsForSourceLocation(uiSourceCode, line, 0);\n    const endLocationsPromise \u003d this._rawLocationsForSourceLocation(uiSourceCode, line, lineLength);\n    const [startLocations, endLocations] \u003d Promise.all([startLocationsPromise, endLocationsPromise]);",
+      "revId": "d1f7e10c0adf211179610ecebd8b6d6dc051c66f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
