@@ -287,22 +287,22 @@ export default class CoverageModel extends SDK.SDKModel {
     }
     const now = Date.now();
     const freshRawCoverageData = await this._cpuProfilerModel.takePreciseCoverage();
-    if (this._suspensionState !== SuspensionState.Active) {
-      if (freshRawCoverageData.length > 0) {
-        this._jsBacklog.push({rawCoverageData: freshRawCoverageData, stamp: now});
-      }
+    return this._backlogOrProcessJSCoverage(freshRawCoverageData, now);
+  }
 
+  async _backlogOrProcessJSCoverage(freshRawCoverageData, freshTimestamp) {
+    if (freshRawCoverageData.length > 0) {
+      this._jsBacklog.push({rawCoverageData: freshRawCoverageData, stamp: freshTimestamp});
+    }
+    if (this._suspensionState !== SuspensionState.Active) {
       return [];
     }
+    const ascendingByTimestamp = (x, y) => x.stamp - y.stamp;
     const results = [];
-    for (const {rawCoverageData, stamp} of this._jsBacklog) {
+    for (const {rawCoverageData, stamp} of this._jsBacklog.sort(ascendingByTimestamp)) {
       results.push(this._processJSCoverage(rawCoverageData, stamp));
     }
-
     this._jsBacklog = [];
-    if (freshRawCoverageData.length > 0) {
-      results.push(this._processJSCoverage(freshRawCoverageData, now));
-    }
     return results.flat();
   }
 
