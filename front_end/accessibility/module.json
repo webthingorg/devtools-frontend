@@ -16,6 +16,7 @@
     ],
     "modules": [
         "accessibility.js",
+        "accessibility-legacy.js",
         "AccessibilityModel.js",
         "AccessibilitySidebarView.js",
         "AccessibilityNodeView.js",
@@ -23,9 +24,6 @@
         "ARIAAttributesView.js",
         "ARIAMetadata.js",
         "AXBreadcrumbsPane.js"
-    ],
-    "skip_compilation": [
-        "ARIAProperties.js"
     ],
     "resources": [
         "accessibilityNode.css",
