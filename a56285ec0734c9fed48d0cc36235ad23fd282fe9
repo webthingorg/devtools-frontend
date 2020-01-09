@@ -22,6 +22,30 @@
       "revId": "a56285ec0734c9fed48d0cc36235ad23fd282fe9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1e67c3e_9f71dc09",
+        "filename": "front_end/network/RequestCookiesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-01-09T18:06:19Z",
+      "side": 1,
+      "message": "I agree, done.\nI also deduplicated/minified some other code around here.",
+      "parentUuid": "4b7a83e0_60581f4a",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 5
+      },
+      "revId": "a56285ec0734c9fed48d0cc36235ad23fd282fe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
