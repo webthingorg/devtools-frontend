@@ -269,22 +269,19 @@ export const resolveExpression = function(
  * @param {number} endColumnNumber
  * @return {!Promise<string>}
  */
-export const _resolveExpression = function(
-    debuggerModel, uiSourceCode, lineNumber, startColumnNumber, endColumnNumber) {
+export const _resolveExpression =
+    async function(debuggerModel, uiSourceCode, lineNumber, startColumnNumber, endColumnNumber) {
   const rawLocations =
-      Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, lineNumber, startColumnNumber);
+      await Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, lineNumber, startColumnNumber);
   const rawLocation = rawLocations.find(location => location.debuggerModel === debuggerModel);
-  if (!rawLocation) {
-    return Promise.resolve('');
+  if (!rawLocation || !rawLocation.script()) {
+    return '';
   }
 
   const script = rawLocation.script();
-  if (!script) {
-    return Promise.resolve('');
-  }
   const sourceMap = /** @type {!SDK.TextSourceMap} */ (Bindings.debuggerWorkspaceBinding.sourceMapForScript(script));
   if (!sourceMap) {
-    return Promise.resolve('');
+    return '';
   }
 
   return script.requestContent().then(onContent);
