@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7043e5af_f13e2c28",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-10T10:11:58Z",
+      "side": 1,
+      "message": "Why do we need to sort now? It looks like the only place we add to the backlog is line 295, so they will always be ascending by timestamp?",
+      "range": {
+        "startLine": 302,
+        "startChar": 59,
+        "endLine": 302,
+        "endChar": 63
+      },
+      "revId": "21b999085a63e274adb71b111fdb8dee49ab93cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
