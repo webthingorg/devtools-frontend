@@ -22,6 +22,30 @@
       "revId": "ed2ec0190c4cb4fdde602e65d6a806c196c7bed1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1837ade_021bea04",
+        "filename": "front_end/sources/SourceMapNamesResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-01-10T13:54:32Z",
+      "side": 1,
+      "message": "Nice catch! Done.",
+      "parentUuid": "b8acf718_ddfc8d4f",
+      "range": {
+        "startLine": 278,
+        "startChar": 11,
+        "endLine": 278,
+        "endChar": 31
+      },
+      "revId": "ed2ec0190c4cb4fdde602e65d6a806c196c7bed1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
