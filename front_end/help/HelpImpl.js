@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {releaseNoteText} from './ReleaseNoteText.js';
+
 /**
  * @const
  * @type {string}
@@ -14,7 +16,7 @@ export const releaseNoteViewId = 'release-note';
 export function latestReleaseNote() {
   if (!Help._latestReleaseNote) {
     /** @type {!Help.ReleaseNote} */
-    Help._latestReleaseNote = Help.releaseNoteText.reduce((acc, note) => note.version > acc.version ? note : acc);
+    Help._latestReleaseNote = releaseNoteText.reduce((acc, note) => note.version > acc.version ? note : acc);
   }
   return Help._latestReleaseNote;
 }
@@ -91,41 +93,3 @@ export class ReportIssueActionDelegate {
     return true;
   }
 }
-
-/* Legacy exported object */
-self.Help = self.Help || {};
-
-/* Legacy exported object */
-Help = Help || {};
-
-Help.releaseNoteViewId = releaseNoteViewId;
-Help.latestReleaseNote = latestReleaseNote;
-Help._innerShowReleaseNoteIfNeeded = _innerShowReleaseNoteIfNeeded;
-Help._showReleaseNoteIfNeeded = _showReleaseNoteIfNeeded;
-
-/** @type {!Common.Setting} */
-Help._releaseNoteVersionSetting = Common.settings.createSetting('releaseNoteVersionSeen', 0);
-
-/** @typedef {!{title: string, subtitle: string, link: string}} */
-Help.ReleaseNoteHighlight;
-
-/**
- * @typedef {!{version: number, header: string, highlights: !Array<!Help.ReleaseNoteHighlight>,
- *    link: string}}
- */
-Help.ReleaseNote;
-
-/**
- * @constructor
- */
-Help.HelpLateInitialization = HelpLateInitialization;
-
-/**
- * @constructor
- */
-Help.ReleaseNotesActionDelegate = ReleaseNotesActionDelegate;
-
-/**
- * @constructor
- */
-Help.ReportIssueActionDelegate = ReportIssueActionDelegate;
