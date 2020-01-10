@@ -189,13 +189,5 @@ function postProcess() {
       path.join(__dirname, '..', '..', 'front_end', 'javascript_metadata', 'NativeFunctions.js'),
       `// Generated from ${path.relative(path.join(__dirname, '..', '..'), __filename)}
 export const NativeFunctions = ${JSON.stringify(functions)};
-
-/* Legacy exported object */
-self.JavaScriptMetadata = self.JavaScriptMetadata || {};
-
-/* Legacy exported object */
-JavaScriptMetadata = JavaScriptMetadata || {};
-
-JavaScriptMetadata.NativeFunctions = NativeFunctions;
 `);
 }
