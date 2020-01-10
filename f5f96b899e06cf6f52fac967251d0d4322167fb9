@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5431d6c1_05c9529f",
+        "filename": "front_end/sources/SourceMapNamesResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-10T14:03:53Z",
+      "side": 1,
+      "message": "It seems like the onContent function called here is only part of this scope. So maybe you could also change this line to await the result of requestContent and inline the onContent function below?",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 287,
+        "endChar": 8
+      },
+      "revId": "f5f96b899e06cf6f52fac967251d0d4322167fb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
