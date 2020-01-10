@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8acf718_ddfc8d4f",
+        "filename": "front_end/sources/SourceMapNamesResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-10T10:34:24Z",
+      "side": 1,
+      "message": "Now that the function is async, do you still need to Promise.resolve?",
+      "range": {
+        "startLine": 278,
+        "startChar": 11,
+        "endLine": 278,
+        "endChar": 31
+      },
+      "revId": "ed2ec0190c4cb4fdde602e65d6a806c196c7bed1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
