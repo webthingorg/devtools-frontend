@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a168021a_1612749c",
+        "filename": "front_end/animation/AnimationUI.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-10T01:30:11Z",
+      "side": 1,
+      "message": "No particular reason. I\u0027ve updated this and the other call to use the `tabIndex` property directly.",
+      "parentUuid": "55f5c596_11c3ac01",
+      "revId": "628716d6f3233059b5a6aea73c1387762e53822d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46d12511_d1c4229b",
         "filename": "front_end/animation/AnimationUI.js",
         "patchSetId": 6
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "af42f786_d45a260f",
+        "filename": "front_end/animation/AnimationUI.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-10T01:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46d12511_d1c4229b",
+      "revId": "628716d6f3233059b5a6aea73c1387762e53822d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e257785c_7cc55145",
         "filename": "front_end/animation/AnimationUI.js",
         "patchSetId": 6
@@ -47,6 +83,24 @@
       "writtenOn": "2020-01-09T23:57:51Z",
       "side": 1,
       "message": "I\u0027m a little leery of storing so many temporary data on `this` here. You\u0027re storing what, _mouseEventType, _keyframeMoved, and _movementInMs?\n\nThis feels like it should be broken out to a separate object. I\u0027m not so concerned that I\u0027d block you here, but it doesn\u0027t feel great.",
+      "revId": "628716d6f3233059b5a6aea73c1387762e53822d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad15ae4d_9b3ffb4e",
+        "filename": "front_end/animation/AnimationUI.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-10T01:30:11Z",
+      "side": 1,
+      "message": "I\u0027m simply building on the existing state management of this class. The only new instance variable added with this patch is `_keyboardMovementRateMs` to calculate `_movementInMs` which is used to position the movable elements in the timeline. Refactoring this would be non-trivial, so I opted out.\n\nI\u0027d prefer not to do that refactor as a part of adding keyboard accessibility.",
+      "parentUuid": "e257785c_7cc55145",
       "revId": "628716d6f3233059b5a6aea73c1387762e53822d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
