@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-export default class JavaScriptAutocomplete {
+export class JavaScriptAutocomplete {
   constructor() {
     /** @type {!Map<string, {date: number, value: !Promise<?Object>}>} */
     this._expressionCache = new Map();
@@ -772,20 +772,3 @@ export class JavaScriptAutocompleteConfig {
     return tooltip;
   }
 }
-
-/* Legacy exported object */
-self.ObjectUI = self.ObjectUI || {};
-
-/* Legacy exported object */
-ObjectUI = ObjectUI || {};
-
-/** @constructor */
-ObjectUI.JavaScriptAutocomplete = JavaScriptAutocomplete;
-
-/** @constructor */
-ObjectUI.JavaScriptAutocompleteConfig = JavaScriptAutocompleteConfig;
-
-ObjectUI.javaScriptAutocomplete = new JavaScriptAutocomplete();
-
-/** @typedef {{title:(string|undefined), items:Array<string>}} */
-ObjectUI.JavaScriptAutocomplete.CompletionGroup;
