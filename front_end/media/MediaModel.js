@@ -54,6 +54,15 @@ Media.MediaModel = class extends SDK.SDKModel {
   }
 
   /**
+   * @param {!Protocol.Media.PlayerId} playerId
+   * @param {!Array.<!Protocol.Media.PlayerMessage>} events
+   * @override
+   */
+  playerMessagesLogged(playerId, events) {
+    this.dispatchEventToListeners(Media.MediaModel.Events.PlayerMessagesLogged, {playerId: playerId, messages: events});
+  }
+
+  /**
    * @param {!Array.<!Protocol.Media.PlayerId>} playerIds
    * @override
    */
@@ -68,11 +77,13 @@ SDK.SDKModel.register(Media.MediaModel, SDK.Target.Capability.DOM, false);
 Media.MediaModel.Events = {
   PlayerPropertiesChanged: Symbol('PlayerPropertiesChanged'),
   PlayerEventsAdded: Symbol('PlayerEventsAdded'),
+  PlayerMessagesLogged: Symbol('PlayerMessagesLogged'),
   PlayersCreated: Symbol('PlayersCreated')
 };
 
 /** @enum {string} */
 Media.MediaModel.MediaChangeTypeKeys = {
   Event: 'Events',
-  Property: 'Properties'
+  Property: 'Properties',
+  Message: 'Messages'
 };

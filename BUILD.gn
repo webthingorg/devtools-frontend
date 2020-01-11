@@ -189,6 +189,8 @@ all_devtools_files = [
   "front_end/media/PlayerListView.js",
   "front_end/media/playerPropertiesView.css",
   "front_end/media/PlayerPropertiesView.js",
+  "front_end/media/PlayerMessagesView.js",
+  "front_end/media/playerMessagesView.css",
   "front_end/mobile_throttling/module.json",
   "front_end/mobile_throttling/throttlingSettingsTab.css",
   "front_end/ndb_app.json",

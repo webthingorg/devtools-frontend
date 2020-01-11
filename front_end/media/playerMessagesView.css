@@ -1,0 +1,49 @@
+/*
+ * Copyright 2020 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+.media-messages-header {
+  background-color: var(--toolbar-bg-color);
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.media-messages-level-dropdown-element {
+  background-color: var(--toolbar-bg-color);
+  height: 18px;
+  line-height: 18px;
+}
+
+.media-messages-level-dropdown-element:hover {
+  background-color: var(--accent-color-hover);
+}
+
+.media-messages-level-dropdown-text {
+  float: left;
+}
+
+.media-messages-level-dropdown-checkbox {
+  float: left;
+  width: 18px;
+  height: 100%;
+}
+
+.media-messages-message-container {
+  font-size: 14px;
+  line-height: 18px;
+  padding: 4px;
+  border-bottom: 1px solid var(--divider-color);
+  border-left: 4px solid var(--toolbar-bg-color);
+}
+
+.media-message-warning {
+  border-left: 4px solid #33ffff;
+}
+
+.media-message-error {
+  border-left: 4px solid #ff3333;
+}
+
+.media-messages-message-filtered {
+  display: none;
+}
