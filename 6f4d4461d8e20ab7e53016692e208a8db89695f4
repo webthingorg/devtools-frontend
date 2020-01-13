@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f11b87c_b17ee433",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-13T17:23:54Z",
+      "side": 1,
+      "message": "Nit: can we add a link to https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1992319 to make the relation between the CLs clear?",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "6f4d4461d8e20ab7e53016692e208a8db89695f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
