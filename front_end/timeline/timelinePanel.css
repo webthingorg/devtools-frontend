@@ -290,10 +290,6 @@
     user-select: text;
 }
 
-.timeline-details-view-body > div {
-    overflow: hidden;
-}
-
 .timeline-details-view-block {
     flex: none;
     display: flex;
@@ -305,8 +301,6 @@
 
 .timeline-details-view-row {
     padding-left: 10px;
-    flex-direction: row;
-    display: flex;
     line-height: 20px;
 }
 
@@ -334,6 +328,7 @@
     color: rgb(152, 152, 152);
     overflow: hidden;
     padding-right: 10px;
+    display: inline-block;
 }
 
 .timeline-details-warning {
@@ -351,6 +346,7 @@
 }
 
 .timeline-details-view-row-value {
+    display : inline-block;
     user-select: text;
     white-space: nowrap;
     text-overflow: ellipsis;
