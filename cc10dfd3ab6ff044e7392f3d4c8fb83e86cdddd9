@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63292576_5f3ac0d6",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-13T18:20:23Z",
+      "side": 1,
+      "message": "I usually block these kinds of long multiple-ternary-operator expressions. I\u0027m not sure that I want to here; it\u0027s actually kind of good. Wish that we had a different lexical way to express it.\n\n    let unit \u003d elementPosition.width / 4;\n    if (event.altKey) {\n      unit \u003d 1;\n    } else if (event.ctrlKey) {\n      unit \u003d 10;\n    } else if (event.shiftKey) {\n      unit \u003d 20;\n    }\n\nI\u0027m not sure it\u0027s better, although it\u0027s definitely not worse.\n\nI\u0027m not inclined to say \"you need to change this before you check in\". \n\nBut I do like the change, thanks for taking it!",
+      "revId": "cc10dfd3ab6ff044e7392f3d4c8fb83e86cdddd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d900dad_0215f3b0",
+        "filename": "front_end/color_picker/color_picker_strings.grdp",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-13T18:20:23Z",
+      "side": 1,
+      "message": "Suggest that instead of qualifying this in terms of pixels (because pixel travel doesn\u0027t translate directly to color change), directions might be something like, \"With no modifiers, arrows move large, shift moves less, ctrl moves even less, and alt moves a tiny bit.\" Or, don\u0027t give specifics about how the modifiers alter travel at all.",
+      "revId": "cc10dfd3ab6ff044e7392f3d4c8fb83e86cdddd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "251f182d_433914bb",
+        "filename": "front_end/color_picker/spectrum.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-13T18:20:23Z",
+      "side": 1,
+      "message": "Nit: Should this be given the [data-keyboard-focus\u003d\"true\"] qualifier?",
+      "revId": "cc10dfd3ab6ff044e7392f3d4c8fb83e86cdddd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
