@@ -38,6 +38,7 @@ export let Parameters;
   *   disclosure: (boolean|undefined),
   *   weight: (number|undefined),
   *   allowInSortByEvenWhenHidden: (boolean|undefined)
+  *   dataType: (?DataGrid.DataType|undefined)
   * }}
   */
 export let ColumnDescriptor;

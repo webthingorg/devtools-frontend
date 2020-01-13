@@ -171,6 +171,20 @@ export class DataGridImpl extends Common.Object {
 
   /**
    * @param {!Element} element
+   * @param {boolean|string} value
+   */
+  setElementContent(element, value) {
+    const columnId = this.columnIdFromNode(element);
+    const column = this._columns[columnId];
+    if (column.dataType === DataGrid.DataGrid.DataType.Boolean) {
+      DataGridImpl.setElementBoolean(element, !!value);
+    } else if (value !== null) {
+      DataGridImpl.setElementText(element, /** @type {string} */ (value), !!column.longText);
+    }
+  }
+
+  /**
+   * @param {!Element} element
    * @param {string} newText
    * @param {boolean} longText
    */
@@ -184,6 +198,15 @@ export class DataGridImpl extends Common.Object {
       element.title = '';
       element[DataGrid._longTextSymbol] = undefined;
     }
+  }
+
+  /**
+   * @param {!Element} element
+   * @param {boolean} value
+   */
+  static setElementBoolean(element, value) {
+    element.textContent = value ? '\u2713' : '';
+    element.title = '';
   }
 
   /**
@@ -430,8 +453,35 @@ export class DataGridImpl extends Common.Object {
     this._editingNode.select();
 
     const element = this._editingNode._element.children[cellIndex];
-    UI.InplaceEditor.startEditing(element, this._startEditingConfig(element));
-    element.getComponentSelection().selectAllChildren(element);
+    if (element[DataGrid._longTextSymbol]) {
+      element.textContent = element[DataGrid._longTextSymbol];
+    }
+    const column = this.visibleColumnsArray[cellIndex];
+    if (column.dataType === DataGrid.DataGrid.DataType.Boolean) {
+      const checkboxLabel = UI.CheckboxLabel.create(column.title, node.data[column.id]);
+
+      let hasChanged = false;
+      const checkboxElement = checkboxLabel.checkboxElement;
+      checkboxElement.addEventListener('change', () => {
+        hasChanged = true;
+        this._editingCommitted(element, checkboxElement.checked);
+      }, false);
+
+      checkboxElement.addEventListener('blur', () => {
+        if (hasChanged) {
+          return;
+        }
+        this._editingCancelled(element);
+        this.setElementContent(element, checkboxElement.checked);
+      }, false);
+
+      element.innerHTML = '';
+      element.appendChild(checkboxLabel);
+      checkboxElement.focus();
+    } else {
+      UI.InplaceEditor.startEditing(element, this._startEditingConfig(element));
+      element.getComponentSelection().selectAllChildren(element);
+    }
   }
 
   /**
@@ -470,13 +520,11 @@ export class DataGridImpl extends Common.Object {
       return;
     }
 
-    this._editing = true;
-    if (element[DataGrid._longTextSymbol]) {
-      element.textContent = element[DataGrid._longTextSymbol];
-    }
-    UI.InplaceEditor.startEditing(element, this._startEditingConfig(element));
+    const columnId = this.columnIdFromNode(target);
+    const column = this._columns[columnId];
+    const cellIndex = this.visibleColumnsArray.indexOf(column);
 
-    element.getComponentSelection().selectAllChildren(element);
+    this._startEditingColumnOfDataGridNode(this._editingNode, cellIndex);
   }
 
   renderInline() {
@@ -563,7 +611,7 @@ export class DataGridImpl extends Common.Object {
     }
 
     // Show trimmed text after editing.
-    DataGridImpl.setElementText(element, newText, !!column.longText);
+    this.setElementContent(element, newText);
 
     if (textBeforeEditing === newText) {
       this._editingCancelled(element);
@@ -1460,6 +1508,12 @@ export const Align = {
   Right: 'right'
 };
 
+/** @enum {symbol} */
+export const DataType = {
+  String: Symbol('String'),
+  Boolean: Symbol('Boolean'),
+};
+
 export const ColumnResizePadding = 24;
 export const CenterResizerOverBorderAdjustment = 3;
 
@@ -1870,7 +1924,7 @@ export class DataGridNode extends Common.Object {
     if (data instanceof Node) {
       cell.appendChild(data);
     } else if (data !== null) {
-      DataGridImpl.setElementText(cell, /** @type {string} */ (data), !!this.dataGrid._columns[columnId].longText);
+      this.dataGrid.setElementContent(cell, /** @type {string} */ (data));
     }
 
     return cell;
