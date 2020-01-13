@@ -124,7 +124,7 @@
     "scripts": [],
     "modules": [
         "profiler.js",
-        "ProfileType.js",
+        "profiler-legacy.js",
         "ProfileHeader.js",
         "ProfilesPanel.js",
         "ProfileView.js",
