@@ -28,12 +28,16 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import {IsolateSelector} from './IsolateSelector.js';
+import {ProfileType} from './ProfileHeader.js';    // eslint-disable-line no-unused-vars
+import {ProfilesPanel} from './ProfilesPanel.js';  // eslint-disable-line no-unused-vars
+
 /**
  * @unrestricted
  */
-export default class ProfileLauncherView extends UI.VBox {
+export class ProfileLauncherView extends UI.VBox {
   /**
-   * @param {!Profiler.ProfilesPanel} profilesPanel
+   * @param {!ProfilesPanel} profilesPanel
    */
   constructor(profilesPanel) {
     super();
@@ -51,7 +55,7 @@ export default class ProfileLauncherView extends UI.VBox {
 
     const isolateSelectorElement = this._contentElement.createChild('div', 'vbox profile-isolate-selector-block');
     isolateSelectorElement.createChild('h1').textContent = ls`Select JavaScript VM instance`;
-    const isolateSelector = new Profiler.IsolateSelector();
+    const isolateSelector = new IsolateSelector();
     isolateSelector.show(isolateSelectorElement.createChild('div', 'vbox profile-launcher-target-list'));
     isolateSelectorElement.appendChild(isolateSelector.totalMemoryElement());
 
@@ -106,7 +110,7 @@ export default class ProfileLauncherView extends UI.VBox {
   }
 
   /**
-   * @param {!Profiler.ProfileType} profileType
+   * @param {!ProfileType} profileType
    * @param {boolean} recordButtonEnabled
    */
   updateProfileType(profileType, recordButtonEnabled) {
@@ -117,7 +121,7 @@ export default class ProfileLauncherView extends UI.VBox {
   }
 
   /**
-   * @param {!Profiler.ProfileType} profileType
+   * @param {!ProfileType} profileType
    */
   addProfileType(profileType) {
     const labelElement = UI.createRadioLabel('profile-type', profileType.name);
@@ -160,7 +164,7 @@ export default class ProfileLauncherView extends UI.VBox {
   }
 
   /**
-   * @param {!Profiler.ProfileType} profileType
+   * @param {!ProfileType} profileType
    */
   _profileTypeChanged(profileType) {
     const typeId = this._selectedProfileTypeSetting.get();
@@ -179,15 +183,3 @@ export default class ProfileLauncherView extends UI.VBox {
 export const Events = {
   ProfileTypeSelected: Symbol('ProfileTypeSelected')
 };
-
-/* Legacy exported object */
-self.Profiler = self.Profiler || {};
-
-/* Legacy exported object */
-Profiler = Profiler || {};
-
-/** @constructor */
-Profiler.ProfileLauncherView = ProfileLauncherView;
-
-/** @enum {symbol} */
-Profiler.ProfileLauncherView.Events = Events;
