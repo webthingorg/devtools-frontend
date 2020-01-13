@@ -2,12 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {ProfileSidebarTreeElement} from './ProfilesPanel.js';       // eslint-disable-line no-unused-vars
+import {DataDisplayDelegate, ProfileType} from './ProfileType.js';  // eslint-disable-line no-unused-vars
+
 /**
  * @unrestricted
  */
-export default class ProfileHeader extends Common.Object {
+export class ProfileHeader extends Common.Object {
   /**
-   * @param {!Profiler.ProfileType} profileType
+   * @param {!ProfileType} profileType
    * @param {string} title
    */
   constructor(profileType, title) {
@@ -27,7 +30,7 @@ export default class ProfileHeader extends Common.Object {
   }
 
   /**
-   * @return {!Profiler.ProfileType}
+   * @return {!ProfileType}
    */
   profileType() {
     return this._profileType;
@@ -43,15 +46,15 @@ export default class ProfileHeader extends Common.Object {
 
   /**
    * Must be implemented by subclasses.
-   * @param {!Profiler.ProfileType.DataDisplayDelegate} dataDisplayDelegate
-   * @return {!Profiler.ProfileSidebarTreeElement}
+   * @param {!DataDisplayDelegate} dataDisplayDelegate
+   * @return {!ProfileSidebarTreeElement}
    */
   createSidebarTreeElement(dataDisplayDelegate) {
     throw new Error('Not implemented.');
   }
 
   /**
-   * @param {!Profiler.ProfileType.DataDisplayDelegate} dataDisplayDelegate
+   * @param {!DataDisplayDelegate} dataDisplayDelegate
    * @return {!UI.Widget}
    */
   createView(dataDisplayDelegate) {
@@ -126,18 +129,3 @@ export const Events = {
   ProfileReceived: Symbol('ProfileReceived'),
   ProfileTitleChanged: Symbol('ProfileTitleChanged')
 };
-
-/* Legacy exported object */
-self.Profiler = self.Profiler || {};
-
-/* Legacy exported object */
-Profiler = Profiler || {};
-
-/** @constructor */
-Profiler.ProfileHeader = ProfileHeader;
-
-/** @constructor */
-Profiler.ProfileHeader.StatusUpdate = StatusUpdate;
-
-/** @enum {symbol} */
-Profiler.ProfileHeader.Events = Events;
