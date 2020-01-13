@@ -265,27 +265,12 @@ export const measureTextWidth = (text, fontStyle) => {
   return width;
 };
 
-
-/* Legacy exported object */
-self.WebAudio = self.WebAudio || {};
-
-/* Legacy exported object */
-WebAudio = WebAudio || {};
-
-/* Legacy exported object */
-WebAudio.GraphVisualizer = WebAudio.GraphVisualizer || {};
-
 /**
- * @constructor
+ * Supported port types.
+ * @enum {symbol}
  */
-WebAudio.GraphVisualizer.NodeView = NodeView;
-
-/**
- * @constructor
- */
-WebAudio.GraphVisualizer.NodeLabelGenerator = NodeLabelGenerator;
-
-WebAudio.GraphVisualizer.generateInputPortId = generateInputPortId;
-WebAudio.GraphVisualizer.generateOutputPortId = generateOutputPortId;
-WebAudio.GraphVisualizer.generateParamPortId = generateParamPortId;
-WebAudio.GraphVisualizer.measureTextWidth = measureTextWidth;
+export const PortTypes = {
+  In: Symbol('In'),
+  Out: Symbol('Out'),
+  Param: Symbol('Param'),
+};
