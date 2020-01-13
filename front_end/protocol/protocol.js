@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import './InspectorBackend.js';
-import './NodeURL.js';
 import '../InspectorBackendCommands.js';
 
 import * as InspectorBackend from './InspectorBackend.js';
@@ -13,3 +11,5 @@ export {
   InspectorBackend,
   NodeURL,
 };
+
+export const inspectorBackend = new InspectorBackend.InspectorBackend();
