@@ -44,14 +44,3 @@ export const GraphStyles = {
   NodeLabelFontStyle,
   ParamLabelFontStyle
 };
-
-/* Legacy exported object */
-self.WebAudio = self.WebAudio || {};
-
-/* Legacy exported object */
-WebAudio = WebAudio || {};
-
-/* Legacy exported object */
-WebAudio.GraphVisualizer = WebAudio.GraphVisualizer || {};
-
-WebAudio.GraphVisualizer.GraphStyles = GraphStyles;
