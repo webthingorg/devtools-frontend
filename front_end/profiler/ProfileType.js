@@ -2,10 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {ProfileHeader} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
+
 /**
  * @unrestricted
  */
-export default class ProfileType extends Common.Object {
+export class ProfileType extends Common.Object {
   /**
    * @param {string} id
    * @param {string} name
@@ -15,9 +17,9 @@ export default class ProfileType extends Common.Object {
     super();
     this._id = id;
     this._name = name;
-    /** @type {!Array.<!Profiler.ProfileHeader>} */
+    /** @type {!Array.<!ProfileHeader>} */
     this._profiles = [];
-    /** @type {?Profiler.ProfileHeader} */
+    /** @type {?ProfileHeader} */
     this._profileBeingRecorded = null;
     this._nextProfileUid = 1;
 
@@ -103,11 +105,11 @@ export default class ProfileType extends Common.Object {
   }
 
   /**
-   * @return {!Array.<!Profiler.ProfileHeader>}
+   * @return {!Array.<!ProfileHeader>}
    */
   getProfiles() {
     /**
-     * @param {!Profiler.ProfileHeader} profile
+     * @param {!ProfileHeader} profile
      * @return {boolean}
      * @this {ProfileType}
      */
@@ -132,7 +134,7 @@ export default class ProfileType extends Common.Object {
 
   /**
    * @param {number} uid
-   * @return {?Profiler.ProfileHeader}
+   * @return {?ProfileHeader}
    */
   getProfile(uid) {
     for (let i = 0; i < this._profiles.length; ++i) {
@@ -162,14 +164,14 @@ export default class ProfileType extends Common.Object {
 
   /**
    * @param {string} title
-   * @return {!Profiler.ProfileHeader}
+   * @return {!ProfileHeader}
    */
   createProfileLoadedFromFile(title) {
     throw new Error('Needs implemented.');
   }
 
   /**
-   * @param {!Profiler.ProfileHeader} profile
+   * @param {!ProfileHeader} profile
    */
   addProfile(profile) {
     this._profiles.push(profile);
@@ -177,7 +179,7 @@ export default class ProfileType extends Common.Object {
   }
 
   /**
-   * @param {!Profiler.ProfileHeader} profile
+   * @param {!ProfileHeader} profile
    */
   removeProfile(profile) {
     const index = this._profiles.indexOf(profile);
@@ -195,14 +197,14 @@ export default class ProfileType extends Common.Object {
   }
 
   /**
-   * @return {?Profiler.ProfileHeader}
+   * @return {?ProfileHeader}
    */
   profileBeingRecorded() {
     return this._profileBeingRecorded;
   }
 
   /**
-   * @param {?Profiler.ProfileHeader} profile
+   * @param {?ProfileHeader} profile
    */
   setProfileBeingRecorded(profile) {
     this._profileBeingRecorded = profile;
@@ -220,7 +222,7 @@ export default class ProfileType extends Common.Object {
   }
 
   /**
-   * @param {!Profiler.ProfileHeader} profile
+   * @param {!ProfileHeader} profile
    */
   _disposeProfile(profile) {
     this.dispatchEventToListeners(Events.RemoveProfileHeader, profile);
@@ -245,7 +247,7 @@ export const Events = {
  */
 export class DataDisplayDelegate {
   /**
-   * @param {?Profiler.ProfileHeader} profile
+   * @param {?ProfileHeader} profile
    * @return {?UI.Widget}
    */
   showProfile(profile) {
@@ -264,18 +266,3 @@ export class DataDisplayDelegate {
    */
   async linkifyObject(nodeIndex) {}
 }
-
-/* Legacy exported object */
-self.Profiler = self.Profiler || {};
-
-/* Legacy exported object */
-Profiler = Profiler || {};
-
-/** @constructor */
-Profiler.ProfileType = ProfileType;
-
-/** @enum {symbol} */
-Profiler.ProfileType.Events = Events;
-
-/** @interface */
-Profiler.ProfileType.DataDisplayDelegate = DataDisplayDelegate;
