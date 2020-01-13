@@ -43,19 +43,3 @@ export const calculateParamPortXY = (portIndex, offsetY) => {
       WebAudio.GraphVisualizer.GraphStyles.AudioParamRadius;
   return {x: 0, y: paramPortY};
 };
-
-/* Legacy exported object */
-self.WebAudio = self.WebAudio || {};
-
-/* Legacy exported object */
-WebAudio = WebAudio || {};
-
-/* Legacy exported object */
-WebAudio.GraphVisualizer = WebAudio.GraphVisualizer || {};
-
-// Utility functions to render node onto Canvas.
-WebAudio.GraphVisualizer.NodeRendererUtility = WebAudio.GraphVisualizer.NodeRendererUtility || {};
-
-WebAudio.GraphVisualizer.NodeRendererUtility.calculateInputPortXY = calculateInputPortXY;
-WebAudio.GraphVisualizer.NodeRendererUtility.calculateOutputPortXY = calculateOutputPortXY;
-WebAudio.GraphVisualizer.NodeRendererUtility.calculateParamPortXY = calculateParamPortXY;
