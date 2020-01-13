@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facdeb3a_6eecefda",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-13T10:35:35Z",
+      "side": 1,
+      "message": "Nit: Duplicate line.",
+      "range": {
+        "startLine": 1656,
+        "startChar": 0,
+        "endLine": 1656,
+        "endChar": 53
+      },
+      "revId": "7e37f0e7d01543c111738dda47be6b113e8092c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
