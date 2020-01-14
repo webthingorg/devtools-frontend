@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5464582a_a6264d75",
+        "filename": "test/unittests/front_end/platform/utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T15:32:20Z",
+      "side": 1,
+      "message": "Drive-by simplification. String.fromCharCode truncates values above 0xFFFF (https://mathiasbynens.be/notes/javascript-unicode#code-point-to-symbol).",
+      "revId": "efccaccf52b7ed23439e1945540c67d2dd1b5414",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354f08cb_239bac01",
+        "filename": "test/unittests/front_end/platform/utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T15:32:20Z",
+      "side": 1,
+      "message": "Note: this string value is \u003d\u003d\u003d the old string value. The code points are just more recognizable this way.",
+      "revId": "efccaccf52b7ed23439e1945540c67d2dd1b5414",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
