@@ -22,6 +22,30 @@
       "revId": "d48e62e769aa719111bb2bbacf51e9f483297e02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4acd1187_47ec6288",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-14T14:26:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7700ee7a_42e37918",
+      "range": {
+        "startLine": 490,
+        "startChar": 13,
+        "endLine": 490,
+        "endChar": 30
+      },
+      "revId": "d48e62e769aa719111bb2bbacf51e9f483297e02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
