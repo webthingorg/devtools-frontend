@@ -27,6 +27,10 @@ export default class IssuesModel extends SDK.SDKModel {
   constructor(target) {
     super(target);
 
+    target.registerIssuesDispatcher(this);
+    this._issuesAgent = target.issuesAgent();
+    this._issuesAgent.enable();
+
     const networkManager = target.model(SDK.NetworkManager);
     if (networkManager) {
       networkManager.addEventListener(SDK.NetworkManager.Events.RequestFinished, this._handleRequestFinished, this);
@@ -35,6 +39,16 @@ export default class IssuesModel extends SDK.SDKModel {
     this._cookiesModel = target.model(SDK.CookieModel);
 
     this._issues = [];
+    this._browserIssues = [];
+  }
+
+  /**
+   * @override
+   * @param {!Protocol.Issues.Issue} payload
+   */
+  issueAdded(payload) {
+    this._browserIssues.push(payload);
+    this.dispatchEventToListeners(Events.IssueAdded, {logModel: this, issue: payload});
   }
 
   /**
@@ -94,6 +108,11 @@ export default class IssuesModel extends SDK.SDKModel {
   }
 }
 
+/** @enum {symbol} */
+export const Events = {
+  EntryAdded: Symbol('EntryAdded')
+};
+
 /* Legacy exported object */
 self.SDK = self.SDK || {};
 
@@ -103,4 +122,7 @@ SDK = SDK || {};
 /** @constructor */
 SDK.IssuesModel = IssuesModel;
 
-SDK.SDKModel.register(IssuesModel, SDK.Target.Capability.None, true);
+/** @enum {symbol} */
+SDK.IssuesModel.Events = Events;
+
+SDK.SDKModel.register(IssuesModel, SDK.Target.Capability.None, false);

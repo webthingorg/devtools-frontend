@@ -1,0 +1,97 @@
+/*
+ * Copyright (c) 2020 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.issue {
+    padding: 0 8px;
+    overflow: hidden;
+    flex: none;
+    transition: background-color 200ms;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-width: 0 0 1px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 12px;
+    fill: #F29900;
+}
+
+.title {
+    flex: 1;
+
+    font-size: 14px;
+    color: #202124;
+}
+
+.priority {
+    font-size: 12px;
+    color: #C5221F;
+}
+
+.collapse-icon {
+    fill: #5F6368;
+    transition: transform 200ms;
+}
+
+.body-wrapper {
+    max-height: 400px;
+    transition: max-height 200ms;
+}
+
+.body {
+    padding: 6px 0;
+    margin-left: 9.5px;
+    border-left: 2px solid #F29900;
+    padding-left: 21px;
+    margin-bottom: 20px;
+}
+
+.message {
+    max-width: 600px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #5F6368;
+    margin-bottom: 4px;
+}
+
+.code {
+    font-size: 12px;
+    color:rgba(95, 99, 104, 0.5);
+    margin-bottom: 16px;
+}
+
+.link {
+    font-size: 14px;
+    color: #1967D2;
+}
+
+.link-icon {
+    stroke: #1A73E8;
+    fill: none;
+    position: relative;
+    top: 0.325em;
+    margin-right: 3px;
+}
+
+.issue.collapsed {
+    background:  #f3f3f3
+}
+
+.issue.collapsed .collapse-icon{
+    transform: rotate(180deg);
+}
+
+.issue.collapsed .body-wrapper {
+    max-height: 0;
+}

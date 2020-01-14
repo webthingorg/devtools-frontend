@@ -3415,6 +3415,22 @@ domain Input
       # for the preferred input type).
       optional GestureSourceType gestureSourceType
 
+experimental domain Issues
+  type Issue extends object
+    properties
+      string code
+
+  # Disables log domain, prevents further log entries from being reported to the client.
+  command disable
+
+  # Enables issues domain, sends the entries collected so far to the client by means of the
+  # `entryAdded` notification.
+  command enable
+
+  event issueAdded
+    parameters
+      Issue issue
+
 experimental domain Inspector
 
   # Disables inspector domain notifications.
