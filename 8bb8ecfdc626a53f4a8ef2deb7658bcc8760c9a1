@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32cfa992_91b53107",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-14T15:39:54Z",
+      "side": 1,
+      "message": "nit: remove \u0027in\u0027 and just say \u0027need to be committed\u0027",
+      "range": {
+        "startLine": 219,
+        "startChar": 92,
+        "endLine": 219,
+        "endChar": 94
+      },
+      "revId": "8bb8ecfdc626a53f4a8ef2deb7658bcc8760c9a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
