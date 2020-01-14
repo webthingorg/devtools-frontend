@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "157a1533_be4af0a7",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-14T18:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63292576_5f3ac0d6",
+      "revId": "cc10dfd3ab6ff044e7392f3d4c8fb83e86cdddd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d900dad_0215f3b0",
         "filename": "front_end/color_picker/color_picker_strings.grdp",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "5535de67_98962b3d",
+        "filename": "front_end/color_picker/color_picker_strings.grdp",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-14T18:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d900dad_0215f3b0",
+      "revId": "cc10dfd3ab6ff044e7392f3d4c8fb83e86cdddd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "251f182d_433914bb",
         "filename": "front_end/color_picker/spectrum.css",
         "patchSetId": 7
@@ -47,6 +83,24 @@
       "writtenOn": "2020-01-13T18:20:23Z",
       "side": 1,
       "message": "Nit: Should this be given the [data-keyboard-focus\u003d\"true\"] qualifier?",
+      "revId": "cc10dfd3ab6ff044e7392f3d4c8fb83e86cdddd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf706b65_4c05a578",
+        "filename": "front_end/color_picker/spectrum.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-14T18:53:52Z",
+      "side": 1,
+      "message": "By default focus is set to .spectrum-color so, we need to highlight that default focus. This style addresses that default focus and keyboard focus",
+      "parentUuid": "251f182d_433914bb",
       "revId": "cc10dfd3ab6ff044e7392f3d4c8fb83e86cdddd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
