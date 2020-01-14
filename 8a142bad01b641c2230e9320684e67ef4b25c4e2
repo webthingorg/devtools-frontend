@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "29a3bd8f_f6b497bf",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T14:18:49Z",
+      "side": 1,
+      "message": "Already done (you were looking at an older patch)",
+      "parentUuid": "8f8164e0_1ea445a5",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "8a142bad01b641c2230e9320684e67ef4b25c4e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26a288e5_f1020920",
         "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "8a142bad01b641c2230e9320684e67ef4b25c4e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc9178d8_8f163819",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T14:18:49Z",
+      "side": 1,
+      "message": "So generally, the guideline is: one `describe` per function/method/constructor? Got it. Thanks!",
+      "parentUuid": "26a288e5_f1020920",
+      "revId": "8a142bad01b641c2230e9320684e67ef4b25c4e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

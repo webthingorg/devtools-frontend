@@ -22,6 +22,30 @@
       "revId": "68aa13750fabcd5197ca370363efd236df327f50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10687cfa_7a264177",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T14:18:49Z",
+      "side": 1,
+      "message": "Let me see if I understood that correctly: for `describe(description)` it\u0027s okay for the description to refer to the function/class name (per the pre-existing example above) but for `it(description)` any particular names should be avoided. Did I get that right?\n\nI\u0027ve made the change based on this understanding.",
+      "parentUuid": "572655f0_c7cc5763",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 27
+      },
+      "revId": "68aa13750fabcd5197ca370363efd236df327f50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
