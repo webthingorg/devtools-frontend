@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "10a4cf8f_9418719a",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T15:41:02Z",
+      "side": 1,
+      "message": "Something like `it(\"is able to create a value from a header with the latest syntax\")`\nI think describing the action in plain English makes it more clear what the system cannot do upon failure while the stack trace takes care of pointing us to the malfunctioning code\n@paul can you give your opinion on this",
+      "parentUuid": "ac236e95_9491d4d8",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 72
+      },
+      "revId": "b487d4cb0c93d6c2b0675321aba35276d3298db2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d98e6985_0e3aea64",
         "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I believe it does, same as above",
       "parentUuid": "d98e6985_0e3aea64",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "b487d4cb0c93d6c2b0675321aba35276d3298db2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d575086_b9ec05a7",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T15:41:02Z",
+      "side": 1,
+      "message": "same comment as above",
+      "parentUuid": "3b06f0b9_3299f77c",
       "range": {
         "startLine": 64,
         "startChar": 6,
@@ -187,6 +235,30 @@
       "revId": "b487d4cb0c93d6c2b0675321aba35276d3298db2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "194cb72e_30e233a9",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T15:41:02Z",
+      "side": 1,
+      "message": "sorry I thought you were modifying the functionality, please disregard this",
+      "parentUuid": "55d1846d_b11143e0",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 0
+      },
+      "revId": "b487d4cb0c93d6c2b0675321aba35276d3298db2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
