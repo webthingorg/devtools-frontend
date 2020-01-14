@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb5a61f_6c8e11a0",
+        "filename": "karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T15:43:08Z",
+      "side": 1,
+      "message": "sneaky - I like it",
+      "range": {
+        "startLine": 43,
+        "startChar": 61,
+        "endLine": 43,
+        "endChar": 62
+      },
+      "revId": "7a9f3121c8a6dd92c2ed541ec7a110a9e3385f50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69be17f1_361dbef5",
+        "filename": "test/unittests/front_end/platform/utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T15:43:08Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 331,
+        "startChar": 5,
+        "endLine": 331,
+        "endChar": 9
+      },
+      "revId": "7a9f3121c8a6dd92c2ed541ec7a110a9e3385f50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
