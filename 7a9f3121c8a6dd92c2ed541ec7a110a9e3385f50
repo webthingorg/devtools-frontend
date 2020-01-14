@@ -45,6 +45,30 @@
       "revId": "7a9f3121c8a6dd92c2ed541ec7a110a9e3385f50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1a75a17_db58343f",
+        "filename": "test/unittests/front_end/platform/utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T15:45:27Z",
+      "side": 1,
+      "message": "oh gosh EVERY SINGLE TIME\n\nDone :) (And thanks for adding the automated check that will save me in the future)",
+      "parentUuid": "69be17f1_361dbef5",
+      "range": {
+        "startLine": 331,
+        "startChar": 5,
+        "endLine": 331,
+        "endChar": 9
+      },
+      "revId": "7a9f3121c8a6dd92c2ed541ec7a110a9e3385f50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
