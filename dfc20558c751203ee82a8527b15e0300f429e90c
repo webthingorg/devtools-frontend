@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e864ac31_42f241a6",
+        "filename": "test/unittests/front_end/text_utils/TextUtils.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T13:30:16Z",
+      "side": 1,
+      "message": "ultra-nit: blank lines between its",
+      "revId": "dfc20558c751203ee82a8527b15e0300f429e90c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
