@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95bef6ab_a7aa9020",
+        "filename": "test/unittests/front_end/text_utils/TextUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T12:48:01Z",
+      "side": 1,
+      "message": "nit: you can remove \"../../../..\" from the relative path after the latest config change",
+      "range": {
+        "startLine": 7,
+        "startChar": 63,
+        "endLine": 7,
+        "endChar": 74
+      },
+      "revId": "2446101b140ae3d09bab943885a8e8c4cf7433d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6d8d313_5c53970f",
+        "filename": "test/unittests/front_end/text_utils/TextUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T12:48:01Z",
+      "side": 1,
+      "message": "nit: do you mean to say here \"that start with }\"?",
+      "range": {
+        "startLine": 68,
+        "startChar": 35,
+        "endLine": 68,
+        "endChar": 54
+      },
+      "revId": "2446101b140ae3d09bab943885a8e8c4cf7433d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dc18575_325a4b85",
+        "filename": "test/unittests/front_end/text_utils/TextUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T12:48:01Z",
+      "side": 1,
+      "message": "nit: can we add a message to the assertion?",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 32
+      },
+      "revId": "2446101b140ae3d09bab943885a8e8c4cf7433d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
