@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6991be42_d828907b",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "typo: emptiness",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9872a8cc_431e156b",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "i think what was meant here was \"as immediatelly follows\"?",
+      "range": {
+        "startLine": 80,
+        "startChar": 106,
+        "endLine": 80,
+        "endChar": 116
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d107584a_641e6596",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "nit: a message on this assertion could be helpful",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 85
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "515f52e1_1d2fa51e",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "nit: a message on this assertion could be helpful",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 134,
+        "endChar": 81
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7a24521_c7e1f4dc",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "typo: \"can be adjusted\"",
+      "range": {
+        "startLine": 213,
+        "startChar": 6,
+        "endLine": 213,
+        "endChar": 18
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb8aff0a_e6576b1e",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "typo: \"can be adjusted\"",
+      "range": {
+        "startLine": 228,
+        "startChar": 6,
+        "endLine": 228,
+        "endChar": 18
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d78422a_31156826",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "typo: can check",
+      "range": {
+        "startLine": 253,
+        "startChar": 6,
+        "endLine": 253,
+        "endChar": 18
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654d4136_38751053",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T17:01:30Z",
+      "side": 1,
+      "message": "you can remove this comment",
+      "range": {
+        "startLine": 270,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 67
+      },
+      "revId": "980ec35d004a433565ba968c694d157671f319c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
