@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b7c64445_baef844e",
+        "filename": "test/unittests/front_end/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T15:46:26Z",
+      "side": 1,
+      "message": "I think it could probably do with a little explanation of what the numbers mean? It took me a moment to realise they were column numbers.",
+      "parentUuid": "7e0d5d21_9908f4db",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 6
+      },
+      "revId": "76dd3fbc10df59afb6e699ab0ebda41c8d6bf970",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "190557dd_93acb8d7",
         "filename": "test/unittests/front_end/sdk/SourceMap.ts",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The are \u0027one action\u0027 in the sense that one SourceMap is parsed, and the parsed source map results in all these mappings that are then checked. As stated in the commit message, the intention is first to port the layout test first to get coverage (and that I get comfortable with Karma), and afterwards refactor and maybe split these tests up.\n\nAlthough its worth keeping this test around anyway, since it tests the whole SourceMap parsing component end-to-end.",
       "parentUuid": "190557dd_93acb8d7",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 78
+      },
+      "revId": "76dd3fbc10df59afb6e699ab0ebda41c8d6bf970",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d891b52f_e28535d7",
+        "filename": "test/unittests/front_end/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T15:46:26Z",
+      "side": 1,
+      "message": "This is right on the tipping point of readability, but I appreciate it\u0027s a case of migrating the layout tests over and getting comfortable. Can we perhaps add a TODO or a FIXME to indicate that there\u0027s some future work here?",
+      "parentUuid": "3e632306_2fa63718",
       "range": {
         "startLine": 108,
         "startChar": 4,
