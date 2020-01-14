@@ -49,7 +49,7 @@ describe('BalancedJSONTokenizer', () => {
     const findMultiple = false;
     const tokenizer = new BalancedJSONTokenizer(callback, findMultiple);
 
-    let result = tokenizer.write('{}}');
+    const result = tokenizer.write('{}}');
     assert.equal(result, true, 'return value was incorrect');
     assert.deepEqual(callbackResults, ['{}'], 'callback had unexpected results');
     assert.equal(tokenizer.remainder(), '}', 'remainder was incorrect');
@@ -63,7 +63,7 @@ describe('BalancedJSONTokenizer', () => {
     const findMultiple = false;
     const tokenizer = new BalancedJSONTokenizer(callback, findMultiple);
 
-    let result = tokenizer.write('"""');
+    const result = tokenizer.write('"""');
     assert.equal(result, true, 'return value was incorrect');
     assert.deepEqual(callbackResults, [], 'callback had unexpected results');
     assert.equal(tokenizer.remainder(), '"""', 'remainder was incorrect');
@@ -77,7 +77,7 @@ describe('BalancedJSONTokenizer', () => {
     const findMultiple = false;
     const tokenizer = new BalancedJSONTokenizer(callback, findMultiple);
 
-    let result = tokenizer.write('}}');
+    const result = tokenizer.write('}}');
     assert.equal(result, false, 'return value was incorrect');
     assert.deepEqual(callbackResults, [], 'callback had unexpected results');
     assert.equal(tokenizer.remainder(), '}}', 'remainder was incorrect');
@@ -91,7 +91,7 @@ describe('BalancedJSONTokenizer', () => {
     const findMultiple = false;
     const tokenizer = new BalancedJSONTokenizer(callback, findMultiple);
 
-    let result = tokenizer.write(']]');
+    const result = tokenizer.write(']]');
     assert.equal(result, false, 'return value was incorrect');
     assert.deepEqual(callbackResults, [], 'callback had unexpected results');
     assert.equal(tokenizer.remainder(), ']]', 'remainder was incorrect');
