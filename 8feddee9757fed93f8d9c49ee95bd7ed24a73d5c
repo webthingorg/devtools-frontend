@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32b13e22_2e96bee0",
+        "filename": "front_end/text_utils/Text.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T13:37:40Z",
+      "side": 1,
+      "message": "This should be probably imported at the top of the file rather than going via the global",
+      "range": {
+        "startLine": 89,
+        "startChar": 23,
+        "endLine": 89,
+        "endChar": 32
+      },
+      "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
