@@ -16,6 +16,24 @@
       "revId": "29f70b6bd30a205e85e143305f8f6a5b3ce076a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6959bbf6_41c83a7e",
+        "filename": "test/unittests/front_end/ui/ListModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T17:13:21Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "ffadc987_84b20754",
+      "revId": "29f70b6bd30a205e85e143305f8f6a5b3ce076a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
