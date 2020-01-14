@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea66e850_ca4fb737",
+        "filename": "front_end/media/EventDisplayTable.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-14T19:56:17Z",
+      "side": 1,
+      "message": "What do you think about moving this calculation to the view layer (in this case maybe Media.EventNode::createCell)?",
+      "range": {
+        "startLine": 166,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 74
+      },
+      "revId": "6556d48bf8bd1fe80bfd78482572132e6ffb7ee1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6efff8b9_e4ed4c87",
+        "filename": "front_end/source_frame/JSONView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-14T19:56:17Z",
+      "side": 1,
+      "message": "WDYT about converting undefined into a boolean here by using !!startCollapsed?",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 41
+      },
+      "revId": "6556d48bf8bd1fe80bfd78482572132e6ffb7ee1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
