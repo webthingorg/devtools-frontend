@@ -120,6 +120,7 @@ APPLICATION_DESCRIPTORS = [
     'integration_test_runner',
     'formatter_worker_entrypoint',
     'heap_snapshot_worker_entrypoint',
+    'web_audio_worker',
 ]
 
 SKIPPED_NAMESPACES = {

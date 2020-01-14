@@ -18,6 +18,17 @@ export class EdgeView {
     this.destinationId = data.destinationId;
     this.sourcePortId = sourcePortId;
     this.destinationPortId = destinationPortId;
+
+    /**
+     * Control points to draw the curve of the edge.
+     * @type {?Array<!WebAudio.GraphVisualizer.Point>}
+     */
+    this.points = null;
+  }
+
+  /** @return {boolean} */
+  shouldRender() {
+    return !!this.points && (this.points.length > 0);
   }
 }
 

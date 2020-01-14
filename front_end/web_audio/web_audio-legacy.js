@@ -74,7 +74,15 @@ WebAudio.GraphVisualizer.GraphStyle.TotalOutputPortHeight = WebAudioModule.Graph
 WebAudio.GraphVisualizer.GraphStyle.TotalParamPortHeight = WebAudioModule.GraphStyle.TotalParamPortHeight;
 WebAudio.GraphVisualizer.GraphStyle.NodeLabelFontStyle = WebAudioModule.GraphStyle.NodeLabelFontStyle;
 WebAudio.GraphVisualizer.GraphStyle.ParamLabelFontStyle = WebAudioModule.GraphStyle.ParamLabelFontStyle;
-WebAudio.GraphVisualizer.GraphStyle.GraphStyles = WebAudioModule.GraphStyle.GraphStyles;
+WebAudio.GraphVisualizer.GraphStyle.EdgeColor = WebAudioModule.GraphStyle.EdgeColor;
+WebAudio.GraphVisualizer.GraphStyle.InputPortColor = WebAudioModule.GraphStyle.InputPortColor;
+WebAudio.GraphVisualizer.GraphStyle.OutputPortColor = WebAudioModule.GraphStyle.OutputPortColor;
+WebAudio.GraphVisualizer.GraphStyle.ParamPortColor = WebAudioModule.GraphStyle.ParamPortColor;
+WebAudio.GraphVisualizer.GraphStyle.ParamTextColor = WebAudioModule.GraphStyle.ParamTextColor;
+WebAudio.GraphVisualizer.GraphStyle.TextColor = WebAudioModule.GraphStyle.TextColor;
+WebAudio.GraphVisualizer.GraphStyle.UnconnectedPortColor = WebAudioModule.GraphStyle.UnconnectedPortColor;
+
+WebAudio.GraphVisualizer.GraphStyle.computeNodeColor = WebAudioModule.GraphStyle.computeNodeColor;
 
 /**
  * @constructor
@@ -84,12 +92,18 @@ WebAudio.GraphVisualizer.GraphView = WebAudioModule.GraphView.GraphView;
 /** @enum {symbol} */
 WebAudio.GraphVisualizer.GraphView.Events = WebAudioModule.GraphView.Events;
 
+WebAudio.GraphVisualizer.getSetIntersection = WebAudioModule.GraphView.getSetIntersection;
+
 WebAudio.GraphVisualizer.NodeRendererUtility.calculateInputPortXY =
     WebAudioModule.NodeRendererUtility.calculateInputPortXY;
 WebAudio.GraphVisualizer.NodeRendererUtility.calculateOutputPortXY =
     WebAudioModule.NodeRendererUtility.calculateOutputPortXY;
 WebAudio.GraphVisualizer.NodeRendererUtility.calculateParamPortXY =
     WebAudioModule.NodeRendererUtility.calculateParamPortXY;
+WebAudio.GraphVisualizer.NodeRendererUtility.draw = WebAudioModule.NodeRendererUtility.draw;
+WebAudio.GraphVisualizer.NodeRendererUtility.update = WebAudioModule.NodeRendererUtility.update;
+WebAudio.GraphVisualizer.NodeRendererUtility.buildPortsConnectionInfo =
+    WebAudioModule.NodeRendererUtility.buildPortsConnectionInfo;
 
 /**
  * @constructor
@@ -121,6 +135,11 @@ WebAudio.GraphVisualizer.Size;
  * @typedef {{x: number, y: number}}
  */
 WebAudio.GraphVisualizer.Point;
+
+/**
+ * @typedef {{width: (?number|undefined), height: (?number|undefined), contextId: !Protocol.WebAudio.GraphObjectId}}
+ */
+WebAudio.GraphVisualizer.LayoutMetadata;
 
 /**
  * @typedef {{
