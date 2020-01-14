@@ -24,6 +24,7 @@
       "MainView.js",
       "PlayerDetailView.js",
       "PlayerListView.js",
+      "PlayerMessagesView.js",
       "PlayerPropertiesView.js",
       "MediaModel.js",
       "ChevronTabbedPanel.js"
@@ -33,6 +34,7 @@
     "mediaView.css",
     "playerListView.css",
     "playerPropertiesView.css",
-    "chevronTabbedPanel.css"
+    "chevronTabbedPanel.css",
+    "playerMessagesView.css"
   ]
 }

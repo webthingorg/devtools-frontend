@@ -242,9 +242,8 @@ Media.PlayerPropertiesView = class extends UI.VBox {
   /**
    * @param {string} playerID
    * @param {!Array.<!Media.Event>} changes
-   * @param {!Media.MediaModel.MediaChangeTypeKeys} changeType
    */
-  renderChanges(playerID, changes, changeType) {
+  renderChanges(playerID, changes) {
     for (const change of changes) {
       const renderer = this._attributeMap.get(change.name);
       if (renderer) {
