@@ -11,11 +11,13 @@ Media.PlayerDetailView = class extends UI.TabbedPane {
 
     const eventView = new Media.PlayerEventsView();
     const propertyView = new Media.PlayerPropertiesView();
+    const messageView = new Media.PlayerMessagesView();
 
     // maps handler type to a list of panels that support rendering changes.
     this._panels = new Map([
       [Media.MediaModel.MediaChangeTypeKeys.Property, [propertyView]],
-      [Media.MediaModel.MediaChangeTypeKeys.Event, [eventView]]
+      [Media.MediaModel.MediaChangeTypeKeys.Event, [eventView]],
+      [Media.MediaModel.MediaChangeTypeKeys.Message, [messageView]],
     ]);
 
     this.appendTab(
@@ -24,6 +26,10 @@ Media.PlayerDetailView = class extends UI.TabbedPane {
 
     this.appendTab(
         Media.PlayerDetailView.Tabs.Events, Common.UIString('Events'), eventView, Common.UIString('Player events'));
+
+    this.appendTab(
+        Media.PlayerDetailView.Tabs.Messages, Common.UIString('Messages'), messageView,
+        Common.UIString('Player messages'));
   }
 
   /**
@@ -33,7 +39,7 @@ Media.PlayerDetailView = class extends UI.TabbedPane {
    */
   renderChanges(playerID, changes, changeType) {
     for (const panel of this._panels.get(changeType)) {
-      panel.renderChanges(playerID, changes, changeType);
+      panel.renderChanges(playerID, changes);
     }
   }
 };
@@ -44,4 +50,5 @@ Media.PlayerDetailView = class extends UI.TabbedPane {
 Media.PlayerDetailView.Tabs = {
   Events: 'events',
   Properties: 'properties',
+  Messages: 'messages'
 };
