@@ -39,27 +39,102 @@ export const streamWrite = function(id, chunk) {
 /**
  * @param {string} url
  * @param {?Object.<string, string>} headers
- * @param {function(number, !Object.<string, string>, string, number)} callback
+ * @param {function(boolean, !Object.<string, string>, string, string)} callback
  */
 export function load(url, headers, callback) {
   const stream = new Common.StringOutputStream();
   loadAsStream(url, headers, stream, mycallback);
 
   /**
-   * @param {number} statusCode
+   * @param {boolean} success
    * @param {!Object.<string, string>} headers
-   * @param {number} netError
+   * @param {string} errorDesc
    */
-  function mycallback(statusCode, headers, netError) {
-    callback(statusCode, headers, stream.data(), netError);
+  function mycallback(success, headers, errorMessage) {
+    callback(success, headers, stream.data(), errorMessage);
   }
+}
+
+/**
+ * @param {number} netError
+ * Keep this function in sync with `net_error_list.h` on the Chromium side.
+ * @returns {string}
+ */
+function getNetErrorCategory(netError) {
+  if (netError > -100) {
+    return 'System error';
+  }
+  if (netError > -200) {
+    return 'Connection error';
+  }
+  if (netError > -300) {
+    return 'Certificate error';
+  }
+  if (netError > -400) {
+    return 'HTTP error';
+  }
+  if (netError > -500) {
+    return 'Cache error';
+  }
+  if (netError > -600) {
+    return 'Signed Exchange error';
+  }
+  if (netError > -700) {
+    return 'FTP error';
+  }
+  if (netError > -800) {
+    return 'Certificate manager error';
+  }
+  if (netError > -900) {
+    return 'DNS resolver error';
+  }
+  return 'Unknown error';
+}
+
+/**
+ * @param {number} netError
+ * @returns {boolean}
+ */
+function isHTTPError(netError) {
+  return netError <= -300 && netError > -400;
+}
+
+/**
+ * @param {!InspectorFrontendHostAPI.LoadNetworkResourceResult} response
+ * @returns {!{success:boolean, message: string}}
+ */
+function createErrorDescriptionFromResponse(response) {
+  const {statusCode, netError, urlValid, messageOverride} = response;
+  let message = '';
+  if (typeof messageOverride === 'undefined') {
+    if (typeof netError === 'undefined') {
+      if (urlValid === false) {
+        message = ls`Invalid URL`;
+      } else {
+        message = ls`Unknown error`;
+      }
+    } else {
+      if (netError !== 0) {
+        const errorCategory = getNetErrorCategory(netError);
+        message = ls`${errorCategory}: net error code ${netError}`;
+        if (isHTTPError(netError)) {
+          message += ls`, HTTP status code ${statusCode}`;
+        }
+      }
+    }
+  } else {
+    message = `${messageOverride}`;
+  }
+  const success = statusCode < 300 || statusCode === 304;
+  console.assert(success === (typeof message === 'string'));
+  return {success, message};
 }
 
 /**
  * @param {string} url
  * @param {?Object.<string, string>} headers
  * @param {!Common.OutputStream} stream
- * @param {function(number, !Object.<string, string>, number)=} callback
+ * @param {function(boolean, !Object.<string, string>, string)=} callback
  */
 export const loadAsStream = function(url, headers, stream, callback) {
   const streamId = _bindOutputStream(stream);
@@ -82,7 +157,8 @@ export const loadAsStream = function(url, headers, stream, callback) {
    */
   function finishedCallback(response) {
     if (callback) {
-      callback(response.statusCode, response.headers || {}, response.netError || 0);
+      const {success, message} = createErrorDescriptionFromResponse(response);
+      callback(success, response.headers || {}, message);
     }
     _discardOutputStream(streamId);
   }
@@ -95,7 +171,8 @@ export const loadAsStream = function(url, headers, stream, callback) {
     finishedCallback(/** @type {!InspectorFrontendHostAPI.LoadNetworkResourceResult} */ ({statusCode: 200}));
   }
 
-  function dataURLDecodeFailed() {
-    finishedCallback(/** @type {!InspectorFrontendHostAPI.LoadNetworkResourceResult} */ ({statusCode: 404}));
+  function dataURLDecodeFailed(xhrStatus) {
+    const message = ls`Decoding Data URL failed`;
+    finishedCallback(/** @type {!InspectorFrontendHostAPI.LoadNetworkResourceResult} */ ({statusCode: 404, message}));
   }
 };

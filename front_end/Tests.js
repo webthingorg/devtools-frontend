@@ -1397,8 +1397,8 @@
       return new Promise(fulfill => {
         Host.ResourceLoader.load(url, headers, callback);
 
-        function callback(statusCode, headers, content) {
-          test.assertEquals(expectedStatus, statusCode);
+        function callback(success, headers, content, errorDesc) {
+          test.assertEquals(expectedStatus, errorDesc.statusCode);
 
           const headersArray = [];
           for (const name in headers) {
