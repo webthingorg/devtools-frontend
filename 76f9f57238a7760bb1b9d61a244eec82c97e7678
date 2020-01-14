@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c893229_c944d1a7",
+        "filename": "test/unittests/front_end/ui/ListModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T17:18:27Z",
+      "side": 1,
+      "message": "You don\u0027t need this cleanup code, so you can remove the whole after block",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "76f9f57238a7760bb1b9d61a244eec82c97e7678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e03ffa_115ae05c",
+        "filename": "test/unittests/front_end/ui/ListModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T17:18:27Z",
+      "side": 1,
+      "message": "Why the two asserts?",
+      "revId": "76f9f57238a7760bb1b9d61a244eec82c97e7678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
