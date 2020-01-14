@@ -22,6 +22,144 @@
       "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a91aa2d3_11ef3b7f",
+        "filename": "test/unittests/front_end/text_utils/Text.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T13:55:50Z",
+      "side": 1,
+      "message": "it is preferred if all assertions have descriptive messages explaining what went wrong in case of a failure",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdef49ef_e442b79f",
+        "filename": "test/unittests/front_end/text_utils/Text.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T13:55:50Z",
+      "side": 1,
+      "message": "the action being tested is unclear\nyou need to read the description of the test before this one to fully understand the functionality being tested here\nsuggestion: \"should return NaN if the linenumber is out of range when trying to retrieve the offset\"",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 57
+      },
+      "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39f0d202_304d17f4",
+        "filename": "test/unittests/front_end/text_utils/Text.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T13:55:50Z",
+      "side": 1,
+      "message": "the action being tested is unclear",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13e49ef9_6618b6ab",
+        "filename": "test/unittests/front_end/text_utils/Text.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T13:55:50Z",
+      "side": 1,
+      "message": "the action being tested is unclear",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6196ac87_e56deb71",
+        "filename": "test/unittests/front_end/text_utils/Text.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T13:55:50Z",
+      "side": 1,
+      "message": "nit: better to say \u0027should be able to return line 0\u0027",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d991b2c_08e06f2d",
+        "filename": "test/unittests/front_end/text_utils/TextCursor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-14T13:55:50Z",
+      "side": 1,
+      "message": "nit: in a case like this it is better to use \u0027should be able to\u0027 to imply special scenarios/cases",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "8feddee9757fed93f8d9c49ee95bd7ed24a73d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
