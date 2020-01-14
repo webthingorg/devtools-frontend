@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "788055e7_b7f17bcc",
+        "filename": "front_end/media/EventDisplayTable.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-01-14T23:32:15Z",
+      "side": 1,
+      "message": "I\u0027m not sure about doing the math in the view layer, since it would mean each eventnode or event would have the same field/value in every instance, and that would seem to indicate it\u0027s better off being a property of the owning class, but i do realize that it definitely needs to stop overwriting the property name - so i\u0027ve changed that at least.",
+      "parentUuid": "ea66e850_ca4fb737",
+      "range": {
+        "startLine": 166,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 74
+      },
+      "revId": "6556d48bf8bd1fe80bfd78482572132e6ffb7ee1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6efff8b9_e4ed4c87",
         "filename": "front_end/source_frame/JSONView.js",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "6556d48bf8bd1fe80bfd78482572132e6ffb7ee1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bee8dda_356eeeee",
+        "filename": "front_end/source_frame/JSONView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-01-14T23:32:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6efff8b9_e4ed4c87",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 41
+      },
+      "revId": "6556d48bf8bd1fe80bfd78482572132e6ffb7ee1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
