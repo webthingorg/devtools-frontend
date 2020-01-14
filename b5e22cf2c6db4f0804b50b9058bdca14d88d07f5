@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aafcd58_8c074b93",
+        "filename": "tslint.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-14T10:04:41Z",
+      "side": 1,
+      "message": "We\u0027ve talked about this before, but I\u0027m a big fan of trailing comma.\n\n- No wasting time thinking \"should there be a comma here\"\n- Smaller diffs\n\nBut changing that is a separate discussion, and any changes should be done in parallel with our main eslint config for *.js files.",
+      "revId": "b5e22cf2c6db4f0804b50b9058bdca14d88d07f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
