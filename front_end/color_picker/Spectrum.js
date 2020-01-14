@@ -52,52 +52,58 @@ export class Spectrum extends UI.VBox {
 
     super(true);
     this.registerRequiredCSS('color_picker/spectrum.css');
-    this.contentElement.tabIndex = 0;
-    this.setDefaultFocusedElement(this.contentElement);
 
     this._colorElement = this.contentElement.createChild('div', 'spectrum-color');
-    this._colorDragElement = this._colorElement.createChild('div', 'spectrum-sat fill')
-                                 .createChild('div', 'spectrum-val fill')
-                                 .createChild('div', 'spectrum-dragger');
-    this._dragX = 0;
-    this._dragY = 0;
+    this._colorElement.tabIndex = 0;
+    this.setDefaultFocusedElement(this._colorElement);
+    this._colorElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionColor.bind(this)));
+    UI.ARIAUtils.setAccessibleName(
+        this._colorElement,
+        ls
+        `Move color swatch position using arrow keys with or without modifiers like Alt, Ctrl and Shift keys. With no modifiers, arrows move less, shift moves large, ctrl moves even less, and alt moves a tiny bit.`);
+        UI.ARIAUtils.markAsApplication(this._colorElement);
+        this._colorDragElement = this._colorElement.createChild('div', 'spectrum-sat fill')
+                                     .createChild('div', 'spectrum-val fill')
+                                     .createChild('div', 'spectrum-dragger');
+        this._dragX = 0;
+        this._dragY = 0;
 
-    const toolsContainer = this.contentElement.createChild('div', 'spectrum-tools');
-    const toolbar = new UI.Toolbar('spectrum-eye-dropper', toolsContainer);
-    this._colorPickerButton = new UI.ToolbarToggle(Common.UIString('Toggle color picker'), 'largeicon-eyedropper');
-    this._colorPickerButton.setToggled(true);
-    this._colorPickerButton.addEventListener(
-        UI.ToolbarButton.Events.Click, this._toggleColorPicker.bind(this, undefined));
-    toolbar.appendToolbarItem(this._colorPickerButton);
+        const toolsContainer = this.contentElement.createChild('div', 'spectrum-tools');
+        const toolbar = new UI.Toolbar('spectrum-eye-dropper', toolsContainer);
+        this._colorPickerButton = new UI.ToolbarToggle(Common.UIString('Toggle color picker'), 'largeicon-eyedropper');
+        this._colorPickerButton.setToggled(true);
+        this._colorPickerButton.addEventListener(
+            UI.ToolbarButton.Events.Click, this._toggleColorPicker.bind(this, undefined));
+        toolbar.appendToolbarItem(this._colorPickerButton);
 
-    this._swatch = new Swatch(toolsContainer);
+        this._swatch = new Swatch(toolsContainer);
 
-    this._hueElement = toolsContainer.createChild('div', 'spectrum-hue');
-    this._hueElement.tabIndex = 0;
-    this._hueElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionHue.bind(this)));
-    UI.ARIAUtils.setAccessibleName(this._hueElement, ls`Change hue`);
-    UI.ARIAUtils.markAsSlider(this._hueElement, 0, 360);
-    this._hueSlider = this._hueElement.createChild('div', 'spectrum-slider');
-    this._alphaElement = toolsContainer.createChild('div', 'spectrum-alpha');
-    this._alphaElement.tabIndex = 0;
-    this._alphaElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionAlpha.bind(this)));
-    UI.ARIAUtils.setAccessibleName(this._alphaElement, ls`Change alpha`);
-    UI.ARIAUtils.markAsSlider(this._alphaElement, 0, 1);
-    this._alphaElementBackground = this._alphaElement.createChild('div', 'spectrum-alpha-background');
-    this._alphaSlider = this._alphaElement.createChild('div', 'spectrum-slider');
+        this._hueElement = toolsContainer.createChild('div', 'spectrum-hue');
+        this._hueElement.tabIndex = 0;
+        this._hueElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionHue.bind(this)));
+        UI.ARIAUtils.setAccessibleName(this._hueElement, ls`Change hue`);
+        UI.ARIAUtils.markAsSlider(this._hueElement, 0, 360);
+        this._hueSlider = this._hueElement.createChild('div', 'spectrum-slider');
+        this._alphaElement = toolsContainer.createChild('div', 'spectrum-alpha');
+        this._alphaElement.tabIndex = 0;
+        this._alphaElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionAlpha.bind(this)));
+        UI.ARIAUtils.setAccessibleName(this._alphaElement, ls`Change alpha`);
+        UI.ARIAUtils.markAsSlider(this._alphaElement, 0, 1);
+        this._alphaElementBackground = this._alphaElement.createChild('div', 'spectrum-alpha-background');
+        this._alphaSlider = this._alphaElement.createChild('div', 'spectrum-slider');
 
-    // RGBA/HSLA display.
-    this._displayContainer = toolsContainer.createChild('div', 'spectrum-text source-code');
-    this._textValues = [];
-    for (let i = 0; i < 4; ++i) {
-      const inputValue = UI.createInput('spectrum-text-value');
-      this._displayContainer.appendChild(inputValue);
-      inputValue.maxLength = 4;
-      this._textValues.push(inputValue);
-      inputValue.addEventListener('keydown', this._inputChanged.bind(this), false);
-      inputValue.addEventListener('input', this._inputChanged.bind(this), false);
-      inputValue.addEventListener('mousewheel', this._inputChanged.bind(this), false);
-    }
+        // RGBA/HSLA display.
+        this._displayContainer = toolsContainer.createChild('div', 'spectrum-text source-code');
+        this._textValues = [];
+        for (let i = 0; i < 4; ++i) {
+          const inputValue = UI.createInput('spectrum-text-value');
+          this._displayContainer.appendChild(inputValue);
+          inputValue.maxLength = 4;
+          this._textValues.push(inputValue);
+          inputValue.addEventListener('keydown', this._inputChanged.bind(this), false);
+          inputValue.addEventListener('input', this._inputChanged.bind(this), false);
+          inputValue.addEventListener('mousewheel', this._inputChanged.bind(this), false);
+        }
 
     this._textLabels = this._displayContainer.createChild('div', 'spectrum-text-label');
 
@@ -113,6 +119,7 @@ export class Spectrum extends UI.VBox {
     const label = this._hexContainer.createChild('div', 'spectrum-text-label');
     label.textContent = ls`HEX`;
     UI.ARIAUtils.setAccessibleName(this._hexValue, label.textContent);
+    UI.ARIAUtils.markAsPoliteLiveRegion(this._hexContainer, true);
 
     const displaySwitcher = toolsContainer.createChild('div', 'spectrum-display-switcher spectrum-switcher');
     appendSwitcherIcon(displaySwitcher);
@@ -262,10 +269,53 @@ export class Spectrum extends UI.VBox {
      */
     function positionColor(event) {
       const hsva = this._hsv.slice();
-      hsva[1] = Number.constrain((event.x - this._colorOffset.left) / this.dragWidth, 0, 1);
-      hsva[2] = Number.constrain(1 - (event.y - this._colorOffset.top) / this.dragHeight, 0, 1);
+      const colorPosition = getUpdatedColorPosition(this._colorDragElement, event);
+      this._colorOffset = this._colorElement.totalOffset();
+      hsva[1] = Number.constrain((colorPosition.x - this._colorOffset.left) / this.dragWidth, 0, 1);
+      hsva[2] = Number.constrain(1 - (colorPosition.y - this._colorOffset.top) / this.dragHeight, 0, 1);
 
       this._innerSetColor(hsva, '', undefined /* colorName */, undefined, ChangeSource.Other);
+    }
+
+    /**
+     * @param {!Element} dragElement
+     * @param {!Event} event
+     * @return {{x: number, y: number}}
+     */
+    function getUpdatedColorPosition(dragElement, event) {
+      const elementPosition = dragElement.getBoundingClientRect();
+      const verticalX = elementPosition.x + elementPosition.width / 2;
+      const horizontalY = elementPosition.y + elementPosition.width / 2;
+      const defaultUnit = elementPosition.width / 4;
+      const unit = getUnitToMove(defaultUnit, event);
+      switch (event.key) {
+        case 'ArrowLeft':
+          return {x: elementPosition.left - unit, y: horizontalY};
+        case 'ArrowRight':
+          return {x: elementPosition.right + unit, y: horizontalY};
+        case 'ArrowDown':
+          return {x: verticalX, y: elementPosition.bottom + unit};
+        case 'ArrowUp':
+          return {x: verticalX, y: elementPosition.top - unit};
+        default:
+          return {x: event.x, y: event.y};
+      }
+    }
+
+    /**
+     * @param {number} unit
+     * @param {!Event} event
+     * @return {number}
+     */
+    function getUnitToMove(unit, event) {
+      if (event.altKey) {
+        unit = 1;
+      } else if (event.ctrlKey) {
+        unit = 10;
+      } else if (event.shiftKey) {
+        unit = 20;
+      }
+      return unit;
     }
   }
 

@@ -21,6 +21,9 @@
   <message name="IDS_DEVTOOLS_3b98e2dffc6cb06a89dcb0d5c60a0206" desc="Label aa text content in Contrast Details of the Color Picker">
     AA
   </message>
+  <message name="IDS_DEVTOOLS_3e9441810f8ece4a5b3e3bcf1a864c6a" desc="Aria label for swatch in Color Picker">
+    Move color swatch position using arrow keys with or without modifiers like Alt, Ctrl and Shift keys. With no modifiers, arrows move less, shift moves large, ctrl moves even less, and alt moves a tiny bit.
+  </message>
   <message name="IDS_DEVTOOLS_58c9566f3c750ce7147b045fdd14202b" desc="Aria label for HEX color format input">
     HEX
   </message>
