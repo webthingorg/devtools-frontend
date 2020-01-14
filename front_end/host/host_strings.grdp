@@ -3,4 +3,19 @@
   <message name="IDS_DEVTOOLS_92bb7e733a12d24684262f046afcc2fd" desc="Document title in Inspector Frontend Host of the DevTools window">
     <ph name="LOCKED_1">DevTools</ph> - <ph name="URL_REPLACE___HTTPS____________">$1s<ex>example.com</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_9bff4fd01cc822a24354c113c8ca7a2b" desc="Phrase used in error messages that carry a network error code">
+    <ph name="ERRORCATEGORY">$1s<ex>Certificate error</ex></ph>: net error code <ph name="NETERROR">$2s<ex>-202</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_aee9784c03b80d38d3271cde2b252b8d" desc="Name of an error category used in error messages">
+    Unknown error
+  </message>
+  <message name="IDS_DEVTOOLS_bf945532466a63b144bf9ad4dc26bde9" desc="Name of an error category used in error messages">
+    Decoding Data URL failed
+  </message>
+  <message name="IDS_DEVTOOLS_c8898a03e70606a03a14d28b75ac8e23" desc="Phrase used in error messages that carry a HTTP error code">
+    , HTTP status code <ph name="STATUSCODE">$1s<ex>404</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_f9c7939a8397ee022fefee2bdb3407af" desc="Name of an error category used in error messages">
+    Invalid URL
+  </message>
 </grit-part>
