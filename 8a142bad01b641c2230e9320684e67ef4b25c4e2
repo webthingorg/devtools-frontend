@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f8164e0_1ea445a5",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T13:52:56Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "8a142bad01b641c2230e9320684e67ef4b25c4e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26a288e5_f1020920",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T13:52:56Z",
+      "side": 1,
+      "message": "I feel like we should make this a describe of its own, and with different cases inside. This is currently rather hefty.",
+      "revId": "8a142bad01b641c2230e9320684e67ef4b25c4e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

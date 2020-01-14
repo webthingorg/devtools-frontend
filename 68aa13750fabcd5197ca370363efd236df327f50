@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "572655f0_c7cc5763",
+        "filename": "test/unittests/front_end/sdk/ServerTiming.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-14T13:52:56Z",
+      "side": 1,
+      "message": "You don\u0027t need to name the function here. If we ever change the implementation this would be out of date. If you just said it(\u0027parses headers correctly\u0027) it seems equivalent to me.",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 27
+      },
+      "revId": "68aa13750fabcd5197ca370363efd236df327f50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
