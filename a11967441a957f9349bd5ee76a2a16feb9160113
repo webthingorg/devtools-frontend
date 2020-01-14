@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4d2cb31_c050b55c",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-14T05:28:24Z",
+      "side": 1,
+      "message": "oh yikes this is never used",
+      "revId": "a11967441a957f9349bd5ee76a2a16feb9160113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4367f18_e56407f2",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-14T05:28:24Z",
+      "side": 1,
+      "message": "Maybe if (value.value \u003d\u003d null) ?",
+      "revId": "a11967441a957f9349bd5ee76a2a16feb9160113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33d8bf92_226cf241",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-14T05:28:24Z",
+      "side": 1,
+      "message": "could use for...of e.g.\n\nfor (const node of relatedNodes) { ... }",
+      "revId": "a11967441a957f9349bd5ee76a2a16feb9160113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecaa398e_6c9418a8",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-14T05:28:24Z",
+      "side": 1,
+      "message": "Seems like this could be an early return instead of an else.",
+      "revId": "a11967441a957f9349bd5ee76a2a16feb9160113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0336994d_1b6b7a98",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-14T05:28:24Z",
+      "side": 1,
+      "message": "This line is the only difference between the if and the else blocks.. perhaps the if/else could go around this line (and the corresponding line from the else block) instead?",
+      "revId": "a11967441a957f9349bd5ee76a2a16feb9160113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e27174b0_3f416aa6",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-14T05:28:24Z",
+      "side": 1,
+      "message": "Similarly, this could be an early return (my fault it\u0027s not already)",
+      "revId": "a11967441a957f9349bd5ee76a2a16feb9160113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64b872cd_2e81f0a7",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-14T05:28:24Z",
+      "side": 1,
+      "message": "I realise this is existing code, but this could also be for...of (if appendRelatedNodeWithIdref loses the `index` param)",
+      "revId": "a11967441a957f9349bd5ee76a2a16feb9160113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
