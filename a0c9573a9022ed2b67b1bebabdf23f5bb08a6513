@@ -22,6 +22,30 @@
       "revId": "a0c9573a9022ed2b67b1bebabdf23f5bb08a6513",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c127e743_9b24adcf",
+        "filename": "front_end/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-14T14:09:56Z",
+      "side": 1,
+      "message": "Because `git cl format` only runs on diff and this is the first time we touched this file in a while. It will still be minified in the Chromium binary.",
+      "parentUuid": "0168db6e_583aa6dc",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 41
+      },
+      "revId": "a0c9573a9022ed2b67b1bebabdf23f5bb08a6513",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
