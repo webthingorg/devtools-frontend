@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "134a788b_4d8b9b88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-15T19:00:31Z",
+      "side": 1,
+      "message": "Nit: DevTools prefix unnecessary in new repo.",
+      "revId": "af08b243d3120298ecf121221b390e6f96f01a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4fd7b1c_03d6c8e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-15T19:00:31Z",
+      "side": 1,
+      "message": "Like I mentioned in 1986208, it looks like part of your commit message is outdated or irrelevant (or copied from a previous commit).",
+      "revId": "af08b243d3120298ecf121221b390e6f96f01a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
