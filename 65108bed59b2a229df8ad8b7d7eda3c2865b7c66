@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07ec4d8c_f41db788",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-15T13:57:41Z",
+      "side": 1,
+      "message": "Leave a todo to indicate that it might be OK to asyncify this, but we don\u0027t do it now.",
+      "range": {
+        "startLine": 872,
+        "startChar": 2,
+        "endLine": 872,
+        "endChar": 18
+      },
+      "revId": "65108bed59b2a229df8ad8b7d7eda3c2865b7c66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
