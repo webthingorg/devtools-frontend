@@ -22,6 +22,30 @@
       "revId": "52cf9a660637e8c0d3554970fcb14b4ff943f807",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "951fd5f5_efa5f10f",
+        "filename": "test/unittests/front_end/text_utils/TextCursor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-15T17:38:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c00c3a_f592e2fa",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "52cf9a660637e8c0d3554970fcb14b4ff943f807",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
