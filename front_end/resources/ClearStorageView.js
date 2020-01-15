@@ -141,6 +141,7 @@ export class ClearStorageView extends UI.ThrottledWidget {
 
   _clear() {
     if (!this._securityOrigin) {
+      this._clearButton.focus();
       return;
     }
     const selectedStorageTypes = [];
@@ -160,6 +161,7 @@ export class ClearStorageView extends UI.ThrottledWidget {
     setTimeout(() => {
       this._clearButton.disabled = false;
       this._clearButton.textContent = label;
+      this._clearButton.focus();
     }, 500);
   }
 
