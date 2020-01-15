@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ee4219f_b2e2ca08",
+        "filename": "test/unittests/front_end/sdk/SourceMap.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-01-15T09:25:47Z",
+      "side": 1,
+      "message": "I prefer these assertions in favor of having a comment over the \u0027mappings\u0027 string describing the layout. Which would be something like:\n\n0: [0,0] \u003d\u003e [0,0]\n   [0,2] \u003d\u003e [0,2]\n\nin this case. wdyt?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 65
+      },
+      "revId": "d6e15dbfb5233dabc3ee3731ead5170840c11d7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
