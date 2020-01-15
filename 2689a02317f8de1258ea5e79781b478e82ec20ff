@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "681b771a_1e2a34d4",
+        "filename": "front_end/animation/AnimationUI.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-01-15T16:37:14Z",
+      "side": 1,
+      "message": "Nit: it looks like this 3 line pattern is repeated here and in the keydown handler. It may be nice to add a method to tackle all 3 lines (could take in event.clentX || 0 or similar) and then did all 3 so that if we have another use case, we don\u0027t forget to add the redraw() or something like that.",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 18
+      },
+      "revId": "2689a02317f8de1258ea5e79781b478e82ec20ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
