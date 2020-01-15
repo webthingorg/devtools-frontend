@@ -37,6 +37,10 @@
   white-space: pre-line;
 }
 
+.web-audio-content-container {
+  overflow-y: auto;
+}
+
 .context-detail-container {
   flex: none;
   display: flex;
