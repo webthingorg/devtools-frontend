@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "dd5793a5_e642c5ee",
+        "filename": "test/unittests/front_end/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-01-15T06:43:56Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "b7c64445_baef844e",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 6
+      },
+      "revId": "76dd3fbc10df59afb6e699ab0ebda41c8d6bf970",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "190557dd_93acb8d7",
         "filename": "test/unittests/front_end/sdk/SourceMap.ts",
         "patchSetId": 2
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "This is right on the tipping point of readability, but I appreciate it\u0027s a case of migrating the layout tests over and getting comfortable. Can we perhaps add a TODO or a FIXME to indicate that there\u0027s some future work here?",
       "parentUuid": "3e632306_2fa63718",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 78
+      },
+      "revId": "76dd3fbc10df59afb6e699ab0ebda41c8d6bf970",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de98e188_67393989",
+        "filename": "test/unittests/front_end/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-01-15T06:43:56Z",
+      "side": 1,
+      "message": "Done, left a FIXME.\n\nAgreed, do you have any suggestions how to make this code more readable? Maybe introduce some custom chai BDD thingies so the individual lines read like `expect(entry).to.map.to.line(x).and.column(y).`",
+      "parentUuid": "d891b52f_e28535d7",
       "range": {
         "startLine": 108,
         "startChar": 4,
