@@ -22,6 +22,30 @@
       "revId": "d6e15dbfb5233dabc3ee3731ead5170840c11d7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5f4a611_549cf9f3",
+        "filename": "test/unittests/front_end/sdk/SourceMap.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-15T09:29:32Z",
+      "side": 1,
+      "message": "For me, this is mostly a case of what is most readable if a test fails, which could be a long ways off and for someone with no experience or background in the code. I\u0027m fine with the assertions as they are, but perhaps there\u0027s some utility to outlining in sourcemap.findEntry what the code is doing (if it is clear to you). That way if there\u0027s a failure the original source will be more instructive.",
+      "parentUuid": "8ee4219f_b2e2ca08",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 65
+      },
+      "revId": "d6e15dbfb5233dabc3ee3731ead5170840c11d7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
