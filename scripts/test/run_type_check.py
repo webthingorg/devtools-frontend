@@ -103,6 +103,7 @@ LOADED_CSS_REGEX = re.compile(r'(?:registerRequiredCSS|WebInspector\.View\.creat
 
 JAVA_BUILD_REGEX = re.compile(r'\w+ version "(\d+)\.(\d+)')
 
+
 def log_error(message):
     print 'ERROR: ' + message
 
@@ -208,6 +209,7 @@ class JSDocChecker:
 def find_java():
     # Based on http://stackoverflow.com/questions/377017/test-if-executable-exists-in-python.
     def which(program):
+
         def is_executable(fpath):
             return path.isfile(fpath) and os.access(fpath, os.X_OK)
 

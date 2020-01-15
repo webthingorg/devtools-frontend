@@ -29,10 +29,12 @@ def parse_options(cli_args):
     parser.add_argument('devtools_dir', help='DevTools directory')
     return parser.parse_args(cli_args)
 
+
 def update(options):
     subprocess.check_call(['git', 'fetch', 'origin'], cwd=options.chromium_dir)
     subprocess.check_call(['git', 'checkout', 'origin/master'], cwd=options.chromium_dir)
     subprocess.check_call(['gclient', 'sync'], cwd=options.chromium_dir)
+
 
 def copy_files(options):
     for file in FILES:
