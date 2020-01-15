@@ -79,12 +79,14 @@ def hosted_mode_script_path():
 
 
 def downloaded_chrome_binary_path():
-    return path.abspath(path.join(
-    *{
-        'Linux': (devtools_root_path(), 'third_party', 'chrome', 'chrome-linux', 'chrome'),
-        'Darwin': (devtools_root_path(), 'third_party', 'chrome', 'chrome-mac', 'Chromium.app', 'Contents', 'MacOS', 'Chromium'),
-        'Windows': (devtools_root_path(), 'third_party', 'chrome', 'chrome-win', 'chrome.exe'),
-    }[platform.system()]))
+    return path.abspath(
+        path.join(
+            *{
+                'Linux': (devtools_root_path(), 'third_party', 'chrome', 'chrome-linux', 'chrome'),
+                'Darwin': (devtools_root_path(), 'third_party', 'chrome', 'chrome-mac', 'Chromium.app', 'Contents', 'MacOS',
+                           'Chromium'),
+                'Windows': (devtools_root_path(), 'third_party', 'chrome', 'chrome-win', 'chrome.exe'),
+            }[platform.system()]))
 
 
 def license_checker_path():

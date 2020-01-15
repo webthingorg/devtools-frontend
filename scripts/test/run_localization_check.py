@@ -19,15 +19,16 @@ devtools_path = devtools_paths.devtools_root_path()
 
 def parse_options(cli_args):
     parser = argparse.ArgumentParser(description='Process localization check arguments.')
-    parser.add_argument('--all', '-a', action='store_true', dest='all_files', help='If present, check all devtools frontend .js files')
+    parser.add_argument(
+        '--all', '-a', action='store_true', dest='all_files', help='If present, check all devtools frontend .js files')
     parser.add_argument('--files', nargs='+', help='List of .js files with absolute paths separated by a space')
     parser.add_argument(
         '--autofix', action='store_true', help='If present, errors in localizable resources will be fixed automatically')
     args = parser.parse_args(cli_args)
 
     if len(cli_args) == 0:
-      print('No argument provided. Assuming --all to check all files.')
-      args.all_files = True
+        print('No argument provided. Assuming --all to check all files.')
+        args.all_files = True
 
     if args.all_files and args.files:
         parser.error(

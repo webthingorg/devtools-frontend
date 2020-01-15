@@ -35,12 +35,13 @@ for more details about the presubmit API built into gcl.
 import sys
 
 EXCLUSIVE_CHANGE_DIRECTORIES = [
-    [ 'third_party', 'v8' ],
-    [ 'node_modules' ],
-    [ 'OWNERS' ],
+    ['third_party', 'v8'],
+    ['node_modules'],
+    ['OWNERS'],
 ]
 
 AUTOROLL_ACCOUNT = "devtools-ci-autoroll-builder@chops-service-accounts.iam.gserviceaccount.com"
+
 
 def _CheckChangesAreExclusiveToDirectory(input_api, output_api):
     if input_api.change.DISABLE_THIRD_PARTY_CHECK != None:
@@ -233,9 +234,7 @@ def _CheckNoUncheckedFiles(input_api, output_api):
 def _CommonChecks(input_api, output_api):
     """Checks common to both upload and commit."""
     results = []
-    results.extend(input_api.canned_checks.CheckAuthorizedAuthor(input_api, output_api,
-        bot_whitelist=[AUTOROLL_ACCOUNT]
-    ))
+    results.extend(input_api.canned_checks.CheckAuthorizedAuthor(input_api, output_api, bot_whitelist=[AUTOROLL_ACCOUNT]))
     results.extend(input_api.canned_checks.CheckOwnersFormat(input_api, output_api))
     results.extend(input_api.canned_checks.CheckOwners(input_api, output_api))
     results.extend(input_api.canned_checks.CheckChangeHasNoCrAndHasOnlyOneEol(input_api, output_api))

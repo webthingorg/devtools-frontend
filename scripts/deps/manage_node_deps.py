@@ -54,6 +54,7 @@ DEPS = {
     "yargs": "15.0.2"
 }
 
+
 def exec_command(cmd):
     try:
         cmd_proc_result = subprocess.check_call(cmd, cwd=devtools_paths.root_path())
@@ -65,12 +66,7 @@ def exec_command(cmd):
 
 
 def ensure_licenses():
-    cmd = [
-        devtools_paths.node_path(),
-        devtools_paths.license_checker_path(),
-        '--onlyAllow',
-        ('%s' % (';'.join(LICENSES)))
-    ]
+    cmd = [devtools_paths.node_path(), devtools_paths.license_checker_path(), '--onlyAllow', ('%s' % (';'.join(LICENSES)))]
 
     return exec_command(cmd)
 

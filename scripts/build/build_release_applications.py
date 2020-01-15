@@ -38,6 +38,7 @@ try:
 finally:
     sys.path = original_sys_path
 
+
 def main(argv):
     try:
         input_path_flag_index = argv.index('--input_path')

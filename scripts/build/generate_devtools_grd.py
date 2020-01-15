@@ -66,7 +66,7 @@ class ParsedArgs:
     def __init__(self, file_list, relative_path_dirs, image_dirs, output_filename):
         self.file_list = file_list
         file_list_file = open(file_list, 'r')
-        file_list_contents = file_list_file.read();
+        file_list_contents = file_list_file.read()
         self.source_files = shlex.split(file_list_contents)
         self.relative_path_dirs = relative_path_dirs
         self.image_dirs = image_dirs
