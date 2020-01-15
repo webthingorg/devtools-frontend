@@ -28,7 +28,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-export default class CSSPlugin extends Sources.UISourceCodeFrame.Plugin {
+import {Plugin} from './UISourceCodeFrame.js';
+
+export class CSSPlugin extends Plugin {
   /**
    * @param {!SourceFrame.SourcesTextEditor} textEditor
    */
@@ -60,7 +62,6 @@ export default class CSSPlugin extends Sources.UISourceCodeFrame.Plugin {
   }
 
   /**
-   * @override
    * @param {!Workspace.UISourceCode} uiSourceCode
    * @return {boolean}
    */
@@ -431,15 +432,3 @@ export const maxSwatchProcessingLength = 300;
 
 /** @type {symbol} */
 export const SwatchBookmark = Symbol('swatch');
-
-/* Legacy exported object */
-self.Sources = self.Sources || {};
-
-/* Legacy exported object */
-Sources = Sources || {};
-
-/** @constructor */
-Sources.CSSPlugin = CSSPlugin;
-
-Sources.CSSPlugin.maxSwatchProcessingLength = maxSwatchProcessingLength;
-Sources.CSSPlugin.SwatchBookmark = SwatchBookmark;

@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-export default class GutterDiffPlugin extends Sources.UISourceCodeFrame.Plugin {
+import {Plugin} from './UISourceCodeFrame.js';
+
+export class GutterDiffPlugin extends Plugin {
   /**
    * @param {!TextEditor.CodeMirrorTextEditor} textEditor
    * @param {!Workspace.UISourceCode} uiSourceCode
@@ -21,7 +23,6 @@ export default class GutterDiffPlugin extends Sources.UISourceCodeFrame.Plugin {
   }
 
   /**
-   * @override
    * @param {!Workspace.UISourceCode} uiSourceCode
    * @return {boolean}
    */
@@ -217,20 +218,3 @@ export class ContextMenuProvider {
     GutterDiffPlugin._appendRevealDiffContextMenu(contextMenu, uiSourceCode);
   }
 }
-
-/* Legacy exported object */
-self.Sources = self.Sources || {};
-
-/* Legacy exported object */
-Sources = Sources || {};
-
-/** @constructor */
-Sources.GutterDiffPlugin = GutterDiffPlugin;
-
-/** @constructor */
-Sources.GutterDiffPlugin.GutterDecoration = GutterDecoration;
-
-Sources.GutterDiffPlugin.DiffGutterType = DiffGutterType;
-
-/** @constructor */
-Sources.GutterDiffPlugin.ContextMenuProvider = ContextMenuProvider;

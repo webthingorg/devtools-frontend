@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-export default class SnippetsPlugin extends Sources.UISourceCodeFrame.Plugin {
+import {Plugin} from './UISourceCodeFrame.js';
+
+export class SnippetsPlugin extends Plugin {
   /**
    * @param {!SourceFrame.SourcesTextEditor} textEditor
    * @param {!Workspace.UISourceCode} uiSourceCode
@@ -14,7 +16,6 @@ export default class SnippetsPlugin extends Sources.UISourceCodeFrame.Plugin {
   }
 
   /**
-   * @override
    * @param {!Workspace.UISourceCode} uiSourceCode
    * @return {boolean}
    */
@@ -33,12 +34,3 @@ export default class SnippetsPlugin extends Sources.UISourceCodeFrame.Plugin {
     return [runSnippet];
   }
 }
-
-/* Legacy exported object */
-self.Sources = self.Sources || {};
-
-/* Legacy exported object */
-Sources = Sources || {};
-
-/** @constructor */
-Sources.SnippetsPlugin = SnippetsPlugin;
