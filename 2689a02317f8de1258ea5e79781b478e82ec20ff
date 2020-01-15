@@ -22,6 +22,30 @@
       "revId": "2689a02317f8de1258ea5e79781b478e82ec20ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5b4a974_673ebbba",
+        "filename": "front_end/animation/AnimationUI.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-01-15T19:49:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "681b771a_1e2a34d4",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 18
+      },
+      "revId": "2689a02317f8de1258ea5e79781b478e82ec20ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
