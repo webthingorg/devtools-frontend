@@ -5,6 +5,8 @@
 import {ContextDetailBuilder, ContextSummaryBuilder} from './AudioContextContentBuilder.js';
 import {AudioContextSelector, Events as SelectorEvents} from './AudioContextSelector.js';
 import {GraphManager} from './graph_visualizer/GraphManager.js';
+import {Events as GraphViewEvents} from './graph_visualizer/GraphView.js';
+import {GraphRenderer} from './graph_visualizer/GraphRenderer.js';
 import {Events as ModelEvents, WebAudioModel} from './WebAudioModel.js';
 
 /**
@@ -18,16 +20,56 @@ export class WebAudioView extends UI.ThrottledWidget {
 
     // Creates the toolbar.
     const toolbarContainer = this.contentElement.createChild('div', 'web-audio-toolbar-container vbox');
+
+    // Creates a SplitWidget to hold detail (sidebar) and graph (main)
+    this._splitWidgetContainer =
+        this.contentElement.createChild('div', 'web-audio-split-widget-container vbox flex-auto');
+    this._splitWidget =
+        new UI.SplitWidget(true /* vertical */, false /* sidebar on left */, 'webaudio.sidebar.width', 184);
+    // Attach widget to the container.
+    this._splitWidget.show(this._splitWidgetContainer);
+
+    // Creates the toolbar widget.
     this._contextSelector = new AudioContextSelector();
+
     const toolbar = new UI.Toolbar('web-audio-toolbar', toolbarContainer);
     toolbar.appendToolbarItem(UI.Toolbar.createActionButtonForId('components.collect-garbage'));
     toolbar.appendSeparator();
+    toolbar.appendToolbarItem(this._splitWidget.createShowHideSidebarButton('WebAudio sidebar'));
+    toolbar.appendSeparator();
     toolbar.appendToolbarItem(this._contextSelector.toolbarItem());
 
-    // Creates the detail view.
-    this._detailViewContainer = this.contentElement.createChild('div', 'vbox flex-auto');
+    // Creates the detail view  widget as the sidebar.
+    // this._detailViewContainer = this.contentElement.createChild('div', 'vbox flex-auto');
+    this._detailViewWidget = new UI.VBox();
+    // Set minimum width and height of sidebar.
+    this._detailViewWidget.setMinimumSize(150, 25);
+    this._splitWidget.setSidebarWidget(this._detailViewWidget);
+    // Detect the resize of siderbar to resize the canvas.
+    this._splitWidget.addEventListener(UI.SplitWidget.Events.SidebarSizeChanged, () => {
+      this._onSidebarResize();
+    });
+
+    // Creates the graph visualizer.
+    this.registerRequiredCSS('web_audio/graph_visualizer/graphVisualizer.css');
+    this._graphWidget = new UI.VBox();
+    // Creates the canvas that will be used to render graph.
+    const graphCanvas = /** @type {!HTMLCanvasElement} */
+        (this._graphWidget.contentElement.createChild('canvas', 'root-canvas'));
+    this._graphRenderer = new GraphRenderer(graphCanvas, null);
+    // Adds a button to fit the whole graph into viewport
+    const lowerLeftMenu = this._graphWidget.contentElement.createChild('div', 'web-audio-whole-graph-button');
+    this._buttonImage = lowerLeftMenu.createChild('img', 'resize-to-fit-button');
+    this._buttonImage.setAttribute('src', 'Images/seeWholeGraph.svg');
+    this._buttonImage.setAttribute('alt', 'Resize to fit');
+    this._buttonImage.setAttribute('title', 'Resize to fit');
+    this._buttonImage.addEventListener('click', () => {
+      this._graphRenderer.zoomToFitAll();
+    });
+    this._splitWidget.setMainWidget(this._graphWidget);
 
     this._graphManager = new GraphManager();
+    this._graphManager.addEventListener(GraphViewEvents.ShouldRedraw, this._renderGraphIfSelected, this);
 
     // Creates the landing page.
     this._landingPage = new UI.VBox();
@@ -37,7 +79,7 @@ export class WebAudioView extends UI.ThrottledWidget {
         <p>${ls`Open a page that uses Web Audio API to start monitoring.`}</p>
       </div>
     `);
-    this._landingPage.show(this._detailViewContainer);
+    this._landingPage.show(this._splitWidgetContainer);
 
     // Creates the summary bar.
     this._summaryBarContainer = this.contentElement.createChild('div', 'web-audio-summary-container');
@@ -45,11 +87,36 @@ export class WebAudioView extends UI.ThrottledWidget {
     this._contextSelector.addEventListener(SelectorEvents.ContextSelected, event => {
       const context =
           /** @type {!Protocol.WebAudio.BaseAudioContext} */ (event.data);
+      this._switchContext(context.contextId);
       this._updateDetailView(context);
       this.doUpdate();
+      // Resize canvas after the context is switched (because the summary bar may be
+      // toggled when switching between realtime context and offline context).
+      setTimeout(() => {
+        this._doResizeCanvas();
+      }, 0);
     });
 
     SDK.targetManager.observeModels(WebAudioModel, this);
+  }
+
+  /**
+   * @override
+   */
+  onResize() {
+    this._doResizeCanvas();
+  }
+
+  _doResizeCanvas() {
+    const size = {
+      width: this._graphWidget.contentElement.clientWidth,
+      height: this._graphWidget.contentElement.clientHeight,
+    };
+    this._graphRenderer.resize(size);
+  }
+
+  _onSidebarResize() {
+    this._doResizeCanvas();
   }
 
   /**
@@ -172,13 +239,41 @@ export class WebAudioView extends UI.ThrottledWidget {
     this._contextSelector.contextChanged(event);
   }
 
+  /**
+   * @param {!Protocol.WebAudio.GraphObjectId} contextId
+   */
+  _switchContext(contextId) {
+    const graph = this._graphManager.getGraph(contextId);
+    this._renderGraph(graph);
+  }
+
+  /**
+   * @param {!Common.Event} event
+   */
+  _renderGraphIfSelected(event) {
+    const graph = /** @type {!WebAudio.GraphVisualizer.GraphView} */ (event.data);
+    const selectedContext = this._contextSelector.selectedContext();
+    if (selectedContext && graph.contextId === selectedContext.contextId)
+      {this._renderGraph(graph);}
+  }
+
+  /**
+   * Request a redraw for the given graph.
+   * If graph is null, it will clear the canvas.
+   * @param {?WebAudio.GraphVisualizer.GraphView} graph
+   */
+  _renderGraph(graph) {
+    this._graphRenderer.setGraph(graph);
+    this._graphRenderer.requestRedraw();
+  }
+
   _reset() {
     if (this._landingPage.isShowing()) {
       this._landingPage.detach();
     }
     this._contextSelector.reset();
-    this._detailViewContainer.removeChildren();
-    this._landingPage.show(this._detailViewContainer);
+    this._detailViewWidget.contentElement.removeChildren();
+    this._landingPage.show(this._splitWidgetContainer);
     this._graphManager.clearGraphs();
   }
 
@@ -359,9 +454,10 @@ export class WebAudioView extends UI.ThrottledWidget {
     if (this._landingPage.isShowing()) {
       this._landingPage.detach();
     }
+
     const detailBuilder = new ContextDetailBuilder(context);
-    this._detailViewContainer.removeChildren();
-    this._detailViewContainer.appendChild(detailBuilder.getFragment());
+    this._detailViewWidget.contentElement.removeChildren();
+    this._detailViewWidget.contentElement.appendChild(detailBuilder.getFragment());
   }
 
   /**

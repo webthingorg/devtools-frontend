@@ -17,3 +17,6 @@ front_end/javascript_metadata/NativeFunctions.js
 front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 front_end/third_party/
 scripts/
+
+// For WIP fabric.js clang
+front_end/third_party/fabricjs/fabric.js

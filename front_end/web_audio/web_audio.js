@@ -8,6 +8,8 @@ import './graph_visualizer/NodeRendererUtility.js';
 import './graph_visualizer/NodeView.js';
 import './graph_visualizer/EdgeView.js';
 import './graph_visualizer/GraphView.js';
+import './graph_visualizer/GraphRendererUtility.js';
+import './graph_visualizer/GraphRenderer.js';
 import './WebAudioModel.js';
 import './AudioContextSelector.js';
 import './AudioContextContentBuilder.js';
@@ -19,6 +21,8 @@ import * as EdgeView from './graph_visualizer/EdgeView.js';
 import * as GraphManager from './graph_visualizer/GraphManager.js';
 import * as GraphStyle from './graph_visualizer/GraphStyle.js';
 import * as GraphView from './graph_visualizer/GraphView.js';
+import * as GraphRendererUtility from './graph_visualizer/GraphRendererUtility.js';
+import * as GraphRenderer from './graph_visualizer/GraphRenderer.js';
 import * as NodeRendererUtility from './graph_visualizer/NodeRendererUtility.js';
 import * as NodeView from './graph_visualizer/NodeView.js';
 import * as WebAudioModel from './WebAudioModel.js';
@@ -31,6 +35,8 @@ export {
   GraphManager,
   GraphStyle,
   GraphView,
+  GraphRendererUtility,
+  GraphRenderer,
   NodeRendererUtility,
   NodeView,
   WebAudioModel,
