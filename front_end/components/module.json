@@ -1,5 +1,6 @@
 {
     "dependencies": [
+        "sdk",
         "bindings",
         "platform",
         "ui"
