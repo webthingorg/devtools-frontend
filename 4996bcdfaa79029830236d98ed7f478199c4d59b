@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cc5cf71b_bd2dc7ef",
+        "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-01-15T17:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c87d63d3_c6772627",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "4996bcdfaa79029830236d98ed7f478199c4d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67718442_b7695444",
         "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "4996bcdfaa79029830236d98ed7f478199c4d59b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0cba70c_33a32bd9",
+        "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-01-15T17:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67718442_b7695444",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 67
+      },
+      "revId": "4996bcdfaa79029830236d98ed7f478199c4d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "005cef86_36cccea7",
+        "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-01-15T17:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0c52e71_be2288d1",
+      "range": {
+        "startLine": 40,
+        "startChar": 51,
+        "endLine": 40,
+        "endChar": 56
+      },
+      "revId": "4996bcdfaa79029830236d98ed7f478199c4d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8158f18a_7f4d62de",
         "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dc75314e_d669a0ca",
+        "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-01-15T17:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8158f18a_7f4d62de",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "4996bcdfaa79029830236d98ed7f478199c4d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34847eea_b487c1bb",
         "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "4996bcdfaa79029830236d98ed7f478199c4d59b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7f11c8c_7b3393e6",
+        "filename": "test/unittests/front_end/inline_editor/BezierUI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-01-15T17:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34847eea_b487c1bb",
+      "range": {
+        "startLine": 60,
+        "startChar": 17,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "4996bcdfaa79029830236d98ed7f478199c4d59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
