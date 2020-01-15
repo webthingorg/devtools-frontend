@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0c5fa59_695d37d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-15T18:59:04Z",
+      "side": 1,
+      "message": "Nit: \u0027DevTools\u0027 prefix no longer required in the new repo.",
+      "revId": "c16a79d0ae1ae0f9190f65872e7e3fcc96f15dde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "594d5798_75e3e2b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-15T18:59:04Z",
+      "side": 1,
+      "message": "This paragraph appears either to be incomplete or irrelevant -- there isn\u0027t such a change in this changeset.",
+      "revId": "c16a79d0ae1ae0f9190f65872e7e3fcc96f15dde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
