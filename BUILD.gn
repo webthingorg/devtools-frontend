@@ -1008,6 +1008,7 @@ all_devtools_modules = [
   "front_end/text_editor/text_editor.js",
   "front_end/text_editor/TextEditorAutocompleteController.js",
   "front_end/text_utils/text_utils.js",
+  "front_end/text_utils/text_utils-legacy.js",
   "front_end/text_utils/Text.js",
   "front_end/text_utils/TextRange.js",
   "front_end/text_utils/TextUtils.js",
@@ -1900,6 +1901,7 @@ copied_devtools_modules = [
   "$resources_out_dir/text_editor/text_editor.js",
   "$resources_out_dir/text_editor/TextEditorAutocompleteController.js",
   "$resources_out_dir/text_utils/text_utils.js",
+  "$resources_out_dir/text_utils/text_utils-legacy.js",
   "$resources_out_dir/text_utils/Text.js",
   "$resources_out_dir/text_utils/TextRange.js",
   "$resources_out_dir/text_utils/TextUtils.js",
@@ -2386,13 +2388,13 @@ action("copy_devtools_modules") {
   outputs = copied_devtools_modules
 
   args = [
-           "--file_list",
-           "{{response_file_name}}",
-           "--input_path",
-           rebase_path(".", root_build_dir),
-           "--output_path",
-           rebase_path(resources_out_dir, root_build_dir),
-         ]
+    "--file_list",
+    "{{response_file_name}}",
+    "--input_path",
+    rebase_path(".", root_build_dir),
+    "--output_path",
+    rebase_path(resources_out_dir, root_build_dir),
+  ]
 }
 
 if (debug_devtools) {
