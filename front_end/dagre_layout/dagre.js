@@ -11498,3 +11498,5 @@ module.exports = zipObject;
 
 },{'./_assignValue':75,'./_baseZipObject':130}]},{},[1])(1)
 });
+
+export dagre;

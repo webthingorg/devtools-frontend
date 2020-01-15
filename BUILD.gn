@@ -372,11 +372,14 @@ all_devtools_files = [
   "front_end/web_audio/audioContextSelector.css",
   "front_end/web_audio/module.json",
   "front_end/web_audio/webAudio.css",
+  "front_end/web_audio/graph_visualizer/graphVisualizer.css",
   "front_end/worker_main/module.json",
   "front_end/worker_service/module.json",
   "front_end/worker_service/ServiceDispatcher.js",
   "front_end/workspace_diff/module.json",
   "front_end/workspace/module.json",
+  "front_end/web_audio_worker_entrypoint.json",
+  "front_end/web_audio_worker/module.json",
 ]
 
 lighthouse_locale_files = [
@@ -1019,6 +1022,7 @@ all_devtools_modules = [
   "front_end/text_utils/Text.js",
   "front_end/text_utils/TextRange.js",
   "front_end/text_utils/TextUtils.js",
+  "front_end/third_party/fabricjs/fabric.js",
   "front_end/third_party/wasmparser/WasmDis.js",
   "front_end/third_party/wasmparser/WasmParser.js",
   "front_end/timeline/timeline.js",
@@ -1123,16 +1127,22 @@ all_devtools_modules = [
   "front_end/wasmparser_worker/WasmParserWorker.js",
   "front_end/web_audio/AudioContextContentBuilder.js",
   "front_end/web_audio/AudioContextSelector.js",
+  "front_end/web_audio/graph_visualizer/EdgeRendererUtility.js",
   "front_end/web_audio/graph_visualizer/EdgeView.js",
   "front_end/web_audio/graph_visualizer/GraphManager.js",
+  "front_end/web_audio/graph_visualizer/GraphRenderer.js",
+  "front_end/web_audio/graph_visualizer/GraphRendererUtility.js",
   "front_end/web_audio/graph_visualizer/GraphStyle.js",
   "front_end/web_audio/graph_visualizer/GraphView.js",
+  "front_end/web_audio/graph_visualizer/NodeRendererUtility.js",
   "front_end/web_audio/graph_visualizer/NodeRendererUtility.js",
   "front_end/web_audio/graph_visualizer/NodeView.js",
   "front_end/web_audio/web_audio.js",
   "front_end/web_audio/web_audio-legacy.js",
   "front_end/web_audio/WebAudioModel.js",
   "front_end/web_audio/WebAudioView.js",
+  "front_end/web_audio_worker/web_audio_worker.js",
+  "front_end/web_audio_worker/WebAudioWorker.js",
   "front_end/worker_main/worker_main.js",
   "front_end/worker_main/WorkerMain.js",
   "front_end/workspace_diff/workspace_diff.js",
@@ -1311,6 +1321,7 @@ devtools_image_files = [
   "front_end/Images/touchCursor.png",
   "front_end/Images/treeoutlineTriangles.svg",
   "front_end/Images/whatsnew.png",
+  "front_end/Images/seeWholeGraph.svg",
 ]
 
 resources_out_dir = "$root_out_dir/resources/inspector"
@@ -1920,6 +1931,7 @@ copied_devtools_modules = [
   "$resources_out_dir/text_utils/Text.js",
   "$resources_out_dir/text_utils/TextRange.js",
   "$resources_out_dir/text_utils/TextUtils.js",
+  "$resources_out_dir/third_party/fabricjs/fabric.js",
   "$resources_out_dir/third_party/wasmparser/WasmDis.js",
   "$resources_out_dir/third_party/wasmparser/WasmParser.js",
   "$resources_out_dir/timeline/timeline.js",
@@ -2023,8 +2035,11 @@ copied_devtools_modules = [
   "$resources_out_dir/wasmparser_worker/WasmParserWorker.js",
   "$resources_out_dir/web_audio/AudioContextContentBuilder.js",
   "$resources_out_dir/web_audio/AudioContextSelector.js",
+  "$resources_out_dir/web_audio/graph_visualizer/EdgeRendererUtility.js",
   "$resources_out_dir/web_audio/graph_visualizer/EdgeView.js",
   "$resources_out_dir/web_audio/graph_visualizer/GraphManager.js",
+  "$resources_out_dir/web_audio/graph_visualizer/GraphRenderer.js",
+  "$resources_out_dir/web_audio/graph_visualizer/GraphRendererUtility.js",
   "$resources_out_dir/web_audio/graph_visualizer/GraphStyle.js",
   "$resources_out_dir/web_audio/graph_visualizer/GraphView.js",
   "$resources_out_dir/web_audio/graph_visualizer/NodeRendererUtility.js",
@@ -2033,6 +2048,8 @@ copied_devtools_modules = [
   "$resources_out_dir/web_audio/web_audio-legacy.js",
   "$resources_out_dir/web_audio/WebAudioModel.js",
   "$resources_out_dir/web_audio/WebAudioView.js",
+  "$resources_out_dir/web_audio_worker/web_audio_worker.js",
+  "$resources_out_dir/web_audio_worker/WebAudioWorker.js",
   "$resources_out_dir/worker_main/worker_main.js",
   "$resources_out_dir/worker_main/WorkerMain.js",
   "$resources_out_dir/workspace_diff/workspace_diff.js",
@@ -2110,11 +2127,12 @@ generated_non_autostart_non_remote_modules = [
   "$resources_out_dir/timeline/timeline_module.js",
   "$resources_out_dir/web_audio/web_audio_module.js",
   "$resources_out_dir/workspace_diff/workspace_diff_module.js",
+  "$resources_out_dir/dagre_layout/dagre_layout_module.js",
+  "$resources_out_dir/third_party/fabricjs/fabricjs_module.js",
 ]
 
 generated_remote_modules = [
   "$resources_out_dir/audits_worker/audits_worker_module.js",
-  "$resources_out_dir/dagre_layout/dagre_layout_module.js",
   "$resources_out_dir/emulated_devices/emulated_devices_module.js",
 ]
 
@@ -2147,6 +2165,7 @@ generated_worker_bundles = [
   "$resources_out_dir/formatter_worker_entrypoint.js",
   "$resources_out_dir/heap_snapshot_worker_entrypoint.js",
   "$resources_out_dir/wasmparser_worker_entrypoint.js",
+  "$resources_out_dir/web_audio_worker_entrypoint.js",
 ]
 
 devtools_applications = [
@@ -2163,6 +2182,7 @@ devtools_applications = [
   "toolbox",
   "wasmparser_worker_entrypoint",
   "worker_app",
+  "web_audio_worker_entrypoint",
 ]
 
 #-------------------------------------------------------------------------------
@@ -2173,9 +2193,7 @@ group("devtools_all_files") {
     # This enalbes us to test bots with whitespace changes.
     "scripts/whitespaces.txt",
   ]
-  deps = [
-    ":devtools_frontend_resources_data",
-  ]
+  deps = [ ":devtools_frontend_resources_data" ]
 }
 
 devtools_frontend_resources_deps = [
@@ -2212,32 +2230,22 @@ group("devtools_frontend_resources_data") {
 
 copy("copy_embedder_scripts") {
   sources = devtools_embedder_scripts
-  outputs = [
-    "$resources_out_dir/{{source_file_part}}",
-  ]
+  outputs = [ "$resources_out_dir/{{source_file_part}}" ]
 }
 
 copy("copy_htaccess") {
-  sources = [
-    "htaccess",
-  ]
-  outputs = [
-    "$resources_out_dir/.htaccess",
-  ]
+  sources = [ "htaccess" ]
+  outputs = [ "$resources_out_dir/.htaccess" ]
 }
 
 copy("copy_inspector_images") {
   sources = devtools_image_files
-  outputs = [
-    "$resources_out_dir/Images/{{source_file_part}}",
-  ]
+  outputs = [ "$resources_out_dir/Images/{{source_file_part}}" ]
 }
 
 copy("copy_emulated_devices_images") {
   sources = devtools_emulated_devices_images
-  outputs = [
-    "$resources_out_dir/emulated_devices/{{source_file_part}}",
-  ]
+  outputs = [ "$resources_out_dir/emulated_devices/{{source_file_part}}" ]
 }
 
 copy("copy_lighthouse_locale_files") {
@@ -2248,20 +2256,15 @@ copy("copy_lighthouse_locale_files") {
 }
 
 copy("copy_wasm_deps") {
-  sources = [
-    "front_end/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
-  ]
-  outputs = [
-    "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
-  ]
+  sources = [ "front_end/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm" ]
+  outputs =
+      [ "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm" ]
 }
 
 action("generate_devtools_grd") {
   script = "scripts/build/generate_devtools_grd.py"
 
-  deps = [
-    ":devtools_frontend_resources",
-  ]
+  deps = [ ":devtools_frontend_resources" ]
 
   grd_files =
       copied_devtools_modules + generated_applications +
@@ -2275,9 +2278,7 @@ action("generate_devtools_grd") {
   inputs = grd_files + devtools_image_files
   response_file_contents = rebase_path(grd_files, root_build_dir)
   outfile = "$root_gen_dir/devtools/devtools_resources.grd"
-  outputs = [
-    outfile,
-  ]
+  outputs = [ outfile ]
 
   relative_path_dirs = [
     resources_out_dir,
@@ -2302,9 +2303,7 @@ action("devtools_extension_api") {
 
   devtools_extension_api_files = [ "front_end/extensions/ExtensionAPI.js" ]
   inputs = devtools_extension_api_files
-  outputs = [
-    "$resources_out_dir/devtools_extension_api.js",
-  ]
+  outputs = [ "$resources_out_dir/devtools_extension_api.js" ]
 
   args = rebase_path(outputs, root_build_dir) +
          rebase_path(devtools_extension_api_files, root_build_dir)
@@ -2313,13 +2312,9 @@ action("devtools_extension_api") {
 action("supported_css_properties") {
   script = "scripts/build/generate_supported_css.py"
 
-  inputs = [
-    "//third_party/blink/renderer/core/css/css_properties.json5",
-  ]
+  inputs = [ "//third_party/blink/renderer/core/css/css_properties.json5" ]
 
-  outputs = [
-    "$resources_out_dir/SupportedCSSProperties.js",
-  ]
+  outputs = [ "$resources_out_dir/SupportedCSSProperties.js" ]
 
   args =
       rebase_path(inputs, root_build_dir) + rebase_path(outputs, root_build_dir)
@@ -2328,13 +2323,9 @@ action("supported_css_properties") {
 action("aria_properties") {
   script = "scripts/build/generate_aria.py"
 
-  inputs = [
-    "//third_party/blink/renderer/core/html/aria_properties.json5",
-  ]
+  inputs = [ "//third_party/blink/renderer/core/html/aria_properties.json5" ]
 
-  outputs = [
-    "$resources_out_dir/accessibility/ARIAProperties.js",
-  ]
+  outputs = [ "$resources_out_dir/accessibility/ARIAProperties.js" ]
 
   args =
       rebase_path(inputs, root_build_dir) + rebase_path(outputs, root_build_dir)
@@ -2342,15 +2333,11 @@ action("aria_properties") {
 
 action("frontend_protocol_sources") {
   script = "scripts/build/code_generator_frontend.py"
-  deps = [
-    "//third_party/blink/public/devtools_protocol:protocol_version",
-  ]
+  deps = [ "//third_party/blink/public/devtools_protocol:protocol_version" ]
   inputs = [
     "$root_gen_dir/third_party/blink/public/devtools_protocol/protocol.json",
   ]
-  outputs = [
-    "$resources_out_dir/InspectorBackendCommands.js",
-  ]
+  outputs = [ "$resources_out_dir/InspectorBackendCommands.js" ]
 
   args = rebase_path(inputs, root_build_dir) + [
            "--output_js_dir",
@@ -2394,9 +2381,7 @@ action("build_release_devtools") {
 action("copy_devtools_modules") {
   script = "scripts/build/copy_devtools_modules.py"
 
-  deps = [
-    ":build_release_devtools",
-  ]
+  deps = [ ":build_release_devtools" ]
 
   inputs = all_devtools_modules
   response_file_contents = inputs
@@ -2419,9 +2404,7 @@ if (debug_devtools) {
     script = "scripts/build/build_debug_applications.py"
     inputs = all_devtools_files + application_templates
     stamp = "$resources_out_debug_dir/build.stamp"
-    outputs = [
-      stamp,
-    ]
+    outputs = [ stamp ]
 
     args = [
       "--input_path",
@@ -2441,9 +2424,7 @@ if (debug_devtools) {
       ":supported_css_properties",
     ]
     sources = generated_scripts
-    outputs = [
-      "$resources_out_debug_dir/{{source_file_part}}",
-    ]
+    outputs = [ "$resources_out_debug_dir/{{source_file_part}}" ]
   }
 
   copy("copy_aria_properties") {
@@ -2454,9 +2435,7 @@ if (debug_devtools) {
 
     sources = generated_aria_properties
 
-    outputs = [
-      "$resources_out_debug_dir/accessibility/{{source_file_part}}",
-    ]
+    outputs = [ "$resources_out_debug_dir/accessibility/{{source_file_part}}" ]
   }
 }
 
