@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8b5369a3_5d3fce44",
+        "filename": "front_end/cookie_table/CookiesTable.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-15T10:11:33Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right. Size is a calculated property and therefor not editable.",
+      "parentUuid": "3dc54ce9_adde6f31",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 18
+      },
+      "revId": "eb01c4a112cd40b55d13c4581d3ead61fb9d234a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87e2b597_79f42b02",
         "filename": "front_end/data_grid/DataGrid.js",
         "patchSetId": 6
