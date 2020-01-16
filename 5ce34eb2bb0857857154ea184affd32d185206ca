@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4759de00_f60934c7",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-01-16T06:35:57Z",
+      "side": 1,
+      "message": "What is the expected behavior if I change the color type from HEX to something else? When its in HEX it reads out in the screen reader as expected, but in other types, the screen reader doesn\u0027t read out the new values.",
+      "range": {
+        "startLine": 64,
+        "startChar": 21,
+        "endLine": 64,
+        "endChar": 38
+      },
+      "revId": "5ce34eb2bb0857857154ea184affd32d185206ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
