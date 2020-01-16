@@ -468,7 +468,7 @@ export class ProfileTypeSidebarSection extends UI.TreeElement {
     this._dataDisplayDelegate = dataDisplayDelegate;
     /** @type {!Array<!ProfileSidebarTreeElement>} */
     this._profileTreeElements = [];
-    /** @type {!Object<string, !ProfileTypeSidebarSection.ProfileGroup>} */
+    /** @type {!Object<string, !ProfileGroup>} */
     this._profileGroups = {};
     this.expand();
     this.hidden = true;
@@ -490,7 +490,7 @@ export class ProfileTypeSidebarSection extends UI.TreeElement {
       const profileTitle = profile.title;
       let group = this._profileGroups[profileTitle];
       if (!group) {
-        group = new ProfileTypeSidebarSection.ProfileGroup();
+        group = new ProfileGroup();
         this._profileGroups[profileTitle] = group;
       }
       group.profileSidebarTreeElements.push(profileTreeElement);
