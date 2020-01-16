@@ -387,10 +387,9 @@ export default class ProfilesPanel extends UI.PanelWithSidebar {
 
     this._profileViewToolbar.removeToolbarItems();
 
-    const toolbarItems = view.syncToolbarItems();
-    for (let i = 0; i < toolbarItems.length; ++i) {
-      this._profileViewToolbar.appendToolbarItem(toolbarItems[i]);
-    }
+    view.toolbarItems().then(items => {
+      items.map(item => this._profileViewToolbar.appendToolbarItem(item));
+    });
 
     return view;
   }

@@ -50,10 +50,10 @@ export default class HeapProfileView extends Profiler.ProfileView {
 
   /**
    * @override
-   * @return {!Array<!UI.ToolbarItem>}
+   * @return {!Promise<!Array<!UI.ToolbarItem>>}
    */
-  syncToolbarItems() {
-    return [...super.syncToolbarItems(), this._selectedSizeText];
+  async toolbarItems() {
+    return [...await super.toolbarItems(), this._selectedSizeText];
   }
 
   /**
