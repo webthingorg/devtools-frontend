@@ -22,6 +22,30 @@
       "revId": "d9f74a9f9a4ac27b2ad4da7139c9c90f637faec4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ba3d3a_e102a7db",
+        "filename": "front_end/ui/View.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-01-16T06:54:43Z",
+      "side": 1,
+      "message": "Yes, this is on my todo list and will happen in a followup CL.",
+      "parentUuid": "79019866_589abf28",
+      "range": {
+        "startLine": 116,
+        "startChar": 32,
+        "endLine": 116,
+        "endChar": 45
+      },
+      "revId": "d9f74a9f9a4ac27b2ad4da7139c9c90f637faec4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
