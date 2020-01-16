@@ -80,13 +80,6 @@ Array.prototype.pushAll = function(array) {};
  */
 Array.prototype.keySet = function() {};
 /**
- * @param {number} index
- * @return {!Array.<!T>}
- * @this {Array.<T>}
- * @template T
- */
-Array.prototype.rotate = function(index) {};
-/**
  * @this {Array.<number>}
  */
 Array.prototype.sortNumbers = function() {};
