@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d559dff5_8b4b1f78",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-16T16:43:54Z",
+      "side": 1,
+      "message": "these could be split into three tests (three it blocks) since each one of them is a special case of the described action\nyou can use a nested describe block to convey that",
+      "range": {
+        "startLine": 272,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 116
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c17bd412_496dc56b",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-16T16:43:54Z",
+      "side": 1,
+      "message": "could this be split into four tests? do the actions inside depend on each other?\nyou can use a nested describe block with beforeEach to reduce duplication",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 48
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "535b7a57_b7b8cb20",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-16T16:43:54Z",
+      "side": 1,
+      "message": "try to avoid describing the test case using the variable names and instead use the message in the describe and it blocks to convey the test case (it will make it more obvious what went wrong upon failure)",
+      "range": {
+        "startLine": 295,
+        "startChar": 10,
+        "endLine": 295,
+        "endChar": 51
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0501546e_a5cd8ba8",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-16T16:43:54Z",
+      "side": 1,
+      "message": "maybe you can add an assertion for the value as well?",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 316,
+        "endChar": 95
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
