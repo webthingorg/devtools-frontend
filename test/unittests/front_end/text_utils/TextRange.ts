@@ -267,4 +267,52 @@ describe(`TextRange`, () => {
     assert.isTrue(textRangeB.containsLocation(1, 4), `position in range should be contained`);
     assert.isFalse(textRangeB.containsLocation(1, 5), `end position should be contained`);
   });
+
+  it(`can be constructed from an edit`, () => {
+    const textRangeA = TextRange.fromObject({startLine: 1, startColumn: 2, endLine: 3, endColumn:4});
+    const textA = "This is\nan example text\nwith newlines\nin it. It is for\n the test.\n";
+    const textRangeAEdited = TextRange.fromEdit(textRangeA, textA);
+    const expectedRangeA = {startLine: 1, startColumn: 2, endLine: 6, endColumn: 0};
+    assertIsTextRangeAndEqualsRange(textRangeAEdited, expectedRangeA, `range end should have been shifted back`);
+    const textRangeB = TextRange.fromObject({startLine: 1, startColumn: 2, endLine: 3, endColumn:4});
+    const textB = "This is\nan example text\nwith newlines\nin it. It is for\n the test.";
+    const textRangeBEdited = TextRange.fromEdit(textRangeB, textB);
+    const expectedRangeB = {startLine: 1, startColumn: 2, endLine: 5, endColumn: 10};
+    assertIsTextRangeAndEqualsRange(textRangeBEdited, expectedRangeB, `range end should have been shifted back`);
+    const textRangeC = TextRange.fromObject({startLine: 1, startColumn: 2, endLine: 3, endColumn:4});
+    const textC = "This is an example text without newlines in it. It is for the test.";
+    const textRangeCEdited = TextRange.fromEdit(textRangeC, textC);
+    const expectedRangeC = {startLine: 1, startColumn: 2, endLine: 1, endColumn: 69};
+    assertIsTextRangeAndEqualsRange(textRangeCEdited, expectedRangeC, `range end should have been shifted forward`);
+  });
+
+  it(`can be rebased after a text edit`, () => {
+    const originalRange = TextRange.fromObject({startLine: 1, startColumn: 2, endLine: 3, endColumn:4});
+    const newRange = TextRange.fromObject({startLine: 1, startColumn: 2, endLine: 7, endColumn:8});
+
+    const rangeNotFollowingOriginalRange = {startLine: 2, startColumn: 4, endLine: 7, endColumn:8};
+    const textRangeToRebaseNotFollowingOriginalRange = TextRange.fromObject(rangeNotFollowingOriginalRange);
+    const rebasedTextRangeNotFollowingOriginalRange = textRangeToRebaseNotFollowingOriginalRange.rebaseAfterTextEdit(originalRange, newRange);
+    assertIsTextRangeAndEqualsRange(rebasedTextRangeNotFollowingOriginalRange, rangeNotFollowingOriginalRange, `range should not have been modified`);
+
+    const textRangeToRebaseA = TextRange.fromObject({startLine: 4, startColumn: 4, endLine: 6, endColumn:8});
+    const rebasedTextRangeA = textRangeToRebaseA.rebaseAfterTextEdit(originalRange, newRange);
+    const expectedRangeA = {startLine: 8, startColumn: 4, endLine: 10, endColumn: 8};
+    assertIsTextRangeAndEqualsRange(rebasedTextRangeA, expectedRangeA, `range's lines should have been shifted back`);
+
+    const textRangeToRebaseB = TextRange.fromObject({startLine: 3, startColumn: 5, endLine: 6, endColumn:8});
+    const rebasedTextRangeB = textRangeToRebaseB.rebaseAfterTextEdit(originalRange, newRange);
+    const expectedRangeB = {startLine: 7, startColumn: 9, endLine: 10, endColumn: 8};
+    assertIsTextRangeAndEqualsRange(rebasedTextRangeB, expectedRangeB, `range's lines and start column should have been shifted back`);
+
+    const textRangeToRebaseC = TextRange.fromObject({startLine: 3, startColumn: 5, endLine: 3, endColumn:8});
+    const rebasedTextRangeC = textRangeToRebaseC.rebaseAfterTextEdit(originalRange, newRange);
+    const expectedRangeC = {startLine: 7, startColumn: 9, endLine: 7, endColumn: 12};
+    assertIsTextRangeAndEqualsRange(rebasedTextRangeC, expectedRangeC, `range's lines and columns should have been shifted back`);
+  });
+
+  it(`can be stringified`, () => {
+    const textRange = TextRange.fromObject({startLine: 1, startColumn: 2, endLine: 3, endColumn:4});
+    assert.isTrue(typeof textRange.toString() === "string", `toString should return a string`);
+  });
 });
