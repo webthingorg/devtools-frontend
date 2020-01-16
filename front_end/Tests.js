@@ -1393,12 +1393,12 @@
   TestSuite.prototype.testLoadResourceForFrontend = async function(baseURL, fileURL) {
     const test = this;
     const loggedHeaders = new Set(['cache-control', 'pragma']);
-    function testCase(url, headers, expectedStatus, expectedHeaders, expectedContent) {
+    function testCase(url, headers, expectedSuccess, expectedHeaders, expectedContent) {
       return new Promise(fulfill => {
         Host.ResourceLoader.load(url, headers, callback);
 
-        function callback(statusCode, headers, content) {
-          test.assertEquals(expectedStatus, statusCode);
+        function callback(success, headers, content, errorMessage) {
+          test.assertEquals(expectedSuccess, success);
 
           const headersArray = [];
           for (const name in headers) {
@@ -1416,17 +1416,17 @@
     }
 
     this.takeControl();
-    await testCase(baseURL + 'non-existent.html', undefined, 404, [], '');
-    await testCase(baseURL + 'hello.html', undefined, 200, [], '<!doctype html>\n<p>hello</p>\n');
-    await testCase(baseURL + 'echoheader?x-devtools-test', {'x-devtools-test': 'Foo'}, 200, ['cache-control'], 'Foo');
-    await testCase(baseURL + 'set-header?pragma:%20no-cache', undefined, 200, ['pragma'], 'pragma: no-cache');
+    await testCase(baseURL + 'non-existent.html', undefined, false, [], '');
+    await testCase(baseURL + 'hello.html', undefined, true, [], '<!doctype html>\n<p>hello</p>\n');
+    await testCase(baseURL + 'echoheader?x-devtools-test', {'x-devtools-test': 'Foo'}, true, ['cache-control'], 'Foo');
+    await testCase(baseURL + 'set-header?pragma:%20no-cache', undefined, true, ['pragma'], 'pragma: no-cache');
 
     await SDK.targetManager.mainTarget().runtimeAgent().invoke_evaluate({
       expression: `fetch("/set-cookie?devtools-test-cookie=Bar",
                          {credentials: 'include'})`,
       awaitPromise: true
     });
-    await testCase(baseURL + 'echoheader?Cookie', undefined, 200, ['cache-control'], 'devtools-test-cookie=Bar');
+    await testCase(baseURL + 'echoheader?Cookie', undefined, true, ['cache-control'], 'devtools-test-cookie=Bar');
 
     await SDK.targetManager.mainTarget().runtimeAgent().invoke_evaluate({
       expression: `fetch("/set-cookie?devtools-test-cookie=same-site-cookie;SameSite=Lax",
@@ -1434,10 +1434,10 @@
       awaitPromise: true
     });
     await testCase(
-        baseURL + 'echoheader?Cookie', undefined, 200, ['cache-control'], 'devtools-test-cookie=same-site-cookie');
-    await testCase('data:text/html,<body>hello</body>', undefined, 200, [], '<body>hello</body>');
-    await testCase(fileURL, undefined, 200, [], '<html>\n<body>\nDummy page.\n</body>\n</html>\n');
-    await testCase(fileURL + 'thisfileshouldnotbefound', undefined, 404, [], '');
+        baseURL + 'echoheader?Cookie', undefined, true, ['cache-control'], 'devtools-test-cookie=same-site-cookie');
+    await testCase('data:text/html,<body>hello</body>', undefined, true, [], '<body>hello</body>');
+    await testCase(fileURL, undefined, true, [], '<html>\n<body>\nDummy page.\n</body>\n</html>\n');
+    await testCase(fileURL + 'thisfileshouldnotbefound', undefined, false, [], '');
 
     this.releaseControl();
   };
