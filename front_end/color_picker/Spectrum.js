@@ -52,10 +52,15 @@ export class Spectrum extends UI.VBox {
 
     super(true);
     this.registerRequiredCSS('color_picker/spectrum.css');
-    this.contentElement.tabIndex = 0;
-    this.setDefaultFocusedElement(this.contentElement);
 
     this._colorElement = this.contentElement.createChild('div', 'spectrum-color');
+    this._colorElement.tabIndex = 0;
+    this.setDefaultFocusedElement(this._colorElement);
+    this._colorElement.addEventListener('keydown', this._onSliderKeydown.bind(this, positionColor.bind(this)));
+    const swatchAriaText = ls
+    `Press arrow keys with or without modifiers to move swatch position. Alt moves tiny bit, Ctrl moves less and Shift moves large`;
+    UI.ARIAUtils.setAccessibleName(this._colorElement, swatchAriaText);
+    UI.ARIAUtils.markAsApplication(this._colorElement);
     this._colorDragElement = this._colorElement.createChild('div', 'spectrum-sat fill')
                                  .createChild('div', 'spectrum-val fill')
                                  .createChild('div', 'spectrum-dragger');
@@ -113,6 +118,7 @@ export class Spectrum extends UI.VBox {
     const label = this._hexContainer.createChild('div', 'spectrum-text-label');
     label.textContent = ls`HEX`;
     UI.ARIAUtils.setAccessibleName(this._hexValue, label.textContent);
+    UI.ARIAUtils.markAsPoliteLiveRegion(this._hexContainer, true);
 
     const displaySwitcher = toolsContainer.createChild('div', 'spectrum-display-switcher spectrum-switcher');
     appendSwitcherIcon(displaySwitcher);
@@ -262,10 +268,53 @@ export class Spectrum extends UI.VBox {
      */
     function positionColor(event) {
       const hsva = this._hsv.slice();
-      hsva[1] = Number.constrain((event.x - this._colorOffset.left) / this.dragWidth, 0, 1);
-      hsva[2] = Number.constrain(1 - (event.y - this._colorOffset.top) / this.dragHeight, 0, 1);
+      const colorPosition = getUpdatedColorPosition(this._colorDragElement, event);
+      this._colorOffset = this._colorElement.totalOffset();
+      hsva[1] = Number.constrain((colorPosition.x - this._colorOffset.left) / this.dragWidth, 0, 1);
+      hsva[2] = Number.constrain(1 - (colorPosition.y - this._colorOffset.top) / this.dragHeight, 0, 1);
 
       this._innerSetColor(hsva, '', undefined /* colorName */, undefined, ChangeSource.Other);
+    }
+
+    /**
+     * @param {!Element} dragElement
+     * @param {!Event} event
+     * @return {{x: number, y: number}}
+     */
+    function getUpdatedColorPosition(dragElement, event) {
+      const elementPosition = dragElement.getBoundingClientRect();
+      const verticalX = elementPosition.x + elementPosition.width / 2;
+      const horizontalY = elementPosition.y + elementPosition.width / 2;
+      const defaultUnit = elementPosition.width / 4;
+      const unit = getUnitToMove(defaultUnit, event);
+      switch (event.key) {
+        case 'ArrowLeft':
+          return {x: elementPosition.left - unit, y: horizontalY};
+        case 'ArrowRight':
+          return {x: elementPosition.right + unit, y: horizontalY};
+        case 'ArrowDown':
+          return {x: verticalX, y: elementPosition.bottom + unit};
+        case 'ArrowUp':
+          return {x: verticalX, y: elementPosition.top - unit};
+        default:
+          return {x: event.x, y: event.y};
+      }
+    }
+
+    /**
+     * @param {number} unit
+     * @param {!Event} event
+     * @return {number}
+     */
+    function getUnitToMove(unit, event) {
+      if (event.altKey) {
+        unit = 1;
+      } else if (event.ctrlKey) {
+        unit = 10;
+      } else if (event.shiftKey) {
+        unit = 20;
+      }
+      return unit;
     }
   }
 
