@@ -3,4 +3,16 @@
   <message name="IDS_DEVTOOLS_92bb7e733a12d24684262f046afcc2fd" desc="Document title in Inspector Frontend Host of the DevTools window">
     <ph name="LOCKED_1">DevTools</ph> - <ph name="URL_REPLACE___HTTPS____________">$1s<ex>example.com</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_92e49dde8a851253ae32a85677e834df" desc="Phrase used in error messages that carry a network error name">
+    HTTP error: status code <ph name="STATUSCODE">$1s<ex>404</ex></ph>, <ph name="NETERRORNAME">$2s<ex>net::ERR_INSUFFICIENT_RESOURCES</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_aee9784c03b80d38d3271cde2b252b8d" desc="Name of an error category used in error messages">
+    Unknown error
+  </message>
+  <message name="IDS_DEVTOOLS_bf945532466a63b144bf9ad4dc26bde9" desc="Name of an error category used in error messages">
+    Decoding Data URL failed
+  </message>
+  <message name="IDS_DEVTOOLS_f9c7939a8397ee022fefee2bdb3407af" desc="Name of an error category used in error messages">
+    Invalid URL
+  </message>
 </grit-part>
