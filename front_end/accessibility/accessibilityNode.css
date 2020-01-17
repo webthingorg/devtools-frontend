@@ -69,3 +69,9 @@ span.ax-value-undefined {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@media (forced-colors: active) {
+  .ax-value-source-unused {
+    opacity: 1;
+  }
+}

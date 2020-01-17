@@ -129,3 +129,41 @@
 .computed-narrow.tree-outline li::before {
     margin-top: -14px;
 }
+
+@media (forced-colors: active) {
+    .computed-style-property-inherited {
+        opacity: 1;
+    }
+    :host-context(.monospace.computed-properties) .tree-outline li[data-keyboard-focus="true"]:focus {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+        border: 1px solid Highlight !important;
+        box-shadow: none !important;
+    }
+    :host-context(.monospace.computed-properties) .tree-outline li:hover,
+    .tree-outline li:hover.odd-row {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+    :host-context(.monospace.computed-properties) .tree-outline li[data-keyboard-focus="true"]:focus:not(.parent)::before {
+        background-color: transparent !important;
+    }
+    .tree-outline li::before {
+        forced-color-adjust: none;
+        background-color: ButtonText;
+    }
+    .tree-outline li:hover::before,
+    .tree-outline li:hover [is=ui-icon].goto-source-icon,
+    :host-context(.monospace.computed-properties) .tree-outline li[data-keyboard-focus="true"]:focus::before {
+        background-color: HighlightText !important;
+    }
+    .tree-outline li:hover *,
+    :host-context(.computed-properties) .tree-outline li:hover .property-trace-selector,
+    :host-context(.monospace.computed-properties) .tree-outline li[data-keyboard-focus="true"]:focus * {
+        color: HighlightText !important;
+    }
+    .property-trace-inactive .property-trace-value::before {
+        content: "";
+        border-bottom: 1px solid HighlightText !important;
+    }
+}
