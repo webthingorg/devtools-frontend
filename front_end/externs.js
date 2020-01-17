@@ -706,38 +706,6 @@ Acorn.Comment;
  */
 Acorn.TokenOrComment;
 
-const dagre = {};
-dagre.graphlib = {};
-/**
- * @constructor
- */
-dagre.graphlib.Graph = function() {};
-
-dagre.graphlib.json = {};
-
-/**
- * @param {string} graphData
- * @return {!dagre.graphlib.Graph}
- */
-dagre.graphlib.json.read = function(graphData) {};
-
-/**
- * @param {!dagre.graphlib.Graph} graph
- * @return {string}
- */
-dagre.graphlib.json.write = function(graph) {};
-
-/**
- * @param {!dagre.graphlib.Graph} graph
- * @param {?Object=} options
- */
-dagre.layout = function(graph, options) {};
-// Since the object types in JSDoc should use capitalized `Dagre`, dagre is renamed as Dagre below.
-// Note that `var Dagre={}` will be added in dagre_module.js, so to prevent variable redefinition,
-// the workaround is to name the module+folder as `dagre_layout`. This workaround is similar to
-// `cm` and `CodeMirror`.
-const Dagre = dagre;
-
 const ESTree = {};
 
 /**
@@ -1532,4 +1500,160 @@ class ServicePort {
   }
 }
 
+
+/* work in progress */
+
+const dagre = {};
+dagre.graphlib = {};
+/**
+ * @constructor
+ * @param {?Object=} option
+ */
+dagre.graphlib.Graph = function(option) {};
+/**
+ * @param {string} id
+ * @param {!Dagre.Label} label
+ */
+dagre.graphlib.Graph.prototype.setNode = function(id, label) {};
+/**
+ * @param {string} source
+ * @param {string} target
+ * @param {!Dagre.Label} label
+ */
+dagre.graphlib.Graph.prototype.setEdge = function(source, target, label) {};
+/**
+ * @param {!Dagre.Label} label
+ */
+dagre.graphlib.Graph.prototype.setGraph = function(label) {};
+/**
+ * @return {!Dagre.Label}
+ */
+dagre.graphlib.Graph.prototype.graph = function() {};
+/**
+ * @param {string} id
+ * @return {!Dagre.Label}
+ */
+dagre.graphlib.Graph.prototype.node = function(id) {};
+/**
+ * @param {!Dagre.Graphlib.Edge} edgeValue
+ * @return {!Dagre.Label}
+ */
+dagre.graphlib.Graph.prototype.edge = function(edgeValue) {};
+
+dagre.graphlib.json = {};
+
+/**
+ * @param {string} graphData
+ * @return {!dagre.graphlib.Graph}
+ */
+dagre.graphlib.json.read = function(graphData) {};
+
+/**
+ * @param {!dagre.graphlib.Graph} graph
+ * @return {string}
+ */
+dagre.graphlib.json.write = function(graph) {};
+
+/**
+ * @param {!dagre.graphlib.Graph} graph
+ * @param {?Object=} options
+ */
+dagre.layout = function(graph, options) {};
+
 const fabric = {};
+
+/** @constructor */
+fabric.Object = function(options) {};
+fabric.Object.prototype.getBoundingRect = function() {};
+fabric.Object.prototype.setCoords = function() {};
+
+/**
+ * @constructor
+ * @param {string | HTMLCanvasElement} element
+ * @param {?Object=} options
+ */
+fabric.Canvas = function(element, options) {
+  /** @type {!Array<number>} */
+  this.viewportTransform = [];
+};
+/** @param {!Fabric.Object} object */
+fabric.Canvas.prototype.add = function(object) {};
+/** @return {!Array<!Fabric.Object>} */
+fabric.Canvas.prototype.getObjects = function() {};
+/** @param {!Function} callback */
+fabric.Canvas.prototype.forEachObject = function(callback) {};
+/** @param {!Fabric.Object} object */
+fabric.Canvas.prototype.remove = function(object) {};
+/** @return {number} */
+fabric.Canvas.prototype.getZoom = function() {};
+fabric.Canvas.prototype.requestRenderAll = function() {};
+/**
+ * @param {string} eventName
+ * @param {!Function} handler
+ */
+fabric.Canvas.prototype.on = function(eventName, handler) {};
+/**
+ * @param {!{x: number, y: number}} point
+ * @param {number} value
+ */
+fabric.Canvas.prototype.zoomToPoint = function(point, value) {};
+/** @param {number} width */
+fabric.Canvas.prototype.setWidth = function(width) {};
+/** @param {number} height */
+fabric.Canvas.prototype.setHeight = function(height) {};
+fabric.Canvas.prototype.clear = function() {};
+
+/**
+ * @constructor
+ * @extends {fabric.Object}
+ */
+fabric.Group = function(elements, options) {};
+/** @param {!Function} callback */
+fabric.Group.prototype.forEachObject = function(callback) {};
+/** @param {!Fabric.Object} object */
+fabric.Group.prototype.addWithUpdate = function(object) {};
+/** @param {!Fabric.Object} object */
+fabric.Group.prototype.remove = function(object) {};
+/** @param {!Object} properties */
+fabric.Group.prototype.set = function(properties) {};
+
+/**
+ * @constructor
+ * @extends {fabric.Object}
+ */
+fabric.Text = function(text, options) {};
+
+/**
+ * @constructor
+ * @extends {fabric.Object}
+ */
+fabric.Circle = function(options) {};
+
+/**
+ * @constructor
+ * @extends {fabric.Object}
+ */
+fabric.Rect = function(options) {};
+
+/**
+ * @constructor
+ * @extends {fabric.Object}
+ */
+fabric.Path = function(path, options) {};
+// Although the library `dagre` and `fabric` are in lower case,
+// the object types in JSDoc should be using captalized `Dagre` and `Fabric`.
+// Otherwise, the presubmit check will fail.
+// For example, instead of `@param {!fabric.Canvas}`, use `@param {!Fabric.Canvas}`
+const Dagre = dagre;
+const Fabric = fabric;
+
+/** @typedef {?Object} */
+Dagre.Label;
+Dagre.Graphlib = dagre.graphlib;
+/**
+ * @constructor
+ * @param {?Object=} option
+ */
+Dagre.Graphlib.Graph = dagre.graphlib.Graph;
+/** @typedef {!{v: string, w: string}} */
+Dagre.Graphlib.Edge;

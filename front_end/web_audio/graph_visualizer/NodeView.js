@@ -88,6 +88,20 @@ export class NodeView {
   }
 
   /**
+   * @param {string} id
+   * @return {!WebAudio.GraphVisualizer.Port}
+   */
+  getPortById(id) {
+    return this.ports.get(id);
+  }
+
+  /** @return {boolean} */
+  shouldRender() {
+    // When a node has a valid position, it should and could be rendered.
+    return !!this.position && (typeof this.position.x !== 'undefined') && (typeof this.position.y !== 'undefined');
+  }
+
+  /**
    * Use number of inputs and outputs to compute the layout
    * for text and ports.
    * Credit: This function is mostly borrowed from Audion/
@@ -156,6 +170,7 @@ export class NodeView {
       this._addPort({
         id: generateInputPortId(this.id, i),
         type: PortTypes.In,
+        label: String(i),
         x,
         y,
       });
@@ -176,6 +191,7 @@ export class NodeView {
         this._addPort({
           id: portId,
           type: PortTypes.Out,
+          label: String(i),
           x,
           y,
         });

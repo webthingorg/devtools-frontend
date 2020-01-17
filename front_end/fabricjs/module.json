@@ -1,8 +1,8 @@
 {
   "scripts": [
-    "dagre.js"
+    "fabric.js"
   ],
   "skip_compilation": [
-    "dagre.js"
+    "fabric.js"
   ]
 }

@@ -17,3 +17,6 @@ front_end/javascript_metadata/NativeFunctions.js
 front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 front_end/third_party/
 scripts/
+
+front_end/dagre_layout/
+front_end/fabricjs/

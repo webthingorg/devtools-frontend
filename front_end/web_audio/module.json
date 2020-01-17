@@ -14,24 +14,29 @@
   "dependencies": [
       "components",
       "sdk",
-      "ui"
+      "ui",
+      "common"
   ],
   "scripts": [],
   "modules": [
-      "web_audio.js",
-      "web_audio-legacy.js",
-      "graph_visualizer/GraphStyle.js",
+      "graph_visualizer/EdgeRendererUtility.js",
+      "graph_visualizer/EdgeView.js",
       "graph_visualizer/GraphManager.js",
+      "graph_visualizer/GraphRenderer.js",
+      "graph_visualizer/GraphRendererUtility.js",
+      "graph_visualizer/GraphStyle.js",
+      "graph_visualizer/GraphView.js",
       "graph_visualizer/NodeRendererUtility.js",
       "graph_visualizer/NodeView.js",
-      "graph_visualizer/EdgeView.js",
-      "graph_visualizer/GraphView.js",
-      "WebAudioModel.js",
-      "AudioContextSelector.js",
       "AudioContextContentBuilder.js",
+      "AudioContextSelector.js",
+      "web_audio-legacy.js",
+      "web_audio.js",
+      "WebAudioModel.js",
       "WebAudioView.js"
   ],
   "resources": [
+      "graph_visualizer/graphVisualizer.css",
       "webAudio.css",
       "audioContextSelector.css"
   ]
