@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a387dc9_cc2c83d6",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-17T10:03:24Z",
+      "side": 1,
+      "message": "Thanks, this made the test much more readable and opened up the possibility to describe the test cases better.",
+      "parentUuid": "d559dff5_8b4b1f78",
+      "range": {
+        "startLine": 272,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 116
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c17bd412_496dc56b",
         "filename": "test/unittests/front_end/text_utils/TextRange.ts",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33a9eb01_c5e332cb",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-17T10:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c17bd412_496dc56b",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 48
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "64be5d42_06bfe487",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-17T10:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "535b7a57_b7b8cb20",
+      "range": {
+        "startLine": 295,
+        "startChar": 10,
+        "endLine": 295,
+        "endChar": 51
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0501546e_a5cd8ba8",
         "filename": "test/unittests/front_end/text_utils/TextRange.ts",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2020-01-16T16:43:54Z",
       "side": 1,
       "message": "maybe you can add an assertion for the value as well?",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 316,
+        "endChar": 95
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9061e23b_3ea7b326",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-17T10:03:24Z",
+      "side": 1,
+      "message": "This is for debugging purposes only, so I don\u0027t want to nail it down in the tests. WDYT?",
+      "parentUuid": "0501546e_a5cd8ba8",
       "range": {
         "startLine": 316,
         "startChar": 4,
