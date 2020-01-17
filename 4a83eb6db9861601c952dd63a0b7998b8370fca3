@@ -187,6 +187,30 @@
       "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e3c3b0b_692b444e",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-17T10:45:14Z",
+      "side": 1,
+      "message": "if you do not strictly control the output of this function and no other functionality depend on it I guess it is safe not to assert the value of the output",
+      "parentUuid": "9061e23b_3ea7b326",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 316,
+        "endChar": 95
+      },
+      "revId": "4a83eb6db9861601c952dd63a0b7998b8370fca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

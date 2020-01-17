@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "953b68da_0c7e6a82",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-17T10:45:14Z",
+      "side": 1,
+      "message": "use \"#fromEdit()\" to be consistent with your other describe blocks",
+      "range": {
+        "startLine": 271,
+        "startChar": 12,
+        "endLine": 271,
+        "endChar": 32
+      },
+      "revId": "75e3557099bb5a1691ea69752f47ea1ebfbe0650",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc4120f7_04b6e7aa",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-17T10:45:14Z",
+      "side": 1,
+      "message": "typo: \"can construct\"",
+      "range": {
+        "startLine": 272,
+        "startChar": 8,
+        "endLine": 272,
+        "endChar": 26
+      },
+      "revId": "75e3557099bb5a1691ea69752f47ea1ebfbe0650",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22019b85_b470b4e4",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-17T10:45:14Z",
+      "side": 1,
+      "message": "typo: \"can construct\"",
+      "range": {
+        "startLine": 280,
+        "startChar": 8,
+        "endLine": 280,
+        "endChar": 26
+      },
+      "revId": "75e3557099bb5a1691ea69752f47ea1ebfbe0650",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc8db8c1_0bc1b9a6",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1368997
+      },
+      "writtenOn": "2020-01-17T10:45:14Z",
+      "side": 1,
+      "message": "typo: \"can construct\"",
+      "range": {
+        "startLine": 288,
+        "startChar": 8,
+        "endLine": 288,
+        "endChar": 26
+      },
+      "revId": "75e3557099bb5a1691ea69752f47ea1ebfbe0650",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
