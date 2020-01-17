@@ -43,6 +43,9 @@ def node_path():
         import node
     finally:
         sys.path = old_sys_path
+    print('devtools_paths')
+    print(node.GetBinaryPath())
+    print(path.exists(node.GetBinaryPath()))
     return node.GetBinaryPath()
 
 
