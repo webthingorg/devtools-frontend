@@ -23,6 +23,12 @@ ROOT_TS_CONFIG_LOCATION = path.join(_CURRENT_DIR, '..', '..', 'tsconfig.json')
 
 
 def runTsc(tsconfig_location):
+    print(NODE_LOCATION)
+    print(TSC_LOCATION)
+    print(path.abspath(NODE_LOCATION))
+    print(path.exists(NODE_LOCATION))
+    print(path.abspath(TSC_LOCATION))
+    print(path.exists(TSC_LOCATION))
     process = subprocess.Popen([NODE_LOCATION, TSC_LOCATION, '-b', tsconfig_location],
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
