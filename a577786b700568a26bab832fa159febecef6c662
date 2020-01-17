@@ -118,6 +118,30 @@
       "revId": "a577786b700568a26bab832fa159febecef6c662",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "986f0cf5_c4909aab",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-17T09:04:40Z",
+      "side": 1,
+      "message": "This is really insightful, thanks for digging this up, Joey! \n\nBased on what you wrote, how about changing the message to something like:\n\n    Only provisional headers are available because this request was not sent over the network and instead was served from a local cache, which doesn\u0027t store the original request headers. Disable the cache to see request headers.\n\nWith my edit I tried to convey that:\n  - we are not withholding information, but just don\u0027t have more available (shown / available)\n  - make it actionable by mentioning that the user may disable the cache to see the request headers\n\nWDYT? Do you think this provides too much detail?",
+      "parentUuid": "4f5f3e9f_56baa788",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
