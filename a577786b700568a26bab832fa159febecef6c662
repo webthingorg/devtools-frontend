@@ -94,6 +94,30 @@
       "revId": "a577786b700568a26bab832fa159febecef6c662",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f5f3e9f_56baa788",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-01-17T01:05:27Z",
+      "side": 1,
+      "message": "Great question!\n\nThis led me to do a bit more investigation. I made a webpage that has a disk cached request and a memory cached request: https://disk-vs-memory-caching.glitch.me/\n\nI found that the \"memory cached\" request never left the renderer process, and was likely based on this field: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/loader/fetch/memory_cache.h?l\u003d60\u0026rcl\u003d06e052d21baaa5afc7c851ed43c6a90e53dc6156\nSince memory cached requests never leave the renderer process, we can\u0027t possibly get Network.*ExtraInfo events for them, since Network.*ExtraInfo events come from network service, which is outside of the renderer process. The response headers shown there must be what the renderer process got back from the network stack and saved in the blink::Resource\u0027s blink::ResourceResponse. The response headers in this case seem fairly extensive, but there are usually only 1-3 request headers.\nIn order to save the request headers sent over the wire for these requests, we could try and make blink save the raw response info from URLResponseHead::raw_request_response_info into blink::Resource: https://cs.chromium.org/chromium/src/services/network/public/mojom/url_response_head.mojom?l\u003d73\u0026rcl\u003d1ae02df19655f0874318d291f6fec93fa0622f83\nHowever, I told jam@ a while ago that I would try and remove this raw header information from URLLoader and replace it with information from Network.*ExtraInfo events, which wouldn\u0027t work for this case because the raw header information in Network.*ExtraInfo events is considered sensitive and shouldn\u0027t even be allowed in the renderer process where the cached blink::Resource lives.\nI think that unless we have a strong request for request headers on memory cached requests from developers, we should leave this as is.\n\nAs for the \"disk cached\" request, that makes it to network service and goes into the http cache in the net stack. This emits a Network.responseReceivedExtraInfo event with... whatever headers the net stack saves in its cache? These response headers seem fairly comprehensive, but once again, there are basically no detailed request headers because we aren\u0027t getting a Network.requestWillBeSentExtraInfo event from the net stack.\n\nIn both these cases, the \"provisional\" request headers come from various places in blink that like to set the user-agent, content-type, and accept headers before requests get sent out to network service, where most of the request headers really get computed.\n\nOnce again, I think it would take quite some effort to increase the quality of the headers for cached requests, and I think our users seem OK with just checking the \"disable cache\" box to get more detailed headers.\n\nTo more directly answer your question, the headers don\u0027t get changed later in time. It\u0027s just not super easy due to the architecture to save the headers in the places where they are cached (at least in blink\u0027s memory cache). I\u0027ll ask the network stack people about the http cache case, I suppose it would be possible to send out a Network.requestWillBeSentExtraInfo event in those cases.",
+      "parentUuid": "d10f69eb_8a5c7181",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
