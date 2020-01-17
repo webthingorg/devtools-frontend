@@ -46,6 +46,30 @@
       "revId": "1d55d5d497f7e734bbb6baeefc4cdd7d1e0ce1a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce08c0a7_3a53d69d",
+        "filename": "test/unittests/front_end/text_utils/TextRange.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-17T13:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "741aa858_750c9626",
+      "range": {
+        "startLine": 61,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "1d55d5d497f7e734bbb6baeefc4cdd7d1e0ce1a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
