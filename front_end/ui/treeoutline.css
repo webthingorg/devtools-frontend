@@ -165,3 +165,14 @@ ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus * {
     width: fit-content;
     padding-right: 3px;
 }
+
+@media (forced-colors: active) {
+    .tree-outline li:not(.parent)::before,
+    .tree-outline li:hover:not(.parent)::before {
+        background-color: transparent !important;
+    }
+    .tree-outline li::before {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+}

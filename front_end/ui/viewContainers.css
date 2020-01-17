@@ -68,3 +68,14 @@
     top: 0;
 }
 
+@media (forced-colors: active) {
+    .expandable-view-title [is=ui-icon].icon-mask {
+        forced-color-adjust: none;
+        background-color: ButtonText;
+    }
+    .expandable-view-title[data-keyboard-focus="true"]:focus {
+        forced-color-adjust: none;
+        background: Canvas !important;
+        box-shadow: 0 0 0 2px Highlight inset !important;
+    }
+}

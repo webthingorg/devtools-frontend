@@ -291,3 +291,15 @@
     margin-left: -4px;
     flex: none;
 }
+
+@media (forced-colors: active) {
+    .tabbed-pane-tab-slider {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+    .tabbed-pane-header-tab[data-keyboard-focus="true"]:focus {
+        forced-color-adjust: none;
+        background: Canvas !important;
+        box-shadow: 0 0 0 2px Highlight inset;
+    }
+}
