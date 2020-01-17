@@ -1533,3 +1533,151 @@ class ServicePort {
 }
 
 const fabric = {};
+
+// Babylon.js
+const BABYLON = {};
+
+/**
+ * @param {?HTMLCanvasElement | WebGLRenderingContext} canvasOrContext
+ * @param {?boolean} antialias
+ * @param {?Object} options
+ * @param {?boolean} adaptToDeviceRatio
+ */
+/** @constructor */
+BABYLON.Engine = function(canvasOrContext, antialias, options, adaptToDeviceRatio) {};
+BABYLON.Engine.prototype = {
+  hideLoadingUI: function() {},
+  displayLoadingUI: function() {},
+  /** @param {?Function} renderFunction */
+  runRenderLoop: function(renderFunction) {},
+};
+BABYLON.ArcRotateCamera;
+BABYLON.ArcRotateCamera.attachControl;
+BABYLON.ActionManager;
+BABYLON.ActionManager.OnPickTrigger;
+BABYLON.ActionManager.OnPointerOutTrigger;
+BABYLON.ActionManager.OnPointerOverTrigger;
+BABYLON.ActionManager.OnDoublePickTrigger;
+BABYLON.Animation;
+BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT;
+BABYLON.Animation.ANIMATIONTYPE_FLOAT;
+BABYLON.Animation.CreateAndStartAnimation = function(
+    name, mesh, targetProperty, framePerSecond, totalFrame, from, to, loopMode) {};
+BABYLON.Animation.setKeys;
+/** @constructor */
+BABYLON.Color4 = function(r, g, b, a) {};
+/** @constructor */
+BABYLON.Color3 = function(r, g, b) {};
+/** @constructor */
+BABYLON.Color3.FromInts = function(r, g, b) {};
+BABYLON.ExecuteCodeAction;
+BABYLON.HighlightLayer;
+BABYLON.HighlightLayer.addMesh;
+BABYLON.HighlightLayer.removeMesh;
+/** @constructor */
+BABYLON.Mesh = function() {};
+BABYLON.Mesh.prototype = {
+  freezeWorldMatrix: function() {},
+  convertToUnIndexedMesh: function() {},
+  setEnabled: function(value) {},
+  intersectsMesh: function(mesh, precise) {},
+  position: {clone: function() {}},
+  disableEdgesRendering: function() {},
+  enableEdgesRendering: function() {},
+};
+BABYLON.MeshBuilder;
+/** @return {!BABYLON.Mesh} */
+BABYLON.MeshBuilder.CreateBox = function(id, options, scene) {};
+/**
+ * @param {string} name
+ * @param {Object} scene
+ * @constructor */
+BABYLON.MultiMaterial = function(name, scene) {};
+BABYLON.MultiMaterial.prototype = {
+  freeze: function() {},
+  subMaterials: []
+};
+/** @typedef {Array.<Object>} */
+BABYLON.MultiMaterial.subMaterials;
+/** @constructor */
+BABYLON.Scene = function(engine) {};
+BABYLON.Scene.prototype = {
+  activeCamera: {
+    setTarget: function(mesh) {},
+    setPosition: function(position) {},
+    detachControl: function(canvas) {},
+    attachControl: function(canvas, a, b) {},
+    animations: [],
+  },
+  meshes: [],
+  dispose: function() {},
+  getMeshByName: function(name) {},
+  unfreezeActiveMeshes: function() {},
+  freezeActiveMeshes: function() {},
+  beginAnimation: function(activeCamera, start, end, loop, a) {},
+  createDefaultEnvironment: function(options) {},
+};
+/** @constructor */
+BABYLON.EnvironmentHelper = function() {};
+BABYLON.EnvironmentHelper.prototype = {
+  setMainColor: function() {},
+};
+/** @return {!BABYLON.EnvironmentHelper}*/
+BABYLON.Scene.createDefaultEnvironment;
+/** @constructor */
+BABYLON.StandardMaterial = function(name, scene) {};
+BABYLON.StandardMaterial.prototype = {
+  clone: function() {},
+  freeze: function() {},
+};
+/** @constructor */
+BABYLON.SubMesh = function(a, b, c, d, e, mesh) {};
+BABYLON.Texture;
+BABYLON.Texture.CreateFromBase64String;
+BABYLON.Texture.NEAREST_NEAREST;
+/** @constructor */
+BABYLON.Vector4 = function(left, bottom, right, top) {};
+BABYLON.Vector3;
+BABYLON.Constants;
+BABYLON.Constants.TEXTURE_CLAMP_ADDRESSMODE;
+/** @constructor */
+BABYLON.GUI = function() {};
+BABYLON.GUI.prototype = {
+  addControl: function(control) {},
+  removeControl: function(control) {},
+};
+BABYLON.GUI.AdvancedDynamicTexture;
+BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI;
+BABYLON.GUI.Button;
+BABYLON.GUI.Button.CreateSimpleButton;
+BABYLON.GUI.Button.prototype = {
+  onPointerClickObservable: function() {},
+  onPointerDownObservable: function() {},
+};
+
+BABYLON.GUI.Control;
+BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+/** @constructor */
+BABYLON.GUI.Line = function() {};
+BABYLON.GUI.Line.prototype = {
+  linkWithMesh: function(mesh) {},
+};
+/** @constructor */
+BABYLON.GUI.TextBlock = function() {};
+BABYLON.GUI.Rectangle;
+BABYLON.GUI.Rectangle.prototype = {
+  addControl: function(control) {},
+  linkWithMesh: function(mesh) {},
+  onPointerClickObservable: function() {},
+  onPointerEnterObservable: function() {},
+  onPointerOutObservable: function() {}
+};
+BABYLON.GUI.Slider;
+BABYLON.GUI.Slider.prototype = {
+  onValueChangedObservable: function() {},
+};
+
+const Dom3d = function() {};

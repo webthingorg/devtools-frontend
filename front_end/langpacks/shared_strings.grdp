@@ -124,6 +124,9 @@
   <message name="IDS_DEVTOOLS_340641a167ad6da1bcb4016357f4695d" desc="Title for a type of source files">
     Content scripts
   </message>
+  <message name="IDS_DEVTOOLS_368d9ac76af05f714092bc808a426bfc" desc="Text in App Manifest View of the Application panel">
+    Background color
+  </message>
   <message name="IDS_DEVTOOLS_36917e785bd31d786ab9dd7790a9a4c2" desc="Text for a heap profile type">
     JS Heap
   </message>
@@ -585,6 +588,9 @@
   </message>
   <message name="IDS_DEVTOOLS_eb902cf204f3e4dfffeb56d92a9b5c26" desc="Text to show since when an item is valid">
     Valid from
+  </message>
+  <message name="IDS_DEVTOOLS_eb92025cb8c66f1850c13a9b602a1856" desc="Text in Computed Style Widget of the Elements panel">
+    Show all
   </message>
   <message name="IDS_DEVTOOLS_ec211f7c20af43e742bf2570c3cb84f9" desc="Text to add something">
     Add
