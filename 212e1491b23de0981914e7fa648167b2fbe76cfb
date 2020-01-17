@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2a7885a_4541c74b",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-17T15:08:59Z",
+      "side": 1,
+      "message": "How much of a hack is attaching symbols in general? As someone unburdened by JS experience this appears weird to me, particularly since we have to look up the symbol and check its type on every call.\n\nOn the other hand, how expensive is lookink up the resourceTreeModel really? That\u0027s the only thing in the code below that\u0027s really doing anything, even though it\u0027s only hit when there\u0027s no execution context on the script. How frequently does that happen? I\u0027m trying to weigh whether using the symbol is worth it, given that the frameId is accessed in the hotter parts of the codebase (of the debugger at least).",
+      "revId": "212e1491b23de0981914e7fa648167b2fbe76cfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
