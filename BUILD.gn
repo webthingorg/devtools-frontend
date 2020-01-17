@@ -315,6 +315,8 @@ all_devtools_files = [
   "front_end/third_party/fabricjs/fabric.js",
   "front_end/third_party/fabricjs/module.json",
   "front_end/third_party/wasmparser/module.json",
+  "front_end/third_party/babylonjs/babylon4.js",
+  "front_end/third_party/babylonjs/babylon.gui.js",
   "front_end/timeline_model/module.json",
   "front_end/timeline/historyToolbarButton.css",
   "front_end/timeline/invalidationsTree.css",
