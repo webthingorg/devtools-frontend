@@ -1,0 +1,39 @@
+{
+    "extensions": [
+        {
+            "type": "view",
+            "location": "drawer-view",
+            "id": "dom3d",
+            "title": "3D View",
+            "persistence": "closeable",
+            "order": 50,
+            "className": "Dom3d.Dom3dPanel",
+            "tags": ""
+        }
+    ],
+    "dependencies": ["elements"],
+    "scripts": [
+        "../third_party/babylonjs/babylon4.js",
+        "../third_party/babylonjs/babylon.gui.js",
+        "view/BaseScene.js",
+        "view/BaseRendererModel.js",
+        "providers/dom/DomModel.js",
+        "providers/dom/DomSideView.js",
+        "providers/dom/DomScene.js",
+        "providers/zindex/ZIndexModel.js",
+        "providers/zindex/ZIndexSideView.js",
+        "providers/zindex/ZIndexScene.js",
+        "Dom3DPanel.js",
+        "rendererModel.js",
+        "helpers.js",
+        "types.js"
+    ],
+    "resources": [
+        "styles.css"
+    ],
+    "experiment": "Dom3DPanel",
+    "skip_compilation": [
+      "../third_party/babylonjs/babylon4.js",
+      "../third_party/babylonjs/babylon.gui.js"
+    ]
+}

@@ -12,6 +12,7 @@
     { "name": "cookie_table" },
     { "name": "dagre_layout", "type": "remote" },
     { "name": "devices" },
+    { "name": "dom3d", "type": "remote" },
     { "name": "elements" },
     { "name": "emulated_devices" , "type": "remote" },
     { "name": "har_importer" },

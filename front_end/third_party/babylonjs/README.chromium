@@ -1,0 +1,17 @@
+Name: Babylonjs
+Version: 4.0.3
+URL: https://cdn.babylonjs.com/babylon.js
+License: Apache License 2.0
+License File: LICENSE
+Security Critical: no
+
+This directory contains a copy of these babylonjs components:
+
+Sources         babylon4.js
+                babylon.gui.js
+
+The license is in LICENSE.md
+
+Modifications made with initial commit:
+- Added the file README.chromium (this file)
+- Added the file LICENSE.md

@@ -261,9 +261,6 @@
   <message name="IDS_DEVTOOLS_e24ee2487879116dcab772c0ac4fe341" desc="Text to focus on something">
     Focus
   </message>
-  <message name="IDS_DEVTOOLS_eb92025cb8c66f1850c13a9b602a1856" desc="Text in Computed Style Widget of the Elements panel">
-    Show all
-  </message>
   <message name="IDS_DEVTOOLS_eeb9a8e813f34f5f036332efc0257246" desc="Title of an action in the elements tool to capture area screenshot">
     Capture area screenshot
   </message>

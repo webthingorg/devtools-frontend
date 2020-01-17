@@ -150,6 +150,9 @@ export class MainImpl {
     Root.Runtime.experiments.register('timelineWebGL', 'Timeline: WebGL-based flamechart');
     Root.Runtime.experiments.register('timelineReplayEvent', 'Timeline: Replay input events');
 
+    // 3D View
+    Root.Runtime.experiments.register('Dom3DPanel', 'Enable 3D View');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
