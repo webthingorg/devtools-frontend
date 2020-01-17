@@ -142,6 +142,30 @@
       "revId": "a577786b700568a26bab832fa159febecef6c662",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640ed8b3_02d21d30",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-17T10:06:22Z",
+      "side": 1,
+      "message": "Yeah, thanks Joey for taking such a thoroughly look at this. I really like the message Sigurd suggested as a result because of the reasons he already listed there. Maybe we could even make the \u0027Disable the cache\u0027 part clickable or link to a website explaining how to do that.",
+      "parentUuid": "986f0cf5_c4909aab",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
