@@ -166,6 +166,30 @@
       "revId": "a577786b700568a26bab832fa159febecef6c662",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f210abe_17c71736",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-01-17T22:30:51Z",
+      "side": 1,
+      "message": "I like your idea Sigurd! I tried it out but I found that it didn\u0027t look great because the request headers pane doesn\u0027t wrap text so it caused scrolling. I put the detailed information in a tooltip. Look good?\n\nI\u0027m hoping that just saying \"disable cache\" is straightforward enough since there\u0027s a dedicated toolbar button for it.",
+      "parentUuid": "640ed8b3_02d21d30",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
