@@ -1,0 +1,333 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69104548_5c59f357",
+        "filename": "scripts/test/run_e2e.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91df4212_4d77c4fc",
+        "filename": "test/e2e/hello-world/hello-world.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "It wasn\u0027t obvious to me why you don\u0027t just use `elementHandle.click()`. Could you please add a comment?",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ae1d980_bc9581a5",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "Does `global` refer to Node.js\u0027s `global`? If so, let\u0027s use the standard `globalThis` instead.",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89413ddd_1272aeaa",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": ";",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47987085_79ba063a",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "Why only within body (and not documentElement)?",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6906377_16693a5e",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "This check is duplicated across all these functions. It seems like it\u0027s only really needed in `getPages`. Can we avoid the number of places where we need the check? If not, should we extract it into a helper function?",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7281817_f4844292",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "I wonder if it\u0027d be nicer if flatten would return a list of elements (or jsHandles pointing to them). That way, we wouldn\u0027t need the somewhat funny-looking `foo.__elements`. WDYT?\n\nIs needing `flatten` (i.e. needing to search through shadow roots) the common case? If not, we could optimize for simple `querySelector(foo)` matches, and only fall back to flatten when needed.",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35b6e416_cfb16ce6",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "When would `\u0027classList\u0027 in el` not be true?",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "534c4a3d_b82663b5",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "For this return value, I think one line per property (with trailing comma!) is more readable",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "082a8f01_029e3f54",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "weird newline, no?",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12c9c471_7ba38371",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "one property per line + trailing comma",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c29e18b_fd91b41e",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": ";",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3adad3_368b70ab",
+        "filename": "test/e2e/resources/pages/hello-world.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "content\u003d\"width\u003ddevice-width,initial-scale\u003d1\"",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "079591be_90359720",
+        "filename": "test/e2e/resources/pages/hello-world.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "We don\u0027t need this",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e4fdfd0_4968e0b8",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "trailing comma",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd88fa80_d75ff464",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": ";",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "081578f7_d78c1702",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "\\x03",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b7e4958_574af8b2",
+        "filename": "test/e2e/test-list.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": ";",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71219ec9_f9a0999e",
+        "filename": "test/e2e/tsconfig.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:19:21Z",
+      "side": 1,
+      "message": "no 2-space indents?",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
