@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a01b4ffe_c9303e19",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-01-20T18:16:13Z",
+      "side": 1,
+      "message": "We should define another way to easily pass this through were the builder is defined. For next time when we quickly need it. Ideally it should be a one liner.",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 15
+      },
+      "revId": "d1c0930dfaaf957bd0e57b5370c531e7edfce9d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
