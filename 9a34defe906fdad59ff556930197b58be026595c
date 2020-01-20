@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d682ca6_01c05b7e",
+        "filename": "front_end/media/EventDisplayTable.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T07:44:37Z",
+      "side": 1,
+      "message": "It\u0027s been merged; can this block be deleted now?",
+      "revId": "9a34defe906fdad59ff556930197b58be026595c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
