@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00f531b6_83a38fa1",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2020-01-20T10:10:08Z",
+      "side": 1,
+      "message": "Could you double-check that this does *not* increase the binary size? You can do `du -sh out/Default/resources.pak` on master and your CL to see the sizes.",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 51
+      },
+      "revId": "c9ae991324627a985e90be6774936e1800866773",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
