@@ -152,6 +152,16 @@ export default class CPUProfilerModel extends SDK.SDKModel {
   stopPreciseCoverage() {
     return this._profilerAgent.stopPreciseCoverage();
   }
+
+  /**
+   * @suppress {missingOverride}
+   * @param {number} timestampInSeconds
+   * @param {string} occassion
+   * @param {!Array<!Protocol.Profiler.ScriptCoverage>} coverageData
+   */
+  preciseCoverageDeltaUpdate(timestampInSeconds, occassion, coverageData) {
+    // TODO(chromium:1042927): Implement this event handler.
+  }
 }
 
 /** @enum {symbol} */
