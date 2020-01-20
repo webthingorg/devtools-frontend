@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "627d3142_a481496b",
+        "filename": "front_end/host/ResourceLoader.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-20T16:32:21Z",
+      "side": 1,
+      "message": "I\u0027m worried about l10n working properly here. If the strings are runtime-generated like this, then do they end up in the grdp files somehow? If not they won\u0027t get translated AFAIK",
+      "range": {
+        "startLine": 135,
+        "startChar": 20,
+        "endLine": 135,
+        "endChar": 57
+      },
+      "revId": "23323a80f88407e3e108a48b557939ebe8bb05d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
