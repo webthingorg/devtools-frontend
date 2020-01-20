@@ -280,6 +280,23 @@
     },
     {
       "key": {
+        "uuid": "5c0b7424_ab23d07d",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-20T15:22:18Z",
+      "side": 1,
+      "message": "We don\u0027t need this. The browser.close() below also closes pages: https://github.com/puppeteer/puppeteer/blob/v2.0.0/docs/api.md#browserclose",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "081578f7_d78c1702",
         "filename": "test/e2e/runner.ts",
         "patchSetId": 1
