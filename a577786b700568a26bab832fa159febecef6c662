@@ -190,6 +190,30 @@
       "revId": "a577786b700568a26bab832fa159febecef6c662",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30a76c65_72569c03",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-20T08:46:00Z",
+      "side": 1,
+      "message": "Looks great, thanks Joey!",
+      "parentUuid": "9f210abe_17c71736",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 117
+      },
+      "revId": "a577786b700568a26bab832fa159febecef6c662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
