@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "847bcab4_ec829dca",
+        "filename": "scripts/test/run_e2e.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": "Does this print the output from tsc as well? I think we need to do that explicitly with obtaining the stdout/stderr and piping that through to the host process.",
+      "range": {
+        "startLine": 82,
+        "startChar": 7,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0c60fcc_fb9c2046",
+        "filename": "scripts/test/run_e2e.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": ":thinking_face:",
+      "range": {
+        "startLine": 126,
+        "startChar": 11,
+        "endLine": 126,
+        "endChar": 13
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f59820d_7edbd01d",
+        "filename": "test/e2e/hello-world/hello-world.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": "Per offline chat, this is a brittle way of testing, as it relies on the DOM structure. However, it is also the best possible solution that we can think of at the moment.\n\nIt would be great if we can write some machinery in/on top off Puppeteer to make this less brittle.",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 120
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b426dbed_f738a37a",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": "Nit: use a more descriptive variable name. I don\u0027t really get what this is doing. Maybe add some jsdoc as well to explain?",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9c57195_21c786f1",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": "😞",
+      "range": {
+        "startLine": 28,
+        "startChar": 23,
+        "endLine": 28,
+        "endChar": 34
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bf0bc93_f929a7ac",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": "Nit: arrow function",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71ecb681_d02394fa",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": "`export async function getElementLocation`\n\nThis is the style we use throughout the codebase as well. We probably should have a linter rule for this or write this in the styleguide?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "279abe35_d313b781",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-20T16:48:48Z",
+      "side": 1,
+      "message": "This formatting is not great. Is this clang-format shenanigans? If so, we should report it as an upstream issue.",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
