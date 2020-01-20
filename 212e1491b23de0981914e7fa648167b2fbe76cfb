@@ -34,6 +34,24 @@
       "revId": "212e1491b23de0981914e7fa648167b2fbe76cfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ea26f61_bd1b5686",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-20T09:20:06Z",
+      "side": 1,
+      "message": "Agreed. LGTM.",
+      "parentUuid": "633d7e53_efeca273",
+      "revId": "212e1491b23de0981914e7fa648167b2fbe76cfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
