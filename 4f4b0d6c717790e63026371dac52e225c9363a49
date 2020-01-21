@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2f2c9f9_f78a84ef",
+        "filename": "scripts/test/run_e2e.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "847bcab4_ec829dca",
+      "range": {
+        "startLine": 82,
+        "startChar": 7,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0c60fcc_fb9c2046",
         "filename": "scripts/test/run_e2e.py",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1998483f_3c509873",
+        "filename": "scripts/test/run_e2e.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "lol. Removed. That might teach me to copy-paste from other Python scripts in the repo. (Narrator: it did not teach Paul)",
+      "parentUuid": "e0c60fcc_fb9c2046",
+      "range": {
+        "startLine": 126,
+        "startChar": 11,
+        "endLine": 126,
+        "endChar": 13
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9e35aee7_cf31e510",
+        "filename": "test/e2e/hello-world/hello-world.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Simplified the selector for now. There is a longer term conversation about where we need helpers or how we refactor the frontend to be more testable from an e2e perspective.",
+      "parentUuid": "2f59820d_7edbd01d",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 120
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b426dbed_f738a37a",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed8115a9_1bdca481",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b426dbed_f738a37a",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a8299396_9657ced3",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Yeah. I don\u0027t want to teach TypeScript that window may have __elements, however.",
+      "parentUuid": "d9c57195_21c786f1",
+      "range": {
+        "startLine": 28,
+        "startChar": 23,
+        "endLine": 28,
+        "endChar": 34
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bf0bc93_f929a7ac",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 2
@@ -137,6 +257,30 @@
       "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f75aae8_9bfaeb19",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bf0bc93_f929a7ac",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +330,54 @@
     },
     {
       "key": {
+        "uuid": "aa0799eb_5e6148d4",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b02b0f1_d0d6f294",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8975763f_3bb81129",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Probably worth writing a linter rule.",
+      "parentUuid": "71ecb681_d02394fa",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "279abe35_d313b781",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 2
@@ -206,6 +398,30 @@
       "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec06e5cf_4fe66d0b",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Correct. It\u0027s clang.",
+      "parentUuid": "279abe35_d313b781",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5aa6d2c7_d85a768d",
+        "filename": "scripts/test/run_e2e.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69104548_5c59f357",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91df4212_4d77c4fc",
         "filename": "test/e2e/hello-world/hello-world.ts",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20b1d93e_e83ef769",
+        "filename": "test/e2e/hello-world/hello-world.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91df4212_4d77c4fc",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "62df035b_15f3caec",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "The version of node in Chromium is v10. We\u0027d need to update that first, so for now I\u0027m going to leave this as-is.",
+      "parentUuid": "4ae1d980_bc9581a5",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89413ddd_1272aeaa",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfee85ed_c0854c51",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89413ddd_1272aeaa",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "8324c5fa_85f2a5b3",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "No reason. Fixed.",
+      "parentUuid": "47987085_79ba063a",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6906377_16693a5e",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "aa183469_54fa935c",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "I switched this over to check that frontend exists. But there\u0027s no escaping that you could call these functions without us having stored the variables first.",
+      "parentUuid": "f6906377_16693a5e",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7281817_f4844292",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 1
@@ -115,6 +223,30 @@
       "writtenOn": "2020-01-20T15:19:21Z",
       "side": 1,
       "message": "I wonder if it\u0027d be nicer if flatten would return a list of elements (or jsHandles pointing to them). That way, we wouldn\u0027t need the somewhat funny-looking `foo.__elements`. WDYT?\n\nIs needing `flatten` (i.e. needing to search through shadow roots) the common case? If not, we could optimize for simple `querySelector(foo)` matches, and only fall back to flatten when needed.",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "867c10e1_287b92ef",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Yeah we have a lot of shadow roots in the code, so I opted to flatten the whole document first. This would be markedly better if we had a CDP call that acted like the deep selector of old.\n\nIn terms of jsHandles, from the docs[1] it looked mostly like we can get a single element, but can we get an array of them? I\u0027m not sure it would do us many favors overall, though.\n\n[1] https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#pageevaluatehandlepagefunction-args",
+      "parentUuid": "e7281817_f4844292",
       "range": {
         "startLine": 61,
         "startChar": 8,
@@ -144,6 +276,24 @@
     },
     {
       "key": {
+        "uuid": "8c9bca0d_1979c6f5",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "We use a tree walker so we get all nodes, not necessarily elements. I\u0027ve updated the walker to include HTMLElements only.",
+      "parentUuid": "35b6e416_cfb16ce6",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "534c4a3d_b82663b5",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 1
@@ -158,6 +308,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dde31c20_536e6919",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "So do I, but clang disagrees 😞",
+      "parentUuid": "534c4a3d_b82663b5",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -178,6 +346,24 @@
     },
     {
       "key": {
+        "uuid": "4fe964b9_d0048483",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Very. Clang.",
+      "parentUuid": "082a8f01_029e3f54",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12c9c471_7ba38371",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 1
@@ -192,6 +378,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90edf468_2879b75a",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Added the trailing comma, but clang.",
+      "parentUuid": "12c9c471_7ba38371",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -212,6 +416,24 @@
     },
     {
       "key": {
+        "uuid": "9797b3ae_9ad58337",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c29e18b_fd91b41e",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc3adad3_368b70ab",
         "filename": "test/e2e/resources/pages/hello-world.html",
         "patchSetId": 1
@@ -226,6 +448,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c909cc0_effd3050",
+        "filename": "test/e2e/resources/pages/hello-world.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc3adad3_368b70ab",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -246,6 +486,24 @@
     },
     {
       "key": {
+        "uuid": "775e7f1a_84eae837",
+        "filename": "test/e2e/resources/pages/hello-world.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "079591be_90359720",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e4fdfd0_4968e0b8",
         "filename": "test/e2e/runner.ts",
         "patchSetId": 1
@@ -260,6 +518,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b954691_d4da302d",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e4fdfd0_4968e0b8",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -280,6 +556,24 @@
     },
     {
       "key": {
+        "uuid": "6e88b1a0_7f042095",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd88fa80_d75ff464",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0b7424_ab23d07d",
         "filename": "test/e2e/runner.ts",
         "patchSetId": 1
@@ -294,6 +588,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e1dfb91_bd7cf18d",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c0b7424_ab23d07d",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -314,6 +626,24 @@
     },
     {
       "key": {
+        "uuid": "ce4bdf58_7c163346",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "081578f7_d78c1702",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b7e4958_574af8b2",
         "filename": "test/e2e/test-list.ts",
         "patchSetId": 1
@@ -331,6 +661,24 @@
     },
     {
       "key": {
+        "uuid": "5618c9dd_1cfb5f88",
+        "filename": "test/e2e/test-list.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b7e4958_574af8b2",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71219ec9_f9a0999e",
         "filename": "test/e2e/tsconfig.json",
         "patchSetId": 1
@@ -345,6 +693,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03c21641_d8681024",
+        "filename": "test/e2e/tsconfig.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-21T15:14:35Z",
+      "side": 1,
+      "message": "Fixed. VSCode defaults bit me again.",
+      "parentUuid": "71219ec9_f9a0999e",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
