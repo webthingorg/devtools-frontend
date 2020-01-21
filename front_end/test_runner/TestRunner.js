@@ -176,6 +176,24 @@ export function runTests(tests) {
   }
 }
 
+const instrumentedMethodsSymbol = Symbol('instrumentedMethods');
+
+function markMethodAsInstrumenting(receiver, methodName) {
+  const methods = receiver[instrumentedMethodsSymbol] || new Set();
+  if (methods.has(methodName)) {
+    throw new Error('Cannot add sniffer to already instrumented method "' + methodName + '"');
+  }
+  methods.add(methodName);
+
+  receiver[instrumentedMethodsSymbol] = methods;
+}
+
+function unmarkMethodAsInstrumenting(receiver, methodName) {
+  const methods = receiver[instrumentedMethodsSymbol];
+  console.assert(methods.has(methodName), 'Trying to unmark method that is not actually instrumenting');
+  methods.delete(methodName);
+}
+
 /**
  * @param {!Object} receiver
  * @param {string} methodName
@@ -190,6 +208,8 @@ export function addSniffer(receiver, methodName, override, opt_sticky) {
     throw new Error('Cannot find method to override: ' + methodName);
   }
 
+  markMethodAsInstrumenting(receiver, methodName);
+
   receiver[methodName] = function(var_args) {
     let result;
     try {
@@ -197,6 +217,7 @@ export function addSniffer(receiver, methodName, override, opt_sticky) {
     } finally {
       if (!opt_sticky) {
         receiver[methodName] = original;
+        unmarkMethodAsInstrumenting(receiver, methodName);
       }
     }
     // In case of exception the override won't be called.
@@ -223,12 +244,15 @@ export function addSnifferPromise(receiver, methodName) {
       return;
     }
 
+    markMethodAsInstrumenting(receiver, methodName);
+
     receiver[methodName] = function(var_args) {
       let result;
       try {
         result = original.apply(this, arguments);
       } finally {
         receiver[methodName] = original;
+        unmarkMethodAsInstrumenting(receiver, methodName);
       }
       // In case of exception the override won't be called.
       try {
