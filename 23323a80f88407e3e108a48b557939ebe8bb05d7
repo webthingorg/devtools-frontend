@@ -22,6 +22,30 @@
       "revId": "23323a80f88407e3e108a48b557939ebe8bb05d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d082def0_ea93742b",
+        "filename": "front_end/host/ResourceLoader.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-21T14:21:59Z",
+      "side": 1,
+      "message": "Yes, I\u0027ve added ls macros in getNetErrorCategory (so the first component will be localized). The error name is basically a human-readable constant, so I think we don\u0027t need to localize that one (see screenshot). In the future, we can additionally provide a localized explanation, but to do it for all possible errors, we would need significant space (~17k unzipped), and we should probably postpone this until we have a good story for remote modules. WDYT?",
+      "parentUuid": "627d3142_a481496b",
+      "range": {
+        "startLine": 135,
+        "startChar": 20,
+        "endLine": 135,
+        "endChar": 57
+      },
+      "revId": "23323a80f88407e3e108a48b557939ebe8bb05d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
