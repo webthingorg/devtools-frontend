@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d411b500_9980932a",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-21T11:32:19Z",
+      "side": 1,
+      "message": "Alternatively, remove this comment and change the next line to use:\n\n    Number.isNaN(Number(value.replace(\u0027%\u0027, \u0027\u0027))\n\nNow that I think of it, this function could be simplified to just parseFloat and *then* check for NaN. But we can tackle all of that as a separate PR.",
+      "revId": "07060ffd2c3c7c0231b3468a22bdd996b29397a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "785c308b_89f4fe51",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-21T11:32:19Z",
+      "side": 1,
+      "message": "This should be a switch",
+      "revId": "07060ffd2c3c7c0231b3468a22bdd996b29397a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
