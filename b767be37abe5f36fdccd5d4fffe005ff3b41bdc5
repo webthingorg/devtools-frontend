@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "a43c518f_196e5977",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-21T15:00:30Z",
+      "side": 1,
+      "message": "node.idref || \u0027\u0027",
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5af0539b_a582a261",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
