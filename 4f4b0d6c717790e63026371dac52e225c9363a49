@@ -163,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "5b02b0f1_d0d6f294",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-21T09:47:54Z",
+      "side": 1,
+      "message": "Given that \"location\" has a different meaning in the DOM, let\u0027s rename to `getElementPosition`? (Assuming we can\u0027t get rid of it, per the other discussion.)",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "4f4b0d6c717790e63026371dac52e225c9363a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "279abe35_d313b781",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 2
