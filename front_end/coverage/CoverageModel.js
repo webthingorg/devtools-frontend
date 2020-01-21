@@ -279,9 +279,8 @@ export class CoverageModel extends SDK.SDKModel {
     if (!this._cpuProfilerModel) {
       return [];
     }
-    const now = Date.now();
-    const freshRawCoverageData = await this._cpuProfilerModel.takePreciseCoverage();
-    return this._backlogOrProcessJSCoverage(freshRawCoverageData, now);
+    const {coverageData, timestamp} = await this._cpuProfilerModel.takePreciseCoverage();
+    return this._backlogOrProcessJSCoverage(coverageData, timestamp);
   }
 
   async _backlogOrProcessJSCoverage(freshRawCoverageData, freshTimestamp) {
@@ -291,8 +290,9 @@ export class CoverageModel extends SDK.SDKModel {
     if (this._suspensionState !== SuspensionState.Active) {
       return [];
     }
+    const ascendingByTimestamp = (x, y) => x.stamp - y.stamp;
     const results = [];
-    for (const {rawCoverageData, stamp} of this._jsBacklog) {
+    for (const {rawCoverageData, stamp} of this._jsBacklog.sort(ascendingByTimestamp)) {
       results.push(this._processJSCoverage(rawCoverageData, stamp));
     }
     this._jsBacklog = [];
@@ -349,11 +349,10 @@ export class CoverageModel extends SDK.SDKModel {
     if (!this._cssModel || this._suspensionState !== SuspensionState.Active) {
       return [];
     }
-    const now = Date.now();
-    const freshRawCoverageData = await this._cssModel.takeCoverageDelta();
+    const {coverageData, timestamp} = await this._cssModel.takeCoverageDelta();
     if (this._suspensionState !== SuspensionState.Active) {
-      if (freshRawCoverageData.length > 0) {
-        this._cssBacklog.push({rawCoverageData: freshRawCoverageData, stamp: now});
+      if (coverageData.length > 0) {
+        this._cssBacklog.push({rawCoverageData: coverageData, stamp: timestamp});
       }
 
       return [];
@@ -364,8 +363,8 @@ export class CoverageModel extends SDK.SDKModel {
     }
 
     this._cssBacklog = [];
-    if (freshRawCoverageData.length > 0) {
-      results.push(this._processCSSCoverage(freshRawCoverageData, now));
+    if (coverageData.length > 0) {
+      results.push(this._processCSSCoverage(coverageData, timestamp));
     }
     return results.flat();
   }
