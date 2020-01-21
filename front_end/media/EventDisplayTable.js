@@ -136,9 +136,8 @@ Media.PlayerEventsView = class extends UI.VBox {
   /**
    * @param {string} playerID
    * @param {!Array.<!Media.Event>} changes
-   * @param {!Media.MediaModel.MediaChangeTypeKeys} change_type
    */
-  renderChanges(playerID, changes, change_type) {
+  renderChanges(playerID, changes) {
     if (this._firstEventTime === 0 && changes.length > 0) {
       this._firstEventTime = changes[0].timestamp;
     }
