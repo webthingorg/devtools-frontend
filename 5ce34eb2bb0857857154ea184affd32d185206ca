@@ -22,6 +22,30 @@
       "revId": "5ce34eb2bb0857857154ea184affd32d185206ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54fefa06_eb909cba",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1341662
+      },
+      "writtenOn": "2020-01-21T18:44:49Z",
+      "side": 1,
+      "message": "Added a aria-polite to RGBA and HSLA type so, now it reads out color values for other types too.",
+      "parentUuid": "4759de00_f60934c7",
+      "range": {
+        "startLine": 64,
+        "startChar": 21,
+        "endLine": 64,
+        "endChar": 38
+      },
+      "revId": "5ce34eb2bb0857857154ea184affd32d185206ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
