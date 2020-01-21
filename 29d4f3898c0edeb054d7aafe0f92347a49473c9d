@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e62b08b_05559db1",
+        "filename": "front_end/sdk/CPUProfilerModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-21T15:53:07Z",
+      "side": 1,
+      "message": "Could you name this \u0027result\u0027 so it matches the CDP API? I got confused that this function changes the name. Although I agree it\u0027s a more descriptive name",
+      "range": {
+        "startLine": 153,
+        "startChar": 23,
+        "endLine": 153,
+        "endChar": 35
+      },
+      "revId": "29d4f3898c0edeb054d7aafe0f92347a49473c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43fce283_acc7d6f7",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-21T15:53:07Z",
+      "side": 1,
+      "message": "Same here re. name, can you change it to \u0027coverage\u0027?",
+      "range": {
+        "startLine": 256,
+        "startChar": 10,
+        "endLine": 256,
+        "endChar": 22
+      },
+      "revId": "29d4f3898c0edeb054d7aafe0f92347a49473c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
