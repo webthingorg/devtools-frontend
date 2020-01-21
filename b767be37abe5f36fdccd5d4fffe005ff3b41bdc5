@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc976547_f95c0fe0",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-21T11:51:28Z",
+      "side": 1,
+      "message": "The type here: https://cs.chromium.org/chromium/src/third_party/blink/public/devtools_protocol/browser_protocol.pdl?q\u003dbrowser_protocol\u0026sq\u003dpackage:chromium\u0026g\u003d0\u0026l\u003d104\n\nsays this can be null. What is the correct behavior in that case. Should we write\n\n    const relatedNodes \u003d value.relatedNodes || [];",
+      "range": {
+        "startLine": 346,
+        "startChar": 31,
+        "endLine": 346,
+        "endChar": 43
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "101ade02_2e8e8ae1",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-21T11:51:28Z",
+      "side": 1,
+      "message": "Looking at the definition of the attribute value here (https://cs.chromium.org/chromium/src/third_party/blink/public/devtools_protocol/browser_protocol.pdl?q\u003dbrowser_protocol\u0026sq\u003dpackage:chromium\u0026g\u003d0\u0026l\u003d104), it seems this can be anything (in particular undefined). Should be maybe enter this case whenever it is not a string? The case below seems to rely on String#trim being available on value.value.\n\nAlso, I\u0027m a little confused by the commit message of this change: What if value.value is the empty string? Are we supposed to use the relatedNodes then (i.e. enter this case as well?) or not add any properties at all?",
+      "range": {
+        "startLine": 350,
+        "startChar": 8,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5af0539b_a582a261",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-21T11:51:28Z",
+      "side": 1,
+      "message": "Is relatedNodes always a short list?",
+      "range": {
+        "startLine": 360,
+        "startChar": 27,
+        "endLine": 360,
+        "endChar": 39
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8487b5a8_8a9f7a9e",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-21T11:51:28Z",
+      "side": 1,
+      "message": "Out of curiosity, why is this a special case? Could we have a short comment explaining it?",
+      "range": {
+        "startLine": 364,
+        "startChar": 17,
+        "endLine": 364,
+        "endChar": 36
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
