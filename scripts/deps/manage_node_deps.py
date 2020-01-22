@@ -38,6 +38,7 @@ DEPS = {
     "chai": "4.2.0",
     "escodegen": "1.12.0",
     "eslint": "6.0.1",
+    "eslint-plugin-jsdoc": "20.3.1",
     "esprima": "git+https://git@github.com/ChromeDevTools/esprima.git#4d0f0e18bd8d3731e5f931bf573af3394cbf7cbe",
     "handlebars": "4.3.1",
     "karma": "4.2.0",
@@ -70,7 +71,11 @@ def ensure_licenses():
         devtools_paths.node_path(),
         devtools_paths.license_checker_path(),
         '--onlyAllow',
-        ('%s' % (';'.join(LICENSES)))
+        ('%s' % (';'.join(LICENSES))),
+        '--excludePackages',
+        # The package.json is missing the license field, but it is licensed as CC0-1.0:
+        # https://github.com/m59peacemaker/js-object.entries/blob/0c962f2c1446cea8998941df28c6902a9f332d38/LICENSE
+        'object.entries-ponyfill@1.0.1',
     ]
 
     return exec_command(cmd)
