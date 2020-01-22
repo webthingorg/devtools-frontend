@@ -1335,9 +1335,10 @@ export class MultitargetNetworkManager extends Common.Object {
 
   /**
    * @param {string} url
+   * @param {string} frameId
    * @param {function(boolean, !Object.<string, string>, string, !ResourceLoader.LoadErrorDescription)} callback
    */
-  loadResource(url, callback) {
+  loadResource(url, frameId, callback) {
     const headers = {};
 
     const currentUserAgent = this._currentUserAgent();
@@ -1349,7 +1350,7 @@ export class MultitargetNetworkManager extends Common.Object {
       headers['Cache-Control'] = 'no-cache';
     }
 
-    Host.ResourceLoader.load(url, headers, callback);
+    Host.ResourceLoader.load(url, headers, frameId, callback);
   }
 }
 

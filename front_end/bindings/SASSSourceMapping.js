@@ -76,7 +76,8 @@ export class SASSSourceMapping {
         continue;
       }
 
-      const contentProvider = sourceMap.sourceContentProvider(sassURL, Common.resourceTypes.SourceMapStyleSheet);
+      const contentProvider =
+          sourceMap.sourceContentProvider(sassURL, Common.resourceTypes.SourceMapStyleSheet, header.frameId);
       const mimeType = Common.ResourceType.mimeFromURL(sassURL) || contentProvider.contentType().canonicalMimeType();
       const embeddedContent = sourceMap.embeddedContentByURL(sassURL);
       const metadata =

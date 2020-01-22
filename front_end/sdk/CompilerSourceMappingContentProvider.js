@@ -37,9 +37,10 @@ export class CompilerSourceMappingContentProvider {
    * @param {string} sourceURL
    * @param {!Common.ResourceType} contentType
    */
-  constructor(sourceURL, contentType) {
+  constructor(sourceURL, contentType, frameId) {
     this._sourceURL = sourceURL;
     this._contentType = contentType;
+    this._frameId = frameId;
   }
 
   /**
@@ -72,15 +73,16 @@ export class CompilerSourceMappingContentProvider {
    */
   requestContent() {
     return new Promise(resolve => {
-      SDK.multitargetNetworkManager.loadResource(this._sourceURL, (success, _headers, content, errorDescription) => {
-        if (!success) {
-          const error = ls`Could not load content for ${this._sourceURL} (${errorDescription.message})`;
-          console.error(error);
-          resolve({error, isEncoded: false});
-        } else {
-          resolve({content, isEncoded: false});
-        }
-      });
+      SDK.multitargetNetworkManager.loadResource(
+          this._sourceURL, this._frameId, (success, _headers, content, errorDescription) => {
+            if (!success) {
+              const error = ls`Could not load content for ${this._sourceURL} (${errorDescription.message})`;
+              console.error(error);
+              resolve({error, isEncoded: false});
+            } else {
+              resolve({content, isEncoded: false});
+            }
+          });
     });
   }
 
