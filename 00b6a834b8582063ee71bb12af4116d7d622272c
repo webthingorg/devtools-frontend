@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "828bd551_4ef888b8",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "DebuggerLanguagePluginManager?",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 36
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a0815d2_7dde5787",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "This isn\u0027t a good name I think. What about _pluginForScriptId ?",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8394e133_0cee4085",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Once szuend@ finishes asyncification, will this become async? A comment would be great!",
+      "range": {
+        "startLine": 51,
+        "startChar": 5,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48b9aacc_67e1184b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "This could be `script`, right?",
+      "range": {
+        "startLine": 62,
+        "startChar": 18,
+        "endLine": 62,
+        "endChar": 39
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3592a4b3_9a96e5fa",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Please add a comment why we subtract the offset here.",
+      "range": {
+        "startLine": 63,
+        "startChar": 18,
+        "endLine": 63,
+        "endChar": 64
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc4faa7a_0b3b6363",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Please file a bug that explains why we need multiple locations (i.e. just list the use-cases that don\u0027t currently work properly there) and then reference that bug as // TODO(chromium:1234567)",
+      "range": {
+        "startLine": 71,
+        "startChar": 12,
+        "endLine": 71,
+        "endChar": 18
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef5e91d5_5e4b8f6a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Who is going to handle this?",
+      "range": {
+        "startLine": 77,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef070ba3_f10a7d6c",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Could this return an empty string instead of null if it knows nothing? Note that !!\u0027\u0027 \u003d\u003d\u003d false",
+      "range": {
+        "startLine": 143,
+        "startChar": 14,
+        "endLine": 143,
+        "endChar": 21
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb06f49_31aa134a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Is there ever a case where this argument is different from script.frameId? If not, remove it.",
+      "range": {
+        "startLine": 166,
+        "startChar": 62,
+        "endLine": 166,
+        "endChar": 69
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0932f6a_8333c6bf",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "For these kind of functions I like the pattern:\nlet x \u003d /* see if it is there */\nif (!x) { /* put it there and set x */ }\nreturn x;",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 23
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f88340fd_a529c798",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "The next person looking at this comment will not learn much from this comment. It should explain why we don\u0027t have a mime type atm and why we go with text/javascript",
+      "range": {
+        "startLine": 178,
+        "startChar": 19,
+        "endLine": 178,
+        "endChar": 29
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8106cb33_5226eac4",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "could we have two helpers, one that handles adding to the uiSourceCodes map, and one that handles removing?",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 215,
+        "endChar": 7
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b01374ed_a881fe1f",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "_pluginManager?",
+      "range": {
+        "startLine": 286,
+        "startChar": 11,
+        "endLine": 286,
+        "endChar": 18
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13cfc63_8a0a076c",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Type-checking says it expected a string here.",
+      "range": {
+        "startLine": 51,
+        "startChar": 42,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7fcec4_1e280dbb",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T09:36:33Z",
+      "side": 1,
+      "message": "Please move this to a separate CL with a good description, and file a bug about what the problem is.",
+      "range": {
+        "startLine": 1426,
+        "startChar": 6,
+        "endLine": 1428,
+        "endChar": 9
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
