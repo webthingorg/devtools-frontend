@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "583bdb49_f23551b2",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-22T14:18:37Z",
+      "side": 1,
+      "message": "nit: please add a TODO for using `globalThis` instead of the non-standard `global` (ideally with a tracking bug)",
+      "range": {
+        "startLine": 28,
+        "startChar": 35,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "2e1d6bb7333d0d5fd1e7eecd40fc1a836ba88e31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
