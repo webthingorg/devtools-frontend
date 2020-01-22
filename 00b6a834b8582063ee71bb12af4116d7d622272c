@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "eb956c3b_82fba8d0",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T12:11:06Z",
+      "side": 1,
+      "message": "I meant that converting the empty string to boolean gives you false.\n\nIf you keep the return value nullable, then you have to check at the two call sites that you don\u0027t get null, as currently, toString() would be called on null.",
+      "parentUuid": "cef7ef3f_2bdb5ef9",
+      "range": {
+        "startLine": 143,
+        "startChar": 14,
+        "endLine": 143,
+        "endChar": 21
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8cb06f49_31aa134a",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 1
@@ -469,6 +493,30 @@
       "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b55e8cf_2627d271",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-22T12:11:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d19fb841_c0075a98",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 23
+      },
+      "revId": "00b6a834b8582063ee71bb12af4116d7d622272c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
