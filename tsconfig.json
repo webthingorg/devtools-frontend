@@ -5,8 +5,6 @@
     "baseUrl": ".",
     "paths": {
       "/front_end/*": ["front_end/*"]
-    },
-    "checkJs": true,
-    "allowJs": true
+    }
   }
 }
