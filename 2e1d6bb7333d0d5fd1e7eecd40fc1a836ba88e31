@@ -22,6 +22,30 @@
       "revId": "2e1d6bb7333d0d5fd1e7eecd40fc1a836ba88e31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "085f15e1_b093c3d5",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-22T17:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "583bdb49_f23551b2",
+      "range": {
+        "startLine": 28,
+        "startChar": 35,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "2e1d6bb7333d0d5fd1e7eecd40fc1a836ba88e31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
