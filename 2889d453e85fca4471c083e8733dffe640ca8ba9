@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee13f4c5_2ddd9369",
+        "filename": "front_end/host/InspectorFrontendHost.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-22T17:11:04Z",
+      "side": 1,
+      "message": "Double self.",
+      "range": {
+        "startLine": 163,
+        "startChar": 6,
+        "endLine": 163,
+        "endChar": 30
+      },
+      "revId": "2889d453e85fca4471c083e8733dffe640ca8ba9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad4ea562_cabb142a",
+        "filename": "front_end/host/InspectorFrontendHost.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-22T17:11:04Z",
+      "side": 1,
+      "message": "Double self.",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 28
+      },
+      "revId": "2889d453e85fca4471c083e8733dffe640ca8ba9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
