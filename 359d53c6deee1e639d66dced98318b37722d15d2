@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b354103_d55b681f",
+        "filename": "scripts/generate_jsconfig.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-22T16:19:07Z",
+      "side": 1,
+      "message": "Let\u0027s add a clarifying comment: \"We don\u0027t go recursive, so that\u0027s why this could not be found.\"",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "359d53c6deee1e639d66dced98318b37722d15d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
