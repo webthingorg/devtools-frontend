@@ -160,7 +160,7 @@ export class InspectorFrontendHostStub {
       document.execCommand('copy');
       document.body.removeChild(input);
     } else {
-      self.Common.console.error('Clipboard is not enabled in hosted mode. Please inspect using chrome://inspect');
+      self.self.Common.console.error('Clipboard is not enabled in hosted mode. Please inspect using chrome://inspect');
     }
   }
 
@@ -177,7 +177,7 @@ export class InspectorFrontendHostStub {
    * @param {string} fileSystemPath
    */
   showItemInFolder(fileSystemPath) {
-    self.Common.console.error(
+    self.self.Common.console.error(
         'Show item in folder is not enabled in hosted mode. Please inspect using chrome://inspect');
   }
 
