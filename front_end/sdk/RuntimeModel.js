@@ -259,10 +259,10 @@ export class RuntimeModel extends SDKModel {
    */
   async compileScript(expression, sourceURL, persistScript, executionContextId) {
     const response = await this._agent.invoke_compileScript({
-      expression: String.escapeInvalidUnicodeCharacters(expression),
+      expression: expression,
       sourceURL: sourceURL,
       persistScript: persistScript,
-      executionContextId: executionContextId
+      executionContextId: executionContextId,
     });
 
     if (response[Protocol.Error]) {
@@ -294,7 +294,7 @@ export class RuntimeModel extends SDKModel {
       includeCommandLineAPI,
       returnByValue,
       generatePreview,
-      awaitPromise
+      awaitPromise,
     });
 
     const error = response[Protocol.Error];
@@ -469,7 +469,7 @@ export class RuntimeModel extends SDKModel {
       executionContextId: executionContextId,
       timestamp: timestamp,
       stackTrace: stackTrace,
-      context: context
+      context: context,
     };
     this.dispatchEventToListeners(Events.ConsoleAPICalled, consoleAPICall);
   }
@@ -514,9 +514,9 @@ export class RuntimeModel extends SDKModel {
     }
     // Check for a positive throwOnSideEffect response without triggering side effects.
     const response = await this._agent.invoke_evaluate({
-      expression: String.escapeInvalidUnicodeCharacters(_sideEffectTestExpression),
+      expression: _sideEffectTestExpression,
       contextId: testContext.id,
-      throwOnSideEffect: true
+      throwOnSideEffect: true,
     });
 
     this._hasSideEffectSupport = RuntimeModel.isSideEffectFailure(response);
@@ -780,7 +780,7 @@ export class ExecutionContext {
           includeCommandLineAPI: false,
           silent: true,
           returnByValue: false,
-          generatePreview: generatePreview
+          generatePreview: generatePreview,
         },
         /* userGesture */ false, /* awaitPromise */ false);
   }
@@ -798,7 +798,7 @@ export class ExecutionContext {
     }
 
     const response = await this.runtimeModel._agent.invoke_evaluate({
-      expression: String.escapeInvalidUnicodeCharacters(options.expression),
+      expression: options.expression,
       objectGroup: options.objectGroup,
       includeCommandLineAPI: options.includeCommandLineAPI,
       silent: options.silent,
@@ -810,7 +810,7 @@ export class ExecutionContext {
       throwOnSideEffect: options.throwOnSideEffect,
       timeout: options.timeout,
       disableBreaks: options.disableBreaks,
-      replMode: options.replMode
+      replMode: options.replMode,
     });
 
     const error = response[Protocol.Error];
