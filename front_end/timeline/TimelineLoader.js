@@ -76,7 +76,7 @@ export class TimelineLoader {
    */
   static loadFromURL(url, client) {
     const loader = new TimelineLoader(client);
-    Host.ResourceLoader.loadAsStream(url, null, loader);
+    Host.ResourceLoader.loadAsStream(url, null, loader, '');
     return loader;
   }
 

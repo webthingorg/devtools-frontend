@@ -338,7 +338,7 @@ class Binding {
 
     const newUISourceCode = this._project.createUISourceCode(this._url, Common.resourceTypes.SourceMapScript);
     newUISourceCode[_sourceMapSymbol] = sourceMap;
-    const contentProvider = sourceMap.sourceContentProvider(this._url, Common.resourceTypes.SourceMapScript);
+    const contentProvider = sourceMap.sourceContentProvider(this._url, Common.resourceTypes.SourceMapScript, frameId);
     const mimeType = Common.ResourceType.mimeFromURL(this._url) || 'text/javascript';
     const embeddedContent = sourceMap.embeddedContentByURL(this._url);
     const metadata =

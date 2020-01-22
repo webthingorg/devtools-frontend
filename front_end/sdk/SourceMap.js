@@ -57,7 +57,7 @@ export class SourceMap {
    * @param {!Common.ResourceType} contentType
    * @return {!Common.ContentProvider}
    */
-  sourceContentProvider(sourceURL, contentType) {
+  sourceContentProvider(sourceURL, contentType, frameId) {
   }
 
   /**
@@ -222,19 +222,21 @@ export class TextSourceMap {
   /**
    * @param {string} sourceMapURL
    * @param {string} compiledURL
+   * @param {string} frameId
    * @return {!Promise<?TextSourceMap>}
    * @this {TextSourceMap}
    */
-  static async load(sourceMapURL, compiledURL) {
+  static async load(sourceMapURL, compiledURL, frameId) {
     let content = await new Promise((resolve, reject) => {
-      SDK.multitargetNetworkManager.loadResource(sourceMapURL, (success, _headers, content, errorDescription) => {
-        if (!content || !success) {
-          const error = new Error(ls`Could not load content for ${sourceMapURL}: ${errorDescription.message}`);
-          reject(error);
-        } else {
-          resolve(content);
-        }
-      });
+      SDK.multitargetNetworkManager.loadResource(
+          sourceMapURL, frameId, (success, _headers, content, errorDescription) => {
+            if (!content || !success) {
+              const error = new Error(ls`Could not load content for ${sourceMapURL}: ${errorDescription.message}`);
+              reject(error);
+            } else {
+              resolve(content);
+            }
+          });
     });
 
     if (content.slice(0, 3) === ')]}') {
@@ -279,12 +281,12 @@ export class TextSourceMap {
    * @param {!Common.ResourceType} contentType
    * @return {!Common.ContentProvider}
    */
-  sourceContentProvider(sourceURL, contentType) {
+  sourceContentProvider(sourceURL, contentType, frameId) {
     const info = this._sourceInfos.get(sourceURL);
     if (info.content) {
       return Common.StaticContentProvider.fromString(sourceURL, contentType, info.content);
     }
-    return new CompilerSourceMappingContentProvider(sourceURL, contentType);
+    return new CompilerSourceMappingContentProvider(sourceURL, contentType, frameId);
   }
 
   /**
@@ -695,8 +697,8 @@ export class WasmSourceMap {
    * @param {!Common.ResourceType} contentType
    * @return {!Common.ContentProvider}
    */
-  sourceContentProvider(sourceURL, contentType) {
-    return new CompilerSourceMappingContentProvider(sourceURL, contentType);
+  sourceContentProvider(sourceURL, contentType, frameId) {
+    return new CompilerSourceMappingContentProvider(sourceURL, contentType, frameId);
   }
 
   /**

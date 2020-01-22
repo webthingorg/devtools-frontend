@@ -27,6 +27,7 @@ Host.ResourceLoader = HostModule.ResourceLoader.ResourceLoader;
 /**
  * @param {string} url
  * @param {?Object.<string, string>} headers
+ * @param {string} frameId
  * @param {function(boolean, !Object.<string, string>, string, !HostModule.ResourceLoader.ResourceLoader.LoadErrorDescription)} callback
  */
 Host.ResourceLoader.load = HostModule.ResourceLoader.load;
@@ -35,6 +36,7 @@ Host.ResourceLoader.load = HostModule.ResourceLoader.load;
  * @param {string} url
  * @param {?Object.<string, string>} headers
  * @param {!Common.OutputStream} stream
+ * @param {string} frameId
  * @param {function(boolean, !Object.<string, string>, !HostModule.ResourceLoader.ResourceLoader.LoadErrorDescription)=} callback
  */
 Host.ResourceLoader.loadAsStream = HostModule.ResourceLoader.loadAsStream;

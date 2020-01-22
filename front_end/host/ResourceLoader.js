@@ -51,11 +51,12 @@ ResourceLoader.LoadErrorDescription;
 /**
  * @param {string} url
  * @param {?Object.<string, string>} headers
+ * @param {string} frameId
  * @param {function(boolean, !Object.<string, string>, string, !ResourceLoader.LoadErrorDescription)} callback
  */
-export function load(url, headers, callback) {
+export function load(url, headers, frameId, callback) {
   const stream = new Common.StringOutputStream.StringOutputStream();
-  loadAsStream(url, headers, stream, mycallback);
+  loadAsStream(url, headers, stream, frameId, mycallback);
 
   /**
    * @param {boolean} success
@@ -149,9 +150,10 @@ function createErrorMessageFromResponse(response) {
  * @param {string} url
  * @param {?Object.<string, string>} headers
  * @param {!Common.StringOutputStream.OutputStream} stream
+ * @param {string} frameId - TODO(chromium:1043120): pass to back-end so the correct render frame host handles loading
  * @param {function(boolean, !Object.<string, string>, !ResourceLoader.LoadErrorDescription)=} callback
  */
-export const loadAsStream = function(url, headers, stream, callback) {
+export const loadAsStream = function(url, headers, stream, frameId, callback) {
   const streamId = _bindOutputStream(stream);
   const parsedURL = new Common.ParsedURL.ParsedURL(url);
   if (parsedURL.isDataURL()) {
