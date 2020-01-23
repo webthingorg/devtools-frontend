@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e05d6cee_c383de13",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-23T14:15:30Z",
+      "side": 1,
+      "message": "Add a doc comment/type",
+      "range": {
+        "startLine": 56,
+        "startChar": 30,
+        "endLine": 57,
+        "endChar": 46
+      },
+      "revId": "1f8b8e85bb3e52150bef81f80848b4fec0a9d196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "706cf688_23508d05",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-23T14:15:30Z",
+      "side": 1,
+      "message": "Please add a type comment",
+      "range": {
+        "startLine": 283,
+        "startChar": 48,
+        "endLine": 283,
+        "endChar": 55
+      },
+      "revId": "1f8b8e85bb3e52150bef81f80848b4fec0a9d196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65f102f9_faf0a17b",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-23T14:15:30Z",
+      "side": 1,
+      "message": "type comment",
+      "range": {
+        "startLine": 699,
+        "startChar": 48,
+        "endLine": 699,
+        "endChar": 55
+      },
+      "revId": "1f8b8e85bb3e52150bef81f80848b4fec0a9d196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b74a8006_3eca9d24",
+        "filename": "front_end/timeline/TimelineLoader.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-23T14:15:30Z",
+      "side": 1,
+      "message": "What\u0027s up with this one, is it TODO or there\u0027s a reason you don\u0027t need a frameId here?",
+      "range": {
+        "startLine": 79,
+        "startChar": 56,
+        "endLine": 79,
+        "endChar": 59
+      },
+      "revId": "1f8b8e85bb3e52150bef81f80848b4fec0a9d196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
