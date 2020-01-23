@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cfaa291_b1c56821",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-23T12:47:49Z",
+      "side": 1,
+      "message": "So these two must happen in this exact order? If not, we could use Promise.all() instead.",
+      "revId": "be5d08ee3ad87421156b175bc0d3ce83b163a74d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
