@@ -16,6 +16,24 @@
       "revId": "be5d08ee3ad87421156b175bc0d3ce83b163a74d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3c0e976_394e7d5e",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-01-23T13:45:36Z",
+      "side": 1,
+      "message": "Yes, setAsyncCallStackDepth has to finish before we start disable",
+      "parentUuid": "3cfaa291_b1c56821",
+      "revId": "be5d08ee3ad87421156b175bc0d3ce83b163a74d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
