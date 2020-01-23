@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "15f4bd61_ef5549fa",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-23T09:27:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "41fe529d_ef0df8b4",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 14
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c60ebd12_80783e44",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 10
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "The lexical scope is determined by the location as per `listVariablesInScope` above. Would you like me to say that in the comment?",
       "parentUuid": "c1d87da9_1325584d",
+      "range": {
+        "startLine": 363,
+        "startChar": 46,
+        "endLine": 363,
+        "endChar": 65
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22716e6b_06c9f0e9",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-23T09:27:01Z",
+      "side": 1,
+      "message": "Can\u0027t hurt do to that.",
+      "parentUuid": "fd0706ff_e063a267",
       "range": {
         "startLine": 363,
         "startChar": 46,
