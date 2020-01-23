@@ -177,7 +177,7 @@ export class ToggleDockActionDelegate {
    * @return {boolean}
    */
   handleAction(context, actionId) {
-    Components.dockController._toggleDockSide();
+    self.Components.dockController._toggleDockSide();
     return true;
   }
 }
@@ -192,6 +192,6 @@ export class CloseButtonProvider {
    * @return {?UI.ToolbarItem}
    */
   item() {
-    return Components.dockController._closeButton;
+    return self.Components.dockController._closeButton;
   }
 }

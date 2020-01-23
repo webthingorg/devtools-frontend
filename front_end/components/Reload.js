@@ -5,7 +5,7 @@
 import {State} from './DockController.js';
 
 export function reload() {
-  if (Components.dockController.canDock() && Components.dockController.dockSide() === State.Undocked) {
+  if (self.Components.dockController.canDock() && self.Components.dockController.dockSide() === State.Undocked) {
     Host.InspectorFrontendHost.setIsDocked(true, function() {});
   }
   window.location.reload();
