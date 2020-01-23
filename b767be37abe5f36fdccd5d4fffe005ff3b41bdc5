@@ -160,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "db3710d3_6740f08a",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-23T09:03:33Z",
+      "side": 1,
+      "message": "OK, then I\u0027m fine with doing the find in each iteration.",
+      "parentUuid": "39a76402_edbb54ae",
+      "range": {
+        "startLine": 360,
+        "startChar": 27,
+        "endLine": 360,
+        "endChar": 39
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8487b5a8_8a9f7a9e",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
