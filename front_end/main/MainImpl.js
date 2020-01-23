@@ -209,21 +209,21 @@ export class MainImpl {
     UI.shortcutsScreen.section(Common.UIString('Console'));
 
     Workspace.fileManager = new Workspace.FileManager();
-    Workspace.workspace = new Workspace.Workspace();
+    self.Workspace.workspace = new Workspace.Workspace();
 
     self.Bindings.networkProjectManager = new Bindings.NetworkProjectManager();
-    Bindings.resourceMapping = new Bindings.ResourceMapping(self.SDK.targetManager, Workspace.workspace);
+    Bindings.resourceMapping = new Bindings.ResourceMapping(self.SDK.targetManager, self.Workspace.workspace);
     new Bindings.PresentationConsoleMessageManager();
-    Bindings.cssWorkspaceBinding = new Bindings.CSSWorkspaceBinding(self.SDK.targetManager, Workspace.workspace);
+    Bindings.cssWorkspaceBinding = new Bindings.CSSWorkspaceBinding(self.SDK.targetManager, self.Workspace.workspace);
     Bindings.debuggerWorkspaceBinding =
-        new Bindings.DebuggerWorkspaceBinding(self.SDK.targetManager, Workspace.workspace);
-    Bindings.breakpointManager =
-        new Bindings.BreakpointManager(Workspace.workspace, self.SDK.targetManager, Bindings.debuggerWorkspaceBinding);
+        new Bindings.DebuggerWorkspaceBinding(self.SDK.targetManager, self.Workspace.workspace);
+    Bindings.breakpointManager = new Bindings.BreakpointManager(
+        self.Workspace.workspace, self.SDK.targetManager, Bindings.debuggerWorkspaceBinding);
     Extensions.extensionServer = new Extensions.ExtensionServer();
 
-    new Persistence.FileSystemWorkspaceBinding(Persistence.isolatedFileSystemManager, Workspace.workspace);
-    Persistence.persistence = new Persistence.Persistence(Workspace.workspace, Bindings.breakpointManager);
-    Persistence.networkPersistenceManager = new Persistence.NetworkPersistenceManager(Workspace.workspace);
+    new Persistence.FileSystemWorkspaceBinding(Persistence.isolatedFileSystemManager, self.Workspace.workspace);
+    Persistence.persistence = new Persistence.Persistence(self.Workspace.workspace, Bindings.breakpointManager);
+    Persistence.networkPersistenceManager = new Persistence.NetworkPersistenceManager(self.Workspace.workspace);
 
     new ExecutionContextSelector(self.SDK.targetManager, UI.context);
     Bindings.blackboxManager = new Bindings.BlackboxManager(Bindings.debuggerWorkspaceBinding);
@@ -366,7 +366,7 @@ export class MainImpl {
     const lineNumber = /** @type {number} */ (event.data['lineNumber']);
     const columnNumber = /** @type {number} */ (event.data['columnNumber']);
 
-    const uiSourceCode = Workspace.workspace.uiSourceCodeForURL(url);
+    const uiSourceCode = self.Workspace.workspace.uiSourceCodeForURL(url);
     if (uiSourceCode) {
       Common.Revealer.reveal(uiSourceCode.uiLocation(lineNumber, columnNumber));
       return;
@@ -379,11 +379,11 @@ export class MainImpl {
       const uiSourceCode = /** @type {!Workspace.UISourceCode} */ (event.data);
       if (uiSourceCode.url() === url) {
         Common.Revealer.reveal(uiSourceCode.uiLocation(lineNumber, columnNumber));
-        Workspace.workspace.removeEventListener(Workspace.Workspace.Events.UISourceCodeAdded, listener);
+        self.Workspace.workspace.removeEventListener(Workspace.Workspace.Events.UISourceCodeAdded, listener);
       }
     }
 
-    Workspace.workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, listener);
+    self.Workspace.workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, listener);
   }
 
   _registerShortcuts() {

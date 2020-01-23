@@ -26,7 +26,7 @@
   TestRunner.completeTest();
 
   async function setup() {
-    const projects = Workspace.workspace.projectsForType(Workspace.projectTypes.FileSystem);
+    const projects = self.Workspace.workspace.projectsForType(Workspace.projectTypes.FileSystem);
     const snippetsProject = projects.find(
       project => Persistence.FileSystemWorkspaceBinding.fileSystemType(project) === 'snippets');
     const uiSourceCode1 = await snippetsProject.createFile('');
