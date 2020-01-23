@@ -93,6 +93,30 @@
       "revId": "e44c2737330fa5b775a9ac2ca713e76f1d4c16bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f712a805_9369eb0e",
+        "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-23T16:55:57Z",
+      "side": 1,
+      "message": "It would be good to add a comment explaining this. Right now it\u0027s very much a \"magic number\" and just from reading the test code it\u0027s not clear why this number was chosen.\n\n(And yes, I do think this is a bug. Looking at the CharacterIdMap code [1], it seems to want to support up to 0xFFFF values.)\n\n[1]: https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/10e83a92760cad40e2c73948c5c45f02bf2b1196:front_end/common/CharacterIdMap.js;l\u003d25;drc\u003dd8146840ca5c4796e6d9d49e1e78826fe1b609a1",
+      "parentUuid": "bbecfa98_87f74039",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 39,
+        "endChar": 37
+      },
+      "revId": "e44c2737330fa5b775a9ac2ca713e76f1d4c16bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
