@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e23c8232_7f99654c",
+        "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-23T12:40:43Z",
+      "side": 1,
+      "message": "Why are we testing \"private\" properties?",
+      "range": {
+        "startLine": 12,
+        "startChar": 37,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "revId": "e44c2737330fa5b775a9ac2ca713e76f1d4c16bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e38825bb_9d4e7045",
+        "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-23T12:40:43Z",
+      "side": 1,
+      "message": "Why 0xFFDE and not 0xFFFF (or even 0x10FFFF)?\n\n(Also, let\u0027s use hex integer literals when referring to \"char codes\" and code points -- it\u0027s more readable.)",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 39,
+        "endChar": 37
+      },
+      "revId": "e44c2737330fa5b775a9ac2ca713e76f1d4c16bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
