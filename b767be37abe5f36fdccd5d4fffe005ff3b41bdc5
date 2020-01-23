@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4eb81c7a_0511e8b9",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-23T03:54:07Z",
+      "side": 1,
+      "message": "Hmmm good point. Probably yes.",
+      "parentUuid": "bc976547_f95c0fe0",
+      "range": {
+        "startLine": 346,
+        "startChar": 31,
+        "endLine": 346,
+        "endChar": 43
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "101ade02_2e8e8ae1",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-21T11:51:28Z",
       "side": 1,
       "message": "Looking at the definition of the attribute value here (https://cs.chromium.org/chromium/src/third_party/blink/public/devtools_protocol/browser_protocol.pdl?q\u003dbrowser_protocol\u0026sq\u003dpackage:chromium\u0026g\u003d0\u0026l\u003d104), it seems this can be anything (in particular undefined). Should be maybe enter this case whenever it is not a string? The case below seems to rely on String#trim being available on value.value.\n\nAlso, I\u0027m a little confused by the commit message of this change: What if value.value is the empty string? Are we supposed to use the relatedNodes then (i.e. enter this case as well?) or not add any properties at all?",
+      "range": {
+        "startLine": 350,
+        "startChar": 8,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50e3615b_57743406",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-23T03:54:07Z",
+      "side": 1,
+      "message": "\u003e What if value.value is the empty string? Are we supposed to use the relatedNodes then (i.e. enter this case as well?) or not add any properties at all?\n\nYes, we should use the relatedNodes. I\u0027m not 100% clear what is going on here... based on https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/modules/accessibility/inspector_accessibility_agent.cc;drc\u003d80a849f23f7a1a8647cf5b09ab2ebeeabeff61da;bpv\u003d1;bpt\u003d1;l\u003d379?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F it looks like we send the empty string in that case, so it\u0027d be nice to check that\u0027s being handled correctly...",
+      "parentUuid": "101ade02_2e8e8ae1",
       "range": {
         "startLine": 350,
         "startChar": 8,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "39a76402_edbb54ae",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-23T03:54:07Z",
+      "side": 1,
+      "message": "Each related node needs to be explicitly specified by the author via an attribute, e.g. \n\naria-owns\u003d\"el1 el2 el3\"\n\nSo yes, this will be a short list in all but pathologically weird cases.",
+      "parentUuid": "5af0539b_a582a261",
+      "range": {
+        "startLine": 360,
+        "startChar": 27,
+        "endLine": 360,
+        "endChar": 39
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8487b5a8_8a9f7a9e",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
@@ -99,6 +171,30 @@
       "writtenOn": "2020-01-21T11:51:28Z",
       "side": 1,
       "message": "Out of curiosity, why is this a special case? Could we have a short comment explaining it?",
+      "range": {
+        "startLine": 364,
+        "startChar": 17,
+        "endLine": 364,
+        "endChar": 36
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adbb10a9_af15ee27",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-01-23T03:54:07Z",
+      "side": 1,
+      "message": "I can explain that (and perhaps Meredith can turn it into a comment):\n\nIf there is exactly one related node, we render it on the same line as the label, e.g.\n\nActive descendant: li#menuitem1\n\nIf there are more than one, we render each one on its own line after the label, e.g.\n\nOwns: \n  li#first.list-group-item\n  li#second.list-group-item\n  li#third.list-group-item",
+      "parentUuid": "8487b5a8_8a9f7a9e",
       "range": {
         "startLine": 364,
         "startChar": 17,
