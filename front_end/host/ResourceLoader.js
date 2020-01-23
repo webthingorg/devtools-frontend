@@ -46,12 +46,12 @@ export const streamWrite = function(id, chunk) {
     urlValid: (boolean|undefined),
     message: (string|undefined)
 }} */
-ResourceLoader.LoadErrorDescription;
+export let LoadErrorDescription;
 
 /**
  * @param {string} url
  * @param {?Object.<string, string>} headers
- * @param {function(boolean, !Object.<string, string>, string, !ResourceLoader.LoadErrorDescription)} callback
+ * @param {function(boolean, !Object.<string, string>, string, !LoadErrorDescription)} callback
  */
 export function load(url, headers, callback) {
   const stream = new Common.StringOutputStream.StringOutputStream();
@@ -60,7 +60,7 @@ export function load(url, headers, callback) {
   /**
    * @param {boolean} success
    * @param {!Object.<string, string>} headers
-   * @param {!ResourceLoader.LoadErrorDescription} errorDescription
+   * @param {!LoadErrorDescription} errorDescription
    */
   function mycallback(success, headers, errorDescription) {
     callback(success, headers, stream.data(), errorDescription);
@@ -113,7 +113,7 @@ function isHTTPError(netError) {
 
 /**
  * @param {!InspectorFrontendHostAPI.LoadNetworkResourceResult} response
- * @returns {!{success:boolean, description: !ResourceLoader.LoadErrorDescription}}
+ * @returns {!{success:boolean, description: !LoadErrorDescription}}
  */
 function createErrorMessageFromResponse(response) {
   const {statusCode, netError, netErrorName, urlValid, messageOverride} = response;
@@ -149,7 +149,7 @@ function createErrorMessageFromResponse(response) {
  * @param {string} url
  * @param {?Object.<string, string>} headers
  * @param {!Common.StringOutputStream.OutputStream} stream
- * @param {function(boolean, !Object.<string, string>, !ResourceLoader.LoadErrorDescription)=} callback
+ * @param {function(boolean, !Object.<string, string>, !LoadErrorDescription)=} callback
  */
 export const loadAsStream = function(url, headers, stream, callback) {
   const streamId = _bindOutputStream(stream);
