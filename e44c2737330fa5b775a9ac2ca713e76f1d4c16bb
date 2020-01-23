@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fac97e7b_ed1cf708",
+        "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-23T16:22:34Z",
+      "side": 1,
+      "message": "must\u0027ve overlooked this, I removed them in this CL https://crrev.com/c/2017142",
+      "parentUuid": "e23c8232_7f99654c",
+      "range": {
+        "startLine": 12,
+        "startChar": 37,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "revId": "e44c2737330fa5b775a9ac2ca713e76f1d4c16bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e38825bb_9d4e7045",
         "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-23T12:40:43Z",
       "side": 1,
       "message": "Why 0xFFDE and not 0xFFFF (or even 0x10FFFF)?\n\n(Also, let\u0027s use hex integer literals when referring to \"char codes\" and code points -- it\u0027s more readable.)",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 39,
+        "endChar": 37
+      },
+      "revId": "e44c2737330fa5b775a9ac2ca713e76f1d4c16bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbecfa98_87f74039",
+        "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-01-23T16:22:34Z",
+      "side": 1,
+      "message": "I arrived at this value with trial and error. the value immediately after this one raises the error \"CharacterIdMap ran out of capacity!\"\ndo you think this is a bug with how the code is supposed to work?",
+      "parentUuid": "e38825bb_9d4e7045",
       "range": {
         "startLine": 39,
         "startChar": 32,
