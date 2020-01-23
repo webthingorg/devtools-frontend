@@ -178,7 +178,6 @@ Common.settingForTest = CommonModule.Settings.settingForTest;
  * @constructor
  */
 Common.VersionController = CommonModule.Settings.VersionController;
-Common.moduleSetting = CommonModule.Settings.moduleSetting;
 
 /**
  * @enum {symbol}
