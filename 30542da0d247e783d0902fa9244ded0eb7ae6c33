@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0502493f_90ff645b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-23T09:17:33Z",
+      "side": 1,
+      "message": "Actually the jsdoc was wrong, sourceFileURL is a URL.",
+      "parentUuid": "bb42082c_dbf78a89",
+      "range": {
+        "startLine": 81,
+        "startChar": 72,
+        "endLine": 81,
+        "endChar": 80
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4078e5fd_3b372041",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-22T14:56:48Z",
       "side": 1,
       "message": "If I were to read this, I wouldn\u0027t know what code is. What is the string representing? Or is it up to the plugin?",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 14
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fe529d_ef0df8b4",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-23T09:17:33Z",
+      "side": 1,
+      "message": "This depends on the plugin. Likely code is always going to be either JS or base64-encoded wasm. I\u0027d like to keep the meaning of this context-dependent, if that makes sense to you.",
+      "parentUuid": "4078e5fd_3b372041",
       "range": {
         "startLine": 278,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e5dd3aee_fd2560ca",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-23T09:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c60ebd12_80783e44",
+      "range": {
+        "startLine": 329,
+        "startChar": 21,
+        "endLine": 329,
+        "endChar": 28
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a32d19a2_20416035",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 10
@@ -91,6 +163,30 @@
       "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5824e3bd_f0e6f58a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-23T09:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a32d19a2_20416035",
+      "range": {
+        "startLine": 331,
+        "startChar": 13,
+        "endLine": 331,
+        "endChar": 39
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5a307746_eac87832",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-23T09:17:33Z",
+      "side": 1,
+      "message": "This returns all visible variables in all visible scopes and a variable has scope information attached to it. What a specific scope means, however, is plugin/language dependent. I\u0027ll probably end up just showing the scope information verbatim in the frontend.\n\nDepending on the type of symbols and language and plugin either of the two location types might be the better one. For Wasm/DWARF that\u0027s raw location, for Js SourceMaps it\u0027s (probably?) source locations. In either case, the plugins should be able to translate between the two.\nSince I\u0027m getting raw locations from the backend when this method is called, I\u0027m just forwarding that information to the plugin to avoid doing extra unnecessary work.",
+      "parentUuid": "28bccd8b_fda2785d",
+      "range": {
+        "startLine": 355,
+        "startChar": 28,
+        "endLine": 355,
+        "endChar": 41
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d87da9_1325584d",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 10
@@ -128,6 +248,30 @@
       "writtenOn": "2020-01-22T14:56:48Z",
       "side": 1,
       "message": "How is the lexical scope actually given? This function gets a raw location, which by itself and without translation isn\u0027t connected to a lexical scope?",
+      "range": {
+        "startLine": 363,
+        "startChar": 46,
+        "endLine": 363,
+        "endChar": 65
+      },
+      "revId": "30542da0d247e783d0902fa9244ded0eb7ae6c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd0706ff_e063a267",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-23T09:17:33Z",
+      "side": 1,
+      "message": "The lexical scope is determined by the location as per `listVariablesInScope` above. Would you like me to say that in the comment?",
+      "parentUuid": "c1d87da9_1325584d",
       "range": {
         "startLine": 363,
         "startChar": 46,
