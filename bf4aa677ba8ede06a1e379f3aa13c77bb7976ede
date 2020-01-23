@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbccd529_080c565e",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-23T11:51:37Z",
+      "side": 1,
+      "message": "Why 2011?",
+      "range": {
+        "startLine": 176,
+        "startChar": 40,
+        "endLine": 176,
+        "endChar": 44
+      },
+      "revId": "bf4aa677ba8ede06a1e379f3aa13c77bb7976ede",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ea380f_d3dcd3dc",
+        "filename": "scripts/test/run_license_header_check.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-23T11:51:37Z",
+      "side": 1,
+      "message": "Is that a FIXME?",
+      "range": {
+        "startLine": 56,
+        "startChar": 24,
+        "endLine": 56,
+        "endChar": 37
+      },
+      "revId": "bf4aa677ba8ede06a1e379f3aa13c77bb7976ede",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb004a0d_076123cc",
+        "filename": "scripts/test/run_license_header_check.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-23T11:51:37Z",
+      "side": 1,
+      "message": "This could use some comments",
+      "revId": "bf4aa677ba8ede06a1e379f3aa13c77bb7976ede",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
