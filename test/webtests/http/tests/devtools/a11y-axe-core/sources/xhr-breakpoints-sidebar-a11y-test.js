@@ -9,7 +9,7 @@
   // this rule causes false negatives due to axe not handling the shadow DOM properly
   const noRequiredParent = {'aria-required-parent': {enabled: false}};
 
-  await UI.viewManager.showView('sources.xhrBreakpoints');
+  await self.UI.viewManager.showView('sources.xhrBreakpoints');
   TestRunner.addResult('Adding XHR breakpoint.');
   const xhrBreakpointsPane = runtime.sharedInstance(BrowserDebugger.XHRBreakpointsSidebarPane);
   xhrBreakpointsPane._setBreakpoint('test xhr breakpoint', true);

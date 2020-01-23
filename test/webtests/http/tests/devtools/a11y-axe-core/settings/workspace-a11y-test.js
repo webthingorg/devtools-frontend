@@ -12,8 +12,8 @@
   const fs = new BindingsTestRunner.TestFileSystem('file:///this/is/a/test');
   await fs.reportCreatedPromise();
 
-  await UI.viewManager.showView('workspace');
-  const workspaceWidget = await UI.viewManager.view('workspace').widget();
+  await self.UI.viewManager.showView('workspace');
+  const workspaceWidget = await self.UI.viewManager.view('workspace').widget();
 
   await AxeCoreTestRunner.runValidation(workspaceWidget.element);
   TestRunner.completeTest();

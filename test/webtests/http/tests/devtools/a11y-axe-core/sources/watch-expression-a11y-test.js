@@ -9,7 +9,7 @@
   await TestRunner.showPanel('sources');
   await TestRunner.navigatePromise('../sources/debugger-breakpoints/resources/dom-breakpoints.html');
 
-  await UI.viewManager.showView('sources.watch');
+  await self.UI.viewManager.showView('sources.watch');
   TestRunner.addResult('Adding watch expression.');
   const watchPane = self.runtime.sharedInstance(Sources.WatchExpressionsSidebarPane);
   watchPane.doUpdate();

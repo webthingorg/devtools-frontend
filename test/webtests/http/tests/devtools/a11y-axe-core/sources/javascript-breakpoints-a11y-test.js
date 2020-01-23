@@ -13,8 +13,8 @@
 
   TestRunner.addResult('Setting a breakpoint.');
   await SourcesTestRunner.createNewBreakpoint(sourceFrame, 13, '', true)
-  await SourcesTestRunner.createNewBreakpoint(sourceFrame, 11, '', false)
-  await UI.viewManager.showView('sources.jsBreakpoints');
+      await SourcesTestRunner.createNewBreakpoint(sourceFrame, 11, '', false)
+          await self.UI.viewManager.showView('sources.jsBreakpoints');
   const breakpointsPaneElement = runtime.sharedInstance(Sources.JavaScriptBreakpointsSidebarPane).contentElement;
 
   TestRunner.addResult('Running axe on the javascript breakpoints pane.');

@@ -16,13 +16,13 @@
   await TestRunner.loadModule('axe_core_test_runner');
   await TestRunner.loadModule('sources_test_runner');
 
-  await UI.viewManager.showView('sources');
+  await self.UI.viewManager.showView('sources');
   await testA11yForView(NO_REQUIRED_CHILDREN_RULESET);
 
   TestRunner.completeTest();
 
   async function testA11yForView(ruleSet) {
-    await UI.viewManager.showView('navigator-network');
+    await self.UI.viewManager.showView('navigator-network');
     const sourcesNavigatorView = new Sources.NetworkNavigatorView();
 
     sourcesNavigatorView.show(UI.inspectorView.element);

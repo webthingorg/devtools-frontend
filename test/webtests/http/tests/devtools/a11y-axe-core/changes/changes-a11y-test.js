@@ -14,8 +14,8 @@
   const uiSourceCodeMock = {mimeType: () => {}};
 
   TestRunner.addResult('Showing the Changes drawer.');
-  await UI.viewManager.showView('changes.changes');
-  const changesWidget = await UI.viewManager.view('changes.changes').widget();
+  await self.UI.viewManager.showView('changes.changes');
+  const changesWidget = await self.UI.viewManager.view('changes.changes').widget();
   changesWidget._selectedUISourceCode = uiSourceCodeMock;
   changesWidget._renderDiffRows(diff);
 

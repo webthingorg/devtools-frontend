@@ -4,8 +4,8 @@
 
 (async function() {
   TestRunner.addResult('Test error message in the settings tool Emulated Device pane');
-  await UI.viewManager.showView('devices');
-  const devicesWidget = await UI.viewManager.view('devices').widget();
+  await self.UI.viewManager.showView('devices');
+  const devicesWidget = await self.UI.viewManager.view('devices').widget();
 
   async function testNewDeviceError() {
     const addDeviceButton = devicesWidget._defaultFocusedElement;

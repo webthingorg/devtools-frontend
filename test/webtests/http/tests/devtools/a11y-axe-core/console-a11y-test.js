@@ -7,8 +7,8 @@
   TestRunner.addResult(
       'Tests accessibility in the console using the axe-core linter.');
 
-  await UI.viewManager.showView('console');
-  const widget = await UI.viewManager.view('console').widget();
+  await self.UI.viewManager.showView('console');
+  const widget = await self.UI.viewManager.view('console').widget();
 
   await AxeCoreTestRunner.runValidation(widget.element);
   TestRunner.completeTest();

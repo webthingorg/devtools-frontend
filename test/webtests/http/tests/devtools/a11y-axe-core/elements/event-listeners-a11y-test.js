@@ -18,8 +18,8 @@
     await TestRunner.loadModule('axe_core_test_runner');
     await TestRunner.loadModule('sources_test_runner');
     const view = 'elements.eventListeners';
-    const widget = await UI.viewManager.view(view).widget();
-    await UI.viewManager.showView(view);
+    const widget = await self.UI.viewManager.view(view).widget();
+    await self.UI.viewManager.showView(view);
 
     const treeElement = widget.element;
     TestRunner.addResult('Running the axe-core linter on tree element.');

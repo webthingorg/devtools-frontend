@@ -7,8 +7,8 @@
       'Tests accessibility in the settings tool geolocations pane using the axe-core linter.');
 
   await TestRunner.loadModule('axe_core_test_runner');
-  await UI.viewManager.showView('emulation-geolocations');
-  const geolocationsWidget = await UI.viewManager.view('emulation-geolocations').widget();
+  await self.UI.viewManager.showView('emulation-geolocations');
+  const geolocationsWidget = await self.UI.viewManager.view('emulation-geolocations').widget();
 
   async function testAddLocation() {
     const addLocationButton = geolocationsWidget._defaultFocusedElement;

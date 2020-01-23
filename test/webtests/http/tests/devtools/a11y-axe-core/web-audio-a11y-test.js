@@ -7,8 +7,8 @@
   TestRunner.addResult(
       'Tests accessibility in the web audio tool using the axe-core linter.');
 
-  await UI.viewManager.showView('web-audio');
-  const widget = await UI.viewManager.view('web-audio').widget();
+  await self.UI.viewManager.showView('web-audio');
+  const widget = await self.UI.viewManager.view('web-audio').widget();
 
   await AxeCoreTestRunner.runValidation(widget.element);
   TestRunner.completeTest();

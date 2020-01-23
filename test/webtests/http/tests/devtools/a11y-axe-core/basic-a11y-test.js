@@ -26,8 +26,8 @@
 
   async function loadViewAndTestElementViolations(view) {
     TestRunner.addResult(`Tests accessibility in the ${view} view using the axe-core linter.`);
-    await UI.viewManager.showView(view);
-    const widget = await UI.viewManager.view(view).widget();
+    await self.UI.viewManager.showView(view);
+    const widget = await self.UI.viewManager.view(view).widget();
     const ruleset = view === 'performance.monitor' ? NO_SCROLLABLE_REGION_FOCUSABLE_RULESET : {};
     await AxeCoreTestRunner.runValidation(widget.element, ruleset);
   }

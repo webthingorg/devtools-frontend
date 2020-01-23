@@ -6,8 +6,8 @@
   await TestRunner.loadModule('axe_core_test_runner');
 
   TestRunner.addResult(`Tests accessibility in the rendering view using the axe-core linter.`);
-  await UI.viewManager.showView('rendering');
-  const renderingView = await UI.viewManager.view('rendering').widget();
+  await self.UI.viewManager.showView('rendering');
+  const renderingView = await self.UI.viewManager.view('rendering').widget();
   await AxeCoreTestRunner.runValidation(renderingView.element);
 
   TestRunner.completeTest();

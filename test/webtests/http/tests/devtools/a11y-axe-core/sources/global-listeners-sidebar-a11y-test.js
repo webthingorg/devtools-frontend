@@ -11,7 +11,7 @@
 
   TestRunner.addResult('Adding global listener.');
   await TestRunner.evaluateInPagePromise(`window.addEventListener('touchstart', () => console.log);`);
-  await UI.viewManager.showView('sources.globalListeners');
+  await self.UI.viewManager.showView('sources.globalListeners');
   const globalListenersPane = self.runtime.sharedInstance(BrowserDebugger.ObjectEventListenersSidebarPane);
   const eventListenersView = globalListenersPane._eventListenersView;
 

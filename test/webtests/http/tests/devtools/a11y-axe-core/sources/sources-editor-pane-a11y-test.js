@@ -18,7 +18,7 @@
   await TestRunner.loadModule('axe_core_test_runner');
   await TestRunner.loadModule('sources_test_runner');
 
-  await UI.viewManager.showView('sources');
+  await self.UI.viewManager.showView('sources');
 
   await setup();
   await runTest();
@@ -47,7 +47,7 @@
   }
 
   async function runA11yTest() {
-    await UI.viewManager.showView('sources');
+    await self.UI.viewManager.showView('sources');
     const element = UI.panels.sources._sourcesView.contentElement;
     await AxeCoreTestRunner.runValidation(element, NO_REQUIRED_CHILDREN_RULESET);
   }

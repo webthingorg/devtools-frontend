@@ -6,8 +6,8 @@
   TestRunner.addResult('Tests accessibility in Blackboxing view using the axe-core linter.');
 
   await TestRunner.loadModule('axe_core_test_runner');
-  await UI.viewManager.showView('blackbox');
-  const blackboxWidget = await UI.viewManager.view('blackbox').widget();
+  await self.UI.viewManager.showView('blackbox');
+  const blackboxWidget = await self.UI.viewManager.view('blackbox').widget();
 
   async function testAddPattern() {
     const addPatternButton = blackboxWidget._defaultFocusedElement;

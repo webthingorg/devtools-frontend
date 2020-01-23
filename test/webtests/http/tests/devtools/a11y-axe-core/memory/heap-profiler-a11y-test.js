@@ -35,8 +35,8 @@
       pageFunction();`);
   HeapProfilerTestRunner.stopSamplingHeapProfiler();
 
-  await UI.viewManager.showView('heap_profiler');
-  const widget = await UI.viewManager.view('heap_profiler').widget();
+  await self.UI.viewManager.showView('heap_profiler');
+  const widget = await self.UI.viewManager.view('heap_profiler').widget();
   await AxeCoreTestRunner.runValidation(widget.element);
   TestRunner.completeTest();
 })();

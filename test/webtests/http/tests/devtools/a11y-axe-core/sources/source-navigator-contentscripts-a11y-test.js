@@ -17,7 +17,7 @@
   await TestRunner.loadModule('sdk_test_runner');
   await TestRunner.loadModule('sources_test_runner');
 
-  await UI.viewManager.showView('sources');
+  await self.UI.viewManager.showView('sources');
   await setup();
 
   await testA11yForView(NO_REQUIRED_CHILDREN_RULESET);
@@ -34,7 +34,7 @@
   }
 
   async function testA11yForView(ruleSet) {
-    await UI.viewManager.showView('navigator-contentScripts');
+    await self.UI.viewManager.showView('navigator-contentScripts');
     const sourcesNavigatorView = new Sources.ContentScriptsNavigatorView();
 
     sourcesNavigatorView.show(UI.inspectorView.element);

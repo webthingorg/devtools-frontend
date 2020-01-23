@@ -7,8 +7,8 @@
 
   await TestRunner.loadModule('axe_core_test_runner');
   const view = 'network.config';
-  await UI.viewManager.showView(view);
-  const widget = await UI.viewManager.view(view).widget();
+  await self.UI.viewManager.showView(view);
+  const widget = await self.UI.viewManager.view(view).widget();
   await AxeCoreTestRunner.runValidation(widget.element);
 
   TestRunner.completeTest();

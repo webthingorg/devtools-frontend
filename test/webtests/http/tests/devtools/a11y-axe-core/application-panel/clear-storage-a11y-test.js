@@ -7,7 +7,7 @@
   await TestRunner.loadModule('axe_core_test_runner');
   await ApplicationTestRunner.resetState();
   await TestRunner.showPanel('resources');
-  await UI.viewManager.showView('resources');
+  await self.UI.viewManager.showView('resources');
 
   const parent = UI.panels.resources._sidebar._applicationTreeElement;
   const clearStorageElement = parent.children().find(child => child.title === ls`Clear storage`);
