@@ -30,7 +30,10 @@ import {resolveScopeInObject, resolveThisObject} from './SourceMapNamesResolver.
  * @implements {UI.ContextFlavorListener}
  * @unrestricted
  */
-export class ScopeChainSidebarPane extends UI.VBox {
+export class ScopeChainSidebarPaneBase extends UI.VBox {
+  /**
+   * @param {boolean} isSourceScopeChain
+   */
   constructor() {
     super(true);
     this.registerRequiredCSS('sources/scopeChainSidebarPane.css');
@@ -67,6 +70,10 @@ export class ScopeChainSidebarPane extends UI.VBox {
     }
   }
 
+  _getScopeChain(callFrame) {
+    return [];
+  }
+
   _update() {
     const callFrame = UI.context.flavor(SDK.DebuggerModel.CallFrame);
     const details = UI.context.flavor(SDK.DebuggerPausedDetails);
@@ -90,7 +97,7 @@ export class ScopeChainSidebarPane extends UI.VBox {
 
     this.contentElement.appendChild(this._treeOutline.element);
     let foundLocalScope = false;
-    const scopeChain = callFrame.scopeChain();
+    const scopeChain = this._getScopeChain(callFrame);
     for (let i = 0; i < scopeChain.length; ++i) {
       const scope = scopeChain[i];
       const extraProperties = this._extraPropertiesForScope(scope, details, callFrame, thisObject, i === 0);
@@ -191,5 +198,33 @@ export class ScopeChainSidebarPane extends UI.VBox {
   _sidebarPaneUpdatedForTest() {
   }
 }
+
+/**
+ * @unrestricted
+ */
+export class SourceScopeChainSidebarPane extends ScopeChainSidebarPaneBase {
+  constructor() {
+    super();
+  }
+  /**
+   * @override
+   */
+  _getScopeChain(callFrame) {
+    return callFrame.sourceScopeChain;
+  }
+}
+
+/**
+ * @unrestricted
+ */
+export class ScopeChainSidebarPane extends ScopeChainSidebarPaneBase {
+  /**
+   * @override
+   */
+  _getScopeChain(callFrame) {
+    return callFrame.scopeChain();
+  }
+}
+
 
 export const pathSymbol = Symbol('path');
