@@ -46,6 +46,30 @@
       "revId": "79459ba13a0b2b9774f95f56689efbfa3f98a9a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b092184_4e615388",
+        "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-24T14:54:23Z",
+      "side": 1,
+      "message": "The needless parseInt is still there in the CL you landed?",
+      "parentUuid": "ab6186f1_92d77eac",
+      "range": {
+        "startLine": 31,
+        "startChar": 23,
+        "endLine": 31,
+        "endChar": 49
+      },
+      "revId": "79459ba13a0b2b9774f95f56689efbfa3f98a9a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
