@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "876fd4ec_9b1c4a1a",
+        "filename": "test/unittests/front_end/common/CharacterIdMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-24T13:11:42Z",
+      "side": 1,
+      "message": "Nit:\n\n    const max \u003d 0xFFFF;\n\nand then use `index \u003c\u003d max` below",
+      "range": {
+        "startLine": 31,
+        "startChar": 23,
+        "endLine": 31,
+        "endChar": 49
+      },
+      "revId": "79459ba13a0b2b9774f95f56689efbfa3f98a9a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
