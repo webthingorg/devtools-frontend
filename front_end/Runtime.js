@@ -986,7 +986,14 @@ class Extension { /**
    * @return {!Promise.<!Object>}
    */
   instance() {
-    return this._module._loadPromise().then(this._createInstance.bind(this));
+    return this._module._loadPromise().then(() => {
+      try {
+        return this._createInstance();
+      } catch (error) {
+        console.error(error);
+        return null;
+      }
+    });
   }
 
   /**

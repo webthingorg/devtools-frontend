@@ -198,16 +198,18 @@ export class ContainerWidget extends VBox {
         this.element.insertBefore(toolbarElement, this.element.firstChild);
       }
     }));
-    promises.push(this._view.widget().then(widget => {
-      // Move focus from |this| to loaded |widget| if any.
-      const shouldFocus = this.element.hasFocus();
-      this.setDefaultFocusedElement(null);
-      this._view[widgetSymbol] = widget;
-      widget.show(this.element);
-      if (shouldFocus) {
-        widget.focus();
-      }
-    }));
+    promises.push(this._view.widget()
+                      .then(widget => {
+                        // Move focus from |this| to loaded |widget| if any.
+                        const shouldFocus = this.element.hasFocus();
+                        this.setDefaultFocusedElement(null);
+                        this._view[widgetSymbol] = widget;
+                        widget.show(this.element);
+                        if (shouldFocus) {
+                          widget.focus();
+                        }
+                      })
+                      .catch(e => console.error(e)));
     this._materializePromise = Promise.all(promises);
     return this._materializePromise;
   }
@@ -216,10 +218,12 @@ export class ContainerWidget extends VBox {
    * @override
    */
   wasShown() {
-    this._materialize().then(() => {
-      this._view[widgetSymbol].show(this.element);
-      this._wasShownForTest();
-    });
+    this._materialize()
+        .then(() => {
+          this._view[widgetSymbol].show(this.element);
+          this._wasShownForTest();
+        })
+        .catch(e => console.error(e));
   }
 
   _wasShownForTest() {
