@@ -22,6 +22,30 @@
       "revId": "53faba1c7d1d0d4652606dbe43ebd98eef51d063",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "210338b7_dfd042c4",
+        "filename": "scripts/test/run_license_header_check.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-01-24T18:32:16Z",
+      "side": 1,
+      "message": "I don\u0027t think we have access to that JavaScript Code module in this node script: https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules ? (I could be mistaken)\n\nI also thought about changing path to the upath module, but that would involve an extra change to get the node module added to third_party. I\u0027m open to a follow up CL if we really think it should be updated though",
+      "parentUuid": "b59e9d04_734fef54",
+      "range": {
+        "startLine": 210,
+        "startChar": 3,
+        "endLine": 212,
+        "endChar": 51
+      },
+      "revId": "53faba1c7d1d0d4652606dbe43ebd98eef51d063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
