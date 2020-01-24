@@ -91,7 +91,7 @@ export class WorkspaceSettingsTab extends UI.VBox {
     if (!(fileSystem instanceof IsolatedFileSystem)) {
       return;
     }
-    const networkPersistenceProject = Persistence.networkPersistenceManager.project();
+    const networkPersistenceProject = self.Persistence.networkPersistenceManager.project();
     if (networkPersistenceProject &&
         self.Persistence.isolatedFileSystemManager.fileSystem(
             /** @type {!FileSystem} */ (networkPersistenceProject).fileSystemPath()) === fileSystem) {
