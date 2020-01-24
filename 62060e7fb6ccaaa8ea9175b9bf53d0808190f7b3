@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "281dbf8b_6a5bb0c0",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-24T11:50:06Z",
+      "side": 1,
+      "message": "nit: blank line",
+      "revId": "62060e7fb6ccaaa8ea9175b9bf53d0808190f7b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "630a7a26_38c2a2e3",
+        "filename": "front_end/data_grid/ShowMoreDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-24T11:50:06Z",
+      "side": 1,
+      "message": "same nit",
+      "revId": "62060e7fb6ccaaa8ea9175b9bf53d0808190f7b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
