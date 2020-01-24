@@ -46,7 +46,7 @@ export class ShortcutsScreen {
 
   static registerShortcuts() {
     // Elements panel
-    const elementsSection = UI.shortcutsScreen.section(Common.UIString.UIString('Elements Panel'));
+    const elementsSection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Elements Panel'));
 
     const navigate = ElementsPanelShortcuts.NavigateUp.concat(ElementsPanelShortcuts.NavigateDown);
     elementsSection.addRelatedKeys(navigate, Common.UIString.UIString('Navigate elements'));
@@ -63,7 +63,7 @@ export class ShortcutsScreen {
         Common.UIString.UIString('Toggle edit as HTML'));
 
     // Styles pane
-    const stylesPaneSection = UI.shortcutsScreen.section(Common.UIString.UIString('Styles Pane'));
+    const stylesPaneSection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Styles Pane'));
 
     const nextPreviousProperty = ElementsPanelShortcuts.NextProperty.concat(ElementsPanelShortcuts.PreviousProperty);
     stylesPaneSection.addRelatedKeys(nextPreviousProperty, Common.UIString.UIString('Next/previous property'));
@@ -89,7 +89,7 @@ export class ShortcutsScreen {
         ElementsPanelShortcuts.DecrementBy01, Common.UIString.UIString('Decrement by %f', 0.1));
 
     // Console
-    const consoleSection = UI.shortcutsScreen.section(Common.UIString.UIString('Console'));
+    const consoleSection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Console'));
 
     consoleSection.addAlternateKeys(
         UI.shortcutRegistry.shortcutDescriptorsForAction('console.clear'), Common.UIString.UIString('Clear console'));
@@ -108,7 +108,7 @@ export class ShortcutsScreen {
     consoleSection.addKey(ConsolePanelShortcuts.ExecuteCommand, Common.UIString.UIString('Execute command'));
 
     // Debugger
-    const debuggerSection = UI.shortcutsScreen.section(Common.UIString.UIString('Debugger'));
+    const debuggerSection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Debugger'));
 
     debuggerSection.addAlternateKeys(
         UI.shortcutRegistry.shortcutDescriptorsForAction('debugger.toggle-pause'),
@@ -143,7 +143,7 @@ export class ShortcutsScreen {
         ls`Open breakpoint editor`);
 
     // Editing
-    const editingSection = UI.shortcutsScreen.section(Common.UIString.UIString('Text Editor'));
+    const editingSection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Text Editor'));
 
     editingSection.addAlternateKeys(
         UI.shortcutRegistry.shortcutDescriptorsForAction('sources.go-to-member'),
@@ -180,7 +180,7 @@ export class ShortcutsScreen {
         Common.UIString.UIString('Switch between files with the same name and different extensions.'));
 
     // Performance panel
-    const performanceSection = UI.shortcutsScreen.section(Common.UIString.UIString('Performance Panel'));
+    const performanceSection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Performance Panel'));
 
     performanceSection.addAlternateKeys(
         UI.shortcutRegistry.shortcutDescriptorsForAction('timeline.toggle-recording'),
@@ -207,14 +207,14 @@ export class ShortcutsScreen {
         Common.UIString.UIString('Show previous/next recording'));
 
     // Memory panel
-    const memorySection = UI.shortcutsScreen.section(Common.UIString.UIString('Memory Panel'));
+    const memorySection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Memory Panel'));
 
     memorySection.addAlternateKeys(
         UI.shortcutRegistry.shortcutDescriptorsForAction('profiler.heap-toggle-recording'),
         Common.UIString.UIString('Start/stop recording'));
 
     // Layers panel
-    const layersSection = UI.shortcutsScreen.section(Common.UIString.UIString('Layers Panel'));
+    const layersSection = self.UI.shortcutsScreen.section(Common.UIString.UIString('Layers Panel'));
 
     layersSection.addAlternateKeys(LayersPanelShortcuts.ResetView, Common.UIString.UIString('Reset view'));
     layersSection.addAlternateKeys(LayersPanelShortcuts.PanMode, Common.UIString.UIString('Switch to pan mode'));
