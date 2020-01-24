@@ -224,7 +224,7 @@ export class MainImpl {
 
     new Persistence.FileSystemWorkspaceBinding(self.Persistence.isolatedFileSystemManager, self.Workspace.workspace);
     Persistence.persistence = new Persistence.Persistence(self.Workspace.workspace, self.Bindings.breakpointManager);
-    Persistence.networkPersistenceManager = new Persistence.NetworkPersistenceManager(self.Workspace.workspace);
+    self.Persistence.networkPersistenceManager = new Persistence.NetworkPersistenceManager(self.Workspace.workspace);
 
     new ExecutionContextSelector(self.SDK.targetManager, self.UI.context);
     self.Bindings.blackboxManager = new Bindings.BlackboxManager(self.Bindings.debuggerWorkspaceBinding);
