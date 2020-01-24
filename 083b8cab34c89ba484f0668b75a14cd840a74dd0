@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ac2d50c_d4c7df83",
+        "filename": "front_end/components/DockController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-01-24T10:04:39Z",
+      "side": 1,
+      "message": "Just a thought that maybe we should have a bug to migrate instances of Common.UIString.UIString over to ls. wdyt?\n\n(Not a blocker for this)",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "083b8cab34c89ba484f0668b75a14cd840a74dd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
