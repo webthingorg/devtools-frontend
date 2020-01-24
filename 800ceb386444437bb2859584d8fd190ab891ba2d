@@ -259,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "4f88bb4e_0702a21a",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-24T13:56:55Z",
+      "side": 1,
+      "message": "I had missed this reply before; apologies for the late response!\n\nThere are ways of getting an array of element handles, e.g. page.$$ [1]. However, none of these have built-in Shadow DOM support, so they probably won\u0027t help here :(\n\n[1]: https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#pageselector-1",
+      "parentUuid": "867c10e1_287b92ef",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35b6e416_cfb16ce6",
         "filename": "test/e2e/helper.ts",
         "patchSetId": 1
@@ -291,6 +315,24 @@
       "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e893081b_899d62eb",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-24T13:56:55Z",
+      "side": 1,
+      "message": "Did you forget to commit this? I\u0027m not seeing it in the CL that ended up landing. On the off chance that I\u0027m not missing something, here\u0027s a patch: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2019140",
+      "parentUuid": "8c9bca0d_1979c6f5",
+      "revId": "800ceb386444437bb2859584d8fd190ab891ba2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
       "key": {
