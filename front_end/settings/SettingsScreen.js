@@ -53,7 +53,7 @@ export class SettingsScreen extends UI.VBox {
     tabbedPane.setShrinkableTabs(false);
     tabbedPane.makeVerticalTabLayout();
     const shortcutsView = new UI.SimpleView(ls`Shortcuts`);
-    UI.shortcutsScreen.createShortcutsTabView().show(shortcutsView.element);
+    self.UI.shortcutsScreen.createShortcutsTabView().show(shortcutsView.element);
     this._tabbedLocation.appendView(shortcutsView);
     tabbedPane.show(this.contentElement);
 
