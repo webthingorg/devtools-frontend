@@ -27,6 +27,9 @@ describe('CharacterIdMap class', () => {
     assert.equal(characterIdMap.toChar(testElement), '!', 'element was not converted correctly');
   });
 
+  // FIXME(https://crbug.com/1045385): this function is supposed to support
+  // converting elements up to 0xFFFF (65535). The limit used here was arrived
+  // at by trial and error
   it('throws an error when trying to convert a number when there is no capacity left', () => {
     const characterIdMap = new CharacterIdMap();
     for (let index = 0; index < 65502; index++) {
