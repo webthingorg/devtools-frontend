@@ -213,6 +213,7 @@ function analyzeNode(parentNode, node, filePath, errors) {
   const code = escodegen.generate(node);
   switch (locCase) {
     case 'Common.UIString':
+    case 'UI.UIUtils.formatLocalized':
     case 'UI.formatLocalized':
       const firstArgType = node.arguments[0].type;
       if (firstArgType !== esprimaTypes.LITERAL && firstArgType !== esprimaTypes.TEMP_LITERAL &&
