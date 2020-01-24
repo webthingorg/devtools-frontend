@@ -22,6 +22,30 @@
       "revId": "083b8cab34c89ba484f0668b75a14cd840a74dd0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7569f17_2bd79f6e",
+        "filename": "front_end/components/DockController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-24T10:15:53Z",
+      "side": 1,
+      "message": "Yes. We can clean it up after ESM work I suppose.",
+      "parentUuid": "6ac2d50c_d4c7df83",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "083b8cab34c89ba484f0668b75a14cd840a74dd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
