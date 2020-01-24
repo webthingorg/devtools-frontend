@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "397953b5_a0b8fa97",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2020-01-24T11:53:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "281dbf8b_6a5bb0c0",
+      "revId": "62060e7fb6ccaaa8ea9175b9bf53d0808190f7b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "630a7a26_38c2a2e3",
         "filename": "front_end/data_grid/ShowMoreDataGridNode.js",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "62060e7fb6ccaaa8ea9175b9bf53d0808190f7b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34fc34f0_d1a346aa",
+        "filename": "front_end/data_grid/ShowMoreDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2020-01-24T11:53:38Z",
+      "side": 1,
+      "message": "I will keep this separate to differentiate from `* as` and other imports.",
+      "parentUuid": "630a7a26_38c2a2e3",
+      "revId": "62060e7fb6ccaaa8ea9175b9bf53d0808190f7b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
