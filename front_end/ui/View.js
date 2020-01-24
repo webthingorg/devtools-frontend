@@ -220,8 +220,10 @@ export class ProvidedView {
     if (!this._widgetRequested) {
       return;
     }
-    const widget = await this.widget();
-    widget.ownerViewDisposed();
+    (async () => {
+      const widget = await this.widget();
+      widget.ownerViewDisposed();
+    })().catch(e => console.error(e));
   }
 }
 
