@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b59e9d04_734fef54",
+        "filename": "scripts/test/run_license_header_check.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2020-01-24T18:27:08Z",
+      "side": 1,
+      "message": "How about using OS.Path.normalize?\nhttps://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/OSFile.jsm/OS.Path#OS.Path.normalize",
+      "range": {
+        "startLine": 210,
+        "startChar": 3,
+        "endLine": 212,
+        "endChar": 51
+      },
+      "revId": "53faba1c7d1d0d4652606dbe43ebd98eef51d063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
