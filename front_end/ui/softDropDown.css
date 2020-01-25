@@ -24,3 +24,17 @@
 .list-container {
     width: 100%;
 }
+
+@media (forced-colors: active) {
+    .item.disabled {
+        opacity: 1;
+    }
+    .item-list {
+        border: 1px solid ButtonText;
+    }
+    .item.highlighted:hover {
+        forced-color-adjust: none;
+        color: HighlightText !important;
+        background-color: Highlight !important;
+    }
+}
