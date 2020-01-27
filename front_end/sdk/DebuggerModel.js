@@ -583,6 +583,12 @@ export class DebuggerModel extends SDKModel {
 
     const pausedDetails =
         new DebuggerPausedDetails(this, callFrames, reason, auxData, breakpointIds, asyncStackTrace, asyncStackTraceId);
+    const pluginManager = Bindings.debuggerWorkspaceBinding.getLanguagePluginManager(this);
+    if (pluginManager) {
+      for (const callFrame of pausedDetails.callFrames) {
+        callFrame.sourceScopeChain = await pluginManager.resolveScopeChain(callFrame);
+      }
+    }
 
     if (pausedDetails && this._continueToLocationCallback) {
       const callback = this._continueToLocationCallback;
@@ -1238,6 +1244,7 @@ export class CallFrame {
    */
   constructor(debuggerModel, script, payload) {
     this.debuggerModel = debuggerModel;
+    this.sourceScopeChain = null;
     this._script = script;
     this._payload = payload;
     this._location = Location.fromPayload(debuggerModel, payload.location);
