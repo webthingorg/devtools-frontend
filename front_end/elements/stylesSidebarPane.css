@@ -241,3 +241,18 @@
     overflow: hidden;
     max-width: -webkit-fill-available;
 }
+
+@media (forced-colors: active) {
+    .styles-sidebar-pane-filter-box > input {
+        border: 1px solid ButtonText;
+    }
+    .styles-section[data-keyboard-focus="true"]:focus,
+    .styles-section.read-only[data-keyboard-focus="true"]:focus {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+    .styles-section[data-keyboard-focus="true"]:focus *,
+    .styles-section.read-only[data-keyboard-focus="true"]:focus * {
+        color: HighlightText !important;
+    }
+}

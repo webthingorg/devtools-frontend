@@ -81,3 +81,25 @@
     border-radius: 2px;
     box-shadow: 0px 0px 0px 2px var(--focus-bg-color);
 }
+
+@media (forced-colors: active) {
+    .object-properties-section li::before {
+        background-color: ButtonText !important;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"] {
+        forced-color-adjust: none;
+        background: Highlight !important;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"]:not(.parent)::before {
+        background-color: transparent !important;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"]::before {
+        background-color: HighlightText !important;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"] span,
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"] .gray-info-message {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        color: HighlightText !important;
+    }
+}

@@ -68,3 +68,27 @@
 .tree-outline-disclosure li:hover .event-listener-button {
     display: inline;
 }
+
+@media (forced-colors: active) {
+    .tree-outline-disclosure li.parent::before {
+        background-color: ButtonText !important;
+    }
+    .event-listener-button:hover,
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"] .event-listener-button {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+        color: HighlightText !important;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"],
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"] span {
+        forced-color-adjust: none;
+        background: Highlight !important;
+        color: HighlightText !important;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"]::before {
+        background-color: HighlightText !important;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"]:not(.parent)::before {
+        background-color: transparent !important;
+    }
+}
