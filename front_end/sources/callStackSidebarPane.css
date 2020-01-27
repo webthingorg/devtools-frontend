@@ -116,3 +116,14 @@
 :host-context(.-theme-with-dark-background) .blackboxed-message > .link {
     color: hsl(0, 0%, 67%);
 }
+
+@media (forced-colors: active) {
+    .call-frame-item:not(.async-header):hover,
+    .call-frame-item.async-header[data-keyboard-focus="true"]:focus:hover,
+    .call-frame-item.async-header[data-keyboard-focus="true"]:focus:hover .call-frame-item-title,
+    .call-frame-item[data-keyboard-focus="true"]:focus,
+    .call-frame-item.async-header[data-keyboard-focus="true"]:focus .call-frame-item-title {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+}
