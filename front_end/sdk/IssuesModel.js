@@ -2,27 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+const connectedIssuesSymbol = Symbol('issues');
 
 import {CookieModel} from './CookieModel.js';
-import {Events, NetworkManager} from './NetworkManager.js';
+import {NetworkManager} from './NetworkManager.js';
 import {NetworkRequest,  // eslint-disable-line no-unused-vars
         setCookieBlockedReasonToAttribute, setCookieBlockedReasonToUiString,} from './NetworkRequest.js';
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
-
-class Issue {
-  constructor(category, name, data) {
-    this._category = category;
-    this._name = name;
-    this._data = data;
-  }
-}
-
-Issue.Categories = {
-  SameSite: Symbol('SameSite'),
-};
-
-const connectedIssuesSymbol = Symbol('issues');
+import {Issue} from '../sdk/Issue.js';
 
 /**
  * @unrestricted
@@ -34,14 +22,36 @@ export class IssuesModel extends SDKModel {
   constructor(target) {
     super(target);
 
+    target.registerAuditsDispatcher(this);
+    this._auditsAgent = target.auditsAgent();
+    this._auditsAgent.enable();
+
     const networkManager = target.model(NetworkManager);
     if (networkManager) {
-      networkManager.addEventListener(Events.RequestFinished, this._handleRequestFinished, this);
+      // networkManager.addEventListener(Events.RequestFinished, this._handleRequestFinished, this);
     }
 
     this._cookiesModel = target.model(CookieModel);
 
     this._issues = [];
+    this._browserIssues = [];
+    this._browserIssuesByCode = new Map();
+  }
+
+  /**
+   * @override
+   * @param {!Protocol.Issues.Issue} payload
+   */
+  issueAdded(payload) {
+    if (!this._browserIssuesByCode.has(payload.code)) {
+      const issue = new Issue(payload.code, payload.resources);
+      this._browserIssuesByCode.set(payload.code, issue);
+      this.dispatchEventToListeners(IssuesModel.Events.IssueAdded, issue);
+    } else {
+      const issue = this._browserIssuesByCode.get(payload.code);
+      // issue.addResources(payload.resources);
+      this.dispatchEventToListeners(IssuesModel.Events.IssueUpdated, issue);
+    }
   }
 
   /**
@@ -99,4 +109,11 @@ export class IssuesModel extends SDKModel {
   }
 }
 
-SDKModel.register(IssuesModel, Capability.None, true);
+/** @enum {symbol} */
+IssuesModel.Events = {
+  Updated: Symbol('Updated'),
+  IssueAdded: Symbol('IssueAdded'),
+  IssueUpdated: Symbol('IssueUpdated'),
+};
+
+SDKModel.register(IssuesModel, Capability.None, false);
