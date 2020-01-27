@@ -34,6 +34,23 @@
       "revId": "22dcd5896b7afb230f741ff5771973cf41bb9d88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f183244d_6e11a683",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-27T11:41:15Z",
+      "side": 1,
+      "message": "Nit: you\u0027re using MiB here instead of MB.\n\n    TOO_LARGE_FILE_SIZE_LIMIT \u003d 20 * 1000 * 1000  # 10 MB",
+      "revId": "22dcd5896b7afb230f741ff5771973cf41bb9d88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
