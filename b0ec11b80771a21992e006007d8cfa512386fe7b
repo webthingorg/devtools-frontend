@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd1a074e_1e71e60f",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-27T22:08:51Z",
+      "side": 1,
+      "message": "Should the direction be \"Long-press space\" instead of \"Long-space press\"?",
+      "revId": "b0ec11b80771a21992e006007d8cfa512386fe7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
