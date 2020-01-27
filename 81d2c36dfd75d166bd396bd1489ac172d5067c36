@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8463ea28_9374ff61",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-27T15:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d50ca2c_545c058a",
+      "range": {
+        "startLine": 15,
+        "startChar": 35,
+        "endLine": 15,
+        "endChar": 39
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7b323ac_51bcefd8",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 3
@@ -116,6 +140,30 @@
       "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ec0180f_bcf66165",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-27T15:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "064f57e1_de077c3b",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 8
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
