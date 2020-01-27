@@ -100,3 +100,29 @@
 :host{
     overflow-y: auto;
 }
+
+@media (forced-colors: active) {
+    .navigator-folder-tree-item .icon {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+    .tree-outline li:hover .leading-icons > .icon,
+    .tree-outline li.selected .leading-icons > .icon {
+        background-color: HighlightText !important;
+    }
+    .tree-outline li:hover.parent::before,
+    .tree-outline li.selected.parent::before {
+        background-color: HighlightText !important;
+    }
+    .tree-outline li:hover:not(.selected) .selection,
+    .tree-outline li .selection {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+    .tree-outline li:hover .tree-element-title,
+    .tree-outline:not(.hide-selection-when-blurred) li.selected,
+    ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus {
+        forced-color-adjust: none;
+        color: HighlightText !important;
+    }
+}
