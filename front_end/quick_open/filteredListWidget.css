@@ -123,3 +123,24 @@
     color: #888;
     background: #fbfbfb;
 }
+
+@media (forced-colors: active) {
+    .filtered-list-widget {
+        forced-color-adjust: none;
+        border: 1px solid ButtonText;
+    }
+    .filtered-list-widget-item .filtered-list-widget-title,
+    .filtered-list-widget-item .filtered-list-widget-subtitle {
+        color: ButtonText !important;
+    }
+    .filtered-list-widget-item.selected {
+        background-color: Highlight !important;
+    }
+    .filtered-list-widget-item.selected .filtered-list-widget-title,
+    .filtered-list-widget-item.selected .filtered-list-widget-subtitle {
+        color: HighlightText !important;
+    }
+    .filtered-list-widget-input {
+        border: 1px solid ButtonText;
+    }
+}
