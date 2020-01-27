@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "562e5b9f_664d27af",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T15:45:33Z",
+      "side": 1,
+      "message": "Nit: What happens if the RPC fails? At some point (in the future) we need to handle the errors.",
+      "range": {
+        "startLine": 131,
+        "startChar": 61,
+        "endLine": 131,
+        "endChar": 69
+      },
+      "revId": "e6f0c07f7715bc84af766470beac5d3dc2139603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fd8b918_42fa9fc8",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T15:45:33Z",
+      "side": 1,
+      "message": "nit: type annotation?",
+      "range": {
+        "startLine": 1247,
+        "startChar": 9,
+        "endLine": 1247,
+        "endChar": 25
+      },
+      "revId": "e6f0c07f7715bc84af766470beac5d3dc2139603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
