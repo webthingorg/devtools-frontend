@@ -135,3 +135,13 @@
 .network-toolbar-container > :first-child {
     flex: 1 1 auto;
 }
+
+@media (forced-colors: active) {
+    #network-overview-container {
+        forced-color-adjust: none;
+    }
+    .resources-dividers-label-bar {
+        forced-color-adjust: none;
+        background-color: Canvas !important;
+    }
+}
