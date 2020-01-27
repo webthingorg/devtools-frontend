@@ -52,3 +52,33 @@ li .largeicon-navigator-folder {
     display: block;
     background-color: var(--item-hover-color);
 }
+
+@media (forced-colors: active) {
+    .tree-outline li:hover .tree-element-title,
+    .tree-outline li.selected .tree-element-title,
+    .tree-outline li:hover .count,
+    .tree-outline li.selected .count {
+        forced-color-adjust: none;
+        color: HighlightText !important;
+    }
+    .tree-outline li:hover .leading-icons > .icon-mask,
+    .tree-outline li.selected .leading-icons > .icon-mask,
+    .tree-outline li:hover::before,
+    .tree-outline li.selected::before {
+        background-color: HighlightText !important;
+    }
+    .tree-outline li:hover:not(.selected) .selection,
+    .tree-outline li .selection {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+    .tree-outline li:not(.parent)::before,
+    .tree-outline li:hover:not(.parent)::before {
+        background-color: transparent !important;
+    }
+    .tree-outline li::before,
+    .tree-outline li .icon-mask {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+}
