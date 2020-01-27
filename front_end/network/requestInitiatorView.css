@@ -21,3 +21,18 @@
 .request-initiator-view-section-content {
     margin-left: 6px;
 }
+
+@media (forced-colors: active) {
+    .request-initiator-view-section-title [is=ui-icon].icon-mask {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+    .request-initiator-view-section-title[data-keyboard-focus="true"]:focus [is=ui-icon].icon-mask {
+        background-color: HighlightText !important;
+    }
+    .request-initiator-view-section-title[data-keyboard-focus="true"]:focus {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+        color: HighlightText !important;
+    }
+}
