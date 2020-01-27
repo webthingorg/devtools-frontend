@@ -41,6 +41,8 @@ export class CoverageModel extends SDK.SDKModel {
     this._coverageByURL = new Map();
     /** @type {!Map<!Common.ContentProvider, !CoverageInfo>} */
     this._coverageByContentProvider = new Map();
+    /** @type {!Set<number>} */
+    this._coverageUpdateTimes = new Set();
 
     /** @type {!SuspensionState} */
     this._suspensionState = SuspensionState.Active;
@@ -76,11 +78,17 @@ export class CoverageModel extends SDK.SDKModel {
       promises.push(this._cssModel.startCoverage());
     }
     if (this._cpuProfilerModel) {
-      promises.push(this._cpuProfilerModel.startPreciseCoverage(jsCoveragePerBlock));
+      promises.push(
+          this._cpuProfilerModel.startPreciseCoverage(jsCoveragePerBlock, this.preciseCoverageDeltaUpdate.bind(this)));
     }
 
     await Promise.all(promises);
     return !!(this._cssModel || this._cpuProfilerModel);
+  }
+
+  preciseCoverageDeltaUpdate(timestamp, occasion, coverageData) {
+    this._coverageUpdateTimes.add(timestamp);
+    this._backlogOrProcessJSCoverage(coverageData, timestamp);
   }
 
   /**
@@ -102,6 +110,7 @@ export class CoverageModel extends SDK.SDKModel {
   reset() {
     this._coverageByURL = new Map();
     this._coverageByContentProvider = new Map();
+    this._coverageUpdateTimes = new Set();
     this.dispatchEventToListeners(CoverageModel.Events.CoverageReset);
   }
 
@@ -280,7 +289,12 @@ export class CoverageModel extends SDK.SDKModel {
       return [];
     }
     const {coverage, timestamp} = await this._cpuProfilerModel.takePreciseCoverage();
+    this._coverageUpdateTimes.add(timestamp);
     return this._backlogOrProcessJSCoverage(coverage, timestamp);
+  }
+
+  coverageUpdateTimes() {
+    return this._coverageUpdateTimes;
   }
 
   async _backlogOrProcessJSCoverage(freshRawCoverageData, freshTimestamp) {
@@ -297,6 +311,10 @@ export class CoverageModel extends SDK.SDKModel {
     }
     this._jsBacklog = [];
     return results.flat();
+  }
+
+  async processJSBacklog() {
+    this._backlogOrProcessJSCoverage([], 0);
   }
 
   /**
@@ -350,6 +368,7 @@ export class CoverageModel extends SDK.SDKModel {
       return [];
     }
     const {coverage, timestamp} = await this._cssModel.takeCoverageDelta();
+    this._coverageUpdateTimes.add(timestamp);
     return this._backlogOrProcessCSSCoverage(coverage, timestamp);
   }
 
