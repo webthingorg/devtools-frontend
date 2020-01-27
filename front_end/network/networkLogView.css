@@ -415,3 +415,31 @@
 .network-frame-group-badge {
     margin-right: 4px;
 }
+
+@media (forced-colors: active) {
+    .network-log-grid.data-grid table.data tr.revealed.selected,
+    .network-log-grid.data-grid:focus table.data tr.revealed.selected {
+      forced-color-adjust: none;
+      background-color: Highlight !important;
+      color: HighlightText !important;
+    }
+    .network-log-grid.data-grid:focus table.data tr.selected {
+        forced-color-adjust: none;
+        color: HighlightText !important;
+        box-shadow: inset 0px 0px 0px 2px ButtonText !important;
+    }
+    .network-log-grid.data-grid:focus tr.selected .network-dim-cell,
+    .network-log-grid.data-grid tr.selected .network-dim-cell,
+    .network-log-grid.data-grid:focus tr.selected .initiator-column .devtools-link,
+    .network-log-grid.data-grid tr.selected .initiator-column .devtools-link {
+        forced-color-adjust: none;
+        color: HighlightText !important;
+    }
+    .sort-order-icon-container [is=ui-icon].icon-mask {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+    .network-log-grid.data-grid .waterfall-column {
+        forced-color-adjust: none;
+    }
+}
