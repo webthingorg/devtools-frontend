@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4c0f2cab_876a1919",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-27T11:42:08Z",
+      "side": 1,
+      "message": "Ok, so no bypassing the check ever then, gotcha!",
+      "parentUuid": "49139971_cc838cb8",
+      "revId": "22dcd5896b7afb230f741ff5771973cf41bb9d88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f183244d_6e11a683",
         "filename": "PRESUBMIT.py",
         "patchSetId": 1
