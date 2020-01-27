@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55a1602f_6f7beadf",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2094,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-01-27T20:03:04Z",
+      "side": 1,
+      "message": "Nit: Since you\u0027re touching this line already, please comment /* ... */ the parameters including the empty string and the `true`.",
+      "revId": "bc764f5cf93791292060ce326b457c051e341591",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
