@@ -69,3 +69,19 @@
     right: 0;
     border-left-style: solid;
 }
+
+@media (forced-colors: active) {
+    .overview-grid-cursor-position {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+    .window-curtain-left, .window-curtain-right {
+        forced-color-adjust: none;
+        background-color: transparent !important;
+        border: 1px solid ButtonText !important;
+    }
+    .overview-grid-window-resizer {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+}
