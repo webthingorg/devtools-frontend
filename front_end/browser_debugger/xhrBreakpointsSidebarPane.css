@@ -55,3 +55,11 @@
     background-color: hsl(46, 98%, 22%);
     color: #ccc;
 }
+
+@media (forced-colors: active) {
+    .breakpoint-entry:focus {
+        forced-color-adjust: none;
+        background: Canvas !important;
+        box-shadow: 0 0 0 1px Highlight inset !important;
+    }
+}
