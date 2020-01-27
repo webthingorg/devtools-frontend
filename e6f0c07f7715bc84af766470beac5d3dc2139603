@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16e4acc2_bc450bc1",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-27T16:01:21Z",
+      "side": 1,
+      "message": "Currently we surface the error that\u0027s thrown here. Error handling will be fixed in a future CL.",
+      "parentUuid": "562e5b9f_664d27af",
+      "range": {
+        "startLine": 131,
+        "startChar": 61,
+        "endLine": 131,
+        "endChar": 69
+      },
+      "revId": "e6f0c07f7715bc84af766470beac5d3dc2139603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fd8b918_42fa9fc8",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "e6f0c07f7715bc84af766470beac5d3dc2139603",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fceb799_6f38d938",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-27T16:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fd8b918_42fa9fc8",
+      "range": {
+        "startLine": 1247,
+        "startChar": 9,
+        "endLine": 1247,
+        "endChar": 25
+      },
+      "revId": "e6f0c07f7715bc84af766470beac5d3dc2139603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
