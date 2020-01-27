@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58c6cc09_1d353a6d",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T11:50:30Z",
+      "side": 1,
+      "message": "From looking at the implementation of RemoteObject, it seems to expect a JavaScript type, and this CL seems to pass source language type names here. What are the consequences of this?",
+      "range": {
+        "startLine": 15,
+        "startChar": 35,
+        "endLine": 15,
+        "endChar": 39
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7b323ac_51bcefd8",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T11:50:30Z",
+      "side": 1,
+      "message": "getRemoteProperties?",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "064f57e1_de077c3b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T11:50:30Z",
+      "side": 1,
+      "message": "TODO",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 8
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3db5a142_c4cbbc14",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T11:50:30Z",
+      "side": 1,
+      "message": "I guess this is a drive-by bug fix?",
+      "range": {
+        "startLine": 321,
+        "startChar": 44,
+        "endLine": 321,
+        "endChar": 66
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "414e4cc2_bf3b3ce9",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T11:50:30Z",
+      "side": 1,
+      "message": "Isn\u0027t it a bit strange that we compute the rawLocation in the manager? I would have throught that this is plugin specific?",
+      "range": {
+        "startLine": 400,
+        "startChar": 8,
+        "endLine": 400,
+        "endChar": 89
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "392933cc_42ebb34b",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T11:50:30Z",
+      "side": 1,
+      "message": "What is the type of this? The RHS can resolve to null, right?",
+      "range": {
+        "startLine": 589,
+        "startChar": 18,
+        "endLine": 589,
+        "endChar": 34
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b051b2ac_26bb0135",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-27T11:50:30Z",
+      "side": 1,
+      "message": "What is the type of this? is it nullable?",
+      "range": {
+        "startLine": 1247,
+        "startChar": 9,
+        "endLine": 1247,
+        "endChar": 25
+      },
+      "revId": "81d2c36dfd75d166bd396bd1489ac172d5067c36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
