@@ -743,6 +743,18 @@ SourcesTestRunner.waitDebuggerPluginBreakpoints = function(sourceFrame) {
   }
 };
 
+SourcesTestRunner.waitExactDebuggerPluginBreakpointDecorations = function(expectedCount) {
+  return SourcesTestRunner.waitDebuggerPluginDecorations().then(checkIfCountReached);
+
+  function checkIfCountReached(updatedCount) {
+    if (updatedCount !== expectedCount) {
+      return SourcesTestRunner.waitExactDebuggerPluginBreakpoints(expectedCount);
+    }
+
+    return Promise.resolve();
+  }
+};
+
 SourcesTestRunner.dumpDebuggerPluginBreakpoints = function(sourceFrame) {
   const textEditor = sourceFrame._textEditor;
 
