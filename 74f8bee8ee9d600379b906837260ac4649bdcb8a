@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c9a717e_99b156aa",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-28T09:16:10Z",
+      "side": 1,
+      "message": "This needs a nicer solution. There is a readme about adding new icons in front_end/images.",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 19
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
