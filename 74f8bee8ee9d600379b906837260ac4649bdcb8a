@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "06002e2e_cdd3a173",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-28T09:28:05Z",
+      "side": 1,
+      "message": "Please create helpers for each of these task, this will make this more structured and readable.",
+      "range": {
+        "startLine": 55,
+        "startChar": 6,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c9a717e_99b156aa",
         "filename": "front_end/issues_panel/IssuesPanel.js",
         "patchSetId": 2
@@ -18,6 +41,98 @@
         "startChar": 11,
         "endLine": 83,
         "endChar": 19
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c255647_834fb507",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-28T09:28:05Z",
+      "side": 1,
+      "message": "The formatting seems to be off because of the inline svg. Maybe after you\u0027ve fixed the icons this will get better?",
+      "range": {
+        "startLine": 107,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 7
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afd90f61_0917be1e",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-28T09:28:05Z",
+      "side": 1,
+      "message": "Any reason this appears before the imports?",
+      "range": {
+        "startLine": 5,
+        "startChar": 6,
+        "endLine": 5,
+        "endChar": 27
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f734b4_9414075b",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-28T09:28:05Z",
+      "side": 1,
+      "message": "??",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9231dc59_89985697",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-01-28T09:28:05Z",
+      "side": 1,
+      "message": "Since payload.resources doesn\u0027t exist, maybe this code-path is not too interesting and can be removed? Or do we want to count the number of times an issue has occurred?",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 47
       },
       "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
