@@ -22,6 +22,30 @@
       "revId": "3ac5a201f419c7f31ba9df510677b357af888734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "296a3b20_b7278539",
+        "filename": "front_end/sources_test_runner/DebuggerTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-01-28T09:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9f160e6_7ad3037f",
+      "range": {
+        "startLine": 746,
+        "startChar": 74,
+        "endLine": 746,
+        "endChar": 87
+      },
+      "revId": "3ac5a201f419c7f31ba9df510677b357af888734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
