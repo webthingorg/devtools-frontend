@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25020573_cee26dc8",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-28T10:21:09Z",
+      "side": 1,
+      "message": "Why was this check introduced? Could you maybe add a comment as to why we are skipping non-shadow roots?",
+      "range": {
+        "startLine": 41,
+        "startChar": 14,
+        "endLine": 41,
+        "endChar": 47
+      },
+      "revId": "54c02dd7f63e68ef2ffa59d40f94c76eac5730cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
