@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd2572ad_e1277fa3",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-01-28T01:04:05Z",
+      "side": 1,
+      "message": "Is this line necessary? (I don\u0027t know how to test this but I instinctively feel the button would retain focus without it)",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 32
+      },
+      "revId": "a242e12d04e2c2124a501553da710af490021fb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
