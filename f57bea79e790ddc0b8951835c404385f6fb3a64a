@@ -16,6 +16,24 @@
       "revId": "f57bea79e790ddc0b8951835c404385f6fb3a64a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c01e3ae_6cc1ce6f",
+        "filename": "front_end/ui/View.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-01-29T18:15:29Z",
+      "side": 1,
+      "message": "I agree with you, the IIFE is note needed. A try catch will suffice for this case. Updating in new patchset",
+      "parentUuid": "a93082b3_ec580a77",
+      "revId": "f57bea79e790ddc0b8951835c404385f6fb3a64a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

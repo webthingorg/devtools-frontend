@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "32ba6859_6ab22e73",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-01-29T18:15:29Z",
+      "side": 1,
+      "message": "It was probably the auto formatting, fixed in latest patchset",
+      "parentUuid": "c0b8e72b_35a43841",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 53
+      },
+      "revId": "6f43a771c23699f45db26600d98b02730a4e268c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3d9a7f7_451bb168",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-25T01:16:10Z",
       "side": 1,
       "message": "Will this hide exceptions that we want reported?",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 37
+      },
+      "revId": "6f43a771c23699f45db26600d98b02730a4e268c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cbe79d2_079e83dc",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-01-29T18:15:29Z",
+      "side": 1,
+      "message": "Adding this catch will stop the reject event from being passed to any global listener of \u0027unhandledrejection\u0027 but I don\u0027t think they were being reported in Chrome before.",
+      "parentUuid": "d3d9a7f7_451bb168",
       "range": {
         "startLine": 221,
         "startChar": 0,
