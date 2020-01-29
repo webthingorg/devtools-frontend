@@ -22,6 +22,30 @@
       "revId": "88ba2cac141158693c549086fa62a811fc6c7f31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78369a17_03681fde",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-29T14:51:25Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t know if Chromium style differs from Google style, but:\n\nI don\u0027t know either, to be honest.\n\nMy thinking is as follows: `getElementPosition` doesn\u0027t need a `this` of its own, so an arrow function feels like the way to go. To give that function a name, we assign it to a `const` binding. This matches the surrounding code style, too.\n\nThe tsstyle doc says:\n\n\u003e Top level arrow functions may be used to explicitly declare that a function implements an interface.\n\nWhile that doesn\u0027t apply here, IMHO this case warrants a similar exception.\n\nAre you ok with me marking this resolved for now? If anyone feels strongly, we can change the style for the whole file, as a separate CL.",
+      "parentUuid": "2ea8a92d_1451c2c2",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 40
+      },
+      "revId": "88ba2cac141158693c549086fa62a811fc6c7f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
