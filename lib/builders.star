@@ -72,7 +72,14 @@ def builder(
   )
 
 
-def config_section(name, branch, view, name_suffix, mastername, repo=defaults.repo):
+def config_section(name, branch,
+    view=None,
+    name_suffix=None,
+    mastername="client.devtools-frontend.integration",
+    repo=defaults.repo):
+  view = view or name.capitalize()
+  if name_suffix == None:
+    name_suffix = " %s" % name
   return struct(
     name=name,
     branch=branch,
