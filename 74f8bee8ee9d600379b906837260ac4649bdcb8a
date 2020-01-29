@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "840cb569_1d3c66c2",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-29T09:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06002e2e_cdd3a173",
+      "range": {
+        "startLine": 55,
+        "startChar": 6,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c9a717e_99b156aa",
         "filename": "front_end/issues_panel/IssuesPanel.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0e78ec9_9b633330",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-29T09:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c9a717e_99b156aa",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 19
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "db0327df_9b851e7a",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-29T09:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c255647_834fb507",
+      "range": {
+        "startLine": 107,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 7
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afd90f61_0917be1e",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97211d38_35aebc71",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-29T09:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afd90f61_0917be1e",
+      "range": {
+        "startLine": 5,
+        "startChar": 6,
+        "endLine": 5,
+        "endChar": 27
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "bbb2344f_fa34b11e",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-29T09:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0f734b4_9414075b",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9231dc59_89985697",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 2
@@ -137,6 +257,30 @@
       "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5f6699a_f0969605",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-29T09:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9231dc59_89985697",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "74f8bee8ee9d600379b906837260ac4649bdcb8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
