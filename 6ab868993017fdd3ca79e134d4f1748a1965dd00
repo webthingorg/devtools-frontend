@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c30acaf0_6f0ad528",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-01-29T15:24:40Z",
+      "side": 1,
+      "message": "I\u0027d probably still move this earlier in pipeline before landing, because otherwise frontend tries to load `wasm://dwarf` as regular URL and fails.\n\nThe easiest might be moving this condition to the beginning of same function (just before/after as `!relativeSourceMapURL`).",
+      "revId": "6ab868993017fdd3ca79e134d4f1748a1965dd00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
