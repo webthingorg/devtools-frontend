@@ -397,12 +397,14 @@ export class DebuggerLanguagePluginManager {
     /** @type {!Map<string, !SourceScope>} */
     const scopes = new Map();
     const variables = await plugin.listVariablesInScope(
-        {'rawModuleId': script.scriptId, 'codeOffset': callFrame.location().columnNumber});
-    for (const variable of variables) {
-      if (!scopes.has(variable.scope)) {
-        scopes.set(variable.scope, new SourceScope(callFrame, variable.scope));
+        {'rawModuleId': script.scriptId, 'codeOffset': callFrame.location().columnNumber - script.columnOffset});
+    if (variables) {
+      for (const variable of variables) {
+        if (!scopes.has(variable.scope)) {
+          scopes.set(variable.scope, new SourceScope(callFrame, variable.scope));
+        }
+        scopes.get(variable.scope).object().variables.push(variable);
       }
-      scopes.get(variable.scope).object().variables.push(variable);
     }
     return Array.from(scopes.values());
   }

@@ -166,8 +166,10 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
     if (!this._sourceMapIdToLoadingClients.has(sourceMapId)) {
-      const sourceMapPromise = sourceMapURL === WasmSourceMap.FAKE_URL ? WasmSourceMap.load(client, sourceURL) :
-                                                                         TextSourceMap.load(sourceMapURL, sourceURL);
+      const sourceMapPromise =
+          (!Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') && sourceMapURL === WasmSourceMap.FAKE_URL) ?
+          WasmSourceMap.load(client, sourceURL) :
+          TextSourceMap.load(sourceMapURL, sourceURL);
 
       sourceMapPromise
           .catch(error => {
