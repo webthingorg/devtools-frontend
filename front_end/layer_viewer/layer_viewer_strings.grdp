@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_00d0f58ee39fdd815f33f9e85906c74a" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a will-change: opacity compositing hint
+  </message>
+  <message name="IDS_DEVTOOLS_019c2c2b9ccd2a3bb6f6c4b31fc13929" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, the scroll corner layer
+  </message>
+  <message name="IDS_DEVTOOLS_039d3f9cf3308c92e35785a66a7009e6" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, the horizontal scrollbar layer
+  </message>
+  <message name="IDS_DEVTOOLS_06c421d859a02e4d93224169b6f4d199" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has an active accelerated filter animation or transition
+  </message>
+  <message name="IDS_DEVTOOLS_0970e21836231d68baad35bd4e21c4d1" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has an active accelerated backdrop filter animation or transition
+  </message>
+  <message name="IDS_DEVTOOLS_0a16d469fe65eddffdd6af8db575cd05" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has an active accelerated transform animation or transition
+  </message>
+  <message name="IDS_DEVTOOLS_0a8a2124addb8cbdd52b0ee42a474f23" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is an accelerated canvas, or is a display list backed canvas that was promoted to a layer based on a performance heuristic.
+  </message>
   <message name="IDS_DEVTOOLS_0b4eb322e51b61340668247151340346" desc="Tooltip text that appears when hovering over largeicon rotate button in Transform Controller of the Layers panel">
     Rotate mode (V)
+  </message>
+  <message name="IDS_DEVTOOLS_0e26287797ddf1b853cb701e97fb9644" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, used to position the scrolling contents while scrolling
+  </message>
+  <message name="IDS_DEVTOOLS_0f3251ef8f4bb6d395dd8ebb62cda811" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a perspective transform that needs to be known by compositor because of 3d descendants
+  </message>
+  <message name="IDS_DEVTOOLS_11af4675cd1dcebd060f37d8b5662d41" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is an accelerated plugin
+  </message>
+  <message name="IDS_DEVTOOLS_124aa8db757bd16344dc8fa54968c765" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, to contain any normal flow and positive z-index contents on top of a negative z-index layer
+  </message>
+  <message name="IDS_DEVTOOLS_15ab57f7a68d1d4f4f800bfc081d4779" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Layer painted on top of other layers as decoration
   </message>
   <message name="IDS_DEVTOOLS_219e2fb2d37a581ab2bae57397b601f1" desc="Text in Layer Details View of the Layers panel">
     &lt;unnamed&gt;
@@ -9,11 +45,32 @@
   <message name="IDS_DEVTOOLS_25d066be1268d5c07cae5cc26e06ad2b" desc="Text in Layer Details View of the Layers panel">
     Slow scroll regions
   </message>
+  <message name="IDS_DEVTOOLS_264f35473c60729de83ac25ab21d8b5e" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a preserves-3d property that needs to be known by compositor because of 3d descendants
+  </message>
+  <message name="IDS_DEVTOOLS_27e5b666fb0dc020e6224403017491e1" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Should isolate descendants to apply a blend effect
+  </message>
+  <message name="IDS_DEVTOOLS_2c5596a00eb784f737524b04d2af78af" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a clip that needs to be known by compositor because of composited descendants
+  </message>
+  <message name="IDS_DEVTOOLS_2debe1727f09322db9d3e7d724c8a967" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Layer for link highlight, frame overlay, etc.
+  </message>
   <message name="IDS_DEVTOOLS_3228417bf9ed949e7447e7c8dcb17090" desc="Text in Layer Details View of the Layers panel">
     Memory estimate
   </message>
+  <message name="IDS_DEVTOOLS_33371dea37850b355de9cb019a079c74" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has opacity that needs to be applied by compositor because of composited descendants
+  </message>
+  <message name="IDS_DEVTOOLS_37f924655ac1457af41f2be0a2d6b8b8" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is a position:fixed element with composited descendants
+  </message>
   <message name="IDS_DEVTOOLS_441f5e043a240bac8dca50f90f7be3de" desc="Text in DView of the Layers panel">
     repaints on scroll
+  </message>
+  <message name="IDS_DEVTOOLS_4478717fbafe0e462f0ee772f5b391e4" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is a scrollable overflow element
   </message>
   <message name="IDS_DEVTOOLS_45567a52ec61e3e2b5469b397db3fc2a" desc="Element text content in Layer Details View of the Layers panel">
     <ph name="LAYERVIEWER_LAYERDETAILSVIEW__SLOWSCROLLRECTNAMES_GET_SCROLLRECT_TYPE_">$1s<ex>Touch event handler</ex></ph> <ph name="SCROLLRECT_RECT_X">$2d<ex>10</ex></ph> × <ph name="SCROLLRECT_RECT_Y">$3d<ex>10</ex></ph> (at <ph name="SCROLLRECT_RECT_WIDTH">$4d<ex>10</ex></ph>, <ph name="SCROLLRECT_RECT_HEIGHT">$5d<ex>10</ex></ph>)
@@ -27,11 +84,20 @@
   <message name="IDS_DEVTOOLS_49ceda18652e222780b8a35f506b4678" desc="Tooltip text that appears when hovering over largeicon pan button in Transform Controller of the Layers panel">
     Pan mode (X)
   </message>
+  <message name="IDS_DEVTOOLS_49e285784f1984fb5ef27efcdfeec0db" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Might overlap other composited content
+  </message>
   <message name="IDS_DEVTOOLS_4a1a29f7d8a02e0294dc9134e97e9134" desc="Text in Layer Details View of the Layers panel">
     Sticky position constraint
   </message>
   <message name="IDS_DEVTOOLS_4ee55709b19d806bb2f83a264a8a0f75" desc="Sticky box rect element text content in Layer Details View of the Layers panel">
     Sticky Box <ph name="STICKYBOXRECT_WIDTH">$1d<ex>10</ex></ph> × <ph name="STICKYBOXRECT_HEIGHT">$2d<ex>10</ex></ph> (at <ph name="STICKYBOXRECT_X">$3d<ex>10</ex></ph>, <ph name="STICKYBOXRECT_Y">$4d<ex>10</ex></ph>)
+  </message>
+  <message name="IDS_DEVTOOLS_53e1c7f564918efffe78dda6f214290e" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a mask that needs to be known by compositor because of composited descendants
+  </message>
+  <message name="IDS_DEVTOOLS_55f95ca9f3ada742c666f488588cad17" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has backface-visibility: hidden
   </message>
   <message name="IDS_DEVTOOLS_5639e2813d9549835010567a48349127" desc="Details text content in Layer Tree Outline of the Layers panel">
     ''' (<ph name="THIS__LAYER_WIDTH__">$1d<ex>10</ex></ph> × <ph name="THIS__LAYER_HEIGHT__">$2d<ex>10</ex></ph>)
@@ -39,8 +105,26 @@
   <message name="IDS_DEVTOOLS_58006164ad611dc7bf377b37c29e2646" desc="Accessibility label for canvas view in Layers tool">
     3D Layers View
   </message>
+  <message name="IDS_DEVTOOLS_59c528cf7e95c024162db323471e7010" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a will-change compositing hint other than transform and opacity
+  </message>
+  <message name="IDS_DEVTOOLS_5a0fa97d5a8b75d826f8c794b29b4674" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is fixed or sticky position
+  </message>
+  <message name="IDS_DEVTOOLS_5da88df709b358f89caa9217cb42fc95" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a blending effect that needs to be known by compositor because of composited descendants
+  </message>
   <message name="IDS_DEVTOOLS_602f4c0713480f019b24f09218dcc7e0" desc="A context menu item in the DView of the Layers panel">
     Reset View
+  </message>
+  <message name="IDS_DEVTOOLS_61e38a552ac158cb8ab5c9ddc1f2188b" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a 3d transform
+  </message>
+  <message name="IDS_DEVTOOLS_6a4ebfe179c67c3f0ed53b1dc342bc86" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, the vertical scrollbar layer
+  </message>
+  <message name="IDS_DEVTOOLS_6cd95b54847dfbf27a69078560416dcc" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is an accelerated iFrame
   </message>
   <message name="IDS_DEVTOOLS_6fac3a4381f0fb07bbf498a08d301d40" desc="Text in Layer Details View of the Layers panel">
     Repaints on scroll
@@ -54,11 +138,20 @@
   <message name="IDS_DEVTOOLS_71084df87a4cc161f7542a0f5295a950" desc="Text in Layer Details View of the Layers panel">
     Select a layer to see its details
   </message>
+  <message name="IDS_DEVTOOLS_71b0daa24e212851dd5d8e9bdda2e3a1" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, the overflow controls host layer
+  </message>
   <message name="IDS_DEVTOOLS_74248c725e00bf9fe04df4e35b249a19" desc="Text in Paint Profiler View of the Layers panel">
     Misc
   </message>
   <message name="IDS_DEVTOOLS_74ae7b35b54cd38a932ccc4f1d1c3775" desc="Text in Layer Details View of the Layers panel">
     Touch event handler
+  </message>
+  <message name="IDS_DEVTOOLS_75893b2ef64010fc5951006215729adf" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Layer was separately composited because it could not be squashed.
+  </message>
+  <message name="IDS_DEVTOOLS_779fd76d7dcfd78cc5a199f90be2ac10" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has clipping ancestor
   </message>
   <message name="IDS_DEVTOOLS_82505980aa6b0cabf4cb8013a8a43b62" desc="Text in Layer Details View of the Layers panel">
     Non fast scrollable
@@ -69,17 +162,41 @@
   <message name="IDS_DEVTOOLS_86ee74baff479d85d18f2cda9f8a9518" desc="Text in Paint Profiler View of the Layers panel">
     Bitmap
   </message>
+  <message name="IDS_DEVTOOLS_8ae644db07a9c572f949962203874eac" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is an accelerated video
+  </message>
   <message name="IDS_DEVTOOLS_932a3ef55ce8133be7b33ded2992fd97" desc="Text in Layer Details View of the Layers panel">
     Compositing Reasons
+  </message>
+  <message name="IDS_DEVTOOLS_94dd493abc5e7be80a6506ba042f29c8" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is DOM overlay for WebXR immersive-ar mode
   </message>
   <message name="IDS_DEVTOOLS_9b8379825de60ccb900acf83934e1409" desc="Text in Layer View Host of the Layers panel">
     Show internal layers
   </message>
+  <message name="IDS_DEVTOOLS_a6641cacd62facb6a0f0b306ceaff217" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a reflection that needs to be known by compositor because of composited descendants
+  </message>
   <message name="IDS_DEVTOOLS_a673813c8d6c5f511cc4d80830fc4503" desc="Text in DView of the Layers panel">
     Can&apos;t display layers,
   </message>
+  <message name="IDS_DEVTOOLS_a69f7562f385d2cd2ce4f50877cbc401" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Scroll parent is not an ancestor
+  </message>
+  <message name="IDS_DEVTOOLS_a8cb0d5e3cd30cb534d14569e392b2fa" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, to contain the mask contents
+  </message>
+  <message name="IDS_DEVTOOLS_a92ec41f1105066112d6444e078d4123" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is overlay controls for video
+  </message>
+  <message name="IDS_DEVTOOLS_b1b0614a3425d078b79891a9681f1b9b" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is the root layer
+  </message>
   <message name="IDS_DEVTOOLS_b336b2cbaa7391e6e0dfef888d35a837" desc="Text in DView of the Layers panel">
     touch event listener
+  </message>
+  <message name="IDS_DEVTOOLS_b3edecb0b5e57fa0ae608281db63e630" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a filter effect that needs to be known by compositor because of composited descendants
   </message>
   <message name="IDS_DEVTOOLS_b4cc0ce8b989d360cf2bef966626e683" desc="Text of a DOM element in DView of the Layers panel">
     Layer information is not yet available.
@@ -90,26 +207,50 @@
   <message name="IDS_DEVTOOLS_b7fec868f7541e449cbb32b506aa3668" desc="Text in DView of the Layers panel">
     Check <ph name="UI_XLINK_CREATE__ABOUT_GPU__">$1s<ex>about:gpu</ex></ph> for possible reasons.
   </message>
+  <message name="IDS_DEVTOOLS_bad93ee72d8addd69b517a5cc6f92b96" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Is the document.rootScroller
+  </message>
+  <message name="IDS_DEVTOOLS_bcc8f723964663ab51d82ed20faa9242" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Parent with composited negative z-index content
+  </message>
   <message name="IDS_DEVTOOLS_c0f4be326648f3fee18ffd278b614126" desc="Text in Paint Profiler View of the Layers panel">
     Profiling Results
   </message>
   <message name="IDS_DEVTOOLS_c634209b1884c963528d21a21cb64ac8" desc="Text in Layer Details View of the Layers panel">
     Nearest Layer Shifting Containing Block
   </message>
+  <message name="IDS_DEVTOOLS_c78d170e98a69076e90d953b15952d79" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, no-op layer to place the squashing layer correctly in the composited layer tree
+  </message>
   <message name="IDS_DEVTOOLS_c874f8e5eb4a8b49e80cc524acde3f23" desc="Label for layers sidepanel tree">
     Layers Tree Pane
+  </message>
+  <message name="IDS_DEVTOOLS_cc579f4eaf74c25b475559907bd6efa5" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, to house contents that can be scrolled
   </message>
   <message name="IDS_DEVTOOLS_cd5be434fea99c341680590738e3b6d5" desc="Text in DView of the Layers panel">
     WebGL support is disabled in your browser.
   </message>
+  <message name="IDS_DEVTOOLS_cdabd93f7eba5cdfb03eceed30a6acb4" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Secondary layer, home for a group of squashable content
+  </message>
   <message name="IDS_DEVTOOLS_ce1efcf7f040106cc8cb2f24c9efee35" desc="A context menu item in the DView of the Layers panel">
     Show Paint Profiler
+  </message>
+  <message name="IDS_DEVTOOLS_d86d9657ce85955e3ffb19febfffd79c" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Overlaps other composited content
+  </message>
+  <message name="IDS_DEVTOOLS_de3a5513fbd1de814203ae1afd829aad" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has an active accelerated opacity animation or transition
   </message>
   <message name="IDS_DEVTOOLS_e61ad2e468b7f58009896fd734c6764f" desc="Label for command log tree in the Profiler tab">
     Command Log
   </message>
   <message name="IDS_DEVTOOLS_e763043c4af617c6f33da361d990a77b" desc="Tooltip text that appears when hovering over the largeicon center button in the Transform Controller of the Layers panel">
     Reset transform (0)
+  </message>
+  <message name="IDS_DEVTOOLS_e7c3ce857bd6e60cb65244fc2ea71440" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a backdrop filter
   </message>
   <message name="IDS_DEVTOOLS_e7ee6a7ae0e6f824f5609c7bdac34375" desc="Text in Paint Profiler View of the Layers panel">
     Shapes
@@ -122,6 +263,9 @@
   </message>
   <message name="IDS_DEVTOOLS_4f6faa156251f75fbefe3270d94a7a28" desc="Text for a checkbox in the toolbar of the Layers panel to show the area of slow scroll rect">
     Slow scroll rects
+  </message>
+  <message name="IDS_DEVTOOLS_f3d7420d4b0796bcd22cd43f5c6964af" desc="Compositing reason description displayed in the Layer Details View of the Layers panel">
+    Has a will-change: transform compositing hint
   </message>
   <message name="IDS_DEVTOOLS_fdf193b625172465932a139feb6963a9" desc="Text in Layer Details View of the Layers panel">
     Main thread scrolling reason
