@@ -192,7 +192,7 @@ export class LayerDetailsView extends UI.Widget {
     this._paintCountCell.parentElement.classList.toggle('hidden', !layer.paintCount());
     this._paintCountCell.textContent = layer.paintCount();
     this._memoryEstimateCell.textContent = Number.bytesToString(layer.gpuMemoryUsage());
-    layer.requestCompositingReasons().then(this._updateCompositingReasons.bind(this));
+    layer.requestCompositingReasonIds().then(this._updateCompositingReasons.bind(this));
     this._scrollRectsCell.removeChildren();
     layer.scrollRects().forEach(this._createScrollRectElement.bind(this));
     this._populateStickyPositionConstraintCell(layer.stickyPositionConstraint());
@@ -239,26 +239,198 @@ export class LayerDetailsView extends UI.Widget {
   }
 
   /**
-   * @param {!Array.<string>} compositingReasons
+   * @param {!Array.<string>} compositingReasonIds
    */
-  _updateCompositingReasons(compositingReasons) {
-    if (!compositingReasons || !compositingReasons.length) {
+  _updateCompositingReasons(compositingReasonIds) {
+    if (!compositingReasonIds || !compositingReasonIds.length) {
       this._compositingReasonsCell.textContent = 'n/a';
       return;
     }
     this._compositingReasonsCell.removeChildren();
     const list = this._compositingReasonsCell.createChild('ul');
-    for (let i = 0; i < compositingReasons.length; ++i) {
-      // The reason is coming straight from third_party/blink/renderer/platform/graphics/compositing_reasons.cc
-      let text = compositingReasons[i];
-      // If the text is more than one word but does not terminate with period, add the period.
-      if (/\s.*[^.]$/.test(text)) {
-        text += '.';
+    const compositingReasons = LayerDetailsView.getCompositingReasons(compositingReasonIds);
+    for (let compositingReason of compositingReasons) {
+      if (/\s.*[^.]$/.test(compositingReason)) {
+        compositingReason += '.';
       }
-      list.createChild('li').textContent = text;
+      list.createChild('li').textContent = compositingReason;
     }
   }
+
+  /**
+   * @param {!Array.<string>} compositingReasonIds
+   */
+  static getCompositingReasons(compositingReasonIds) {
+    const compositingReasons = [];
+    for (const compositingReasonId of compositingReasonIds) {
+      let compositingReason;
+      // The compositing reason IDs are defined in
+      // third_party/blink/renderer/platform/graphics/compositing_reasons.cc
+      switch (compositingReasonId) {
+        case 'transform3D':
+          compositingReason = ls`Has a 3d transform`;
+          break;
+        case 'video':
+          compositingReason = ls`Is an accelerated video`;
+          break;
+        case 'canvas':
+          compositingReason = ls
+          `Is an accelerated canvas, or is a display list backed canvas that was promoted to a layer based on a performance heuristic.`;
+          break;
+        case 'plugin':
+          compositingReason = ls`Is an accelerated plugin`;
+          break;
+        case 'iFrame':
+          compositingReason = ls`Is an accelerated iFrame`;
+          break;
+        case 'backfaceVisibilityHidden':
+          compositingReason = ls`Has backface-visibility: hidden`;
+          break;
+        case 'activeTransformAnimation':
+          compositingReason = ls`Has an active accelerated transform animation or transition`;
+          break;
+        case 'activeOpacityAnimation':
+          compositingReason = ls`Has an active accelerated opacity animation or transition`;
+          break;
+        case 'activeFilterAnimation':
+          compositingReason = ls`Has an active accelerated filter animation or transition`;
+          break;
+        case 'activeBackdropFilterAnimation':
+          compositingReason = ls`Has an active accelerated backdrop filter animation or transition`;
+          break;
+        case 'immersiveArOverlay':
+          compositingReason = ls`Is DOM overlay for WebXR immersive-ar mode`;
+          break;
+        case 'scrollDependentPosition':
+          compositingReason = ls`Is fixed or sticky position`;
+          break;
+        case 'overflowScrolling':
+          compositingReason = ls`Is a scrollable overflow element`;
+          break;
+        case 'overflowScrollingParent':
+          compositingReason = ls`Scroll parent is not an ancestor`;
+          break;
+        case 'outOfFlowClipping':
+          compositingReason = ls`Has clipping ancestor`;
+          break;
+        case 'videoOverlay':
+          compositingReason = ls`Is overlay controls for video`;
+          break;
+        case 'willChangeTransform':
+          compositingReason = ls`Has a will-change: transform compositing hint`;
+          break;
+        case 'willChangeOpacity':
+          compositingReason = ls`Has a will-change: opacity compositing hint`;
+          break;
+        case 'willChangeOther':
+          compositingReason = ls`Has a will-change compositing hint other than transform and opacity`;
+          break;
+        case 'backdropFilter':
+          compositingReason = ls`Has a backdrop filter`;
+          break;
+        case 'rootScroller':
+          compositingReason = ls`Is the document.rootScroller`;
+          break;
+        case 'assumedOverlap':
+          compositingReason = ls`Might overlap other composited content`;
+          break;
+        case 'overlap':
+          compositingReason = ls`Overlaps other composited content`;
+          break;
+        case 'negativeZIndexChildren':
+          compositingReason = ls`Parent with composited negative z-index content`;
+          break;
+        case 'squashingDisallowed':
+          compositingReason = ls`Layer was separately composited because it could not be squashed.`;
+          break;
+        case 'opacityWithCompositedDescendants':
+          compositingReason = ls`Has opacity that needs to be applied by compositor because of composited descendants`;
+          break;
+        case 'maskWithCompositedDescendants':
+          compositingReason = ls`Has a mask that needs to be known by compositor because of composited descendants`;
+          break;
+        case 'reflectionWithCompositedDescendants':
+          compositingReason =
+              ls`Has a reflection that needs to be known by compositor because of composited descendants`;
+          break;
+        case 'filterWithCompositedDescendants':
+          compositingReason =
+              ls`Has a filter effect that needs to be known by compositor because of composited descendants`;
+          break;
+        case 'blendingWithCompositedDescendants':
+          compositingReason =
+              ls`Has a blending effect that needs to be known by compositor because of composited descendants`;
+          break;
+        case 'clipsCompositingDescendants':
+          compositingReason = ls`Has a clip that needs to be known by compositor because of composited descendants`;
+          break;
+        case 'perspectiveWith3DDescendants':
+          compositingReason =
+              ls`Has a perspective transform that needs to be known by compositor because of 3d descendants`;
+          break;
+        case 'preserve3DWith3DDescendants':
+          compositingReason =
+              ls`Has a preserves-3d property that needs to be known by compositor because of 3d descendants`;
+          break;
+        case 'isolateCompositedDescendants':
+          compositingReason = ls`Should isolate descendants to apply a blend effect`;
+          break;
+        case 'positionFixedWithCompositedDescendants':
+          compositingReason = ls`Is a position:fixed element with composited descendants`;
+          break;
+        case 'root':
+          compositingReason = ls`Is the root layer`;
+          break;
+        case 'layerForHorizontalScrollbar':
+          compositingReason = ls`Secondary layer, the horizontal scrollbar layer`;
+          break;
+        case 'layerForVerticalScrollbar':
+          compositingReason = ls`Secondary layer, the vertical scrollbar layer`;
+          break;
+        case 'layerForOverflowControlsHost':
+          compositingReason = ls`Secondary layer, the overflow controls host layer`;
+          break;
+        case 'layerForScrollCorner':
+          compositingReason = ls`Secondary layer, the scroll corner layer`;
+          break;
+        case 'layerForScrollingContents':
+          compositingReason = ls`Secondary layer, to house contents that can be scrolled`;
+          break;
+        case 'layerForScrollingContainer':
+          compositingReason = ls`Secondary layer, used to position the scrolling contents while scrolling`;
+          break;
+        case 'layerForSquashingContents':
+          compositingReason = ls`Secondary layer, home for a group of squashable content`;
+          break;
+        case 'layerForSquashingContainer':
+          compositingReason =
+              ls`Secondary layer, no-op layer to place the squashing layer correctly in the composited layer tree`;
+          break;
+        case 'layerForForeground':
+          compositingReason = ls
+          `Secondary layer, to contain any normal flow and positive z-index contents on top of a negative z-index layer`;
+          break;
+        case 'layerForMask':
+          compositingReason = ls`Secondary layer, to contain the mask contents`;
+          break;
+        case 'layerForDecoration':
+          compositingReason = ls`Layer painted on top of other layers as decoration`;
+          break;
+        case 'layerForOther':
+          compositingReason = ls`Layer for link highlight, frame overlay, etc.`;
+          break;
+        default:
+          console.error(`Compositing reason id '${compositingReasonId}' is not recognized`);
+          break;
+      }
+      if (compositingReason) {
+        compositingReasons.push(compositingReason);
+      }
+    }
+    return compositingReasons;
+  }
 }
+
 
 /** @enum {symbol} */
 export const Events = {
