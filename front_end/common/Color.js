@@ -124,6 +124,112 @@ export class Color {
           if (values.length !== 4) {
             return null;
           }
+        } else if (
+            (values.length > 2 && values[2].indexOf('/') !== -1) ||
+            (values.length > 3 && values[3].indexOf('/') !== -1)) {
+          const alpha = values.slice(2, 4).join('');
+          values = values.slice(0, 2).concat(alpha.split(/\//)).concat(values.slice(4));
+        } else if (values.length >= 4) {
+          return null;
+        }
+      }
+      if (values.length !== 3 && values.length !== 4 || values.indexOf('') > -1) {
+        return null;
+      }
+      const hasAlpha = (values[3] !== undefined);
+
+      if (match[1]) {  // rgb/rgba
+        const rgba = [
+          Color._parseRgbNumeric(values[0]), Color._parseRgbNumeric(values[1]), Color._parseRgbNumeric(values[2]),
+          hasAlpha ? Color._parseAlphaNumeric(values[3]) : 1
+        ];
+        if (rgba.indexOf(null) > -1) {
+          return null;
+        }
+        return new Color(/** @type {!Array.<number>} */ (rgba), hasAlpha ? Format.RGBA : Format.RGB, text);
+      }
+
+      if (match[2]) {  // hsl/hsla
+        const hsla = [
+          Color._parseHueNumeric(values[0]), Color._parseSatLightNumeric(values[1]),
+          Color._parseSatLightNumeric(values[2]), hasAlpha ? Color._parseAlphaNumeric(values[3]) : 1
+        ];
+        if (hsla.indexOf(null) > -1) {
+          return null;
+        }
+        /** @type {!Array.<number>} */
+        const rgba = [];
+        Color.hsl2rgb(/** @type {!Array.<number>} */ (hsla), rgba);
+        return new Color(rgba, hasAlpha ? Format.HSLA : Format.HSL, text);
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * @param {string} text
+   * @return {?Color}
+   */
+  static parse2(text) {
+    // Simple - #hex, nickname
+    const value = text.toLowerCase().replace(/\s+/g, '');
+    const simple = /^(?:#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})|(\w+))$/i;
+    let match = value.match(simple);
+    if (match) {
+      if (match[1]) {  // hex
+        let hex = match[1].toLowerCase();
+        let format;
+        if (hex.length === 3) {
+          format = Format.ShortHEX;
+          hex = hex.charAt(0) + hex.charAt(0) + hex.charAt(1) + hex.charAt(1) + hex.charAt(2) + hex.charAt(2);
+        } else if (hex.length === 4) {
+          format = Format.ShortHEXA;
+          hex = hex.charAt(0) + hex.charAt(0) + hex.charAt(1) + hex.charAt(1) + hex.charAt(2) + hex.charAt(2) +
+              hex.charAt(3) + hex.charAt(3);
+        } else if (hex.length === 6) {
+          format = Format.HEX;
+        } else {
+          format = Format.HEXA;
+        }
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        let a = 1;
+        if (hex.length === 8) {
+          a = parseInt(hex.substring(6, 8), 16) / 255;
+        }
+        return new Color([r / 255, g / 255, b / 255, a], format, text);
+      }
+
+      if (match[2]) {  // nickname
+        const nickname = match[2].toLowerCase();
+        if (nickname in Nicknames) {
+          const rgba = Nicknames[nickname];
+          const color = Color.fromRGBA(rgba);
+          color._format = Format.Nickname;
+          color._originalText = text;
+          return color;
+        }
+        return null;
+      }
+
+      return null;
+    }
+
+    // rgb/rgba(), hsl/hsla()
+    match = text.toLowerCase().match(/^\s*(?:(rgba?)|(hsla?))\((.*)\)\s*$/);
+
+    if (match) {
+      const components = match[3].trim();
+      let values = components.split(/\s*,\s*/);
+      if (values.length === 1) {
+        values = components.split(/\s+/);
+        if (values[3] === '/') {
+          values.splice(3, 1);
+          if (values.length !== 4) {
+            return null;
+          }
         } else if ((values.length > 2 && values[2].indexOf('/') !== -1) || (values.length > 3 && values[3].indexOf('/') !== -1)) {
           const alpha = values.slice(2, 4).join('');
           values = values.slice(0, 2).concat(alpha.split(/\//)).concat(values.slice(4));
