@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea8a92d_1451c2c2",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-01-29T13:48:20Z",
+      "side": 1,
+      "message": "I don\u0027t know if Chromium style differs from Google style, but:\n\nhttp://go/tsstyle#function-declarations\n\nUse function declarations instead of assigning a function expression into a local variable (const x \u003d function() {...};). TypeScript already disallows rebinding functions, so preventing overwriting a function declaration by using const is unnecessary.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 40
+      },
+      "revId": "88ba2cac141158693c549086fa62a811fc6c7f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
