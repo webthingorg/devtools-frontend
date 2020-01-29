@@ -35,6 +35,7 @@
       <part file="../heap_snapshot_worker/heap_snapshot_worker_strings.grdp" />
       <part file="../help/help_strings.grdp" />
       <part file="../host/host_strings.grdp" />
+      <part file="../issues_panel/issues_panel_strings.grdp" />
       <part file="../inline_editor/inline_editor_strings.grdp" />
       <part file="../input/input_strings.grdp" />
       <part file="../inspector_main/inspector_main_strings.grdp" />
@@ -52,6 +53,7 @@
       <part file="../performance_monitor/performance_monitor_strings.grdp" />
       <part file="../persistence/persistence_strings.grdp" />
       <part file="../profiler/profiler_strings.grdp" />
+      <part file="../issues_panel/issues_panel_strings.grdp" />
       <part file="../protocol_monitor/protocol_monitor_strings.grdp" />
       <part file="../quick_open/quick_open_strings.grdp" />
       <part file="../resources/resources_strings.grdp" />
