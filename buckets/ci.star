@@ -34,12 +34,19 @@ generate_ci_configs(
         name_suffix = ' beta',
         mastername="client.devtools-frontend.integration"
       ),
+      config_section(
+        name="stable",
+        branch='refs/heads/chromium/3987',
+        view='Stable',
+        name_suffix = ' stable',
+        mastername="client.devtools-frontend.integration"
+      ),
     ],
     builders = [
       builder_descriptor(
         name='DevTools Linux',
         recipe_name='chromium_integration',
-        excluded_from=['beta']
+        excluded_from=['beta', 'stable']
       ),
       builder_descriptor(
         name="Stand-alone Linux",
