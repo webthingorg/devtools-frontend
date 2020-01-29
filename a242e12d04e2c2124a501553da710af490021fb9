@@ -22,6 +22,30 @@
       "revId": "a242e12d04e2c2124a501553da710af490021fb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74c66e21_429400b5",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-01-29T00:31:12Z",
+      "side": 1,
+      "message": "I think you are right. The focus was lost because of disabling/enabling the button. Without that chunk of code, the focus would have been set (I played with it to verify). That means we don\u0027t need this focus call to guard this code path.",
+      "parentUuid": "dd2572ad_e1277fa3",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 32
+      },
+      "revId": "a242e12d04e2c2124a501553da710af490021fb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
