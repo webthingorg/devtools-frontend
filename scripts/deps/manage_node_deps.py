@@ -53,7 +53,8 @@ DEPS = {
     "recast": "0.18.2",
     "rollup": "1.23.1",
     "typescript": "3.7.5",
-    "yargs": "15.0.2"
+    "yargs": "15.0.2",
+    "diff-cover": "2.5.2"
 }
 
 def exec_command(cmd):

@@ -56,6 +56,11 @@ def run_tests():
     print(karma_proc_out)
     return karma_errors_found
 
+def check_diff_coverage(can_fail = True):
+    if can_fail:
+        os.system('diff-cover karma-coverage/cobertura-coverage.xml --fail-under=100')
+    else:
+        os.system('diff-cover karma-coverage/cobertura-coverage.xml')
 
 is_cygwin = sys.platform == 'cygwin'
 chrome_binary = None
@@ -78,6 +83,7 @@ else:
 
 def main():
     errors_found = run_tests()
+    check_diff_coverage()
 
     if errors_found:
         print('ERRORS DETECTED')
