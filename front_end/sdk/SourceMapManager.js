@@ -161,6 +161,9 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
 
     this.dispatchEventToListeners(Events.SourceMapWillAttach, client);
 
+    if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
+      return;
+    }
     if (this._sourceMapById.has(sourceMapId)) {
       attach.call(this, sourceMapId, client);
       return;
