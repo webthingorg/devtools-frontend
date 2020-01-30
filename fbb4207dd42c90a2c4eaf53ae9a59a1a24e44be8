@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c923ca4_21c4381f",
+        "filename": "front_end/layer_viewer/LayerDetailsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-30T10:15:28Z",
+      "side": 1,
+      "message": "WDYT doing the translation through a map, similar to how slowScrollRectNames is handled below?",
+      "range": {
+        "startLine": 266,
+        "startChar": 6,
+        "endLine": 269,
+        "endChar": 16
+      },
+      "revId": "fbb4207dd42c90a2c4eaf53ae9a59a1a24e44be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
