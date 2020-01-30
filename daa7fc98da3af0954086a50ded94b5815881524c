@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb87426b_0c913c76",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-01-30T16:05:58Z",
+      "side": 1,
+      "message": "Two nits / questions:\n1) Name `_newSourceMap` is probably no longer relevant?\n2) Where does this check that only Wasm is intercepted by plugin?",
+      "revId": "daa7fc98da3af0954086a50ded94b5815881524c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
