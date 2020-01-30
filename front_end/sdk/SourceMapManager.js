@@ -161,13 +161,18 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
 
     this.dispatchEventToListeners(Events.SourceMapWillAttach, client);
 
+    if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
+      return;
+    }
     if (this._sourceMapById.has(sourceMapId)) {
       attach.call(this, sourceMapId, client);
       return;
     }
     if (!this._sourceMapIdToLoadingClients.has(sourceMapId)) {
-      const sourceMapPromise = sourceMapURL === WasmSourceMap.FAKE_URL ? WasmSourceMap.load(client, sourceURL) :
-                                                                         TextSourceMap.load(sourceMapURL, sourceURL);
+      const sourceMapPromise =
+          (!Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') && sourceMapURL === WasmSourceMap.FAKE_URL) ?
+          WasmSourceMap.load(client, sourceURL) :
+          TextSourceMap.load(sourceMapURL, sourceURL);
 
       sourceMapPromise
           .catch(error => {
