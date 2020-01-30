@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b380a12_20efccc9",
+        "filename": "front_end/Images/accelerometer-front.svg",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-30T11:34:14Z",
+      "side": 1,
+      "message": "The optimize script did this. But I removed the change from this cl and will land it separately.",
+      "parentUuid": "94ecfc14_0c8c3943",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 39
+      },
+      "revId": "04a7f72c598575eac6db2a97bb68a6232c0cc703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff02406_b226ed0d",
         "filename": "front_end/issues_panel/IssuesPanel.js",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "04a7f72c598575eac6db2a97bb68a6232c0cc703",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e18442b1_0ead3596",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-30T11:34:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff02406_b226ed0d",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 4
+      },
+      "revId": "04a7f72c598575eac6db2a97bb68a6232c0cc703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

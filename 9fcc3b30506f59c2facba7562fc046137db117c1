@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "728fae73_2903ccd2",
+        "filename": "front_end/Images/src/largeIcons.svg",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-30T11:34:14Z",
+      "side": 1,
+      "message": "I ran the optimize_svg_images.py script to generate this file. Putting it into svgomg leads to a further 2% reduction of filesize. But I\u0027d prefer to change the optimize_svg_images script to run svgomg by default instead of manually replacing the generated svg files.",
+      "parentUuid": "fa2b3973_acd7657f",
+      "range": {
+        "startLine": 145,
+        "startChar": 107,
+        "endLine": 145,
+        "endChar": 108
+      },
+      "revId": "9fcc3b30506f59c2facba7562fc046137db117c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54896437_f8eaab1d",
         "filename": "front_end/issues_panel/IssuesPanel.js",
         "patchSetId": 4
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "6d292ee9_5bb6f7e5",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-30T11:34:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54896437_f8eaab1d",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 18
+      },
+      "revId": "9fcc3b30506f59c2facba7562fc046137db117c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d037482f_3d29ca10",
         "filename": "front_end/issues_panel/IssuesPanel.js",
         "patchSetId": 4
@@ -92,6 +140,30 @@
       "revId": "9fcc3b30506f59c2facba7562fc046137db117c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55f7b5b3_2268ee7f",
+        "filename": "front_end/issues_panel/IssuesPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-01-30T11:34:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d037482f_3d29ca10",
+      "range": {
+        "startLine": 113,
+        "startChar": 10,
+        "endLine": 113,
+        "endChar": 16
+      },
+      "revId": "9fcc3b30506f59c2facba7562fc046137db117c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
