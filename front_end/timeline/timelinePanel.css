@@ -598,3 +598,20 @@
     flex: none;
     white-space: pre-line;
 }
+
+@media (forced-colors: active) {
+    .timeline-tree-view .data-grid .name-container .activity-icon,
+    .timeline-details-chip-title > div {
+        forced-color-adjust: none;
+    }
+    .timeline-tree-view .data-grid tr.selected span.percent-column{
+        color: HighlightText !important;
+    }
+    .timeline-tree-view .data-grid tr.selected .background-bar {
+        border-bottom: 2px solid HighlightText !important
+    }
+    .timeline-tree-view .data-grid tr.selected .name-container .activity-link .devtools-link {
+        forced-color-adjust: none;
+        color: HighlightText !important;
+    }
+}

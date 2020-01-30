@@ -188,3 +188,13 @@ li.small .subtitle {
 .profile-group-sidebar-tree-item .icon {
     content: url(Images/profileGroupIcon.png);
 }
+
+@media (forced-colors: active) {
+    .tree-outline:not(.hide-selection-when-blurred) li.selected:focus {
+        forced-color-adjust: none;
+        background: Highlight !important;
+    }
+    ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus {
+        color: HighlightText !important;
+    }
+}

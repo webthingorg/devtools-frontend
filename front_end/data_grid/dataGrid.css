@@ -271,3 +271,42 @@
     width: 5px;
     z-index: 500;
 }
+
+@media (forced-colors: active) {
+    .data-grid table.data tr.revealed.selected,
+    .data-grid:focus table.data tr.selected {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+        color: HighlightText !important;
+    }
+    .data-grid.no-selection[data-keyboard-focus="true"]:focus {
+        forced-color-adjust: none;
+        background: Canvas !important;
+        border: 1px solid Highlight !important;
+    }
+    .striped-data-grid .revealed.data-grid-data-grid-node:nth-child(odd),
+    .striped-data-grid-starts-with-odd .revealed.data-grid-data-grid-node:nth-child(even),
+    .request-cookies-view tr.revealed.data-grid-data-grid-node.flagged-cookie-attribute-row:not(.selected):nth-child(2n) {
+        forced-color-adjust: none;
+        background: Canvas !important;
+    }
+    .data-grid td.disclosure::before {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+    .data-grid tr:not(.parent) td.disclosure::before {
+        background-color: transparent !important;
+    }
+    .data-grid table.data tr.revealed.selected td.disclosure::before,
+    .data-grid:focus table.data tr.selected td.disclosure::before {
+        forced-color-adjust: none;
+        background-color: HighlightText !important;
+    }
+    .data-grid[data-keyboard-focus="true"]:focus table.data tr.selected {
+        box-shadow: 0 0 0 2px ButtonText inset !important;
+    }
+    .data-grid th.sort-ascending .sort-order-icon, .data-grid th.sort-descending .sort-order-icon {
+        forced-color-adjust: none;
+        background-color: ButtonText !important;
+    }
+}
