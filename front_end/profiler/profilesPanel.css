@@ -157,3 +157,11 @@
     user-select: text;
     cursor: text;
 }
+
+@media (forced-colors: active) {
+    .profile-view .data-grid tr.selected span,
+    .profile-view .data-grid tr.selected span.percent-column,
+    .heap-snapshot-view tr.selected td.object-column .objects-count {
+        color: HighlightText !important;
+    }
+}

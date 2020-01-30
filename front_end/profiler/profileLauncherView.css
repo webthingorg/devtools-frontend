@@ -117,3 +117,60 @@ body.inactive .profile-launcher-view-content button.running:not(.toolbar-item) {
     height: 28px;
     margin: 4px 16px 4px 0;
 }
+
+@media (forced-colors: active) {
+    .text-button {
+        forced-color-adjust: none;
+        background-color: ButtonFace !important;
+        border: 1px solid ButtonText !important;
+    }
+    .-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):hover,
+    .-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):active {
+        background-color: Highlight !important;
+        color: HighlightText !important;
+    }
+    .-theme-with-dark-background .text-button[data-keyboard-focus="true"]:not(.primary-button):not(:disabled):focus {
+        box-shadow: 0 0 0 2px ButtonText !important;
+    }
+    .text-button.primary-button {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+        border: 1px solid Highlight !important;
+        color: HighlightText !important;
+    }
+    .text-button.primary-button:not(:disabled):hover,
+    .text-button.primary-button:not(:disabled):active {
+        background-color: HighlightText !important;
+        border: 1px solid Highlight !important;
+        color: Highlight !important;
+    }
+    .text-button.primary-button:not(:disabled):focus {
+        border: 1px solid ButtonText !important;
+        box-shadow: 0 0 0 2px ButtonFace inset !important;
+    }
+    .text-button:disabled {
+        opacity: 1;
+    }
+    .tree-outline li {
+        border: 1px solid ButtonText !important;
+    }
+    .javascript-vm-instances-list:focus .profile-memory-usage-item.selected {
+        forced-color-adjust: none;
+        border-color: Highlight !important;
+        background-color: Highlight !important;
+        color: HighlightText !important;
+    }
+    .javascript-vm-instances-list[data-keyboard-focus="true"]:focus .profile-memory-usage-item.selected {
+        border-color: ButtonText !important;
+        box-shadow: 0 0 0 2px ButtonText inset !important;
+        color: HighlightText !important;
+    }
+    .profile-memory-usage-item {
+        forced-color-adjust: none;
+        border-left-color: transparent !important;
+    }
+    .profile-memory-usage-item.selected {
+        background-color: ButtonFace !important;
+        border-color: Highlight !important;
+    }
+}
