@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32c1b160_aa3e81d1",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-30T17:22:27Z",
+      "side": 1,
+      "message": "Nit: `return results` is more descriptive on what it is doing. Maybe add a empty newline here as well to visually separate the for-loop?",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "91131647972e4a7ddbe473b2f69c956c3027954d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
