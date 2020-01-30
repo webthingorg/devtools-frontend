@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6991723f_539a6b60",
+        "filename": "front_end/Images/src/largeIcons.svg",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-30T12:11:57Z",
+      "side": 1,
+      "message": "Improving the script to use `svgo` SGTM, but you can‘t beat manual tweaking of svgo settings that SVGOMG allows on a per-file basis. Some settings might work for one file, but would visually break others. For this reason I’m still in favor of checking in optimized SVGs.",
+      "parentUuid": "728fae73_2903ccd2",
+      "range": {
+        "startLine": 145,
+        "startChar": 107,
+        "endLine": 145,
+        "endChar": 108
+      },
+      "revId": "9fcc3b30506f59c2facba7562fc046137db117c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54896437_f8eaab1d",
         "filename": "front_end/issues_panel/IssuesPanel.js",
         "patchSetId": 4
