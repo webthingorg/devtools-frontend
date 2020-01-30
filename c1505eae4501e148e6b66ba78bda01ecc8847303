@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d674d943_71e61473",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-01-30T15:00:29Z",
+      "side": 1,
+      "message": "First, still a bit late, because internal maps has been populated and the event has already been submitted and subscribers might expect a valid source map at this point.\n\nSecond, from the looks of it, it will now prevent loading of regular text source maps (for JavaScript / CSS) as well when the experiment is enabled - most likely not what you want.\n\nI\u0027d rather add following at the very top of the function:\n```\nif (relativeSourceMapURL \u003d\u003d\u003d WasmSourceMap.FAKE_URL \u0026\u0026 Root.Runtime.experiments.isEnabled(\u0027wasmDWARFDebugging\u0027)) {\n  return;\n}\n```",
+      "revId": "c1505eae4501e148e6b66ba78bda01ecc8847303",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
