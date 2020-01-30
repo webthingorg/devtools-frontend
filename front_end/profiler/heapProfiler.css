@@ -213,3 +213,9 @@
 .no-heap-allocation-stack {
     padding: 5px;
 }
+
+@media (forced-colors: active) {
+    .cycled-ancessor-node {
+        opacity: 1;
+    }
+}
