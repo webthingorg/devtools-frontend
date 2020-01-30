@@ -227,11 +227,7 @@ export class ConsoleViewport {
     const selectedElement = this.renderedElementAt(this._virtualSelectedIndex);
     const changed = this._lastSelectedElement !== selectedElement;
     const containerHasFocus = this._contentElement === this.element.ownerDocument.deepActiveElement();
-    if (this._lastSelectedElement && changed) {
-      this._lastSelectedElement.classList.remove('console-selected');
-    }
     if (selectedElement && (focusLastChild || changed || containerHasFocus) && this.element.hasFocus()) {
-      selectedElement.classList.add('console-selected');
       // Do not focus the message if something within holds focus (e.g. object).
       if (focusLastChild) {
         this.setStickToBottom(false);
