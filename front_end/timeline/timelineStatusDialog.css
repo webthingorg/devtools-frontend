@@ -52,3 +52,35 @@
 .timeline-status-dialog .stop-button button {
     min-width: 80px;
 }
+
+@media (forced-colors: active) {
+    .timeline-status-dialog {
+        border: 1px solid CanvasText;
+    }
+    .timeline-status-dialog .progress .indicator-container {
+        border: 1px solid ButtonText;
+        background-color: ButtonFace !important;
+    }
+    .timeline-status-dialog .progress .indicator {
+        background-color: ButtonText !important;
+    }
+    .text-button.primary-button {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+        border: 1px solid Highlight;
+        color: HighlightText !important;
+    }
+    .text-button.primary-button:not(:disabled):hover,
+    .text-button.primary-button:not(:disabled):active {
+        background-color: HighlightText !important;
+        border: 1px solid Highlight !important;
+        color: Highlight !important;
+    }
+    .text-button.primary-button:not(:disabled):focus {
+        border: 1px solid ButtonText !important;
+        box-shadow: 0 0 0 2px ButtonFace inset !important;
+    }
+    .text-button:disabled {
+        opacity: 1;
+    }
+}
