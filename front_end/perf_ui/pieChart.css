@@ -65,3 +65,17 @@
     text-align: right;
     width: 70px;
 }
+
+@media (forced-colors: active) {
+    .pie-chart-total {
+        forced-color-adjust: none;
+        background-color: Canvas !important;
+    }
+    .pie-chart-swatch {
+        forced-color-adjust: none;
+    }
+    .chart-root .slice.selected {
+        forced-color-adjust: none;
+        stroke: Highlight !important;
+    }
+}
