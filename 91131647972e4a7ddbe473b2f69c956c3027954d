@@ -22,6 +22,30 @@
       "revId": "91131647972e4a7ddbe473b2f69c956c3027954d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d77450_40c62046",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-01-30T17:33:56Z",
+      "side": 1,
+      "message": "I added the newline, however I didn\u0027t think I should add \u0027return results\u0027 back since the next line down is also return results? It seemed a little redundant. let me know if you disagree",
+      "parentUuid": "32c1b160_aa3e81d1",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "91131647972e4a7ddbe473b2f69c956c3027954d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
