@@ -16,6 +16,24 @@
       "revId": "daa7fc98da3af0954086a50ded94b5815881524c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e8ed82b_f776e67a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-01-30T17:39:14Z",
+      "side": 1,
+      "message": "1) Nit addressed.\n2) The plugin itself is checking that, that\u0027s already in the original CL",
+      "parentUuid": "cb87426b_0c913c76",
+      "revId": "daa7fc98da3af0954086a50ded94b5815881524c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
