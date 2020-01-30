@@ -46,6 +46,30 @@
       "revId": "fceec413f1fcce4e5857c4c3d3e4220c864cbe50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1172a70_f3a8a62a",
+        "filename": "front_end/sources_test_runner/DebuggerTestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-01-30T12:14:29Z",
+      "side": 1,
+      "message": "Ack, SGTM.",
+      "parentUuid": "af8d35f9_44b8f357",
+      "range": {
+        "startLine": 474,
+        "startChar": 18,
+        "endLine": 474,
+        "endChar": 31
+      },
+      "revId": "fceec413f1fcce4e5857c4c3d3e4220c864cbe50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
