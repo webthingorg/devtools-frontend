@@ -99,3 +99,21 @@ img {
 img:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
 }
+
+@media (forced-colors: active) {
+    .release-note-container li > x-link {
+        border: 1px solid ButtonText;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-bottom: 2px;
+    }
+    .release-note-container li > x-link:hover {
+        forced-color-adjust: none;
+        border: 1px solid Highlight;
+    }
+    .release-note-container li .release-note-title,
+    .release-note-container li:not(:hover) .release-note-subtitle {
+        forced-color-adjust: none;
+        color: LinkText;
+    }
+}
