@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f34a59dd_43fd0118",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-31T12:33:41Z",
+      "side": 1,
+      "message": "Nit: add direct link to the old test case: https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/web_tests/http/tests/devtools/unit/node-url.js;l\u003d1;drc\u003d77578ccb4082ae20a9326d9e673225f1189ebb63?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "b2c97836cede5bc38e6cf8adeceeeb3593fd1f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e2568db_7a125315",
+        "filename": "test/unittests/front_end/protocol/NodeURL.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-31T12:33:41Z",
+      "side": 1,
+      "message": "Nit: can just be `url,` which is shorthand for the same. (also applies to line 68)",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "b2c97836cede5bc38e6cf8adeceeeb3593fd1f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2679738a_9c1cbaf5",
+        "filename": "test/unittests/front_end/protocol/NodeURL.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-01-31T12:33:41Z",
+      "side": 1,
+      "message": "OMG",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 55
+      },
+      "revId": "b2c97836cede5bc38e6cf8adeceeeb3593fd1f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
