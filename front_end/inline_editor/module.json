@@ -11,6 +11,7 @@
         "BezierUI.js",
         "ColorSwatch.js",
         "CSSShadowEditor.js",
+        "FontEditor.js",
         "SwatchPopoverHelper.js",
         "CSSShadowModel.js"
     ],

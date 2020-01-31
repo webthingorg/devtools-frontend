@@ -1,7 +1,7 @@
 // Copyright 2018 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-import {BezierPopoverIcon, ColorSwatchPopoverIcon, ShadowSwatchPopoverHelper} from './ColorSwatchPopoverIcon.js';
+import {BezierPopoverIcon, ColorSwatchPopoverIcon, FontSwatchPopoverIcon, ShadowSwatchPopoverHelper} from './ColorSwatchPopoverIcon.js';
 import {CSSPropertyPrompt, StylePropertiesSection, StylesSidebarPane, StylesSidebarPropertyRenderer,} from './StylesSidebarPane.js';  // eslint-disable-line no-unused-vars
 
 export class StylePropertyTreeElement extends UI.TreeElement {
@@ -207,6 +207,18 @@ export class StylePropertyTreeElement extends UI.TreeElement {
     const swatch = InlineEditor.BezierSwatch.create();
     swatch.setBezierText(text);
     new BezierPopoverIcon(this, swatchPopoverHelper, swatch);
+    return swatch;
+  }
+
+  /**
+   * @param {string} text
+   * @return {!Node}
+   */
+  _processFont(text) {
+    const swatchPopoverHelper = this._parentPane.swatchPopoverHelper();
+    const swatch = InlineEditor.FontSwatch.create();
+    swatch.setFontText(text);
+    new FontSwatchPopoverIcon(this, swatchPopoverHelper, swatch);
     return swatch;
   }
 
@@ -455,6 +467,7 @@ export class StylePropertyTreeElement extends UI.TreeElement {
       propertyRenderer.setVarHandler(this._processVar.bind(this));
       propertyRenderer.setColorHandler(this._processColor.bind(this));
       propertyRenderer.setBezierHandler(this._processBezier.bind(this));
+      propertyRenderer.setFontHandler(this._processFont.bind(this));
       propertyRenderer.setShadowHandler(this._processShadow.bind(this));
       propertyRenderer.setGridHandler(this._processGrid.bind(this));
     }

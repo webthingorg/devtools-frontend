@@ -348,3 +348,102 @@ export class ShadowSwatchPopoverHelper {
 }
 
 ShadowSwatchPopoverHelper._treeElementSymbol = Symbol('ShadowSwatchPopoverHelper._treeElementSymbol');
+
+/**
+ * @unrestricted
+ */
+export class FontSwatchPopoverIcon {
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   * @param {!InlineEditor.SwatchPopoverHelper} swatchPopoverHelper
+   * @param {!InlineEditor.CSSShadowSwatch} shadowSwatch
+   */
+  constructor(treeElement, swatchPopoverHelper, shadowSwatch) {
+    this._treeElement = treeElement;
+    this._treeElement[ShadowSwatchPopoverHelper._treeElementSymbol] = this;
+    this._swatchPopoverHelper = swatchPopoverHelper;
+    this._shadowSwatch = shadowSwatch;
+    this._iconElement = shadowSwatch.iconElement();
+
+    this._iconElement.title = Common.UIString('Open shadow editor.');
+    this._iconElement.addEventListener('click', this._iconClick.bind(this), false);
+    this._iconElement.addEventListener('mousedown', event => event.consume(), false);
+
+    this._boundShadowChanged = this._shadowChanged.bind(this);
+    this._boundOnScroll = this._onScroll.bind(this);
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   * @return {?ShadowSwatchPopoverHelper}
+   */
+  static forTreeElement(treeElement) {
+    return treeElement[ShadowSwatchPopoverHelper._treeElementSymbol] || null;
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _iconClick(event) {
+    event.consume(true);
+    this.showPopover();
+  }
+
+  showPopover() {
+    if (this._swatchPopoverHelper.isShowing()) {
+      this._swatchPopoverHelper.hide(true);
+      return;
+    }
+
+    this._cssShadowEditor = new InlineEditor.CSSShadowEditor();
+    this._cssShadowEditor.setModel(this._shadowSwatch.model());
+    this._cssShadowEditor.addEventListener(InlineEditor.CSSShadowEditor.Events.ShadowChanged, this._boundShadowChanged);
+    this._swatchPopoverHelper.show(this._cssShadowEditor, this._iconElement, this._onPopoverHidden.bind(this));
+    this._scrollerElement = this._iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this._scrollerElement) {
+      this._scrollerElement.addEventListener('scroll', this._boundOnScroll, false);
+    }
+
+    this._originalPropertyText = this._treeElement.property.propertyText;
+    this._treeElement.parentPane().setEditingStyle(true);
+    const uiLocation = Bindings.cssWorkspaceBinding.propertyUILocation(this._treeElement.property, false /* forName */);
+    if (uiLocation) {
+      Common.Revealer.reveal(uiLocation, true /* omitFocus */);
+    }
+  }
+
+  /**
+   * @param {!Common.Event} event
+   */
+  _shadowChanged(event) {
+    this._shadowSwatch.setCSSShadow(/** @type {!InlineEditor.CSSShadowModel} */ (event.data));
+    this._treeElement.applyStyleText(this._treeElement.renderedPropertyText(), false);
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onScroll(event) {
+    this._swatchPopoverHelper.reposition();
+  }
+
+  /**
+   * @param {boolean} commitEdit
+   */
+  _onPopoverHidden(commitEdit) {
+    if (this._scrollerElement) {
+      this._scrollerElement.removeEventListener('scroll', this._boundOnScroll, false);
+    }
+
+    this._cssShadowEditor.removeEventListener(
+        InlineEditor.CSSShadowEditor.Events.ShadowChanged, this._boundShadowChanged);
+    delete this._cssShadowEditor;
+
+    const propertyText = commitEdit ? this._treeElement.renderedPropertyText() : this._originalPropertyText;
+    this._treeElement.applyStyleText(propertyText, true);
+    this._treeElement.parentPane().setEditingStyle(false);
+    delete this._originalPropertyText;
+  }
+}
+
+FontSwatchPopoverIcon._treeElementSymbol = Symbol('FontSwatchPopoverIcon._treeElementSymbol');

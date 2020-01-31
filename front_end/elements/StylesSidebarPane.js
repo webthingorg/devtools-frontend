@@ -2552,6 +2552,8 @@ export class StylesSidebarPropertyRenderer {
     this._colorHandler = null;
     /** @type {?function(string):!Node} */
     this._bezierHandler = null;
+    /** @type {?function(string):!Node} */
+    this._fontHandler = null;
     /** @type {?function(string, string):!Node} */
     this._shadowHandler = null;
     /** @type {?function(string, string):!Node} */
@@ -2572,6 +2574,13 @@ export class StylesSidebarPropertyRenderer {
    */
   setBezierHandler(handler) {
     this._bezierHandler = handler;
+  }
+
+  /**
+   * @param {function(string):!Node} handler
+   */
+  setFontHandler(handler) {
+    this._fontHandler = handler;
   }
 
   /**
@@ -2644,6 +2653,10 @@ export class StylesSidebarPropertyRenderer {
     if (this._colorHandler && metadata.isColorAwareProperty(this._propertyName)) {
       regexes.push(Common.Color.Regex);
       processors.push(this._colorHandler);
+    }
+    if (this._fontHandler && metadata.isFontAwareProperty(this._propertyName)) {
+      regexes.push(SDK.CSSMetadata.FontRegex);
+      processors.push(this._fontHandler);
     }
     const results = TextUtils.TextUtils.splitStringByRegexes(this._propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {
