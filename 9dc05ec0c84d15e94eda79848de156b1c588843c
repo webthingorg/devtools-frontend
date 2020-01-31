@@ -16,6 +16,24 @@
       "revId": "9dc05ec0c84d15e94eda79848de156b1c588843c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "005f7756_1414dead",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1329394
+      },
+      "writtenOn": "2020-01-31T22:53:07Z",
+      "side": 1,
+      "message": "Strange that it picked this up as you didn\u0027t change these lines. That said the formatting should be four spaces for Python.",
+      "parentUuid": "99bfeff9_871e4f56",
+      "revId": "9dc05ec0c84d15e94eda79848de156b1c588843c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
