@@ -291,3 +291,92 @@ export class CSSShadowSwatch extends HTMLSpanElement {
     return this._colorSwatch;
   }
 }
+
+/**
+ * @unrestricted
+ */
+export class FontSwatch extends HTMLSpanElement {
+  constructor() {
+    super();
+    const root = UI.createShadowRootWithCoreStyles(this, 'inline_editor/cssShadowSwatch.css');
+    this._iconElement = UI.Icon.create('smallicon-text-prompt');
+    root.appendChild(this._iconElement);
+    this._textElement = this.createChild('span');
+    root.createChild('slot');
+  }
+
+  /**
+   * @return {!BezierSwatch}
+   */
+  static create() {
+    if (!FontSwatch._constructor) {
+      FontSwatch._constructor = UI.registerCustomElement('span', 'font-swatch', FontSwatch);
+    }
+
+
+    return /** @type {!FontSwatch} */ (FontSwatch._constructor());
+  }
+
+  /**
+   * @return {string}
+   */
+  fontText() {
+    return this._textElement.textContent;
+  }
+
+  /**
+   * @param {string} text
+   */
+  setFontText(text) {
+    this._textElement.textContent = text;
+  }
+
+  /**
+   * @return {!CSSShadowModel} cssShadowModel
+   */
+  model() {
+    return this._model;
+  }
+
+  /**
+   * @param {!CSSShadowModel} model
+   */
+  setCSSShadow(model) {
+    this._model = model;
+    this._contentElement.removeChildren();
+    const results = TextUtils.TextUtils.splitStringByRegexes(model.asCSSText(), [/inset/g, Common.Color.Regex]);
+    for (let i = 0; i < results.length; i++) {
+      const result = results[i];
+      if (result.regexIndex === 1) {
+        if (!this._colorSwatch) {
+          this._colorSwatch = ColorSwatch.create();
+        }
+        this._colorSwatch.setColor(model.color());
+        this._contentElement.appendChild(this._colorSwatch);
+      } else {
+        this._contentElement.appendChild(createTextNode(result.value));
+      }
+    }
+  }
+
+  /**
+   * @param {boolean} hide
+   */
+  hideText(hide) {
+    this._contentElement.hidden = hide;
+  }
+
+  /**
+   * @return {!Element}
+   */
+  iconElement() {
+    return this._iconElement;
+  }
+
+  /**
+   * @return {?ColorSwatch}
+   */
+  colorSwatch() {
+    return this._colorSwatch;
+  }
+}
