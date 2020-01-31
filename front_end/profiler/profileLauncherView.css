@@ -117,3 +117,33 @@ body.inactive .profile-launcher-view-content button.running:not(.toolbar-item) {
     height: 28px;
     margin: 4px 16px 4px 0;
 }
+
+@media (forced-colors: active) {
+    .javascript-vm-instances-list:focus .profile-memory-usage-item.selected {
+        border-color: Highlight !important;
+        background-color: Highlight !important;
+        color: HighlightText !important;
+    }
+    .javascript-vm-instances-list[data-keyboard-focus="true"]:focus .profile-memory-usage-item.selected {
+        border-color: ButtonText !important;
+        box-shadow: 0 0 0 2px ButtonText inset !important;
+        color: HighlightText !important;
+    }
+    .profile-memory-usage-item {
+        forced-color-adjust: none;
+        border-left-color: transparent !important;
+    }
+    .profile-memory-usage-item.selected {
+        background-color: ButtonFace !important;
+        border-color: Highlight !important;
+    }
+    .profile-memory-usage-item-trend,
+    .profile-memory-usage-item-trend.increasing {
+        color: ButtonText !important;
+    }
+    .javascript-vm-instances-list:focus .profile-memory-usage-item-trend.increasing,
+    .javascript-vm-instances-list:focus .profile-memory-usage-item-trend,
+    .javascript-vm-instances-list[data-keyboard-focus="true"]:focus .profile-memory-usage-item-trend {
+        color: HighlightText !important;
+    }
+}
