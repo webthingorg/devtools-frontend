@@ -1,0 +1,78 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+const {assert} = chai;
+
+import {NodeURL} from '/front_end/protocol/NodeURL.js';
+import {Platform} from '/front_end/host/host.js';
+
+describe('NodeURL', () => {
+  describe('platform detection for paths', () => {
+    it('works correctly on windows', () => {
+      assert.isTrue(NodeURL._isPlatformPath('c:\\prog\\foobar.js', true));
+      assert.isFalse(NodeURL._isPlatformPath('/usr/local/foobar.js', true));
+    });
+
+    it('works correctly on linux', () => {
+      assert.isFalse(NodeURL._isPlatformPath('c:\\prog\\foobar.js', false));
+      assert.isTrue(NodeURL._isPlatformPath('/usr/local/foobar.js', false));
+    });
+  });
+
+  describe('patch', () => {
+    const url = Platform.isWin()
+        ? 'c:\\prog\\foobar.js'
+        : '/usr/local/home/prog/foobar.js';
+
+    const patchedUrl = Platform.isWin()
+        ? 'file:///c:\\prog\\foobar.js'
+        : 'file:///usr/local/home/prog/foobar.js';
+
+    it('does patch url fields', () => {
+      const object = { url: url };
+
+      NodeURL.patch(object);
+
+      assert.strictEqual(object.url, patchedUrl);
+    });
+
+    it('does not patch the url of the result', () => {
+      const object = {
+        result: {
+          result: {
+            value: {
+              url: url,
+            },
+          },
+        },
+      };
+
+      NodeURL.patch(object);
+
+      assert.strictEqual(object.result.result.value.url, url);
+    });
+
+    it('does patch all urls in an example protocol message', () => {
+      const object = {
+        exceptionDetails: {
+          url: url,
+          stackTrace: {
+            callFrames: [{
+              columnNumber: 0,
+              functionName: '',
+              lineNumber: 0,
+              scriptId: '0',
+              url: url,
+            }],
+          },
+        },
+      };
+
+      NodeURL.patch(object);
+
+      assert.strictEqual(object.exceptionDetails.url, patchedUrl);
+      assert.strictEqual(object.exceptionDetails.stackTrace.callFrames[0].url, patchedUrl);
+    });
+  });
+});
