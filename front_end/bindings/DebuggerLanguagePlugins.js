@@ -3,18 +3,23 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as ProtocolModule from '../protocol/protocol.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
 
 class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
   /**
-   * @param {!SDK.RuntimeModel.RuntimeModel} runtimeModel
-   * @param {string} type
+   * @param {!SDK.DebuggerModel.CallFrame} callFrame
+   * @param {!DebuggerLanguagePlugin} plugin
+   * @param {!RawLocation} location
    */
-  constructor(runtimeModel, type) {
-    super(runtimeModel, undefined, 'object', undefined, null);
+  constructor(callFrame, plugin, location) {
+    super(callFrame.debuggerModel.runtimeModel(), undefined, 'object', undefined, null);
     /** @type {!Array<!Variable>} */
     this.variables = [];
+    this.callFrame_ = callFrame;
+    this.plugin_ = plugin;
+    this.location_ = location;
   }
 
   /**
@@ -29,12 +34,29 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
       return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: [], internalProperties: []});
     }
 
-    const variableObjects = this.variables.map(
-        v => new SDK.RemoteObject.RemoteObjectProperty(
-            v.name, new SDK.RemoteObject.LocalJSONObject('(type: ' + v.type + ')'), false, false, true, false));
-
+    // TODO do we need to cache this?
+    const variableObjects =
+        await Promise.all(this.variables.map(loadVariableValue.bind(this, this.plugin_, this.location_)));
 
     return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: variableObjects, internalProperties: []});
+
+    async function loadVariableValue(plugin, location, variable) {
+      try {
+        const evaluator = await plugin.evaluateVariable(variable.name, location);
+        const evaluateResponse = await this.callFrame_.debuggerModel._agent.invoke_evaluateOnCallFrame(
+            {callFrameId: this.callFrame_.id, expression: evaluator.code, silent: true});
+        if (evaluateResponse[ProtocolModule.InspectorBackend.ProtocolError] || evaluateResponse.exceptionDetails) {
+          return null;
+        }
+
+        const value = JSON.parse(evaluateResponse.result.value);
+        const repr = await plugin.getRepresentation(value);
+        return new SDK.RemoteObject.RemoteObjectProperty(variable.name, repr, false, false, true, false);
+      } catch (e) {
+        console.error(e);
+        return new SDK.RemoteObject.RemoteObjectProperty(variable.name, null, false, false, true, false);
+      }
+    }
   }
 }
 
@@ -45,12 +67,14 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
 class SourceScope {
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
-   * @param {string} type Scope type.
+   * @param {string} type
+   * @param {!DebuggerLanguagePlugin} plugin
+   * @param {!RawLocation} location
    */
-  constructor(callFrame, type) {
+  constructor(callFrame, type, plugin, location) {
     this._callFrame = callFrame;
     this._type = type;
-    this._object = new SourceScopeRemoteObject(callFrame.debuggerModel.runtimeModel(), type);
+    this._object = new SourceScopeRemoteObject(callFrame, plugin, location);
     this._name = type;
     /** @type {?Location} */
     this._startLocation = null;
@@ -395,12 +419,16 @@ export class DebuggerLanguagePluginManager {
     }
     /** @type {!Map<string, !SourceScope>} */
     const scopes = new Map();
-    const variables = await plugin.listVariablesInScope(
-        {'rawModuleId': script.scriptId, 'codeOffset': callFrame.location().columnNumber - script.columnOffset});
+    /** @type {!RawLocation}} */
+    const location = {
+      'rawModuleId': script.scriptId,
+      'codeOffset': callFrame.location().columnNumber - script.columnOffset
+    };
+    const variables = await plugin.listVariablesInScope(location);
     if (variables) {
       for (const variable of variables) {
         if (!scopes.has(variable.scope)) {
-          scopes.set(variable.scope, new SourceScope(callFrame, variable.scope));
+          scopes.set(variable.scope, new SourceScope(callFrame, variable.scope, plugin, location));
         }
         scopes.get(variable.scope).object().variables.push(variable);
       }
@@ -513,5 +541,12 @@ export class DebuggerLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async evaluateVariable(name, location) {
+  }
+
+  /** Produce a language specific representation of a variable value
+   * @param {*} value
+   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
+   */
+  async getRepresentation(value) {
   }
 }
