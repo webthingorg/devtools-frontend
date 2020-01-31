@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as SDK from '../../sdk/sdk.js';
 import {DebuggerLanguagePlugin, DebuggerLanguagePluginError, RawLocation, RawModule, SourceLocation, Variable} from '../DebuggerLanguagePlugins.js';  // eslint-disable-line no-unused-vars
+
 
 /**
  * @typedef {{
@@ -63,7 +65,7 @@ function _sendJsonRPC(method, params) {
 export class CXXDWARFLanguagePlugin {
   /**
    * @override
-   * @param {!SDK.Script} script
+   * @param {!SDK.Script.Script} script
    * @return {boolean} True if this plugin should handle this script
    */
   handleScript(script) {
@@ -139,12 +141,55 @@ export class CXXDWARFLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async evaluateVariable(name, location) {
-    return null;
+    return _sendJsonRPC('evaluateVariable', {name: name, location: location}).value;
   }
 
   /**
    * @override
    */
   dispose() {
+  }
+
+  _reprString(value) {
+    return value.value;
+  }
+
+  _reprNumber(value) {
+    return Number(value.value);
+  }
+
+  _reprCompound(value) {
+    const result = {};
+    for (const property of value.value) {
+      result[property.name] = this._repr(property);
+    }
+    return result;
+  }
+
+  _reprArray(value) {
+    if (value.value[0].name.endsWith(']')) {
+      return value.value.map(v => this._repr(v));
+    }
+    return this._reprCompound(value);
+  }
+
+  _repr(value) {
+    if (Array.isArray(value.value)) {
+      return this._reprArray(value);
+    }
+    switch (value.type) {
+      case 'int':
+        return this._reprNumber(value);
+    }
+    return this._reprString(value);
+  }
+
+  /** Produce a language specific representation of a variable value
+   * @override
+   * @param {*} value
+   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
+   */
+  async getRepresentation(value) {
+    return new SDK.RemoteObject.LocalJSONObject(this._repr(value));
   }
 }
