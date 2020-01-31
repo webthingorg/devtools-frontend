@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93ea42f1_17372ca7",
+        "filename": "front_end/help/releaseNote.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-31T05:20:30Z",
+      "side": 1,
+      "message": "I like the extra whitespace to make the element look good with the border applied.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 27
+      },
+      "revId": "bfc4869414645bc8fec6efbc98dbd3ee925c3233",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "531ec354_369fa42e",
+        "filename": "front_end/help/releaseNote.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-31T05:20:30Z",
+      "side": 1,
+      "message": "The need for this leads me to believe this element isn\u0027t an anchor. Can we use semantic html to represent links instead? If that\u0027s not possible, please find a way to remove the `!important`",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "bfc4869414645bc8fec6efbc98dbd3ee925c3233",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
