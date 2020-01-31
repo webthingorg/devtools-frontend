@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33c0e482_70171e62",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-31T05:07:50Z",
+      "side": 1,
+      "message": "I\u0027m surprised to see `!important` on this property and others in this CL. Is it possible to use a higher specificity selector to avoid this?",
+      "range": {
+        "startLine": 125,
+        "startChar": 37,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7ca7d93_2fda9339",
+        "filename": "front_end/event_listeners/eventListenersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-31T05:07:50Z",
+      "side": 1,
+      "message": "Is there a reason these this ruleset is scoped to the event listener view?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 5
+      },
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e1937f_4690987f",
+        "filename": "front_end/event_listeners/eventListenersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-31T05:07:50Z",
+      "side": 1,
+      "message": "Same question as above",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3ee50f_0615ae1a",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-01-31T05:07:50Z",
+      "side": 1,
+      "message": "I believe we can move all the icon related rulesets to front_end/ui/inspectorCommon.css and generalize their selectors.",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 32
+      },
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
