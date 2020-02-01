@@ -129,3 +129,29 @@
 .computed-narrow.tree-outline li::before {
     margin-top: -14px;
 }
+
+@media (forced-colors: active) {
+    .computed-style-property-inherited {
+        opacity: 1;
+    }
+    :host-context(.monospace.computed-properties) .tree-outline li[data-keyboard-focus="true"]:focus,
+    :host-context(.monospace.computed-properties) .tree-outline li:hover {
+        forced-color-adjust: none;
+        background-color: Highlight;
+        box-shadow: none;
+    }
+    :host-context(.monospace.computed-properties) .tree-outline li[data-keyboard-focus="true"]:focus:not(.parent)::before {
+        background-color: transparent;
+    }
+    :host-context(.monospace.computed-properties) .tree-outline li:hover [is=ui-icon].goto-source-icon {
+        background-color: HighlightText !important;
+    }
+    :host-context(.monospace.computed-properties) .tree-outline li:hover *,
+    :host-context(.monospace.computed-properties) .tree-outline li[data-keyboard-focus="true"]:focus * {
+        color: HighlightText;
+    }
+    .property-trace-inactive .property-trace-value::before {
+        content: "";
+        border-bottom: 1px solid HighlightText;
+    }
+}

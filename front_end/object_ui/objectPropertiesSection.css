@@ -81,3 +81,18 @@
     border-radius: 2px;
     box-shadow: 0px 0px 0px 2px var(--focus-bg-color);
 }
+
+@media (forced-colors: active) {
+    .object-properties-section-dimmed {
+        opacity: 1;
+    }
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"] span,
+    .tree-outline.hide-selection-when-blurred .selected:focus[data-keyboard-focus="true"] .gray-info-message {
+        background-color: transparent;
+        box-shadow: none !important;
+        color: HighlightText;
+    }
+    .tree-outline-disclosure:hover li.parent::before {
+        background-color: ButtonText !important;
+    }
+}
