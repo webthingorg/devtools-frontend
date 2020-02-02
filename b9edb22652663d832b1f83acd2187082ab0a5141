@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a063ae6_f6024f1d",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-02T01:21:59Z",
+      "side": 1,
+      "message": "correct, !important is not needed",
+      "parentUuid": "33c0e482_70171e62",
+      "range": {
+        "startLine": 125,
+        "startChar": 37,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c093773c_16e1b823",
         "filename": "front_end/elements/elementsTreeOutline.css",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2020-01-31T13:31:26Z",
       "side": 1,
       "message": "(example)",
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42faddae_9decd5a3",
+        "filename": "front_end/elements/elementsTreeOutline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-02T01:21:59Z",
+      "side": 1,
+      "message": "I didn\u0027t realize the 1px border top was gone, thought it was just transparent. I agree there should not be any layout changes. It seems the system is setting the border color when in forced-colors. Setting \u0027border-top: 1px solid transparent;\u0027 does not work without adding \u0027forced-colors-adjust: none;\u0027 and I do not want to do that here, or else the everything will be opted out of forced-colors and we will have to reset each element manually.\nWill have to think more on this, unless anyone has a suggestion. For now, this will be reverted and we will have borders on the DOM Elements panel.",
+      "parentUuid": "c093773c_16e1b823",
       "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "0a092ac5_72e56309",
+        "filename": "front_end/elements/elementsTreeOutline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-02T01:21:59Z",
+      "side": 1,
+      "message": "This is not necessary here. Will remove \u0027left: -4px\u0027. But will have to set forced-colors: none here for, I am not seeing the icon show up in chrome canary without it.",
+      "parentUuid": "85eb1b8f_c5014b21",
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7ca7d93_2fda9339",
         "filename": "front_end/event_listeners/eventListenersView.css",
         "patchSetId": 5
@@ -70,6 +130,30 @@
       "writtenOn": "2020-01-31T05:07:50Z",
       "side": 1,
       "message": "Is there a reason these this ruleset is scoped to the event listener view?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 5
+      },
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0ee1752_699c1239",
+        "filename": "front_end/event_listeners/eventListenersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-02T01:21:59Z",
+      "side": 1,
+      "message": "This was one of the conversation we had about me refactoring the code. These should all be in treeoutline.css\nAt the time I was only working in Elements and not knowing where tree outline was being used and not wanting to break anything else, I did the changes here.",
+      "parentUuid": "b7ca7d93_2fda9339",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -116,6 +200,30 @@
       "writtenOn": "2020-01-31T05:07:50Z",
       "side": 1,
       "message": "I believe we can move all the icon related rulesets to front_end/ui/inspectorCommon.css and generalize their selectors.",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 32
+      },
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "985acba0_a4c39e81",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-02T01:21:59Z",
+      "side": 1,
+      "message": "I moved the icons that are just in their default(rest) state. Where the color to ButtonText.",
+      "parentUuid": "cf3ee50f_0615ae1a",
       "range": {
         "startLine": 348,
         "startChar": 0,
