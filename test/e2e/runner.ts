@@ -20,7 +20,7 @@ const height = 720;
 const opts: puppeteer.LaunchOptions = {
   headless,
   executablePath: envChromeBinary,
-  args: [`--remote-debugging-port=${envPort}`],
+  args: [`--remote-debugging-port=${envPort}`, '--allow-file-access-from-files'],
   defaultViewport: null,
 };
 
