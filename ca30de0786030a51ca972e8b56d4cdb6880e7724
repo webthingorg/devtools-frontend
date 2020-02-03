@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b1801d3_ee4cc84e",
+        "filename": "test/e2e/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-03T16:05:15Z",
+      "side": 1,
+      "message": "nit: can you switch this over to camelcase please?",
+      "range": {
+        "startLine": 66,
+        "startChar": 18,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "ca30de0786030a51ca972e8b56d4cdb6880e7724",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
