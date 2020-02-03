@@ -924,6 +924,9 @@ export class PageDispatcher {
    * @param {!Protocol.Page.Frame} frame
    */
   frameNavigated(frame) {
+    if (frame.url.startsWith('chrome-error://')) {
+      return;
+    }
     this._resourceTreeModel._frameNavigated(frame);
   }
 
