@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "5548ef5f_6a8ab639",
+        "filename": "front_end/elements/elementsTreeOutline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T07:32:22Z",
+      "side": 1,
+      "message": "Could we do `border-top-color: transparent`, i.e. only specify the color change?",
+      "parentUuid": "42faddae_9decd5a3",
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85eb1b8f_c5014b21",
         "filename": "front_end/elements/elementsTreeOutline.css",
         "patchSetId": 5
