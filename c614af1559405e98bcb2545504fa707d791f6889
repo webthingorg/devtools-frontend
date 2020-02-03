@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1df49f8a_9839290b",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T07:50:24Z",
+      "side": 1,
+      "message": "Nit:\n\n    let lastLocation \u003d sortedLocations[0];\n    const result \u003d [lastLocation];",
+      "revId": "c614af1559405e98bcb2545504fa707d791f6889",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
