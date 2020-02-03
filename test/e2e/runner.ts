@@ -63,12 +63,18 @@ const pages: puppeteer.Page[] = [];
     frontend.goto(frontendUrl);
 
     const resetPages =
-        async () => {
+        async (...enabled_experiments: string[]) => {
       // Reload the target page.
       await srcPage.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
 
       // Clear any local storage settings.
       await frontend.evaluate(() => localStorage.clear());
+
+      await frontend.evaluate((enabled_experiments) => {
+        for (const experiment of enabled_experiments) {
+          globalThis.Root.Runtime.experiments.setEnabled(experiment, true);
+        }
+      }, enabled_experiments);
 
       // Reload the DevTools frontend and await the elements panel.
       await frontend.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
