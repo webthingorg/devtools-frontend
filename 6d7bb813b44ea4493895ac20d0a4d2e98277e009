@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "658aa6e1_f18ee99d",
+        "filename": "test/unittests/front_end/common/StringOutputStream.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T07:55:47Z",
+      "side": 1,
+      "message": "Nit: please follow our .editorconfig and use 2-space indents",
+      "revId": "6d7bb813b44ea4493895ac20d0a4d2e98277e009",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd4d9b09_604f77c9",
+        "filename": "test/unittests/front_end/common/StringOutputStream.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T07:55:47Z",
+      "side": 1,
+      "message": "\"Empty\" is somewhat confusing since it is the empty string. Maybe \"is not undefined\" or \"is not nullish\"?",
+      "revId": "6d7bb813b44ea4493895ac20d0a4d2e98277e009",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ead8fa3_629f5f3f",
+        "filename": "test/unittests/front_end/common/StringOutputStream.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T07:55:47Z",
+      "side": 1,
+      "message": "If these are truly async operations, they might not be guaranteed to run in order. Is Promise.all the right tool here, or should we just await each operation in sequence (which seems to be what the test expects)?\n\n    await stream.write(\u0027Hello\u0027);\n    await stream.write(\u0027 \u0027);\n    await stream.write(\u0027world!\u0027);",
+      "revId": "6d7bb813b44ea4493895ac20d0a4d2e98277e009",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
