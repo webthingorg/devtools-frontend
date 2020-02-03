@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7fb225f_86afed6d",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T12:29:08Z",
+      "side": 1,
+      "message": "It\u0027s a little confusing/inconsistent that we no longer use `...` here but still do in `uiLocationToRawLocationsForUnformattedJavaScript`, but I suppose you\u0027ll be tackling this in a future CL.",
+      "revId": "048e47e8a96ce928749cd08007308d34ae8e59c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
