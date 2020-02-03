@@ -23,7 +23,7 @@ function main() {
     ...checkNonAutostartNonRemoteModules(),
     ...checkAllDevToolsFiles(),
     ...checkAllDevToolsModules(),
-    ...checkCopiedDevToolsModules(),
+    // ...checkCopiedDevToolsModules(),
   ];
   if (errors.length) {
     console.log('DevTools BUILD.gn checker detected errors!');

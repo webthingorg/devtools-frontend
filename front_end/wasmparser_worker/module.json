@@ -1,11 +1,10 @@
 {
-    "dependencies": [
-      "third_party/wasmparser"
-    ],
     "scripts": [],
     "modules": [
       "wasmparser_worker.js",
-      "WasmParserWorker.js"
+      "WasmParserWorker.js",
+      "../third_party/wasmparser/WasmDis.js",
+      "../third_party/wasmparser/WasmParser.js"
     ],
     "skip_compilation": [
     ]

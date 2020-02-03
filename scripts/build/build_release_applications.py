@@ -20,6 +20,7 @@ import re
 import shutil
 import sys
 import subprocess
+import datetime
 
 from modular_build import read_file, write_file, bail_error
 import modular_build
@@ -38,6 +39,9 @@ try:
 finally:
     sys.path = original_sys_path
 
+ROLLUP_ARGS = ['--no-treeshake', '--format', 'esm', '--context', 'self']
+
+
 def main(argv):
     try:
         input_path_flag_index = argv.index('--input_path')
@@ -50,10 +54,15 @@ def main(argv):
         raise
 
     loader = modular_build.DescriptorLoader(input_path)
+    front_end_folders = [path.join(name, "%s.js" % name) for name in os.listdir(input_path) if path.isdir(join(input_path, name))]
+
     for app in application_names:
         descriptors = loader.load_application(app)
-        builder = ReleaseBuilder(app, descriptors, input_path, output_path)
+        builder = ReleaseBuilder(app, descriptors, input_path, output_path, front_end_folders)
         builder.build_app()
+
+    for root_file in ['root.js', 'Runtime.js']:
+        write_file(join(output_path, root_file), minify_js(read_file(join(input_path, root_file))))
 
 
 def resource_source_url(url):
@@ -68,17 +77,21 @@ def concatenated_module_filename(module_name, output_dir):
     return join(output_dir, module_name + '/' + module_name + '_module.js')
 
 
+PROCESSED_MODULES = set()
+
+
 # Outputs:
 #   <app_name>.html
 #   <app_name>.js
 #   <module_name>_module.js
 class ReleaseBuilder(object):
 
-    def __init__(self, application_name, descriptors, application_dir, output_dir):
+    def __init__(self, application_name, descriptors, application_dir, output_dir, front_end_folders):
         self.application_name = application_name
         self.descriptors = descriptors
         self.application_dir = application_dir
         self.output_dir = output_dir
+        self.front_end_folders = front_end_folders
         self._special_case_namespaces = special_case_namespaces.special_case_namespaces
 
     def app_file(self, extension):
@@ -161,15 +174,17 @@ class ReleaseBuilder(object):
                 if len(non_autostart_deps):
                     bail_error(
                         'Non-autostart dependencies specified for the autostarted module "%s": %s' % (name, non_autostart_deps))
+
+                self._rollup_module(name, desc.get('modules', []))
             else:
                 non_autostart.add(name)
 
     def _concatenate_application_script(self, output):
-        output.write('Root.allDescriptors.push(...%s);' % self._release_module_descriptors())
+        output.write('self.Root.allDescriptors.push(...%s);' % self._release_module_descriptors())
         if self.descriptors.extends:
-            output.write('Root.applicationDescriptor.modules.push(...%s);' % json.dumps(self.descriptors.application.values()))
+            output.write('self.Root.applicationDescriptor.modules.push(...%s);' % json.dumps(self.descriptors.application.values()))
         else:
-            output.write('Root.applicationDescriptor = %s;' % self.descriptors.application_json())
+            output.write('self.Root.applicationDescriptor = %s;' % self.descriptors.application_json())
 
         output.write(minify_js(read_file(join(self.application_dir, self.app_file('js')))))
         self._concatenate_autostart_modules(output)
@@ -179,16 +194,51 @@ class ReleaseBuilder(object):
     def _concatenate_dynamic_module(self, module_name):
         module = self.descriptors.modules[module_name]
         scripts = module.get('scripts')
+        modules = module.get('modules')
         resources = self.descriptors.module_resources(module_name)
         module_dir = join(self.application_dir, module_name)
         output = StringIO()
         if scripts:
             modular_build.concatenate_scripts(scripts, module_dir, self.output_dir, output)
+        if modules:
+            self._rollup_module(module_name, modules)
+
         if resources:
             self._write_module_resources(resources, output)
         output_file_path = concatenated_module_filename(module_name, self.output_dir)
         write_file(output_file_path, minify_js(output.getvalue()))
         output.close()
+
+    def _rollup_module(self, module_name, modules):
+        if module_name in PROCESSED_MODULES:
+            return
+
+        rollup_external_entrypoints = [
+            path.abspath(join(self.application_dir, entrypoint)) for entrypoint in self.front_end_folders
+        ]
+
+        js_entrypoint = join(self.application_dir, module_name, module_name + '.js')
+        rollup_process = subprocess.Popen(
+            [devtools_paths.node_path(), devtools_paths.rollup_path()] + ROLLUP_ARGS +
+            ['--external', ','.join(rollup_external_entrypoints), '--input', js_entrypoint],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE)
+        out, error = rollup_process.communicate()
+
+        if rollup_process.returncode != 0:
+            print('Error while running rollup:')
+            print(error)
+            sys.exit(1)
+
+        write_file(join(self.output_dir, module_name, module_name + '.js'), minify_js(out))
+
+        legacyFileName = module_name + '-legacy.js'
+        if legacyFileName in modules:
+            write_file(
+                join(self.output_dir, module_name, legacyFileName),
+                read_file(join(self.application_dir, module_name, legacyFileName)))
+
+        PROCESSED_MODULES.add(module_name)
 
 
 if __name__ == '__main__':

@@ -12,9 +12,11 @@ export class DefaultCodeMirrorMimeMode {
    * @override
    */
   async install(extension) {
-    const modeFileName = extension.descriptor()['fileName'];
-
-    return /** @type {!Promise} */ (eval(`import('./${modeFileName}')`));
+    // TODO(crbug.com/1029037): lazily load these files again after the
+    // race-condition with CodeMirror is fixed
+    // const modeFileName = extension.descriptor()['fileName'];
+    // return /** @type {!Promise} */ (eval(`import('./${modeFileName}')`));
+    return Promise.resolve();
   }
 }
 
