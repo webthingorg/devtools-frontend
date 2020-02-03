@@ -16,6 +16,24 @@
       "revId": "048e47e8a96ce928749cd08007308d34ae8e59c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b45ce4bb_612e8a84",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-03T12:53:48Z",
+      "side": 1,
+      "message": "No, its because the return value is a Promise\u003cArray\u003e for each call, so I can\u0027t spread without \"awaiting\" one after one. Thats the reason for collecting all promises, then await Promise.all and flatten the resulting nested arrays.\n\nMore than happy to rewrite this, but \"map\" looks even more terrible.",
+      "parentUuid": "c7fb225f_86afed6d",
+      "revId": "048e47e8a96ce928749cd08007308d34ae8e59c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
