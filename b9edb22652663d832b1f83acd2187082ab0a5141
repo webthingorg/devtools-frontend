@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "92c93bdb_0e477f05",
+        "filename": "front_end/elements/elementsTreeOutline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-03T22:32:18Z",
+      "side": 1,
+      "message": "Setting `border-top-color` will work, only if I first opt out of forced-color, which I am trying not to do here.\n\nI am trying to make this change on `.element.disclosure li`",
+      "parentUuid": "5548ef5f_6a8ab639",
+      "revId": "b9edb22652663d832b1f83acd2187082ab0a5141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85eb1b8f_c5014b21",
         "filename": "front_end/elements/elementsTreeOutline.css",
         "patchSetId": 5
