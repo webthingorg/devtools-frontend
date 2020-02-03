@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ed27fe8_2c0a1035",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T09:56:52Z",
+      "side": 1,
+      "message": "https works too?",
+      "revId": "40cd5a8faab4d9e4c715880460677d3e7d6e3387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
