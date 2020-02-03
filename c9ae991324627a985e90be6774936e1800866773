@@ -22,6 +22,30 @@
       "revId": "c9ae991324627a985e90be6774936e1800866773",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d24321_3997252d",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-03T23:35:30Z",
+      "side": 1,
+      "message": "There is no increase. When building \u0027autoninja chrome\u0027 on master branch\nresources.pak - 6924 KB\n\nCL branch\nresources.pak - 6924 KB",
+      "parentUuid": "00f531b6_83a38fa1",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 51
+      },
+      "revId": "c9ae991324627a985e90be6774936e1800866773",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
