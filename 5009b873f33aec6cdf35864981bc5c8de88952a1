@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "68d8526d_7c8ecdbd",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T13:37:07Z",
+      "side": 1,
+      "message": "nit: let -\u003e const throughout the file, except when you need to reassign or ++/--",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9685a7cb_496f41bc",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 6
@@ -18,6 +41,46 @@
         "startChar": 32,
         "endLine": 38,
         "endChar": 232
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41c345fc_3e8766c9",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T13:37:07Z",
+      "side": 1,
+      "message": "Nit: single quotes, 80col",
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e9b853_218744bc",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T13:37:07Z",
+      "side": 1,
+      "message": "Why `sameMembers` and not `deepEqual`?",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 22
       },
       "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -42,6 +105,23 @@
         "endLine": 52,
         "endChar": 30
       },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ebc618c_d576a665",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-03T13:37:07Z",
+      "side": 1,
+      "message": "Nit: start a new block scope here for each sub-test. That way you can re-use these variable names later without having to make them `let`s.\n\n    {\n      const sourceTabPane \u003d await frontend.waitForSelector(\u0027#sources-panel-sources-view .tabbed-pane\u0027);\n      const sourceTabs \u003d (await $(\u0027.tabbed-pane-header-tabs\u0027, sourceTabPane)).asElement();\n      const openSources \u003d await sourceTabs.$$eval(\u0027.tabbed-pane-header-tab\u0027, nodes \u003d\u003e nodes.map(n \u003d\u003e n.getAttribute(\u0027aria-label\u0027)));\n      assert.deepEqual(openSources, [\u0027multi-workers.js\u0027]);\n    }",
       "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
