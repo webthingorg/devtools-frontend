@@ -221,6 +221,11 @@ async function checkFolder(folder) {
       const ast = await readAstFromFile(fileName);
       const firstStatement = ast.program.body[0];
 
+      // Completely empty files, such as `shell.js`
+      if (!firstStatement) {
+        continue;
+      }
+
       if (!firstStatement.comments || firstStatement.comments.length === 0) {
         await addMissingLicenseHeader(firstStatement, ast, fileName);
       } else if (firstStatement.comments[0].type === 'Line') {
