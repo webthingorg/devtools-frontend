@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12c81605_19175428",
+        "filename": "test/shared/tsconfig.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-04T16:02:14Z",
+      "side": 1,
+      "message": "Can we bump this up a bit? The LCD to worry about is Node.js v10, and the closer the transpiled code is to the source code, the easier to debug.\n\nFWIW, this is not just a hypothetical; it actually solved a problem pfaffe@ was having the other day.\n\n(I\u0027m fine with this happening in a separate CL.)",
+      "range": {
+        "startLine": 3,
+        "startChar": 15,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "430f2c6fd5979cad8f927eef49d0163cb67cdce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
