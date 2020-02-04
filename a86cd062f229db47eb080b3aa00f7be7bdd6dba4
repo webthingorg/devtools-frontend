@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c4a3a6a_d6db7f8e",
+        "filename": "test/e2e/console/console-message-format.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-04T15:24:33Z",
+      "side": 1,
+      "message": "nit:\n\n    shows BigInts formatted",
+      "revId": "a86cd062f229db47eb080b3aa00f7be7bdd6dba4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
