@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "395cbfa0_bc94599d",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-04T10:22:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68d8526d_7c8ecdbd",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9685a7cb_496f41bc",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 6
@@ -88,6 +112,72 @@
     },
     {
       "key": {
+        "uuid": "75b848c8_a9d26229",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-04T10:22:50Z",
+      "side": 1,
+      "message": "Is there a preferred JavaScripty way to make a repeated list?",
+      "parentUuid": "9685a7cb_496f41bc",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 232
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "514a3475_b3e1e42a",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-04T10:22:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99e9b853_218744bc",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aa0158c_cb9b3cd3",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-04T10:22:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41c345fc_3e8766c9",
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff000293_c6f04bcd",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 6
@@ -99,6 +189,30 @@
       "writtenOn": "2020-02-03T13:31:05Z",
       "side": 1,
       "message": "This will be super brittle if we change the UI. Is there no other way to get there?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 30
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1ce03b5_442328c9",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-04T10:22:50Z",
+      "side": 1,
+      "message": "This was the only way I could get the tree view to respond. Finding dom nodes related to the specific tree elements I wanted to open did not allow me to open them with either clicks or keypresses or manually dispatched events. I may be able to repeated query the tree in multiple ways to decide what arrow key to press next, but it will be complicated.\n\nIs there a way I can directly invoke dev tools code from the test so I don\u0027t have to go through the UI?",
+      "parentUuid": "ff000293_c6f04bcd",
       "range": {
         "startLine": 41,
         "startChar": 4,
@@ -125,6 +239,24 @@
       "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dab58450_b7c6ab8b",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-04T10:22:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ebc618c_d576a665",
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
