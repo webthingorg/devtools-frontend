@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9de914a6_e08e5ea4",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-04T08:28:18Z",
+      "side": 1,
+      "message": "Generally `startsWith` is a red flag when validating URLs, since it\u0027s trivially bypassed (e.g. `chrome-erRor://` wouldn\u0027t match). It probably doesn\u0027t matter in this particular case (since I imagine the `chrome-error://` URL is not user-controlled?), but let\u0027s stick to best practices and check if the URL\u0027s `.protocol \u003d\u003d\u003d \u0027chrome-error:\u0027` instead.",
+      "revId": "12f61b8db2bb004e018ab8165bf48bd9449cf94e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
