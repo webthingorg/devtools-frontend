@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6505d7f_9ac33b32",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-04T13:38:00Z",
+      "side": 1,
+      "message": "`tries` is a function of the timeout that\u0027s currently hardcoded; with timeout\u003d1000, tries\u003d3 would have a completely different meaning than with timeout\u003d100.\n\nWould it make sense to skip the indirection and just pass `maxTotalTimeout` directly?",
+      "range": {
+        "startLine": 80,
+        "startChar": 74,
+        "endLine": 80,
+        "endChar": 83
+      },
+      "revId": "01fc796cbc0819d40c8318dc00765adfd733410b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "924e713c_96685385",
+        "filename": "test/e2e/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-04T13:38:00Z",
+      "side": 1,
+      "message": "nit: space after `async(`\n\n(is this another weird clang format thing?)",
+      "range": {
+        "startLine": 80,
+        "startChar": 23,
+        "endLine": 80,
+        "endChar": 28
+      },
+      "revId": "01fc796cbc0819d40c8318dc00765adfd733410b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
