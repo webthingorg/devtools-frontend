@@ -77,6 +77,21 @@ export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
   return element;
 };
 
+export const waitFor = async(selector: string, root?: puppeteer.JSHandle, tries = 0) => {
+  if (tries === 0) {
+    tries = Number.POSITIVE_INFINITY;
+  }
+
+  const timeout = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
+  do {
+    await timeout(100);
+    const element = await $(selector, root);
+    if (element.asElement()) {
+      return element;
+    }
+  } while (tries-- > 0);
+}
+
 export const store = (browser, target, frontend, reset) => {
   globalThis[browserInstance] = browser;
   globalThis[targetPage] = target;
