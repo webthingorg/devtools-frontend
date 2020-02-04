@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f7a7c6f_807232d1",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-04T16:07:09Z",
+      "side": 1,
+      "message": "Regarding the test failure:\n\nHow about introducing a `enable` method on `IssuesModel`, and then calling that in IssuesPaneImpl /after/ attaching the issue added event listener?\n\nThis would fix the tests (because we won\u0027t try to enable the audits agent on a worker) and keep the SameSiteCookie handling working IIUC.\n\nWe can then land this CL and figure out what we do with issues on workers later.",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "d50d7bfa5f39773ae167d68188a062a14cc9e352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
