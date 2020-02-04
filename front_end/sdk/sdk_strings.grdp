@@ -210,9 +210,6 @@
   <message name="IDS_DEVTOOLS_73329564760013a7824ff9d5d1af91ff" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     installed
   </message>
-  <message name="IDS_DEVTOOLS_75101dcdfc88455bcafc9e53e0b06689" desc="Service worker running status displayed in the Service Workers view in the Application panel">
-    running
-  </message>
   <message name="IDS_DEVTOOLS_75ce94bc789367b63d0fc1c8daa996df" desc="Error message for when a CSS file can't be loaded">
     Could not find the original style sheet.
   </message>

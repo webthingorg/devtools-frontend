@@ -38,7 +38,7 @@ export class ThreadsSidebarPane extends UI.VBox {
   createElementForItem(debuggerModel) {
     const element = createElementWithClass('div', 'thread-item');
     const title = element.createChild('div', 'thread-item-title');
-    const pausedState = element.createChild('div', 'thread-item-paused-state');
+    const threadStateDiv = element.createChild('div', 'thread-item-thread-state');
     element.appendChild(UI.Icon.create('smallicon-thick-right-arrow', 'selected-thread-icon'));
     element.tabIndex = -1;
     self.onInvokeElement(element, event => {
@@ -49,14 +49,40 @@ export class ThreadsSidebarPane extends UI.VBox {
     element.classList.toggle('selected', isSelected);
     UI.ARIAUtils.setSelected(element, isSelected);
 
+    const pausedString = ls`paused`;
+
     function updateTitle() {
       const executionContext = debuggerModel.runtimeModel().defaultExecutionContext();
       title.textContent =
           executionContext && executionContext.label() ? executionContext.label() : debuggerModel.target().name();
     }
 
-    function updatePausedState() {
-      pausedState.textContent = debuggerModel.isPaused() ? ls`paused` : '';
+    function setThreadStatePaused() {
+      threadStateDiv.textContent = pausedString;
+    }
+    function setThreadStateResumed() {
+      threadStateDiv.textContent = debuggerModel.runtimeModel().threadState();
+    }
+    function updateThreadState(event) {
+      const state = event.data.state;
+      function stateToString(state) {
+        // Keep this in sync with the enum in js_protocol.pdl.
+        if (state === 'running') {
+          return ls`running`;
+        }
+        if (state === 'idle') {
+          return ls`idle`;
+        }
+        if (state === 'atomics_wait') {
+          return 'Atomics.wait()';
+        }
+        return state;
+      }
+      if (debuggerModel.isPaused()) {
+        threadStateDiv.textContent = pausedString;
+      } else {
+        threadStateDiv.textContent = stateToString(state);
+      }
     }
 
     /**
@@ -69,12 +95,14 @@ export class ThreadsSidebarPane extends UI.VBox {
       }
     }
 
-    debuggerModel.addEventListener(SDK.DebuggerModel.Events.DebuggerPaused, updatePausedState);
-    debuggerModel.addEventListener(SDK.DebuggerModel.Events.DebuggerResumed, updatePausedState);
+    debuggerModel.runtimeModel().addEventListener(SDK.RuntimeModel.Events.ThreadStateChanged, updateThreadState);
+    debuggerModel.addEventListener(SDK.DebuggerModel.Events.DebuggerPaused, setThreadStatePaused);
+    debuggerModel.addEventListener(SDK.DebuggerModel.Events.DebuggerResumed, setThreadStateResumed);
     debuggerModel.runtimeModel().addEventListener(SDK.RuntimeModel.Events.ExecutionContextChanged, updateTitle);
     self.SDK.targetManager.addEventListener(SDK.TargetManager.Events.NameChanged, targetNameChanged);
 
-    updatePausedState();
+    const threadState = debuggerModel.runtimeModel().threadState();
+    updateThreadState({data: {state: threadState}});
     updateTitle();
     return element;
   }

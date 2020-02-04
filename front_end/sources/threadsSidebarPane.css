@@ -26,13 +26,13 @@
 }
 
 .thread-item-title,
-.thread-item-paused-state {
+.thread-item-thread-state {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.thread-item-paused-state {
+.thread-item-thread-state {
     color: #888;
     margin-left: auto;
     padding: 0 10px 0 10px;

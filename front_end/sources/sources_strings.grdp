@@ -504,6 +504,9 @@
   <message name="IDS_DEVTOOLS_eb2f2225858078738d498794cd737d18" desc="Error message for tooltip showing that a file in Sources could not be loaded">
     Unable to load this content.
   </message>
+  <message name="IDS_DEVTOOLS_ec2f993aec2c27fc750119ab17b16cdb" desc="Status of worker displayed in the Threads view of the Sources panel">
+    idle
+  </message>
   <message name="IDS_DEVTOOLS_ed5eceb0fe85ceeeabf4b4b93eeca711" desc="A context menu item in the Sources Panel of the Sources panel">
     Continue to here
   </message>

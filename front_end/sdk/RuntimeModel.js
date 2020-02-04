@@ -57,6 +57,7 @@ export class RuntimeModel extends SDKModel {
     this._executionContextComparator = ExecutionContext.comparator;
     /** @type {?boolean} */
     this._hasSideEffectSupport = null;
+    this._threadState = '';
 
     if (self.Common.settings.moduleSetting('customFormatters').get()) {
       this._agent.setCustomObjectFormatterEnabled(true);
@@ -383,6 +384,21 @@ export class RuntimeModel extends SDKModel {
   }
 
   /**
+   * @return {string}
+   */
+  threadState() {
+    return this._threadState;
+  }
+
+  /**
+   * @param {string} state
+   */
+  _threadStateChanged(state) {
+    this._threadState = state;
+    this.dispatchEventToListeners(Events.ThreadStateChanged, {state});
+  }
+
+  /**
    * @param {!RemoteObject} object
    */
   _copyRequested(object) {
@@ -556,6 +572,7 @@ export const Events = {
   ExceptionThrown: Symbol('ExceptionThrown'),
   ExceptionRevoked: Symbol('ExceptionRevoked'),
   ConsoleAPICalled: Symbol('ConsoleAPICalled'),
+  ThreadStateChanged: Symbol('ThreadStateChanged'),
   QueryObjectRequested: Symbol('QueryObjectRequested'),
 };
 
@@ -632,6 +649,14 @@ class RuntimeDispatcher {
    */
   inspectRequested(payload, hints) {
     this._runtimeModel._inspectRequested(payload, hints);
+  }
+
+  /**
+   * @override
+   * @param {string} state
+   */
+  threadStateChanged(state) {
+    this._runtimeModel._threadStateChanged(state);
   }
 }
 

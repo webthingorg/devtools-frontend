@@ -286,6 +286,9 @@
   <message name="IDS_DEVTOOLS_74540c79e377bea903e1023a46df5574" desc="Text to open a file">
     Open file
   </message>
+  <message name="IDS_DEVTOOLS_75101dcdfc88455bcafc9e53e0b06689" desc="Worker running status displayed in the Threads view in the Sources panel">
+    running
+  </message>
   <message name="IDS_DEVTOOLS_76c3e002d3c052bd6a909366a8dc3845" desc="Text that appears on a button for the manifest resource type filter.">
     Manifest
   </message>
