@@ -202,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "3d62d6be_b0e82067",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-04T11:10:11Z",
+      "side": 1,
+      "message": "In a single call:\n\n    Array.from({length: 10}, _ \u003d\u003e \u0027multi-workers.js\u0027)\n\nOr, if you prefer using fill for clarity:\n\n    Array.from({ length: 10 }).fill(\u0027multi-workers.js\u0027);",
+      "parentUuid": "5d70149b_225b1ae1",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 232
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff000293_c6f04bcd",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 6
