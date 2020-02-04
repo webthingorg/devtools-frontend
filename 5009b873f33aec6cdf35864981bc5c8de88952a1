@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "5d70149b_225b1ae1",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-04T10:32:50Z",
+      "side": 1,
+      "message": "new Array(10).fill(\u0027multi-workers.js\u0027) would do it?",
+      "parentUuid": "75b848c8_a9d26229",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 232
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff000293_c6f04bcd",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 6
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "This was the only way I could get the tree view to respond. Finding dom nodes related to the specific tree elements I wanted to open did not allow me to open them with either clicks or keypresses or manually dispatched events. I may be able to repeated query the tree in multiple ways to decide what arrow key to press next, but it will be complicated.\n\nIs there a way I can directly invoke dev tools code from the test so I don\u0027t have to go through the UI?",
       "parentUuid": "ff000293_c6f04bcd",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 30
+      },
+      "revId": "5009b873f33aec6cdf35864981bc5c8de88952a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a0b0ede_32aff4a0",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-04T10:32:50Z",
+      "side": 1,
+      "message": "We want to avoid invoking DevTools via code as much as we can (with the exception of locating items to click, say) because the e2e tests ought to be as close to user journeys as possible.\n\nGiven that I will backtrack my comment because you\u0027re right, you\u0027re just using it to navigate the UI. I wonder, though, if we need some comments to explain what UI action is accomplished by each step? That way it\u0027s clearer what the various steps are designed to accomplish.",
+      "parentUuid": "b1ce03b5_442328c9",
       "range": {
         "startLine": 41,
         "startChar": 4,
