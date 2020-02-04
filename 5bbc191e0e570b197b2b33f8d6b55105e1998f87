@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49c7f76e_a7442fbc",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-04T09:05:51Z",
+      "side": 1,
+      "message": "defaultWeight is not defined in DataGrid.ColumnDescriptor, maybe add it there? Please also note that column.weight might be undefined.",
+      "range": {
+        "startLine": 279,
+        "startChar": 11,
+        "endLine": 279,
+        "endChar": 24
+      },
+      "revId": "5bbc191e0e570b197b2b33f8d6b55105e1998f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcd50ca1_f5a35537",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-04T09:05:51Z",
+      "side": 1,
+      "message": "Does it also reset which columns are visible? (in case there are optional columns like in the network tab).\n\nIf not, then it should be called \u0027Reset Column Widths\u0027 or something similar (the weight is an implementation detail and should not be surfaced to the user).",
+      "range": {
+        "startLine": 1330,
+        "startChar": 36,
+        "endLine": 1330,
+        "endChar": 49
+      },
+      "revId": "5bbc191e0e570b197b2b33f8d6b55105e1998f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
