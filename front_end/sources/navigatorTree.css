@@ -100,3 +100,27 @@
 :host{
     overflow-y: auto;
 }
+
+@media (forced-colors: active) {
+    .navigator-folder-tree-item .icon {
+        background-color: ButtonText;
+    }
+    .navigator-file-tree-item .icon,
+    .navigator-sm-folder-tree-item .icon,
+    .navigator-fs-tree-item .icon,
+    .navigator-fs-folder-tree-item .icon,
+    .navigator-nw-folder-tree-item .icon,
+    .navigator-sm-script-tree-item .icon,
+    .navigator-script-tree-item .icon,
+    .navigator-snippet-tree-item .icon,
+    .navigator-sm-stylesheet-tree-item .icon,
+    .navigator-stylesheet-tree-item .icon,
+    .navigator-image-tree-item .icon,
+    .navigator-font-tree-item .icon {
+        background: ButtonText;
+    }
+    .tree-outline li:hover:not(.selected) .selection {
+        forced-color-adjust: none;
+        background-color: Highlight;
+    }
+}
