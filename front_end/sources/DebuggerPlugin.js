@@ -1555,15 +1555,26 @@ export class DebuggerPlugin extends Plugin {
     this._textEditor.attachInfobar(this._sourceMapInfobar);
   }
 
-  _detectMinified() {
+  async _detectMinified() {
     const content = this._uiSourceCode.content();
     if (!content || !TextUtils.isMinified(content)) {
       return;
     }
 
+    const editorActions = await self.runtime.allInstances(Sources.SourcesView.EditorAction);
+    let formatterCallback = null;
+    for (const editorAction of editorActions) {
+      if (editorAction instanceof Sources.ScriptFormatterEditorAction) {
+        formatterCallback = editorAction.toggleFormatScriptSource.bind(editorAction);
+        break;
+      }
+    }
+
     this._prettyPrintInfobar = UI.Infobar.create(
         UI.Infobar.Type.Info, Common.UIString('Pretty-print this minified file?'),
-        self.Common.settings.createSetting('prettyPrintInfobarDisabled', false));
+        Common.settings.createSetting('prettyPrintInfobarDisabled', false), formatterCallback,
+        ls`Pretty Print`);  // TODO localize
+
     if (!this._prettyPrintInfobar) {
       return;
     }
