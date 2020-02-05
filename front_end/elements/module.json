@@ -279,10 +279,19 @@
             "order": 10,
             "persistence": "permanent",
             "className": "Elements.NodeStackTraceWidget"
+        },
+        {
+            "type": "view",
+            "location": "elements-sidebar",
+            "id": "elements.fonts",
+            "title": "Fonts",
+            "order": 9,
+            "persistence": "permanent",
+            "className": "Elements.FontsWidget"
         }
     ],
     "dependencies": [
-        "components",
+        "components", 
         "extensions",
         "inline_editor",
         "color_picker",
@@ -302,6 +311,7 @@
         "ElementsTreeElement.js",
         "ElementsTreeOutline.js",
         "EventListenersWidget.js",
+        "FontsWidget.js",
         "MarkerDecorator.js",
         "MetricsSidebarPane.js",
         "PlatformFontsWidget.js",
@@ -325,6 +335,7 @@
         "elementsPanel.css",
         "elementStatePaneWidget.css",
         "elementsTreeOutline.css",
+        "fontsWidget.css",
         "metricsSidebarPane.css",
         "platformFontsWidget.css",
         "propertiesWidget.css",

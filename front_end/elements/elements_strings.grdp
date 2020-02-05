@@ -21,17 +21,26 @@
   <message name="IDS_DEVTOOLS_14ec3eb094717596986aeef905ecb2d2" desc="Tooltip text that appears when hovering over the largeicon add button in the Styles Sidebar Pane of the Elements panel">
     New Style Rule
   </message>
+  <message name="IDS_DEVTOOLS_17114b5d1511c68f7f7bb3ecb011385e" desc="">
+    Show @FontFace
+  </message>
   <message name="IDS_DEVTOOLS_1bc005d87dc22486bbb3c662b6fe46ce" desc="Separator element text content in Styles Sidebar Pane of the Elements panel">
     Pseudo ::<ph name="PSEUDOTYPE">$1s<ex>scrollbar-corner</ex></ph> element
   </message>
   <message name="IDS_DEVTOOLS_1cc5c88b14a818f9f8d053f3c9f9249e" desc="Title of a setting under the Elements category in Settings">
     Word wrap
   </message>
+  <message name="IDS_DEVTOOLS_1ef0054faf96b87acdea23847bf263e8" desc="">
+    Line Height
+  </message>
   <message name="IDS_DEVTOOLS_20bfc7bb53e1d2639556bce9852c32d8" desc="Tooltip text that appears on the setting when hovering over it in Event Listeners Widget of the Elements panel">
     Resolve event listeners bound with framework
   </message>
   <message name="IDS_DEVTOOLS_21c12abe8367dcbdf5d3fee56a4ae9d8" desc="Title of a setting under the Elements category in Settings">
     Show detailed inspect tooltip
+  </message>
+  <message name="IDS_DEVTOOLS_2248bf6cc09e2d988313b2226ab2df07" desc="">
+    Preview Text
   </message>
   <message name="IDS_DEVTOOLS_22a11a2e07e4412afd106977262d7617" desc="Text in Elements Tree Element of the Elements panel">
     Copy selector
@@ -66,6 +75,9 @@
   <message name="IDS_DEVTOOLS_2dff19d6ed78c6ca35cb3beab7b5bf55" desc="Section title text content in Platform Fonts Widget of the Elements panel">
     Rendered Fonts
   </message>
+  <message name="IDS_DEVTOOLS_2e60eb2c06751527e7f0299c6a39cabb" desc="">
+    Hide @FontFace
+  </message>
   <message name="IDS_DEVTOOLS_2e6591ba49ec23bf6725b74589b66ba3" desc="The UI destination when right clicking an item that can be revealed">
     styles sidebar
   </message>
@@ -98,6 +110,9 @@
   </message>
   <message name="IDS_DEVTOOLS_4757fe07fd492a8be0ea6a760d683d6e" desc="Text in Metrics Sidebar Pane of the Elements panel">
     position
+  </message>
+  <message name="IDS_DEVTOOLS_4a0745ad0776c5b6d616bfadd42c7be9" desc="">
+    Italicize
   </message>
   <message name="IDS_DEVTOOLS_4a27b8d01ae86c80074e4c57be48f8c6" desc="Text in Elements Tree Element of the Elements panel">
     Copy styles
@@ -135,11 +150,17 @@
   <message name="IDS_DEVTOOLS_605e072850e19521394f8bad7082acf4" desc="Text of a DOM element in Element State Pane Widget of the Elements panel">
     Force element state
   </message>
+  <message name="IDS_DEVTOOLS_62c58161d09ff9f3c50e03ba50a3f1ac" desc="">
+    Font Families
+  </message>
   <message name="IDS_DEVTOOLS_686676f33cf19ca00788564f43b992cb" desc="Aria accessible name in Computed Style Widget of the Elements panel">
     Filter Computed Styles
   </message>
   <message name="IDS_DEVTOOLS_68a483c15a1730a88f2a57b1b1b8b69a" desc="Title of dispatch filter in event listeners widget of the elements panel">
     Event listeners category
+  </message>
+  <message name="IDS_DEVTOOLS_68dccab37ef3de6eeafff6f7032f68f6" desc="">
+    Hide All Fonts
   </message>
   <message name="IDS_DEVTOOLS_69f83bbab45ca27c374e76d304ab76be" desc="Text in Elements Panel of the Elements panel">
     Find by string, selector, or XPath
@@ -156,6 +177,9 @@
   <message name="IDS_DEVTOOLS_7490f30ff46ab588405acd7109915139" desc="Hint element title in Elements Tree Element of the Elements panel">
     Use <ph name="ELEMENTS_HINT">$1s<ex>$$0</ex></ph> in the console to refer to this element.
   </message>
+  <message name="IDS_DEVTOOLS_75f5efdd55c4d4827a0639f8c445186c" desc="">
+    Show All Fonts
+  </message>
   <message name="IDS_DEVTOOLS_78e0b69d17e0287aaae4f79171e5b059" desc="Title of a setting under the Elements category that can be invoked through the Command Menu">
     Disable DOM word wrap
   </message>
@@ -168,6 +192,9 @@
   <message name="IDS_DEVTOOLS_80d9fa4ba717772a3fb8305172064ff9" desc="Message displayed when no JavaScript stack trace is available for the DOM node in the Stack Trace widget of the Elements panel">
     No stack trace available
   </message>
+  <message name="IDS_DEVTOOLS_83936a3f80ba44c78c9911f5445f2994" desc="">
+    Sample Text
+  </message>
   <message name="IDS_DEVTOOLS_8551fe4a09c280c278283c10a5a6aa4e" desc="Title of  in styles sidebar pane of the elements panel">
     Increment/decrement with mousewheel or up/down keys. <ph name="CMDORCTRL">$1s<ex>Ctrl</ex></ph>: R ±1, Shift: G ±1, Alt: B ±1
   </message>
@@ -179,6 +206,9 @@
   </message>
   <message name="IDS_DEVTOOLS_8bd236209fc42bdeffdecd1cc68d7b86" desc="Swatch icon element title in Color Swatch Popover Icon of the Elements panel">
     Open color picker. <ph name="SHIFTCLICKMESSAGE">$1s<ex>Shift + Click to change color format.</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_8c489d0946f66d17d73f26366a4bf620" desc="">
+    Weight
   </message>
   <message name="IDS_DEVTOOLS_8d41e41bf0856d309b43d776c24a0316" desc="Text in Classes Pane Widget of the Elements panel">
     Add new class
@@ -255,8 +285,14 @@
   <message name="IDS_DEVTOOLS_d0ad356f675744ef8f0311e83400b6ba" desc="Text in Platform Fonts Widget of the Elements panel">
     Network resource
   </message>
+  <message name="IDS_DEVTOOLS_d3ecf0e576503378e006a197e7507720" desc="">
+    No fonts used in this container.
+  </message>
   <message name="IDS_DEVTOOLS_d42f4851e770aa0f758b01388874f67b" desc="Text in Metrics Sidebar Pane of the Elements panel">
     margin
+  </message>
+  <message name="IDS_DEVTOOLS_d93f55339a7c56e896458b54ee7c22e4" desc="">
+    Select Font
   </message>
   <message name="IDS_DEVTOOLS_e24ee2487879116dcab772c0ac4fe341" desc="Text to focus on something">
     Focus

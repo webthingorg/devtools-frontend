@@ -334,6 +334,14 @@ export class CSSModel extends SDKModel {
   }
 
   /**
+   * @param {!Protocol.DOM.NodeId} nodeId
+   * @return {!Promise<?Map<string, string>>}
+   */
+  computedFontStylePromise(nodeId) {
+    return this._styleLoader.computedFontStylePromise(nodeId);
+  }
+
+  /**
    * @param {number} nodeId
    * @return {!Promise<?CSSModel.ContrastInfo>}
    */
@@ -348,10 +356,11 @@ export class CSSModel extends SDKModel {
 
   /**
    * @param {number} nodeId
+   * @param {?number} depth
    * @return {!Promise<?Array<!Protocol.CSS.PlatformFontUsage>>}
    */
-  platformFontsPromise(nodeId) {
-    return this._agent.getPlatformFontsForNode(nodeId);
+  platformFontsPromise(nodeId, depth) {
+    return this._agent.getPlatformFontsForNode(nodeId, depth ? depth : undefined);
   }
 
   /**
@@ -505,8 +514,8 @@ export class CSSModel extends SDKModel {
     this.dispatchEventToListeners(Events.MediaQueryResultChanged);
   }
 
-  fontsUpdated() {
-    this.dispatchEventToListeners(Events.FontsUpdated);
+  fontsUpdated(fontInfo) {
+    this.dispatchEventToListeners(Events.FontsUpdated, fontInfo);
   }
 
   /**
@@ -711,9 +720,10 @@ export class CSSModel extends SDKModel {
    * @param {number} nodeId
    * @param {string} name
    * @param {string} value
+   * @return {!Promise.<>}
    */
   setEffectivePropertyValueForNode(nodeId, name, value) {
-    this._agent.setEffectivePropertyValueForNode(nodeId, name, value);
+    return this._agent.setEffectivePropertyValueForNode(nodeId, name, value);
   }
 
   /**
@@ -827,9 +837,10 @@ class CSSDispatcher {
 
   /**
    * @override
+   * @param {?Object} fontInfo
    */
-  fontsUpdated() {
-    this._cssModel.fontsUpdated();
+  fontsUpdated(fontInfo) {
+    this._cssModel.fontsUpdated(fontInfo);
   }
 
   /**
@@ -899,6 +910,15 @@ class ComputedStyleLoader {
       }
       return result;
     }
+  }
+
+  /**
+   * @param {!Protocol.DOM.NodeId} nodeId
+   * @return {!Promise<?Map<string, string>>}
+   */
+  computedFontStylePromise(nodeId) {
+    const promise = this._cssModel._agent.getComputedFontStyleForNode(nodeId);
+    return promise;
   }
 }
 

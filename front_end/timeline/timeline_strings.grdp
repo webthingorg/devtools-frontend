@@ -663,9 +663,6 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   <message name="IDS_DEVTOOLS_a3b61900010aa9472919c6c7ac247fed" desc="Text of a DOM element in Timeline UIUtils of the Performance panel">
     (changed id to &quot;<ph name="INVALIDATION_CHANGEDID">$1s<ex>id2</ex></ph>&quot;<ph name="EXTRADATA">$2s<ex>a, b</ex></ph>)
   </message>
-  <message name="IDS_DEVTOOLS_a45da96d0bf6575970f2d27af22be28a" desc="Text in Timeline UIUtils of the Performance panel">
-    System
-  </message>
   <message name="IDS_DEVTOOLS_a5d91e1697b7c75863fb9c6163a3446e" desc="Text in Timeline Event Overview of the Performance panel">
     COVERAGE
   </message>
