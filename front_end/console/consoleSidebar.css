@@ -61,16 +61,9 @@ li .largeicon-navigator-folder {
         forced-color-adjust: none;
         background-color: Highlight;
     }
-    .tree-outline li:hover .tree-element-title,
-    .tree-outline li.selected .tree-element-title,
     .tree-outline li:hover .count,
     .tree-outline li.selected .count {
         forced-color-adjust: none;
         color: HighlightText;
-    }
-    .tree-outline li:hover [is=ui-icon].icon-mask,
-    .tree-outline li.selected [is=ui-icon].icon-mask,
-    .tree-outline li.selected:focus .spritesheet-mediumicons:not(.icon-mask) {
-        background-color: HighlightText !important;
     }
 }
