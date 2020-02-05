@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      (async () => {
+        function bar() {
+          debugger;
+        }
+        const module = await WebAssembly.compileStreaming(fetch('callstack-wasm-to-js.wasm'));
+        const instance = await WebAssembly.instantiate(module, {imports: {bar: bar}});
+        instance.exports.foo();
+      })();
+    </script>
+  </head>
+</html>
