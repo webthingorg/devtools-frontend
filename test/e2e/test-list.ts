@@ -4,6 +4,7 @@
 
 export const testList = [
   './hello-world/hello-world.js',
+  './debugger/wasm-dwarf-plugin.js',
   './sources/script-in-multiple-workers.js',
   './console/console-message-format.js',
 ];
