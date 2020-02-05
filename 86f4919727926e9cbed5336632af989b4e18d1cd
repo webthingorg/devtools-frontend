@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "202cd308_81bcba3d",
+        "filename": "test/e2e/resources/pages/callstack-wasm-to-js.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-05T14:54:46Z",
+      "side": 1,
+      "message": "Nit: Adding a \u003ctitle\u003e makes it valid HTML.\n\nTip: both the opening and closing \u003chtml\u003e and \u003chead\u003e tags can be removed.",
+      "revId": "86f4919727926e9cbed5336632af989b4e18d1cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e45e7265_00c19d6c",
+        "filename": "test/e2e/sources/debug-raw-wasm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-05T14:54:46Z",
+      "side": 1,
+      "message": "For readability\u0027s sake, let\u0027s stick to one `await` per line",
+      "revId": "86f4919727926e9cbed5336632af989b4e18d1cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aef3b0b_d554ba6e",
+        "filename": "test/e2e/sources/debug-raw-wasm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-05T14:54:46Z",
+      "side": 1,
+      "message": "Nit: since we need `callFrame.asElement()` more than once, store its result somewhere and re-use it.",
+      "revId": "86f4919727926e9cbed5336632af989b4e18d1cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
