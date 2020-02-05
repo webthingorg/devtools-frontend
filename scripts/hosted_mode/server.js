@@ -67,6 +67,11 @@ function requestHandler(request, response) {
   }
 
   function sendResponse(statusCode, data) {
+    if (request.url.endsWith('.rawresponse')) {
+      sendRawResponse(data);
+      return;
+    }
+
     if (request.url.endsWith('.js')) {
       response.setHeader('Content-Type', 'text/javascript');
     }
@@ -81,6 +86,31 @@ function requestHandler(request, response) {
 
     response.writeHead(statusCode);
     response.write(data, 'binary');
+    response.end();
+  }
+
+  function sendRawResponse(data) {
+    const lines = data.split('\n');
+
+    let isHeader = true;
+    let line = lines.shift();
+    const statusCode = parseInt(line);
+
+    while ((line = lines.shift()) !== undefined) {
+      if (line.trim() === '') {
+        isHeader = false;
+        response.writeHead(statusCode);
+        continue;
+      }
+
+      if (isHeader) {
+        const firstColon = line.indexOf(':');
+        response.setHeader(line.substring(0, firstColon), line.substring(firstColon + 1));
+      } else {
+        response.write(line);
+      }
+    }
+
     response.end();
   }
 }
