@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f13a02f0_e490b486",
+        "filename": "test/e2e/debugger/wasm-dwarf-plugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-05T17:09:47Z",
+      "side": 1,
+      "message": "I believe Tim is adding a `click` helper because this is a repeating pattern. When his CL lands it would be good to update this to use that helper here.",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 85
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e596a9dc_d81066b5",
+        "filename": "test/e2e/debugger/wasm-dwarf-plugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-05T17:09:47Z",
+      "side": 1,
+      "message": "nit: please switch to camelcase",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f2667e0_23f04802",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-05T17:09:47Z",
+      "side": 1,
+      "message": "What does this do? Does it need comments or a license header?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a49069b_443d16f5",
+        "filename": "test/e2e/test-list.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-05T17:09:47Z",
+      "side": 1,
+      "message": "This will cause you a merge conflict because of the CL I landed earlier. Sorry!",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
