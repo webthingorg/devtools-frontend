@@ -42,7 +42,7 @@ function requestHandler(request, response) {
   var absoluteFilePath = path.join(process.cwd(), filePath);
   if (!path.resolve(absoluteFilePath).startsWith(devtoolsFolder)) {
     console.log(`File requested is outside of devtools folder: ${devtoolsFolder}`);
-    sendResponse(403, `403 - Access denied. File requested is outside of devtools folder: ${devtoolsFolder}`);
+    sendResponse(403, `403 - Access denied. File requested (${absoluteFilePath}) is outside of devtools folder: ${devtoolsFolder}`);
     return;
   }
 
