@@ -39,16 +39,24 @@ const pages: puppeteer.Page[] = [];
 // 2. Spin up the test environment
 (async function() {
   try {
+    console.log('Launching browser');
     const browser = await launchedBrowser;
 
     // Load the target page.
+    console.log(`Created page: ${targetUrl}`);
     const srcPage = await browser.newPage();
     await srcPage.goto(targetUrl);
     pages.push(srcPage);
 
     // Now get the DevTools listings.
     const devtools = await browser.newPage();
+    await devtools.goto(`http://localhost:${envPort}/json/version`);
+    const data = await devtools.$('pre');
+    const pageData = await devtools.evaluate(listing => listing.textContent, data);
+    console.log(pageData);
+
     await devtools.goto(`http://localhost:${envPort}/json`);
+    console.log(`Obtained listing from localhost:${envPort}/json`);
 
     // Find the appropriate item to inspect the target page.
     const listing = await devtools.$('pre');
@@ -61,15 +69,25 @@ const pages: puppeteer.Page[] = [];
     const frontend = await browser.newPage();
     const frontendUrl = `http://localhost:8090/front_end/devtools_app.html?ws=localhost:${envPort}/devtools/page/${id}&experiments=true`;
     frontend.goto(frontendUrl);
+    frontend.on('error', (err) => {
+      console.log('Error', err);
+    });
+    frontend.on('pageerror', (err) => {
+      console.log('Page error', err);
+    });
+    console.log(`Connecting to ${frontendUrl}`);
 
     const resetPages =
         async (...enabledExperiments: string[]) => {
+      console.log(`Reloading target page`);
       // Reload the target page.
       await srcPage.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
 
+      console.log(`Clearing frontend local storage`);
       // Clear any local storage settings.
       await frontend.evaluate(() => localStorage.clear());
 
+      console.log(`Reenable experiments ${enabledExperiments}`);
       await frontend.evaluate((enabledExperiments) => {
         for (const experiment of enabledExperiments) {
           globalThis.Root.Runtime.experiments.setEnabled(experiment, true);
@@ -77,8 +95,23 @@ const pages: puppeteer.Page[] = [];
       }, enabledExperiments);
 
       // Reload the DevTools frontend and await the elements panel.
+      console.log(`Reloading frontend`);
       await frontend.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
+
+      // Wait a second...
+      await new Promise(r => setTimeout(r, 1000));
+
+      const body = await frontend.$('body');
+      const pageHtml = await frontend.evaluate(listing => listing.textContent, body);
+      console.log(pageHtml);
+
+      const screenshot = await frontend.screenshot({ encoding: 'base64', fullPage: true });
+      console.log(screenshot);
+
+      console.log(`Located .elements selector`);
       await frontend.waitForSelector('.elements');
+
+      console.log(`Reset completed`);
     }
 
     store(browser, srcPage, frontend, resetPages);
@@ -89,9 +122,12 @@ const pages: puppeteer.Page[] = [];
         logHelp();
       }
 
+      console.log(`Awaiting input`);
       await waitForInput();
+      console.log(`Running tests`);
       await runTests();
       if (envDebug) {
+        console.log(`Debug: reset pages`);
         await resetPages();
       }
     } while (envDebug);
@@ -99,6 +135,7 @@ const pages: puppeteer.Page[] = [];
   } catch (err) {
     console.warn(err);
   } finally {
+    console.log(`Closing browser`);
     const browser = await launchedBrowser;
     browser.close();
   }
