@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "557fa890_af0c05a1",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-02-05T22:59:00Z",
+      "side": 1,
+      "message": "Probably a good idea. We might need to abstract/refactor that logic into a little helper method.\n\nHappy to have that as a follow-up.",
+      "parentUuid": "89e1ec47_ceb4923d",
+      "range": {
+        "startLine": 350,
+        "startChar": 8,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a43c518f_196e5977",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
