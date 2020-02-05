@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48bb2f89_86d6f733",
+        "filename": "test/e2e/resources/console/document-write.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-05T18:45:41Z",
+      "side": 1,
+      "message": "I know this is imported 1:1, but...\n\n1) there\u0027s no reason to do \"\u003cscrip\" + \"t...\".\n2) instead of \"\u003c/sc\" + \"ript\u003e\" we can simply use \"\u003c\\/script\u003e\".",
+      "revId": "029f6ce04c51225b457a3aa9b942b5fd86b25493",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
