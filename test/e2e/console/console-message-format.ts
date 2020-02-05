@@ -47,6 +47,7 @@ describe('The Console Tab', async () => {
       '[BigInt]',
       'null 1n BigInt\xA0{2n}',
     ])
+    assert.isTrue(false);
   });
 
   it('shows uncaught promises', async () => {
