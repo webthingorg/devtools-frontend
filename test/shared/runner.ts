@@ -104,6 +104,16 @@ hostedModeServer.stderr.on('data', handleHostedModeError);
     const frontendUrl = `http://localhost:8090/front_end/devtools_app.html?ws=localhost:${envPort}/devtools/page/${id}`;
     await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
+    frontend.on('error', (err) => {
+      console.log('Error in Frontend');
+      console.log(err);
+    });
+
+    frontend.on('pageerror', (err) => {
+      console.log('Page Error in Frontend');
+      console.log(err);
+    });
+
     const resetPages =
         async (...enabledExperiments: string[]) => {
       // Reload the target page.
