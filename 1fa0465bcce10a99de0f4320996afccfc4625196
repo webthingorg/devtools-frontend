@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "224c2191_68a859cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-05T09:33:15Z",
+      "side": 1,
+      "message": "TODO",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "1fa0465bcce10a99de0f4320996afccfc4625196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bd9beb4_9131323d",
+        "filename": "front_end/ui/softDropDownButton.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-05T09:33:15Z",
+      "side": 1,
+      "message": "Love the simplification here! Nice.",
+      "revId": "1fa0465bcce10a99de0f4320996afccfc4625196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
