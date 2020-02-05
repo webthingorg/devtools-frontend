@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8a224190_b64fc5f9",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-02-05T06:10:40Z",
+      "side": 1,
+      "message": "Done, thanks, good catch!",
+      "parentUuid": "4eb81c7a_0511e8b9",
+      "range": {
+        "startLine": 346,
+        "startChar": 31,
+        "endLine": 346,
+        "endChar": 43
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "101ade02_2e8e8ae1",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "89e1ec47_ceb4923d",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-02-05T06:10:40Z",
+      "side": 1,
+      "message": "Whenever the attribute is the empty string, we also check the related nodes. If there are none, then we do nothing. If there are related nodes, these must have been set via the IDL setter (i.e element1.ariaLabelledByElements \u003d [element2]) and update the label here. I\u0027ve updated this to check explicitly for the empty string, and to return in the case of null.\n\n@Alice, should we be checking for single related nodes here as well to make the rendering consistent? (i.e on same line for single related node, successive lines for more)",
+      "parentUuid": "50e3615b_57743406",
+      "range": {
+        "startLine": 350,
+        "startChar": 8,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a43c518f_196e5977",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
@@ -110,6 +158,24 @@
       "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8815b89b_1e4b04e7",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-02-05T06:10:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a43c518f_196e5977",
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -184,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "29426e1b_49c7096a",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-02-05T06:10:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db3710d3_6740f08a",
+      "range": {
+        "startLine": 360,
+        "startChar": 27,
+        "endLine": 360,
+        "endChar": 39
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8487b5a8_8a9f7a9e",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
@@ -228,6 +318,30 @@
       "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e14f6313_54cb2851",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-02-05T06:10:40Z",
+      "side": 1,
+      "message": "Thanks, Alice! I\u0027ve added a comment explaining this.",
+      "parentUuid": "adbb10a9_af15ee27",
+      "range": {
+        "startLine": 364,
+        "startChar": 17,
+        "endLine": 364,
+        "endChar": 36
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
