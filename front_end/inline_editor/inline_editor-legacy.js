@@ -36,6 +36,12 @@ InlineEditor.ColorSwatch = InlineEditorModule.ColorSwatch.ColorSwatch;
 InlineEditor.BezierSwatch = InlineEditorModule.ColorSwatch.BezierSwatch;
 
 /** @constructor */
+InlineEditor.FontSwatch = InlineEditorModule.ColorSwatch.FontSwatch;
+
+/** @constructor */
+InlineEditor.FontEditor = InlineEditorModule.FontEditor.FontEditor;
+
+/** @constructor */
 InlineEditor.CSSShadowSwatch = InlineEditorModule.ColorSwatch.CSSShadowSwatch;
 
 /** @constructor */

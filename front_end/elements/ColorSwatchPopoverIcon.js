@@ -348,3 +348,117 @@ export class ShadowSwatchPopoverHelper {
 }
 
 ShadowSwatchPopoverHelper._treeElementSymbol = Symbol('ShadowSwatchPopoverHelper._treeElementSymbol');
+
+/**
+ * @unrestricted
+ */
+export class FontSwatchPopoverIcon {
+  /**
+   * @param {!InlineEditor.SwatchPopoverHelper} swatchPopoverHelper
+   */
+  constructor(swatchPopoverHelper) {
+    /** @type {!Object<string, !StylePropertyTreeElement>} */
+    this._propertyMap = {};
+    this._swatchPopoverHelper = swatchPopoverHelper;
+    // this._shadowSwatch = shadowSwatch;
+    // this._iconElement = shadowSwatch.iconElement();
+
+    // this._iconElement.title = Common.UIString('Open shadow editor.');
+    // this._iconElement.addEventListener('click', this._iconClick.bind(this), false);
+    // this._iconElement.addEventListener('mousedown', event => event.consume(), false);
+
+    // this._boundShadowChanged = this._shadowChanged.bind(this);
+    this._boundOnScroll = this._onScroll.bind(this);
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  registerFontProperty(treeElement) {
+    this._parentPane = treeElement.parentPane();
+    this._propertyMap[treeElement.property.name] = treeElement;
+    treeElement[FontSwatchPopoverIcon._treeElementSymbol] = this;
+    if (treeElement.swatch) {
+      treeElement.swatch.iconElement().title = ls`Open Font Editor.`;
+      treeElement.swatch.iconElement().addEventListener('click', event => {
+        this._iconClick.bind(this)(event, treeElement);
+      }, false);
+      treeElement.swatch.iconElement().addEventListener('mousedown', event => event.consume(), false);
+    }
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   * @return {?ShadowSwatchPopoverHelper}
+   */
+  static forTreeElement(treeElement) {
+    return treeElement[ShadowSwatchPopoverHelper._treeElementSymbol] || null;
+  }
+
+  /**
+   * @param {!Event} event
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  _iconClick(event, treeElement) {
+    event.consume(true);
+    this.showPopover(treeElement);
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  showPopover(treeElement) {
+    const swatch = treeElement.swatch;
+    const iconElement = swatch.iconElement();
+    if (this._swatchPopoverHelper.isShowing()) {
+      this._swatchPopoverHelper.hide(true);
+      return;
+    }
+    this._fontEditor = new InlineEditor.FontEditor();
+    this._swatchPopoverHelper.show(this._fontEditor, iconElement, this._onPopoverHidden.bind(this));
+    this._scrollerElement = iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this._scrollerElement) {
+      this._scrollerElement.addEventListener('scroll', this._boundOnScroll, false);
+    }
+
+    this._originalPropertyText = treeElement.property.propertyText;
+    treeElement.parentPane().setEditingStyle(true);
+    const uiLocation = self.Bindings.cssWorkspaceBinding.propertyUILocation(treeElement.property, false /* forName */);
+    if (uiLocation) {
+      Common.Revealer.reveal(uiLocation, true /* omitFocus */);
+    }
+  }
+
+  /**
+   * @param {!Common.Event} event
+   */
+  _shadowChanged(event) {
+    this._shadowSwatch.setCSSShadow(/** @type {!InlineEditor.CSSShadowModel} */ (event.data));
+    this._treeElement.applyStyleText(this._treeElement.renderedPropertyText(), false);
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onScroll(event) {
+    this._swatchPopoverHelper.reposition();
+  }
+
+  /**
+   * @param {boolean} commitEdit
+   */
+  _onPopoverHidden(commitEdit) {
+    if (this._scrollerElement) {
+      this._scrollerElement.removeEventListener('scroll', this._boundOnScroll, false);
+    }
+
+    delete this._fontEditor;
+
+    // const propertyText = commitEdit ? this._treeElement.renderedPropertyText() : this._originalPropertyText;
+    // this._treeElement.applyStyleText(propertyText, true);
+    // this._treeElement.parentPane().setEditingStyle(false);
+    // delete this._originalPropertyText;
+  }
+}
+
+FontSwatchPopoverIcon._treeElementSymbol = Symbol('FontSwatchPopoverIcon._treeElementSymbol');
