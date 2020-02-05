@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 export const testList = [
-  './hello-world/hello-world.js',
   './sources/script-in-multiple-workers.js',
   './console/console-message-format.js',
 ];
