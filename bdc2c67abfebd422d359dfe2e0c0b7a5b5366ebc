@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f22c1164_a1db9b77",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T10:44:35Z",
+      "side": 1,
+      "message": "Given the complexity of about:blank [1], I\u0027d weakly prefer using\n\n    await srcPage.goto(\u0027data:text/html,\u0027, ...);\n\nhere and below.\n\n[1]: https://hsivonen.fi/about-blank/",
+      "revId": "bdc2c67abfebd422d359dfe2e0c0b7a5b5366ebc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
