@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3724068e_a2f46ccb",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T14:15:10Z",
+      "side": 1,
+      "message": "Won\u0027t this race with process.exit()?\n\nMaybe we need to raise some flag in the signal handler that we await on the main thread to do the cleanup.",
+      "revId": "4acc4b05072c5a698211506bbd8e184f13ff0f4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
