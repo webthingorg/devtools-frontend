@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "49dda65d_cb668cfd",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-02-06T00:07:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a224190_b64fc5f9",
+      "range": {
+        "startLine": 346,
+        "startChar": 31,
+        "endLine": 346,
+        "endChar": 43
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "101ade02_2e8e8ae1",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 7
@@ -165,6 +189,30 @@
       "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8b325b0_dce0f536",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-02-06T00:07:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "557fa890_af0c05a1",
+      "range": {
+        "startLine": 350,
+        "startChar": 8,
+        "endLine": 350,
+        "endChar": 19
+      },
+      "revId": "b767be37abe5f36fdccd5d4fffe005ff3b41bdc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
