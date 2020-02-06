@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6440aa1e_d01fdb24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T14:41:36Z",
+      "side": 1,
+      "message": "They weren\u0027t missing; they\u0027re unnecessary.",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd8f2b9f_a4382a14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T14:41:36Z",
+      "side": 1,
+      "message": "This is incorrect; it now relies on ARIA attribute values instead of classnames/ids etc., but those are still in the DOM.",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5021120a_398ebfec",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T14:41:36Z",
+      "side": 1,
+      "message": "The computed accessible name for this element was already equal to the correct label prior to this change. As discussed offline, I\u0027d rather not duplicate this info by adding a redundant attribute.\n\nPlease either 1) don\u0027t add redundant attributes, or 2) if you must add one, then add a TODO comment for removing it in favor of AOM in the future.",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10873eca_b8f8c99f",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T14:41:36Z",
+      "side": 1,
+      "message": "Should this be \\r\\n? HTTP headers are CRLF-delimited IIRC.",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf71145a_bc090250",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T14:41:36Z",
+      "side": 1,
+      "message": "qq: how did we end up with `obtain` and not `get`? (Same for the helper that gets console messages.)",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15d1d9c8_658e4a02",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T14:41:36Z",
+      "side": 1,
+      "message": "When do we use template literals vs. string literals?",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
