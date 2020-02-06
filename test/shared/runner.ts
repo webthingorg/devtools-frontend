@@ -43,6 +43,7 @@ const pages: puppeteer.Page[] = [];
 function handleHostedModeError(data) {
   console.log('Hosted mode server:');
   console.log(data.toString());
+  exitCode = 1;
   shutdown();
 }
 
@@ -141,10 +142,22 @@ async function waitForInput() {
   });
 }
 
-async function shutdown() {
-  const browser = await launchedBrowser;
-  browser.close();
-  hostedModeServer.kill();
+function shutdown() {
+  if (hostedModeServer) {
+    console.log('Stopping hosted mode server');
+    hostedModeServer.kill();
+  }
+
+  // Must be done as a thenable because async functions can't be
+  // used as callbacks for SIGINT etc.
+  launchedBrowser.then((browser) => {
+    if (browser) {
+      console.log('Closing browser');
+      browser.close();
+    }
+  });
+
+  console.log(`Exiting with status code ${exitCode}`);
   process.exit(exitCode);
 }
 
@@ -178,3 +191,13 @@ function logHelp() {
   console.log(' - Press any key to run the test suite.');
   console.log(' - Press ctrl + c to quit.');
 }
+
+// Ensure shutdown.
+const interruptionHandler = () => {
+  exitCode = 1;
+  shutdown();
+};
+process.on('SIGINT', interruptionHandler);
+process.on('SIGTERM', interruptionHandler);
+process.on('uncaughtException', interruptionHandler);
+process.stdin.resume();
