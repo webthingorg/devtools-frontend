@@ -90,4 +90,8 @@
     .tree-outline-disclosure:hover li.parent::before {
         background-color: ButtonText;
     }
+    .tree-outline li:hover .tree-element-title,
+    .tree-outline li.selected .tree-element-title {
+        color: ButtonText;
+    }
 }
