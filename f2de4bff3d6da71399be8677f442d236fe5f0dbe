@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bc824d6_bd613eef",
+        "filename": "front_end/settings/settings_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T13:44:53Z",
+      "side": 1,
+      "message": "Longer term, I wonder if we should get rid of this distinction. Lack of stability is already implied for experiments. Having multiple distinct degrees of instability only seems confusing.",
+      "revId": "f2de4bff3d6da71399be8677f442d236fe5f0dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
