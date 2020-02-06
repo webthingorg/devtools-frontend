@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ab7cdfec_4cc1285e",
+        "filename": "test/e2e/resources/pages/callstack-wasm-to-js.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-06T09:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "202cd308_81bcba3d",
+      "revId": "86f4919727926e9cbed5336632af989b4e18d1cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45e7265_00c19d6c",
         "filename": "test/e2e/sources/debug-raw-wasm.ts",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6e48c21e_069b142c",
+        "filename": "test/e2e/sources/debug-raw-wasm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-06T09:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45e7265_00c19d6c",
+      "revId": "86f4919727926e9cbed5336632af989b4e18d1cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0aef3b0b_d554ba6e",
         "filename": "test/e2e/sources/debug-raw-wasm.ts",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "86f4919727926e9cbed5336632af989b4e18d1cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afcce9f7_0e9690b7",
+        "filename": "test/e2e/sources/debug-raw-wasm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-06T09:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0aef3b0b_d554ba6e",
+      "revId": "86f4919727926e9cbed5336632af989b4e18d1cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
