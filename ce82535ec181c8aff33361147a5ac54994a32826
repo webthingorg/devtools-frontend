@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26c3b7db_54b995f7",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T19:15:22Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment. This is not something we can fix in our context menu widget.\n\nWhat I meant before is that, once we have AOM APIs including something like `document.queryByAccessibleName(\u0027...\u0027)`, we should remove the next line with the `setAccessibleName` call.",
+      "revId": "ce82535ec181c8aff33361147a5ac54994a32826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

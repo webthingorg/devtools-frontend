@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8d1f7b99_d6525cad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T19:15:22Z",
+      "side": 1,
+      "message": "\u003e They are necessary to make them query-able.\n\nNo; we need *some* way of querying these elements. I\u0027m saying that this doesn\u0027t necessarily have to be `aria-label` (and I\u0027ve laid out why I think it shouldn\u0027t be). The way it\u0027s phrased here is misleading.\n\nSuggestion:\n\n```\nAs part of this patch, each context submenu now gets an `aria-label`. These attributes are redundant here, since they mirror the computed accessible name of these elements. The reason they\u0027re added is [...]\n```",
+      "parentUuid": "a9920fef_8735cb93",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd8f2b9f_a4382a14",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Sorry, to rephrase: the alternative would be to rely on DOM structure. E.g. you query for elements with certain classes, obtain their children, check textContent, etc... This solution does not do that, but instead uses the ARIA structure of aria-label.",
       "parentUuid": "cd8f2b9f_a4382a14",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18fd5d7e_7bcae6b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-06T19:15:22Z",
+      "side": 1,
+      "message": "I know what you mean -- it\u0027s just phrased imprecisely in the commit message, so let\u0027s fix that (or just drop this sentence)?",
+      "parentUuid": "f73581cd_67110751",
       "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
