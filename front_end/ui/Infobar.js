@@ -15,8 +15,9 @@ export class Infobar {
    * @param {!Type} type
    * @param {string} text
    * @param {!Common.Settings.Setting=} disableSetting
+   * @param {!Array<!InfobarAction>=} actions
    */
-  constructor(type, text, disableSetting) {
+  constructor(type, text, disableSetting, actions) {
     this.element = createElementWithClass('div', 'flex-none');
     this._shadowRoot = createShadowRootWithCoreStyles(this.element, 'ui/infobar.css');
     this._contentElement = this._shadowRoot.createChild('div', 'infobar infobar-' + type);
@@ -27,14 +28,25 @@ export class Infobar {
     this._mainRowText.textContent = text;
     this._detailsRows = this._contentElement.createChild('div', 'infobar-details-rows hidden');
 
-    this._toggleElement =
-        createTextButton(ls`more`, this._onToggleDetails.bind(this), 'infobar-toggle link-style hidden');
+    if (actions) {
+      for (const action of actions) {
+        const actionCallback = this._actionCallbackFactory(action);
+        let buttonClass = 'infobar-toggle';
+        if (action.highlight) {
+          buttonClass += ' primary-button';
+        }
+
+        this._mainRow.appendChild(createTextButton(action.text, actionCallback, buttonClass));
+      }
+    }
+
+    this._toggleElement = createTextButton(ls`Learn More`, this._onToggleDetails.bind(this), 'infobar-toggle hidden');
     this._mainRow.appendChild(this._toggleElement);
 
     /** @type {?Common.Settings.Setting} */
     this._disableSetting = disableSetting || null;
     if (disableSetting) {
-      const disableButton = createTextButton(ls`never show`, this._onDisable.bind(this), 'infobar-toggle link-style');
+      const disableButton = createTextButton(ls`Never Show`, this._onDisable.bind(this), 'infobar-toggle');
       this._mainRow.appendChild(disableButton);
     }
 
@@ -50,13 +62,14 @@ export class Infobar {
    * @param {!Type} type
    * @param {string} text
    * @param {!Common.Settings.Setting=} disableSetting
+   * @param {!Array<!InfobarAction>=} actions
    * @return {?Infobar}
    */
-  static create(type, text, disableSetting) {
+  static create(type, text, disableSetting, actions) {
     if (disableSetting && disableSetting.get()) {
       return null;
     }
-    return new Infobar(type, text, disableSetting);
+    return new Infobar(type, text, disableSetting, actions);
   }
 
   dispose() {
@@ -89,6 +102,26 @@ export class Infobar {
     this._parentView = parentView;
   }
 
+  /**
+   * @param {!InfobarAction} action
+   * @returns {!function()}
+   */
+  _actionCallbackFactory(action) {
+    if (!action.delegate) {
+      return action.dismiss ? this.dispose.bind(this) : () => {};
+    }
+
+    if (!action.dismiss) {
+      return action.delegate;
+    }
+
+    return (() => {
+             action.delegate();
+             this.dispose();
+           })
+        .bind(this);
+  }
+
   _onResize() {
     if (this._parentView) {
       this._parentView.doResize();
@@ -118,6 +151,15 @@ export class Infobar {
     return detailsRowMessage;
   }
 }
+
+/** @typedef {{
+ *        text: !string,
+ *        highlight: !boolean,
+ *        delegate: ?function(),
+ *        dismiss: !boolean
+ * }}
+ */
+export let InfobarAction;
 
 /** @enum {string} */
 export const Type = {
