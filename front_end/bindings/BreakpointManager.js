@@ -76,10 +76,10 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {string} fromURL
    * @param {!Workspace.UISourceCode.UISourceCode} toSourceCode
    */
-  async copyBreakpoints(fromURL, toSourceCode) {
+  copyBreakpoints(fromURL, toSourceCode) {
     const breakpointItems = this._storage.breakpointItems(fromURL);
     for (const item of breakpointItems) {
-      await this.setBreakpoint(toSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled);
+      this.setBreakpoint(toSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled);
     }
   }
 
@@ -114,11 +114,11 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {number} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
-   * @return {!Promise<!Breakpoint>}
+   * @return {!Breakpoint}
    */
-  async setBreakpoint(uiSourceCode, lineNumber, columnNumber, condition, enabled) {
+  setBreakpoint(uiSourceCode, lineNumber, columnNumber, condition, enabled) {
     let uiLocation = new Workspace.UISourceCode.UILocation(uiSourceCode, lineNumber, columnNumber);
-    const normalizedLocation = await this._debuggerWorkspaceBinding.normalizeUILocation(uiLocation);
+    const normalizedLocation = this._debuggerWorkspaceBinding.normalizeUILocation(uiLocation);
     if (normalizedLocation.id() !== uiLocation.id()) {
       Common.Revealer.reveal(normalizedLocation);
       uiLocation = normalizedLocation;
@@ -163,12 +163,11 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!TextUtils.TextRange} textRange
    * @return {!Promise<!Array<!Workspace.UISourceCode.UILocation>>}
    */
-  async possibleBreakpoints(uiSourceCode, textRange) {
-    const startLocationsPromise = self.Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(
+  possibleBreakpoints(uiSourceCode, textRange) {
+    const startLocations = self.Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(
         uiSourceCode, textRange.startLine, textRange.startColumn);
-    const endLocationsPromise = self.Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(
+    const endLocations = self.Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(
         uiSourceCode, textRange.endLine, textRange.endColumn);
-    const [startLocations, endLocations] = await Promise.all([startLocationsPromise, endLocationsPromise]);
     const endLocationByModel = new Map();
     for (const location of endLocations) {
       endLocationByModel.set(location.debuggerModel, location);
@@ -593,7 +592,7 @@ export class ModelBreakpoint {
     let debuggerLocation = null;
     if (uiSourceCode) {
       const locations =
-          await self.Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+          self.Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
       debuggerLocation = locations.find(location => location.debuggerModel === this._debuggerModel);
     }
     let newState;
