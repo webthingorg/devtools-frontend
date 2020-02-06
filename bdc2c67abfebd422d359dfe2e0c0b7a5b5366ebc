@@ -16,6 +16,24 @@
       "revId": "bdc2c67abfebd422d359dfe2e0c0b7a5b5366ebc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f72a52a7_0d4ef551",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-06T11:27:23Z",
+      "side": 1,
+      "message": "TIL",
+      "parentUuid": "f22c1164_a1db9b77",
+      "revId": "bdc2c67abfebd422d359dfe2e0c0b7a5b5366ebc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
