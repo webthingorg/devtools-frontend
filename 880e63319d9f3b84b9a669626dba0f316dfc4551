@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a9920fef_8735cb93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T16:24:33Z",
+      "side": 1,
+      "message": "All other items had the aria-label set, but these did not. They are necessary to make them query-able.\n\nGranted, we should not shoe-horn aria-labels post-fact, but use better querying. However, that requires revamping the component system 😞",
+      "parentUuid": "6440aa1e_d01fdb24",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd8f2b9f_a4382a14",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-06T14:41:36Z",
       "side": 1,
       "message": "This is incorrect; it now relies on ARIA attribute values instead of classnames/ids etc., but those are still in the DOM.",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f73581cd_67110751",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T16:24:33Z",
+      "side": 1,
+      "message": "Sorry, to rephrase: the alternative would be to rely on DOM structure. E.g. you query for elements with certain classes, obtain their children, check textContent, etc... This solution does not do that, but instead uses the ARIA structure of aria-label.",
+      "parentUuid": "cd8f2b9f_a4382a14",
       "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e2a79e8e_45051044",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T16:24:33Z",
+      "side": 1,
+      "message": "I will add a TODO",
+      "parentUuid": "5021120a_398ebfec",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "10873eca_b8f8c99f",
         "filename": "scripts/hosted_mode/server.js",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2020-02-06T14:41:36Z",
       "side": 1,
       "message": "Should this be \\r\\n? HTTP headers are CRLF-delimited IIRC.",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4c6897f_895c9a48",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T16:24:33Z",
+      "side": 1,
+      "message": "Node does indeed set the HTTP headers with \\r\\n in the response. However, this is read from the file-system from the git repository. Thus it uses solely \u0027\\n\u0027.",
+      "parentUuid": "10873eca_b8f8c99f",
       "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "3d4c2ca2_bbc1a662",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T16:24:33Z",
+      "side": 1,
+      "message": "The original naming was introduced in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2037471/2/test/e2e/console/console-message-format.ts\n\nLet\u0027s discuss this in a separate issue about an overall e2e style guide. I am okay with changing the naming to something sensible, whatever we choose.",
+      "parentUuid": "cf71145a_bc090250",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15d1d9c8_658e4a02",
         "filename": "test/e2e/network/network-datagrid.ts",
         "patchSetId": 2
@@ -104,6 +200,24 @@
       "writtenOn": "2020-02-06T14:41:36Z",
       "side": 1,
       "message": "When do we use template literals vs. string literals?",
+      "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7733e193_80212893",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T16:24:33Z",
+      "side": 1,
+      "message": "I used template literals in the console test, as it makes escaping of double quotes a lot easier. I am expecting similar issues in this test, thus I opted for template literals.",
+      "parentUuid": "15d1d9c8_658e4a02",
       "revId": "880e63319d9f3b84b9a669626dba0f316dfc4551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
