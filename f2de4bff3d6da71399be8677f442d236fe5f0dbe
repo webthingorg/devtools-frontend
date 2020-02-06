@@ -16,6 +16,24 @@
       "revId": "f2de4bff3d6da71399be8677f442d236fe5f0dbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06419094_6b9eb565",
+        "filename": "front_end/settings/settings_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-02-06T14:09:06Z",
+      "side": 1,
+      "message": "That\u0027s definitely worthwhile. We should also thin out the number of experiments in the first place. For now let\u0027s just fix this thing with hiding experiments.",
+      "parentUuid": "0bc824d6_bd613eef",
+      "revId": "f2de4bff3d6da71399be8677f442d236fe5f0dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
