@@ -15,30 +15,49 @@ export class Infobar {
    * @param {!Type} type
    * @param {string} text
    * @param {!Common.Settings.Setting=} disableSetting
+   * @param {!Array<!InfobarAction>=} actions
    */
-  constructor(type, text, disableSetting) {
+  constructor(type, text, disableSetting, actions) {
     this.element = createElementWithClass('div', 'flex-none');
     this._shadowRoot = createShadowRootWithCoreStyles(this.element, 'ui/infobar.css');
     this._contentElement = this._shadowRoot.createChild('div', 'infobar infobar-' + type);
 
     this._mainRow = this._contentElement.createChild('div', 'infobar-main-row');
-    this._mainRow.createChild('div', type + '-icon icon');
-    this._mainRowText = this._mainRow.createChild('div', 'infobar-main-title');
-    this._mainRowText.textContent = text;
     this._detailsRows = this._contentElement.createChild('div', 'infobar-details-rows hidden');
 
-    this._toggleElement =
-        createTextButton(ls`more`, this._onToggleDetails.bind(this), 'infobar-toggle link-style hidden');
-    this._mainRow.appendChild(this._toggleElement);
+    this._infoContainer = this._mainRow.createChild('div', 'infobar-info-container');
+
+    this._infoMessage = this._infoContainer.createChild('div', 'infobar-info-message');
+    this._infoMessage.createChild('div', type + '-icon icon');
+    this._infoText = this._infoMessage.createChild('div', 'infobar-info-text');
+    this._infoText.textContent = text;
+
+    this._actionContainer = this._infoContainer.createChild('div', 'infobar-info-actions');
+    if (actions) {
+      for (const action of actions) {
+        const actionCallback = this._actionCallbackFactory(action);
+        let buttonClass = 'infobar-button';
+        if (action.highlight) {
+          buttonClass += ' primary-button';
+        }
+
+        this._actionContainer.appendChild(createTextButton(action.text, actionCallback, buttonClass));
+      }
+    }
 
     /** @type {?Common.Settings.Setting} */
     this._disableSetting = disableSetting || null;
     if (disableSetting) {
-      const disableButton = createTextButton(ls`never show`, this._onDisable.bind(this), 'infobar-toggle link-style');
-      this._mainRow.appendChild(disableButton);
+      const disableButton = createTextButton(ls`Never Show`, this._onDisable.bind(this), 'infobar-button');
+      this._actionContainer.appendChild(disableButton);
     }
 
-    this._closeButton = this._contentElement.createChild('div', 'close-button', 'dt-close-button');
+    this._closeContainer = this._mainRow.createChild('div', 'infobar-close-container');
+    this._toggleElement =
+        createTextButton(ls`Learn More`, this._onToggleDetails.bind(this), 'infobar-button link-style hidden');
+    this._closeContainer.appendChild(this._toggleElement);
+
+    this._closeButton = this._closeContainer.createChild('div', 'close-button', 'dt-close-button');
     this._closeButton.setTabbable(true);
     self.onInvokeElement(this._closeButton, this.dispose.bind(this));
 
@@ -50,13 +69,14 @@ export class Infobar {
    * @param {!Type} type
    * @param {string} text
    * @param {!Common.Settings.Setting=} disableSetting
+   * @param {!Array<!InfobarAction>=} actions
    * @return {?Infobar}
    */
-  static create(type, text, disableSetting) {
+  static create(type, text, disableSetting, actions) {
     if (disableSetting && disableSetting.get()) {
       return null;
     }
-    return new Infobar(type, text, disableSetting);
+    return new Infobar(type, text, disableSetting, actions);
   }
 
   dispose() {
@@ -89,6 +109,26 @@ export class Infobar {
     this._parentView = parentView;
   }
 
+  /**
+   * @param {!InfobarAction} action
+   * @returns {!function()}
+   */
+  _actionCallbackFactory(action) {
+    if (!action.delegate) {
+      return action.dismiss ? this.dispose.bind(this) : () => {};
+    }
+
+    if (!action.dismiss) {
+      return action.delegate;
+    }
+
+    return (() => {
+             action.delegate();
+             this.dispose();
+           })
+        .bind(this);
+  }
+
   _onResize() {
     if (this._parentView) {
       this._parentView.doResize();
@@ -118,6 +158,15 @@ export class Infobar {
     return detailsRowMessage;
   }
 }
+
+/** @typedef {{
+ *        text: !string,
+ *        highlight: !boolean,
+ *        delegate: ?function(),
+ *        dismiss: !boolean
+ * }}
+ */
+export let InfobarAction;
 
 /** @enum {string} */
 export const Type = {
