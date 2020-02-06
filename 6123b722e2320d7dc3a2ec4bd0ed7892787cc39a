@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9be7dbca_00e5a910",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T12:22:41Z",
+      "side": 1,
+      "message": "The source map should not be loaded. The fact that that\u0027s happening is a bug, so this testcase actually should contain assertions catching that case.\n\nListening for events flying in the frontend is certainly a way to do it. Do we want to set that precedent in e2e tests though?",
+      "parentUuid": "cae8022d_4c305e7d",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 57
+      },
+      "revId": "6123b722e2320d7dc3a2ec4bd0ed7892787cc39a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "206637c4_71e1ca5e",
         "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
         "patchSetId": 4
@@ -59,6 +83,30 @@
       "writtenOn": "2020-02-06T12:22:15Z",
       "side": 1,
       "message": "These selectors are copied from script-in-multiple-workers.ts, so if you have ideas for how to navigate the tree view without them I\u0027m interested in hearing them as well. I have found it quite tricky to find workable selectors. For example the navpane selector has the \u0027 div.vbox\u0027 on the end because that node has no interesting markers to select with, but if you drop this and select its parent instead, the next selector that searches the shadow dom for the tree outline fails.",
+      "parentUuid": "206637c4_71e1ca5e",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 107
+      },
+      "revId": "6123b722e2320d7dc3a2ec4bd0ed7892787cc39a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba1a7c36_b1658399",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T12:22:41Z",
+      "side": 1,
+      "message": "Happy do do this in a more stable way, but this was the only way I could make it work across shadow doms. What would be a better apprach?",
       "parentUuid": "206637c4_71e1ca5e",
       "range": {
         "startLine": 67,
