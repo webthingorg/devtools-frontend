@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cae8022d_4c305e7d",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T11:51:02Z",
+      "side": 1,
+      "message": "The mock can handle the script, but per the internal chat, it seems that it does not mock away all of the require machinery. It seems to still have the side-effect of loading the corresponding sourcemap. Could you either mock all of the machinery related to loading these WASM files or update the test to explicitly listen for the loading of these files to be finished? That should hopefully prevent this test from becoming flaky.",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 57
+      },
+      "revId": "6123b722e2320d7dc3a2ec4bd0ed7892787cc39a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "206637c4_71e1ca5e",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-06T11:51:02Z",
+      "side": 1,
+      "message": "These selectors rely on DOM structure, which is brittle if we want to (and will) change the inner workings of DevTools.\n\nCan we use different selectors that abstract away from this? The Console tests has an example. I am currently working on an e2etest for the Network panel, which has a different example. Feel free to poke me for questions about it.",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 107
+      },
+      "revId": "6123b722e2320d7dc3a2ec4bd0ed7892787cc39a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
