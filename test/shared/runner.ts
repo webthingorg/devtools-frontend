@@ -83,7 +83,8 @@ hostedModeServer.stderr.on('data', handleHostedModeError);
     const resetPages =
         async (...enabledExperiments: string[]) => {
       // Reload the target page.
-      await srcPage.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
+      await srcPage.goto('about:blank', {waitUntil: ['domcontentloaded']});
+      await srcPage.goto(targetUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
       // Clear any local storage settings.
       await frontend.evaluate(() => localStorage.clear());
@@ -95,7 +96,8 @@ hostedModeServer.stderr.on('data', handleHostedModeError);
       }, enabledExperiments);
 
       // Reload the DevTools frontend and await the elements panel.
-      await frontend.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
+      await frontend.goto('about:blank', {waitUntil: ['domcontentloaded']});
+      await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
       await frontend.waitForSelector('.elements');
     }
 
