@@ -352,7 +352,8 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame {
 
     // The order of these plugins matters for toolbar items
     if (DebuggerPlugin.accepts(pluginUISourceCode)) {
-      this._plugins.push(new DebuggerPlugin(this.textEditor, pluginUISourceCode, this.transformer()));
+      this._plugins.push(
+          new DebuggerPlugin(this.textEditor, pluginUISourceCode, this.transformer(), this._prettyPrintCallback));
     }
     if (CSSPlugin.accepts(pluginUISourceCode)) {
       this._plugins.push(new CSSPlugin(this.textEditor));
