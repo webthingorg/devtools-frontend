@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ffb7f9c1_6e781f3c",
+        "filename": "test/e2e/debugger/wasm-dwarf-plugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T11:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f13a02f0_e490b486",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 85
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e596a9dc_d81066b5",
         "filename": "test/e2e/debugger/wasm-dwarf-plugin.ts",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ef71cc0_dc49f741",
+        "filename": "test/e2e/debugger/wasm-dwarf-plugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T11:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e596a9dc_d81066b5",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "95803fed_cdd944c0",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T11:26:08Z",
+      "side": 1,
+      "message": "That was a symlink. I realize that\u0027s not a good idea to check in :)",
+      "parentUuid": "4f2667e0_23f04802",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a49069b_443d16f5",
         "filename": "test/e2e/test-list.ts",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fcada76_05eb5090",
+        "filename": "test/e2e/test-list.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T11:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a49069b_443d16f5",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "529898b4f3be0ff1ff8b662df89b6a336c620711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
