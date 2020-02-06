@@ -186,6 +186,8 @@ export class SoftContextMenu {
     menuItemElement._subItems = item.subItems;
     menuItemElement.tabIndex = -1;
     UI.ARIAUtils.markAsMenuItemSubMenu(menuItemElement);
+    // TODO: Make a contextmenu queryable based on AOM structure instead of aria-label
+    UI.ARIAUtils.setAccessibleName(menuItemElement, item.label);
 
     // Occupy the same space on the left in all items.
     const checkMarkElement = Icon.create('smallicon-checkmark', 'soft-context-menu-item-checkmark');
