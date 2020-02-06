@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66cafbd0_794a7fed",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-02-06T14:09:02Z",
+      "side": 1,
+      "message": "What about SIGTERM here? Are you using USR1 or USR2 for anything? Normally they don\u0027t indicate termination.",
+      "revId": "fa8247b68474cc9af8f65f24c0371e1e314ecf1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
