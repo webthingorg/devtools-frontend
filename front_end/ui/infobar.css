@@ -74,6 +74,10 @@
     padding: 0 4px;
 }
 
+.infobar-button.link-style {
+    color: hsl(214, 92%, 50%);
+}
+
 .info-icon {
     -webkit-mask-image: url(Images/ic_info_black_18dp.svg);
     background-color: hsl(214, 92%, 50%);
