@@ -183,7 +183,7 @@ export class DebuggerPlugin extends Plugin {
       }
     }
 
-    const infobar = new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in debugger'), [
+    const infobar = new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in the debugger'), [
       {text: ls`Unblackbox`, highlight: false, delegate: unblackbox, dismiss: true}, {
         text: ls`Configure`,
         highlight: false,
@@ -194,7 +194,7 @@ export class DebuggerPlugin extends Plugin {
     this._blackboxInfobar = infobar;
 
     infobar.createDetailsRowMessage(
-        Common.UIString('Debugger will skip stepping through this script, and will not stop on exceptions'));
+        Common.UIString('The debugger will skip stepping through this script, and will not stop on exceptions.'));
 
     const scriptFile = this._scriptFileForDebuggerModel.size ? this._scriptFileForDebuggerModel.valuesArray()[0] : null;
     if (scriptFile && scriptFile.hasSourceMapURL()) {
@@ -1572,7 +1572,7 @@ export class DebuggerPlugin extends Plugin {
 
     this._prettyPrintInfobar = UI.Infobar.create(
         UI.Infobar.Type.Info, Common.UIString('Pretty-print this minified file?'),
-        [{text: ls`Pretty Print`, delegate: formatterCallback, highlight: true, dismiss: true}],
+        [{text: ls`Pretty-print`, delegate: formatterCallback, highlight: true, dismiss: true}],
         Common.settings.createSetting('prettyPrintInfobarDisabled', false));  // TODO localize
 
     if (!this._prettyPrintInfobar) {
@@ -1590,7 +1590,7 @@ export class DebuggerPlugin extends Plugin {
     toolbar.element.tabIndex = -1;
     const element = this._prettyPrintInfobar.createDetailsRowMessage();
     element.appendChild(UI.formatLocalized(
-        'You can click the %s button on the bottom status bar, and continue debugging with the new formatted source.',
+        'Pretty-printing will format this file in a new tab where you can continue debugging. You can also pretty-print this file by clicking the %s button on the bottom status bar.',
         [toolbar.element]));
     this._textEditor.attachInfobar(this._prettyPrintInfobar);
   }

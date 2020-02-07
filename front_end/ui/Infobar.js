@@ -48,13 +48,13 @@ export class Infobar {
     /** @type {?Common.Settings.Setting} */
     this._disableSetting = disableSetting || null;
     if (disableSetting) {
-      const disableButton = createTextButton(ls`Never Show`, this._onDisable.bind(this), 'infobar-button');
+      const disableButton = createTextButton(ls`Don't show again`, this._onDisable.bind(this), 'infobar-button');
       this._actionContainer.appendChild(disableButton);
     }
 
     this._closeContainer = this._mainRow.createChild('div', 'infobar-close-container');
     this._toggleElement =
-        createTextButton(ls`Learn More`, this._onToggleDetails.bind(this), 'infobar-button link-style hidden');
+        createTextButton(ls`Learn more`, this._onToggleDetails.bind(this), 'infobar-button link-style hidden');
     this._closeContainer.appendChild(this._toggleElement);
 
     this._closeButton = this._closeContainer.createChild('div', 'close-button', 'dt-close-button');
