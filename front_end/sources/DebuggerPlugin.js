@@ -176,31 +176,32 @@ export class DebuggerPlugin extends Plugin {
       this._blackboxInfobar.dispose();
     }
 
-    const infobar = new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in debugger'));
-    this._blackboxInfobar = infobar;
-
-    infobar.createDetailsRowMessage(
-        Common.UIString('Debugger will skip stepping through this script, and will not stop on exceptions'));
-
-    const scriptFile = this._scriptFileForDebuggerModel.size ? this._scriptFileForDebuggerModel.valuesArray()[0] : null;
-    if (scriptFile && scriptFile.hasSourceMapURL()) {
-      infobar.createDetailsRowMessage(Common.UIString('Source map found, but ignored for blackboxed file.'));
-    }
-    infobar.createDetailsRowMessage();
-    infobar.createDetailsRowMessage(Common.UIString('Possible ways to cancel this behavior are:'));
-
-    infobar.createDetailsRowMessage(' - ').createTextChild(
-        Common.UIString('Go to "%s" tab in settings', Common.UIString('Blackboxing')));
-    const unblackboxLink = infobar.createDetailsRowMessage(' - ').createChild('span', 'link');
-    unblackboxLink.textContent = Common.UIString('Unblackbox this script');
-    unblackboxLink.addEventListener('click', unblackbox, false);
-
     function unblackbox() {
       self.Bindings.blackboxManager.unblackboxUISourceCode(uiSourceCode);
       if (projectType === Workspace.projectTypes.ContentScripts) {
         self.Bindings.blackboxManager.unblackboxContentScripts();
       }
     }
+
+    const infobar =
+        new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in the debugger'), [
+          {text: ls`Unblackbox`, highlight: false, delegate: unblackbox, dismiss: true}, {
+            text: ls`Configure`,
+            highlight: false,
+            delegate: self.UI.viewManager.showView.bind(self.UI.viewManager, 'blackbox'),
+            dismiss: false
+          }
+        ]);
+    this._blackboxInfobar = infobar;
+
+    infobar.createDetailsRowMessage(
+        Common.UIString('The debugger will skip stepping through this script, and will not stop on exceptions.'));
+
+    const scriptFile = this._scriptFileForDebuggerModel.size ? this._scriptFileForDebuggerModel.valuesArray()[0] : null;
+    if (scriptFile && scriptFile.hasSourceMapURL()) {
+      infobar.createDetailsRowMessage(Common.UIString('Source map found, but ignored for blackboxed file.'));
+    }
+
     this._textEditor.attachInfobar(this._blackboxInfobar);
   }
 
@@ -1541,7 +1542,7 @@ export class DebuggerPlugin extends Plugin {
       return;
     }
     this._sourceMapInfobar = UI.Infobar.create(
-        UI.Infobar.Type.Info, Common.UIString('Source Map detected.'),
+        UI.Infobar.Type.Info, Common.UIString('Source Map detected.'), [],
         self.Common.settings.createSetting('sourceMapInfobarDisabled', false));
     if (!this._sourceMapInfobar) {
       return;
@@ -1555,15 +1556,26 @@ export class DebuggerPlugin extends Plugin {
     this._textEditor.attachInfobar(this._sourceMapInfobar);
   }
 
-  _detectMinified() {
+  async _detectMinified() {
     const content = this._uiSourceCode.content();
     if (!content || !TextUtils.isMinified(content)) {
       return;
     }
 
+    const editorActions = await self.runtime.allInstances(Sources.SourcesView.EditorAction);
+    let formatterCallback = null;
+    for (const editorAction of editorActions) {
+      if (editorAction instanceof Sources.ScriptFormatterEditorAction) {
+        formatterCallback = editorAction.toggleFormatScriptSource.bind(editorAction);
+        break;
+      }
+    }
+
     this._prettyPrintInfobar = UI.Infobar.create(
         UI.Infobar.Type.Info, Common.UIString('Pretty-print this minified file?'),
-        self.Common.settings.createSetting('prettyPrintInfobarDisabled', false));
+        [{text: ls`Pretty-print`, delegate: formatterCallback, highlight: true, dismiss: true}],
+        Common.settings.createSetting('prettyPrintInfobarDisabled', false));  // TODO localize
+
     if (!this._prettyPrintInfobar) {
       return;
     }
@@ -1579,7 +1591,7 @@ export class DebuggerPlugin extends Plugin {
     toolbar.element.tabIndex = -1;
     const element = this._prettyPrintInfobar.createDetailsRowMessage();
     element.appendChild(UI.formatLocalized(
-        'You can click the %s button on the bottom status bar, and continue debugging with the new formatted source.',
+        'Pretty-printing will format this file in a new tab where you can continue debugging. You can also pretty-print this file by clicking the %s button on the bottom status bar.',
         [toolbar.element]));
     this._textEditor.attachInfobar(this._prettyPrintInfobar);
   }
