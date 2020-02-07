@@ -56,7 +56,7 @@ const EXCLUDED_FILES = [
   // FIXME: LightHouse bundles must be moved to third_party
   'audits/lighthouse/report.js',
   'audits/lighthouse/report-generator.js',
-  'audits_worker/lighthouse/lighthouse-dt-bundle.js',
+  'lighthouse_worker/lighthouse/lighthouse-dt-bundle.js',
   // FIXME: CodeMirror bundles must be moved to third_party
   'cm/active-line.js',
   'cm/brace-fold.js',
