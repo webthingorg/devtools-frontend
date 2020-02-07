@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d648194_c0c403e5",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-07T14:20:07Z",
+      "side": 1,
+      "message": "Side-question: any particular reason you dediced to decrement here, even though `i` is unused in this for-loop? Just curious.",
+      "range": {
+        "startLine": 212,
+        "startChar": 37,
+        "endLine": 212,
+        "endChar": 40
+      },
+      "revId": "f5c62048165659d075d750628b8d97995c514390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
