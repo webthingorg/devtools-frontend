@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7407d15a_1a3fa644",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-07T16:31:17Z",
+      "side": 1,
+      "message": "I need to clean this up, but I thought we had a presubmit check for this?",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 9
+      },
+      "revId": "cba8f17f83304f08f62d04c43971bcfee672acc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
