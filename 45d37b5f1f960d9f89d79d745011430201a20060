@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bef9f04_7b5b0a9e",
+        "filename": "test/e2e/sources/can-show-multiple-workers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-07T14:21:14Z",
+      "side": 1,
+      "message": "We should probably improve our sourcetree-types to make more sense. In this case, `nw-folder` actually means `network-folder`. I didn\u0027t want to do that in this CL, as it also affects CSS selectors, but instead do it in a follow-up CL.",
+      "range": {
+        "startLine": 24,
+        "startChar": 45,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "45d37b5f1f960d9f89d79d745011430201a20060",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
