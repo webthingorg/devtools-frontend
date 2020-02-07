@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d58d3c5e_4cc364cd",
+        "filename": "front_end/changes/ChangesTextEditor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-07T16:11:02Z",
+      "side": 1,
+      "message": "Please file a bug in the CodeMirror repo and include a link to the bug here.",
+      "revId": "2ffa2f92774670a798349b0e7974d61881eda4bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
