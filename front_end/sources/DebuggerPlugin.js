@@ -183,14 +183,15 @@ export class DebuggerPlugin extends Plugin {
       }
     }
 
-    const infobar = new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in the debugger'), [
-      {text: ls`Unblackbox`, highlight: false, delegate: unblackbox, dismiss: true}, {
-        text: ls`Configure`,
-        highlight: false,
-        delegate: self.UI.viewManager.showView.bind(self.UI.viewManager, 'blackbox'),
-        dismiss: false
-      }
-    ]);
+    const infobar =
+        new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in the debugger'), [
+          {text: ls`Unblackbox`, highlight: false, delegate: unblackbox, dismiss: true}, {
+            text: ls`Configure`,
+            highlight: false,
+            delegate: self.UI.viewManager.showView.bind(self.UI.viewManager, 'blackbox'),
+            dismiss: false
+          }
+        ]);
     this._blackboxInfobar = infobar;
 
     infobar.createDetailsRowMessage(
