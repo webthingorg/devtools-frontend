@@ -11,7 +11,9 @@ var utils = require('../utils');
 const remoteDebuggingPort = parseInt(process.env.REMOTE_DEBUGGING_PORT, 10) || 9222;
 const serverPort = parseInt(process.env.PORT, 10) || 8090;
 const localProtocolPath = process.env.LOCAL_PROTOCOL_PATH;
-const devtoolsFolder = path.resolve(path.join(__dirname, '../..'));
+const buildName = process.env.BUILD_NAME || 'Release';
+const useDebugBuild = !!process.env.USE_DEBUG_BUILD;
+const devtoolsFolder = path.resolve(path.join(__dirname, '..', '..'));
 
 http.createServer(requestHandler).listen(serverPort);
 console.log(`Started hosted mode server at http://localhost:${serverPort}\n`);
@@ -37,6 +39,10 @@ function requestHandler(request, response) {
     console.log(`Error serving the file ${filePath}:`, err);
     console.log(`Make sure you opened Chrome with the flag "--remote-debugging-port=${remoteDebuggingPort}"`);
     sendResponse(500, '500 - Internal Server Error');
+  }
+
+  if (!useDebugBuild && buildName && filePath.startsWith('/front_end')) {
+    filePath = `/out/${buildName}/resources/inspector${filePath.replace('/front_end', '')}`;
   }
 
   var absoluteFilePath = path.join(devtoolsFolder, filePath);
