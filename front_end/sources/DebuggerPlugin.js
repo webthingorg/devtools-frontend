@@ -176,7 +176,21 @@ export class DebuggerPlugin extends Plugin {
       this._blackboxInfobar.dispose();
     }
 
-    const infobar = new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in debugger'));
+    function unblackbox() {
+      self.Bindings.blackboxManager.unblackboxUISourceCode(uiSourceCode);
+      if (projectType === Workspace.projectTypes.ContentScripts) {
+        self.Bindings.blackboxManager.unblackboxContentScripts();
+      }
+    }
+
+    const infobar = new UI.Infobar(UI.Infobar.Type.Warning, Common.UIString('This script is blackboxed in debugger'), [
+      {text: ls`Unblackbox`, highlight: false, delegate: unblackbox, dismiss: true}, {
+        text: ls`Configure`,
+        highlight: false,
+        delegate: self.UI.viewManager.showView.bind(self.UI.viewManager, 'blackbox'),
+        dismiss: false
+      }
+    ]);
     this._blackboxInfobar = infobar;
 
     infobar.createDetailsRowMessage(
@@ -186,21 +200,7 @@ export class DebuggerPlugin extends Plugin {
     if (scriptFile && scriptFile.hasSourceMapURL()) {
       infobar.createDetailsRowMessage(Common.UIString('Source map found, but ignored for blackboxed file.'));
     }
-    infobar.createDetailsRowMessage();
-    infobar.createDetailsRowMessage(Common.UIString('Possible ways to cancel this behavior are:'));
 
-    infobar.createDetailsRowMessage(' - ').createTextChild(
-        Common.UIString('Go to "%s" tab in settings', Common.UIString('Blackboxing')));
-    const unblackboxLink = infobar.createDetailsRowMessage(' - ').createChild('span', 'link');
-    unblackboxLink.textContent = Common.UIString('Unblackbox this script');
-    unblackboxLink.addEventListener('click', unblackbox, false);
-
-    function unblackbox() {
-      self.Bindings.blackboxManager.unblackboxUISourceCode(uiSourceCode);
-      if (projectType === Workspace.projectTypes.ContentScripts) {
-        self.Bindings.blackboxManager.unblackboxContentScripts();
-      }
-    }
     this._textEditor.attachInfobar(this._blackboxInfobar);
   }
 
@@ -1541,7 +1541,7 @@ export class DebuggerPlugin extends Plugin {
       return;
     }
     this._sourceMapInfobar = UI.Infobar.create(
-        UI.Infobar.Type.Info, Common.UIString('Source Map detected.'),
+        UI.Infobar.Type.Info, Common.UIString('Source Map detected.'), [],
         self.Common.settings.createSetting('sourceMapInfobarDisabled', false));
     if (!this._sourceMapInfobar) {
       return;
@@ -1555,15 +1555,26 @@ export class DebuggerPlugin extends Plugin {
     this._textEditor.attachInfobar(this._sourceMapInfobar);
   }
 
-  _detectMinified() {
+  async _detectMinified() {
     const content = this._uiSourceCode.content();
     if (!content || !TextUtils.isMinified(content)) {
       return;
     }
 
+    const editorActions = await self.runtime.allInstances(Sources.SourcesView.EditorAction);
+    let formatterCallback = null;
+    for (const editorAction of editorActions) {
+      if (editorAction instanceof Sources.ScriptFormatterEditorAction) {
+        formatterCallback = editorAction.toggleFormatScriptSource.bind(editorAction);
+        break;
+      }
+    }
+
     this._prettyPrintInfobar = UI.Infobar.create(
         UI.Infobar.Type.Info, Common.UIString('Pretty-print this minified file?'),
-        self.Common.settings.createSetting('prettyPrintInfobarDisabled', false));
+        [{text: ls`Pretty Print`, delegate: formatterCallback, highlight: true, dismiss: true}],
+        Common.settings.createSetting('prettyPrintInfobarDisabled', false));  // TODO localize
+
     if (!this._prettyPrintInfobar) {
       return;
     }

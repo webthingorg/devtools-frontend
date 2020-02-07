@@ -72,6 +72,9 @@
   <message name="IDS_DEVTOOLS_212ddcf3f12042e2ad7f557788e92bf6" desc="Title of a setting under the Sources category in Settings">
     Allow scrolling past end of file
   </message>
+  <message name="IDS_DEVTOOLS_2008cb8227a88af1294d03958b21917c" desc="Label of a button in the Sources panel to pretty print the current file">
+    Pretty Print
+  </message>
   <message name="IDS_DEVTOOLS_216a9080bf22a993b2d7f9331d34cc68" desc="Text in Sources Panel of the Sources panel">
     Don&apos;t pause on exceptions
   </message>
@@ -135,6 +138,9 @@
   <message name="IDS_DEVTOOLS_3fd3dddd9661349b90b648bba2748f1b" desc="The UI destination when right clicking an item that can be revealed">
     Sources panel
   </message>
+  <message name="IDS_DEVTOOLS_41b826bce34ab4e527b30470f0c7dafe" desc="Text of a button in the Sources panel Debugger Plugin to unblackbox a script">
+    Unblackbox
+  </message>
   <message name="IDS_DEVTOOLS_41c03dfb0ea5890d60756ad55c6e47b1" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Detect indentation
   </message>
@@ -179,9 +185,6 @@
   </message>
   <message name="IDS_DEVTOOLS_590d0b32e1139c6c3bcb0f99ed978dff" desc="Text in Debugger Paused Message of the Sources panel">
     subtree modifications
-  </message>
-  <message name="IDS_DEVTOOLS_5a3bb6a64da384e59876cd0bc00a6eae" desc="Unblackbox link text content in Debugger Plugin of the Sources panel">
-    Unblackbox this script
   </message>
   <message name="IDS_DEVTOOLS_5bcc1f50ed61246502d37ce93368dda8" desc="Text in Debugger Paused Message of the Sources panel">
     Paused on XHR or fetch
@@ -366,9 +369,6 @@
   <message name="IDS_DEVTOOLS_a6e75eb31dc77e8d077fb6f92909e191" desc="A context menu item in the Navigator View of the Sources panel">
     Open folder
   </message>
-  <message name="IDS_DEVTOOLS_a7706b6eb022a90c58cf658d0085d6d1" desc="Text in Debugger Plugin of the Sources panel">
-    Possible ways to cancel this behavior are:
-  </message>
   <message name="IDS_DEVTOOLS_a95c3c1dc2719e527889096bbd7b662c" desc="Search label in Navigator View of the Sources panel">
     Search in all files
   </message>
@@ -428,9 +428,6 @@
   </message>
   <message name="IDS_DEVTOOLS_c12de9f9edb401ca79a3291f1831ae6f" desc="Text in the Sources panel Scope pane describing a closure scope.">
     Closure (<ph name="UI_BEAUTIFYFUNCTIONNAME_SCOPENAME_">$1s<ex>func</ex></ph>)
-  </message>
-  <message name="IDS_DEVTOOLS_c2e59ab4f410655458110ae524bdc9be" desc="Text of a DOM element in Debugger Plugin of the Sources panel">
-    Go to &quot;<ph name="COMMON_UISTRING__BLACKBOXING__">$1s<ex>Blackboxing</ex></ph>&quot; tab in settings
   </message>
   <message name="IDS_DEVTOOLS_c322e65e12002c3bd486ff62ff5b1fd6" desc="Text in Debugger Paused Message of the Sources panel">
     node removal
@@ -512,6 +509,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f0a47f037ca7a988466a647277ef1134" desc="Text in Debugger Paused Message of the Sources panel">
     Paused on assertion
+  </message>
+  <message name="IDS_DEVTOOLS_f1206f9fadc5ce41694f69129aecac26" desc="Text of a button in the Sources panel Debugger Plugin to configure blackboxing in Settings">
+    Configure
   </message>
   <message name="IDS_DEVTOOLS_f156b89abea73d4db0bf1b212d198c41" desc="Tooltip/screen reader label of a button in the Sources panel that refreshes all watch expressions.">
     Refresh watch expressions
