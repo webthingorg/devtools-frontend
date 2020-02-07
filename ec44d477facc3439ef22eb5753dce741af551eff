@@ -16,6 +16,24 @@
       "revId": "ec44d477facc3439ef22eb5753dce741af551eff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "644d4978_82dc873c",
+        "filename": "front_end/ui/ForwardedInputEventHandler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-02-07T16:47:39Z",
+      "side": 1,
+      "message": "I agree with the suggestion in general. I debated doing something like this, but decided not to given this regression has already shipped to stable in Chrome 80. In this case I think we should keep the change as minimal and close to the original code as possible in case we want to pull it into servicing.",
+      "parentUuid": "45df8bf9_1c921c44",
+      "revId": "ec44d477facc3439ef22eb5753dce741af551eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
