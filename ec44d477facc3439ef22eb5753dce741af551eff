@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45df8bf9_1c921c44",
+        "filename": "front_end/ui/ForwardedInputEventHandler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-07T15:40:41Z",
+      "side": 1,
+      "message": "I recognize that this pattern is not uncommon throughout the devtools, but I think it\u0027s generally considered bad to use a constructor call without assigning it to a value. I\u0027d like to see this refactored to something like \n\n    ForwardedInputEventHandler.createGlobal();\n\nI realize that will introduce an additional function, etc. etc., but then at least it\u0027s clear that the side effect is intended and not a code oops.",
+      "revId": "ec44d477facc3439ef22eb5753dce741af551eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
