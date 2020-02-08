@@ -70,7 +70,7 @@ export class SettingsScreen extends UI.Widget.VBox {
   /**
    * @param {string=} name
    */
-  static _showSettingsScreen(name) {
+  static async _showSettingsScreen(name) {
     const settingsScreen =
         /** @type {!SettingsScreen} */ (self.runtime.sharedInstance(SettingsScreen));
     if (settingsScreen.isShowing()) {
@@ -85,6 +85,9 @@ export class SettingsScreen extends UI.Widget.VBox {
     settingsScreen.show(dialog.contentElement);
     dialog.show();
     settingsScreen._selectTab(name || 'preferences');
+    const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
+    await tabbedPane.waitForTabElementUpdate();
+    tabbedPane.focusSelectedTabHeader();
   }
 
   /**
