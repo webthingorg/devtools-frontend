@@ -37,13 +37,13 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this.registerRequiredCSS('inspector_main/renderingOptions.css');
 
     this._appendCheckbox(
-        ls`Paint flashing`,
-        ls
+      ls`Paint flashing`,
+      ls
         `Highlights areas of the page (green) that need to be repainted. May not be suitable for people prone to photosensitive epilepsy.`,
         self.Common.settings.moduleSetting('showPaintRects'));
     this._appendCheckbox(
-        ls`Layout Shift Regions`,
-        ls
+      ls`Layout Shift Regions`,
+      ls
         `Highlights areas of the page (blue) that were shifted. May not be suitable for people prone to photosensitive epilepsy.`,
         self.Common.settings.moduleSetting('showLayoutShiftRegions'));
         this._appendCheckbox(
@@ -53,8 +53,8 @@ export class RenderingOptionsView extends UI.Widget.VBox {
             ls`FPS meter`, ls`Plots frames per second, frame rate distribution, and GPU memory.`,
             self.Common.settings.moduleSetting('showFPSCounter'));
     this._appendCheckbox(
-        ls`Scrolling performance issues`,
-        ls
+      ls`Scrolling performance issues`,
+      ls
         `Highlights elements (teal) that can slow down scrolling, including touch & wheel event handlers and other main-thread scrolling situations.`,
         self.Common.settings.moduleSetting('showScrollBottleneckRects'));
         this._appendCheckbox(
@@ -74,6 +74,9 @@ export class RenderingOptionsView extends UI.Widget.VBox {
         this._appendSelect(
             ls`Forces CSS prefers-reduced-motion media feature`,
             self.Common.settings.moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
+        this._appendSelect(
+            ls`Forces CSS forced-colors media feature`,
+            self.Common.settings.moduleSetting('emulatedCSSMediaFeatureForcedColors'));
   }
 
   /**

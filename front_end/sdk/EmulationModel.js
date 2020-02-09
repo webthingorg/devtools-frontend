@@ -33,6 +33,7 @@ export class EmulationModel extends SDKModel {
         self.Common.settings.moduleSetting('emulatedCSSMediaFeaturePrefersColorScheme');
     const mediaFeaturePrefersReducedMotionSetting =
         self.Common.settings.moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion');
+    const mediaFeatureForcedColorsSetting = self.Common.settings.moduleSetting('emulatedCSSMediaFeatureForcedColors');
     // Note: this uses a different format than what the CDP API expects,
     // because we want to update these values per media type/feature
     // without having to search the `features` array (inefficient) or
@@ -41,6 +42,7 @@ export class EmulationModel extends SDKModel {
       ['type', mediaTypeSetting.get()],
       ['prefers-color-scheme', mediaFeaturePrefersColorSchemeSetting.get()],
       ['prefers-reduced-motion', mediaFeaturePrefersReducedMotionSetting.get()],
+      ['forced-colors', mediaFeatureForcedColorsSetting.get()],
     ]);
     mediaTypeSetting.addChangeListener(() => {
       this._mediaConfiguration.set('type', mediaTypeSetting.get());
@@ -52,6 +54,10 @@ export class EmulationModel extends SDKModel {
     });
     mediaFeaturePrefersReducedMotionSetting.addChangeListener(() => {
       this._mediaConfiguration.set('prefers-reduced-motion', mediaFeaturePrefersReducedMotionSetting.get());
+      this._updateCssMedia();
+    });
+    mediaFeatureForcedColorsSetting.addChangeListener(() => {
+      this._mediaConfiguration.set('forced-colors', mediaFeatureForcedColorsSetting.get());
       this._updateCssMedia();
     });
     this._updateCssMedia();
@@ -203,6 +209,10 @@ export class EmulationModel extends SDKModel {
       {
         name: 'prefers-reduced-motion',
         value: this._mediaConfiguration.get('prefers-reduced-motion'),
+      },
+      {
+        name: 'forced-colors',
+        value: this._mediaConfiguration.get('forced-colors'),
       },
     ];
     this._emulateCSSMedia(type, features);

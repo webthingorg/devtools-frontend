@@ -42,6 +42,9 @@
   <message name="IDS_DEVTOOLS_616e08b00feb46b7abdca3c6190f63ac" desc="Subtitle for a select box under the Rendering drawer">
     Forces CSS prefers-color-scheme media feature
   </message>
+  <message name="IDS_DEVTOOLS_651677d5bfc4633d8b5fbb60be03f33c" desc="Subtitle for a select box under the Rendering drawer">
+    Forces CSS forced-colors media feature
+  </message>
   <message name="IDS_DEVTOOLS_6526f858ca97d80241dacb00b40504bb" desc="Checkbox subtitle for 'Hit-test borders' in the Rendering tool">
     Shows borders around hit-test regions.
   </message>
