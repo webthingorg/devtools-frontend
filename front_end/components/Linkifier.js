@@ -293,14 +293,14 @@ export class Linkifier {
   }
 
   reset() {
-    for (const target of this._anchorsByTarget.keysArray()) {
+    for (const target of this._anchorsByTarget.keys()) {
       this.targetRemoved(target);
       this.targetAdded(target);
     }
   }
 
   dispose() {
-    for (const target of this._anchorsByTarget.keysArray()) {
+    for (const target of this._anchorsByTarget.keys()) {
       this.targetRemoved(target);
     }
     self.SDK.targetManager.unobserveTargets(this);
