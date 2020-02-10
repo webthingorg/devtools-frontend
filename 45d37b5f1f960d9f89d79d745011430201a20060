@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5dff8efa_136b3d91",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-10T11:48:55Z",
+      "side": 1,
+      "message": "Are you confident this is the right thing in terms of a11y?",
+      "revId": "45d37b5f1f960d9f89d79d745011430201a20060",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3bef9f04_7b5b0a9e",
         "filename": "test/e2e/sources/can-show-multiple-workers.ts",
         "patchSetId": 1
