@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65891057_d352ab89",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-10T14:56:50Z",
+      "side": 1,
+      "message": "Can we do something with this, like make an array:\n\n[\u0027line 1\u0027,\n\u0027line 2\u0027].join(\u0027\u0027)\n\nwdyt?",
+      "revId": "84ee397ac5f7f22255302d65de3218a56494e587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
