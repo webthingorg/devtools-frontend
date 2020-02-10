@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1bdb4b8_3b52aded",
+        "filename": "front_end/elements/computedStyleWidgetTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-10T04:15:54Z",
+      "side": 1,
+      "message": "Isolated setting tree-outline expand icon indication to `HighlightText` on hover to computed styles. We should probably normalize the hover behavior of tree-outlines since having some that fill the bg on hover and others that don\u0027t makes little sense.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 99
+      },
+      "revId": "af834be4e0364576cedef9315bc4fa2b8d361cf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
