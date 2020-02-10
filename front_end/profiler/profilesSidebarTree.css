@@ -188,3 +188,23 @@ li.small .subtitle {
 .profile-group-sidebar-tree-item .icon {
     content: url(Images/profileGroupIcon.png);
 }
+
+@media (forced-colors: active) {
+    .tree-outline li,
+    .tree-outline li.profiles-tree-section,
+    .tree-outline li:hover .tree-element-title {
+        color: ButtonText;
+        text-shadow: unset;
+        border: transparent;
+    }
+    .tree-outline:not(.hide-selection-when-blurred) li.selected[data-keyboard-focus="true"]:focus {
+        box-shadow: 0 0 0 2px ButtonText inset;
+    }
+    .tree-outline li.profiles-tree-section {
+        border-top: 1px solid ButtonText;
+        border-bottom: 1px solid ButtonText;
+    }
+    .tree-outline li.profiles-tree-section:hover {
+        background-color: Canvas !important;
+    }
+}
