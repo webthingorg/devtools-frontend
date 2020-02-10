@@ -975,6 +975,7 @@ export class NavigatorFolderTreeElement extends UI.TreeElement {
   constructor(navigatorView, type, title, hoverCallback) {
     super('', true);
     this.listItemElement.classList.add('navigator-' + type + '-tree-item', 'navigator-folder-tree-item');
+    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${type}: ${title}`);
     this._nodeType = type;
     this.title = title;
     this.tooltip = title;
@@ -1022,6 +1023,7 @@ export class NavigatorFolderTreeElement extends UI.TreeElement {
     }
     paths.reverse();
     this.tooltip = paths.join('/');
+    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${this._nodeType}: ${this.tooltip}`);
   }
 
   /**
@@ -1076,6 +1078,7 @@ export class NavigatorSourceTreeElement extends UI.TreeElement {
     this.listItemElement.classList.add(
         'navigator-' + uiSourceCode.contentType().name() + '-tree-item', 'navigator-file-tree-item');
     this.tooltip = uiSourceCode.url();
+    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${this._nodeType}: ${this.tooltip}`);
     this._navigatorView = navigatorView;
     this._uiSourceCode = uiSourceCode;
     this.updateIcon();
