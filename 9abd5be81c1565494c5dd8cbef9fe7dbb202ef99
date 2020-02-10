@@ -16,6 +16,24 @@
       "revId": "9abd5be81c1565494c5dd8cbef9fe7dbb202ef99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba2813cc_5d38fb4d",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-10T18:54:48Z",
+      "side": 1,
+      "message": "contentElement isn\u0027t focusable so this line doesn\u0027t do anything. removed",
+      "parentUuid": "bdc39993_5a9759d5",
+      "revId": "9abd5be81c1565494c5dd8cbef9fe7dbb202ef99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
