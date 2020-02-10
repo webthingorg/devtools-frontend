@@ -22,6 +22,30 @@
       "revId": "49cecbc2a04b2351596c760f0a7866752518c47c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e68685b1_e0ef5752",
+        "filename": "front_end/ui/treeoutline.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-10T17:54:48Z",
+      "side": 1,
+      "message": "I was surprised too. When the treeoutline row is selected and has focus the class `force-white-icons` is applied to the \u003cli /\u003e: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/inspectorCommon.css;l\u003d411?q\u003dinspectorcommon\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F.\n\nThe concept of `force-white-icons` feels hacky to me. However, addressing it as a part of high contrast theming is out of scope imo.",
+      "parentUuid": "62b5e5e3_cacb678a",
+      "range": {
+        "startLine": 209,
+        "startChar": 40,
+        "endLine": 209,
+        "endChar": 50
+      },
+      "revId": "49cecbc2a04b2351596c760f0a7866752518c47c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
