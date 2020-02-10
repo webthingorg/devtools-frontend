@@ -330,7 +330,7 @@ export const resolveThisObject = function(callFrame) {
    * @return {!Promise<?SDK.RemoteObject>}
    */
   function onScopeResolved(namesMapping) {
-    const thisMappings = namesMapping.inverse().get('this');
+    const thisMappings = findAllThisMappings(namesMapping);
     if (!thisMappings || thisMappings.size !== 1) {
       return Promise.resolve(callFrame.thisObject());
     }
@@ -346,6 +346,16 @@ export const resolveThisObject = function(callFrame) {
           generatePreview: true
         })
         .then(onEvaluated);
+  }
+
+  function findAllThisMappings(namesMapping) {
+    const result = new Set();
+    for (const [key, value] of namesMapping) {
+      if (value === 'this') {
+        result.add(key);
+      }
+    }
+    return result;
   }
 
   /**

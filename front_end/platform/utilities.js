@@ -1094,18 +1094,6 @@ Map.prototype.keysArray = function() {
 };
 
 /**
- * @return {!Platform.Multimap<!KEY, !VALUE>}
- */
-Map.prototype.inverse = function() {
-  const result = new Platform.Multimap();
-  for (const key of this.keys()) {
-    const value = this.get(key);
-    result.set(value, key);
-  }
-  return result;
-};
-
-/**
  * @template K, V
  */
 const Multimap = class {
