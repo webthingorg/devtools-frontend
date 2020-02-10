@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d058e7a_ccc6f3c5",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-10T22:13:40Z",
+      "side": 1,
+      "message": "How about \"was not along\"? or even more explicitly \"was not an exact match for or a superdirectory of\"",
+      "range": {
+        "startLine": 1488,
+        "startChar": 57,
+        "endLine": 1488,
+        "endChar": 71
+      },
+      "revId": "abd5c7a65a2d7bf514f4c122610f6b01f5cc171e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5de72cd2_d8bb9bce",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-10T22:13:40Z",
+      "side": 1,
+      "message": "Can we say \"registrable domain\" instead? This is the phrase used in the spec (https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-05) and is technically more accurate, since this operates on eTLD\u0027s (taking into account the Public Suffix List), not just TLD\u0027s.",
+      "range": {
+        "startLine": 1491,
+        "startChar": 135,
+        "endLine": 1491,
+        "endChar": 140
+      },
+      "revId": "abd5c7a65a2d7bf514f4c122610f6b01f5cc171e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1d2aa9f_76407c3e",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-10T22:13:40Z",
+      "side": 1,
+      "message": "top-level navigation, here and below.",
+      "range": {
+        "startLine": 1494,
+        "startChar": 140,
+        "endLine": 1494,
+        "endChar": 150
+      },
+      "revId": "abd5c7a65a2d7bf514f4c122610f6b01f5cc171e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "838eab14_99cb0f10",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-10T22:13:40Z",
+      "side": 1,
+      "message": "I would say \"cross-site\" here, to better match the spec.",
+      "range": {
+        "startLine": 1500,
+        "startChar": 242,
+        "endLine": 1500,
+        "endChar": 253
+      },
+      "revId": "abd5c7a65a2d7bf514f4c122610f6b01f5cc171e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3866f542_7aa4f4bf",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-10T22:13:40Z",
+      "side": 1,
+      "message": "Set-Cookie (uppercase), here and below, if you\u0027re referring to the response header.",
+      "range": {
+        "startLine": 1520,
+        "startChar": 12,
+        "endLine": 1520,
+        "endChar": 22
+      },
+      "revId": "abd5c7a65a2d7bf514f4c122610f6b01f5cc171e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df548a28_ff0feaf6",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-10T22:13:40Z",
+      "side": 1,
+      "message": "cross-site, here and below.",
+      "range": {
+        "startLine": 1523,
+        "startChar": 98,
+        "endLine": 1523,
+        "endChar": 110
+      },
+      "revId": "abd5c7a65a2d7bf514f4c122610f6b01f5cc171e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
