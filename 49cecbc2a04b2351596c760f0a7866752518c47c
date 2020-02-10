@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62b5e5e3_cacb678a",
+        "filename": "front_end/ui/treeoutline.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-10T13:50:36Z",
+      "side": 1,
+      "message": "Surprising that we need !important here.",
+      "range": {
+        "startLine": 209,
+        "startChar": 40,
+        "endLine": 209,
+        "endChar": 50
+      },
+      "revId": "49cecbc2a04b2351596c760f0a7866752518c47c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
