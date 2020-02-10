@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "493e2f38_9680ceb3",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-02-10T23:29:24Z",
+      "side": 1,
+      "message": "this rename seems to be internal to devtools and thus fine\nthe enum does match up in \ntools/metrics/histograms/enums.xml  e.g. https://chromium-review.googlesource.com/c/chromium/src/+/1891295\n\nI don\u0027t expect anything to break.\n\nAnd we generally don\u0027t rename things in the XML (don\u0027t know if it works), but anyway.. FYI.",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 19
+      },
+      "revId": "dc66553b44fbc16c23b5e27af15801a99d915052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
