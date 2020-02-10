@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdc39993_5a9759d5",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-10T16:09:25Z",
+      "side": 1,
+      "message": "Why is this line not working correctly? Based on your characterization of the code, this line seems as if it should be removed altogether.\n\nThat having been said: I don\u0027t think focusing on the tabs first is the correct answer. In general, I don\u0027t think you want to default-focus on navigation. I think this line probably expresses the correct direction, if not actually the correct implementation.",
+      "revId": "9abd5be81c1565494c5dd8cbef9fe7dbb202ef99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
