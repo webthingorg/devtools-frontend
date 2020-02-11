@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0c2dbc4f_66bc7d11",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-11T08:25:17Z",
+      "side": 1,
+      "message": "did we resolve the discussion around the use of the bang here?\n\nI think I\u0027m happy with it but I don\u0027t feel that strongly either way; I\u0027d also be happy to say that we should avoid it and use checks that fail the test with nice messages.",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 65
+      },
+      "revId": "1fae186478a28e7ca593d1adf7caeceaf08175a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fdfaba8_89197d32",
         "filename": "test/e2e/sources/can-format-sourcecode.ts",
         "patchSetId": 1
