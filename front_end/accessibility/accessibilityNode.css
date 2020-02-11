@@ -77,4 +77,9 @@ span.ax-value-undefined {
   .tree-outline-disclosure:hover li.parent::before {
     background-color: ButtonText;
   }
+  .tree-outline:not(.hide-selection-when-blurred) li.selected,
+  .tree-outline:not(.hide-selection-when-blurred) li.selected .ax-name {
+    forced-color-adjust: none;
+    color: ButtonFace;
+  }
 }

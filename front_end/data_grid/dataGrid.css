@@ -271,3 +271,48 @@
     width: 5px;
     z-index: 500;
 }
+
+@media (forced-colors: active) {
+    .sort-order-icon-container [is=ui-icon].icon-mask,
+    .data-grid td.disclosure::before {
+        background-color: ButtonText;
+    }
+    .data-grid th.sortable:hover .sort-order-icon-container [is=ui-icon].icon-mask,
+    .data-grid:focus tr.parent.selected td.disclosure::before {
+        background-color: HighlightText;
+    }
+    .data-grid:focus table.data tr.selected {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+        color: HighlightText;
+    }
+    .data-grid th.sortable:hover,
+    .data-grid table.data tr.revealed:hover,
+    .data-grid table.data tr.revealed.selected {
+        forced-color-adjust: none;
+        background-color: Highlight !important;
+    }
+    .data-grid th.sortable:hover *,
+    .data-grid table.data tr.revealed:hover *,
+    .data-grid table.data tr.revealed.selected * {
+        color: HighlightText;
+    }
+    .data-grid-filler-row table.data .revealed:hover {
+        forced-color-adjust: none;
+        background-color: Canvas !important;
+    }
+    .data-grid.no-selection[data-keyboard-focus="true"]:focus {
+        forced-color-adjust: none;
+        border-color: Highlight !important;
+    }
+    .striped-data-grid .revealed.data-grid-data-grid-node:nth-child(odd),
+    .striped-data-grid-starts-with-odd .revealed.data-grid-data-grid-node:nth-child(even),
+    .request-cookies-view tr.revealed.data-grid-data-grid-node.flagged-cookie-attribute-row:not(.selected):nth-child(2n),
+    .cookies-table tr.revealed.data-grid-data-grid-node.flagged-cookie-attribute-row:not(.selected):nth-child(odd) {
+        background: Canvas;
+    }
+    .data-grid th {
+        background-color: transparent;
+        border-color: Highlight;
+    }
+}
