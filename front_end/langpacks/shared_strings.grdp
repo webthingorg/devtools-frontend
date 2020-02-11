@@ -619,6 +619,9 @@
   <message name="IDS_DEVTOOLS_f31bbdd1b3e85bccd652680e16935819" desc="Text for the source of something">
     Source
   </message>
+  <message name="IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c" desc="Name of the Settings view">
+    Settings
+  </message>
   <message name="IDS_DEVTOOLS_f53944c3a55bdb5ad65c6226e358a626" desc="Text to undock the DevTools">
     Undock into separate window
   </message>
