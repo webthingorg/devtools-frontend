@@ -22,6 +22,30 @@
       "revId": "b5a08f12eab6d5549bb6bee9abe878e36dd41492",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a83a550_7cc47d40",
+        "filename": "docs/RELEASE_MGMT.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-02-11T15:35:11Z",
+      "side": 1,
+      "message": "Unfortunately I do not have a clean CL for this. The actual CL(https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2027431) is mixed with some refactorings and the actual creation of the Stable console. So how about we update this with an example in the next branch cut? I can crate that future CL and amend the docs accordingly.",
+      "parentUuid": "545562c0_b045aa3a",
+      "range": {
+        "startLine": 25,
+        "startChar": 58,
+        "endLine": 25,
+        "endChar": 59
+      },
+      "revId": "b5a08f12eab6d5549bb6bee9abe878e36dd41492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
