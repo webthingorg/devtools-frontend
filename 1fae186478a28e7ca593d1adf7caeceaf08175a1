@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8113834a_2b5c0a24",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-11T10:46:16Z",
+      "side": 1,
+      "message": "I would love a helper that asserted it existed (with a nice error) and was understood by TS so it could narrow the type from `X | null` to `X`:\n\n```\nconst elem \u003d document.querySelector(...) // type: Element | null\nassertExists(elem)\nelem.textContent // fine, because TS now has type: Element\n```\n\nI think if we made `assertExists` do:\n\n```\nassert.fail(\u0027Expected foo to exist\u0027)\nthrow new Error(\u0027to satisfy TS\u0027)\n```\n\nThat _might_ do it? May be out of scope of this CL though.",
+      "parentUuid": "f0bb9bfd_330514ea",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 65
+      },
+      "revId": "1fae186478a28e7ca593d1adf7caeceaf08175a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fdfaba8_89197d32",
         "filename": "test/e2e/sources/can-format-sourcecode.ts",
         "patchSetId": 1
