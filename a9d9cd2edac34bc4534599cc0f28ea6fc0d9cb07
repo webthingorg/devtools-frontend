@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "856b4228_cdd4c6a5",
+        "filename": "front_end/profiler/profileLauncherView.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-11T15:33:05Z",
+      "side": 1,
+      "message": "Sticking with my “only change colors in (forced-colors: active)” brand, let’s not repeat `0 0 0 2px` here. Use a CSS custom property and then only change the color.",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b437b42_acd1f4db",
+        "filename": "front_end/profiler/profilesSidebarTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-11T15:33:05Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02fa650f_fdecc9bf",
+        "filename": "front_end/profiler/profilesSidebarTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-11T15:33:05Z",
+      "side": 1,
+      "message": "For these two lines, we should only be overriding the color here, not the `1px solid`",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45686fcc_7aad88fa",
+        "filename": "front_end/profiler/profilesSidebarTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-11T15:33:05Z",
+      "side": 1,
+      "message": "Huh.",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
