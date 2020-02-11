@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b87a57f1_6dcd599e",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-11T14:51:28Z",
+      "side": 1,
+      "message": "I am not too familiar with the spec here, does this mess with the iteration order? That is is resulted sorted differently now?",
+      "range": {
+        "startLine": 1147,
+        "startChar": 0,
+        "endLine": 1149,
+        "endChar": 5
+      },
+      "revId": "67ce0f6c503de663bd551a9e1e49fe18e9454fd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
