@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ff324ee_bfd17019",
+        "filename": "front_end/langpacks/devtools_ui_strings.grd",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-11T11:51:42Z",
+      "side": 0,
+      "message": "We need to add the `lighthouse/lighthouse_strings.grdp` here as well. That\u0027s probably why the other `.grdp` files are changed.",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "71d30b9c1aff48b9e6ef8514f9ef4d25e405ab33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
