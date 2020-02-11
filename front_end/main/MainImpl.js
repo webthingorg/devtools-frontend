@@ -669,9 +669,29 @@ export class MainMenuItem {
       moreTools.defaultSection().appendItem(
           extension.title(), self.UI.viewManager.showView.bind(self.UI.viewManager, descriptor['id']));
     }
+    moreTools.defaultSection().appendItem(
+        ls`Settings`, self.UI.viewManager.showView.bind(self.UI.viewManager, 'preferences'));
 
     const helpSubMenu = contextMenu.footerSection().appendSubMenuItem(Common.UIString('Help'));
     helpSubMenu.appendItemsAtLocation('mainMenuHelp');
+  }
+}
+
+/**
+ * @implements {UI.ToolbarItem.Provider}
+ */
+export class SettingsButtonProvider {
+  constructor() {
+    const settingsActionId = 'main.settings.show';
+    this._settingsButton = UI.Toolbar.createActionButtonForId(settingsActionId, false);
+  }
+
+  /**
+   * @override
+   * @return {?UI.ToolbarItem}
+   */
+  item() {
+    return this._settingsButton;
   }
 }
 

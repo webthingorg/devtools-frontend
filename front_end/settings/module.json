@@ -15,6 +15,19 @@
         {
             "type": "action",
             "category": "Settings",
+            "actionId": "main.settings.show",
+            "title": "Settings",
+            "className": "Settings.SettingsScreen.ActionDelegate",
+            "iconClass": "largeicon-settings-gear",
+            "bindings": [
+                {
+                    "shortcut": "F1 Shift+?"
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "category": "Settings",
             "actionId": "settings.documentation",
             "title": "Documentation",
             "className": "Settings.SettingsScreen.ActionDelegate"

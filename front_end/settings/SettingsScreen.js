@@ -307,6 +307,9 @@ export class ActionDelegate {
    */
   handleAction(context, actionId) {
     switch (actionId) {
+      case 'main.settings.show':
+        SettingsScreen._showSettingsScreen();
+        return true;
       case 'settings.show':
         SettingsScreen._showSettingsScreen();
         return true;
