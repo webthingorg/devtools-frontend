@@ -51,10 +51,12 @@ export class IssuesModel extends SDKModel {
   issueAdded(payload) {
     if (!this._browserIssuesByCode.has(payload.code)) {
       const issue = new Issue(payload.code);
+      issue.addInstance(payload);
       this._browserIssuesByCode.set(payload.code, issue);
       this.dispatchEventToListeners(IssuesModel.Events.IssueAdded, issue);
     } else {
       const issue = this._browserIssuesByCode.get(payload.code);
+      issue.addInstance(payload);
       this.dispatchEventToListeners(IssuesModel.Events.IssueUpdated, issue);
     }
   }

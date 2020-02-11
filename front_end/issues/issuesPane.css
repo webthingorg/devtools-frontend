@@ -101,3 +101,28 @@
 .issue.collapsed .body-wrapper {
     max-height: 0;
 }
+
+.affected-resources-label {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 2em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.affected-cookies {
+    background: #F8F9FA;
+    padding: 6px 3px 6px 20px;
+}
+
+.affected-cookies-label {
+    font-size: 14px;
+    line-height: 20px;
+    color: #202124;
+}
+
+.affected-cookies-cookie {
+    font-size: 14px;
+    line-height: 20px;
+    color: #1967D2
+}
