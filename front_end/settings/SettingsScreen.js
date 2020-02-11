@@ -62,7 +62,10 @@ export class SettingsScreen extends UI.Widget.VBox {
     const shortcutsView = new UI.View.SimpleView(ls`Shortcuts`);
     self.UI.shortcutsScreen.createShortcutsTabView().show(shortcutsView.element);
     this._tabbedLocation.appendView(shortcutsView);
+
+    tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this._tabSelected, this);
     tabbedPane.show(this.contentElement);
+    this._hasShown = false;
   }
 
   /**
@@ -83,13 +86,22 @@ export class SettingsScreen extends UI.Widget.VBox {
     dialog.setOutsideTabIndexBehavior(UI.Dialog.OutsideTabIndexBehavior.PreserveMainViewTabIndex);
     settingsScreen.show(dialog.contentElement);
     dialog.show();
-    settingsScreen._selectTab(name || 'preferences');
 
+    const tabName = name || 'preferences';
+    const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
+    const currentTabName = tabbedPane.selectedTabId;
+
+    settingsScreen._selectTab(tabName);
     if (focusTabHeader) {
       const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
       await tabbedPane.waitForTabElementUpdate();
       tabbedPane.focusSelectedTabHeader();
     }
+
+    if (settingsScreen._hasShown && tabName === currentTabName) {
+      settingsScreen._reportSettingsPanelShown(tabName);
+    }
+    settingsScreen._hasShown = true;
   }
 
   /**
@@ -106,6 +118,25 @@ export class SettingsScreen extends UI.Widget.VBox {
    */
   _selectTab(name) {
     self.UI.viewManager.showView(name);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _tabSelected(event) {
+    this._reportSettingsPanelShown(event.data['tabId']);
+  }
+
+  /**
+   * @param {string} tabId
+   */
+  _reportSettingsPanelShown(tabId) {
+    if (tabId === ls`Shortcuts`) {
+      Host.userMetrics.settingsPanelShown('shortcuts');
+      return;
+    }
+
+    Host.userMetrics.settingsPanelShown(tabId);
   }
 }
 
