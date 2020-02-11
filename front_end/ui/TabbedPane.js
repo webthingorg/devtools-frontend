@@ -353,6 +353,14 @@ export class TabbedPane extends VBox {
     if (!tab) {
       return false;
     }
+
+    const eventData = {
+      prevTabId: this._currentTab ? this._currentTab.id : undefined,
+      tabId: id,
+      view: tab.view,
+      isUserGesture: userGesture,
+    };
+    this.dispatchEventToListeners(Events.TabInvoked, eventData);
     if (this._currentTab && this._currentTab.id === id) {
       return true;
     }
@@ -371,7 +379,6 @@ export class TabbedPane extends VBox {
       this.focus();
     }
 
-    const eventData = {tabId: id, view: tab.view, isUserGesture: userGesture};
     this.dispatchEventToListeners(Events.TabSelected, eventData);
     return true;
   }
@@ -1015,6 +1022,7 @@ export class TabbedPane extends VBox {
 
 /** @enum {symbol} */
 export const Events = {
+  TabInvoked: Symbol('TabInvoked'),
   TabSelected: Symbol('TabSelected'),
   TabClosed: Symbol('TabClosed'),
   TabOrderChanged: Symbol('TabOrderChanged')
