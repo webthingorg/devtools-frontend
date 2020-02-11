@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8d77a374_7cfd4c78",
+        "filename": "front_end/profiler/profileLauncherView.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-11T21:49:56Z",
+      "side": 1,
+      "message": "Removed, it is extra styles",
+      "parentUuid": "856b4228_cdd4c6a5",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b437b42_acd1f4db",
         "filename": "front_end/profiler/profilesSidebarTree.css",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-11T15:33:05Z",
       "side": 1,
       "message": "Same here",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5154118_73b83546",
+        "filename": "front_end/profiler/profilesSidebarTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-11T21:49:56Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "6b437b42_acd1f4db",
       "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6fa514d0_eed7ff65",
+        "filename": "front_end/profiler/profilesSidebarTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-11T21:49:56Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "02fa650f_fdecc9bf",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45686fcc_7aad88fa",
         "filename": "front_end/profiler/profilesSidebarTree.css",
         "patchSetId": 7
@@ -64,6 +118,24 @@
       "writtenOn": "2020-02-11T15:33:05Z",
       "side": 1,
       "message": "Huh.",
+      "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e29d74c_51530945",
+        "filename": "front_end/profiler/profilesSidebarTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-11T21:49:56Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "45686fcc_7aad88fa",
       "revId": "a9d9cd2edac34bc4534599cc0f28ea6fc0d9cb07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
