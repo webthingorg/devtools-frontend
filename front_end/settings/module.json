@@ -15,6 +15,19 @@
         {
             "type": "action",
             "category": "Settings",
+            "actionId": "main.settings.show",
+            "title": "Settings",
+            "className": "Settings.SettingsScreen.ActionDelegate",
+            "iconClass": "largeicon-settings-gear",
+            "bindings": [
+                {
+                    "shortcut": "F1 Shift+?"
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "category": "Settings",
             "actionId": "settings.documentation",
             "title": "Documentation",
             "className": "Settings.SettingsScreen.ActionDelegate"
@@ -47,6 +60,11 @@
             "type": "context-menu-item",
             "location": "mainMenu/footer",
             "actionId": "settings.show"
+        },
+        {
+            "type": "view",
+            "id": "settings-default",
+            "title": "Settings"
         },
         {
             "type": "view",
