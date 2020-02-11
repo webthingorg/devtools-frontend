@@ -415,3 +415,17 @@
 .network-frame-group-badge {
     margin-right: 4px;
 }
+
+@media (forced-colors: active) {
+    .network-log-grid.data-grid:focus table.data tr.selected {
+        box-shadow: inset 0px 0px 0px 2px ButtonText;
+    }
+    .network-log-grid.data-grid table.data tr.revealed.selected,
+    .network-log-grid.data-grid:focus table.data tr.revealed.selected,
+    .network-log-grid.data-grid:focus tr.selected .network-dim-cell,
+    .network-log-grid.data-grid tr.selected .network-dim-cell,
+    .network-log-grid.data-grid:focus tr.selected .initiator-column .devtools-link,
+    .network-log-grid.data-grid tr.selected .initiator-column .devtools-link {
+        color: HighlightText;
+    }
+}
