@@ -284,7 +284,13 @@ export class TabbedPane extends VBox {
       this._hideTabElement(tab);
     }
 
-    const eventData = {tabId: id, view: tab.view, isUserGesture: userGesture};
+    /** @type {!EventData} */
+    const eventData = {
+      prevTabId: undefined,
+      tabId: id,
+      view: tab.view,
+      isUserGesture: userGesture
+    };
     this.dispatchEventToListeners(Events.TabClosed, eventData);
     return true;
   }
@@ -353,6 +359,15 @@ export class TabbedPane extends VBox {
     if (!tab) {
       return false;
     }
+
+    /** @type {!EventData} */
+    const eventData = {
+      prevTabId: this._currentTab ? this._currentTab.id : undefined,
+      tabId: id,
+      view: tab.view,
+      isUserGesture: userGesture,
+    };
+    this.dispatchEventToListeners(Events.TabInvoked, eventData);
     if (this._currentTab && this._currentTab.id === id) {
       return true;
     }
@@ -371,7 +386,6 @@ export class TabbedPane extends VBox {
       this.focus();
     }
 
-    const eventData = {tabId: id, view: tab.view, isUserGesture: userGesture};
     this.dispatchEventToListeners(Events.TabSelected, eventData);
     return true;
   }
@@ -939,7 +953,15 @@ export class TabbedPane extends VBox {
       --index;
     }
     this._tabs.splice(index, 0, tab);
-    this.dispatchEventToListeners(Events.TabOrderChanged, {tabId: tab.id});
+
+    /** @type {!EventData} */
+    const eventData = {
+      prevTabId: undefined,
+      tabId: tab.id,
+      view: tab.view,
+      isUserGesture: undefined
+    };
+    this.dispatchEventToListeners(Events.TabOrderChanged, eventData);
   }
 
   /**
@@ -1013,8 +1035,18 @@ export class TabbedPane extends VBox {
   }
 }
 
+/** @typedef {{
+ *    prevTabId: (string|undefined),
+ *    tabId: string,
+ *    view: (!Widget|undefined),
+ *    isUserGesture: (boolean|undefined)
+ * }}
+ */
+export let EventData;
+
 /** @enum {symbol} */
 export const Events = {
+  TabInvoked: Symbol('TabInvoked'),
   TabSelected: Symbol('TabSelected'),
   TabClosed: Symbol('TabClosed'),
   TabOrderChanged: Symbol('TabOrderChanged')
