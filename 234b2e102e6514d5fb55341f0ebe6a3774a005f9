@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8204dd42_7d811270",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-11T15:28:54Z",
+      "side": 1,
+      "message": "Same comment as always: can we only change border-color here, so that `forced-colors: active` only affects colors and not layout?\n\nSame for all other non-color-only changes in this CL.",
+      "revId": "234b2e102e6514d5fb55341f0ebe6a3774a005f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92cce44e_3b787399",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-11T15:28:54Z",
+      "side": 1,
+      "message": "You only want to change the color right? Let’s use a CSS variable for that.",
+      "revId": "234b2e102e6514d5fb55341f0ebe6a3774a005f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60b3695f_8e7fbfa5",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-11T15:28:54Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "234b2e102e6514d5fb55341f0ebe6a3774a005f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
