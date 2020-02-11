@@ -48,6 +48,9 @@
   <message name="IDS_DEVTOOLS_223bf25f178896660d7d73af6e0a540d" desc="Text in Device Mode View of the Device Toolbar">
     Laptop L
   </message>
+  <message name="IDS_DEVTOOLS_2310408a63388fe57e3a4177168a8798" desc="Text for the desktop platform, as opposed to mobile">
+    Desktop
+  </message>
   <message name="IDS_DEVTOOLS_2496af30b64c3a4ff21e8505ea439a73" desc="Text in Device Mode Toolbar of the Device Toolbar">
     50%
   </message>
@@ -200,6 +203,9 @@
   </message>
   <message name="IDS_DEVTOOLS_8394f0347c184cf156ac5924dccb773b" desc="Text in Geolocations Settings Tab of the Device Toolbar">
     Long
+  </message>
+  <message name="IDS_DEVTOOLS_87d17f4624a514e81dc7c8e016a7405c" desc="Text for the mobile platform, as opposed to desktop">
+    Mobile
   </message>
   <message name="IDS_DEVTOOLS_89e755205b0e07c218525b9ee9aa7cdd" desc="Error message in the Devices settings pane that declares the maximum length of the device name input">
     Device name must be less than <ph name="EMULATION_DEVICEMODEMODEL_MAXDEVICENAMELENGTH">$1s<ex>50</ex></ph> characters.

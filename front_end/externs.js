@@ -1171,7 +1171,7 @@ DetailsRenderer.SourceLocationDetailsJSON;
  */
 DetailsRenderer.OpportunitySummary;
 
-const Lighthouse = {};
+var Lighthouse = {};
 
 Lighthouse.ReportGenerator = {};
 
