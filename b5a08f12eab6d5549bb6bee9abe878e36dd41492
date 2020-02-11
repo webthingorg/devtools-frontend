@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "545562c0_b045aa3a",
+        "filename": "docs/RELEASE_MGMT.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1123977
+      },
+      "writtenOn": "2020-02-11T15:03:33Z",
+      "side": 1,
+      "message": "Can you link an already landed CL here? This helped in the past to streamline such updates. I would assume that non-infra folks will upload such CL, and thus it needs to be as straight-forward as possible.",
+      "range": {
+        "startLine": 25,
+        "startChar": 58,
+        "endLine": 25,
+        "endChar": 59
+      },
+      "revId": "b5a08f12eab6d5549bb6bee9abe878e36dd41492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
