@@ -28,6 +28,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import {userMetrics, UserMetrics} from '../host/host.js';
+
 import {ExecutionContextSelector} from './ExecutionContextSelector.js';
 
 /**
@@ -660,18 +662,47 @@ export class MainMenuItem {
     const extensions = self.runtime.extensions('view', undefined, true);
     for (const extension of extensions) {
       const descriptor = extension.descriptor();
+
+      if (descriptor['id'] === 'settings-default') {
+        moreTools.defaultSection().appendItem(extension.title(), () => {
+          userMetrics.actionTaken(UserMetrics.Action.SettingsOpenedFromMenu);
+          self.UI.viewManager.showView('preferences');
+        });
+        continue;
+      }
+
       if (descriptor['persistence'] !== 'closeable') {
         continue;
       }
       if (descriptor['location'] !== 'drawer-view' && descriptor['location'] !== 'panel') {
         continue;
       }
+
       moreTools.defaultSection().appendItem(
           extension.title(), self.UI.viewManager.showView.bind(self.UI.viewManager, descriptor['id']));
     }
 
     const helpSubMenu = contextMenu.footerSection().appendSubMenuItem(Common.UIString('Help'));
     helpSubMenu.appendItemsAtLocation('mainMenuHelp');
+  }
+}
+
+/**
+ * @implements {UI.ToolbarItem.Provider}
+ */
+export class SettingsButtonProvider {
+  constructor() {
+    const settingsActionId = 'settings.show';
+    this._settingsButton =
+        UI.Toolbar.createActionButtonForId(settingsActionId, false, UserMetrics.Action.SettingsOpenedFromGear);
+  }
+
+  /**
+   * @override
+   * @return {?UI.ToolbarItem}
+   */
+  item() {
+    return this._settingsButton;
   }
 }
 
