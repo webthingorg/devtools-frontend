@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fdfaba8_89197d32",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-11T06:59:56Z",
+      "side": 1,
+      "message": "nits: Superfluous parens and its confusing that the lambda argument is also named index.",
+      "range": {
+        "startLine": 53,
+        "startChar": 55,
+        "endLine": 53,
+        "endChar": 62
+      },
+      "revId": "1fae186478a28e7ca593d1adf7caeceaf08175a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
