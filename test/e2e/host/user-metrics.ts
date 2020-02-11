@@ -198,6 +198,10 @@ describe('User Metrics', () => {
 
     await assertCapturedEvents([
       {
+        name: 'DevTools.PanelShown',
+        value: 29,
+      },
+      {
         name: 'DevTools.KeyboardShortcutFired',
         value: 22, // settings.show
       },
