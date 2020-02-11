@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "8e2d7f31_02913179",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-11T23:17:54Z",
+      "side": 1,
+      "message": "Instead of using the box-shadow for focus, I am using the border-color instead. I think there is enough difference in change, between rest and focus, when a user is tabbing through the page.",
+      "parentUuid": "4ae31586_4bdb9e97",
+      "revId": "234b2e102e6514d5fb55341f0ebe6a3774a005f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60b3695f_8e7fbfa5",
         "filename": "front_end/ui/textButton.css",
         "patchSetId": 18
