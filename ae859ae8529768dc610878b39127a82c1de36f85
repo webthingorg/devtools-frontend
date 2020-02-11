@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b33eea21_d554a1ef",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 21
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-11T21:27:38Z",
+      "side": 1,
+      "message": "Do we want this rule applied when the element has any type of focus or only on keyboard focus? If it\u0027s the latter you can use this attribute selector to select on keyboard focus: [data-keyboard-focus\u003d\"true\"]. e.g:\n\n.text-button:not(:disabled):focus[data-keyboard-focus\u003d\"true\"] { ... }",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 37
+      },
+      "revId": "ae859ae8529768dc610878b39127a82c1de36f85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f754e5a0_bc234cd2",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 21
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-11T21:27:38Z",
+      "side": 1,
+      "message": "Same question as the other focus selector above.",
+      "revId": "ae859ae8529768dc610878b39127a82c1de36f85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

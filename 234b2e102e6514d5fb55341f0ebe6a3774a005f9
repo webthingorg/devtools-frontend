@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "4ae31586_4bdb9e97",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-11T21:27:38Z",
+      "side": 1,
+      "message": "My interpretation of Mathias\u0027 comment was to create a variable for just the color and redeclare it to `Hightlight` in the forced-colors block. I think it\u0027d look something like this:\n\n/* inspectorStyle.css */\n:root {\n  --button-text-focus-color: #fff;\n}\n\n/* textButton.css */\n.text-button:not(:disabled):focus {\n  box-shadow: 0 0 0 2px var(--button-text-focus-color);\n}\n\n@media (forced-colors: active) {\n  :root {\n    --button-text-focus-color: ButtonText;\n  }\n}",
+      "parentUuid": "0bbc830b_c3178945",
+      "revId": "234b2e102e6514d5fb55341f0ebe6a3774a005f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60b3695f_8e7fbfa5",
         "filename": "front_end/ui/textButton.css",
         "patchSetId": 18
