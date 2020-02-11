@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "73762841_34c66ab3",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-11T18:22:06Z",
+      "side": 1,
+      "message": "Let\u0027s fix this in a follow-up CL once we decide what path we want to choose.",
+      "parentUuid": "8113834a_2b5c0a24",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 65
+      },
+      "revId": "1fae186478a28e7ca593d1adf7caeceaf08175a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fdfaba8_89197d32",
         "filename": "test/e2e/sources/can-format-sourcecode.ts",
         "patchSetId": 1
@@ -117,6 +141,30 @@
       "revId": "1fae186478a28e7ca593d1adf7caeceaf08175a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff021216_63decc51",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-11T18:22:06Z",
+      "side": 1,
+      "message": "clang-format for ya 😋\n\nThe confusing part here is that the `index` variable in this lambda is scoped in the script *that runs in the DevTools frontend*. E.g. it is passed in on line 61. Otherwise, you can\u0027t access these variables. Thus, they are the same variable, but in a different scope.\n\nTherefore, I am inclined to keep it like this, since it is mostly Puppeteer quirks. That said, it would be great if we can somehow resolve this weirdness, but I am not sure what is possible here.",
+      "parentUuid": "4dc1f09e_6a110671",
+      "range": {
+        "startLine": 53,
+        "startChar": 55,
+        "endLine": 53,
+        "endChar": 62
+      },
+      "revId": "1fae186478a28e7ca593d1adf7caeceaf08175a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
