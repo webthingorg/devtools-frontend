@@ -62,12 +62,20 @@ export class CommandMenu {
 
   /**
    * @param {!UI.Action.Action} action
+   * @param {!Host.UserMetrics.Action} userActionCode
    * @return {!Command}
    */
-  static createActionCommand(action) {
+  static createActionCommand(action, userActionCode) {
     const shortcut = self.UI.shortcutRegistry.shortcutTitleForAction(action.id()) || '';
-    return CommandMenu.createCommand(
-        action.category(), action.tags(), action.title(), shortcut, action.execute.bind(action));
+    let handler = action.execute.bind(action);
+    if (userActionCode !== undefined) {
+      handler = () => {
+        Host.userMetrics.actionTaken(userActionCode);
+        return action.execute();
+      };
+    }
+
+    return CommandMenu.createCommand(action.category(), action.tags(), action.title(), shortcut, handler);
   }
 
   /**
@@ -137,6 +145,12 @@ export class CommandMenuProvider extends Provider {
     const actions = self.UI.actionRegistry.availableActions();
     for (const action of actions) {
       if (action.category()) {
+        if (action.category() === 'Settings') {
+          this._commands.push(
+              CommandMenu.createActionCommand(action, Host.UserMetrics.Action.SettingsOpenedFromCommandMenu));
+          continue;
+        }
+
         this._commands.push(CommandMenu.createActionCommand(action));
       }
     }

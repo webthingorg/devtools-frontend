@@ -30,6 +30,7 @@
 
 import * as Common from '../common/common.js';
 
+import {userMetrics} from '../host/host.js';
 import {Action, Events as ActionEvents} from './Action.js';  // eslint-disable-line no-unused-vars
 import * as ARIAUtils from './ARIAUtils.js';
 import {ContextMenu} from './ContextMenu.js';
@@ -179,15 +180,24 @@ export class Toolbar {
   /**
    * @param {!Action} action
    * @param {boolean=} showLabel
+   * @param {!Host.UserMetrics.Action=} userActionCode
    * @return {!ToolbarButton}
    */
-  static createActionButton(action, showLabel) {
+  static createActionButton(action, showLabel, userActionCode) {
     const button = action.toggleable() ? makeToggle() : makeButton();
 
     if (showLabel) {
       button.setText(action.title());
     }
-    button.addEventListener(ToolbarButton.Events.Click, action.execute, action);
+
+    let handler = action.execute;
+    if (userActionCode !== undefined) {
+      handler = () => {
+        userMetrics.actionTaken(userActionCode);
+        return action.execute();
+      };
+    }
+    button.addEventListener(ToolbarButton.Events.Click, handler, action);
     action.addEventListener(ActionEvents.Enabled, enabledChanged);
     button.setEnabled(action.enabled());
     return button;
@@ -233,11 +243,12 @@ export class Toolbar {
   /**
    * @param {string} actionId
    * @param {boolean=} showLabel
+   * @param {!Host.UserMetrics.Action=} userActionCode
    * @return {!ToolbarButton}
    */
-  static createActionButtonForId(actionId, showLabel) {
+  static createActionButtonForId(actionId, showLabel, userActionCode) {
     const action = self.UI.actionRegistry.action(actionId);
-    return Toolbar.createActionButton(/** @type {!Action} */ (action), showLabel);
+    return Toolbar.createActionButton(/** @type {!Action} */ (action), showLabel, userActionCode);
   }
 
   /**
