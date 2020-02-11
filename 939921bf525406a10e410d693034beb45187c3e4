@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75f427c1_483f6da8",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-02-11T20:48:45Z",
+      "side": 1,
+      "message": "this was causing the grdp changes",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 5
+      },
+      "revId": "939921bf525406a10e410d693034beb45187c3e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
