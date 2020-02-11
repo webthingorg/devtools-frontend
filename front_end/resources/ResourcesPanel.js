@@ -204,11 +204,16 @@ export class ResourceRevealer {
    * @return {!Promise}
    */
   async reveal(resource) {
-    if (!(resource instanceof SDK.Resource)) {
+    if (!(resource instanceof SDK.Resource) && !(resource instanceof SDK.Cookie)) {
       return Promise.reject(new Error('Internal error: not a resource'));
     }
+
     const sidebar = ResourcesPanel._instance()._sidebar;
     await self.UI.viewManager.showView('resources');
-    await sidebar.showResource(resource);
+    if (resource instanceof SDK.Resource) {
+      await sidebar.showResource(resource);
+    } else {
+      await sidebar.cookieListTreeElement.select();
+    }
   }
 }

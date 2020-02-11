@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {Events} from '../sdk/Issue.js';
+
 class IssueView extends UI.Widget {
   constructor(parent, issue) {
     super(false);
@@ -10,10 +12,13 @@ class IssueView extends UI.Widget {
     this._details = issueDetails[issue.code];
 
     this.contentElement.classList.add('issue');
-    this.contentElement.classList.add('collapsed');
+    // this.contentElement.classList.add('collapsed');
 
     this.appendHeader();
     this.appendBody();
+
+    this._issue.addEventListener(Events.InstanceAdded, this._handleInstanceAdded.bind(this));
+    this._issue.addEventListener(Events.CookieAdded, this._handleCookieAdded.bind(this));
   }
 
   appendHeader() {
@@ -55,9 +60,75 @@ class IssueView extends UI.Widget {
     const linkIcon = UI.Icon.create('largeicon-link', 'link-icon');
     link.prepend(linkIcon);
 
+    this.appendAffectedResources(body);
+
     const bodyWrapper = createElementWithClass('div', 'body-wrapper');
     bodyWrapper.appendChild(body);
     this.contentElement.appendChild(bodyWrapper);
+  }
+
+  appendAffectedResources(body) {
+    const wrapper = createElementWithClass('div', 'affected-resources');
+    const label = createElementWithClass('div', 'affected-resources-label');
+    label.innerText = 'Affected Resources';
+    wrapper.appendChild(label);
+    this._affectedResources = wrapper;
+
+    this.appendAffectedCookies();
+
+    body.appendChild(wrapper);
+  }
+
+  appendAffectedCookies() {
+    const wrapper = createElementWithClass('div', 'affected-cookies');
+    const label = createElementWithClass('div', 'affected-cookies-label');
+    label.innerText = 'Cookies';
+    label.addEventListener('click', () => {
+      wrapper.classList.toggle('expanded');
+    });
+    wrapper.appendChild(label);
+
+    const body2 = createElementWithClass('div', 'affected-cookies-wrapper');
+    const body = createElementWithClass('table', 'affected-cookies-cookies');
+    const header = createElementWithClass('tr');
+
+    const name = createElementWithClass('td', 'affected-cookies-header');
+    name.innerText = 'Name';
+    header.appendChild(name);
+
+    const info = createElementWithClass('td', 'affected-cookies-header affected-cookies-header-info');
+    info.innerText = '\u2009Context';
+    header.appendChild(info);
+
+    body.appendChild(header);
+    body2.appendChild(body);
+    wrapper.appendChild(body2);
+    this._affectedCookies = body;
+
+    for (const instance of this._issue.instances()) {
+      this.appendAffectedCookie(instance.cookie);
+    }
+
+    this._affectedResources.appendChild(wrapper);
+  }
+
+  appendAffectedCookie(cookie) {
+    const element = createElementWithClass('tr', 'affected-cookies-cookie');
+    const name = createElementWithClass('td', '');
+    name.appendChild(Components.Linkifier.linkifyRevealable(new SDK.Cookie(cookie.name, cookie.value), cookie.name));
+    const info = createElementWithClass('td', 'affected-cookies-cookie-info');
+    info.innerText = (cookie.domain[0] !== '.' ? '\u2008' : '') + cookie.domain + cookie.path;
+
+    element.appendChild(name);
+    element.appendChild(info);
+    this._affectedCookies.appendChild(element);
+  }
+
+  _handleCookieAdded(event) {
+    this.appendAffectedCookie(event.data);
+  }
+
+  _handleInstanceAdded(event) {
   }
 
   _handleSelect() {
