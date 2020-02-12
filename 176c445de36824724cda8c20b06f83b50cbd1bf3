@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1abe84f6_7bc4e396",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-02-12T04:38:57Z",
+      "side": 1,
+      "message": "This is a good thought, but I think {type} might get a bit repetitive. {title} is the critical information, so it should probably come first, with {type} second, as extra detail. \n\n(Imagine you were arrowing through looking for a particular file, and you had to listen through \"file: \" ahead of each file name.)",
+      "revId": "176c445de36824724cda8c20b06f83b50cbd1bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b2e7707_3fd8b365",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-02-12T04:38:57Z",
+      "side": 1,
+      "message": "I\u0027m not sure about having the full file path in the accessible name, for similar reasons to my reservations about having {type} up front - e.g. there is a reason you don\u0027t _show_ the full file path by default. \n\nIn terms of giving access to the full file path, it looks  like we support aria-description now, so you could just provide the full path (with the filename) as the aria-description, and the filename alone as the title?",
+      "revId": "176c445de36824724cda8c20b06f83b50cbd1bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
