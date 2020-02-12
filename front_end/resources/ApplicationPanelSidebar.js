@@ -703,6 +703,7 @@ export class BaseStorageTreeElement extends UI.TreeElement {
   constructor(storagePanel, title, expandable) {
     super(title, expandable);
     this._storagePanel = storagePanel;
+    UI.ARIAUtils.setAccessibleName(this.listItemElement, title);
   }
 
   /**
