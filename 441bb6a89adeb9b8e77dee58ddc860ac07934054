@@ -22,6 +22,30 @@
       "revId": "441bb6a89adeb9b8e77dee58ddc860ac07934054",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57b5c24e_64c4f182",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 0,
+      "message": "The former didn\u0027t work. It excluded ts files for me, but maybe I was holding it wrong.",
+      "parentUuid": "8da2d932_b71e9ec2",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "441bb6a89adeb9b8e77dee58ddc860ac07934054",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

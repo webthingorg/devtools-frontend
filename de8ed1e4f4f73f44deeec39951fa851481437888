@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6e1338e7_e452a3df",
+        "filename": "scripts/test/run_screenshot.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "Yes. Also that description needs an update.",
+      "parentUuid": "79a4891b_824b77c0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 78
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6188e139_03782f65",
         "filename": "scripts/test/run_screenshot.py",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-12T14:21:06Z",
       "side": 1,
       "message": "I feel like I have seen this multiple times already. We should do a follow-up CL to clean that up in a helper.",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b045b5a2_7813d1bb",
+        "filename": "scripts/test/run_screenshot.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "Yes this is essentially a dupe of run_e2e.py",
+      "parentUuid": "6188e139_03782f65",
       "range": {
         "startLine": 37,
         "startChar": 4,
@@ -163,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "9ae27a4b_58106025",
+        "filename": "test/shared/helper.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "Agree",
+      "parentUuid": "3096b72d_daef7b1c",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 39
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f3da6d39_4648c86f",
         "filename": "test/shared/helper.ts",
         "patchSetId": 4
@@ -183,6 +255,30 @@
       "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd0b99b7_00efd21d",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "f3da6d39_4648c86f",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 29
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +305,30 @@
     },
     {
       "key": {
+        "uuid": "3602888b_3eb1612c",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "42ef130a_891cc96b",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00bb291e_a33b6d0b",
         "filename": "test/shared/helper.ts",
         "patchSetId": 4
@@ -220,6 +340,30 @@
       "writtenOn": "2020-02-12T14:21:06Z",
       "side": 1,
       "message": "Nit: I would have assumed that, if the options allow you to not specify certain values, they would be optional. Why do we need to use `Partial` here?",
+      "range": {
+        "startLine": 188,
+        "startChar": 29,
+        "endLine": 188,
+        "endChar": 36
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ef558b_dceaa00c",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "Only for clarity that the defaults here are not meant to represent all the options. Strictly speaking it is unnecessary.",
+      "parentUuid": "00bb291e_a33b6d0b",
       "range": {
         "startLine": 188,
         "startChar": 29,
@@ -255,6 +399,30 @@
     },
     {
       "key": {
+        "uuid": "8cc2f11e_1c94e8d0",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "We would need to promisify the Node API for that, and I wasn\u0027t convinced it was necessary here since we\u0027re not trying to do multiple things at the same time.",
+      "parentUuid": "5c4ede42_7f081a98",
+      "range": {
+        "startLine": 197,
+        "startChar": 6,
+        "endLine": 197,
+        "endChar": 16
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8c09ff4_f8b8504c",
         "filename": "test/shared/helper.ts",
         "patchSetId": 4
@@ -278,6 +446,30 @@
     },
     {
       "key": {
+        "uuid": "aab3b3c5_6da2faa8",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f8c09ff4_f8b8504c",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 207,
+        "endChar": 14
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c26b2276_44e664ea",
         "filename": "test/shared/helper.ts",
         "patchSetId": 4
@@ -289,6 +481,30 @@
       "writtenOn": "2020-02-12T14:21:06Z",
       "side": 1,
       "message": "Nit: Did we want to make this configurable or would we say: roll your own asserts if you want? Since this function also takes care of the path handling (nice!), maybe these should be 2 separate functions?",
+      "range": {
+        "startLine": 213,
+        "startChar": 44,
+        "endLine": 213,
+        "endChar": 45
+      },
+      "revId": "de8ed1e4f4f73f44deeec39951fa851481437888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e22ce738_bfc8263e",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-12T14:38:10Z",
+      "side": 1,
+      "message": "I did roll my own asserts, but the consensus view seemed to be that there would be a lot of repetition thus I added them here. I could see them being configurable, perhaps, but then why would we want to be lenient in terms of the matching?",
+      "parentUuid": "c26b2276_44e664ea",
       "range": {
         "startLine": 213,
         "startChar": 44,
