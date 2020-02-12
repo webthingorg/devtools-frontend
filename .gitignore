@@ -35,5 +35,11 @@ npm-debug.log
 !/third_party/pyjson5
 !/third_party/typescript
 
-test/e2e/**/*[.js, .tsbuildinfo]
-test/shared/**/*[.js, .tsbuildinfo]
+test/e2e/**/*.js
+test/e2e/**/*.tsbuildinfo
+test/shared/**/*.js
+test/shared/**/helper.d.js
+test/shared/**/*.tsbuildinfo
+test/screenshots/**/*.js
+test/screenshots/**/*.tsbuildinfo
+test/screenshots/.generated
