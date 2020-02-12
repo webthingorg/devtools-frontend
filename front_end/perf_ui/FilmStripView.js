@@ -217,8 +217,8 @@ export class Dialog {
 
     this._fragment = UI.Fragment.build`
       <x-widget flex=none margin=12px>
-        <x-hbox overflow=auto border='1px solid #ddd' max-height=80vh max-width=80vw>
-          <img $=image></img>
+        <x-hbox overflow=auto border='1px solid #ddd'>
+          <img $=image style="max-height: 80vh; max-width: 80vw"></img>
         </x-hbox>
         <x-hbox x-center justify-content=center margin-top=10px>
           ${prevButton}
