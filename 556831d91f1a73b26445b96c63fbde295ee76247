@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a1e7974_303bd381",
+        "filename": "scripts/test/run_e2e.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-12T16:19:51Z",
+      "side": 0,
+      "message": "Lol",
+      "range": {
+        "startLine": 27,
+        "startChar": 50,
+        "endLine": 27,
+        "endChar": 68
+      },
+      "revId": "556831d91f1a73b26445b96c63fbde295ee76247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
