@@ -161,6 +161,30 @@
       "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab401a5f_739932e4",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-12T14:38:25Z",
+      "side": 1,
+      "message": "Thanks for catching that! Would\n\nThis Set-Cookie didn\u0027t specify a \"SameSite\" attribute when it was stored and was defaulted to \"SameSite\u003dLax\". The Set-Cookie was blocked because it came from a cross-site response that was not initiated by a top-level navigation.\n\nwork?",
+      "parentUuid": "b483d715_a5443a73",
+      "range": {
+        "startLine": 1530,
+        "startChar": 6,
+        "endLine": 1530,
+        "endChar": 158
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
