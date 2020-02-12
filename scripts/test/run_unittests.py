@@ -42,6 +42,8 @@ def run_tests():
     exec_command = [devtools_paths.node_path(), devtools_paths.karma_path(), 'start', to_platform_path_exact(karmaconfig_path)]
     env = os.environ.copy()
     env['NODE_PATH'] = devtools_paths.node_path()
+    if (not 'BUILD_NAME' in env.keys()):
+        env['BUILD_NAME'] = 'Release'
     if (chrome_binary is not None):
         env['CHROME_BIN'] = chrome_binary
 
