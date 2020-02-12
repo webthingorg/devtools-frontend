@@ -2,3 +2,4 @@
 # results: [ Timeout Crash Pass Failure Slow Skip ]
 
 crbug.com/1034903 http/tests/devtools/audits/audits-export-run.js [ Pass Failure Crash ]
+crbug.com/1044546 [ Release ] http/tests/devtools/user-metrics.js [ Pass Timeout ]
