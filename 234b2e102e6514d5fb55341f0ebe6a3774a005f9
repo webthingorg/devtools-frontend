@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "7c9db590_e06c7f05",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-12T10:34:29Z",
+      "side": 1,
+      "message": "Kalon’s interpretation was indeed what I meant — sorry for being unclear here. The point of using a CSS variable is to avoid having to repeat the `0 0 0 2px`, and what Kalon describes is the only way of doing that.",
+      "parentUuid": "8e2d7f31_02913179",
+      "revId": "234b2e102e6514d5fb55341f0ebe6a3774a005f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60b3695f_8e7fbfa5",
         "filename": "front_end/ui/textButton.css",
         "patchSetId": 18
