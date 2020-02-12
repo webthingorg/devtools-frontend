@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62b73bea_f61ab44f",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-12T08:41:01Z",
+      "side": 1,
+      "message": "It would be nice if this was a link. I\u0027m afraid it can\u0027t be reasonably clicked here, but it is better than nothing.",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed5d1f3f_36449897",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1498,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-12T08:41:01Z",
+      "side": 1,
+      "message": "Could we mention a sentence mirroring the top-level navigation bit, e.g. \"This cookie was blocked because it had the \"SameSite\u003dLax\" attribute and the request was made from a different site and was not initiated by a top-level navigation.\"?",
+      "range": {
+        "startLine": 1498,
+        "startChar": 122,
+        "endLine": 1498,
+        "endChar": 123
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7fc35fd_f829b0f2",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-12T08:41:01Z",
+      "side": 1,
+      "message": "This cookie didn\u0027t specify a SameSite attribute when it was stored and was defaulted to \"SameSite\u003dLax\". The cookie was blocked because the request was made from a different site and was not initiated by a top-level navigation.",
+      "range": {
+        "startLine": 1501,
+        "startChar": 111,
+        "endLine": 1501,
+        "endChar": 178
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654b0154_5b2d5ef5",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1527,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-12T08:41:01Z",
+      "side": 1,
+      "message": "top-level navigation bit?",
+      "range": {
+        "startLine": 1527,
+        "startChar": 114,
+        "endLine": 1527,
+        "endChar": 115
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a5ecea_fa2a0033",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-12T08:41:01Z",
+      "side": 1,
+      "message": "This cookie didn\u0027t specify a \"SameSite\" attribute when it was stored and was defaulted to \"SameSite\u003dLax\". The cookie was blocked because it came from a cross-site response that was not initiated by a top-level navigation.",
+      "range": {
+        "startLine": 1530,
+        "startChar": 6,
+        "endLine": 1530,
+        "endChar": 158
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
