@@ -6,6 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
+import {consoleTabPageObject} from '../page-objects/ConsoleTabPageObject'
 import {click, debuggerStatement, getBrowserAndPages, resetPages, resourcesPath} from '../../shared/helper.js';
 
 async function obtainMessagesForTest(testName: string, callback?: (page: puppeteer.Page) => Promise<void>) {
@@ -15,9 +16,9 @@ async function obtainMessagesForTest(testName: string, callback?: (page: puppete
   await target.goto(`${resourcesPath}/console/${testName}.html`);
 
   // Locate the button for switching to the console tab.
-  await click('#tab-console');
+  await click(consoleTabPageObject.tabConsole);
   // Obtain console messages that were logged
-  await frontend.waitForSelector('.console-group-messages');
+  await frontend.waitForSelector(consoleTabPageObject.loggedConsoleMessages);
 
   if (callback) {
     await debuggerStatement(frontend);
@@ -26,10 +27,10 @@ async function obtainMessagesForTest(testName: string, callback?: (page: puppete
   await debuggerStatement(frontend);
 
   // Get the first message from the console.
-  return frontend.evaluate(() => {
-    return Array.from(document.querySelectorAll('.console-group-messages .source-code .console-message-text'))
+  return frontend.evaluate((firstMessageFromConsole) => {
+    return Array.from(document.querySelectorAll(firstMessageFromConsole))
         .map(message => message.textContent);
-  });
+  }, consoleTabPageObject.firstMessageFromConsole);
 }
 
 describe('The Console Tab', async () => {
@@ -239,9 +240,9 @@ error message
 
   it('can show verbose promise unhandledrejections', async () => {
     const messages = await obtainMessagesForTest('onunhandledrejection', async () => {
-      await click(`[aria-label="Log level: Default levels"]`);
+      await click(consoleTabPageObject.defaultLevel);
 
-      await click(`[aria-label="Verbose, unchecked"]`);
+      await click(consoleTabPageObject.verboseLevel);
     });
 
     assert.deepEqual(messages, [
