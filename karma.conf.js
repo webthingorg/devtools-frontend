@@ -12,6 +12,12 @@ const NOCOVERAGE = !!process.env['NOCOVERAGE'];
 const NO_TEXT_COVERAGE = !!process.env['NO_TEXT_COVERAGE'];
 const instrumenterPreprocessors = (IS_DEBUG || NOCOVERAGE) ? [] : ['karma-coverage-istanbul-instrumenter'];
 const browsers = IS_DEBUG ? ['Chrome'] : ['ChromeHeadless'];
+const BUILD_NAME = process.env['BUILD_NAME'];
+
+if (!BUILD_NAME) {
+  console.error('BUILD_NAME not set. If you are running Karma via `npx karma start` please use `npm run unittest` instead.');
+  process.exit(1);
+}
 
 module.exports = function(config) {
   const options = {
