@@ -2,16 +2,23 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-let external_devtools_frontend = true;
-let node_modules_path = external_devtools_frontend
-    ? ''
-    : '../../../../third_party/devtools-node-modules/third_party/node_modules/';
+// @ts-nocheck
 
-const IS_DEBUG = !!process.env['DEBUG'];
-const NOCOVERAGE = !!process.env['NOCOVERAGE'];
-const NO_TEXT_COVERAGE = !!process.env['NO_TEXT_COVERAGE'];
-const instrumenterPreprocessors = (IS_DEBUG || NOCOVERAGE) ? [] : ['karma-coverage-istanbul-instrumenter'];
-const browsers = IS_DEBUG ? ['Chrome'] : ['ChromeHeadless'];
+// true by default
+const COVERAGE_ENABLED = !process.env['NOCOVERAGE'];
+const TEXT_COVERAGE_ENABLED = COVERAGE_ENABLED && !process.env['NO_TEXT_COVERAGE'];
+
+// false by default
+const DEBUG_ENABLED = !!process.env['DEBUG'];
+
+const instrumenterPreprocessors =
+    (DEBUG_ENABLED || COVERAGE_ENABLED === false) ? [] : ['karma-coverage-istanbul-instrumenter'];
+
+const coverageKarmaPlugins = COVERAGE_ENABLED ?
+    [require('karma-coverage-istanbul-instrumenter'), require('karma-coverage-istanbul-reporter')] :
+    [];
+
+const browsers = DEBUG_ENABLED ? ['Chrome'] : ['ChromeHeadless'];
 
 module.exports = function(config) {
   const options = {
@@ -24,13 +31,7 @@ module.exports = function(config) {
       {pattern: 'front_end/**/*.png', included: false, served: true},
     ],
 
-    // FIXME(https://crbug.com/1006759): Re-enable these tests when ESM work is completed.
-    exclude: [
-      'test/unittests/**/WorkspaceImpl.ts',
-      'test/unittests/**/TempFile.ts',
-    ],
-
-    reporters: ['dots', 'coverage-istanbul'],
+    reporters: ['dots', COVERAGE_ENABLED && 'coverage-istanbul'].filter(Boolean),
 
     preprocessors: {
       './test/unittests/**/*.ts': ['karma-typescript'],
@@ -53,12 +54,10 @@ module.exports = function(config) {
     karmaTypescriptConfig: {
       tsconfig: './tsconfig.json',
       compilerOptions: {
-        typeRoots: external_devtools_frontend ? undefined : [node_modules_path + '@types'],
         checkJs: false,
         baseUrl: '.',
       },
       coverageOptions: {instrumentation: false},
-      bundlerOptions: {resolve: {directories: [node_modules_path]}},
       include: {mode: 'replace', values: ['test/unittests/**/*.ts']},
     },
 
@@ -68,23 +67,22 @@ module.exports = function(config) {
     },
 
     plugins: [
-      require(node_modules_path + 'karma-chrome-launcher'),
-      require(node_modules_path + 'karma-mocha'),
-      require(node_modules_path + 'karma-chai'),
-      require(node_modules_path + 'karma-sinon'),
-      require(node_modules_path + 'karma-typescript'),
-      require(node_modules_path + 'karma-coverage-istanbul-instrumenter'),
-      require(node_modules_path + 'karma-coverage-istanbul-reporter')
-    ],
+      require('karma-chrome-launcher'),
+      require('karma-mocha'),
+      require('karma-chai'),
+      require('karma-sinon'),
+      require('karma-typescript'),
+      ...coverageKarmaPlugins,
+    ].filter(Boolean),
 
     coverageIstanbulInstrumenter: {esModules: true},
 
     coverageIstanbulReporter: {
-      reports: NO_TEXT_COVERAGE ? ['html', 'json-summary'] : ['text', 'html', 'json-summary'],
-      dir: 'karma-coverage'
+      reports: TEXT_COVERAGE_ENABLED ? ['text', 'html', 'json-summary'] : ['html', 'json-summary'],
+      dir: 'karma-coverage',
     },
 
-    singleRun: !IS_DEBUG
+    singleRun: !DEBUG_ENABLED
   };
 
   config.set(options);
