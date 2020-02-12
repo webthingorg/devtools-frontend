@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b35f3564_58549a75",
+        "filename": "karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-12T17:47:49Z",
+      "side": 1,
+      "message": "do you think this error should explain why? Else if I was running this I\u0027d think \"how come\"? (And I find myself thinking that right now!)",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "3bcf748f4c7cff28dbc0eeac78094fc7cd370d42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
