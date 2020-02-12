@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a34f8344_0b84d8db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-12T10:22:06Z",
+      "side": 1,
+      "message": "Please check whether the screenshots are up to date with the latest patch before merging.",
+      "revId": "00be03b8b22347c70b7c1073e99287fa4aa5bf96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
