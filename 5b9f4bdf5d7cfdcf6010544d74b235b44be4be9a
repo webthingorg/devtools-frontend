@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "715efa1e_9e0edc29",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-12T16:37:26Z",
+      "side": 1,
+      "message": "For a Set {foo} these two are equivalent \"[...foo]\" and \"[...foo.values()]\".\nI updated the CL description accordingly.",
+      "parentUuid": "3ea7c3ba_d7040b04",
+      "range": {
+        "startLine": 316,
+        "startChar": 48,
+        "endLine": 316,
+        "endChar": 59
+      },
+      "revId": "5b9f4bdf5d7cfdcf6010544d74b235b44be4be9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faed4d09_88ae487b",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-12T14:07:51Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 532,
+        "startChar": 41,
+        "endLine": 532,
+        "endChar": 45
+      },
+      "revId": "5b9f4bdf5d7cfdcf6010544d74b235b44be4be9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a11aa9_98c02173",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-12T16:37:26Z",
+      "side": 1,
+      "message": "See previous comment. We could still use .values() if we think its more readable. I prefer it this way but no strong opinion.",
+      "parentUuid": "faed4d09_88ae487b",
       "range": {
         "startLine": 532,
         "startChar": 41,
