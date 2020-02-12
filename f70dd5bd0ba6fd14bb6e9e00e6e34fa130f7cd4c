@@ -45,6 +45,54 @@
       "revId": "f70dd5bd0ba6fd14bb6e9e00e6e34fa130f7cd4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3987f453_a49fe8ed",
+        "filename": "test/e2e/console/console-message-format.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-02-12T09:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d656c4cd_0c80de66",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "f70dd5bd0ba6fd14bb6e9e00e6e34fa130f7cd4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c35ef85_c7744364",
+        "filename": "test/e2e/console/console-message-format.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-02-12T09:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abe7a855_768dbe7a",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "f70dd5bd0ba6fd14bb6e9e00e6e34fa130f7cd4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
