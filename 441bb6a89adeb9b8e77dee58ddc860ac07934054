@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8da2d932_b71e9ec2",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-12T14:21:06Z",
+      "side": 0,
+      "message": "I prefer this style vastly over the change you made, as it introduces more duplication. Any particular reason you prefer the latter?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "441bb6a89adeb9b8e77dee58ddc860ac07934054",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
