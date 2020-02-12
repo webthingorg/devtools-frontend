@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a76d724f_ca7279fb",
+        "filename": ".gitignore",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-12T14:58:58Z",
+      "side": 1,
+      "message": "typo: `.d.ts`",
+      "range": {
+        "startLine": 41,
+        "startChar": 24,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "8f1c4ef61df0dc8a8d18f35658ae3f8399272571",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
