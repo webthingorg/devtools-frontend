@@ -30,7 +30,7 @@ module.exports = function(config) {
       'test/unittests/**/TempFile.ts',
     ],
 
-    reporters: ['dots', 'coverage-istanbul'],
+    reporters: ['dots', !NOCOVERAGE && 'coverage-istanbul'].filter(Boolean),
 
     preprocessors: {
       './test/unittests/**/*.ts': ['karma-typescript'],
