@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3828b6dd_2227427d",
+        "filename": "karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-12T17:48:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "03db7ea0_656e2bd9",
+      "range": {
+        "startLine": 5,
+        "startChar": 2,
+        "endLine": 5,
+        "endChar": 14
+      },
+      "revId": "ad7e1a45381cce22388e162c4471682fea13bc55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "720e0da7_022ead35",
         "filename": "karma.conf.js",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "61028ecb_dc45189e",
+        "filename": "karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-12T17:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72f21606_daf7964d",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "ad7e1a45381cce22388e162c4471682fea13bc55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fbd5a03_581bc7b0",
         "filename": "karma.conf.js",
         "patchSetId": 1
@@ -116,6 +164,30 @@
       "revId": "ad7e1a45381cce22388e162c4471682fea13bc55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "022cefc7_45dc0a58",
+        "filename": "karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-12T17:48:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5fbd5a03_581bc7b0",
+      "range": {
+        "startLine": 34,
+        "startChar": 15,
+        "endLine": 34,
+        "endChar": 80
+      },
+      "revId": "ad7e1a45381cce22388e162c4471682fea13bc55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +252,24 @@
       "revId": "ad7e1a45381cce22388e162c4471682fea13bc55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52a87b38_2fccc5ba",
+        "filename": "karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-12T17:48:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "55e6314a_cc795bad",
+      "revId": "ad7e1a45381cce22388e162c4471682fea13bc55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
