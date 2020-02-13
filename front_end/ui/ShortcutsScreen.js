@@ -31,6 +31,7 @@
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 
+import * as ARIAUtils from './ARIAUtils.js';
 import {KeyboardShortcut, Keys, Modifiers} from './KeyboardShortcut.js';
 import {createDocumentationLink} from './UIUtils.js';
 import {Widget} from './Widget.js';
@@ -335,7 +336,7 @@ class ShortcutsSection {
     const headLine = parent.createChild('div', 'settings-line');
     headLine.createChild('div', 'settings-key-cell');
     headLine.createChild('div', 'settings-section-title settings-cell').textContent = this.name;
-    UI.ARIAUtils.markAsHeading(headLine, /* level */ 2);
+    ARIAUtils.markAsHeading(headLine, /* level */ 2);
 
     for (let i = 0; i < this._lines.length; ++i) {
       const line = parent.createChild('div', 'settings-line');

@@ -28,6 +28,8 @@
  */
 
 import * as Common from '../common/common.js';
+
+import * as ARIAUtils from './ARIAUtils.js';
 import {SuggestBox, SuggestBoxDelegate} from './SuggestBox.js';  // eslint-disable-line no-unused-vars
 import {ElementFocusRestorer} from './UIUtils.js';
 import {appendStyle} from './utils/append-style.js';
@@ -52,7 +54,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     this._completionRequestId = 0;
     this._ghostTextElement = createElementWithClass('span', 'auto-complete-text');
     this._ghostTextElement.setAttribute('contenteditable', 'false');
-    UI.ARIAUtils.markAsHidden(this._ghostTextElement);
+    ARIAUtils.markAsHidden(this._ghostTextElement);
   }
 
   /**
@@ -123,7 +125,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     element.parentElement.insertBefore(this._proxyElement, element);
     this._contentElement.appendChild(element);
     this._element.classList.add('text-prompt');
-    UI.ARIAUtils.markAsTextBox(this._element);
+    ARIAUtils.markAsTextBox(this._element);
     this._element.setAttribute('contenteditable', 'plaintext-only');
     this._element.addEventListener('keydown', this._boundOnKeyDown, false);
     this._element.addEventListener('input', this._boundOnInput, false);
@@ -218,10 +220,10 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
       this._element.setAttribute('data-placeholder', placeholder);
       // TODO(https://github.com/nvaccess/nvda/issues/10164): Remove ariaPlaceholder once the NVDA bug is fixed
       // ariaPlaceholder and placeholder may differ, like in case the placeholder contains a '?'
-      UI.ARIAUtils.setPlaceholder(this._element, ariaPlaceholder || placeholder);
+      ARIAUtils.setPlaceholder(this._element, ariaPlaceholder || placeholder);
     } else {
       this._element.removeAttribute('data-placeholder');
-      UI.ARIAUtils.setPlaceholder(this._element, null);
+      ARIAUtils.setPlaceholder(this._element, null);
     }
   }
 

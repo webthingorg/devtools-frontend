@@ -28,6 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as ARIAUtils from './ARIAUtils.js';
 import {Size} from './Geometry.js';
 import {AnchorBehavior, GlassPane} from './GlassPane.js';
 import {Icon} from './Icon.js';
@@ -170,13 +171,13 @@ export class SuggestBox {
    */
   _applySuggestion(isIntermediateSuggestion) {
     if (this._onlyCompletion) {
-      UI.ARIAUtils.alert(ls`${this._onlyCompletion.text}, suggestion`, this._element);
+      ARIAUtils.alert(ls`${this._onlyCompletion.text}, suggestion`, this._element);
       this._suggestBoxDelegate.applySuggestion(this._onlyCompletion, isIntermediateSuggestion);
       return true;
     }
     const suggestion = this._list.selectedItem();
     if (suggestion && suggestion.text) {
-      UI.ARIAUtils.alert(ls`${suggestion.title || suggestion.text}, suggestion`, this._element);
+      ARIAUtils.alert(ls`${suggestion.title || suggestion.text}, suggestion`, this._element);
     }
     this._suggestBoxDelegate.applySuggestion(suggestion, isIntermediateSuggestion);
 
@@ -416,7 +417,7 @@ export let Suggestions;
     *     tooltipCallback: ((function(number, number):!Promise<?Element>)|undefined),
     *     suggestionsCallback: ((function(!TextUtils.TextRange, !TextUtils.TextRange, boolean=):?Promise.<!Suggestions>)|undefined),
     *     isWordChar: ((function(string):boolean)|undefined),
-    *     anchorBehavior: (UI.GlassPane.AnchorBehavior|undefined)
+    *     anchorBehavior: (AnchorBehavior|undefined)
     * }}
     */
 export let AutocompleteConfig;

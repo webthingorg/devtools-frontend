@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as ARIAUtils from './ARIAUtils.js';
 import {Keys} from './KeyboardShortcut.js';
 import {ElementFocusRestorer, markBeingEdited} from './UIUtils.js';
 
@@ -39,7 +40,7 @@ export class InplaceEditor {
     element.setAttribute('contenteditable', 'plaintext-only');
 
     const oldRole = element.getAttribute('role');
-    UI.ARIAUtils.markAsTextBox(element);
+    ARIAUtils.markAsTextBox(element);
     editingContext.oldRole = oldRole;
 
     const oldTabIndex = element.getAttribute('tabIndex');

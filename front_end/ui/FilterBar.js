@@ -31,6 +31,7 @@
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 
+import * as ARIAUtils from './ARIAUtils.js';
 import {KeyboardShortcut, Modifiers} from './KeyboardShortcut.js';
 import {bindCheckbox} from './SettingsUI.js';
 import {Events, TextPrompt} from './TextPrompt.js';
@@ -281,8 +282,8 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper {
   constructor(items, setting) {
     super();
     this._filtersElement = createElementWithClass('div', 'filter-bitset-filter');
-    UI.ARIAUtils.markAsListBox(this._filtersElement);
-    UI.ARIAUtils.markAsMultiSelectable(this._filtersElement);
+    ARIAUtils.markAsListBox(this._filtersElement);
+    ARIAUtils.markAsMultiSelectable(this._filtersElement);
     this._filtersElement.title = Common.UIString.UIString(
         '%sClick to select multiple types', KeyboardShortcut.shortcutToString('', Modifiers.CtrlOrMeta));
 
@@ -354,7 +355,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper {
       const typeName = element.typeName;
       const active = !!this._allowedTypes[typeName];
       element.classList.toggle('selected', active);
-      UI.ARIAUtils.setSelected(element, active);
+      ARIAUtils.setSelected(element, active);
     }
     this.dispatchEventToListeners(FilterUI.Events.FilterChanged, null);
   }
@@ -369,7 +370,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper {
     typeFilterElement.tabIndex = -1;
     typeFilterElement.typeName = name;
     typeFilterElement.createTextChild(label);
-    UI.ARIAUtils.markAsOption(typeFilterElement);
+    ARIAUtils.markAsOption(typeFilterElement);
     if (title) {
       typeFilterElement.title = title;
     }

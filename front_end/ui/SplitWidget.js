@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../common/common.js';
+
 import {Constraints} from './Geometry.js';
 import {Events as ResizerWidgetEvents, SimpleResizerWidget} from './ResizerWidget.js';
 import {ToolbarButton} from './Toolbar.js';
@@ -335,7 +336,7 @@ export class SplitWidget extends Widget {
 
   /**
    * @param {?Widget} sideToShow
-   * @param {?UI.Widget} sideToHide
+   * @param {?Widget} sideToHide
    * @param {!Element} shadowToShow
    * @param {!Element} shadowToHide
    * @param {boolean=} animate
