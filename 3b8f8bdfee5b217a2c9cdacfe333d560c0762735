@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f456c96e_c1cc486d",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-13T13:58:38Z",
+      "side": 1,
+      "message": "Our ESLint rules state no parens around a single arg so I\u0027ve left it at that but don\u0027t feel strongly if you want to swap it.\n\nMy thinking was making the small number of e2e violations align with this rule was fewer changes compared to changing the rule + updating the front_end folder but it\u0027s easily done if you would like - let me know!",
+      "parentUuid": "ea29414d_d7929d21",
+      "range": {
+        "startLine": 52,
+        "startChar": 55,
+        "endLine": 52,
+        "endChar": 60
+      },
+      "revId": "3b8f8bdfee5b217a2c9cdacfe333d560c0762735",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3caa8b3a_2de5cfd9",
         "filename": "test/perf/bootperf.js",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-13T13:54:33Z",
       "side": 1,
       "message": "I feel like we should disable this check overall. I don\u0027t think logging is a problem in our case, and I don\u0027t mind having log statements in.",
+      "range": {
+        "startLine": 5,
+        "startChar": 18,
+        "endLine": 5,
+        "endChar": 28
+      },
+      "revId": "3b8f8bdfee5b217a2c9cdacfe333d560c0762735",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7821f383_4ae40cbf",
+        "filename": "test/perf/bootperf.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-13T13:58:38Z",
+      "side": 1,
+      "message": "I think it\u0027s useful to catch accidental debugging that\u0027s left in (spoken as someone who uses console.log far too much) so I\u0027d rather leave it but don\u0027t feel strongly if you want to turn it off.",
+      "parentUuid": "3caa8b3a_2de5cfd9",
       "range": {
         "startLine": 5,
         "startChar": 18,
