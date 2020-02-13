@@ -469,7 +469,7 @@ export class ResourceTreeModel extends SDKModel {
 
   /**
    * @param {!ExecutionContext} a
-   * @param {!SDK.ExecutionContext} b
+   * @param {!ExecutionContext} b
    * @return {number}
    */
   _executionContextComparator(a, b) {

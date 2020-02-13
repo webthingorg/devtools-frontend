@@ -165,7 +165,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
    */
   _initializeInitiatorSymbolIfNeeded(request) {
     if (!request[_initiatorDataSymbol]) {
-      /** @type {!{info: ?SDK.NetworkLog._InitiatorInfo, chain: !Set<!NetworkRequest>, request: (?SDK.NetworkRequest|undefined)}} */
+      /** @type {!{info: ?SDK.NetworkLog._InitiatorInfo, chain: !Set<!NetworkRequest>, request: (?NetworkRequest|undefined)}} */
       request[_initiatorDataSymbol] = {
         info: null,
         chain: null,
@@ -261,7 +261,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {!NetworkRequest} request
-   * @return {!Set<!SDK.NetworkRequest>}
+   * @return {!Set<!NetworkRequest>}
    */
   _initiatorChain(request) {
     this._initializeInitiatorSymbolIfNeeded(request);
@@ -292,7 +292,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {!NetworkRequest} request
-   * @return {?SDK.NetworkRequest}
+   * @return {?NetworkRequest}
    */
   _initiatorRequest(request) {
     this._initializeInitiatorSymbolIfNeeded(request);

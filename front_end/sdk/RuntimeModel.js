@@ -693,7 +693,7 @@ export class ExecutionContext {
 
     /**
      * @param {!Target} target
-     * @return {!Array<!SDK.Target>}
+     * @return {!Array<!Target>}
      */
     function targetPath(target) {
       let currentTarget = target;
