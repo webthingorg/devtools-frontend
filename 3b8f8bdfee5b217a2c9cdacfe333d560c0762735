@@ -117,6 +117,30 @@
       "revId": "3b8f8bdfee5b217a2c9cdacfe333d560c0762735",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae2acbf3_33889659",
+        "filename": "test/perf/bootperf.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-13T14:05:44Z",
+      "side": 1,
+      "message": "I think it\u0027s still useful for tests -on the whole we shouldn\u0027t have random `console.log` calls in our tests either.",
+      "parentUuid": "766eb0d7_6fc20000",
+      "range": {
+        "startLine": 5,
+        "startChar": 18,
+        "endLine": 5,
+        "endChar": 28
+      },
+      "revId": "3b8f8bdfee5b217a2c9cdacfe333d560c0762735",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
