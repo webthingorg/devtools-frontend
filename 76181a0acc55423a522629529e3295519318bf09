@@ -22,6 +22,30 @@
       "revId": "76181a0acc55423a522629529e3295519318bf09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786f2185_c45d8ce4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-13T13:48:21Z",
+      "side": 1,
+      "message": "But the folder is `test/e2e` ? 😊",
+      "parentUuid": "9e9035df_b4df4920",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "76181a0acc55423a522629529e3295519318bf09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
