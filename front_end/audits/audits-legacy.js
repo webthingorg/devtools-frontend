@@ -21,9 +21,3 @@ Audits.ReportSelector = AuditsModule.AuditsReportSelector.ReportSelector;
 * @constructor
 */
 Audits.StatusView = AuditsModule.AuditsStatusView.StatusView;
-
-/** @typedef {{setting: !Common.Setting, configID: string, title: string, description: string}} */
-Audits.Preset;
-
-/** @typedef {{setting: !Common.Setting, description: string, setFlags: function(!Object, string), options: (!Array|undefined), title: (string|undefined)}} */
-Audits.RuntimeSetting;
