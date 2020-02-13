@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81736b13_72d92756",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-13T11:30:10Z",
+      "side": 1,
+      "message": "I wonder if we should be using Intl.PluralRules here, especially with localization. Peter, any thoughts?\n\nTo be clear, I don\u0027t think we should block this CL on this, but maybe we can add a TODO?",
+      "revId": "32ecd70731a2a3d8eb83ad73e40cb69ab1c4630b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
