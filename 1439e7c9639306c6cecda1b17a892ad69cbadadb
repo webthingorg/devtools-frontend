@@ -135,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "0908d897_afa71283",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-13T11:21:27Z",
+      "side": 1,
+      "message": "Ah, right 😄\nI didn\u0027t see the space. Will fix it!",
+      "parentUuid": "c13e84c0_340f904b",
+      "revId": "1439e7c9639306c6cecda1b17a892ad69cbadadb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47ca0368_fce533d4",
         "filename": "front_end/issues/issuesPane.css",
         "patchSetId": 5
