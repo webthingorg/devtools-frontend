@@ -24,4 +24,7 @@
   <message name="IDS_DEVTOOLS_bf3d65060c91ba1d205face215fced7b" desc="Label for High Priority">
     High Priority
   </message>
+  <message name="IDS_DEVTOOLS_f3381712a92e82a64f61806f9fce503e" desc="Label to show the number of affected cookies">
+    <ph name="THIS__ISSUE_NUMBEROFCOOKIES__">$1s<ex>10</ex></ph> cookies
+  </message>
 </grit-part>
