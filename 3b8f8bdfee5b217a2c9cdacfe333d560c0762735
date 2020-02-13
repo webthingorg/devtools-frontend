@@ -93,6 +93,30 @@
       "revId": "3b8f8bdfee5b217a2c9cdacfe333d560c0762735",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "766eb0d7_6fc20000",
+        "filename": "test/perf/bootperf.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-13T14:01:12Z",
+      "side": 1,
+      "message": "I think it is valuable for production source code. Maybe we can turn it off for only tests?",
+      "parentUuid": "7821f383_4ae40cbf",
+      "range": {
+        "startLine": 5,
+        "startChar": 18,
+        "endLine": 5,
+        "endChar": 28
+      },
+      "revId": "3b8f8bdfee5b217a2c9cdacfe333d560c0762735",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
