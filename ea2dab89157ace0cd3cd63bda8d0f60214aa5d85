@@ -353,6 +353,30 @@
       "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10c589b9_65c1acd5",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-13T00:36:17Z",
+      "side": 1,
+      "message": "Lgtm, thanks!",
+      "parentUuid": "eeaf41d8_5913b4f4",
+      "range": {
+        "startLine": 1530,
+        "startChar": 6,
+        "endLine": 1530,
+        "endChar": 158
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
