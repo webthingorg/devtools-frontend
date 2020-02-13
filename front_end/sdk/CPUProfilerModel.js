@@ -148,7 +148,8 @@ export class CPUProfilerModel extends SDKModel {
   startPreciseCoverage(jsCoveragePerBlock, preciseCoverageDeltaUpdateCallback) {
     const callCount = false;
     this._preciseCoverageDeltaUpdateCallback = preciseCoverageDeltaUpdateCallback;
-    return this._profilerAgent.startPreciseCoverage(callCount, jsCoveragePerBlock);
+    const allowTriggeredUpdated = true;
+    return this._profilerAgent.startPreciseCoverage(callCount, jsCoveragePerBlock, allowTriggeredUpdated);
   }
 
   /**
