@@ -117,6 +117,24 @@
     },
     {
       "key": {
+        "uuid": "c13e84c0_340f904b",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-13T11:15:22Z",
+      "side": 1,
+      "message": "I don\u0027t understand the change on this line. Is it just adding a redundant space?",
+      "parentUuid": "fd97cb1c_ab44127f",
+      "revId": "1439e7c9639306c6cecda1b17a892ad69cbadadb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47ca0368_fce533d4",
         "filename": "front_end/issues/issuesPane.css",
         "patchSetId": 5
