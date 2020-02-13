@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "72096c3c_498691f1",
+        "filename": "front_end/ui/textButton.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-13T16:05:12Z",
+      "side": 1,
+      "message": "https://imgur.com/a/HKBMlRy",
+      "parentUuid": "8e2d7f31_02913179",
+      "revId": "234b2e102e6514d5fb55341f0ebe6a3774a005f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60b3695f_8e7fbfa5",
         "filename": "front_end/ui/textButton.css",
         "patchSetId": 18
