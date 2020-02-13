@@ -35,6 +35,7 @@ npm-debug.log
 !/third_party/pyjson5
 !/third_party/typescript
 
+<<<<<<< HEAD
 test/e2e/**/*.js
 !test/e2e/resources/**/*.js
 test/e2e/**/*.tsbuildinfo
@@ -44,3 +45,10 @@ test/shared/**/*.tsbuildinfo
 test/screenshots/**/*.js
 test/screenshots/**/*.tsbuildinfo
 test/screenshots/.generated
+=======
+!test/e2e/resources/**/*.js
+test/e2e/**/*.js
+test/e2e/**/*.tsbuildinfo
+
+test/shared/**/*[.js, .tsbuildinfo]
+>>>>>>> Refactor Console E2E test to use PO pattern
