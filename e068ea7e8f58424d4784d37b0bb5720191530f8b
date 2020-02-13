@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec88588a_101b3a81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-13T09:07:20Z",
+      "side": 1,
+      "message": "For visual changes like these, please include this in the CL description:\n\n    Screenshots:\n    - Before: \u003cURL\u003e\n    - After: \u003cURL\u003e",
+      "revId": "e068ea7e8f58424d4784d37b0bb5720191530f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
