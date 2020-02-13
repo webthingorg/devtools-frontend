@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable no-console */
+
 const utils = require('./bootperf-utils');
 const puppeteer = require('puppeteer');
 const { performance } = require('perf_hooks');
@@ -50,7 +52,7 @@ if (!chromeBinary) {
 const times = [];
 const pages = [];
 let exitCode = 0;
-async function runBootPerf () {
+async function runBootPerf() {
   try {
     const browser = await puppeteer.launch({
       headless: true,
@@ -76,7 +78,7 @@ async function runBootPerf () {
     const listing = await devtools.$('pre');
     const json = await devtools.evaluate(listing => listing.textContent, listing);
     const targets = JSON.parse(json);
-    const { id } = targets.find((target) => target.url === targetUrl);
+    const { id } = targets.find(target => target.url === targetUrl);
 
     for (let i = 0; i < runs; i++) {
       if (progress) {
@@ -138,4 +140,4 @@ function printRunProgress(msg = '') {
   process.stdout.write(msg);
 }
 
-runBootPerf()
+runBootPerf();
