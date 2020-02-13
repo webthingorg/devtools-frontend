@@ -64,7 +64,7 @@ function rewriteSource(refactoringNamespace: string, source: string) {
           const fullName = `${computeNamespaceName(refactoringNamespace)}.${getFullTypeName(topLevelAssignment)}`;
 
           try {
-            let usages = child_process.execSync(`grep -r ${fullName} ${FRONT_END_FOLDER} || true`, {encoding: 'utf8'});
+            let usages = child_process.execSync(`grep --include=**/module.json -r ${fullName} ${FRONT_END_FOLDER} || true`, {encoding: 'utf8'});
 
             let usagesCount = usages.split('\n').length;
 
@@ -74,8 +74,9 @@ function rewriteSource(refactoringNamespace: string, source: string) {
 
             // It is only used once, in its assignment
             // Grep returns an empty line for every search, so it is
-            // 2 empty lines for the 2 invocations + 1 line for the assignment itself
-            if (usagesCount == 3) {
+            // 2 empty lines for the 2 invocations, as the assignment happens
+            // in the legacy file
+            if (usagesCount == 2) {
               removedExports.push(assignment.right.name);
               return b.emptyStatement();
             }
