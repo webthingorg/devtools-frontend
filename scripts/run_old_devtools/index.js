@@ -64,6 +64,6 @@ async function downloadChrome(revision) {
 }
 
 function toMegabytes(bytes) {
-  const mb = bytes / 1024 / 1024;
+  const mb = bytes / 1000000;
   return `${Math.round(mb * 10) / 10} Mb`;
 }
