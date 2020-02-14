@@ -283,6 +283,9 @@
   <message name="IDS_DEVTOOLS_6f6cb72d544962fa333e2e34ce64f719" desc="Text for the size of something">
     Size
   </message>
+  <message name="IDS_DEVTOOLS_70d68501018d9d6496e55cad8a2c3ba1" desc="Tooltip text that appears when hovering over the largeicon load button">
+    Load profile...
+  </message>
   <message name="IDS_DEVTOOLS_74540c79e377bea903e1023a46df5574" desc="Text to open a file">
     Open file
   </message>
@@ -366,6 +369,9 @@
   </message>
   <message name="IDS_DEVTOOLS_96e9bc575b5d3ed541113a249da8bd24" desc="Text to take screenshots">
     Capture screenshots
+  </message>
+  <message name="IDS_DEVTOOLS_976e665bbff13a2a2a2eb4a83b8bb602" desc="Tooltip text that appears when hovering over the largeicon download button">
+    Save profile...
   </message>
   <message name="IDS_DEVTOOLS_9841bdc50c4226cb6ec5db76494249e6" desc="Title of the 'Coverage' tool in the bottom drawer">
     Coverage
