@@ -1,3 +1,7 @@
 /**
- * @fileoverview Nothing to see here.
+ * @fileoverview Worker that launches debugger if messaged.
  */
+
+self.onmessage = () => {
+  debugger;
+};
