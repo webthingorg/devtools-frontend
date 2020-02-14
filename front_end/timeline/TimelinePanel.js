@@ -1218,11 +1218,11 @@ export class StatusPane extends UI.Widget.VBox {
   showPane(parent) {
     this.show(parent);
     parent.classList.add('tinted');
-    this._stopButton.focus();
   }
 
   enableStopButton() {
     this._stopButton.disabled = false;
+    this._stopButton.focus();
   }
 
   /**
