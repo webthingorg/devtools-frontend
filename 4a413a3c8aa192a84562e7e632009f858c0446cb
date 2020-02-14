@@ -158,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "4563e80a_1d70776e",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-02-14T18:52:08Z",
+      "side": 1,
+      "message": "How about destructuring? (I think the below is mostly correct syntax)\n\n/**\n  * @param {!Action} action\n  * @param {Object\u003d} options\n  * @param {boolean\u003d} options.showLabel\n  * @param {?Host.UserMetrics.Action\u003d} options.userActionCode\n  * @return {!ToolbarButton}\n  */\n  static createActionButton(action, {showLabel \u003d false, userActionCode} \u003d {}) {",
+      "parentUuid": "9b0c09d0_99240302",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "380fe884_2a2bfb9f",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 14
