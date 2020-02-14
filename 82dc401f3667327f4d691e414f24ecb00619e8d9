@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c9f9f13_e014cceb",
+        "filename": "test/unittests/front_end/platform/utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-14T13:35:58Z",
+      "side": 1,
+      "message": "Might as well test all the affected characters here:\n\n    const input \u003d \u0027^[]{}()\\\\.^$*+?|-,\u0027;",
+      "revId": "82dc401f3667327f4d691e414f24ecb00619e8d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
