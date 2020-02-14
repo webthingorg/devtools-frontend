@@ -16,6 +16,24 @@
       "revId": "82dc401f3667327f4d691e414f24ecb00619e8d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5f8e51c_a2333862",
+        "filename": "test/unittests/front_end/platform/utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-14T14:10:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9f9f13_e014cceb",
+      "revId": "82dc401f3667327f4d691e414f24ecb00619e8d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
