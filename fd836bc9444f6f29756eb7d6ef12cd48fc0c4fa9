@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0eae0a22_3568c3e6",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-14T01:41:28Z",
+      "side": 1,
+      "message": "As Settings can be hidden and shown, we should record a user action for the panel opening when Settings opens. However, as Settings re-uses the same tabbed pane, opening Settings to the same panel as it was closed on will not trigger a tab selected event. These additions ensure Settings triggers panel open events reliably, and exactly once, every time.",
+      "revId": "fd836bc9444f6f29756eb7d6ef12cd48fc0c4fa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
