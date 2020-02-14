@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eeaf0bf_5b0a61da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-02-14T15:16:24Z",
+      "side": 1,
+      "message": "This bug seems to not exist (anymore). But chromium:1035309 is similar.",
+      "revId": "4081047a2283faf6a3b35bfb42737d50850b844e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
