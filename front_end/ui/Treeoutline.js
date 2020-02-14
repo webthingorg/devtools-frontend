@@ -188,9 +188,9 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
 
   focus() {
     if (this.selectedTreeElement) {
-      this.selectedTreeElement.listItemElement.focus();
+      this.selectedTreeElement.listItemElement.focus({preventScroll: true});
     } else {
-      this.contentElement.focus();
+      this.contentElement.focus({preventScroll: true});
     }
   }
 
@@ -1199,7 +1199,7 @@ export class TreeElement {
   select(omitFocus, selectedByUser) {
     if (!this.treeOutline || !this.selectable || this.selected) {
       if (!omitFocus) {
-        this.listItemElement.focus();
+        this.listItemElement.focus({preventScroll: true});
       }
       return false;
     }
@@ -1212,7 +1212,7 @@ export class TreeElement {
         lastSelected.deselect();
       }
       if (!omitFocus) {
-        this.listItemElement.focus();
+        this.listItemElement.focus({preventScroll: true});
       }
       return false;
     }
@@ -1222,7 +1222,7 @@ export class TreeElement {
     this.treeOutline.selectedTreeElement = this;
     this.treeOutline.updateFocusable();
     if (!omitFocus || this.treeOutline.contentElement.hasFocus()) {
-      this.listItemElement.focus();
+      this.listItemElement.focus({preventScroll: true});
     }
 
     this._listItemNode.classList.add('selected');
