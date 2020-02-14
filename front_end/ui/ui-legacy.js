@@ -228,7 +228,7 @@ UI.KeyboardShortcut = UIModule.KeyboardShortcut.KeyboardShortcut;
  */
 UI.KeyboardShortcut.Modifiers = UIModule.KeyboardShortcut.Modifiers;
 
-/** @type {!Object.<string, !UI.KeyboardShortcut.Key>} */
+/** @type {!Object.<string, !UIModule.KeyboardShortcut.Key>} */
 UI.KeyboardShortcut.Keys = UIModule.KeyboardShortcut.Keys;
 
 /** @constructor */
@@ -615,53 +615,10 @@ UI.ZoomManager.Events = UIModule.ZoomManager.Events;
 /** @type {!UI.ActionRegistry} */
 self.UI.actionRegistry;
 
-/** @typedef {{name: string, label: string, title: (string|undefined)}} */
-UI.NamedBitSetFilterUI.Item;
-
-/**
- * @typedef {!{
-  *   template: !Element,
-  *   binds: !Array<!UI.Fragment._Bind>
-  * }}
-  */
-UI.Fragment._Template;
-
-/**
-  * @typedef {!{
-  *   elementId: (string|undefined),
-  *
-  *   attr: (!{
-  *     index: number,
-  *     names: !Array<string>,
-  *     values: !Array<string>
-  *   }|undefined),
-  *
-  *   replaceNodeIndex: (number|undefined)
-  * }}
-  */
-UI.Fragment._Bind;
-
-/** @typedef {{position: string, spritesheet: string, isMask: (boolean|undefined), coordinates: ({x: number, y: number}|undefined), invert: (boolean|undefined)}} */
-UI.Icon.Descriptor;
-
-/** @typedef {{cellWidth: number, cellHeight: number, padding: number}} */
-UI.Icon.SpriteSheet;
-
-/**
- * @typedef {{cancel: function(), commit: function()}}
- */
-UI.InplaceEditor.Controller;
-
 /**
  * @type {!UI.InspectorView}
  */
 UI.inspectorView;
-
-/** @typedef {!{code: number, name: (string|!Object.<string, string>)}} */
-UI.KeyboardShortcut.Key;
-
-/** @typedef {!{key: number, name: string}} */
-UI.KeyboardShortcut.Descriptor;
 
 /** @typedef {{valid: boolean, errorMessage: (string|undefined)}} */
 UI.ListWidget.ValidatorResult;
@@ -677,29 +634,6 @@ self.UI.shortcutRegistry;
  * @type {!UI.ShortcutsScreen}
  */
 self.UI.shortcutsScreen;
-
-/** @typedef {{showMode: string, size: number}} */
-UI.SplitWidget.SettingForOrientation;
-
-/**
- * @typedef {{
-  *      text: string,
-  *      title: (string|undefined),
-  *      subtitle: (string|undefined),
-  *      iconType: (string|undefined),
-  *      priority: (number|undefined),
-  *      isSecondary: (boolean|undefined),
-  *      subtitleRenderer: (function():!Element|undefined),
-  *      selectionRange: ({startColumn: number, endColumn: number}|undefined),
-  *      hideGhostText: (boolean|undefined)
-  * }}
-  */
-UI.SuggestBox.Suggestion;
-
-/**
-  * @typedef {!Array<!UI.SuggestBox.Suggestion>}
-  */
-UI.SuggestBox.Suggestions;
 
 /**
  * @typedef {{
@@ -720,7 +654,7 @@ UI.TextEditor.Options;
   * @typedef {{
   *     substituteRangeCallback: ((function(number, number):?TextUtils.TextRange)|undefined),
   *     tooltipCallback: ((function(number, number):!Promise<?Element>)|undefined),
-  *     suggestionsCallback: ((function(!TextUtils.TextRange, !TextUtils.TextRange, boolean=):?Promise.<!UI.SuggestBox.Suggestions>)|undefined),
+  *     suggestionsCallback: ((function(!TextUtils.TextRange, !TextUtils.TextRange, boolean=):?Promise.<!UIModule.SuggestBox.Suggestions>)|undefined),
   *     isWordChar: ((function(string):boolean)|undefined),
   *     anchorBehavior: (UI.GlassPane.AnchorBehavior|undefined)
   * }}

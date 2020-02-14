@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+
+import * as ARIAUtils from './ARIAUtils.js';
 import {Toolbar, ToolbarButton} from './Toolbar.js';
 import {createInput, createTextButton, ElementFocusRestorer} from './UIUtils.js';
 import {VBox} from './Widget.js';
@@ -299,7 +301,7 @@ export class Editor {
     buttonsRow.appendChild(this._cancelButton);
 
     this._errorMessageContainer = this.element.createChild('div', 'list-widget-input-validation-error');
-    UI.ARIAUtils.markAsAlert(this._errorMessageContainer);
+    ARIAUtils.markAsAlert(this._errorMessageContainer);
 
     /**
      * @param {function(!Event):boolean} predicate
@@ -349,7 +351,7 @@ export class Editor {
     input.placeholder = title;
     input.addEventListener('input', this._validateControls.bind(this, false), false);
     input.addEventListener('blur', this._validateControls.bind(this, false), false);
-    UI.ARIAUtils.setAccessibleName(input, title);
+    ARIAUtils.setAccessibleName(input, title);
     this._controlByName.set(name, input);
     this._controls.push(input);
     this._validators.push(validator);
@@ -372,7 +374,7 @@ export class Editor {
     }
     if (title) {
       select.title = title;
-      UI.ARIAUtils.setAccessibleName(select, title);
+      ARIAUtils.setAccessibleName(select, title);
     }
     select.addEventListener('input', this._validateControls.bind(this, false), false);
     select.addEventListener('blur', this._validateControls.bind(this, false), false);
@@ -402,9 +404,9 @@ export class Editor {
 
       input.classList.toggle('error-input', !valid && !forceValid);
       if (valid || forceValid) {
-        UI.ARIAUtils.setInvalid(input, false);
+        ARIAUtils.setInvalid(input, false);
       } else {
-        UI.ARIAUtils.setInvalid(input, true);
+        ARIAUtils.setInvalid(input, true);
       }
 
       if (!forceValid && errorMessage && !this._errorMessageContainer.textContent) {
