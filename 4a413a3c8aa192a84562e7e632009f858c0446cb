@@ -122,6 +122,24 @@
     },
     {
       "key": {
+        "uuid": "cfb2daab_715e690c",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-02-14T17:26:43Z",
+      "side": 1,
+      "message": "Is the options parameter required in that case? Or is it an optional parameter with optional members? I worry it reduces clarity for the sake of signature stability. I\u0027m more comfortable with it if the same set of options will be used in many places.",
+      "parentUuid": "b9c06e74_d73599c8",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "380fe884_2a2bfb9f",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 14
