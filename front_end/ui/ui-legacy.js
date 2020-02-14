@@ -542,6 +542,7 @@ UI.createInput = UIModule.UIUtils.createInput;
 UI.createLabel = UIModule.UIUtils.createLabel;
 UI.createRadioLabel = UIModule.UIUtils.createRadioLabel;
 UI.createIconLabel = UIModule.UIUtils.createIconLabel;
+UI.createSelect = UIModule.UIUtils.createSelect;
 UI.createSlider = UIModule.UIUtils.createSlider;
 UI.bindInput = UIModule.UIUtils.bindInput;
 UI.trimText = UIModule.UIUtils.trimText;

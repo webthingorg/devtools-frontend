@@ -36,7 +36,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
-import {ColorSwatchPopoverIcon, ShadowSwatchPopoverHelper} from './ColorSwatchPopoverIcon.js';
+import {ColorSwatchPopoverIcon, FontSwatchPopoverIcon, ShadowSwatchPopoverHelper} from './ColorSwatchPopoverIcon.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {StylePropertyHighlighter} from './StylePropertyHighlighter.js';
@@ -979,10 +979,22 @@ export class StylePropertiesSection {
       this.element.classList.add('read-only');
       this.propertiesTreeOutline.element.classList.add('read-only');
     }
-
+    /** @type {?FontSwatchPopoverIcon} */
+    this._fontPopoverIcon = null;
     this._hoverableSelectorsMode = false;
     this._markSelectorMatches();
     this.onpopulate();
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+
+  registerFontProperty(treeElement) {
+    if (!this._fontPopoverIcon) {
+      this._fontPopoverIcon = new FontSwatchPopoverIcon(this._parentPane.swatchPopoverHelper(), this);
+    }
+    this._fontPopoverIcon.registerFontProperty(treeElement);
   }
 
   /**
@@ -2574,6 +2586,8 @@ export class StylesSidebarPropertyRenderer {
     this._colorHandler = null;
     /** @type {?function(string):!Node} */
     this._bezierHandler = null;
+    /** @type {?function(string):!Node} */
+    this._fontHandler = null;
     /** @type {?function(string, string):!Node} */
     this._shadowHandler = null;
     /** @type {?function(string, string):!Node} */
@@ -2594,6 +2608,13 @@ export class StylesSidebarPropertyRenderer {
    */
   setBezierHandler(handler) {
     this._bezierHandler = handler;
+  }
+
+  /**
+   * @param {function(string):!Node} handler
+   */
+  setFontHandler(handler) {
+    this._fontHandler = handler;
   }
 
   /**
@@ -2666,6 +2687,10 @@ export class StylesSidebarPropertyRenderer {
     if (this._colorHandler && metadata.isColorAwareProperty(this._propertyName)) {
       regexes.push(Common.Color.Regex);
       processors.push(this._colorHandler);
+    }
+    if (this._fontHandler && metadata.isFontAwareProperty(this._propertyName)) {
+      regexes.push(SDK.CSSMetadata.FontRegex);
+      processors.push(this._fontHandler);
     }
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this._propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {

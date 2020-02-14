@@ -42,6 +42,7 @@ SDK.CSSMetadata = SDKModule.CSSMetadata.CSSMetadata;
 SDK.CSSMetadata.VariableRegex = SDKModule.CSSMetadata.VariableRegex;
 SDK.CSSMetadata.URLRegex = SDKModule.CSSMetadata.URLRegex;
 SDK.CSSMetadata.GridAreaRowRegex = SDKModule.CSSMetadata.GridAreaRowRegex;
+SDK.CSSMetadata.FontRegex = SDKModule.CSSMetadata.FontRegex;
 
 SDK.cssMetadata = SDKModule.CSSMetadata.cssMetadata;
 
