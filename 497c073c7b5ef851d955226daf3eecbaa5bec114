@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4edc47f_825ed4f8",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-14T18:22:26Z",
+      "side": 1,
+      "message": "Does this need changing?",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 63
+      },
+      "revId": "497c073c7b5ef851d955226daf3eecbaa5bec114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac1011a1_90092f0c",
+        "filename": "scripts/run_old_devtools/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-14T18:22:26Z",
+      "side": 1,
+      "message": "Good opportunity to use numeric separators:\n\n      const mb \u003d bytes / 1_000_000;\n\n(not sure if all our tooling supports it yet though)",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "497c073c7b5ef851d955226daf3eecbaa5bec114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e610940_c16c0ed1",
+        "filename": "scripts/run_old_devtools/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-14T18:22:26Z",
+      "side": 1,
+      "message": "\"Mb\" -\u003e \"MB\"",
+      "range": {
+        "startLine": 68,
+        "startChar": 38,
+        "endLine": 68,
+        "endChar": 40
+      },
+      "revId": "497c073c7b5ef851d955226daf3eecbaa5bec114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
