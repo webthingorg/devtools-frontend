@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cdbdea2_f1ffe3df",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-14T14:15:38Z",
+      "side": 1,
+      "message": "This function can be replaced by `click(\u0027#tab-console\u0027)` that is defined in the helpers. Same for `openSourcesTab`",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "ab9a26d0d96b9e9d2aada22accd702ebbeda8ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2ca361_12440c9d",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-14T14:15:38Z",
+      "side": 1,
+      "message": "Check `can-show-multiple-workers` for a way to retrieve this information. We can probably reuse that function.",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "ab9a26d0d96b9e9d2aada22accd702ebbeda8ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7f17107_6b9e570b",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-14T14:15:38Z",
+      "side": 1,
+      "message": "Rather than doing keypresses, you can select the tabs based on aria-labels. See `can-show-multiple-workers` for an example.",
+      "range": {
+        "startLine": 75,
+        "startChar": 10,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "ab9a26d0d96b9e9d2aada22accd702ebbeda8ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
