@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aaa6c5b_2d9feddf",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-14T01:48:54Z",
+      "side": 1,
+      "message": "A \"dummy\" view is with the title \"Settings\" is introduced here in order for it to appear in sorted alphabetical order within the submenu.",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
