@@ -16,6 +16,126 @@
       "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a5b3dce_59298d5b",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T16:04:32Z",
+      "side": 1,
+      "message": "Can we do something different to provide for a sort order than create dummy views? It seems to me that the \"alpabetical order\" is an English-centric view of the world in a case in which we\u0027re ordering based on dummy views with stealth coded IDs.",
+      "parentUuid": "8aaa6c5b_2d9feddf",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11d4e3f4_3b3423b8",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T16:04:32Z",
+      "side": 1,
+      "message": "In the toolbar, the user action code is treated as if it has a default. Here, it appears to be required, but you have a test for undefined again.\n\nPlease see my comment on the Toolbar about:\n\n - Make your action codes clearly optional with the `?` annotation\n - Instead of adding parameters like this to the function, add them to an options object parameter instead",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64ca414c_8db84f3e",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T16:04:32Z",
+      "side": 1,
+      "message": "name nit: record -\u003e report",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97bec6f2_d7bcd614",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T16:04:32Z",
+      "side": 1,
+      "message": "Why do we need to map this here, and with an `if`? I\u0027d prefer to see some statically-defined Map if we need to do this, i.e.\n\n    tabId \u003d CUSTOM_TAB_IDS_TO_TAB_ID.get(tabId) || tabId;\n\nBut I don\u0027t understand why a tabId would be what looks like not an ID, and why only \"shortcuts\" would be relevant.",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5261bef4_d3865fa8",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T16:04:32Z",
+      "side": 1,
+      "message": "You shouldn\u0027t specify that `userActionCode` is truthy with a default value. `undefined` is not a concrete default value. Rather, annotate it as `?Host.UserMetrics.Action`.\n\nPut another way: there isn\u0027t a corresponding TypeScript annotation that would match your logic:\n\n    createActionButton(action: Action, showLabel \u003d false, userActionCode: UserMetrics.Action) {\n      // ...\n      if (userActionCode !\u003d\u003d undefined) {\n        // per the compiler, the condition always be true, and the if could be optimized away\n\nWith TypeScript coming down the line, we want to avoid this kind of pattern.",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9c06e74_d73599c8",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T16:04:32Z",
+      "side": 1,
+      "message": "In general: Instead of adding additional parameters, instead of adding a bunch of parameters, I\u0027d like to add an `options` parameters where optional options can go.",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "380fe884_2a2bfb9f",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T16:04:32Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
