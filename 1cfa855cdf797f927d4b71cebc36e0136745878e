@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72ab9603_4308ac50",
+        "filename": "front_end/quick_open/filteredListWidget.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-14T07:47:24Z",
+      "side": 1,
+      "message": "You know what I\u0027m gonna say, right? :)",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "1cfa855cdf797f927d4b71cebc36e0136745878e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
