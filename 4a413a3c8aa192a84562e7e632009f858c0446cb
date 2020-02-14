@@ -140,6 +140,24 @@
     },
     {
       "key": {
+        "uuid": "9b0c09d0_99240302",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T17:44:27Z",
+      "side": 1,
+      "message": "It\u0027s an optional parameter. It\u0027d look like the following TypeScript interface (sorry, I have to look up the how to write equivalent JSDoc typedef):\n\n    interface ToolbarActionButtonOptions {\n      showLabel?: boolean;\n      userActionCode?: Host.UserMetrics.Action;\n    }\n    // ...\n    static createActionButton(action: Action, options: ToolbarActionButtonOptions \u003d { }) {\n\nNow, whether we refactor the function to move `showLabel` into the options bag is a question. But the takeaway is, to preserve API stability, as new options are added to the function, the ToolbarActionButtonOptions interface can grow, and so long as the options added to it are themselves optional, this interface satisfies it. (Alternatively, you can define a DEFAULT_ACTION_BUTTON_OPTIONS constant next to the interface, and set the parameter default equal to the constant rather than an empty object).",
+      "parentUuid": "cfb2daab_715e690c",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "380fe884_2a2bfb9f",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 14
