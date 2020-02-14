@@ -1296,6 +1296,24 @@ export function createInput(className, type) {
 }
 
 /**
+ * @param {string} name
+ * @param {!Array<!{text: string, value: *, raw: (boolean|undefined)}>} options
+ * @return {!Element}
+ */
+export function createSelect(name, options) {
+  const select = createElementWithClass('select', 'chrome-select');
+  UI.ARIAUtils.setAccessibleName(select, name);
+  for (const option of options) {
+    if (typeof option === 'string') {
+      select.add(new Option(option, option));
+    } else if (option.text && option.value) {
+      select.add(new Option(option.text, option.value));
+    }
+  }
+  return select;
+}
+
+/**
  * @param {string} title
  * @param {string=} className
  * @param {!Element=} associatedControl
