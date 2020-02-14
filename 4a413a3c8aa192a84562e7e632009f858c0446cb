@@ -176,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "bbc8d67c_15c4d639",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-14T19:15:14Z",
+      "side": 1,
+      "message": "I\u0027m not opposed to that, but it can become unwieldy. Porting it to TypeScript will necessitate creating the interface later or else you get this beast:\n\n    static createActionButton(action: Action, { showLabel \u003d false, userActionCode }: { showLabel: boolean, userActionCode?: Host.UserMetrics.Action })\n\nI only point this out because we know we\u0027re going towards TypeScript, and it\u0027s my opinion that a JSDoc Typedef maps naturally to an interface declaration, whereas the list of destructured parameters maps to what I\u0027ve written above.  The typedef+interface becomes a bit cleaner:\n\n    static createActionButton(action: Action, { showLabel \u003d false, userActionCode }: ToolbarActionButtonOptions) {\n\nBut then you can just do the destructuring on line one...\n\n    static createActionButton(action: Action, options: ToolbarActionButtonOptions \u003d { }) {\n      const { showLabel, userActionCode } \u003d options;\n\nGiven our line length preferences, I would suppose the last one would be most preferred.",
+      "parentUuid": "4563e80a_1d70776e",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "380fe884_2a2bfb9f",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 14
