@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8919739c_384dd92b",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-17T20:33:47Z",
+      "side": 1,
+      "message": "thanks. updated",
+      "parentUuid": "6ac16713_6a1152f4",
+      "revId": "5434aed0094261cd87016db4b58eee2e6107f267",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5694625_e42269ec",
         "filename": "front_end/ui/filter.css",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-17T15:34:29Z",
       "side": 1,
       "message": "Is it feasible to only change the color here?",
+      "revId": "5434aed0094261cd87016db4b58eee2e6107f267",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f839c4bc_8ac999a0",
+        "filename": "front_end/ui/filter.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-17T20:33:47Z",
+      "side": 1,
+      "message": "changed to use --focus-ring-inactive-shadow",
+      "parentUuid": "a5694625_e42269ec",
       "revId": "5434aed0094261cd87016db4b58eee2e6107f267",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "46a2fa2a_add61037",
+        "filename": "front_end/ui/filter.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-17T20:33:47Z",
+      "side": 1,
+      "message": "changed to use --focus-ring-active-shadow",
+      "parentUuid": "73197b0c_b6a56697",
+      "revId": "5434aed0094261cd87016db4b58eee2e6107f267",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e453a57_08d4c5c9",
         "filename": "front_end/ui/toolbar.css",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2020-02-17T15:34:29Z",
       "side": 1,
       "message": "Is it feasible to only change the color here?",
+      "revId": "5434aed0094261cd87016db4b58eee2e6107f267",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "444d965b_470a0c52",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-17T20:33:47Z",
+      "side": 1,
+      "message": "Looks like border color change works here",
+      "parentUuid": "1e453a57_08d4c5c9",
       "revId": "5434aed0094261cd87016db4b58eee2e6107f267",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
