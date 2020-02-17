@@ -69,6 +69,24 @@
       "revId": "176c445de36824724cda8c20b06f83b50cbd1bf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dff3a34_598ecbba",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-02-17T23:44:01Z",
+      "side": 1,
+      "message": "Just saw that it looks like the aria-description part didn\u0027t get done. Maybe a follow-up?",
+      "parentUuid": "83f934be_1cec3cb5",
+      "revId": "176c445de36824724cda8c20b06f83b50cbd1bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
