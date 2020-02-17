@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fd3f278_a755497b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "I think it is best if we request the `imagediff` tool to be put into a separate repository, so that we can add it to our DEPS. That would require some chains from the tools team though.",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 42
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe96aad_c1917458",
+        "filename": "test/screenshots/interactive/interactive.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "Clean CSS, nice!",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20913e64_5d3e2851",
+        "filename": "test/screenshots/interactive/interactive.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "This would benefit from using a functional DOM pattern, such as using lit-html. But let\u0027s revisit that later.",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 31
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3874fd2_1c168b61",
+        "filename": "test/screenshots/interactive/interactive.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "Nit: rename these to \"accept\" or \"reject\" to make it clearer what the intention is. We could reasonably reverse the order of the correct/wrong and then this would fail.",
+      "range": {
+        "startLine": 108,
+        "startChar": 18,
+        "endLine": 108,
+        "endChar": 22
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dba1984f_4dd46c56",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "When would we use this variable? I don\u0027t see it referenced in the test you wrote and I am not sure as to when we would want to use it. Did you have a specific scenario in mind?\n\nEdit: never mind, I now see this referenced in the `shared/screenshot.ts`.",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b670c2d1_1a3dd25b",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "Can we have a new package.json command \"debug-screenshottests\" that automatically sets the required process variables?",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6b7be2f_e7380f11",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "If we are in interactive mode, can we have a similar workflow as to debugging e2etests? I want to inspect the screenshot comparison page you built, but the command closes before I have a chance to do so.",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e47d45d0_b2021d19",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "This function seems to erroneously pass given a failure:\n\n```\nRunning tests in the following order:\n/usr/local/google/home/tvanderlippe/Projects/devtools/devtools-frontend/test/screenshots/hello-world/hello-world.js\n\n    hello world takes a screenshot: /bin/sh: /usr/local/google/home/tvanderlippe/Projects/devtools/devtools-frontend/test/screenshots/image_diff/linux/image_diff: No such file or directory\n  ✓ hello world takes a screenshot: 426ms\n\n  1 passing (2s)\n```",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 23
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4b2cae0_cd80824e",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "Nit: If I understand the code above correctly, `diff` is only set if there is a mismatch. Therefore, we can collapse this to `if (diff) {`?",
+      "range": {
+        "startLine": 115,
+        "startChar": 20,
+        "endLine": 115,
+        "endChar": 55
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b33c2178_7404c7df",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "Nit: This can never be falsy, given the if-statement on line 104.",
+      "range": {
+        "startLine": 115,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 16
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "291c1f2a_ade326f5",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "Nit: collapse in an options parameter to save the triple-duplication of duplicating the pass-through.",
+      "range": {
+        "startLine": 121,
+        "startChar": 31,
+        "endLine": 121,
+        "endChar": 87
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22532216_237c5443",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-17T11:59:41Z",
+      "side": 1,
+      "message": "Nit: add comment that we are indefinitely waiting for a user choice. (This could go wrong if the selector is wrong I suppose?)",
+      "range": {
+        "startLine": 125,
+        "startChar": 71,
+        "endLine": 125,
+        "endChar": 81
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
