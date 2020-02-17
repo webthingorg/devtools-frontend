@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dead10fd_1d149d77",
+        "filename": "test/unittests/front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-17T06:56:35Z",
+      "side": 1,
+      "message": "super nit: This is shown if the assertion fails. maybe a a better msg would be `failed to encode the string ${inputString}`. Although I am not sure what the current convention is for such messages. No strong opinion on this one.",
+      "range": {
+        "startLine": 40,
+        "startChar": 75,
+        "endLine": 40,
+        "endChar": 115
+      },
+      "revId": "52081ac3cd5a38f26cd7ed1883fc2516937b0833",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
