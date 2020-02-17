@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b9068cc_b933c7eb",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-17T10:12:05Z",
+      "side": 1,
+      "message": "nit: s/than/then/",
+      "range": {
+        "startLine": 1422,
+        "startChar": 25,
+        "endLine": 1422,
+        "endChar": 29
+      },
+      "revId": "505923bb91c06edba3278b8de64f68bd5d6975de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2de887bd_c9cf4133",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-17T10:12:05Z",
+      "side": 1,
+      "message": "imho \"blocking\" implies main thread blocking. Would something like the following be more accurate?\n\n    waitForPendingLiveLocationUpdates returns a promise that resolves once all currently-pending updates (at call time) are completed.",
+      "range": {
+        "startLine": 1423,
+        "startChar": 43,
+        "endLine": 1423,
+        "endChar": 49
+      },
+      "revId": "505923bb91c06edba3278b8de64f68bd5d6975de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
