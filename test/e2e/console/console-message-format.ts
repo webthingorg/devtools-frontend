@@ -4,41 +4,31 @@
 
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
+
 import * as puppeteer from 'puppeteer';
-
-import {click, debuggerStatement, getBrowserAndPages, resetPages, resourcesPath} from '../../shared/helper.js';
-
-async function obtainMessagesForTest(testName: string, callback?: (page: puppeteer.Page) => Promise<void>) {
-  const {target, frontend} = getBrowserAndPages();
-
-  // Have the target load the page.
-  await target.goto(`${resourcesPath}/console/${testName}.html`);
-
-  // Locate the button for switching to the console tab.
-  await click('#tab-console');
-  // Obtain console messages that were logged
-  await frontend.waitForSelector('.console-group-messages');
-
-  if (callback) {
-    await debuggerStatement(frontend);
-    await callback(frontend);
-  }
-  await debuggerStatement(frontend);
-
-  // Get the first message from the console.
-  return frontend.evaluate(() => {
-    return Array.from(document.querySelectorAll('.console-group-messages .source-code .console-message-text'))
-        .map(message => message.textContent);
-  });
-}
+import {ConsoleTabPageObject} from '../page-objects/ConsoleTabPageObject';
+import {HeaderPageObject} from '../page-objects/HeaderPageObject';
+import {resetPages, getBrowserAndPages, resourcesPath} from '../../shared/helper.js';
 
 describe('The Console Tab', async () => {
+  let target: puppeteer.Page;
+  let frontend: puppeteer.Page;
+  let headerPageObject: HeaderPageObject;
+  let consoleTabPageObject: ConsoleTabPageObject;
+
   beforeEach(async () => {
     await resetPages();
+    const world = getBrowserAndPages();
+    target = world.target;
+    frontend = world.frontend;
+    headerPageObject = new HeaderPageObject(target, frontend);
+    consoleTabPageObject = new ConsoleTabPageObject(target, frontend);
+    await headerPageObject.clickConsoleTab();
   });
 
   it('shows BigInts formatted', async () => {
-    const messages = await obtainMessagesForTest('big-int');
+    await target.goto(`${resourcesPath}/console/big-int.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       '1n',
@@ -50,7 +40,8 @@ describe('The Console Tab', async () => {
   });
 
   it('shows uncaught promises', async () => {
-    const messages = await obtainMessagesForTest('uncaught-promise');
+    await target.goto(`${resourcesPath}/console/uncaught-promise.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `Uncaught (in promise) Error: err1
@@ -64,7 +55,8 @@ describe('The Console Tab', async () => {
   });
 
   it('shows structured objects', async () => {
-    const messages = await obtainMessagesForTest('structured-objects');
+    await target.goto(`${resourcesPath}/console/structured-objects.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `{}`,
@@ -80,7 +72,8 @@ describe('The Console Tab', async () => {
   });
 
   it('escapes and substitutes correctly', async () => {
-    const messages = await obtainMessagesForTest('escaping');
+    await target.goto(`${resourcesPath}/console/escaping.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `Test for zero "0" in formatter`,
@@ -96,7 +89,8 @@ describe('The Console Tab', async () => {
   });
 
   it('shows built-in objects', async () => {
-    const messages = await obtainMessagesForTest('built-ins');
+    await target.goto(`${resourcesPath}/console/built-ins.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `/^url\\(\\s*(?:(?:\"(?:[^\\\\\\\"]|(?:\\\\[\\da-f]{1,6}\\s?|\\.))*\"|'(?:[^\\\\\\']|(?:\\\\[\\da-f]{1,6}\\s?|\\.))*')|(?:[!#$%&*-~\\w]|(?:\\\\[\\da-f]{1,6}\\s?|\\.))*)\\s*\\)/i`,
@@ -139,7 +133,8 @@ error message
   });
 
   it('shows primitives', async () => {
-    const messages = await obtainMessagesForTest('primitives');
+    await target.goto(`${resourcesPath}/console/primitives.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `null`,
@@ -161,7 +156,8 @@ error message
   });
 
   it('can handle prototype fields', async () => {
-    const messages = await obtainMessagesForTest('prototypes');
+    await target.goto(`${resourcesPath}/console/prototypes.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `{enumerableProp: 4, __underscoreEnumerableProp__: 5, __underscoreNonEnumerableProp: 2, abc: 3, getFoo: ƒ,\xA0…}`,
@@ -181,7 +177,8 @@ error message
   });
 
   it('can show DOM interactions', async () => {
-    const messages = await obtainMessagesForTest('dom-interactions');
+    await target.goto(`${resourcesPath}/console/dom-interactions.html`, {waitUntil: 'networkidle2'});
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       ``,
@@ -201,7 +198,8 @@ error message
   });
 
   it('can handle sourceURLs in exceptions', async () => {
-    const messages = await obtainMessagesForTest('source-url-exceptions');
+    await target.goto(`${resourcesPath}/console/source-url-exceptions.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `Uncaught ReferenceError: FAIL is not defined
@@ -211,7 +209,8 @@ error message
   });
 
   it('can show stackoverflow exceptions', async () => {
-    const messages = await obtainMessagesForTest('stack-overflow');
+    await target.goto(`${resourcesPath}/console/stack-overflow.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `Uncaught RangeError: Maximum call stack size exceeded
@@ -229,7 +228,8 @@ error message
   });
 
   it('can show document.write messages', async () => {
-    const messages = await obtainMessagesForTest('document-write');
+    await target.goto(`${resourcesPath}/console/document-write.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `script element`,
@@ -238,11 +238,10 @@ error message
   });
 
   it('can show verbose promise unhandledrejections', async () => {
-    const messages = await obtainMessagesForTest('onunhandledrejection', async () => {
-      await click(`[aria-label="Log level: Default levels"]`);
-
-      await click(`[aria-label="Verbose, unchecked"]`);
-    });
+    await target.goto(`${resourcesPath}/console/onunhandledrejection.html`);
+    await consoleTabPageObject.clickLogLevelList();
+    await consoleTabPageObject.chooseVerboseFromLogLevelList();
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
     assert.deepEqual(messages, [
       `onunhandledrejection1`,
@@ -254,9 +253,17 @@ error message
     ]);
   });
 
+  it('raises an alert to string exception', async () => {
+    await target.goto(`${resourcesPath}/console/alert-toString-exception.html`);
+    const messages = await consoleTabPageObject.retrieveConsoleMessages();
+
+    assert.deepEqual(messages, ['Uncaught Exception in toString().']);
+  });
+
   describe('shows messages from before', async () => {
     it('iframe removal', async () => {
-      const messages = await obtainMessagesForTest('navigation/after-removal');
+      await target.goto(`${resourcesPath}/console/navigation/after-removal.html`, {waitUntil: 'networkidle2'});
+      const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
       assert.deepEqual(messages, [
         `A message with first argument string Second argument which should not be discarded`,
@@ -266,7 +273,8 @@ error message
     });
 
     it('and after iframe navigation', async () => {
-      const messages = await obtainMessagesForTest('navigation/after-navigation');
+      await target.goto(`${resourcesPath}/console/navigation/after-navigation.html`, {waitUntil: 'networkidle2'});
+      const messages = await consoleTabPageObject.retrieveConsoleMessages();
 
       assert.deepEqual(messages, [
         `A message with first argument string Second argument which should not be discarded`,
