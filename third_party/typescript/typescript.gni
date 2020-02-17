@@ -77,7 +77,11 @@ template("ts_library") {
         # Any file checked by TypeScript that is jsdoc-typed will be also
         # generating a js file in the gen folder
       } else if (_extension == "js" || _extension == "ts") {
-        output_files += [ "$target_gen_dir/$_fileName.js" ]
+        output_files += [
+           "$target_gen_dir/$_fileName.js",
+           # TODO(tvanderlippe): do not hardcode elements here
+           "$root_build_dir/resources/inspector/elements/$_fileName.js"
+        ]
       } else {
         assert(false,
                "Incorrect extension on '$src' with extension '$_extension'")

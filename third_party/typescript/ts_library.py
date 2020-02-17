@@ -90,14 +90,12 @@ def copy_all_typescript_sources(sources, output_directory):
     while path.basename(front_end_output_location) != 'front_end':
         front_end_output_location = path.dirname(front_end_output_location)
     for src in sources:
-        if src.endswith('.ts'):
+        if src.endswith('.ts') or src.endswith('_bridge.js'):
             generated_javascript_location = path.join(output_directory, path.basename(src).replace('.ts', '.js'))
 
             relative_path_from_generated_front_end_folder = path.relpath(generated_javascript_location, front_end_output_location)
 
             dest = path.join(RESOURCES_INSPECTOR_PATH, relative_path_from_generated_front_end_folder)
-
-            print(path.exists(generated_javascript_location))
 
             if path.exists(dest):
                 os.remove(dest)
