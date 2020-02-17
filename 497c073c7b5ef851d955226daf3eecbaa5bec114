@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2deef573_dacf0a1e",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-02-17T10:03:44Z",
+      "side": 1,
+      "message": "I am only changing the kB/MB calculations which are directly linked to visible text output. I found some more places which use 1024 for various calculations (file sizes, URL lengths,...). IMO these should be considered out of scope for this CL, therefore I did not touch them.\n\nOne example is in populateTextView() in front_end/profiler/HeapProfileView.js. It uses KiB as the unit in the memory profile. The node weight of 1 KiB is hard-coded there and I believe this could be connected to how V8 handles things internally.",
+      "parentUuid": "e4edc47f_825ed4f8",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 63
+      },
+      "revId": "497c073c7b5ef851d955226daf3eecbaa5bec114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac1011a1_90092f0c",
         "filename": "scripts/run_old_devtools/index.js",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-14T18:22:26Z",
       "side": 1,
       "message": "Good opportunity to use numeric separators:\n\n      const mb \u003d bytes / 1_000_000;\n\n(not sure if all our tooling supports it yet though)",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "497c073c7b5ef851d955226daf3eecbaa5bec114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f4544d7_dea6168a",
+        "filename": "scripts/run_old_devtools/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-02-17T10:03:44Z",
+      "side": 1,
+      "message": "Unfortunately this does not pass the presubmit checks.",
+      "parentUuid": "ac1011a1_90092f0c",
       "range": {
         "startLine": 67,
         "startChar": 21,
@@ -68,6 +116,30 @@
       "revId": "497c073c7b5ef851d955226daf3eecbaa5bec114",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb7e73a1_0fb4667e",
+        "filename": "scripts/run_old_devtools/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-02-17T10:03:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e610940_c16c0ed1",
+      "range": {
+        "startLine": 68,
+        "startChar": 38,
+        "endLine": 68,
+        "endChar": 40
+      },
+      "revId": "497c073c7b5ef851d955226daf3eecbaa5bec114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
