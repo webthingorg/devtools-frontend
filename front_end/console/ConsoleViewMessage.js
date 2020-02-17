@@ -1598,9 +1598,10 @@ export class ConsoleViewMessage {
         case 'url': {
           const realURL = (token.text.startsWith('www.') ? 'http://' + token.text : token.text);
           const splitResult = Common.ParsedURL.splitLineAndColumn(realURL);
+          const sourceURL = Common.ParsedURL.removeWasmFunctionInfoFromURL(splitResult.url);
           let linkNode;
           if (splitResult) {
-            linkNode = linkifier(token.text, splitResult.url, splitResult.lineNumber, splitResult.columnNumber);
+            linkNode = linkifier(token.text, sourceURL, splitResult.lineNumber, splitResult.columnNumber);
           } else {
             linkNode = linkifier(token.text, token.value);
           }
