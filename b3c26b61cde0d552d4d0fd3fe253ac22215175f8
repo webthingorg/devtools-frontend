@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df81676d_47f70bb1",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-17T15:38:14Z",
+      "side": 1,
+      "message": "Instead of...\n\n    \u0027...\u0027\n\n...we use the following throughout the front-end:\n\n   \u0027\\u2026\u0027\n\n(If you\u0027ve found a place where we don\u0027t do this, it\u0027s a bug)",
+      "range": {
+        "startLine": 50,
+        "startChar": 81,
+        "endLine": 50,
+        "endChar": 84
+      },
+      "revId": "b3c26b61cde0d552d4d0fd3fe253ac22215175f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a709f2a_f642f53e",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-17T15:38:14Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "b3c26b61cde0d552d4d0fd3fe253ac22215175f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0eadd13_6abbb735",
+        "filename": "front_end/input/InputTimeline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-17T15:38:14Z",
+      "side": 1,
+      "message": "This is the same filename format as for the Performance panel. Do we want a unique name for input recordings, or is there value in reusing the same one?",
+      "range": {
+        "startLine": 152,
+        "startChar": 22,
+        "endLine": 152,
+        "endChar": 29
+      },
+      "revId": "b3c26b61cde0d552d4d0fd3fe253ac22215175f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
