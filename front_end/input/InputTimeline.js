@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as ProtocolModule from '../protocol/protocol.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
@@ -121,8 +122,8 @@ export class InputTimeline extends UI.Widget.VBox {
         /** @type {!SDK.SDKModel.Target} */ (self.SDK.targetManager.mainTarget()), this);
 
     const response = await this._tracingClient.startRecording();
-    if (response[Protocol.Error]) {
-      this._recordingFailed(response[Protocol.Error]);
+    if (response[ProtocolModule.InspectorBackend.ProtocolError]) {
+      this._recordingFailed(response[ProtocolModule.InspectorBackend.ProtocolError]);
     } else {
       this._setState(State.Recording);
     }
