@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ee367bef_ad48927f",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-17T10:08:48Z",
+      "side": 1,
+      "message": "nit: Could we extract this into a helper `_uniqueUISourceCodeForUrl` or similar and use the comments in the doc string of the helper? (No strong opinion on this or the helper name)",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 5
+      },
+      "revId": "ab9a26d0d96b9e9d2aada22accd702ebbeda8ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7cdbdea2_f1ffe3df",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 2
