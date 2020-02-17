@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c7e33ca8_3b6e3b66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Right, and the feeling Yang and I had was that the tool wasn\u0027t going to change much.",
+      "parentUuid": "1fd3f278_a755497b",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 42
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe96aad_c1917458",
         "filename": "test/screenshots/interactive/interactive.css",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "3720e6c8_c498a401",
+        "filename": "test/screenshots/interactive/interactive.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Agreed, though at this stage I didn\u0027t think it justified inclusion.",
+      "parentUuid": "20913e64_5d3e2851",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 31
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3874fd2_1c168b61",
         "filename": "test/screenshots/interactive/interactive.js",
         "patchSetId": 2
@@ -91,6 +139,30 @@
       "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c788ee78_ec6c4de0",
+        "filename": "test/screenshots/interactive/interactive.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Went with golden and generated, as I felt that was clearer.",
+      "parentUuid": "a3874fd2_1c168b61",
+      "range": {
+        "startLine": 108,
+        "startChar": 18,
+        "endLine": 108,
+        "endChar": 22
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "2a02edd0_cd514d63",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b670c2d1_1a3dd25b",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6b7be2f_e7380f11",
         "filename": "test/shared/runner.ts",
         "patchSetId": 2
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "98bc9168_5038e5fa",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "That was because the UI only populates when the generated image differs from the golden. I\u0027ve made it always populate the UI.",
+      "parentUuid": "e6b7be2f_e7380f11",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47d45d0_b2021d19",
         "filename": "test/shared/screenshot.ts",
         "patchSetId": 2
@@ -183,6 +303,30 @@
       "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07213c8b_cf430d93",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47d45d0_b2021d19",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 23
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +376,54 @@
     },
     {
       "key": {
+        "uuid": "48a01b9e_b2d10100",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Correct. I fixed that bug earlier.",
+      "parentUuid": "b33c2178_7404c7df",
+      "range": {
+        "startLine": 115,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 16
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e725b1a_e41fb43e",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "We need both diff and the user to be in interactive mode to show the UI etc.",
+      "parentUuid": "f4b2cae0_cd80824e",
+      "range": {
+        "startLine": 115,
+        "startChar": 20,
+        "endLine": 115,
+        "endChar": 55
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "291c1f2a_ade326f5",
         "filename": "test/shared/screenshot.ts",
         "patchSetId": 2
@@ -255,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "72888d76_4715a21e",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "291c1f2a_ade326f5",
+      "range": {
+        "startLine": 121,
+        "startChar": 31,
+        "endLine": 121,
+        "endChar": 87
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22532216_237c5443",
         "filename": "test/shared/screenshot.ts",
         "patchSetId": 2
@@ -275,6 +491,30 @@
       "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41f1c73_739e7689",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-17T15:48:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "22532216_237c5443",
+      "range": {
+        "startLine": 125,
+        "startChar": 71,
+        "endLine": 125,
+        "endChar": 81
+      },
+      "revId": "c750c2aeb77d5290cffd88ec43abb5153e88247f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
