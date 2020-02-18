@@ -168,6 +168,18 @@ interface DevToolsTarget {
       await frontend.goto(blankPage, {waitUntil: ['domcontentloaded']});
       await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
       await frontend.waitForSelector('.elements');
+
+      // For screenshots we need a consistent font, so remove platform-specific differences.
+      await frontend.evaluate(() => {
+        const els = Array.from(document.querySelectorAll('.platform-mac, .platform-windows, .platform-linux'));
+        for (const el of els) {
+          el.classList.remove('platform-mac');
+          el.classList.remove('platform-windows');
+          el.classList.remove('platform-linux');
+
+          el.classList.add('platform-screenshots');
+        }
+      });
     };
 
     store(browser, srcPage, frontend, screenshotPage, resetPages);

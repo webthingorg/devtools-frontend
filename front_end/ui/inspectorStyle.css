@@ -111,6 +111,11 @@ body {
     font-family: '.SFNSDisplay-Regular', 'Helvetica Neue', 'Lucida Grande', sans-serif;
 }
 
+.platform-screenshots {
+    color: rgb(48, 57, 66);
+    font-family: Arial, sans-serif;
+}
+
 .platform-windows {
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
