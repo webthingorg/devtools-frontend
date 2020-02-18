@@ -212,8 +212,29 @@ export class ResourceRevealer {
     if (!(resource instanceof SDK.Resource.Resource)) {
       return Promise.reject(new Error('Internal error: not a resource'));
     }
+
     const sidebar = ResourcesPanel._instance()._sidebar;
     await self.UI.viewManager.showView('resources');
     await sidebar.showResource(resource);
+  }
+}
+
+/**
+ * @implements {Common.Revealer.Revealer}
+ */
+export class CookieRevealer {
+  /**
+   * @override
+   * @param {!Object} cookie
+   * @return {!Promise}
+   */
+  async reveal(cookie) {
+    if (!(cookie instanceof SDK.Cookie.Cookie)) {
+      return Promise.reject(new Error('Internal error: not a cookie'));
+    }
+
+    const sidebar = ResourcesPanel._instance()._sidebar;
+    await self.UI.viewManager.showView('resources');
+    await sidebar.cookieListTreeElement.select();
   }
 }
