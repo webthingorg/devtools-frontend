@@ -702,9 +702,15 @@ export class TimelinePanel extends UI.Panel {
     this._reset();
     this._setState(State.Recording);
     this._showRecordingStarted();
+<<<<<<< HEAD   (08f1ab Fix two issues in debugger plugins)
     this._statusPane.enableStopButton();
     this._statusPane.updateStatus(Common.UIString('Profiling\u2026'));
     this._statusPane.updateProgressBar(Common.UIString('Buffer usage'), 0);
+=======
+    this._statusPane.enableAndFocusStopButton();
+    this._statusPane.updateStatus(Common.UIString.UIString('Profiling\u2026'));
+    this._statusPane.updateProgressBar(Common.UIString.UIString('Buffer usage'), 0);
+>>>>>>> CHANGE (ba14dc Fix focusing stop button after timeline profiler initializat)
     this._statusPane.startTimer();
     this._hideLandingPage();
   }
@@ -1202,11 +1208,11 @@ export class StatusPane extends UI.VBox {
   showPane(parent) {
     this.show(parent);
     parent.classList.add('tinted');
-    this._stopButton.focus();
   }
 
-  enableStopButton() {
+  enableAndFocusStopButton() {
     this._stopButton.disabled = false;
+    this._stopButton.focus();
   }
 
   /**
