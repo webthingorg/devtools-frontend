@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98219f82_03f9b838",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-02-18T15:43:09Z",
+      "side": 1,
+      "message": "Focusing the button should be an optional parameter\n\n    enableStopButton(focusButton \u003d false)\n\nIt isn\u0027t clear from an external caller that enabling the button would also focus it. This seems to be (at least sometimes) an unintended side effect.",
+      "revId": "ed06ec329994e212805cd667f7cb10dae8442483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
