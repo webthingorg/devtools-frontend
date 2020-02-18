@@ -4,6 +4,7 @@
 
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
+import {WasmSourceMap} from '../sdk/SourceMap.js';
 import * as Workspace from '../workspace/workspace.js';
 
 class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
@@ -158,6 +159,34 @@ export class DebuggerLanguagePluginManager {
     this._plugins.push(plugin);
   }
 
+  /**
+   * @param {!SDK.Script.Script} script
+   * @return {boolean}
+   */
+  hasPluginForScript(script) {
+    return this._pluginForScriptId.has(script.scriptId);
+  }
+
+  /**
+   * @param {!SDK.Script.Script} script
+   * @return {?DebuggerLanguagePlugin}
+   */
+  _getPluginForScript(script) {
+    const plugin = this._pluginForScriptId.get(script.scriptId);
+    if (plugin) {
+      return plugin;
+    }
+
+    for (const plugin of this._plugins) {
+      if (plugin.handleScript(script)) {
+        this._pluginForScriptId.set(script.scriptId, plugin);
+        return plugin;
+      }
+    }
+
+    return null;
+  }
+
   /** TODO(chromium:1032016): Make async once chromium:1032016 is complete.
    * @param {!SDK.DebuggerModel.Location} rawLocation
    * @return {?Workspace.UISourceCode.UILocation}
@@ -238,27 +267,29 @@ export class DebuggerLanguagePluginManager {
     if (!script.sourceURL.startsWith('wasm://')) {
       return {url: script.sourceURL};
     }
-    return {code: await script.getWasmBytecode()};
+    if (script.sourceMapURL === WasmSourceMap.FAKE_URL) {
+      return {code: await script.getWasmBytecode()};
+    }
+    return null;
   }
+
 
   /**
    * @param {!SDK.Script.Script} script
    * @return {!Promise<?Array<string>>}
    */
   async _getSourceFiles(script) {
-    if (!script.sourceMapURL) {
-      return null;
-    }
-    for (const plugin of this._plugins) {
-      if (plugin.handleScript(script)) {
-        const rawModule = await this._getRawModule(script);
-        const sourceFiles = await plugin.addRawModule(script.scriptId, script.sourceMapURL, rawModule);
-        if (!sourceFiles) {
-          continue;
-        }
-        this._pluginForScriptId.set(script.scriptId, plugin);
-        return sourceFiles;
+    const plugin = this._pluginForScriptId.get(script.scriptId);
+    if (plugin) {
+      const rawModule = await this._getRawModule(script);
+      if (!rawModule) {
+        return null;
       }
+      const sourceFiles = await plugin.addRawModule(script.scriptId, script.sourceMapURL, rawModule);
+      if (!sourceFiles) {
+        return null;
+      }
+      return sourceFiles;
     }
     return null;
   }
@@ -337,8 +368,18 @@ export class DebuggerLanguagePluginManager {
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  async _newScriptSource(event) {
+  _newScriptSource(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
+    const plugin = this._getPluginForScript(script);
+    if (plugin) {
+      this._createUISourceFiles(script);
+    }
+  }
+
+  /**
+   * @param {!SDK.Script.Script} script
+   */
+  async _createUISourceFiles(script) {
     const sourceFiles = await this._getSourceFiles(script);
     if (!sourceFiles) {
       return;
