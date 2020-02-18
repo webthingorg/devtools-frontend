@@ -16,6 +16,24 @@
       "revId": "ed06ec329994e212805cd667f7cb10dae8442483",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d48346b_d44db19c",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-02-18T16:59:28Z",
+      "side": 1,
+      "message": "Yep, I like the forward-thinking of your suggestion even though this is currently only used by a single caller. I\u0027ll make the change.",
+      "parentUuid": "98219f82_03f9b838",
+      "revId": "ed06ec329994e212805cd667f7cb10dae8442483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
