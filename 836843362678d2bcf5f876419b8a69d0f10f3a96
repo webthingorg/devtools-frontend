@@ -45,6 +45,30 @@
       "revId": "836843362678d2bcf5f876419b8a69d0f10f3a96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7be4ab06_13922864",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-18T10:55:52Z",
+      "side": 1,
+      "message": "Sorry, wasn\u0027t clear: a link to the design doc on the TS/Closure bridge?",
+      "parentUuid": "edd1f27e_de0e692f",
+      "range": {
+        "startLine": 335,
+        "startChar": 8,
+        "endLine": 335,
+        "endChar": 39
+      },
+      "revId": "836843362678d2bcf5f876419b8a69d0f10f3a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
