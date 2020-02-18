@@ -87,6 +87,24 @@
       "revId": "176c445de36824724cda8c20b06f83b50cbd1bf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "142650a5_1837fb05",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-18T11:45:43Z",
+      "side": 1,
+      "message": "Oh sorry, it was my understanding that it wasn\u0027t necessary given the full path as it would lead to duplication, as it was already in the tooltip. The only part that the aria-description would differ from the tooltip is the nodeType, which would be obtained from the aria-label in the first place. Is my understanding wrong? Thanks for your thorough review!",
+      "parentUuid": "8dff3a34_598ecbba",
+      "revId": "176c445de36824724cda8c20b06f83b50cbd1bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
