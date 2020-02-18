@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e444297a_f21717f7",
+        "filename": "front_end/common/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-18T11:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "113bf033_2838f8f0",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 15
+      },
+      "revId": "836843362678d2bcf5f876419b8a69d0f10f3a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edd1f27e_de0e692f",
         "filename": "scripts/test/run_type_check.py",
         "patchSetId": 1
@@ -69,6 +93,30 @@
       "revId": "836843362678d2bcf5f876419b8a69d0f10f3a96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1532aa67_fd31d49e",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-18T11:10:15Z",
+      "side": 1,
+      "message": "Chatted - there\u0027s a bunch of oddities in here to make everything play nicely - so we\u0027ll leave this as is.",
+      "parentUuid": "7be4ab06_13922864",
+      "range": {
+        "startLine": 335,
+        "startChar": 8,
+        "endLine": 335,
+        "endChar": 39
+      },
+      "revId": "836843362678d2bcf5f876419b8a69d0f10f3a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
