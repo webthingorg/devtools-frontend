@@ -16,6 +16,24 @@
       "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39cbcb97_b132c0fd",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-18T17:45:22Z",
+      "side": 1,
+      "message": "I tend to use template literals whenever I am dealing with other quotes in the code (e.g. these tests that deal with unicode). I suppose this is a bit inconsistent, as this particular string does not have an actual quote in it. Maybe we should solely have template literals in e2etests, given they regularly deal with unicode shenanigans?",
+      "parentUuid": "d5dd3c70_8aae3963",
+      "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
