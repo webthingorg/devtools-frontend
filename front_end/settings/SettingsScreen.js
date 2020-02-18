@@ -83,9 +83,6 @@ export class SettingsScreen extends UI.Widget.VBox {
     settingsScreen.show(dialog.contentElement);
     dialog.show();
     settingsScreen._selectTab(name || 'preferences');
-    const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
-    await tabbedPane.waitForTabElementUpdate();
-    tabbedPane.focusSelectedTabHeader();
   }
 
   /**
@@ -309,6 +306,10 @@ export class ActionDelegate {
     switch (actionId) {
       case 'settings.show':
         SettingsScreen._showSettingsScreen();
+        const settingsScreen =
+            /** @type {!SettingsScreen} */ (self.runtime.sharedInstance(SettingsScreen));
+        const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
+        tabbedPane.waitForTabElementUpdate().then(() => tabbedPane.focusSelectedTabHeader());
         return true;
       case 'settings.documentation':
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
