@@ -54,7 +54,7 @@ function requestHandler(request, response) {
       sendResponse(404, '404 - File not found');
       return;
     }
-    fs.readFile(absoluteFilePath, 'binary', readFileCallback);
+    fs.readFile(absoluteFilePath, 'utf8', readFileCallback);
   }
 
   function readFileCallback(err, file) {
@@ -74,20 +74,19 @@ function requestHandler(request, response) {
       return;
     }
 
+    let encoding = 'binary';
+
     if (path.endsWith('.js')) {
-      response.setHeader('Content-Type', 'text/javascript');
-    }
-
-    if (path.endsWith('.wasm')) {
+      response.setHeader('Content-Type', 'text/javascript; charset=utf-8');
+      encoding = 'utf8'
+    } else if (path.endsWith('.wasm')) {
       response.setHeader('Content-Type', 'application/wasm');
-    }
-
-    if (path.endsWith('.svg')) {
+    } else if (path.endsWith('.svg')) {
       response.setHeader('Content-Type', 'image/svg+xml');
     }
 
     response.writeHead(statusCode);
-    response.write(data, 'binary');
+    response.write(data, encoding);
     response.end();
   }
 
