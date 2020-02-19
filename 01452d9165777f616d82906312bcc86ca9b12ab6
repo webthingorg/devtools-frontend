@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc066873_0efcfb3e",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-19T03:56:09Z",
+      "side": 1,
+      "message": "do you mean \"OtherShortcut\" ?",
+      "range": {
+        "startLine": 112,
+        "startChar": 78,
+        "endLine": 112,
+        "endChar": 83
+      },
+      "revId": "01452d9165777f616d82906312bcc86ca9b12ab6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e63a1d01_3ada8066",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-19T03:56:09Z",
+      "side": 1,
+      "message": "In your other CL you named this \"Unenumerated shortcut\" maybe you want to use the same name in both places for consistency",
+      "range": {
+        "startLine": 194,
+        "startChar": 3,
+        "endLine": 194,
+        "endChar": 15
+      },
+      "revId": "01452d9165777f616d82906312bcc86ca9b12ab6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
