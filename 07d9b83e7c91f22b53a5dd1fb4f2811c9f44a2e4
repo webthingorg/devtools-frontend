@@ -98,6 +98,24 @@
       "revId": "07d9b83e7c91f22b53a5dd1fb4f2811c9f44a2e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "184c7940_0cb352f4",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-19T08:51:56Z",
+      "side": 1,
+      "message": "I think, adding the the \"During development\" is a great way to show that this is not required",
+      "parentUuid": "466ca17f_a80852ab",
+      "revId": "07d9b83e7c91f22b53a5dd1fb4f2811c9f44a2e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
