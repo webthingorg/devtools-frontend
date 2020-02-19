@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5e355aff_1259e100",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-19T20:05:09Z",
+      "side": 1,
+      "message": "Yes I did, fixed",
+      "parentUuid": "cc066873_0efcfb3e",
+      "range": {
+        "startLine": 112,
+        "startChar": 78,
+        "endLine": 112,
+        "endChar": 83
+      },
+      "revId": "01452d9165777f616d82906312bcc86ca9b12ab6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e63a1d01_3ada8066",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "01452d9165777f616d82906312bcc86ca9b12ab6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc0c7a5a_b28e0bd6",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-19T20:05:09Z",
+      "side": 1,
+      "message": "Sure, I\u0027ll fix it in the other one",
+      "parentUuid": "e63a1d01_3ada8066",
+      "range": {
+        "startLine": 194,
+        "startChar": 3,
+        "endLine": 194,
+        "endChar": 15
+      },
+      "revId": "01452d9165777f616d82906312bcc86ca9b12ab6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
