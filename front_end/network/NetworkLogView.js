@@ -659,6 +659,14 @@ export class NetworkLogView extends UI.Widget.VBox {
     this._filterRequests();
   }
 
+  async resetFilter() {
+    if (this._textFilterUI.value()) {
+      this._textFilterUI.clear();
+      this._parseFilterQuery(this._textFilterUI.value());
+      this._filterRequests();
+    }
+  }
+
   _showRecordingHint() {
     this._hideRecordingHint();
     this._recordingHint = this.element.createChild('div', 'network-status-pane fill');
