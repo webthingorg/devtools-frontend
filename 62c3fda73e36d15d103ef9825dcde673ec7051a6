@@ -22,6 +22,30 @@
       "revId": "62c3fda73e36d15d103ef9825dcde673ec7051a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d8d1319_7999c1e4",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1315894
+      },
+      "writtenOn": "2020-02-19T18:36:19Z",
+      "side": 1,
+      "message": "Done! Now the code looks clean. Thanks!",
+      "parentUuid": "f0c6757e_59baa58d",
+      "range": {
+        "startLine": 274,
+        "startChar": 5,
+        "endLine": 275,
+        "endChar": 25
+      },
+      "revId": "62c3fda73e36d15d103ef9825dcde673ec7051a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
