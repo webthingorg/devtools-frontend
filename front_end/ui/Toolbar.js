@@ -520,6 +520,10 @@ export class ToolbarButton extends ToolbarItem {
     this._title = '';
   }
 
+  focus() {
+    /** @type {!HTMLButtonElement} */ (this.element).focus();
+  }
+
   /**
    * @param {string} text
    */
