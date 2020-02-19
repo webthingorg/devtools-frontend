@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3afdef7c_c09e4b9e",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1315894
+      },
+      "writtenOn": "2020-02-19T11:21:46Z",
+      "side": 1,
+      "message": "After calling this._valueChanged() in clear function, below code is not required.\n\n```\nthis._textFilterUI.clear();\nthis._parseFilterQuery(this._textFilterUI.value());\nthis._filterRequests();\n```",
+      "parentUuid": "90631572_730e4cb3",
+      "range": {
+        "startLine": 663,
+        "startChar": 13,
+        "endLine": 663,
+        "endChar": 26
+      },
+      "revId": "e338e884ebc70494e74ac2a837dd28994e451623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a2ab34e_c2f5cedd",
         "filename": "front_end/ui/FilterBar.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e338e884ebc70494e74ac2a837dd28994e451623",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb3a0e9_effbfe2c",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1315894
+      },
+      "writtenOn": "2020-02-19T11:21:46Z",
+      "side": 1,
+      "message": "That\u0027s my mistake, Not clear function is calling this._valueChanged after text change.",
+      "parentUuid": "7a2ab34e_c2f5cedd",
+      "range": {
+        "startLine": 274,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 8
+      },
+      "revId": "e338e884ebc70494e74ac2a837dd28994e451623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
