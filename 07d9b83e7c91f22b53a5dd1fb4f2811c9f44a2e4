@@ -81,6 +81,23 @@
       "revId": "07d9b83e7c91f22b53a5dd1fb4f2811c9f44a2e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466ca17f_a80852ab",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-19T08:35:11Z",
+      "side": 1,
+      "message": "Maybe resolving my other feedback could be as simple as changing\n\n    \u0027You can use %s to add insights into the server-side timing of this request.\u0027\n\n...into something like:\n\n    \u0027During development, you can use %s to add insights into the server-side timing of this request.\u0027\n\n...or...\n\n    \u0027In development mode, you can use %s to add insights into the server-side timing of this request.\u0027\n\nWhat do others think?",
+      "revId": "07d9b83e7c91f22b53a5dd1fb4f2811c9f44a2e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
