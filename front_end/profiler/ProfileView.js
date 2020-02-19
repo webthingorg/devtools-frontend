@@ -410,6 +410,7 @@ export class ProfileView extends UI.View.SimpleView {
     }
 
     this.resetButton.setEnabled(true);
+    this.resetButton.focus();
     this.profileDataGridTree.focus(this.dataGrid.selectedNode);
     this.refresh();
     this.refreshVisibleData();
@@ -426,9 +427,11 @@ export class ProfileView extends UI.View.SimpleView {
       return;
     }
 
+    this.resetButton.setEnabled(true);
+    this.resetButton.focus();
+
     selectedNode.deselect();
 
-    this.resetButton.setEnabled(true);
     this.profileDataGridTree.exclude(selectedNode);
     this.refresh();
     this.refreshVisibleData();
@@ -439,6 +442,7 @@ export class ProfileView extends UI.View.SimpleView {
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _resetClicked(event) {
+    this.viewSelectComboBox.selectElement().focus();
     this.resetButton.setEnabled(false);
     this.profileDataGridTree.restore();
     this._linkifier.reset();
