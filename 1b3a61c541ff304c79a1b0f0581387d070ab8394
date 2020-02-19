@@ -22,6 +22,30 @@
       "revId": "1b3a61c541ff304c79a1b0f0581387d070ab8394",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9db60a0_838c04b3",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1315894
+      },
+      "writtenOn": "2020-02-19T20:37:14Z",
+      "side": 1,
+      "message": "I\u0027m consuming it here, \n\nself.UI.viewManager.showView(\u0027network\u0027).then(this._networkLogView.resetFilter.bind(this._networkLogView)).then(this.revealAndHighlightRequest.bind(this, request));\n\nThe flow is,\n\n1. Go to Network panel\n2. Clear the search text and update the list.\n3. Highlight the selected item.",
+      "parentUuid": "4868f044_16bca19a",
+      "range": {
+        "startLine": 662,
+        "startChar": 2,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "1b3a61c541ff304c79a1b0f0581387d070ab8394",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
