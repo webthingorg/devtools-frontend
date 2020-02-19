@@ -73,4 +73,50 @@ describe('The Network Tab', async () => {
         htmlRawResponse,
         `1<html><body>The following word is written using cyrillic letters and should look like "SUCCESS": SU\u0421\u0421\u0415SS.</body></html>`);
   });
+
+  it('shows correct MimeType when resources came from HTTP cache', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await navigateToNetworkTab(target, 'resources-from-cache.html');
+
+    // Wait for the column to show up and populate its values
+    await frontend.waitForFunction(() => {
+      return document.querySelectorAll('.name-column').length === 3;
+    });
+
+    // Reload the page without a cache, to force a fresh load of the network resources
+    await click(`[aria-label="Disable cache"]`);
+    await target.reload({waitUntil: 'networkidle2'});
+
+    // Request the first two network request responses (excluding header and favicon.ico)
+    const obtainNetworkRequestSize = () => frontend.evaluate(() => {
+      return Array.from(document.querySelectorAll('.size-column')).slice(1, 3).map(node => node.textContent);
+    });
+    const obtainNetworkRequestMimeTypes = () => frontend.evaluate(() => {
+      return Array.from(document.querySelectorAll('.type-column')).slice(1, 3).map(node => node.textContent);
+    });
+
+    assert.deepEqual(await obtainNetworkRequestSize(), [
+      `378\xA0B258\xA0B`,
+      `371\xA0B28\xA0B`,
+    ]);
+    assert.deepEqual(await obtainNetworkRequestMimeTypes(), [
+      `document`,
+      `script`,
+    ]);
+
+    // Allow resources from the cache again and reload the page to load from cache
+    await click(`[aria-label="Disable cache"]`);
+    await target.reload({waitUntil: 'networkidle2'});
+
+    assert.deepEqual(await obtainNetworkRequestSize(), [
+      `378\xA0B258\xA0B`,
+      `(memory cache)28\xA0B`,
+    ]);
+
+    assert.deepEqual(await obtainNetworkRequestMimeTypes(), [
+      `document`,
+      `script`,
+    ]);
+  });
 });
