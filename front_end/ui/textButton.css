@@ -108,6 +108,9 @@
         border-color: Highlight;
     }
     .text-button:disabled {
+        forced-color-adjust: none;
         opacity: 1;
+        border-color: GrayText;
+        color: GrayText;
     }
 }
