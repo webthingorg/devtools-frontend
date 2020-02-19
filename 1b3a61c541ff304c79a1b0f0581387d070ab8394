@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4868f044_16bca19a",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-19T20:12:43Z",
+      "side": 1,
+      "message": "one more not: I don\u0027t think this functions needs to be async, right?",
+      "range": {
+        "startLine": 662,
+        "startChar": 2,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "1b3a61c541ff304c79a1b0f0581387d070ab8394",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
