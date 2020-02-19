@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90631572_730e4cb3",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-19T10:25:08Z",
+      "side": 1,
+      "message": "What do you think about changing this to a call to this._textFilterUI.clear() and have the clear call trigger the _filterChanged method above to reduce the amount of duplicate code?",
+      "range": {
+        "startLine": 663,
+        "startChar": 13,
+        "endLine": 663,
+        "endChar": 26
+      },
+      "revId": "e338e884ebc70494e74ac2a837dd28994e451623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a2ab34e_c2f5cedd",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-19T10:25:08Z",
+      "side": 1,
+      "message": "Is there a specific reason why you don\u0027t trigger this._valueChanged() after changing the text?",
+      "range": {
+        "startLine": 274,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 8
+      },
+      "revId": "e338e884ebc70494e74ac2a837dd28994e451623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
