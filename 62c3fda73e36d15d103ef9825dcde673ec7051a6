@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0c6757e_59baa58d",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-19T18:09:39Z",
+      "side": 1,
+      "message": "WDYT about reducing this to this.setValue(\u0027\u0027) to further reduce code duplication?",
+      "range": {
+        "startLine": 274,
+        "startChar": 5,
+        "endLine": 275,
+        "endChar": 25
+      },
+      "revId": "62c3fda73e36d15d103ef9825dcde673ec7051a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
