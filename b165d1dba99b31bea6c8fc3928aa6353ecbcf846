@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c363358e_cca49ce1",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-20T20:34:26Z",
+      "side": 1,
+      "message": "Got it. I missed the CL that introduced the color variables to inspectorStyle.css. This approach is good. No need to change anything :)",
+      "parentUuid": "1d0d5710_aba2a075",
+      "range": {
+        "startLine": 387,
+        "startChar": 8,
+        "endLine": 387,
+        "endChar": 54
+      },
+      "revId": "b165d1dba99b31bea6c8fc3928aa6353ecbcf846",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e411a640_a56c3bcb",
         "filename": "front_end/ui/toolbar.css",
         "patchSetId": 4
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1b1454e6_b84599b9",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-20T20:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e411a640_a56c3bcb",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 52
+      },
+      "revId": "b165d1dba99b31bea6c8fc3928aa6353ecbcf846",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "688a38d3_f6f63800",
         "filename": "front_end/ui/toolbar.css",
         "patchSetId": 4
@@ -92,6 +140,30 @@
       "revId": "b165d1dba99b31bea6c8fc3928aa6353ecbcf846",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf1f18a9_526fb14a",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-20T20:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "688a38d3_f6f63800",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 52
+      },
+      "revId": "b165d1dba99b31bea6c8fc3928aa6353ecbcf846",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
