@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7c46f1a_f9c117fa",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-20T11:50:26Z",
+      "side": 1,
+      "message": "I like this behaviour, but wonder if it\u0027s worth considering a console.log here? I\u0027m thinking of a time where maybe you don\u0027t realise there wasn\u0027t a golden already? Maybe worth highlighting it in the logs just in case the dev thought a golden already existed?\n\nOr maybe I\u0027m overthinking it.",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 75
+      },
+      "revId": "988e26cefa34d6fc1e260cf0732d286e8b9df030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
