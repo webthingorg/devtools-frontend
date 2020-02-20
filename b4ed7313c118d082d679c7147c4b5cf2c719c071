@@ -34,6 +34,24 @@
       "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "905bfd79_d1f33e79",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-20T11:52:39Z",
+      "side": 1,
+      "message": "Generally I would say we use them when we need string interpolation, otherwise just use single quotes. Don\u0027t mind though.",
+      "parentUuid": "39cbcb97_b132c0fd",
+      "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
