@@ -1333,7 +1333,7 @@ export class TabbedPaneTab {
    * @return {boolean}
    */
   _startTabDragging(event) {
-    if (event.target.classList.contains('tabbed-pane-close-button')) {
+    if (!event.target || event.target.classList.contains('tabbed-pane-close-button')) {
       return false;
     }
     this._dragStartX = event.pageX;
