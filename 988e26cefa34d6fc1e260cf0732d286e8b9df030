@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bca72ad8_e559d245",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-20T14:06:31Z",
+      "side": 1,
+      "message": "I would rather keep this in node as much as possible.",
+      "parentUuid": "9e5c584f_6a4735ff",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "988e26cefa34d6fc1e260cf0732d286e8b9df030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7c46f1a_f9c117fa",
         "filename": "test/shared/screenshot.ts",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "988e26cefa34d6fc1e260cf0732d286e8b9df030",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26b86cb2_7560598e",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-20T14:06:31Z",
+      "side": 1,
+      "message": "No, I think that\u0027s a great idea. Added.",
+      "parentUuid": "c7c46f1a_f9c117fa",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 75
+      },
+      "revId": "988e26cefa34d6fc1e260cf0732d286e8b9df030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
