@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9e5c584f_6a4735ff",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-20T11:52:33Z",
+      "side": 1,
+      "message": "I guess we could use the implementation in `fron_end/host` as well? 😋",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "988e26cefa34d6fc1e260cf0732d286e8b9df030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7c46f1a_f9c117fa",
         "filename": "test/shared/screenshot.ts",
         "patchSetId": 2
