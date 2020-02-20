@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47c0b79d_3ed71927",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-20T17:19:44Z",
+      "side": 1,
+      "message": "Nit: extract to a separate function.\n\n(I know this is a massive function already, so I am okay if you leave it as-is)",
+      "range": {
+        "startLine": 1022,
+        "startChar": 23,
+        "endLine": 1022,
+        "endChar": 35
+      },
+      "revId": "73d1cfc7b21034c5b591abda38b924ea21bfbaa1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
