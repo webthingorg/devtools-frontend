@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "7b4ce397_8a07baf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-20T12:09:05Z",
+      "side": 1,
+      "message": "This is not limited to Cyrillic characters. Suggestion:\n\n    Test hosted_mode server utf-8 encoding",
+      "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0de53396_261625c4",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-20T12:09:05Z",
+      "side": 1,
+      "message": "I\u0027d flip this around and default to `\u0027utf8\u0027`. We only need to override it for non-text files.",
+      "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba986673_7f4fa7db",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-20T12:09:05Z",
+      "side": 1,
+      "message": "encoding \u003d \u0027binary\u0027;",
+      "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe4192b9_0db18211",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-20T12:09:05Z",
+      "side": 1,
+      "message": "While we’re here, let’s add `\u0027…; charset\u003dutf-8\u0027` here as well.",
+      "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5dd3c70_8aae3963",
         "filename": "test/e2e/network/network-datagrid.ts",
         "patchSetId": 1
@@ -49,6 +117,24 @@
       "side": 1,
       "message": "Generally I would say we use them when we need string interpolation, otherwise just use single quotes. Don\u0027t mind though.",
       "parentUuid": "39cbcb97_b132c0fd",
+      "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0d3f98e_f3c3926f",
+        "filename": "test/e2e/network/network-datagrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-20T12:09:05Z",
+      "side": 1,
+      "message": "I’d prefer that as well, since it’s what we already do for other DevTools code. ` implies there will be interpolation, and it\u0027s confusing when that’s not the case.",
+      "parentUuid": "905bfd79_d1f33e79",
       "revId": "b4ed7313c118d082d679c7147c4b5cf2c719c071",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
