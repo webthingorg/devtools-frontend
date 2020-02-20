@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1d0d5710_aba2a075",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-20T20:13:51Z",
+      "side": 1,
+      "message": "Inside inspectorStyles, I did create a system color version of the CSS variable,\n@media (forced-colors: active) {\n    :root {\n        --accent-color: Highlight;\n        --focus-ring-inactive-shadow-color: ButtonText\n    }\n}\n\n\nShould I instead create new variables instead? example:\n@media (forced-colors: active) {\n    :root {\n        --focus-button-text-shadow: 0 0 0 1px ButtonText;\n        --focus-highlight-shadow: 0 0 0 1px Highlight;\n    }\n}",
+      "parentUuid": "40b7c3c1_90293781",
+      "range": {
+        "startLine": 387,
+        "startChar": 8,
+        "endLine": 387,
+        "endChar": 54
+      },
+      "revId": "b165d1dba99b31bea6c8fc3928aa6353ecbcf846",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e411a640_a56c3bcb",
         "filename": "front_end/ui/toolbar.css",
         "patchSetId": 4
