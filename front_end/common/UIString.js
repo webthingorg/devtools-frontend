@@ -29,13 +29,15 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as Platform from '../platform/platform.js';
+
 /**
  * @param {string} string
  * @param {...*} vararg
  * @return {string}
  */
 export function UIString(string, vararg) {
-  return String.vsprintf(localize(string), Array.prototype.slice.call(arguments, 1));
+  return Platform.StringUtilities.vsprintf(localize(string), Array.prototype.slice.call(arguments, 1));
 }
 
 /**
@@ -80,7 +82,8 @@ export class UIStringFormat {
     /** @type {string} */
     this._localizedFormat = localize(format);
     /** @type {!Array.<!Object>} */
-    this._tokenizedFormat = String.tokenizeFormatString(this._localizedFormat, String.standardFormatters);
+    this._tokenizedFormat = Platform.StringUtilities.tokenizeFormatString(
+        this._localizedFormat, Platform.StringUtilities.standardFormatters);
   }
 
   /**
@@ -99,7 +102,7 @@ export class UIStringFormat {
   format(vararg) {
     return String
         .format(
-            this._localizedFormat, arguments, String.standardFormatters, '', UIStringFormat._append,
+            this._localizedFormat, arguments, Platform.StringUtilities.standardFormatters, '', UIStringFormat._append,
             this._tokenizedFormat)
         .formattedResult;
   }
