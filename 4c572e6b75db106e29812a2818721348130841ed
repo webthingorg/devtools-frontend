@@ -411,6 +411,30 @@
       "revId": "4c572e6b75db106e29812a2818721348130841ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e46cbb6_96e21691",
+        "filename": "test/unittests/front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-21T17:52:27Z",
+      "side": 1,
+      "message": "The Karma test stuff has been merged, so we should be good to go.",
+      "parentUuid": "774c2ab1_1a635e61",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
