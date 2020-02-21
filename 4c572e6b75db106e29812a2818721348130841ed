@@ -1,0 +1,330 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95fba946_5dd9e92a",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "License header",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82123113_2c1d91ad",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "If we think this is likely to be reused in other places we ought to move it to a separate file. Which is not to say it ought to be a .d.ts file, but somewhere we can import across multiple places.",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ce2f1f3_c38e95f1",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "Just call this main?",
+      "range": {
+        "startLine": 35,
+        "startChar": 24,
+        "endLine": 35,
+        "endChar": 29
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3ef8b42_de13ed86",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 55
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20bd2c03_d5bb0c7a",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "Are we exporting for tests?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 6
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fa0e074_f1c635b6",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "feel like this would be clearer if data was marked as private rather than here. wdyt?",
+      "range": {
+        "startLine": 101,
+        "startChar": 14,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8f64158_d1b9f50c",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "nit: remove",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b933b57f_e7c055e3",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "For clarity maybe go for onWindowScrollBound?",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6dd4d70_6e0f8355",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "ultra-nit: N",
+      "range": {
+        "startLine": 205,
+        "startChar": 7,
+        "endLine": 205,
+        "endChar": 8
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dbdd836_93615df6",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": ".",
+      "range": {
+        "startLine": 219,
+        "startChar": 76,
+        "endLine": 219,
+        "endChar": 77
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a60e3ea4_eed650bc",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "Caps",
+      "range": {
+        "startLine": 219,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 8
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f9a6b3e_a75a19fa",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "Remove. Just generally collapse things a little maybe",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "386d02eb_5ea58115",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "Make a clamp util somewhere?",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "667ef4fd_f5ad5e7d",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "Maybe wrap this in a check to make sure we don\u0027t double define it.",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "330f5663_18906fbb",
+        "filename": "front_end/global_typings/global-defs.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "Add the MIT license from the gist.",
+      "range": {
+        "startLine": 2,
+        "startChar": 14,
+        "endLine": 2,
+        "endChar": 78
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1afe3128_018dbbb7",
+        "filename": "test/unittests/front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 1,
+      "message": "License",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90ae77b6_d08c6d94",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-21T15:46:05Z",
+      "side": 0,
+      "message": "Does this mean we\u0027ve got reduced a11y coverage here?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 12
+      },
+      "revId": "1a0338a1175bc5e4a7eb22ed93e981a59aa22e66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
