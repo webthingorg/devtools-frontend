@@ -22,6 +22,30 @@
       "revId": "b90113e995f4c088f61b372154cd6853a9e224d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13a32a3a_708dbb1a",
+        "filename": "front_end/help/releaseNote.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-21T21:23:18Z",
+      "side": 1,
+      "message": "Good catch, will do, thanks!",
+      "parentUuid": "62b663ec_e6ce03bb",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 37
+      },
+      "revId": "b90113e995f4c088f61b372154cd6853a9e224d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
