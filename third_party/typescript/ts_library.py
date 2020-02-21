@@ -22,7 +22,8 @@ NODE_LOCATION = devtools_paths.node_path()
 
 ROOT_TS_CONFIG_LOCATION = path.join(_CURRENT_DIR, '..', '..', 'tsconfig.json')
 
-GLOBAL_DEFS = path.join(_CURRENT_DIR, '..', '..', 'front_end', 'legacy', 'legacy-defs.d.ts')
+LEGACY_GLOBAL_DEFS = path.join(_CURRENT_DIR, '..', '..', 'front_end', 'legacy', 'legacy-defs.d.ts')
+GLOBAL_DEFS = path.join(_CURRENT_DIR, '..', '..', 'front_end', 'global_typings', 'global-defs.d.ts')
 RESOURCES_INSPECTOR_PATH = path.join(os.getcwd(), 'resources', 'inspector')
 
 
@@ -51,7 +52,8 @@ def main():
             return 1
     tsconfig_output_location = path.join(os.getcwd(), opts.tsconfig_output_location)
     sources = opts.sources or []
-    tsconfig['files'] = [path.join(os.getcwd(), src) for src in sources] + [path.abspath(GLOBAL_DEFS)]
+    tsconfig['files'] = [path.join(os.getcwd(), src) for src in sources
+                        ] + [path.abspath(LEGACY_GLOBAL_DEFS), path.abspath(GLOBAL_DEFS)]
     if (opts.deps is not None):
         tsconfig['references'] = [{'path': src} for src in opts.deps]
     tsconfig['compilerOptions']['declaration'] = True
