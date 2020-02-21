@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "34539db1_db33d767",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-21T16:23:04Z",
+      "side": 1,
+      "message": "JACK do semi colons for Clang\u0027s sake",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2ce2f1f3_c38e95f1",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 2
@@ -288,6 +305,29 @@
     },
     {
       "key": {
+        "uuid": "92349eb7_71f3df34",
+        "filename": "front_end/elements/ElementsBreadcrumbs_bridge.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-21T16:23:04Z",
+      "side": 1,
+      "message": "For those reading along: we hope to auto-generate 99% of this file",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "330f5663_18906fbb",
         "filename": "front_end/global_typings/global-defs.d.ts",
         "patchSetId": 2
@@ -311,6 +351,29 @@
     },
     {
       "key": {
+        "uuid": "60aeb06e_e5a8db7f",
+        "filename": "front_end/global_typings/global-defs.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-21T16:23:04Z",
+      "side": 1,
+      "message": "TODO: put the license in properly",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 3
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1afe3128_018dbbb7",
         "filename": "test/unittests/front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 2
@@ -322,6 +385,29 @@
       "writtenOn": "2020-02-21T15:46:05Z",
       "side": 1,
       "message": "License",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "774c2ab1_1a635e61",
+        "filename": "test/unittests/front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-21T16:23:04Z",
+      "side": 1,
+      "message": "@Tim shall we drop this for now pending the merge of your TS/Karma work?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
       "revId": "4c572e6b75db106e29812a2818721348130841ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
