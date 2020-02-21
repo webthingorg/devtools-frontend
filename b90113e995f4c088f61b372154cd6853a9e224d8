@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62b663ec_e6ce03bb",
+        "filename": "front_end/help/releaseNote.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-21T19:25:55Z",
+      "side": 1,
+      "message": "You can use `border-color` to just change the color. Same comment for line 117.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 37
+      },
+      "revId": "b90113e995f4c088f61b372154cd6853a9e224d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
