@@ -22,8 +22,11 @@ NODE_LOCATION = devtools_paths.node_path()
 
 ROOT_DIRECTORY_OF_REPOSITORY = path.join(_CURRENT_DIR, '..', '..')
 ROOT_TS_CONFIG_LOCATION = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'tsconfig.json')
-GLOBAL_DEFS = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'front_end', 'legacy', 'legacy-defs.d.ts')
 TYPES_NODE_MODULES_DIRECTORY = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'node_modules', '@types')
+ROOT_TS_CONFIG_LOCATION = path.join(_CURRENT_DIR, '..', '..', 'tsconfig.json')
+
+LEGACY_GLOBAL_DEFS = path.join(_CURRENT_DIR, '..', '..', 'front_end', 'legacy', 'legacy-defs.d.ts')
+GLOBAL_DEFS = path.join(_CURRENT_DIR, '..', '..', 'front_end', 'global_typings', 'global-defs.d.ts')
 RESOURCES_INSPECTOR_PATH = path.join(os.getcwd(), 'resources', 'inspector')
 
 
@@ -57,8 +60,9 @@ def main():
         return path.relpath(path.join(os.getcwd(), file_to_resolve), tsconfig_output_directory)
 
     sources = opts.sources or []
-    tsconfig['files'] = [get_relative_path_from_output_directory(src) for src in sources
-                        ] + [get_relative_path_from_output_directory(GLOBAL_DEFS)]
+    tsconfig['files'] = [get_relative_path_from_output_directory(src) for src in sources] + [
+        get_relative_path_from_output_directory(LEGACY_GLOBAL_DEFS) + get_relative_path_from_output_directory(GLOBAL_DEFS)
+    ]
     if (opts.deps is not None):
         tsconfig['references'] = [{'path': src} for src in opts.deps]
     tsconfig['compilerOptions']['declaration'] = True
