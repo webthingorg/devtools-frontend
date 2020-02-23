@@ -80,7 +80,7 @@
         color: ButtonText;
         border-color: ButtonText;
     }
-    .text-button:not(:disabled):focus[data-keyboard-focus="true"] {
+    .text-button:not(:disabled):focus {
         background-color: ButtonFace;
         color: ButtonText;
         border-color: Highlight
@@ -96,7 +96,7 @@
         color: HighlightText;
         border: 1px solid Highlight;
     }
-    .text-button.primary-button:not(:disabled):focus[data-keyboard-focus="true"] {
+    .text-button.primary-button:not(:disabled):focus {
         background-color: Highlight;
         color: HighlightText;
         border-color: ButtonText
