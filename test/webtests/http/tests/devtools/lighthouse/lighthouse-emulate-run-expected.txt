@@ -13,8 +13,13 @@ Tests that mobile emulation works.
 Generate report: enabled visible
 
 =============== Lighthouse Results ===============
+<<<<<<< HEAD:test/webtests/http/tests/devtools/audits/audits-emulate-run-expected.txt
+URL: http://127.0.0.1:8000/devtools/audits/resources/audits-emulate-pass.html
+Version: 5.7.1
+=======
 URL: http://127.0.0.1:8000/devtools/lighthouse/resources/audits-emulate-pass.html
 Version: 5.7.0
+>>>>>>> e0897515da03963f98a43f92b8809118397c416f:test/webtests/http/tests/devtools/lighthouse/lighthouse-emulate-run-expected.txt
 TestedAsMobileDevice: true
 ViewportDimensions: undefined
 

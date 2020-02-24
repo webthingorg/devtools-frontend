@@ -21,10 +21,16 @@
     ],
     "scripts": [],
     "modules": [
+<<<<<<< HEAD:front_end/audits/module.json
+        "../third_party/lighthouse/report-assets/report.js",
+        "../third_party/lighthouse/report-assets/report-generator.js",
+        "audits.js",
+=======
         "lighthouse.js",
         "lighthouse-legacy.js",
         "lighthouse/report.js",
         "lighthouse/report-generator.js",
+>>>>>>> e0897515da03963f98a43f92b8809118397c416f:front_end/lighthouse/module.json
         "RadioSetting.js",
         "LighthousePanel.js",
         "LighthouseController.js",
@@ -35,6 +41,15 @@
         "LighthouseProtocolService.js"
     ],
     "resources": [
+<<<<<<< HEAD:front_end/audits/module.json
+        "../third_party/lighthouse/report-assets/template.html",
+        "../third_party/lighthouse/report-assets/templates.html",
+        "../third_party/lighthouse/report-assets/report.css",
+        "../third_party/lighthouse/report-assets/report.js",
+        "auditsDialog.css",
+        "auditsPanel.css",
+        "auditsStartView.css"
+=======
         "lighthouseDialog.css",
         "lighthousePanel.css",
         "lighthouseStartView.css",
@@ -42,9 +57,10 @@
         "lighthouse/templates.html",
         "lighthouse/report.css",
         "lighthouse/report.js"
+>>>>>>> e0897515da03963f98a43f92b8809118397c416f:front_end/lighthouse/module.json
     ],
     "skip_compilation": [
-      "lighthouse/report.js",
-      "lighthouse/report-generator.js"
+      "../third_party/lighthouse/report-assets/report.js",
+      "../third_party/lighthouse/report-assets/report-generator.js"
   ]
 }

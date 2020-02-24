@@ -20,8 +20,11 @@ front_end/protocol_externs.js
 front_end/javascript_metadata/NativeFunctions.js
 front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 front_end/third_party/
+<<<<<<< HEAD
+=======
 test/e2e/resources/
 test/webtests/
+>>>>>>> e0897515da03963f98a43f92b8809118397c416f
 scripts/
 test/e2e/**/*.js
 test/shared/**/*.js

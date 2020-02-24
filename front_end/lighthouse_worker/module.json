@@ -10,10 +10,15 @@
         }
     ],
     "scripts": [
+<<<<<<< HEAD:front_end/audits_worker/module.json
+        "../third_party/lighthouse/lighthouse-dt-bundle.js",
+        "AuditsService.js"
+=======
         "lighthouse/lighthouse-dt-bundle.js",
         "LighthouseService.js"
+>>>>>>> e0897515da03963f98a43f92b8809118397c416f:front_end/lighthouse_worker/module.json
     ],
     "skip_compilation": [
-        "lighthouse/lighthouse-dt-bundle.js"
+        "../third_party/lighthouse/lighthouse-dt-bundle.js"
     ]
 }

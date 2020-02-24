@@ -16,9 +16,15 @@ import {StatusView} from './LighthouseStatusView.js';
  */
 export class LighthousePanel extends UI.Panel {
   constructor() {
+<<<<<<< HEAD:front_end/audits/AuditsPanel.js
+    super('audits');
+    this.registerRequiredCSS('third_party/lighthouse/report-assets/report.css');
+    this.registerRequiredCSS('audits/auditsPanel.css');
+=======
     super('lighthouse');
     this.registerRequiredCSS('lighthouse/lighthouse/report.css');
     this.registerRequiredCSS('lighthouse/lighthousePanel.css');
+>>>>>>> e0897515da03963f98a43f92b8809118397c416f:front_end/lighthouse/LighthousePanel.js
 
     this._protocolService = new ProtocolService();
     this._controller = new LighthouseController(this._protocolService);
@@ -186,7 +192,11 @@ export class LighthousePanel extends UI.Panel {
     const dom = new DOM(/** @type {!Document} */ (this._auditResultsElement.ownerDocument));
     const renderer = new LighthouseReportRenderer(dom);
 
+<<<<<<< HEAD:front_end/audits/AuditsPanel.js
+    const templatesHTML = Root.Runtime.cachedResources['third_party/lighthouse/report-assets/templates.html'];
+=======
     const templatesHTML = Root.Runtime.cachedResources['lighthouse/lighthouse/templates.html'];
+>>>>>>> e0897515da03963f98a43f92b8809118397c416f:front_end/lighthouse/LighthousePanel.js
     const templatesDOM = new DOMParser().parseFromString(templatesHTML, 'text/html');
     if (!templatesDOM) {
       return;
