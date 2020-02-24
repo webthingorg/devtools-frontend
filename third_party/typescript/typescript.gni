@@ -38,6 +38,11 @@ template("ts_library") {
           "/$target_name-tsconfig.json",
     ]
 
+    args += [
+      "--tsconfig_type_root",
+      rebase_path("//third_party/devtools-frontend/src/node_modules/@types"),
+    ]
+
     assert(
         defined(sources) || defined(deps),
         "You must either specify an array of 'sources' or 'deps' for $target_name")
