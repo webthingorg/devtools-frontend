@@ -46,6 +46,30 @@
       "revId": "fa8ec32081a9cda7fb1dc4c58a38511332a00831",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f68974d6_4cdf7474",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1334577
+      },
+      "writtenOn": "2020-02-24T17:57:06Z",
+      "side": 1,
+      "message": "Agreed that event.target could be null, but I feel like in this case, it shouldn\u0027t be because it is being dispatched off an element (target) [unless this is some custom dispatchEvent]. Tried to experiment this in example below. I too feel we shouldn\u0027t add such check because of a test, so IMO, fixing test feels more reasonable here. Possibly the target/element in the test is undefined. Let me know what you think!\n\nhttps://imgur.com/a/3wgfYDz",
+      "parentUuid": "22ddffcf_55c83fef",
+      "range": {
+        "startLine": 1336,
+        "startChar": 9,
+        "endLine": 1336,
+        "endChar": 14
+      },
+      "revId": "fa8ec32081a9cda7fb1dc4c58a38511332a00831",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
