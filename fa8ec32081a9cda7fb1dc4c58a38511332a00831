@@ -22,6 +22,30 @@
       "revId": "fa8ec32081a9cda7fb1dc4c58a38511332a00831",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22ddffcf_55c83fef",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-24T17:36:48Z",
+      "side": 1,
+      "message": "I ran into it when running this layout test: https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/web_tests/http/tests/devtools/user-metrics.js;l\u003d41?q\u003duser-metrics\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2Fsearch%2F\n\nI suspect it\u0027s because of the synthetic mousedown event that it sends, but I think it makes sense to check for null here instead of just changing the test because in theory event.target could be undefined for an actual event",
+      "parentUuid": "7c998499_5a05e6c7",
+      "range": {
+        "startLine": 1336,
+        "startChar": 9,
+        "endLine": 1336,
+        "endChar": 14
+      },
+      "revId": "fa8ec32081a9cda7fb1dc4c58a38511332a00831",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
