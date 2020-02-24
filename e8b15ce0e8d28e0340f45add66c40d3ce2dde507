@@ -22,6 +22,30 @@
       "revId": "e8b15ce0e8d28e0340f45add66c40d3ce2dde507",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5817a0b_55a9032e",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-24T17:04:15Z",
+      "side": 1,
+      "message": "Actually, there seems to be no precedent for using `confirm()` in DevTools. Should we use UI.ConfirmDialog instead?",
+      "parentUuid": "f79f8a0b_df7f20a7",
+      "range": {
+        "startLine": 813,
+        "startChar": 25,
+        "endLine": 813,
+        "endChar": 31
+      },
+      "revId": "e8b15ce0e8d28e0340f45add66c40d3ce2dde507",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
