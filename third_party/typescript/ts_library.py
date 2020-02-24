@@ -42,6 +42,7 @@ def main():
     parser.add_argument('-deps', '--deps', nargs='*', help='List of Ninja build dependencies')
     parser.add_argument('-dir', '--front_end_directory', required=True, help='Folder that contains source files')
     parser.add_argument('-b', '--tsconfig_output_location', required=True)
+    parser.add_argument('-r', '--tsconfig_type_root', required=True)
     opts = parser.parse_args()
     with open(ROOT_TS_CONFIG_LOCATION) as root_tsconfig:
         try:
@@ -61,6 +62,7 @@ def main():
                         ] + [get_relative_path_from_output_directory(GLOBAL_DEFS)]
     if (opts.deps is not None):
         tsconfig['references'] = [{'path': src} for src in opts.deps]
+    tsconfig['compilerOptions']['typeRoots'] = [path.abspath(opts.tsconfig_type_root)]
     tsconfig['compilerOptions']['declaration'] = True
     tsconfig['compilerOptions']['composite'] = True
     tsconfig['compilerOptions']['rootDir'] = get_relative_path_from_output_directory(opts.front_end_directory)
