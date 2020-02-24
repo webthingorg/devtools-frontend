@@ -70,6 +70,30 @@
       "revId": "e8b15ce0e8d28e0340f45add66c40d3ce2dde507",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc595e34_18c1d7c0",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-24T21:48:49Z",
+      "side": 1,
+      "message": "Alright, given the precedent within the same file, let\u0027s stick with `confirm()` for now. Could you please file a follow-up tracking bug (for the backlog) to refactor all these to `UI.ConfirmDialog`?",
+      "parentUuid": "6ae18dc1_f08e04ea",
+      "range": {
+        "startLine": 813,
+        "startChar": 25,
+        "endLine": 813,
+        "endChar": 31
+      },
+      "revId": "e8b15ce0e8d28e0340f45add66c40d3ce2dde507",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
