@@ -70,6 +70,30 @@
       "revId": "fa8ec32081a9cda7fb1dc4c58a38511332a00831",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3822bb1_3864e679",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-24T18:33:11Z",
+      "side": 1,
+      "message": "Right, it shouldn\u0027t be, but it could be according to the definition of Event (and is, at least for this test). That\u0027s why I think it makes sense to have a check here anyway.\n\nI\u0027m also wary of changing user-metrics.js because it\u0027s apparently the flakiest layout test in chromium, see Tim\u0027s message here: https://chromium-review.googlesource.com/c/chromium/src/+/2053084/5#message-03b49801de9d4bfe4bb0a43794b9ac7226d59ba1",
+      "parentUuid": "f68974d6_4cdf7474",
+      "range": {
+        "startLine": 1336,
+        "startChar": 9,
+        "endLine": 1336,
+        "endChar": 14
+      },
+      "revId": "fa8ec32081a9cda7fb1dc4c58a38511332a00831",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
