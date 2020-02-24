@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f79f8a0b_df7f20a7",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-24T17:03:12Z",
+      "side": 1,
+      "message": "For consistency, perhaps use `self` instead of `window`. But we don\u0027t really need it; it could just be `confirm(...)`.",
+      "range": {
+        "startLine": 813,
+        "startChar": 25,
+        "endLine": 813,
+        "endChar": 31
+      },
+      "revId": "e8b15ce0e8d28e0340f45add66c40d3ce2dde507",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
