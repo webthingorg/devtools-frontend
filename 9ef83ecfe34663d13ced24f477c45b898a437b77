@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce72a1ec_541799ea",
+        "filename": "front_end/lighthouse/lighthouse.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-02-24T20:58:37Z",
+      "side": 1,
+      "message": "should this work?",
+      "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5c006de_417a4f7b",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-02-24T20:58:37Z",
+      "side": 1,
+      "message": "It seems I must use \"../../third_party\" in module.json (the axe module does this. IDK where the extra .. comes from ...). But when I do this, I get errors from the gn check. So, like how axe.js is ignored here, I also ignored the LH folder.\n\nSomething here seems broken?",
+      "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66887faa_360e36b1",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-emulate-run-expected.txt",
+        "patchSetId": 23
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-02-24T20:58:37Z",
+      "side": 1,
+      "message": "Paul, do you know why this is happening? I don\u0027t know how to debug this.",
+      "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
