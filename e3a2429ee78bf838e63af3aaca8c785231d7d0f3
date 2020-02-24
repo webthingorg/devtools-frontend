@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4006af1f_c37bc8af",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-02-24T15:26:24Z",
+      "side": 1,
+      "message": "For localizability the preferred practice is ls`Loading...`.",
+      "range": {
+        "startLine": 299,
+        "startChar": 33,
+        "endLine": 299,
+        "endChar": 69
+      },
+      "revId": "e3a2429ee78bf838e63af3aaca8c785231d7d0f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
