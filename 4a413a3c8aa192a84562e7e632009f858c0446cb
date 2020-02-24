@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "c0faae8a_d02df518",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Good question - these views are are returned in sorted order based their localized \u0027title\u0027 property (which is what is displayed), so it\u0027s not restricted to English sort order.\n\nIdeally we could re-use the existing \"preferences\" settings view, however, its \u0027title\u0027 property for is \"Preferences\" and not \"Settings\", which is confusing. We could override the way the label appears in the menu itself, but then it wouldn\u0027t show up in the right spot as the sorting is based on module-defined title. We could add the view to the `extensions` list and then sort it again, but, but that would require borrowing code or opening new APIs up in Runtime.js or even ContextMenu.js (insert-sorted?).\n\nAs Settings view doesn\u0027t fall in the normal realm of closeable-drawer-views, we have to make a special case somewhere. This implementation felt the least intrusive and well balanced to get the desired result.",
+      "parentUuid": "11228e28_e653a31a",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11d4e3f4_3b3423b8",
         "filename": "front_end/quick_open/CommandMenu.js",
         "patchSetId": 14
@@ -69,6 +87,24 @@
       "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cede5ec_e6adebf9",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "11d4e3f4_3b3423b8",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "7e318c17_9ca52cfe",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "SettingsScreen lives in a tabbed pane; we fire a Panel opened event using the native TabSelected event for tabbed panes. This follows the same approach as the top level tab and drawer telemetry in DevTools.\n\nWhen Settings opens for the first time, the TabSelected event fires and a telemetry event is recorded as expected for the target tab. (The first open tab need not be Preferences - it\u0027s possible to open directly to Blackboxing, for example, via the command menu).\n\nHowever, when Settings is dismissed, then re-opened to that *same tab* it was closed on, TabSelected does not fire. This is because the tabbed pane is a singleton that lives on after construction and TabSelected only fires when *changing tabs*.\n\nThis doesn\u0027t make sense from a telemetry sense, as the user is deliberately bringing the panel into view once more - the panel is being shown, so we should record an event. This bit of logic ensures we reliably fire a panel shown event every time Settings is opened, even if to the same panel it was closed on. The _hasShown field prevents firing a double event on the first open.\n\nThe top level tab bar and drawer don\u0027t have this problem because when users switch views, they switch tabs. But closing Settings does not switch tabs, it just hides the component from view.",
+      "parentUuid": "ff4fb7fe_84a31033",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 5
+      },
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64ca414c_8db84f3e",
         "filename": "front_end/settings/SettingsScreen.js",
         "patchSetId": 14
@@ -112,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "7b3d005f_269d11f6",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "64ca414c_8db84f3e",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97bec6f2_d7bcd614",
         "filename": "front_end/settings/SettingsScreen.js",
         "patchSetId": 14
@@ -126,6 +204,24 @@
       "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "376288e7_fb304230",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Alas, Shortcuts is a special case panel here in Settings - on line 62 of this file, we see Shortcuts is defined inline, and with a localized string as an ID. Thus we have to do a special check for this particular panel - then translate it to a hardcoded \u0027shortcuts\u0027 ID so all the telemetry for that panel falls in the same bucket regardless of language.\n\nThis is unlike the other panels, which are defined as module extensions (hardcoded ID strings). Since this is a one-off case, I feel a simple if statement is OK here.",
+      "parentUuid": "97bec6f2_d7bcd614",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -161,6 +257,24 @@
       "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d9a0907_143f5dbe",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4fbee8ba_9d2eb86c",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -253,6 +367,24 @@
     },
     {
       "key": {
+        "uuid": "cb8cc3b7_753778e3",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Great feedback, thanks - the TypeScript analogy is especially helpful. The inconsistency in the argument type definitions was a mistake on my part 😊 I\u0027ll see how the options object parameter would look for this case and for action commands - I think the separate interface definition will be the cleanest solution here.",
+      "parentUuid": "bbc8d67c_15c4d639",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4562c4ff_aae7902d",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 14
@@ -276,6 +408,30 @@
     },
     {
       "key": {
+        "uuid": "76127d08_216a784b",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Good question. Toolbar icons reveal the keyboard shortcuts defined in their module extension, on hover. If we separated the keyboard shortcut action definition from the icon action definition, there wouldn\u0027t be a way to easily discover the Settings shortcut (F1, Shift+?) by hovering over the icon.\n\nWe could try getting around this by doubling up on keyboard shortcut definitions (have the keyboard shortcut defined on the icon, plus a separate entry) but this could lead to weird race conditions (which one fires first?), and in light of future keyboard shortcut development (telemetry, customization, etc), further problems down the road.\n\nWe could modify the Toolbar icon class definition to display keyboard shortcuts without having them defined on the module extension itself, but it would be hard to link the icon to the shortcut in a natural unintrusive way",
+      "parentUuid": "4562c4ff_aae7902d",
+      "range": {
+        "startLine": 193,
+        "startChar": 5,
+        "endLine": 196,
+        "endChar": 8
+      },
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "380fe884_2a2bfb9f",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 14
@@ -290,6 +446,24 @@
       "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28035e83_36dff838",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-24T19:49:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "380fe884_2a2bfb9f",
+      "revId": "4a413a3c8aa192a84562e7e632009f858c0446cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
