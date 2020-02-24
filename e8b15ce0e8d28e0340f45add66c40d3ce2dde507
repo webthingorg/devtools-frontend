@@ -46,6 +46,30 @@
       "revId": "e8b15ce0e8d28e0340f45add66c40d3ce2dde507",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ae18dc1_f08e04ea",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-02-24T17:25:03Z",
+      "side": 1,
+      "message": "There are a few instances in this file where where `window.confirm` is used (lines 767, 780 and 864), I just followed what is being done there.\n\nBut if UI.ConfirmDialog is being used everywhere else, I can refactor it accordingly.",
+      "parentUuid": "b5817a0b_55a9032e",
+      "range": {
+        "startLine": 813,
+        "startChar": 25,
+        "endLine": 813,
+        "endChar": 31
+      },
+      "revId": "e8b15ce0e8d28e0340f45add66c40d3ce2dde507",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
