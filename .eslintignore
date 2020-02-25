@@ -25,3 +25,5 @@ test/webtests/
 scripts/
 test/e2e/**/*.js
 test/shared/**/*.js
+node_modules/
+out/
