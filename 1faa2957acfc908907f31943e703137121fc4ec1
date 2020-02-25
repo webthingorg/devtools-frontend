@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a07ddc0c_9320f2ca",
+        "filename": "front_end/inline_editor/cssShadowEditor.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-02-25T17:55:11Z",
+      "side": 1,
+      "message": "There might be a bug here. I don\u0027t see `border-color` for this element being set in the `forced-colors: active` block",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "1faa2957acfc908907f31943e703137121fc4ec1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
