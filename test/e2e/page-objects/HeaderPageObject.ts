@@ -25,4 +25,8 @@ export class HeaderPageObject {
   async clickConsoleTab() {
     await click(this.consoleTab);
   }
+
+  async clickApplicationTab() {
+    await click(this.applicationTab);
+  }
 }
