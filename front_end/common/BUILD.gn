@@ -7,6 +7,7 @@ import("../../third_party/typescript/typescript.gni")
 ts_library("common") {
   deps = [
     ":color",
+    ":query_param_handler",
     ":trie",
   ]
 }
@@ -19,4 +20,8 @@ ts_library("color") {
   sources = [ "Color.js" ]
 
   deps = [ "../platform" ]
+}
+
+ts_library("query_param_handler") {
+  sources = [ "QueryParamHandler.js" ]
 }
