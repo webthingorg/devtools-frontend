@@ -176,5 +176,3 @@ export const getBrowserAndPages = (): BrowserAndPages => {
     frontend: globalThis[frontEndPage],
   };
 };
-
-export const resourcesPath = 'http://localhost:8090/test/e2e/resources';
