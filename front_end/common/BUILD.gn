@@ -20,3 +20,7 @@ ts_library("color") {
 
   deps = [ "../platform" ]
 }
+
+ts_library("query_param_handler") {
+  sources = [ "QueryParamHandler.js" ]
+}
