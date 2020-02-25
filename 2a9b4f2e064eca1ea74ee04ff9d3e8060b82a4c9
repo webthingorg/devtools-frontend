@@ -16,6 +16,24 @@
       "revId": "2a9b4f2e064eca1ea74ee04ff9d3e8060b82a4c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2150982_386f6e40",
+        "filename": "front_end/inline_editor/cssShadowEditor.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-25T00:56:16Z",
+      "side": 1,
+      "message": "set a transparent default border on :host",
+      "parentUuid": "269bbbe0_6b963395",
+      "revId": "2a9b4f2e064eca1ea74ee04ff9d3e8060b82a4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
