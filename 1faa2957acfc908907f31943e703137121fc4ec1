@@ -22,6 +22,30 @@
       "revId": "1faa2957acfc908907f31943e703137121fc4ec1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d71142cb_548aea00",
+        "filename": "front_end/inline_editor/cssShadowEditor.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-02-25T18:49:38Z",
+      "side": 1,
+      "message": "In this case, the system will take care of setting the color, as long as we don\u0027t opt out of high contrast with setting \u0027forced-color-adjust\u0027 to none. It is transparent at low contrast, and in forced colors it will automatically set the color of the border. \nThis is similar to what is happening in the DOM pane, under Elements panel. Where the individual elements have a border-top and border-bottom set with transparency, and when in high contrast, you see the borders.",
+      "parentUuid": "a07ddc0c_9320f2ca",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "1faa2957acfc908907f31943e703137121fc4ec1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
