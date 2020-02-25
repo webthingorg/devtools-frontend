@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b40c3c4c_44b0ff2f",
+        "filename": "test/e2e/ui/keyboard-shortcut-fired.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-25T08:37:40Z",
+      "side": 1,
+      "message": "Iirc these are async and should thus be awaited. (same for all other keyboard interactions in this test)",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "946039aee58b84cc560479a2f724640dd0bbd69e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64f891ae_746eed3c",
+        "filename": "test/e2e/ui/keyboard-shortcut-fired.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-25T08:37:40Z",
+      "side": 1,
+      "message": "Must be awaited as well.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 9
+      },
+      "revId": "946039aee58b84cc560479a2f724640dd0bbd69e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f8ddc4d_afb8868f",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-25T08:37:40Z",
+      "side": 1,
+      "message": "I am not sure if this is the best solution on tracking this. It is mostly an artifact of the architectural problems where it is impossible to instruct these events.\n\nThat said, I don\u0027t have a ready-made replacement in mind atm. Therefore, we probably should use this solution for now and keep on thinking of alternatives.\n\nLet\u0027s see what Paul thinks before submitting.",
+      "range": {
+        "startLine": 187,
+        "startChar": 13,
+        "endLine": 187,
+        "endChar": 34
+      },
+      "revId": "946039aee58b84cc560479a2f724640dd0bbd69e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
