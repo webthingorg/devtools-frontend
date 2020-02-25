@@ -229,7 +229,7 @@ export class DefaultNameResolver {
         return (isImport ? '$import' : '$func') + index;
     }
     getVariableName(funcIndex, index, isRef) {
-        return '$var' + index;
+        return '$local' + index;
     }
     getLabel(index) {
         return '$label' + index;
