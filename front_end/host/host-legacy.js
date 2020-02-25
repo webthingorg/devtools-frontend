@@ -47,5 +47,8 @@ Host.UserMetrics._PanelCodes = HostModule.UserMetrics.PanelCodes;
 /** @enum {number} */
 Host.UserMetrics.Action = HostModule.UserMetrics.Action;
 
+/** @enum {number} */
+Host.UserMetrics.KeyboardShortcutAction = HostModule.UserMetrics.KeyboardShortcutAction;
+
 /** @type {!Host.UserMetrics} */
 Host.userMetrics = HostModule.userMetrics;
