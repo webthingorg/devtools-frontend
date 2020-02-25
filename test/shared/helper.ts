@@ -180,5 +180,3 @@ export const getBrowserAndPages = (): BrowserAndPages => {
     screenshot: globalThis[screenshotPage],
   };
 };
-
-export const resourcesPath = 'http://localhost:8090/test/e2e/resources';
