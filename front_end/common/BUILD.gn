@@ -7,6 +7,7 @@ import("../../third_party/typescript/typescript.gni")
 ts_library("common") {
   deps = [
     ":app",
+    ":app_provider",
     ":color",
     ":trie",
   ]
@@ -14,6 +15,12 @@ ts_library("common") {
 
 ts_library("app") {
   sources = [ "App.js" ]
+}
+
+ts_library("app_provider") {
+  sources = [ "AppProvider.js" ]
+
+  deps = [ ":app" ]
 }
 
 ts_library("color") {
