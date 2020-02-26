@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "10f956f3_c0c8861f",
+        "filename": "front_end/lighthouse/lighthouse.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-26T16:31:47Z",
+      "side": 1,
+      "message": "Yes this should. It\u0027s `third_party` though.",
+      "parentUuid": "ce72a1ec_541799ea",
+      "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5c006de_417a4f7b",
         "filename": "scripts/check_gn.js",
         "patchSetId": 23
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "33fb47d1_4047f23c",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-26T16:31:47Z",
+      "side": 1,
+      "message": "Yeah it is probably fine to ignore it for now. This is mostly old module.json integration that we don\u0027t have a lot of time fixing. Ignoring is fine, as long as we can manually verify audits are working.",
+      "parentUuid": "a5c006de_417a4f7b",
+      "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66887faa_360e36b1",
         "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-emulate-run-expected.txt",
         "patchSetId": 23
@@ -47,6 +83,24 @@
       "writtenOn": "2020-02-24T20:58:37Z",
       "side": 1,
       "message": "Paul, do you know why this is happening? I don\u0027t know how to debug this.",
+      "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "327b30dc_11611ce3",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-emulate-run-expected.txt",
+        "patchSetId": 23
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-26T16:31:47Z",
+      "side": 1,
+      "message": "It\u0027s probably because of the `third-party` typo in `lighthouse.js`. Yeah it is unfortunate the error is not descriptive.\n\nWhat you can do is debug devtools with devtools (cmd + shift + I when you have DevTools undocked) and then you should at least see a more descriptive error when you open the LightHouse panel.",
+      "parentUuid": "66887faa_360e36b1",
       "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
