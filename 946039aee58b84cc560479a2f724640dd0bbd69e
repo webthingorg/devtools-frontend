@@ -116,6 +116,30 @@
       "revId": "946039aee58b84cc560479a2f724640dd0bbd69e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8641904_f7ec4414",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-26T00:24:14Z",
+      "side": 1,
+      "message": "Yep, I\u0027ll wait for Paul\u0027s change to land and then use events instead.",
+      "parentUuid": "8f8ddc4d_afb8868f",
+      "range": {
+        "startLine": 187,
+        "startChar": 13,
+        "endLine": 187,
+        "endChar": 34
+      },
+      "revId": "946039aee58b84cc560479a2f724640dd0bbd69e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
