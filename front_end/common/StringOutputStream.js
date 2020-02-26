@@ -31,7 +31,6 @@ export class StringOutputStream {
   /**
    * @override
    * @param {string} chunk
-   * @return {!Promise}
    */
   async write(chunk) {
     this._data += chunk;

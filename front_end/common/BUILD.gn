@@ -7,14 +7,23 @@ import("../../third_party/typescript/typescript.gni")
 ts_library("common") {
   deps = [
     ":app",
+    ":app_provider",
     ":color",
     ":query_param_handler",
+    ":runnable",
+    ":string_output_stream",
     ":trie",
   ]
 }
 
 ts_library("app") {
   sources = [ "App.js" ]
+}
+
+ts_library("app_provider") {
+  sources = [ "AppProvider.js" ]
+
+  deps = [ ":app" ]
 }
 
 ts_library("color") {
@@ -25,6 +34,14 @@ ts_library("color") {
 
 ts_library("query_param_handler") {
   sources = [ "QueryParamHandler.js" ]
+}
+
+ts_library("runnable") {
+  sources = [ "Runnable.js" ]
+}
+
+ts_library("string_output_stream") {
+  sources = [ "StringOutputStream.js" ]
 }
 
 ts_library("trie") {
