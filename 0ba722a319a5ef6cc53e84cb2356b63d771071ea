@@ -16,6 +16,24 @@
       "revId": "0ba722a319a5ef6cc53e84cb2356b63d771071ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "572f1014_c0ff29ab",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-26T15:24:48Z",
+      "side": 1,
+      "message": "No, thats the problem. Making this method {async} leaks up into UI code and even requires us to make methods on {Widget} and the rendering mechanism async. Since that would be a code base wide huge change, this is much preferred.",
+      "parentUuid": "6af6bd2b_4e76fea1",
+      "revId": "0ba722a319a5ef6cc53e84cb2356b63d771071ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
