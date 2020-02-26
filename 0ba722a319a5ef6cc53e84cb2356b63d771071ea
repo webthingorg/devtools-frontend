@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6af6bd2b_4e76fea1",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-26T15:21:01Z",
+      "side": 1,
+      "message": "Alternatively, we could make these methods `async`, and then use `await maybeLiveLocationPromise;` here (because `await somethingThatIsNotAPromise` works). Then we wouldn\u0027t need the TODO. I\u0027m fine either way though.",
+      "revId": "0ba722a319a5ef6cc53e84cb2356b63d771071ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
