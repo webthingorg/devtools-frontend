@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "15786887_d72331e0",
+        "filename": "front_end/perf_ui/LineLevelProfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-26T08:12:29Z",
+      "side": 1,
+      "message": "This is the update handler for a live location with only one use-site. The order in which I have to land CLs is roughly:\n   1.) Await all call-sites the call Binding.updateLocations, these are mostly the\n       *Mapping.js files.\n   2.) Allow asynchronous update handlers in the LiveLocation class (including scheduling)\n   3.) Land various live location use-sites like these\n\nNot sure if I should establish this ordering using dependant CLs or just carefully land them in-order in half day intervals.",
+      "parentUuid": "a9a644cc_03637d97",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 22
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cead1350_8e95d074",
         "filename": "front_end/profiler/ProfileView.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-26T07:58:37Z",
       "side": 1,
       "message": "Is this a synchronous action? Do we need to await it here?",
+      "range": {
+        "startLine": 350,
+        "startChar": 20,
+        "endLine": 350,
+        "endChar": 26
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8af2b011_00eba879",
+        "filename": "front_end/profiler/ProfileView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-26T08:12:29Z",
+      "side": 1,
+      "message": "Even though {reveal} returns a promise, its not awaited in most cases in the code base.",
+      "parentUuid": "cead1350_8e95d074",
       "range": {
         "startLine": 350,
         "startChar": 20,
@@ -68,6 +116,30 @@
       "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15d17013_eb23c6e9",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-02-26T08:12:29Z",
+      "side": 1,
+      "message": "In this case we are. doUpdate already returns a promise. I just added {async} so we can use {await}. All call-sites must either already handle this properly or not care about timing.",
+      "parentUuid": "343053a7_2f63b74a",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 16
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
