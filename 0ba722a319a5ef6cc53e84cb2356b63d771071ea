@@ -34,6 +34,24 @@
       "revId": "0ba722a319a5ef6cc53e84cb2356b63d771071ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aae2eef_0b529c77",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-26T15:28:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "572f1014_c0ff29ab",
+      "revId": "0ba722a319a5ef6cc53e84cb2356b63d771071ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
