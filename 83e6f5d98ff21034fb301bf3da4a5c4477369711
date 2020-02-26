@@ -22,6 +22,30 @@
       "revId": "83e6f5d98ff21034fb301bf3da4a5c4477369711",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc451266_3f15319d",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-26T16:23:11Z",
+      "side": 1,
+      "message": "Thought about that but decided not because it means in every single test you have to do `if (!element) { ... }` and that would get boring very quickly, so I felt doing that test once here rather than in every test that calls this made sense.",
+      "parentUuid": "692adc5e_b0a28cd9",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "83e6f5d98ff21034fb301bf3da4a5c4477369711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
