@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37ad3f26_384466aa",
+        "filename": "test/e2e/resources/sources/wasm/Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-26T16:14:43Z",
+      "side": 1,
+      "message": "I don\u0027t know the details here, but to double check: this outputs a map file with the correct name? I don\u0027t see all the dots in this particular file.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 24
+      },
+      "revId": "070f112f2b636a22e4dc316a317e6f000b73de43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d4977b1_fbd53a2d",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-26T16:14:43Z",
+      "side": 1,
+      "message": "I really like how small this test got. Nice!",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 55
+      },
+      "revId": "070f112f2b636a22e4dc316a317e6f000b73de43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d58f8ad6_3079ae6c",
+        "filename": "test/e2e/sources/can-format-sourcecode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-26T16:14:43Z",
+      "side": 1,
+      "message": "I don\u0027t see this file in the CL. Did you forget to add it?\n\nAlso, please have all import statements at the top of the file.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 118
+      },
+      "revId": "070f112f2b636a22e4dc316a317e6f000b73de43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
