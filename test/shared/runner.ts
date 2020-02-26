@@ -23,6 +23,11 @@ const headless = !envDebug;
 const width = 1280;
 const height = 720;
 
+let envRunCount = Number(process.env['RUNS']);
+if (envDebug || Number.isNaN(envRunCount)) {
+  envRunCount = 1;
+}
+
 let mochaRun: Mocha.Runner;
 let exitCode = 0;
 
@@ -178,7 +183,11 @@ interface DevToolsTarget {
       }
 
       await waitForInput();
-      await runTests();
+
+      for (let run = 0; run < envRunCount; run++) {
+        await runTests();
+      }
+
       if (envDebug) {
         await resetPages();
       }
