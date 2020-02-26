@@ -7,6 +7,41 @@
  * @suppress {accessControls}
  */
 
+/* this code exists in Platform.StringUtilities but these layout tests
+* cannot import ES modules so we copy the required code in directly as
+* these layout tests are going to be removed in favour of e2e so it's
+* not worth adding ESM support here
+* we check they don't first exist as SourcesTestRunner also defines them globally
+*/
+
+
+/**
+ *
+ * @param {string} inputString
+ * @param {string} searchString
+ * @return {!Array.<number>}
+ */
+const findIndexesOfSubString = findIndexesOfSubString || function(inputString, searchString) {
+  const matches = [];
+  let i = inputString.indexOf(searchString);
+  while (i !== -1) {
+    matches.push(i);
+    i = inputString.indexOf(searchString, i + searchString.length);
+  }
+  return matches;
+};
+
+/**
+ *
+ * @param {string} inputString
+ * @return {!Array.<number>}
+ */
+const findLineEndingIndexes = findLineEndingIndexes || function(inputString) {
+  const endings = findIndexesOfSubString(inputString, '\n');
+  endings.push(inputString.length);
+  return endings;
+};
+
 SourcesTestRunner.startDebuggerTest = function(callback, quiet) {
   console.assert(TestRunner.debuggerModel.debuggerEnabled(), 'Debugger has to be enabled');
 
@@ -642,10 +677,10 @@ SourcesTestRunner.createScriptMock = function(
   target = target || self.SDK.targetManager.mainTarget();
   const debuggerModel = target.model(SDK.DebuggerModel);
   const scriptId = ++SourcesTestRunner._lastScriptId + '';
-  const lineCount = source.computeLineEndings().length;
+  const sourceLineEndings = findLineEndingIndexes(source);
+  const lineCount = sourceLineEndings.length;
   const endLine = startLine + lineCount - 1;
-  const endColumn =
-      (lineCount === 1 ? startColumn + source.length : source.length - source.computeLineEndings()[lineCount - 2]);
+  const endColumn = (lineCount === 1 ? startColumn + source.length : source.length - sourceLineEndings[lineCount - 2]);
   const hasSourceURL =
       !!source.match(/\/\/#\ssourceURL=\s*(\S*?)\s*$/m) || !!source.match(/\/\/@\ssourceURL=\s*(\S*?)\s*$/m);
 
