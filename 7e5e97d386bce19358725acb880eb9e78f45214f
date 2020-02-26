@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e17d528e_17d08917",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-26T21:30:54Z",
+      "side": 1,
+      "message": "Updated the commit message with the suspected culprit. I will keep the message to state that we don\u0027t know why the files are being sent to swarming in the first place, as that is still unknown.\n\nI will follow-up with the TypeScript maintainers to work on the json key ordering stability (if we suspect that is the issue)",
+      "parentUuid": "5009a551_3f51deca",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 42
+      },
+      "revId": "7e5e97d386bce19358725acb880eb9e78f45214f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84a3a0de_ca51ad16",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
