@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as puppeteer from 'puppeteer';
+import * as sinon from 'sinon';
 import {performance} from 'perf_hooks';
 
 interface BrowserAndPages {
@@ -179,6 +180,36 @@ export const getBrowserAndPages = (): BrowserAndPages => {
     frontend: globalThis[frontEndPage],
     screenshot: globalThis[screenshotPage],
   };
+};
+
+// Functions that are exposed by puppeteer persist between page reloads, which is why
+// we store and manage spies here
+export const spyOnFrontendFunction = async (functionName: string): Promise<sinon.SinonSpy> => {
+  const {frontend} = getBrowserAndPages();
+  if (!globalThis.hasOwnProperty('__spies')) {
+    globalThis.__spies = {};
+  }
+  await frontend.evaluate('window.__spiedFunctions = window.__spiedFunctions || {}');
+  const cleanedName = functionName.replace(/\./g, '__');
+
+  let spy;
+  if (!globalThis.__spies.hasOwnProperty(functionName)) {
+    spy = sinon.spy();
+
+    await frontend.exposeFunction(`__testProxy${cleanedName}`, spy);
+    globalThis.__spies[functionName] = spy;
+  } else {
+    spy = globalThis.__spies[functionName];
+    spy.resetHistory();
+  }
+  await frontend.evaluate(`
+    window.__spiedFunctions['${functionName}'] = ${functionName};
+    ${functionName} = (...args) => {
+      window.__testProxy${cleanedName}(...args);
+      return window.__spiedFunctions['${functionName}'](...args);
+    };
+  `);
+  return spy;
 };
 
 export const resourcesPath = 'http://localhost:8090/test/e2e/resources';
