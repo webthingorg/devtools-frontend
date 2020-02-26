@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5199af48_6004b8e4",
+        "filename": "test/e2e/resources/application/websql-database.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-26T15:20:41Z",
+      "side": 1,
+      "message": "ultra-nit: const",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "a01119071163e2a9f5e3f3003706e3e3987f8285",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
