@@ -189,10 +189,14 @@ export class Linkifier {
     const info = Linkifier._linkInfo(anchor);
     info.enableDecorator = this._useLinkDecorator;
     info.fallback = fallbackAnchor;
-    info.liveLocation = self.Bindings.debuggerWorkspaceBinding.createLiveLocation(
-        rawLocation, this._updateAnchor.bind(this, anchor),
-        /** @type {!Bindings.LiveLocation.LiveLocationPool} */
-        (this._locationPoolByTarget.get(rawLocation.debuggerModel.target())));
+
+    const pool = this._locationPoolByTarget.get(rawLocation.debuggerModel.target());
+    const maybeLiveLocationPromise = self.Bindings.debuggerWorkspaceBinding.createLiveLocation(
+        rawLocation, this._updateAnchor.bind(this, anchor), pool);
+    // TODO(1032016): Remove {Promise.resolve} wrapping once {createLiveLocation} returns a promise.
+    Promise.resolve(maybeLiveLocationPromise).then(liveLocation => {
+      info.liveLocation = liveLocation;
+    });
 
     const anchors = /** @type {!Array<!Element>} */ (this._anchorsByTarget.get(rawLocation.debuggerModel.target()));
     anchors.push(anchor);
@@ -264,9 +268,14 @@ export class Linkifier {
     const info = Linkifier._linkInfo(anchor);
     info.enableDecorator = this._useLinkDecorator;
     info.fallback = fallbackAnchor;
-    info.liveLocation = self.Bindings.debuggerWorkspaceBinding.createStackTraceTopFrameLiveLocation(
-        rawLocations, this._updateAnchor.bind(this, anchor),
-        /** @type {!Bindings.LiveLocation.LiveLocationPool} */ (this._locationPoolByTarget.get(target)));
+
+    const pool = this._locationPoolByTarget.get(target);
+    const maybeLiveLocationPromise = self.Bindings.debuggerWorkspaceBinding.createStackTraceTopFrameLiveLocation(
+        rawLocations, this._updateAnchor.bind(this, anchor), pool);
+    // TODO(1032016): Remove {Promise.resolve} wrapping once {createStackTraceTopFrameLiveLocation} returns a promise.
+    Promise.resolve(maybeLiveLocationPromise).then(liveLocation => {
+      info.liveLocation = liveLocation;
+    });
 
     const anchors = /** @type {!Array<!Element>} */ (this._anchorsByTarget.get(target));
     anchors.push(anchor);
@@ -282,10 +291,14 @@ export class Linkifier {
     const anchor = Linkifier._createLink('', classes || '');
     const info = Linkifier._linkInfo(anchor);
     info.enableDecorator = this._useLinkDecorator;
-    info.liveLocation = self.Bindings.cssWorkspaceBinding.createLiveLocation(
-        rawLocation, this._updateAnchor.bind(this, anchor),
-        /** @type {!Bindings.LiveLocation.LiveLocationPool} */
-        (this._locationPoolByTarget.get(rawLocation.cssModel().target())));
+
+    const pool = this._locationPoolByTarget.get(rawLocation.cssModel().target());
+    const maybeLiveLocationPromise =
+        self.Bindings.cssWorkspaceBinding.createLiveLocation(rawLocation, this._updateAnchor.bind(this, anchor), pool);
+    // TODO(1032016): Remove {Promise.resolve} wrapping once {createLiveLocation} returns a promise.
+    Promise.resolve(maybeLiveLocationPromise).then(liveLocation => {
+      info.liveLocation = liveLocation;
+    });
 
     const anchors = /** @type {!Array<!Element>} */ (this._anchorsByTarget.get(rawLocation.cssModel().target()));
     anchors.push(anchor);
@@ -313,9 +326,9 @@ export class Linkifier {
    * @param {!Element} anchor
    * @param {!Bindings.LiveLocation.LiveLocation} liveLocation
    */
-  _updateAnchor(anchor, liveLocation) {
+  async _updateAnchor(anchor, liveLocation) {
     Linkifier._unbindUILocation(anchor);
-    const uiLocation = liveLocation.uiLocation();
+    const uiLocation = await liveLocation.uiLocation();
     if (!uiLocation) {
       return;
     }
@@ -329,7 +342,7 @@ export class Linkifier {
       titleText += ':' + (uiLocation.lineNumber + 1);
     }
     anchor.title = titleText;
-    anchor.classList.toggle('webkit-html-blackbox-link', liveLocation.isBlackboxed());
+    anchor.classList.toggle('webkit-html-blackbox-link', await liveLocation.isBlackboxed());
     Linkifier._updateLinkDecorations(anchor);
   }
 
