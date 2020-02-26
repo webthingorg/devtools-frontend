@@ -212,6 +212,7 @@ export class CoverageView extends UI.Widget.VBox {
    *   - **jsCoveragePerBlock** - `{boolean}` - Collect per Block coverage if `true`, per function coverage otherwise.
    */
   async _startRecording(options) {
+    const hadFocus = this.hasFocus();
     this._reset();
     const mainTarget = self.SDK.targetManager.mainTarget();
     if (!mainTarget) {
@@ -252,7 +253,6 @@ export class CoverageView extends UI.Widget.VBox {
     this._coverageTypeComboBox.setEnabled(false);
     this._filterInput.setEnabled(true);
     this._filterByTypeComboBox.setEnabled(true);
-    const hadFocus = this.hasFocus();
     if (this._landingPage.isShowing()) {
       this._landingPage.detach();
     }
