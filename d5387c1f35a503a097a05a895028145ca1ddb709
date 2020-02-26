@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9a644cc_03637d97",
+        "filename": "front_end/perf_ui/LineLevelProfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-26T07:58:37Z",
+      "side": 1,
+      "message": "This looks dangerous, why doesn\u0027t this cause problems for callers that are still assuming this is sync? (Note that there seem to be no CLs that is CL depends on).",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 22
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cead1350_8e95d074",
+        "filename": "front_end/profiler/ProfileView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-26T07:58:37Z",
+      "side": 1,
+      "message": "Is this a synchronous action? Do we need to await it here?",
+      "range": {
+        "startLine": 350,
+        "startChar": 20,
+        "endLine": 350,
+        "endChar": 26
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "343053a7_2f63b74a",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-26T07:58:37Z",
+      "side": 1,
+      "message": "Same here, shouldn\u0027t we asyncify starting from the top?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 16
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
