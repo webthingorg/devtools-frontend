@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c1bbfd1d_a36626c9",
+        "filename": "front_end/perf_ui/LineLevelProfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-26T08:16:16Z",
+      "side": 1,
+      "message": "OK, if all callers are already await\u0027ing, this is OK, but it is difficult for me to determine.",
+      "parentUuid": "15786887_d72331e0",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 22
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cead1350_8e95d074",
         "filename": "front_end/profiler/ProfileView.js",
         "patchSetId": 2
@@ -93,6 +117,30 @@
       "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a997e9b4_7330ac7b",
+        "filename": "front_end/profiler/ProfileView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-26T08:16:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8af2b011_00eba879",
+      "range": {
+        "startLine": 350,
+        "startChar": 20,
+        "endLine": 350,
+        "endChar": 26
+      },
+      "revId": "d5387c1f35a503a097a05a895028145ca1ddb709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
