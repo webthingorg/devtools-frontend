@@ -6,39 +6,34 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {$, click, getBrowserAndPages, resetPages, resourcesPath, waitFor} from '../../shared/helper.js';
-
-async function navigateToNetworkTab(target: puppeteer.Page, testName: string) {
-  await target.goto(`${resourcesPath}/network/${testName}`);
-  await click('#tab-network');
-  // Make sure the network tab is shown on the screen
-  await waitFor('.network-log-grid');
-}
+import {ResourcePageObject} from '../page-objects/ResourcePageObject';
+import {NetworkTabPageObject} from '../page-objects/NetworkTabPageObject';
+import {HeaderPageObject} from '../page-objects/HeaderPageObject';
+import {click, getBrowserAndPages, resetPages} from '../../shared/helper.js';
 
 describe('The Network Tab', async () => {
+  let target: puppeteer.Page;
+  let frontend: puppeteer.Page;
+  let resourcePageObject: ResourcePageObject;
+  let headerPageObject: HeaderPageObject;
+  let networkTabPageObject: NetworkTabPageObject;
+
   beforeEach(async () => {
     await resetPages();
+    const world = getBrowserAndPages();
+    target = world.target;
+    frontend = world.frontend;
+    resourcePageObject = new ResourcePageObject(target);
+    headerPageObject = new HeaderPageObject(frontend);
+    networkTabPageObject = new NetworkTabPageObject(frontend);
+    headerPageObject.clickNetworkTab();
   });
 
   it('shows Last-Modified', async () => {
-    const {target, frontend} = getBrowserAndPages();
-    await navigateToNetworkTab(target, 'last-modified.html');
+    await resourcePageObject.navigateTo('/network/last-modified.html');
+    await networkTabPageObject.enableLastModifiedColumn();
 
-    // Open the contextmenu for all network column
-    await click('.name-column', {clickOptions: {button: 'right'}});
-
-    // Enable the Last-Modified column in the network datagrid
-    await click(`[aria-label="Response Headers"]`);
-    await click(`[aria-label="Last-Modified, unchecked"]`);
-
-    // Wait for the column to show up and populate its values
-    await frontend.waitForFunction(() => {
-      return document.querySelectorAll('.last-modified-column').length === 3;
-    });
-
-    const lastModifiedColumnValues = await frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.last-modified-column')).map(message => message.textContent);
-    });
+    const lastModifiedColumnValues = await networkTabPageObject.retrieveLastModifiedColumnValues();
 
     assert.deepEqual(lastModifiedColumnValues, [
       `Last-Modified`,
@@ -48,26 +43,11 @@ describe('The Network Tab', async () => {
   });
 
   it('shows the HTML response including cyrillic characters with utf-8 encoding', async () => {
-    const {target, frontend} = getBrowserAndPages();
+    await resourcePageObject.navigateTo('/network/utf-8.rawresponse');
+    await networkTabPageObject.clickListItemNumberX(1);
+    await networkTabPageObject.clickResponseTab();
 
-    await navigateToNetworkTab(target, 'utf-8.rawresponse');
-
-    // Wait for the column to show up and populate its values
-    await frontend.waitForFunction(() => {
-      return document.querySelectorAll('.name-column').length === 2;
-    });
-
-    // Open the HTML file that was loaded
-    await click('td.name-column');
-    // Wait for the detailed network information pane to show up
-    await waitFor(`[aria-label="Response"]`);
-    // Open the raw response HTML
-    await click(`[aria-label="Response"]`);
-    // Wait for the raw response editor to show up
-    await waitFor('.CodeMirror-code');
-
-    const codeMirrorEditor = await $('.CodeMirror-code');
-    const htmlRawResponse = await codeMirrorEditor.evaluate(editor => editor.textContent);
+    const htmlRawResponse = await networkTabPageObject.retrieveRawResponseEditorContents();
 
     assert.equal(
         htmlRawResponse,
@@ -75,18 +55,9 @@ describe('The Network Tab', async () => {
   });
 
   it('shows correct MimeType when resources came from HTTP cache', async () => {
-    const {target, frontend} = getBrowserAndPages();
-
-    await navigateToNetworkTab(target, 'resources-from-cache.html');
-
-    // Wait for the column to show up and populate its values
-    await frontend.waitForFunction(() => {
-      return document.querySelectorAll('.name-column').length === 3;
-    });
-
-    // Reload the page without a cache, to force a fresh load of the network resources
-    await click(`[aria-label="Disable cache"]`);
-    await target.reload({waitUntil: 'networkidle2'});
+    await resourcePageObject.navigateTo('/network/resources-from-cache.html');
+    await networkTabPageObject.clickDisableCacheCheckbox();
+    await resourcePageObject.reload();
 
     // Request the first two network request responses (excluding header and favicon.ico)
     const obtainNetworkRequestSize = () => frontend.evaluate(() => {
