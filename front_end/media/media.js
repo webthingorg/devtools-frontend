@@ -16,6 +16,7 @@ import * as MainView from './MainView.js';
 import * as MediaModel from './MediaModel.js';
 import * as PlayerDetailView from './PlayerDetailView.js';
 import * as PlayerListView from './PlayerListView.js';
+import * as PlayerMessagesView from './PlayerMessagesView.js';
 import * as PlayerPropertiesView from './PlayerPropertiesView.js';
 
 export {
@@ -25,5 +26,6 @@ export {
   MediaModel,
   PlayerDetailView,
   PlayerListView,
+  PlayerMessagesView,
   PlayerPropertiesView,
 };

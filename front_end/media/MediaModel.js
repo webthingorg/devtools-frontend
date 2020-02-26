@@ -66,6 +66,15 @@ export class MediaModel extends SDK.SDKModel.SDKModel {
   }
 
   /**
+   * @param {!Protocol.Media.PlayerId} playerId
+   * @param {!Array.<!Protocol.Media.PlayerMessage>} events
+   * @override
+   */
+  playerMessagesLogged(playerId, events) {
+    this.dispatchEventToListeners(Media.MediaModel.Events.PlayerMessagesLogged, {playerId: playerId, messages: events});
+  }
+
+  /**
    * @param {!Array.<!Protocol.Media.PlayerId>} playerIds
    * @override
    */
@@ -80,11 +89,13 @@ SDK.SDKModel.SDKModel.register(MediaModel, SDK.SDKModel.Capability.DOM, false);
 export const Events = {
   PlayerPropertiesChanged: Symbol('PlayerPropertiesChanged'),
   PlayerEventsAdded: Symbol('PlayerEventsAdded'),
+  PlayerMessagesLogged: Symbol('PlayerMessagesLogged'),
   PlayersCreated: Symbol('PlayersCreated')
 };
 
 /** @enum {string} */
 export const MediaChangeTypeKeys = {
   Event: 'Events',
-  Property: 'Properties'
+  Property: 'Properties',
+  Message: 'Messages'
 };
