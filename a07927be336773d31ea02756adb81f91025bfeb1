@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d3f06abe_3990f6a7",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-26T08:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "969fb1ec_52a4578e",
+      "range": {
+        "startLine": 74,
+        "startChar": 52,
+        "endLine": 74,
+        "endChar": 58
+      },
+      "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44590bce_c58e54ab",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 1
@@ -68,6 +92,30 @@
       "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01c865f4_8c54f271",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-26T08:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44590bce_c58e54ab",
+      "range": {
+        "startLine": 92,
+        "startChar": 55,
+        "endLine": 92,
+        "endChar": 61
+      },
+      "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "513f7d42_69454dd8",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-26T08:15:49Z",
+      "side": 1,
+      "message": "No, they can\u0027t because the stop handler needs references to them, and because of the scoping that TypeScript assumes, i.e. it doesn\u0027t know they\u0027re effectively in the same scope so I have to send them via globals.",
+      "parentUuid": "bd9c2255_1087cbd7",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 23
+      },
+      "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb35b4a2_3bad910e",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 1
@@ -114,6 +186,30 @@
       "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa0c21c9_a1ac8f02",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-26T08:15:49Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "fb35b4a2_3bad910e",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "780d7fae_2baa7810",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-26T08:15:49Z",
+      "side": 1,
+      "message": "True. Done.",
+      "parentUuid": "bebabbb8_b5973ce1",
+      "range": {
+        "startLine": 133,
+        "startChar": 31,
+        "endLine": 133,
+        "endChar": 54
+      },
+      "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bbd55422_93fec70c",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 1
@@ -174,6 +294,30 @@
       "writtenOn": "2020-02-26T07:45:28Z",
       "side": 1,
       "message": "TIL, nice! We could maybe add a helper `hover`, but not necessary in this CL.",
+      "range": {
+        "startLine": 142,
+        "startChar": 25,
+        "endLine": 142,
+        "endChar": 29
+      },
+      "revId": "a07927be336773d31ea02756adb81f91025bfeb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e013d8b_fda41022",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-26T08:15:49Z",
+      "side": 1,
+      "message": "There is technically a hover in Puppeteer, but it takes a selector rather than a JSHandle. I\u0027ll ask if we can add support for JSHandle.",
+      "parentUuid": "bbd55422_93fec70c",
       "range": {
         "startLine": 142,
         "startChar": 25,
