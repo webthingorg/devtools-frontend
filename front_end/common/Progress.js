@@ -77,6 +77,7 @@ export class CompositeProgress {
    */
   constructor(parent) {
     this._parent = parent;
+    /** @type {!Array.<!SubProgress>} */
     this._children = [];
     this._childrenDone = 0;
     this._parent.setTotalWork(1);
@@ -128,6 +129,9 @@ export class SubProgress {
     this._composite = composite;
     this._weight = weight || 1;
     this._worked = 0;
+
+    /** @type {number} */
+    this._totalWork = 0;
   }
 
   /**
@@ -156,7 +160,7 @@ export class SubProgress {
 
   /**
    * @override
-   * @param {number} totalWork
+   * @param {!number} totalWork
    */
   setTotalWork(totalWork) {
     this._totalWork = totalWork;
@@ -165,7 +169,7 @@ export class SubProgress {
 
   /**
    * @override
-   * @param {number} worked
+   * @param {!number} worked
    * @param {string=} title
    */
   setWorked(worked, title) {
