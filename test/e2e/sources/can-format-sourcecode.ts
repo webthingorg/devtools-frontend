@@ -176,4 +176,15 @@ describe('The Sources Tab', async () => {
     const scriptLocation = await retrieveTopCallFrameScriptLocation(target);
     assert.deepEqual(scriptLocation, `minified-sourcecode.js:3`);
   });
+
+  it('can add breakpoint on minified source and then break correctly on formatted source', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await openFileInSourcesPanel(target);
+    await addBreakpointForLine(frontend, 2);
+    await prettyPrintMinifiedFile(frontend);
+
+    const scriptLocation = await retrieveTopCallFrameScriptLocation(target);
+    assert.deepEqual(scriptLocation, `minified-source…js:formatted:7`);
+  });
 });
