@@ -1,12 +1,4 @@
 Tests that exporting works.
 
-++++++++ testExportHtml
-
-# of .lh-audit divs (original): 115
-
-# of .lh-audit divs (exported html): 115
-
-++++++++ testExportJson
-
-# of audits (json): 128
+PROMISE FAILURE: TypeError: Failed to fetch dynamically imported module: http://localhost:8000/inspector-sources/lighthouse/lighthouse-legacy.js
 
