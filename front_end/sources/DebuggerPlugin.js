@@ -1258,13 +1258,17 @@ export class DebuggerPlugin extends Plugin {
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint', false);
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-disabled', false);
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', false);
+      this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-logpoint', false);
 
       if (decorations.length) {
         decorations.sort(BreakpointDecoration.mostSpecificFirst);
         this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint', true);
         this._textEditor.toggleLineClass(
             editorLineNumber, 'cm-breakpoint-disabled', !decorations[0].enabled || this._muted);
-        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', !!decorations[0].condition);
+        const isLogpoint = decorations[0].condition.includes(LogpointPrefix);
+        const isConditionalBreakpoint = !!decorations[0].condition && !isLogpoint;
+        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-logpoint', isLogpoint);
+        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', isConditionalBreakpoint);
       }
     }
 
@@ -1795,7 +1799,7 @@ export class BreakpointDecoration {
     this.condition = condition;
     this.enabled = enabled;
     this.breakpoint = breakpoint;
-    this.element = UI.Icon.Icon.create('smallicon-inline-breakpoint');
+    this.element = createElement('span');
     this.element.classList.toggle('cm-inline-breakpoint', true);
 
     /** @type {?TextEditor.CodeMirrorTextEditor.TextEditorBookMark} */
@@ -1818,11 +1822,10 @@ export class BreakpointDecoration {
   }
 
   update() {
-    if (!this.condition) {
-      this.element.setIconType('smallicon-inline-breakpoint');
-    } else {
-      this.element.setIconType('smallicon-inline-breakpoint-conditional');
-    }
+    const isLogpoint = this.condition && this.condition.includes(LogpointPrefix);
+    const isConditionalBreakpoint = this.condition && !isLogpoint;
+    this.element.classList.toggle('cm-inline-logpoint', isLogpoint);
+    this.element.classList.toggle('cm-inline-breakpoint-conditional', isConditionalBreakpoint);
     this.element.classList.toggle('cm-inline-disabled', !this.enabled);
   }
 
@@ -1853,6 +1856,7 @@ export class BreakpointDecoration {
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint', false);
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-disabled', false);
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-conditional', false);
+      this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-logpoint', false);
     }
     this.hide();
   }

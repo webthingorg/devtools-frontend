@@ -168,23 +168,62 @@
 }
 
 .cm-breakpoint .CodeMirror-gutter-wrapper .CodeMirror-linenumber, -theme-preserve {
-    color: white;
-    border-width: 1px 4px 1px 1px !important;
-    -webkit-border-image: url(Images/breakpoint.svg) 1 4 1 1;
-    margin: 0 0 0 3px !important;
-    padding-right: 3px;
+    /* color: white; */
+    /* border-width: 1px 4px 1px 1px !important; */
+    /* -webkit-border-image: url(Images/breakpoint.svg) 1 4 1 1; */
+    margin: 0 0 0 4px !important;
+    /* padding-right: 3px; */
     padding-left: 1px;
     height: 11px;
     line-height: 12px !important;
-    border-style: solid;
+    /* border-style: solid; */
+}
+
+.cm-breakpoint .CodeMirror-gutter-wrapper .CodeMirror-linenumber:before, -theme-preserve{
+    /* content: "*"; */
+    content: url(Images/breakpoint.svg);
+    /* margin-top: 5px; */
+    height: 8px;
+    /* line-height: 10px; */
+    /* width: 10px; */
+    margin-right: 2px;
+    padding-top: 5px;
+}
+
+.breakpoints-deactivated .cm-breakpoint .CodeMirror-gutter-wrapper .CodeMirror-linenumber:before, -theme-preserve{
+    content: url(Images/breakpoint-disabled.svg);
+}
+
+.cm-breakpoint-disabled .CodeMirror-gutter-wrapper .CodeMirror-linenumber:before, -theme-preserve{
+    content: url(Images/breakpoint-disabled.svg);
 }
 
 .cm-line-without-source-mapping .CodeMirror-linenumber {
     color: rgba(128, 128, 128, 0.4);
 }
 
-.cm-breakpoint.cm-breakpoint-conditional .CodeMirror-linenumber {
-    -webkit-border-image: url(Images/breakpointConditional.svg) 1 4 1 1;
+.cm-breakpoint.cm-breakpoint-conditional .CodeMirror-linenumber:before {
+    content: url(Images/breakpoint-conditional.svg);
+}
+
+.cm-breakpoint-disabled.cm-breakpoint-conditional .CodeMirror-linenumber:before {
+    content: url(Images/breakpoint-conditional-disabled.svg);
+}
+
+.breakpoints-deactivated .cm-breakpoint.cm-breakpoint-conditional .CodeMirror-linenumber:before {
+    content: url(Images/breakpoint-conditional-disabled.svg);
+}
+
+.cm-breakpoint.cm-breakpoint-logpoint .CodeMirror-linenumber:before {
+    content: url(Images/logpoint.svg);
+}
+
+.cm-breakpoint-disabled.cm-breakpoint-logpoint .CodeMirror-linenumber:before {
+    content: url(Images/logpoint-disabled.svg);
+}
+
+.breakpoints-deactivated .cm-breakpoint.cm-breakpoint-logpoint .CodeMirror-linenumber:before {
+    content: url(Images/logpoint-disabled.svg);
 }
 
 :host-context(.-theme-with-dark-background) .cm-breakpoint:not(.cm-breakpoint-conditional) .CodeMirror-gutter-wrapper .CodeMirror-linenumber,
@@ -192,22 +231,46 @@
     filter: hue-rotate(-139deg);
 }
 
-.cm-breakpoint-disabled .CodeMirror-linenumber {
-    opacity: 0.5;
-}
-
-.breakpoints-deactivated .cm-breakpoint .CodeMirror-linenumber {
-    opacity: 0.5;
-}
-
-.breakpoints-deactivated .cm-breakpoint-disabled .CodeMirror-linenumber {
-    opacity: 0.3;
-}
-
 .cm-inline-breakpoint {
     position:relative;
     top: 2px;
     cursor: pointer;
+}
+
+.cm-inline-breakpoint:before {
+    content: url(Images/breakpoint.svg);
+}
+
+.cm-inline-breakpoint.cm-inline-disabled:before {
+    content: url(Images/breakpoint-disabled.svg);
+}
+
+.breakpoints-deactivated .cm-inline-breakpoint:before {
+    content: url(Images/breakpoint-disabled.svg);
+}
+
+.cm-inline-breakpoint.cm-inline-breakpoint-conditional:before {
+    content: url(Images/breakpoint-conditional.svg);
+}
+
+.cm-inline-breakpoint.cm-inline-breakpoint-conditional.cm-inline-disabled:before {
+    content: url(Images/breakpoint-conditional-disabled.svg);
+}
+
+.breakpoints-deactivated .cm-inline-breakpoint.cm-inline-breakpoint-conditional:before {
+    content: url(Images/breakpoint-conditional-disabled.svg);
+}
+
+.cm-inline-breakpoint.cm-inline-logpoint:before {
+    content: url(Images/logpoint.svg);
+}
+
+.cm-inline-breakpoint.cm-inline-logpoint.cm-inline-disabled:before {
+    content: url(Images/logpoint-disabled.svg);
+}
+
+.breakpoints-deactivated .cm-inline-breakpoint.cm-inline-logpoint:before {
+    content: url(Images/logpoint-disabled.svg);
 }
 
 .cm-execution-line-tail + .CodeMirror-widget {
@@ -231,10 +294,6 @@
 
 .cm-inline-breakpoint.cm-inline-conditional {
     background-color: #ef9d0d;
-}
-
-.cm-inline-breakpoint.cm-inline-disabled {
-    opacity: 0.5;
 }
 
 .cm-continue-to-location {
