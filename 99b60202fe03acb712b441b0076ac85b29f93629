@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c4e0a09_5104535d",
+        "filename": "front_end/common/Worker.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T08:56:57Z",
+      "side": 1,
+      "message": "nit: No need for the underscore here; it\u0027s not really a convention we use. Just go with const worker \u003d new Worker?",
+      "range": {
+        "startLine": 45,
+        "startChar": 12,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "99b60202fe03acb712b441b0076ac85b29f93629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
