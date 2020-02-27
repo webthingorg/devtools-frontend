@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66e6a9d7_117ace10",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-27T08:40:44Z",
+      "side": 1,
+      "message": "I\u0027m unsure about the ultimate effect of making this async, but I guess we have to try. If this is a problem, we need to split out an async part into a factory method.",
+      "range": {
+        "startLine": 136,
+        "startChar": 9,
+        "endLine": 136,
+        "endChar": 26
+      },
+      "revId": "c9915a63137b980aa202a1a7c4add7ed21fc525e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
