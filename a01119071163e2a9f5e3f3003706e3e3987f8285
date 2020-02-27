@@ -22,6 +22,30 @@
       "revId": "a01119071163e2a9f5e3f3003706e3e3987f8285",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecfdd052_473f913c",
+        "filename": "test/e2e/resources/application/websql-database.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-27T08:46:02Z",
+      "side": 1,
+      "message": "I want it to be on the global object so it is kept alive.",
+      "parentUuid": "5199af48_6004b8e4",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "a01119071163e2a9f5e3f3003706e3e3987f8285",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
