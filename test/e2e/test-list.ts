@@ -8,6 +8,7 @@ export const testList = [
   join(__dirname, '.', 'application', 'session-storage.js'),
   join(__dirname, '.', 'application', 'websql-database.js'),
   join(__dirname, '.', 'console', 'console-message-format.js'),
+  join(__dirname, '.', 'console', 'console-repl-mode.js'),
   join(__dirname, '.', 'network', 'network-datagrid.js'),
   join(__dirname, '.', 'sources', 'can-format-sourcecode.js'),
   join(__dirname, '.', 'sources', 'can-break-with-wasm-sourcemaps.js'),
