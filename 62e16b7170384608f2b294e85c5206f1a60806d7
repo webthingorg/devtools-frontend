@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "afb33f12_4125675f",
+        "filename": "test/e2e/console/console-repl-mode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-02-27T14:24:32Z",
+      "side": 1,
+      "message": "that happens on line 44 where we check the output for all 3. Actually I don\u0027t really care what the return value is for the first 2 is but it won\u0027t change so I also verified it.",
+      "parentUuid": "4aa602e2_cdc1a57d",
+      "range": {
+        "startLine": 25,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 84
+      },
+      "revId": "62e16b7170384608f2b294e85c5206f1a60806d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3769e194_2519e43a",
         "filename": "test/shared/helper.ts",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "62e16b7170384608f2b294e85c5206f1a60806d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3435d5f8_dc06ef46",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-02-27T14:24:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3769e194_2519e43a",
+      "range": {
+        "startLine": 94,
+        "startChar": 13,
+        "endLine": 94,
+        "endChar": 17
+      },
+      "revId": "62e16b7170384608f2b294e85c5206f1a60806d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
