@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41236302_c63b691c",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-27T08:47:42Z",
+      "side": 1,
+      "message": "Promise.all takes an iterable, so we could omit .values() here. I don\u0027t really have a strong preference though. If you think this is more readable somehow feel free to leave it.",
+      "range": {
+        "startLine": 88,
+        "startChar": 49,
+        "endLine": 88,
+        "endChar": 58
+      },
+      "revId": "9c6c914ae3c44eb81e3fd2a650c7b425c7249968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec5df15_8abb5e72",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-02-27T08:47:42Z",
+      "side": 1,
+      "message": "Let\u0027s avoid creating the throwaway array just to be able to iterate:\n\n```\nif (this._locations) {\n  for (...) {\n    ...\n  }\n}\n```",
+      "revId": "9c6c914ae3c44eb81e3fd2a650c7b425c7249968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
