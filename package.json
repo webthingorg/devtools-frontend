@@ -19,6 +19,7 @@
     "url": "git+https://github.com/ChromeDevTools/devtools-frontend.git"
   },
   "scripts": {
+    "boot-perf": "python scripts/test/run_test_suite.py --test-suite=perf",
     "check": "npm run check-json && npm run check-gn && npm run check-license && npm run check-lint && npm run check-loc && npm run check-type",
     "check-gn": "node scripts/check_gn.js",
     "check-grdp": "node scripts/localization/check_localizable_resources.js",
