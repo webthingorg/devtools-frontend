@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4aa602e2_cdc1a57d",
+        "filename": "test/e2e/console/console-repl-mode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T14:18:54Z",
+      "side": 1,
+      "message": "Do you want to also assert that you get the right content on the console?",
+      "range": {
+        "startLine": 25,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 84
+      },
+      "revId": "62e16b7170384608f2b294e85c5206f1a60806d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3769e194_2519e43a",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T14:18:54Z",
+      "side": 1,
+      "message": "type as a name feels like it could clash. Do we want typeText instead?",
+      "range": {
+        "startLine": 94,
+        "startChar": 13,
+        "endLine": 94,
+        "endChar": 17
+      },
+      "revId": "62e16b7170384608f2b294e85c5206f1a60806d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
