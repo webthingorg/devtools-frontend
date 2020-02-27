@@ -7,6 +7,38 @@
  * @suppress {accessControls}
  */
 
+/* this code exists in Platform.StringUtilities but these layout tests
+* cannot import ES modules so we copy the required code in directly as
+* these layout tests are going to be removed in favour of e2e so it's
+* not worth adding ESM support here
+*/
+/**
+ *
+ * @param {string} inputString
+ * @param {string} searchString
+ * @return {!Array.<number>}
+ */
+self.findIndexesOfSubString = self.findIndexesOfSubString || function(inputString, searchString) {
+  const matches = [];
+  let i = inputString.indexOf(searchString);
+  while (i !== -1) {
+    matches.push(i);
+    i = inputString.indexOf(searchString, i + searchString.length);
+  }
+  return matches;
+};
+
+/**
+ *
+ * @param {string} inputString
+ * @return {!Array.<number>}
+ */
+self.findLineEndingIndexes = self.findLineEndingIndexes || function(inputString) {
+  const endings = findIndexesOfSubString(inputString, '\n');
+  endings.push(inputString.length);
+  return endings;
+};
+
 /**
  * @param {!Sources.NavigatorView} navigatorView
  * @param {boolean=} dumpIcons
@@ -96,10 +128,14 @@ SourcesTestRunner.addScriptUISourceCode = function(url, content, isContentScript
 function testSourceMapping(text1, text2, mapping, testToken) {
   const originalPosition = text1.indexOf(testToken);
   TestRunner.assertTrue(originalPosition !== -1);
-  const originalLocation = Formatter.Formatter.positionToLocation(text1.computeLineEndings(), originalPosition);
+
+  const text1LineEndings = findLineEndingIndexes(text1);
+  const text2LineEndings = findLineEndingIndexes(text2);
+
+  const originalLocation = Formatter.Formatter.positionToLocation(text1LineEndings, originalPosition);
   const formattedLocation = mapping.originalToFormatted(originalLocation[0], originalLocation[1]);
   const formattedPosition =
-      Formatter.Formatter.locationToPosition(text2.computeLineEndings(), formattedLocation[0], formattedLocation[1]);
+      Formatter.Formatter.locationToPosition(text2LineEndings, formattedLocation[0], formattedLocation[1]);
   const expectedFormattedPosition = text2.indexOf(testToken);
 
   if (expectedFormattedPosition === formattedPosition) {
