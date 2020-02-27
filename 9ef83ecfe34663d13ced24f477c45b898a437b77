@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "14ef388b_60555289",
+        "filename": "front_end/lighthouse/lighthouse.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-02-27T23:55:13Z",
+      "side": 1,
+      "message": "good eye! was also missing report-assets/. After that, and realizing the \"../..\" in the module.json was wrong (just \"..\"), everything worked.",
+      "parentUuid": "10f956f3_c0c8861f",
+      "revId": "9ef83ecfe34663d13ced24f477c45b898a437b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5c006de_417a4f7b",
         "filename": "scripts/check_gn.js",
         "patchSetId": 23
