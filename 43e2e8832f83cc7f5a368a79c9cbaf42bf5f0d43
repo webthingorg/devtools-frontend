@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f3fac33_75c1870d",
+        "filename": "front_end/host/host-legacy.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-27T07:57:47Z",
+      "side": 1,
+      "message": "This should not be exposed, as it is not used in any layout tests or `module.json`.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 39
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e9c0743_bdd6cac0",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-27T07:57:47Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 197,
+        "startChar": 10,
+        "endLine": 197,
+        "endChar": 30
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8544c7d6_855d1d14",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-27T07:57:47Z",
+      "side": 1,
+      "message": "Nit: there are no additional selectors necessary if you use `aria-label`. Therefore, you can remove this class selector and only have the `aria-label` attribute selector.",
+      "range": {
+        "startLine": 198,
+        "startChar": 19,
+        "endLine": 198,
+        "endChar": 36
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
