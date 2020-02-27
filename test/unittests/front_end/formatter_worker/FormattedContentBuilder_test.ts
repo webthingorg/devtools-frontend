@@ -4,7 +4,7 @@
 
 const {assert} = chai;
 
-import {FormattedContentBuilder} from '/front_end/formatter_worker/FormattedContentBuilder.js';
+import {FormattedContentBuilder} from '../../../../front_end/formatter_worker/FormattedContentBuilder.js';
 
 describe('FormattedContentBuilder', () => {
   it('can add a token successfully', () => {
