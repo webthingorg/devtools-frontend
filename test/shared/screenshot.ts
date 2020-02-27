@@ -5,30 +5,15 @@
 /* eslint-disable no-console */
 // no-console disabled here as this is a test runner and expects to output to the console
 
-import * as puppeteer from 'puppeteer';
 import {assert} from 'chai';
-import {join} from 'path';
-import * as fs from 'fs';
-import * as rimraf from 'rimraf';
 import * as childProcess from 'child_process';
-import * as os from 'os';
+import * as fs from 'fs';
 import * as path from 'path';
-import {getBrowserAndPages} from './helper.js';
+import {join} from 'path';
+import * as puppeteer from 'puppeteer';
+import * as rimraf from 'rimraf';
 
-let platform: string;
-switch (os.platform()) {
-  case 'darwin':
-    platform = 'mac';
-    break;
-
-  case 'win32':
-    platform = 'win32';
-    break;
-
-  default:
-    platform = 'linux';
-    break;
-}
+import {getBrowserAndPages, platform} from './helper.js';
 
 function mkdirp(root: string, parts: string[]) {
   let target = root;

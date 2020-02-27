@@ -2,8 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as puppeteer from 'puppeteer';
+import * as os from 'os';
 import {performance} from 'perf_hooks';
+import * as puppeteer from 'puppeteer';
 
 interface BrowserAndPages {
   browser: puppeteer.Browser;
@@ -182,3 +183,18 @@ export const getBrowserAndPages = (): BrowserAndPages => {
 };
 
 export const resourcesPath = 'http://localhost:8090/test/e2e/resources';
+
+export let platform: 'mac'|'win32'|'linux';
+switch (os.platform()) {
+  case 'darwin':
+    platform = 'mac';
+    break;
+
+  case 'win32':
+    platform = 'win32';
+    break;
+
+  default:
+    platform = 'linux';
+    break;
+}
