@@ -1,0 +1,11 @@
+import("../../../../third_party/typescript/typescript.gni")
+
+ts_library("formatter_worker2") {
+  deps = [ ":formatted_content_builder2" ]
+}
+
+ts_library("formatted_content_builder2") {
+  sources = [ "FormattedContentBuilder_test.ts" ]
+
+  deps = [ "../../../../front_end/formatter_worker" ]
+}
