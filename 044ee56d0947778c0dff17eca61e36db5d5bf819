@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8770f141_203ed7c0",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-27T14:41:24Z",
+      "side": 1,
+      "message": "Let\u0027s say issues instead of warning.",
+      "range": {
+        "startLine": 96,
+        "startChar": 9,
+        "endLine": 96,
+        "endChar": 30
+      },
+      "revId": "044ee56d0947778c0dff17eca61e36db5d5bf819",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fef86fd1_5b3d81b3",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-27T14:41:24Z",
+      "side": 1,
+      "message": "Please refactor this into a method, i.e. updateIssuesCount()",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 64
+      },
+      "revId": "044ee56d0947778c0dff17eca61e36db5d5bf819",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79e89c42_3cf6be06",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-02-27T14:41:24Z",
+      "side": 1,
+      "message": "This is OK for now, but please start a conversation with petermueller@ about what to show here - this is the number of different issues, not the number of root causes (i.e. 200 samesite cookie problems will be reported as 1 issue here).",
+      "range": {
+        "startLine": 93,
+        "startChar": 16,
+        "endLine": 93,
+        "endChar": 41
+      },
+      "revId": "044ee56d0947778c0dff17eca61e36db5d5bf819",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
