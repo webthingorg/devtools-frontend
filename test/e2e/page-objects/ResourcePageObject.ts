@@ -16,4 +16,8 @@ export class ResourcePageObject {
   async navigateTo(targetPage: String) {
     await this.target.goto(`${this.resourcesPath}${targetPage}`, {waitUntil: 'networkidle2'});
   }
+
+  async reload() {
+    await this.target.reload({waitUntil: 'networkidle2'});
+  }
 }
