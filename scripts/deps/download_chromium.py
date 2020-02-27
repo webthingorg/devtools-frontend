@@ -23,6 +23,18 @@ def parse_options(cli_args):
     parser.add_argument('build_number', help='build number to find out whether we need to re-download')
     return parser.parse_args(cli_args)
 
+def ResetACLs(path):
+  print(
+      'Setting ACLs on %s to default. This might take a while.' % path)
+  try:
+    # It's normally fine to inherit the ACLs from parents, but in this case,
+    # we need to explicitly reset every file via /t.
+    _ = subprocess.check_output(
+        ['icacls', path, '/reset', '/t'], stderr=subprocess.STDOUT)
+  except subprocess.CalledProcessError as e:
+    print('Failed to reset ACLs on path %s'% path)
+    print('Command output: %s'% e.output)
+    sys.exit(e.returncode)
 
 def download_and_extract(options):
     BUILD_NUMBER_FILE = os.path.join(options.target, 'build_number')
@@ -37,6 +49,8 @@ def download_and_extract(options):
 
     # Remove previous download
     if os.path.exists(options.target):
+        if os.name == 'nt':
+            ResetACLs(options.target)
         shutil.rmtree(options.target)
 
     # Download again and save build number
