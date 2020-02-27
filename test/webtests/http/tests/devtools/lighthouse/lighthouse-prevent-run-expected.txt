@@ -1,5 +1,6 @@
 Tests that audits panel prevents run of unauditable pages.
 
+error: third_party/lighthouse/report-assets/report.css not preloaded. Check module.json
 
 
 **Prevents audit with no categories**

@@ -1,20 +1,4 @@
 Tests that lighthouse panel passes flags.
 
-
-========== Lighthouse Start Audit State ==========
-[x] Performance
-[x] Progressive Web App
-[x] Best practices
-[x] Accessibility
-[x] SEO
-[ ] Publisher Ads
-[x] Clear storage
-[ ] Simulated throttling
-Generate report: enabled visible
-
-=============== Lighthouse Results ===============
-emulatedFormFactor: desktop
-disableStorageReset: false
-throttlingMethod: devtools
-TestedAsMobileDevice: false
+PROMISE FAILURE: TypeError: Failed to fetch dynamically imported module: http://localhost:8000/inspector-sources/lighthouse/lighthouse-legacy.js
 
