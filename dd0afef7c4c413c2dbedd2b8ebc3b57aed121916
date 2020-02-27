@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e24dda92_ba6a41b9",
+        "filename": "test/e2e/console/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T11:51:39Z",
+      "side": 1,
+      "message": "I feel like these should be in caps. What do you think?",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "dd0afef7c4c413c2dbedd2b8ebc3b57aed121916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
