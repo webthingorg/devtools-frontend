@@ -37,7 +37,8 @@ def download_and_extract(options):
 
     # Remove previous download
     if os.path.exists(options.target):
-        shutil.rmtree(options.target)
+        if not os.name == 'nt':
+            shutil.rmtree(options.target)
 
     # Download again and save build number
     filehandle, headers = urllib.urlretrieve(options.url)
