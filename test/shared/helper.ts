@@ -91,6 +91,16 @@ export const click =
   await frontend.mouse.click(clickableElement.x, clickableElement.y, options && options.clickOptions);
 };
 
+export const typeText =
+    async (text: string) => {
+  const frontend: puppeteer.Page = globalThis[frontEndPage];
+  if (!frontend) {
+    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
+  }
+
+  await frontend.keyboard.type(text);
+};
+
 // Get a single element handle, across Shadow DOM boundaries.
 export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
   const frontend: puppeteer.Page = globalThis[frontEndPage];
