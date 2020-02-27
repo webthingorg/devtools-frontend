@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "8302137d_d9dbc5b7",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T08:27:12Z",
+      "side": 1,
+      "message": "ultra-nit: double space",
+      "range": {
+        "startLine": 126,
+        "startChar": 16,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c715d169_77d3cb5a",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T08:27:12Z",
+      "side": 1,
+      "message": "ultra-nit: double space",
+      "range": {
+        "startLine": 185,
+        "startChar": 18,
+        "endLine": 185,
+        "endChar": 19
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e9c0743_bdd6cac0",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 15
@@ -64,6 +110,52 @@
         "startChar": 19,
         "endLine": 198,
         "endChar": 36
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3521ebb_b4362bc8",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T08:27:12Z",
+      "side": 1,
+      "message": "Same 😄",
+      "range": {
+        "startLine": 203,
+        "startChar": 17,
+        "endLine": 203,
+        "endChar": 18
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "877e6ce5_594b6d60",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-27T08:27:12Z",
+      "side": 1,
+      "message": "One more!",
+      "range": {
+        "startLine": 207,
+        "startChar": 17,
+        "endLine": 207,
+        "endChar": 18
       },
       "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
