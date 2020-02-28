@@ -101,11 +101,11 @@ export class CompilerScriptMapping {
   /**
    * @param {!SDK.Script.Script} script
    */
-  async _removeStubUISourceCode(script) {
+  _removeStubUISourceCode(script) {
     const uiSourceCode = this._stubUISourceCodes.get(script);
     this._stubUISourceCodes.delete(script);
     this._stubProject.removeFile(uiSourceCode.url());
-    await this._debuggerWorkspaceBinding.updateLocations(script);
+    this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
   /**
@@ -211,42 +211,42 @@ export class CompilerScriptMapping {
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  async _sourceMapWillAttach(event) {
+  _sourceMapWillAttach(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
     // Create stub UISourceCode for the time source mapping is being loaded.
     this._addStubUISourceCode(script);
-    await this._debuggerWorkspaceBinding.updateLocations(script);
+    this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  async _sourceMapFailedToAttach(event) {
+  _sourceMapFailedToAttach(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
-    await this._removeStubUISourceCode(script);
+    this._removeStubUISourceCode(script);
   }
 
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  async _sourceMapAttached(event) {
+  _sourceMapAttached(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data.client);
     const sourceMap = /** @type {!SDK.SourceMap.SourceMap} */ (event.data.sourceMap);
-    await this._removeStubUISourceCode(script);
+    this._removeStubUISourceCode(script);
 
     if (self.Bindings.blackboxManager.isBlackboxedURL(script.sourceURL, script.isContentScript())) {
       this._sourceMapAttachedForTest(sourceMap);
       return;
     }
 
-    await this._populateSourceMapSources(script, sourceMap);
+    this._populateSourceMapSources(script, sourceMap);
     this._sourceMapAttachedForTest(sourceMap);
   }
 
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  async _sourceMapDetached(event) {
+  _sourceMapDetached(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data.client);
     const sourceMap = /** @type {!SDK.SourceMap.SourceMap} */ (event.data.sourceMap);
     const bindings = script.isContentScript() ? this._contentScriptsBindings : this._regularBindings;
@@ -259,7 +259,7 @@ export class CompilerScriptMapping {
         }
       }
     }
-    await this._debuggerWorkspaceBinding.updateLocations(script);
+    this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
   /**
@@ -280,7 +280,7 @@ export class CompilerScriptMapping {
    * @param {!SDK.Script.Script} script
    * @param {!SDK.SourceMap.SourceMap} sourceMap
    */
-  async _populateSourceMapSources(script, sourceMap) {
+  _populateSourceMapSources(script, sourceMap) {
     const project = script.isContentScript() ? this._contentScriptsProject : this._regularProject;
     const bindings = script.isContentScript() ? this._contentScriptsBindings : this._regularBindings;
     for (const sourceURL of sourceMap.sourceURLs()) {
@@ -291,7 +291,7 @@ export class CompilerScriptMapping {
       }
       binding.addSourceMap(sourceMap, script.frameId);
     }
-    await this._debuggerWorkspaceBinding.updateLocations(script);
+    this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
   /**
