@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d1b9acf8_54874646",
+        "filename": "front_end/common/EventTarget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-28T17:11:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ce2e61a3_17ed8d78",
+      "range": {
+        "startLine": 28,
+        "startChar": 45,
+        "endLine": 28,
+        "endChar": 62
+      },
+      "revId": "49c359f0e869563c70899964c4285c605601c758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77448ad9_c99aa93c",
         "filename": "front_end/common/Object.js",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "724743b6_c13c5ede",
+        "filename": "front_end/common/Object.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-28T17:11:36Z",
+      "side": 1,
+      "message": "I was hesitant about doing this as well, keeping the param as only function(EventTargetEvent):void will require more changes and I was optimizing for a small CL.\n\nI will go back and do the changes in other files that require it",
+      "parentUuid": "9f963459_2400ccff",
+      "range": {
+        "startLine": 86,
+        "startChar": 46,
+        "endLine": 86,
+        "endChar": 71
+      },
+      "revId": "49c359f0e869563c70899964c4285c605601c758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8b97539_70e1053c",
         "filename": "front_end/common/Object.js",
         "patchSetId": 1
@@ -91,6 +139,30 @@
       "revId": "49c359f0e869563c70899964c4285c605601c758",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b17bf0a0_9a67b329",
+        "filename": "front_end/common/Object.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-28T17:11:36Z",
+      "side": 1,
+      "message": "that the return from .get() may be undefined",
+      "parentUuid": "a8b97539_70e1053c",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 68
+      },
+      "revId": "49c359f0e869563c70899964c4285c605601c758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
