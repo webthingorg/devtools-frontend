@@ -20,5 +20,12 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
-  }
+  },
+  "include": [
+    "front_end/",
+    "test/"
+  ],
+  "exclude": [
+    "front_end/externs.js"
+  ]
 }

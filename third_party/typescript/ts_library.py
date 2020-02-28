@@ -57,6 +57,13 @@ def main():
     def get_relative_path_from_output_directory(file_to_resolve):
         return path.relpath(path.join(os.getcwd(), file_to_resolve), tsconfig_output_directory)
 
+    # We should be using `files` only to set our source.
+    # However, the root tsconfig specifies the `include`
+    # and `exclude` values to make sure that the code
+    # editor integrations can understand the definitions
+    del tsconfig['include']
+    del tsconfig['exclude']
+
     sources = opts.sources or []
     tsconfig['files'] = [get_relative_path_from_output_directory(src) for src in sources
                         ] + [get_relative_path_from_output_directory(GLOBAL_DEFS)]
