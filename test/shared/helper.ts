@@ -2,8 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as fs from 'fs';
 import * as puppeteer from 'puppeteer';
 import {performance} from 'perf_hooks';
+import {join} from 'path';
 
 interface BrowserAndPages {
   browser: puppeteer.Browser;
@@ -182,3 +184,23 @@ export const getBrowserAndPages = (): BrowserAndPages => {
 };
 
 export const resourcesPath = 'http://localhost:8090/test/e2e/resources';
+
+export function mkdirp(root: string, parts: string[]) {
+  let target = root;
+  for (const part of parts) {
+    const newTarget = join(target, part);
+    if (!fs.existsSync(newTarget)) {
+      fs.mkdirSync(newTarget);
+    }
+
+    target = newTarget;
+  }
+}
+
+export const storeGeneratedResults = (file: string, content: string) => {
+  const pathParts = ['..', 'perf', '.generated'];
+  mkdirp(__dirname, pathParts);
+
+  const path = join(__dirname, ...pathParts, file);
+  fs.writeFileSync(path, content, { encoding: 'utf8' });
+};
