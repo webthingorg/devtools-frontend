@@ -94,6 +94,9 @@ Resources.ResourcesPanel = ResourcesModule.ResourcesPanel.ResourcesPanel;
 Resources.ResourcesPanel.ResourceRevealer = ResourcesModule.ResourcesPanel.ResourceRevealer;
 
 /** @constructor */
+Resources.ResourcesPanel.CookieRevealer = ResourcesModule.ResourcesPanel.CookieRevealer;
+
+/** @constructor */
 Resources.FrameTreeElement = ResourcesModule.ApplicationPanelSidebar.FrameTreeElement;
 
 /** @constructor */

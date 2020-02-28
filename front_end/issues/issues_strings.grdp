@@ -3,6 +3,9 @@
   <message name="IDS_DEVTOOLS_0c94f752d037fd8475e98b0711b543a6" desc="Label for the link for SameSiteCookies Issues">
     SameSite cookies explained
   </message>
+  <message name="IDS_DEVTOOLS_25631b2b3c5b487db390bee5b75c2025" desc="">
+    1 cookie
+  </message>
   <message name="IDS_DEVTOOLS_3ac50b50b2090885755631100cb73b51" desc="Message for the SameSiteCookies::SameSiteNoneWithoutSecure issue code">
     In a future version of chrome, third party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man in the middle scenario.
   </message>
@@ -23,5 +26,8 @@
   </message>
   <message name="IDS_DEVTOOLS_bf3d65060c91ba1d205face215fced7b" desc="Label for High Priority">
     High Priority
+  </message>
+  <message name="IDS_DEVTOOLS_f3381712a92e82a64f61806f9fce503e" desc="Label to show the number of affected cookies">
+    <ph name="THIS__ISSUE_NUMBEROFCOOKIES__">$1s<ex>10</ex></ph> cookies
   </message>
 </grit-part>

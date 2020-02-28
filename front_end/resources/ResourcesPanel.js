@@ -7,13 +7,13 @@ import * as SDK from '../sdk/sdk.js';
 import * as SourceFrame from '../source_frame/source_frame.js';
 import * as UI from '../ui/ui.js';
 
-import {ApplicationPanelSidebar, StorageCategoryView} from './ApplicationPanelSidebar.js';
-import {CookieItemsView} from './CookieItemsView.js';
-import {DatabaseQueryView} from './DatabaseQueryView.js';
-import {DatabaseTableView} from './DatabaseTableView.js';
-import {DOMStorageItemsView} from './DOMStorageItemsView.js';
-import {DOMStorage} from './DOMStorageModel.js';  // eslint-disable-line no-unused-vars
-import {StorageItemsView} from './StorageItemsView.js';
+import { ApplicationPanelSidebar, StorageCategoryView } from './ApplicationPanelSidebar.js';
+import { CookieItemsView } from './CookieItemsView.js';
+import { DatabaseQueryView } from './DatabaseQueryView.js';
+import { DatabaseTableView } from './DatabaseTableView.js';
+import { DOMStorageItemsView } from './DOMStorageItemsView.js';
+import { DOMStorage } from './DOMStorageModel.js';  // eslint-disable-line no-unused-vars
+import { StorageItemsView } from './StorageItemsView.js';
 
 export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
   constructor() {
@@ -212,8 +212,35 @@ export class ResourceRevealer {
     if (!(resource instanceof SDK.Resource.Resource)) {
       return Promise.reject(new Error('Internal error: not a resource'));
     }
+
     const sidebar = ResourcesPanel._instance()._sidebar;
     await self.UI.viewManager.showView('resources');
     await sidebar.showResource(resource);
+  }
+}
+
+/**
+ * @implements {Common.Revealer.Revealer}
+ */
+export class CookieRevealer {
+  /**
+   * @override
+   * @param {!Object} cookie
+   * @return {!Promise}
+   */
+  async reveal(cookie) {
+    if (!(cookie instanceof SDK.Cookie.Cookie)) {
+      return Promise.reject(new Error('Internal error: not a cookie'));
+    }
+
+    const sidebar = ResourcesPanel._instance()._sidebar;
+    await self.UI.viewManager.showView('resources');
+    await sidebar.cookieListTreeElement.select();
+
+    const item = sidebar.cookieListTreeElement.children().find(c => c._cookieDomain === cookie.securityOrigin);
+    if (item) {
+      await item.revealAndSelect();
+    }
+
   }
 }

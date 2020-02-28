@@ -4,13 +4,15 @@
 
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 
-import {CookieModel} from './CookieModel.js';
-import {Issue} from './Issue.js';
-import {Events as NetworkManagerEvents, NetworkManager} from './NetworkManager.js';
-import {NetworkRequest,  // eslint-disable-line no-unused-vars
-        setCookieBlockedReasonToAttribute, setCookieBlockedReasonToUiString,} from './NetworkRequest.js';
-import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
-import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
+import { CookieModel } from './CookieModel.js';
+import { Issue } from './Issue.js';
+import { Events as NetworkManagerEvents, NetworkManager } from './NetworkManager.js';
+import {
+  NetworkRequest,  // eslint-disable-line no-unused-vars
+  setCookieBlockedReasonToAttribute, setCookieBlockedReasonToUiString,
+} from './NetworkRequest.js';
+import { Events as ResourceTreeModelEvents, ResourceTreeModel } from './ResourceTreeModel.js';
+import { Capability, SDKModel, Target } from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
 const connectedIssuesSymbol = Symbol('issues');
 
@@ -71,10 +73,12 @@ export class IssuesModel extends SDKModel {
   issueAdded(payload) {
     if (!this._browserIssuesByCode.has(payload.code)) {
       const issue = new Issue(payload.code);
+      issue.addInstance(payload);
       this._browserIssuesByCode.set(payload.code, issue);
       this.dispatchEventToListeners(Events.IssueAdded, issue);
     } else {
       const issue = this._browserIssuesByCode.get(payload.code);
+      issue.addInstance(payload);
       this.dispatchEventToListeners(Events.IssueUpdated, issue);
     }
   }
@@ -132,10 +136,10 @@ export class IssuesModel extends SDKModel {
       IssuesModel.connectWithIssue(cookie, issue);
 
       this._cookiesModel.addBlockedCookie(
-          cookie, blockedCookie.blockedReasons.map(blockedReason => ({
-                                                     attribute: setCookieBlockedReasonToAttribute(blockedReason),
-                                                     uiString: setCookieBlockedReasonToUiString(blockedReason)
-                                                   })));
+        cookie, blockedCookie.blockedReasons.map(blockedReason => ({
+          attribute: setCookieBlockedReasonToAttribute(blockedReason),
+          uiString: setCookieBlockedReasonToUiString(blockedReason)
+        })));
     }
   }
 }

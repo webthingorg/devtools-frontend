@@ -4,6 +4,78 @@
 
 import * as UI from '../ui/ui.js';
 import * as SDK from '../sdk/sdk.js';
+import {Events} from '../sdk/Issue.js';
+
+
+class AffectedResourceView extends UI.Widget.Widget {
+  constructor(issue) {
+    super(false);
+
+    const wrapper = createElementWithClass('div', 'affected-cookies');
+    const label = createElementWithClass('div', 'affected-cookies-label');
+    label.addEventListener('click', () => {
+      wrapper.classList.toggle('expanded');
+    });
+    wrapper.appendChild(label);
+    this._affectedCookiesLabel = label;
+    this._updateAffectedCookiesCounter();
+
+    const body2 = createElementWithClass('div', 'affected-cookies-wrapper');
+    const body = createElementWithClass('table', 'affected-cookies-cookies');
+    const header = createElementWithClass('tr');
+
+    const name = createElementWithClass('td', 'affected-cookies-header');
+    name.textContent = 'Name';
+    header.appendChild(name);
+
+    const info = createElementWithClass('td', 'affected-cookies-header affected-cookies-header-info');
+    // Prepend a space to align them better with cookie domains starting with a "."
+    info.textContent = '\u2009Context';
+    header.appendChild(info);
+
+    body.appendChild(header);
+    body2.appendChild(body);
+    wrapper.appendChild(body2);
+    this._affectedCookies = body;
+
+    for (const instance of this._issue.instances()) {
+      this.appendAffectedCookie(instance.cookie);
+    }
+
+    this._affectedResources.appendChild(wrapper);
+  }
+
+
+  _updateAffectedCookiesCounter() {
+    if (this._issue.numberOfCookies() === 1) {
+      this._affectedCookiesLabel.textContent = ls`1 cookie`;
+    } else {
+      this._affectedCookiesLabel.textContent = ls`${this._issue.numberOfCookies()} cookies`;
+    }
+  }
+
+  appendAffectedCookie(cookie) {
+    this._updateAffectedCookiesCounter();
+    const element = createElementWithClass('tr', 'affected-cookies-cookie');
+    const name = createElementWithClass('td', '');
+    const tmp = new SDK.Cookie.Cookie(cookie.name, cookie.value);
+    tmp.securityOrigin = cookie.securityOrigin;
+    name.appendChild(Components.Linkifier.linkifyRevealable(tmp, cookie.name));
+    const info = createElementWithClass('td', 'affected-cookies-cookie-info');
+
+    // Prepend a space for all domains not starting with a "." to align them better.
+    info.textContent = (cookie.domain[0] !== '.' ? '\u2008' : '') + cookie.domain + cookie.path;
+
+    element.appendChild(name);
+    element.appendChild(info);
+    this._affectedCookies.appendChild(element);
+  }
+
+  _handleCookieAdded(event) {
+    this.appendAffectedCookie(event.data);
+  }
+
+}
 
 class IssueView extends UI.Widget.Widget {
   constructor(parent, issue) {
@@ -11,12 +83,17 @@ class IssueView extends UI.Widget.Widget {
     this._parent = parent;
     this._issue = issue;
     this._details = issueDetails[issue.code];
+    this._affectedCookies = null;
+    this._affectedCookiesLabel = null;
+    this._affectedResources = null;
 
     this.contentElement.classList.add('issue');
-    this.contentElement.classList.add('collapsed');
 
     this.appendHeader();
     this.appendBody();
+
+    this._issue.addEventListener(Events.InstanceAdded, this._handleInstanceAdded.bind(this));
+    this._issue.addEventListener(Events.CookieAdded, this._handleCookieAdded.bind(this));
   }
 
   appendHeader() {
@@ -26,13 +103,13 @@ class IssueView extends UI.Widget.Widget {
     header.appendChild(icon);
 
     const title = createElementWithClass('div', 'title');
-    title.innerText = this._details.title;
+    title.textContent = this._details.title;
     header.appendChild(title);
 
     const priority = createElementWithClass('div', 'priority');
     switch (this._details.priority) {
       case Priority.High:
-        priority.innerText = ls`High Priority`;
+        priority.textContent = ls`High Priority`;
         break;
       default:
         console.warn('Unknown issue priority', this._details.priority);
@@ -45,11 +122,11 @@ class IssueView extends UI.Widget.Widget {
     const body = createElementWithClass('div', 'body');
 
     const message = createElementWithClass('div', 'message');
-    message.innerText = this._details.message;
+    message.textContent = this._details.message;
     body.appendChild(message);
 
     const code = createElementWithClass('div', 'code');
-    code.innerText = this._issue.code;
+    code.textContent = this._issue.code;
     body.appendChild(code);
 
     const link = UI.XLink.XLink.create(this._details.link, 'Read more · ' + this._details.linkTitle, 'link');
@@ -58,9 +135,32 @@ class IssueView extends UI.Widget.Widget {
     const linkIcon = UI.Icon.Icon.create('largeicon-link', 'link-icon');
     link.prepend(linkIcon);
 
+    this.appendAffectedResources(body);
+
     const bodyWrapper = createElementWithClass('div', 'body-wrapper');
     bodyWrapper.appendChild(body);
     this.contentElement.appendChild(bodyWrapper);
+  }
+
+  appendAffectedResources(body) {
+    const wrapper = createElementWithClass('div', 'affected-resources');
+    const label = createElementWithClass('div', 'affected-resources-label');
+    label.textContent = 'Affected Resources';
+    wrapper.appendChild(label);
+    this._affectedResources = wrapper;
+
+    this.appendAffectedCookies();
+
+    body.appendChild(wrapper);
+  }
+
+
+  appendAffectedCookies() {
+
+  }
+
+
+  _handleInstanceAdded(event) {
   }
 
   _handleSelect() {
@@ -82,6 +182,8 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this._model.addEventListener(SDK.IssuesModel.Events.IssueAdded, this._issueAdded, this);
     this._model.addEventListener(SDK.IssuesModel.Events.AllIssuesCleared, this._issuesCleared, this);
     this._model.ensureEnabled();
+
+    self.SDK.networkLog.setIsRecording(true);
 
     this._issueViews = new Map();
     this._selectedIssue = null;
