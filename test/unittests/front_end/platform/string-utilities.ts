@@ -60,4 +60,18 @@ describe('StringUtilities', () => {
       assert.deepEqual(indexes, [4, 7, 10, 12]);
     });
   });
+
+  describe('collapseWhitespace', () => {
+    it('collapses consecutive whitespace chars down to a single one', () => {
+      const inputString = 'look                at this!';
+      const outputString = StringUtilities.collapseWhitespace(inputString);
+      assert.equal(outputString, 'look at this!');
+    });
+
+    it('matches globally and collapses all whitespace sections', () => {
+      const inputString = 'a     b           c';
+      const outputString = StringUtilities.collapseWhitespace(inputString);
+      assert.equal(outputString, 'a b c');
+    });
+  });
 });
