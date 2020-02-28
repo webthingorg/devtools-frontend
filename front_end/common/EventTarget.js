@@ -24,7 +24,7 @@ export function removeEventListeners(eventList) {
  */
 export class EventTarget {
   /**
-   * @param {symbol} eventType
+   * @param {string|symbol} eventType
    * @param {function(!EventTargetEvent):void} listener
    * @param {!Object=} thisObject
    * @return {!EventDescriptor}
