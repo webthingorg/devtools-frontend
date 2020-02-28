@@ -243,6 +243,11 @@ export class Isolate {
   usedHeapSizeGrowRate() {
     return this._memoryTrend.fitSlope();
   }
+
+  isMainThread() {
+    return this.runtimeModel().target().id() === 'main';
+  }
+
 }
 
 /**
