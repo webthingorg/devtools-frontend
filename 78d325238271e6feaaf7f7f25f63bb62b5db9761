@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "11de17a5_543348c1",
+        "filename": "test/perf/boot-perf/boot-perf.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-28T10:25:48Z",
+      "side": 1,
+      "message": "Yeah I debated removing it, but because we could add more perf tests which won\u0027t necessarily reset I felt it best to leave it as it adds only one reset to the overall count.",
+      "parentUuid": "bed22fb1_6f0c3b57",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 5
+      },
+      "revId": "78d325238271e6feaaf7f7f25f63bb62b5db9761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2f9467a_a3d4d05d",
         "filename": "test/perf/boot-perf/boot-perf.ts",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "122bdbd2_1ee7193d",
+        "filename": "test/perf/boot-perf/boot-perf.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-28T10:25:48Z",
+      "side": 1,
+      "message": "The file contents will be captured by infra.",
+      "parentUuid": "f2f9467a_a3d4d05d",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "78d325238271e6feaaf7f7f25f63bb62b5db9761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50e9c629_d2ec533d",
         "filename": "test/shared/helper.ts",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "78d325238271e6feaaf7f7f25f63bb62b5db9761",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "133e7b0a_30de2ad5",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-02-28T10:25:48Z",
+      "side": 1,
+      "message": "Fair, I\u0027ll move it.",
+      "parentUuid": "50e9c629_d2ec533d",
+      "range": {
+        "startLine": 200,
+        "startChar": 13,
+        "endLine": 200,
+        "endChar": 34
+      },
+      "revId": "78d325238271e6feaaf7f7f25f63bb62b5db9761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
