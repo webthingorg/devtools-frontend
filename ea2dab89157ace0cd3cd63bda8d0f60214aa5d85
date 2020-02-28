@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5ddc893e_0dd212d4",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-02-28T20:54:20Z",
+      "side": 1,
+      "message": "This does sound simpler. Lily, is it less correct than the current one?\nMaybe we could just say as defined in the cookies rfc instead of having the link?",
+      "parentUuid": "0eb954dc_b8dbbb4f",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
