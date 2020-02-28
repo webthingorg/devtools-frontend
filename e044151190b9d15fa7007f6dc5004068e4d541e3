@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "62acbf8f_fc4d61ee",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 27
+      },
+      "lineNbr": 1598,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-28T01:33:11Z",
+      "side": 1,
+      "message": "Whoops. Good catch. All strings should be localized now. Removed the TODO.",
+      "parentUuid": "3f5fc135_fac30ff0",
+      "range": {
+        "startLine": 1598,
+        "startChar": 83,
+        "endLine": 1598,
+        "endChar": 99
+      },
+      "revId": "e044151190b9d15fa7007f6dc5004068e4d541e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4ccba34_1d90db58",
         "filename": "front_end/ui/infobar.css",
         "patchSetId": 27
@@ -45,6 +69,30 @@
       "revId": "e044151190b9d15fa7007f6dc5004068e4d541e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb0cdec_83e10fb5",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 27
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-28T01:33:11Z",
+      "side": 1,
+      "message": "Infobar CSS class assignments are dynamic based on type. The class is defined as \"infobar-{type}\" where the two possible types are \"info\" and \"warning\". (This is old behavior, so I didn\u0027t think to change it)",
+      "parentUuid": "e4ccba34_1d90db58",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "e044151190b9d15fa7007f6dc5004068e4d541e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "654fc925_671ffaf1",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 27
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-28T01:33:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0b644dd6_7aa129f1",
+      "range": {
+        "startLine": 50,
+        "startChar": 24,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "e044151190b9d15fa7007f6dc5004068e4d541e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "083ea835_13d98714",
         "filename": "front_end/ui/infobar.css",
         "patchSetId": 27
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "8055c556_2eadca3d",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 27
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-28T01:33:11Z",
+      "side": 1,
+      "message": "Good question - looks like I copied and pasted this color from below. I removed this rule in the latest patch by adding the devtools-link class to these buttons (which has an existing color). In general it seems we\u0027re slowly migrating to using variables, but hardcoded colors are still the majority in DevTools.",
+      "parentUuid": "083ea835_13d98714",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "e044151190b9d15fa7007f6dc5004068e4d541e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d2d46c4_9de386f9",
         "filename": "front_end/ui/ui_strings.grdp",
         "patchSetId": 27
@@ -114,6 +210,30 @@
       "revId": "e044151190b9d15fa7007f6dc5004068e4d541e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "581c01eb_9c37509c",
+        "filename": "front_end/ui/ui_strings.grdp",
+        "patchSetId": 27
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-02-28T01:33:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4d2d46c4_9de386f9",
+      "range": {
+        "startLine": 75,
+        "startChar": 87,
+        "endLine": 75,
+        "endChar": 89
+      },
+      "revId": "e044151190b9d15fa7007f6dc5004068e4d541e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
