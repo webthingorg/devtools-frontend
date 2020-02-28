@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f23ea84_850ec1c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-28T12:28:05Z",
+      "side": 1,
+      "message": "Please use direct links to cs.chromium.org to make sure that (after we remove the layout test) the link still works.\n\nThe link should be https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/web_tests/http/tests/devtools/search/sources-search-scope.js;l\u003d1;drc\u003d77578ccb4082ae20a9326d9e673225f1189ebb63?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "67d00fdb67722841f286a0c0c06e4299f8e8367e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
