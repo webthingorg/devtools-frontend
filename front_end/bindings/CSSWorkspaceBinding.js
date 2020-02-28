@@ -26,6 +26,9 @@ export class CSSWorkspaceBinding {
     /** @type {!Array<!SourceMapping>} */
     this._sourceMappings = [];
     targetManager.observeModels(SDK.CSSModel.CSSModel, this);
+
+    /** @type {!Set.<!Promise>} */
+    this._liveLocationPromises = new Set();
   }
 
   /**
@@ -46,20 +49,46 @@ export class CSSWorkspaceBinding {
   }
 
   /**
-   * @param {!SDK.CSSStyleSheetHeader.CSSStyleSheetHeader} header
+   * The promise returned by this function is resolved once all *currently*
+   * pending LiveLocations are processed.
+   *
+   * @return {!Promise}
    */
-  updateLocations(header) {
-    this._modelToInfo.get(header.cssModel())._updateLocations(header);
+  pendingLiveLocationChangesPromise() {
+    return Promise.all(this._liveLocationPromises.values());
+  }
+
+  /**
+   * @param {!Promise} promise
+   */
+  _recordLiveLocationChange(promise) {
+    promise.then(() => {
+      this._liveLocationPromises.delete(promise);
+    });
+    this._liveLocationPromises.add(promise);
+  }
+
+  /**
+   * @param {!SDK.CSSStyleSheetHeader.CSSStyleSheetHeader} header
+   * @return {!Promise}
+   */
+  async updateLocations(header) {
+    const updatePromise = this._modelToInfo.get(header.cssModel())._updateLocations(header);
+    this._recordLiveLocationChange(updatePromise);
+    await updatePromise;
   }
 
   /**
    * @param {!SDK.CSSModel.CSSLocation} rawLocation
    * @param {function(!LiveLocationInterface)} updateDelegate
    * @param {!LiveLocationPool} locationPool
-   * @return {!LiveLocation}
+   * @return {!Promise<!LiveLocation>}
    */
   createLiveLocation(rawLocation, updateDelegate, locationPool) {
-    return this._modelToInfo.get(rawLocation.cssModel())._createLiveLocation(rawLocation, updateDelegate, locationPool);
+    const locationPromise =
+        this._modelToInfo.get(rawLocation.cssModel())._createLiveLocation(rawLocation, updateDelegate, locationPool);
+    this._recordLiveLocationChange(locationPromise);
+    return locationPromise;
   }
 
   /**
@@ -173,15 +202,15 @@ export class ModelInfo {
    * @param {!SDK.CSSModel.CSSLocation} rawLocation
    * @param {function(!LiveLocationInterface)} updateDelegate
    * @param {!LiveLocationPool} locationPool
-   * @return {!LiveLocation}
+   * @return {!Promise<!LiveLocation>}
    */
-  _createLiveLocation(rawLocation, updateDelegate, locationPool) {
+  async _createLiveLocation(rawLocation, updateDelegate, locationPool) {
     const location = new LiveLocation(rawLocation, this, updateDelegate, locationPool);
     const header = rawLocation.header();
     if (header) {
       location._header = header;
       this._locations.set(header, location);
-      location.update();
+      await location.update();
     } else {
       this._unboundLocations.set(rawLocation.url, location);
     }
@@ -203,38 +232,44 @@ export class ModelInfo {
    * @param {!SDK.CSSStyleSheetHeader.CSSStyleSheetHeader} header
    */
   _updateLocations(header) {
+    const promises = [];
     for (const location of this._locations.get(header)) {
-      location.update();
+      promises.push(location.update());
     }
+    return Promise.all(promises);
   }
 
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  _styleSheetAdded(event) {
+  async _styleSheetAdded(event) {
     const header = /** @type {!SDK.CSSStyleSheetHeader.CSSStyleSheetHeader} */ (event.data);
     if (!header.sourceURL) {
       return;
     }
 
+    const promises = [];
     for (const location of this._unboundLocations.get(header.sourceURL)) {
       location._header = header;
       this._locations.set(header, location);
-      location.update();
+      promises.push(location.update());
     }
+    await Promise.all(promises);
     this._unboundLocations.deleteAll(header.sourceURL);
   }
 
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  _styleSheetRemoved(event) {
+  async _styleSheetRemoved(event) {
     const header = /** @type {!SDK.CSSStyleSheetHeader.CSSStyleSheetHeader} */ (event.data);
+    const promises = [];
     for (const location of this._locations.get(header)) {
       location._header = null;
       this._unboundLocations.set(location._url, location);
-      location.update();
+      promises.push(location.update());
     }
+    await Promise.all(promises);
     this._locations.deleteAll(header);
   }
 
