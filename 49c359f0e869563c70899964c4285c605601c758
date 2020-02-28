@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "ce2e61a3_17ed8d78",
+        "filename": "front_end/common/EventTarget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-28T12:08:13Z",
+      "side": 1,
+      "message": "We should always pass in the `EventTargetEvent`, so I don\u0027t think we should add `*` here as an alternative.",
+      "range": {
+        "startLine": 28,
+        "startChar": 45,
+        "endLine": 28,
+        "endChar": 62
+      },
+      "revId": "49c359f0e869563c70899964c4285c605601c758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77448ad9_c99aa93c",
+        "filename": "front_end/common/Object.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-28T12:08:13Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 46,
+        "startChar": 46,
+        "endLine": 46,
+        "endChar": 71
+      },
+      "revId": "49c359f0e869563c70899964c4285c605601c758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f963459_2400ccff",
+        "filename": "front_end/common/Object.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-02-28T12:08:13Z",
+      "side": 1,
+      "message": "Listeners shouldn\u0027t return a promise. I don\u0027t think we should be changing the param type here, apart from setting the return type to `:void`",
+      "range": {
+        "startLine": 86,
+        "startChar": 46,
+        "endLine": 86,
+        "endChar": 71
+      },
+      "revId": "49c359f0e869563c70899964c4285c605601c758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8b97539_70e1053c",
         "filename": "front_end/common/Object.js",
         "patchSetId": 1
