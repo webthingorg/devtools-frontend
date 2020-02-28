@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "28e6fc73_54ecdb83",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-02-28T21:15:17Z",
+      "side": 1,
+      "message": "Oh, sorry I missed this thread.\n\nIt\u0027s not exactly correct. You could have a cookie that says Domain\u003dfoo.example.com, which would apply to all *.foo.example.com domains. But if the request URL is bar.example.com, it would get blocked because it\u0027s not a host cookie with an exact match and it\u0027s not a subdomain of the Domain attribute value. Similarly if the cookie says Domain\u003dfoo.bar.example.com, and the request URL is bar.example.com, it\u0027s blocked.\n\nIt\u0027s probably fine to not provide a link for \"registrable domain\". It\u0027s easy enough to Google.\n\nHm, we don\u0027t distinguish between the 2 cases for rejecting a cookie based on domain mismatch, though I suppose it\u0027s possible to figure out if you have the correct Domain attribute value. (If it starts with a dot, then it\u0027s a domain cookie, and we can say \"the request URL\u0027s domain was not a subdomain of the cookie\u0027s Domain attribute value\". If it doesn\u0027t start with a dot, we can say \"the cookie did not specify a Domain attribute and the request URL\u0027s domain was not an exact match for the domain of the cookie\u0027s setter\".) This depends on having the correct Domain attribute of the cookie though, which I think we don\u0027t currently have in the frontend.",
+      "parentUuid": "5ddc893e_0dd212d4",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
