@@ -13,7 +13,7 @@ import * as rimraf from 'rimraf';
 import * as childProcess from 'child_process';
 import * as os from 'os';
 import * as path from 'path';
-import {getBrowserAndPages} from './helper.js';
+import {getBrowserAndPages, mkdirp} from './helper.js';
 
 let platform: string;
 switch (os.platform()) {
@@ -28,18 +28,6 @@ switch (os.platform()) {
   default:
     platform = 'linux';
     break;
-}
-
-function mkdirp(root: string, parts: string[]) {
-  let target = root;
-  for (const part of parts) {
-    const newTarget = join(target, part);
-    if (!fs.existsSync(newTarget)) {
-      fs.mkdirSync(newTarget);
-    }
-
-    target = newTarget;
-  }
 }
 
 const goldensScreenshotFolderParts = ['..', 'screenshots', 'goldens', platform];
