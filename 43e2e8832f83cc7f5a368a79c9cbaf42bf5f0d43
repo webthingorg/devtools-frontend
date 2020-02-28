@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d116e4d5_a994a3e8",
+        "filename": "front_end/host/host-legacy.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-28T23:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f3fac33_75c1870d",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 39
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8302137d_d9dbc5b7",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 15
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "815d9e1d_6754f3d3",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-28T23:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8302137d_d9dbc5b7",
+      "range": {
+        "startLine": 126,
+        "startChar": 16,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c715d169_77d3cb5a",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 15
@@ -68,6 +116,30 @@
       "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8d00729_bf7d37e4",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-28T23:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c715d169_77d3cb5a",
+      "range": {
+        "startLine": 185,
+        "startChar": 18,
+        "endLine": 185,
+        "endChar": 19
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "6d4fda48_a35c233f",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-28T23:50:44Z",
+      "side": 1,
+      "message": "In this case the \u0027toolbar-state-on\u0027 class is added after the shortcut executes, so it is something that we want to wait for",
+      "parentUuid": "8544c7d6_855d1d14",
+      "range": {
+        "startLine": 198,
+        "startChar": 19,
+        "endLine": 198,
+        "endChar": 36
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3521ebb_b4362bc8",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 15
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "043f3e08_ea29f455",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-28T23:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3521ebb_b4362bc8",
+      "range": {
+        "startLine": 203,
+        "startChar": 17,
+        "endLine": 203,
+        "endChar": 18
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "877e6ce5_594b6d60",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 15
@@ -160,6 +280,30 @@
       "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c5852fd_f342387c",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-02-28T23:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "877e6ce5_594b6d60",
+      "range": {
+        "startLine": 207,
+        "startChar": 17,
+        "endLine": 207,
+        "endChar": 18
+      },
+      "revId": "43e2e8832f83cc7f5a368a79c9cbaf42bf5f0d43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
