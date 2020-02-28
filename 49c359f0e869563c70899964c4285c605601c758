@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8b97539_70e1053c",
+        "filename": "front_end/common/Object.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-28T08:59:45Z",
+      "side": 1,
+      "message": "what would the error be without this ts-ignore? Does it think that `this._listeners` might be undefined?",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 68
+      },
+      "revId": "49c359f0e869563c70899964c4285c605601c758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
