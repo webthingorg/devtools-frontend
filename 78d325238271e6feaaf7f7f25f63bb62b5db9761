@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bed22fb1_6f0c3b57",
+        "filename": "test/perf/boot-perf/boot-perf.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-28T08:56:58Z",
+      "side": 1,
+      "message": "nit: I don\u0027t know if you need this given you do this in the `for` of the `it` - but also might be best to have it to ensure all tests run off a clean slate? Up to you.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 5
+      },
+      "revId": "78d325238271e6feaaf7f7f25f63bb62b5db9761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2f9467a_a3d4d05d",
+        "filename": "test/perf/boot-perf/boot-perf.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-28T08:56:58Z",
+      "side": 1,
+      "message": "do we actually do anything with these results? As far as I can tell this test will never fail (unless something goes awry storing the results)",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "78d325238271e6feaaf7f7f25f63bb62b5db9761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50e9c629_d2ec533d",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-02-28T08:56:58Z",
+      "side": 1,
+      "message": "nit: I don\u0027t know if this belongs in shared/helpers.ts given it\u0027s specific to perf tests and hardcodes that into the path where it stores things. Seems like it should either be generic or live in the perf tests?",
+      "range": {
+        "startLine": 200,
+        "startChar": 13,
+        "endLine": 200,
+        "endChar": 34
+      },
+      "revId": "78d325238271e6feaaf7f7f25f63bb62b5db9761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
