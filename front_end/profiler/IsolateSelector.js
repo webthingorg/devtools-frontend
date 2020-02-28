@@ -57,12 +57,12 @@ export class IsolateSelector extends UI.Widget.VBox {
    * @override
    * @param {!SDK.IsolateManager.Isolate} isolate
    */
-  isolateAdded(isolate) {
+  isolateAdded(isolate, isMainThread) {
     const item = new ListItem(isolate);
     const index = item.model().target() === self.SDK.targetManager.mainTarget() ? 0 : this._items.length;
     this._items.insert(index, item);
     this._itemByIsolate.set(isolate, item);
-    if (this._items.length === 1) {
+    if (isMainThread) {
       this._list.selectItem(item);
     }
     this._update();

@@ -38,7 +38,8 @@ export class IsolateManager extends Common.ObjectWrapper.ObjectWrapper {
     }
     this._observers.add(observer);
     for (const isolate of this._isolates.values()) {
-      observer.isolateAdded(isolate);
+      const isMainThread = isolate.runtimeModel()._target._id === 'main';
+      observer.isolateAdded(isolate, isMainThread);
     }
   }
 
