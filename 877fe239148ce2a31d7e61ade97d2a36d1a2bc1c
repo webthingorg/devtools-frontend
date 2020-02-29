@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47f7bf0e_c8318e8f",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-29T20:55:45Z",
+      "side": 1,
+      "message": "Is there always at least one main thread? WDYT about changing the condition to:\nthis._items.length \u003d\u003d\u003d 1 || isolate.isMainThread() to make sure that at least one is selected?",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "877fe239148ce2a31d7e61ade97d2a36d1a2bc1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70d8e26_3dd0b7f8",
+        "filename": "front_end/sdk/IsolateManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-02-29T20:55:45Z",
+      "side": 1,
+      "message": "Could you check the identation? There seems to be one space to much.",
+      "range": {
+        "startLine": 247,
+        "startChar": 3,
+        "endLine": 249,
+        "endChar": 6
+      },
+      "revId": "877fe239148ce2a31d7e61ade97d2a36d1a2bc1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
