@@ -210,4 +210,50 @@ describe('TextSourceMap', () => {
     assertMapping(sourceMap.findEntry(2, 10), 'source2.js', 0, 0);
     assertMapping(sourceMap.findEntry(2, 11), 'source2.js', 2, 1);
   });
+
+  it('can decode large VQL numbers correctly', () => {
+    function makeMinimalMap(column: string) {
+      return {
+        sources: ['example.js'],
+        version: 1,
+        file: undefined,
+        sections: undefined,
+        sourceRoot: undefined,
+        names: undefined,
+        // Mapping from the 0th line, 0th column of the output file to the 0th
+        // source file, 0th line, ${column}th column.
+        mappings: `AAA${column}`,
+      };
+    }
+    const knownDecodings: {[key: string]: number} = {
+      'A': 0,
+      'B': -2147483648,
+      'C': 1,
+      'D': -1,
+      'E': 2,
+      'F': -2,
+
+      // 2^31 - 1, maximum values
+      '+/////D': 2147483647,
+      '8/////D': 2147483646,
+      '6/////D': 2147483645,
+      '4/////D': 2147483644,
+      '2/////D': 2147483643,
+      '0/////D': 2147483642,
+
+      // -2^31 + 1, minimum values
+      '//////D': -2147483647,
+      '9/////D': -2147483646,
+      '7/////D': -2147483645,
+      '5/////D': -2147483644,
+      '3/////D': -2147483643,
+      '1/////D': -2147483642,
+    };
+
+    for (const column in knownDecodings) {
+      const mappingPayload = makeMinimalMap(column);
+      const sourceMap = new TextSourceMap('compiled.js', 'source-map.json', mappingPayload);
+      assertMapping(sourceMap.findEntry(0, 0), 'example.js', 0, knownDecodings[column]);
+    }
+  });
 });
