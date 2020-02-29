@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97cc4f35_4391edc6",
+        "filename": "front_end/bindings/CompilerScriptMapping.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-29T00:15:34Z",
+      "side": 1,
+      "message": "the async / await from these methods were unnecesary",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "3539775bfc5c9272fa6d97f29443af5d7e226a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2335c996_4231aeda",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-02-29T00:15:34Z",
+      "side": 1,
+      "message": "I followed this pattern for all the functions that returned a promise, what do you think Tim?",
+      "range": {
+        "startLine": 75,
+        "startChar": 70,
+        "endLine": 75,
+        "endChar": 81
+      },
+      "revId": "3539775bfc5c9272fa6d97f29443af5d7e226a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
