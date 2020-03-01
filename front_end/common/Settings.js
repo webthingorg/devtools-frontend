@@ -63,13 +63,13 @@ export class Settings {
     const defaultValue = descriptor['defaultValue'];
     let storageType;
     switch (descriptor['storageType']) {
-      case ('local'):
+      case 'local':
         storageType = SettingStorageType.Local;
         break;
-      case ('session'):
+      case 'session':
         storageType = SettingStorageType.Session;
         break;
-      case ('global'):
+      case 'global':
         storageType = SettingStorageType.Global;
         break;
       default:
@@ -475,6 +475,9 @@ export class VersionController {
   }
 
   static get currentVersion() {
+    // TODO: Sync with Lighthouse team on when to bump the version
+    // number.
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=1052111#c4
     return 28;
   }
 
@@ -924,6 +927,30 @@ export class VersionController {
     renameKeyInObjectSetting('panel-tabOrder', 'audits', 'lighthouse');
     renameKeyInObjectSetting('panel-closeableTabs', 'audits', 'lighthouse');
     renameInStringSetting('panel-selectedTab', 'audits', 'lighthouse');
+
+    // TODO: Move this to a separate update, or not, depending on when
+    // the Lighthouse team wants to bump the current version number.
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=1052111#c4
+    {
+      const setting = self.Common.settings.createSetting('emulation.geolocationOverride', '');
+      const old = setting.get();
+      const parts = old.split(':');
+
+      if (parts.length === 2) {
+        // Add missing `timezoneId` field with dummy value.
+        // "latitude@longitude:error" -> "latitude@longitude:timezoneId:error"
+        parts.splice(1, 0, 'UTC');
+      }
+
+      if (parts.length === 3) {
+        // Add missing `locale` field with dummy value.
+        // "latitude@longitude:timezoneId:error" -> "latitude@longitude:timezoneId:locale:error"
+        parts.splice(2, 0, 'en-US');
+      }
+
+      const result = parts.join(':');
+      setting.set(result);
+    }
   }
 
   _migrateSettingsFromLocalStorage() {

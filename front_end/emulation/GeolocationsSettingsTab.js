@@ -17,7 +17,7 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
     this.contentElement.createChild('div', 'header').textContent = Common.UIString.UIString('Custom Geolocations');
 
     const addButton = UI.UIUtils.createTextButton(
-        Common.UIString.UIString('Add location...'), this._addButtonClicked.bind(this), 'add-geolocations-button');
+        Common.UIString.UIString('Add location\u2026'), this._addButtonClicked.bind(this), 'add-geolocations-button');
     this.contentElement.appendChild(addButton);
 
     this._list = new UI.ListWidget.ListWidget(this);
@@ -51,7 +51,7 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
   }
 
   _addButtonClicked() {
-    this._list.addNewItem(this._customSetting.get().length, {title: '', lat: 0, long: 0, timezoneId: ''});
+    this._list.addNewItem(this._customSetting.get().length, {title: '', lat: 0, long: 0, timezoneId: '', locale: ''});
   }
 
   /**
@@ -73,6 +73,8 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
     element.createChild('div', 'geolocations-list-text').textContent = geolocation.long;
     element.createChild('div', 'geolocations-list-separator');
     element.createChild('div', 'geolocations-list-text').textContent = geolocation.timezoneId;
+    element.createChild('div', 'geolocations-list-separator');
+    element.createChild('div', 'geolocations-list-text').textContent = geolocation.locale;
     return element;
   }
 
@@ -102,6 +104,8 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
     geolocation.long = long ? parseFloat(long) : 0;
     const timezoneId = editor.control('timezoneId').value.trim();
     geolocation.timezoneId = timezoneId;
+    const locale = editor.control('locale').value.trim();
+    geolocation.locale = locale;
 
     const list = this._customSetting.get();
     if (isNew) {
@@ -121,7 +125,8 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
     editor.control('title').value = geolocation.title;
     editor.control('lat').value = String(geolocation.lat);
     editor.control('long').value = String(geolocation.long);
-    editor.control('timezoneId').value = String(geolocation.timezoneId);
+    editor.control('timezoneId').value = geolocation.timezoneId;
+    editor.control('locale').value = geolocation.locale;
     return editor;
   }
 
@@ -146,6 +151,8 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
     titles.createChild('div', 'geolocations-list-text').textContent = Common.UIString.UIString('Long');
     titles.createChild('div', 'geolocations-list-separator geolocations-list-separator-invisible');
     titles.createChild('div', 'geolocations-list-text').textContent = Common.UIString.UIString('Timezone ID');
+    titles.createChild('div', 'geolocations-list-separator geolocations-list-separator-invisible');
+    titles.createChild('div', 'geolocations-list-text').textContent = Common.UIString.UIString('Locale');
 
     const fields = content.createChild('div', 'geolocations-edit-row');
     fields.createChild('div', 'geolocations-list-text geolocations-list-title')
@@ -162,6 +169,9 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
 
     cell = fields.createChild('div', 'geolocations-list-text');
     cell.appendChild(editor.createInput('timezoneId', 'text', ls`Timezone ID`, timezoneIdValidator));
+
+    cell = fields.createChild('div', 'geolocations-list-text');
+    cell.appendChild(editor.createInput('locale', 'text', ls`Locale`, localeValidator));
 
     return editor;
 
@@ -262,12 +272,34 @@ export class GeolocationsSettingsTab extends UI.Widget.VBox {
       // liberal in what it accepts. ICU does not simply use an allowlist
       // but instead tries to make sense of the input, even for
       // weird-looking timezone IDs. There's not much point in validating
-      // the input other than checking if it contains at least one alphabet.
-      // The empty string resets the override, and is accepted as well.
+      // the input other than checking if it contains at least one
+      // alphabetic character. The empty string resets the override,
+      // and is accepted as well.
       if (value === '' || /[a-zA-Z]/.test(value)) {
         return {valid: true};
       }
-      const errorMessage = ls`Timezone ID must contain alphabet letters`;
+      const errorMessage = ls`Timezone ID must contain alphabetic characters`;
+      return {valid: false, errorMessage};
+    }
+
+    /**
+     * @param {*} item
+     * @param {number} index
+     * @param {!HTMLInputElement|!HTMLSelectElement} input
+     * @return {!UI.ListWidget.ValidatorResult}
+     */
+    function localeValidator(item, index, input) {
+      const value = input.value.trim();
+      // Similarly to timezone IDs, there's not much point in validating
+      // input locales other than checking if it contains at least two
+      // alphabetic characters.
+      // https://unicode.org/reports/tr35/#Unicode_language_identifier
+      // The empty string resets the override, and is accepted as
+      // well.
+      if (value === '' || /[a-zA-Z]{2}/.test(value)) {
+        return {valid: true};
+      }
+      const errorMessage = ls`Locale must contain alphabetic characters`;
       return {valid: false, errorMessage};
     }
   }
