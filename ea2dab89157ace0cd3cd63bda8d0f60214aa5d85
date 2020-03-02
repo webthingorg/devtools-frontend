@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "2e441a34_5e7fd2fc",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-03-02T19:05:11Z",
+      "side": 1,
+      "message": "By the 2 cases I\u0027m assuming you mean the two you mentioned:\n1. cookie\u0027s domain is foo.example.com, request url is bar.example.com\n2. cookie\u0027s domain is foo.bar.example.com, request url is bar.example.com\nIn case 1 the subdomains differ, and in case 2 the cookie is a subdomain of the url.\n\nYou mentioned a cookie\u0027s domain starting with a dot meaning that it is a domain cookie - I thought all cookies have a domain? What\u0027s a domain cookie? What difference does it make if the cookie was set with a specific domain vs implicitly got one based on the request url\u0027s domain?\n\nI removed the rfc link, I also think just saying registrable domain is pretty good, it actually makes sense as a term on its own - a domain which you can register, as opposed to a TLD or a subdomain.",
+      "parentUuid": "28e6fc73_54ecdb83",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
