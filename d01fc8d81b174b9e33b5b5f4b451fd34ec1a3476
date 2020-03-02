@@ -22,6 +22,30 @@
       "revId": "d01fc8d81b174b9e33b5b5f4b451fd34ec1a3476",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46b272ae_afad45da",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-02T19:17:25Z",
+      "side": 1,
+      "message": "Probably. This is now the 2nd or third time I had to use this pattern. Although we could do that as a follow-up as its easy to search for \".values().next().value\" :)",
+      "parentUuid": "7ceb1611_7807894b",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 5
+      },
+      "revId": "d01fc8d81b174b9e33b5b5f4b451fd34ec1a3476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
