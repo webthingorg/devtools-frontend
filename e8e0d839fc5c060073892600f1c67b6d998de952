@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6554a43_a2e09f50",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T10:19:07Z",
+      "side": 1,
+      "message": "I am not sure if this change is better, as the template literal makes it less error-prone. Was this a manual change or a fix by ESLint? If the former, can we revert it? If the latter, could you file a bug for the eslint-rule to get it fixed?",
+      "range": {
+        "startLine": 459,
+        "startChar": 34,
+        "endLine": 459,
+        "endChar": 36
+      },
+      "revId": "e8e0d839fc5c060073892600f1c67b6d998de952",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7962f39_06a1d15b",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T10:19:07Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 170,
+        "startChar": 14,
+        "endLine": 170,
+        "endChar": 15
+      },
+      "revId": "e8e0d839fc5c060073892600f1c67b6d998de952",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
