@@ -500,7 +500,7 @@ export class WritableProfileHeader extends ProfileHeader {
    * @param {!Bindings.FileUtils.ChunkedReader} reader
    */
   _onError(reader) {
-    this.updateStatus(Common.UIString.UIString(`File '%s' read error: %s`, reader.fileName(), reader.error().message));
+    this.updateStatus(Common.UIString.UIString('File \'%s\' read error: %s', reader.fileName(), reader.error().message));
   }
 
   /**
