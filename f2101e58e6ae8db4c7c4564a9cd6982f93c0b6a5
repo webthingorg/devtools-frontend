@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "38b66179_e909ee36",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T18:13:01Z",
+      "side": 1,
+      "message": "Per offline chat, we will have this discussion at a later point in time. I pre-emptively made the changes here to unblock the CL and we might refactor this code later, based on the outcome of the discussion.",
+      "parentUuid": "29886f9d_e7fa47c2",
+      "range": {
+        "startLine": 1136,
+        "startChar": 11,
+        "endLine": 1136,
+        "endChar": 24
+      },
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "094344f3_10be0b01",
         "filename": "test/e2e/sources/can-show-files-after-loading.ts",
         "patchSetId": 2
@@ -157,6 +181,24 @@
       "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47a1cbc4_82e4cfc5",
+        "filename": "test/e2e/sources/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T18:13:01Z",
+      "side": 1,
+      "message": "I refactored `UserMetricsEvent` and the new event to `CustomEvent`, so that the cast is valid.",
+      "parentUuid": "7272db9b_0ea772b2",
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
