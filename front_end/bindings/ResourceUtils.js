@@ -29,7 +29,6 @@
  */
 
 import * as Common from '../common/common.js';
-import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
 
@@ -69,7 +68,7 @@ export function displayNameForURL(url) {
   const mainTarget = self.SDK.targetManager.mainTarget();
   const inspectedURL = mainTarget && mainTarget.inspectedURL();
   if (!inspectedURL) {
-    return Platform.StringUtilities.trimURL(url, '');
+    return url.trimURL('');
   }
 
   const parsedURL = Common.ParsedURL.ParsedURL.fromString(inspectedURL);
@@ -86,7 +85,7 @@ export function displayNameForURL(url) {
     return url;
   }
 
-  const displayName = Platform.StringUtilities.trimURL(url, parsedURL.host);
+  const displayName = url.trimURL(parsedURL.host);
   return displayName === '/' ? parsedURL.host + '/' : displayName;
 }
 

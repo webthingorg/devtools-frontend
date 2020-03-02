@@ -148,7 +148,6 @@ export class ShortcutRegistry {
       try {
         const result = await action.execute();
         if (result) {
-          Host.userMetrics.keyboardShortcutFired(action.id());
           return;
         }
       } catch (e) {

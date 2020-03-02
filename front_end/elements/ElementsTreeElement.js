@@ -31,7 +31,6 @@
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
-import * as Platform from '../platform/platform.js';
 import * as ProtocolModule from '../protocol/protocol.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
@@ -1024,7 +1023,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           }
         }
       } else if (moveDirection === 'forward') {
-        if (!Platform.StringUtilities.isWhitespace(newText)) {
+        if (!newText.isWhitespace()) {
           this._addNewAttribute();
         } else {
           this._startEditingTagName();
@@ -1592,7 +1591,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         if (this.isExpandable()) {
           if (!this.expanded) {
             const textNodeElement = titleDOM.createChild('span', 'webkit-html-text-node bogus');
-            textNodeElement.textContent = '…';
+            textNodeElement.textContent = '\u2026';
             titleDOM.createTextChild('\u200B');
             this._buildTagDOM(titleDOM, tagName, true, false, updateRecord);
           }
@@ -1679,11 +1678,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
       case Node.DOCUMENT_FRAGMENT_NODE:
         const fragmentElement = titleDOM.createChild('span', 'webkit-html-fragment');
-        fragmentElement.textContent = Platform.StringUtilities.collapseWhitespace(node.nodeNameInCorrectCase());
+        fragmentElement.textContent = node.nodeNameInCorrectCase().collapseWhitespace();
         break;
       default:
-        const nameWithSpaceCollapsed = Platform.StringUtilities.collapseWhitespace(node.nodeNameInCorrectCase());
-        titleDOM.createTextChild(nameWithSpaceCollapsed);
+        titleDOM.createTextChild(node.nodeNameInCorrectCase().collapseWhitespace());
     }
 
     /**

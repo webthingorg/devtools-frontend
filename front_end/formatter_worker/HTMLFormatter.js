@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Platform from '../platform/platform.js';
-
 import {CSSFormatter} from './CSSFormatter.js';
 import {FormattedContentBuilder} from './FormattedContentBuilder.js';  // eslint-disable-line no-unused-vars
 import {AbortTokenization, createTokenizer} from './FormatterWorker.js';
@@ -108,7 +106,7 @@ export class HTMLFormatter {
    * @param {!Token} token
    */
   _formatToken(element, token) {
-    if (Platform.StringUtilities.isWhitespace(token.value)) {
+    if (token.value.isWhitespace()) {
       return;
     }
     if (token.type.has('comment') || token.type.has('meta')) {

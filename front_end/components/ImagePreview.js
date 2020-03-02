@@ -60,10 +60,10 @@ export class ImagePreview {
       let description;
       if (showDimensions) {
         if (renderedHeight !== intrinsicHeight || renderedWidth !== intrinsicWidth) {
-          description = ls`${renderedWidth} × ${renderedHeight} pixels (intrinsic: ${intrinsicWidth} × ${
+          description = ls`${renderedWidth} \xd7 ${renderedHeight} pixels (intrinsic: ${intrinsicWidth} \xd7 ${
               intrinsicHeight} pixels)`;
         } else {
-          description = ls`${renderedWidth} × ${renderedHeight} pixels`;
+          description = ls`${renderedWidth} \xd7 ${renderedHeight} pixels`;
         }
       }
 

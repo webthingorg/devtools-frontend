@@ -349,8 +349,8 @@ export const Type = {
 export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
   constructor() {
     super();
-    /** @type {!Set.<!Target>} */
-    this._targets = new Set();
+    /** @type {!Array.<!Target>} */
+    this._targets = [];
     /** @type {!Array.<!Observer>} */
     this._observers = [];
     /** @type {!Platform.Multimap<symbol, !{modelClass: !Function, thisObject: (!Object|undefined), listener: function(!Common.EventTarget.EventTargetEvent)}>} */
@@ -370,8 +370,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
     }
     this._isSuspended = true;
     this.dispatchEventToListeners(Events.SuspendStateChanged);
-    const suspendPromises = Array.from(this._targets.values(), target => target.suspend(reason));
-    return Promise.all(suspendPromises);
+    return Promise.all(this._targets.map(target => target.suspend(reason)));
   }
 
   /**
@@ -383,8 +382,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
     }
     this._isSuspended = false;
     this.dispatchEventToListeners(Events.SuspendStateChanged);
-    const resumePromises = Array.from(this._targets.values(), target => target.resume());
-    return Promise.all(resumePromises);
+    return Promise.all(this._targets.map(target => target.resume()));
   }
 
   /**
@@ -401,8 +399,8 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
    */
   models(modelClass) {
     const result = [];
-    for (const target of this._targets) {
-      const model = target.model(modelClass);
+    for (let i = 0; i < this._targets.length; ++i) {
+      const model = this._targets[i].model(modelClass);
       if (model) {
         result.push(model);
       }
@@ -414,8 +412,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
    * @return {string}
    */
   inspectedURL() {
-    const mainTarget = this.mainTarget();
-    return mainTarget ? mainTarget.inspectedURL() : '';
+    return this._targets[0] ? this._targets[0].inspectedURL() : '';
   }
 
   /**
@@ -469,8 +466,11 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Object=} thisObject
    */
   addModelListener(modelClass, eventType, listener, thisObject) {
-    for (const model of this.models(modelClass)) {
-      model.addEventListener(eventType, listener, thisObject);
+    for (let i = 0; i < this._targets.length; ++i) {
+      const model = this._targets[i].model(modelClass);
+      if (model) {
+        model.addEventListener(eventType, listener, thisObject);
+      }
     }
     this._modelListeners.set(eventType, {modelClass: modelClass, thisObject: thisObject, listener: listener});
   }
@@ -486,8 +486,11 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
 
-    for (const model of this.models(modelClass)) {
-      model.removeEventListener(eventType, listener, thisObject);
+    for (let i = 0; i < this._targets.length; ++i) {
+      const model = this._targets[i].model(modelClass);
+      if (model) {
+        model.removeEventListener(eventType, listener, thisObject);
+      }
     }
 
     for (const info of this._modelListeners.get(eventType)) {
@@ -534,7 +537,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
       target.pageAgent().waitForDebugger();
     }
     target.createModels(new Set(this._modelObservers.keysArray()));
-    this._targets.add(target);
+    this._targets.push(target);
 
     const copy = this._observers.slice(0);
     for (const observer of copy) {
@@ -561,11 +564,11 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Target} target
    */
   removeTarget(target) {
-    if (!this._targets.has(target)) {
+    if (!this._targets.includes(target)) {
       return;
     }
 
-    this._targets.delete(target);
+    this._targets.remove(target);
     for (const modelClass of target.models().keys()) {
       this._modelRemoved(target, modelClass, target.models().get(modelClass));
     }
@@ -589,7 +592,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Array.<!Target>}
    */
   targets() {
-    return [...this._targets];
+    return this._targets.slice();
   }
 
   /**
@@ -598,14 +601,19 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
    */
   targetById(id) {
     // TODO(dgozman): add a map id -> target.
-    return this.targets().find(target => target.id() === id) || null;
+    for (let i = 0; i < this._targets.length; ++i) {
+      if (this._targets[i].id() === id) {
+        return this._targets[i];
+      }
+    }
+    return null;
   }
 
   /**
    * @return {?Target}
    */
   mainTarget() {
-    return this._targets.size ? this._targets.values().next().value : null;
+    return this._targets[0] || null;
   }
 }
 

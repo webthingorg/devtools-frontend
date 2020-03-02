@@ -29,7 +29,6 @@
  */
 
 import * as Common from '../common/common.js';
-import * as Platform from '../platform/platform.js';
 
 import {EventDescriptors, Events} from './InspectorFrontendHostAPI.js';
 import {streamWrite as resourceLoaderStreamWrite} from './ResourceLoader.js';
@@ -216,7 +215,7 @@ export class InspectorFrontendHostStub {
   close(url) {
     const buffer = this._urlsBeingSaved.get(url);
     this._urlsBeingSaved.delete(url);
-    const fileName = url ? Platform.StringUtilities.trimURL(url).removeURLFragment() : '';
+    const fileName = url ? url.trimURL().removeURLFragment() : '';
     const link = createElement('a');
     link.download = fileName;
     const blob = new Blob([buffer.join('')], {type: 'text/plain'});

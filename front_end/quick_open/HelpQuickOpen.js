@@ -59,7 +59,7 @@ export class HelpQuickOpen extends Provider {
   renderItem(itemIndex, query, titleElement, subtitleElement) {
     const provider = this._providers[itemIndex];
     const prefixElement = titleElement.createChild('span', 'monospace');
-    prefixElement.textContent = (provider.prefix || '…') + ' ';
+    prefixElement.textContent = (provider.prefix || '\u2026') + ' ';
     titleElement.createTextChild(provider.title);
   }
 

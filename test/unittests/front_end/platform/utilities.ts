@@ -19,6 +19,7 @@ declare global {
   }
 
   interface String {
+    trimURL(base: string): string;
     trimMiddle(maxLength: number): string;
     repeat(length: number): string;
     escapeForRegExp(): string;
@@ -271,6 +272,18 @@ describe('Utilities', () => {
     const inputString = '^[]{}()\\.^$*+?|-';
     const outputString = inputString.escapeForRegExp();
     assert.equal(outputString, '\\^\\[\\]\\{\\}\\(\\)\\\\\\.\\^\\$\\*\\+\\?\\|\\-');
+  });
+
+  it('trims URLs', () => {
+    const baseURLDomain = 'www.chromium.org';
+    const fixtures = new Map([
+      ['http://www.chromium.org/foo/bar', '/foo/bar'],
+      ['https://www.CHromium.ORG/BAZ/zoo', '/BAZ/zoo'],
+      ['https://example.com/foo[]', 'example.com/foo[]'],
+    ]);
+    for (const [url, expected] of fixtures) {
+      assert.equal(expected, url.trimURL(baseURLDomain), url);
+    }
   });
 
   it('trims the middle of strings', () => {
