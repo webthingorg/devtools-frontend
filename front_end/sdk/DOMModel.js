@@ -89,8 +89,8 @@ export class DOMNode {
 
     this._shadowRoots = [];
 
-    /** @type {!Map<string, !Attribute>} */
-    this._attributes = new Map();
+    this._attributes = [];
+    this._attributesMap = {};
     if (payload.attributes) {
       this._setAttributesPayload(payload.attributes);
     }
@@ -215,7 +215,7 @@ export class DOMNode {
    * @return {boolean}
    */
   hasAttributes() {
-    return this._attributes.size > 0;
+    return this._attributes.length > 0;
   }
 
   /**
@@ -479,10 +479,10 @@ export class DOMNode {
 
   /**
    * @param {string} name
-   * @return {string|undefined}
+   * @return {string}
    */
   getAttribute(name) {
-    const attr = this._attributes.get(name);
+    const attr = this._attributesMap[name];
     return attr ? attr.value : undefined;
   }
 
@@ -531,7 +531,7 @@ export class DOMNode {
    * @return {!Array<!Attribute>}
    */
   attributes() {
-    return [...this._attributes.values()];
+    return this._attributes;
   }
 
   /**
@@ -543,7 +543,11 @@ export class DOMNode {
     if (response[ProtocolModule.InspectorBackend.ProtocolError]) {
       return;
     }
-    this._attributes.delete(name);
+    delete this._attributesMap[name];
+    const index = this._attributes.findIndex(attr => attr.name === name);
+    if (index !== -1) {
+      this._attributes.splice(index, 1);
+    }
     this._domModel.markUndoableState();
   }
 
@@ -684,10 +688,11 @@ export class DOMNode {
    * @return {boolean}
    */
   _setAttributesPayload(attrs) {
-    let attributesChanged = !this._attributes || attrs.length !== this._attributes.size * 2;
-    const oldAttributesMap = this._attributes || new Map();
+    let attributesChanged = !this._attributes || attrs.length !== this._attributes.length * 2;
+    const oldAttributesMap = this._attributesMap || {};
 
-    this._attributes = new Map();
+    this._attributes = [];
+    this._attributesMap = {};
 
     for (let i = 0; i < attrs.length; i += 2) {
       const name = attrs[i];
@@ -698,7 +703,7 @@ export class DOMNode {
         continue;
       }
 
-      if (!oldAttributesMap.has(name) || oldAttributesMap.get(name).value !== value) {
+      if (!oldAttributesMap[name] || oldAttributesMap[name].value !== value) {
         attributesChanged = true;
       }
     }
@@ -804,7 +809,8 @@ export class DOMNode {
    */
   _addAttribute(name, value) {
     const attr = {name: name, value: value, _node: this};
-    this._attributes.set(name, attr);
+    this._attributesMap[name] = attr;
+    this._attributes.push(attr);
   }
 
   /**
@@ -812,7 +818,7 @@ export class DOMNode {
    * @param {string} value
    */
   _setAttribute(name, value) {
-    const attr = this._attributes.get(name);
+    const attr = this._attributesMap[name];
     if (attr) {
       attr.value = value;
     } else {
@@ -824,7 +830,11 @@ export class DOMNode {
    * @param {string} name
    */
   _removeAttribute(name) {
-    this._attributes.delete(name);
+    const attr = this._attributesMap[name];
+    if (attr) {
+      this._attributes.remove(attr);
+      delete this._attributesMap[name];
+    }
   }
 
   /**

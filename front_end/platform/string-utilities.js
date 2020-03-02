@@ -304,34 +304,3 @@ export const findLineEndingIndexes = inputString => {
   endings.push(inputString.length);
   return endings;
 };
-
-/**
- * @param {string} inputString
- * @return {boolean}
- */
-export const isWhitespace = inputString => {
-  return /^\s*$/.test(inputString);
-};
-
-/**
- * @param {string} url
- * @param {?string=} baseURLDomain
- * @return {string}
- */
-export const trimURL = (url, baseURLDomain) => {
-  let result = url.replace(/^(https|http|file):\/\//i, '');
-  if (baseURLDomain) {
-    if (result.toLowerCase().startsWith(baseURLDomain.toLowerCase())) {
-      result = result.substr(baseURLDomain.length);
-    }
-  }
-  return result;
-};
-
-/**
- * @param {string} inputString
- * @return {string}
- */
-export const collapseWhitespace = inputString => {
-  return inputString.replace(/[\s\xA0]+/g, ' ');
-};

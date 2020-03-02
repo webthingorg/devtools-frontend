@@ -5,7 +5,6 @@
 import * as Common from '../common/common.js';
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as Network from '../network/network.js';
-import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
@@ -382,7 +381,7 @@ export class DataGridNode extends DataGrid.DataGrid.DataGridNode {
     this._number = number;
     const parsed = new Common.ParsedURL.ParsedURL(request.url());
     if (parsed.isValid) {
-      this._name = Platform.StringUtilities.trimURL(request.url(), parsed.domain());
+      this._name = request.url().trimURL(parsed.domain());
     } else {
       this._name = request.url();
     }

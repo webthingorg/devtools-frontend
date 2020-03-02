@@ -1683,7 +1683,7 @@ export function trimText(context, text, maxWidth, trimFunction) {
     }
   }
   text = trimFunction(text, l);
-  return text !== '…' ? text : '';
+  return text !== '\u2026' ? text : '';
 }
 
 /**

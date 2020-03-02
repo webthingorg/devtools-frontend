@@ -4,7 +4,6 @@
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
-import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
 import {DeviceModeModel, Events, MaxDeviceSize, MinDeviceSize, Type} from './DeviceModeModel.js';
@@ -501,7 +500,7 @@ export class DeviceModeView extends UI.Widget.VBox {
    */
   _saveScreenshot(canvas) {
     const url = this._model.inspectedURL();
-    let fileName = url ? Platform.StringUtilities.trimURL(url).removeURLFragment() : '';
+    let fileName = url ? url.trimURL().removeURLFragment() : '';
     if (this._model.type() === Type.Device) {
       fileName += Common.UIString.UIString('(%s)', this._model.device().title);
     }

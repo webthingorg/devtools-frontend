@@ -13,8 +13,7 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
     super();
 
     this._isEnabled = true;
-    /** @type {!Set<!Element>} */
-    this._elements = new Set();
+    this._elements = [];
     this._installDragOnMouseDownBound = this._installDragOnMouseDown.bind(this);
     this._cursor = 'nwse-resize';
   }
@@ -38,29 +37,33 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Array.<!Element>}
    */
   elements() {
-    return [...this._elements];
+    return this._elements.slice();
   }
 
   /**
    * @param {!Element} element
    */
   addElement(element) {
-    if (!this._elements.has(element)) {
-      this._elements.add(element);
-      element.addEventListener('mousedown', this._installDragOnMouseDownBound, false);
-      this._updateElementCursor(element);
+    if (this._elements.indexOf(element) !== -1) {
+      return;
     }
+
+    this._elements.push(element);
+    element.addEventListener('mousedown', this._installDragOnMouseDownBound, false);
+    this._updateElementCursor(element);
   }
 
   /**
    * @param {!Element} element
    */
   removeElement(element) {
-    if (this._elements.has(element)) {
-      this._elements.delete(element);
-      element.removeEventListener('mousedown', this._installDragOnMouseDownBound, false);
-      element.style.removeProperty('cursor');
+    if (this._elements.indexOf(element) === -1) {
+      return;
     }
+
+    this._elements.remove(element);
+    element.removeEventListener('mousedown', this._installDragOnMouseDownBound, false);
+    element.style.removeProperty('cursor');
   }
 
   updateElementCursors() {
@@ -97,13 +100,13 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Event} event
    */
   _installDragOnMouseDown(event) {
-    const element = /** @type {!Element} */ (event.target);
     // Only handle drags of the nodes specified.
-    if (!this._elements.has(element)) {
+    if (this._elements.indexOf(event.target) === -1) {
       return false;
     }
     elementDragStart(
-        element, this._dragStart.bind(this), this._drag.bind(this), this._dragEnd.bind(this), this.cursor(), event);
+        /** @type {!Element} */ (event.target), this._dragStart.bind(this), this._drag.bind(this),
+        this._dragEnd.bind(this), this.cursor(), event);
   }
 
   /**

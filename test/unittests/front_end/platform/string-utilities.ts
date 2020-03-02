@@ -60,43 +60,4 @@ describe('StringUtilities', () => {
       assert.deepEqual(indexes, [4, 7, 10, 12]);
     });
   });
-
-  describe('isWhitespace', () => {
-    it('correctly recognizes different kinds of whitespace', () => {
-      assert.isTrue(StringUtilities.isWhitespace(''));
-      assert.isTrue(StringUtilities.isWhitespace('  '));
-      assert.isTrue(StringUtilities.isWhitespace('\t'));
-      assert.isTrue(StringUtilities.isWhitespace('\n'));
-
-      assert.isFalse(StringUtilities.isWhitespace('  foo '));
-    });
-  });
-
-  describe('trimURL', () => {
-    it('trims the protocol and an optional domain from URLs', () => {
-      const baseURLDomain = 'www.chromium.org';
-      const fixtures = new Map([
-        ['http://www.chromium.org/foo/bar', '/foo/bar'],
-        ['https://www.CHromium.ORG/BAZ/zoo', '/BAZ/zoo'],
-        ['https://example.com/foo[]', 'example.com/foo[]'],
-      ]);
-      for (const [url, expected] of fixtures) {
-        assert.equal(StringUtilities.trimURL(url, baseURLDomain), expected, url);
-      }
-    });
-  });
-
-  describe('collapseWhitespace', () => {
-    it('collapses consecutive whitespace chars down to a single one', () => {
-      const inputString = 'look                at this!';
-      const outputString = StringUtilities.collapseWhitespace(inputString);
-      assert.equal(outputString, 'look at this!');
-    });
-
-    it('matches globally and collapses all whitespace sections', () => {
-      const inputString = 'a     b           c';
-      const outputString = StringUtilities.collapseWhitespace(inputString);
-      assert.equal(outputString, 'a b c');
-    });
-  });
 });

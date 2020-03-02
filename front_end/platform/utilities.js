@@ -65,6 +65,13 @@ String.prototype.replaceControlCharacters = function() {
 };
 
 /**
+ * @return {boolean}
+ */
+String.prototype.isWhitespace = function() {
+  return /^\s*$/.test(this);
+};
+
+/**
  * @param {string} chars
  * @return {string}
  */
@@ -104,6 +111,13 @@ String.filterRegex = function(query) {
 };
 
 /**
+ * @return {string}
+ */
+String.prototype.collapseWhitespace = function() {
+  return this.replace(/[\s\xA0]+/g, ' ');
+};
+
+/**
  * @param {number} maxLength
  * @return {string}
  */
@@ -120,7 +134,7 @@ String.prototype.trimMiddle = function(maxLength) {
   if (leftHalf > 0 && this.codePointAt(leftHalf - 1) >= 0x10000) {
     --leftHalf;
   }
-  return this.substr(0, leftHalf) + '…' + this.substr(this.length - rightHalf, rightHalf);
+  return this.substr(0, leftHalf) + '\u2026' + this.substr(this.length - rightHalf, rightHalf);
 };
 
 /**
@@ -131,7 +145,21 @@ String.prototype.trimEndWithMaxLength = function(maxLength) {
   if (this.length <= maxLength) {
     return String(this);
   }
-  return this.substr(0, maxLength - 1) + '…';
+  return this.substr(0, maxLength - 1) + '\u2026';
+};
+
+/**
+ * @param {?string=} baseURLDomain
+ * @return {string}
+ */
+String.prototype.trimURL = function(baseURLDomain) {
+  let result = this.replace(/^(https|http|file):\/\//i, '');
+  if (baseURLDomain) {
+    if (result.toLowerCase().startsWith(baseURLDomain.toLowerCase())) {
+      result = result.substr(baseURLDomain.length);
+    }
+  }
+  return result;
 };
 
 /**

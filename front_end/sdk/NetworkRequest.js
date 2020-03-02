@@ -29,7 +29,6 @@
  */
 
 import * as Common from '../common/common.js';
-import * as Platform from '../platform/platform.js';
 
 import {Attributes, Cookie} from './Cookie.js';  // eslint-disable-line no-unused-vars
 import {CookieParser} from './CookieParser.js';
@@ -624,7 +623,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
       const networkManager = NetworkManager.forRequest(this);
       const inspectedURL =
           networkManager ? Common.ParsedURL.ParsedURL.fromString(networkManager.target().inspectedURL()) : null;
-      this._path = Platform.StringUtilities.trimURL(this._path, inspectedURL ? inspectedURL.host : '');
+      this._path = this._path.trimURL(inspectedURL ? inspectedURL.host : '');
       if (this._parsedURL.lastPathComponent || this._parsedURL.queryParams) {
         this._name =
             this._parsedURL.lastPathComponent + (this._parsedURL.queryParams ? '?' + this._parsedURL.queryParams : '');
@@ -1421,7 +1420,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
         if (this.parsedURL.queryParams) {
           requestHeadersText += `?${this.parsedURL.queryParams}`;
         }
-        requestHeadersText += ' HTTP/1.1\r\n';
+        requestHeadersText += ` HTTP/1.1\r\n`;
 
         for (const {name, value} of this.requestHeaders()) {
           requestHeadersText += `${name}: ${value}\r\n`;
