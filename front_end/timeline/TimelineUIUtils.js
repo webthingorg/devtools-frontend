@@ -40,6 +40,8 @@ import * as UI from '../ui/ui.js';
 
 import {TimelinePanel, TimelineSelection} from './TimelinePanel.js';
 
+import '../elements/PieChart2.js';
+
 /**
  * @unrestricted
  */
@@ -1717,16 +1719,24 @@ export class TimelineUIUtils {
     }
 
     const element = createElementWithClass('div', 'timeline-details-view-pie-chart-wrapper hbox');
-    const pieChart = new PerfUI.PieChart.PieChart({
+    // const pieChart = new PerfUI.PieChart.PieChart({
+    //   chartName: ls`Time spent in rendering`,
+    //   size: 110,
+    //   formatter: value => Number.preciseMillisToString(value),
+    //   showLegend: true,
+    // });
+    const pieChart = document.createElement('pie-chart');
+    pieChart.setOptions({
       chartName: ls`Time spent in rendering`,
       size: 110,
       formatter: value => Number.preciseMillisToString(value),
       showLegend: true,
     });
-    pieChart.element.classList.add('timeline-details-view-pie-chart');
+
+    pieChart.classList.add('timeline-details-view-pie-chart');
     pieChart.setTotal(total);
     const pieChartContainer = element.createChild('div', 'vbox');
-    pieChartContainer.appendChild(pieChart.element);
+    pieChartContainer.appendChild(pieChart);
 
     /**
      * @param {string} name

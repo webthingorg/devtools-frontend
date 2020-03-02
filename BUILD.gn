@@ -2356,7 +2356,10 @@ copy("copy_wasm_deps") {
 }
 
 generated_typescript_files =
-    [ "$resources_out_dir/elements/ElementsBreadcrumbs.js" ]
+    [
+      "$resources_out_dir/elements/ElementsBreadcrumbs.js",
+      "$resources_out_dir/elements/PieChart2.js",
+    ]
 
 action("generate_devtools_grd") {
   script = "scripts/build/generate_devtools_grd.py"

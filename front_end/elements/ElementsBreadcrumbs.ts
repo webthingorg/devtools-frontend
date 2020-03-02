@@ -15,7 +15,7 @@ const determineElementTitle = (domNode: DOMNode): CrumbTitle => {
     case Node.ELEMENT_NODE:
       if (domNode.pseudoType) {
         return makeCrumbTitle('::' + domNode.pseudoType);
-      } else {
+      }
         const crumbTitle: CrumbTitle = makeCrumbTitle(domNode.nodeNameNicelyCased);
 
         const id = domNode.getAttribute('id');
@@ -30,7 +30,7 @@ const determineElementTitle = (domNode: DOMNode): CrumbTitle => {
         }
 
         return crumbTitle;
-      }
+
     case Node.TEXT_NODE:
       return makeCrumbTitle('(text)');
       // return Common.UIString.UIString('(text)', []);

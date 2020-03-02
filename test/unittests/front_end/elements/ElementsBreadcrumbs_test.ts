@@ -71,12 +71,12 @@ describe('ElementsBreadcrumbs', () => {
         getAttribute: (attr: string) => {
           if (attr === 'class') {
             return 'class1 class2';
-          } else if (attr === 'id') {
+          } if (attr === 'id') {
             return 'id';
-          } else {
+          }
             assert.fail(`getAttribute unexpectedly called with argument ${attr}`);
             return '';
-          }
+
         },
       });
 
@@ -114,9 +114,9 @@ describe('ElementsBreadcrumbs', () => {
         getAttribute(attr) {
           if (attr === 'id') {
             return 'test-id';
-          } else {
-            return '';
           }
+            return '';
+
         },
       });
 
@@ -132,10 +132,10 @@ describe('ElementsBreadcrumbs', () => {
       const crumbTitles = crumbs.map(crumb => {
         if (crumb.textContent) {
           return crumb.textContent.trim();
-        } else {
+        }
           assert.fail('crumb unexpectedly had no textContent');
           return '';
-        }
+
       });
 
       assert.deepEqual(crumbTitles, ['body', 'div#test-id']);
@@ -157,9 +157,9 @@ describe('ElementsBreadcrumbs', () => {
         getAttribute(attr) {
           if (attr === 'class') {
             return 'test-class1 test-class2 test-class3 test-class4';
-          } else {
-            return '';
           }
+            return '';
+
         },
       });
 
@@ -171,9 +171,9 @@ describe('ElementsBreadcrumbs', () => {
         getAttribute(attr) {
           if (attr === 'id') {
             return 'test-id-with-a-really-long-id-name';
-          } else {
-            return '';
           }
+            return '';
+
         },
       });
 

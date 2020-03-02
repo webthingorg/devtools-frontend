@@ -1,7 +1,10 @@
 import("../../third_party/typescript/typescript.gni")
 
 ts_library("elements") {
-  deps = [ ":breadcrumbs" ]
+  deps = [
+    ":breadcrumbs",
+    ":piechart",
+  ]
 }
 
 ts_library("breadcrumbs") {
@@ -11,5 +14,13 @@ ts_library("breadcrumbs") {
     "ElementsBreadcrumbs.ts",
     "ElementsBreadcrumbsUtils.ts",
     "ElementsBreadcrumbs_bridge.js",
+  ]
+}
+
+ts_library("piechart") {
+  deps = []
+
+  sources = [
+    "PieChart2.ts",
   ]
 }
