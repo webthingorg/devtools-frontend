@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45f6fd9e_1ddf7c75",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T10:05:58Z",
+      "side": 1,
+      "message": "nit: href is typed as string and can therefore not be `null`. Should the param be updated?",
+      "range": {
+        "startLine": 233,
+        "startChar": 13,
+        "endLine": 233,
+        "endChar": 19
+      },
+      "revId": "63f46de2b234cfa7bb62c905e7764114d8aaf229",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57f7f12a_715e14fc",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T10:05:58Z",
+      "side": 1,
+      "message": "The `match` could be null. So I think this should be changed to something like\n\n```\nconst hrefMatch \u003d href.match(/^[^#?]*/);\nif (!matches.length) {\n  throw new Error(`Invalid href`);\n}\nlet hrefPath \u003d hrefMatch[0];\n```",
+      "range": {
+        "startLine": 285,
+        "startChar": 8,
+        "endLine": 285,
+        "endChar": 17
+      },
+      "revId": "63f46de2b234cfa7bb62c905e7764114d8aaf229",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34c6422_59263088",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T10:05:58Z",
+      "side": 1,
+      "message": "nit: We should add this to `legacy/legacy-defs.d.ts`",
+      "range": {
+        "startLine": 391,
+        "startChar": 31,
+        "endLine": 391,
+        "endChar": 51
+      },
+      "revId": "63f46de2b234cfa7bb62c905e7764114d8aaf229",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
