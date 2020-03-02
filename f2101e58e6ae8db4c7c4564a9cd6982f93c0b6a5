@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60df634a_f12b33a0",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-02T17:18:07Z",
+      "side": 1,
+      "message": "I feel like we should extract the fireEvent I made and use that?",
+      "range": {
+        "startLine": 1136,
+        "startChar": 11,
+        "endLine": 1136,
+        "endChar": 24
+      },
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "094344f3_10be0b01",
+        "filename": "test/e2e/sources/can-show-files-after-loading.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-02T17:18:07Z",
+      "side": 1,
+      "message": "nit: don\u0027t need all these blank lines",
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d401d7cc_fdaa82fc",
+        "filename": "test/e2e/sources/can-show-files-after-loading.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-02T17:18:07Z",
+      "side": 1,
+      "message": "TIL",
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe207740_92559683",
+        "filename": "test/e2e/sources/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-02T17:18:07Z",
+      "side": 1,
+      "message": "Can we do as CustomEvent and pop the data out that way? I\u0027m not a fan of going via unknown really: https://cs.chromium.org/chromium/src/third_party/devtools-frontend/src/test/e2e/host/user-metrics.ts?l\u003d36-37",
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
