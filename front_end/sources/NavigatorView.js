@@ -1006,6 +1006,16 @@ export const Types = {
   Worker: 'worker'
 };
 
+class SourceTreeFileAddedEvent extends Event {
+  /**
+   * @param {string} fileName
+   */
+  constructor(fileName) {
+    super('source-tree-file-added', {bubbles: true, composed: true, cancelable: true});
+    this.fileName = fileName;
+  }
+}
+
 /**
  * @unrestricted
  */
@@ -1123,6 +1133,7 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
         'navigator-' + uiSourceCode.contentType().name() + '-tree-item', 'navigator-file-tree-item');
     this.tooltip = uiSourceCode.url();
     UI.ARIAUtils.setAccessibleName(this.listItemElement, `${uiSourceCode.name()}, ${this._nodeType}`);
+    window.dispatchEvent(new SourceTreeFileAddedEvent(uiSourceCode.fullDisplayName()));
     this._navigatorView = navigatorView;
     this._uiSourceCode = uiSourceCode;
     this.updateIcon();
