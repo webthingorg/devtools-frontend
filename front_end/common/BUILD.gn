@@ -13,6 +13,7 @@ ts_library("common") {
     ":event_target",
     ":javascript_meta_data",
     ":object",
+    ":parsed_url",
     ":progress",
     ":query_param_handler",
     ":ui_string",
@@ -64,6 +65,10 @@ ts_library("object") {
   sources = [ "Object.js" ]
 
   deps = [ ":event_target" ]
+}
+
+ts_library("parsed_url") {
+  sources = [ "ParsedURL.js" ]
 }
 
 ts_library("progress") {

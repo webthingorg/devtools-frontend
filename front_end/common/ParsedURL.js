@@ -234,6 +234,7 @@ export class ParsedURL {
    * @return {?string}
    */
   static completeURL(baseURL, href) {
+
     // Return special URLs as-is.
     const trimmedHref = href.trim();
     if (trimmedHref.startsWith('data:') || trimmedHref.startsWith('blob:') || trimmedHref.startsWith('javascript:') ||
@@ -278,11 +279,16 @@ export class ParsedURL {
       return securityOrigin + pathText + href;
     }
 
-    let hrefPath = href.match(/^[^#?]*/)[0];
+    const hrefMatches = href.match(/^[^#?]*/);
+    if (!hrefMatches || !href.length) {
+      throw new Error('Invalid href');
+    }
+    let hrefPath = hrefMatches[0];
     const hrefSuffix = href.substring(hrefPath.length);
     if (hrefPath.charAt(0) !== '/') {
       hrefPath = parsedURL.folderPathComponents + '/' + hrefPath;
     }
+    // @ts-ignore Runtime needs to be properly exported
     return securityOrigin + Root.Runtime.normalizePath(hrefPath) + hrefSuffix;
   }
 
@@ -305,6 +311,9 @@ export class ParsedURL {
     let lineNumber;
     let columnNumber;
     console.assert(lineColumnMatch);
+    if (!lineColumnMatch) {
+      return { url: string, lineNumber: 0, columnNumber: 0 };
+    }
 
     if (typeof(lineColumnMatch[1]) === 'string') {
       lineNumber = parseInt(lineColumnMatch[1], 10);
@@ -379,6 +388,7 @@ export class ParsedURL {
     if (!this.isDataURL()) {
       return '';
     }
+    // @ts-ignore TS cant find trimEndWithMaxLength which is added to String prototype in utilities.js
     this._dataURLDisplayName = this.url.trimEndWithMaxLength(20);
     return this._dataURLDisplayName;
   }
@@ -442,3 +452,6 @@ export class ParsedURL {
     return this.url;
   }
 }
+
+/** @type {?RegExp} */
+ParsedURL._urlRegexInstance = null;
