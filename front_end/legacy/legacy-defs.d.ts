@@ -6,3 +6,7 @@ interface StringConstructor {
 interface Array<T> {
   peekLast(): T|undefined
 }
+
+interface String {
+  trimEndWithMaxLength(maxLength: number): string;
+}
