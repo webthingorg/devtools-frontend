@@ -99,4 +99,10 @@ describe('StringUtilities', () => {
       assert.equal(outputString, 'a b c');
     });
   });
+
+  describe('reverse', () => {
+    it('reverses the string', () => {
+      assert.equal('abc', StringUtilities.reverse('cba'));
+    });
+  });
 });
