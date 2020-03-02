@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d9211329_1c15403e",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T11:36:54Z",
+      "side": 1,
+      "message": "This was an automated eslint change based on the new config. If I were to change this manually I would use the proper curly apostrophe (U+2019 U+2019 RIGHT SINGLE QUOTATION MARK ’). Most uses of `\u0027` within string literals should actually be U+2019 which, as a bonus, makes the escaping problem go away. The same goes for double quotes.\n\nI\u0027ve updated the CL accordingly, WDYT?",
+      "parentUuid": "f63216d4_c52dab04",
+      "range": {
+        "startLine": 459,
+        "startChar": 34,
+        "endLine": 459,
+        "endChar": 36
+      },
+      "revId": "e8e0d839fc5c060073892600f1c67b6d998de952",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7962f39_06a1d15b",
         "filename": "front_end/profiler/ProfilesPanel.js",
         "patchSetId": 1
