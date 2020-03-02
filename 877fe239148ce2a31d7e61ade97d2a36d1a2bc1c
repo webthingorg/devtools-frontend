@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7eb9c76d_9e6905a4",
+        "filename": "front_end/profiler/IsolateSelector.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1315894
+      },
+      "writtenOn": "2020-03-02T08:56:46Z",
+      "side": 1,
+      "message": "This was my first idea, but I assumed that there will be a main thread always. Made the change.",
+      "parentUuid": "47f7bf0e_c8318e8f",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "877fe239148ce2a31d7e61ade97d2a36d1a2bc1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e70d8e26_3dd0b7f8",
         "filename": "front_end/sdk/IsolateManager.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "877fe239148ce2a31d7e61ade97d2a36d1a2bc1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6306d2b_4296f5b6",
+        "filename": "front_end/sdk/IsolateManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1315894
+      },
+      "writtenOn": "2020-03-02T08:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e70d8e26_3dd0b7f8",
+      "range": {
+        "startLine": 247,
+        "startChar": 3,
+        "endLine": 249,
+        "endChar": 6
+      },
+      "revId": "877fe239148ce2a31d7e61ade97d2a36d1a2bc1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
