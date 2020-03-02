@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "013a09e1_319a3ea7",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-03-02T21:39:11Z",
+      "side": 1,
+      "message": "Thanks for the clarification.\nSigurd do you think the latest description is ok? If so I will merge this.",
+      "parentUuid": "87527ce3_781a8b05",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
