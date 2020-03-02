@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63000497_8b1f1a81",
+        "filename": "front_end/console/ConsolePinPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-02T11:54:27Z",
+      "side": 1,
+      "message": "is there a way we can make this clearer? I\u0027m not sure how, but if this was me I\u0027d have to google this every time to remember what it was 😄",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 49
+      },
+      "revId": "f920df5b6bd10db70df963425c830bf917207f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
