@@ -40,6 +40,13 @@ export class ActionRegistry {
   }
 
   /**
+   * @return {!IteratorIterable<string>}
+   */
+  allActionIds() {
+    return this._actionsById.keys();
+  }
+
+  /**
    * @return {!Array.<!Action>}
    */
   availableActions() {
@@ -47,7 +54,7 @@ export class ActionRegistry {
   }
 
   /**
-   * @param {!Array.<string>} actionIds
+   * @param {!Array.<string>|!Set.<string>} actionIds
    * @param {!Context} context
    * @return {!Array.<!Action>}
    */

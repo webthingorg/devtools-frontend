@@ -307,6 +307,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_498f79c4c5bbde77f1bceb6c86fd0f6d" desc="Text in Timeline UIUtils of the Performance panel">
     Show
   </message>
+  <message name="IDS_DEVTOOLS_49f3aa1af7c5ccba16f4ba1ec7b0a322" desc="Title of an action that opens the next recording in the performance panel">
+    Next recording
+  </message>
   <message name="IDS_DEVTOOLS_4a6f828a0efc23b056b73d24ab01a468" desc="Text in Timeline UIUtils of the Performance panel">
     <ph name="FORCEDREFLOWLINK">$1s<ex>Forced reflow</ex></ph> is a likely performance bottleneck.
   </message>
@@ -351,6 +354,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   </message>
   <message name="IDS_DEVTOOLS_54fd6de66ec40dc89ec90ba5429094d7" desc="Text in Timeline Tree View of the Performance panel">
     Group by Category
+  </message>
+  <message name="IDS_DEVTOOLS_5538445bde65a174809fb3e460b1c91f" desc="Title of an action that jumps to the previous frame in the Performance panel">
+    Jump to previous frame
   </message>
   <message name="IDS_DEVTOOLS_5564c00b6210082e536c897014f72361" desc="Title of an action in the timeline tool to record reload">
     Start profiling and reload page
@@ -520,6 +526,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_7b8c1a72c279c468ba1729548e05181c" desc="Screen reader label for the Timeline History dropdown button">
     Current Session: <ph name="THIS__TITLE_PERFORMANCEMODEL_">$1s<ex>example.com #3</ex></ph>. <ph name="THIS__BUTTON_GETTITLE__">$2s<ex>Show recent timeline sessions</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_7c880e07f865ea4661fc6317f9b9de60" desc="Title of an action that jumps to the previous recording in the Performance panel">
+    Previous recording
+  </message>
   <message name="IDS_DEVTOOLS_80a4b8755d836d50c19e6eefb976bc2e" desc="Text in Timeline UIUtils of the Performance panel">
     <ph name="SELFCATEGORY_TITLE">$1s<ex>blink.console</ex></ph> (self)
   </message>
@@ -653,6 +662,9 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   </message>
   <message name="IDS_DEVTOOLS_a34991663b140f981410a06acc058849" desc="Text in UIDevtools Utils of the Performance panel">
     ThreadControllerImpl::RunTask
+  </message>
+  <message name="IDS_DEVTOOLS_a385a1cd7804a026fa866a2d4f40096d" desc="Title of an action that jumps to the next frame in the Performance panel">
+    Jump to next frame
   </message>
   <message name="IDS_DEVTOOLS_a3b61900010aa9472919c6c7ac247fed" desc="Text of a DOM element in Timeline UIUtils of the Performance panel">
     (changed id to &quot;<ph name="INVALIDATION_CHANGEDID">$1s<ex>id2</ex></ph>&quot;<ph name="EXTRADATA">$2s<ex>a, b</ex></ph>)

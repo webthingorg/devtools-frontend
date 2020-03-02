@@ -27,6 +27,7 @@
         {
             "type": "action",
             "actionId": "console.show",
+            "title": "Show console",
             "className": "Console.ConsoleView.ActionDelegate",
             "bindings": [
                 {

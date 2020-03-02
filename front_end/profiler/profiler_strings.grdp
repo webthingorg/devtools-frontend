@@ -84,6 +84,9 @@
   <message name="IDS_DEVTOOLS_32e679bdbd5dd7a0bacf024bc30e8a75" desc="Text in CPUProfile View of a profiler tool">
     Recording…
   </message>
+  <message name="IDS_DEVTOOLS_345df77bbfefb7aaefa4358cbac50bb8" desc="Title of an action that toggles heap recording in the profiler">
+    Toggle heap recording
+  </message>
   <message name="IDS_DEVTOOLS_35066690e799cd4e59123262e41b29c5" desc="Text in CPUProfile View of a profiler tool">
     Stop CPU profiling
   </message>
@@ -356,6 +359,9 @@
   </message>
   <message name="IDS_DEVTOOLS_c33e404a441c6ba9648f88af3c68a1ca" desc="Text in Heap Snapshot View of a profiler tool">
     Statistics
+  </message>
+  <message name="IDS_DEVTOOLS_c78ab13c6895efab4ee357f9040fbb7c" desc="Title of an action that toggles javascript recording in the profiler">
+    Toggle javascript recording
   </message>
   <message name="IDS_DEVTOOLS_ca0dbad92a874b2f69b549293387925e" desc="Text in Heap Snapshot View of a profiler tool">
     Code
