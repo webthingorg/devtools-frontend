@@ -5,5 +5,6 @@
 import {join} from 'path';
 
 export const testList = [
-  join(__dirname, '.', 'hello-world', 'hello-world.js'),
+  // join(__dirname, '.', 'hello-world', 'hello-world.js'),
+  join(__dirname, '.', 'elements-breadcrumbs', 'elements-breadcrumbs.js'),
 ];

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Document</title>
+  <!-- TODO: figure out how to load front_end/ui/inspectorStyle.css here-->
+  <style type="text/css">
+    :root {
+      --toolbar-bg-color: #f3f3f3;
+      --dom-tag-name-color: rgb(136, 18, 128);
+      --dom-attribute-name-color: rgb(153, 69, 0);
+    }
+
+    body {
+      font-family: '.SFNSDisplay-Regular', 'Helvetica Neue', 'Lucida Grande', sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="test-1">
+    <devtools-elements-breadcrumbs></devtools-elements-breadcrumbs>
+  </div>
+  <div id="test-1-crumbs">
+    <div id="test-div">
+      <span class="span-class-1 span-class-2" data-selected-node></span>
+    </div>
+  </div>
+
+  <script type="module" src="/front_end/elements/ElementsBreadcrumbs.js"></script>
+  <script type="module">
+    const breadcrumbs1 = document.querySelector('#test-1 devtools-elements-breadcrumbs');
+
+    const makeCrumbsFromDom = targetTest => {
+      const testElement = document.querySelector(targetTest)
+      const startFromElement = testElement.querySelector('[data-selected-node]');
+      let id = 1
+      const crumbs = [makeCrumbFromElement(startFromElement, id)]
+      for (let current = startFromElement.parentNode; current; current = current.parentNode) {
+        if (!current || current.nodeType === Node.DOCUMENT_NODE) {
+          continue
+        } else {
+          const newCrumb = makeCrumbFromElement(current, ++id);
+          crumbs.push(newCrumb)
+        }
+      }
+
+      return {
+        crumbs,
+        selected: startFromElement
+      }
+    }
+
+    const makeCrumbFromElement = (element, id) => ({
+      nodeType: element.nodeType,
+      id,
+      pseudoType: '',
+      shadowRootType: '',
+      nodeName: element.nodeName.toLowerCase(),
+      nodeNameNicelyCased: element.nodeName.toLowerCase(),
+      legacyDomNode: {},
+      highlightNode: () => {},
+      clearHighlight: () => {},
+      getAttribute: element.getAttribute.bind(element),
+    })
+
+    const {crumbs, selected} = makeCrumbsFromDom('#test-1-crumbs')
+
+    breadcrumbs1.update(crumbs,selected)
+  </script>
+
+</body>
+
+</html>

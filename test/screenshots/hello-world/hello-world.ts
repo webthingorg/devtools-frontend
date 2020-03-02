@@ -4,7 +4,7 @@
 
 import {describe, it} from 'mocha';
 import {click, getBrowserAndPages, resetPages, resourcesPath} from '../../shared/helper.js';
-import {assertScreenshotUnchanged} from '../../shared/screenshot.js';
+import {assertPageScreenshotUnchanged} from '../../shared/screenshot.js';
 
 describe('hello world', () => {
   beforeEach(async () => {
@@ -17,6 +17,6 @@ describe('hello world', () => {
     await click('#tab-console');
     await frontend.waitForSelector('.console-group-messages');
 
-    await assertScreenshotUnchanged(frontend, 'hello-world.png');
+    await assertPageScreenshotUnchanged(frontend, 'hello-world.png');
   });
 });
