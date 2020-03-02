@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1b8d528_95a63e66",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-02T17:47:10Z",
+      "side": 1,
+      "message": "The type of `description` is `string`, which is not nullable. If I understand the call-sides correctly, they pass in an empty string to \"clear\" the attribute: https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/5f96597ad93d83de80585695f2d071157eac34c0:front_end/browser_debugger/EventListenerBreakpointsSidebarPane.js;l\u003d104;drc\u003d046db888bd01dde4799101b8b06f41d8f368163b?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F\n\nTherefore, I think we should do `description || null` to explicitly coerce to `null` if `description` is falsy (e.g. empty string)",
+      "range": {
+        "startLine": 490,
+        "startChar": 69,
+        "endLine": 490,
+        "endChar": 73
+      },
+      "revId": "7c93d74c7324349c5d03486ade875d202491ee6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
