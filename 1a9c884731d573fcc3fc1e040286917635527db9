@@ -116,6 +116,30 @@
       "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40fecc22_31e055d2",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T09:24:16Z",
+      "side": 1,
+      "message": "Nah, let\u0027s leave it as-is for now. We can always introduce the helper later when more use cases arise.",
+      "parentUuid": "453df854_ac309262",
+      "range": {
+        "startLine": 122,
+        "startChar": 10,
+        "endLine": 122,
+        "endChar": 27
+      },
+      "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
