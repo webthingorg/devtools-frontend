@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53c2d084_858b4e9c",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T08:33:28Z",
+      "side": 1,
+      "message": "Let’s do:\n\n    this._pendingAnimations.clear();",
+      "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16c45730_f6ea9241",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T08:33:28Z",
+      "side": 1,
+      "message": "Feels like there’s a lot happening on this one line, but I don’t really have a suggestion as to how to make this more readable. Any ideas?",
+      "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "581c89d8_7f190dc6",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T08:33:28Z",
+      "side": 1,
+      "message": "For clarity:\n\n    const firstAnimation \u003d this._animationsById.get(pendingAnimationId);\n    const groupedAnimations \u003d [firstAnimation];\n\nThen use `firstAnimation` instead of `groupedAnimations[0]` below. For the loop body, you could even do:\n\n    const groupStartTime \u003d firstAnimation.startTime();\n\nAnd then compare against that.\n\n(Feel free to use a better variable names than the ones I’ve suggested.)",
+      "range": {
+        "startLine": 122,
+        "startChar": 10,
+        "endLine": 122,
+        "endChar": 27
+      },
+      "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
