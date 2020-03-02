@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "03e70781_c4f8c13f",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T12:06:54Z",
+      "side": 1,
+      "message": "Yes, whoops! Done",
+      "parentUuid": "e3ab5da8_7940c9e6",
+      "range": {
+        "startLine": 1377,
+        "startChar": 74,
+        "endLine": 1377,
+        "endChar": 87
+      },
+      "revId": "f920df5b6bd10db70df963425c830bf917207f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63000497_8b1f1a81",
         "filename": "front_end/console/ConsolePinPane.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "f920df5b6bd10db70df963425c830bf917207f77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45548988_7e7add4f",
+        "filename": "front_end/console/ConsolePinPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T12:06:54Z",
+      "side": 1,
+      "message": "Tim and I were just discussing this! We could use the raw Unicode characters for printable characters (i.e. only use escape sequences for non-printable characters and perhaps in regular expression patterns), but I was trying to keep that as a separate change. Happy to do it now but this CL will get large...",
+      "parentUuid": "63000497_8b1f1a81",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 49
+      },
+      "revId": "f920df5b6bd10db70df963425c830bf917207f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
