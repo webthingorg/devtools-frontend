@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "87527ce3_781a8b05",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-03-02T19:21:12Z",
+      "side": 1,
+      "message": "Sorry for being unclear. I meant the 2 cases of\n\n1. The cookie didn\u0027t explicitly specify a Domain attribute when it was set. In this case, it defaults to being a \"host cookie\" i.e. it\u0027s only sent to the exact host that set it. Internally, we represent this as a domain attribute (i.e. CanonicalCookie::Domain()) without a leading dot, which is exactly equal to the host() of the URL that set it.\n\n2. The cookie explicitly specified \"Domain\u003dfoo.com\" attribute. In this case, it\u0027s a \"domain cookie\" which is sent to foo.com as well as *.foo.com domains. Internally, we represent this as CanonicalCookie::Domain() returns a string with a leading dot. (For historical reasons -- we used to require that the Domain attribute in a Set-Cookie line carry a leading dot, but we no longer require that.)\n\nThe dot is how we distinguish a host cookie set by foo.com vs a domain cookie that specified \"Domain\u003dfoo.com\". The former would have a Domain() attribute of \"foo.com\" and the latter would have a Domain() attribute of \".foo.com\".\n\nI was more just thinking aloud... I doubt it\u0027s worth drawing the distinction between these two cases, at least not in the frontend. If we decide to do this down the line, we should add an extra CanonicalCookie::CookieInclusionStatus::ExclusionReason and plumb that through. (And there\u0027s also this issue https://crbug.com/1027752 which I think precludes getting the correct domain value in some cases.)\n\nAnd I think the wording you have in Patchset 4 is fine.",
+      "parentUuid": "2e441a34_5e7fd2fc",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
