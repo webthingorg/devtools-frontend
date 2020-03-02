@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ebeec34_db63fbb2",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-03-02T19:22:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "45f6fd9e_1ddf7c75",
+      "range": {
+        "startLine": 233,
+        "startChar": 13,
+        "endLine": 233,
+        "endChar": 19
+      },
+      "revId": "63f46de2b234cfa7bb62c905e7764114d8aaf229",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57f7f12a_715e14fc",
         "filename": "front_end/common/ParsedURL.js",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cc337b58_dfb9e175",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-03-02T19:22:08Z",
+      "side": 1,
+      "message": "You are correct, i misread the compiler error.",
+      "parentUuid": "57f7f12a_715e14fc",
+      "range": {
+        "startLine": 285,
+        "startChar": 8,
+        "endLine": 285,
+        "endChar": 17
+      },
+      "revId": "63f46de2b234cfa7bb62c905e7764114d8aaf229",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b34c6422_59263088",
         "filename": "front_end/common/ParsedURL.js",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2020-03-02T10:05:58Z",
       "side": 1,
       "message": "nit: We should add this to `legacy/legacy-defs.d.ts`",
+      "range": {
+        "startLine": 391,
+        "startChar": 31,
+        "endLine": 391,
+        "endChar": 51
+      },
+      "revId": "63f46de2b234cfa7bb62c905e7764114d8aaf229",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a5f3249_5d2b6f87",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-03-02T19:22:08Z",
+      "side": 1,
+      "message": "The functions inside utilities.js are not exported yet",
+      "parentUuid": "b34c6422_59263088",
       "range": {
         "startLine": 391,
         "startChar": 31,
