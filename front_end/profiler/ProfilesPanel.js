@@ -167,13 +167,13 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     if (!profileType) {
       const extensions = new Set(this._profileTypes.map(type => type.fileExtension()).filter(ext => ext));
       self.Common.console.error(Common.UIString.UIString(
-          `Can't load file. Supported file extensions: '%s'.`, Array.from(extensions).join(`', '`)));
+          'Can’t load file. Supported file extensions: `%s`.', Array.from(extensions).join("', '")));
       return;
     }
 
     if (!!profileType.profileBeingRecorded()) {
       self.Common.console.error(
-          Common.UIString.UIString(`Can't load profile while another profile is being recorded.`));
+          Common.UIString.UIString('Can’t load profile while another profile is being recorded.'));
       return;
     }
 
