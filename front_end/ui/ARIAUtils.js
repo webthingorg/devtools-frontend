@@ -471,9 +471,6 @@ export function setAccessibleName(element, name) {
   element.setAttribute('aria-label', name);
 }
 
-/** @type {!WeakMap<!Element, !Element>} */
-const _descriptionMap = new WeakMap();
-
 /**
  * @param {!Element} element
  * @param {string} description
@@ -491,75 +488,11 @@ export function setDescription(element, description) {
   // This is usually fine, except that DevTools has its own styled
   // tooltips which would interfere with the browser tooltips.
   //
-  // In future, the aria-description attribute may be used once it
-  // is unflagged.
-  //
-  // aria-describedby requires that an extra element exist in DOM
-  // that this element can point to. Both elements also have to
-  // be in the same shadow root. This is not trivial to manage.
-  // The rest of DevTools shouldn't have to worry about this,
-  // so there is some unfortunate code below.
-
-  if (_descriptionMap.has(element)) {
-    _descriptionMap.get(element).remove();
-  }
-  element.removeAttribute('data-aria-utils-animation-hack');
-
-  if (!description) {
-    _descriptionMap.delete(element);
-    element.removeAttribute('aria-describedby');
-    return;
-  }
-
-  // We make a hidden element that contains the decsription
-  // and will be pointed to by aria-describedby.
-  const descriptionElement = createElement('span');
-  descriptionElement.textContent = description;
-  descriptionElement.style.display = 'none';
-  ensureId(descriptionElement);
-  element.setAttribute('aria-describedby', descriptionElement.id);
-  _descriptionMap.set(element, descriptionElement);
-
-  // Now we have to actually put this description element
-  // somewhere in the DOM so that we can point to it.
-  // It would be nice to just put it in the body, but that
-  // wouldn't work if the main element is in a shadow root.
-  // So the cleanest approach is to add the description element
-  // as a child of the main element. But wait! Some HTML elements
-  // aren't supposed to have children. Blink won't search inside
-  // these elements, and won't find our description element.
-  const contentfulVoidTags = new Set(['INPUT', 'IMG']);
-  if (!contentfulVoidTags.has(element.tagName)) {
-    element.appendChild(descriptionElement);
-    // If we made it here, someone setting .textContent
-    // or removeChildren on the element will blow away
-    // our description. At least we tried our best!
-    return;
-  }
-
-  // We have some special element, like an <input>, where putting the
-  // description element inside it doesn't work.
-  // Lets try the next best thing, and just put the description element
-  // next to it in the DOM.
-  const inserted = element.insertAdjacentElement('afterend', descriptionElement);
-  if (inserted) {
-    return;
-  }
-
-  // Uh oh, the insertion didn't work! That means we aren't currently in the DOM.
-  // How can we find out when the element enters the DOM?
-  // See inspectorCommon.css
-  element.setAttribute('data-aria-utils-animation-hack', 'sorry');
-  element.addEventListener('animationend', () => {
-    // Someone might have made a new description in the meantime.
-    if (_descriptionMap.get(element) !== descriptionElement) {
-      return;
-    }
-    element.removeAttribute('data-aria-utils-animation-hack');
-
-    // Try it again. This time we are in the DOM, so it *should* work.
-    element.insertAdjacentElement('afterend', descriptionElement);
-  }, {once: true});
+  // The aria-description attribute may be used now that it is unflagged.
+  if (description)
+    {element.ariaDescription = element;}
+  else  // TODO(aboxhall) why doesn't delete element.ariaDescription do this?
+    {document.removeAttribute('aria-description');}
 }
 
 /**
