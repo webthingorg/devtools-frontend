@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ea5264ff_478b0db1",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1171,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T11:46:06Z",
+      "side": 0,
+      "message": "Good catch :) Done",
+      "parentUuid": "c1ed787a_0e08b65a",
+      "range": {
+        "startLine": 1171,
+        "startChar": 46,
+        "endLine": 1171,
+        "endChar": 56
+      },
+      "revId": "b867043d772f3b03629994a88c8d7196950c90db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fc18fe5_0ba4732b",
         "filename": "test/e2e/console/console-message-format.ts",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-02T10:19:07Z",
       "side": 0,
       "message": "I personally find template literals more readable. It signals that there is either string interpolation or special quote handling going on.\n\nFor consistency, I guess the change is appropriate, but it will become confusing later if we want to use single-quotes in our console logs.",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "b867043d772f3b03629994a88c8d7196950c90db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10245b65_d8c9e329",
+        "filename": "test/e2e/console/console-message-format.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T11:46:06Z",
+      "side": 0,
+      "message": "Ack. I think the U+2019 discussion addresses the single quotes case. Please re-open if not.",
+      "parentUuid": "4fc18fe5_0ba4732b",
       "range": {
         "startLine": 46,
         "startChar": 6,
