@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f63216d4_c52dab04",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-02T10:22:48Z",
+      "side": 1,
+      "message": "I think the quotes rule supports an `allowEscape` option which we could enable to prevent this change:\n\n\u003e \"avoidEscape\": true allows strings to use single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise\n\nfrom: https://eslint.org/docs/rules/quotes\n\nI\u0027d be in favour of that as I agree with Tim here that this change makes this line harder to understand and generally swapping quote types is easier and cleaner than escaping within the string.",
+      "parentUuid": "d6554a43_a2e09f50",
+      "range": {
+        "startLine": 459,
+        "startChar": 34,
+        "endLine": 459,
+        "endChar": 36
+      },
+      "revId": "e8e0d839fc5c060073892600f1c67b6d998de952",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7962f39_06a1d15b",
         "filename": "front_end/profiler/ProfilesPanel.js",
         "patchSetId": 1
