@@ -880,6 +880,23 @@ export class NetworkRequestNode extends NetworkNode {
   }
 
   /**
+   * @param {!Element} element
+   * @param {string} text
+   * @param {string} linkTitle
+   * @param {function()} handler
+   */
+  _setTextAndTitleAndLink(element, text, linkTitle, handler) {
+    element.createTextChild(text);
+    element.createTextChild(' ');  // TODO: remove this
+    const link = createElement('a');
+    link.href = '#';
+    link.innerText = linkTitle;
+    element.appendChild(link);
+    link.addEventListener('click', handler);
+    element.title = text;
+  }
+
+  /**
    * @override
    * @param {!Element} cell
    * @param {string} columnId
@@ -1091,8 +1108,25 @@ export class NetworkRequestNode extends NetworkNode {
         case Protocol.Network.BlockedReason.CollapsedByClient:
           reason = Common.UIString.UIString('extension');
           break;
+        case Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader:
+          reason = Common.UIString.UIString('CoepFrameResourceNeedsCoepHeader');
+          break;
+        case Protocol.Network.BlockedReason.CoopSandboxedIframeCannotNavigateToCoopPage:
+          reason = Common.UIString.UIString('CoopSandboxedIframeCannotNavigateToCoopPage');
+          break;
+        case Protocol.Network.BlockedReason.CorpNotSameOrigin:
+          reason = Common.UIString.UIString('NotSameOrigin');
+          break;
+        case Protocol.Network.BlockedReason.CorpNotSameSite:
+          reason = Common.UIString.UIString('NotSameSite');
+          break;
+        case Protocol.Network.BlockedReason.CorpNotSameOriginAfterDefaultedToSameOriginByCoep:
+          reason = Common.UIString.UIString('NotSameOriginAfterDefaultedToSameOriginByCoep');
+          break;
       }
-      this._setTextAndTitle(cell, Common.UIString.UIString('(blocked:%s)', reason));
+      this._setTextAndTitleAndLink(cell, Common.UIString.UIString('(blocked:%s)', reason), 'View Headers', () => {
+        this.parentView().dispatchEventToListeners(Events.RequestActivated, /* showPanel */ true);
+      });
     } else if (this._request.finished) {
       this._setTextAndTitle(cell, Common.UIString.UIString('Finished'));
     } else {
