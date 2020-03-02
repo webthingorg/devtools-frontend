@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78790453_24c57a48",
+        "filename": "front_end/sdk/SDKModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-02T11:53:04Z",
+      "side": 1,
+      "message": "Readability:\n\n    const targets \u003d ...;\n    return Promise.all(targets);",
+      "revId": "68f3a37b87261c640984e4205193258fe96e0f49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
