@@ -117,6 +117,30 @@
       "revId": "3539775bfc5c9272fa6d97f29443af5d7e226a74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f902350f_9a7a5a55",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-03-02T17:38:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26252f8b_86665dfd",
+      "range": {
+        "startLine": 75,
+        "startChar": 70,
+        "endLine": 75,
+        "endChar": 81
+      },
+      "revId": "3539775bfc5c9272fa6d97f29443af5d7e226a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
