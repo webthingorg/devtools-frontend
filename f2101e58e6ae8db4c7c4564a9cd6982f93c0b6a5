@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "29886f9d_e7fa47c2",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-02T17:49:05Z",
+      "side": 1,
+      "message": "We need to settle on it before much longer. I would like a central place to dispatch events because we can then build tooling around it, and we would need to do things like being composed as well. In any case I would still suggest that even though the name never changes, it\u0027s just a limited form of the wider fireEvent function, i.e. one that always sets the name parameter to the same thing.",
+      "parentUuid": "62f94e9a_80ece681",
+      "range": {
+        "startLine": 1136,
+        "startChar": 11,
+        "endLine": 1136,
+        "endChar": 24
+      },
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "094344f3_10be0b01",
         "filename": "test/e2e/sources/can-show-files-after-loading.ts",
         "patchSetId": 2
@@ -112,6 +136,24 @@
       "side": 1,
       "message": "The fileName is not in in the detail, thus using a CustomEvent as type would still complain about the `fileName` property to not exist on `customEvent`.\n\nI see that the UserMetricEvent (by coincidence) uses the same property name `detail`, but I don\u0027t think that holds true for other events. For example, in the breadcrumbs we use `dataNode`.\n\nWhen we are in full TypeScript land, we can populate the `WindowEventMap` and no longer require the cast, but my understanding is that it is required at the moment.",
       "parentUuid": "fe207740_92559683",
+      "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7272db9b_0ea772b2",
+        "filename": "test/e2e/sources/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-02T17:49:05Z",
+      "side": 1,
+      "message": "No, it\u0027s by design that detail is used. You can genericize CustomEvent, i.e. CustomEvent\u003cnumber\u003e and that will force detail to be a number (or any other type), or you\u0027d cast it on the receiving side to be of the correct shape, but here in your case you should be able to do CustomEvent\u003c{filename: string}\u003e or similar, or better, CustomEvent\u003cstring\u003e and put the fileName as detail. The convention should really be that detail contains the event detail, not that we have different properties each time we fire an event.",
+      "parentUuid": "b1023e3f_dea95634",
       "revId": "f2101e58e6ae8db4c7c4564a9cd6982f93c0b6a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
