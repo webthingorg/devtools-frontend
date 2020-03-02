@@ -456,7 +456,7 @@ export const releaseNoteText = [
       },
       {
         title: 'Argument hints',
-        subtitle: `View a function's expected arguments in the Console.`,
+        subtitle: 'View a function\'s expected arguments in the Console.',
         link: 'https://developers.google.com/web/updates/2018/05/devtools#hints',
       },
       {
