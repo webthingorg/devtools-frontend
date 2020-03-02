@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "effa616e_dd6280a9",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-02T09:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53c2d084_858b4e9c",
+      "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16c45730_f6ea9241",
         "filename": "front_end/animation/AnimationModel.js",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-02T08:33:28Z",
       "side": 1,
       "message": "Feels like there’s a lot happening on this one line, but I don’t really have a suggestion as to how to make this more readable. Any ideas?",
+      "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57dbc87a_5b659397",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-02T09:20:48Z",
+      "side": 1,
+      "message": "Nope. Missing the C++ {front} here. One alternative would be [...this._pendingAnimations][0], but that creates a temporary array just for the sake of getting the first element.\n\nAnother would be to introduce a new helper utility: Platform.SetUtils.first(this._pendingAnimations)",
+      "parentUuid": "16c45730_f6ea9241",
       "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -56,6 +92,30 @@
       "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "453df854_ac309262",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-02T09:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "581c89d8_7f190dc6",
+      "range": {
+        "startLine": 122,
+        "startChar": 10,
+        "endLine": 122,
+        "endChar": 27
+      },
+      "revId": "1a9c884731d573fcc3fc1e040286917635527db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
