@@ -22,6 +22,30 @@
       "revId": "784f9ccddb4f4268bc2b6e89ddccea0b1dace775",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f8ba43e_90ead47b",
+        "filename": "front_end/bindings_test_runner/IsolatedFilesystemTestRunner.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T11:07:33Z",
+      "side": 0,
+      "message": "The Entry constructor sets {_parent}, thats why I removed it in {addFile}. Since this is just for web tests and all web tests are still passing. I\u0027d leave the CL as-is. Wdyt?",
+      "parentUuid": "c5e2e9f0_dfe99c23",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 16
+      },
+      "revId": "784f9ccddb4f4268bc2b6e89ddccea0b1dace775",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
