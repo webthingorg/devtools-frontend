@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7065d16a_5744ec78",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T09:09:02Z",
+      "side": 1,
+      "message": "Side note: would be interesting to look at standard() / custom() call sites and see if they really need an array. Could we just pass the set?",
+      "revId": "5b6fea6e75bed983f0b8a533912bdb459ce8d2a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
