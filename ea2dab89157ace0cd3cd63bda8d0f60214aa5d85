@@ -289,6 +289,30 @@
     },
     {
       "key": {
+        "uuid": "f98e0db2_1fee994f",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T21:28:52Z",
+      "side": 1,
+      "message": "Then let\u0027s go with your suggestion and use\n\n    This cookie was blocked because neither did the requests URL\u0027s domain exactly match the cookie\u0027s domain,\n    nor was the requests URL\u0027s domain a subdomain of the cookie\u0027s Domain attribute value.",
+      "parentUuid": "dd541f04_81fde553",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
