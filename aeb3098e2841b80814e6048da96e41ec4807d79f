@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41588b06_0e51b5e2",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-03T21:18:38Z",
+      "side": 1,
+      "message": "Nit: should this be just \"Edit as HTML\" ? (This action is the \"Edit as HTML\" action in the right click menu for elements in the tree)",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1097a9c2_0243838b",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-03T21:18:38Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3beb0afb_d30512a1",
+        "filename": "front_end/profiler/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-03T21:18:38Z",
+      "side": 1,
+      "message": "Nit: JavaScript",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1209ad4d_56947ac5",
+        "filename": "front_end/profiler/profiler_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-03T21:18:38Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
