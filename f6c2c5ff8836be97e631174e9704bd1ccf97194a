@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc6ad72c_4a5c60d5",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T12:02:50Z",
+      "side": 1,
+      "message": "naming nit: \"expand\" might be a better name or invert the logic and call it \"collapse\"?",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "f6c2c5ff8836be97e631174e9704bd1ccf97194a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a290da09_560e315e",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T12:02:50Z",
+      "side": 1,
+      "message": "nit: This works, but has the exact same effect as simply doing\n\n  throw new Error(\u0027Internal error: not a issue\u0027);\n\nwhich I find more readable, but no strong opinion.",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 70
+      },
+      "revId": "f6c2c5ff8836be97e631174e9704bd1ccf97194a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
