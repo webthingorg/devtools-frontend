@@ -22,6 +22,30 @@
       "revId": "e32353547e284bba01c50a066b1394d534b60019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f9c03d6_78f600dd",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T14:57:45Z",
+      "side": 1,
+      "message": "No, I don\u0027t think we can. The reason I updated the runner is because we were assuming the Elements panel and therefore waiting for the .elements selector. But the UserMetrics code explicitly tracks the first opened panel, which means that when we then switch over to the timeline panel we are no longer looking at the first panel (which was Elements) and therefore the PanelLoaded event doesn\u0027t fire. So then we have to intercept before the page loads to catch the events etc.",
+      "parentUuid": "b312eeb5_a5704a0b",
+      "range": {
+        "startLine": 252,
+        "startChar": 46,
+        "endLine": 252,
+        "endChar": 54
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
