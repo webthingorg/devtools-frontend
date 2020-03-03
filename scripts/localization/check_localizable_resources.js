@@ -213,14 +213,15 @@ async function modifyResourcesInGRDP() {
 // Return true if any resources are removed
 async function removeResourcesFromGRDP(keysToRemoveFromGRD) {
   function indexOfFirstMatchingMessage(line, messages) {
-    for (let i = 0; i < messages.length; i++) {
-      const message = messages[i];
-      const match =
-          line.match(new RegExp(`<message[^>]*name="${message.ids}"[^>]*desc="${message.description}"[^>]*>`));
-      if (match)
-        return i;
-    }
-    return -1;
+      for (let i = 0; i < messages.length; i++) {
+        const message = messages[i];
+        const sanitizedDescription = sanitizeDescription(message.description);
+        const match =
+            line.match(new RegExp(`<message[^>]*name="${message.ids}"[^>]*desc="${sanitizedDescription}"[^>]*>`));
+        if (match)
+          return i;
+      }
+      return -1;
   }
 
   if (keysToRemoveFromGRD.size === 0)
@@ -251,6 +252,11 @@ async function removeResourcesFromGRDP(keysToRemoveFromGRD) {
   }
   await Promise.all(promises);
   return true;
+}
+
+// Sanitizes regex characters from a give string.
+function sanitizeDescription(description) {
+  return description.replace(/[\\\.\+\*\?\^\$\[\]\(\)\{\}\/\'\#\:\!\=\|]/ig, "\\$&");
 }
 
 // Given a map from IDS key to a list of messages, return a map
