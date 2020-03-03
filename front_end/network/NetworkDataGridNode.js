@@ -880,6 +880,23 @@ export class NetworkRequestNode extends NetworkNode {
   }
 
   /**
+   * @param {!Element} element
+   * @param {string} text
+   * @param {string} linkTitle
+   * @param {function()} handler
+   */
+  _setTextAndTitleAndLink(element, text, linkTitle, handler) {
+    element.createTextChild(text);
+    element.createChild('span', 'separator-in-cell');
+    const link = createElementWithClass('span', 'devtools-link');
+    link.href = '#';
+    link.innerText = linkTitle;
+    element.appendChild(link);
+    link.addEventListener('click', handler);
+    element.title = text;
+  }
+
+  /**
    * @override
    * @param {!Element} cell
    * @param {string} columnId
@@ -1066,6 +1083,7 @@ export class NetworkRequestNode extends NetworkNode {
       this._setTextAndTitle(cell, Common.UIString.UIString('(canceled)'));
     } else if (this._request.wasBlocked()) {
       let reason = Common.UIString.UIString('other');
+      let display_show_headers_link = false;
       switch (this._request.blockedReason()) {
         case Protocol.Network.BlockedReason.Other:
           reason = Common.UIString.UIString('other');
@@ -1091,8 +1109,34 @@ export class NetworkRequestNode extends NetworkNode {
         case Protocol.Network.BlockedReason.CollapsedByClient:
           reason = Common.UIString.UIString('extension');
           break;
+        case Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader:
+          display_show_headers_link = true;
+          reason = Common.UIString.UIString('CoepFrameResourceNeedsCoepHeader');
+          break;
+        case Protocol.Network.BlockedReason.CoopSandboxedIframeCannotNavigateToCoopPage:
+          display_show_headers_link = true;
+          reason = Common.UIString.UIString('CoopSandboxedIframeCannotNavigateToCoopPage');
+          break;
+        case Protocol.Network.BlockedReason.CorpNotSameOrigin:
+          display_show_headers_link = true;
+          reason = Common.UIString.UIString('NotSameOrigin');
+          break;
+        case Protocol.Network.BlockedReason.CorpNotSameSite:
+          display_show_headers_link = true;
+          reason = Common.UIString.UIString('NotSameSite');
+          break;
+        case Protocol.Network.BlockedReason.CorpNotSameOriginAfterDefaultedToSameOriginByCoep:
+          display_show_headers_link = true;
+          reason = Common.UIString.UIString('NotSameOriginAfterDefaultedToSameOriginByCoep');
+          break;
       }
-      this._setTextAndTitle(cell, Common.UIString.UIString('(blocked:%s)', reason));
+      if (display_show_headers_link) {
+        this._setTextAndTitleAndLink(cell, Common.UIString.UIString('(blocked:%s)', reason), 'View Headers', () => {
+          this.parentView().dispatchEventToListeners(Events.RequestActivated, /* showPanel */ true);
+        });
+      } else {
+        this._setTextAndTitle(cell, Common.UIString.UIString('(blocked:%s)', reason));
+      }
     } else if (this._request.finished) {
       this._setTextAndTitle(cell, Common.UIString.UIString('Finished'));
     } else {
