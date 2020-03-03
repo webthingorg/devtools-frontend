@@ -1280,13 +1280,12 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
         IndexedDBModel, IndexedDBModelEvents.DatabaseLoaded, this._indexedDBLoaded, this);
     self.SDK.targetManager.addModelListener(
         IndexedDBModel, IndexedDBModelEvents.IndexedDBContentUpdated, this._indexedDBContentUpdated, this);
-    /** @type {!Array.<!IDBDatabaseTreeElement>} */
-    this._idbDatabaseTreeElements = [];
+    /** @type {!Set.<!IDBDatabaseTreeElement>} */
+    this._idbDatabaseTreeElements = new Set();
 
     for (const indexedDBModel of self.SDK.targetManager.models(IndexedDBModel)) {
-      const databases = indexedDBModel.databases();
-      for (let j = 0; j < databases.length; ++j) {
-        this._addIndexedDB(indexedDBModel, databases[j]);
+      for (const database of indexedDBModel.databases()) {
+        this._addIndexedDB(indexedDBModel, database);
       }
     }
   }
@@ -1295,9 +1294,10 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
    * @param {!IndexedDBModel} model
    */
   removeIndexedDBForModel(model) {
-    const idbDatabaseTreeElements = this._idbDatabaseTreeElements.filter(element => element._model === model);
-    for (const idbDatabaseTreeElement of idbDatabaseTreeElements) {
-      this._removeIDBDatabaseTreeElement(idbDatabaseTreeElement);
+    for (const idbDatabaseTreeElement of this._idbDatabaseTreeElements) {
+      if (idbDatabaseTreeElement._model === model) {
+        this._removeIDBDatabaseTreeElement(idbDatabaseTreeElement);
+      }
     }
   }
 
@@ -1337,7 +1337,7 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
    */
   _addIndexedDB(model, databaseId) {
     const idbDatabaseTreeElement = new IDBDatabaseTreeElement(this._storagePanel, model, databaseId);
-    this._idbDatabaseTreeElements.push(idbDatabaseTreeElement);
+    this._idbDatabaseTreeElements.add(idbDatabaseTreeElement);
     this.appendChild(idbDatabaseTreeElement);
     model.refreshDatabase(databaseId);
   }
@@ -1362,7 +1362,7 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
   _removeIDBDatabaseTreeElement(idbDatabaseTreeElement) {
     idbDatabaseTreeElement.clear();
     this.removeChild(idbDatabaseTreeElement);
-    this._idbDatabaseTreeElements.remove(idbDatabaseTreeElement);
+    this._idbDatabaseTreeElements.delete(idbDatabaseTreeElement);
     this.setExpandable(this.childCount() > 0);
   }
 
@@ -1407,7 +1407,7 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
    * @return {?IDBDatabaseTreeElement}
    */
   _idbDatabaseTreeElement(model, databaseId) {
-    return this._idbDatabaseTreeElements.find(x => x._databaseId.equals(databaseId) && x._model === model) || null;
+    return [...this._idbDatabaseTreeElements].find(x => x._databaseId.equals(databaseId) && x._model === model) || null;
   }
 }
 
