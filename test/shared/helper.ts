@@ -35,7 +35,7 @@ const frontEndPage = Symbol('DevToolsPage');
 const screenshotPage = Symbol('ScreenshotPage');
 const browserInstance = Symbol('BrowserInstance');
 
-export let resetPages: (...enabledExperiments: string[]) => void;
+export let resetPages: (opts?: {enabledExperiments?: string[], selectedPanel?: {name: string, selector?: string}}) => void;
 
 // TODO: Remove once Chromium updates its version of Node.js to 12+.
 const globalThis: any = global;
@@ -170,7 +170,7 @@ export const debuggerStatement = (frontend: puppeteer.Page) => {
 
 export const store =
     (browser: puppeteer.Browser, target: puppeteer.Page, frontend: puppeteer.Page, screenshot: puppeteer.Page | undefined,
-     reset: (...enabledExperiments: string[]) => void) => {
+     reset: typeof resetPages) => {
       globalThis[browserInstance] = browser;
       globalThis[targetPage] = target;
       globalThis[frontEndPage] = frontend;
