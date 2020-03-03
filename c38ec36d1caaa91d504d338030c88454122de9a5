@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "301e0dde_1a1ac733",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T12:56:52Z",
+      "side": 1,
+      "message": "This is confusing since `linkTitle` is used as the link text, and `text` is used as the link title. (I\u0027m pretty sure I wrote this comment during my first pass, but Gerrit ate it)",
+      "revId": "c38ec36d1caaa91d504d338030c88454122de9a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2725343_199a1c1f",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T12:56:52Z",
+      "side": 1,
+      "message": "nice!",
+      "revId": "c38ec36d1caaa91d504d338030c88454122de9a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

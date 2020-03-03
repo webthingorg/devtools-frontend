@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "5d12ca83_2b55bfe5",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T12:56:52Z",
+      "side": 1,
+      "message": "I see. The double negative in `headerNotSet: false` is somewhat unfortunate but if you think this makes more sense, let\u0027s do it.",
+      "parentUuid": "94c216c0_613c3ec1",
+      "range": {
+        "startLine": 596,
+        "startChar": 50,
+        "endLine": 596,
+        "endChar": 62
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9599fdb_aad9e819",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
