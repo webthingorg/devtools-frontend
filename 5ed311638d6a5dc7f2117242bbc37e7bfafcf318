@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cf9d224_6fa8dca4",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Should we use XLink here?",
+      "range": {
+        "startLine": 891,
+        "startChar": 10,
+        "endLine": 891,
+        "endChar": 14
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c974ba_349469f7",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Nit:\n\n    s/innerText/textContent/\n\n(The innerText getter can trigger layout. For the setter it doesn\u0027t really matter, but it\u0027s easier to remember to just \"always use textContent\".)",
+      "range": {
+        "startLine": 893,
+        "startChar": 9,
+        "endLine": 893,
+        "endChar": 18
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2487440a_8db65be8",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "nit: weird formatting",
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "658d1e30_f95d1e5e",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Why do we have both headerSet and headerNotSet? What\u0027s the difference between headerNotSet: true and headerSet: false?",
+      "range": {
+        "startLine": 596,
+        "startChar": 50,
+        "endLine": 596,
+        "endChar": 62
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9599fdb_aad9e819",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "We\u0027re using this as a map, so it should probably be one.\n\n    const BlockedReasonDetails \u003d new Map([\n      [\n        Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader,\n        {\n          name: \u0027cross-origin-embedder-policy\u0027,\n          value: null,\n          details: `...`,\n        },\n      ],\n    ]);\n\nOr, is the reason this is not a map because you plan on moving this to a separate JSON-like file in the future?",
+      "range": {
+        "startLine": 888,
+        "startChar": 6,
+        "endLine": 888,
+        "endChar": 26
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba489a2_f6bc602c",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "nit: wrap in \u003ccode\u003e instead of quotes",
+      "range": {
+        "startLine": 904,
+        "startChar": 48,
+        "endLine": 904,
+        "endChar": 78
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dddc90b3_7a7c1711",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Can we use \u003ccode\u003e instead?",
+      "range": {
+        "startLine": 905,
+        "startChar": 23,
+        "endLine": 905,
+        "endChar": 49
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2527c69d_9eb672a0",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Two options:\n\n- as separate words: cross-origin opener policy (needs the hyphen)\n- as the header name: \u003ccode\u003eCross-Origin-Opener-Policy\u003c/code\u003e",
+      "range": {
+        "startLine": 917,
+        "startChar": 204,
+        "endLine": 917,
+        "endChar": 216
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "343a5b09_3fe235ef",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "nit: capitalize hex digits for consistency",
+      "range": {
+        "startLine": 92,
+        "startChar": 11,
+        "endLine": 92,
+        "endChar": 17
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65933e8e_04eeef4b",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Nit: double space\n\n(Side-note: we should get some CSS lint checks to catch nits like this)",
+      "range": {
+        "startLine": 92,
+        "startChar": 8,
+        "endLine": 92,
+        "endChar": 10
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bacb7121_9758a896",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Seems like #D93025 is used several times. Worth turning into a CSS variable (\"CSS custom property\") so that we can update this color in one place?",
+      "range": {
+        "startLine": 92,
+        "startChar": 10,
+        "endLine": 92,
+        "endChar": 18
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "403d34d1_15a81382",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:20:00Z",
+      "side": 1,
+      "message": "Why the half pixel?",
+      "range": {
+        "startLine": 127,
+        "startChar": 17,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
