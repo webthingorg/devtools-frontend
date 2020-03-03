@@ -117,6 +117,30 @@
       "revId": "565826b05463437ba0be50aef13a29742394b2c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4b679c4_26d061eb",
+        "filename": "test/unittests/front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T17:03:36Z",
+      "side": 1,
+      "message": "Re: my U+0009 comment above, I was wrong. It intentionally skips over U+0009 because that\u0027s \\t. *facepalm*",
+      "parentUuid": "75bf701f_fc0a6a79",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 0
+      },
+      "revId": "565826b05463437ba0be50aef13a29742394b2c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
