@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b312eeb5_a5704a0b",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T14:49:57Z",
+      "side": 1,
+      "message": "Rather than updating the runner with the logic to open a panel, can we instead have `timeline-helpers` that implement it?\n\nI would like to prevent us from doing custom things for, for example, loading. If we deviate how we load in our tests from how a user would do, we might introduce more problems. Moreover, the changes in the runner itself look complex and add more complexity to the system. Especially as it writes to localStorage, which by-steps what a user would do.",
+      "range": {
+        "startLine": 252,
+        "startChar": 46,
+        "endLine": 252,
+        "endChar": 54
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
