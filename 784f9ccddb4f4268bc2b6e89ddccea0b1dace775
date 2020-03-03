@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5e2e9f0_dfe99c23",
+        "filename": "front_end/bindings_test_runner/IsolatedFilesystemTestRunner.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T10:39:46Z",
+      "side": 0,
+      "message": "I think these are still necessary? (also in `addFile`)",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 16
+      },
+      "revId": "784f9ccddb4f4268bc2b6e89ddccea0b1dace775",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
