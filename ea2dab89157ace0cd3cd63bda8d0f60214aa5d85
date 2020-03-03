@@ -265,6 +265,30 @@
     },
     {
       "key": {
+        "uuid": "dd541f04_81fde553",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-03-03T20:20:24Z",
+      "side": 1,
+      "message": "Sure, either of those lgtm. I think the first one sounds cleaner (fewer words). Maybe a middle ground is to say \"the cookie\u0027s Domain attribute value\", instead of the whole \"domain specified in the cookie\u0027s Domain attribute\", but at that point we\u0027re splitting hairs.",
+      "parentUuid": "64dd0d6f_ee7148e3",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
