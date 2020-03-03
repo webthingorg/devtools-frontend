@@ -110,4 +110,20 @@ describe('StringUtilities', () => {
       assert.equal('', StringUtilities.reverse(''));
     });
   });
+
+  describe('replaceControlCharacters', () => {
+    it('replaces C0 and C1 control character sets with the replacement character', () => {
+      const inputString = '\bhello world';
+      const outputString = StringUtilities.replaceControlCharacters(inputString);
+
+      const replacementCharacter = '\uFFFD';
+      assert.equal(outputString, replacementCharacter + 'hello world');
+    });
+
+    it('does not replace \n \t or \r', () => {
+      const inputString = '\nhello world\t\r';
+      const outputString = StringUtilities.replaceControlCharacters(inputString);
+      assert.equal(inputString, outputString);
+    });
+  });
 });
