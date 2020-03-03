@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3573df5b_360ad739",
+        "filename": "front_end/common/UIString.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T18:31:58Z",
+      "side": 0,
+      "message": "I am confused as to why this change is necessary. When I tested locally, I could keep it. What error were you hitting?",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "683c198380dbee96fad08e689d30cb9911a4712c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
