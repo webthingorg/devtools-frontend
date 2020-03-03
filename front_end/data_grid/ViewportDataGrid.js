@@ -430,7 +430,10 @@ export class ViewportDataGridNode extends DataGridNode {
       throw 'removeChild: Node is not a child of this node.';
     }
 
-    this.children.remove(child, true);
+    const index = this.children.indexOf(child);
+    if (index !== -1) {
+      this.children.splice(index, 1);
+    }
     child._unlink();
 
     if (!this.children.length) {

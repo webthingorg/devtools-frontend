@@ -291,7 +291,10 @@ export class BottomUpProfileDataGridTree extends ProfileDataGridTree {
     // If we have a top level node that is excluded, get rid of it completely (not keeping children),
     // since bottom up data relies entirely on the root node.
     if (excludedTopLevelChild) {
-      this.children.remove(excludedTopLevelChild);
+      const index = this.children.indexOf(excludedTopLevelChild);
+      if (index !== -1) {
+        this.children.splice(index, 1);
+      }
     }
 
     const children = this.children;
