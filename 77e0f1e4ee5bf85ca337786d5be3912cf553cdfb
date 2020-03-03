@@ -22,6 +22,30 @@
       "revId": "77e0f1e4ee5bf85ca337786d5be3912cf553cdfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dda23a19_6a0e407c",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T11:57:25Z",
+      "side": 1,
+      "message": "With a `return null` outside of the loop? Yeah, that\u0027d be cleaner.",
+      "parentUuid": "dde2a86c_69f1536b",
+      "range": {
+        "startLine": 1410,
+        "startChar": 3,
+        "endLine": 1410,
+        "endChar": 119
+      },
+      "revId": "77e0f1e4ee5bf85ca337786d5be3912cf553cdfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
