@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7a2d185f_dd53fd5c",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T15:18:03Z",
+      "side": 1,
+      "message": "I don\u0027t see these used anywhere in this CL. Are they leftover from a previous refactoring?",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b312eeb5_a5704a0b",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 2
@@ -42,6 +65,145 @@
         "startChar": 46,
         "endLine": 252,
         "endChar": 54
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc14b20_9e97fcbb",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T15:18:03Z",
+      "side": 1,
+      "message": "Ah, I see. Could you update the CL description to include that explanation? Maybe also add an explicit code comment here in the doc stating why we use `selectedPanel` here.",
+      "parentUuid": "8f9c03d6_78f600dd",
+      "range": {
+        "startLine": 252,
+        "startChar": 46,
+        "endLine": 252,
+        "endChar": 54
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddaab2e5_c49ae313",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T15:18:03Z",
+      "side": 1,
+      "message": "Nit: omit frontend, e.g. `waitFor`",
+      "range": {
+        "startLine": 256,
+        "startChar": 10,
+        "endLine": 256,
+        "endChar": 26
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d78e4cc_439f6c54",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T15:18:03Z",
+      "side": 1,
+      "message": "Nit: should `resetPages` be given an explicit `type` or `interface` instead?",
+      "range": {
+        "startLine": 173,
+        "startChar": 19,
+        "endLine": 173,
+        "endChar": 29
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "219edf18_a0648960",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T15:18:03Z",
+      "side": 1,
+      "message": "Why are we no longer waiting for `networkidle2`? My fear is that it introduces flakiness, although I am not completely sure what its effect is.",
+      "range": {
+        "startLine": 176,
+        "startChar": 53,
+        "endLine": 176,
+        "endChar": 69
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1117034e_2e3f912e",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T15:18:03Z",
+      "side": 1,
+      "message": "Nit: Can we have a default value for `selectedPanel` to `elements` to reduce the logic here?",
+      "range": {
+        "startLine": 178,
+        "startChar": 9,
+        "endLine": 178,
+        "endChar": 37
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67b15881_da4ac615",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T15:18:03Z",
+      "side": 1,
+      "message": "Nit: commented code",
+      "range": {
+        "startLine": 189,
+        "startChar": 9,
+        "endLine": 189,
+        "endChar": 41
       },
       "revId": "e32353547e284bba01c50a066b1394d534b60019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
