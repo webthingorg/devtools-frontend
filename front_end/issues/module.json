@@ -9,6 +9,14 @@
           "persistence": "closeable",
           "className": "Issues.IssuesPane",
           "experiment": "issuesPane"
+      },
+      {
+        "type": "@Common.Revealer",
+        "contextTypes": [
+            "SDK.Issue"
+        ],
+        "destination": "Issues view",
+        "className": "Issues.IssueRevealer"
       }
     ],
     "dependencies": ["platform", "ui", "host", "components", "sdk"],
