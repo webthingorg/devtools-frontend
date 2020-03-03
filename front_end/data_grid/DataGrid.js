@@ -2109,7 +2109,11 @@ export class DataGridNode extends Common.ObjectWrapper.ObjectWrapper {
 
     child._detach();
     child.resetNode();
-    this.children.remove(child, true);
+
+    const index = this.children.indexOf(child);
+    if (index !== -1) {
+      this.children.splice(index, 1);
+    }
 
     if (this.children.length <= 0) {
       this.setHasChildren(false);
