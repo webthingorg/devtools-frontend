@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21155dea_0ed19318",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:37:46Z",
+      "side": 1,
+      "message": "toggle(false) would then untoggle it, which I find even more confusing, renamed to expand.",
+      "parentUuid": "cc6ad72c_4a5c60d5",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "f6c2c5ff8836be97e631174e9704bd1ccf97194a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a290da09_560e315e",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "f6c2c5ff8836be97e631174e9704bd1ccf97194a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e583bb79_ed3954af",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:37:46Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a290da09_560e315e",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 70
+      },
+      "revId": "f6c2c5ff8836be97e631174e9704bd1ccf97194a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
