@@ -174,6 +174,9 @@
   <message name="IDS_DEVTOOLS_4bc16757f0e30f62902ac7f86f19b23b" desc="A context menu item in the Sources Panel of the Sources panel">
     Show function definition
   </message>
+  <message name="IDS_DEVTOOLS_4ccfddde7696759c35d434580be577f0" desc="Title of an action to save all files in the Sources panel">
+    Save all
+  </message>
   <message name="IDS_DEVTOOLS_51eb42e9c7ed7951fea0d51a1e4a2cfc" desc="Text in Go To Line Quick Open of the Sources panel">
     Go to line <ph name="POSITION_LINE">$1s<ex>2</ex></ph>.
   </message>
@@ -237,6 +240,9 @@
   <message name="IDS_DEVTOOLS_6bb8aa3b54918eeb27dafcace1e5addd" desc="Text in Navigator View of the Sources panel">
     (no domain)
   </message>
+  <message name="IDS_DEVTOOLS_6c2dd758b001f05ee8c70b4e9f5b05fc" desc="Title of an action that switches files in the Sources panel">
+    Switch file
+  </message>
   <message name="IDS_DEVTOOLS_6cc39b227b3571623cfa817ed5df1c8b" desc="Text in Java Script Breakpoints Sidebar Pane of the Sources panel">
     Disable all breakpoints
   </message>
@@ -272,6 +278,9 @@
   </message>
   <message name="IDS_DEVTOOLS_77898d40c8a26a07d05eedb991359804" desc="Text in Script Origin Plugin of the Sources panel">
     (source mapped from <ph name="COMPONENTS_LINKIFIER_LINKIFYURL_ORIGINURL_">$1s<ex>example.com</ex></ph>)
+  </message>
+  <message name="IDS_DEVTOOLS_7866f3be72261be09f457d64ef9a14d1" desc="Title of an action that jumps to a previous location in the Sources panel">
+    Jump to previous location
   </message>
   <message name="IDS_DEVTOOLS_7a6364731fbe9e4571bd0cf4078a8344" desc="Accessible label for Sources placeholder view actions list">
     Source View Actions
@@ -368,6 +377,9 @@
   </message>
   <message name="IDS_DEVTOOLS_a3fec1fa9178602843f79537c66b1496" desc="Title of an action in the debugger tool to step out">
     Step out of current function
+  </message>
+  <message name="IDS_DEVTOOLS_a510b30ae5820d3b5a577d748c699e3d" desc="Title of an action that jumps to the next location in the Sources panel">
+    Jump to next location
   </message>
   <message name="IDS_DEVTOOLS_a570cb902fdec05031ec1a25634bdbdb" desc="Text in Outline Quick Open of the Sources panel">
     Open a JavaScript or CSS file to see symbols
