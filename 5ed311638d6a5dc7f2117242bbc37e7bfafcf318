@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da7414fa_66ac3cfc",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "After offline discussion, we\u0027re going to use a span here.",
+      "parentUuid": "2cf9d224_6fa8dca4",
+      "range": {
+        "startLine": 891,
+        "startChar": 10,
+        "endLine": 891,
+        "endChar": 14
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0c974ba_349469f7",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "556b80a8_00008025",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0c974ba_349469f7",
+      "range": {
+        "startLine": 893,
+        "startChar": 9,
+        "endLine": 893,
+        "endChar": 18
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2487440a_8db65be8",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
@@ -62,6 +110,24 @@
       "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b09181_040baf2a",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2487440a_8db65be8",
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "94c216c0_613c3ec1",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Right, we don\u0027t need headerSet. I chose headerNotSet so the absence of the property defaults to header set, which is the intended behavior.",
+      "parentUuid": "658d1e30_f95d1e5e",
+      "range": {
+        "startLine": 596,
+        "startChar": 50,
+        "endLine": 596,
+        "endChar": 62
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9599fdb_aad9e819",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
@@ -108,6 +198,30 @@
       "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd657a5d_94b7a712",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9599fdb_aad9e819",
+      "range": {
+        "startLine": 888,
+        "startChar": 6,
+        "endLine": 888,
+        "endChar": 26
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "ebed5dc0_5c3bf1b6",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ba489a2_f6bc602c",
+      "range": {
+        "startLine": 904,
+        "startChar": 48,
+        "endLine": 904,
+        "endChar": 78
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dddc90b3_7a7c1711",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "710b7ffd_2dbc9504",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dddc90b3_7a7c1711",
+      "range": {
+        "startLine": 905,
+        "startChar": 23,
+        "endLine": 905,
+        "endChar": 49
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2527c69d_9eb672a0",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
@@ -177,6 +339,30 @@
       "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47931861_148d934b",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Chose the ladder, thanks!",
+      "parentUuid": "2527c69d_9eb672a0",
+      "range": {
+        "startLine": 917,
+        "startChar": 204,
+        "endLine": 917,
+        "endChar": 216
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -249,6 +435,78 @@
     },
     {
       "key": {
+        "uuid": "f088860e_a6beb310",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "343a5b09_3fe235ef",
+      "range": {
+        "startLine": 92,
+        "startChar": 11,
+        "endLine": 92,
+        "endChar": 17
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18037622_31d3f2b4",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bacb7121_9758a896",
+      "range": {
+        "startLine": 92,
+        "startChar": 10,
+        "endLine": 92,
+        "endChar": 18
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe4bdb4c_af790a59",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65933e8e_04eeef4b",
+      "range": {
+        "startLine": 92,
+        "startChar": 8,
+        "endLine": 92,
+        "endChar": 10
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "403d34d1_15a81382",
         "filename": "front_end/network/requestHeadersTree.css",
         "patchSetId": 4
@@ -269,6 +527,30 @@
       "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8b0acda_3308ec4f",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T12:32:43Z",
+      "side": 1,
+      "message": "This is to match the style of the issues panel.",
+      "parentUuid": "403d34d1_15a81382",
+      "range": {
+        "startLine": 127,
+        "startChar": 17,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "5ed311638d6a5dc7f2117242bbc37e7bfafcf318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
