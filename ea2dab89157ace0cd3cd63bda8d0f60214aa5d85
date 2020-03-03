@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "4495409f_8af61630",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T08:39:01Z",
+      "side": 1,
+      "message": "To determine whether a cookie applies (net:cookie_util::IsDomainMatch), one does not have to understand what a \"registrable domain\" or a TLD is, so I find mentioning those here is misleading (because a web developer might now invest time to read up on the definitions, but it won\u0027t help them with their problem).\n\nOn an intuitive level, I expect web developers to understand that a domain is a sequence of labels separated by dots, and to understand that if two sequences share a common suffix, the longer one is a subdomain of the shorter one.\n\nThe second problem I have with the current description is that it is not as actionable as it could be: It doesn\u0027t mention that the Domain\u003d attribute can be used to make the cookie apply to sub-domains. By mentioning the Domain attribute, I expect web developers to search for \"cookie domain attribute\", which has https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie as first result, and looking for \"Domain\u003d\" on that page brings the web developer to just the information they need.\n\nI\u0027ve changed the working as follows:\n\n    This cookie was blocked because neither did its domain exactly match the requests url\u0027s domain\n    nor was it configured via the \"Domain\u003d\" attribute to also apply to subdomains.\n\nLily, can you live with this for the reasons I\u0027ve given?",
+      "parentUuid": "013a09e1_319a3ea7",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
