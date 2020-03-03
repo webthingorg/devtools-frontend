@@ -39,6 +39,7 @@ export class PieChart {
    */
   constructor(options) {
     const {size, formatter, showLegend, chartName} = options;
+    this._legendMap = new Map();
     this.element = createElement('div');
     this._shadowRoot = UI.Utils.createShadowRootWithCoreStyles(this.element, 'perf_ui/pieChart.css');
     const root = this._shadowRoot.createChild('div', 'root');
@@ -61,6 +62,8 @@ export class PieChart {
     circle.setAttribute('stroke-width', strokeWidth);
     this._foregroundElement = this._chartRoot.createChild('div', 'pie-chart-foreground');
     this._totalElement = this._foregroundElement.createChild('div', 'pie-chart-total');
+    this._totalElementClickHandler = this._focusClickedElement.bind(this, this._totalElement);
+    this._totalElement.addEventListener('click', this._totalElementClickHandler);
     this._formatter = formatter;
     this._slices = [];
     this._lastAngle = -Math.PI / 2;
@@ -68,6 +71,7 @@ export class PieChart {
       this._legend = root.createChild('div', 'pie-chart-legend');
     }
     this._setSize(size);
+    root.addEventListener('keydown', this._onKeyDown.bind(this));
   }
 
   /**
@@ -87,17 +91,23 @@ export class PieChart {
       totalString = '';
     }
     this._totalElement.textContent = totalString;
+    const name = ls`Total`;
     if (this._legend) {
       this._legend.removeChildren();
-      this._addLegendItem(this._totalElement, totalValue, ls`Total`);
+      this._legendMap.clear();
+      const size = this._formatter ? this._formatter(totalValue) : totalValue;
+      const legendItem = this._addLegendItem(this._totalElement, size, this._totalElementClickHandler, name);
+      this._legendMap.set(this._totalElement, legendItem);
     }
+    this._setSelectedElement(this._totalElement);
+    UI.ARIAUtils.setAccessibleName(this._totalElement, name);
   }
 
   /**
    * @param {number} value
    */
   _setSize(value) {
-    this._group.setAttribute('transform', 'scale(' + (value / 2) + ') translate(1, 1) scale(0.99, 0.99)');
+    this._group.setAttribute('transform', 'scale(' + (value / 2) + ') translate(1, 1) scale(0.96, 0.96)');
     const size = value + 'px';
     this._chartRoot.style.width = size;
     this._chartRoot.style.height = size;
@@ -115,6 +125,8 @@ export class PieChart {
     }
     sliceAngle = Math.min(sliceAngle, 2 * Math.PI * 0.9999);
     const path = this._createSVGChild(this._group, 'path');
+    path.classList.add('slice');
+    path.tabIndex = -1;
     const x1 = Math.cos(this._lastAngle);
     const y1 = Math.sin(this._lastAngle);
     this._lastAngle += sliceAngle;
@@ -130,8 +142,15 @@ export class PieChart {
         `M${x1},${y1} A1,1,0,${largeArc},1,${x2},${y2} L${x3},${y3} A${r2},${r2},0,${largeArc},0,${x4},${y4} Z`);
     path.setAttribute('fill', color);
     this._slices.push(path);
+    const clickHandler = this._focusClickedElement.bind(this, path);
+    path.addEventListener('click', clickHandler);
+    const size = this._formatter ? this._formatter(value) : value;
     if (this._legend) {
-      this._addLegendItem(path, value, name, color);
+      const legendItem = this._addLegendItem(path, size, clickHandler, name, color);
+      this._legendMap.set(path, legendItem);
+    }
+    if (name) {
+      UI.ARIAUtils.setAccessibleName(path, name + ' ' + size);
     }
   }
 
@@ -148,13 +167,15 @@ export class PieChart {
 
   /**
    * @param {!Element} figureElement
-   * @param {number} value
+   * @param {string} size
+   * @param { function() } clickHandler
    * @param {string=} name
    * @param {string=} color
    * @returns {!Element}
    */
-  _addLegendItem(figureElement, value, name, color) {
+  _addLegendItem(figureElement, size, clickHandler, name, color) {
     const node = this._legend.ownerDocument.createElement('div');
+    node.addEventListener('click', clickHandler);
     node.className = 'pie-chart-legend-row';
     // make sure total always appears at the bottom
     if (this._legend.childElementCount) {
@@ -162,19 +183,99 @@ export class PieChart {
     } else {
       this._legend.appendChild(node);
     }
-    const sizeDiv = node.createChild('div', 'pie-chart-size');
+    node.createChild('div', 'pie-chart-size').textContent = size;
     const swatchDiv = node.createChild('div', 'pie-chart-swatch');
-    const nameDiv = node.createChild('div', 'pie-chart-name');
+    node.createChild('div', 'pie-chart-name').textContent = name;
     if (color) {
       swatchDiv.style.backgroundColor = color;
     } else {
       swatchDiv.classList.add('pie-chart-empty-swatch');
     }
-    nameDiv.textContent = name;
-    const size = this._formatter ? this._formatter(value) : value;
-    sizeDiv.textContent = size;
     UI.ARIAUtils.setAccessibleName(figureElement, name + ' ' + size);
     return node;
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onKeyDown(event) {
+    let handled = false;
+    if (event.key === 'ArrowDown') {
+      this._focusNextElement();
+      handled = true;
+    } else if (event.key === 'ArrowUp') {
+      this._focusPreviousElement();
+      handled = true;
+    }
+
+    if (handled) {
+      event.consume(true);
+    }
+  }
+
+  /**
+   * @param {!Element} element
+   */
+  _focusClickedElement(element) {
+    this._setSelectedElement(element);
+    element.focus();
+  }
+
+  /**
+   * @param {!Element} element
+   */
+  _setSelectedElement(element) {
+    if (this._activeElement) {
+      this._activeElement.tabIndex = -1;
+      this._activeElement.classList.remove('selected');
+      const legendElement = this._legendMap.get(this._activeElement);
+      if (legendElement) {
+        legendElement.classList.remove('selected');
+      }
+    }
+    this._activeElement = element;
+    this._activeElement.tabIndex = 1;
+    this._activeElement.classList.add('selected');
+    const legendElement = this._legendMap.get(this._activeElement);
+    if (legendElement) {
+      legendElement.classList.add('selected');
+    }
+    // make the active slice the last one so it draws on top
+    if (this._activeElement.classList.contains('slice')) {
+      this._group.appendChild(this._activeElement);
+    }
+  }
+
+  _focusNextElement() {
+    let nextElement = null;
+    const lastSliceIndex = this._slices.length - 1;
+    const currentSliceIndex = this._slices.indexOf(this._activeElement);
+    if (currentSliceIndex === lastSliceIndex) {
+      nextElement = this._totalElement;
+    } else if (currentSliceIndex >= 0) {
+      nextElement = this._slices[currentSliceIndex + 1];
+    }
+
+    if (nextElement) {
+      this._setSelectedElement(nextElement);
+      nextElement.focus();
+    }
+  }
+
+  _focusPreviousElement() {
+    let previousElement = null;
+    const lastSliceIndex = this._slices.length - 1;
+    const currentSliceIndex = this._slices.indexOf(this._activeElement);
+    if (this._activeElement === this._totalElement) {
+      previousElement = this._slices[lastSliceIndex];
+    } else if (currentSliceIndex > 0) {
+      previousElement = this._slices[currentSliceIndex - 1];
+    }
+
+    if (previousElement) {
+      this._setSelectedElement(previousElement);
+      previousElement.focus();
+    }
   }
 }
 
