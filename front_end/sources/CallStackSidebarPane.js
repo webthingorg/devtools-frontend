@@ -585,9 +585,10 @@ export class Item {
   /**
    * @param {!Bindings.LiveLocation.LiveLocation} liveLocation
    */
-  _update(liveLocation) {
-    const uiLocation = liveLocation.uiLocation();
-    this.isBlackboxed = liveLocation.isBlackboxed();
+  async _update(liveLocation) {
+    const uiLocation = await liveLocation.uiLocation();
+    this.isBlackboxed =
+        uiLocation ? self.Bindings.blackboxManager.isBlackboxedUISourceCode(uiLocation.uiSourceCode) : false;
     this.linkText = uiLocation ? uiLocation.linkText() : '';
     this.uiLocation = uiLocation;
     this.updateDelegate(this);
