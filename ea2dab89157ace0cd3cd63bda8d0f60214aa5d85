@@ -217,6 +217,30 @@
     },
     {
       "key": {
+        "uuid": "1a847b20_d0a2e3d6",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-03-03T16:07:56Z",
+      "side": 1,
+      "message": "Well my only quibble with that is it\u0027s not precisely correct. In the example above of the Domain\u003dfoo.example.com, it is in fact configured via the Domain attribute to apply to subdomains. But it still wouldn\u0027t be sent to bar.example.com.\n\nI think the first part of that sentence is fine, but it might be better to say, for the second part: nor was it configured via the Domain attribute to apply to [the request URL\u0027s domain / a set of domains including the request URL\u0027s domain / a superdomain of the request URL\u0027s domain and all subdomains thereof].",
+      "parentUuid": "4495409f_8af61630",
+      "range": {
+        "startLine": 1492,
+        "startChar": 166,
+        "endLine": 1492,
+        "endChar": 226
+      },
+      "revId": "ea2dab89157ace0cd3cd63bda8d0f60214aa5d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed5d1f3f_36449897",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
