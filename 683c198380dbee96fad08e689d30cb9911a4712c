@@ -22,6 +22,30 @@
       "revId": "683c198380dbee96fad08e689d30cb9911a4712c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1307473_48867746",
+        "filename": "front_end/common/UIString.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-03-03T18:34:16Z",
+      "side": 0,
+      "message": "no error, just saw it wasn\u0027t being used",
+      "parentUuid": "3573df5b_360ad739",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "683c198380dbee96fad08e689d30cb9911a4712c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
