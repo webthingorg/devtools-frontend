@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9b67643_79a00bc7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T06:31:24Z",
+      "side": 1,
+      "message": "reverse",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "21513395868cefcad2779e08adbad35338fe6878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c81da7b_9f756477",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T06:31:24Z",
+      "side": 1,
+      "message": "readability nit: Maybe make this\n\nconst reversedEncodedPath \u003d Platform.StringUtilities.reverse(this._encoder.encode(networkPath));\n\nor even one more const binding.",
+      "range": {
+        "startLine": 458,
+        "startChar": 10,
+        "endLine": 458,
+        "endChar": 21
+      },
+      "revId": "21513395868cefcad2779e08adbad35338fe6878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b81b7ce4_a9c05e8f",
+        "filename": "test/unittests/front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T06:31:24Z",
+      "side": 1,
+      "message": "nit: Add test case for the empty string :)",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 28
+      },
+      "revId": "21513395868cefcad2779e08adbad35338fe6878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
