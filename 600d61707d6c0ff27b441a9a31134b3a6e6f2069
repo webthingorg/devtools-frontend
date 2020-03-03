@@ -22,6 +22,30 @@
       "revId": "600d61707d6c0ff27b441a9a31134b3a6e6f2069",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aad5df39_15363070",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T13:22:51Z",
+      "side": 1,
+      "message": "I suppose the assertion would fire, which we haven\u0027t seen in the layout tests. Therefore, I think this is fine for now.",
+      "parentUuid": "79660a57_9792c63e",
+      "range": {
+        "startLine": 313,
+        "startChar": 3,
+        "endLine": 315,
+        "endChar": 5
+      },
+      "revId": "600d61707d6c0ff27b441a9a31134b3a6e6f2069",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
