@@ -22,6 +22,30 @@
       "revId": "b78de8447026ea42e827babd3c0060407d16edc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "468d7de6_bd9d52a5",
+        "filename": "front_end/issues/issues-legacy.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-03T15:28:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d20e641_5fcb8d5d",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 15,
+        "endChar": 49
+      },
+      "revId": "b78de8447026ea42e827babd3c0060407d16edc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
