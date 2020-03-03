@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "78cf38df_6fb3c681",
+        "filename": "test/e2e/elements/shadowroot-styles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T17:28:02Z",
+      "side": 1,
+      "message": "Added a helper function to implement that. WDYT?",
+      "parentUuid": "9c6d9b9a_a78ae798",
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9fb89c5_6e227ce3",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "06f44340_b7af1db1",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T17:28:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9fb89c5_6e227ce3",
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bd56212_995e23e4",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "253f9a41_f8b890bf",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T17:28:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bd56212_995e23e4",
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -96,6 +150,54 @@
       "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd1a541b_d6fdeab0",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T17:28:02Z",
+      "side": 1,
+      "message": "I wanted to be explicit about the return type, as I initially made a mistake with the typings.",
+      "parentUuid": "a8e318e1_ee18dfae",
+      "range": {
+        "startLine": 161,
+        "startChar": 94,
+        "endLine": 161,
+        "endChar": 104
+      },
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5005bcf4_c740dce0",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T17:28:02Z",
+      "side": 1,
+      "message": "Fixed. I renamed it to `fn` to be consistent with Puppeteer waitForFunction.",
+      "parentUuid": "0266f2ca_28268d46",
+      "range": {
+        "startLine": 161,
+        "startChar": 35,
+        "endLine": 161,
+        "endChar": 52
+      },
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
