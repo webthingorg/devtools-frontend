@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c230d37_cb3b5cc0",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T16:00:21Z",
+      "side": 1,
+      "message": "Yep. Will remove.",
+      "parentUuid": "7a2d185f_dd53fd5c",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b312eeb5_a5704a0b",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "9669a655_41759657",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T16:00:21Z",
+      "side": 1,
+      "message": "Yep - will do.",
+      "parentUuid": "8cc14b20_9e97fcbb",
+      "range": {
+        "startLine": 252,
+        "startChar": 46,
+        "endLine": 252,
+        "endChar": 54
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddaab2e5_c49ae313",
         "filename": "test/e2e/host/user-metrics.ts",
         "patchSetId": 2
@@ -116,6 +164,30 @@
       "revId": "e32353547e284bba01c50a066b1394d534b60019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46a05e5_4dcf981a",
+        "filename": "test/e2e/host/user-metrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T16:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddaab2e5_c49ae313",
+      "range": {
+        "startLine": 256,
+        "startChar": 10,
+        "endLine": 256,
+        "endChar": 26
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "f94064ec_e3c6bfe4",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T16:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d78e4cc_439f6c54",
+      "range": {
+        "startLine": 173,
+        "startChar": 19,
+        "endLine": 173,
+        "endChar": 29
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "219edf18_a0648960",
         "filename": "test/shared/runner.ts",
         "patchSetId": 2
@@ -162,6 +258,30 @@
       "revId": "e32353547e284bba01c50a066b1394d534b60019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "589d6826_935a780c",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T16:00:21Z",
+      "side": 1,
+      "message": "No, it was superfluous. It meant that we waited for there to be fewer than 2 network requests for 500ms before proceeding, but because we wait for a selector in the page, that is not necessary.",
+      "parentUuid": "219edf18_a0648960",
+      "range": {
+        "startLine": 176,
+        "startChar": 53,
+        "endLine": 176,
+        "endChar": 69
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -188,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "e0613c1b_3ee1f6e5",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T16:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1117034e_2e3f912e",
+      "range": {
+        "startLine": 178,
+        "startChar": 9,
+        "endLine": 178,
+        "endChar": 37
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67b15881_da4ac615",
         "filename": "test/shared/runner.ts",
         "patchSetId": 2
@@ -208,6 +352,30 @@
       "revId": "e32353547e284bba01c50a066b1394d534b60019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d83f48_fc9959d3",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T16:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67b15881_da4ac615",
+      "range": {
+        "startLine": 189,
+        "startChar": 9,
+        "endLine": 189,
+        "endChar": 41
+      },
+      "revId": "e32353547e284bba01c50a066b1394d534b60019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
