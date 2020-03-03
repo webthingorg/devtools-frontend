@@ -46,6 +46,30 @@
       "revId": "9248a444796df2237a3a4cf1d4b872b7840fa0b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87cf885b_eeb8b90e",
+        "filename": "front_end/network/RequestCookiesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T11:11:27Z",
+      "side": 1,
+      "message": "Ok, leaving it as-is. Splicing would work, but that feels like a lot of work when setting it to null is enough.",
+      "parentUuid": "a16bf7ca_5378868c",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 9
+      },
+      "revId": "9248a444796df2237a3a4cf1d4b872b7840fa0b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
