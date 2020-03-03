@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -21,7 +22,7 @@ class IssueView extends UI.Widget.Widget {
 
   appendHeader() {
     const header = createElementWithClass('div', 'header');
-    header.addEventListener('click', this._handleSelect.bind(this));
+    header.addEventListener('click', this._handleClick.bind(this));
     const icon = UI.Icon.Icon.create('largeicon-breaking-change', 'icon');
     header.appendChild(icon);
 
@@ -63,12 +64,24 @@ class IssueView extends UI.Widget.Widget {
     this.contentElement.appendChild(bodyWrapper);
   }
 
-  _handleSelect() {
+  _handleClick() {
     this._parent.handleSelect(this);
   }
 
-  toggle() {
-    this.contentElement.classList.toggle('collapsed');
+  /**
+   * @param {(boolean|undefined)=} expand - Expands the issue if `true`, collapses if `false`, toggles collapse if undefined
+   */
+  toggle(expand) {
+    if (expand === undefined) {
+      this.contentElement.classList.toggle('collapsed');
+    } else {
+      this.contentElement.classList.toggle('collapsed', !expand);
+    }
+  }
+
+  reveal() {
+    this.toggle(true);
+    this.contentElement.scrollIntoView(true);
   }
 }
 
@@ -106,6 +119,9 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this._addIssueView(event.data);
   }
 
+  /**
+   * @param {!SDK.Issue.Issue} issue
+   */
   _addIssueView(issue) {
     if (!(issue.code in issueDetails)) {
       console.warn('Received issue with unknown code:', issue.code);
@@ -131,8 +147,21 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this._toolbarIssuesCount.textContent = this._model.size();
   }
 
-  handleSelect(issue) {
-    issue.toggle();
+  /**
+   * @param {!IssueView} issueView
+   */
+  handleSelect(issueView) {
+    issueView.toggle();
+  }
+
+  /**
+   * @param {string} code
+   */
+  revealByCode(code) {
+    const issueView = this._issueViews.get(code);
+    if (issueView) {
+      issueView.reveal();
+    }
   }
 }
 
@@ -160,3 +189,23 @@ const issueDetails = {
     linkTitle: ls`SameSite cookies explained`,
   },
 };
+
+/**
+ * @implements {Common.Revealer.Revealer}
+ * @unrestricted
+ */
+export class IssueRevealer {
+  /**
+   * @override
+   * @param {!Object} issue
+   * @return {!Promise}
+   */
+  async reveal(issue) {
+    if (!(issue instanceof SDK.Issue.Issue)) {
+      throw new Error('Internal error: not a issue');
+    }
+    await self.UI.viewManager.showView('issues-pane');
+    const issuesPane = await self.UI.viewManager.view('issues-pane').widget();
+    issuesPane.revealByCode(issue.code());
+  }
+}
