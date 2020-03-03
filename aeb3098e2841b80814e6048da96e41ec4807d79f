@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "522cf020_5702c33b",
+        "filename": "front_end/console/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this should be \"Show Console\" with a capital C",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 36
+      },
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41588b06_0e51b5e2",
         "filename": "front_end/elements/module.json",
         "patchSetId": 4
@@ -37,6 +60,29 @@
     },
     {
       "key": {
+        "uuid": "37271bf6_3e6bfd55",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this should be \"Show Console\"",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 16
+      },
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1097a9c2_0243838b",
         "filename": "front_end/langpacks/shared_strings.grdp",
         "patchSetId": 4
@@ -69,6 +115,75 @@
       "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631bbc99_c49fe396",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "This is how we describe this shortcut in our docs \"Go to a function declaration (if currently-open file is HTML or a script), or a rule set (if currently-open file is a stylesheet)\". It\u0027s verbose but I think it\u0027s more clear than \"Go to member\"",
+      "range": {
+        "startLine": 503,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 16
+      },
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d31c488d_af2504da",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "We call this one: \"Close the active tab\" in our docs. So this action should probably be called that and we can be consistent about using panels for actions that actually switch between tools, open tools, etc.",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 656,
+        "endChar": 20
+      },
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce1a9690_c01b0777",
+        "filename": "front_end/main/main_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this should actually be \"Next panel\".",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
       "key": {

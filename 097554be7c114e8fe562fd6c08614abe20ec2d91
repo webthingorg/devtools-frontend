@@ -1,0 +1,405 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1140012d_6c62f1da",
+        "filename": "front_end/main/main_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "This should be \"Next panel\"",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd1224f2_948f962c",
+        "filename": "front_end/main/main_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this should be \"Previous panel\"",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 16
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce90f3d7_ac2728bb",
+        "filename": "front_end/main/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "This should be \"Next panel\"",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 32
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "092497d6_e0655fb7",
+        "filename": "front_end/main/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "This should be \"Previous panel\"",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42b93a46_44e6acce",
+        "filename": "front_end/profiler/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "We call this in our docs \"Start/stop recording\" and we just rely on the panel context to determine what recording this is. So if this is under \"Memory panel shortcuts\", I think it\u0027s fine to say \"Start/stop recording\" without having to be specific about it being \"Start/stop heap recording\"",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 45
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82c07db2_fc83d96a",
+        "filename": "front_end/profiler/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "We call this in our docs \"Start/stop recording\" and we just rely on the panel context to determine what recording this is. So if this is under \"Performance panel shortcuts\", I think it\u0027s fine to say \"Start/stop recording\" without having to be specific about it being \"Start/stop JavaScript recording\"\n\nIf I\u0027ve misunderstood and this is a shortcut in the Memory panel, I\u0027d like to find a more current name that aligns with what is shown in the Memory panel right now.",
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fe8b80b_0785e70c",
+        "filename": "front_end/profiler/profiler_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "We call this in our docs \"Start/stop recording\" and we just rely on the panel context to determine what recording this is. So if this is under \"Memory panel shortcuts\", I think it\u0027s fine to say \"Start/stop recording\" without having to be specific about it being \"Start/stop heap recording\"",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 25
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f62cb91_dda17bb2",
+        "filename": "front_end/profiler/profiler_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "We call this in our docs \"Start/stop recording\" and we just rely on the panel context to determine what recording this is. So if this is under \"Performance panel shortcuts\", I think it\u0027s fine to say \"Start/stop recording\" without having to be specific about it being \"Start/stop JavaScript recording\"\n\nIf I\u0027ve misunderstood and this is a shortcut in the Memory panel, I\u0027d like to find a more current name that aligns with what is shown in the Memory panel right now.",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 31
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b632d25_f74224cc",
+        "filename": "front_end/sources/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I couldn\u0027t actually get this shortcut working. Is it possible this is out of date?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 35
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3700b212_f058e33e",
+        "filename": "front_end/sources/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "In our docs, we actually use: \"Close the active tab\" so that\u0027s what I think this should be. As long as it is under \"Sources panel shortcuts\" or some equivalent header.",
+      "range": {
+        "startLine": 646,
+        "startChar": 28,
+        "endLine": 646,
+        "endChar": 35
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f04181b4_fb83947c",
+        "filename": "front_end/sources/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this should be: \"Go to a function declaration/rule set\"",
+      "range": {
+        "startLine": 674,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 36
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd3906ec_760527e9",
+        "filename": "front_end/timeline/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I actually think this could be more concise just as \"Previous frame\"",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 46
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebbb5beb_b77e908c",
+        "filename": "front_end/timeline/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I actually think this could be more concise just as \"Next frame\"",
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9161df4_7f8d2056",
+        "filename": "front_end/timeline/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this could just be: \"Previous recording\"",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 47
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc61b031_efa3e08b",
+        "filename": "front_end/timeline/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this could just be: \"Next recording\"",
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cac58ba_7c3c8e03",
+        "filename": "front_end/timeline/timeline_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this could just be: \"Next recording\"",
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93eab04b_f0e9e32e",
+        "filename": "front_end/timeline/timeline_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "This can be \"Previous frame\"",
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b635e7ba_1d36a886",
+        "filename": "front_end/timeline/timeline_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "This can be \"Next frame\"",
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfda2ee9_753d646c",
+        "filename": "front_end/timeline/timeline_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1392453
+      },
+      "writtenOn": "2020-03-03T23:09:35Z",
+      "side": 1,
+      "message": "I think this could just be: \"Previous recording\"",
+      "range": {
+        "startLine": 829,
+        "startChar": 0,
+        "endLine": 829,
+        "endChar": 27
+      },
+      "revId": "097554be7c114e8fe562fd6c08614abe20ec2d91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
