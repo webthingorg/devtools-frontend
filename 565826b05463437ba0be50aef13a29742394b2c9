@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "709e2054_0731bfcc",
+        "filename": "test/unittests/front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T13:10:44Z",
+      "side": 1,
+      "message": "I\u0027d just inline the \\uFFFD into the expectation string, to be honest. If you really prefer to separate it like this let\u0027s use a template literal",
+      "range": {
+        "startLine": 109,
+        "startChar": 33,
+        "endLine": 109,
+        "endChar": 53
+      },
+      "revId": "565826b05463437ba0be50aef13a29742394b2c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5160675_09972c63",
         "filename": "test/unittests/front_end/platform/string-utilities.ts",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2020-03-03T12:58:41Z",
       "side": 1,
       "message": "would quite like to flesh this out with more tests - Mathias any thoughts?",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 0
+      },
+      "revId": "565826b05463437ba0be50aef13a29742394b2c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1679f83d_3d3a92ee",
+        "filename": "test/unittests/front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T13:10:44Z",
+      "side": 1,
+      "message": "Create a string containing all C0 and C1 characters as well as some `a b c`, then check that calling the function removes only the control characters (except for the exceptions like \\n). \n\nC0: 0x00–0x1F\nC1: 0x80–0x9F\n\nYou could use jsesc (https://github.com/mathiasbynens/jsesc) to produce a compact ASCII-safe string literal representation.\n\nLooking at the regexp, it already seems like it doesn\u0027t quite do what it intends to do: it doesn\u0027t remove U+0009.",
+      "parentUuid": "d5160675_09972c63",
       "range": {
         "startLine": 103,
         "startChar": 3,
