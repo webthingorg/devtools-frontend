@@ -16,6 +16,24 @@
       "revId": "5b6fea6e75bed983f0b8a533912bdb459ce8d2a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f8dc8d6_40bb90cd",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-03T09:11:15Z",
+      "side": 1,
+      "message": "Maybe. I only had a brief look over them to make sure they do not modify the underlying array, as this CL would break it.\n\nRegardless, using the set directly should probably happen in a follow-up CL, I\u0027ll add it to my cleanup todo list :)",
+      "parentUuid": "7065d16a_5744ec78",
+      "revId": "5b6fea6e75bed983f0b8a533912bdb459ce8d2a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
