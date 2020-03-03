@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e283626_8af3bff1",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2116,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-03T11:15:53Z",
+      "side": 1,
+      "message": "do you think it\u0027s worth an `ArrayUtilities.removeAtIndex` function? Start building up a collection of them much like we are with `StringUtilities`? I ask as there\u0027s a bunch of similar code now in this CL + in some others that remove a thing from an array at a given index.\n\nFeel free to disregard if you don\u0027t think it\u0027s worth it.",
+      "range": {
+        "startLine": 2112,
+        "startChar": 0,
+        "endLine": 2116,
+        "endChar": 5
+      },
+      "revId": "4cbb4ee0a072c9eff641ccbed0a75dd5cdff1387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
