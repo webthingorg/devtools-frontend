@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4dfce681_6678ea99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-03T10:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9b67643_79a00bc7",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "21513395868cefcad2779e08adbad35338fe6878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c81da7b_9f756477",
         "filename": "front_end/persistence/Automapping.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "21513395868cefcad2779e08adbad35338fe6878",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa2155a7_651fa328",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-03T10:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c81da7b_9f756477",
+      "range": {
+        "startLine": 458,
+        "startChar": 10,
+        "endLine": 458,
+        "endChar": 21
+      },
+      "revId": "21513395868cefcad2779e08adbad35338fe6878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
