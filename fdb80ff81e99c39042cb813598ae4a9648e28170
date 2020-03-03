@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c6d9b9a_a78ae798",
+        "filename": "test/e2e/elements/shadowroot-styles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T17:10:08Z",
+      "side": 1,
+      "message": "Do we have new nodes attached to the tree we can await on? IIRC the tree population is async and therefore there\u0027d be new nodes attached.",
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9fb89c5_6e227ce3",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T17:10:08Z",
+      "side": 1,
+      "message": "License",
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bd56212_995e23e4",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T17:10:08Z",
+      "side": 1,
+      "message": "This is hard to follow initially with the nested awaits. Please break it down.",
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0266f2ca_28268d46",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T17:10:08Z",
+      "side": 1,
+      "message": "I\u0027m not clear what this is? Looks like the function to be executed?\n\nAlso as a matter of course I would have expected the params to be fn: () \u003d\u003e Promise\u003cT\u003e then errorMessage: string rather than the other way around.",
+      "range": {
+        "startLine": 161,
+        "startChar": 35,
+        "endLine": 161,
+        "endChar": 52
+      },
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8e318e1_ee18dfae",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T17:10:08Z",
+      "side": 1,
+      "message": "Do you need the Promise\u003cT\u003e if the function is async\u003cT\u003e?",
+      "range": {
+        "startLine": 161,
+        "startChar": 94,
+        "endLine": 161,
+        "endChar": 104
+      },
+      "revId": "fdb80ff81e99c39042cb813598ae4a9648e28170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
