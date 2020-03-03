@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b053b0bf_48c6a1da",
+        "filename": "test/e2e/resources/sources/dynamic-loading-css.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T11:27:31Z",
+      "side": 1,
+      "message": "Needs license.",
+      "revId": "e0ec6af65f1bebd5934beb5c9c1dbb117772d8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cff7220_6fd3d14e",
+        "filename": "test/e2e/resources/sources/dynamic-loading-javascript.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T11:27:31Z",
+      "side": 1,
+      "message": "License",
+      "revId": "e0ec6af65f1bebd5934beb5c9c1dbb117772d8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51be8f16_e8982612",
+        "filename": "test/e2e/resources/sources/dynamic.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-03T11:27:31Z",
+      "side": 1,
+      "message": "Needs license.",
+      "revId": "e0ec6af65f1bebd5934beb5c9c1dbb117772d8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
