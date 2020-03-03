@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cfb32afb_12eb0b4b",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-03T21:56:46Z",
+      "side": 1,
+      "message": "I just copied the name from the existing shortcuts tab but it probably makes sense to use something shorter for the action name. Fixed.",
+      "parentUuid": "41588b06_0e51b5e2",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1097a9c2_0243838b",
         "filename": "front_end/langpacks/shared_strings.grdp",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7f4a60_866dfe6f",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-03T21:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1097a9c2_0243838b",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c9d09638_2511ad46",
+        "filename": "front_end/profiler/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-03T21:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3beb0afb_d30512a1",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1209ad4d_56947ac5",
         "filename": "front_end/profiler/profiler_strings.grdp",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e184408_73d7721c",
+        "filename": "front_end/profiler/profiler_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-03T21:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1209ad4d_56947ac5",
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
