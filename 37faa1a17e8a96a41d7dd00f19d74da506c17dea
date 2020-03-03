@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9e15b73_e3932c80",
+        "filename": "test/e2e/application/session-storage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-03T17:09:43Z",
+      "side": 1,
+      "message": "I think assertions should be on the place where we retrieve them. That removes the need for having a variable declaration up top.",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "37faa1a17e8a96a41d7dd00f19d74da506c17dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
