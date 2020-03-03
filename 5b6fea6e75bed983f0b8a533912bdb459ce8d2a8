@@ -34,6 +34,24 @@
       "revId": "5b6fea6e75bed983f0b8a533912bdb459ce8d2a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53269615_b8f9f228",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-03T09:12:49Z",
+      "side": 1,
+      "message": "Alright, thanks!",
+      "parentUuid": "7f8dc8d6_40bb90cd",
+      "revId": "5b6fea6e75bed983f0b8a533912bdb459ce8d2a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
