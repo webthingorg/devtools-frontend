@@ -22,6 +22,30 @@
       "revId": "9248a444796df2237a3a4cf1d4b872b7840fa0b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a16bf7ca_5378868c",
+        "filename": "front_end/network/RequestCookiesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-03T10:48:57Z",
+      "side": 1,
+      "message": "Hmmm I think this is probably fine. I think you could also filter based on the index to remove the value?\n\n```js\nconst index \u003d ...\n\nblockedCookieLines \u003d blockedCookieLines.filter((line, i) \u003d\u003e i !\u003d\u003d index)\nreturn false\n```\n\nAlthough this means we iterate over the entire array...\n\nOr you could splice?\n\n```js\nconst index \u003d ...\n\nblockedCookieLines.splice(index, 1)\n```\n\nBut really I don\u0027t think any of these is nicer than the others, I\u0027m just bike-shedding!",
+      "parentUuid": "65d97ae9_1895c9ca",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 9
+      },
+      "revId": "9248a444796df2237a3a4cf1d4b872b7840fa0b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
