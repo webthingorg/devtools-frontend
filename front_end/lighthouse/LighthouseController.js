@@ -17,8 +17,8 @@ export class LighthouseController extends Common.Object {
       preset.setting.addChangeListener(this.recomputePageAuditability.bind(this));
     }
 
-    self.SDK.targetManager.observeModels(SDK.ServiceWorkerManager, this);
-    self.SDK.targetManager.addEventListener(
+    SDK.SDKModel.TargetManager.instance().observeModels(SDK.ServiceWorkerManager, this);
+    SDK.SDKModel.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.InspectedURLChanged, this.recomputePageAuditability, this);
   }
 

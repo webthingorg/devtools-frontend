@@ -108,4 +108,4 @@ export class _TestObserver {
   }
 }
 
-self.SDK.targetManager.observeTargets(new _TestObserver());
+SDK.SDKModel.TargetManager.instance().observeTargets(new _TestObserver());

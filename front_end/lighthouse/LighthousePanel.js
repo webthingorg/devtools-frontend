@@ -218,7 +218,7 @@ export class LighthousePanel extends UI.Panel {
   }
 
   _waitForMainTargetLoad() {
-    const mainTarget = self.SDK.targetManager.mainTarget();
+    const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
     const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel);
     return resourceTreeModel.once(SDK.ResourceTreeModel.Events.Load);
   }
@@ -381,7 +381,7 @@ export class LighthousePanel extends UI.Panel {
 
     Emulation.InspectedPagePlaceholder.instance().update(true);
 
-    const resourceTreeModel = self.SDK.targetManager.mainTarget().model(SDK.ResourceTreeModel);
+    const resourceTreeModel = SDK.SDKModel.TargetManager.instance().mainTarget().model(SDK.ResourceTreeModel);
     // reload to reset the page state
     const inspectedURL = await this._controller.getInspectedURL();
     await resourceTreeModel.navigate(inspectedURL);
