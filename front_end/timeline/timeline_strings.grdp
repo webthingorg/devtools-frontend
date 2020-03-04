@@ -319,6 +319,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_4dab9fd6bdee5285598246c6ea7cc88f" desc="Text in Timeline UIUtils of the Performance panel">
     Fling Halt
   </message>
+  <message name="IDS_DEVTOOLS_4e6f357f08cc09f2636b04dc1f27f4e5" desc="Title of an action that opens the next recording in the performance panel">
+    Show next recording
+  </message>
   <message name="IDS_DEVTOOLS_4ebada6a2af2bcba53ded1d7b414f081" desc="Text in Timeline UIUtils of the Performance panel">
     FP
   </message>
@@ -351,6 +354,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   </message>
   <message name="IDS_DEVTOOLS_54fd6de66ec40dc89ec90ba5429094d7" desc="Text in Timeline Tree View of the Performance panel">
     Group by Category
+  </message>
+  <message name="IDS_DEVTOOLS_5538445bde65a174809fb3e460b1c91f" desc="Title of an action that jumps to the previous frame in the Performance panel">
+    Jump to previous frame
   </message>
   <message name="IDS_DEVTOOLS_5564c00b6210082e536c897014f72361" desc="Title of an action in the timeline tool to record reload">
     Start profiling and reload page
@@ -654,6 +660,9 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   <message name="IDS_DEVTOOLS_a34991663b140f981410a06acc058849" desc="Text in UIDevtools Utils of the Performance panel">
     ThreadControllerImpl::RunTask
   </message>
+  <message name="IDS_DEVTOOLS_a385a1cd7804a026fa866a2d4f40096d" desc="Title of an action that jumps to the next frame in the Performance panel">
+    Jump to next frame
+  </message>
   <message name="IDS_DEVTOOLS_a3b61900010aa9472919c6c7ac247fed" desc="Text of a DOM element in Timeline UIUtils of the Performance panel">
     (changed id to &quot;<ph name="INVALIDATION_CHANGEDID">$1s<ex>id2</ex></ph>&quot;<ph name="EXTRADATA">$2s<ex>a, b</ex></ph>)
   </message>
@@ -815,6 +824,9 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   </message>
   <message name="IDS_DEVTOOLS_ce5bf551379459c1c61d2a204061c455" desc="Text in Timeline UIUtils of the Performance panel">
     Location
+  </message>
+  <message name="IDS_DEVTOOLS_cf51ab03f9a101f9d254f82ba64e9bb1" desc="Title of an action that jumps to the previous recording in the Performance panel">
+    Show previous recording
   </message>
   <message name="IDS_DEVTOOLS_cf56f8ebb3727b1d4d5a17fb18d4df74" desc="Text in Timeline UIUtils of the Performance panel">
     Paint Setup
