@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a9df872_515a8707",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:21:36Z",
+      "side": 0,
+      "message": "we need to do the work to enable the things that generate GRDP files to parse TypeScript so we don\u0027t lose here (we can\u0027t ship this CL without doing that)",
+      "range": {
+        "startLine": 79,
+        "startChar": 14,
+        "endLine": 87,
+        "endChar": 139
+      },
+      "revId": "66e045655d89ee52235acc42bf01fd1f1ebeb7ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

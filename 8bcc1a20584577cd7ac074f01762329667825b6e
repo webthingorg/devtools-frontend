@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e254d92_8dd00dd3",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:21:36Z",
+      "side": 1,
+      "message": "blocked on all of Common being TypeScriptified (we\u0027re not far off: https://docs.google.com/spreadsheets/d/1QebRQuI0oTwMb2A6VddiuYD7WeUWd0QUkUMf5eMFQUg/edit#gid\u003d0)",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 55
+      },
+      "revId": "8bcc1a20584577cd7ac074f01762329667825b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fc2de7a_1492f372",
+        "filename": "front_end/elements/ElementsBreadcrumbsUtils.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:21:36Z",
+      "side": 1,
+      "message": "I think this will end up being a fairly global type across our TS components so this shouldn\u0027t be the place for this to live long term but I\u0027m not going to try to predict that and let it fall out naturally.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "8bcc1a20584577cd7ac074f01762329667825b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0746f838_f4b1f0cb",
+        "filename": "front_end/global_typings/global-defs.d.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:21:36Z",
+      "side": 1,
+      "message": "need to make sure this is licensed / credited properly",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 3
+      },
+      "revId": "8bcc1a20584577cd7ac074f01762329667825b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b4a892e_b5116bd1",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:21:36Z",
+      "side": 1,
+      "message": "remove this line (blocked on all our tests moving to typescript + Ninja)",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 34
+      },
+      "revId": "8bcc1a20584577cd7ac074f01762329667825b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
