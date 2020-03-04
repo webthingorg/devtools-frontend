@@ -22,6 +22,30 @@
       "revId": "37faa1a17e8a96a41d7dd00f19d74da506c17dea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2173722d_cf521188",
+        "filename": "test/e2e/application/session-storage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-03-04T09:21:03Z",
+      "side": 1,
+      "message": "Done.\nNow that I think of it it is a good rule to have the retrieval and assertion of data to be always in one step and the step to be named after the assertion",
+      "parentUuid": "d9e15b73_e3932c80",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "37faa1a17e8a96a41d7dd00f19d74da506c17dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
