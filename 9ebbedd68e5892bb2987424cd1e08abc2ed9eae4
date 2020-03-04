@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "874a4598_9072ba1f",
+        "filename": "front_end/common/common-legacy.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-04T12:17:55Z",
+      "side": 1,
+      "message": "I guess we can update the 3 layout tests in a follow-up CL to use the new format as well (e.g. `Common.Console.instance()`): https://source.chromium.org/search?q\u003dCommon.console%20-f:gen%2F%20case:yes%20f:third_party%2Fblink%2Fweb_tests\u0026sq\u003d\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 14
+      },
+      "revId": "9ebbedd68e5892bb2987424cd1e08abc2ed9eae4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
