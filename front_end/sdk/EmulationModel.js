@@ -4,6 +4,7 @@
 
 import {CSSModel} from './CSSModel.js';
 import {Events, OverlayModel} from './OverlayModel.js';
+import {RuntimeModel} from './RuntimeModel.js';              // eslint-disable-line no-unused-vars
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
 export class EmulationModel extends SDKModel {
@@ -12,6 +13,7 @@ export class EmulationModel extends SDKModel {
    */
   constructor(target) {
     super(target);
+
     this._emulationAgent = target.emulationAgent();
     this._pageAgent = target.pageAgent();
     this._deviceOrientationAgent = target.deviceOrientationAgent();
@@ -55,6 +57,12 @@ export class EmulationModel extends SDKModel {
       this._updateCssMedia();
     });
     this._updateCssMedia();
+
+    const visionDeficiencySetting = self.Common.settings.moduleSetting('emulatedVisionDeficiency');
+    visionDeficiencySetting.addChangeListener(() => this._emulateVisionDeficiency(visionDeficiencySetting.get()));
+    if (visionDeficiencySetting.get()) {
+      this._emulateVisionDeficiency(visionDeficiencySetting.get());
+    }
 
     this._touchEnabled = false;
     this._touchMobile = false;
@@ -140,6 +148,106 @@ export class EmulationModel extends SDKModel {
       this._cssModel.mediaQueryResultChanged();
     }
   }
+
+  /**
+   * @param {string} type
+   */
+  async _emulateVisionDeficiency(type) {
+    const _runtimeModel = this._target.model(RuntimeModel);
+    if (!_runtimeModel) {
+      return;
+    }
+    const executionContext = _runtimeModel.defaultExecutionContext();
+    const filter = type === '' ? 'none' : `url(#${type})`;
+    const js = `{
+      const id = '__devtools-86e9956b0839b21a75a52911234a964f';
+      const styleId = id + '-style';
+      const styleElement = document.querySelector(styleId);
+      if (styleElement) {
+        styleElement.textContent = \`:root { filter: ${filter}; }\`;
+      } else {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = \`:root { filter: ${filter}; }\`;
+        document.head.append(style);
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = \`
+          <svg>
+            <filter id="achromatomaly">
+              <feColorMatrix values="
+                0.618 0.320 0.062 0.000 0.000
+                0.163 0.775 0.062 0.000 0.000
+                0.163 0.320 0.516 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+            <filter id="achromatopsia">
+              <feColorMatrix values="
+                0.299 0.587 0.114 0.000 0.000
+                0.299 0.587 0.114 0.000 0.000
+                0.299 0.587 0.114 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+            <filter id="blurredVision">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2">")
+            </filter>
+            <filter id="deuteranomaly">
+              <feColorMatrix values="
+                0.800 0.200 0.000 0.000 0.000
+                0.258 0.742 0.000 0.000 0.000
+                0.000 0.142 0.858 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+            <filter id="deuteranopia">
+              <feColorMatrix values="
+                0.625 0.375 0.000 0.000 0.000
+                0.700 0.300 0.000 0.000 0.000
+                0.000 0.300 0.700 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+            <filter id="protanomaly">
+              <feColorMatrix values="
+                0.817 0.183 0.000 0.000 0.000
+                0.333 0.667 0.000 0.000 0.000
+                0.000 0.125 0.875 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+            <filter id="protanopia">
+              <feColorMatrix values="
+                0.567 0.433 0.000 0.000 0.000
+                0.558 0.442 0.000 0.000 0.000
+                0.000 0.242 0.758 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+            <filter id="tritanomaly">
+              <feColorMatrix values="
+                0.967 0.033 0.000 0.000 0.000
+                0.000 0.733 0.267 0.000 0.000
+                0.000 0.183 0.817 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+            <filter id="tritanopia">
+              <feColorMatrix values="
+                0.950 0.050 0.000 0.000 0.000
+                0.000 0.433 0.567 0.000 0.000
+                0.000 0.475 0.525 0.000 0.000
+                0.000 0.000 0.000 1.000 0.000">
+            </filter>
+          </svg>
+        \`;
+        document.body.append(wrapper);
+      }
+    }`;
+    await executionContext.evaluate(
+        {
+          expression: js,
+          includeCommandLineAPI: false,
+          silent: false,
+          returnByValue: true,
+          generatePreview: false,
+        },
+        /* userGesture */ false, /* awaitPromise */ false);
+  }
+
 
   /**
    * @param {number} rate
