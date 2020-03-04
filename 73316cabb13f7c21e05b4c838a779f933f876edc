@@ -16,6 +16,24 @@
       "revId": "73316cabb13f7c21e05b4c838a779f933f876edc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45220a9d_442e3e85",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-04T19:22:51Z",
+      "side": 1,
+      "message": "I re-read your CL description.\n\nI think it\u0027d be preferable to parameterize the notion of \"takeFocus\" or something on the `_showSettingsScreen` function. I don\u0027t think putting the actual implementation details of asserting focus here is the right thing to do. Seems to violate encapsulation.",
+      "parentUuid": "de986dd8_2b1fc88d",
+      "revId": "73316cabb13f7c21e05b4c838a779f933f876edc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
