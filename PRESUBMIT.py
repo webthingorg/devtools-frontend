@@ -237,8 +237,29 @@ def _CheckGeneratedFiles(input_api, output_api):
     generated_aria_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build', 'generate_aria.py')
     results = _ExecuteSubProcess(input_api, output_api, generated_aria_path, [], results)
 
-    generated_aria_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build', 'generate_supported_css.py')
-    results = _ExecuteSubProcess(input_api, output_api, generated_aria_path, [], results)
+    generated_supported_css_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build',
+                                                          'generate_supported_css.py')
+    results = _ExecuteSubProcess(input_api, output_api, generated_supported_css_path, [], results)
+
+    generated_protocol_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'third_party', 'inspector_protocol',
+                                                     'concatenate_protocols.py')
+    PROTOCOL_LOCATION = input_api.os_path.join(input_api.PresubmitLocalPath(), 'third_party', 'blink', 'public',
+                                               'devtools_protocol')
+    results = _ExecuteSubProcess(
+        input_api,
+        output_api,
+        generated_protocol_path,
+        [
+            input_api.os_path.join(PROTOCOL_LOCATION, 'browser_protocol.pdl'),
+            input_api.os_path.join(input_api.PresubmitLocalPath(), 'v8', 'include', 'js_protocol.pdl'),
+            # output_file
+            input_api.os_path.join(PROTOCOL_LOCATION, 'browser_protocol.json'),
+        ],
+        results)
+
+    generated_protocol_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build',
+                                                     'code_generator_frontend.py')
+    results = _ExecuteSubProcess(input_api, output_api, generated_protocol_path, [], results)
 
     return results
 

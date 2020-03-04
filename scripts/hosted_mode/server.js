@@ -135,21 +135,14 @@ function requestHandler(request, response) {
 }
 
 var proxyFilePathToURL = {
-  '/front_end/InspectorBackendCommands.js': cloudURL.bind(null, 'InspectorBackendCommands.js'),
   '/favicon.ico': () => 'https://chrome-devtools-frontend.appspot.com/favicon.ico',
 };
-
-function cloudURL(path, commitHash) {
-  return `https://chrome-devtools-frontend.appspot.com/serve_file/@${commitHash}/${path}`;
-}
 
 var proxyFileCache = new Map();
 
 function proxy(filePath) {
   if (!(filePath in proxyFilePathToURL))
     return null;
-  if (localProtocolPath && filePath === '/front_end/InspectorBackendCommands.js')
-    return serveLocalProtocolFile();
   if (process.env.CHROMIUM_COMMIT)
     return onProxyFileURL(proxyFilePathToURL[filePath](process.env.CHROMIUM_COMMIT));
   return utils.fetch(`http://localhost:${remoteDebuggingPort}/json/version`)
