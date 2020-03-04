@@ -33,6 +33,7 @@ for more details about the presubmit API built into gcl.
 """
 
 import sys
+import six
 
 EXCLUSIVE_CHANGE_DIRECTORIES = [
     [ 'third_party', 'v8' ],
@@ -44,8 +45,10 @@ AUTOROLL_ACCOUNT = "devtools-ci-autoroll-builder@chops-service-accounts.iam.gser
 
 
 def _ExecuteSubProcess(input_api, output_api, script_path, args, results):
-    process = input_api.subprocess.Popen(
-        [input_api.python_executable, script_path] + args, stdout=input_api.subprocess.PIPE, stderr=input_api.subprocess.STDOUT)
+    if isinstance(script_path, six.string_types):
+        script_path = [input_api.python_executable, script_path]
+
+    process = input_api.subprocess.Popen(script_path + args, stdout=input_api.subprocess.PIPE, stderr=input_api.subprocess.STDOUT)
     out, _ = process.communicate()
     if process.returncode != 0:
         results.append(output_api.PresubmitError(out))
@@ -113,38 +116,24 @@ def _CheckLicenses(input_api, output_api):
 
 def _CheckFormat(input_api, output_api):
     results = [output_api.PresubmitNotifyResult('Running Format Checks:')]
-    def popen(args):
-        return input_api.subprocess.Popen(args=args, stdout=input_api.subprocess.PIPE, stderr=input_api.subprocess.STDOUT)
 
-    affected_files = _getAffectedJSFiles(input_api)
-    if len(affected_files) == 0:
-        return results
-    original_sys_path = sys.path
-    try:
-        sys.path = sys.path + [input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts')]
-        import devtools_paths
-    finally:
-        sys.path = original_sys_path
-
+    affected_files = [f.AbsoluteLocalPath() for f in input_api.AffectedFiles()]
     ignore_files = []
     eslint_ignore_path = input_api.os_path.join(input_api.PresubmitLocalPath(), '.eslintignore')
+
     with open(eslint_ignore_path, 'r') as ignore_manifest:
         for line in ignore_manifest:
             if '*' not in line.strip():
                 ignore_files.append(input_api.os_path.normpath(line.strip()))
+
     formattable_files = [
         affected_file for affected_file in affected_files if all(ignore_file not in affected_file for ignore_file in ignore_files)
     ]
+
     if len(formattable_files) == 0:
         return results
 
-    format_args = ['git', 'cl', 'format', '--js'] + formattable_files
-    format_process = popen(format_args)
-    format_out, _ = format_process.communicate()
-    if format_process.returncode != 0:
-        results.append(output_api.PresubmitError(format_out))
-
-    return results
+    return _ExecuteSubProcess(input_api, output_api, ['git', 'cl', 'format', '--js'], formattable_files, results)
 
 
 def _CheckDevtoolsLocalization(input_api, output_api, check_all_files=False):  # pylint: disable=invalid-name
@@ -347,21 +336,6 @@ def _getAffectedFiles(input_api, parent_directories, excluded_actions, accepted_
             file_name.endswith(accepted_ending) for accepted_ending in accepted_endings)
     ]
     return affected_files
-
-
-def _getAffectedFrontEndFiles(input_api):
-    devtools_root = input_api.PresubmitLocalPath()
-    devtools_front_end = input_api.os_path.join(devtools_root, 'front_end')
-    affected_front_end_files = _getAffectedFiles(input_api, [devtools_front_end], ['D'], ['.js'])
-    return [input_api.os_path.relpath(file_name, devtools_root) for file_name in affected_front_end_files]
-
-
-def _getAffectedJSFiles(input_api):
-    devtools_root = input_api.PresubmitLocalPath()
-    devtools_front_end = input_api.os_path.join(devtools_root, 'front_end')
-    devtools_scripts = input_api.os_path.join(devtools_root, 'scripts')
-    affected_js_files = _getAffectedFiles(input_api, [devtools_front_end, devtools_scripts], ['D'], ['.js'])
-    return [input_api.os_path.relpath(file_name, devtools_root) for file_name in affected_js_files]
 
 
 def _checkWithNodeScript(input_api, output_api, script_path, script_arguments=None):  # pylint: disable=invalid-name
