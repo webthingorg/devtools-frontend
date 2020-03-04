@@ -541,6 +541,9 @@
   <message name="IDS_DEVTOOLS_ce82e07fa1f0521f5cee30e368fe2e73" desc="Text that starts with a colon and includes a placeholder">
     : <ph name="AA_NUMBER">$1s<ex>3.0</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_d07af40979e8b29643a3319d883b6ba9" desc="Text displayed in the custom keyboard shortcuts tab when the name of an action cannot be determined">
+    unknown action
+  </message>
   <message name="IDS_DEVTOOLS_d31827f0a164d52b636bb1f71ca4a351" desc="Text to cancel the animation frame">
     Cancel Animation Frame
   </message>

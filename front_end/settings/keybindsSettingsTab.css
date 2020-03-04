@@ -22,7 +22,8 @@
     flex: auto 1 1;
 }
 
-.keybinds-list-text {
+.keybinds-list-text,
+.editor-container input[type="text"] {
     white-space: nowrap;
     text-overflow: ellipsis;
     flex: 1 0 150px;
@@ -38,6 +39,10 @@
     background-color: rgb(231, 231, 231);
     height: 30px;
     margin: 0 4px;
+}
+
+.keybinds-edit-text {
+    margin: 0 0 5px 0;
 }
 
 .keybinds-header {
