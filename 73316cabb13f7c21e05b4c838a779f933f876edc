@@ -34,6 +34,24 @@
       "revId": "73316cabb13f7c21e05b4c838a779f933f876edc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f74af537_1a061c90",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-04T21:03:26Z",
+      "side": 1,
+      "message": "That makes sense, I\u0027ve added a focusTabHeader parameter",
+      "parentUuid": "45220a9d_442e3e85",
+      "revId": "73316cabb13f7c21e05b4c838a779f933f876edc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
