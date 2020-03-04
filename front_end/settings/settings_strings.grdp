@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_004bf6c9a40003140292e97330236c53" desc="Column header in the custom keyboard shortcuts settings tab for the action column">
+    Action
+  </message>
   <message name="IDS_DEVTOOLS_0f653ae68147586eb189d7baf37a696a" desc="Text of button in Settings Screen of the Settings">
     Restore defaults and reload
   </message>
@@ -30,6 +33,9 @@
   <message name="IDS_DEVTOOLS_89bacc9715d030658f2602ce65426a7f" desc="Warning text content in Settings Screen of the Settings">
     WARNING:
   </message>
+  <message name="IDS_DEVTOOLS_a2ebfe0e8e16f2c81865ce3da74bc605" desc="Column header in the custom keyboard shortcuts settings tab for the keyboard shortcut column">
+    Binding
+  </message>
   <message name="IDS_DEVTOOLS_ae25bc3ceebf44be4b59d0ade0e53f0b" desc="Placeholder text content in Framework Blackbox Settings Tab of the Settings">
     No blackboxed patterns
   </message>
@@ -50,6 +56,9 @@
   </message>
   <message name="IDS_DEVTOOLS_dd08f9d5ae3e9ba421754fd31db1a44a" desc="Error message in Framework Blackbox settings pane that declares pattern already exits">
     Pattern already exists
+  </message>
+  <message name="IDS_DEVTOOLS_dd9d37c902c417ff340e28a19e2ff00d" desc="Tab header for the custom keyboard shortcuts settings tab">
+    Custom Shortcuts
   </message>
   <message name="IDS_DEVTOOLS_e3b2f7d0af9c89f5ea504968ffcd2ef0" desc="Message text content in Settings Screen of the Settings">
     These experiments could be dangerous and may require restart.

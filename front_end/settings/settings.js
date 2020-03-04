@@ -8,8 +8,10 @@ import './FrameworkBlackboxSettingsTab.js';
 
 import * as FrameworkBlackboxSettingsTab from './FrameworkBlackboxSettingsTab.js';
 import * as SettingsScreen from './SettingsScreen.js';
+import * as KeybindsSettingsTab from './KeybindsSettingsTab.js';
 
 export {
   FrameworkBlackboxSettingsTab,
   SettingsScreen,
+  KeybindsSettingsTab,
 };
