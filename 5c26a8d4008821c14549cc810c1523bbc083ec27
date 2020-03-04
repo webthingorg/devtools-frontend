@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00357ccc_3f7e8d9a",
+        "filename": "test/unittests/front_end/common/SegmentedRange_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-04T11:17:00Z",
+      "side": 1,
+      "message": "Nit: missing extension.",
+      "range": {
+        "startLine": 7,
+        "startChar": 68,
+        "endLine": 7,
+        "endChar": 82
+      },
+      "revId": "5c26a8d4008821c14549cc810c1523bbc083ec27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
