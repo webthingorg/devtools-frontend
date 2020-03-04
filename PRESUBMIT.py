@@ -138,22 +138,12 @@ def _CheckFormat(input_api, output_api):
     if len(formattable_files) == 0:
         return results
 
-    check_formatting_process = popen(['git', 'cl', 'format', '--js', '--dry-run'] + formattable_files)
-    check_formatting_process.communicate()
-    if check_formatting_process.returncode == 0:
-        return results
-
     format_args = ['git', 'cl', 'format', '--js'] + formattable_files
     format_process = popen(format_args)
     format_out, _ = format_process.communicate()
     if format_process.returncode != 0:
         results.append(output_api.PresubmitError(format_out))
-        return results
 
-    results.append(output_api.PresubmitError('ERROR: Found formatting violations.\n'
-                                  'Ran clang-format on diff\n'
-                                  'Use git status to check the formatting changes'))
-    results.append(output_api.PresubmitError(format_out))
     return results
 
 
@@ -237,8 +227,29 @@ def _CheckGeneratedFiles(input_api, output_api):
     generated_aria_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build', 'generate_aria.py')
     results = _ExecuteSubProcess(input_api, output_api, generated_aria_path, [], results)
 
-    generated_aria_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build', 'generate_supported_css.py')
-    results = _ExecuteSubProcess(input_api, output_api, generated_aria_path, [], results)
+    generated_supported_css_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build',
+                                                          'generate_supported_css.py')
+    results = _ExecuteSubProcess(input_api, output_api, generated_supported_css_path, [], results)
+
+    generated_protocol_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'third_party', 'inspector_protocol',
+                                                     'concatenate_protocols.py')
+    PROTOCOL_LOCATION = input_api.os_path.join(input_api.PresubmitLocalPath(), 'third_party', 'blink', 'public',
+                                               'devtools_protocol')
+    results = _ExecuteSubProcess(
+        input_api,
+        output_api,
+        generated_protocol_path,
+        [
+            input_api.os_path.join(PROTOCOL_LOCATION, 'browser_protocol.pdl'),
+            input_api.os_path.join(input_api.PresubmitLocalPath(), 'v8', 'include', 'js_protocol.pdl'),
+            # output_file
+            input_api.os_path.join(PROTOCOL_LOCATION, 'browser_protocol.json'),
+        ],
+        results)
+
+    generated_protocol_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'build',
+                                                     'code_generator_frontend.py')
+    results = _ExecuteSubProcess(input_api, output_api, generated_protocol_path, [], results)
 
     return results
 
