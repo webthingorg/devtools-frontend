@@ -177,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "aa83be00_03fa1bed",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "don\u0027t want to remove, I think we should do the work to enable this before landing this CL. WDYT?",
+      "parentUuid": "d3ef8b42_de13ed86",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 55
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20bd2c03_d5bb0c7a",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 2
@@ -188,6 +212,30 @@
       "writtenOn": "2020-02-21T15:46:05Z",
       "side": 1,
       "message": "Are we exporting for tests?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 6
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1ab3ce4_d2ae612f",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "yes (this comment is slightly out-dated as I\u0027ve pulled out a utils file now to make this clearer)",
+      "parentUuid": "20bd2c03_d5bb0c7a",
       "range": {
         "startLine": 77,
         "startChar": 0,
@@ -223,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "727f1df2_b0f587fb",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "I don\u0027t think `data` can be `private` as in the event listeners we read `event.data` so it\u0027s not private.",
+      "parentUuid": "2fa0e074_f1c635b6",
+      "range": {
+        "startLine": 101,
+        "startChar": 14,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8f64158_d1b9f50c",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 2
@@ -234,6 +306,24 @@
       "writtenOn": "2020-02-21T15:46:05Z",
       "side": 1,
       "message": "nit: remove",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef2e1177_5560b9bd",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "could you expand? I don\u0027t understand what bit(s) you\u0027d like removed",
+      "parentUuid": "a8f64158_d1b9f50c",
       "revId": "4c572e6b75db106e29812a2818721348130841ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -260,6 +350,30 @@
       "revId": "4c572e6b75db106e29812a2818721348130841ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e921549_4b54accd",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b933b57f_e7c055e3",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -332,6 +446,30 @@
     },
     {
       "key": {
+        "uuid": "86132af4_81b5a454",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "I\u0027m not sure it\u0027s worth ensuring all our comments are capitalised and full-stopped correctly - happy to change but as a general review point this seems too nitty - WDYT?",
+      "parentUuid": "a60e3ea4_eed650bc",
+      "range": {
+        "startLine": 219,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 8
+      },
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f9a6b3e_a75a19fa",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 2
@@ -366,6 +504,24 @@
     },
     {
       "key": {
+        "uuid": "cedb0572_af814b71",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2085172",
+      "parentUuid": "386d02eb_5ea58115",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "667ef4fd_f5ad5e7d",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 2
@@ -377,6 +533,24 @@
       "writtenOn": "2020-02-21T15:46:05Z",
       "side": 1,
       "message": "Maybe wrap this in a check to make sure we don\u0027t double define it.",
+      "revId": "4c572e6b75db106e29812a2818721348130841ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aac4e414_19a17538",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-04T09:43:09Z",
+      "side": 1,
+      "message": "I think I\u0027d quite like a loud error if it\u0027s tried to be defined twice given that it should never be - WDYT?",
+      "parentUuid": "667ef4fd_f5ad5e7d",
       "revId": "4c572e6b75db106e29812a2818721348130841ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
