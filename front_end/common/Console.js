@@ -6,13 +6,31 @@ import {ObjectWrapper} from './Object.js';
 import {reveal} from './Revealer.js';
 
 /**
+ * @type {!Console}
+ */
+let consoleInstance;
+
+/**
  * @unrestricted
  */
 export class Console extends ObjectWrapper {
+  /**
+   * Instantiable via the instance() factory below.
+   *
+   * @private
+   */
   constructor() {
     super();
     /** @type {!Array.<!Message>} */
     this._messages = [];
+  }
+
+  static instance() {
+    if (!consoleInstance) {
+      consoleInstance = new Console();
+    }
+
+    return consoleInstance;
   }
 
   /**
