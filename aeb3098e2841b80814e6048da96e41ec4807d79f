@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e5cf60e_06a4ea6b",
+        "filename": "front_end/console/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-04T21:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "522cf020_5702c33b",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 36
+      },
+      "revId": "aeb3098e2841b80814e6048da96e41ec4807d79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41588b06_0e51b5e2",
         "filename": "front_end/elements/module.json",
         "patchSetId": 4
