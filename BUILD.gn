@@ -103,7 +103,6 @@ all_devtools_files = [
   "front_end/elements_test_runner/module.json",
   "front_end/elements_test_runner/SetOuterHTMLTestRunner.js",
   "front_end/elements_test_runner/StylesUpdateLinksTestRunner.js",
-  "front_end/elements/breadcrumbs.css",
   "front_end/elements/classesPaneWidget.css",
   "front_end/elements/computedStyleSidebarPane.css",
   "front_end/elements/computedStyleWidgetTree.css",
@@ -311,6 +310,8 @@ all_devtools_files = [
   "front_end/third_party/lighthouse/report-assets/report-generator.js",
   "front_end/third_party/lighthouse/report-assets/template.html",
   "front_end/third_party/lighthouse/report-assets/templates.html",
+  "front_end/third_party/fabricjs/fabric.js",
+  "front_end/third_party/fabricjs/module.json",
   "front_end/third_party/wasmparser/module.json",
   "front_end/timeline_model/module.json",
   "front_end/timeline/historyToolbarButton.css",
@@ -621,11 +622,11 @@ all_devtools_modules = [
   "front_end/elements/DOMPath.js",
   "front_end/elements/elements-legacy.js",
   "front_end/elements/elements.js",
-  "front_end/elements/ElementsBreadcrumbs.js",
   "front_end/elements/ElementsPanel.js",
   "front_end/elements/ElementsSidebarPane.js",
   "front_end/elements/ElementStatePaneWidget.js",
   "front_end/elements/ElementsTreeElement.js",
+  "front_end/elements/ElementsBreadcrumbs_bridge.js",
   "front_end/elements/ElementsTreeElementHighlighter.js",
   "front_end/elements/ElementsTreeOutline.js",
   "front_end/elements/EventListenersWidget.js",
@@ -1046,6 +1047,18 @@ all_devtools_modules = [
   "front_end/text_utils/TextUtils.js",
   "front_end/third_party/wasmparser/WasmDis.js",
   "front_end/third_party/wasmparser/WasmParser.js",
+  "front_end/third_party/lit-html/package/lit-html.js",
+  "front_end/third_party/lit-html/package/directives/class-map.js",
+  "front_end/third_party/lit-html/package/lib/template-result.js",
+  "front_end/third_party/lit-html/package/lib/default-template-processor.js",
+  "front_end/third_party/lit-html/package/lib/directive.js",
+  "front_end/third_party/lit-html/package/lib/dom.js",
+  "front_end/third_party/lit-html/package/lib/part.js",
+  "front_end/third_party/lit-html/package/lib/parts.js",
+  "front_end/third_party/lit-html/package/lib/render.js",
+  "front_end/third_party/lit-html/package/lib/template-factory.js",
+  "front_end/third_party/lit-html/package/lib/template-instance.js",
+  "front_end/third_party/lit-html/package/lib/template.js",
   "front_end/timeline/timeline.js",
   "front_end/timeline/timeline-legacy.js",
   "front_end/timeline/UIDevtoolsUtils.js",
@@ -1553,8 +1566,8 @@ copied_devtools_modules = [
   "$resources_out_dir/elements/DOMPath.js",
   "$resources_out_dir/elements/elements-legacy.js",
   "$resources_out_dir/elements/elements.js",
-  "$resources_out_dir/elements/ElementsBreadcrumbs.js",
   "$resources_out_dir/elements/ElementsPanel.js",
+  "$resources_out_dir/elements/ElementsBreadcrumbs_bridge.js",
   "$resources_out_dir/elements/ElementsSidebarPane.js",
   "$resources_out_dir/elements/ElementStatePaneWidget.js",
   "$resources_out_dir/elements/ElementsTreeElement.js",
@@ -1978,6 +1991,18 @@ copied_devtools_modules = [
   "$resources_out_dir/text_utils/TextUtils.js",
   "$resources_out_dir/third_party/wasmparser/WasmDis.js",
   "$resources_out_dir/third_party/wasmparser/WasmParser.js",
+  "$resources_out_dir/third_party/lit-html/package/lit-html.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/template-result.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/default-template-processor.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/directive.js",
+  "$resources_out_dir/third_party/lit-html/package/directives/class-map.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/dom.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/part.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/parts.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/render.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/template-factory.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/template-instance.js",
+  "$resources_out_dir/third_party/lit-html/package/lib/template.js",
   "$resources_out_dir/timeline/timeline.js",
   "$resources_out_dir/timeline/timeline-legacy.js",
   "$resources_out_dir/timeline/UIDevtoolsUtils.js",
@@ -2248,6 +2273,7 @@ group("devtools_all_files") {
 
 devtools_typescript_deps = [
   "front_end/common:common",
+  "front_end/elements:elements",
   "front_end/formatter_worker",
 ]
 
@@ -2275,6 +2301,7 @@ if (!is_android) {
   devtools_frontend_resources_deps += [
     ":copy_karma_conf",
     "test/unittests/front_end/common",
+    "test/unittests/front_end/elements",
     "test/unittests/front_end/formatter_worker",
   ]
 }
@@ -2326,6 +2353,11 @@ copy("copy_wasm_deps") {
       [ "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm" ]
 }
 
+generated_typescript_files = [
+  "$resources_out_dir/elements/ElementsBreadcrumbs.js",
+  "$resources_out_dir/elements/ElementsBreadcrumbsUtils.js",
+]
+
 action("generate_devtools_grd") {
   script = "scripts/build/generate_devtools_grd.py"
 
@@ -2334,7 +2366,8 @@ action("generate_devtools_grd") {
   grd_files =
       copied_devtools_modules + generated_applications +
       generated_non_autostart_non_remote_modules + devtools_embedder_scripts +
-      generated_worker_bundles +
+      generated_scripts + generated_worker_bundles +
+      generated_typescript_files +
       [
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
