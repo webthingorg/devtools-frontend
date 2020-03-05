@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39bf8075_151f268f",
+        "filename": "scripts/localizationV2/buildI18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-03-05T23:38:07Z",
+      "side": 1,
+      "message": "Cool, thanks for sharing. We should tweak https://github.com/GoogleChrome/lighthouse/pull/10415 as necessary to do what this file is doing, such that i18n-bundle.js is simply the result of running `yarn build-i18n-module` in Lighthouse.\n\nIn that PR I also suggest that this bundle is not minified. CDT build process can handle that.\n\nRE: ESM - Lighthouse itself is sort of excepted from ESM ( for now, at least - see https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1928919/4/front_end/audits/lighthouse/report.js#3989 ) but I don\u0027t think that should apply for this new i18n module. I could see us (Lighthouse team) migrating i18n.js to ESM, publishing it as ESM for CDT and as commonjs for usage within LH. But this will require a team discussion.\n\n\nPoint by point:\n```\n  1. Change the ultimate fallback from \u0027en\u0027 to \u0027en-US\u0027 in lookupLocale(locale) and _formatIcuMessage()\n  2. Remove the usage of LH_ROOT in getMessageInstanceIdFn(), just use the passed in filename as part of the id\n  3. Remove the UIStrings in i18n.js as DevTools are not using those\n  4. Remove branding in code and types \n  5. Remove the requirements for lighthouse-logger and lookup-closest-locale, ported the function into this file \n```\n\n1 - Deferring to @exterkamp. Can we do the same in LH, or will this fallback need to be configurable?\n2 - AFAICT this makes the id be the absolute path of the file. see footnote [A]. Are you sure you want this? Seems this should be a configurable value (projectRoot)\n3 - Agreed, we do the same in the above PR.\n4 - no comment\n5 - what\u0027s the concern here?\n\n______\nfootnotes\n\n[A]\n```\n-      \"lighthouse-core/audits/redirects-http.js | description\": [\n+      \"/usr/local/google/home/cjamcl/code/lighthouse/lighthouse-core/audits/redirects-http.js | description\": [\n\n```",
+      "revId": "8cea40eb701e1bac84ce3e749ad11ce8d9482a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
