@@ -2014,6 +2014,31 @@ export function createDocumentationLink(article, title) {
 
 /**
  * @param {string} url
+ * @return {string}
+ */
+export function addReferrerToURL(url) {
+  if (/(\?|&)utm_source=devtools/.test(url)) {
+    return url;
+  }
+  if (url.indexOf('?') === -1) {
+    return url.replace(/^([^#]*)(#.*)?$/g, '$1?utm_source=devtools$2');
+  }
+  return url.replace(/^([^#]*)(#.*)?$/g, '$1&utm_source=devtools$2');
+}
+
+/**
+ * @param {string} url
+ * @return {string}
+ */
+export function addReferrerToURLIfNecessary(url) {
+  if (/(\/\/developers.google.com\/|\/\/web.dev\/)/.test(url)) {
+    return addReferrerToURL(url);
+  }
+  return url;
+}
+
+/**
+ * @param {string} url
  * @return {!Promise<?Image>}
  */
 export function loadImage(url) {
