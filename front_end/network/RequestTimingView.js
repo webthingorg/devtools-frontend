@@ -304,7 +304,10 @@ export class RequestTimingView extends UI.Widget.VBox {
       const information = informationRow.createChild('td');
       information.colSpan = 3;
 
-      const link = UI.XLink.XLink.create('https://web.dev/custom-metrics/#server-timing-api', ls`the Server Timing API`);
+      const link = UI.XLink.XLink.create(
+          UI.UIUtils.getURLWithReferrer('https://web.dev/custom-metrics/#server-timing-api'),
+          ls`the Server Timing API`
+      );
       information.appendChild(UI.UIUtils.formatLocalized(
           'During development, you can use %s to add insights into the server-side timing of this request.', [link]));
 

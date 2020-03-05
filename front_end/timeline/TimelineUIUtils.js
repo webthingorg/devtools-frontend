@@ -780,7 +780,7 @@ export class TimelineUIUtils {
         break;
     }
 
-    return UI.Fragment.html`<div>${UI.XLink.XLink.create(link, ls`Learn more`)} about ${name}.</div>`;
+    return UI.Fragment.html`<div>${UI.XLink.XLink.create(UI.UIUtils.getURLWithReferrer(link), ls`Learn more`)} about ${name}.</div>`;
   }
 
   /**
@@ -1819,7 +1819,10 @@ export class TimelineUIUtils {
     }
 
     const link =
-        UI.XLink.XLink.create('https://developers.google.com/web/fundamentals/performance/rendering/', ls`jank`);
+        UI.XLink.XLink.create(
+            UI.UIUtils.getURLWithReferrer('https://developers.google.com/web/fundamentals/performance/rendering/'),
+            ls`jank`
+        );
     return UI.UIUtils.formatLocalized('%s. Long frame times are an indication of %s', [durationText, link]);
   }
 
