@@ -340,7 +340,7 @@ def prepare_closure_frontend_compile(temp_devtools_path, descriptors, namespace_
     for file in descriptors.all_skipped_compilation_files():
         content = ''
         if (file == path.join('sdk', '../SupportedCSSProperties.js')):
-            content = 'export const generatedProperties = []; export const generatedPropertyValues = [];'
+            content = 'export const generatedProperties = []; export const generatedPropertyValues = {}; export const generatedAliasesFor = {};'
         if (file == path.join('accessibility', 'ARIAProperties.js')):
             content = 'export const config = {};'
         if (file == path.join('protocol', '../InspectorBackendCommands.js')):
