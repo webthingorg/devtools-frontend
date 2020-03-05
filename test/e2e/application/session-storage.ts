@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import {describe, it} from 'mocha';
+import 'mocha-cakes-2';
+import {step} from 'mocha-steps';
+
 import * as puppeteer from 'puppeteer';
 
 import {$$, click, getBrowserAndPages, resetPages, resourcesPath, waitFor} from '../../shared/helper.js';
@@ -23,42 +25,49 @@ async function doubleClickSourceTreeItem(selector: string) {
   await click(selector, {clickOptions: {clickCount: 2}});
 }
 
-describe('The Application Tab', async () => {
-  beforeEach(async () => {
+feature('The Application Tab', async () => {
+  beforeEachScenario(async () => {
     await resetPages();
   });
 
-  it('shows Session Storage keys and values', async () => {
+  scenario('shows Session Storage keys and values', async () => {
     const {target} = getBrowserAndPages();
-    await navigateToApplicationTab(target, 'session-storage');
 
-    await doubleClickSourceTreeItem(SESSION_STORAGE_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    step('navigate to session-storage resource and open Application tab', async () => {
+      await navigateToApplicationTab(target, 'session-storage');
+    });
 
-    // Wait for Storage data-grid to show up
-    await waitFor('.storage-view table');
+    step('open the domain storage', async () => {
+      await doubleClickSourceTreeItem(SESSION_STORAGE_SELECTOR);
+      await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    });
 
-    const dataGridNodes = await $$('.data-grid-data-grid-node');
-    const dataGridRowValues = await dataGridNodes.evaluate(nodes => nodes.map((row: Element) => {
-      return {
-        key: row.querySelector('.key-column')!.textContent,
-        value: row.querySelector('.value-column')!.textContent,
-      };
-    }));
+    step('check that storage data values are correct', async () => {
+      // Wait for Storage data-grid to show up
+      await waitFor('.storage-view table');
 
-    assert.deepEqual(dataGridRowValues, [
-      {
-        key: 'firstKey',
-        value: 'firstValue',
-      },
-      {
-        key: 'secondKey',
-        value: '{"field":"complexValue","primitive":2}',
-      },
-      {
-        key: '',
-        value: '',
-      },
-    ]);
+      const dataGridNodes = await $$('.data-grid-data-grid-node');
+      const dataGridRowValues = await dataGridNodes.evaluate(nodes => nodes.map((row: Element) => {
+        return {
+          key: row.querySelector('.key-column')!.textContent,
+          value: row.querySelector('.value-column')!.textContent,
+        };
+      }));
+
+      assert.deepEqual(dataGridRowValues, [
+        {
+          key: 'firstKey',
+          value: 'firstValue',
+        },
+        {
+          key: 'secondKey',
+          value: '{"field":"complexValue","primitive":2}',
+        },
+        {
+          key: '',
+          value: '',
+        },
+      ]);
+    });
   });
 });

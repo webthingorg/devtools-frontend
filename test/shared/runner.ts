@@ -219,7 +219,7 @@ async function runTests() {
     for (const test of shuffledTests) {
       mocha.addFile(test);
     }
-    mocha.ui('bdd');
+    mocha.ui('mocha-cakes-2');
     mocha.reporter('list');
     mocha.timeout((envDebug || envInteractive) ? 300000 : 4000);
 
