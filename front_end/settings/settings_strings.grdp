@@ -57,6 +57,9 @@
   <message name="IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c" desc="Title for a setting">
     Settings
   </message>
+  <message name="IDS_DEVTOOLS_fccfa9a20f3975a6d555fa87cc209a5c" desc="Error message shown when the user tries to create a shortcut comprised of only modifier keys (e.g. Ctrl + Shift)">
+    Shortcuts must have a non-modifier key.
+  </message>
   <message name="IDS_DEVTOOLS_ffebb5ad32e2b253aa418b8d7a70028e" desc="Text in Framework Blackbox Settings Tab of the Settings">
     Blackbox content scripts
   </message>
