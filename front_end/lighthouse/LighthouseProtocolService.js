@@ -19,8 +19,8 @@ export class ProtocolService extends Common.Object {
    * @return {!Promise<undefined>}
    */
   async attach() {
-    await self.SDK.targetManager.suspendAllTargets();
-    const childTargetManager = self.SDK.targetManager.mainTarget().model(SDK.ChildTargetManager);
+    await SDK.SDKModel.TargetManager.instance().suspendAllTargets();
+    const childTargetManager = SDK.SDKModel.TargetManager.instance().mainTarget().model(SDK.ChildTargetManager);
     this._rawConnection = await childTargetManager.createParallelConnection(this._dispatchProtocolMessage.bind(this));
   }
 
@@ -43,7 +43,7 @@ export class ProtocolService extends Common.Object {
     delete this._backend;
     delete this._backendPromise;
     await this._rawConnection.disconnect();
-    await self.SDK.targetManager.resumeAllTargets();
+    await SDK.SDKModel.TargetManager.instance().resumeAllTargets();
   }
 
   /**
