@@ -53,6 +53,8 @@ DEPS = {
     "karma-typescript": "4.1.1",
     "license-checker": "25.0.1",
     "mocha": "6.2.0",
+    "mocha-cakes-2": "3.3.0",
+    "mocha-steps": "1.3.0",
     "puppeteer": "2.0.0",
     "recast": "0.18.2",
     "rimraf": "3.0.2",
