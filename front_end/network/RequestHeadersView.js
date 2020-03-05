@@ -892,27 +892,33 @@ const BlockedReasonDetails = new Map([
     Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader, {
       name: 'cross-origin-embedder-policy',
       value: null,
-      details: `<div class='call-to-action'><div class='call-to-action-body'>
-                <div class='explanation'>To embedd this frame in your document,
-                the response needs to enable the Cross Origin Embedder Policy by specifying the following response header:
-                <div class='source-code'>Cross-Origin-Embedder-Policy: require-corp</div>
-                </div>
-            </div>`
+      details:
+          `<div class='call-to-action'>
+                  <div class='call-to-action-body'>
+                    <div class='explanation'>${
+              ls
+          `To embedd this frame in your document, the response needs to enable the cross-origin embedder policy by specifying the following response header:`}</div>
+                    <div><code>Cross-Origin-Embedder-Policy: require-corp</code></div>
+                  </div>
+               </div>`
     }
   ],
   [
     Protocol.Network.BlockedReason.CorpNotSameOriginAfterDefaultedToSameOriginByCoep, {
       name: 'cross-origin-resource-policy',
       value: null,
-      details: `<div class='call-to-action'><div class='call-to-action-body'>
-                <div class='explanation'>To use this resource from a different origin,
-                  the server needs to specify a <code>Cross-Origin-Resource-Policy<code> response header, e.g.:</div>
-                  <div><code>Cross-Origin-Resource-Policy: same-site</code> &mdash;
-                  Choose this option if the resource and the document are served from the same site.</div>
-              <div><code>Cross-Origin-Resource-Policy: cross-origin</code> &mdash;
-                  <span class='explanation warning'>Only do this if an arbitrary website including this resource does not impose a security risk.</span></div>
-                </div>
-            </div>`
+      details:
+          `<div class='call-to-action'>
+                  <div class='call-to-action-body'>
+                    <div class='explanation'>${
+              ls
+          `To use this resource from a different origin, the server needs to specify a cross-origin resource policy in the response headers:`}</div>
+                    <div><code>Cross-Origin-Resource-Policy: same-site</code> &mdash; ${
+              ls`Choose this option if the resource and the document are served from the same site.`}</div>
+                    <div><code>Cross-Origin-Resource-Policy: cross-origin</code> &mdash; ${
+              ls`Only choose this option if an arbitrary website including this resource does not impose a security risk.`}</div>
+                  </div>
+               </div>`
     }
   ],
   [
@@ -920,10 +926,14 @@ const BlockedReasonDetails = new Map([
       name: 'cross-origin-opener-policy',
       value: null,
       headerValueIncorrect: false,
-      details: `<div class='call-to-action'><div class='call-to-action-body'>
-             <div class='explanation'>This document was blocked from loading in an <code>iframe</code> with a <code>sandbox</code> attribute because it specified a <code>Cross-Origin-Opener-Policy</code>.</div>
-           </div>
-         </div>`
+      details:
+          `<div class='call-to-action'>
+                  <div class='call-to-action-body'>
+                    <div class='explanation'>${
+              ls
+                    `This document was blocked from loading in an ${'<code>iframe</code>'} with a ${'<code>sandbox</code>'} attribute because it specified a cross-origin opener policy.`}</div>
+                  </div>
+                </div>`
     }
   ],
   [
@@ -931,13 +941,16 @@ const BlockedReasonDetails = new Map([
       name: 'cross-origin-resource-policy',
       value: null,
       headerValueIncorrect: true,
-      details: `<div class='call-to-action'><div class='call-to-action-body'>
-             <div class='explanation'>To use this resource from a different site,
-               the server may relax the <code>Cross-Origin-Resource-Policy</code> response header:</div>
-               <div><code>Cross-Origin-Resource-Policy: cross-origin</code> &mdash;
-                 <span class='explanation warning'>Only do this if an arbitrary website including this resource does not impose a security risk.</span></div>
-             </div>
-          </div>`
+      details:
+          `<div class='call-to-action'>
+                  <div class='call-to-action-body'>
+                    <div class='explanation'>${
+              ls
+          `To use this resource from a different site, the server may relax the cross-origin resource policy response header:`}</div>
+                    <div><code>Cross-Origin-Resource-Policy: cross-origin</code> &mdash; ${
+              ls`Only choose this option if an arbitrary website including this resource does not impose a security risk.`}</div>
+                  </div>
+                </div>`
     }
   ],
   [
@@ -945,15 +958,18 @@ const BlockedReasonDetails = new Map([
       name: 'cross-origin-resource-policy',
       value: null,
       headerValueIncorrect: true,
-      details: `<div class='call-to-action'><div class='call-to-action-body'>
-             <div class='explanation'>To use this resource from a different origin,
-             the server may relax the <code>Cross-Origin-Resource-Policy</code> response header:</div>
-             <div><code>Cross-Origin-Resource-Policy: same-site</code> &mdash;
-                 Choose this option if the resource and the document are served from the same site.</div>
-             <div><code>Cross-Origin-Resource-Policy: cross-origin</code> &mdash;
-                 <span class='explanation warning'>Only do this if an arbitrary website including this resource does not impose a security risk.</span></div>
-           </div>
-         </div>`
+      details:
+          `<div class='call-to-action'>
+                  <div class='call-to-action-body'>
+                    <div class='explanation'>${
+              ls
+          `To use this resource from a different origin, the server may relax the cross-origin resource policy response header:`}</div>
+                    <div><code>Cross-Origin-Resource-Policy: same-site</code> &mdash; ${
+              ls`Choose this option if the resource and the document are served from the same site.`}</div>
+                    <div><code>Cross-Origin-Resource-Policy: cross-origin</code> &mdash; ${
+              ls`Only choose this option if an arbitrary website including this resource does not impose a security risk.`}</div>
+                  </div>
+                </div>`
     }
   ],
 ]);
