@@ -20,6 +20,7 @@ import re
 import shutil
 import sys
 import subprocess
+import datetime
 
 from modular_build import read_file, write_file, bail_error
 import modular_build
@@ -38,6 +39,22 @@ try:
 finally:
     sys.path = original_sys_path
 
+FRONT_END_DIRECTORY = path.join(os.path.dirname(path.abspath(__file__)), '..', '..', 'front_end')
+
+MODULE_LIST = [
+    path.join(FRONT_END_DIRECTORY, subfolder, subfolder + '.js')
+    for subfolder in os.listdir(FRONT_END_DIRECTORY)
+    if path.isdir(os.path.join(FRONT_END_DIRECTORY, subfolder))
+]
+
+ROLLUP_ARGS = [
+    '--no-treeshake', '--format', 'esm', '--context', 'self', '--external',
+    ','.join([path.abspath(module) for module in MODULE_LIST])
+]
+
+USE_ROLLUP = False
+
+
 def main(argv):
     try:
         input_path_flag_index = argv.index('--input_path')
@@ -45,8 +62,10 @@ def main(argv):
         output_path_flag_index = argv.index('--output_path')
         output_path = argv[output_path_flag_index + 1]
         application_names = argv[1:input_path_flag_index]
+        use_rollup_flag_index = argv.index('--rollup')
+        USE_ROLLUP = argv[use_rollup_flag_index + 1] == 'true'
     except:
-        print('Usage: %s app_1 app_2 ... app_N --input_path <input_path> --output_path <output_path>' % argv[0])
+        print('Usage: %s app_1 app_2 ... app_N --input_path <input_path> --output_path <output_path> --rollup true' % argv[0])
         raise
 
     loader = modular_build.DescriptorLoader(input_path)
@@ -54,6 +73,13 @@ def main(argv):
         descriptors = loader.load_application(app)
         builder = ReleaseBuilder(app, descriptors, input_path, output_path)
         builder.build_app()
+
+    def copy_file(file_name):
+        write_file(join(output_path, file_name), minify_js(read_file(join(input_path, file_name))))
+
+    copy_file('root.js')
+    copy_file('Runtime.js')
+
 
 
 def resource_source_url(url):
@@ -161,6 +187,7 @@ class ReleaseBuilder(object):
                 if len(non_autostart_deps):
                     bail_error(
                         'Non-autostart dependencies specified for the autostarted module "%s": %s' % (name, non_autostart_deps))
+                self._rollup_module(name, desc.get('modules', []))
             else:
                 non_autostart.add(name)
 
@@ -179,6 +206,7 @@ class ReleaseBuilder(object):
     def _concatenate_dynamic_module(self, module_name):
         module = self.descriptors.modules[module_name]
         scripts = module.get('scripts')
+        modules = module.get('modules')
         resources = self.descriptors.module_resources(module_name)
         module_dir = join(self.application_dir, module_name)
         output = StringIO()
@@ -186,9 +214,30 @@ class ReleaseBuilder(object):
             modular_build.concatenate_scripts(scripts, module_dir, self.output_dir, output)
         if resources:
             self._write_module_resources(resources, output)
+        if modules:
+            self._rollup_module(module_name, modules)
         output_file_path = concatenated_module_filename(module_name, self.output_dir)
         write_file(output_file_path, minify_js(output.getvalue()))
         output.close()
+
+    def _rollup_module(self, module_name, modules):
+        js_entrypoint = join(self.application_dir, module_name, module_name + '.js')
+        out = ''
+        if USE_ROLLUP:
+            rollup_process = subprocess.Popen(
+                [devtools_paths.node_path(), devtools_paths.rollup_path()] + ROLLUP_ARGS + ['--input', js_entrypoint],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE)
+            out, error = rollup_process.communicate()
+        else:
+            out = read_file(js_entrypoint)
+        write_file(join(self.output_dir, module_name, module_name + '.js'), minify_js(out))
+
+        legacyFileName = module_name + '-legacy.js'
+        if legacyFileName in modules:
+            write_file(
+                join(self.output_dir, module_name, legacyFileName),
+                minify_js(read_file(join(self.application_dir, module_name, legacyFileName))))
 
 
 if __name__ == '__main__':
