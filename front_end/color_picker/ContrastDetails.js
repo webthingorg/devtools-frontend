@@ -156,8 +156,9 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   static _showHelp() {
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
-        'https://developers.google.com/web/fundamentals/accessibility/accessible-styles#color_and_contrast');
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(UI.UIUtils.getURLWithReferrer(
+      'https://developers.google.com/web/fundamentals/accessibility/accessible-styles#color_and_contrast'
+    ));
   }
 
   /**
