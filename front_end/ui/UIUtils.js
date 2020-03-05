@@ -2009,7 +2009,21 @@ ThemeSupport.ColorUsage = {
  * @return {!Element}
  */
 export function createDocumentationLink(article, title) {
-  return XLink.create('https://developers.google.com/web/tools/chrome-devtools/' + article, title);
+  return XLink.create(
+    getURLWithReferrer(`https://developers.google.com/web/tools/chrome-devtools/${article}`),
+    title
+  );
+}
+
+/**
+ * @param {string} url
+ * @return {string}
+ */
+export function getURLWithReferrer(url) {
+  if (url.indexOf('?') === -1) {
+    return url.replace(/^([^#]*)(#.*)?$/g, '$1?utm_source=devtools$2');
+  }
+  return url.replace(/^([^#]*)(#.*)?$/g, '$1&utm_source=devtools$2');
 }
 
 /**

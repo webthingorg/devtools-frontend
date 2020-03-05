@@ -20,8 +20,8 @@ export class AppManifestView extends UI.Widget.VBox {
     self.Common.settings.moduleSetting('colorFormat').addChangeListener(this._updateManifest.bind(this, true));
 
     this._emptyView = new UI.EmptyWidget.EmptyWidget(Common.UIString.UIString('No manifest detected'));
-    this._emptyView.appendLink(
-        'https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/?utm_source=devtools');
+    this._emptyView.appendLink(UI.UIUtils.getURLWithReferrer(
+        'https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest'));
 
     this._emptyView.show(this.contentElement);
     this._emptyView.hideWidget();
@@ -190,7 +190,10 @@ export class AppManifestView extends UI.Widget.VBox {
     });
     this._iconsSection.appendRow().appendChild(setIconMaskedCheckbox);
     const documentationLink =
-        UI.XLink.XLink.create('https://web.dev/maskable-icon/', ls`documentation on maskable icons`);
+        UI.XLink.XLink.create(
+            UI.UIUtils.getURLWithReferrer('https://web.dev/maskable-icon/'),
+            ls`documentation on maskable icons`
+        );
     this._iconsSection.appendRow().appendChild(
         UI.UIUtils.formatLocalized('Need help? Read our %s.', [documentationLink]));
 
