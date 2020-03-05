@@ -34,6 +34,48 @@ import * as Host from '../host/host.js';
  */
 export class KeyboardShortcut {
   /**
+   * @param {!UI.KeyboardShortcut.Descriptor} descriptor
+   * @param {string} action
+   * @param {!Type=} type
+   */
+  constructor(descriptor, action, type) {
+    this.descriptor = descriptor;
+    this.action = action;
+    this.type = type || Type.UserShortcut;
+  }
+
+  /**
+   * @return {string}
+   */
+  actionName() {
+    const actionDetails = UI.actionRegistry.action(this.action);
+    if (!actionDetails) {
+      return ls`unknown action`;
+    }
+    const title = actionDetails.title();
+    if (title) {
+      return title;
+    }
+
+    const splitIndex = this.action.indexOf('.');
+    if (splitIndex >= 0) {
+      return this.action.substr(splitIndex + 1);
+    }
+    return this.action;
+  }
+
+  /**
+   * @return {string}
+   */
+  actionCategory() {
+    if (!this.action.includes('.')) {
+      return '';
+    }
+    const category = this.action.split('.')[0];
+    return category.charAt(0).toUpperCase() + category.substring(1);
+  }
+
+  /**
    * Creates a number encoding keyCode in the lower 8 bits and modifiers mask in the higher 8 bits.
    * It is useful for matching pressed keys.
    *
@@ -278,6 +320,20 @@ export const Keys = {
     // "default" command/ctrl key for platform, Command on Mac, Ctrl on other platforms
     return Host.Platform.isMac() ? this.Meta : this.Ctrl;
   },
+};
+
+/** @enum {string} */
+export const Type = {
+  UserShortcut: 'UserShortcut',
+  DefaultShortcut: 'DefaultShortcut',
+  DisabledDefault: 'DisabledDefault',
+  UnsetShortcut: 'UnsetShortcut',
+};
+
+/** @type {!UI.KeyboardShortcut.Descriptor} */
+export const EmptyShortcutDescriptor = {
+  key: -1,
+  name: ''
 };
 
 export const KeyBindings = {};
