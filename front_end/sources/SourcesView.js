@@ -154,8 +154,9 @@ export class SourcesView extends UI.Widget.VBox {
     this._selectedIndex = 0;
 
     element.appendChild(UI.XLink.XLink.create(
-        'https://developers.google.com/web/tools/chrome-devtools/sources?utm_source=devtools&utm_campaign=2018Q1',
-        'Learn more'));
+        UI.UIUtils.getURLWithReferrer(
+            'https://developers.google.com/web/tools/chrome-devtools/sources?utm_campaign=2018Q1'),
+        ls`Learn more`));
 
     return element;
   }

@@ -104,7 +104,10 @@ export class FilesNavigatorView extends NavigatorView {
     this.setPlaceholder(placeholder);
     placeholder.appendParagraph().appendChild(UI.Fragment.html`
       <div>${ls`Sync changes in DevTools with the local filesystem`}</div><br />
-      ${UI.XLink.XLink.create('https://developers.google.com/web/tools/chrome-devtools/workspaces/', ls`Learn more`)}
+      ${
+        UI.XLink.XLink.create(
+            UI.UIUtils.getURLWithReferrer('https://developers.google.com/web/tools/chrome-devtools/workspaces/'),
+            ls`Learn more`)}
     `);
 
     const toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
@@ -144,7 +147,10 @@ export class OverridesNavigatorView extends NavigatorView {
     this.setPlaceholder(placeholder);
     placeholder.appendParagraph().appendChild(UI.Fragment.html`
       <div>${ls`Override page assets with files from a local folder`}</div><br />
-      ${UI.XLink.XLink.create('https://developers.google.com/web/updates/2018/01/devtools#overrides', ls`Learn more`)}
+      ${
+        UI.XLink.XLink.create(
+            UI.UIUtils.getURLWithReferrer('https://developers.google.com/web/updates/2018/01/devtools#overrides'),
+            ls`Learn more`)}
     `);
 
     this._toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
@@ -258,7 +264,9 @@ export class SnippetsNavigatorView extends NavigatorView {
       <div>${ls`Create and save code snippets for later reuse`}</div><br />
       ${
         UI.XLink.XLink.create(
-            'https://developers.google.com/web/tools/chrome-devtools/javascript/snippets', ls`Learn more`)}
+            UI.UIUtils.getURLWithReferrer(
+                'https://developers.google.com/web/tools/chrome-devtools/javascript/snippets'),
+            ls`Learn more`)}
     `);
 
     const toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
