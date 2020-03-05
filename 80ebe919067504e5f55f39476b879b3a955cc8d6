@@ -22,6 +22,30 @@
       "revId": "80ebe919067504e5f55f39476b879b3a955cc8d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1df1816d_73a500e4",
+        "filename": "front_end/profiler/module.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-05T20:45:00Z",
+      "side": 1,
+      "message": "Nah, Zoher and I synced offline yesterday and decided that this is  better for brevity. Since this action will appear under the profiler category, it will be clear what it\u0027s referring to.",
+      "parentUuid": "2f4463ce_089c21d8",
+      "range": {
+        "startLine": 76,
+        "startChar": 22,
+        "endLine": 76,
+        "endChar": 33
+      },
+      "revId": "80ebe919067504e5f55f39476b879b3a955cc8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
