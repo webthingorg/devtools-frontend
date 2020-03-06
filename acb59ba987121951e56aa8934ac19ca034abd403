@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4abdd142_7872ebd1",
+        "filename": "front_end/sources/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-06T22:26:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f719a8a0_aacf41f6",
+      "revId": "acb59ba987121951e56aa8934ac19ca034abd403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c724385_4736cd57",
         "filename": "scripts/json_validator/module.schema.json",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "acb59ba987121951e56aa8934ac19ca034abd403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62a24c7f_356a5125",
+        "filename": "scripts/json_validator/module.schema.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-06T22:26:45Z",
+      "side": 1,
+      "message": "I think it might be. I\u0027ve refined this so that if type\u003d\u003d\u003d\u0027action\u0027 and title is undefined, the options array must be at least 1 item long and its items must have titles.",
+      "parentUuid": "9c724385_4736cd57",
+      "revId": "acb59ba987121951e56aa8934ac19ca034abd403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
