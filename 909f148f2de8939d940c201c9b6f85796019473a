@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "002b20f8_74564b37",
+        "filename": "front_end/text_utils/TextUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-06T15:40:09Z",
+      "side": 1,
+      "message": "This should be `../common/common.js`: https://docs.google.com/presentation/d/1KaTDaKEcLmgv3Wum79gPP9mv9x2fm3kuEgx_b8wLVug/edit#slide\u003did.g6f3bb6e30c_0_163",
+      "range": {
+        "startLine": 31,
+        "startChar": 37,
+        "endLine": 31,
+        "endChar": 59
+      },
+      "revId": "909f148f2de8939d940c201c9b6f85796019473a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
