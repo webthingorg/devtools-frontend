@@ -22,6 +22,30 @@
       "revId": "a0858262689357a02f98253b3e96ae5619499d87",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b870410_efae115f",
+        "filename": "front_end/persistence/IsolatedFileSystemManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:58:12Z",
+      "side": 1,
+      "message": "Maybe - we don\u0027t do a lot of checking for rejected promises anywhere, I\u0027m not sure what the precedence is for error cases",
+      "parentUuid": "f150c4fa_e0e34bb4",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "a0858262689357a02f98253b3e96ae5619499d87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
