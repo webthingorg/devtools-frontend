@@ -107,7 +107,7 @@ export class CompilerScriptMapping {
   _addStubUISourceCode(script) {
     const stubUISourceCode = this._stubProject.addContentProvider(
         script.sourceURL + ':sourcemap',
-        Common.StaticContentProvider.StaticContentProvider.fromString(
+        TextUtils.StaticContentProvider.fromString(
             script.sourceURL, Common.ResourceType.resourceTypes.Script,
             '\n\n\n\n\n// Please wait a bit.\n// Compiled script is not shown while source map is being loaded!'),
         'text/javascript');
@@ -120,7 +120,9 @@ export class CompilerScriptMapping {
   async _removeStubUISourceCode(script) {
     const uiSourceCode = this._stubUISourceCodes.get(script);
     this._stubUISourceCodes.delete(script);
-    this._stubProject.removeFile(uiSourceCode.url());
+    if (uiSourceCode) {
+      this._stubProject.removeFile(uiSourceCode.url());
+    }
     await this._debuggerWorkspaceBinding.updateLocations(script);
   }
 

@@ -58,7 +58,7 @@ Coverage.CoverageView.ActionDelegate = CoverageModule.CoverageView.ActionDelegat
 /**
  * @typedef {!{
  *    id: string,
- *    contentProvider: !Common.ContentProvider,
+ *    contentProvider: !TextUtils.ContentProvider,
  *    line: number,
  *    column: number
  * }}
