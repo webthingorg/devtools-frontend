@@ -34,6 +34,8 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {!Platform.Multimap<string, !T>} */
     this._sourceMapIdToClients = new Platform.Multimap();
 
+    SDK.sourceMapManagerObserver().addManager(this);
+
     TargetManager.instance().addEventListener(TargetManagerEvents.InspectedURLChanged, this._inspectedURLChanged, this);
   }
 
@@ -244,6 +246,7 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   dispose() {
+    SDK.sourceMapManagerObserver().removeManager(this);
     for (const sourceMap of this._sourceMapById.values()) {
       sourceMap.dispose();
     }
@@ -259,3 +262,53 @@ export const Events = {
   SourceMapDetached: Symbol('SourceMapDetached'),
   SourceMapChanged: Symbol('SourceMapChanged')
 };
+
+
+export class SourceMapManagerObserver extends Common.ObjectWrapper.ObjectWrapper {
+  constructor() {
+    super();
+    this._managers = new Set();
+  }
+  /**
+   * @param {!SDK.SourceMapManager} sourceMapManager
+   */
+  addManager(sourceMapManager) {
+    this._managers.add(sourceMapManager);
+  }
+  /**
+   * @param {!SDK.SourceMapManager} sourceMapManager
+   */
+  removeManager(sourceMapManager) {
+    this._managers.delete(sourceMapManager);
+  }
+
+  /**
+   * @param {string} url
+   * @return {?SDK.SourceMap}
+   */
+  sourceMapForURL(url) {
+    for (const manager of this._managers) {
+      // BROKEN by https://chromium-review.googlesource.com/c/chromium/src/+/1848697
+      const clients = Array.from(manager._resolvedSourceMapId.keys());
+      for (const client of clients) {
+        const relativeSourceURL = manager._relativeSourceURL.get(client);
+        if (url === relativeSourceURL) {
+          const sourceMapId = manager._resolvedSourceMapId.get(client);
+          const sourceMap = manager._sourceMapById.get(sourceMapId);
+          return sourceMap;
+        }
+      }
+    }
+    return null;
+  }
+}
+
+/**
+ * @return {!SDK.SourceMapManagerObserver}
+ */
+export function sourceMapManagerObserver() {
+  if (!SDK.SourceMapManagerObserver._instance) {
+    SDK.SourceMapManagerObserver._instance = new SDK.SourceMapManagerObserver();
+  }
+  return SDK.SourceMapManagerObserver._instance;
+}

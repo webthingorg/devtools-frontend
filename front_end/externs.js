@@ -1181,6 +1181,40 @@ const LighthouseReportGenerator = class {
   }
 };
 
+
+const webtreemap = {};
+
+/**
+ * @typedef {{
+  *     id: string,
+  *     size: number,
+  *     children: (!Array<webtreemap.Node>|undefined),
+  *     dom: (HTMLElement|undefined),
+  * }}
+  */
+webtreemap.Node;
+
+/**
+ * @constructor
+ * @param {webtreemap.Node} node
+ * @param {Object} options
+ */
+webtreemap.TreeMap = function(node, options) {};
+/**
+ * @param {Element} elem
+ */
+webtreemap.TreeMap.prototype.render = function(elem) {};
+/**
+ * @param {webtreemap.Node} node
+ * @param {Element} elem
+ */
+webtreemap.TreeMap.prototype.layout = function(node, elem) {};
+
+/**
+ * @param {!webtreemap.Node} nodes
+ */
+webtreemap.sort = function(nodes) {};
+
 /** @interface */
 class InspectorFrontendHostAPI {
   /**

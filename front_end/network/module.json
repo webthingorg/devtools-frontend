@@ -206,11 +206,13 @@
         "RequestInitiatorView.js",
         "RequestResponseView.js",
         "RequestPreviewView.js",
+        "RequestSourceMapView.js",
         "RequestTimingView.js",
         "ResourceWebSocketFrameView.js",
         "SignedExchangeInfoView.js",
         "NetworkOverview.js",
-        "NetworkPanel.js"
+        "NetworkPanel.js",
+        "../third_party/webtreemap/webtreemap.js"
     ],
     "resources": [
         "binaryResourceView.css",
@@ -225,10 +227,12 @@
         "requestCookiesView.css",
         "requestHeadersTree.css",
         "requestHeadersView.css",
+        "requestSourceMapView.css",
         "requestHTMLView.css",
         "requestInitiatorView.css",
         "signedExchangeInfoTree.css",
         "signedExchangeInfoView.css",
-        "webSocketFrameView.css"
+        "webSocketFrameView.css",
+        "../third_party/webtreemap/webtreemap.js"
     ]
 }
