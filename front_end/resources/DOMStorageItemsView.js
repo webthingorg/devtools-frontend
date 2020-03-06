@@ -313,7 +313,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
     const protocol = this._domStorage.isLocalStorage ? 'localstorage' : 'sessionstorage';
     const url = `${protocol}://${entry.key}`;
-    const provider = Common.StaticContentProvider.StaticContentProvider.fromString(
+    const provider = TextUtils.StaticContentProvider.fromString(
         url, Common.ResourceType.resourceTypes.XHR, /** @type {string} */ (value));
     const preview = await SourceFrame.PreviewFactory.PreviewFactory.createPreview(provider, 'text/plain');
     // Selection could've changed while the preview was loaded
