@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "38262bdc_2e679a7b",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-06T11:06:05Z",
+      "side": 1,
+      "message": "I\u0027m generating the HTML programmatically now.",
+      "parentUuid": "7740a02d_7fc1a462",
+      "range": {
+        "startLine": 895,
+        "startChar": 6,
+        "endLine": 895,
+        "endChar": 13
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07cca9dd_58d5f470",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1173d28d_659a44ac",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-06T11:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07cca9dd_58d5f470",
+      "range": {
+        "startLine": 900,
+        "startChar": 14,
+        "endLine": 900,
+        "endChar": 20
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c6f4892c_48f106eb",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-06T11:06:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f973496_e6c111dd",
+      "range": {
+        "startLine": 934,
+        "startChar": 66,
+        "endLine": 934,
+        "endChar": 69
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d2cd323_840df769",
         "filename": "front_end/network/network_strings.grdp",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "397f4691_c232faf6",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-06T11:06:05Z",
+      "side": 1,
+      "message": "I\u0027ve removed the inline styling \u003ccode\u003e elements.",
+      "parentUuid": "6d2cd323_840df769",
+      "range": {
+        "startLine": 283,
+        "startChar": 50,
+        "endLine": 283,
+        "endChar": 85
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -137,6 +233,54 @@
       "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa72d0f2_4fd639c3",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-06T11:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfe1e5c6_16d8443e",
+      "range": {
+        "startLine": 472,
+        "startChar": 7,
+        "endLine": 472,
+        "endChar": 13
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a25de95_4fb0665d",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-06T11:06:05Z",
+      "side": 1,
+      "message": "I\u0027d rather leave that to the professional translators to decide, because it might differ between languages.",
+      "parentUuid": "f707213c_ed97e7bf",
+      "range": {
+        "startLine": 472,
+        "startChar": 76,
+        "endLine": 472,
+        "endChar": 104
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
