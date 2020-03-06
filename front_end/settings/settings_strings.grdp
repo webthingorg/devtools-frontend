@@ -45,8 +45,17 @@
   <message name="IDS_DEVTOOLS_b39a035a995fc6597c8eb942210d1527" desc="Aria accessible name in Framework Blackbox Settings Tab of the Settings">
     Behavior
   </message>
+  <message name="IDS_DEVTOOLS_b74a528ac1eadecadde7f1991e771e89" desc="Text in the custom keyboard shortcut editor instructing the user on how to create a shortcut">
+    Enter shortcut here
+  </message>
   <message name="IDS_DEVTOOLS_b791f463c10f80e87e887e1f863f6209" desc="Text of the add pattern button in Framework Blackbox Settings Tab of the Settings">
     Add pattern...
+  </message>
+  <message name="IDS_DEVTOOLS_b79f519c466262be3a83964860003fa6" desc="Error message shown when the user tries to bind a shortcut with a conflict">
+    Shortcut conflicts with <ph name="ACTIONTITLE">$1s<ex>Search in panel</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_c627071a86ba4947d3ad3c0a698acd63" desc="Label for a checkbox in the custom keyboard shortcut editor to clear other actions bound to the user's shortcut">
+    Unbind conflict
   </message>
   <message name="IDS_DEVTOOLS_c745d3ac390f120535d734cd14e2f6aa" desc="Blackbox content scripts title in Framework Blackbox Settings Tab of the Settings">
     Blackbox content scripts (extension scripts in the page)
@@ -68,6 +77,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c" desc="Title for a setting">
     Settings
+  </message>
+  <message name="IDS_DEVTOOLS_fccfa9a20f3975a6d555fa87cc209a5c" desc="Error message displayed in the custom keyboard shortcuts settings tab when the user tries to create a shortcut comprised only of modifier keys (e.g. Ctrl+Shift)">
+    Shortcuts must have a non-modifier key.
   </message>
   <message name="IDS_DEVTOOLS_ffebb5ad32e2b253aa418b8d7a70028e" desc="Text in Framework Blackbox Settings Tab of the Settings">
     Blackbox content scripts

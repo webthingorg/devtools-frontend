@@ -76,6 +76,30 @@ export class KeyboardShortcut {
   }
 
   /**
+   * @param {!Type} type
+   * @return {!KeyboardShortcut}
+   */
+  changeType(type) {
+    return new KeyboardShortcut(this.descriptor, this.action, type);
+  }
+
+  /**
+   * @param {!KeyboardShortcut.Descriptor} descriptor
+   * @return {!KeyboardShortcut}
+   */
+  changeKeys(descriptor) {
+    return new KeyboardShortcut(descriptor, this.action);
+  }
+
+  /**
+   * @param {!{action: string, descriptor: KeyboardShortcut.Descriptor, type: !Type}} settingObject
+   * @return {!KeyboardShortcut}
+   */
+  static createShortcutFromSettingObject(settingObject) {
+    return new KeyboardShortcut(settingObject.descriptor, settingObject.action, settingObject.type);
+  }
+
+  /**
    * Creates a number encoding keyCode in the lower 8 bits and modifiers mask in the higher 8 bits.
    * It is useful for matching pressed keys.
    *
@@ -223,6 +247,15 @@ export class KeyboardShortcut {
   }
 
   /**
+   * @param {number} key
+   * @return {boolean}
+   */
+  static isModifier(key) {
+    return key === UI.KeyboardShortcut.Keys.Shift.code || key === UI.KeyboardShortcut.Keys.Ctrl.code ||
+        key === UI.KeyboardShortcut.Keys.Alt.code || key === UI.KeyboardShortcut.Keys.Meta.code;
+  }
+
+  /**
    * @param {number|undefined} modifiers
    * @return {string}
    */
@@ -272,6 +305,7 @@ export const Keys = {
   Enter: {code: 13, name: {mac: '\u21a9', other: 'Enter'}},
   Shift: {code: 16, name: {mac: '\u21e7', other: 'Shift'}},
   Ctrl: {code: 17, name: 'Ctrl'},
+  Alt: {code: 18, name: 'Alt'},
   Esc: {code: 27, name: 'Esc'},
   Space: {code: 32, name: 'Space'},
   PageUp: {code: 33, name: {mac: '\u21de', other: 'PageUp'}},      // also NUM_NORTH_EAST
