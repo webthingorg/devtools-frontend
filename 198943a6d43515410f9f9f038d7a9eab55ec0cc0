@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7740a02d_7fc1a462",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:52:00Z",
+      "side": 1,
+      "message": "I don\u0027t know what the general guidance here is, but setting innerHTML from these strings is different to how we construct UI elsewhere AFAIK. There is also the potential of a security issue if the UI strings are somehow compromised. Have you considered constructing the UI for all of the errors programatically instead?",
+      "range": {
+        "startLine": 895,
+        "startChar": 6,
+        "endLine": 895,
+        "endChar": 13
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07cca9dd_58d5f470",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:52:00Z",
+      "side": 1,
+      "message": "embed",
+      "range": {
+        "startLine": 900,
+        "startChar": 14,
+        "endLine": 900,
+        "endChar": 20
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f973496_e6c111dd",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:52:00Z",
+      "side": 1,
+      "message": "As mentioned above, I think it\u0027s better to just use ph tags for this",
+      "range": {
+        "startLine": 934,
+        "startChar": 66,
+        "endLine": 934,
+        "endChar": 69
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d2cd323_840df769",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:52:00Z",
+      "side": 1,
+      "message": "I think you only need either \u003cph\u003e tags or the template string - not both. I think `ph` tags make more sense here.\n\n`ph` tags should be used with names like `LOCKED_1`, `LOCKED_2` etc.\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/langpacks/locked_terms.md",
+      "range": {
+        "startLine": 283,
+        "startChar": 50,
+        "endLine": 283,
+        "endChar": 85
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfe1e5c6_16d8443e",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:52:00Z",
+      "side": 1,
+      "message": "embed",
+      "range": {
+        "startLine": 472,
+        "startChar": 7,
+        "endLine": 472,
+        "endChar": 13
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f707213c_ed97e7bf",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:52:00Z",
+      "side": 1,
+      "message": "I suggest you lock technical terms like \u0027cross origin embedder policy\u0027 so that they aren\u0027t translated. I don\u0027t think they are translated elsewhere e.g. documentation in other languages.\nYou can add ph tags here e.g.\n\n    \u003cph name\u003d\"LOCKED_1\"\u003ecross-origin embedder policy\u003c/ph\u003e\n\nMore: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/langpacks/locked_terms.md",
+      "range": {
+        "startLine": 472,
+        "startChar": 76,
+        "endLine": 472,
+        "endChar": 104
+      },
+      "revId": "198943a6d43515410f9f9f038d7a9eab55ec0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

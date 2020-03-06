@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d332477e_63e4f600",
+        "filename": "front_end/network/requestHeadersTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-06T09:52:00Z",
+      "side": 0,
+      "message": "Howcome the color changes?",
+      "range": {
+        "startLine": 138,
+        "startChar": 11,
+        "endLine": 138,
+        "endChar": 41
+      },
+      "revId": "9cabb00b326128d173167c3fa883c0e815813648",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
