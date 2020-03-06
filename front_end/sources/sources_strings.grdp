@@ -225,6 +225,9 @@
   <message name="IDS_DEVTOOLS_64c5d2b51d86c5e1d22a77a4ea5ed174" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Disable code folding
   </message>
+  <message name="IDS_DEVTOOLS_66269f8f7ae685a829cf1823e256793b" desc="Title of a sources panel action that opens the breakpoint input window">
+    Breakpoint input window
+  </message>
   <message name="IDS_DEVTOOLS_6700b68e0b1cd0ed13778682cc1b376d" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Enable code folding
   </message>
@@ -317,6 +320,9 @@
   </message>
   <message name="IDS_DEVTOOLS_88da81657234efcab8a23679d2e97b8e" desc="Text in the GoToLine dialog of the Sources pane that describes the current line number, file line number range, and use of the GoToLine dialog">
     Current line: <ph name="CURRENTLINENUMBER">$1s<ex>1</ex></ph>. Type a line number between 1 and <ph name="LINESCOUNT">$2s<ex>100</ex></ph> to navigate to.
+  </message>
+  <message name="IDS_DEVTOOLS_904a8304056d77e4547744781b7ceb50" desc="Title of a sources panel action that renames a file">
+    Rename
   </message>
   <message name="IDS_DEVTOOLS_906646d2d69e110dcd4cfc74e5790f6f" desc="Text in Debugger Paused Message of the Sources panel">
     Paused on event listener
