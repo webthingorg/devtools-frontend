@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f719a8a0_aacf41f6",
+        "filename": "front_end/sources/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-06T21:59:27Z",
+      "side": 1,
+      "message": "Should this be \"Open breakpoint input window\" or \"Toggle breakpoint input window\"? The title reads a bit strange without a verb in front.",
+      "revId": "acb59ba987121951e56aa8934ac19ca034abd403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c724385_4736cd57",
+        "filename": "scripts/json_validator/module.schema.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-06T21:59:27Z",
+      "side": 1,
+      "message": "Would it also be necessary to specify \"required\" for this property, if \"options\" is defined? (My JSON schema knowledge is limited)",
+      "revId": "acb59ba987121951e56aa8934ac19ca034abd403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
