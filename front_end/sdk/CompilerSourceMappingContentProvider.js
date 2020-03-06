@@ -28,7 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Common from '../common/common.js';
+import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+import * as TextUtils from '../text_utils/text_utils.js';
 
 /**
  * @implements {Common.ContentProvider.ContentProvider}
@@ -99,6 +100,6 @@ export class CompilerSourceMappingContentProvider {
     if (typeof content !== 'string') {
       return [];
     }
-    return Common.ContentProvider.performSearchInContent(content, query, caseSensitive, isRegex);
+    return TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex);
   }
 }

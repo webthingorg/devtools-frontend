@@ -70,7 +70,6 @@ Common.ContentProvider = CommonModule.ContentProvider.ContentProvider;
  * @constructor
  */
 Common.ContentProvider.SearchMatch = CommonModule.ContentProvider.SearchMatch;
-Common.ContentProvider.performSearchInContent = CommonModule.ContentProvider.performSearchInContent;
 Common.ContentProvider.contentAsDataURL = CommonModule.ContentProvider.contentAsDataURL;
 
 /**

@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../common/common.js';
+import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {IsolatedFileSystem} from './IsolatedFileSystem.js';                        // eslint-disable-line no-unused-vars
@@ -405,7 +406,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     const filePath = this._filePathForUISourceCode(uiSourceCode);
     const {content} = await this._fileSystem.requestFileContent(filePath);
     if (content) {
-      return Common.ContentProvider.performSearchInContent(content, query, caseSensitive, isRegex);
+      return TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex);
     }
     return [];
   }

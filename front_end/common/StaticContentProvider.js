@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as TextUtils from '../text_utils/text_utils.js';
+
 import {ContentProvider, DeferredContent, SearchMatch} from './ContentProvider.js';  // eslint-disable-line no-unused-vars
 import {ResourceType} from './ResourceType.js';  // eslint-disable-line no-unused-vars
 
@@ -73,6 +75,6 @@ export class StaticContentProvider {
    */
   async searchInContent(query, caseSensitive, isRegex) {
     const {content} = (await this._lazyContent());
-    return content ? ContentProvider.performSearchInContent(content, query, caseSensitive, isRegex) : [];
+    return content ? TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex) : [];
   }
 }

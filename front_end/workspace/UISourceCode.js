@@ -485,7 +485,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
     if (!content) {
       return this._project.searchInFileContent(this, query, caseSensitive, isRegex);
     }
-    return Promise.resolve(Common.ContentProvider.performSearchInContent(content, query, caseSensitive, isRegex));
+    return Promise.resolve(TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex));
   }
 
   /**

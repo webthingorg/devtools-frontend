@@ -30,6 +30,7 @@
 
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
+import * as TextUtils from '../text_utils/text_utils.js';
 
 import {Attributes, Cookie} from './Cookie.js';  // eslint-disable-line no-unused-vars
 import {CookieParser} from './CookieParser.js';
@@ -1196,7 +1197,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     if (contentData.encoded) {
       content = window.atob(content);
     }
-    return Common.ContentProvider.performSearchInContent(content, query, caseSensitive, isRegex);
+    return TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex);
   }
 
   /**

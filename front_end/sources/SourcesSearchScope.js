@@ -31,6 +31,7 @@
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Search from '../search/search.js';  // eslint-disable-line no-unused-vars
+import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 /**
@@ -294,7 +295,7 @@ export class SourcesSearchScope {
       const queries = this._searchConfig.queries();
       if (content !== null) {
         for (let i = 0; i < queries.length; ++i) {
-          const nextMatches = Common.ContentProvider.performSearchInContent(
+          const nextMatches = TextUtils.TextUtils.performSearchInContent(
               content, queries[i], !this._searchConfig.ignoreCase(), this._searchConfig.isRegex());
           matches = matches.mergeOrdered(nextMatches, matchesComparator);
         }

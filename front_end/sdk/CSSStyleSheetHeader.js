@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as TextUtils from '../text_utils/text_utils.js';
 
 import {CSSModel} from './CSSModel.js';  // eslint-disable-line no-unused-vars
 import {DeferredDOMNode} from './DOMModel.js';
@@ -180,7 +181,7 @@ export class CSSStyleSheetHeader {
    */
   async searchInContent(query, caseSensitive, isRegex) {
     const {content} = await this.requestContent();
-    return Common.ContentProvider.performSearchInContent(content || '', query, caseSensitive, isRegex);
+    return TextUtils.TextUtils.performSearchInContent(content || '', query, caseSensitive, isRegex);
   }
 
   /**
