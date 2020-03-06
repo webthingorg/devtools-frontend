@@ -24,10 +24,12 @@ import './RequestInitiatorView.js';
 import './RequestResponseView.js';
 import './RequestPreviewView.js';
 import './RequestTimingView.js';
+import './RequestSourceMapView.js';
 import './ResourceWebSocketFrameView.js';
 import './SignedExchangeInfoView.js';
 import './NetworkOverview.js';
 import './NetworkPanel.js';
+import '../third_party/webtreemap/webtreemap.js';
 
 import * as BinaryResourceView from './BinaryResourceView.js';
 import * as BlockedURLsPane from './BlockedURLsPane.js';
@@ -51,6 +53,7 @@ import * as RequestHTMLView from './RequestHTMLView.js';
 import * as RequestInitiatorView from './RequestInitiatorView.js';
 import * as RequestPreviewView from './RequestPreviewView.js';
 import * as RequestResponseView from './RequestResponseView.js';
+import * as RequestSourceMapView from './RequestSourceMapView.js';
 import * as RequestTimingView from './RequestTimingView.js';
 import * as ResourceWebSocketFrameView from './ResourceWebSocketFrameView.js';
 import * as SignedExchangeInfoView from './SignedExchangeInfoView.js';
@@ -78,6 +81,7 @@ export {
   RequestInitiatorView,
   RequestPreviewView,
   RequestResponseView,
+  RequestSourceMapView,
   RequestTimingView,
   ResourceWebSocketFrameView,
   SignedExchangeInfoView,

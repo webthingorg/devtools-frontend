@@ -39,6 +39,7 @@ import {RequestHeadersView} from './RequestHeadersView.js';
 import {RequestInitiatorView} from './RequestInitiatorView.js';
 import {RequestPreviewView} from './RequestPreviewView.js';
 import {RequestResponseView} from './RequestResponseView.js';
+import {RequestSourceMapView} from './RequestSourceMapView.js';
 import {RequestTimingView} from './RequestTimingView.js';
 import {ResourceWebSocketFrameView} from './ResourceWebSocketFrameView.js';
 
@@ -90,6 +91,12 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
         Tabs.Timing, Common.UIString.UIString('Timing'), new RequestTimingView(request, calculator),
         Common.UIString.UIString('Request and response timeline'));
 
+    if (request.sourceMap()) {
+      this._sourceMapView = new RequestSourceMapView(request);
+      this.appendTab(Tabs.SourceMap, ls`Source Map`, this._sourceMapView, ls`Visualization of attached source map`);
+    }
+
+    this._request = request;
     /** @type {?RequestCookiesView} */
     this._cookiesView = null;
   }
@@ -194,5 +201,6 @@ export const Tabs = {
   Preview: 'preview',
   Response: 'response',
   Timing: 'timing',
+  SourceMap: 'sourcemap',
   WsFrames: 'webSocketFrames'
 };
