@@ -40,6 +40,13 @@ export class ActionRegistry {
   }
 
   /**
+   * @return {!Array<string>}
+   */
+  allActionIds() {
+    return [...this._actionsById.keys()];
+  }
+
+  /**
    * @return {!Array.<!Action>}
    */
   availableActions() {

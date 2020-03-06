@@ -8,7 +8,7 @@ import {Action} from './Action.js';                  // eslint-disable-line no-u
 import {ActionRegistry} from './ActionRegistry.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';
 import {Dialog} from './Dialog.js';
-import {Descriptor, KeyboardShortcut, Modifiers, Type} from './KeyboardShortcut.js';  // eslint-disable-line no-unused-vars
+import {Descriptor, EmptyShortcutDescriptor, KeyboardShortcut, Modifiers, Type} from './KeyboardShortcut.js';  // eslint-disable-line no-unused-vars
 import {isEditing} from './UIUtils.js';
 
 /**
@@ -28,6 +28,7 @@ export class ShortcutRegistry {
     this._registerBindings(document);
   }
 
+
   /**
    * @param {number} key
    * @return {!Array.<!Action>}
@@ -43,6 +44,10 @@ export class ShortcutRegistry {
   actionsForKey(key) {
     const shortcuts = [...this._keyToShortcut.get(key)];
     return shortcuts.map(shortcut => shortcut.action);
+  }
+
+  shortcutsForAction(action) {
+    return [...this._actionToShortcut.get(action)];
   }
 
   /**
@@ -66,6 +71,21 @@ export class ShortcutRegistry {
    */
   shortcutDescriptorsForAction(actionId) {
     return [...this._actionToShortcut.get(actionId)].map(shortcut => shortcut.descriptor);
+  }
+
+  /**
+   * @return {!Array.<!UI.KeyboardShortcut>}
+   */
+  getAllBindableShortcuts() {
+    const shortcuts = [];
+    for (const action of this._actionRegistry.allActionIds()) {
+      const actionShortcuts = this._actionToShortcut.get(action);
+      if (actionShortcuts.size === 0) {
+        shortcuts.push(new UI.KeyboardShortcut(EmptyShortcutDescriptor, action, Type.UnsetShortcut));
+      }
+      shortcuts.push(...actionShortcuts);
+    }
+    return shortcuts;
   }
 
   /**
@@ -211,6 +231,17 @@ export class ShortcutRegistry {
    * @param {!KeyboardShortcut} shortcut
    */
   _registerShortcut(shortcut) {
+    const otherShortcuts = this._actionToShortcut.get(shortcut.action);
+    for (const otherShortcut of otherShortcuts) {
+      if (otherShortcut.descriptor.key === shortcut.descriptor.key) {
+        if (otherShortcut.type === Type.DefaultShortcut && shortcut.type === Type.DisabledDefault) {
+          this._actionToShortcut.delete(otherShortcut.action, otherShortcut);
+          this._keyToShortcut.delete(otherShortcut.descriptor.key, otherShortcut);
+        }
+        return;
+      }
+    }
+
     this._actionToShortcut.set(shortcut.action, shortcut);
     this._keyToShortcut.set(shortcut.descriptor.key, shortcut);
   }
