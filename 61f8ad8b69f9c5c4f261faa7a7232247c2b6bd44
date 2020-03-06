@@ -22,6 +22,30 @@
       "revId": "61f8ad8b69f9c5c4f261faa7a7232247c2b6bd44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff35fd49_9cd303c2",
+        "filename": "scripts/json_validator/module.schema.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-06T20:23:18Z",
+      "side": 1,
+      "message": "Yep, I\u0027ve updated the schema to make them required here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2091055",
+      "parentUuid": "230c7f58_9988aac1",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "61f8ad8b69f9c5c4f261faa7a7232247c2b6bd44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
