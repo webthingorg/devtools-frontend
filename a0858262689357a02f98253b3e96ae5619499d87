@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f150c4fa_e0e34bb4",
+        "filename": "front_end/persistence/IsolatedFileSystemManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-06T09:51:53Z",
+      "side": 1,
+      "message": "Should we reject the associated promise instead in the future?",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "a0858262689357a02f98253b3e96ae5619499d87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
