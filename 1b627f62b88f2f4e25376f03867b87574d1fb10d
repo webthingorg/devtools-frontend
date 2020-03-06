@@ -22,6 +22,30 @@
       "revId": "1b627f62b88f2f4e25376f03867b87574d1fb10d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59745812_99414bf7",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-06T16:10:59Z",
+      "side": 1,
+      "message": "Chromium is still working on getting to Python 3, so we have to be compatible with both.",
+      "parentUuid": "400f5af6_d21bf911",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "1b627f62b88f2f4e25376f03867b87574d1fb10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
