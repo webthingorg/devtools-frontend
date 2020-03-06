@@ -136,6 +136,11 @@ Network.RequestResponseView = NetworkModule.RequestResponseView.RequestResponseV
 /**
  * @constructor
  */
+Network.RequestSourceMapView = NetworkModule.RequestSourceMapView.RequestSourceMapView;
+
+/**
+ * @constructor
+ */
 Network.RequestTimingView = NetworkModule.RequestTimingView.RequestTimingView;
 
 /** @enum {string} */

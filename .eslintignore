@@ -13,6 +13,7 @@ front_end/cm_web_modes/
 front_end/diff/diff_match_patch.js
 front_end/formatter_worker/acorn/
 front_end/protocol_externs.js
+front_end/webtreemap/
 front_end/javascript_metadata/NativeFunctions.js
 front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 front_end/third_party/

@@ -42,6 +42,7 @@
     { "name": "source_frame" },
     { "name": "sources" },
     { "name": "text_editor" },
+    { "name": "webtreemap" },
     { "name": "workspace_diff" },
     { "name": "protocol_monitor"},
     { "name": "issues"},
