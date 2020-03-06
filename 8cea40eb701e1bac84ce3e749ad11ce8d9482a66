@@ -16,6 +16,24 @@
       "revId": "8cea40eb701e1bac84ce3e749ad11ce8d9482a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d40c43ae_3e3faf22",
+        "filename": "scripts/localizationV2/buildI18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-06T01:28:14Z",
+      "side": 1,
+      "message": "Thanks for the feedback! \n2. We use a static string e.g. \u0027settings/SettingsScreen.js\u0027 instead of __filename due to the ESM limitation. Maybe there\u0027s a way to support both relative path and static id, or we can look into some ESM equivalent? what do you think @vidorteg\n5. Not really a concern. I was trying to reduce the size of the bundle.",
+      "parentUuid": "39bf8075_151f268f",
+      "revId": "8cea40eb701e1bac84ce3e749ad11ce8d9482a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
