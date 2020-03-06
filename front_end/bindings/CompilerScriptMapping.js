@@ -107,7 +107,7 @@ export class CompilerScriptMapping {
   _addStubUISourceCode(script) {
     const stubUISourceCode = this._stubProject.addContentProvider(
         script.sourceURL + ':sourcemap',
-        Common.StaticContentProvider.StaticContentProvider.fromString(
+        TextUtils.StaticContentProvider.StaticContentProvider.fromString(
             script.sourceURL, Common.ResourceType.resourceTypes.Script,
             '\n\n\n\n\n// Please wait a bit.\n// Compiled script is not shown while source map is being loaded!'),
         'text/javascript');

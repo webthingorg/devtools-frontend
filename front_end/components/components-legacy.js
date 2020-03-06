@@ -105,7 +105,7 @@ Components.LinkifyOptions;
 Components._CreateLinkOptions;
 
 /**
- * @typedef {function(!Common.ContentProvider, number)}
+ * @typedef {function(!TextUtils.ContentProvider, number)}
  */
 Components.Linkifier.LinkHandler;
 
