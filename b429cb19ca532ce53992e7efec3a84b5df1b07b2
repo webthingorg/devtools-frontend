@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d10f6dc7_6766b7e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-03-07T07:49:51Z",
+      "side": 1,
+      "message": "You don\u0027t need to prefix the commit with DevTools as this is already the devtools-frontend repository.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "b429cb19ca532ce53992e7efec3a84b5df1b07b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095249cd_6916f2f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-03-07T07:49:51Z",
+      "side": 1,
+      "message": "You can change this to fixed to have the bug automatically closed when the cl lands.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "b429cb19ca532ce53992e7efec3a84b5df1b07b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc76ef71_0268d3fa",
         "filename": "front_end/resources/resourcesPanel.css",
         "patchSetId": 2
@@ -13,6 +59,24 @@
       "writtenOn": "2020-03-06T18:27:37Z",
       "side": 1,
       "message": "`overflow-x` was set to `hidden` in `panel-sidebar` from inspectorStyle.css, since its a common class and used in several other places, I think its better to override it here instead of changing that one.",
+      "revId": "b429cb19ca532ce53992e7efec3a84b5df1b07b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e7ad054_1f5a409c",
+        "filename": "front_end/resources/resourcesPanel.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-03-07T07:49:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc76ef71_0268d3fa",
       "revId": "b429cb19ca532ce53992e7efec3a84b5df1b07b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
