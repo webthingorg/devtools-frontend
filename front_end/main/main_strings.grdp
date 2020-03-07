@@ -15,6 +15,9 @@
   <message name="IDS_DEVTOOLS_15fa1acc2a998159c4ed2a950c5c231d" desc="Text in the Shortcuts page in settings to explain a keyboard shortcut">
     Toggle drawer
   </message>
+  <message name="IDS_DEVTOOLS_16c3faeec67a2e4bf3a79298c8a50d1b" desc="Name of a set of shortcuts from VS Code">
+    VS Code shortcuts
+  </message>
   <message name="IDS_DEVTOOLS_1b1ac1c7a54457ce73ddd25a5b51c47d" desc="A title of the 'Drawer sidebar' @UI.ViewLocationResolver category">
     Drawer sidebar
   </message>
@@ -59,6 +62,9 @@
   </message>
   <message name="IDS_DEVTOOLS_586740a88e6502850bc64f9f2d04d380" desc="Title element title in Main">
     Placement of <ph name="LOCKED_1">DevTools</ph> relative to the page. (<ph name="TOGGLEDOCKSIDESHORCUTS____NAME">$1s<ex>Ctrl+Shift+D</ex></ph> to restore last position)
+  </message>
+  <message name="IDS_DEVTOOLS_59dc9282de7f17766160c36a341c28df" desc="Name of the default set of DevTools shortcuts">
+    DevTools default shortcuts
   </message>
   <message name="IDS_DEVTOOLS_5bf4a92da989a6943e3fed84f18c3f0f" desc="Text in the Shortcuts page in settings to explain a keyboard shortcut">
     Search across all sources
