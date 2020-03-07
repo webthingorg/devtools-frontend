@@ -123,6 +123,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     // Assume no body initially
     /** @type {?Promise<?string>} */
     this._requestFormDataPromise = /** @type {?Promise<?string>} */ (Promise.resolve(null));
+    /** @type {?SDK.SourceMap} */
+    this._sourceMap = null;
 
     /** @type {boolean} */
     this._hasExtraRequestInfo = false;
@@ -1198,6 +1200,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     }
     return Common.ContentProvider.performSearchInContent(content, query, caseSensitive, isRegex);
   }
+
+  /**
+   * @return {?SDK.SourceMap}
+   */
+  sourceMap() {
+    return SDK.sourceMapManagerObserver().sourceMapForURL(this.url());
+  }
+
 
   /**
    * @return {boolean}

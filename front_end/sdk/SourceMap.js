@@ -92,6 +92,13 @@ export class SourceMap {
   mappings() {
   }
 
+  /**
+   * @param {string} resourceContent
+   * @return {?SDK.TextSourceMap.SourceMappedBytes}
+   */
+  attributableSourceBytes(resourceContent) {
+  }
+
   dispose() {
   }
 }
@@ -142,14 +149,16 @@ export class SourceMapEntry {
    * @param {number=} sourceLineNumber
    * @param {number=} sourceColumnNumber
    * @param {string=} name
+   * @param {number=} endColumnNumber
    */
-  constructor(lineNumber, columnNumber, sourceURL, sourceLineNumber, sourceColumnNumber, name) {
+  constructor(lineNumber, columnNumber, sourceURL, sourceLineNumber, sourceColumnNumber, name, endColumnNumber) {
     this.lineNumber = lineNumber;
     this.columnNumber = columnNumber;
     this.sourceURL = sourceURL;
     this.sourceLineNumber = sourceLineNumber;
     this.sourceColumnNumber = sourceColumnNumber;
     this.name = name;
+    this.endColumnNumber = endColumnNumber;
   }
 
   /**
@@ -209,6 +218,7 @@ export class TextSourceMap {
 
     /** @type {?Array<!SourceMapEntry>} */
     this._mappings = null;
+    this._attributableSourceBytes = null;
     /** @type {!Map<string, !TextSourceMap.SourceInfo>} */
     this._sourceInfos = new Map();
     if (this._json.sections) {
@@ -312,6 +322,22 @@ export class TextSourceMap {
     const index = mappings.upperBound(
         undefined, (unused, entry) => lineNumber - entry.lineNumber || columnNumber - entry.columnNumber);
     return index ? mappings[index - 1] : null;
+  }
+
+  /**
+   * Same as findEntry, but mapped entry must be on the requested lineNumber.
+   * @param {number} lineNumber in compiled resource
+   * @param {number} columnNumber in compiled resource
+   * @return {?SDK.SourceMapEntry}
+   */
+  _findExactEntry(lineNumber, columnNumber) {
+    const entry = this.findEntry(lineNumber, columnNumber);
+    const hasLineMatch = entry && entry.lineNumber === lineNumber;
+    if (!entry || !hasLineMatch) {
+      return null;
+    }
+
+    return entry;
   }
 
   /**
@@ -569,6 +595,118 @@ export class TextSourceMap {
   }
 
   /**
+   * Calculate the number of bytes contributed by each source file to the compiled file
+   * Implementation heavily inspired by https://github.com/danvk/source-map-explorer
+   * @override
+   * @param {string} resourceContent
+   * @return {?SDK.TextSourceMap.SourceMappedBytes}
+   */
+  attributableSourceBytes(resourceContent) {
+    if (this._attributableSourceBytes === null) {
+      const lines = resourceContent.split('\n');
+      const totalBytes = resourceContent.length;
+      let unmappedBytes = totalBytes;
+      const perSourceBytes = new Map();
+      this._computeEndColumns();
+
+      for (const mapping of this.mappings()) {
+        const source = mapping.sourceURL;
+        const lineNum = mapping.lineNumber;
+        const colNum = mapping.columnNumber;
+        const lastColNum = mapping.endColumnNumber;
+
+        // Webpack sometimes emits null mappings. https://github.com/mozilla/source-map/pull/303
+        if (!source) {
+          continue;
+        }
+
+        // Lines and columns are zero-based indices. Visually, lines are shown as a 1-based index.
+        const line = lines[lineNum];
+
+        // Check three edge cases of invalid source map data
+        if (line === undefined) {
+          return Common.Console.Console.instance().warn(
+              ls`Source map (${this.compiledURL()}) mapping for line is out of bounds: ${lineNum + 1}`);
+        }
+        if (colNum > line.length) {
+          return Common.Console.Console.instance().warn(
+              ls`Source map (${this.compiledURL()}) mapping for column is out of bounds: ${lineNum + 1}:${colNum}`);
+        }
+
+        let mappingLength = 0;
+        if (lastColNum !== undefined) {
+          if (lastColNum > line.length) {
+            return Common.Console.Console.instance().warn(ls`Source map (${
+                this.compiledURL()}) mapping for last column is out of bounds: ${lineNum + 1}:${lastColNum}`);
+          }
+          mappingLength = lastColNum - colNum + 1;
+        } else {
+          // Use blob.size for accurate byte accounting.
+          mappingLength = new Blob([line]).size - colNum;
+        }
+        const bytesSoFar = perSourceBytes.get(source) || 0;
+        perSourceBytes.set(source, bytesSoFar + mappingLength);
+        unmappedBytes -= mappingLength;
+      }
+      perSourceBytes.set(null, unmappedBytes);
+      this._attributableSourceBytes = perSourceBytes;
+    }
+
+    return this._attributableSourceBytes;
+  }
+
+  /**
+   * Finds the ending column position of each mapping
+   * eg. If we have the following two mappings
+   *   A: lineNumber: 0, columnNumber: 0
+   *   B: lineNumber: 0, columnNumber: 8
+   * Then this function will mark mapping A with endColumnNumber: 7
+   * @see `lastGeneratedColumn` in https://github.com/mozilla/source-map
+   */
+  _computeEndColumns() {
+    const mappings = this.mappings();
+
+    for (let i = 0; i < mappings.length - 1; i++) {
+      const mapping = mappings[i];
+      const nextMapping = mappings[i + 1];
+      if (mapping.lineNumber === nextMapping.lineNumber) {
+        mapping.endColumnNumber = nextMapping.columnNumber - 1;
+      }
+    }
+  }
+
+  /**
+   *
+   * @param {!TextUtils.Text} text
+   * @return {!Array<!SDK.TextSourceMap.NamedTextCursor>}
+   */
+  _computeSourceStartCursors(text) {
+    const resourceLines = text.value().split('\n');
+    const namedCursors = [];
+    let previousSourceURL;
+
+    for (let line = 0, offset = 0; line < resourceLines.length; line++) {
+      const lineText = resourceLines[line];
+      const numCols = lineText.length;
+
+      for (let column = 0; column < numCols; column++, offset++) {
+        const entry = this._findExactEntry(line, column);
+        const sourceURL = entry ? entry.sourceURL : null;
+
+        // Create a TextCursor at the start of the new source
+        if (sourceURL !== previousSourceURL) {
+          const cursor = new TextUtils.TextCursor(text.lineEndings());
+          cursor.advance(offset);
+          namedCursors.push({sourceURL, cursor});
+          previousSourceURL = sourceURL;
+        }
+      }
+    }
+
+    return namedCursors;
+  }
+
+  /**
    * @override
    */
   dispose() {
@@ -740,6 +878,13 @@ export class WasmSourceMap {
    */
   mappings() {
     return this._resolver.listMappings();
+  }
+
+  /**
+   * @override
+   */
+  attributableSourceBytes() {
+    throw new Error('Not implemented');
   }
 
   /**
