@@ -1,0 +1,8 @@
+Name: treemap visualization
+Short Name: webtreemap
+URL: https://github.com/paulirish/webtreemap-cdt
+License: Apache 2.0
+License File: LICENSE
+Security Critical: no
+
+To roll, check out https://github.com/paulirish/webtreemap-cdt and run `yarn roll`.
