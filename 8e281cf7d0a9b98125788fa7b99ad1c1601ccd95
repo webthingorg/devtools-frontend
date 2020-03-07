@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b8f8964_4a1f57c4",
+        "filename": "scripts/build/build_release_applications.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-07T12:18:09Z",
+      "side": 1,
+      "message": "This seems to be unused?",
+      "revId": "8e281cf7d0a9b98125788fa7b99ad1c1601ccd95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
