@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a342a1d7_f17b8688",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1363512
+      },
+      "writtenOn": "2020-03-07T08:21:06Z",
+      "side": 1,
+      "message": "oh was following on https://bit.ly/devtools-contribution-guide\n```\nTips on writing a good patch description:\nPrefix your changelist (CL) title with “DevTools:”\nE.g: DevTools: Fix DOM breakpoints sidebar pane exception\n```\n\nI guess that\u0027s outdated then ?",
+      "parentUuid": "d10f6dc7_6766b7e5",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "b429cb19ca532ce53992e7efec3a84b5df1b07b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "095249cd_6916f2f6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "b429cb19ca532ce53992e7efec3a84b5df1b07b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3708b057_48c4c1be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1363512
+      },
+      "writtenOn": "2020-03-07T08:21:06Z",
+      "side": 1,
+      "message": "gotcha, will do, thanks",
+      "parentUuid": "095249cd_6916f2f6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "b429cb19ca532ce53992e7efec3a84b5df1b07b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
