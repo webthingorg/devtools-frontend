@@ -268,6 +268,9 @@
   <message name="IDS_DEVTOOLS_63a6a88c066880c5ac42394a22803ca6" desc="Text to refresh the page">
     Refresh
   </message>
+  <message name="IDS_DEVTOOLS_6525b37c568c526bde7c02fac8195c73" desc="Number followed by percent sign">
+    <ph name="SIZE___TOTAL______">$1.1f<ex>10.4%</ex></ph> %%
+  </message>
   <message name="IDS_DEVTOOLS_65b4c7424dd695c30efa73da8396c90c" desc="Title of the Profiler tool">
     Profiler
   </message>

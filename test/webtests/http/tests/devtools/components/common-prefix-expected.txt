@@ -1,0 +1,15 @@
+Tests TextUtils.TextUtils.commonPrefix.
+
+
+Running: testSimple
+prefix/
+
+Running: testFilepaths
+c:\win32\
+
+Running: testNoSharedPrefix
+
+
+Running: testNoStrings
+
+

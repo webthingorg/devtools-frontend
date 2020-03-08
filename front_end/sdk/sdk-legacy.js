@@ -457,6 +457,12 @@ SDK.SourceMapEntry = SDKModule.SourceMap.SourceMapEntry;
 /** @constructor */
 SDK.TextSourceMap = SDKModule.SourceMap.TextSourceMap;
 
+/** @typedef {{sourceURL: ?string, cursor: TextUtils.TextCursor}} */
+SDK.TextSourceMap.NamedTextCursor;
+
+/** @typedef {Map<?string, number>} */
+SDK.TextSourceMap.SourceMappedBytes;
+
 /** @constructor */
 SDK.WasmSourceMap = SDKModule.SourceMap.WasmSourceMap;
 
@@ -467,6 +473,11 @@ SDK.SourceMap.EditResult = SDKModule.SourceMap.EditResult;
 SDK.SourceMapManager = SDKModule.SourceMapManager.SourceMapManager;
 
 SDK.SourceMapManager.Events = SDKModule.SourceMapManager.Events;
+
+/** @constructor */
+SDK.SourceMapManagerObserver = SDKModule.SourceMapManager.SourceMapManagerObserver;
+
+SDK.sourceMapManagerObserver = SDKModule.SourceMapManager.sourceMapManagerObserver;
 
 /** @constructor */
 SDK.Target = SDKModule.SDKModel.Target;
