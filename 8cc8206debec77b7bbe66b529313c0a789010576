@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d4f008d_af02efc2",
+        "filename": "front_end/bindings/CompilerScriptMapping.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "This needs an `import * as TextUtils from \u0027../text_utils/text_utils.js\u0027` at the top.",
+      "range": {
+        "startLine": 110,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 17
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0244e7c9_d41b66ac",
+        "filename": "front_end/components/components-legacy.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "Should be TextUtils.ContentProvider.ContentProvider",
+      "range": {
+        "startLine": 108,
+        "startChar": 23,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0100f1df_4050f4a1",
+        "filename": "front_end/coverage/coverage-legacy.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "Should be TextUtils.ContentProvider.ContentProvider",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 49
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e4b3088_23a4d79a",
+        "filename": "front_end/network/ResourceWebSocketFrameView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "Needs an import",
+      "range": {
+        "startLine": 209,
+        "startChar": 64,
+        "endLine": 209,
+        "endChar": 73
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa1c82c2_033446dd",
+        "filename": "front_end/resources/DOMStorageItemsView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "Needs an import",
+      "range": {
+        "startLine": 316,
+        "startChar": 21,
+        "endLine": 316,
+        "endChar": 30
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e4792f_48f2c599",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "Needs an import",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 40
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdb40c2e_a188ec62",
+        "filename": "front_end/text_utils/StaticContentProvider.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "This should be a relative import. `import {performSearchinContent} from \u0027./TextUtils.js\u0027`",
+      "range": {
+        "startLine": 6,
+        "startChar": 12,
+        "endLine": 6,
+        "endChar": 41
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44d116f7_90f3124d",
+        "filename": "front_end/text_utils/TextUtils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "Should be `import {SearchMatch} from \u0027./ContentProvider.js\u0027`",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "707ff4f1_2a36948c",
+        "filename": "front_end/text_utils/TextUtils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:57:32Z",
+      "side": 1,
+      "message": "Should be only `Text`",
+      "range": {
+        "startLine": 399,
+        "startChar": 19,
+        "endLine": 399,
+        "endChar": 33
+      },
+      "revId": "8cc8206debec77b7bbe66b529313c0a789010576",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
