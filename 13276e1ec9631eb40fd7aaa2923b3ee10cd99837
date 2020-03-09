@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b1c3fa2_9573340f",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 2026,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-09T11:35:21Z",
+      "side": 1,
+      "message": "Please add a comment that this inserts the query param before the anchor #.\n\nAlso: Could we use ParsedURL for the actual URL modification/checking?",
+      "range": {
+        "startLine": 2026,
+        "startChar": 23,
+        "endLine": 2026,
+        "endChar": 41
+      },
+      "revId": "13276e1ec9631eb40fd7aaa2923b3ee10cd99837",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
