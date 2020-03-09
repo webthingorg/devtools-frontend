@@ -21,26 +21,36 @@ TEST_DIRECTORY = path.join(ROOT_DIRECTORY, 'test')
 
 FILES_TO_LINT = [FRONT_END_DIRECTORY, TEST_DIRECTORY]
 
+JAVASCRIPT_ESLINT_CONFIG = path.join(ROOT_DIRECTORY, '.eslintrc.js')
+TYPESCRIPT_ESLINT_CONFIG = path.join(ROOT_DIRECTORY, '.eslintrc-typescript.js')
+ESLINT_IGNORE_PATH = path.join(ROOT_DIRECTORY, '.eslintignore')
 
-def main():
-    eslintconfig_path = path.join(ROOT_DIRECTORY, '.eslintrc.js')
-    eslintignore_path = path.join(ROOT_DIRECTORY, '.eslintignore')
+
+def run_eslint_command(eslintconfig_path, extension):
     exec_command = [
         devtools_paths.node_path(),
         devtools_paths.eslint_path(),
         '--config',
         test_helpers.to_platform_path_exact(eslintconfig_path),
         '--ignore-path',
-        test_helpers.to_platform_path_exact(eslintignore_path),
+        test_helpers.to_platform_path_exact(ESLINT_IGNORE_PATH),
         '--ext',
-        '.js,.ts',
+        extension,
         '--fix',
     ] + FILES_TO_LINT
 
     eslint_proc = Popen(exec_command, cwd=ROOT_DIRECTORY)
     eslint_proc.communicate()
 
-    sys.exit(eslint_proc.returncode)
+    if eslint_proc.returncode is not 0:
+        sys.exit(eslint_proc.returncode)
+
+
+def main():
+    run_eslint_command(JAVASCRIPT_ESLINT_CONFIG, '.js')
+    run_eslint_command(TYPESCRIPT_ESLINT_CONFIG, '.ts')
+
+    sys.exit(0)
 
 
 if __name__ == '__main__':
