@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5aec147_a8c91153",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-09T16:15:11Z",
+      "side": 1,
+      "message": "Please add an extra line of whitespace before this. (Ostensibly it should be the last thing that runs with the function, even if the function changes later).",
+      "revId": "686fa71d0cf6ab176de4b2b4812ce5f93b67b3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
