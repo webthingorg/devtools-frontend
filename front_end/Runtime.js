@@ -855,11 +855,13 @@ class Module {
       return Promise.resolve();
     }
 
-    const legacyFileName = `${this._name}-legacy.js`;
-    const fileName = this._descriptor.modules.includes(legacyFileName) ? legacyFileName : `${this._name}.js`;
+    const legacyFileName = `${this._name}-legacy`;
+    const fileName = this._descriptor.modules.includes(legacyFileName + '.js') ? legacyFileName : `${this._name}`;
 
-    // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
-    return eval(`import('./${this._name}/${fileName}')`);
+    console.log(`import('./${this._name}/${fileName}.js')`);
+    // This template literal must end with '.js', otherwise Webpack will try to
+    // process non-js (css, svg, etc.) files and fail.
+    return import(`./${this._name}/${fileName}.js`);
   }
 
   /**
