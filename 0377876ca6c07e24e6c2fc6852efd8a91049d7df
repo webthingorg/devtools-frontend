@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d18d65d_1c88a1a0",
+        "filename": "test/e2e/resources/wasm/Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-09T14:39:16Z",
+      "side": 1,
+      "message": "nit: copyright + short usage info (when does this need to be run?) What toolchain version is it known to work with?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c86016d_9dbb7feb",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-09T14:39:16Z",
+      "side": 1,
+      "message": "nit: can this be formatted?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 5
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "addf95e1_4c4ea6a1",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-09T14:39:16Z",
+      "side": 1,
+      "message": "All files need this.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
