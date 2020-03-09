@@ -16,6 +16,24 @@
       "revId": "686fa71d0cf6ab176de4b2b4812ce5f93b67b3be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce395592_31580891",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-09T18:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5aec147_a8c91153",
+      "revId": "686fa71d0cf6ab176de4b2b4812ce5f93b67b3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
