@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "030e6891_dbec9a47",
+        "filename": "test/e2e/elements/pseudo-states.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T16:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "989c628c_beb4534d",
+      "revId": "f5bd525ef722bd431830b66e4ce6d9e30bfc9817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1e89a57_41354947",
         "filename": "test/e2e/elements/pseudo-states.ts",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "f5bd525ef722bd431830b66e4ce6d9e30bfc9817",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e969ada_89a8c61f",
+        "filename": "test/e2e/elements/pseudo-states.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T16:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1e89a57_41354947",
+      "revId": "f5bd525ef722bd431830b66e4ce6d9e30bfc9817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
