@@ -44,6 +44,10 @@ export class ShortcutRegistry {
     return shortcuts.map(shortcut => shortcut.action);
   }
 
+  shortcutsForAction(action) {
+    return [...this._actionToShortcut.get(action)];
+  }
+
   /**
    * @return {!Array<number>}
    */
