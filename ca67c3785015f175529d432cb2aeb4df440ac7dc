@@ -22,6 +22,149 @@
       "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de80845d_6a648815",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "Yes, please report at crbug.com",
+      "parentUuid": "82ec7a62_0782ff8f",
+      "range": {
+        "startLine": 249,
+        "startChar": 10,
+        "endLine": 249,
+        "endChar": 83
+      },
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eb1f520_d33e2b8d",
+        "filename": "scripts/localization/utils/parse_typescript_files.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "Needs license",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2be8a369_bdc68ac3",
+        "filename": "scripts/localization/utils/parse_typescript_files.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "Can you add a little doc above each function just to explain what it\u0027s doing?",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8197a28_3c6a63d2",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/basic-ls.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "License.",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1e1e50f_677a6cb4",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-expression.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "License.",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9727a246_99671498",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-function-calls.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "License.",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3955b5e_37981023",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-multiple-expressions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "License.",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93516ca6_7b23f5d2",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/no-ls.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T15:26:50Z",
+      "side": 1,
+      "message": "... License.",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
