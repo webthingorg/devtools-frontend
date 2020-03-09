@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d09d838_88b05e9c",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-09T19:21:51Z",
+      "side": 1,
+      "message": "Nit: seems like for these kinds of enums we prefer Symbol(\u0027...\u0027) over raw strings. There\u0027s a few examples if you search for Symbol(\u0027 in devtools.",
+      "revId": "cb625a43b93a092d68c26a016a6b82352e7d595d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
