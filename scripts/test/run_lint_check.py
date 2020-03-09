@@ -4,6 +4,7 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import os
 import os.path as path
 import re
 import subprocess
@@ -26,10 +27,15 @@ TYPESCRIPT_ESLINT_CONFIG = path.join(ROOT_DIRECTORY, '.eslintrc-typescript.js')
 ESLINT_IGNORE_PATH = path.join(ROOT_DIRECTORY, '.eslintignore')
 
 
-def run_eslint_command(eslintconfig_path, extension):
+def run_eslint_command(eslintconfig_path, extension, env=os.environ.copy()):
     exec_command = [
         devtools_paths.node_path(),
         devtools_paths.eslint_path(),
+        # Even though we are specifying a concrete config for typescript,
+        # without this additional command flag, the typescript eslint check
+        # would still incorrectly run the javascript rules. This is not desired
+        # and will reliably OOM the eslint process.
+        '--no-eslintrc',
         '--config',
         test_helpers.to_platform_path_exact(eslintconfig_path),
         '--ignore-path',
@@ -37,18 +43,24 @@ def run_eslint_command(eslintconfig_path, extension):
         '--ext',
         extension,
         '--fix',
-    ] + FILES_TO_LINT
+    ] + [directory + '/**/*' + extension for directory in FILES_TO_LINT]
 
-    eslint_proc = Popen(exec_command, cwd=ROOT_DIRECTORY)
+    eslint_proc = Popen(exec_command, cwd=ROOT_DIRECTORY, env=env)
     eslint_proc.communicate()
 
     if eslint_proc.returncode is not 0:
+        print('ESLint failed for config' + eslintconfig_path)
         sys.exit(eslint_proc.returncode)
 
 
 def main():
     run_eslint_command(JAVASCRIPT_ESLINT_CONFIG, '.js')
-    run_eslint_command(TYPESCRIPT_ESLINT_CONFIG, '.ts')
+
+    print('JAVASCRIPT_DONE')
+
+    my_env = os.environ.copy()
+    my_env['DEBUG'] = 'eslint:*'
+    run_eslint_command(TYPESCRIPT_ESLINT_CONFIG, '.ts', env=my_env)
 
     sys.exit(0)
 

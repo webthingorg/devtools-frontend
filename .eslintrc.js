@@ -57,7 +57,7 @@ module.exports = {
     'no-shadow-restricted-names': 2,
     'no-unreachable': 2,
     'no-unsafe-negation': 2,
-    'no-unused-vars': [2, {'args': 'none', 'vars': 'local'}],
+    // 'no-unused-vars': [2, {'args': 'none', 'vars': 'local'}],
     'no-var': 2,
     'no-with': 2,
     'prefer-const': 2,

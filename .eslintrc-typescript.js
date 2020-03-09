@@ -1,8 +1,15 @@
 const rootConfig = require('./.eslintrc.js');
 
+// This conflicts with the `@typescript-eslint/no-unused-vars` rule
+delete rootConfig.rules['no-unused-vars'];
+
 module.exports = {
   ...rootConfig,
   'parser': '@typescript-eslint/parser',
+
+  'parserOptions': {
+    'project': './tsconfig.eslint.json',
+  },
 
   'plugins': [
     ...rootConfig.plugins,
