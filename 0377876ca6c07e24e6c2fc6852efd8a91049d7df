@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "8f04f4bc_ad4b70c0",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-09T14:58:29Z",
+      "side": 1,
+      "message": "nix",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2c86016d_9dbb7feb",
         "filename": "test/e2e/resources/wasm/global.html",
         "patchSetId": 8
@@ -41,6 +64,29 @@
         "startChar": 0,
         "endLine": 2,
         "endChar": 5
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e82a521d_e04bb382",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-09T14:58:29Z",
+      "side": 1,
+      "message": ".slice(0, -5)",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 60
       },
       "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -65,6 +111,46 @@
         "endLine": 3,
         "endChar": 29
       },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "038e5c49_92abf79a",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-09T14:58:29Z",
+      "side": 1,
+      "message": "What’s returned by keys() is apparently iterable. In that case we can remove the call to Array.from here.",
+      "range": {
+        "startLine": 52,
+        "startChar": 23,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe9df9b_8f61c0a3",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-09T14:58:29Z",
+      "side": 1,
+      "message": "There’s a lot happening on this one line. Let’s break it apart for readability",
       "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
