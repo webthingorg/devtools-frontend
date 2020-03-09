@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32837913_045d584f",
+        "filename": "test/unittests/front_end/platform/array-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-09T11:53:07Z",
+      "side": 1,
+      "message": "I\u0027d much rather these tests be split up; I find it very hard from here to figure out which array was the test one vs the expected output. Or at least an array of objects with `{ input: [], expected: [] }` or similar? I think these would be very hard to debug if they were failing in the current form.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 5
+      },
+      "revId": "45758a23ad0ec1e07b290c6e8ccffee08ef524e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
