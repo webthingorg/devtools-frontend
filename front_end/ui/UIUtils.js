@@ -2013,6 +2013,38 @@ export function createDocumentationLink(article, title) {
 }
 
 /**
+ * Adds a 'utm_source=devtools' as query parameter to url
+ * @param {string} url
+ * @return {string}
+ */
+export function addReferrerToURL(url) {
+  if (/(\?|&)utm_source=devtools/.test(url)) {
+    return url;
+  }
+  if (url.indexOf('?') === -1) {
+    // url has no query
+    // => add referrer query after path, and before (potential) anchor
+    return url.replace(/^([^#]*)(#.*)?$/g, '$1?utm_source=devtools$2');
+  }
+  // url already has query
+  // => add referrer query after last query, and before (potential) anchor
+  return url.replace(/^([^#]*)(#.*)?$/g, '$1&utm_source=devtools$2');
+}
+
+/**
+ * We want to add a referrer query param to every request to
+ * 'web.dev' or 'developers.google.com'
+ * @param {string} url
+ * @return {string}
+ */
+export function addReferrerToURLIfNecessary(url) {
+  if (/(\/\/developers.google.com\/|\/\/web.dev\/)/.test(url)) {
+    return addReferrerToURL(url);
+  }
+  return url;
+}
+
+/**
  * @param {string} url
  * @return {!Promise<?Image>}
  */
