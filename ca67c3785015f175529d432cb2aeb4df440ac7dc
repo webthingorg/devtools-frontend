@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82ec7a62_0782ff8f",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-09T15:23:22Z",
+      "side": 1,
+      "message": "perhaps want to put a \"please email X\" ? Or raise a bug?",
+      "range": {
+        "startLine": 249,
+        "startChar": 10,
+        "endLine": 249,
+        "endChar": 83
+      },
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
