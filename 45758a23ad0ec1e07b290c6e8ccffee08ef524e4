@@ -22,6 +22,30 @@
       "revId": "45758a23ad0ec1e07b290c6e8ccffee08ef524e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f16b3af4_fc3d8a00",
+        "filename": "test/unittests/front_end/platform/array-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-09T13:06:24Z",
+      "side": 1,
+      "message": "Done. IIRC this one was ported straight from a layout test and I just duplicated it again, but why not clean it up along the way :)",
+      "parentUuid": "32837913_045d584f",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 5
+      },
+      "revId": "45758a23ad0ec1e07b290c6e8ccffee08ef524e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
