@@ -59,7 +59,7 @@ describe('The Sources Tab', async () => {
     let expectedTextContent = '';
 
     for (let i = 0; i < expectedLines.length; i++) {
-      expectedTextContent += `${i + 1}${expectedLines[i]}`;
+      expectedTextContent += `${i + 1}\u00AD${expectedLines[i]}`;
     }
 
     const updatedTextContent = await frontend.evaluate(retrieveCodeMirrorEditorContent);
