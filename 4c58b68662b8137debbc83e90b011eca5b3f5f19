@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e94282f_1e614ba4",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T16:55:52Z",
+      "side": 1,
+      "message": "This e2etest is piercing into DevTools internals, which makes it brittle and prone to subsequent refactorings. Could you explain to me why the mock plugin is required?\n\nFrom a user perspective, in which scenario would they use the mockplugin (or the behavior that is being mocked)? I am wondering if we can have a user workflow here that would allow us to test this behavior, while not relying on DevTools internal implementation details.",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 69
+      },
+      "revId": "4c58b68662b8137debbc83e90b011eca5b3f5f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c642da7f_d07b0341",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T16:55:52Z",
+      "side": 1,
+      "message": "Rather than obtaining the files by DOM structure, I think the pattern used in `e2e/sources/can-show-files-after-loading.ts` is more robust to future refactorings. E.g. attach an event listener to window and listen for the `source-tree-file-added` event.\n\nThe relevant helpers are in `e2e/helpers/sources-helpers.ts`. Could you try these out?",
+      "range": {
+        "startLine": 91,
+        "startChar": 10,
+        "endLine": 91,
+        "endChar": 27
+      },
+      "revId": "4c58b68662b8137debbc83e90b011eca5b3f5f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
