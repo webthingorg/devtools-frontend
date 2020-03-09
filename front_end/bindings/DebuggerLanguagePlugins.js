@@ -152,6 +152,10 @@ export class DebuggerLanguagePluginManager {
     ];
   }
 
+  clearPlugins() {
+    this._plugins = [];
+  }
+
   /**
    * @param {!DebuggerLanguagePlugin} plugin
    */
