@@ -49,8 +49,8 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
     this.registerRequiredCSS('object_ui/objectValue.css');
     this.registerRequiredCSS('sources/watchExpressionsSidebarPane.css');
 
-    /** @type {!Array.<!WatchExpression>} */
-    this._watchExpressions = [];
+    /** @type {!Set.<!WatchExpression>} */
+    this._watchExpressions = new Set();
     this._watchExpressionsSetting = self.Common.settings.createLocalSetting('watchExpressions', []);
 
     this._addButton = new UI.Toolbar.ToolbarButton(ls`Add watch expression`, 'largeicon-add');
@@ -86,10 +86,7 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
    * @override
    */
   focus() {
-    if (this.hasFocus()) {
-      return;
-    }
-    if (this._watchExpressions.length > 0) {
+    if (!this.hasFocus() && this._watchExpressions.size > 0) {
       this._treeOutline.forceSelect();
     }
   }
@@ -103,9 +100,9 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
 
   _saveExpressions() {
     const toSave = [];
-    for (let i = 0; i < this._watchExpressions.length; i++) {
-      if (this._watchExpressions[i].expression()) {
-        toSave.push(this._watchExpressions[i].expression());
+    for (const watchExpression of this._watchExpressions) {
+      if (watchExpression.expression()) {
+        toSave.push(watchExpression.expression());
       }
     }
 
@@ -125,18 +122,14 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
     this._linkifier.reset();
     this.contentElement.removeChildren();
     this._treeOutline.removeChildren();
-    this._watchExpressions = [];
+    this._watchExpressions.clear();
     this._emptyElement = this.contentElement.createChild('div', 'gray-info-message');
     this._emptyElement.textContent = Common.UIString.UIString('No watch expressions');
     this._emptyElement.tabIndex = -1;
-    const watchExpressionStrings = this._watchExpressionsSetting.get();
-    for (let i = 0; i < watchExpressionStrings.length; ++i) {
-      const expression = watchExpressionStrings[i];
-      if (!expression) {
-        continue;
+    for (const expression of this._watchExpressionsSetting.get()) {
+      if (expression) {
+        this._createWatchExpression(expression);
       }
-
-      this._createWatchExpression(expression);
     }
     return Promise.resolve();
   }
@@ -151,7 +144,7 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
     const watchExpression = new WatchExpression(expression, this._expandController, this._linkifier);
     watchExpression.addEventListener(WatchExpression.Events.ExpressionUpdated, this._watchExpressionUpdated, this);
     this._treeOutline.appendChild(watchExpression.treeElement());
-    this._watchExpressions.push(watchExpression);
+    this._watchExpressions.add(watchExpression);
     return watchExpression;
   }
 
@@ -161,10 +154,10 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
   _watchExpressionUpdated(event) {
     const watchExpression = /** @type {!WatchExpression} */ (event.data);
     if (!watchExpression.expression()) {
-      this._watchExpressions.remove(watchExpression);
+      this._watchExpressions.delete(watchExpression);
       this._treeOutline.removeChild(watchExpression.treeElement());
-      this._emptyElement.classList.toggle('hidden', !!this._watchExpressions.length);
-      if (this._watchExpressions.length === 0) {
+      this._emptyElement.classList.toggle('hidden', !!this._watchExpressions.size);
+      if (this._watchExpressions.size === 0) {
         this._treeOutline.element.remove();
       }
     }
@@ -196,7 +189,7 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
           Common.UIString.UIString('Add watch expression'), this._addButtonClicked.bind(this));
     }
 
-    if (this._watchExpressions.length > 1) {
+    if (this._watchExpressions.size > 1) {
       contextMenu.debugSection().appendItem(
           Common.UIString.UIString('Delete all watch expressions'), this._deleteAllButtonClicked.bind(this));
     }
@@ -206,13 +199,17 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
     if (!treeElement) {
       return;
     }
-    const currentWatchExpression =
-        this._watchExpressions.find(watchExpression => treeElement.hasAncestorOrSelf(watchExpression.treeElement()));
-    currentWatchExpression._populateContextMenu(contextMenu, event);
+
+    for (const watchExpression of this._watchExpressions) {
+      if (treeElement.hasAncestorOrSelf(watchExpression.treeElement())) {
+        watchExpression._populateContextMenu(contextMenu, event);
+        break;
+      }
+    }
   }
 
   _deleteAllButtonClicked() {
-    this._watchExpressions = [];
+    this._watchExpressions.clear();
     this._saveExpressions();
     this.update();
   }
