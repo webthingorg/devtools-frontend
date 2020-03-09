@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f9b93d4_620f0d0b",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-09T16:02:09Z",
+      "side": 1,
+      "message": "optional: Personally I find if (!(X \u0026\u0026 Y)) to be easier to understand than if (!X || !Y), but others might disagree.",
+      "range": {
+        "startLine": 655,
+        "startChar": 4,
+        "endLine": 655,
+        "endChar": 113
+      },
+      "revId": "b5399ba07d19c106312a4b7069d5f1cc4149868f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
