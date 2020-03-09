@@ -74,6 +74,15 @@
             "className": "Settings.FrameworkBlackboxSettingsTab"
         },
         {
+            "type": "view",
+            "location": "settings-view",
+            "id": "keybinds",
+            "title": "Custom Shortcuts",
+            "order": 5,
+            "experiment": "customKeyboardShortcuts",
+            "className": "Settings.KeybindsSettingsTab"
+        },
+        {
             "type": "@UI.ViewLocationResolver",
             "name": "settings-view",
             "category": "Settings",
@@ -88,10 +97,12 @@
         "settings.js",
         "settings-legacy.js",
         "SettingsScreen.js",
-        "FrameworkBlackboxSettingsTab.js"
+        "FrameworkBlackboxSettingsTab.js",
+        "KeybindsSettingsTab.js"
     ],
     "resources": [
         "frameworkBlackboxSettingsTab.css",
-        "settingsScreen.css"
+        "settingsScreen.css",
+        "keybindsSettingsTab.css"
     ]
 }
