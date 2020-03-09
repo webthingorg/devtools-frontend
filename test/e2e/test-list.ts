@@ -16,5 +16,6 @@ export const testList = [
   join(__dirname, '.', 'sources', 'can-show-multiple-workers.js'),
   join(__dirname, '.', 'sources', 'debug-raw-wasm.js'),
   join(__dirname, '.', 'sources', 'script-in-multiple-workers.js'),
+  join(__dirname, '.', 'sources', 'wasm-dwarf-plugin.js'),
   join(__dirname, '.', 'host', 'user-metrics.js'),
 ];
