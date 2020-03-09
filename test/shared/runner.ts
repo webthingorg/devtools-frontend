@@ -17,11 +17,17 @@ const envDebug = !!process.env['DEBUG'];
 const envPort = process.env['PORT'] || 9222;
 const envNoShuffle = !!process.env['NO_SHUFFLE'];
 const envInteractive = !!process.env['INTERACTIVE'];
+const envTestFile = process.env['TEST_FILE'];
 const interactivePage = 'http://localhost:8090/test/screenshots/interactive/index.html';
 const blankPage = 'data:text/html,';
 const headless = !envDebug;
 const width = 1280;
 const height = 720;
+
+let envIterations = Number(process.env['ITERATIONS']);
+if (Number.isNaN(envIterations)) {
+  envIterations = 1;
+}
 
 let mochaRun: Mocha.Runner;
 let exitCode = 0;
@@ -205,7 +211,9 @@ interface DevToolsTarget {
       if (envDebug) {
         await resetPages();
       }
-    } while (envDebug);
+
+      envIterations--;
+    } while (envDebug || envIterations >= 0);
 
   } catch (err) {
     console.warn(err);
@@ -234,7 +242,11 @@ async function waitForInput() {
 }
 
 async function runTests() {
-  const {testList} = await import(testListPath!);
+  let {testList} = await import(testListPath!);
+  if (envTestFile) {
+    testList = testList.filter((testFile: string) => testFile === envTestFile);
+  }
+
   const shuffledTests = shuffleTestFiles(testList);
 
   return new Promise(resolve => {
@@ -268,7 +280,7 @@ function logHelp() {
 }
 
 function shuffleTestFiles(files: string[]) {
-  if (envNoShuffle) {
+  if (envNoShuffle || files.length === 1) {
     console.log('Running tests unshuffled');
     return files;
   }
