@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4eff7f57_7a9199d8",
+        "filename": "scripts/json_validator/module.schema.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:46:42Z",
+      "side": 1,
+      "message": "TIL this is possible. Thank you for fixing this!",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 11
+      },
+      "revId": "fb15b8cc32de1ae262da2e44d2074070ba693bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
