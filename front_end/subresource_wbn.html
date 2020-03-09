@@ -8,8 +8,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="referrer" content="no-referrer">
-    <script type="module" src="root.js"></script>
-    <script defer src="devtools_app.js"></script>
+    <link rel="webbundle" href="devtools.wbn" scope=".">
+    <script type="module">
+      import("./root.js").then(() => {
+          const s = document.createElement('script');
+          s.src = "devtools_app.js";
+          document.head.appendChild(s);
+      });
+    </script>
 </head>
 <body class="undocked" id="-blink-dev-tools"></body>
 </html>
