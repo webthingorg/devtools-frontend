@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58013397_e556bb4a",
+        "filename": "scripts/build/generate_supported_css.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T19:26:55Z",
+      "side": 1,
+      "message": "This probably also needs to have the keys sorted (after a rebase).",
+      "range": {
+        "startLine": 99,
+        "startChar": 93,
+        "endLine": 99,
+        "endChar": 104
+      },
+      "revId": "bc4518ef13be9b1c49be38e7fb83e2072529b586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
