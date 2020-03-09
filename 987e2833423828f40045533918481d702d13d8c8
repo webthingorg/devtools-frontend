@@ -16,6 +16,24 @@
       "revId": "987e2833423828f40045533918481d702d13d8c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c03c4cf0_de429a97",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-09T07:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe86a392_3eed68f0",
+      "revId": "987e2833423828f40045533918481d702d13d8c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
