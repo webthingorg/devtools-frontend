@@ -52,7 +52,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
     this._tokenHighlighter = new TokenHighlighter(this, this.codeMirror());
 
     /** @type {!Array<string>} */
-    this._gutters = [lineNumbersGutterType];
+    this._gutters = [breakpointsGutterType, lineNumbersGutterType];
     this.codeMirror().setOption('gutters', this._gutters.slice());
 
     this.codeMirror().setOption('electricChars', false);
@@ -1003,6 +1003,7 @@ export class TokenHighlighter {
 const LinesToScanForIndentationGuessing = 1000;
 const MaximumNumberOfWhitespacesPerSingleSpan = 16;
 export const lineNumbersGutterType = 'CodeMirror-linenumbers';
+export const breakpointsGutterType = 'CodeMirror-gutter-breakpoints';
 
 /** @typedef {{gutterType: string, lineNumber: number, event: !Event}} */
 export let GutterClickEventData;
