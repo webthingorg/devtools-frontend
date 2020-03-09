@@ -21,6 +21,12 @@ export class KeybindsSettingsTab extends VBox {
 
     const header = this.contentElement.createChild('header');
     header.createChild('h1').textContent = ls`Custom keyboard shortcuts`;
+    const keybindsSetSetting = self.Common.settings.moduleSetting('activeKeybindSet');
+    keybindsSetSetting.addChangeListener(this.update, this);
+    const keybindsSetSelect = createControlForSetting(keybindsSetSetting);
+    keybindsSetSelect.classList.add('keybinds-set-select');
+    keybindsSetSelect.insertBefore(createTextNode(ls`Import shortcuts from`), keybindsSetSelect.firstElementChild);
+    this.contentElement.appendChild(keybindsSetSelect);
 
     const listHeader = this.contentElement.createChild('div', 'keybinds-list-item keybinds-header');
     listHeader.createChild('div', 'keybinds-list-text').textContent = ls`Action`;

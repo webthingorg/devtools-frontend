@@ -201,7 +201,13 @@
                 },
                 {
                     "platform": "windows,linux",
-                    "shortcut": "F3"
+                    "shortcut": "F3",
+                    "keybindSets": ["devToolsDefault"]
+                },
+                {
+                    "platform": "windows,linux",
+                    "shortcut": "F4",
+                    "keybindSets": ["vsCode"]
                 }
             ]
         },
@@ -221,7 +227,13 @@
                 },
                 {
                     "platform": "windows,linux",
-                    "shortcut": "Shift+F3"
+                    "shortcut": "Shift+F3",
+                    "keybindSets": ["devToolsDefault"]
+                },
+                {
+                    "platform": "windows,linux",
+                    "shortcut": "Shift+F4",
+                    "keybindSets": ["vsCode"]
                 }
             ]
         },
@@ -375,6 +387,24 @@
                     "title": "Undock into separate window"
                 }
             ]
+        },
+        {
+          "type": "setting",
+          "settingName": "activeKeybindSet",
+          "settingType": "enum",
+          "defaultValue": "devToolsDefault",
+          "options": [
+            {
+              "value": "devToolsDefault",
+              "title": "DevTools default shortcuts",
+              "text": "DevTools default shortcuts"
+            },
+            {
+              "value": "vsCode",
+              "title": "VS Code shortcuts",
+              "text": "VS Code shortcuts"
+            }
+          ]
         },
         {
             "type": "@UI.ViewLocationResolver",
