@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "989c628c_beb4534d",
+        "filename": "test/e2e/elements/pseudo-states.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T16:00:29Z",
+      "side": 1,
+      "message": "Add a comment?",
+      "revId": "f5bd525ef722bd431830b66e4ce6d9e30bfc9817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e89a57_41354947",
+        "filename": "test/e2e/elements/pseudo-states.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-09T16:00:29Z",
+      "side": 1,
+      "message": "same as above",
+      "revId": "f5bd525ef722bd431830b66e4ce6d9e30bfc9817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
