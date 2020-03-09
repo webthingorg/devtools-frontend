@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a9a9635a_4212e1e6",
+        "filename": "test/e2e/resources/wasm/Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-09T16:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d18d65d_1c88a1a0",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f04f4bc_ad4b70c0",
         "filename": "test/e2e/resources/wasm/global.html",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "569d70ad_e1f75cd5",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-09T16:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f04f4bc_ad4b70c0",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4c2f7185_a5b208ef",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-09T16:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c86016d_9dbb7feb",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 5
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e82a521d_e04bb382",
         "filename": "test/e2e/resources/wasm/global.html",
         "patchSetId": 8
@@ -91,6 +163,30 @@
       "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e476a9_450236da",
+        "filename": "test/e2e/resources/wasm/global.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-09T16:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e82a521d_e04bb382",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3c57c561_ca16f6f7",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-09T16:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "addf95e1_4c4ea6a1",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "038e5c49_92abf79a",
         "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
         "patchSetId": 8
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "9413298f_ae0cd8eb",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-09T16:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "038e5c49_92abf79a",
+      "range": {
+        "startLine": 52,
+        "startChar": 23,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfe9df9b_8f61c0a3",
         "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
         "patchSetId": 8
@@ -154,6 +298,24 @@
       "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4ef4da9_8490b654",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-09T16:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfe9df9b_8f61c0a3",
+      "revId": "0377876ca6c07e24e6c2fc6852efd8a91049d7df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
