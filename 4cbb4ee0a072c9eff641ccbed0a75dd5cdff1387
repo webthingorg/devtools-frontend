@@ -22,6 +22,30 @@
       "revId": "4cbb4ee0a072c9eff641ccbed0a75dd5cdff1387",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "690b4a90_3dda5a5a",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2116,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-09T13:54:20Z",
+      "side": 1,
+      "message": "Replaced with newly introduced `ArrayUtilities.removeElement`.",
+      "parentUuid": "5e283626_8af3bff1",
+      "range": {
+        "startLine": 2112,
+        "startChar": 0,
+        "endLine": 2116,
+        "endChar": 5
+      },
+      "revId": "4cbb4ee0a072c9eff641ccbed0a75dd5cdff1387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
