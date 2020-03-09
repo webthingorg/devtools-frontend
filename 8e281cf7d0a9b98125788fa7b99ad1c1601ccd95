@@ -16,6 +16,24 @@
       "revId": "8e281cf7d0a9b98125788fa7b99ad1c1601ccd95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4848a1f0_10ff66fa",
+        "filename": "scripts/build/build_release_applications.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-09T10:44:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8f8964_4a1f57c4",
+      "revId": "8e281cf7d0a9b98125788fa7b99ad1c1601ccd95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
