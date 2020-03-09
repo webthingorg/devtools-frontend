@@ -168,7 +168,7 @@ export class ResourceScriptMapping {
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  _parsedScriptSource(event) {
+  async _parsedScriptSource(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
     if (!this._acceptsScript(script)) {
       return;
@@ -183,7 +183,7 @@ export class ResourceScriptMapping {
     const oldUISourceCode = project.uiSourceCodeForURL(url);
     if (oldUISourceCode) {
       const scriptFile = this._uiSourceCodeToScriptFile.get(oldUISourceCode);
-      this._removeScript(scriptFile._script);
+      await this._removeScript(scriptFile._script);
     }
 
     // Create UISourceCode.
@@ -196,7 +196,7 @@ export class ResourceScriptMapping {
     this._uiSourceCodeToScriptFile.set(uiSourceCode, scriptFile);
 
     project.addUISourceCodeWithProvider(uiSourceCode, originalContentProvider, metadata, 'text/javascript');
-    this._debuggerWorkspaceBinding.updateLocations(script);
+    await this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
   /**
@@ -210,7 +210,7 @@ export class ResourceScriptMapping {
   /**
    * @param {!SDK.Script.Script} script
    */
-  _removeScript(script) {
+  async _removeScript(script) {
     if (!this._acceptedScripts.has(script)) {
       return;
     }
@@ -222,7 +222,7 @@ export class ResourceScriptMapping {
     scriptFile.dispose();
     this._uiSourceCodeToScriptFile.delete(uiSourceCode);
     project.removeFile(script.sourceURL);
-    this._debuggerWorkspaceBinding.updateLocations(script);
+    await this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
   /**
@@ -358,7 +358,7 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
       if (!error && !exceptionDetails) {
         this._scriptSource = source;
       }
-      this._update();
+      await this._update();
 
       if (!error && !exceptionDetails) {
         // Live edit can cause breakpoints to be in the wrong position, or to be lost altogether.
@@ -378,26 +378,26 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  _update() {
+  async _update() {
     if (this._isDiverged() && !this._hasDivergedFromVM) {
-      this._divergeFromVM();
+      await this._divergeFromVM();
     } else if (!this._isDiverged() && this._hasDivergedFromVM) {
-      this._mergeToVM();
+      await this._mergeToVM();
     }
   }
 
-  _divergeFromVM() {
+  async _divergeFromVM() {
     this._isDivergingFromVM = true;
-    this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(this._script);
+    await this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(this._script);
     delete this._isDivergingFromVM;
     this._hasDivergedFromVM = true;
     this.dispatchEventToListeners(ResourceScriptFile.Events.DidDivergeFromVM, this._uiSourceCode);
   }
 
-  _mergeToVM() {
+  async _mergeToVM() {
     delete this._hasDivergedFromVM;
     this._isMergingToVM = true;
-    this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(this._script);
+    await this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(this._script);
     delete this._isMergingToVM;
     this.dispatchEventToListeners(ResourceScriptFile.Events.DidMergeToVM, this._uiSourceCode);
   }
@@ -430,8 +430,7 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     }
     this._script.requestContent().then(deferredContent => {
       this._scriptSource = deferredContent.content;
-      this._update();
-      this._mappingCheckedForTest();
+      this._update().then(() => this._mappingCheckedForTest());
     });
   }
 
