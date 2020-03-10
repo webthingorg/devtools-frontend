@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e1f4c05_7e6324f0",
+        "filename": "front_end/Images/breakpoint.svg",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-03-10T17:00:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0db3b8d4_6dc0775e",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 1,
+        "endChar": 4
+      },
+      "revId": "3b5695e4d8879544c8c0da19d2c0700ab66156e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95fd5602_927c9fbe",
         "filename": "front_end/source_frame/SourcesTextEditor.js",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c663c20d_c02bfc43",
+        "filename": "front_end/source_frame/SourcesTextEditor.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-03-10T17:00:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95fd5602_927c9fbe",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "3b5695e4d8879544c8c0da19d2c0700ab66156e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efc08e0c_98d2e3d0",
         "filename": "front_end/sources/DebuggerPlugin.js",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2020-03-10T12:28:49Z",
       "side": 1,
       "message": "Is this really necessary?",
+      "range": {
+        "startLine": 167,
+        "startChar": 3,
+        "endLine": 167,
+        "endChar": 61
+      },
+      "revId": "3b5695e4d8879544c8c0da19d2c0700ab66156e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89c88f38_991a8e55",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-03-10T17:00:33Z",
+      "side": 1,
+      "message": "If those divs don\u0027t exist only the overall gutter div is being rendered to the DOM, but it exists in a completely different position in the DOM tree. Right-clicks on the the breakpoint-gutter then trigger the wrong context menu.\nI did not find a simple way to refactor the context menu generating code appropriately and therefore elected to use those empty divs.",
+      "parentUuid": "efc08e0c_98d2e3d0",
       "range": {
         "startLine": 167,
         "startChar": 3,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9184c6c0_53c87c00",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-03-10T17:00:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cccfca82_de952387",
+      "range": {
+        "startLine": 1272,
+        "startChar": 5,
+        "endLine": 1273,
+        "endChar": 40
+      },
+      "revId": "3b5695e4d8879544c8c0da19d2c0700ab66156e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97d5c7db_016efcee",
         "filename": "front_end/sources/DebuggerPlugin.js",
         "patchSetId": 7
@@ -114,6 +210,30 @@
       "revId": "3b5695e4d8879544c8c0da19d2c0700ab66156e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35552606_2286a59b",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-03-10T17:00:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97d5c7db_016efcee",
+      "range": {
+        "startLine": 1288,
+        "startChar": 8,
+        "endLine": 1288,
+        "endChar": 82
+      },
+      "revId": "3b5695e4d8879544c8c0da19d2c0700ab66156e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
