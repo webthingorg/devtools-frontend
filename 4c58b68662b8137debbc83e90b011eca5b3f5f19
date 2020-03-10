@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ff5933d8_222390c8",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-10T12:03:33Z",
+      "side": 1,
+      "message": "Technically speaking: Sure. The service implements a small JSON RPC protocol.\n\nThat being said, I prefer the mock solution. The two caveats of mocking are a) that I need to depend on DevTools internals a little bit, and b) it\u0027s not really end-to-end.\n\nI\u0027m fine with b). We don\u0027t have an integration testing framework, and until we do abusing e2e is the best I can do. Once we do, we definitely should move this test over! Potentially, while writing new tests, we should keep track of tests that _should_ be integration tests!\n\na) is a bit ugly, granted. I have to resort to that because there\u0027s no way to control the plugins through the UI (but maybe there should?). Nevertheless the locality of the test implementation is way more important than depending a little bit on DevTools internals. Particularly, since we\u0027ve already started to blur the lines again, with e.g. the \u0027source-tree-file-added\u0027 event, I think that\u0027s fine.",
+      "parentUuid": "6987f959_804b42ea",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 69
+      },
+      "revId": "4c58b68662b8137debbc83e90b011eca5b3f5f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c642da7f_d07b0341",
         "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
         "patchSetId": 9
