@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dabbdf2_b148a244",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-03-10T20:41:24Z",
+      "side": 1,
+      "message": "\"Simulate a slower page load, based on data from an initial unthrottled load. If disabled, the page is actually slowed with applied throttling.\"",
+      "revId": "5b17c1d2206006d25154a340859755a52180a514",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
