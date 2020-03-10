@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "064356cb_44e6943e",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-03-10T02:13:35Z",
+      "side": 1,
+      "message": "also, we need a +1 here. there is an implicit newline character.\n\n```\n// Use blob.size for accurate byte accounting. Add +1 to account for the newline.\nmappingLength \u003d new Blob([line]).size - colNum + 1;\n```",
+      "parentUuid": "69fbbf40_2a690fa4",
+      "revId": "66fbb5540b3b0531010ebfbec80406027b60ff3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "622378e0_5b11a08e",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 14
