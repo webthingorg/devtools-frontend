@@ -12,6 +12,4 @@ describe('PlatformFileSystem', () => {
     assert.equal(platformFileSystem.path(), 'Test Path', 'path was not set or retrieved correctly');
     assert.equal(platformFileSystem.type(), 'Test Type', 'Type was not set or retrieved correctly');
   });
-
-  // TODO continue writing tests here or use another describe block
 });
