@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "17cf3977_bf992217",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-10T20:36:52Z",
+      "side": 1,
+      "message": "The problem here is that we need to import Descriptor to use it in a jsdoc below (see line 64) but we never reference it in the actual code so the linter thinks it\u0027s an unused import. I don\u0027t think  there\u0027s a better way to fix this",
+      "parentUuid": "e9682911_7403d6cf",
+      "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b546da75_47db5d38",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 14
@@ -33,6 +51,24 @@
       "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8369d5d2_c7850921",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-10T20:36:52Z",
+      "side": 1,
+      "message": "_actionToShortcut will soon contain user-created shortcuts as well as defaults, so I think we should change the name here.",
+      "parentUuid": "b546da75_47db5d38",
+      "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4500566d_37227526",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-10T20:36:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d168602_cfa831d2",
+      "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab137448_cb6234d3",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 14
@@ -67,6 +121,24 @@
       "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05be96f_6a090aba",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-10T20:36:52Z",
+      "side": 1,
+      "message": "I don\u0027t know either. Is there an alternative that you think would be better?",
+      "parentUuid": "ab137448_cb6234d3",
+      "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "5456cb4b_5baf2049",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-10T20:36:52Z",
+      "side": 1,
+      "message": "It returns a Set, which doesn\u0027t have a some() method.",
+      "parentUuid": "d9501baf_b74a703f",
+      "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1721dd7e_61f506d2",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 14
@@ -101,6 +191,24 @@
       "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2e5f35e_bd0c4ec5",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-10T20:36:52Z",
+      "side": 1,
+      "message": "Not clear to me either, I just copied what was already in place. Fixed",
+      "parentUuid": "1721dd7e_61f506d2",
+      "revId": "a92cae295e0d6c0c13675b2191c6f4cdb50e569b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
