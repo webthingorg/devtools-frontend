@@ -65,7 +65,7 @@ export async function retrieveTopCallFrameScriptLocation(script: string, target:
       await (await $('.call-frame-location')).evaluate((location: HTMLElement) => location.textContent);
 
   // Resume the evaluation
-  await click('[aria-label="Pause script execution"]');
+  await click('[aria-label="Resume script execution"]');
 
   // Make sure to await the context evaluate before asserting
   // Otherwise the Puppeteer process might crash on a failure assertion,
@@ -96,4 +96,39 @@ export function waitForAdditionalSourceFiles(frontend: puppeteer.Page) {
 export function retrieveSourceFilesAdded(frontend: puppeteer.Page) {
   // Strip hostname, to make it agnostic of which server port we use
   return frontend.evaluate(() => window.__sourceFilesAddedEvents.map(file => new URL(`http://${file}`).pathname));
+}
+
+// Helpers for navigating the file tree.
+export type NestedFileSelector = {
+  rootSelector: string,
+  domainSelector: string,
+  folderSelector: string,
+  fileSelector: string,
+};
+
+export function createSelectorsForWorkerFile(
+    workerName: string, folderName: string, fileName: string, workerIndex = 1): NestedFileSelector {
+  const rootSelector = new Array(workerIndex).fill(`[aria-label="${workerName}, worker"]`).join(' ~ ');
+  const domainSelector = `${rootSelector} + ol > [aria-label="localhost:8090, domain"]`;
+  const folderSelector = `${domainSelector} + ol > [aria-label^="${folderName}, "]`;
+  const fileSelector = `${folderSelector} + ol > [aria-label="${fileName}, file"]`;
+
+  return {
+    rootSelector,
+    domainSelector,
+    folderSelector,
+    fileSelector,
+  };
+}
+
+export async function expandFileTree(selectors: NestedFileSelector) {
+  await doubleClickSourceTreeItem(selectors.rootSelector);
+  await doubleClickSourceTreeItem(selectors.domainSelector);
+  await doubleClickSourceTreeItem(selectors.folderSelector);
+  return await waitFor(selectors.fileSelector);
+}
+
+export async function openNestedWorkerFile(selectors: NestedFileSelector) {
+  await expandFileTree(selectors);
+  await click(selectors.fileSelector);
 }
