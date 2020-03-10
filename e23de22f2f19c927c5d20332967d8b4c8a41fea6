@@ -16,6 +16,24 @@
       "revId": "e23de22f2f19c927c5d20332967d8b4c8a41fea6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8877637_b78fb6e3",
+        "filename": "front_end/browser_debugger/EventListenerBreakpointsSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-10T17:52:43Z",
+      "side": 1,
+      "message": "You can\u0027t focus them via keyboard--this just moves focus to the treeoutline if you click directly on the checkbox to toggle and focus it",
+      "parentUuid": "fc0c979b_00ef52a1",
+      "revId": "e23de22f2f19c927c5d20332967d8b4c8a41fea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
