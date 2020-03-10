@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc0c979b_00ef52a1",
+        "filename": "front_end/browser_debugger/EventListenerBreakpointsSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-10T17:38:50Z",
+      "side": 1,
+      "message": "This feels like the checkbox element should have its tabindex cleared. It\u0027s odd to me that it\u0027s keyboard-tabbable if we\u0027re just going to move focus whenever someone gives it focus.",
+      "revId": "e23de22f2f19c927c5d20332967d8b4c8a41fea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
