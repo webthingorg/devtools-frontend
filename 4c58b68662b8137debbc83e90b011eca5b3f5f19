@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "be926dd7_4b892eb0",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-10T11:18:34Z",
+      "side": 1,
+      "message": "The behavior being mocked is used under the hood by the debugger. Without a mock plugin we\u0027d have to use a real one, which requires spinning up the out-of-process C++/DWARF symbol server.",
+      "parentUuid": "6e94282f_1e614ba4",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 69
+      },
+      "revId": "4c58b68662b8137debbc83e90b011eca5b3f5f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c642da7f_d07b0341",
         "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
         "patchSetId": 9
