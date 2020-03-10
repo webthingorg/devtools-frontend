@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "32a1e66a_8c1f59fd",
+        "filename": "test/e2e/console/console-repl-mode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-10T10:05:12Z",
+      "side": 1,
+      "message": "I did not find this approach sufficient when running against a debug binary (and did not find it necessary in release). You can see my approach here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2087764/2/test/e2e/sources/script-in-multiple-workers.ts#68\n\nMight be worth a helper.",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 76
+      },
+      "revId": "0bd90ec5033e5419b3bb2d4441000c7e95818ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08edc137_ff87e601",
         "filename": "test/e2e/console/console-repl-mode.ts",
         "patchSetId": 5
@@ -16,6 +39,29 @@
       "revId": "0bd90ec5033e5419b3bb2d4441000c7e95818ade",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68309b38_6150409b",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-10T10:05:12Z",
+      "side": 1,
+      "message": "Is the point of this helper just to not type frontend.keyboard?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 22
+      },
+      "revId": "0bd90ec5033e5419b3bb2d4441000c7e95818ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
