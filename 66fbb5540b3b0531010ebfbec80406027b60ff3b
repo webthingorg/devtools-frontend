@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69fbbf40_2a690fa4",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-03-10T02:07:03Z",
+      "side": 1,
+      "message": "this would be better as a function getByteLength (because I think LH will have to patch this fn if we want to reuse - and patching a fn is easier than patching a random line)",
+      "revId": "66fbb5540b3b0531010ebfbec80406027b60ff3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "622378e0_5b11a08e",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-03-10T02:07:03Z",
+      "side": 1,
+      "message": "comment saying \"lastGeneratedColumn is inclusive\"",
+      "revId": "66fbb5540b3b0531010ebfbec80406027b60ff3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55674f6b_8860335d",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-03-10T02:07:03Z",
+      "side": 1,
+      "message": "delete old code",
+      "range": {
+        "startLine": 683,
+        "startChar": 2,
+        "endLine": 683,
+        "endChar": 28
+      },
+      "revId": "66fbb5540b3b0531010ebfbec80406027b60ff3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
