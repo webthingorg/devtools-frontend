@@ -208,10 +208,13 @@
     Don&apos;t group network log items by frame
   </message>
   <message name="IDS_DEVTOOLS_3ebfafd757759c5e0081920b36450c58" desc="An option in the user agent dropdown menu in the Network conditions tool">
-    <ph name="LOCKED_1">Firefox — Android Mobile</ph>
+    Firefox — Android Mobile
   </message>
   <message name="IDS_DEVTOOLS_408f8a4ecdacbe1d9989b800a0c12936" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Internet Explorer 11</ph>
+  </message>
+  <message name="IDS_DEVTOOLS_40c85feedfa235dd2dcfe21b5ff4efdd" desc="Text in the Network Item View of the network panel communicating that this network request has no associated source map.">
+    This request has no source map.
   </message>
   <message name="IDS_DEVTOOLS_4145ea54b6f576d7646d6a68eb39813f" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Opera (Presto) — Mac</ph>
@@ -230,6 +233,9 @@
   </message>
   <message name="IDS_DEVTOOLS_42d61b587a0123390822777d84e0f6bd" desc="Text in Signed Exchange Info View of the Network panel">
     Response code
+  </message>
+  <message name="IDS_DEVTOOLS_4385a33fb09f0aa4d605b21d5085884e" desc="Label for the Source Map tab in the Network Item View of the Network Panel. A source map maps a minified production resource back to its original development source files.">
+    Visualization of attached source map
   </message>
   <message name="IDS_DEVTOOLS_44749712dbec183e983dcd78a7736c41" desc="Text in Signed Exchange Info View of the Network panel">
     Date
@@ -377,6 +383,9 @@
   </message>
   <message name="IDS_DEVTOOLS_6c3ae60298916e218f26a95f4ff21085" desc="Text in Request Cookies View of the Network panel">
     Response Cookies
+  </message>
+  <message name="IDS_DEVTOOLS_6db7a3489ecb27d8c3a8cf9284b70837" desc="Title of the Source Map tag in the Network Item View of the Network Panel. A source map maps a minified production resource back to its original development source files.">
+    Source Map
   </message>
   <message name="IDS_DEVTOOLS_6dd7482f131dc036ea08395a7f3f5e08" desc="Other user agent element placeholder in Network Config View of the Network panel">
     Enter a custom user agent
@@ -536,6 +545,9 @@
   </message>
   <message name="IDS_DEVTOOLS_827452688eed02a12178e96f924ac529" desc="Text in Network Log View Columns of the Network panel">
     Scheme
+  </message>
+  <message name="IDS_DEVTOOLS_8352c27b9ce8cacfa3fc77efc6c17786" desc="Label in the sourcemap viewer which indicates a block of unmapped bytes. For example, while 90% of bundle.min.js maps (via a sourcemap) to src/application.js, 10% of bundle.min.js could not be mapped to an original source file.">
+    &lt;unmapped&gt;
   </message>
   <message name="IDS_DEVTOOLS_838c672414343cdd527a63d910fb132c" desc="Text in Network Log View of the Network panel">
     Hide data URLs

@@ -210,4 +210,45 @@ describe('TextSourceMap', () => {
     assertMapping(sourceMap.findEntry(2, 10), 'source2.js', 0, 0);
     assertMapping(sourceMap.findEntry(2, 11), 'source2.js', 2, 1);
   });
+
+  describe('attributableSourceBytes', () => {
+    it('returns correct numbers', () => {
+      // foo.min.js test case from https://github.com/danvk/source-map-explorer/tree/4b95f6e7dfe0058d791dcec2107fee43a1ebf02e/tests/data
+      const mappingPayload = {
+        version: 3,
+        sources: ['node_modules/browser-pack/_prelude.js', 'src/bar.js', 'src/foo.js'],
+        mappings:
+            'CAAA,SAAAA,EAAAC,EAAAC,EAAAC,GAAA,SAAAC,EAAAC,EAAAC,GAAA,IAAAJ,EAAAG,GAAA,CAAA,IAAAJ,EAAAI,GAAA,CAAA,IAAAE,EAAA,mBAAAC,SAAAA,QAAA,IAAAF,GAAAC,EAAA,OAAAA,EAAAF,GAAA,GAAA,GAAAI,EAAA,OAAAA,EAAAJ,GAAA,GAAA,IAAAK,EAAA,IAAAC,MAAA,uBAAAN,EAAA,KAAA,MAAAK,EAAAE,KAAA,mBAAAF,EAAA,IAAAG,EAAAX,EAAAG,GAAA,CAAAS,QAAA,IAAAb,EAAAI,GAAA,GAAAU,KAAAF,EAAAC,SAAA,SAAAd,GAAA,OAAAI,EAAAH,EAAAI,GAAA,GAAAL,IAAAA,KAAAa,EAAAA,EAAAC,QAAAd,EAAAC,EAAAC,EAAAC,GAAA,OAAAD,EAAAG,GAAAS,QAAA,IAAA,IAAAL,EAAA,mBAAAD,SAAAA,QAAAH,EAAA,EAAAA,EAAAF,EAAAa,OAAAX,IAAAD,EAAAD,EAAAE,IAAA,OAAAD,EAAA,CAAA,CAAAa,EAAA,CAAA,SAAAT,QAAAU,OAAAJ,sBCIAI,OAAOJ,QAJP,SAAaK,GACX,MAAA,MAAAC,OAAaD,0DCAf,IAAIE,IAAMb,QAAQ,SAIlBU,OAAOJ,QAFG,SAAAK,GAAC,OAAIE,IAAIF,GAAKE,IAAIF',
+        sourcesContent: [
+          '(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module \'"+i+"\'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()',
+          'function bar(x) {\n  return `bar${x}`;\n}\n\nmodule.exports = bar;\n',
+          '// This is a comment which will be stripped from the minified JS.\nvar bar = require(\'./bar\');\n\nvar foo = x => bar(x) + bar(x);\n\nmodule.exports = foo;\n',
+        ],
+        file: undefined,
+        sourceRoot: undefined,
+        names: undefined,
+        sections: undefined,
+      };
+
+      const jsPayload = `
+!function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,(function(r){return o(e[i][1][r]||r)}),p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}({1:[function(require,module,exports){"use strict";module.exports=function(x){return"bar".concat(x)}},{}],2:[function(require,module,exports){"use strict";var bar=require("./bar");module.exports=function(x){return bar(x)+bar(x)}},{"./bar":1}]},{},[2]);
+//# sourceMappingURL=foo.min.js.map
+`.trim();
+
+      const sourceMap = new TextSourceMap('foo.min.js', 'foo.min.js.map', mappingPayload);
+      const sourceMappedBytes = sourceMap.attributableSourceBytes(jsPayload);
+      if (!sourceMappedBytes) {
+        return assert.fail('No sourcemapped bytes');
+      }
+
+      const expected = Array.from(new Map([
+        ['node_modules/browser-pack/_prelude.js', 480],
+        ['src/bar.js', 104],
+        ['src/foo.js', 97],
+        [null, 37],
+      ]));
+      const actual = Array.from(sourceMappedBytes.entries());
+      assert.deepEqual(actual, expected);
+    });
+  });
 });
