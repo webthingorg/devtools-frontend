@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "24acda23_3b5d5c8c",
+        "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:22:56Z",
+      "side": 1,
+      "message": "I am mostly worried that any kind of refactoring or architectural change is going to cause this e2e-test to fail, without a really good reason.\n\nI suppose we can wave this through, but please document this test appropriately that this is not the correct level to test it, but we are doing it as there is not alternative. Can you file a tracking bug for that?\n\nP.S. Letting the user add plugins seems like a worthwhile idea.",
+      "parentUuid": "ff5933d8_222390c8",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 69
+      },
+      "revId": "4c58b68662b8137debbc83e90b011eca5b3f5f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c642da7f_d07b0341",
         "filename": "test/e2e/sources/wasm-dwarf-plugin.ts",
         "patchSetId": 9
