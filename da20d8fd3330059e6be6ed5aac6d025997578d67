@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a980b39_ae411f4c",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T16:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6ab272c_c58327f9",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 13
+      },
+      "revId": "da20d8fd3330059e6be6ed5aac6d025997578d67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4fed8eb_d77a7dab",
         "filename": "scripts/eslint_rules/lib/es_modules_import.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "da20d8fd3330059e6be6ed5aac6d025997578d67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "015e02ef_73501ca3",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T16:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4fed8eb_d77a7dab",
+      "range": {
+        "startLine": 28,
+        "startChar": 54,
+        "endLine": 28,
+        "endChar": 100
+      },
+      "revId": "da20d8fd3330059e6be6ed5aac6d025997578d67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
