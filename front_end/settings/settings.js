@@ -5,11 +5,14 @@
 
 import './SettingsScreen.js';
 import './FrameworkBlackboxSettingsTab.js';
+import './KeybindsSettingsTab.js';
 
 import * as FrameworkBlackboxSettingsTab from './FrameworkBlackboxSettingsTab.js';
+import * as KeybindsSettingsTab from './KeybindsSettingsTab.js';
 import * as SettingsScreen from './SettingsScreen.js';
 
 export {
   FrameworkBlackboxSettingsTab,
+  KeybindsSettingsTab,
   SettingsScreen,
 };
