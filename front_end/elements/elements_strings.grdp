@@ -84,7 +84,7 @@
   <message name="IDS_DEVTOOLS_3e9bec182c7495247f5f93d3881d630b" desc="Text in Element State Pane Widget of the Elements panel">
     :hov
   </message>
-  <message name="IDS_DEVTOOLS_417117e823d14c9b7c6533e4b04600a6" desc="Text in Elements Breadcrumbs of the Elements panel">
+  <message name="IDS_DEVTOOLS_417117e823d14c9b7c6533e4b04600a6" desc="Text that shows for a text node in the Elements breadcrumbs">
     (text)
   </message>
   <message name="IDS_DEVTOOLS_44beac36afb00f088edb0aeab28a300d" desc="A context menu item in the Elements Tree Element of the Elements panel">

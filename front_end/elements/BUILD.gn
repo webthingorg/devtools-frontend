@@ -1,0 +1,14 @@
+import("../../third_party/typescript/typescript.gni")
+
+ts_library("elements") {
+  sources = [
+    "ElementsBreadcrumbs.ts",
+    "ElementsBreadcrumbsUtils.ts",
+    "ElementsBreadcrumbs_bridge.js",
+  ]
+
+  deps = [
+    "../common",
+    "../third_party/lit-html",
+  ]
+}

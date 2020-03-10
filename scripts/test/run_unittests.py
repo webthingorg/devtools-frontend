@@ -25,7 +25,8 @@ NINJA_BUILD_NAME = os.environ.get('NINJA_BUILD_NAME') or 'Release'
 
 def run_tests(chrome_binary):
     cwd = devtools_paths.devtools_root_path()
-    karmaconfig_path = os.path.join(cwd, 'karma.conf.js')
+    # karmaconfig_path = os.path.join(cwd, 'karma.conf.js')
+    karmaconfig_path = os.path.join(cwd, 'out', 'Default', 'gen', 'karma.conf.js')
 
     exec_command = [devtools_paths.node_path(), devtools_paths.karma_path(), 'start', test_helpers.to_platform_path_exact(karmaconfig_path)]
 
