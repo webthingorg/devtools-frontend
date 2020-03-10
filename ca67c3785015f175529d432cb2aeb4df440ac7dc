@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "1b1ade04_5eb1071c",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/basic-ls.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-10T11:28:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8197a28_3c6a63d2",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1e1e50f_677a6cb4",
         "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-expression.ts",
         "patchSetId": 1
@@ -174,6 +192,24 @@
       "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3168e55_0aaa9c56",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-expression.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-10T11:28:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1e1e50f_677a6cb4",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -194,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "fe5fb375_2836fd37",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-function-calls.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-10T11:28:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9727a246_99671498",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3955b5e_37981023",
         "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-multiple-expressions.ts",
         "patchSetId": 1
@@ -211,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "909ad253_c66f2dc9",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/ls-with-multiple-expressions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-10T11:28:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3955b5e_37981023",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93516ca6_7b23f5d2",
         "filename": "test/unittests/scripts/localization/utils/fixtures/no-ls.ts",
         "patchSetId": 1
@@ -225,6 +297,24 @@
       "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc3ad069_669edfba",
+        "filename": "test/unittests/scripts/localization/utils/fixtures/no-ls.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-10T11:28:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93516ca6_7b23f5d2",
+      "revId": "ca67c3785015f175529d432cb2aeb4df440ac7dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
