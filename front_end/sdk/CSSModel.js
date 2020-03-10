@@ -29,7 +29,6 @@
  */
 
 import * as HostModule from '../host/host.js';
-import * as Platform from '../platform/platform.js';
 import * as ProtocolModule from '../protocol/protocol.js';
 
 import {CSSMatchedStyles} from './CSSMatchedStyles.js';
@@ -414,7 +413,7 @@ export class CSSModel extends SDKModel {
       if (pseudoClasses.indexOf(pseudoClass) < 0) {
         return false;
       }
-      Platform.ArrayUtilities.removeElement(pseudoClasses, pseudoClass);
+      pseudoClasses.remove(pseudoClass);
       if (pseudoClasses.length) {
         node.setMarker(PseudoStateMarker, pseudoClasses);
       } else {
