@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21d2a0f9_fce903a1",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 222,
+        "startChar": 10,
+        "endLine": 222,
+        "endChar": 48
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed0fdbf4_30e31695",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "I am still a bit confused as to why this was not happening on Peters CL. Could you quickly describe in which scenario you were running into issues where the Escape-key solution is not sufficient?",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 44
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c954b05_dc1f63f4",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "👌",
+      "range": {
+        "startLine": 76,
+        "startChar": 5,
+        "endLine": 76,
+        "endChar": 32
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a43f00c8_1afdc499",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Woohoo! Nice to see that the bug is fixed and that we improve accessibility along the way.",
+      "range": {
+        "startLine": 68,
+        "startChar": 28,
+        "endLine": 68,
+        "endChar": 34
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d2f1ccd_7d1d4eed",
+        "filename": "test/e2e/sources/debug-raw-wasm.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Nit: use the import from the sources-helper when you move the selector into that file.",
+      "range": {
+        "startLine": 73,
+        "startChar": 17,
+        "endLine": 73,
+        "endChar": 55
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d247d77c_5dad6975",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Let\u0027s put these in sources-helpers and change all of their usages the constant. E.g.\n\n```\nclick(RESUME_BUTTON)\n```",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 63
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70a07fd_45d4b96f",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Nit: put these helper functions in sources-helpers (I will double-check the existing tests adhere to that pattern as well)",
+      "range": {
+        "startLine": 16,
+        "startChar": 15,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e0f8477_80312d18",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "There might be a more elegant solution here, but this is okay for now. I will take a look later on whether we can maybe improve the architecture to make it more testable/greppable.",
+      "range": {
+        "startLine": 25,
+        "startChar": 25,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7b0276c_a42d223c",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Once the Chromium bugs are resolved, we probably want to restructure this a bit to not rely on booleans. For now, this is sufficient.",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 14
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65645891_ee556f38",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Nit: add the crbug.com/670180 in the skip message. E.g.\n\n```\nit.skip(`[crbug.com/670180]: loads scripts exactly once on break ${withOrWithout}`)\n```",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff1b399_5044f542",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-10T17:35:39Z",
+      "side": 1,
+      "message": "Nit: `void` if the function returns nothing. (I am confused as to why TS can\u0027t infer `T \u003d\u003d\u003d void`)",
+      "range": {
+        "startLine": 161,
+        "startChar": 33,
+        "endLine": 161,
+        "endChar": 42
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
