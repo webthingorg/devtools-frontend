@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d44f3792_dacb1d60",
+        "filename": "scripts/protocol_typescript/protocol_dts_generator.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T17:33:45Z",
+      "side": 1,
+      "message": "Nit: can\u0027t use slashes. Use `path.join` to make sure it works on Windows",
+      "range": {
+        "startLine": 15,
+        "startChar": 31,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "13e392cc71f2c3c40b98f7d16b7f52c29129de5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c8027a_9f3ec18e",
+        "filename": "scripts/protocol_typescript/protocol_dts_generator.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T17:33:45Z",
+      "side": 1,
+      "message": "Nit: we use 2 space indentation",
+      "range": {
+        "startLine": 27,
+        "startChar": 55,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "13e392cc71f2c3c40b98f7d16b7f52c29129de5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cce71b25_47f255e6",
+        "filename": "scripts/protocol_typescript/protocol_dts_generator.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T17:33:45Z",
+      "side": 1,
+      "message": "When we fold it into the other npm command, let\u0027s make sure we update this comment as well 😋",
+      "range": {
+        "startLine": 59,
+        "startChar": 41,
+        "endLine": 59,
+        "endChar": 68
+      },
+      "revId": "13e392cc71f2c3c40b98f7d16b7f52c29129de5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
