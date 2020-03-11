@@ -242,3 +242,24 @@ export const Attributes = {
   SameSite: 'sameSite',
   Priority: 'priority',
 };
+
+export class CookieReference {
+  /**
+   *
+   * @param {string} name
+   * @param {string} domain
+   * @param {string} path
+   */
+  constructor(name, domain, path) {
+    this._name = name;
+    this._domain = domain;
+    this._path = path;
+  }
+
+  /**
+   * @returns {string}
+   */
+  domain() {
+    return this._domain;
+  }
+}
