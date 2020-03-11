@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7762e2d_5c1b9912",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-11T13:26:35Z",
+      "side": 1,
+      "message": "I don\u0027t think this is enough depending on what you type, e.g. if you open a fresh console and type `x`, then the line.textContent will be `x` and the auto-complete-text will be empty, but the auto-suggest pop-over list thing will still be there and capture the enter key press",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 112
+      },
+      "revId": "588278b24f8f34cee2f6bbbc49b347234e1ee759",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
