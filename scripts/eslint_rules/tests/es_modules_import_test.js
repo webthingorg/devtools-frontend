@@ -11,73 +11,73 @@ const ruleTester = new (require('eslint').RuleTester)({
 ruleTester.run('es_modules_import', rule, {
   valid: [
     {
-      code: `import { Exporting } from './Exporting.js';`,
+      code: 'import { Exporting } from \'./Exporting.js\';',
       filename: 'front_end/common/Importing.js',
     },
     {
-      code: `import * as Namespace from '../namespace/namespace.js';`,
+      code: 'import * as Namespace from \'../namespace/namespace.js\';',
       filename: 'front_end/common/Importing.js',
     },
     {
-      code: `import * as EventTarget from './EventTarget.js';`,
+      code: 'import * as EventTarget from \'./EventTarget.js\';',
       filename: 'front_end/common/common.js',
     },
     {
-      code: `import { Exporting } from '../../../front_end/common/EventTarget.js';`,
+      code: 'import { Exporting } from \'../../../front_end/common/EventTarget.js\';',
       filename: 'test/common/common.js',
     },
     {
-      code: `import * as CommonModule from './common.js';`,
+      code: 'import * as CommonModule from \'./common.js\';',
       filename: 'front_end/common/common-legacy.js',
     },
     {
-      code: `import * as ARIAProperties from '../generated/ARIAProperties.js';`,
+      code: 'import * as ARIAProperties from \'../generated/ARIAProperties.js\';',
       filename: 'front_end/accessibility/ARIAMetadata.js',
     },
     {
-      code: `import { DebuggerLanguagePlugin } from '../DebuggerLanguagePlugins.js';`,
+      code: 'import { DebuggerLanguagePlugin } from \'../DebuggerLanguagePlugins.js\';',
       filename: 'front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js',
     },
     {
-      code: `import '../../common/common.js';`,
+      code: 'import \'../../common/common.js\';',
       filename: 'front_end/formatter_worker/formatter_worker.js',
     },
     // ARIAUtils.js is legacy and exempted from these rules
     {
-      code: `import * as ARIAUtils from './ARIAUtils.js';`,
+      code: 'import * as ARIAUtils from \'./ARIAUtils.js\';',
       filename: 'front_end/ui/Toolbar.js',
     },
     // the `ls` helper is an exception in a TypeScript file
     {
-      code: `import {ls} from '../common/ls.js';`,
+      code: 'import {ls} from \'../common/ls.js\';',
       filename: 'front_end/elements/ElementsBreadcrumbs.ts',
     },
   ],
 
   invalid: [
     {
-      code: `import { Exporting } from '../namespace/Exporting.js';`,
+      code: 'import { Exporting } from \'../namespace/Exporting.js\';',
       filename: 'front_end/common/Importing.js',
       errors: [{
         message:
-            `Incorrect cross-namespace import: "../namespace/Exporting.js". Use "import * as Namespace from '../namespace/namespace.js';" instead.`
+            'Incorrect cross-namespace import: "../namespace/Exporting.js". Use "import * as Namespace from \'../namespace/namespace.js\';" instead.'
       }],
     },
     {
-      code: `import * as Common from '../common/common.js';`,
+      code: 'import * as Common from \'../common/common.js\';',
       filename: 'front_end/common/Importing.js',
       errors: [{
         message:
-            `Incorrect same-namespace import: "../common/common.js". Use "import { Symbol } from './relative-file.js';" instead.`
+            'Incorrect same-namespace import: "../common/common.js". Use "import { Symbol } from \'./relative-file.js\';" instead.'
       }],
     },
     // the `ls` helper is not an exception in a JS file
     {
-      code: `import {ls} from '../common/ls.js';`,
+      code: 'import {ls} from \'../common/ls.js\';',
       filename: 'front_end/elements/ElementsPanel.js',
       errors: [{
         message:
-            `Incorrect cross-namespace import: "../common/ls.js". Use "import * as Namespace from '../namespace/namespace.js';" instead. You may only import common/ls.js directly from TypeScript source files.`
+            'Incorrect cross-namespace import: "../common/ls.js". Use "import * as Namespace from \'../namespace/namespace.js\';" instead. You may only import common/ls.js directly from TypeScript source files.'
       }],
     },
   ]
