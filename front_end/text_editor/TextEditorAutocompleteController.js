@@ -48,6 +48,7 @@ export class TextEditorAutocompleteController {
     this._tooltipElement = createElementWithClass('div', 'autocomplete-tooltip');
     const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
         this._tooltipGlassPane.contentElement, 'text_editor/autocompleteTooltip.css');
+    this._tooltipGlassPane.contentElement.classList.add('autocomplete-pane');
     shadowRoot.appendChild(this._tooltipElement);
   }
 
@@ -226,7 +227,7 @@ export class TextEditorAutocompleteController {
   }
 
   _blur() {
-    this.clearAutocomplete();
+    // this.clearAutocomplete();
   }
 
   /**
