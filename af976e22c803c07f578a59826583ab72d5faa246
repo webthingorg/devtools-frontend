@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4744c4ec_fc5a94a3",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-11T16:11:35Z",
+      "side": 0,
+      "message": "Why did this go away?",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "af976e22c803c07f578a59826583ab72d5faa246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

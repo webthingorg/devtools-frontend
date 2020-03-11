@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6af77b69_b7279213",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-11T16:11:35Z",
+      "side": 1,
+      "message": "nit:NetworkItemViewTabs",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "fb9b2479638d0f8fc3eab789bde9aa8836a1123d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "584fb243_0405ea6f",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-11T16:11:35Z",
+      "side": 1,
+      "message": "nit: Could you document the behavior and mention that it does not override the remembered last header setting to stay in line with the associated revealers?",
+      "range": {
+        "startLine": 49,
+        "startChar": 27,
+        "endLine": 49,
+        "endChar": 31
+      },
+      "revId": "fb9b2479638d0f8fc3eab789bde9aa8836a1123d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33837fe8_0ddf26b3",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-11T16:11:35Z",
+      "side": 1,
+      "message": "nit:NetworkItemViewTab?",
+      "range": {
+        "startLine": 43,
+        "startChar": 25,
+        "endLine": 43,
+        "endChar": 29
+      },
+      "revId": "fb9b2479638d0f8fc3eab789bde9aa8836a1123d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
