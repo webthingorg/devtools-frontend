@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a96257f_41a145cf",
+        "filename": "test/unittests/front_end/platform/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-11T06:13:33Z",
+      "side": 1,
+      "message": "Drive-by nit: Missing license. (Was looking at the CL as I am adding a new unittest)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 59
+      },
+      "revId": "08fbf5fa88d1fb2330f68654b183469cd3153695",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
