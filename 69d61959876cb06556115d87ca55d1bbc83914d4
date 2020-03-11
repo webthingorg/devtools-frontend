@@ -69,6 +69,30 @@
       "revId": "69d61959876cb06556115d87ca55d1bbc83914d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "078318d5_9254c456",
+        "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-11T13:47:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13116713_410d5b4e",
+      "range": {
+        "startLine": 94,
+        "startChar": 194,
+        "endLine": 94,
+        "endChar": 204
+      },
+      "revId": "69d61959876cb06556115d87ca55d1bbc83914d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
