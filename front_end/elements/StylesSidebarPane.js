@@ -2684,7 +2684,9 @@ export class StylesSidebarPropertyRenderer {
   _processURL(text) {
     // Strip "url(" and ")" along with whitespace.
     let url = text.substring(4, text.length - 1).trim();
-    const isQuoted = /^'.*'$/.test(url) || /^".*"$/.test(url);
+    // Use `[\s\S]*` instead of `.*` to support data urls with
+    // special characters like `\n` etc
+    const isQuoted = /^'[\s\S]*'$/.test(url) || /^"[\s\S]*"$/.test(url);
     if (isQuoted) {
       url = url.substring(1, url.length - 1);
     }
