@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d39c6f99_6be05725",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-11T18:25:46Z",
+      "side": 1,
+      "message": "A more minimal change would be to use the dotAll flag [1] to ensure newlines are captured.\n\n    const isQuoted \u003d /^\u0027.*\u0027$/s.test(url) || /^\".*\"$/s.test(url);\n\n[1]: https://github.com/tc39/proposal-regexp-dotall-flag",
+      "revId": "86035fe4e5f52ca40af2a5b368a033e47332aeaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
