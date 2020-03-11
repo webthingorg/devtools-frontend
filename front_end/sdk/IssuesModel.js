@@ -12,11 +12,10 @@ import {NetworkRequest,  // eslint-disable-line no-unused-vars
 import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
-const connectedIssuesSymbol = Symbol('issues');
+const connectedIssueSymbol = Symbol('issue');
 
 /**
  * @implements {Protocol.AuditsDispatcher}
- * @unrestricted
  */
 export class IssuesModel extends SDKModel {
   /**
@@ -25,10 +24,10 @@ export class IssuesModel extends SDKModel {
   constructor(target) {
     super(target);
     this._enabled = false;
-    this._issues = [];
-    this._browserIssues = [];
     this._browserIssuesByCode = new Map();
     this._cookiesModel = target.model(CookieModel);
+    /** @type {?Protocol.AuditsAgent} */
+    this._auditsAgent = null;
 
     const networkManager = target.model(NetworkManager);
     if (networkManager) {
@@ -42,13 +41,15 @@ export class IssuesModel extends SDKModel {
     }
   }
 
-  _onMainFrameNavigated() {
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _onMainFrameNavigated(event) {
+    // TODO: This clears too many issues, see crbug.com/1060628.
     this._clearIssues();
   }
 
   _clearIssues() {
-    this._issues = [];
-    this._browserIssues = [];
     this._browserIssuesByCode = new Map();
     this.dispatchEventToListeners(Events.AllIssuesCleared);
   }
@@ -66,15 +67,17 @@ export class IssuesModel extends SDKModel {
 
   /**
    * @override
-   * @param {!Protocol.Audits.Issue} payload
+   * @param {!Protocol.Audits.InspectorIssue} inspectorIssue
    */
-  issueAdded(payload) {
-    if (!this._browserIssuesByCode.has(payload.code)) {
-      const issue = new Issue(payload.code);
-      this._browserIssuesByCode.set(payload.code, issue);
+  issueAdded(inspectorIssue) {
+    if (!this._browserIssuesByCode.has(inspectorIssue.code)) {
+      const issue = new Issue(inspectorIssue.code);
+      this._browserIssuesByCode.set(inspectorIssue.code, issue);
+      issue.addInstanceResources(inspectorIssue.resources);
       this.dispatchEventToListeners(Events.IssueAdded, issue);
     } else {
-      const issue = this._browserIssuesByCode.get(payload.code);
+      const issue = this._browserIssuesByCode.get(inspectorIssue.code);
+      issue.addInstanceResources(inspectorIssue.resources);
       this.dispatchEventToListeners(Events.IssueUpdated, issue);
     }
   }
@@ -102,11 +105,11 @@ export class IssuesModel extends SDKModel {
       return;
     }
 
-    if (!obj[connectedIssuesSymbol]) {
-      obj[connectedIssuesSymbol] = [];
+    if (!obj[connectedIssueSymbol]) {
+      obj[connectedIssueSymbol] = [];
     }
 
-    obj[connectedIssuesSymbol].push(issue);
+    obj[connectedIssueSymbol].push(issue);
   }
 
   /**
@@ -117,7 +120,7 @@ export class IssuesModel extends SDKModel {
       return false;
     }
 
-    return obj[connectedIssuesSymbol] && obj[connectedIssuesSymbol].length;
+    return obj[connectedIssueSymbol] && obj[connectedIssueSymbol].length;
   }
 
   /**
