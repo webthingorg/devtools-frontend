@@ -259,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "0d2cb7c2_6878293c",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T10:37:34Z",
+      "side": 1,
+      "message": "Yes this LGTM, thanks!",
+      "parentUuid": "51bac525_60e62018",
+      "range": {
+        "startLine": 16,
+        "startChar": 15,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e0f8477_80312d18",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 4
@@ -396,6 +420,30 @@
       "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4bd4dd1_796eeee6",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T10:37:34Z",
+      "side": 1,
+      "message": "Ah I missed that part. Then `undefined` is fine here. It is essentially equivalent to `void`.",
+      "parentUuid": "4ecac7ce_c4ded6d9",
+      "range": {
+        "startLine": 161,
+        "startChar": 33,
+        "endLine": 161,
+        "endChar": 42
+      },
+      "revId": "36cb42638d02817ef83f34be26c193c9391dd432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
