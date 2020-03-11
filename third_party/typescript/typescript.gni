@@ -45,7 +45,7 @@ template("ts_library") {
                            ])
 
     inputs = [
-      "//$devtools_location/tsconfig.json",
+      "//$devtools_location/tsconfig.base.json",
       "//$devtools_location/node_modules/typescript/lib/tsc.js",
     ]
 
