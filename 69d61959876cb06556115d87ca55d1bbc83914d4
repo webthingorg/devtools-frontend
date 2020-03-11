@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb05c480_3b40aedc",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-11T13:47:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "235bfd70_736c3ad1",
+      "range": {
+        "startLine": 82,
+        "startChar": 59,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "69d61959876cb06556115d87ca55d1bbc83914d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13116713_410d5b4e",
         "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
         "patchSetId": 1
