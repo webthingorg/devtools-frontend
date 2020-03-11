@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1604875_f1eeb04c",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T17:35:28Z",
+      "side": 1,
+      "message": "Lol. I love TypeScript already for this.",
+      "range": {
+        "startLine": 100,
+        "startChar": 82,
+        "endLine": 100,
+        "endChar": 83
+      },
+      "revId": "2ab686ea1603b3dd7470a851b2c4975ec04767d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567e205b_d5a3dac7",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T17:35:28Z",
+      "side": 1,
+      "message": "Um, Jack? Are you okay?",
+      "range": {
+        "startLine": 184,
+        "startChar": 7,
+        "endLine": 184,
+        "endChar": 31
+      },
+      "revId": "2ab686ea1603b3dd7470a851b2c4975ec04767d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
