@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3f7bb04_66f29276",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1287110
+      },
+      "writtenOn": "2020-03-11T16:50:45Z",
+      "side": 1,
+      "message": "will this button have an aria-label?",
+      "revId": "beae20a278fdc5a517e30aca5bf1d0b8510c3440",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aae00ce2_472203a5",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1287110
+      },
+      "writtenOn": "2020-03-11T16:50:45Z",
+      "side": 1,
+      "message": "Might consider making this a nav element. At least, that\u0027s the guidance when building breadcrumbs on a web page. Not sure how that would translate to devtools.",
+      "revId": "beae20a278fdc5a517e30aca5bf1d0b8510c3440",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e6e6659_25945e30",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1287110
+      },
+      "writtenOn": "2020-03-11T16:50:45Z",
+      "side": 1,
+      "message": "Is this the breadcrumb link that folks will click on? If so, how will this work with a keyboard? Should it be an anchor element so it\u0027s focusable by default?",
+      "revId": "beae20a278fdc5a517e30aca5bf1d0b8510c3440",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
