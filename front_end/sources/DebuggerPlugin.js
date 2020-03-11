@@ -45,6 +45,8 @@ import {Plugin} from './Plugin.js';
 import {resolveExpression, resolveScopeInObject} from './SourceMapNamesResolver.js';
 import {SourcesPanel} from './SourcesPanel.js';
 
+const breakpointsGutterType = 'CodeMirror-gutter-breakpoints';
+
 export class DebuggerPlugin extends Plugin {
   /**
    * @param {!SourceFrame.SourcesTextEditor.SourcesTextEditor} textEditor
@@ -162,6 +164,14 @@ export class DebuggerPlugin extends Plugin {
       /** @type {?UI.Infobar.Infobar} */
       this._prettyPrintInfobar = null;
       this._detectMinified();
+    }
+
+    // Divs are created in the breakpoint gutter in each line
+    // so that the contextMenu event handler can determine which row was clicked on
+    this._textEditor.installGutter(breakpointsGutterType, true);
+    for (let i = 0; i < this._textEditor.linesCount; ++i) {
+      const gutterElement = createElementWithClass('div', 'breakpoint-element');
+      this._textEditor.setGutterDecoration(i, breakpointsGutterType, gutterElement);
     }
   }
 
@@ -295,7 +305,7 @@ export class DebuggerPlugin extends Plugin {
         const hasDisabled = breakpoints.some(breakpoint => !breakpoint.enabled());
         if (hasDisabled) {
           const title = hasOneBreakpoint ? Common.UIString.UIString('Enable breakpoint') :
-                                           Common.UIString.UIString('Enabled all breakpoints in line');
+                                           Common.UIString.UIString('Enable all breakpoints in line');
           contextMenu.debugSection().appendItem(
               title, () => breakpoints.map(breakpoint => breakpoint.setEnabled(true)));
         }
@@ -1260,13 +1270,18 @@ export class DebuggerPlugin extends Plugin {
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint', false);
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-disabled', false);
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', false);
+      this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-logpoint', false);
 
       if (decorations.length) {
         decorations.sort(BreakpointDecoration.mostSpecificFirst);
+        const isDisabled = !decorations[0].enabled || this._muted;
+        const isLogpoint = decorations[0].condition.includes(LogpointPrefix);
+        const isConditionalBreakpoint = !!decorations[0].condition && !isLogpoint;
+
         this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint', true);
-        this._textEditor.toggleLineClass(
-            editorLineNumber, 'cm-breakpoint-disabled', !decorations[0].enabled || this._muted);
-        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', !!decorations[0].condition);
+        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-disabled', isDisabled);
+        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-logpoint', isLogpoint);
+        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', isConditionalBreakpoint);
       }
     }
 
@@ -1621,7 +1636,8 @@ export class DebuggerPlugin extends Plugin {
     }
 
     const eventData = /** @type {!SourceFrame.SourcesTextEditor.GutterClickEventData} */ (event.data);
-    if (eventData.gutterType !== SourceFrame.SourcesTextEditor.lineNumbersGutterType) {
+    if (eventData.gutterType !== SourceFrame.SourcesTextEditor.lineNumbersGutterType &&
+        eventData.gutterType !== breakpointsGutterType) {
       return;
     }
     const editorLineNumber = eventData.lineNumber;
@@ -1798,7 +1814,7 @@ export class BreakpointDecoration {
     this.condition = condition;
     this.enabled = enabled;
     this.breakpoint = breakpoint;
-    this.element = UI.Icon.Icon.create('smallicon-inline-breakpoint');
+    this.element = createElement('span');
     this.element.classList.toggle('cm-inline-breakpoint', true);
 
     /** @type {?TextEditor.CodeMirrorTextEditor.TextEditorBookMark} */
@@ -1821,11 +1837,10 @@ export class BreakpointDecoration {
   }
 
   update() {
-    if (!this.condition) {
-      this.element.setIconType('smallicon-inline-breakpoint');
-    } else {
-      this.element.setIconType('smallicon-inline-breakpoint-conditional');
-    }
+    const isLogpoint = this.condition ? this.condition.includes(LogpointPrefix) : false;
+    const isConditionalBreakpoint = this.condition ? !isLogpoint : false;
+    this.element.classList.toggle('cm-inline-logpoint', isLogpoint);
+    this.element.classList.toggle('cm-inline-breakpoint-conditional', isConditionalBreakpoint);
     this.element.classList.toggle('cm-inline-disabled', !this.enabled);
   }
 
@@ -1856,6 +1871,7 @@ export class BreakpointDecoration {
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint', false);
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-disabled', false);
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-conditional', false);
+      this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-logpoint', false);
     }
     this.hide();
   }

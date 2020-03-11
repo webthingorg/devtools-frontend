@@ -52,7 +52,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
     this._tokenHighlighter = new TokenHighlighter(this, this.codeMirror());
 
     /** @type {!Array<string>} */
-    this._gutters = [lineNumbersGutterType];
+    this._gutters = ['CodeMirror-gutter-breakpoints', lineNumbersGutterType];
     this.codeMirror().setOption('gutters', this._gutters.slice());
 
     this.codeMirror().setOption('electricChars', false);
