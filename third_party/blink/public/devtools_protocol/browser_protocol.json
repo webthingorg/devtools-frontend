@@ -914,12 +914,66 @@
             ],
             "types": [
                 {
-                    "id": "Issue",
+                    "id": "AffectedCookie",
+                    "description": "Information about a cookie that is affected by an inspector issue.",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "The following three properties uniquely identify a cookie",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "type": "string"
+                        },
+                        {
+                            "name": "domain",
+                            "type": "string"
+                        },
+                        {
+                            "name": "siteForCookies",
+                            "description": "Optionally identifies the site-for-cookies, which may be used by the\nfront-end as additional context.",
+                            "optional": true,
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "id": "AffectedResources",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "cookies",
+                            "optional": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "AffectedCookie"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "InspectorIssueCode",
+                    "description": "A unique identifier for the type of issue. This type should be descriptive\nenough for the front-end to provide a clear description of the issue.",
+                    "type": "string",
+                    "enum": [
+                        "SameSiteCookiesSameSiteNoneWithoutSecure",
+                        "SameSiteCookiesSameSiteNoneMissingForThirdParty"
+                    ]
+                },
+                {
+                    "id": "InspectorIssue",
+                    "description": "An inspector issue reported from the back-end.",
                     "type": "object",
                     "properties": [
                         {
                             "name": "code",
-                            "type": "string"
+                            "$ref": "InspectorIssueCode"
+                        },
+                        {
+                            "name": "resources",
+                            "$ref": "AffectedResources"
                         }
                     ]
                 }
@@ -991,7 +1045,7 @@
                     "parameters": [
                         {
                             "name": "issue",
-                            "$ref": "Issue"
+                            "$ref": "InspectorIssue"
                         }
                     ]
                 }

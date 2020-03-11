@@ -153,6 +153,10 @@ export function registerCommands(inspectorBackend) {
       ['manifestURL'], false);
 
   // Audits.
+  inspectorBackend.registerEnum('Audits.InspectorIssueCode', {
+    SameSiteCookiesSameSiteNoneWithoutSecure: 'SameSiteCookiesSameSiteNoneWithoutSecure',
+    SameSiteCookiesSameSiteNoneMissingForThirdParty: 'SameSiteCookiesSameSiteNoneMissingForThirdParty'
+  });
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerCommand(
       'Audits.getEncodedResponse',

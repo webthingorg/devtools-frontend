@@ -447,9 +447,33 @@ experimental domain ApplicationCache
 experimental domain Audits
   depends on Network
 
-  type Issue extends object
+  # Information about a cookie that is affected by an inspector issue.
+  type AffectedCookie extends object
     properties
-      string code
+      # The following three properties uniquely identify a cookie
+      string name
+      string path
+      string domain
+      # Optionally identifies the site-for-cookies, which may be used by the
+      # front-end as additional context.
+      optional string siteForCookies
+
+  type AffectedResources extends object
+    properties
+      optional array of AffectedCookie cookies
+
+  # A unique identifier for the type of issue. This type should be descriptive
+  # enough for the front-end to provide a clear description of the issue.
+  type InspectorIssueCode extends string
+    enum
+      SameSiteCookiesSameSiteNoneWithoutSecure
+      SameSiteCookiesSameSiteNoneMissingForThirdParty
+
+  # An inspector issue reported from the back-end.
+  type InspectorIssue extends object
+    properties
+      InspectorIssueCode code
+      AffectedResources resources
 
   # Returns the response body and size if it were re-encoded with the specified settings. Only
   # applies to images.
@@ -483,7 +507,7 @@ experimental domain Audits
 
   event issueAdded
     parameters
-      Issue issue
+      InspectorIssue issue
 
 # Defines events for background web platform features.
 experimental domain BackgroundService
