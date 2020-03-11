@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "893fe2df_953451ad",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T13:41:06Z",
+      "side": 1,
+      "message": "Nit: `TextUtils.StaticContentProvider.StaticContentProvider.fromString` and missing import",
+      "range": {
+        "startLine": 151,
+        "startChar": 10,
+        "endLine": 151,
+        "endChar": 41
+      },
+      "revId": "b2fc215ff727a153f5b977ab86c2a449621b7b5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef09a42f_4555f65d",
+        "filename": "front_end/text_utils/TextUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-11T13:41:06Z",
+      "side": 1,
+      "message": "Nit: `import {Text} from \u0027./Text.js\u0027;`",
+      "range": {
+        "startLine": 399,
+        "startChar": 19,
+        "endLine": 399,
+        "endChar": 33
+      },
+      "revId": "b2fc215ff727a153f5b977ab86c2a449621b7b5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
