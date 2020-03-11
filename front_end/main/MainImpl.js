@@ -155,6 +155,7 @@ export class MainImpl {
         'Show option to take heap snapshot where globals are not treated as root');
     Root.Runtime.experiments.register('sourceDiff', 'Source diff');
     Root.Runtime.experiments.register('spotlight', 'Spotlight', true);
+    Root.Runtime.experiments.register('customKeyboardShortcuts', 'Enable custom keyboard shortcuts settings tab');
 
     // Timeline
     Root.Runtime.experiments.register('timelineEventInitiators', 'Timeline: event initiators');
