@@ -45,7 +45,7 @@ function computeTopLevelFolder(fileName) {
 
 module.exports = {
   meta: {
-    type: 'suggestion',
+    type: 'error',
 
     docs: {
       description: 'check ES import usage',
