@@ -217,3 +217,28 @@ export class ResourceRevealer {
     await sidebar.showResource(resource);
   }
 }
+
+/**
+ * @implements {Common.Revealer.Revealer}
+ */
+export class CookieReferenceRevealer {
+  /**
+   * @override
+   * @param {!Object} cookie
+   * @return {!Promise}
+   */
+  async reveal(cookie) {
+    if (!(cookie instanceof SDK.Cookie.CookieReference)) {
+      throw new Error('Internal error: not a cookie reference');
+    }
+
+    const sidebar = ResourcesPanel._instance()._sidebar;
+    await self.UI.viewManager.showView('resources');
+    await sidebar.cookieListTreeElement.select();
+
+    const item = sidebar.cookieListTreeElement.children().find(c => c._cookieDomain.endsWith(cookie.domain()));
+    if (item) {
+      await item.revealAndSelect();
+    }
+  }
+}
