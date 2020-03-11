@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24faf16c_949c9455",
+        "filename": "test/e2e/console/console-repl-mode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-11T14:04:04Z",
+      "side": 1,
+      "message": "If you change this to \u0027x;\u0027 I believe the typeIntoConsole helper will work for all your commands and you shouldn\u0027t need to wait for and dismiss the suggest box.",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 24
+      },
+      "revId": "29718f83ac4e34fdd3b59fa3cd5be0f5b1ebdee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
