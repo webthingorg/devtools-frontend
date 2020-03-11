@@ -22,6 +22,30 @@
       "revId": "588278b24f8f34cee2f6bbbc49b347234e1ee759",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e1b7c6_9f0d29e1",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-11T13:53:19Z",
+      "side": 1,
+      "message": "Good point. I was assuming commands would end with \u0027;\u0027 so the pop-over should go away.",
+      "parentUuid": "a7762e2d_5c1b9912",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 112
+      },
+      "revId": "588278b24f8f34cee2f6bbbc49b347234e1ee759",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
