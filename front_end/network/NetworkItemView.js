@@ -46,8 +46,9 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   /**
    * @param {!SDK.NetworkRequest.NetworkRequest} request
    * @param {!NetworkTimeCalculator} calculator
+   * @param {!Tabs=} initialTab
    */
-  constructor(request, calculator) {
+  constructor(request, calculator, initialTab) {
     super();
     this._request = request;
     this.element.classList.add('network-item-view');
@@ -92,6 +93,9 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
 
     /** @type {?RequestCookiesView} */
     this._cookiesView = null;
+
+    /** @type {!Tabs} */
+    this._initialTab = initialTab || this._resourceViewTabSetting.get();
   }
 
   /**
@@ -104,7 +108,7 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     this._request.addEventListener(
         SDK.NetworkRequest.Events.ResponseHeadersChanged, this._maybeAppendCookiesPanel, this);
     this._maybeAppendCookiesPanel();
-    this._selectTab();
+    this._selectTab(this._initialTab);
   }
 
   /**
@@ -129,13 +133,9 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   }
 
   /**
-   * @param {string=} tabId
+   * @param {string} tabId
    */
   _selectTab(tabId) {
-    if (!tabId) {
-      tabId = this._resourceViewTabSetting.get();
-    }
-
     if (!this.selectTab(tabId)) {
       this.selectTab('headers');
     }
