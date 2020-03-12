@@ -18,4 +18,7 @@
   <message name="IDS_DEVTOOLS_ae0e4bdad7b5f67141743366026d2ea5" desc="A search term referring to a software defect (i.e. bug) that can be entered in the command menu">
     bug
   </message>
+  <message name="IDS_DEVTOOLS_fdfcb689bf546a135119dd463227a804" desc="Screen reader label describing a release note entry by its title, description, and position within the list of release notes">
+    <ph name="HIGHLIGHT_TITLE">$1s<ex>Debugger Logpoints</ex></ph>: <ph name="HIGHLIGHT_SUBTITLE">$2s<ex>Log messages to the Console when logpoints are hit in the Debugger.</ex></ph> <ph name="NUMBER">$3s<ex>1</ex></ph> of <ph name="COUNT">$4s<ex>5</ex></ph>
+  </message>
 </grit-part>
