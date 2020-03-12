@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd894da8_f97c133a",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-12T00:36:42Z",
+      "side": 1,
+      "message": "nit: is there a particular reason why these are nullable instead of optional?",
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f2c82ca_6934996b",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-12T00:36:42Z",
+      "side": 1,
+      "message": "nit: maybe create a TabbedPane.Event type or something",
+      "range": {
+        "startLine": 126,
+        "startChar": 13,
+        "endLine": 126,
+        "endChar": 15
+      },
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69a01512_27c8c1c8",
+        "filename": "front_end/settings/module.json",
+        "patchSetId": 29
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-12T00:36:42Z",
+      "side": 1,
+      "message": "What does defining a view with no className or location allow us to do?",
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "517ee36a_6deed9a2",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-12T00:36:42Z",
+      "side": 1,
+      "message": "Why isn\u0027t the condition above enough to satisfy closure that this is an Action?",
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
