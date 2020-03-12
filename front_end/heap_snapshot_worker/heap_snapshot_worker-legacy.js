@@ -55,11 +55,11 @@ HeapSnapshotWorker.HeapSnapshotRetainerEdgeIterator =
 HeapSnapshotWorker.HeapSnapshotNode = HeapSnapshotWorkerModule.HeapSnapshot.HeapSnapshotNode;
 
 /** @constructor */
-HeapSnapshotWorker.HeapSnapshotNodeIterator = HeapSnapshotWorkerModule.HeapSnapshot.HeapSnapshotNodeIterator;
-
-/** @constructor */
-HeapSnapshotWorker.HeapSnapshotIndexRangeIterator =
-    HeapSnapshotWorkerModule.HeapSnapshot.HeapSnapshotIndexRangeIterator;
+HeapSnapshotWorker.HeapSnapshotNodeIterator =
+    /**
+ * @typedef {!{key: (number|string), tip: (!Array|!Object), state: ?FormatterWorkerModule.RelaxedJSONParser.States, parentIsArray: boolean}}
+ */
+    FormatterWorker.RelaxedJSONParser.Context;
 
 /** @constructor */
 HeapSnapshotWorker.HeapSnapshotFilteredIterator = HeapSnapshotWorkerModule.HeapSnapshot.HeapSnapshotFilteredIterator;
@@ -103,15 +103,3 @@ HeapSnapshotWorker.HeapSnapshotLoader = HeapSnapshotWorkerModule.HeapSnapshotLoa
 /** @constructor */
 HeapSnapshotWorker.HeapSnapshotWorkerDispatcher =
     HeapSnapshotWorkerModule.HeapSnapshotWorkerDispatcher.HeapSnapshotWorkerDispatcher;
-
-/**
- * @typedef {!{
- *   count: number,
- *   distance: number,
- *   self: number,
- *   maxRet: number,
- *   name: ?string,
- *   idxs: !Array<number>
- * }}
- */
-HeapSnapshotWorker.HeapSnapshot.AggregatedInfo;
