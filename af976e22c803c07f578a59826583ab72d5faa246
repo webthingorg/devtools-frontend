@@ -46,6 +46,30 @@
       "revId": "af976e22c803c07f578a59826583ab72d5faa246",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "738ecb42_a45bb50a",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-12T09:32:44Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "ece47018_646f0532",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "af976e22c803c07f578a59826583ab72d5faa246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
