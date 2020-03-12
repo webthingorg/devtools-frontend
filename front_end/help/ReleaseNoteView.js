@@ -25,7 +25,7 @@ export class ReleaseNoteView extends UI.Widget.VBox {
     const hbox = createElementWithClass('div', 'hbox');
     const container = hbox.createChild('div', 'release-note-container');
     const contentContainer = container.createChild('ul');
-    UI.ARIAUtils.setAccessibleName(contentContainer, ls`${latestReleaseNote().header}`);
+    UI.ARIAUtils.setAccessibleName(contentContainer, latestReleaseNote().header);
 
     let linkNumber = 1;
     for (const highlight of releaseNote.highlights) {
@@ -34,7 +34,7 @@ export class ReleaseNoteView extends UI.Widget.VBox {
       linkWrapper.textContent = '';
       UI.ARIAUtils.markAsLink(linkWrapper);
       UI.ARIAUtils.setAccessibleName(
-          linkWrapper, `${highlight.title}: ${highlight.subtitle} ${linkNumber} of ${releaseNote.highlights.length}`);
+          linkWrapper, ls`${highlight.title}: ${highlight.subtitle} ${linkNumber} of ${releaseNote.highlights.length}`);
 
       const title = linkWrapper.createChild('div', 'release-note-title');
       title.textContent = highlight.title;
