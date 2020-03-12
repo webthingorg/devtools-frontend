@@ -105,10 +105,15 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
       for (const child of axNode.children()) {
         append(childBreadcrumb, child, localDepth + 1);
       }
+      return childBreadcrumb;
     }
 
     for (const child of axNode.children()) {
-      append(this._inspectedNodeBreadcrumb, child, depth);
+      const testcrumb = append(this._inspectedNodeBreadcrumb, child, depth);
+      if (testcrumb.axNode().backendDOMNodeId() === this._storeCollapsingBreadcrumbId) {
+        this._setPreselectedBreadcrumb(testcrumb);
+        this._storeCollapsingBreadcrumbId = -1;
+      }
     }
   }
 
@@ -134,11 +139,21 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     }
 
     let handled = false;
-    if ((event.key === 'ArrowUp' || event.key === 'ArrowLeft') && !event.altKey) {
+    if (event.key === 'ArrowUp' && !event.altKey) {
       handled = this._preselectPrevious();
-    } else if ((event.key === 'ArrowDown' || event.key === 'ArrowRight') && !event.altKey) {
+    } else if ((event.key === 'ArrowDown') && !event.altKey) {
       handled = this._preselectNext();
-    } else if (isEnterKey(event)) {
+    } else if (event.key === 'ArrowLeft' && !event.altKey) {
+      if (this._preselectedBreadcrumb.parentBreadcrumb() && this._preselectedBreadcrumb.hasExpandedChildren()) {
+        this._storeCollapsingBreadcrumbId = this._preselectedBreadcrumb.axNode().backendDOMNodeId();
+        this._inspectDOMNode(this._preselectedBreadcrumb.parentBreadcrumb().axNode());
+      } else {
+        handled = this._preselectParent();
+      }
+    } else if (
+        (isEnterKey(event) ||
+         (event.key === 'ArrowRight' && this._preselectedBreadcrumb.axNode().hasOnlyUnloadedChildren())) &&
+        !event.altKey) {
       handled = this._inspectDOMNode(this._preselectedBreadcrumb.axNode());
     }
 
@@ -168,6 +183,18 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
       return false;
     }
     this._setPreselectedBreadcrumb(nextBreadcrumb);
+    return true;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _preselectParent() {
+    const parentBreadcrumb = this._preselectedBreadcrumb.parentBreadcrumb();
+    if (!parentBreadcrumb) {
+      return false;
+    }
+    this._setPreselectedBreadcrumb(parentBreadcrumb);
     return true;
   }
 
@@ -399,6 +426,13 @@ export class AXBreadcrumb {
     this._childrenGroupElement.appendChild(breadcrumb.element());
   }
 
+  hasExpandedChildren() {
+    if (this._children.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
   /**
    * @param {!AXBreadcrumb} breadcrumb
    */
@@ -499,6 +533,10 @@ export class AXBreadcrumb {
       return previousSibling.breadcrumb;
     }
 
+    return this._parent;
+  }
+
+  parentBreadcrumb() {
     return this._parent;
   }
 
