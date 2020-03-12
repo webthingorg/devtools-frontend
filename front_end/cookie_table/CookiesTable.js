@@ -156,13 +156,13 @@ export class CookiesTable extends UI.Widget.VBox {
     /** @type {string} */
     this._cookieDomain = '';
 
-    /** @type {?Map<!SDK.Cookie.Cookie, !Array<!CookieTable.BlockedReason>>} */
+    /** @type {?Map<!SDK.Cookie.Cookie, !Array<!BlockedReason>>} */
     this._cookieToBlockedReasons = null;
   }
 
   /**
    * @param {!Array.<!SDK.Cookie.Cookie>} cookies
-   * @param {!Map<!SDK.Cookie.Cookie, !Array<!CookieTable.BlockedReason>>=} cookieToBlockedReasons
+   * @param {!Map<!SDK.Cookie.Cookie, !Array<!BlockedReason>>=} cookieToBlockedReasons
    */
   setCookies(cookies, cookieToBlockedReasons) {
     this.setCookieFolders([{cookies: cookies}], cookieToBlockedReasons);
@@ -170,7 +170,7 @@ export class CookiesTable extends UI.Widget.VBox {
 
   /**
    * @param {!Array.<!{folderName: ?string, cookies: ?Array.<!SDK.Cookie.Cookie>}>} cookieFolders
-   * @param {!Map<!SDK.Cookie.Cookie, !Array<!CookieTable.BlockedReason>>=} cookieToBlockedReasons
+   * @param {!Map<!SDK.Cookie.Cookie, !Array<!BlockedReason>>=} cookieToBlockedReasons
    */
   setCookieFolders(cookieFolders, cookieToBlockedReasons) {
     this._data = cookieFolders;
@@ -625,7 +625,7 @@ export class DataGridNode extends DataGrid.DataGrid.DataGridNode {
   /**
    * @param {!Object<string, *>} data
    * @param {!SDK.Cookie.Cookie} cookie
-   * @param {?Array<!CookieTable.BlockedReason>} blockedReasons
+   * @param {?Array<!BlockedReason>} blockedReasons
    */
   constructor(data, cookie, blockedReasons) {
     super(data);
@@ -677,3 +677,6 @@ export class DataGridNode extends DataGrid.DataGrid.DataGridNode {
     return cell;
   }
 }
+
+/** @typedef {!{uiString: string, attribute: ?SDK.Cookie.Attributes}} */
+export let BlockedReason;
