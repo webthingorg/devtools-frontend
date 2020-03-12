@@ -458,9 +458,16 @@ experimental domain Audits
       # front-end as additional context.
       optional string siteForCookies
 
+  # Information about a cookie that is affected by an inspector issue.
+  type AffectedRequest extends object
+    properties
+      # The following three properties uniquely identify a cookie
+      string requestId
+
   type AffectedResources extends object
     properties
       optional array of AffectedCookie cookies
+      optional array of AffectedRequest requests
 
   # A unique identifier for the type of issue. This type should be descriptive
   # enough for the front-end to provide a clear description of the issue.

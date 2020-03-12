@@ -940,6 +940,18 @@
                     ]
                 },
                 {
+                    "id": "AffectedRequest",
+                    "description": "Information about a cookie that is affected by an inspector issue.",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "requestId",
+                            "description": "The following three properties uniquely identify a cookie",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
                     "id": "AffectedResources",
                     "type": "object",
                     "properties": [
@@ -949,6 +961,14 @@
                             "type": "array",
                             "items": {
                                 "$ref": "AffectedCookie"
+                            }
+                        },
+                        {
+                            "name": "requests",
+                            "optional": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "AffectedRequest"
                             }
                         }
                     ]
