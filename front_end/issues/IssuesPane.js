@@ -5,12 +5,117 @@
 import * as UI from '../ui/ui.js';
 import * as SDK from '../sdk/sdk.js';
 
+class AffectedCookiesView {
+  /**
+   *
+   * @param {!Element} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
+  constructor(parent, issue) {
+    /** @type {!Element} */
+    this._parent = parent;
+    /** @type {!SDK.Issue.Issue} */
+    this._issue = issue;
+    /** @type {?Element} */
+    this._affectedCookies = null;
+    /** @type {?Element} */
+    this._affectedCookiesCounter = null;
+    this._issue.addEventListener(SDK.Issue.Events.CookieAdded, this._handleCookieAdded, this);
+    this.appendScaffolding();
+    this.appendAffectedCookies(issue.cookies());
+  }
+
+  appendScaffolding() {
+    const wrapper = createElementWithClass('div', 'affected-resource');
+    const label = createElementWithClass('div', 'affected-resource-label');
+    label.addEventListener('click', () => {
+      wrapper.classList.toggle('expanded');
+    });
+    wrapper.appendChild(label);
+    this._affectedCookiesCounter = label;
+    this._updateAffectedCookiesCounter();
+
+    const body2 = createElementWithClass('div', 'affected-resource-wrapper');
+    const body = createElementWithClass('table', 'affected-resource-cookies');
+    const header = createElementWithClass('tr');
+
+    const name = createElementWithClass('td', 'affected-resource-header');
+    name.textContent = 'Name';
+    header.appendChild(name);
+
+    const info = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    // Prepend a space to align them better with cookie domains starting with a "."
+    info.textContent = '\u2009Context';
+    header.appendChild(info);
+
+    body.appendChild(header);
+    body2.appendChild(body);
+    wrapper.appendChild(body2);
+    this._affectedCookies = body;
+
+    this._parent.appendChild(wrapper);
+  }
+
+  /**
+   *
+   * @param {!Iterable<!Protocol.Audits.AffectedCookie>} cookies
+   */
+  appendAffectedCookies(cookies) {
+    for (const cookie of cookies) {
+      this.appendAffectedCookie(cookie);
+    }
+  }
+
+  /**
+   *
+   * @param {!Protocol.Audits.AffectedCookie} cookie
+   */
+  appendAffectedCookie(cookie) {
+    this._updateAffectedCookiesCounter();
+    const element = createElementWithClass('tr', 'affected-resource-cookie');
+    const name = createElementWithClass('td', '');
+    name.appendChild(Components.Linkifier.linkifyRevealable(
+        new SDK.Cookie.CookieReference(cookie.name, cookie.domain, cookie.path, cookie.siteForCookies), cookie.name));
+    const info = createElementWithClass('td', 'affected-resource-cookie-info');
+
+    // Prepend a space for all domains not starting with a "." to align them better.
+    info.textContent = (cookie.domain[0] !== '.' ? '\u2008' : '') + cookie.domain + cookie.path;
+
+    element.appendChild(name);
+    element.appendChild(info);
+    this._affectedCookies.appendChild(element);
+  }
+
+  _updateAffectedCookiesCounter() {
+    this._affectedCookiesCounter.textContent = ls`${this._issue.numberOfCookies()} cookies`;
+  }
+
+  /**
+   * @param {!{data:*}} event
+   */
+  _handleCookieAdded(event) {
+    const cookie = /** @type {!Protocol.Audits.AffectedCookie} */ (event.data);
+    this.appendAffectedCookie(cookie);
+  }
+
+  detach() {
+    this._issue.removeEventListener(SDK.Issue.Events.CookieAdded, this._handleCookieAdded, this);
+  }
+}
+
 class IssueView extends UI.Widget.Widget {
+  /**
+   *
+   * @param {!IssuesPaneImpl} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
   constructor(parent, issue) {
     super(false);
     this._parent = parent;
     this._issue = issue;
-    this._details = issueDetails[issue.code];
+    this._details = issueDetails[issue.code()];
+    this._affectedResources = null;
+    this._affectedCookiesView = null;
 
     this.contentElement.classList.add('issue');
     this.contentElement.classList.add('collapsed');
@@ -26,13 +131,13 @@ class IssueView extends UI.Widget.Widget {
     header.appendChild(icon);
 
     const title = createElementWithClass('div', 'title');
-    title.innerText = this._details.title;
+    title.textContent = this._details.title;
     header.appendChild(title);
 
     const priority = createElementWithClass('div', 'priority');
     switch (this._details.priority) {
       case Priority.High:
-        priority.innerText = ls`High Priority`;
+        priority.textContent = ls`High Priority`;
         break;
       default:
         console.warn('Unknown issue priority', this._details.priority);
@@ -45,11 +150,11 @@ class IssueView extends UI.Widget.Widget {
     const body = createElementWithClass('div', 'body');
 
     const message = createElementWithClass('div', 'message');
-    message.innerText = this._details.message;
+    message.textContent = this._details.message;
     body.appendChild(message);
 
     const code = createElementWithClass('div', 'code');
-    code.innerText = this._issue.code;
+    code.textContent = this._issue.code();
     body.appendChild(code);
 
     const link = UI.XLink.XLink.create(this._details.link, 'Read more · ' + this._details.linkTitle, 'link');
@@ -58,9 +163,23 @@ class IssueView extends UI.Widget.Widget {
     const linkIcon = UI.Icon.Icon.create('largeicon-link', 'link-icon');
     link.prepend(linkIcon);
 
+    this.appendAffectedResources(body);
+
     const bodyWrapper = createElementWithClass('div', 'body-wrapper');
     bodyWrapper.appendChild(body);
     this.contentElement.appendChild(bodyWrapper);
+  }
+
+  appendAffectedResources(body) {
+    const wrapper = createElementWithClass('div', 'affected-resources');
+    const label = createElementWithClass('div', 'affected-resources-label');
+    label.textContent = 'Affected Resources';
+    wrapper.appendChild(label);
+    this._affectedResources = wrapper;
+
+    this._affectedCookiesView = new AffectedCookiesView(wrapper, this._issue);
+
+    body.appendChild(wrapper);
   }
 
   _handleClick() {
@@ -81,6 +200,14 @@ class IssueView extends UI.Widget.Widget {
   reveal() {
     this.toggle(true);
     this.contentElement.scrollIntoView(true);
+  }
+
+  /**
+   * @override
+   */
+  detach() {
+    this._affectedCookiesView.detach();
+    super.detach();
   }
 }
 
@@ -114,6 +241,10 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     }
   }
 
+  /**
+   *
+   * @param {!{data: !SDK.Issue.Issue}} event
+   */
   _issueAdded(event) {
     this._addIssueView(event.data);
   }
@@ -122,14 +253,14 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
    * @param {!SDK.Issue.Issue} issue
    */
   _addIssueView(issue) {
-    if (!(issue.code in issueDetails)) {
-      console.warn('Received issue with unknown code:', issue.code);
+    if (!(issue.code() in issueDetails)) {
+      console.warn('Received issue with unknown code:', issue.code());
       return;
     }
 
     const view = new IssueView(this, issue);
     view.show(this.contentElement);
-    this._issueViews.set(issue.code, view);
+    this._issueViews.set(issue.code(), view);
     this._updateIssuesCount();
   }
 
@@ -172,14 +303,14 @@ export const Priority = {
 export default IssuesPaneImpl;
 
 const issueDetails = {
-  'SameSiteCookies::SameSiteNoneWithoutSecure':
+  'SameSiteCookiesSameSiteNoneWithoutSecure':
       {title: ls`A Cookie has been set with SameSite=None but without Secure`, message: ls
     `In a future version of chrome, third party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man in the middle scenario.`,
     priority: Priority.High,
     link: ls`https://web.dev/samesite-cookies-explained/`,
     linkTitle: ls`SameSite cookies explained`,
   },
-  'SameSiteCookies::SameSiteNoneMissingForThirdParty': {
+  'SameSiteCookiesSameSiteNoneMissingForThirdParty': {
     title: ls`A Cookie in a third party context has been set without SameSite=None`,
     message: ls
     `In a future version of chrome, third party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man in the middle szenario.`,

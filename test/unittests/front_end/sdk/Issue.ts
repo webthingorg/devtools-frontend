@@ -13,7 +13,7 @@ describe('Issue', () => {
   });
 
   it('should always require a code', () => {
-    const issue = Issue.create('code');
-    assert.equal(issue.code, 'code');
+    const issue = new Issue('code');
+    assert.equal(issue.code(), 'code');
   });
 });
