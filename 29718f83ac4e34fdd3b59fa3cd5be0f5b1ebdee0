@@ -46,6 +46,30 @@
       "revId": "29718f83ac4e34fdd3b59fa3cd5be0f5b1ebdee0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "362e4c55_e57b294b",
+        "filename": "test/e2e/console/console-repl-mode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-12T14:28:22Z",
+      "side": 1,
+      "message": "The typeIntoConsole helper waits until the grey completion text is gone, and that was sufficient to eliminate the asynchronous completion problems I was having. If the suggest box can outlive the suggest text then maybe we should factor out a typeAndClearAutocomplete helper from this (in a future cl).",
+      "parentUuid": "ac5205da_bd0f60d7",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 24
+      },
+      "revId": "29718f83ac4e34fdd3b59fa3cd5be0f5b1ebdee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
