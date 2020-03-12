@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_0eb2d5a92cfa2ada82aabe93d8c2e39a" desc="Title of a release note, shown next to a description, in a list of release notes">
+    Moto G4 support in Device Mode
+  </message>
+  <message name="IDS_DEVTOOLS_1149b4fe82d542e364e6d5c3b4bc8eca" desc="Description of a release note providing further details, shown next to each release note title">
+    DevTools now shows the exact icon that Chrome uses.
+  </message>
+  <message name="IDS_DEVTOOLS_12adea2c8ac7a923164d805d318256a9" desc="Description of a release note providing further details, shown next to each release note title">
+    Hover over CSS &quot;content&quot; properties to see unescaped values
+  </message>
+  <message name="IDS_DEVTOOLS_378d34fd8a0deb408e35db3bc9b85f3e" desc="Description of a release note providing further details, shown next to each release note title">
+    Simulate Moto G4 viewport dimensions and display its hardware around the viewport.
+  </message>
+  <message name="IDS_DEVTOOLS_4ebac1301833355f55cfd25db8796e5c" desc="Description of a release note providing further details, shown next to each release note title">
+    Go to Settings and disable the &quot;Allow scrolling past end of file&quot; checkbox.
+  </message>
+  <message name="IDS_DEVTOOLS_5bbc8d708028cfa8e7575da1539f8ffc" desc="Title of a release note, shown next to a description, in a list of release notes">
+    A setting for disabling scrolling past the end of a file
+  </message>
+  <message name="IDS_DEVTOOLS_61fc4f3ae2f4112699ec53395c90297d" desc="Description of a release note providing further details, shown next to each release note title">
+    Hover over a &quot;content&quot; value to see the rendered version of the value in a tooltip.
+  </message>
+  <message name="IDS_DEVTOOLS_6f8c0cded1a463cb58b42293a8bd1e65" desc="Title of a release note, shown next to a description, in a list of release notes">
+    More accurate web app manifest icons
+  </message>
+  <message name="IDS_DEVTOOLS_7bd27b90591d5033ce4296044fe62560" desc="Description of a release note providing further details, shown next to each release note title">
+    Blocked cookies and cookie priority in the Cookies pane, editing all cookie values, and more.
+  </message>
   <message name="IDS_DEVTOOLS_8381815d48c2d49f31dce1807ae0507c" desc="Title of an action in the help tool to file an issue">
     Report a <ph name="LOCKED_1">DevTools</ph> issue
   </message>
@@ -17,6 +44,18 @@
   </message>
   <message name="IDS_DEVTOOLS_ae0e4bdad7b5f67141743366026d2ea5" desc="A search term referring to a software defect (i.e. bug) that can be entered in the command menu">
     bug
+  </message>
+  <message name="IDS_DEVTOOLS_c26ad024b3b29438dba488dbcd64ce0e" desc="Title of a release note, shown next to a description, in a list of release notes">
+    Source map errors in the Console
+  </message>
+  <message name="IDS_DEVTOOLS_ca26ba605c6472916290165b25b4ffaa" desc="Description of a release note providing further details, shown next to each release note title">
+    The Console now tells you when a source map has failed to load or parse.
+  </message>
+  <message name="IDS_DEVTOOLS_d246361e0275d49fc5de5be2fbc40d9f" desc="Header text shown above the list of release notes in the 'What's New' tool">
+    Highlights from the Chrome 81 update
+  </message>
+  <message name="IDS_DEVTOOLS_ec33ab74cca11b20e603c2ae218f5566" desc="Title of a release note, shown next to a description, in a list of release notes">
+    Cookie-related updates
   </message>
   <message name="IDS_DEVTOOLS_fdfcb689bf546a135119dd463227a804" desc="Screen reader label describing a release note entry by its title, description, and position within the list of release notes">
     <ph name="HIGHLIGHT_TITLE">$1s<ex>Debugger Logpoints</ex></ph>: <ph name="HIGHLIGHT_SUBTITLE">$2s<ex>Log messages to the Console when logpoints are hit in the Debugger.</ex></ph> <ph name="NUMBER">$3s<ex>1</ex></ph> of <ph name="COUNT">$4s<ex>5</ex></ph>
