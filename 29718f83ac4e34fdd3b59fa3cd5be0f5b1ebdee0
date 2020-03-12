@@ -22,6 +22,30 @@
       "revId": "29718f83ac4e34fdd3b59fa3cd5be0f5b1ebdee0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac5205da_bd0f60d7",
+        "filename": "test/e2e/console/console-repl-mode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-12T13:40:57Z",
+      "side": 1,
+      "message": "The problem then is that the suggest box still appears and might still be present even after \u0027;\u0027 is typed because it disappears asynchronously. You can even repro this if you type \u0027x;\u0027 followed by Enter really quickly on the console. The result is \u0027xx\u0027 in the console - After you type \u0027;\u0027, the suggest box is still up, so hitting enter selects the first entry (autocomplete to \u0027x\u0027). After that I guess the auto-complete handler knows to delete 1 char and replace it with the autocomplete so you get \u0027xx\u0027.",
+      "parentUuid": "24faf16c_949c9455",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 24
+      },
+      "revId": "29718f83ac4e34fdd3b59fa3cd5be0f5b1ebdee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
