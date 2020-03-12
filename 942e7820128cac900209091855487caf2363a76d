@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6260715_ec921425",
+        "filename": "front_end/common/UIString.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-12T14:10:11Z",
+      "side": 1,
+      "message": "can we use this arg in the line below? Else, why this change?",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "942e7820128cac900209091855487caf2363a76d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
