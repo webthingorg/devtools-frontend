@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as CookieTable from '../cookie_table/cookie_table.js';  // eslint-disable-line no-unused-vars
 
 import {Cookie} from './Cookie.js';
 import {Resource} from './Resource.js';  // eslint-disable-line no-unused-vars
@@ -23,7 +24,7 @@ export class CookieModel extends SDKModel {
 
   /**
    * @param {!Cookie} cookie
-   * @param {?Array<!CookieTable.BlockedReason>} blockedReasons
+   * @param {?Array<!CookieTable.CookiesTable.BlockedReason>} blockedReasons
    */
   addBlockedCookie(cookie, blockedReasons) {
     const key = cookie.key();
