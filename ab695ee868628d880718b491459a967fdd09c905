@@ -22,6 +22,30 @@
       "revId": "ab695ee868628d880718b491459a967fdd09c905",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9dcc884_77b53080",
+        "filename": "front_end/object_ui/JavaScriptAutocomplete.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-12T06:20:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68b7be95_a3cb85b3",
+      "range": {
+        "startLine": 220,
+        "startChar": 19,
+        "endLine": 220,
+        "endChar": 22
+      },
+      "revId": "ab695ee868628d880718b491459a967fdd09c905",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
