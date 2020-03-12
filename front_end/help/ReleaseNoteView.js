@@ -34,13 +34,13 @@ export class ReleaseNoteView extends UI.Widget.VBox {
       linkWrapper.textContent = '';
       UI.ARIAUtils.markAsLink(linkWrapper);
       UI.ARIAUtils.setAccessibleName(
-          linkWrapper, `${highlight.title}: ${highlight.subtitle} ${linkNumber} of ${releaseNote.highlights.length}`);
+          linkWrapper, ls`${highlight.title}: ${highlight.subtitle} ${linkNumber} of ${releaseNote.highlights.length}`);
 
       const title = linkWrapper.createChild('div', 'release-note-title');
-      title.textContent = highlight.title;
+      title.textContent = ls`${highlight.title}`;
 
       const subtitle = linkWrapper.createChild('div', 'release-note-subtitle');
-      subtitle.textContent = highlight.subtitle;
+      subtitle.textContent = ls`${highlight.subtitle}`;
 
       listItem.appendChild(linkWrapper);
       linkNumber++;
