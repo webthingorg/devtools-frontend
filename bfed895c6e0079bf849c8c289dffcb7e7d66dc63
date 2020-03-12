@@ -22,6 +22,30 @@
       "revId": "bfed895c6e0079bf849c8c289dffcb7e7d66dc63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dcb7d64_b6edc2d3",
+        "filename": "scripts/deps/generate_protocol_resources.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-12T14:12:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aea7de3_eb802a1f",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "bfed895c6e0079bf849c8c289dffcb7e7d66dc63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
