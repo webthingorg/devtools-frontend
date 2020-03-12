@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aea7de3_eb802a1f",
+        "filename": "scripts/deps/generate_protocol_resources.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-12T12:47:47Z",
+      "side": 1,
+      "message": "Nit: `devtools_paths.typescript_compiler_path()`",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "bfed895c6e0079bf849c8c289dffcb7e7d66dc63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
