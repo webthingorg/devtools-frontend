@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca18b1d5_7cb363c3",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-03-12T18:51:26Z",
+      "side": 1,
+      "message": "same here, this should not be localized.",
+      "range": {
+        "startLine": 28,
+        "startChar": 53,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "e54c85760e01d0f71a7e614916719de0bf7bc90e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8abdb46_307f9478",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-03-12T18:51:26Z",
+      "side": 1,
+      "message": "this will result in ls``. Only the following should be localized:\n    - Words and sentences\n    - Punctuation\n    - Units of measurement: kb/s, mph, etc.",
+      "range": {
+        "startLine": 40,
+        "startChar": 26,
+        "endLine": 40,
+        "endChar": 28
+      },
+      "revId": "e54c85760e01d0f71a7e614916719de0bf7bc90e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65cbeb0e_1325514a",
+        "filename": "front_end/help/ReleaseNoteView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-03-12T18:51:26Z",
+      "side": 1,
+      "message": "this will result in ls``. Only the following should be localized:\n    - Words and sentences\n    - Punctuation\n    - Units of measurement: kb/s, mph, etc.",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 43,
+        "endChar": 31
+      },
+      "revId": "e54c85760e01d0f71a7e614916719de0bf7bc90e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
