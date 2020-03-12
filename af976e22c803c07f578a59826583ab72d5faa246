@@ -22,6 +22,30 @@
       "revId": "af976e22c803c07f578a59826583ab72d5faa246",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece47018_646f0532",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-12T06:18:47Z",
+      "side": 0,
+      "message": "The only use site where {tabId} was not provided, was in {wasShown}, which passes {initialTab} now making this a dead code path.\n\nNote that the effect stays the same. Should no {initialTab} be passed to the constructor, we set {this._initialTab} to this setting. This works as the Item view is destroyed and recreated every time it\u0027s shown. So the {wasShown} is never called without a corresponding constructor call that also correctly loads the setting.",
+      "parentUuid": "4744c4ec_fc5a94a3",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "af976e22c803c07f578a59826583ab72d5faa246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
