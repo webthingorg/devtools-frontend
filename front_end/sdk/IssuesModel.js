@@ -5,7 +5,7 @@
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 
 import {CookieModel} from './CookieModel.js';
-import {Issue} from './Issue.js';
+import {AggregatedIssue, Issue} from './Issue.js';
 import {Events as NetworkManagerEvents, NetworkManager} from './NetworkManager.js';
 import {NetworkRequest,  // eslint-disable-line no-unused-vars
         setCookieBlockedReasonToAttribute, setCookieBlockedReasonToUiString,} from './NetworkRequest.js';
@@ -24,7 +24,9 @@ export class IssuesModel extends SDKModel {
   constructor(target) {
     super(target);
     this._enabled = false;
-    this._browserIssuesByCode = new Map();
+    this._issues = [];
+    /** @type {!Map<string, !AggregatedIssue>} */
+    this._aggregatedIssuesByCode = new Map();
     this._cookiesModel = target.model(CookieModel);
     /** @type {?Protocol.AuditsAgent} */
     this._auditsAgent = null;
@@ -45,13 +47,14 @@ export class IssuesModel extends SDKModel {
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _onMainFrameNavigated(event) {
+    const mainFrame = /** @type {!SDK.ResourceTreeFrame} */ (event.data);
     // TODO: This clears too many issues, see crbug.com/1060628.
-    this._clearIssues();
-  }
-
-  _clearIssues() {
-    this._browserIssuesByCode = new Map();
-    this.dispatchEventToListeners(Events.AllIssuesCleared);
+    this._issues = this._issues.filter(issue => issue.isAssociatedWithRequestId(mainFrame.loaderId));
+    this._aggregatedIssuesByCode = new Map();
+    for (const issue of this._issues) {
+      this._aggregateIssue(issue);
+    }
+    this.dispatchEventToListeners(Events.FullUpdateRequired);
   }
 
   ensureEnabled() {
@@ -66,34 +69,41 @@ export class IssuesModel extends SDKModel {
   }
 
   /**
+   * @param {!Issue} issue
+   * @returns {!AggregatedIssue}
+   */
+  _aggregateIssue(issue) {
+    if (!this._aggregatedIssuesByCode.has(issue.code())) {
+      this._aggregatedIssuesByCode.set(issue.code(), new AggregatedIssue(issue.code()));
+    }
+    const aggregatedIssue = this._aggregatedIssuesByCode.get(issue.code());
+    aggregatedIssue.addInstance(issue);
+    return aggregatedIssue;
+  }
+
+  /**
    * @override
    * @param {!Protocol.Audits.InspectorIssue} inspectorIssue
    */
   issueAdded(inspectorIssue) {
-    if (!this._browserIssuesByCode.has(inspectorIssue.code)) {
-      const issue = new Issue(inspectorIssue.code);
-      this._browserIssuesByCode.set(inspectorIssue.code, issue);
-      issue.addInstanceResources(inspectorIssue.resources);
-      this.dispatchEventToListeners(Events.IssueAdded, issue);
-    } else {
-      const issue = this._browserIssuesByCode.get(inspectorIssue.code);
-      issue.addInstanceResources(inspectorIssue.resources);
-      this.dispatchEventToListeners(Events.IssueUpdated, issue);
-    }
+    const issue = new Issue(inspectorIssue.code, inspectorIssue.resources);
+    this._issues.push(issue);
+    const aggregatedIssue = this._aggregateIssue(issue);
+    this.dispatchEventToListeners(Events.AggregatedIssueUpdated, aggregatedIssue);
   }
 
   /**
-   * @returns {!Iterator<Issue>}
+   * @returns {!Iterator<AggregatedIssue>}
    */
-  issues() {
-    return this._browserIssuesByCode.values();
+  aggregatedIssues() {
+    return this._aggregatedIssuesByCode.values();
   }
 
    /**
    * @return {number}
    */
-  size() {
-    return this._browserIssuesByCode.size;
+  numberOfAggregatedIssues() {
+    return this._aggregatedIssuesByCode.size;
   }
 
   /**
@@ -106,10 +116,10 @@ export class IssuesModel extends SDKModel {
     }
 
     if (!obj[connectedIssueSymbol]) {
-      obj[connectedIssueSymbol] = [];
+      obj[connectedIssueSymbol] = new Set();
     }
 
-    obj[connectedIssueSymbol].push(issue);
+    obj[connectedIssueSymbol].add(issue);
   }
 
   /**
@@ -136,7 +146,7 @@ export class IssuesModel extends SDKModel {
         continue;
       }
 
-      const issue = new Issue('SameSiteCookies::SameSiteNoneMissingForThirdParty');
+      const issue = new Issue(Protocol.InspectorIssueCode.SameSiteCookiesSameSiteNoneMissingForThirdParty, {});
 
       IssuesModel.connectWithIssue(request, issue);
       IssuesModel.connectWithIssue(cookie, issue);
@@ -152,10 +162,8 @@ export class IssuesModel extends SDKModel {
 
 /** @enum {symbol} */
 export const Events = {
-  Updated: Symbol('Updated'),
-  IssueAdded: Symbol('IssueAdded'),
-  IssueUpdated: Symbol('IssueUpdated'),
-  AllIssuesCleared: Symbol('AllIssuesCleared'),
+  AggregatedIssueUpdated: Symbol('IssueUpdated'),
+  FullUpdateRequired: Symbol('FullUpdateRequired'),
 };
 
 SDKModel.register(IssuesModel, Capability.None, true);

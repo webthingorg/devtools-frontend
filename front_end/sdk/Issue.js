@@ -8,22 +8,61 @@ import {IssuesModel} from './IssuesModel.js';
 export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} code
+   * @param {!Protocol.Audits.AffectedResources} resources
+   */
+  constructor(code, resources) {
+    super();
+    /** @type {string} */
+    this._code = code;
+    /** @type {!Protocol.Audits.AffectedResources} */
+    this._resources = resources;
+  }
+
+  /**
+   * @returns {string}
+   */
+  code() {
+    return this._code;
+  }
+
+  /**
+   * @returns {!Protocol.Audits.AffectedResources}
+   */
+  resources() {
+    return this._resources;
+  }
+
+  /**
+   * @param {string} requestId
+   * @returns {boolean}
+   */
+  isAssociatedWithRequestId(requestId) {
+    if (this._resources.requests) {
+      for (const request of this._resources.requests) {
+        if (request.requestId === requestId) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+}
+
+export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
+  /**
+   * @param {string} code
    */
   constructor(code) {
     super();
     this._code = code;
-    /** @type {!Array<!Protocol.Audits.AffectedResources>} */
-    this._resources = [];
     /** @type {!Map<string, !Protocol.Audits.AffectedCookie>} */
     this._cookies = new Map();
+    /** @type {!Map<string, !Protocol.Audits.AffectedRequest>} */
+    this._requests = new Map();
   }
 
-  get code() {
+  code() {
     return this._code;
-  }
-
-  static create(code) {
-    return new Issue(code);
   }
 
   /**
@@ -41,28 +80,18 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Protocol.Audits.AffectedResources} resources
+   * @param {!Issue} issue
    */
-  addInstanceResources(resources) {
-    if (!resources) {
-      return;
-    }
-
-    this._resources.push(resources);
-
+  addInstance(issue) {
+    const resources = issue.resources();
     if (resources.cookies) {
       for (const cookie of resources.cookies) {
-        IssuesModel.connectWithIssue(cookie, this);
+        IssuesModel.connectWithIssue(cookie, issue);
         const key = JSON.stringify(cookie);
         if (!this._cookies.has(key)) {
           this._cookies.set(key, cookie);
-          this.dispatchEventToListeners(Events.CookieAdded, cookie);
         }
       }
     }
   }
 }
-
-export const Events = {
-  CookieAdded: Symbol('CookieAdded'),
-};
