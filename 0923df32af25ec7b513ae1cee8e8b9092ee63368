@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3bf2702_1abcf989",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-13T01:11:56Z",
+      "side": 1,
+      "message": "Thoughts on using ActionRegistry._actionsById instead? (We could make it public via getter method). This _actions map here seems redundant.",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06e3773c_6663830f",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-13T01:11:56Z",
+      "side": 1,
+      "message": "This seems a bit hacky. Don\u0027t actions already have a \"category\" attribute defined in their descriptor? The Command Menu (CommandMenu.js) is an example of the \"category\" field being used.",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6c7c6a9_a16973af",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-13T01:11:56Z",
+      "side": 1,
+      "message": "This won\u0027t fare well with localized titles 😊",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f987b60c_5648fa91",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-13T01:11:56Z",
+      "side": 1,
+      "message": "The isCategory field seems strange to combine with the shortcuts field within the same type.  (This makes me think of the Open-Closed Principle) Instead, how about something like a KeybindCateogry type that contains an array of KeybindItems?",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62c2568e_7b8aadda",
+        "filename": "front_end/settings/settings_strings.grdp",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-13T01:11:56Z",
+      "side": 1,
+      "message": "nit: custm -\u003e custom",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13c4d2f7_d97af97e",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-13T01:11:56Z",
+      "side": 1,
+      "message": "nit: missing jsdoc",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
