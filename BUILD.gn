@@ -947,9 +947,7 @@ devtools_frontend_resources_data_test_deps = devtools_frontend_resources_deps
 if (!is_android) {
   devtools_frontend_resources_data_test_deps += [
     ":copy_karma_conf",
-    "test/unittests/front_end/common",
-    "test/unittests/front_end/formatter_worker",
-    "test/unittests/front_end/platform",
+    "test/unittests/front_end/",
   ]
 }
 
