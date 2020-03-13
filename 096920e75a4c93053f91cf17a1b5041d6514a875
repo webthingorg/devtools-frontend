@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c08c549_17f1bdf4",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-03-13T18:34:40Z",
+      "side": 1,
+      "message": "is the category displayed in any part of the UI?",
+      "range": {
+        "startLine": 572,
+        "startChar": 15,
+        "endLine": 572,
+        "endChar": 23
+      },
+      "revId": "096920e75a4c93053f91cf17a1b5041d6514a875",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
