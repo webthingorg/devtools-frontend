@@ -616,12 +616,21 @@ export class Multimap {
    * @param {K} key
    * @param {V} value
    */
-  set(key, value) {
+  _getOrCreateSet(key) {
     let set = this._map.get(key);
     if (!set) {
       set = new Set();
       this._map.set(key, set);
     }
+    return set;
+  }
+
+  /**
+   * @param {K} key
+   * @param {V} value
+   */
+  set(key, value) {
+    const set = this._getOrCreateSet(key);
     set.add(value);
   }
 
@@ -630,7 +639,7 @@ export class Multimap {
    * @return {!Set<!V>}
    */
   get(key) {
-    return this._map.get(key) || new Set();
+    return this._getOrCreateSet(key);
   }
 
   /**
