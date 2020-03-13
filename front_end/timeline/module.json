@@ -36,6 +36,7 @@
         {
             "type": "action",
             "actionId": "timeline.toggle-recording",
+            "category": "Performance",
             "iconClass": "largeicon-start-recording",
             "toggleable": true,
             "toggledIconClass": "largeicon-stop-recording",
@@ -129,6 +130,7 @@
         {
             "type": "action",
             "actionId": "timeline.jump-to-previous-frame",
+            "category": "Timeline",
             "title": "Previous frame",
             "contextTypes": [
                 "Timeline.TimelinePanel"
@@ -143,6 +145,7 @@
         {
             "type": "action",
             "actionId": "timeline.jump-to-next-frame",
+            "category": "Timeline",
             "title": "Next frame",
             "contextTypes": [
                 "Timeline.TimelinePanel"
@@ -186,6 +189,7 @@
         {
             "type": "action",
             "actionId": "timeline.previous-recording",
+            "category": "Timeline",
             "className": "Timeline.TimelinePanel.ActionDelegate",
             "title": "Previous recording",
             "contextTypes": [
@@ -205,6 +209,7 @@
         {
             "type": "action",
             "actionId": "timeline.next-recording",
+            "category": "Timeline",
             "className": "Timeline.TimelinePanel.ActionDelegate",
             "title": "Next recording",
             "contextTypes": [
