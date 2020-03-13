@@ -2,6 +2,8 @@ import("../../../../third_party/typescript/typescript.gni")
 
 ts_library("platform") {
   sources = [
+    "ArrayUtilities_test.ts",
+    "NumberUtilities_test.ts",
     "StringUtilities_test.ts",
     "Utilities_test.ts",
   ]
