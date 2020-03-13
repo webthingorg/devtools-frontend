@@ -456,6 +456,9 @@
   <message name="IDS_DEVTOOLS_db6cb44185e9c607291751f915b1ca99" desc="Title of an action that hides network request details">
     Hide request details
   </message>
+  <message name="IDS_DEVTOOLS_dbd4f4821140d6fd91dccbb018a652f2" desc="Label on checkbox to filter requests served via ServiceWorker">
+    Fetched via Service Worker
+  </message>
   <message name="IDS_DEVTOOLS_de9b14d980b77c264d42463f407180be" desc="Message to explain lack of raw headers for a particular network request">
     Provisional headers are shown
   </message>
@@ -479,6 +482,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e48c00bc05b642164b5520137b66d011" desc="Text in Network Log View of the Network panel">
     Copy all as Node.js fetch
+  </message>
+  <message name="IDS_DEVTOOLS_efc9b57f625aed21b32cdd2cfa6f910d" desc="Checkbox label on checkbox to filter requests served via ServiceWorkers">
+    Only show requests fetched via Service Workers
   </message>
   <message name="IDS_DEVTOOLS_f59329e45eb11a75d709aeb5b9b8943e" desc="Tooltip for expanding network request row setting">
     Show more information in request rows
