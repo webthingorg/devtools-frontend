@@ -70,6 +70,30 @@
       "revId": "096920e75a4c93053f91cf17a1b5041d6514a875",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f2b511b_98ec200e",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-13T19:09:33Z",
+      "side": 1,
+      "message": "Ohh, I misread your question. I\u0027m not sure if this particular category is displayed in the UI, but I think some of them are. Action.js has a method that tries to localize categories so I think it makes sense that the script notices them: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Action.js;l\u003d98?q\u003daction.js",
+      "parentUuid": "c6726fb9_350d80a0",
+      "range": {
+        "startLine": 572,
+        "startChar": 15,
+        "endLine": 572,
+        "endChar": 23
+      },
+      "revId": "096920e75a4c93053f91cf17a1b5041d6514a875",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
