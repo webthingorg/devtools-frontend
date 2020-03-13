@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2883e87b_72dfbffe",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-13T18:15:20Z",
+      "side": 1,
+      "message": "That\u0027s actually how I implemented this initially, but it turns out that some actions aren\u0027t managed by ActionRegistry--I\u0027ll look into how to do this better",
+      "parentUuid": "e3bf2702_1abcf989",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06e3773c_6663830f",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 13
@@ -33,6 +51,24 @@
       "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18473a88_34ca649c",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-13T18:15:20Z",
+      "side": 1,
+      "message": "Yeah, I was thinking of fixing this actually--I\u0027ve got another CL out to make sure that all actions have categories: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2101972",
+      "parentUuid": "06e3773c_6663830f",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ed484e80_f6a78575",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-13T18:15:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f6c7c6a9_a16973af",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f987b60c_5648fa91",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 13
@@ -67,6 +121,24 @@
       "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "213d8984_577b194f",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-13T18:15:20Z",
+      "side": 1,
+      "message": "I agree that this isn\u0027t great, but having KeybindCategories that contain KeybindItems wouldn\u0027t really be possible with ListWidget. It might make sense to add category headers into ListWidget so we don\u0027t have to pretend that they\u0027re items--I\u0027ll look into that",
+      "parentUuid": "f987b60c_5648fa91",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2b078668_d5374b98",
+        "filename": "front_end/settings/settings_strings.grdp",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-13T18:15:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62c2568e_7b8aadda",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13c4d2f7_d97af97e",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 13
@@ -101,6 +191,24 @@
       "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ab329d_6d19e83b",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-13T18:15:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13c4d2f7_d97af97e",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
