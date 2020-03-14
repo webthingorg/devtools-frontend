@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "471d8d6a_27fd1ff2",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-14T01:09:45Z",
+      "side": 1,
+      "message": "Fixed this, but a bunch of actions will appear in an unnamed category until that other CL goes in.",
+      "parentUuid": "18473a88_34ca649c",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6c7c6a9_a16973af",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 13
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "I agree that this isn\u0027t great, but having KeybindCategories that contain KeybindItems wouldn\u0027t really be possible with ListWidget. It might make sense to add category headers into ListWidget so we don\u0027t have to pretend that they\u0027re items--I\u0027ll look into that",
       "parentUuid": "f987b60c_5648fa91",
+      "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9c8d5dc_9e272ef6",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-14T01:09:45Z",
+      "side": 1,
+      "message": "I\u0027ve changed this type to be clearer--now it\u0027s just Action|string. IMO since this is just an experiment we should stick with this for now and reassess making big changes to ListWidget as we get more of an idea of what\u0027s valuable to users.",
+      "parentUuid": "213d8984_577b194f",
       "revId": "0923df32af25ec7b513ae1cee8e8b9092ee63368",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
