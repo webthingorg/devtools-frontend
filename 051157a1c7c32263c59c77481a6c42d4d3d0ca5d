@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "00b69a59_841f0eb0",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-14T00:37:34Z",
+      "side": 1,
+      "message": "Not really - after seeing that the common pattern is to use (type|undefined) for optional fields in a typedef, I\u0027ve switched these to (type|undefined) instead of nullable.",
+      "parentUuid": "cd894da8_f97c133a",
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f2c82ca_6934996b",
         "filename": "front_end/settings/SettingsScreen.js",
         "patchSetId": 29
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "45b95c8a_0e46aa5b",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-14T00:37:34Z",
+      "side": 1,
+      "message": "Good idea, done.",
+      "parentUuid": "6f2c82ca_6934996b",
+      "range": {
+        "startLine": 126,
+        "startChar": 13,
+        "endLine": 126,
+        "endChar": 15
+      },
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69a01512_27c8c1c8",
         "filename": "front_end/settings/module.json",
         "patchSetId": 29
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "8bcb41ef_5a4e7712",
+        "filename": "front_end/settings/module.json",
+        "patchSetId": 29
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-14T00:37:34Z",
+      "side": 1,
+      "message": "This is used in MainImpl.js (search for settings-default) to have \"Settings\" show up in the More Tools menu.\n\nThere\u0027s a bit more reasoning behind it in the previous comment thread, but the short summary is MainImpl.js searches for extensions of the \u0027view\u0027 type and sorts them by title to put in More Tools. There isn\u0027t a default \"view\" extension for Settings with the title \"Settings\"; the closest thing is \"Preferences\" but we want it to show up as \"Settings\" in the correct sorted position (which is by title). This was the best balanced solution I could come up with that didn\u0027t have to mess with MainImpl.js or Runtime.js too much.",
+      "parentUuid": "69a01512_27c8c1c8",
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "517ee36a_6deed9a2",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 29
@@ -73,6 +133,24 @@
       "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3eb20e1_9d606006",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-14T00:37:34Z",
+      "side": 1,
+      "message": "Good question. I\u0027ve replaced this with an undefined check, which Closure seems to be happy with.",
+      "parentUuid": "517ee36a_6deed9a2",
+      "revId": "051157a1c7c32263c59c77481a6c42d4d3d0ca5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
