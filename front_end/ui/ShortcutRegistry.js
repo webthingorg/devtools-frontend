@@ -8,7 +8,7 @@ import {Action} from './Action.js';                  // eslint-disable-line no-u
 import {ActionRegistry} from './ActionRegistry.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';
 import {Dialog} from './Dialog.js';
-import {Descriptor, KeyboardShortcut, Modifiers, Type} from './KeyboardShortcut.js';  // eslint-disable-line no-unused-vars
+import {Descriptor, EmptyShortcutDescriptor, KeyboardShortcut, Modifiers, Type} from './KeyboardShortcut.js';  // eslint-disable-line no-unused-vars
 import {isEditing} from './UIUtils.js';
 
 /**
@@ -24,8 +24,11 @@ export class ShortcutRegistry {
     this._keyToShortcut = new Platform.Multimap();
     /** @type {!Platform.Multimap.<string, !KeyboardShortcut>} */
     this._actionToShortcut = new Platform.Multimap();
+    const keybindSetSetting = self.Common.settings.moduleSetting('activeKeybindSet');
+    keybindSetSetting.addChangeListener(this._registerBindings, this);
     this._registerBindings();
   }
+
 
   /**
    * @param {number} key
@@ -218,11 +221,24 @@ export class ShortcutRegistry {
    * @param {!KeyboardShortcut} shortcut
    */
   _registerShortcut(shortcut) {
+    const otherShortcuts = this._actionToShortcut.get(shortcut.action);
+    for (const otherShortcut of otherShortcuts) {
+      if (otherShortcut.descriptor.key === shortcut.descriptor.key) {
+        if (otherShortcut.type === Type.DefaultShortcut && shortcut.type === Type.DisabledDefault) {
+          this._actionToShortcut.delete(otherShortcut.action, otherShortcut);
+          this._keyToShortcut.delete(otherShortcut.descriptor.key, otherShortcut);
+        }
+        return;
+      }
+    }
+
     this._actionToShortcut.set(shortcut.action, shortcut);
     this._keyToShortcut.set(shortcut.descriptor.key, shortcut);
   }
 
   _registerBindings() {
+    this._keyToShortcut.clear();
+    this._actionToShortcut.clear();
     const extensions = self.runtime.extensions('action');
     extensions.forEach(registerExtension, this);
 
@@ -234,7 +250,7 @@ export class ShortcutRegistry {
       const descriptor = extension.descriptor();
       const bindings = descriptor.bindings;
       for (let i = 0; bindings && i < bindings.length; ++i) {
-        if (!platformMatches(bindings[i].platform)) {
+        if (!platformMatches(bindings[i].platform) || !keybindSetsMatch(bindings[i].keybindSets)) {
           continue;
         }
         const shortcuts = bindings[i].shortcut.split(/\s+/);
@@ -262,6 +278,17 @@ export class ShortcutRegistry {
         isMatch = platforms[i] === currentPlatform;
       }
       return isMatch;
+    }
+
+    /**
+     * @param {Array<string>=} keybindSets
+     */
+    function keybindSetsMatch(keybindSets) {
+      if (!keybindSets) {
+        return true;
+      }
+      const keybindSet = self.Common.settings.moduleSetting('activeKeybindSet').get();
+      return keybindSets.includes(keybindSet);
     }
   }
 }
