@@ -432,6 +432,9 @@
   <message name="IDS_DEVTOOLS_ca092ce554360617d7bb503ff16dcb7c" desc="Text for toggling the view of header data (e.g. query string parameters) from parsed to source in the headers tab">
     View source
   </message>
+  <message name="IDS_DEVTOOLS_cb9f4f3d979688b70044ea0677679548" desc="Text in Request Timing View of the Network panel">
+    ServiceWorker Fetch
+  </message>
   <message name="IDS_DEVTOOLS_ce89cbfed44c10f5dd21427be154f288" desc="Text in Network Log View of the Network panel">
     Copy as Node.js fetch
   </message>
