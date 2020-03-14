@@ -9,6 +9,10 @@
             "bindings": [
                 {
                     "shortcut": "F1 Shift+?"
+                },
+                {
+                    "shortcut": "Ctrl+,",
+                    "keybindSets": ["vsCode"]
                 }
             ]
         },
