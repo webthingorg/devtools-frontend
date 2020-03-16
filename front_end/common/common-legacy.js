@@ -221,7 +221,7 @@ Common.Worker = CommonModule.Worker.WorkerWrapper;
 /**
  * @type {!Common.Settings}
  */
-self.Common.settings;
+self.Common.settings = CommonModule.Settings.Settings.instance();
 
 /**
  * @param {!ITemplateArray|string} strings
