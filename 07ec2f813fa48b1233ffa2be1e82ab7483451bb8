@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "234ae98a_79e70a36",
+        "filename": "test/unittests/front_end/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-16T16:41:49Z",
+      "side": 1,
+      "message": "Yes. It\u0027s `out/Default/gen/`",
+      "parentUuid": "528c043d_9ed722aa",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "07ec2f813fa48b1233ffa2be1e82ab7483451bb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c106c3ae_44a65dd1",
         "filename": "test/unittests/front_end/karma.conf.js",
         "patchSetId": 1
