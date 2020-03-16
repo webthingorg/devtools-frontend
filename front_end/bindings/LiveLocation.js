@@ -6,11 +6,14 @@ import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line 
 
 /** @interface */
 export class LiveLocation {
+  /**
+   * @return {!Promise}
+   */
   update() {
   }
 
   /**
-   * @return {?Workspace.UISourceCode.UILocation}
+   * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
   uiLocation() {
   }
@@ -19,7 +22,7 @@ export class LiveLocation {
   }
 
   /**
-   * @return {boolean}
+   * @return {!Promise<boolean>}
    */
   isBlackboxed() {}
 }
@@ -37,20 +40,30 @@ export class LiveLocationWithPool {
     this._updateDelegate = updateDelegate;
     this._locationPool = locationPool;
     this._locationPool._add(this);
+    this._promise = null;
   }
 
   /**
    * @override
    */
-  update() {
-    this._updateDelegate(this);
+  async update() {
+    if (!this._updateDelegate) {
+      return;
+    }
+    if (this._promise) {
+      await this._promise.then(() => this.update());
+    } else {
+      this._promise = this._updateDelegate(this);
+      await this._promise;
+      this._promise = null;
+    }
   }
 
   /**
    * @override
-   * @return {?Workspace.UISourceCode.UILocation}
+   * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
-  uiLocation() {
+  async uiLocation() {
     throw 'Not implemented';
   }
 
@@ -64,9 +77,9 @@ export class LiveLocationWithPool {
 
   /**
    * @override
-   * @return {boolean}
+   * @return {!Promise<boolean>}
    */
-  isBlackboxed() {
+  async isBlackboxed() {
     throw 'Not implemented';
   }
 }

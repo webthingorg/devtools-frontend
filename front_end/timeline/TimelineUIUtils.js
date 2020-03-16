@@ -872,7 +872,8 @@ export class TimelineUIUtils {
         break;
       case recordTypes.JSFrame:
       case recordTypes.FunctionCall:
-        const detailsNode = await TimelineUIUtils.buildDetailsNodeForTraceEvent(event, model.targetByEvent(event), linkifier);
+        const detailsNode =
+            await TimelineUIUtils.buildDetailsNodeForTraceEvent(event, model.targetByEvent(event), linkifier);
         if (detailsNode) {
           contentHelper.appendElementRow(ls`Function`, detailsNode);
         }
@@ -1071,7 +1072,8 @@ export class TimelineUIUtils {
         break;
 
       default: {
-        const detailsNode = await TimelineUIUtils.buildDetailsNodeForTraceEvent(event, model.targetByEvent(event), linkifier);
+        const detailsNode =
+            await TimelineUIUtils.buildDetailsNodeForTraceEvent(event, model.targetByEvent(event), linkifier);
         if (detailsNode) {
           contentHelper.appendElementRow(ls`Details`, detailsNode);
         }

@@ -355,6 +355,7 @@ class StyleMapping {
     }
     const updatePromises = headers.map(header => self.Bindings.cssWorkspaceBinding.updateLocations(header));
     await Promise.all(updatePromises);
+    }
   }
 
   /**

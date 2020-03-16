@@ -466,8 +466,8 @@ export class SourcesPanel extends UI.Panel.Panel {
   /**
    * @param {!Bindings.LiveLocation.LiveLocation} liveLocation
    */
-  _executionLineChanged(liveLocation) {
-    const uiLocation = liveLocation.uiLocation();
+  async _executionLineChanged(liveLocation) {
+    const uiLocation = await liveLocation.uiLocation();
     if (!uiLocation) {
       return;
     }
@@ -495,7 +495,11 @@ export class SourcesPanel extends UI.Panel.Panel {
       this._executionLineLocation.dispose();
     }
     this._executionLineLocation = await self.Bindings.debuggerWorkspaceBinding.createCallFrameLiveLocation(
-        callFrame.location(), this._executionLineChanged.bind(this), this._liveLocationPool);
+        .createCallFrameLiveLocation(
+            callFrame.location(), this._executionLineChanged.bind(this), this._liveLocationPool)
+        .then(liveLocation => {
+          this._executionLineLocation = liveLocation;
+        });
   }
 
   _pauseOnExceptionEnabledChanged() {

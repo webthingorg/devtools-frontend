@@ -143,7 +143,10 @@ export class PresentationConsoleMessageHelper {
    * @param {!SDK.DebuggerModel.Location} rawLocation
    */
   _addConsoleMessageToScript(message, rawLocation) {
-    this._presentationConsoleMessages.push(new PresentationConsoleMessage(message, rawLocation, this._locationPool));
+    const consoleMessage = new PresentationConsoleMessage(message);
+    consoleMessage.initialize(rawLocation, this._locationPool).then(() => {
+      this._presentationConsoleMessages.push(consoleMessage);
+    });
   }
 
   /**
@@ -211,25 +214,30 @@ export class PresentationConsoleMessageHelper {
 export class PresentationConsoleMessage {
   /**
    * @param {!SDK.ConsoleModel.ConsoleMessage} message
-   * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @param {!LiveLocationPool} locationPool
    */
-  constructor(message, rawLocation, locationPool) {
+  constructor(message) {
     this._text = message.messageText;
     this._level = message.level === SDK.ConsoleModel.MessageLevel.Error ? Workspace.UISourceCode.Message.Level.Error :
                                                                           Workspace.UISourceCode.Message.Level.Warning;
-    self.Bindings.debuggerWorkspaceBinding.createLiveLocation(
+  }
+
+  /**
+   * @param {!SDK.DebuggerModel.Location} rawLocation
+   * @param {!LiveLocationPool} locationPool
+   */
+  async initialize(rawLocation, locationPool) {
+    await self.Bindings.debuggerWorkspaceBinding.createLiveLocation(
         rawLocation, this._updateLocation.bind(this), locationPool);
   }
 
   /**
    * @param {!LiveLocation} liveLocation
    */
-  _updateLocation(liveLocation) {
+  async _updateLocation(liveLocation) {
     if (this._uiMessage) {
       this._uiMessage.remove();
     }
-    const uiLocation = liveLocation.uiLocation();
+    const uiLocation = await liveLocation.uiLocation();
     if (!uiLocation) {
       return;
     }
