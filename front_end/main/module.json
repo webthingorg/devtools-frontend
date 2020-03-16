@@ -52,6 +52,7 @@
         {
             "type": "action",
             "actionId": "main.next-tab",
+            "category": "DevTools",
             "title": "Next panel",
             "className": "UI.InspectorView.ActionDelegate",
             "bindings": [
@@ -68,6 +69,7 @@
         {
             "type": "action",
             "actionId": "main.previous-tab",
+            "category": "DevTools",
             "title": "Previous panel",
             "className": "UI.InspectorView.ActionDelegate",
             "bindings": [
@@ -84,6 +86,7 @@
         {
             "type": "action",
             "actionId": "main.debug-reload",
+            "category": "DevTools",
             "title": "Reload DevTools",
             "className": "Main.ReloadActionDelegate",
             "bindings": [
@@ -112,6 +115,7 @@
         {
             "type": "action",
             "actionId": "main.zoom-in",
+            "category": "DevTools",
             "title": "Zoom in",
             "className": "Main.Main.ZoomActionDelegate",
             "bindings": [
@@ -128,6 +132,7 @@
         {
             "type": "action",
             "actionId": "main.zoom-out",
+            "category": "DevTools",
             "title": "Zoom out",
             "className": "Main.Main.ZoomActionDelegate",
             "bindings": [
@@ -144,6 +149,7 @@
         {
             "type": "action",
             "actionId": "main.zoom-reset",
+            "category": "DevTools",
             "title": "Reset zoom level",
             "className": "Main.Main.ZoomActionDelegate",
             "bindings": [
@@ -160,6 +166,7 @@
         {
             "type": "action",
             "actionId": "main.search-in-panel.find",
+            "category": "DevTools",
             "title": "Search in panel",
             "className": "Main.Main.SearchActionDelegate",
             "bindings": [
@@ -176,6 +183,7 @@
         {
             "type": "action",
             "actionId": "main.search-in-panel.cancel",
+            "category": "DevTools",
             "title": "Cancel search",
             "className": "Main.Main.SearchActionDelegate",
             "order": 10,
@@ -188,6 +196,7 @@
         {
             "type": "action",
             "actionId": "main.search-in-panel.find-next",
+            "category": "DevTools",
             "title": "Find next result",
             "className": "Main.Main.SearchActionDelegate",
             "bindings": [
@@ -208,6 +217,7 @@
         {
             "type": "action",
             "actionId": "main.search-in-panel.find-previous",
+            "category": "DevTools",
             "title": "Find previous result",
             "className": "Main.Main.SearchActionDelegate",
             "bindings": [
