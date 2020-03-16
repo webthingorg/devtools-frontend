@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3d37a890_8e52e763",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-16T21:17:22Z",
+      "side": 1,
+      "message": "I think anything you want to access without square brackets has to be declared in the RuntimeExtensionDescriptor type here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/Runtime.js;l\u003d708?q\u003druntime.js\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2Fsearch%2F\n\n\nAt least, that\u0027s how I\u0027m planning on handling a similar issue in shortcuts",
+      "parentUuid": "6ba22116_0e1fe88f",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f579a664_d8c36ddb",
         "filename": "front_end/quick_open/CommandMenu.js",
         "patchSetId": 31
