@@ -6,7 +6,11 @@
  * @unrestricted
  */
 export class Issue {
+  /**
+   * @param {string} code
+   */
   constructor(code) {
+    /** @type {string} */
     this._code = code;
   }
 
@@ -14,6 +18,10 @@ export class Issue {
     return this._code;
   }
 
+  /**
+   *
+   * @param {string} code
+   */
   static create(code) {
     return new Issue(code);
   }
