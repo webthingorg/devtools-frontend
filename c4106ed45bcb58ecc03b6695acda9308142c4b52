@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21abc97c_af79594c",
+        "filename": "scripts/localizationV2/bakeCtcToDtl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-16T20:24:38Z",
+      "side": 1,
+      "message": "Per Tim\u0027s comment in the other CL, the scripts might need to live under third_party directory\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2090459",
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
