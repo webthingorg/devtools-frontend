@@ -44,7 +44,13 @@
             "bindings": [
                 {
                     "platform": "windows,linux",
-                    "shortcut": "F8 Ctrl+\\"
+                    "shortcut": "F8 Ctrl+\\",
+                    "keybindSets": ["devToolsDefault"]
+                },
+                {
+                    "platform": "windows,linux",
+                    "shortcut": "F5 F6",
+                    "keybindSets": ["vsCode"]
                 },
                 {
                     "platform": "mac",
@@ -106,7 +112,8 @@
             ],
             "bindings": [
                 {
-                    "shortcut": "F9"
+                    "shortcut": "F9",
+                    "keybindSets": ["devToolsDefault"]
                 }
             ]
         },
@@ -652,6 +659,10 @@
             "bindings": [
                 {
                     "shortcut": "Alt+w"
+                },
+                {
+                    "shortcut": "Ctrl+w Ctrl+F4",
+                    "keybindSets": ["vsCode"]
                 }
             ]
         },
@@ -685,6 +696,10 @@
                 {
                     "platform":"mac",
                     "shortcut": "Meta+Shift+o"
+                },
+                {
+                    "shortcut": "Ctrl+T",
+                    "keybindSets": ["vsCode"]
                 }
             ]
         },
@@ -700,6 +715,10 @@
                 {
                     "platform":"mac",
                     "shortcut": "Meta+b"
+                },
+                {
+                    "shortcut": "F9",
+                    "keybindSets": ["vsCode"]
                 }
             ]
         },

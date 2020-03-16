@@ -731,6 +731,11 @@ class RuntimeExtensionDescriptor {
      * @type {string|undefined}
      */
     this.bindings;
+
+    /**
+     * @type {!Array.<string>|undefined}
+     */
+    this.keybindSets;
   }
 }
 

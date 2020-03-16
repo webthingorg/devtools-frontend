@@ -70,3 +70,12 @@ h1 {
 .keybinds-category-header:hover {
     background-color: white;
 }
+
+.keybinds-set-select {
+    text-align: right;
+    margin-right: 3px;
+}
+
+.keybinds-set-select select {
+    margin-left: 4px;
+}
