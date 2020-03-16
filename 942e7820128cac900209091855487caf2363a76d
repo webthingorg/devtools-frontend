@@ -22,6 +22,30 @@
       "revId": "942e7820128cac900209091855487caf2363a76d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5456286_10ac4b06",
+        "filename": "front_end/common/UIString.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-16T16:25:34Z",
+      "side": 1,
+      "message": "TypeScript would report that an invocation with no additional arguments (which is valid) is incorrect. These arguments need to be spread out explicitly.\n\nI will do a follow-up CL to see if we can make that change. I fear that might have unintended consequences, but maybe we are lucky 😊",
+      "parentUuid": "e6260715_ec921425",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "942e7820128cac900209091855487caf2363a76d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
