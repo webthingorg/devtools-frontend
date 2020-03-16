@@ -122,7 +122,12 @@ export class Automapping {
    * @param {!Workspace.Workspace.Project} project
    */
   _onProjectAdded(project) {
-    if (project.type() !== Workspace.Workspace.projectTypes.FileSystem) {
+    function isSnippetsProject(project) {
+      return project.type() === Workspace.Workspace.projectTypes.FileSystem &&
+          FileSystemWorkspaceBinding.fileSystemType(project) === 'snippets';
+    }
+
+    if (project.type() !== Workspace.Workspace.projectTypes.FileSystem || isSnippetsProject(project)) {
       return;
     }
     const fileSystem = /** @type {!FileSystem} */ (project);

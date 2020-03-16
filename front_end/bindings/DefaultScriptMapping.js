@@ -113,6 +113,9 @@ export class DefaultScriptMapping {
   _parsedScriptSource(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
     const name = Common.ParsedURL.ParsedURL.extractName(script.sourceURL);
+    if (script.sourceURL.startsWith('snippet://')) {
+      return;
+    }
     const url = 'debugger:///VM' + script.scriptId + (name ? ' ' + name : '');
 
     const uiSourceCode = this._project.createUISourceCode(url, Common.ResourceType.resourceTypes.Script);

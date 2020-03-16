@@ -83,11 +83,17 @@ export class ResourceScriptMapping {
     const projectId = prefix + this._debuggerModel.target().id() + ':' + script.frameId;
     let project = this._projects.get(projectId);
     if (!project) {
-      const projectType = script.isContentScript() ? Workspace.Workspace.projectTypes.ContentScripts :
-                                                     Workspace.Workspace.projectTypes.Network;
+      let projectType;
+      if (script.sourceURL.startsWith('snippet://')) {
+        projectType = Workspace.Workspace.projectTypes.FileSystem;
+        // project = Snippets.project;
+      } else {
+        const projectType = script.isContentScript() ? Workspace.Workspace.projectTypes.ContentScripts :
+        Workspace.Workspace.projectTypes.Network;
+      }
       project = new ContentProviderBasedProject(
-          this._workspace, projectId, projectType, '' /* displayName */, false /* isServiceProject */);
-      NetworkProject.setTargetForProject(project, this._debuggerModel.target());
+        this._workspace, projectId, projectType, '' /* displayName */, false /* isServiceProject */);
+        NetworkProject.setTargetForProject(project, this._debuggerModel.target());
       this._projects.set(projectId, project);
     }
     return project;
