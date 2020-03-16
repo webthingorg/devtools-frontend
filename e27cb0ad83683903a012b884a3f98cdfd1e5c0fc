@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d58b98_cf896eef",
+        "filename": "front_end/bindings/CSSWorkspaceBinding.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-16T11:52:05Z",
+      "side": 1,
+      "message": "This event listener cannot be removed again (to do that, one would have to pass the arrow function here to the function that removes the listener).\n\nWould it be cleaner to have the equivalent of the arrow function as a method? Would it make sense to not have _styleSheetAdded async (but use promise.then?)\n\nIn any case: Why don\u0027t we need to remove this listener?",
+      "range": {
+        "startLine": 189,
+        "startChar": 9,
+        "endLine": 191,
+        "endChar": 11
+      },
+      "revId": "e27cb0ad83683903a012b884a3f98cdfd1e5c0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "deeed468_84de7bf1",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-16T11:52:05Z",
+      "side": 1,
+      "message": "Is this defensive programming or are there actual cases of dispose being called before the locationsPromise resolved?\n\nIf the latter is the case: Is it a problem that there is an already disposed object that where _locations isn\u0027t null?",
+      "range": {
+        "startLine": 557,
+        "startChar": 4,
+        "endLine": 557,
+        "endChar": 26
+      },
+      "revId": "e27cb0ad83683903a012b884a3f98cdfd1e5c0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d2611c1_57678086",
+        "filename": "front_end/bindings/LiveLocation.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-16T11:52:05Z",
+      "side": 1,
+      "message": "Why is this necessary? It looks like this gets set in the constructor. May update be called after dispose? \n\nIn any case, case please add @type annotation to the _updateDelegate field to indicate nullability.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 31
+      },
+      "revId": "e27cb0ad83683903a012b884a3f98cdfd1e5c0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bed4bebe_e781bde9",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-16T11:52:05Z",
+      "side": 1,
+      "message": "Just for my understanding: What if a LiveLocation triggers another update? I.e. why is it enough to wait for all the currently outstanding promises / why don\u0027t we have to wait until no more updates are triggered. Or is this not happening / not important?",
+      "range": {
+        "startLine": 1436,
+        "startChar": 22,
+        "endLine": 1436,
+        "endChar": 55
+      },
+      "revId": "e27cb0ad83683903a012b884a3f98cdfd1e5c0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
