@@ -954,6 +954,7 @@ if (!is_android) {
     "test/unittests/front_end/common",
     "test/unittests/front_end/formatter_worker",
     "test/unittests/front_end/platform",
+    "test/unittests/front_end/text_utils",
   ]
 }
 
