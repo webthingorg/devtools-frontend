@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f5f3b9f_756fc931",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-16T10:34:10Z",
+      "side": 1,
+      "message": "I think you can declare `this._input` in the constructor and then TypeScript will be happier.",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 15
+      },
+      "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5758c69f_2b67abb0",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-16T10:34:10Z",
+      "side": 1,
+      "message": "Same with this one",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 29
+      },
+      "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7e9992d_2981ac5a",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-16T10:34:10Z",
+      "side": 1,
+      "message": "Yup",
+      "range": {
+        "startLine": 148,
+        "startChar": 33,
+        "endLine": 148,
+        "endChar": 57
+      },
+      "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf1f240_4953a53e",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-16T10:34:10Z",
+      "side": 1,
+      "message": "And this one",
+      "range": {
+        "startLine": 149,
+        "startChar": 60,
+        "endLine": 149,
+        "endChar": 80
+      },
+      "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
