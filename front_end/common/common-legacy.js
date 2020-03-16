@@ -219,11 +219,6 @@ Common.localize = CommonModule.UIString.localize;
 Common.Worker = CommonModule.Worker.WorkerWrapper;
 
 /**
- * @type {!Common.Settings}
- */
-self.Common.settings;
-
-/**
  * @param {!ITemplateArray|string} strings
  * @param {...*} vararg
  * @return {string}
