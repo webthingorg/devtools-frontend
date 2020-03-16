@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3694fb1_96af71dc",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-16T09:19:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41236302_c63b691c",
+      "range": {
+        "startLine": 88,
+        "startChar": 49,
+        "endLine": 88,
+        "endChar": 58
+      },
+      "revId": "9c6c914ae3c44eb81e3fd2a650c7b425c7249968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bec5df15_8abb5e72",
         "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
         "patchSetId": 6
@@ -39,6 +63,24 @@
       "revId": "9c6c914ae3c44eb81e3fd2a650c7b425c7249968",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f490396_fe879220",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-16T09:19:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bec5df15_8abb5e72",
+      "revId": "9c6c914ae3c44eb81e3fd2a650c7b425c7249968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
