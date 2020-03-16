@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ba22116_0e1fe88f",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-16T20:52:05Z",
+      "side": 1,
+      "message": "I see we have other instances of using brackets to access properties, but I\u0027m not sure why. All of the examples of the properties being accessed here and below are normal property names that don\u0027t need to be accessed via brackets, i.e., `descriptor.id`, `descriptor.persistence`, and `descriptor.location` are all valid JavaScript expressions.",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f579a664_d8c36ddb",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-16T20:52:05Z",
+      "side": 1,
+      "message": "I\u0027m confused why this is demanded. I realize the type system of Closure and TypeScript is slightly different, but if `userActionCode` can be undefined, I\u0027d expect it to be:\n\n    { \n      // ...\n      userActionCode?: Host.UserMetrics.Action;\n    }\n\nAccessing an omitted property yields `undefined` anyway. I don\u0027t understand why your typedef would require that a property be initialized to undefined. That\u0027s kind of an antipattern.",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf2175b2_6e157a84",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-16T20:52:05Z",
+      "side": 1,
+      "message": "Should have trailing comma here, and lines 66 and 111.",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed17897b_a3daa0c5",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-16T20:52:05Z",
+      "side": 1,
+      "message": "Referenced above, I don\u0027t understand why we\u0027d assert that `undefined` must be passed here. (See also lines 174, 187).",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5d27970_1ec3d309",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-16T20:52:05Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a10c8a69_5d0d4ce4",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-16T20:52:05Z",
+      "side": 1,
+      "message": "Why `let`, not `const`?",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
