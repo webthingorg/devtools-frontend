@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "71dfee86_013e851c",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-16T10:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f5f3b9f_756fc931",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 15
+      },
+      "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5758c69f_2b67abb0",
         "filename": "front_end/sdk/CookieParser.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daf22891_ceeabea3",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-16T10:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5758c69f_2b67abb0",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 29
+      },
+      "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +130,30 @@
       "writtenOn": "2020-03-16T10:34:10Z",
       "side": 1,
       "message": "And this one",
+      "range": {
+        "startLine": 149,
+        "startChar": 60,
+        "endLine": 149,
+        "endChar": 80
+      },
+      "revId": "3470c1f39cd623e51c2174454357347fc1e5f38b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0813bf74_31d90f0c",
+        "filename": "front_end/sdk/CookieParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-16T10:39:07Z",
+      "side": 1,
+      "message": "but we\u0027d still have to declare them in the constructor as `string|undefined` so that wouldn\u0027t avoid the cast here? Unless we default it to `\u0027\u0027`",
+      "parentUuid": "eaf1f240_4953a53e",
       "range": {
         "startLine": 149,
         "startChar": 60,
