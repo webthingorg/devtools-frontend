@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cd5e97dc_4a9a5e60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-17T17:54:24Z",
+      "side": 1,
+      "message": "third_party approval is required for all code that we want to use that was not originally written by us. Since this code is written and maintained by the LightHouse team, it is third_party code.\n\nWe can\u0027t make changes to third_party code. As such, if third_party code is insufficient and requires additional changes, you will need to make them in the source of truth repository (as Connor pointed out). Therefore, you will need to work with the LightHouse team to make the required changes and then copy a pristine version into DevTools `third_party/` folder.\n\nThe last bit will then require legal and security approval before we can ship it in the browser. But for now, I would recommend working with the LightHouse team to update the script to your needs, as it seems like it requires quite a bit of work 😞",
+      "parentUuid": "77d59af9_df68ed9e",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 60
+      },
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21abc97c_af79594c",
         "filename": "scripts/localizationV2/bakeCtcToDtl.js",
         "patchSetId": 4
