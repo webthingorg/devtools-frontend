@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "714661ab_b9d25c04",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-03-17T02:27:37Z",
+      "side": 1,
+      "message": "debug comment - will remove",
+      "range": {
+        "startLine": 515,
+        "startChar": 52,
+        "endLine": 515,
+        "endChar": 61
+      },
+      "revId": "2ce661bd56ef3303f9635f609899107c22a0e045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98bf3f52_3441aa04",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-03-17T02:27:37Z",
+      "side": 1,
+      "message": "unnecessary whitespace - will remove",
+      "revId": "2ce661bd56ef3303f9635f609899107c22a0e045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
