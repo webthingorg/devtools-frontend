@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "77d59af9_df68ed9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-03-17T17:46:52Z",
+      "side": 1,
+      "message": "Hi Tim and Peter,\n\nThanks for the feedback. I have a question (to avoid hitting the same issue with i18n library) from the `third_party` point of view, is there a difference between this code and a script contributed to DT infrastucture? I was under the impression that third_party approval was for code that was included as part of the DT `binaries`. Do we also need approval for infrastucture scripts?",
+      "parentUuid": "109973b0_992585c0",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 60
+      },
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21abc97c_af79594c",
         "filename": "scripts/localizationV2/bakeCtcToDtl.js",
         "patchSetId": 4
