@@ -534,6 +534,12 @@ domain Debugger
       optional integer length
       # JavaScript top stack frame of where the script parsed event was triggered if available.
       experimental optional Runtime.StackTrace stackTrace
+      # If the scriptLanguage is WebAssembly, the code section offset in the module
+      experimental optional integer codeOffset
+      # The language of the script
+      optional enum scriptLanguage
+        JavaScript
+        WebAssembly
 
   # Fired when virtual machine parses script. This event is also fired for all known and uncollected
   # scripts upon enabling debugger.
@@ -569,6 +575,12 @@ domain Debugger
       optional integer length
       # JavaScript top stack frame of where the script parsed event was triggered if available.
       experimental optional Runtime.StackTrace stackTrace
+      # If the scriptLanguage is WebAssembly, the code section offset in the module
+      experimental optional integer codeOffset
+      # The language of the script
+      optional enum scriptLanguage
+        JavaScript
+        WebAssembly
 
 experimental domain HeapProfiler
   depends on Runtime

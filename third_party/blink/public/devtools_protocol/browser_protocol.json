@@ -17729,6 +17729,23 @@
                             "experimental": true,
                             "optional": true,
                             "$ref": "Runtime.StackTrace"
+                        },
+                        {
+                            "name": "codeOffset",
+                            "description": "If the scriptLanguage is WebAssembly, the code section offset in the module",
+                            "experimental": true,
+                            "optional": true,
+                            "type": "integer"
+                        },
+                        {
+                            "name": "scriptLanguage",
+                            "description": "The language of the script",
+                            "optional": true,
+                            "type": "string",
+                            "enum": [
+                                "JavaScript",
+                                "WebAssembly"
+                            ]
                         }
                     ]
                 },
@@ -17819,6 +17836,23 @@
                             "experimental": true,
                             "optional": true,
                             "$ref": "Runtime.StackTrace"
+                        },
+                        {
+                            "name": "codeOffset",
+                            "description": "If the scriptLanguage is WebAssembly, the code section offset in the module",
+                            "experimental": true,
+                            "optional": true,
+                            "type": "integer"
+                        },
+                        {
+                            "name": "scriptLanguage",
+                            "description": "The language of the script",
+                            "optional": true,
+                            "type": "string",
+                            "enum": [
+                                "JavaScript",
+                                "WebAssembly"
+                            ]
                         }
                     ]
                 }

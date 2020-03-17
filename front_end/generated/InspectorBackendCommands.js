@@ -2210,11 +2210,13 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Debugger.resumed', []);
   inspectorBackend.registerEvent('Debugger.scriptFailedToParse', [
     'scriptId', 'url', 'startLine', 'startColumn', 'endLine', 'endColumn', 'executionContextId', 'hash',
-    'executionContextAuxData', 'sourceMapURL', 'hasSourceURL', 'isModule', 'length', 'stackTrace'
+    'executionContextAuxData', 'sourceMapURL', 'hasSourceURL', 'isModule', 'length', 'stackTrace', 'codeOffset',
+    'scriptLanguage'
   ]);
   inspectorBackend.registerEvent('Debugger.scriptParsed', [
     'scriptId', 'url', 'startLine', 'startColumn', 'endLine', 'endColumn', 'executionContextId', 'hash',
-    'executionContextAuxData', 'isLiveEdit', 'sourceMapURL', 'hasSourceURL', 'isModule', 'length', 'stackTrace'
+    'executionContextAuxData', 'isLiveEdit', 'sourceMapURL', 'hasSourceURL', 'isModule', 'length', 'stackTrace',
+    'codeOffset', 'scriptLanguage'
   ]);
   inspectorBackend.registerCommand(
       'Debugger.continueToLocation',
