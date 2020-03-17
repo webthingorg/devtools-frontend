@@ -109,7 +109,11 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
 
     for (const child of axNode.children()) {
       append(this._inspectedNodeBreadcrumb, child, depth);
+      if (child.backendDOMNodeId() === this._storeCollapsingBreadcrumbId) {
+        this._setPreselectedBreadcrumb(this._inspectedNodeBreadcrumb.lastChild());
+      }
     }
+    this._storeCollapsingBreadcrumbId = -1;
   }
 
   /**
@@ -134,11 +138,21 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     }
 
     let handled = false;
-    if ((event.key === 'ArrowUp' || event.key === 'ArrowLeft') && !event.altKey) {
+    if (event.key === 'ArrowUp' && !event.altKey) {
       handled = this._preselectPrevious();
-    } else if ((event.key === 'ArrowDown' || event.key === 'ArrowRight') && !event.altKey) {
+    } else if ((event.key === 'ArrowDown') && !event.altKey) {
       handled = this._preselectNext();
-    } else if (isEnterKey(event)) {
+    } else if (event.key === 'ArrowLeft' && !event.altKey) {
+      if (this._preselectedBreadcrumb.parentBreadcrumb() && this._preselectedBreadcrumb.hasExpandedChildren()) {
+        this._storeCollapsingBreadcrumbId = this._preselectedBreadcrumb.axNode().backendDOMNodeId();
+        this._inspectDOMNode(this._preselectedBreadcrumb.parentBreadcrumb().axNode());
+      } else {
+        handled = this._preselectParent();
+      }
+    } else if (
+        (isEnterKey(event) ||
+         (event.key === 'ArrowRight' && this._preselectedBreadcrumb.axNode().hasOnlyUnloadedChildren())) &&
+        !event.altKey) {
       handled = this._inspectDOMNode(this._preselectedBreadcrumb.axNode());
     }
 
@@ -168,6 +182,18 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
       return false;
     }
     this._setPreselectedBreadcrumb(nextBreadcrumb);
+    return true;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _preselectParent() {
+    const parentBreadcrumb = this._preselectedBreadcrumb.parentBreadcrumb();
+    if (!parentBreadcrumb) {
+      return false;
+    }
+    this._setPreselectedBreadcrumb(parentBreadcrumb);
     return true;
   }
 
@@ -367,6 +393,7 @@ export class AXBreadcrumb {
 
     if (this._axNode.hasOnlyUnloadedChildren()) {
       this._nodeElement.classList.add('children-unloaded');
+      UI.ARIAUtils.setExpanded(this._nodeElement, false);
     }
 
     if (!this._axNode.isDOMNode()) {
@@ -397,6 +424,10 @@ export class AXBreadcrumb {
     this._nodeElement.classList.add('parent');
     UI.ARIAUtils.setExpanded(this._nodeElement, true);
     this._childrenGroupElement.appendChild(breadcrumb.element());
+  }
+
+  hasExpandedChildren() {
+    return this._children.length;
   }
 
   /**
@@ -500,6 +531,14 @@ export class AXBreadcrumb {
     }
 
     return this._parent;
+  }
+
+  parentBreadcrumb() {
+    return this._parent;
+  }
+
+  lastChild() {
+    return this._children[this._children.length - 1];
   }
 
   /**
