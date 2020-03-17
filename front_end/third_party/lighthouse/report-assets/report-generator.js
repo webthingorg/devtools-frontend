@@ -15,7 +15,7 @@
 /* global Root */
 
 // @ts-ignore: Root.Runtime exists in Devtools.
-const cachedResources = Root.Runtime.cachedResources;
+const cachedResources = Runtime.cachedResources;
 
 // Getters are necessary because the DevTools bundling processes
 // resources after this module is resolved. These properties are not
