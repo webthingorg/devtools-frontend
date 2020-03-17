@@ -22,6 +22,30 @@
       "revId": "d1634f704bd4320f6544791fcf49804dca16ada8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3fee862_e953d24d",
+        "filename": "front_end/ui/treeoutline.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1390429
+      },
+      "writtenOn": "2020-03-17T22:59:40Z",
+      "side": 1,
+      "message": "Yeah, I was thinking the same thing. When I do add span, to the previous selector, it will fix the foreground on that text element, but it breaks another element. So adding another selector with a span seems to fix the bug and not break anything else.",
+      "parentUuid": "d017394b_c2f825a7",
+      "range": {
+        "startLine": 209,
+        "startChar": 64,
+        "endLine": 209,
+        "endChar": 68
+      },
+      "revId": "d1634f704bd4320f6544791fcf49804dca16ada8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
