@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "868466ee_81cb219b",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T18:58:35Z",
+      "side": 1,
+      "message": "+1 to Jack\u0027s comment. Did some more investigation - RuntimeExtensionDescriptor doesn\u0027t have strong type guarantees on its own for optional properties, since the objects are loaded directly out of module.json definitions (but aren\u0027t type checked, beyond the module.schema.json for required properties).\n\nWe could add to the RuntimeExtensionDescriptor type to make fields like \u0027id\u0027 and \u0027location\u0027 optional but available (as in T|undefined), though there are quite a few instances of this sort of bracket notation throughout the code base where descriptors are used. Updating those is probably out of scope for this CL, so I think we should leave it as-is.",
+      "parentUuid": "3d37a890_8e52e763",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f579a664_d8c36ddb",
         "filename": "front_end/quick_open/CommandMenu.js",
         "patchSetId": 31
@@ -51,6 +69,24 @@
       "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0a8873e_51ffc4bd",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T18:58:35Z",
+      "side": 1,
+      "message": "Ah, you\u0027re right - explicitly declaring the property as undefined is not necessary. I\u0027ve gone ahead and removed the lines you mentioned.\n\nVSCode does complain though; seems like TypeScript doesn\u0027t consider JSDoc (T|undefined) as an optional property.",
+      "parentUuid": "f579a664_d8c36ddb",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "5cd17b34_d2e4df7d",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T18:58:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bf2175b2_6e157a84",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed17897b_a3daa0c5",
         "filename": "front_end/quick_open/CommandMenu.js",
         "patchSetId": 31
@@ -85,6 +139,24 @@
       "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9e1a14e_3b1cdf44",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T18:58:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed17897b_a3daa0c5",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "2084528e_7d7c4541",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T18:58:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e5d27970_1ec3d309",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a10c8a69_5d0d4ce4",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 31
@@ -119,6 +209,24 @@
       "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10da6dd0_96a20d65",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 31
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T18:58:35Z",
+      "side": 1,
+      "message": "Closure compiler says: [JSC_PARSE_ERROR] Parse error. const variables must have an initializer\n\n(makes sense, though export const does work for enums)",
+      "parentUuid": "a10c8a69_5d0d4ce4",
+      "revId": "cd685e52e2a0b846949abc80bb6b5cbf5ae55b83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
