@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15f3055c_4c6b4975",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-17T13:14:36Z",
+      "side": 1,
+      "message": "I realize that the old code already had this problem, but this will grow indefinitely, right? What about using a weak map with the script as key?",
+      "range": {
+        "startLine": 167,
+        "startChar": 16,
+        "endLine": 167,
+        "endChar": 34
+      },
+      "revId": "bc9c075476b514256fc9b44ed0bedaeb87c99b15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3444c2f3_55cd8872",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-17T13:14:36Z",
+      "side": 1,
+      "message": "Doesn\u0027t this change behavior? The old code would continue to find another plugin, and only accept a plugin if it yielded source files, no?",
+      "range": {
+        "startLine": 300,
+        "startChar": 8,
+        "endLine": 300,
+        "endChar": 20
+      },
+      "revId": "bc9c075476b514256fc9b44ed0bedaeb87c99b15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
