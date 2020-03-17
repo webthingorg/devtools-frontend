@@ -99,6 +99,9 @@ export class InspectorView extends VBox {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.ShowPanel, showPanel.bind(this));
 
+    /** @type {?Element} */
+    this._infoBarDiv = null;
+
     /**
      * @this {InspectorView}
      * @param {!Common.EventTarget.EventTargetEvent} event
@@ -182,6 +185,29 @@ export class InspectorView extends VBox {
     this._tabbedPane.setCurrentTabLocked(this._currentPanelLocked);
     this._tabbedPane.leftToolbar().setEnabled(!this._currentPanelLocked);
     this._tabbedPane.rightToolbar().setEnabled(!this._currentPanelLocked);
+  }
+
+  /**
+   * @param {String} newThemeName
+   */
+  onThemePreferenceChanged(newThemeName) {
+    if (!this._infoBarDiv) {
+      this._infoBarDiv = createElementWithClass('div', 'flex-none');
+      this.element.insertBefore(this._infoBarDiv, this.element.firstChild);
+
+      const themeChangedInfobar = self.UI.Infobar.create(
+          self.UI.Infobar.Type.Info,
+          Common.UIString.UIString('OS theme was changed, reload DevTools to apply the new theme immediately.'),
+          [{text: Common.UIString.UIString('Reload'), delegate: this.doResize, highlight: true, dismiss: true}]);
+
+      themeChangedInfobar.setCloseCallback(() => this._infoBarDiv = null);
+      themeChangedInfobar.createDetailsRowMessage(Common.UIString.UIString(
+          'Your new operating system theme preference will take effect the next time DevTools is reloaded.'));
+
+      this._infoBarDiv.appendChild(themeChangedInfobar.element);
+      themeChangedInfobar.setParentView(this);
+      this.doResize();
+    }
   }
 
   /**
