@@ -53,10 +53,11 @@ export class Settings {
     this._sessionStorage = new SettingsStorage({});
 
     this._eventSupport = new ObjectWrapper();
-    /** @type {!Map<string, !Setting>} */
+    /** @type {!Map<string, !Setting<*>>} */
     this._registry = new Map();
-    /** @type {!Map<string, !Setting>} */
+    /** @type {!Map<string, !Setting<*>>} */
     this._moduleSettings = new Map();
+    // @ts-ignore Needs runtime exported
     self.runtime.extensions('setting').forEach(this._registerModuleSetting.bind(this));
   }
 
@@ -116,7 +117,7 @@ export class Settings {
 
   /**
    * @param {string} settingName
-   * @return {!Setting}
+   * @return {!Setting<*>}
    */
   moduleSetting(settingName) {
     const setting = this._moduleSettings.get(settingName);
@@ -128,7 +129,7 @@ export class Settings {
 
   /**
    * @param {string} settingName
-   * @return {!Setting}
+   * @return {!Setting<*>}
    */
   settingForTest(settingName) {
     const setting = this._registry.get(settingName);
@@ -142,20 +143,20 @@ export class Settings {
    * @param {string} key
    * @param {*} defaultValue
    * @param {!SettingStorageType=} storageType
-   * @return {!Setting}
+   * @return {!Setting<*>}
    */
   createSetting(key, defaultValue, storageType) {
     const storage = this._storageFromType(storageType);
     if (!this._registry.get(key)) {
       this._registry.set(key, new Setting(this, key, defaultValue, this._eventSupport, storage));
     }
-    return /** @type {!Setting} */ (this._registry.get(key));
+    return /** @type {!Setting<*>} */ (this._registry.get(key));
   }
 
   /**
    * @param {string} key
    * @param {*} defaultValue
-   * @return {!Setting}
+   * @return {!Setting<*>}
    */
   createLocalSetting(key, defaultValue) {
     return this.createSetting(key, defaultValue, SettingStorageType.Local);
@@ -207,10 +208,10 @@ export class Settings {
  */
 export class SettingsStorage {
   /**
-   * @param {!Object} object
+   * @param {!Object<string,string>} object
    * @param {function(string, string)=} setCallback
    * @param {function(string)=} removeCallback
-   * @param {function(string)=} removeAllCallback
+   * @param {function(string=)=} removeAllCallback
    * @param {string=} storagePrefix
    */
   constructor(object, setCallback, removeCallback, removeAllCallback, storagePrefix) {
@@ -266,12 +267,18 @@ export class SettingsStorage {
   _dumpSizes() {
     Console.instance().log('Ten largest settings: ');
 
+    /** @type {!Object<string,number>} */
+    // @ts-ignore __proto__ optimization
     const sizes = {__proto__: null};
     for (const key in this._object) {
       sizes[key] = this._object[key].length;
     }
     const keys = Object.keys(sizes);
 
+    /**
+     * @param {string} key1
+     * @param {string} key2
+     */
     function comparator(key1, key2) {
       return sizes[key2] - sizes[key1];
     }
@@ -304,11 +311,12 @@ export class Setting {
     this._storage = storage;
     /** @type {string} */
     this._title = '';
+    /** @type {?Root.Runtime.Extension} */
     this._extension = null;
   }
 
   /**
-   * @param {function(!EventTargetEvent)} listener
+   * @param {function(!EventTargetEvent):void} listener
    * @param {!Object=} thisObject
    * @return {!EventDescriptor}
    */
@@ -317,7 +325,7 @@ export class Setting {
   }
 
   /**
-   * @param {function(!EventTargetEvent)} listener
+   * @param {function(!EventTargetEvent):void} listener
    * @param {!Object=} thisObject
    */
   removeChangeListener(listener, thisObject) {
@@ -420,6 +428,7 @@ export class Setting {
 
 /**
  * @unrestricted
+ * @extends Setting<*>
  */
 export class RegExpSetting extends Setting {
   /**
@@ -460,10 +469,11 @@ export class RegExpSetting extends Setting {
 
   /**
    * @override
+   * @suppress {checkTypes}
    * @param {string} value
    */
   set(value) {
-    this.setAsArray([{pattern: value}]);
+    this.setAsArray([{pattern: value, disabled: false}]);
   }
 
   /**
@@ -517,6 +527,7 @@ export class VersionController {
     }
     const methodsToRun = this._methodsToRunToUpdateVersion(oldVersion, currentVersion);
     for (let i = 0; i < methodsToRun.length; ++i) {
+      // @ts-ignore Special version method matching
       this[methodsToRun[i]].call(this);
     }
     versionSetting.set(currentVersion);
@@ -554,6 +565,7 @@ export class VersionController {
   }
 
   _updateVersionFrom4To5() {
+    /** @type {!Object<string,string>} */
     const settingNames = {
       'FileSystemViewSidebarWidth': 'fileSystemViewSplitViewState',
       'elementsSidebarWidth': 'elementsPanelSplitViewState',
@@ -580,6 +592,7 @@ export class VersionController {
       const newName = settingNames[oldName];
       const oldNameH = oldName + 'H';
 
+      /** @type {?Object<string,*>} */
       let newValue = null;
       const oldSetting = Settings.instance().createSetting(oldName, empty);
       if (oldSetting.get() !== empty) {
@@ -602,6 +615,7 @@ export class VersionController {
   }
 
   _updateVersionFrom5To6() {
+    /** @type {!Object<string,string>} */
     const settingNames = {
       'debuggerSidebarHidden': 'sourcesPanelSplitViewState',
       'navigatorHidden': 'sourcesPanelNavigatorSplitViewState',
@@ -704,6 +718,7 @@ export class VersionController {
     const newList = [];
     for (let i = 0; i < list.length; ++i) {
       const value = list[i];
+      /** @type {!Object<string,*>} */
       const device = {};
       device['title'] = value['title'];
       device['type'] = 'unknown';
@@ -747,6 +762,7 @@ export class VersionController {
   _updateVersionFrom14To15() {
     const setting = Settings.instance().createLocalSetting('workspaceExcludedFolders', {});
     const oldValue = setting.get();
+    /** @type {!Object<string,!Array<string>>} */
     const newValue = {};
     for (const fileSystemPath in oldValue) {
       newValue[fileSystemPath] = [];
@@ -788,6 +804,7 @@ export class VersionController {
   _updateVersionFrom17To18() {
     const setting = Settings.instance().createLocalSetting('workspaceExcludedFolders', {});
     const oldValue = setting.get();
+    /** @type {!Object<string,string>} */
     const newValue = {};
     for (const oldKey in oldValue) {
       let newKey = oldKey.replace(/\\/g, '/');
@@ -810,6 +827,7 @@ export class VersionController {
     visibleColumns.name = true;
     visibleColumns.timeline = true;
 
+    /** @type {!Object<string,{visible: number}>} */
     const configs = {};
     for (const columnId in visibleColumns) {
       if (!visibleColumns.hasOwnProperty(columnId)) {
@@ -831,7 +849,7 @@ export class VersionController {
 
   _updateVersionFrom20To21() {
     const networkColumns = Settings.instance().createSetting('networkLogColumns', {});
-    const columns = /** @type {!Object} */ (networkColumns.get());
+    const columns = /** @type {!Object<string,string>} */ (networkColumns.get());
     delete columns['timeline'];
     delete columns['waterfall'];
     networkColumns.set(columns);
@@ -970,12 +988,12 @@ export class VersionController {
       }
       const value = window.localStorage[key];
       window.localStorage.removeItem(key);
-      Settings.instance()._globalStorage[key] = value;
+      Settings.instance()._globalStorage.set(key, value);
     }
   }
 
   /**
-   * @param {!Setting} breakpointsSetting
+   * @param {!Setting<*>} breakpointsSetting
    * @param {number} maxBreakpointsCount
    */
   _clearBreakpointsWhenTooMany(breakpointsSetting, maxBreakpointsCount) {
@@ -998,7 +1016,7 @@ export const SettingStorageType = {
 
 /**
  * @param {string} settingName
- * @return {!Setting}
+ * @return {!Setting<*>}
  */
 export function moduleSetting(settingName) {
   return Settings.instance().moduleSetting(settingName);
@@ -1006,7 +1024,7 @@ export function moduleSetting(settingName) {
 
 /**
  * @param {string} settingName
- * @return {!Setting}
+ * @return {!Setting<*>}
  */
 export function settingForTest(settingName) {
   return Settings.instance().settingForTest(settingName);
