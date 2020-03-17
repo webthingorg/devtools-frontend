@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "109973b0_992585c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-17T11:50:26Z",
+      "side": 1,
+      "message": "This is problematic, as we have to treat `third_party` content as pristine, if we have downloaded/patched it from somewhere else.\n\nInstead, can we make these changes upstream and port them back to us?",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 60
+      },
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21abc97c_af79594c",
         "filename": "scripts/localizationV2/bakeCtcToDtl.js",
         "patchSetId": 4
@@ -13,6 +36,24 @@
       "writtenOn": "2020-03-16T20:24:38Z",
       "side": 1,
       "message": "Per Tim\u0027s comment in the other CL, the scripts might need to live under third_party directory\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2090459",
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ea12ef_33b5358e",
+        "filename": "scripts/localizationV2/bakeCtcToDtl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-17T11:50:26Z",
+      "side": 1,
+      "message": "You are correct. This needs to be in `third_party` (not `front_end/third_party`).",
+      "parentUuid": "21abc97c_af79594c",
       "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
