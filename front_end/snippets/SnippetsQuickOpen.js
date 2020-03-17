@@ -4,7 +4,7 @@
 
 import {evaluateScriptSnippet} from './ScriptSnippetFileSystem.js';
 
-export default class SnippetsQuickOpen extends QuickOpen.FilteredListWidget.Provider {
+export class SnippetsQuickOpen extends QuickOpen.FilteredListWidget.Provider {
   constructor() {
     super();
     /** @type {!Array<!Workspace.UISourceCode>} */

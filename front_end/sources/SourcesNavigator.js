@@ -249,9 +249,18 @@ export class SnippetsNavigatorView extends NavigatorView {
       ${UI.XLink.create('https://developers.google.com/web/tools/chrome-devtools/javascript/snippets', ls`Learn more`)}
     `);
 
+<<<<<<< HEAD   (ed0285 Console: fix no scroll bug in context selector)
     const toolbar = new UI.Toolbar('navigator-toolbar');
     const newButton = new UI.ToolbarButton('', 'largeicon-add', Common.UIString('New snippet'));
     newButton.addEventListener(UI.ToolbarButton.Events.Click, () => this.create(Snippets.project, ''));
+=======
+    const toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
+    const newButton =
+        new UI.Toolbar.ToolbarButton(ls`New snippet`, 'largeicon-add', Common.UIString.UIString('New snippet'));
+    newButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, event => {
+      this.create(self.Snippets.project, '');
+    });
+>>>>>>> CHANGE (046a8d Fix command menu items for snippets)
     toolbar.appendToolbarItem(newButton);
     this.contentElement.insertBefore(toolbar.element, this.contentElement.firstChild);
   }
