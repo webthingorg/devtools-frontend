@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b67a5ab_a4b3ee8a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-17T13:24:58Z",
+      "side": 1,
+      "message": "What is null signifying. Could we have a comment? Are users of this function prepared to get null?",
+      "range": {
+        "startLine": 207,
+        "startChar": 23,
+        "endLine": 207,
+        "endChar": 24
+      },
+      "revId": "fc66d4ea573839aaf71446e792390e992269f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6745c8c3_7fd64c62",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-17T13:24:58Z",
+      "side": 1,
+      "message": "nit: handle",
+      "range": {
+        "startLine": 72,
+        "startChar": 60,
+        "endLine": 72,
+        "endChar": 66
+      },
+      "revId": "fc66d4ea573839aaf71446e792390e992269f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "901a4098_9a3ab868",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-17T13:24:58Z",
+      "side": 1,
+      "message": "Is is possible to roll these changes in a separate CL? I think that is our policy.",
+      "range": {
+        "startLine": 2206,
+        "startChar": 39,
+        "endLine": 2210,
+        "endChar": 5
+      },
+      "revId": "fc66d4ea573839aaf71446e792390e992269f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd6a453e_9b506076",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-17T13:24:58Z",
+      "side": 1,
+      "message": "nit: Can\u0027t we use the constant from protocol?",
+      "range": {
+        "startLine": 125,
+        "startChar": 31,
+        "endLine": 125,
+        "endChar": 42
+      },
+      "revId": "fc66d4ea573839aaf71446e792390e992269f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
