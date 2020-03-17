@@ -29,7 +29,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
@@ -1738,14 +1737,25 @@ export function measureTextWidth(context, text) {
 
 /**
  * @unrestricted
+ * @extends {Common.ObjectWrapper.ObjectWrapper}
  */
-export class ThemeSupport {
+export class ThemeSupport extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Common.Settings.Setting} setting
    */
   constructor(setting) {
-    const systemPreferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-    this._themeName = setting.get() === 'systemPreferred' ? systemPreferredTheme : setting.get();
+    super();
+
+    if (setting.get() === 'systemPreferred') {
+      // Loading a new theme requires refreshing the entire page, so we don't remove
+      // our event listeners in this class.
+      const prefersColorSchemeMQL = window.matchMedia('(prefers-color-scheme: dark)');
+      this._themeName = prefersColorSchemeMQL.matches ? 'dark' : 'default';
+      prefersColorSchemeMQL.addListener(this._themePreferenceChanged.bind(this));
+    } else {
+      this._themeName = setting.get();
+    }
+
     this._themableProperties = new Set([
       'color', 'box-shadow', 'text-shadow', 'outline-color', 'background-image', 'background-color',
       'border-left-color', 'border-right-color', 'border-top-color', 'border-bottom-color', '-webkit-border-image',
@@ -1992,6 +2002,14 @@ export class ThemeSupport {
     hsla[2] = Platform.NumberUtilities.clamp(lit, 0, 1);
     hsla[3] = Platform.NumberUtilities.clamp(alpha, 0, 1);
   }
+
+  /**
+   * @param {!Event} e
+   */
+  _themePreferenceChanged(e) {
+    const newThemeName = e.matches ? 'dark' : 'default';
+    this.dispatchEventToListeners(Events.ThemePreferenceChanged, newThemeName);
+  }
 }
 
 /**
@@ -2001,6 +2019,11 @@ ThemeSupport.ColorUsage = {
   Unknown: 0,
   Foreground: 1 << 0,
   Background: 1 << 1,
+};
+
+/** @enum {symbol} */
+export const Events = {
+  ThemePreferenceChanged: Symbol('ThemePreferenceChanged'),
 };
 
 /**
