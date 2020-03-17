@@ -48,6 +48,9 @@
   <message name="IDS_DEVTOOLS_21e2320215eb46d452e7494f3dd1c798" desc="Text in the Shortcuts page to explain a keyboard shortcut (navigation in Styles pane)">
     Next/previous property
   </message>
+  <message name="IDS_DEVTOOLS_225c0fd9cf821aa445fa6c71e25c30f1" desc="Message to user when OS theme preference changes">
+    OS theme was changed, reload DevTools to apply the new theme immediately.
+  </message>
   <message name="IDS_DEVTOOLS_2c0924faed417c521b57d553c678ec21" desc="Text in the Shortcuts page to explain a keyboard shortcut (step into a function in debugger)">
     Step into
   </message>
@@ -90,6 +93,9 @@
   <message name="IDS_DEVTOOLS_45b471827af8ba9628e1914afbb13980" desc="Minutes format in UIUtils">
     <ph name="PH1">$1.1f<ex>2.2</ex></ph> min
   </message>
+  <message name="IDS_DEVTOOLS_475a0c0f8d016556aa7aa2a362c58db1" desc="Extended message explaining that themes will take effect on next load of DevTools">
+    Your new operating system theme preference will take effect the next time DevTools is reloaded.
+  </message>
   <message name="IDS_DEVTOOLS_47df0ee8f6dc4f553c907c49e686216c" desc="Title of a shortcuts category for Memory panel in Shortcut page ">
     Memory Panel
   </message>
@@ -104,6 +110,9 @@
   </message>
   <message name="IDS_DEVTOOLS_4c4306efb0e40e97e5f8693613b1fcfd" desc="Text in the Shortcuts page to explain a keyboard shortcut (go to matching bracket in text editor)">
     Go to matching bracket
+  </message>
+  <message name="IDS_DEVTOOLS_4d1c8263ba1036754f8db14a98f9f006" desc="Button to reload DevTools">
+    Reload
   </message>
   <message name="IDS_DEVTOOLS_4f348d8d1f134f0980102a4a6508cd5e" desc="Text in the Shortcuts page to explain a keyboard shortcut (Pan or rotate left/right in Layers Panel)">
     Pan or rotate left/right
