@@ -11354,6 +11354,14 @@ declare namespace Protocol {
        * JavaScript top stack frame of where the script parsed event was triggered if available.
        */
       stackTrace?: Runtime.StackTrace;
+      /**
+       * If the scriptLanguage is WebAssembly, the code section offset in the module
+       */
+      codeOffset?: integer;
+      /**
+       * The language of the script
+       */
+      scriptLanguage?: ('JavaScript'|'WebAssembly');
     }
 
     /**
@@ -11421,6 +11429,14 @@ declare namespace Protocol {
        * JavaScript top stack frame of where the script parsed event was triggered if available.
        */
       stackTrace?: Runtime.StackTrace;
+      /**
+       * If the scriptLanguage is WebAssembly, the code section offset in the module
+       */
+      codeOffset?: integer;
+      /**
+       * The language of the script
+       */
+      scriptLanguage?: ('JavaScript'|'WebAssembly');
     }
   }
 
