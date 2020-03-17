@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2985130_7cca2766",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T21:27:05Z",
+      "side": 1,
+      "message": "Nit: use guard statement to reduce indentation, e.g. if (this._infoBarDiv) { return; }",
+      "revId": "37c9efb17852d046979cdcaf388c7d18af92423b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d81ab025_0d2977d7",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T21:27:05Z",
+      "side": 1,
+      "message": "Nit: prefer ls`...` over Common.UIString.UIString(\u0027...\u0027). We\u0027ll use ls`...` moving forward with the Loc v2 effort.",
+      "revId": "37c9efb17852d046979cdcaf388c7d18af92423b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77bede05_8d5e489d",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T21:27:05Z",
+      "side": 1,
+      "message": "Consider packing arguments into a configuration object to avoid increasing number of arguments to the function.",
+      "revId": "37c9efb17852d046979cdcaf388c7d18af92423b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc82277a_8e55cd42",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-03-17T21:27:05Z",
+      "side": 1,
+      "message": "Could we remove this message if the user reverts the setting back to the previous setting?",
+      "revId": "37c9efb17852d046979cdcaf388c7d18af92423b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
