@@ -6,6 +6,8 @@ import("../../third_party/typescript/typescript.gni")
 
 ts_library("text_utils") {
   sources = [
+    "ContentProvider.js",
+    "StaticContentProvider.js",
     "Text.js",
     "TextCursor.js",
     "TextRange.js",
