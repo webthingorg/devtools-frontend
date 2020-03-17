@@ -57,6 +57,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
     this._breakpointByStorageId = new Map();
 
     this._workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this._uiSourceCodeAdded, this);
+    this._workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this._uiSourceCodeRemoved, this);
   }
 
   /**
@@ -101,11 +102,20 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!{data:!Workspace.UISourceCode.UISourceCode}} event
    */
   _uiSourceCodeAdded(event) {
-    const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
+    const uiSourceCode = event.data;
     this._restoreBreakpoints(uiSourceCode);
+  }
+
+  /**
+   * @param {!{data:!Workspace.UISourceCode.UISourceCode}} event
+   */
+  _uiSourceCodeRemoved(event) {
+    const uiSourceCode = event.data;
+    const breakpoints = this.breakpointLocationsForUISourceCode(uiSourceCode);
+    breakpoints.forEach(bp => bp.breakpoint.removeUISourceCode(uiSourceCode));
   }
 
   /**
@@ -310,16 +320,17 @@ export class Breakpoint {
     this._lineNumber = lineNumber;
     this._columnNumber = columnNumber;
 
-    /** @type {?Workspace.UISourceCode.UILocation} */
-    this._defaultUILocation = null;
     /** @type {!Set<!Workspace.UISourceCode.UILocation>} */
-    this._uiLocations = new Set();
+    this._uiLocations = new Set();  // Bound locations
+    /** @type {!Set<!Workspace.UISourceCode.UISourceCode>} */
+    this._uiSourceCodes = new Set();  // All known UISourceCodes with this url
 
     /** @type {string} */ this._condition;
     /** @type {boolean} */ this._enabled;
     /** @type {boolean} */ this._isRemoved;
 
     this._currentState = null;
+
     /** @type {!Map.<!SDK.DebuggerModel.DebuggerModel, !ModelBreakpoint>}*/
     this._modelBreakpoints = new Map();
     this._updateState(condition, enabled);
@@ -358,16 +369,49 @@ export class Breakpoint {
    * @param {?Workspace.UISourceCode.UISourceCode} primaryUISourceCode
    */
   setPrimaryUISourceCode(primaryUISourceCode) {
-    if (this._uiLocations.size === 0 && this._defaultUILocation) {
-      this._breakpointManager._uiLocationRemoved(this, this._defaultUILocation);
+    if (!this._isBound()) {
+      for (const uiSourceCode of this._uiSourceCodes) {
+        this._breakpointManager._uiLocationRemoved(this, this._defaultUILocation(uiSourceCode));
+      }
     }
     if (primaryUISourceCode) {
-      this._defaultUILocation = primaryUISourceCode.uiLocation(this._lineNumber, this._columnNumber);
+      this._uiSourceCodes.add(primaryUISourceCode);
+      if (!this._isBound() && !this._isRemoved) {
+        for (const uiSourceCode of this._uiSourceCodes) {
+          this._breakpointManager._uiLocationAdded(this, this._defaultUILocation(uiSourceCode));
+        }
+      }
     } else {
-      this._defaultUILocation = null;
+      this._uiSourceCodes.clear();
     }
-    if (this._uiLocations.size === 0 && this._defaultUILocation && !this._isRemoved) {
-      this._breakpointManager._uiLocationAdded(this, this._defaultUILocation);
+  }
+
+  /**
+   * @param {Workspace.UISourceCode.UISourceCode} uiSourceCode
+   */
+  removeUISourceCode(uiSourceCode) {
+    if (this._uiSourceCodes.has(uiSourceCode)) {
+      this._uiSourceCodes.delete(uiSourceCode);
+      if (!this._isBound()) {
+        this._breakpointManager._uiLocationRemoved(this, this._defaultUILocation(uiSourceCode));
+      }
+    }
+
+    // Do we need to do this? Not sure if bound locations will leak...
+    if (this._isBound()) {
+      for (const uiLocation of this._uiLocations) {
+        if (uiLocation.uiSourceCode === uiSourceCode) {
+          this._uiLocations.delete(uiLocation);
+          this._breakpointManager._uiLocationRemoved(this, uiLocation);
+        }
+      }
+
+      if (!this._isBound() && !this._isRemoved) {
+        // Switch to unbound locations
+        for (const sourceCode of this._uiSourceCodes) {
+          this._breakpointManager._uiLocationAdded(this, this._defaultUILocation(sourceCode));
+        }
+      }
     }
   }
 
@@ -399,8 +443,11 @@ export class Breakpoint {
     if (this._isRemoved) {
       return;
     }
-    if (this._uiLocations.size === 0 && this._defaultUILocation) {
-      this._breakpointManager._uiLocationRemoved(this, this._defaultUILocation);
+    if (!this._isBound()) {
+      // This is our first bound location; remove all unbound locations
+      for (const uiSourceCode of this._uiSourceCodes) {
+        this._breakpointManager._uiLocationRemoved(this, this._defaultUILocation(uiSourceCode));
+      }
     }
     this._uiLocations.add(uiLocation);
     this._breakpointManager._uiLocationAdded(this, uiLocation);
@@ -410,10 +457,14 @@ export class Breakpoint {
    * @param {!Workspace.UISourceCode.UILocation} uiLocation
    */
   _uiLocationRemoved(uiLocation) {
-    this._uiLocations.delete(uiLocation);
-    this._breakpointManager._uiLocationRemoved(this, uiLocation);
-    if (this._uiLocations.size === 0 && this._defaultUILocation && !this._isRemoved) {
-      this._breakpointManager._uiLocationAdded(this, this._defaultUILocation);
+    if (this._uiLocations.has(uiLocation)) {
+      this._uiLocations.delete(uiLocation);
+      this._breakpointManager._uiLocationRemoved(this, uiLocation);
+      if (!this._isBound() && !this._isRemoved) {
+        for (const uiSourceCode of this._uiSourceCodes) {
+          this._breakpointManager._uiLocationAdded(this, this._defaultUILocation(uiSourceCode));
+        }
+      }
     }
   }
 
@@ -460,11 +511,15 @@ export class Breakpoint {
   }
 
   _updateBreakpoint() {
-    if (this._uiLocations.size === 0 && this._defaultUILocation) {
-      this._breakpointManager._uiLocationRemoved(this, this._defaultUILocation);
-    }
-    if (this._uiLocations.size === 0 && this._defaultUILocation && !this._isRemoved) {
-      this._breakpointManager._uiLocationAdded(this, this._defaultUILocation);
+    if (!this._isBound()) {
+      for (const uiSourceCode of this._uiSourceCodes) {
+        this._breakpointManager._uiLocationRemoved(this, this._defaultUILocation(uiSourceCode));
+      }
+      if (!this._isRemoved) {
+        for (const uiSourceCode of this._uiSourceCodes) {
+          this._breakpointManager._uiLocationAdded(this, this._defaultUILocation(uiSourceCode));
+        }
+      }
     }
     for (const modelBreakpoint of this._modelBreakpoints.values()) {
       modelBreakpoint._scheduleUpdateInDebugger();
@@ -499,6 +554,21 @@ export class Breakpoint {
     for (const modelBreakpoint of this._modelBreakpoints.values()) {
       modelBreakpoint._resetLocations();
     }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _isBound() {
+    return this._uiLocations.size !== 0;
+  }
+
+  /**
+   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
+   * @return {!Workspace.UISourceCode.UILocation}
+   */
+  _defaultUILocation(uiSourceCode) {
+    return uiSourceCode.uiLocation(this._lineNumber, this._columnNumber);
   }
 }
 
@@ -564,13 +634,13 @@ export class ModelBreakpoint {
    * @return {boolean}
    */
   _scriptDiverged() {
-    const uiLocation = this._breakpoint._defaultUILocation;
-    const uiSourceCode = uiLocation ? uiLocation.uiSourceCode : null;
-    if (!uiSourceCode) {
-      return false;
+    for (const uiSourceCode of this._breakpoint._uiSourceCodes) {
+      const scriptFile = this._debuggerWorkspaceBinding.scriptFile(uiSourceCode, this._debuggerModel);
+      if (scriptFile && scriptFile.hasDivergedFromVM()) {
+        return true;
+      }
     }
-    const scriptFile = this._debuggerWorkspaceBinding.scriptFile(uiSourceCode, this._debuggerModel);
-    return !!scriptFile && scriptFile.hasDivergedFromVM();
+    return false;
   }
 
   /**
@@ -584,17 +654,18 @@ export class ModelBreakpoint {
       return;
     }
 
-    const uiLocation = this._breakpoint._defaultUILocation;
-    const uiSourceCode = uiLocation ? uiLocation.uiSourceCode : null;
     const lineNumber = this._breakpoint._lineNumber;
     const columnNumber = this._breakpoint._columnNumber;
     const condition = this._breakpoint.condition();
 
     let debuggerLocation = null;
-    if (uiSourceCode) {
+    for (const uiSourceCode of this._breakpoint._uiSourceCodes) {
       const locations =
           await self.Bindings.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
       debuggerLocation = locations.find(location => location.debuggerModel === this._debuggerModel);
+      if (debuggerLocation) {
+        break;
+      }
     }
     let newState;
     if (this._breakpoint._isRemoved || !this._breakpoint.enabled() || this._scriptDiverged()) {
@@ -611,8 +682,8 @@ export class ModelBreakpoint {
     } else if (this._breakpoint._currentState && this._breakpoint._currentState.url) {
       const position = this._breakpoint._currentState;
       newState = new Breakpoint.State(position.url, null, null, position.lineNumber, position.columnNumber, condition);
-    } else if (uiSourceCode) {
-      newState = new Breakpoint.State(uiSourceCode.url(), null, null, lineNumber, columnNumber, condition);
+    } else if (this._breakpoint._uiSourceCodes.size > 0) {  // Uncertain if this condition is necessary
+      newState = new Breakpoint.State(this._breakpoint.url(), null, null, lineNumber, columnNumber, condition);
     }
     if (this._debuggerId && Breakpoint.State.equals(newState, this._currentState)) {
       callback();
@@ -713,14 +784,7 @@ export class ModelBreakpoint {
     if (oldUILocation) {
       this._breakpoint._uiLocationRemoved(oldUILocation);
     }
-    let uiLocation = liveLocation.uiLocation();
-
-    if (uiLocation) {
-      const breakpointLocation = this._breakpoint._breakpointManager.findBreakpoint(uiLocation);
-      if (breakpointLocation && breakpointLocation.uiLocation !== breakpointLocation.breakpoint._defaultUILocation) {
-        uiLocation = null;
-      }
-    }
+    const uiLocation = liveLocation.uiLocation();
 
     if (uiLocation) {
       this._uiLocations.set(liveLocation, uiLocation);
