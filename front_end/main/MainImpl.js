@@ -201,7 +201,8 @@ export class MainImpl {
 
     const themeSetting = Common.Settings.Settings.instance().createSetting('uiTheme', 'systemPreferred');
     UI.UIUtils.initializeUIUtils(document, themeSetting);
-    themeSetting.addChangeListener(Components.Reload.reload.bind(Components));
+    self.UI.themeSupport.addEventListener(
+        UI.UIUtils.Events.ThemePreferenceChanged, this._onThemePreferenceChanged.bind(this), this);
 
     UI.UIUtils.installComponentRootStyles(/** @type {!Element} */ (document.body));
 
@@ -505,6 +506,13 @@ export class MainImpl {
   _onSuspendStateChanged() {
     const suspended = SDK.SDKModel.TargetManager.instance().allTargetsSuspended();
     self.UI.inspectorView.onSuspendStateChanged(suspended);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} newThemeName
+   */
+  _onThemePreferenceChanged(newThemeName) {
+    // self.UI.inspectorView.onThemePreferenceChanged(newThemeName.data);
   }
 }
 
