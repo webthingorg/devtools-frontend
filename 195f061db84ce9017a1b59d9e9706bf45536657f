@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe2cfd07_d0cbcbde",
+        "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-17T04:23:53Z",
+      "side": 1,
+      "message": "Not a fan of append returning the appended reference. Instead, can we extend AXBreadcrumb to have a way to return its last child?",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 29
+      },
+      "revId": "195f061db84ce9017a1b59d9e9706bf45536657f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa335719_84dae545",
+        "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-17T04:23:53Z",
+      "side": 1,
+      "message": "Nit: you can simply return this expression. No need to explicitly return `true` or `false`",
+      "range": {
+        "startLine": 430,
+        "startChar": 7,
+        "endLine": 430,
+        "endChar": 33
+      },
+      "revId": "195f061db84ce9017a1b59d9e9706bf45536657f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
