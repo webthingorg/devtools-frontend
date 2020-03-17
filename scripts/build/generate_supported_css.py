@@ -94,6 +94,10 @@ def properties_from_file(file_name):
 
 properties, property_values, aliases_for = properties_from_file(READ_LOCATION)
 with open(GENERATED_LOCATION, "w+") as f:
+    f.write('// Copyright 2020 The Chromium Authors. All rights reserved.\n')
+    f.write('// Use of this source code is governed by a BSD-style license that can be\n')
+    f.write('// found in the LICENSE file.\n')
+    f.write('\n')
     f.write("export const generatedProperties = %s;\n" % json.dumps(properties))
     # sort keys to ensure entries are generated in a deterministic way to avoid inconsistencies across different OS
     f.write("export const generatedPropertyValues = %s;\n" % json.dumps(property_values, sort_keys=True))

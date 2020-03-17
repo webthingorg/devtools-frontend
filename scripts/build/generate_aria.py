@@ -24,4 +24,8 @@ def properties_from_file(file_name):
 
 ARIA_PROPERTIES = properties_from_file(READ_LOCATION)
 with open(GENERATED_LOCATION, "w+") as f:
+    f.write('// Copyright 2020 The Chromium Authors. All rights reserved.\n')
+    f.write('// Use of this source code is governed by a BSD-style license that can be\n')
+    f.write('// found in the LICENSE file.\n')
+    f.write('\n')
     f.write("export const config = %s;\n" % json.dumps(ARIA_PROPERTIES))
