@@ -34,6 +34,7 @@ import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as ProtocolModule from '../protocol/protocol.js';  // eslint-disable-line no-unused-vars
+import * as Root from '../root/root.js';                    // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
@@ -718,7 +719,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!ExtensionDescriptor} extensionInfo
+   * @param {*} extensionInfo
    * @suppressGlobalPropertiesCheck
    */
   _addExtension(extensionInfo) {
@@ -736,7 +737,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
       if (!this._registeredExtensions[extensionOrigin]) {
         // See ExtensionAPI.js for details.
         const injectedAPI = self.buildExtensionAPIInjectedScript(
-            extensionInfo, this._inspectedTabId, self.UI.themeSupport.themeName(),
+            /** @type {!ExtensionDescriptor} */ (extensionInfo), this._inspectedTabId, self.UI.themeSupport.themeName(),
             self.UI.shortcutRegistry.globalShortcutKeys(), self.Extensions.extensionServer['_extensionAPITestHook']);
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.setInjectedScriptForOrigin(
             extensionOrigin, injectedAPI);
