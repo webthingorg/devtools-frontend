@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../common/common.js';
+import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
 
 import {ActionDelegate as ActionDelegateInterface} from './ActionDelegate.js';  // eslint-disable-line no-unused-vars
@@ -98,6 +99,9 @@ export class InspectorView extends VBox {
     this._keyDownBound = this._keyDown.bind(this);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.ShowPanel, showPanel.bind(this));
+
+    /** @type {?Element} */
+    this._infoBarDiv = null;
 
     /**
      * @this {InspectorView}
@@ -182,6 +186,33 @@ export class InspectorView extends VBox {
     this._tabbedPane.setCurrentTabLocked(this._currentPanelLocked);
     this._tabbedPane.leftToolbar().setEnabled(!this._currentPanelLocked);
     this._tabbedPane.rightToolbar().setEnabled(!this._currentPanelLocked);
+  }
+
+  /**
+   * @param {?String} newThemeName
+   */
+  onThemePreferenceChanged(newThemeName) {
+    if (!this._infoBarDiv) {
+      this._infoBarDiv = createElementWithClass('div', 'flex-none');
+      this.element.insertBefore(this._infoBarDiv, this.element.firstChild);
+
+      const themeChangedInfobar = self.UI.Infobar.create(
+          self.UI.Infobar.Type.Info,
+          Common.UIString.UIString('OS theme was changed, reload DevTools to apply the new theme immediately.'), [{
+            text: Common.UIString.UIString('Reload'),
+            delegate: Components.Reload.reload,
+            highlight: true,
+            dismiss: true
+          }]);
+
+      themeChangedInfobar.setCloseCallback(() => this._infoBarDiv = null);
+      themeChangedInfobar.createDetailsRowMessage(Common.UIString.UIString(
+          'Your new operating system theme preference will take effect the next time DevTools is reloaded.'));
+
+      this._infoBarDiv.appendChild(themeChangedInfobar.element);
+      themeChangedInfobar.setParentView(this);
+      this.doResize();
+    }
   }
 
   /**
