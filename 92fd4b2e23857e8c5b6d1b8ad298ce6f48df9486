@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95e1c7af_48aa1178",
+        "filename": "front_end/lighthouse/LighthousePanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-18T09:22:13Z",
+      "side": 1,
+      "message": "is this now `self.Runtime` ? Trying to figure where this global comes from.",
+      "range": {
+        "startLine": 198,
+        "startChar": 25,
+        "endLine": 198,
+        "endChar": 35
+      },
+      "revId": "92fd4b2e23857e8c5b6d1b8ad298ce6f48df9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
