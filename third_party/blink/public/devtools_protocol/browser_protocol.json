@@ -18627,7 +18627,8 @@
                                 "number",
                                 "boolean",
                                 "symbol",
-                                "bigint"
+                                "bigint",
+                                "wasm"
                             ]
                         },
                         {
@@ -18652,7 +18653,12 @@
                                 "promise",
                                 "typedarray",
                                 "arraybuffer",
-                                "dataview"
+                                "dataview",
+                                "i32",
+                                "i64",
+                                "f32",
+                                "f64",
+                                "v128"
                             ]
                         },
                         {
