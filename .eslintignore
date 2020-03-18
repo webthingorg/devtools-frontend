@@ -16,6 +16,7 @@ front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 front_end/third_party/
 test/e2e/**/*.js
 test/shared/**/*.js
+test/unittests/scripts/component_bridges/gen/*
 test/**/fixtures/
 scripts/jsdoc_validator/tests/
 scripts/migration/**/*.js
