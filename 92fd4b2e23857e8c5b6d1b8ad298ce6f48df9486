@@ -22,6 +22,30 @@
       "revId": "92fd4b2e23857e8c5b6d1b8ad298ce6f48df9486",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48b80870_ca4878e8",
+        "filename": "front_end/lighthouse/LighthousePanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-18T11:32:09Z",
+      "side": 1,
+      "message": "Yes this is the global defined in `RuntimeInstantiator.js`",
+      "parentUuid": "95e1c7af_48aa1178",
+      "range": {
+        "startLine": 198,
+        "startChar": 25,
+        "endLine": 198,
+        "endChar": 35
+      },
+      "revId": "92fd4b2e23857e8c5b6d1b8ad298ce6f48df9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
