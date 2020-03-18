@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "00bf0ece_f63c0852",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-18T22:47:21Z",
+      "side": 1,
+      "message": "Tim and Peter, thanks for the feedback. We will reach out to the legal team to get a green light on customized i18n and scripts, continue the migration if we do get the approval, also work with Lighthouse team to modify their scripts and make those work for both Lighthouse and DevTools.",
+      "parentUuid": "b2cc675a_377669ca",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 60
+      },
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21abc97c_af79594c",
         "filename": "scripts/localizationV2/bakeCtcToDtl.js",
         "patchSetId": 4
