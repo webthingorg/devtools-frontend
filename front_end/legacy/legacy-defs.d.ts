@@ -17,6 +17,7 @@ interface Array<T> {
 type ITemplateArray = TemplateStringsArray
 
 interface String {
+  removeURLFragment(): string;
   trimEndWithMaxLength(maxLength: number): string;
 }
 

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';  // eslint-disable-line no-unused-vars
 
 /**
  * @unrestricted
@@ -10,7 +11,7 @@ import * as Common from '../common/common.js';
 export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Window} window
-   * @param {!InspectorFrontendHostAPI} frontendHost
+   * @param {!Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI} frontendHost
    */
   constructor(window, frontendHost) {
     super();

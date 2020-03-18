@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// @ts-nocheck
+
 import * as Common from '../common/common.js';
 
 import {InspectorFrontendHostInstance} from './InspectorFrontendHost.js';
@@ -46,12 +48,13 @@ export const streamWrite = function(id, chunk) {
     urlValid: (boolean|undefined),
     message: (string|undefined)
 }} */
+// @ts-ignore typedef.
 export let LoadErrorDescription;
 
 /**
  * @param {string} url
  * @param {?Object.<string, string>} headers
- * @param {function(boolean, !Object.<string, string>, string, !LoadErrorDescription)} callback
+ * @param {function(boolean, !Object.<string, string>, string, !LoadErrorDescription):void} callback
  */
 export let load = function(url, headers, callback) {
   const stream = new Common.StringOutputStream.StringOutputStream();
