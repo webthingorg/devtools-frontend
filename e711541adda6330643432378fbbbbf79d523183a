@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e250c50f_c2b4d0a8",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "This does affect unbound breakpoints, but I didn\u0027t add anything to trigger BreakpointManager to clean them up when no more UISourceCodes remain, maybe it does? I added this so that Breakpoints don\u0027t accumulate UISourceCodes over time and cause them to leak.",
+      "parentUuid": "c45c7811_8b7e82f7",
+      "range": {
+        "startLine": 60,
+        "startChar": 37,
+        "endLine": 60,
+        "endChar": 83
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "364d6e45_8f45ad24",
         "filename": "front_end/bindings/BreakpointManager.js",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d714534f_fe060fce",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "364d6e45_8f45ad24",
+      "range": {
+        "startLine": 113,
+        "startChar": 12,
+        "endLine": 113,
+        "endChar": 50
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e735d23_05646bf2",
         "filename": "front_end/bindings/BreakpointManager.js",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2020-03-18T06:55:33Z",
       "side": 1,
       "message": "Could we document this method what \"primary source code\" means and what its intention is?",
+      "range": {
+        "startLine": 371,
+        "startChar": 2,
+        "endLine": 371,
+        "endChar": 24
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3a2879f_863b5955",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "Hope this is clearer?",
+      "parentUuid": "3e735d23_05646bf2",
       "range": {
         "startLine": 371,
         "startChar": 2,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d793b1ea_37eba370",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "Because we triggered remove for all of them above. But that may be unnecessary.",
+      "parentUuid": "6a4959db_4124fa50",
+      "range": {
+        "startLine": 380,
+        "startChar": 8,
+        "endLine": 380,
+        "endChar": 57
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22e4cd0d_4268e0e6",
         "filename": "front_end/bindings/BreakpointManager.js",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "e711541adda6330643432378fbbbbf79d523183a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6a38747_1d94cc08",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22e4cd0d_4268e0e6",
+      "range": {
+        "startLine": 385,
+        "startChar": 6,
+        "endLine": 385,
+        "endChar": 33
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "51e15b77_669df7a0",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d3247a8_13568205",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 9
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab076908_8b3a5096",
         "filename": "front_end/sources/TabbedEditorContainer.js",
         "patchSetId": 2
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "b5a1c210_c7147fd0",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab076908_8b3a5096",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 5
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b1b8a27_4901ea1f",
         "filename": "test/e2e/sources/script-in-multiple-workers.ts",
         "patchSetId": 2
@@ -183,6 +351,30 @@
       "revId": "e711541adda6330643432378fbbbbf79d523183a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aa3a019_e7920a38",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-18T16:14:54Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "7b1b8a27_4901ea1f",
+      "range": {
+        "startLine": 19,
+        "startChar": 41,
+        "endLine": 19,
+        "endChar": 76
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
