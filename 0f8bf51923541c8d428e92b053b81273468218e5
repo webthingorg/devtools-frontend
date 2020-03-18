@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42767656_d368a8e6",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-18T17:44:03Z",
+      "side": 1,
+      "message": "do we need to update the ts_library to include this in the tsconfig.json things so VSCode is happy? Or will it find it OK as it\u0027s in node_modules/@types ?",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 62
+      },
+      "revId": "0f8bf51923541c8d428e92b053b81273468218e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
