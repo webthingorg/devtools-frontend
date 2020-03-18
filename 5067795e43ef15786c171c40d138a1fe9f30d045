@@ -16,6 +16,24 @@
       "revId": "5067795e43ef15786c171c40d138a1fe9f30d045",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0934afc4_e71f58d3",
+        "filename": "front_end/changes/changesSidebar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-18T21:55:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5bbfca3_7c53ed39",
+      "revId": "5067795e43ef15786c171c40d138a1fe9f30d045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
