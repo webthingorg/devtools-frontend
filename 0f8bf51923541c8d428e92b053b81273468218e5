@@ -22,6 +22,30 @@
       "revId": "0f8bf51923541c8d428e92b053b81273468218e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a2243cd_855f77f9",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-18T17:46:22Z",
+      "side": 1,
+      "message": "Technically we should update the tsconfig.json, but since it they are in `node_modules/@types` it is all working fine. The tsconfig.json is sometimes not completely correct, but only required to make VS Code happy. Let\u0027s keep this for now and check in later if we do need to clean it up.",
+      "parentUuid": "42767656_d368a8e6",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 62
+      },
+      "revId": "0f8bf51923541c8d428e92b053b81273468218e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
