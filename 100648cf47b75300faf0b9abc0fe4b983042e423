@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb1d39a6_0b2d71a5",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-18T20:49:26Z",
+      "side": 1,
+      "message": "What about a `(before: *, after: *) \u003d\u003e boolean` ? That might allow us to not specify that a reload is required after switching from system-preferred to dark if we\u0027re already on dark, for example.",
+      "revId": "100648cf47b75300faf0b9abc0fe4b983042e423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c308470_69835a4c",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-18T20:49:26Z",
+      "side": 1,
+      "message": "ls?\n\nAlso, I don\u0027t believe including a * inline here satisfies WCAG as it is considered an adornment.",
+      "revId": "100648cf47b75300faf0b9abc0fe4b983042e423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
