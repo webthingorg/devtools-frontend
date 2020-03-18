@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// @ts-nocheck
+
 import {Color, Format} from './Color.js';                            // eslint-disable-line no-unused-vars
 import {EventDescriptor, EventTargetEvent} from './EventTarget.js';  // eslint-disable-line no-unused-vars
 import {ObjectWrapper} from './Object.js';
@@ -53,9 +55,9 @@ export class Settings {
     this._sessionStorage = new SettingsStorage({});
 
     this._eventSupport = new ObjectWrapper();
-    /** @type {!Map<string, !Setting>} */
+    /** @type {!Map<string, !Setting<*>>} */
     this._registry = new Map();
-    /** @type {!Map<string, !Setting>} */
+    /** @type {!Map<string, !Setting<*>>} */
     this._moduleSettings = new Map();
     self.runtime.extensions('setting').forEach(this._registerModuleSetting.bind(this));
   }

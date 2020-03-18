@@ -28,10 +28,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// @ts-nocheck
+
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
 
-import {EventDescriptors, Events} from './InspectorFrontendHostAPI.js';
+import {ContextMenuDescriptor, EventDescriptors, Events, InspectorFrontendHostAPI, LoadNetworkResourceResult} from './InspectorFrontendHostAPI.js';  // eslint-disable-line no-unused-vars
 import {streamWrite as resourceLoaderStreamWrite} from './ResourceLoader.js';
 
 /**
@@ -105,7 +107,7 @@ export class InspectorFrontendHostStub {
   /**
    * @override
    * @param {boolean} isDocked
-   * @param {function()} callback
+   * @param {function():void} callback
    */
   setIsDocked(isDocked, callback) {
     setTimeout(callback, 0);
@@ -205,8 +207,10 @@ export class InspectorFrontendHostStub {
    */
   append(url, content) {
     const buffer = this._urlsBeingSaved.get(url);
-    buffer.push(content);
-    this.events.dispatchEventToListeners(Events.AppendedToURL, url);
+    if (buffer) {
+      buffer.push(content);
+      this.events.dispatchEventToListeners(Events.AppendedToURL, url);
+    }
   }
 
   /**
@@ -214,7 +218,7 @@ export class InspectorFrontendHostStub {
    * @param {string} url
    */
   close(url) {
-    const buffer = this._urlsBeingSaved.get(url);
+    const buffer = this._urlsBeingSaved.get(url) || [];
     this._urlsBeingSaved.delete(url);
     const fileName = url ? Platform.StringUtilities.trimURL(url).removeURLFragment() : '';
     const link = createElement('a');
@@ -291,7 +295,7 @@ export class InspectorFrontendHostStub {
    * @param {string} url
    * @param {string} headers
    * @param {number} streamId
-   * @param {function(!InspectorFrontendHostAPI.LoadNetworkResourceResult)} callback
+   * @param {function(!LoadNetworkResourceResult):void} callback
    */
   loadNetworkResource(url, headers, streamId, callback) {
     Root.Runtime.loadResourcePromise(url)
@@ -306,7 +310,7 @@ export class InspectorFrontendHostStub {
 
   /**
    * @override
-   * @param {function(!Object<string, string>)} callback
+   * @param {function(!Object<string, string>):void} callback
    */
   getPreferences(callback) {
     const prefs = {};
@@ -485,7 +489,7 @@ export class InspectorFrontendHostStub {
    * @override
    * @param {number} x
    * @param {number} y
-   * @param {!Array.<!InspectorFrontendHostAPI.ContextMenuDescriptor>} items
+   * @param {!Array.<!ContextMenuDescriptor>} items
    * @param {!Document} document
    */
   showContextMenuAtPoint(x, y, items, document) {
@@ -502,7 +506,7 @@ export class InspectorFrontendHostStub {
 
   /**
    * @override
-   * @param {function(!ExtensionDescriptor)} callback
+   * @param {function(!ExtensionDescriptor):void} callback
    */
   setAddExtensionCallback(callback) {
     // Extensions are not supported in hosted mode.
