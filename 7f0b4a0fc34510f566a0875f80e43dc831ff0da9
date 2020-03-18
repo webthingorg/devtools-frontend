@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ef87087_710c893b",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-18T09:27:44Z",
+      "side": 1,
+      "message": "I guess _lineMap will only be set if isWasm is true?",
+      "range": {
+        "startLine": 132,
+        "startChar": 11,
+        "endLine": 132,
+        "endChar": 48
+      },
+      "revId": "7f0b4a0fc34510f566a0875f80e43dc831ff0da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

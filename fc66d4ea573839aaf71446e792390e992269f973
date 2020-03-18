@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "197a5af4_100b8579",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-18T09:27:44Z",
+      "side": 1,
+      "message": "I\u0027ve looked at the call site and null seems to be dealt with there. A comment in the code would still have been good.",
+      "parentUuid": "f5978e20_89b948f2",
+      "range": {
+        "startLine": 207,
+        "startChar": 23,
+        "endLine": 207,
+        "endChar": 24
+      },
+      "revId": "fc66d4ea573839aaf71446e792390e992269f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6745c8c3_7fd64c62",
         "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
         "patchSetId": 6
