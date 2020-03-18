@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "b2cc675a_377669ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-18T15:09:55Z",
+      "side": 1,
+      "message": "The context of option 3 in that thread was not clear to me at the time of reading. It was my understanding that the bundle was created by the LightHouse team and not customized, but I know realize that is not the case.\n\nIn any case, before we include any custom patch I recommend you reaching out to third-party legal for approval. If they give the greenlight, no issues from my side 😊",
+      "parentUuid": "8be9038d_d60b750f",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 60
+      },
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21abc97c_af79594c",
         "filename": "scripts/localizationV2/bakeCtcToDtl.js",
         "patchSetId": 4
