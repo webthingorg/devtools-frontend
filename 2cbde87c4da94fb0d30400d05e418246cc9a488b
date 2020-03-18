@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd629c2a_9f67b56f",
+        "filename": "front_end/host/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T18:18:42Z",
+      "side": 1,
+      "message": "nit: 2020",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "2cbde87c4da94fb0d30400d05e418246cc9a488b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6155431e_607992cc",
+        "filename": "front_end/host/InspectorFrontendHostAPI.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T18:18:42Z",
+      "side": 1,
+      "message": "Couldn\u0027t we use this typedef in front_end/extensions/ExtensionServer.js?\n\nSidenote: I just put it here. No idea where the right place for ExtensionDescriptor is, but probably somewhere in front_end/extensions",
+      "range": {
+        "startLine": 402,
+        "startChar": 11,
+        "endLine": 402,
+        "endChar": 30
+      },
+      "revId": "2cbde87c4da94fb0d30400d05e418246cc9a488b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dc1028d_751d1e9c",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T18:18:42Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be more \"typesafe\" to make {panelName} non-nullable? We are basically doing a reinterpret_cast here.",
+      "range": {
+        "startLine": 109,
+        "startChar": 28,
+        "endLine": 109,
+        "endChar": 62
+      },
+      "revId": "2cbde87c4da94fb0d30400d05e418246cc9a488b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
