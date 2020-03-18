@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8be9038d_d60b750f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-18T15:05:12Z",
+      "side": 1,
+      "message": "Tim, this is different to what we discussed and agreed on in this thread: https://groups.google.com/a/chromium.org/forum/#!topic/devtools-dev/LLq_VgPwsUs\n\nI don\u0027t think it\u0027s true that you can\u0027t modify code in third_party, e.g. in chromium we have a patched zlib: https://source.chromium.org/chromium/chromium/src/+/master:third_party/zlib/ (see patches folder and README explaining the patches). I don\u0027t know if the explicit patches setup is required, or if it\u0027s just convenient when you need to bump the zlib version.",
+      "parentUuid": "cd5e97dc_4a9a5e60",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 60
+      },
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21abc97c_af79594c",
         "filename": "scripts/localizationV2/bakeCtcToDtl.js",
         "patchSetId": 4
