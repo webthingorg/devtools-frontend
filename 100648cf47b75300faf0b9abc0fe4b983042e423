@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1622cbd1_e80f119c",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-03-18T23:50:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb1d39a6_0b2d71a5",
+      "revId": "100648cf47b75300faf0b9abc0fe4b983042e423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c308470_69835a4c",
         "filename": "front_end/ui/SettingsUI.js",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-18T20:49:26Z",
       "side": 1,
       "message": "ls?\n\nAlso, I don\u0027t believe including a * inline here satisfies WCAG as it is considered an adornment.",
+      "revId": "100648cf47b75300faf0b9abc0fe4b983042e423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd034cb3_bc860dcb",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-03-18T23:50:19Z",
+      "side": 1,
+      "message": "We use this paradigm in at least one other location - in the emulation page when changing touch. Once Amanda responds, I\u0027ll make sure both are consistent.",
+      "parentUuid": "5c308470_69835a4c",
       "revId": "100648cf47b75300faf0b9abc0fe4b983042e423",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
