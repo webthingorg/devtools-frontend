@@ -31,6 +31,7 @@
 
 
 import * as Common from '../common/common.js';
+import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 
@@ -1744,8 +1745,6 @@ export class ThemeSupport {
    * @param {!Common.Settings.Setting} setting
    */
   constructor(setting) {
-    const systemPreferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-    this._themeName = setting.get() === 'systemPreferred' ? systemPreferredTheme : setting.get();
     this._themableProperties = new Set([
       'color', 'box-shadow', 'text-shadow', 'outline-color', 'background-image', 'background-color',
       'border-left-color', 'border-right-color', 'border-top-color', 'border-bottom-color', '-webkit-border-image',
@@ -1755,6 +1754,33 @@ export class ThemeSupport {
     this._cachedThemePatches = new Map();
     this._setting = setting;
     this._customSheets = new Set();
+    this._setTheme();
+  }
+
+  /**
+   * Sets what theme should be used and adds listener on
+   * prefers-color-scheme changes if theme sets to systemPreferred.
+   *
+   * When theme change detected, the devtools will be reloaded to apply
+   * the new theme.
+   */
+  _setTheme() {
+    const darkThemeMediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+    const systemPreferredTheme = darkThemeMediaQueryList.matches ? 'dark' : 'default';
+    const themeSetting = this._setting.get();
+    if (themeSetting === 'systemPreferred') {
+      this._themeName = systemPreferredTheme;
+      // Listen on the media query changes and apply when changed.
+      // This will be similar to when you change theme from settings.
+      darkThemeMediaQueryList.onchange = mediaQuery => {
+        const updatedTheme = mediaQuery.matches ? 'dark' : 'default';
+        if (this._themeName !== updatedTheme) {
+          Components.Reload.reload();
+        }
+      };
+    } else {
+      this._themeName = themeSetting;
+    }
   }
 
   /**
