@@ -39,6 +39,8 @@ export class UserMetrics {
   constructor() {
     this._panelChangedSinceLaunch = false;
     this._firedLaunchHistogram = false;
+
+    /** @type {string|null} */
     this._launchPanelName = '';
   }
 
@@ -164,6 +166,7 @@ export const Action = {
   CoverageStartedPerBlock: 35,
 };
 
+/** @type {!Object<string, number>} */
 export const PanelCodes = {
   elements: 1,
   resources: 2,
@@ -196,7 +199,7 @@ export const PanelCodes = {
   'drawer-network.blocked-urls': 28,
 };
 
-/** @enum {number} */
+/** @type {!Object<string, number>} */
 export const KeyboardShortcutAction = {
   OtherShortcut: 0,
   'commandMenu.show': 1,
