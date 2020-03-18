@@ -22,6 +22,30 @@
       "revId": "7f0b4a0fc34510f566a0875f80e43dc831ff0da9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a46c81e_421f12df",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-18T09:53:05Z",
+      "side": 1,
+      "message": "Yes, but the opposite is not true. _lineMap is populated on a call to getWasmBytecode, which fetches the wasm bytecode from the backend and is quite expensive. So if _lineMap is false that\u0027s either because the script is not wasm or has no bytecode yet.",
+      "parentUuid": "2ef87087_710c893b",
+      "range": {
+        "startLine": 132,
+        "startChar": 11,
+        "endLine": 132,
+        "endChar": 48
+      },
+      "revId": "7f0b4a0fc34510f566a0875f80e43dc831ff0da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
