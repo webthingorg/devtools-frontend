@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5bbfca3_7c53ed39",
+        "filename": "front_end/changes/changesSidebar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-18T11:22:50Z",
+      "side": 1,
+      "message": "nit: space after @media",
+      "revId": "5067795e43ef15786c171c40d138a1fe9f30d045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
