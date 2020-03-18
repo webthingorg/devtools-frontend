@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c45c7811_8b7e82f7",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "Question: If we now also listen to UISourceCodeRemoved events and we remove UISourceCodes from the breakpoints, does this then trigger the breakpoint manager to cleanup breakpoints when there is a breakpoint with no UISourceCodes attached? Meaning are they no longer persisted across DevTools runs?\n\nOr does this then only affect \"bound\" UI source codes but not the actual unbound locations?",
+      "range": {
+        "startLine": 60,
+        "startChar": 37,
+        "endLine": 60,
+        "endChar": 83
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "364d6e45_8f45ad24",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "nit: {!{data:!Workspace.UISourceCode.UISourceCode}} then you don\u0027t need the inline @type below.",
+      "range": {
+        "startLine": 113,
+        "startChar": 12,
+        "endLine": 113,
+        "endChar": 50
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e735d23_05646bf2",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "Could we document this method what \"primary source code\" means and what its intention is?",
+      "range": {
+        "startLine": 371,
+        "startChar": 2,
+        "endLine": 371,
+        "endChar": 24
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a4959db_4124fa50",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "Question: why are we triggering uiLocationAdded for all UISourceCodes that are already associated with this breakpoint?",
+      "range": {
+        "startLine": 380,
+        "startChar": 8,
+        "endLine": 380,
+        "endChar": 57
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e4cd0d_4268e0e6",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "So calling setPrimarryUISourceCode(null) will clear out all source codes?\n\nI did a quick search for the caa-sites. Turns out all call sites know whether we pass in {null} for primaryUISourceCode or something thats guaranteed non-null. Since this method then does two things should we split it up? Extract the first part into a helper and have two smaller functions that have no param and a non-null primaryUISourceCode?",
+      "range": {
+        "startLine": 385,
+        "startChar": 6,
+        "endLine": 385,
+        "endChar": 33
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d3247a8_13568205",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "nit: both these for-loops\n\nfor (const uiSourceCode of this._uiSourceCodes) { \u003ccall add or remove on the manager\u003e }\n\nare heavily used now. Lets introduce two private helpers \"removeAllUISourceCodeLocations\" or \"triggerAllUILocationRemoved\" or similar.",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 9
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab076908_8b3a5096",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "nit: Maybe we could extract this into a helper \"deduplicateUISourceCodeByUrl\" or similar and reuse it in {addUISourceCode}?",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 5
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b1b8a27_4901ea1f",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-18T06:55:33Z",
+      "side": 1,
+      "message": "Just leaving a comment so we don\u0027t forget about this :)",
+      "range": {
+        "startLine": 19,
+        "startChar": 41,
+        "endLine": 19,
+        "endChar": 76
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
