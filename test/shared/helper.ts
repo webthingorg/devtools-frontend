@@ -135,12 +135,12 @@ export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
       return elements.find(element => element.matches(selector));
     }, selector);
     return element;
-  } catch (e) {
-    throw new Error(`Unable to find element for selector "${selector}": ${e.stack}`);
+  } catch (error) {
+    throw new Error(`Unable to find element for selector "${selector}": ${error.stack}`);
   }
 };
 
-// Get a multiple element handles, across Shadow DOM boundaries.
+// Get multiple element handles, across Shadow DOM boundaries.
 export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
   const frontend: puppeteer.Page = globalThis[frontEndPage];
   if (!frontend) {
