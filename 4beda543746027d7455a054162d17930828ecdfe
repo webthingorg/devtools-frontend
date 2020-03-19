@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ca977e3_f8bf21ce",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T15:00:16Z",
+      "side": 1,
+      "message": "Nit: this should be in `test/e2e/helpers/`. It probably makes sense to have a new helper file for this? What about \u0027settings-helpers.ts\u0027? Feel free to name it whatever makes sense.",
+      "range": {
+        "startLine": 249,
+        "startChar": 13,
+        "endLine": 249,
+        "endChar": 34
+      },
+      "revId": "4beda543746027d7455a054162d17930828ecdfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

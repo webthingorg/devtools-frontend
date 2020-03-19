@@ -117,6 +117,30 @@
       "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ccaa7f_b2fa4aeb",
+        "filename": "test/e2e/rendering/vision-deficiencies.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T15:00:16Z",
+      "side": 1,
+      "message": "I prefer to optimize for readability of the test. Then `const select \u003d await $(\u0027[aria-label\u003d\"Select Color Deficiency Emulation Mode\"]);` is more readable than the current traversal.\n\nI understand your concerns about duplication of ARIA information, which is why I am looking forward to Puppetaria or alike. However, for now I would like to optimize for readability.\n\nIf you want to keep it, that\u0027s okay, as the computation is still small enough. However, if it becomes more complicated I would incline on using descriptive selectors instead of DOM traversal.",
+      "parentUuid": "0d0651fd_c1939acb",
+      "range": {
+        "startLine": 40,
+        "startChar": 35,
+        "endLine": 40,
+        "endChar": 41
+      },
+      "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
