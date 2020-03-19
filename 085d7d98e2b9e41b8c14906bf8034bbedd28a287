@@ -34,6 +34,47 @@
       "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8c0b70b_87d6ae67",
+        "filename": "test/e2e/rendering/vision-deficiencies.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T14:25:53Z",
+      "side": 1,
+      "message": "In this case I would say that it should be in a helper from the get-go, so it would make sense to do it now. In general, everything in an e2e-test must be the \"what\", whereas in the helpers it should be the \"how\". Since this is dom-structure, I consider it \"how\" and thus should live in the helpers.\n\n(Yeah it\u0027s on the todolist to write this down in a guide, as we converge on patterns. The user-metrics test didn\u0027t use the pattern yet so it might make sense to update it now as well to prevent code duplication)",
+      "parentUuid": "979cab46_84a5c45d",
+      "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b1a9783_6697fcd5",
+        "filename": "test/e2e/rendering/vision-deficiencies.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T14:25:53Z",
+      "side": 1,
+      "message": "Nit: Can we give the select a descriptive name as well and select it with that? Something like `[aria-label\u003d\"Select Color Deficiency Emulation Mode\"]`?",
+      "range": {
+        "startLine": 40,
+        "startChar": 35,
+        "endLine": 40,
+        "endChar": 41
+      },
+      "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
