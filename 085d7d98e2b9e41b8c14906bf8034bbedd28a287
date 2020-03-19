@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "979cab46_84a5c45d",
+        "filename": "test/e2e/rendering/vision-deficiencies.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-19T14:19:38Z",
+      "side": 1,
+      "message": "Normally I’d do this as part of this CL (since this is now duplicated between user-metrics.ts and this test) but I know Tim prefers separate changes. Let me know what you think.",
+      "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
