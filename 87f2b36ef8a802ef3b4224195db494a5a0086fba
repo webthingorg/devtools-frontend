@@ -22,6 +22,30 @@
       "revId": "87f2b36ef8a802ef3b4224195db494a5a0086fba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a92055b_e6052784",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-19T13:57:40Z",
+      "side": 1,
+      "message": "Yeah the whole idea that this is a \u0027stop\u0027 button isn\u0027t really true. I passed 2 extra config options to the constructor now, to configure the button when it\u0027s really a \u0027close\u0027 button and not a stop button. I renamed the bits that call it a stop button too.",
+      "parentUuid": "f7d1a93d_e92da95a",
+      "range": {
+        "startLine": 611,
+        "startChar": 21,
+        "endLine": 611,
+        "endChar": 45
+      },
+      "revId": "87f2b36ef8a802ef3b4224195db494a5a0086fba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
