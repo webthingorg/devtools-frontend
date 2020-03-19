@@ -141,6 +141,30 @@
       "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "351e79aa_572c8030",
+        "filename": "test/e2e/rendering/vision-deficiencies.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-19T15:22:32Z",
+      "side": 1,
+      "message": "Ack.\n\nI agree that for more complicated cases we’d want to do _something_ to keep the test code readable.\n\nI also agree that test readability is important; it affects all DevTools engineers. However, it’s less important than e.g. Chrome’s binary size, which affects every Chrome user. Adding more JS to the DevTools bundle without getting any user benefit in return should not be done lightly, IMHO.\n\nIt sounds like we disagree on the priority of constituencies here. :)",
+      "parentUuid": "d2ccaa7f_b2fa4aeb",
+      "range": {
+        "startLine": 40,
+        "startChar": 35,
+        "endLine": 40,
+        "endChar": 41
+      },
+      "revId": "085d7d98e2b9e41b8c14906bf8034bbedd28a287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
