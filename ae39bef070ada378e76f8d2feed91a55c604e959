@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbf79cf2_21fa2103",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-19T05:37:08Z",
+      "side": 1,
+      "message": "This name is so much better to what I suggested, thanks!",
+      "range": {
+        "startLine": 586,
+        "startChar": 2,
+        "endLine": 586,
+        "endChar": 28
+      },
+      "revId": "ae39bef070ada378e76f8d2feed91a55c604e959",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
