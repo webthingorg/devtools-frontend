@@ -673,6 +673,9 @@ export class JavaScriptAutocomplete {
     }
     const result =
         await currentExecutionContext.runtimeModel.compileScript(expression, '', false, currentExecutionContext.id);
+    if (!result) {
+      return false;
+    }
     if (!result.exceptionDetails) {
       return true;
     }
