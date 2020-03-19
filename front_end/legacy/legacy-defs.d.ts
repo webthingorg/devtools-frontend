@@ -21,6 +21,8 @@ interface String {
   trimEndWithMaxLength(maxLength: number): string;
 }
 
+declare let Protocol: {[domain: string]: {[method: string]: any}};
+
 declare let ls: (template: ITemplateArray, ...args: any[]) => string;
 
 declare namespace Runtime {
