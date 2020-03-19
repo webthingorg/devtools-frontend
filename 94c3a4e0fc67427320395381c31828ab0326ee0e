@@ -46,6 +46,30 @@
       "revId": "94c3a4e0fc67427320395381c31828ab0326ee0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "941fd11b_92297fa5",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-19T12:45:02Z",
+      "side": 1,
+      "message": "Also I disabled all the web tests that use the legacy Protocol global. Will fix them re-enable as soon as this lands.",
+      "parentUuid": "3084f4b6_b78b89f2",
+      "range": {
+        "startLine": 534,
+        "startChar": 2,
+        "endLine": 534,
+        "endChar": 16
+      },
+      "revId": "94c3a4e0fc67427320395381c31828ab0326ee0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
