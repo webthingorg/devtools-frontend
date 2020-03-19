@@ -22,6 +22,30 @@
       "revId": "4c01fe34cd562285b4716eaa1b9751a5b838b9f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7282ff45_4b0162e1",
+        "filename": "test/e2e/test-list.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-19T15:56:59Z",
+      "side": 1,
+      "message": "Good catch! You just volunteered to review https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2108152 ;)",
+      "parentUuid": "ae4c9fee_48c4e6a2",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "4c01fe34cd562285b4716eaa1b9751a5b838b9f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
