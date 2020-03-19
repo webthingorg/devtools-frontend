@@ -22,6 +22,30 @@
       "revId": "79f6e4ab474cff060ffc6a8f9b07a4e0e0ce4440",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25a5b0ad_c19e3391",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T16:49:55Z",
+      "side": 1,
+      "message": "Yeah this is to let TypeScript know we do magic with `Protocol`. Essentially once `InspectorBackendCommands.js` runs, `Protocol` has this magic set of domains and methods you can invoke.\n\nI am a bit confused as to why this was necessary in the first place, as we include the `protocol.d.ts` already. I will remove it for now, to not confuse TypeScript more.",
+      "parentUuid": "8ff4a533_12fe3931",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "79f6e4ab474cff060ffc6a8f9b07a4e0e0ce4440",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
