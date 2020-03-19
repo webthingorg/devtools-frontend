@@ -59,9 +59,11 @@ export class SettingsScreen extends UI.Widget.VBox {
     tabbedPane.leftToolbar().appendToolbarItem(new UI.Toolbar.ToolbarItem(settingsLabelElement));
     tabbedPane.setShrinkableTabs(false);
     tabbedPane.makeVerticalTabLayout();
-    const shortcutsView = new UI.View.SimpleView(ls`Shortcuts`);
-    self.UI.shortcutsScreen.createShortcutsTabView().show(shortcutsView.element);
-    this._tabbedLocation.appendView(shortcutsView);
+    if (!Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
+      const shortcutsView = new UI.View.SimpleView(ls`Shortcuts`);
+      self.UI.shortcutsScreen.createShortcutsTabView().show(shortcutsView.element);
+      this._tabbedLocation.appendView(shortcutsView);
+    }
     tabbedPane.show(this.contentElement);
   }
 
@@ -319,7 +321,11 @@ export class ActionDelegate {
             UI.UIUtils.addReferrerToURL('https://developers.google.com/web/tools/chrome-devtools/'));
         return true;
       case 'settings.shortcuts':
-        SettingsScreen._showSettingsScreen({name: ls`Shortcuts`, focusTabHeader: true});
+        if (Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
+          SettingsScreen._showSettingsScreen({name: 'keybinds', focusTabHeader: true});
+        } else {
+          SettingsScreen._showSettingsScreen({name: ls`Shortcuts`, focusTabHeader: true});
+        }
         return true;
     }
     return false;
