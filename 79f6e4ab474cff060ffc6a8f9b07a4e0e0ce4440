@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ff4a533_12fe3931",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-19T16:38:12Z",
+      "side": 1,
+      "message": "is this overriding the `Protocol` from `protocol.d.ts` or is this a different one?\n\nI\u0027m finding protocol things hard to juggle in my head!",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "79f6e4ab474cff060ffc6a8f9b07a4e0e0ce4440",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

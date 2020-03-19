@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10b431d0_6253dd84",
+        "filename": "front_end/protocol_client/protocol_client.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-19T16:38:12Z",
+      "side": 0,
+      "message": "we\u0027ve lost this export here - presumably that\u0027s on purpose? just checking :)",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 21
+      },
+      "revId": "dfd9aa027f150fd39bd27dcdebded17548f6a3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
