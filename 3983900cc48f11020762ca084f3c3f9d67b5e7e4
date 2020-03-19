@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbe1860e_1a430280",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2011,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-03-19T00:50:40Z",
+      "side": 1,
+      "message": "should be light",
+      "range": {
+        "startLine": 2011,
+        "startChar": 47,
+        "endLine": 2011,
+        "endChar": 54
+      },
+      "revId": "3983900cc48f11020762ca084f3c3f9d67b5e7e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
