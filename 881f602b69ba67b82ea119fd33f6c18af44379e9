@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2d8ed4_852e434e",
+        "filename": "front_end/workspace/UISourceCode.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-19T18:27:53Z",
+      "side": 1,
+      "message": "q: Why the import? Is some side-effect needed or the usage just not visible in the CL?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783c6bac_138942bd",
+        "filename": "front_end/workspace/WorkspaceImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-19T18:27:53Z",
+      "side": 1,
+      "message": "w00t?",
+      "range": {
+        "startLine": 297,
+        "startChar": 45,
+        "endLine": 297,
+        "endChar": 68
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a1b7ef_0a0ec99a",
+        "filename": "front_end/workspace/WorkspaceImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-19T18:27:53Z",
+      "side": 1,
+      "message": "nit: While we are here lets make this const and do\n\nresult.push(...project.uiSourceCodes());",
+      "range": {
+        "startLine": 473,
+        "startChar": 4,
+        "endLine": 473,
+        "endChar": 7
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0911b17f_5120dca7",
+        "filename": "front_end/workspace/WorkspaceImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-19T18:27:53Z",
+      "side": 1,
+      "message": "nit: same here",
+      "range": {
+        "startLine": 533,
+        "startChar": 4,
+        "endLine": 533,
+        "endChar": 7
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
