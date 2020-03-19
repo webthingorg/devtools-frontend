@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b20aad7f_56950818",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-19T22:15:27Z",
+      "side": 1,
+      "message": "Ah, here is the type check. See my comment below about this typedef.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 35
+      },
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7160fbf_367f90cc",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-19T22:15:27Z",
+      "side": 1,
+      "message": "Not a huge fan of this type definition, since you\u0027ll have to typecheck for string or UI.Action.Action at some point, I imagine.",
+      "range": {
+        "startLine": 103,
+        "startChar": 13,
+        "endLine": 103,
+        "endChar": 39
+      },
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eec7e214_0ae1fa5a",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-19T22:15:27Z",
+      "side": 1,
+      "message": "nit: Could simplify this to:\n```\nconst params \u003d (Root.Runtime.experiments.isEnabled(\u0027customKeyboardShortcuts\u0027) ?\n  {name: \u0027keybinds\u0027, focusTabHeader: true} : {name: ls`Shortcuts`, focusTabHeader: true};\nSettingsScreen._showSettingsScreen(params);\n```",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 9
+      },
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb2214d8_7636dd80",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 22
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-19T22:15:27Z",
+      "side": 1,
+      "message": "Can you test this feature in high contrast mode? We might need to provide hc specific styling.",
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
