@@ -531,7 +531,7 @@ export function check(passCondition, failureText) {
  * @param {!Function} callback
  */
 export function deprecatedRunAfterPendingDispatches(callback) {
-  Protocol.test.deprecatedRunAfterPendingDispatches(callback);
+  ProtocolClient.test.deprecatedRunAfterPendingDispatches(callback);
 }
 
 /**
@@ -670,7 +670,7 @@ export function markStep(title) {
 }
 
 export function startDumpingProtocolMessages() {
-  Protocol.test.dumpProtocol = self.testRunner.logToStderr.bind(self.testRunner);
+  ProtocolClient.test.dumpProtocol = self.testRunner.logToStderr.bind(self.testRunner);
 }
 
 /**
