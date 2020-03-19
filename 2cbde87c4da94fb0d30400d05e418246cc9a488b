@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b934420f_81f256a5",
+        "filename": "front_end/host/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T12:00:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd629c2a_9f67b56f",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "2cbde87c4da94fb0d30400d05e418246cc9a488b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6155431e_607992cc",
         "filename": "front_end/host/InspectorFrontendHostAPI.js",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f1855a67_089a1d4b",
+        "filename": "front_end/host/InspectorFrontendHostAPI.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T12:00:02Z",
+      "side": 1,
+      "message": "Ah yes I missed that, thanks!",
+      "parentUuid": "6155431e_607992cc",
+      "range": {
+        "startLine": 402,
+        "startChar": 11,
+        "endLine": 402,
+        "endChar": 30
+      },
+      "revId": "2cbde87c4da94fb0d30400d05e418246cc9a488b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dc1028d_751d1e9c",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "2cbde87c4da94fb0d30400d05e418246cc9a488b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d414f9e_4032a55a",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T12:00:02Z",
+      "side": 1,
+      "message": "Sadly we can\u0027t, as it is being called somewhere where it is nullable. These types are bad anyways, but I felt like the cast was the easiest solution to move forward 😞",
+      "parentUuid": "5dc1028d_751d1e9c",
+      "range": {
+        "startLine": 109,
+        "startChar": 28,
+        "endLine": 109,
+        "endChar": 62
+      },
+      "revId": "2cbde87c4da94fb0d30400d05e418246cc9a488b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
