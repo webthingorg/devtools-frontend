@@ -69,6 +69,24 @@
       "revId": "100648cf47b75300faf0b9abc0fe4b983042e423",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c0d3d0d_1268fc65",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1330653
+      },
+      "writtenOn": "2020-03-19T04:07:23Z",
+      "side": 1,
+      "message": "I\u0027m not aware of that being an issue. If NVDA, VO, and Narrator all read out \"Requires reload\" and ignore the \"*\", then I think this should be fine as-is.\n\nI tried to find documentation on this (specifically searching \"adornment\") but didn\u0027t find anything in WCAG that was related",
+      "parentUuid": "dd034cb3_bc860dcb",
+      "revId": "100648cf47b75300faf0b9abc0fe4b983042e423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
