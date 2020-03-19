@@ -606,6 +606,7 @@ export class TimelinePanel extends UI.Panel.Panel {
     this._statusPane.showPane(this._statusPaneContainer);
     this._statusPane.updateStatus(ls`Recording failed`);
     this._statusPane.updateButton(ls`Close`);
+    this._statusPane.enableAndFocusStopButton();
 
     this._setState(State.RecordingFailed);
     this._performanceModel = null;
