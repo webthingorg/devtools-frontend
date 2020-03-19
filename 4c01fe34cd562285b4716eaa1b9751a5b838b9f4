@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae4c9fee_48c4e6a2",
+        "filename": "test/e2e/test-list.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-19T15:44:20Z",
+      "side": 1,
+      "message": "is it deliberate to have this line duplicated? 😊",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "4c01fe34cd562285b4716eaa1b9751a5b838b9f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
