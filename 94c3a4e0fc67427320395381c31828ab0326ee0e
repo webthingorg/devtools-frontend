@@ -22,6 +22,30 @@
       "revId": "94c3a4e0fc67427320395381c31828ab0326ee0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3084f4b6_b78b89f2",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T12:34:28Z",
+      "side": 1,
+      "message": "Because sometimes layout tests override these symbols: https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/web_tests/http/tests/devtools/profiler/agents-disabled-check.js;l\u003d12;drc\u003d77578ccb4082ae20a9326d9e673225f1189ebb63?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F\n\nTherefore, I don\u0027t think we can change these to `ProtocolClient.test`. I am surprised the layout tests are passing though.\n\nEdit: Oh apparently that test in question was already disabled: https://chromium.googlesource.com/chromium/src/+/refs/changes/90/2109690/3/third_party/blink/web_tests/TestExpectations#6593",
+      "parentUuid": "a1913525_ce39ff5b",
+      "range": {
+        "startLine": 534,
+        "startChar": 2,
+        "endLine": 534,
+        "endChar": 16
+      },
+      "revId": "94c3a4e0fc67427320395381c31828ab0326ee0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
