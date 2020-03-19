@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "69f07a85_507fb147",
+        "filename": "test/perf/perf-helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-19T19:56:09Z",
+      "side": 1,
+      "message": "No need. path.join already takes care of normalization.\n\nhttps://nodejs.org/api/path.html#path_path_join_paths",
+      "parentUuid": "c0c5cea9_8108ba9e",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "e0b4ce25847fdfc39ddd85e371d026fd2f63330e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bd06b75_6b406533",
         "filename": "test/shared/screenshot.ts",
         "patchSetId": 2
