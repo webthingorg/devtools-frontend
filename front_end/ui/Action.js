@@ -37,6 +37,9 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Promise.<boolean>}
    */
   execute() {
+    if (!this._extension.canInstantiate()) {
+      return Promise.resolve(false);
+    }
     return this._extension.instance().then(handleAction.bind(this));
 
     /**
