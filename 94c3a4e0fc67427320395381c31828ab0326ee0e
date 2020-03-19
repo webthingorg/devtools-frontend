@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1913525_ce39ff5b",
+        "filename": "front_end/test_runner/TestRunner.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-19T07:18:38Z",
+      "side": 1,
+      "message": "Any reason why we dont use the ES import here?\n\nThat is {ProtocolClientModule.InspectorBackend.test} instead of the legacy one? (same below)",
+      "range": {
+        "startLine": 534,
+        "startChar": 2,
+        "endLine": 534,
+        "endChar": 16
+      },
+      "revId": "94c3a4e0fc67427320395381c31828ab0326ee0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
