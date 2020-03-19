@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0c5cea9_8108ba9e",
+        "filename": "test/perf/perf-helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-19T19:39:12Z",
+      "side": 1,
+      "message": "These need to be separated for Windows.",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "e0b4ce25847fdfc39ddd85e371d026fd2f63330e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bd06b75_6b406533",
+        "filename": "test/shared/screenshot.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-19T19:39:12Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 18,
+        "startChar": 48,
+        "endLine": 18,
+        "endChar": 84
+      },
+      "revId": "e0b4ce25847fdfc39ddd85e371d026fd2f63330e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
