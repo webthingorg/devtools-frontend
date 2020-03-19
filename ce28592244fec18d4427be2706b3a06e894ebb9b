@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c19da2c_9953b7b7",
+        "filename": "test/e2e/sources/debugger-language-plugins.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-19T12:08:08Z",
+      "side": 1,
+      "message": "nit: remove commented code",
+      "range": {
+        "startLine": 108,
+        "startChar": 11,
+        "endLine": 108,
+        "endChar": 16
+      },
+      "revId": "ce28592244fec18d4427be2706b3a06e894ebb9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
