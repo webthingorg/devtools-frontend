@@ -1,0 +1,198 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5437b092_5d906618",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "I changed this path, and fix all the path usage throughout the file. We might want to make this configurable.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 6
+      },
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe208ba_814f852e",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "I modified this to ignore some files that do not need to be collected. We might want to make this configurable.",
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "739eea21_67c8776e",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "These file are the only functions in until.js that are used here. I was avoiding porting another file.",
+      "range": {
+        "startLine": 224,
+        "startChar": 1,
+        "endLine": 224,
+        "endChar": 3
+      },
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25640c84_7fb3347b",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "I update the regex due to this issue https://github.com/GoogleChrome/lighthouse/issues/10285",
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bd3e69c_8735acbb",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "See comment at line 525 for why this is added",
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c5d64a8_e0b640fd",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "In collectAllStringsInDir(), avoid the \u0027require\u0027 statement of exportVars due to ESM limitation and only used the UIStrings object that\u0027s found by regex.\nA getToken() step is added to take care of the situation where the strings need concatenations in replace of importing live Vars.",
+      "range": {
+        "startLine": 525,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 4
+      },
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec8ac44c_80f5d599",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "The checks below was removed to avoid requiring ESM",
+      "range": {
+        "startLine": 572,
+        "startChar": 0,
+        "endLine": 572,
+        "endChar": 6
+      },
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a8cbb3d_93c41c58",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "This is related to #2 in the i18n.js changes https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2090459\nIn source files we are doing:\nconst str_ \u003d i18n.createMessageInstanceIdFn(\u0027a static string that is the path relative to frontend\u0027, UIStrings); \nsince ESM doesnt have __path, therefore this modification.",
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7386523f_d0faf0bf",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "We might want to make the directory configurable.",
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e686606d_78f5c1ba",
+        "filename": "scripts/localizationV2/collectStrings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-20T03:44:57Z",
+      "side": 1,
+      "message": "We might want to make this configurable",
+      "revId": "45e3cf2062dee8cb5f7c735d3e645d5f368eab60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
