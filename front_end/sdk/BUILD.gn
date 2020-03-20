@@ -8,6 +8,5 @@ ts_library("sdk") {
   sources = [
     "Cookie.js",
     "CookieParser.js",
-    "Issue.js",
   ]
 }
