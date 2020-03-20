@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afa34772_cae308dd",
+        "filename": "front_end/object_ui/JavaScriptAutocomplete.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-20T00:07:08Z",
+      "side": 1,
+      "message": "I believe returning false is the right call here.  The purpose of this boolean is to bubble up to _updatePromptIcon which sets the opacity of the caret (false \u003d less opacity). Less opacity means that the statement will not evaluate.  In general, this is used when putting in an expression like \"window.\" where pressing enter will just pop you to the next line instead of evaluating, but I think it could also make sense as a \"there is a protocol error so your evaluation won\u0027t go through.\"",
+      "revId": "a6661f0f04d0445968c2643c15f13e1cc2ee1bad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
