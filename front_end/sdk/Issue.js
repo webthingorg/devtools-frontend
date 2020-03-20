@@ -11,6 +11,52 @@ import {IssuesModel} from './IssuesModel.js';
 export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} code
+   * @param {!*} resources
+   */
+  constructor(code, resources) {
+    super();
+    /** @type {string} */
+    this._code = code;
+    /** @type {!*} */
+    this._resources = resources;
+  }
+
+  /**
+   * @returns {string}
+   */
+  code() {
+    return this._code;
+  }
+
+  /**
+   * @returns {!*}
+   */
+  resources() {
+    return this._resources;
+  }
+
+  /**
+   * @param {string} requestId
+   * @returns {boolean}
+   */
+  isAssociatedWithRequestId(requestId) {
+    if (!this._resources) {
+      return false;
+    }
+    if (this._resources.requests) {
+      for (const request of this._resources.requests) {
+        if (request.requestId === requestId) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+}
+
+export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
+  /**
+   * @param {string} code
    */
   constructor(code) {
     super();
@@ -18,7 +64,10 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {!Array<!*>} */
     this._resources = [];
     /** @type {!Map<string, !*>} */
+    /** @type {!Map<string, !*>} */
     this._cookies = new Map();
+    /** @type {!Map<string, !*>} */
+    this._requests = new Map();
   }
 
   /**
@@ -43,28 +92,21 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!*} resources
+   * @param {!Issue} issue
    */
-  addInstanceResources(resources) {
+  addInstance(issue) {
+    const resources = issue.resources();
     if (!resources) {
       return;
     }
-
-    this._resources.push(resources);
-
     if (resources.cookies) {
       for (const cookie of resources.cookies) {
-        IssuesModel.connectWithIssue(cookie, this);
+        IssuesModel.connectWithIssue(cookie, issue);
         const key = JSON.stringify(cookie);
         if (!this._cookies.has(key)) {
           this._cookies.set(key, cookie);
-          this.dispatchEventToListeners(Events.CookieAdded, cookie);
         }
       }
     }
   }
 }
-
-export const Events = {
-  CookieAdded: Symbol('CookieAdded'),
-};
