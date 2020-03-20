@@ -72,7 +72,7 @@ export class SecurityOriginManager extends SDKModel {
    */
   setMainSecurityOrigin(securityOrigin, unreachableSecurityOrigin) {
     this._mainSecurityOrigin = securityOrigin;
-    this._unreachableMainSecurityOrigin = unreachableSecurityOrigin || null;
+    this._unreachableMainSecurityOrigin = unreachableSecurityOrigin;
     this.dispatchEventToListeners(Events.MainSecurityOriginChanged, {
       mainSecurityOrigin: this._mainSecurityOrigin,
       unreachableMainSecurityOrigin: this._unreachableMainSecurityOrigin
