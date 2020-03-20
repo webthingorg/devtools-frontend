@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "decd93c4_9b62f0f9",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-20T00:10:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b20aad7f_56950818",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 35
+      },
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7160fbf_367f90cc",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 22
@@ -45,6 +69,30 @@
       "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cca493ea_f59cabb2",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-20T00:10:43Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not a huge fan of it either but I\u0027m convinced it\u0027s the best way to handle category headers for now--I had a thread with Brian on this here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2090680/13/front_end/settings/KeybindsSettingsTab.js#104",
+      "parentUuid": "a7160fbf_367f90cc",
+      "range": {
+        "startLine": 103,
+        "startChar": 13,
+        "endLine": 103,
+        "endChar": 39
+      },
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5ec74855_7f8294e9",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-20T00:10:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eec7e214_0ae1fa5a",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 9
+      },
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb2214d8_7636dd80",
         "filename": "front_end/settings/keybindsSettingsTab.css",
         "patchSetId": 22
@@ -85,6 +157,24 @@
       "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "716f534f_62e43d6f",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 22
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-20T00:10:43Z",
+      "side": 1,
+      "message": "Yep, works in high contrast",
+      "parentUuid": "bb2214d8_7636dd80",
+      "revId": "2dd66a7b16d56c418549c9450957d93a8209f803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
