@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55c00256_1bb17688",
+        "filename": "front_end/sdk/SDKModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-20T11:10:14Z",
+      "side": 1,
+      "message": "I think this can be `!Set\u003cfunction(new:SDKModel), !Target\u003e`",
+      "range": {
+        "startLine": 143,
+        "startChar": 38,
+        "endLine": 143,
+        "endChar": 65
+      },
+      "revId": "cea594e9ae97e8d87077ecb7f3830fbacaf90d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc71ef36_de623e7c",
+        "filename": "front_end/sdk/SDKModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-20T11:10:14Z",
+      "side": 1,
+      "message": "Can we file a crbug for this and add the crbug number here?",
+      "range": {
+        "startLine": 560,
+        "startChar": 20,
+        "endLine": 560,
+        "endChar": 24
+      },
+      "revId": "cea594e9ae97e8d87077ecb7f3830fbacaf90d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
