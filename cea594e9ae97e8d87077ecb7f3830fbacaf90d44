@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30273ad7_e5e6b973",
+        "filename": "front_end/sdk/SDKModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-20T11:21:13Z",
+      "side": 1,
+      "message": "Oops, just messed up the comment but I indeed tried that. The error message was the following:\n\n/tmp/tmpygAf61/front_end/sdk/SDKModel.js:562: WARNING - [JSC_TYPE_MISMATCH] actual parameter 1 of Target$$module$tmp$tmpygAf61$front_end$sdk$SDKModel.prototype.createModels does not match formal parameter\nfound   : Set\u003cfunction(new:SDKModel$$module$tmp$tmpygAf61$front_end$sdk$SDKModel, !Target$$module$tmp$tmpygAf61$front_end$sdk$SDKModel): ?\u003e\nrequired: Set\u003cfunction(new:SDKModel$$module$tmp$tmpygAf61$front_end$sdk$SDKModel, !Target$$module$tmp$tmpygAf61$front_end$sdk$SDKModel): ?\u003e\n    target.createModels(/** @type {!Set\u003cfunction(new:SDKModel, !Target)\u003e} */ (new Set(this._modelObservers.keysArray())));\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n0 error(s), 1 warning(s), 91.7% typed\n\nwhich i was not able to fix.",
+      "parentUuid": "55c00256_1bb17688",
+      "range": {
+        "startLine": 143,
+        "startChar": 38,
+        "endLine": 143,
+        "endChar": 65
+      },
+      "revId": "cea594e9ae97e8d87077ecb7f3830fbacaf90d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc71ef36_de623e7c",
         "filename": "front_end/sdk/SDKModel.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "cea594e9ae97e8d87077ecb7f3830fbacaf90d44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23bda070_31d7d82e",
+        "filename": "front_end/sdk/SDKModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-20T11:21:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc71ef36_de623e7c",
+      "range": {
+        "startLine": 560,
+        "startChar": 20,
+        "endLine": 560,
+        "endChar": 24
+      },
+      "revId": "cea594e9ae97e8d87077ecb7f3830fbacaf90d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
