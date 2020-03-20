@@ -5,30 +5,26 @@
 import * as UI from '../ui/ui.js';
 import * as SDK from '../sdk/sdk.js';
 
-class AffectedCookiesView {
+class AffectedResourcesView {
   /**
-   *
    * @param {!AggregatedIssueView} parent
-   * @param {!SDK.Issue.AggregatedIssue} issue
    */
-  constructor(parent, issue) {
+  constructor(parent) {
     /** @type {!AggregatedIssueView} */
     this._parent = parent;
-    /** @type {!SDK.Issue.AggregatedIssue} */
-    this._issue = issue;
     this._wrapper = createElementWithClass('div', 'affected-resource');
     /** @type {!Element} */
-    this._affectedCookiesCounter = this.createAffectedCookiesCounter(this._wrapper);
+    this._affectedResourcesCounter = this.createAffectedResourcesCounter(this._wrapper);
     /** @type {!Element} */
-    this._affectedCookies = this.createAffectedCookies(this._wrapper);
-    this._cookiesCount = 0;
+    this._affectedResources = this.createAffectedResources(this._wrapper);
+    this._affectedResourcesCount = 0;
   }
 
   /**
    * @param {!Element} wrapper
    * @returns {!Element}
    */
-  createAffectedCookiesCounter(wrapper) {
+  createAffectedResourcesCounter(wrapper) {
     const counterLabel = createElementWithClass('div', 'affected-resource-label');
     counterLabel.addEventListener('click', () => {
       wrapper.classList.toggle('expanded');
@@ -41,9 +37,9 @@ class AffectedCookiesView {
    * @param {!Element} wrapper
    * @returns {!Element}
    */
-  createAffectedCookies(wrapper) {
+  createAffectedResources(wrapper) {
     const body = createElementWithClass('div', 'affected-resource-wrapper');
-    const affectedCookies = createElementWithClass('table', 'affected-resource-cookies');
+    const affectedResources = createElementWithClass('table', 'affected-resource-list');
     const header = createElementWithClass('tr');
 
     const name = createElementWithClass('td', 'affected-resource-header');
@@ -55,23 +51,52 @@ class AffectedCookiesView {
     info.textContent = '\u2009Context';
     header.appendChild(info);
 
-    affectedCookies.appendChild(header);
-    body.appendChild(affectedCookies);
+    affectedResources.appendChild(header);
+    body.appendChild(affectedResources);
     wrapper.appendChild(body);
 
     this._parent.appendAffectedResource(wrapper);
-    return affectedCookies;
+    return affectedResources;
   }
 
   /**
-   *
+   * @param {number} count
+   */
+  setAffectedCookiesCounter(count) {
+    this._affectedResourcesCounter.textContent = ls`${count} cookies`;
+    this._wrapper.style.display = this._affectedResourcesCount === 0 ? 'none' : '';
+    this._parent.updateAffectedResourceVisibility();
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  isEmpty() {
+    return this._affectedResourcesCount === 0;
+  }
+}
+
+class AffectedCookiesView extends AffectedResourcesView {
+  /**
+   * @param {!AggregatedIssueView} parent
+   * @param {!SDK.Issue.AggregatedIssue} issue
+   */
+  constructor(parent, issue) {
+    super(parent);
+    /** @type {!SDK.Issue.AggregatedIssue} */
+    this._issue = issue;
+  }
+
+  /**
    * @param {!Iterable<!*>} cookies
    */
   _appendAffectedCookies(cookies) {
+    let count = 0;
     for (const cookie of cookies) {
+      count++;
       this.appendAffectedCookie(/** @type{!{name:string,path:string,domain:string,siteForCookies:string}} */ (cookie));
     }
-    this._updateAffectedCookiesCounter();
+    this.setAffectedCookiesCounter(count);
   }
 
   /**
@@ -90,26 +115,12 @@ class AffectedCookiesView {
 
     element.appendChild(name);
     element.appendChild(info);
-    this._affectedCookies.appendChild(element);
-  }
-
-  _updateAffectedCookiesCounter() {
-    this._cookiesCount = this._issue.numberOfCookies();
-    this._affectedCookiesCounter.textContent = ls`${this._cookiesCount} cookies`;
-    this._wrapper.style.display = this._cookiesCount === 0 ? 'none' : '';
-    this._parent.updateAffectedResourceVisibility();
+    this._affectedResources.appendChild(element);
   }
 
   update() {
-    this._affectedCookies.textContent = '';
+    this._affectedResources.textContent = '';
     this._appendAffectedCookies(this._issue.cookies());
-  }
-
-  isEmpty() {
-    return this._cookiesCount === 0;
-  }
-
-  detach() {
   }
 }
 
@@ -236,7 +247,6 @@ class AggregatedIssueView extends UI.Widget.Widget {
    * @override
    */
   detach() {
-    this._affectedCookiesView.detach();
     super.detach();
   }
 }
