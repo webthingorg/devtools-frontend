@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f95707f_1b5a0964",
+        "filename": "front_end/sdk/ServerTiming.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-20T12:40:21Z",
+      "side": 1,
+      "message": "Nit: `TODO(crbug.com/1011811):`",
+      "range": {
+        "startLine": 48,
+        "startChar": 10,
+        "endLine": 48,
+        "endChar": 17
+      },
+      "revId": "cb50426ccdf5d3fabec35eaa80cfec81b1171328",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
