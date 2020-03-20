@@ -271,9 +271,8 @@ export class PlayerPropertiesView extends UI.Widget.VBox {
   /**
    * @param {string} playerID
    * @param {!Array.<!Event>} changes
-   * @param {!MediaChangeTypeKeys} changeType
    */
-  renderChanges(playerID, changes, changeType) {
+  renderChanges(playerID, changes) {
     for (const change of changes) {
       const renderer = this._attributeMap.get(change.name);
       if (renderer) {

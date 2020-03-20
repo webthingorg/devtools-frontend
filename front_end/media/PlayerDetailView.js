@@ -7,6 +7,7 @@ import * as UI from '../ui/ui.js';
 
 import {PlayerEventsView} from './EventDisplayTable.js';
 import {Event, MediaChangeTypeKeys} from './MediaModel.js';  // eslint-disable-line no-unused-vars
+import {PlayerMessagesView} from './PlayerMessagesView.js';
 import {PlayerPropertiesView} from './PlayerPropertiesView.js';
 
 /**
@@ -15,6 +16,7 @@ import {PlayerPropertiesView} from './PlayerPropertiesView.js';
 export const PlayerDetailViewTabs = {
   Events: 'events',
   Properties: 'properties',
+  Messages: 'messages'
 };
 
 /**
@@ -26,16 +28,25 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
 
     const eventView = new PlayerEventsView();
     const propertyView = new PlayerPropertiesView();
+    const messageView = new PlayerMessagesView();
 
     // maps handler type to a list of panels that support rendering changes.
-    this._panels = new Map([[MediaChangeTypeKeys.Property, [propertyView]], [MediaChangeTypeKeys.Event, [eventView]]]);
+    this._panels = new Map([
+      [MediaChangeTypeKeys.Property, [propertyView]], [MediaChangeTypeKeys.Event, [eventView]],
+      [MediaChangeTypeKeys.Message, [messageView]]
+    ]);
 
     this.appendTab(
         PlayerDetailViewTabs.Properties, Common.UIString.UIString('Properties'), propertyView,
         Common.UIString.UIString('Player properties'));
 
     this.appendTab(
-        PlayerDetailViewTabs.Events, Common.UIString.UIString('Events'), eventView, Common.UIString.UIString('Player events'));
+        PlayerDetailViewTabs.Events, Common.UIString.UIString('Events'), eventView,
+        Common.UIString.UIString('Player events'));
+
+    this.appendTab(
+        PlayerDetailViewTabs.Messages, Common.UIString.UIString('Messages'), messageView,
+        Common.UIString.UIString('Player messages'));
   }
 
   /**
@@ -45,7 +56,7 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
    */
   renderChanges(playerID, changes, changeType) {
     for (const panel of this._panels.get(changeType)) {
-      panel.renderChanges(playerID, changes, changeType);
+      panel.renderChanges(playerID, changes);
     }
   }
 }

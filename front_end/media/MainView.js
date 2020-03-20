@@ -112,6 +112,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     mediaModel.addEventListener(Events.PlayerPropertiesChanged, this._propertiesChanged, this);
     mediaModel.addEventListener(Events.PlayerEventsAdded, this._eventsAdded, this);
     mediaModel.addEventListener(Events.PlayersCreated, this._playersCreated, this);
+    mediaModel.addEventListener(Events.PlayerMessagesLogged, this._messagesLogged, this);
   }
 
   /**
@@ -120,6 +121,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
   _removeEventListeners(mediaModel) {
     mediaModel.removeEventListener(Events.PlayerPropertiesChanged, this._propertiesChanged, this);
     mediaModel.removeEventListener(Events.PlayerEventsAdded, this._eventsAdded, this);
+    mediaModel.removeEventListener(Events.PlayersCreated, this._playersCreated, this);
     mediaModel.removeEventListener(Events.PlayersCreated, this._playersCreated, this);
   }
 
@@ -135,6 +137,14 @@ export class MainView extends UI.Panel.PanelWithSidebar {
    */
   _eventsAdded(event) {
     this.renderChanges(event.data.playerId, event.data.events, MediaChangeTypeKeys.Event);
+  }
+
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _messagesLogged(event) {
+    this.renderChanges(event.data.playerId, event.data.messages, MediaChangeTypeKeys.Message);
   }
 
   /**
