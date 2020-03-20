@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69ef47f7_7593957d",
+        "filename": "third_party/typescript/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-20T14:28:12Z",
+      "side": 1,
+      "message": "is it worth this doc explaining what `testonly\u003dtrue` does? I for example wouldn\u0027t be confident knowing what that changes.",
+      "range": {
+        "startLine": 55,
+        "startChar": 42,
+        "endLine": 55,
+        "endChar": 58
+      },
+      "revId": "38bb1d159a052a6a6c387e29fd2d7086551c6f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
