@@ -39,19 +39,20 @@ export class ServerTiming {
             entry.name, entry.hasOwnProperty('dur') ? entry.dur : null, entry.hasOwnProperty('desc') ? entry.desc : '');
       }));
       return memo;
-    }, []);
+    }, /** @type {!Array<!ServerTiming>} */ ([]));
     serverTimings.sort((a, b) => a.metric.toLowerCase().compareTo(b.metric.toLowerCase()));
     return serverTimings;
   }
 
   /**
    * @param {string} valueString
-   * @return {?Array<!Object>}
+   * @return {!Array<!{name: string, dur: ?number, desc: ?string}>}
    */
   static createFromHeaderValue(valueString) {
     function trimLeadingWhiteSpace() {
       valueString = valueString.replace(/^\s*/, '');
     }
+    /** @param {string} char */
     function consumeDelimiter(char) {
       console.assert(char.length === 1);
       trimLeadingWhiteSpace();
@@ -90,6 +91,9 @@ export class ServerTiming {
         //  -everything before the first " or \
         //  -everything else
         const result = /^([^"\\]*)(.*)/.exec(valueString);
+        if (!result) {
+          return null;  // not a valid quoted-string
+        }
         value += result[1];
         if (result[2].charAt(0) === '"') {
           // we have found our closing "
@@ -115,7 +119,7 @@ export class ServerTiming {
     const result = [];
     let name;
     while ((name = consumeToken()) !== null) {
-      const entry = {name};
+      const entry = {name, dur: null, desc: null};
 
       if (valueString.charAt(0) === '=') {
         this.showWarning(ls`Deprecated syntax found. Please use: <name>;dur=<duration>;desc=<description>`);
@@ -168,27 +172,37 @@ export class ServerTiming {
 
   /**
    * @param {string} paramName
-   * @return {?function(!Object, string)}
+   * @return {?function(!{name: string, dur: ?number, desc: ?string}, ?string)}
    */
   static getParserForParameter(paramName) {
     switch (paramName) {
       case 'dur':
-        return function(entry, paramValue) {
+        /**
+         * @param {!{dur: ?number}} entry
+         * @param {*} paramValue
+         */
+        function durParser(entry, paramValue) {
           entry.dur = 0;
           if (paramValue !== null) {
             const duration = parseFloat(paramValue);
             if (isNaN(duration)) {
-              this.showWarning(ls`Unable to parse "${paramName}" value "${paramValue}".`);
+              ServerTiming.showWarning(ls`Unable to parse "${paramName}" value "${paramValue}".`);
               return;
             }
             entry.dur = duration;
           }
-        };
+        }
+        return durParser;
 
       case 'desc':
-        return function(entry, paramValue) {
+        /**
+         * @param {!{desc: ?string}} entry
+         * @param {?string} paramValue
+         */
+        function descParser(entry, paramValue) {
           entry.desc = paramValue || '';
-        };
+        }
+        return descParser;
 
       default:
         return null;
