@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67ca4031_6df013cd",
+        "filename": "front_end/sdk/TracingManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-20T10:13:39Z",
+      "side": 1,
+      "message": "let\u0027s definitely explore teaching TypeScript about these methods (in a follow up CL).",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 55
+      },
+      "revId": "615e66b906e03ddcf13c904616592278bddb9c1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0a9a712_d080c393",
+        "filename": "front_end/sdk/TracingManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-20T10:13:39Z",
+      "side": 1,
+      "message": "this would set `._eventBufferSize` to `null` if `eventCount` was passed as `0` - instead you might want `this._eventBufferSize \u003d (eventCount \u003d\u003d undefined ? null : eventCount)\n\nAlso if clang formats it OK you could use the nullish coalescing operator which I think is supported in Chromium? https://github.com/tc39/proposal-nullish-coalescing",
+      "range": {
+        "startLine": 36,
+        "startChar": 11,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "615e66b906e03ddcf13c904616592278bddb9c1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
