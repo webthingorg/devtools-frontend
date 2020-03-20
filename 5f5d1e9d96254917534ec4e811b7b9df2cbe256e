@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c994c25a_37c90945",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-20T20:34:09Z",
+      "side": 1,
+      "message": "Suggested: \"OS theme preference changed. Reload DevTools to match the theme preference.\"",
+      "revId": "5f5d1e9d96254917534ec4e811b7b9df2cbe256e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9500a694_600bdd35",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-20T20:34:09Z",
+      "side": 1,
+      "message": "Suggest changing \"reloaded\" to \"loaded\" (as it will also take effect if you start a new DevTools instance).",
+      "revId": "5f5d1e9d96254917534ec4e811b7b9df2cbe256e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffa96abd_2b265bb7",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-20T20:34:09Z",
+      "side": 1,
+      "message": "Is this required? :-O It\u0027s literally defined as part of the class declaration.",
+      "revId": "5f5d1e9d96254917534ec4e811b7b9df2cbe256e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e178485_4d57fa6f",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-20T20:34:09Z",
+      "side": 1,
+      "message": "You should unconditionally set this event listener, and compare the current theme to `systemPreferred` when the color scheme MQ value changes. Here\u0027s repro:\n\n1. Start with OS Theme \u003d dark\n2. Launch DevTools with color scheme \u003d SystemPreferred\n3. Change DevTools color scheme to Dark\n4. Change OS theme \u003d light\nObserve: InfoBar pops up, expected it not to\n\nAlternative:\n1. Start with OS Theme \u003d dark\n2. Launch DevTools with color scheme \u003d Dark\n3. Change DevTools color scheme to SystemPreferred\n4. Change OS theme \u003d light\nObserve: InfoBar does NOT pop up, expected it to do so.",
+      "revId": "5f5d1e9d96254917534ec4e811b7b9df2cbe256e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
