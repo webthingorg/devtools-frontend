@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "654a8c92_86592231",
+        "filename": "front_end/workspace/UISourceCode.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-20T11:08:07Z",
+      "side": 1,
+      "message": "We use Platform.Multimap on line 588 which was not properly imported.",
+      "parentUuid": "ff2d8ed4_852e434e",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "783c6bac_138942bd",
         "filename": "front_end/workspace/WorkspaceImpl.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-19T18:27:53Z",
       "side": 1,
       "message": "w00t?",
+      "range": {
+        "startLine": 297,
+        "startChar": 45,
+        "endLine": 297,
+        "endChar": 68
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "336e05b1_31cd5abd",
+        "filename": "front_end/workspace/WorkspaceImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-20T11:08:07Z",
+      "side": 1,
+      "message": "Yeah this was gross. The cast is wrong in the first place, but I feared that fixing it might break more functionality 😞",
+      "parentUuid": "783c6bac_138942bd",
       "range": {
         "startLine": 297,
         "startChar": 45,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8d51cbcf_3036109a",
+        "filename": "front_end/workspace/WorkspaceImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-20T11:08:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71a1b7ef_0a0ec99a",
+      "range": {
+        "startLine": 473,
+        "startChar": 4,
+        "endLine": 473,
+        "endChar": 7
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0911b17f_5120dca7",
         "filename": "front_end/workspace/WorkspaceImpl.js",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e3e9c6_02b3ed7c",
+        "filename": "front_end/workspace/WorkspaceImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-20T11:08:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0911b17f_5120dca7",
+      "range": {
+        "startLine": 533,
+        "startChar": 4,
+        "endLine": 533,
+        "endChar": 7
+      },
+      "revId": "881f602b69ba67b82ea119fd33f6c18af44379e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
