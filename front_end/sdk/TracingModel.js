@@ -18,7 +18,9 @@ export class TracingModel {
     this._processById = new Map();
     this._processByName = new Map();
     this._minimumRecordTime = 0;
+    /** @type {number} */
     this._maximumRecordTime = 0;
+    /** @type {!Array<!Event>} */
     this._devToolsMetadataEvents = [];
     /** @type {!Array<!Event>} */
     this._asyncEvents = [];
@@ -91,6 +93,7 @@ export class TracingModel {
     }
     console.error(
         `Unexpected id2 field at ${payload.ts / 1000}, one and only one of 'local' and 'global' should be present.`);
+    return undefined;
   }
 
   /**
@@ -356,7 +359,8 @@ export class TracingModel {
 
     for (const eventStack of this._openNestableAsyncEvents.values()) {
       while (eventStack.length) {
-        eventStack.pop().setEndTime(this._maximumRecordTime);
+        const event = /** @type {!AsyncEvent} */ (eventStack.pop());
+        event.setEndTime(this._maximumRecordTime);
       }
     }
     this._openNestableAsyncEvents.clear();
@@ -383,7 +387,8 @@ export class TracingModel {
 
       case phase.NestableAsyncInstant:
         if (openEventsStack && openEventsStack.length) {
-          openEventsStack.peekLast()._addStep(event);
+          const lastEvent = /** @type {!AsyncEvent} */ (openEventsStack.peekLast());
+          lastEvent._addStep(event);
         }
         break;
 
@@ -391,7 +396,7 @@ export class TracingModel {
         if (!openEventsStack || !openEventsStack.length) {
           break;
         }
-        const top = openEventsStack.pop();
+        const top = /** @type {!AsyncEvent} */ (openEventsStack.pop());
         if (top.name !== event.name) {
           console.error(
               `Begin/end event mismatch for nestable async event, ${top.name} vs. ${event.name}, key: ${key}`);
@@ -429,7 +434,7 @@ export class TracingModel {
       return;
     }
     if (event.phase === phase.AsyncStepInto || event.phase === phase.AsyncStepPast) {
-      const lastStep = asyncEvent.steps.peekLast();
+      const lastStep = /** @type {!Event} */ (asyncEvent.steps.peekLast());
       if (lastStep.phase !== phase.AsyncBegin && lastStep.phase !== event.phase) {
         console.assert(
             false, 'Async event step phase mismatch: ' + lastStep.phase + ' at ' + lastStep.startTime + ' vs. ' +
@@ -515,9 +520,10 @@ export class BackingStorage {
 
   /**
    * @param {string} string
-   * @return {function():!Promise.<?string>}
+   * @return {function():!Promise<?string>}
    */
   appendAccessibleString(string) {
+    throw new Error('not implemented');
   }
 
   finishWriting() {
@@ -548,10 +554,18 @@ export class Event {
     this.phase = phase;
     /** @type {number} */
     this.startTime = startTime;
+    /** @type {number} */
+    this.endTime = startTime;
     /** @type {!Thread} */
     this.thread = thread;
-    /** @type {!Object} */
+    /** @type {!Object<string, ?>} */
     this.args = {};
+    /** @type {string} */
+    this.id = '';
+    /** @type {string} */
+    this.bind_id = '';
+    /** @type {number} */
+    this.ordinal = 0;
 
     /** @type {number} */
     this.selfTime = 0;
@@ -624,7 +638,7 @@ export class Event {
   }
 
   /**
-   * @param {!Object} args
+   * @param {!Object<string, *>} args
    */
   addArgs(args) {
     // Shallow copy args to avoid modifying original payload which may be saved to file.
@@ -696,7 +710,7 @@ export class ObjectSnapshot extends Event {
   }
 
   /**
-   * @param {function(?)} callback
+   * @param {function(?):void} callback
    */
   requestObject(callback) {
     const snapshot = this.args['snapshot'];
@@ -704,7 +718,9 @@ export class ObjectSnapshot extends Event {
       callback(snapshot);
       return;
     }
-    this._backingStorage().then(onRead, callback.bind(null, null));
+    if (this._backingStorage) {
+      this._backingStorage().then(onRead, callback.bind(null, null));
+    }
     /**
      * @param {?string} result
      */
@@ -806,12 +822,13 @@ class NamedObject {
   }
 
   /**
-   * @param {!Array.<!NamedObject>} array
+   * @template {!NamedObject} T
+   * @param {!Array<T>} array
    */
   static _sort(array) {
     /**
-     * @param {!NamedObject} a
-     * @param {!NamedObject} b
+     * @param {!T} a
+     * @param {!T} b
      */
     function comparator(a, b) {
       return a._sortIndex !== b._sortIndex ? a._sortIndex - b._sortIndex : a.name().localeCompare(b.name());
@@ -913,7 +930,9 @@ export class Thread extends NamedObject {
   constructor(process, id) {
     super(process._model, id);
     this._process = process;
+    /** @type {!Array<!Event>} */
     this._events = [];
+    /** @type {!Array<!AsyncEvent>} */
     this._asyncEvents = [];
     this._lastTopLevelEvent = null;
   }
@@ -923,17 +942,17 @@ export class Thread extends NamedObject {
     this._events.sort(Event.compareStartTime);
     const phases = Phase;
     const stack = [];
+    const eventsToKeep = [];
     for (let i = 0; i < this._events.length; ++i) {
       const e = this._events[i];
       e.ordinal = i;
       switch (e.phase) {
         case phases.End:
-          this._events[i] = null;  // Mark for removal.
           // Quietly ignore unbalanced close events, they're legit (we could have missed start one).
           if (!stack.length) {
             continue;
           }
-          const top = stack.pop();
+          const top = /** @type {!Event} */ (stack.pop());
           if (top.name !== e.name || top.categoriesString !== e.categoriesString) {
             console.error(
                 'B/E events mismatch at ' + top.startTime + ' (' + top.name + ') vs. ' + e.startTime + ' (' + e.name +
@@ -943,14 +962,16 @@ export class Thread extends NamedObject {
           }
           break;
         case phases.Begin:
+          eventsToKeep.push(e);
           stack.push(e);
           break;
       }
     }
     while (stack.length) {
-      stack.pop().setEndTime(this._model.maximumRecordTime());
+      const event = /** @type {!Event} */ (stack.pop());
+      event.setEndTime(this._model.maximumRecordTime());
     }
-    this._events = this._events.filter(event => event !== null);
+    this._events = eventsToKeep;
   }
 
   /**
