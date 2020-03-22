@@ -38,12 +38,12 @@ describe('Cookie', () => {
       httpOnly: true,
       name: 'name',
       path: '/test',
-      sameSite: 'Strict',
+      sameSite: Protocol.Network.CookieSameSite.Strict,
       secure: true,
       session: false,
       size: 23,
       value: 'value',
-      priority: 'High',
+      priority: Protocol.Network.CookiePriority.High,
     });
 
     assert.equal(cookie.key(), '.example.com name /test');
@@ -77,7 +77,7 @@ describe('Cookie', () => {
       httpOnly: false,
       secure: false,
       session: true,
-      priority: 'Medium',
+      priority: Protocol.Network.CookiePriority.Medium,
     });
 
     assert.equal(cookie.key(), '.example.com name /test');
@@ -128,7 +128,7 @@ describe('Cookie', () => {
   });
 
   it('can set initialize with a different priority', () => {
-    const cookie = new Cookie('name', 'value', null, 'High');
+    const cookie = new Cookie('name', 'value', null, Protocol.Network.CookiePriority.High);
     assert.equal(cookie.priority(), 'High');
   });
 
