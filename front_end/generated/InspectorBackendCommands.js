@@ -5,17 +5,17 @@
 
 /**
  * @typedef {{
- *  registerCommand: function(string, !Array.<!{name: string, type: string, optional: boolean}>, !Array.<string>, boolean):void,
- *  registerEnum: function(string, !Object<string, string>):void,
- *  registerEvent: function(string, !Array<string>):void,
- * }}
- */
+  *  registerCommand: function(string, !Array.<!{name: string, type: string, optional: boolean}>, !Array.<string>, boolean):void,
+  *  registerEnum: function(string, !Object<string, string>):void,
+  *  registerEvent: function(string, !Array<string>):void,
+  * }}
+  */
 // @ts-ignore typedef
 export let InspectorBackendAPI;
 
 /**
- * @param {!InspectorBackendAPI} inspectorBackend
- */
+  * @param {!InspectorBackendAPI} inspectorBackend
+  */
 export function registerCommands(inspectorBackend) {
   // Accessibility.
   inspectorBackend.registerEnum('Accessibility.AXValueType', {
