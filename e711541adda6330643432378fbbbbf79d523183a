@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "661e2400_c0652a57",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-23T11:37:31Z",
+      "side": 1,
+      "message": "Need to revert this change, as Closure doesn\u0027t think these are valid event listeners.",
+      "parentUuid": "d714534f_fe060fce",
+      "range": {
+        "startLine": 113,
+        "startChar": 12,
+        "endLine": 113,
+        "endChar": 50
+      },
+      "revId": "e711541adda6330643432378fbbbbf79d523183a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e735d23_05646bf2",
         "filename": "front_end/bindings/BreakpointManager.js",
         "patchSetId": 2
