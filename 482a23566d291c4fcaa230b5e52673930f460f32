@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe1cfba9_65d57a1e",
+        "filename": "test/perf/helpers/perf-helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T11:13:03Z",
+      "side": 1,
+      "message": "should we do `join(__dirname, \u0027..\u0027, \u0027..\u0027, \u0027perf\u0027, \u0027.generated\u0027)` here ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "482a23566d291c4fcaa230b5e52673930f460f32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
