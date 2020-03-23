@@ -1152,7 +1152,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this._parentPane.setUserOperation(false);
 
     const updatedProperty = property || this._style.propertyAt(this.property.index);
-    if (!success || !updatedProperty) {
+    if (!success || (!updatedProperty && this.property.index < this._style.allProperties().length)) {
       if (majorChange) {
         // It did not apply, cancel editing.
         if (this._newProperty) {
