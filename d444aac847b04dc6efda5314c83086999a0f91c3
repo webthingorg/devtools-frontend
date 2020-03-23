@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "146cac2e_e49ab2eb",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T10:47:06Z",
+      "side": 1,
+      "message": "Thanks for helping me understand the context here in our offline chat!\n\nWith that in mind, how about something like this for readability?\n\n    const updatedProperty \u003d property || this._style.propertyAt(this.property.index);\n    // TODO: Fix underlying issue bla bla bla\n    const isWithinBounds \u003d this.property.index \u003c this._style.allProperties().length;\n    if (!success || (!updatedProperty \u0026\u0026 isWithinBounds)) {\n      // …\n    }\n\nOr maybe there’s a clearer way?",
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f807880e_be3a07ea",
+        "filename": "test/e2e/elements/style-pane-properties.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T10:47:06Z",
+      "side": 1,
+      "message": "You can use blocks to avoid having to make this let:\n\n    {\n      const displayedValues \u003d …;\n      assert…;\n    }\n\n    {\n      const displayedValues \u003d …;\n      assert…;\n    }",
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
