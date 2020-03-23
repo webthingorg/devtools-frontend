@@ -94,6 +94,30 @@
       "revId": "b7006eebe71d7b214277780c0e32071a688c413c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a061247_60fd66c5",
+        "filename": "test/unittests/front_end/sdk/Cookie_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T10:45:54Z",
+      "side": 1,
+      "message": "Ah got you - I missed that we needed the \"real\" definition in. I think this is therefore OK - but I\u0027d defer to Tim. I don\u0027t love side-effecty imports.\n\nIs there anyway we could make `protocol_client` expose `Protocol` as a named export so at least this line could be `import {Protocol} from \u0027...\u0027;`",
+      "parentUuid": "9d6d4363_2238e95a",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 66
+      },
+      "revId": "b7006eebe71d7b214277780c0e32071a688c413c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
