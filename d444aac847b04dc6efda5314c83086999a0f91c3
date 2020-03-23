@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e7dedb2_b24ed853",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T11:22:32Z",
+      "side": 1,
+      "message": "`git cl upload` mandates 72 chars, FWIW.",
+      "parentUuid": "a622fcf1_f518410a",
+      "range": {
+        "startLine": 9,
+        "startChar": 101,
+        "endLine": 9,
+        "endChar": 105
+      },
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "146cac2e_e49ab2eb",
         "filename": "front_end/elements/StylePropertyTreeElement.js",
         "patchSetId": 5
