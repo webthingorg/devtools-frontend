@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f06ba232_ad188756",
+        "filename": "front_end/object_ui/JavaScriptAutocomplete.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T23:34:19Z",
+      "side": 1,
+      "message": "|| instead of \u0026\u0026",
+      "revId": "eb4c36a68ab9bdf88a5af7f2ddaa71e2c76409f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
