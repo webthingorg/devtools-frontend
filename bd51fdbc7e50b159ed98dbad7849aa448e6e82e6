@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9967f7e5_0a6a5398",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T05:48:49Z",
+      "side": 1,
+      "message": "nit: You could loose the \u0027?\u0027 as \u0027*\u0027 includes null and undefined already.\n\nnit: Please leave a TODO with the corresponding bug number that we need the backend changes to land before these types are available. (I am assuming that is the reason).",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 15
+      },
+      "revId": "bd51fdbc7e50b159ed98dbad7849aa448e6e82e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36b355ca_d06d2d15",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T05:48:49Z",
+      "side": 1,
+      "message": "Can we add some documentation here? AFAIU we use AggregatedIssue to collect issues with the same code but always create an AggregatedIssue even if there is only one issue with that code.\n\nI am fine with the design but can add that as documentation here as that is the purpose of an AggregatedIssue.",
+      "range": {
+        "startLine": 57,
+        "startChar": 13,
+        "endLine": 57,
+        "endChar": 28
+      },
+      "revId": "bd51fdbc7e50b159ed98dbad7849aa448e6e82e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ba6b821_f82aff5e",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T05:48:49Z",
+      "side": 1,
+      "message": "Rebase/merge left-over?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "bd51fdbc7e50b159ed98dbad7849aa448e6e82e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c465506e_300a34ef",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T05:48:49Z",
+      "side": 1,
+      "message": "nit: Lets just {clear} the existing map or is anything else holding on to the old map? That would warrant a comment.",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 45
+      },
+      "revId": "bd51fdbc7e50b159ed98dbad7849aa448e6e82e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "193ad7e9_0d4c0ca4",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T05:48:49Z",
+      "side": 1,
+      "message": "Same here: Please leave a TODO with bug number that we need to add types but its blocked on backend changes.",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 15
+      },
+      "revId": "bd51fdbc7e50b159ed98dbad7849aa448e6e82e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
