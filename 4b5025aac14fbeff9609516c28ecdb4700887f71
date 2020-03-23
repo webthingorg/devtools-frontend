@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5de43416_c59cf28f",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-23T22:24:34Z",
+      "side": 1,
+      "message": "Done. `name` is more of an id here than an actual name. I\u0027m not sure why it\u0027s localized for Shortcuts but I don\u0027t think that\u0027s something we want to replicate",
+      "parentUuid": "1e9177b7_d1c59d5f",
+      "revId": "4b5025aac14fbeff9609516c28ecdb4700887f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fd66021_040eb900",
         "filename": "front_end/settings/settings.js",
         "patchSetId": 24
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d7d2a0dd_40a87603",
+        "filename": "front_end/settings/settings.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-23T22:24:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8fd66021_040eb900",
+      "revId": "4b5025aac14fbeff9609516c28ecdb4700887f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87636e77_9d36647d",
         "filename": "front_end/ui/Action.js",
         "patchSetId": 24
@@ -50,6 +86,24 @@
       "revId": "4b5025aac14fbeff9609516c28ecdb4700887f71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095d6297_0cfd8b4e",
+        "filename": "front_end/ui/Action.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-23T22:24:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87636e77_9d36647d",
+      "revId": "4b5025aac14fbeff9609516c28ecdb4700887f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
