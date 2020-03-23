@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "760e0105_a454afdc",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T14:09:44Z",
+      "side": 1,
+      "message": "Looking at the screenshot, it seems we could do:\n\n    Learn more: [linkTitle]",
+      "parentUuid": "67060581_d87baf79",
+      "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5c97b3c_bcc28492",
         "filename": "front_end/issues/issuesPane.css",
         "patchSetId": 2
