@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32b95121_cd3951d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T09:49:17Z",
+      "side": 1,
+      "message": "Could you elaborate on this a bit more? The current commit message talks about removing a check but AFAICT it actually adds an additional check.",
+      "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
