@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "264aa668_be2b525c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T13:28:42Z",
+      "side": 1,
+      "message": "Can haz before/after screenshots?",
+      "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67060581_d87baf79",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T13:28:42Z",
+      "side": 1,
+      "message": "How do screen readers pronounce the `·`? Can we do this without hardcoding that symbol here? For example, can we use CSS to show a separator?",
+      "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5c97b3c_bcc28492",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T13:28:42Z",
+      "side": 1,
+      "message": "Please either disable this or make the animation less explicit within a `@media (prefers-reduced-motion)` block.",
+      "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
