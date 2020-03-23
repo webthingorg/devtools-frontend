@@ -327,6 +327,30 @@
       "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60a62fe7_b41151cc",
+        "filename": "test/unittests/scripts/component_bridges/value_for_type_node_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T14:15:20Z",
+      "side": 1,
+      "message": "Great catch, thanks!",
+      "parentUuid": "47060685_1f56f56f",
+      "range": {
+        "startLine": 59,
+        "startChar": 67,
+        "endLine": 59,
+        "endChar": 76
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
