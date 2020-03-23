@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "887b686b_ba51138f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-23T15:49:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ff6eec0_968c66c2",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "e996966e799ec1328e488655eb64c7832a43f0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eae417a4_800c9ef1",
         "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "00d1bfde_d7fe4ee3",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-23T15:49:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eae417a4_800c9ef1",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "e996966e799ec1328e488655eb64c7832a43f0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee4a9303_6cfdd282",
         "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "e996966e799ec1328e488655eb64c7832a43f0b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2169536f_83168c8c",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-23T15:49:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee4a9303_6cfdd282",
+      "range": {
+        "startLine": 19,
+        "startChar": 68,
+        "endLine": 19,
+        "endChar": 83
+      },
+      "revId": "e996966e799ec1328e488655eb64c7832a43f0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
