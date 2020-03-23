@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "536c70fd_77594973",
+        "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T21:23:58Z",
+      "side": 1,
+      "message": "I like it.  Done.",
+      "parentUuid": "d9ec046e_09bc067d",
+      "revId": "3a59df021bd736ac4aeef043fc005893583cd57b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7967df_8be34618",
         "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a2d830cb_e36d2b2b",
+        "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T21:23:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7967df_8be34618",
+      "revId": "3a59df021bd736ac4aeef043fc005893583cd57b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a733d03c_96ca8af0",
         "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2020-03-23T20:51:32Z",
       "side": 1,
       "message": "Should `!event.altKey` apply to the `isEnterKey` case? This is different from before and not called out in the CL description so I want to make sure the change is intentional.",
+      "revId": "3a59df021bd736ac4aeef043fc005893583cd57b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44cf443c_c2965eb9",
+        "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T21:23:58Z",
+      "side": 1,
+      "message": "That was unintentional.  After testing out alt-key interaction with other trees in the DevTools, it seems like only applying the altKey constraint to arrow keys makes sense.",
+      "parentUuid": "a733d03c_96ca8af0",
       "revId": "3a59df021bd736ac4aeef043fc005893583cd57b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
