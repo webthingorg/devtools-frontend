@@ -283,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "cb4db475_317141ab",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T14:09:29Z",
+      "side": 1,
+      "message": "Actually I\u0027m going to leave it with a TODO until we need it.",
+      "parentUuid": "a1ed9d7d_7f07d6ab",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 29
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47060685_1f56f56f",
         "filename": "test/unittests/scripts/component_bridges/value_for_type_node_test.ts",
         "patchSetId": 13
