@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "outDir": "./gen"
+  },
+  "include": [
+    "*_test.ts"
+  ]
+}
