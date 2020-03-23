@@ -16,6 +16,40 @@
       "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "479a38f4_fa28f7af",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T09:57:43Z",
+      "side": 1,
+      "message": "Let\u0027s split this into separate lines for clarity\n\n    const xxx \u003d await $$(...);\n    const yyy \u003d await xxx.evaluate(...);\n    return yyy;\n\n(but with better variable names)",
+      "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aced6c3_85c38d91",
+        "filename": "test/e2e/resources/elements/style-pane-properties.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T09:57:43Z",
+      "side": 1,
+      "message": "Let\u0027s keep test resources as minimal as possible, since they serve as minimal test cases. We can get rid of everything that\u0027s unrelated to the test. For example, we don\u0027t need any of the \u003cmeta\u003es here. I suggest the following as the complete file contents:\n\n    \u003c!DOCTYPE html\u003e\n    \u003cstyle\u003e\n      #properties-to-delete {\n        height: 10px;\n        width: 20px;\n      }\n    \u003c/style\u003e\n    \u003cdiv id\u003d\"properties-to-delete\"\u003e\u003c/div\u003e\n\nNote that you wouldn\u0027t even have to change the *.ts test after making this change. (That is, the browser still creates a \u003cbody\u003e element, etc.)",
+      "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
