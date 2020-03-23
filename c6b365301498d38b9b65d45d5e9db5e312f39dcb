@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "07895ecf_116a5097",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T10:01:05Z",
+      "side": 1,
+      "message": "Let me update the commit message. I previously thought removing the additional check of \"!updatedProperty\" is a good fix, hence the first patch. But then I decided it\u0027s probably better to keep the current behavior and add another check, because current bahavior is said to prevent some race condition.",
+      "parentUuid": "32b95121_cd3951d8",
+      "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "479a38f4_fa28f7af",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 3
