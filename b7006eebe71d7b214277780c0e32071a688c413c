@@ -22,6 +22,30 @@
       "revId": "b7006eebe71d7b214277780c0e32071a688c413c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17009a6a_c6f6e9a5",
+        "filename": "test/unittests/front_end/sdk/Cookie_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T10:36:33Z",
+      "side": 1,
+      "message": "I\u0027m confused by this as `protocol.d.ts` exposes the global `Protocol` namespace, so if we refer to that TypeScript should know what we mean. We shouldn\u0027t rely on the legacy `self.Protocol` if possible - although I\u0027m not 100% confident on how TypeScript defs + namespaces work.\n\nIs this something that\u0027s specific to the tests, maybe?",
+      "parentUuid": "d55f3c7e_8a8e9285",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 66
+      },
+      "revId": "b7006eebe71d7b214277780c0e32071a688c413c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
