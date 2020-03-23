@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ff6eec0_968c66c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T11:58:51Z",
+      "side": 1,
+      "message": "Nit: Code seems to be using `WITH_SYMBOL_SERVER`",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "e996966e799ec1328e488655eb64c7832a43f0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eae417a4_800c9ef1",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T11:58:51Z",
+      "side": 1,
+      "message": "Nit: can be removed.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "e996966e799ec1328e488655eb64c7832a43f0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee4a9303_6cfdd282",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T11:58:51Z",
+      "side": 1,
+      "message": "I don\u0027t see this one being used in the test. Can it be removed?",
+      "range": {
+        "startLine": 19,
+        "startChar": 68,
+        "endLine": 19,
+        "endChar": 83
+      },
+      "revId": "e996966e799ec1328e488655eb64c7832a43f0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
