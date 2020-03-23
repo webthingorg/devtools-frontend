@@ -16,6 +16,24 @@
       "revId": "a6661f0f04d0445968c2643c15f13e1cc2ee1bad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46b3e068_0d10740f",
+        "filename": "front_end/object_ui/JavaScriptAutocomplete.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T22:44:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afa34772_cae308dd",
+      "revId": "a6661f0f04d0445968c2643c15f13e1cc2ee1bad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
