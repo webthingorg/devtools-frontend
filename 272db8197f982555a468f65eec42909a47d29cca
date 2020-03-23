@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2083fa8_e9051a27",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T17:24:13Z",
+      "side": 1,
+      "message": "The name of this doesn\u0027t tell me what it\u0027s for. Also, you should decorate it with to- and from-types, e.g.\n\n    /** \n     * @type {!Map\u003cstring, string\u003e}\n     */\n    this._legendMap \u003d new Map();",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9c751f0_e0e0fd86",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T17:24:13Z",
+      "side": 1,
+      "message": "I\u0027m confused by this. Maybe it\u0027s because it\u0027s within an if-statement. \n\nI guess, that the legend would be cleared and reset while setting total feels like an unintended or non-obvious side effect.",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ef1645a_59e67034",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T17:24:13Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me why focus would change just from calling `setTotal`. `setTotal` feels like it\u0027s changing the displayed `total` value. This is another non-obvious side effect.",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f06166b5_ae0b7a8f",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T17:24:13Z",
+      "side": 1,
+      "message": "In these, should we be setting `data-focused-by-keyboard` or whatever the attribute is here? (Or is it handled automatically by another handler?)",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b3c9fc_5384d3fe",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T17:24:13Z",
+      "side": 1,
+      "message": "So it looks to me here like we don\u0027t loop around to the last element?",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
