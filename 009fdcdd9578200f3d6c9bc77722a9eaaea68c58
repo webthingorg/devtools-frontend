@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a088bcfe_8aa49fea",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-23T15:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a28f70c5_b6ce6983",
+      "revId": "009fdcdd9578200f3d6c9bc77722a9eaaea68c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c2f49dc_4a75d3ff",
         "filename": "front_end/issues/issuesPane.css",
         "patchSetId": 4
@@ -39,6 +57,30 @@
       "revId": "009fdcdd9578200f3d6c9bc77722a9eaaea68c58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c84ea84_9aed7504",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-23T15:14:35Z",
+      "side": 1,
+      "message": "I just moved this style from above, but I guess the 200ms looked good to the previous author. Would be happy to align those in the future, and have some guidance on animations and transitions in general.",
+      "parentUuid": "7c2f49dc_4a75d3ff",
+      "range": {
+        "startLine": 180,
+        "startChar": 39,
+        "endLine": 180,
+        "endChar": 44
+      },
+      "revId": "009fdcdd9578200f3d6c9bc77722a9eaaea68c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
