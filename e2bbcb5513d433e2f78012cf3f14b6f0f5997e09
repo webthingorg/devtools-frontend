@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d6f8e91_79be8751",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T11:59:46Z",
+      "side": 1,
+      "message": "question: should we do this work now, or when we need it? I\u0027m leaning towards now because it feels likely that we will have an interface with a `string[]` or `Foo[]`.",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 70
+      },
+      "revId": "e2bbcb5513d433e2f78012cf3f14b6f0f5997e09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
