@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3be67766_e0fee891",
+        "filename": "scripts/component_bridges/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "Nit: Add a note that this will be enforced in the presubmit",
+      "range": {
+        "startLine": 11,
+        "startChar": 137,
+        "endLine": 11,
+        "endChar": 166
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea35887a_5ec59e8d",
+        "filename": "scripts/component_bridges/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "Nit: start new sentences on a new line. That way reading the text in Gerrit is a lot nicer.",
+      "range": {
+        "startLine": 24,
+        "startChar": 148,
+        "endLine": 24,
+        "endChar": 151
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4c2b569_be0a0fad",
+        "filename": "scripts/component_bridges/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "Add an OWNERS file to this directory to make that clearer.",
+      "range": {
+        "startLine": 32,
+        "startChar": 400,
+        "endLine": 32,
+        "endChar": 413
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ccb6ed0_7997fe16",
+        "filename": "scripts/component_bridges/tsconfig.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "Can we extend `tsconfig.base.json` maybe? Mostly for the stricter typing.",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 18
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9ddf011_d8a651e5",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "Nit: extract separate function for readability",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 5
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f8d5f2a_1ecdb4b0",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "Nit: use early-return:\n\n  if (isPrivate) {\n    return;\n  }",
+      "range": {
+        "startLine": 53,
+        "startChar": 15,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b6cd541_210351f2",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "Nit: add a TODO that interfaces in return types are not supported yet.",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 29
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47060685_1f56f56f",
+        "filename": "test/unittests/scripts/component_bridges/value_for_type_node_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-23T12:38:56Z",
+      "side": 1,
+      "message": "This needs to be `null` per the test name (and expected behavior of the conversion)",
+      "range": {
+        "startLine": 59,
+        "startChar": 67,
+        "endLine": 59,
+        "endChar": 76
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
