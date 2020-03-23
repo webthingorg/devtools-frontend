@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "551d175e_ad388e28",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-23T09:45:20Z",
+      "side": 1,
+      "message": "What\u0027s this change for?",
+      "range": {
+        "startLine": 110,
+        "startChar": 95,
+        "endLine": 110,
+        "endChar": 103
+      },
+      "revId": "0bcb49e33bd872a0b063c004ae3cf03b17e6e025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a4a80c_a21cd298",
+        "filename": "front_end/perf_ui/pieChart.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-23T09:45:20Z",
+      "side": 1,
+      "message": "Seems accidental?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "0bcb49e33bd872a0b063c004ae3cf03b17e6e025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e518a7d_01063de9",
+        "filename": "front_end/perf_ui/pieChart.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-23T09:45:20Z",
+      "side": 1,
+      "message": "nit: Alignment here",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 2
+      },
+      "revId": "0bcb49e33bd872a0b063c004ae3cf03b17e6e025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
