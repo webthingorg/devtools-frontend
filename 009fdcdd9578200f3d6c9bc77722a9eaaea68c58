@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a28f70c5_b6ce6983",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T15:10:56Z",
+      "side": 1,
+      "message": "Let\u0027s do the `prepend` first, while `link` is still in memory only, and only then add `link` to the DOM. This way there\u0027s only one DOM write. (Sorry I didn\u0027t spot this earlier.)",
+      "revId": "009fdcdd9578200f3d6c9bc77722a9eaaea68c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c2f49dc_4a75d3ff",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-23T15:10:56Z",
+      "side": 1,
+      "message": "Just out of curiosity, where does the 200 ms come from? We have various timeouts/delays all over the codebase, e.g. context submenus appear after 150 ms -- longer term maybe we could align some of these?\n\n(I don\u0027t expect this to be addressed in this CL, just wondering!)",
+      "range": {
+        "startLine": 180,
+        "startChar": 39,
+        "endLine": 180,
+        "endChar": 44
+      },
+      "revId": "009fdcdd9578200f3d6c9bc77722a9eaaea68c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
