@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37ad814f_a525e3a8",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T10:02:48Z",
+      "side": 1,
+      "message": "nit: I\u0027d rewrite this as:\n\n```\nconst locationPromises \u003d [];\nfor (const [sourceFile, script] of mappedSourceFiles) {\n  const plugin \u003d this._pluginForScriptId.get(script.scriptId);\n  if (plugin) {\n    locationPromises.push(getLocations(this._debuggerModel, plugin, sourceFile, script));\n  }\n}\n\nif (locationPromises.length \u003d\u003d\u003d 0) {\n  return null;\n}\nreturn (await Promise.all(locationPromises)).flat();\n```\n\nEasier to read and the individual `getLocations` calls can run \"in parallel\".",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 16
+      },
+      "revId": "0163fb22a53aa1bcfff31507395874cd534396b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
