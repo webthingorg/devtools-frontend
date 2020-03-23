@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e9177b7_d1c59d5f",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T19:00:11Z",
+      "side": 1,
+      "message": "Let\u0027s not do a long query ternary with returning complex objects.\n\n    // Note: renamed this value from \u0027params\u0027\n    let screen \u003d {name: ls`Shortcuts, focusTabHeader: true};\n    if (Root.Runtime.experiments.isEnabled(\u0027customKeyboardShortcuts\u0027)) {\n              // Why is this not localized?\n      screen \u003d {name: \u0027keybinds\u0027, focusTabHeader: true};\n    SettingsScreen._showSettingsScreen(screen);",
+      "revId": "4b5025aac14fbeff9609516c28ecdb4700887f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fd66021_040eb900",
+        "filename": "front_end/settings/settings.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T19:00:11Z",
+      "side": 1,
+      "message": "You don\u0027t need to do this as your KeybindsSettingsTab module doesn\u0027t have any side effects.",
+      "revId": "4b5025aac14fbeff9609516c28ecdb4700887f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87636e77_9d36647d",
+        "filename": "front_end/ui/Action.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-23T19:00:11Z",
+      "side": 1,
+      "message": "Consider changing this function to async.\n\n    async execute() {\n      if (!this._extension.canInstantiate()) {\n        return false;\n      }\n      const instance \u003d await this._extension.instance();\n      return this.handleAction(instance);\n    }",
+      "revId": "4b5025aac14fbeff9609516c28ecdb4700887f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
