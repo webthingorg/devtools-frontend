@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0c151145_2071798c",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-03-23T12:18:42Z",
+      "side": 1,
+      "message": "Scripts as keys should be safe at least per-target. I will defer this to a later change though.",
+      "parentUuid": "be335bff_ae98c72e",
+      "range": {
+        "startLine": 167,
+        "startChar": 16,
+        "endLine": 167,
+        "endChar": 34
+      },
+      "revId": "bc9c075476b514256fc9b44ed0bedaeb87c99b15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3444c2f3_55cd8872",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 4
