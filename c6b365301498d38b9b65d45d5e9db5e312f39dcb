@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4dc6e3d0_977095c9",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T22:31:34Z",
+      "side": 1,
+      "message": "Done; thanks for the suggestion.",
+      "parentUuid": "479a38f4_fa28f7af",
+      "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7aced6c3_85c38d91",
         "filename": "test/e2e/resources/elements/style-pane-properties.html",
         "patchSetId": 3
@@ -68,6 +86,24 @@
       "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7beb24ee_a3020b1e",
+        "filename": "test/e2e/resources/elements/style-pane-properties.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T22:31:34Z",
+      "side": 1,
+      "message": "Done; this is a really nice suggestion. I feel like we should suggest this to other test resource html files as well.",
+      "parentUuid": "7aced6c3_85c38d91",
+      "revId": "c6b365301498d38b9b65d45d5e9db5e312f39dcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

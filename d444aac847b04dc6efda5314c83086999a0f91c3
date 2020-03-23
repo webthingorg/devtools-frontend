@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "39f259cb_b834aa83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T22:31:34Z",
+      "side": 1,
+      "message": "I\u0027ll updat them. Thanks for letting me know.",
+      "parentUuid": "0e7dedb2_b24ed853",
+      "range": {
+        "startLine": 9,
+        "startChar": 101,
+        "endLine": 9,
+        "endChar": 105
+      },
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "146cac2e_e49ab2eb",
         "filename": "front_end/elements/StylePropertyTreeElement.js",
         "patchSetId": 5
@@ -66,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "69a5eb2a_9d9883ca",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T22:31:34Z",
+      "side": 1,
+      "message": "Done :)",
+      "parentUuid": "146cac2e_e49ab2eb",
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f807880e_be3a07ea",
         "filename": "test/e2e/elements/style-pane-properties.ts",
         "patchSetId": 5
@@ -80,6 +122,24 @@
       "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba56afc4_0cfcb379",
+        "filename": "test/e2e/elements/style-pane-properties.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T22:31:34Z",
+      "side": 1,
+      "message": "Done :)",
+      "parentUuid": "f807880e_be3a07ea",
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9190279f_69b7cf9c",
+        "filename": "test/e2e/elements/style-pane-properties.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T22:31:34Z",
+      "side": 1,
+      "message": "Updated; thanks for suggesting.",
+      "parentUuid": "e1409d1e_d07babf7",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 39
+      },
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74751fdf_d5371019",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 5
@@ -126,6 +210,30 @@
       "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "439295f2_17ae7d7d",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-03-23T22:31:34Z",
+      "side": 1,
+      "message": "Done :)",
+      "parentUuid": "74751fdf_d5371019",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "d444aac847b04dc6efda5314c83086999a0f91c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
