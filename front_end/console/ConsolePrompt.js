@@ -273,7 +273,7 @@ export class ConsolePrompt extends UI.Widget.Widget {
     if (!this._isCaretAtEndOfPrompt()) {
       return true;
     }
-    return await ObjectUI.JavaScriptAutocomplete.JavaScriptAutocomplete.isExpressionComplete(this.text());
+    return await ObjectUI.JavaScriptAutocomplete.JavaScriptAutocomplete.willExpressionEvaluate(this.text());
   }
 
   _updatePromptIcon() {

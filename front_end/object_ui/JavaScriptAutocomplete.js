@@ -667,14 +667,14 @@ export class JavaScriptAutocomplete {
    * @param {string} expression
    * @return {!Promise<boolean>}
    */
-  static async isExpressionComplete(expression) {
+  static async willExpressionEvaluate(expression) {
     const currentExecutionContext = self.UI.context.flavor(SDK.RuntimeModel.ExecutionContext);
     if (!currentExecutionContext) {
       return true;
     }
     const result =
         await currentExecutionContext.runtimeModel.compileScript(expression, '', false, currentExecutionContext.id);
-    if (!result.exceptionDetails) {
+    if (!result && !result.exceptionDetails) {
       return true;
     }
     const description = result.exceptionDetails.exception.description;

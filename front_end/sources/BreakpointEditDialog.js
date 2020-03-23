@@ -116,7 +116,7 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
       event.consume(true);
       const expression = this._editor.text();
       if (event.ctrlKey ||
-          await ObjectUI.JavaScriptAutocomplete.JavaScriptAutocomplete.isExpressionComplete(expression)) {
+          await ObjectUI.JavaScriptAutocomplete.JavaScriptAutocomplete.willExpressionEvaluate(expression)) {
         this._finishEditing(true);
       } else {
         this._editor.newlineAndIndent();
