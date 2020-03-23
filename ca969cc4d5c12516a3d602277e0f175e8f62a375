@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a8d62be6_64b108cf",
+        "filename": "scripts/component_bridges/tsconfig.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T13:37:54Z",
+      "side": 1,
+      "message": "Ah nice catch! Didn\u0027t realise I wasn\u0027t in strict mode and now have some type errors to resolve.",
+      "parentUuid": "1ccb6ed0_7997fe16",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 18
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ddf011_d8a651e5",
         "filename": "scripts/component_bridges/walk_tree.ts",
         "patchSetId": 13
