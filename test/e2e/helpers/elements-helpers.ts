@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 import {assert} from 'chai';
 
-import {$, click, getBrowserAndPages, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, waitFor} from '../../shared/helper.js';
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
 
@@ -61,4 +61,12 @@ export const waitForDOMNodeToBeHidden = async (elementSelector: string) => {
 
 export const ensureGutterDecorationForDOMNodeExists = async () => {
   await waitFor('.elements-gutter-decoration');
+};
+
+export const obtainDisplayedCSSPropertyValuesForSelectedNode = async () => {
+  const CSS_PROPERTY_VALUE_SELECTOR = '.webkit-css-property ~ .value';
+  const listNodesContent = (nodes: Element[]) => nodes.map(node => node.textContent);
+  const cssPropertyValues = await $$(CSS_PROPERTY_VALUE_SELECTOR);
+  const propertyValueText = await cssPropertyValues.evaluate(listNodesContent);
+  return propertyValueText;
 };
