@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "89d37a67_e94e7e5e",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T19:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2083fa8_e9051a27",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9c751f0_e0e0fd86",
         "filename": "front_end/perf_ui/PieChart.js",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d286fbd1_f2fead3b",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T19:02:04Z",
+      "side": 1,
+      "message": "Let\u0027s move this discussion over to the other comment in the function.",
+      "parentUuid": "c9c751f0_e0e0fd86",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ef1645a_59e67034",
         "filename": "front_end/perf_ui/PieChart.js",
         "patchSetId": 5
@@ -47,6 +83,24 @@
       "writtenOn": "2020-03-23T17:24:13Z",
       "side": 1,
       "message": "It\u0027s not clear to me why focus would change just from calling `setTotal`. `setTotal` feels like it\u0027s changing the displayed `total` value. This is another non-obvious side effect.",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "979c2dfe_37480100",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T19:02:04Z",
+      "side": 1,
+      "message": "Considering that the first thing this function does is to remove the current slices, I am leaning towards just renaming the function.  Plus, it makes more sense in situations like this: https://cs.chromium.org/chromium/src/third_party/devtools-frontend/src/front_end/resources/ClearStorageView.js?type\u003dcs\u0026q\u003dsetTotal+file:ClearStorageView+-f:out\u0026sq\u003dpackage:chromium\u0026g\u003d0\u0026l\u003d275 \n\nRenamed to initializeWithTotal.  Let me know what you think.",
+      "parentUuid": "8ef1645a_59e67034",
       "revId": "272db8197f982555a468f65eec42909a47d29cca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "1c5f33f0_0e797b87",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T19:02:04Z",
+      "side": 1,
+      "message": "I believe that if data-keyboard-focus is on another element, element.focus will move the data-keyboard-focus.  Can verify that data-keyboard-focus works as intended in this CL.",
+      "parentUuid": "f06166b5_ae0b7a8f",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99b3c9fc_5384d3fe",
         "filename": "front_end/perf_ui/PieChart.js",
         "patchSetId": 5
@@ -81,6 +153,24 @@
       "writtenOn": "2020-03-23T17:24:13Z",
       "side": 1,
       "message": "So it looks to me here like we don\u0027t loop around to the last element?",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88060408_48a2d27f",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-23T19:02:04Z",
+      "side": 1,
+      "message": "It doesn\u0027t, but I like the idea that it should.  Changing it.",
+      "parentUuid": "99b3c9fc_5384d3fe",
       "revId": "272db8197f982555a468f65eec42909a47d29cca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
