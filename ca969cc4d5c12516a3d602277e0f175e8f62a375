@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d073f9c3_406dd857",
+        "filename": "scripts/component_bridges/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T13:21:50Z",
+      "side": 1,
+      "message": "I\u0027d rather do that when we actually enforce that in a CL. Also it is semi enforced already given the type checks run on CQ.",
+      "parentUuid": "3be67766_e0fee891",
+      "range": {
+        "startLine": 11,
+        "startChar": 137,
+        "endLine": 11,
+        "endChar": 166
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea35887a_5ec59e8d",
         "filename": "scripts/component_bridges/README.md",
         "patchSetId": 13
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8ab33029_25a70e40",
+        "filename": "scripts/component_bridges/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T13:21:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ea35887a_5ec59e8d",
+      "range": {
+        "startLine": 24,
+        "startChar": 148,
+        "endLine": 24,
+        "endChar": 151
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4c2b569_be0a0fad",
         "filename": "scripts/component_bridges/README.md",
         "patchSetId": 13
@@ -68,6 +116,30 @@
       "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "172fc7f4_96393bb8",
+        "filename": "scripts/component_bridges/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-23T13:21:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f4c2b569_be0a0fad",
+      "range": {
+        "startLine": 32,
+        "startChar": 400,
+        "endLine": 32,
+        "endChar": 413
+      },
+      "revId": "ca969cc4d5c12516a3d602277e0f175e8f62a375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
