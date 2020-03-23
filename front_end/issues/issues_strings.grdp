@@ -3,6 +3,9 @@
   <message name="IDS_DEVTOOLS_0c94f752d037fd8475e98b0711b543a6" desc="Label for the link for SameSiteCookies Issues">
     SameSite cookies explained
   </message>
+  <message name="IDS_DEVTOOLS_1132a6becb00a4011570ca6964252ec0" desc="Title for a link to further information in issue view">
+    Learn more · <ph name="THIS__DETAILS_LINKTITLE">$1s<ex>SameSite Cookies Explained</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_2dccd1ab3e03990aea77359831c85ca2" desc="Label for number of affected resource indication in issue view">
     cookie
   </message>
