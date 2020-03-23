@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac5c6b92_c27933d6",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T09:51:40Z",
+      "side": 1,
+      "message": "nit: I\u0027d prefer \"updateAffectedResourceCounterElement\" or something similar.\n\n{affectedResourcesCounter} is an {Element} and a setter that takes just a number can seem confusing.",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "86ec5488d42aae5ada77898254ce6928beb3f0d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2aad142_71ff4976",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-23T09:51:40Z",
+      "side": 1,
+      "message": "Should we leave a TODO for l10n of these strings?",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 57
+      },
+      "revId": "86ec5488d42aae5ada77898254ce6928beb3f0d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
