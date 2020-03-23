@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b88d3136_ff5606cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-23T14:13:16Z",
+      "side": 1,
+      "message": "Updated CL description!",
+      "parentUuid": "264aa668_be2b525c",
+      "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67060581_d87baf79",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "11817bbe_c4690661",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-23T14:13:16Z",
+      "side": 1,
+      "message": "Yes, that is reasonable, done.",
+      "parentUuid": "760e0105_a454afdc",
+      "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5c97b3c_bcc28492",
         "filename": "front_end/issues/issuesPane.css",
         "patchSetId": 2
@@ -68,6 +104,24 @@
       "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c79f1ecd_063bf834",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-23T14:13:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c97b3c_bcc28492",
+      "revId": "80818add16ce9b52926aed086a4431baf2c76e1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
