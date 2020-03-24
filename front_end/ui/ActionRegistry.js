@@ -23,9 +23,6 @@ export class ActionRegistry {
      * @this {ActionRegistry}
      */
     function registerExtension(extension) {
-      if (!extension.canInstantiate()) {
-        return;
-      }
       const actionId = extension.descriptor()['actionId'];
       console.assert(actionId);
       console.assert(!this._actionsById.get(actionId));
@@ -44,6 +41,13 @@ export class ActionRegistry {
    */
   availableActions() {
     return this.applicableActions([...this._actionsById.keys()], self.UI.context);
+  }
+
+  /**
+   * @return {!Array.<!Action>}
+   */
+  actions() {
+    return [...this._actionsById.values()];
   }
 
   /**
