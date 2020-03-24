@@ -109,18 +109,26 @@ export class EmulationModel extends SDKModel {
     if (!geolocation) {
       this._emulationAgent.clearGeolocationOverride();
       this._emulationAgent.setTimezoneOverride('');
+      this._emulationAgent.setLocaleOverride('');
+      this._emulationAgent.setUserAgentOverride(SDK.multitargetNetworkManager._currentUserAgent());
     }
 
     if (geolocation.error) {
       this._emulationAgent.setGeolocationOverride();
       this._emulationAgent.setTimezoneOverride('');
+      this._emulationAgent.setLocaleOverride('');
+      this._emulationAgent.setUserAgentOverride(SDK.multitargetNetworkManager._currentUserAgent());
     } else {
       return Promise.all([
         this._emulationAgent
             .setGeolocationOverride(geolocation.latitude, geolocation.longitude, Geolocation.DefaultMockAccuracy)
             .catch(err => Promise.reject({type: 'emulation-set-geolocation', message: err.message})),
         this._emulationAgent.setTimezoneOverride(geolocation.timezoneId)
-            .catch(err => Promise.reject({type: 'emulation-set-timezone', message: err.message}))
+            .catch(err => Promise.reject({type: 'emulation-set-timezone', message: err.message})),
+        this._emulationAgent.setLocaleOverride(geolocation.locale)
+            .catch(err => Promise.reject({type: 'emulation-set-locale', message: err.message})),
+        this._emulationAgent.setUserAgentOverride(SDK.multitargetNetworkManager._currentUserAgent(), geolocation.locale)
+            .catch(err => Promise.reject({type: 'emulation-set-user-agent', message: err.message})),
       ]);
     }
   }
@@ -228,12 +236,14 @@ export class Geolocation {
    * @param {number} latitude
    * @param {number} longitude
    * @param {string} timezoneId
+   * @param {string} locale
    * @param {boolean} error
    */
-  constructor(latitude, longitude, timezoneId, error) {
+  constructor(latitude, longitude, timezoneId, locale, error) {
     this.latitude = latitude;
     this.longitude = longitude;
     this.timezoneId = timezoneId;
+    this.locale = locale;
     this.error = error;
   }
 
@@ -242,11 +252,11 @@ export class Geolocation {
    */
   static parseSetting(value) {
     if (value) {
-      const [position, timezoneId, error] = value.split(':');
+      const [position, timezoneId, locale, error] = value.split(':');
       const [latitude, longitude] = position.split('@');
-      return new Geolocation(parseFloat(latitude), parseFloat(longitude), timezoneId, Boolean(error));
+      return new Geolocation(parseFloat(latitude), parseFloat(longitude), timezoneId, locale, Boolean(error));
     }
-    return new Geolocation(0, 0, '', false);
+    return new Geolocation(0, 0, '', '', false);
   }
 
   /**
@@ -255,7 +265,7 @@ export class Geolocation {
    * @param {string} timezoneId
    * @return {?Geolocation}
    */
-  static parseUserInput(latitudeString, longitudeString, timezoneId) {
+  static parseUserInput(latitudeString, longitudeString, timezoneId, locale) {
     if (!latitudeString && !longitudeString) {
       return null;
     }
@@ -269,7 +279,7 @@ export class Geolocation {
 
     const latitude = isLatitudeValid ? parseFloat(latitudeString) : -1;
     const longitude = isLongitudeValid ? parseFloat(longitudeString) : -1;
-    return new Geolocation(latitude, longitude, timezoneId, false);
+    return new Geolocation(latitude, longitude, timezoneId, locale, false);
   }
 
   /**
@@ -308,10 +318,25 @@ export class Geolocation {
   }
 
   /**
+   * @param {string} value
+   * @return {{valid: boolean, errorMessage: (string|undefined)}}
+   */
+  static localeValidator(value) {
+    // Similarly to timezone IDs, there's not much point in validating
+    // input locales other than checking if it contains at least two
+    // alphabetic characters.
+    // https://unicode.org/reports/tr35/#Unicode_language_identifier
+    // The empty string resets the override, and is accepted as
+    // well.
+    const valid = value === '' || /[a-zA-Z]{2}/.test(value);
+    return {valid};
+  }
+
+  /**
    * @return {string}
    */
   toSetting() {
-    return `${this.latitude}@${this.longitude}:${this.timezoneId}:${this.error || ''}`;
+    return `${this.latitude}@${this.longitude}:${this.timezoneId}:${this.locale}:${this.error || ''}`;
   }
 }
 
