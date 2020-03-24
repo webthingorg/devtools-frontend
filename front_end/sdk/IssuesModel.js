@@ -7,10 +7,11 @@ import * as Common from '../common/common.js';  // eslint-disable-line no-unused
 import {CookieModel} from './CookieModel.js';
 import {AggregatedIssue, Issue} from './Issue.js';
 import {NetworkManager} from './NetworkManager.js';
+import {NetworkRequest} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
+import * as RelatedIssue from './RelatedIssue.js';
 import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
-const connectedIssueSymbol = Symbol('issue');
 
 /**
  * @implements {Protocol.AuditsDispatcher}
@@ -83,8 +84,29 @@ export class IssuesModel extends SDKModel {
   issueAdded(inspectorIssue) {
     const issue = new Issue(inspectorIssue.code, inspectorIssue.resources);
     this._issues.push(issue);
+    this.connectIssue(issue);
     const aggregatedIssue = this._aggregateIssue(issue);
     this.dispatchEventToListeners(Events.AggregatedIssueUpdated, aggregatedIssue);
+  }
+
+  /**
+   *
+   * @param {!Issue} issue
+   */
+  connectIssue(issue) {
+    const resources = issue.resources();
+    if (!resources) {
+      return;
+    }
+    if (resources.requests) {
+      for (const {requestId} of resources.requests) {
+        const request =
+            /** @type {?NetworkRequest} */ (self.SDK.networkLog.requests().find(r => r.requestId() === requestId));
+        if (request) {
+          RelatedIssue.connect(request, RelatedIssue.IssueCategory.CrossOriginEmbedderPolicy, issue);
+        }
+      }
+    }
   }
 
   /**
@@ -99,31 +121,6 @@ export class IssuesModel extends SDKModel {
    */
   numberOfAggregatedIssues() {
     return this._aggregatedIssuesByCode.size;
-  }
-
-  /**
-   * @param {!*} obj
-   * TODO(chromium:1063765): Strengthen types.
-   * @param {!Issue} issue
-   */
-  static connectWithIssue(obj, issue) {
-    if (!obj) {
-      return;
-    }
-
-    if (!obj[connectedIssueSymbol]) {
-      obj[connectedIssueSymbol] = new Set();
-    }
-
-    obj[connectedIssueSymbol].add(issue);
-  }
-
-  /**
-   * @param {!*} obj
-   * @returns {boolean}
-   */
-  static hasIssues(obj) {
-    return !!obj && obj[connectedIssueSymbol] && obj[connectedIssueSymbol].size;
   }
 }
 

@@ -107,7 +107,6 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     }
     if (resources.cookies) {
       for (const cookie of resources.cookies) {
-        IssuesModel.connectWithIssue(cookie, issue);
         const key = JSON.stringify(cookie);
         if (!this._cookies.has(key)) {
           this._cookies.set(key, cookie);
