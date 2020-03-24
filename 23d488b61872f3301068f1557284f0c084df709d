@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfcbd04d_e14b0110",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-24T15:20:13Z",
+      "side": 1,
+      "message": "Nit: put this in the element-helpers with the name `openEventListenersPane()`. That allows you to remove the code comment as well, as it is descriptive on its own.",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "23d488b61872f3301068f1557284f0c084df709d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ef0c908_b2ca9265",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-24T15:20:13Z",
+      "side": 1,
+      "message": "Nit: put this in the elements-helpers. E.g. `getDisplayedEventListeners()`",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 7
+      },
+      "revId": "23d488b61872f3301068f1557284f0c084df709d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
