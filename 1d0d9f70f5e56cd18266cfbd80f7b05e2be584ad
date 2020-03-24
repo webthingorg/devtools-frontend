@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "986b053e_19be70e1",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-24T14:53:51Z",
+      "side": 1,
+      "message": "nit: space",
+      "revId": "1d0d9f70f5e56cd18266cfbd80f7b05e2be584ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a01785d_1491abbe",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-24T14:53:51Z",
+      "side": 1,
+      "message": "Shorter:\n\n    content: \u0027\\B7\u0027",
+      "revId": "1d0d9f70f5e56cd18266cfbd80f7b05e2be584ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bd02640_27b005e1",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-24T14:53:51Z",
+      "side": 1,
+      "message": "nit: space",
+      "revId": "1d0d9f70f5e56cd18266cfbd80f7b05e2be584ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
