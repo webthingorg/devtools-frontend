@@ -195,6 +195,24 @@
       "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25a35742_7f569d02",
+        "filename": "scripts/localizationV2/bakeCtcToDtl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-24T10:45:32Z",
+      "side": 1,
+      "message": "The libraries in `front_end/third_party` are included in the eventual DevTools bundle. They are therefore subject to additional security scrutiny.\n\nSince these scripts are not included in the eventual DevTools bundle, they should be in `third_party` instead.",
+      "parentUuid": "f4a419b1_8baa7293",
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
