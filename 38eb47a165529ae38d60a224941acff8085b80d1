@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c0c309e_10954656",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-24T15:17:08Z",
+      "side": 1,
+      "message": "Reading this + the commit message, it sounds like what you want is three themes:\n\n- light theme (default)\n- dark theme\n- forced colors mode theme\n\n...since when forced colors mode is enabled, you don\u0027t want to get any special dark theme styles.\n\nSo, would it make more sense for forced colors mode to be made a proper theme?",
+      "revId": "38eb47a165529ae38d60a224941acff8085b80d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
