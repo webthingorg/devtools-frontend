@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35d63971_ab5dc0d1",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-24T12:16:16Z",
+      "side": 1,
+      "message": "This can be import as * now",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 70
+      },
+      "revId": "0a831f16fb81a8187e0cf41506d077b934f6556f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
