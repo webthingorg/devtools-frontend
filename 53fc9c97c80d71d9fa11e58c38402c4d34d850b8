@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b379eba_f43d422d",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-24T12:05:14Z",
+      "side": 1,
+      "message": "I\u0027m planning to reland this same change once the broken test is removed: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2116436/1/front_end/bindings/DebuggerWorkspaceBinding.js\n\nthough if you prefer this that\u0027s fine.",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 195,
+        "endChar": 20
+      },
+      "revId": "53fc9c97c80d71d9fa11e58c38402c4d34d850b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
