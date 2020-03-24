@@ -70,6 +70,30 @@
       "revId": "37f742a460234767dfe0e7f28409d432e9b39025",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bf06767_fdc33d37",
+        "filename": "front_end/emulation/emulation_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-24T09:47:09Z",
+      "side": 1,
+      "message": "Good catch! In this case it\u0027s a \u003cselect\u003e option, which enables some other UI elements (\"starts a process\"). Done.",
+      "parentUuid": "55d13a13_1ce75a98",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "37f742a460234767dfe0e7f28409d432e9b39025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
