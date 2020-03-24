@@ -192,7 +192,10 @@ export class DebuggerWorkspaceBinding {
       }
     }
     const modelData = this._debuggerModelToData.get(rawLocation.debuggerModel);
-    return modelData._rawLocationToUILocation(rawLocation);
+    if (modelData) {
+      return modelData._rawLocationToUILocation(rawLocation);
+    }
+    return null;
   }
 
   /**
