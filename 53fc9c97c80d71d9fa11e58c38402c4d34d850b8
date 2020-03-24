@@ -22,6 +22,30 @@
       "revId": "53fc9c97c80d71d9fa11e58c38402c4d34d850b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f067c148_c691ce33",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T12:31:43Z",
+      "side": 1,
+      "message": "Awesome. I\u0027ll abandon this change once the reland is in.",
+      "parentUuid": "0b379eba_f43d422d",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 195,
+        "endChar": 20
+      },
+      "revId": "53fc9c97c80d71d9fa11e58c38402c4d34d850b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
