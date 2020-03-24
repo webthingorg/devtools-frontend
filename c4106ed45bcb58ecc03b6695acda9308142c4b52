@@ -177,6 +177,24 @@
       "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4a419b1_8baa7293",
+        "filename": "scripts/localizationV2/bakeCtcToDtl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-03-24T04:30:31Z",
+      "side": 1,
+      "message": "Hey Tim, the \u0027front_end/third_party\u0027 directory also has some third_party code like axe-core and pyjson5 with proper licenses and READMEs. Is there a reason that we cannot add this to the \u0027front_end/third_party\u0027 but need to add it directly to src/third_party?",
+      "parentUuid": "43ea12ef_33b5358e",
+      "revId": "c4106ed45bcb58ecc03b6695acda9308142c4b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
