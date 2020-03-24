@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe196321_105f2183",
+        "filename": "third_party/typescript/tests/verify_ts_libary.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-24T16:01:30Z",
+      "side": 1,
+      "message": "is this the bit that causes the test JS file to run? Just checking my understanding.",
+      "range": {
+        "startLine": 14,
+        "startChar": 47,
+        "endLine": 14,
+        "endChar": 59
+      },
+      "revId": "93451337f44757139750cfd5bbb72b7abb1adcfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
