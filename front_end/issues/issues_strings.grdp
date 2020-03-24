@@ -9,11 +9,17 @@
   <message name="IDS_DEVTOOLS_3ac50b50b2090885755631100cb73b51" desc="Message for the SameSiteCookies::SameSiteNoneWithoutSecure issue code">
     In a future version of chrome, third party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man in the middle scenario.
   </message>
+  <message name="IDS_DEVTOOLS_4d1c8263ba1036754f8db14a98f9f006" desc="Label for a button that reloads the inspected page">
+    Reload
+  </message>
   <message name="IDS_DEVTOOLS_55e7dd3016ce4ac57b9a0f56af12f7c2" desc="Label for number of affected resource indication in issue view">
     cookies
   </message>
   <message name="IDS_DEVTOOLS_6011ea0969680deba3975ac5bd0e153e" desc="Title for a link to further information in issue view">
     Learn more: <ph name="THIS__DETAILS_LINKTITLE">$1s<ex>SameSite Cookies Explained</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_73463686ac485d56182d1f9a35df5e37" desc="Explanatory message why a reload of the inspected page is required">
+    Reload required for more accurate issues
   </message>
   <message name="IDS_DEVTOOLS_b02478e52979ba9af8bffc41f342f4b6" desc="Header for the section listing affected resources">
     Affected Resources

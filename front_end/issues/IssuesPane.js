@@ -309,6 +309,12 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
         this._updateAggregatedIssueView(issue);
       }
     }
+
+    /** @type {?UI.Infobar.Infobar} */
+    this._reloadInfobar = null;
+    /** @type {?Element} */
+    this._infoBarDiv = null;
+    this._showReloadInfobarIfNeeded();
   }
 
   /**
@@ -337,6 +343,7 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
   }
 
   _fullUpdate() {
+    this._hideReloadInfoBar();
     for (const view of this._issueViews.values()) {
       view.detach();
     }
@@ -365,6 +372,47 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     const issueView = this._issueViews.get(code);
     if (issueView) {
       issueView.reveal();
+    }
+  }
+
+  _showReloadInfobarIfNeeded() {
+    if (!this._model || !this._model.reloadForAccurateInformationRequired()) {
+      return;
+    }
+
+    function reload() {
+      const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
+      if (mainTarget) {
+        const resourceModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+        if (resourceModel) {
+          resourceModel.reloadPage();
+        }
+      }
+    }
+
+    const infobar = new UI.Infobar.Infobar(
+        UI.Infobar.Type.Warning, ls`Reload required for more accurate issues`,
+        [{text: ls`Reload`, highlight: false, delegate: reload, dismiss: true}]);
+
+    this._reloadInfobar = infobar;
+    this._attachReloadInfoBar(infobar);
+  }
+
+  /** @param {!UI.Infobar.Infobar} infobar */
+  _attachReloadInfoBar(infobar) {
+    if (!this._infoBarDiv) {
+      this._infoBarDiv = createElementWithClass('div', 'flex-none');
+      this.contentElement.insertBefore(this._infoBarDiv, this.contentElement.firstChild);
+    }
+    this._infoBarDiv.appendChild(infobar.element);
+    infobar.setParentView(this);
+    this.doResize();
+  }
+
+  _hideReloadInfoBar() {
+    if (this._reloadInfobar) {
+      this._reloadInfobar.dispose();
+      this._reloadInfobar = null;
     }
   }
 }
