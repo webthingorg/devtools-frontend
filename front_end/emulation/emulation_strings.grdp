@@ -18,14 +18,14 @@
   <message name="IDS_DEVTOOLS_0edd9b471d32d5e3bbec7ca8df113568" desc="Title of an action in the emulation tool to toggle device mode">
     Toggle device toolbar
   </message>
-  <message name="IDS_DEVTOOLS_138d1a442ecb2e2fd3b083f1842658d0" desc="Text in Sensors View of the Device Toolbar">
-    Custom orientation...
-  </message>
   <message name="IDS_DEVTOOLS_14304bfef92cfbf9273517fb5725f8b2" desc="Error message in the Devices settings pane that declares the value of the height input must be a number">
     Height must be a number.
   </message>
   <message name="IDS_DEVTOOLS_146bdebb324a64d327b1dde22a07d0bd" desc="Text in Device Mode View of the Device Toolbar">
     Laptop
+  </message>
+  <message name="IDS_DEVTOOLS_15b6e7a149323eb54e40b902181ffa91" desc="Text in Sensors View of the Device Toolbar">
+    Custom orientation…
   </message>
   <message name="IDS_DEVTOOLS_19ada73af65f7c221bd28e78b2eda5cd" desc="A context menu item in the Device Mode Toolbar of the Device Toolbar">
     Edit…
@@ -102,12 +102,6 @@
   <message name="IDS_DEVTOOLS_414b730ab2cf9123d9230740864ffeec" desc="A context menu item in the Device Mode Toolbar of the Device Toolbar">
     Close <ph name="LOCKED_1">DevTools</ph>
   </message>
-  <message name="IDS_DEVTOOLS_45f80006d304f294d6c1de50c244856e" desc="Text of add geolocations button in Geolocations Settings Tab of the Device Toolbar">
-    Add location...
-  </message>
-  <message name="IDS_DEVTOOLS_505529fbaaa0767b9f5e8873f22b9176" desc="Error message in the Geolocations settings pane that declares timezone ID input invalid">
-    Timezone ID must contain alphabet letters
-  </message>
   <message name="IDS_DEVTOOLS_526d688f37a86d3c3f27d0c5016eb71d" desc="Text of orientation reset button in Sensors View of the Device Toolbar">
     Reset
   </message>
@@ -128,6 +122,9 @@
   </message>
   <message name="IDS_DEVTOOLS_5cacd64cfc65b4f4ea83306b6cebf0be" desc="A tag of Sensors tool that can be searched in the command menu">
     timezones
+  </message>
+  <message name="IDS_DEVTOOLS_5e749079e5aedb5f24e7f0d03835bf1f" desc="A tag of Sensors tool that can be searched in the command menu">
+    locales
   </message>
   <message name="IDS_DEVTOOLS_614103b76fd0d9de068d69034fb6f987" desc="Text in Device Mode View of the Device Toolbar">
     (<ph name="THIS__MODEL_DEVICE___TITLE">$1s<ex>iPhone X</ex></ph>)
@@ -164,6 +161,9 @@
   </message>
   <message name="IDS_DEVTOOLS_741f22b07be0231ec5e3040ae4291710" desc="Error message in the Geolocations settings pane that declares the maximum value for the latitude input">
     Latitude must be less than or equal to <ph name="MAXLAT">$1s<ex>90</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_74710ff11394bbf95d4fa4a9d3dc241c" desc="Error message in the Geolocations settings pane that declares locale input invalid">
+    Locale must contain alphabetic characters
   </message>
   <message name="IDS_DEVTOOLS_75a37bfcbfe2678114513aef903c4ba5" desc="Text in Device Mode Toolbar of the Device Toolbar">
     Default: <ph name="DEFAULTVALUE">$1.1f<ex>4.3</ex></ph>
@@ -213,6 +213,9 @@
   <message name="IDS_DEVTOOLS_901bc0a4714ff81c24943a50e620de71" desc="Text in Devices Settings Tab of the Device Toolbar">
     User agent string
   </message>
+  <message name="IDS_DEVTOOLS_911f0f24bdce6808f4614d6a263b143b" desc="Text in Sensors View of the Device Toolbar">
+    Locale
+  </message>
   <message name="IDS_DEVTOOLS_92394ac4969be25aa83d1c928f6a7dbc" desc="Label in the Devices settings pane for the device name input of a custom device">
     Device Name
   </message>
@@ -236,6 +239,9 @@
   </message>
   <message name="IDS_DEVTOOLS_9fd04ab471b39141991551708305ceb5" desc="Add custom button in Devices Settings Tab of the Device Toolbar">
     Add custom device...
+  </message>
+  <message name="IDS_DEVTOOLS_a01bb3348f97101b3f00dc59683c2613" desc="Text of add geolocations button in Geolocations Settings Tab of the Device Toolbar">
+    Add location…
   </message>
   <message name="IDS_DEVTOOLS_a043e816a2c42b9290b672b1aa22cb73" desc="Text in Device Mode View of the Device Toolbar">
     Mobile M
@@ -324,6 +330,9 @@
   <message name="IDS_DEVTOOLS_da31f3ff326e70f6b08748520c553920" desc="Text in Sensors View of the Device Toolbar">
     γ (gamma)
   </message>
+  <message name="IDS_DEVTOOLS_db30100c0700a5fd19b5fec10761a067" desc="Error message in the Geolocations settings pane that declares timezone ID input invalid">
+    Timezone ID must contain alphabetic characters
+  </message>
   <message name="IDS_DEVTOOLS_decc67818f6be186e03a3c27c2eedc9e" desc="Bottom resizer element title in Device Mode View of the Device Toolbar">
     Double-click for full height
   </message>
@@ -359,6 +368,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f819de81247be4a5428dc0e169de28b8" desc="Text in Device Mode Toolbar of the Device Toolbar">
     75%
+  </message>
+  <message name="IDS_DEVTOOLS_fb216d9e8791e63c8d12bdc420956839" desc="Text in Sensors View of the Device Toolbar">
+    locale
   </message>
   <message name="IDS_DEVTOOLS_fd0a6990abd15cd06c80309237b01262" desc="Text of a DOM element in Devices Settings Tab of the Device Toolbar">
     Emulated Devices

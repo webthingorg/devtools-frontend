@@ -97,6 +97,7 @@ export class SensorsView extends UI.Widget.VBox {
     const latitudeGroup = this._fieldsetElement.createChild('div', 'latlong-group');
     const longitudeGroup = this._fieldsetElement.createChild('div', 'latlong-group');
     const timezoneGroup = this._fieldsetElement.createChild('div', 'latlong-group');
+    const localeGroup = this._fieldsetElement.createChild('div', 'latlong-group');
 
     const cmdOrCtrl = Host.Platform.isMac() ? '\u2318' : 'Ctrl';
     const modifierKeyMessage = ls`Adjust with mousewheel or up/down keys. ${cmdOrCtrl}: ±10, Shift: ±1, Alt: ±0.01`;
@@ -129,9 +130,19 @@ export class SensorsView extends UI.Widget.VBox {
     this._timezoneSetter = UI.UIUtils.bindInput(
         this._timezoneInput, this._applyGeolocationUserInput.bind(this),
         SDK.EmulationModel.Geolocation.timezoneIdValidator, false);
-    this._timezoneSetter(String(geolocation.timezoneId));
+    this._timezoneSetter(geolocation.timezoneId);
     timezoneGroup.appendChild(UI.UIUtils.createLabel(ls`Timezone ID`, 'timezone-title', this._timezoneInput));
     this._timezoneError = timezoneGroup.createChild('div', 'timezone-error');
+
+    this._localeInput = UI.UIUtils.createInput('', 'text');
+    localeGroup.appendChild(this._localeInput);
+    this._localeInput.value = 'en-US';
+    this._localeSetter = UI.UIUtils.bindInput(
+        this._localeInput, this._applyGeolocationUserInput.bind(this), SDK.EmulationModel.Geolocation.localeValidator,
+        false);
+    this._localeSetter(geolocation.locale);
+    localeGroup.appendChild(UI.UIUtils.createLabel(ls`Locale`, 'locale-title', this._localeInput));
+    this._localeError = localeGroup.createChild('div', 'locale-error');
   }
 
   _geolocationSelectChanged() {
@@ -144,7 +155,8 @@ export class SensorsView extends UI.Widget.VBox {
     } else if (value === NonPresetOptions.Custom) {
       this._geolocationOverrideEnabled = true;
       const geolocation = SDK.EmulationModel.Geolocation.parseUserInput(
-          this._latitudeInput.value.trim(), this._longitudeInput.value.trim(), this._timezoneInput.value.trim());
+          this._latitudeInput.value.trim(), this._longitudeInput.value.trim(), this._timezoneInput.value.trim(),
+          this._localeInput.value.trim());
       if (!geolocation) {
         return;
       }
@@ -155,11 +167,12 @@ export class SensorsView extends UI.Widget.VBox {
     } else {
       this._geolocationOverrideEnabled = true;
       const coordinates = JSON.parse(value);
-      this._geolocation =
-          new SDK.EmulationModel.Geolocation(coordinates.lat, coordinates.long, coordinates.timezoneId, false);
+      this._geolocation = new SDK.EmulationModel.Geolocation(
+          coordinates.lat, coordinates.long, coordinates.timezoneId, coordinates.locale, false);
       this._latitudeSetter(coordinates.lat);
       this._longitudeSetter(coordinates.long);
       this._timezoneSetter(coordinates.timezoneId);
+      this._localeSetter(coordinates.locale);
     }
 
     this._applyGeolocation();
@@ -170,7 +183,8 @@ export class SensorsView extends UI.Widget.VBox {
 
   _applyGeolocationUserInput() {
     const geolocation = SDK.EmulationModel.Geolocation.parseUserInput(
-        this._latitudeInput.value.trim(), this._longitudeInput.value.trim(), this._timezoneInput.value.trim());
+        this._latitudeInput.value.trim(), this._longitudeInput.value.trim(), this._timezoneInput.value.trim(),
+        this._localeInput.value.trim());
     if (!geolocation) {
       return;
     }
@@ -189,9 +203,14 @@ export class SensorsView extends UI.Widget.VBox {
     for (const emulationModel of SDK.SDKModel.TargetManager.instance().models(SDK.EmulationModel.EmulationModel)) {
       emulationModel.emulateGeolocation(this._geolocationOverrideEnabled ? this._geolocation : null).catch(err => {
         switch (err.type) {
-          case 'emulation-set-timezone':
+          case 'emulation-set-timezone': {
             this._timezoneError.textContent = err.message;
             break;
+          }
+          case 'emulation-set-locale': {
+            this._localeError.textContent = err.message;
+            break;
+          }
         }
       });
     }
@@ -206,8 +225,8 @@ export class SensorsView extends UI.Widget.VBox {
 
     const orientationOffOption = {title: Common.UIString.UIString('Off'), orientation: NonPresetOptions.NoOverride};
     const customOrientationOption = {
-      title: Common.UIString.UIString('Custom orientation...'),
-      orientation: NonPresetOptions.Custom
+      title: Common.UIString.UIString('Custom orientation\u2026'),
+      orientation: NonPresetOptions.Custom,
     };
     this._orientationSelectElement = this.contentElement.createChild('select', 'chrome-select');
     UI.ARIAUtils.bindLabelToControl(orientationTitle, this._orientationSelectElement);

@@ -93,13 +93,13 @@ export class Settings {
     const defaultValue = descriptor['defaultValue'];
     let storageType;
     switch (descriptor['storageType']) {
-      case ('local'):
+      case 'local':
         storageType = SettingStorageType.Local;
         break;
-      case ('session'):
+      case 'session':
         storageType = SettingStorageType.Session;
         break;
-      case ('global'):
+      case 'global':
         storageType = SettingStorageType.Global;
         break;
       default:
@@ -514,7 +514,7 @@ export class VersionController {
   }
 
   static get currentVersion() {
-    return 29;
+    return 30;
   }
 
   updateVersion() {
@@ -971,6 +971,27 @@ export class VersionController {
     renameKeyInObjectSetting('panel-tabOrder', 'audits', 'lighthouse');
     renameKeyInObjectSetting('panel-closeableTabs', 'audits', 'lighthouse');
     renameInStringSetting('panel-selectedTab', 'audits', 'lighthouse');
+  }
+
+  _updateVersionFrom29To30() {
+    const setting = Settings.instance().createSetting('emulation.geolocationOverride', '');
+    const old = setting.get();
+    const parts = old.split(':');
+
+    if (parts.length === 2) {
+      // Add missing `timezoneId` field with dummy value.
+      // "latitude@longitude:error" -> "latitude@longitude:timezoneId:error"
+      parts.splice(1, 0, 'UTC');
+    }
+
+    if (parts.length === 3) {
+      // Add missing `locale` field with dummy value.
+      // "latitude@longitude:timezoneId:error" -> "latitude@longitude:timezoneId:locale:error"
+      parts.splice(2, 0, 'en-US');
+    }
+
+    const result = parts.join(':');
+    setting.set(result);
   }
 
   _migrateSettingsFromLocalStorage() {
