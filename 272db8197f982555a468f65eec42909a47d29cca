@@ -192,6 +192,24 @@
       "revId": "272db8197f982555a468f65eec42909a47d29cca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46da569d_4cddbebf",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-03-24T16:28:31Z",
+      "side": 1,
+      "message": "The control that I thought of was the isolate selector in the memory/javascript profiler tool which loops around.  However, after looking online, I don\u0027t see any examples of listboxes looping... We could potentially create a work item to remove the loop from the listboxes in the DevTools including this one.  Thoughts?",
+      "parentUuid": "b0d7959d_aa8a452a",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
