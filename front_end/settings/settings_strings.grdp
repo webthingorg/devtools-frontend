@@ -48,6 +48,9 @@
   <message name="IDS_DEVTOOLS_b791f463c10f80e87e887e1f863f6209" desc="Text of the add pattern button in Framework Blackbox Settings Tab of the Settings">
     Add pattern...
   </message>
+  <message name="IDS_DEVTOOLS_bbbf091e5c6e793e5ea877b6f1b8edba" desc="Label displayed for a select box that controls the user's keybindsSet setting">
+    Import shortcuts from
+  </message>
   <message name="IDS_DEVTOOLS_c745d3ac390f120535d734cd14e2f6aa" desc="Blackbox content scripts title in Framework Blackbox Settings Tab of the Settings">
     Blackbox content scripts (extension scripts in the page)
   </message>

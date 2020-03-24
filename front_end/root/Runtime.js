@@ -531,6 +531,9 @@ export class RuntimeExtensionDescriptor {
 
     /** @type {string|null} */
     this.name;
+
+    /** @type {!Array.<string>|undefined} */
+    this.keybindSets;
   }
 }
 
