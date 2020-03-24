@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f08515bc_b4d03d49",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T11:57:59Z",
+      "side": 1,
+      "message": "nit: Could we extract this into a helper? Maybe name it {_reconnectIssuesWithRequest} or similar?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 30
+      },
+      "revId": "0162b9cefd0052acb1e71c75b0153fb585c2f636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f667771e_2d2c6c15",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T11:57:59Z",
+      "side": 1,
+      "message": "nit: if (!resources || !resources.requests) {\n\nMight make it slightly more readable. Same in _disconnectIssue.",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 21
+      },
+      "revId": "0162b9cefd0052acb1e71c75b0153fb585c2f636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74d8ef41_3d1627dc",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T11:57:59Z",
+      "side": 1,
+      "message": "FYI: This could be replaced by our {MultiMap} found in utilities.js.\n\nMultiMap\u003cK, V\u003e \u003d\u003d\u003d Map\u003cK, Set\u003cV\u003e\u003e\n\nIt might make all of the accessors in this file easier to read. On the other hand I am a bit torn about using {MultiMap} myself. I\u0027ll leave the choice up to you.",
+      "range": {
+        "startLine": 25,
+        "startChar": 32,
+        "endLine": 25,
+        "endChar": 42
+      },
+      "revId": "0162b9cefd0052acb1e71c75b0153fb585c2f636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da0ad909_c1e786de",
+        "filename": "test/unittests/front_end/sdk/RelatedIssue_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T11:57:59Z",
+      "side": 1,
+      "message": "super nit: Newlines between test cases :)",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "0162b9cefd0052acb1e71c75b0153fb585c2f636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
