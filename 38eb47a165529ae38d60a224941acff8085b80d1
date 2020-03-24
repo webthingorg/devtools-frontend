@@ -16,6 +16,24 @@
       "revId": "38eb47a165529ae38d60a224941acff8085b80d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a7fef5c_4604fa07",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-24T22:45:09Z",
+      "side": 1,
+      "message": "Not quite and I\u0027ll try to explain. `forced-colors` in relation to `ThemeSupport` is a bit odd.\n\n`forced-colors` relies on the platform to map colors to elements. It also uses system color variables to defer color value selection to the platform. This last bit is what `ThemeSupport` does for Devtool themes. `ThemeSupport` reads the stylesheets and creates another stylesheet consisting of rulesets of patched colors and adds it to the document.\n\nThis color patching and adding of stylesheets to the DOM is the problem. When `forced-colors` is active, I don\u0027t want patched rulesets added to the DOM because those styles will override the styles applied via `forced-colors-adjust` and the rulesets defined in the `@media (forced-colors: active)` blocks we\u0027ve been adding to DevTool stylesheets.\n\nI think `ThemeSupport` is a solution to a problem CSS couldn\u0027t solve until recently and we should consider a different approach. Now that CSS has variables, we can use them to set a color palette for the DevTools to use instead of adding additional stylesheets to the DOM. I describe a bit more about this approach here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d961126.\n\nI\u0027m happy to discuss other approaches. I\u0027m not really sure how I would make `forced-colors` another theme in a way that isn\u0027t hacky.",
+      "parentUuid": "5c0c309e_10954656",
+      "revId": "38eb47a165529ae38d60a224941acff8085b80d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
