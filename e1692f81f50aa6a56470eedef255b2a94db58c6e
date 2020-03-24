@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e936254_bb659858",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-24T09:32:00Z",
+      "side": 1,
+      "message": "Perhaps add a bit more here that we use Puppeteer to drive the test environments?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 130
+      },
+      "revId": "e1692f81f50aa6a56470eedef255b2a94db58c6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f23b818_b8b036b7",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-24T09:32:00Z",
+      "side": 1,
+      "message": "Add a note that it is easy to get this wrong. For example, we might wait for console messages to appear, but console messages themselves are populated asynchronously, so the test author should take great care to understand the nature of functionality when implementing the \"how\" parts of the helpers.",
+      "range": {
+        "startLine": 86,
+        "startChar": 143,
+        "endLine": 86,
+        "endChar": 162
+      },
+      "revId": "e1692f81f50aa6a56470eedef255b2a94db58c6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
