@@ -14,7 +14,8 @@ toolchain("default") {
     command = "touch {{output}}"
     description = "STAMP {{output}}"
   }
-  tool("action") {
-    pool = ":action_pool($default_toolchain)"
-  }
+  # tool("action") {
+  #   pool = ":action_pool($default_toolchain)"
+  #   description = "what"
+  # }
 }
