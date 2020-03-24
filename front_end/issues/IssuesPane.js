@@ -483,4 +483,88 @@ const issueDescriptions = new Map([
     link: ls`https://web.dev/samesite-cookies-explained/`,
     linkTitle: ls`SameSite cookies explained`,
   }],
+  ['CrossOriginEmbedderPolicy::CorpNotSameOriginAfterDefaultedToSameOriginByCoep', {
+    title: ls`A resource was blocked because it is missing a cross origin resource policy`,
+    message() {
+  const message = createElementWithClass('div', 'message');
+  message.textContent = ls
+  `To use this resource from a different origin, the server needs to specify a cross-origin resource policy in the response headers:`;
+  const example1 = createElementWithClass('div', 'example');
+  example1.createChild('code').textContent = 'Cross-Origin-Resource-Policy: same-site';
+  example1.createChild('span', 'comment').textContent =
+      ls`Choose this option if the resource and the document are served from the same site.`;
+  message.appendChild(example1);
+  const example2 = createElementWithClass('div', 'example');
+  example2.createChild('code').textContent = 'Cross-Origin-Resource-Policy: cross-origin';
+  example2.createChild('span', 'comment').textContent =
+      ls`Only choose this option if an arbitrary website including this resource does not impose a security risk.`;
+  message.appendChild(example2);
+  return message;
+    },
+    issueKind: IssueKind.BreakingChange,
+    link: ls`https://web.dev/coop-coep/`,
+    linkTitle: ls`Enable powerful features with COOP and COEP`,
+  }],
+  ['CrossOriginEmbedderPolicy::CoepFrameResourceNeedsCoepHeader',  {
+    title: ls`An iframe was blocked because it did not specify a cross origin embedder policy`,
+    message() {
+  const message = createElementWithClass('div', 'message');
+  message.textContent = ls
+  `To embed this frame in your document, the response needs to enable the cross-origin embedder policy by specifying the following response header:`;
+  const example1 = createElementWithClass('div', 'example');
+  example1.createChild('code').textContent = 'Cross-Origin-Embedder-Policy: require-corp';
+  message.appendChild(example1);
+  return message;
+     },
+     issueKind: IssueKind.BreakingChange,
+    link: ls`https://web.dev/coop-coep/`,
+    linkTitle: ls`Enable powerful features with COOP and COEP`,
+  }],
+  ['CrossOriginEmbedderPolicy::CoopSandboxedIframeCannotNavigateToCoopPage',  {
+    title: ls`An iframe navigation to a document with a cross origin opener policy was blocked`,
+    message: ls
+    `This document was blocked from loading in an iframe with a sandbox attribute because this document specified a cross-origin opener policy.`,
+    issueKind: IssueKind.BreakingChange,
+    link: ls`https://web.dev/coop-coep/`,
+    linkTitle: ls`Enable powerful features with COOP and COEP`,
+  }],
+  ['CrossOriginEmbedderPolicy::CorpNotSameSite',  {
+    title: ls`A resource was blocked because its cross origin resource policy allows same site only`,
+    message() {
+  const message = createElementWithClass('div', 'message');
+  message.textContent = ls
+  `To use this resource from a different site, the server may relax the cross-origin resource policy response header:`;
+  const example = createElementWithClass('div', 'example');
+  example.createChild('code').textContent = 'Cross-Origin-Resource-Policy: cross-origin';
+  example.createChild('span', 'comment').textContent =
+      ls`Only choose this option if an arbitrary website including this resource does not impose a security risk.`;
+  message.appendChild(example);
+  return message;
+     },
+    issueKind: IssueKind.BreakingChange,
+    link: ls`https://web.dev/coop-coep/`,
+    linkTitle: ls`Enable powerful features with COOP and COEP`,
+  }],
+  ['CrossOriginEmbedderPolicy::CorpNotSameOrigin',  {
+    title: ls`A resource was blocked because its cross origin resource policy allows same origin only`,
+    message() {
+  const message = createElementWithClass('div', 'message');
+  message.textContent = ls
+  `To use this resource from a different origin, the server may relax the cross-origin resource policy response header:`;
+  const example1 = createElementWithClass('div', 'example');
+  example1.createChild('code').textContent = 'Cross-Origin-Resource-Policy: same-site';
+  example1.createChild('span', 'comment').textContent =
+      ls`Choose this option if the resource and the document are served from the same site.`;
+  message.appendChild(example1);
+  const example2 = createElementWithClass('div', 'example');
+  example2.createChild('code').textContent = 'Cross-Origin-Resource-Policy: cross-origin';
+  example2.createChild('span', 'comment').textContent =
+      ls`Only choose this option if an arbitrary website including this resource does not impose a security risk.`;
+  message.appendChild(example2);
+  return message;
+     },
+    issueKind: IssueKind.BreakingChange,
+    link: ls`https://web.dev/coop-coep/`,
+    linkTitle: ls`Enable powerful features with COOP and COEP`,
+  }],
 ]);

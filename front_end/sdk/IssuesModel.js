@@ -6,11 +6,74 @@ import * as Common from '../common/common.js';  // eslint-disable-line no-unused
 
 import {CookieModel} from './CookieModel.js';
 import {AggregatedIssue, Issue} from './Issue.js';
-import {NetworkManager} from './NetworkManager.js';
+import {Events as NetworkManagerEvents, NetworkManager} from './NetworkManager.js';
 import {NetworkRequest} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
 import * as RelatedIssue from './RelatedIssue.js';
 import {Events as ResourceTreeModelEvents, ResourceTreeFrame, ResourceTreeModel} from './ResourceTreeModel.js';  // eslint-disable-line no-unused-vars
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
+
+
+/**
+ * This class generates issues in the front-end based on information provided by the network panel. In the long
+ * term, we might move this reporting to the back-end, but the current COVID-19 policy requires us to tone down
+ * back-end changes until we are back at normal release cycle.
+ */
+export class NetworkIssueDetector {
+  /**
+   * @param {!Target} target
+   * @param {!IssuesModel} issuesModel
+   */
+  constructor(target, issuesModel) {
+    this._issuesModel = issuesModel;
+    this._networkManager = target.model(NetworkManager);
+    if (this._networkManager) {
+      this._networkManager.addEventListener(NetworkManagerEvents.RequestFinished, this._handleRequestFinished, this);
+    }
+  }
+
+  /**
+   * @param {!{data:*}} event
+   */
+  _handleRequestFinished(event) {
+    const request = /** @type {!NetworkRequest} */ (event.data);
+    if (wasBlockedByCOEP(request)) {
+      console.log(request.requestId);
+      const resources = {requests: [{requestId: request.requestId()}]};
+      const code = `CrossOriginEmbedderPolicy::${this._toCamlCase(request.blockedReason())}`;
+      this._issuesModel.issueAdded({code, resources});
+    }
+
+    /**
+     * @param {!NetworkRequest} request
+     */
+    function wasBlockedByCOEP(request) {
+      if (!request.wasBlocked()) {
+        return false;
+      }
+      return request.blockedReason() === Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader ||
+          request.blockedReason() ===
+          Protocol.Network.BlockedReason.CorpNotSameOriginAfterDefaultedToSameOriginByCoep ||
+          request.blockedReason() === Protocol.Network.BlockedReason.CoopSandboxedIframeCannotNavigateToCoopPage ||
+          request.blockedReason() === Protocol.Network.BlockedReason.CorpNotSameSite ||
+          request.blockedReason() === Protocol.Network.BlockedReason.CorpNotSameOrigin;
+    }
+  }
+
+  detach() {
+    if (this._networkManager) {
+      this._networkManager.removeEventListener(NetworkManagerEvents.RequestFinished, this._handleRequestFinished, this);
+    }
+  }
+
+  /**
+   *
+   * @param {*} string
+   */
+  _toCamlCase(string) {
+    const result = string.replace(/-./g, match => match.substr(1).toUpperCase());
+    return result.replace(/^./, match => match.toUpperCase());
+  }
+}
 
 
 /**
@@ -31,6 +94,7 @@ export class IssuesModel extends SDKModel {
     /** @type {*} */
     this._auditsAgent = null;
     this._hasSeenMainFrameNavigated = false;
+    this.ensureEnabled();
 
     this._networkManager = target.model(NetworkManager);
     const resourceTreeModel = /** @type {?ResourceTreeModel} */ (target.model(ResourceTreeModel));
@@ -38,6 +102,7 @@ export class IssuesModel extends SDKModel {
       resourceTreeModel.addEventListener(
         ResourceTreeModelEvents.MainFrameNavigated, this._onMainFrameNavigated, this);
     }
+    this._networkIssueDetector = new NetworkIssueDetector(target, this);
   }
 
   /**

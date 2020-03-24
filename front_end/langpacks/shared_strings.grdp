@@ -4,6 +4,9 @@
   <message name="IDS_DEVTOOLS_007c41a9025be2c8e14b496ed3ee00f8" desc="Text to save an item">
     Save…
   </message>
+  <message name="IDS_DEVTOOLS_01687380017f302a17710b4abc47c71c" desc="Text in Headers View of the Network panel">
+    To use this resource from a different site, the server may relax the cross-origin resource policy response header:
+  </message>
   <message name="IDS_DEVTOOLS_03301bd5f0d1517cf88b2f8348b82dfc" desc="Accessible text for the value in bytes in memory allocation or coverage view.">
     <ph name="THIS__COVERAGEINFO_SIZE_______">$1s<ex>12345</ex></ph> bytes
   </message>
@@ -115,6 +118,9 @@
   <message name="IDS_DEVTOOLS_2ddaa8e6378b906b42429dc4003edbd3" desc="A context menu item to reveal a node in the DOM tree of the Elements Panel">
     Reveal in Elements panel
   </message>
+  <message name="IDS_DEVTOOLS_2eb301e5055154d55ca33685591c737e" desc="Text in Headers View of the Network panel">
+    To use this resource from a different origin, the server may relax the cross-origin resource policy response header:
+  </message>
   <message name="IDS_DEVTOOLS_2f04f3e6eee339eeb0ddb6c39606424d" desc="Text for searching with regular expressinn">
     Use Regular Expression
   </message>
@@ -178,6 +184,9 @@
   <message name="IDS_DEVTOOLS_47bda3033cb8fe0e76c45c293db011b5" desc="Text to indicate there are no breakpoints">
     No breakpoints
   </message>
+  <message name="IDS_DEVTOOLS_4909c5e867e2322253bef625307a85a8" desc="Text in Headers View of the Network panel">
+    Only choose this option if an arbitrary website including this resource does not impose a security risk.
+  </message>
   <message name="IDS_DEVTOOLS_49ee3087348e8d44e1feda1917443987" desc="Text for the name of something">
     Name
   </message>
@@ -213,6 +222,9 @@
   </message>
   <message name="IDS_DEVTOOLS_51360304ea03557e79bdf5ff9cd2e234" desc="Text for the issuer of an item">
     Issuer
+  </message>
+  <message name="IDS_DEVTOOLS_5223b56f806ed0547f295a2c643061ec" desc="Text in Headers View of the Network panel">
+    To use this resource from a different origin, the server needs to specify a cross-origin resource policy in the response headers:
   </message>
   <message name="IDS_DEVTOOLS_529a032eab49b8ddc6f49f8bcc086607" desc="Prev button title in Film Strip View of the Performance panel">
     Previous frame
@@ -330,6 +342,9 @@
   </message>
   <message name="IDS_DEVTOOLS_81c3744a7fe979d029d1e7b84afd613f" desc="Reload warning text content in Sensors View of the Device Toolbar">
     *Requires reload
+  </message>
+  <message name="IDS_DEVTOOLS_8470bd9052ed82990d6e49335b14e41e" desc="Text in Headers View of the Network panel">
+    This document was blocked from loading in an iframe with a sandbox attribute because this document specified a cross-origin opener policy.
   </message>
   <message name="IDS_DEVTOOLS_84d0c431d1472a0609d69b39dcb3a287" desc="Text for the index of something">
     (index)
@@ -532,6 +547,9 @@
   <message name="IDS_DEVTOOLS_c7892ebbb139886662c6f2fc8c450710" desc="Text that refers to the subject of a security certificate">
     Subject
   </message>
+  <message name="IDS_DEVTOOLS_c823a983a972cfb5ee4b8bf1918080d3" desc="Text in Headers View of the Network panel">
+    Choose this option if the resource and the document are served from the same site.
+  </message>
   <message name="IDS_DEVTOOLS_c949475bc69a57c419ac976fe8870652" desc="Text to search by matching case of the input">
     Match Case
   </message>
@@ -591,6 +609,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e0e4fc6213e8b3593495a7260c3a4c2e" desc="Text for accessibility of the web page">
     Accessibility
+  </message>
+  <message name="IDS_DEVTOOLS_e2cfb91cd8426f99401143d41343faff" desc="Text in Headers View of the Network panel">
+    To embed this frame in your document, the response needs to enable the cross-origin embedder policy by specifying the following response header:
   </message>
   <message name="IDS_DEVTOOLS_e402c138065e7eece783dc30c6079192" desc="Text that appears on a button for the xhr resource type filter.">
     XHR

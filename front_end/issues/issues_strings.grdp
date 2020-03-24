@@ -6,20 +6,38 @@
   <message name="IDS_DEVTOOLS_2dccd1ab3e03990aea77359831c85ca2" desc="Label for number of affected resource indication in issue view">
     cookie
   </message>
+  <message name="IDS_DEVTOOLS_37652715535ec732baf831ef5b37714f" desc="Title of an issue in the issues view">
+    An iframe was blocked because it did not specify a cross origin embedder policy
+  </message>
+  <message name="IDS_DEVTOOLS_452a87248b846a635d167e19f6940b7c" desc="Title of an issue in the issues view">
+    A resource was blocked because it is missing a cross origin resource policy
+  </message>
+  <message name="IDS_DEVTOOLS_485958342c2d8ff4ed1f0ab665167ddc" desc="Title of an issue in the issues view">
+    A resource was blocked because its cross origin resource policy allows same origin only
+  </message>
   <message name="IDS_DEVTOOLS_55e7dd3016ce4ac57b9a0f56af12f7c2" desc="Label for number of affected resource indication in issue view">
     cookies
+  </message>
+  <message name="IDS_DEVTOOLS_5d8d35f8bdcb8326c1de3ff3709a3ffd" desc="Title of an issue in the issues view">
+    A resource was blocked because its cross origin resource policy allows same site only
   </message>
   <message name="IDS_DEVTOOLS_6011ea0969680deba3975ac5bd0e153e" desc="Title for a link to further information in issue view">
     Learn more: <ph name="THIS__DETAILS_LINKTITLE">$1s<ex>SameSite Cookies Explained</ex></ph>
   </message>
-  <message name="IDS_DEVTOOLS_a08f2685b9b1a561a133769715321e40" desc="Label for issue kind in issue view">
+  <message name="IDS_DEVTOOLS_9841bc094da3d0e4470d89bee5b46e45" desc="Title of an issue in the issues view">
+    An iframe navigation to a document with a cross origin opener policy was blocked
+  </message>
+  <message name="IDS_DEVTOOLS_a08f2685b9b1a561a133769715321e40" desc="Label for the issue kind in the issues view">
     Breaking change
   </message>
   <message name="IDS_DEVTOOLS_b02478e52979ba9af8bffc41f342f4b6" desc="Header for the section listing affected resources">
     Affected Resources
   </message>
-  <message name="IDS_DEVTOOLS_bb1be05a71dffef6cfe9564fa1fcf515" desc="Message for the SameSiteCookies::SameSiteNoneWithoutSecure issue code">
+  <message name="IDS_DEVTOOLS_bb1be05a71dffef6cfe9564fa1fcf515" desc="Title of an issue in the issues view">
     A Cookie in a third-party context has been set without SameSite=None
+  </message>
+  <message name="IDS_DEVTOOLS_ec9d50650ce0ffbe688e453377198b95" desc="Title for a link in the issues view">
+    Enable powerful features with COOP and COEP
   </message>
   <message name="IDS_DEVTOOLS_ee02b74d0caebce3dabaf3b3e79b6a65" desc="The UI destination when right clicking an item that can be revealed">
     Issues view
@@ -38,5 +56,8 @@
   </message>
   <message name="IDS_DEVTOOLS_fbf5a685e313dad7d780b63bdb5dd2fb" desc="Explanatory message why a reload of the inspected page is required. Next to reload button.">
     Some issues might be missing or incomplete, reload the inspected page to get full information
+  </message>
+  <message name="IDS_DEVTOOLS_f63631e200b8b3ba73fe9ea65dcd2d3a" desc="A link to more information in the issues view">
+    https://web.dev/coop-coep/
   </message>
 </grit-part>
