@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "25877f96_0b9928d5",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T11:42:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d785c433_a85c0511",
+      "range": {
+        "startLine": 394,
+        "startChar": 36,
+        "endLine": 394,
+        "endChar": 76
+      },
+      "revId": "4c3f896439c4f3363e7af564bea0013449bf69a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c97d0f8b_825c089f",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4cbea681_600a4c4b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T11:42:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c97d0f8b_825c089f",
+      "range": {
+        "startLine": 395,
+        "startChar": 19,
+        "endLine": 395,
+        "endChar": 25
+      },
+      "revId": "4c3f896439c4f3363e7af564bea0013449bf69a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7110632c_f4d4e572",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "4c3f896439c4f3363e7af564bea0013449bf69a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a39cd49_a3ea8373",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-24T11:42:12Z",
+      "side": 1,
+      "message": "Done by making the toolbar container a private field and using it as a reference point for the insertion.",
+      "parentUuid": "7110632c_f4d4e572",
+      "range": {
+        "startLine": 405,
+        "startChar": 62,
+        "endLine": 405,
+        "endChar": 76
+      },
+      "revId": "4c3f896439c4f3363e7af564bea0013449bf69a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
