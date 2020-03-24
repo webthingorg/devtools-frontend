@@ -46,6 +46,30 @@
       "revId": "37f742a460234767dfe0e7f28409d432e9b39025",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55d13a13_1ce75a98",
+        "filename": "front_end/emulation/emulation_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-24T09:27:50Z",
+      "side": 1,
+      "message": "That seems to suggest removing it altogether:\n\n\u0027Omit ellipses from menu items or buttons that open a dialog or start a process.\u0027",
+      "parentUuid": "a1926c26_0ffbd9f6",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "37f742a460234767dfe0e7f28409d432e9b39025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
