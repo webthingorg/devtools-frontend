@@ -22,6 +22,30 @@
       "revId": "65dfa9b11ddffe44d726b4400bbd9fcb1d30aa9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c26cac13_07a0185d",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-25T13:32:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e9d49fe_745fc4b0",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 1
+      },
+      "revId": "65dfa9b11ddffe44d726b4400bbd9fcb1d30aa9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
