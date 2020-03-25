@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "145dabcc_5df3f8e5",
+        "filename": "scripts/component_bridges/cli.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T15:25:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70a6fb8a_caca7fbb",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "893ed406_577bbd96",
         "filename": "scripts/component_bridges/cli.ts",
         "patchSetId": 24
@@ -135,6 +153,24 @@
     },
     {
       "key": {
+        "uuid": "ee566bf2_64da21f9",
+        "filename": "scripts/component_bridges/cli.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T15:25:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "11af56a5_a1447691",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97b2d0c6_9ce155ab",
         "filename": "scripts/component_bridges/generate_closure.ts",
         "patchSetId": 24
@@ -146,6 +182,24 @@
       "writtenOn": "2020-03-25T14:58:44Z",
       "side": 1,
       "message": "Generally I would value a few more comments in the functions further down the file that give a strong indication of what\u0027s going on.",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59e35f98_c227e7b7",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T15:25:13Z",
+      "side": 1,
+      "message": "I\u0027ve added some in now - think this along with the tests do a good job.",
+      "parentUuid": "97b2d0c6_9ce155ab",
       "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -216,6 +270,30 @@
     },
     {
       "key": {
+        "uuid": "402bdc7f_89070784",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T15:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59dc9b4b_ad846b05",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3286eb97_117ee129",
         "filename": "scripts/component_bridges/generate_closure.ts",
         "patchSetId": 24
@@ -233,6 +311,24 @@
     },
     {
       "key": {
+        "uuid": "188f395a_de49acd5",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T15:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3286eb97_117ee129",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fd05ceb_1f83aaa5",
         "filename": "scripts/component_bridges/generate_closure.ts",
         "patchSetId": 24
@@ -247,6 +343,24 @@
       "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad80c84b_06f40e2c",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T15:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fd05ceb_1f83aaa5",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
