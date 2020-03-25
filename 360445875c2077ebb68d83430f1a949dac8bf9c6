@@ -448,6 +448,54 @@
     },
     {
       "key": {
+        "uuid": "caba5855_4b024a7e",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T14:01:52Z",
+      "side": 1,
+      "message": "I see, duh! My bad.",
+      "parentUuid": "484e4550_fbfd243c",
+      "range": {
+        "startLine": 73,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 36
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c68fe617_b747e459",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T14:01:52Z",
+      "side": 1,
+      "message": "In that case we could even go with just `[a-z]`. (We don\u0027t need [A-Z] since it\u0027s already uppercased, and we don\u0027t need any non-letter ASCII symbols, and we don\u0027t need any ASCII symbols.)",
+      "parentUuid": "11b73ca8_77c60ad4",
+      "range": {
+        "startLine": 73,
+        "startChar": 34,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03029e31_491dd888",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 5
@@ -477,6 +525,24 @@
       "side": 1,
       "message": "This has two problems: it assumes the string is non-empty, and it leaves the dashes - in the string.",
       "parentUuid": "03029e31_491dd888",
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2d82aad_eae9d38a",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T14:01:52Z",
+      "side": 1,
+      "message": "Ah, of course, you want to remove the dashes; my bad! I don\u0027t see how it fails for empty strings though.",
+      "parentUuid": "bd5fe5e2_6952a6f6",
       "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
