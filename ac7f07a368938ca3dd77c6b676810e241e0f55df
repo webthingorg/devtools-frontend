@@ -22,6 +22,30 @@
       "revId": "ac7f07a368938ca3dd77c6b676810e241e0f55df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98ea68e1_34293fae",
+        "filename": "third_party/typescript/tests/verify_ts_libary.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T11:42:04Z",
+      "side": 1,
+      "message": "I did consider it, but I think Bash is easier to work with in combination with `gn` and `autoninja`. I will try to keep the magic low in here to keep it readable.",
+      "parentUuid": "cde3ef70_8ee3f38d",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "ac7f07a368938ca3dd77c6b676810e241e0f55df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
