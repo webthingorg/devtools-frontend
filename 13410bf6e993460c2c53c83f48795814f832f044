@@ -22,6 +22,30 @@
       "revId": "13410bf6e993460c2c53c83f48795814f832f044",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38525404_08078f3d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-25T08:05:47Z",
+      "side": 1,
+      "message": "I just had a look and it seems we\u0027re just missing the filter in the network panel. Could you add it in a follow up CL?",
+      "parentUuid": "6caff78c_d7c5997b",
+      "range": {
+        "startLine": 132,
+        "startChar": 40,
+        "endLine": 132,
+        "endChar": 55
+      },
+      "revId": "13410bf6e993460c2c53c83f48795814f832f044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
