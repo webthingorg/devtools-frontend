@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "179bbf4c_0f27b0fc",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T12:06:04Z",
+      "side": 1,
+      "message": "I don\u0027t love this (or the selector on line 48) but there\u0027s little way to get at these elements otherwise and I\u0027m reluctant to touch the code that generates it for fear of breaking something - particularly given the current situation. Happy to take suggestions on alternatives.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 92
+      },
+      "revId": "fa0b8d108ad6b77e65d175aee7c72cb083f3aa1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
