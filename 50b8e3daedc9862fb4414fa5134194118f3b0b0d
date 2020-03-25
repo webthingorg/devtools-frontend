@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0d884d6_3500c29a",
+        "filename": "test/e2e/helpers/quick_open-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T10:04:22Z",
+      "side": 1,
+      "message": "Love this.",
+      "range": {
+        "startLine": 46,
+        "startChar": 3,
+        "endLine": 46,
+        "endChar": 59
+      },
+      "revId": "50b8e3daedc9862fb4414fa5134194118f3b0b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
