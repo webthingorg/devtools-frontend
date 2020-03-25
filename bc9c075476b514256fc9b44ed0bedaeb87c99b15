@@ -117,6 +117,30 @@
       "revId": "bc9c075476b514256fc9b44ed0bedaeb87c99b15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd519eb_38740c17",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-25T09:35:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "732ddd4f_a0d48e25",
+      "range": {
+        "startLine": 300,
+        "startChar": 8,
+        "endLine": 300,
+        "endChar": 20
+      },
+      "revId": "bc9c075476b514256fc9b44ed0bedaeb87c99b15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
