@@ -108,7 +108,7 @@ describe('Multi-Workers', async () => {
       await validateSourceTabs();
     });
 
-    it(`copies breakpoints between workers ${withOrWithout}`, async () => {
+    it.skip(`[crbug.com/1064581] copies breakpoints between workers ${withOrWithout}`, async () => {
       const {target, frontend} = getBrowserAndPages();
 
       // Have the target load the page.
