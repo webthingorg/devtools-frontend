@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e9d49fe_745fc4b0",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-25T13:29:45Z",
+      "side": 1,
+      "message": "This need to be two rules, this is trying to match nested hovers.",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 1
+      },
+      "revId": "65dfa9b11ddffe44d726b4400bbd9fcb1d30aa9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
