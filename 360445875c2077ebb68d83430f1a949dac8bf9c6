@@ -496,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "30de054c_b16070df",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T14:03:56Z",
+      "side": 1,
+      "message": "(The main thing I wanted to show is that you don\u0027t need two regular expressions, which still applies.)",
+      "parentUuid": "c68fe617_b747e459",
+      "range": {
+        "startLine": 73,
+        "startChar": 34,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03029e31_491dd888",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 5
