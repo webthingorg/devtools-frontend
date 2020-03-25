@@ -1,0 +1,18 @@
+Name: Lighthouse i18n.js bundle
+Short Name: i18n-bundle
+URL: github.com/GoogleChrome/lighthouse
+Version: unknown
+License: Apache License 2.0
+Security Critical: no
+
+Description:
+i18n-bundle contains bundled version of i18n.js in //third_party/i18n which originated from Lighthouse.
+(see https://github.com/GoogleChrome/lighthouse/tree/master/lighthouse-core/lib/i18n)
+
+
+Local Modifications:
+This version is the bundled, patched and minified i18n.js(from //third_party/i18n) that will be consumed by the DevTools.
+The buildI18nBundle.js in scripts/localizationV2 generates this bundle by
+  1. Bundle the `i18n.js` with browserify
+  2. Minifiy with uglifyify
+  3. Redefine the global as an exported module to make the library available as an ESM
