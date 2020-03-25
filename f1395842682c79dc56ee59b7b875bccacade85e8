@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4295bd4_057541bf",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 29
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-25T21:29:30Z",
+      "side": 1,
+      "message": "Do we put a license header at the top of CSS files? I can\u0027t recall offhand.",
+      "revId": "f1395842682c79dc56ee59b7b875bccacade85e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a32df768_7cdd020c",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 29
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-25T21:29:30Z",
+      "side": 1,
+      "message": "Nit: can change #ffffff to #fff",
+      "revId": "f1395842682c79dc56ee59b7b875bccacade85e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac9b7b0f_8f693bf9",
+        "filename": "front_end/ui/Action.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-25T21:29:30Z",
+      "side": 1,
+      "message": "Comparing this block with the below ActionRegistry, it looks like what we\u0027ve done is taken out an early registration and made it delayed. Is this a change that can be broken out into a separate change?",
+      "revId": "f1395842682c79dc56ee59b7b875bccacade85e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

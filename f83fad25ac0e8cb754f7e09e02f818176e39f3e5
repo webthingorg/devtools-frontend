@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35b14a28_b255e9f2",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-25T21:29:30Z",
+      "side": 0,
+      "message": "I\u0027m not sure I understand why this block is being removed. It doesn\u0027t seem to have (on its face) much relation to the invocation of keyboard actions. Can you elaborate (by responding to this comment)?",
+      "revId": "f83fad25ac0e8cb754f7e09e02f818176e39f3e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
