@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569c6f76_d937f7a7",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-25T09:45:31Z",
+      "side": 0,
+      "message": "wasn\u0027t used anywhere so I removed it :)",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 17
+      },
+      "revId": "f450d479cd5a64afdc09471ddc184e29706bdc10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
