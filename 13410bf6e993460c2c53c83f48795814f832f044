@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6caff78c_d7c5997b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-25T07:26:18Z",
+      "side": 1,
+      "message": "Note that {FilterType} does not include CookiePath, only Domain, Name and Value. We could add it in a follow up. Wdyt?",
+      "range": {
+        "startLine": 132,
+        "startChar": 40,
+        "endLine": 132,
+        "endChar": 55
+      },
+      "revId": "13410bf6e993460c2c53c83f48795814f832f044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
