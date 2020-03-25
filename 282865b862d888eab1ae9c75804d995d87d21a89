@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58e3ef37_ffcecffa",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T08:00:11Z",
+      "side": 1,
+      "message": "All other files in common/ start with a capital letter. Does it make sense to follow that convention here?",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e2653cc_cd72b5e3",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T08:00:11Z",
+      "side": 1,
+      "message": "Why is this body, not on :root (documentElement)? Please add a comment with a quick explanation.",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "718640b2_f0be32c7",
+        "filename": "test/unittests/front_end/common/lazy_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T08:00:11Z",
+      "side": 1,
+      "message": "nit:\n\n    []",
+      "range": {
+        "startLine": 11,
+        "startChar": 43,
+        "endLine": 11,
+        "endChar": 54
+      },
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "643cfb1d_8ac4fa8f",
+        "filename": "test/unittests/front_end/common/lazy_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T08:00:11Z",
+      "side": 1,
+      "message": "nit:\n\n    []",
+      "range": {
+        "startLine": 16,
+        "startChar": 20,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
