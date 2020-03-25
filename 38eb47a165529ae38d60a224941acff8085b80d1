@@ -34,6 +34,24 @@
       "revId": "38eb47a165529ae38d60a224941acff8085b80d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe35f1fe_1e8809b2",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T08:07:23Z",
+      "side": 1,
+      "message": "Thanks for clarifying. I agree your suggested approach of using CSS variables makes a lot of sense!",
+      "parentUuid": "3a7fef5c_4604fa07",
+      "revId": "38eb47a165529ae38d60a224941acff8085b80d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
