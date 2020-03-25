@@ -7,6 +7,9 @@
   <message name="IDS_DEVTOOLS_0c94f752d037fd8475e98b0711b543a6" desc="Label for the link for SameSiteCookies Issues">
     SameSite cookies explained
   </message>
+  <message name="IDS_DEVTOOLS_2ca5bc4c75fa0bac63906eac6cb0c265" desc="Link for mixed content issues">
+    https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content
+  </message>
   <message name="IDS_DEVTOOLS_2dccd1ab3e03990aea77359831c85ca2" desc="Label for number of affected resource indication in issue view">
     cookie
   </message>
@@ -15,6 +18,9 @@
   </message>
   <message name="IDS_DEVTOOLS_40bf79d4fb1a6c55040a72b7eab1b7aa" desc="Title for an issue in the issues view">
     An <ph name="LOCKED_1">iframe</ph> navigation to a document with a cross-origin opener policy was blocked
+  </message>
+  <message name="IDS_DEVTOOLS_55b558c7ef820e6e00e5993b9e55d93b" desc="Label for number of affected resource indication in issue view">
+    resources
   </message>
   <message name="IDS_DEVTOOLS_55e7dd3016ce4ac57b9a0f56af12f7c2" desc="Label for number of affected resource indication in issue view">
     cookies
@@ -33,6 +39,9 @@
     The resource was loaded in a context that is not same-site and that enables the cross-origin embedder policy. The resource specified a cross-origin resource policy that allows only same-site usage, and was hence blocked.
   To allow usage of the resource from a different site, the server may relax the cross-origin resource policy response header:
   </message>
+  <message name="IDS_DEVTOOLS_7bfa1dc546d200c059f2a57aecc91f67" desc="Title for the MixedContentIssue issue code">
+    Mixed content: Not all of the page&apos;s resources are being loaded over HTTPS.
+  </message>
   <message name="IDS_DEVTOOLS_8aa85d8015c515cde89fade0983df424" desc="Description for an issue in the issues view">
     A document was blocked from loading in an <ph name="LOCKED_1">iframe</ph> with a <ph name="LOCKED_1">sandbox</ph> attribute because the document specified a cross-origin opener policy.
   </message>
@@ -42,11 +51,20 @@
   <message name="IDS_DEVTOOLS_9d9dd3883d9d33b88cede92d18217dd8" desc="Title for an issue in the issues view">
     A resource was blocked because its cross-origin resource policy only allows same-origin usage
   </message>
+  <message name="IDS_DEVTOOLS_85b5ab7421eb24d42906b321a49aeb12" desc="Message for the MixedContentIssue issue code">
+    The initial HTML is loaded over a secure HTTPS connection, but some other resources are loaded over an insecure HTTP connection.
+  </message>
+  <message name="IDS_DEVTOOLS_96ab4e163f4ee03aaa4d1051aa51d204" desc="Label for number of affected resource indication in issue view">
+    resource
+  </message>
   <message name="IDS_DEVTOOLS_a08f2685b9b1a561a133769715321e40" desc="Label for the issue kind in the issues view">
     Breaking change
   </message>
   <message name="IDS_DEVTOOLS_b02478e52979ba9af8bffc41f342f4b6" desc="Header for the section listing affected resources">
     Affected Resources
+  </message>
+  <message name="IDS_DEVTOOLS_ba76fecd860f5cf4a97da9177080fc1c" desc="Label for the link for Mixed Content Issues">
+    Preventing mixed content
   </message>
   <message name="IDS_DEVTOOLS_bb1be05a71dffef6cfe9564fa1fcf515" desc="Title of an issue in the issues view">
     A Cookie in a third-party context has been set without SameSite=None
