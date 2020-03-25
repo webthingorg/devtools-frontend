@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9613c30b_1897f614",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "Nit: If `process.env[\u0027JOBS\u0027]` is an empty string, this will return false and then `envJobs` is 0. Probably change this to `!envJobs ||`?",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d88bc92_bb297586",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "Nit: add a code comment here we are creating additional workers if we don\u0027t have enough.\n\nIt took me a while to understand what this code was doing.",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 46
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4822484_847d9fd4",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "Nit: \", but was unable to find a corresponding worker.\"",
+      "range": {
+        "startLine": 126,
+        "startChar": 21,
+        "endLine": 126,
+        "endChar": 53
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b2847fa_f2a1d3b6",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "Question: Is `cluster.workers` count automatically updated if a worker is unexpectedly killed?",
+      "range": {
+        "startLine": 183,
+        "startChar": 9,
+        "endLine": 183,
+        "endChar": 27
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bba6dd7_7ce5b7ec",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "Nit: Any particular reason you are using `require` here but using es modules in the `master.ts`?",
+      "range": {
+        "startLine": 8,
+        "startChar": 16,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2432e56f_7f926223",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "I don\u0027t see this package in the `manage_node_deps.py`. Can we add it there to make it clear we are using a particular version, rather than a dep-of-a-dep version?",
+      "range": {
+        "startLine": 8,
+        "startChar": 25,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8f8e789_feedc999",
+        "filename": "test/shared/worker-task.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "It is unfortunate we have to implement this here. Can we reuse the implementation from Mocha? https://github.com/mochajs/mocha/blob/ccee5f1b37bb405b81814daa35c63801cad20b4d/lib/reporters/base.js#L94-L110",
+      "range": {
+        "startLine": 165,
+        "startChar": 9,
+        "endLine": 165,
+        "endChar": 25
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf540575_9726d3f1",
+        "filename": "test/shared/worker.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "We can add it to the `lib` of the `compilerOptions` I suppose? Can you file a crbug for this, as I don\u0027t think `ts_library` does supports this?",
+      "range": {
+        "startLine": 20,
+        "startChar": 46,
+        "endLine": 20,
+        "endChar": 85
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13a5f3ea_35de9eea",
+        "filename": "test/shared/worker.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T15:19:46Z",
+      "side": 1,
+      "message": "Nit: can we make these strings TS enums to make sure they are kept up-to-date on both sides.",
+      "range": {
+        "startLine": 71,
+        "startChar": 10,
+        "endLine": 71,
+        "endChar": 17
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
