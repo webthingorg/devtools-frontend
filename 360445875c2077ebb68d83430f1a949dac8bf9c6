@@ -544,6 +544,30 @@
     },
     {
       "key": {
+        "uuid": "0f9246a9_674258c7",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T14:14:35Z",
+      "side": 1,
+      "message": "I see what you mean about removing the hyphens even in such a case. I was thinking of something else though: \n\n    toCamelCase(\u0027abc--def\u0027);\n    // -\u003e \u0027Abc-def\u0027\n\n...because `-` is itself ASCII. Not sure what output you\u0027d want in this case. This is definitely an edge case and it might not even really matter.",
+      "parentUuid": "324e93ff_9d664dbb",
+      "range": {
+        "startLine": 73,
+        "startChar": 34,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03029e31_491dd888",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 5
