@@ -87,6 +87,8 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     this._cookies = new Map();
     /** @type {!Map<string, *>} */
     this._requests = new Map();
+    /** @type {!Map<string, *>} */
+    this._mixedContents = new Map();
   }
 
   /**
@@ -104,11 +106,19 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     return this._cookies.values();
   }
 
+  mixedContents() {
+    return this._mixedContents.values();
+  }
+
   /**
    * @returns {number}
    */
   numberOfCookies() {
     return this._cookies.size;
+  }
+
+  numberOfMixedContents() {
+    return this._mixedContents.size;
   }
 
   /**
@@ -124,6 +134,15 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
         const key = JSON.stringify(cookie);
         if (!this._cookies.has(key)) {
           this._cookies.set(key, cookie);
+        }
+      }
+    }
+
+    if (resources.mixedContent) {
+      for (const mc of resources.mixedContent) {
+        const key = JSON.stringify(mc);
+        if (!this._mixedContents.has(key)) {
+          this._mixedContents.set(key, mc);
         }
       }
     }
