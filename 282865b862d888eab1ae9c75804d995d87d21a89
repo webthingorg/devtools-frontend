@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98c79e54_8fc6bd49",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-03-25T14:59:35Z",
+      "side": 0,
+      "message": "I think this line got lost when moving to inspector.css?",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 75
+      },
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7465c996_3f36be3c",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-03-25T14:59:35Z",
+      "side": 0,
+      "message": "Same comment as above",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 75
+      },
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
