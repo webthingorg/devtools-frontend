@@ -87,6 +87,8 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     this._cookies = new Map();
     /** @type {!Map<string, *>} */
     this._requests = new Map();
+
+    this._mixedContent = new Map();
   }
 
   /**
@@ -104,11 +106,19 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     return this._cookies.values();
   }
 
+  mixedContent() {
+    return this._mixedContent.values();
+  }
+
   /**
    * @returns {number}
    */
   numberOfCookies() {
     return this._cookies.size;
+  }
+
+  numberOfMixedContent() {
+    return this._mixedContent.size;
   }
 
   /**
@@ -127,5 +137,21 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
         }
       }
     }
+
+    if (resources.mixedContent) {
+      for (const mc of resources.mixedContent) {
+        // IssuesModel.connectWithIssue(mc, this);
+        const key = JSON.stringify(mc);
+        if (!this._mixedContent.has(key)) {
+          this._mixedContent.set(key, mc);
+          // this.dispatchEventToListeners(Events.MixedContentAdded, mc);
+        }
+      }
+    }
   }
 }
+
+// export const Events = {
+//   CookieAdded: Symbol('CookieAdded'),
+//   MixedContentAdded: Symbol('MixedContentAdded'),
+// };

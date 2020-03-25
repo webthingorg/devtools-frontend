@@ -57,7 +57,7 @@
 }
 
 .body-wrapper {
-    max-height: 400px;
+    /* max-height: 400px; */
     transition: max-height 200ms;
 }
 
