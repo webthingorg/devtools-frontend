@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfba0105_043bfcca",
+        "filename": "scripts/test/run_test_suite.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T13:38:13Z",
+      "side": 1,
+      "message": "more of a question / admission of my lack of Python knowledge: why is this last arg a keyword arg whereas the two before it aren\u0027t?",
+      "range": {
+        "startLine": 117,
+        "startChar": 47,
+        "endLine": 117,
+        "endChar": 90
+      },
+      "revId": "b2266a1c77dce11d87f1750d089941f3b224fe40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

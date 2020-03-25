@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7ef61c1_e0632d18",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T13:38:13Z",
+      "side": 1,
+      "message": "think we can lose this?",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "19e40ae2f2ff687704d8409b34cda4f169298667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99f68677_28fb4b8c",
+        "filename": "test/shared/text-color.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T13:38:13Z",
+      "side": 1,
+      "message": "I\u0027m happy with this code; but if we want to go further here we might consider something like https://www.npmjs.com/package/chalk to avoid lots of re-implementing.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "19e40ae2f2ff687704d8409b34cda4f169298667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
