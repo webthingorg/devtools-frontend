@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f797075c_20da33b8",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9613c30b_1897f614",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d88bc92_bb297586",
         "filename": "test/shared/master.ts",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab8011d_939e184c",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d88bc92_bb297586",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 46
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1389f14e_37faa667",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4822484_847d9fd4",
+      "range": {
+        "startLine": 126,
+        "startChar": 21,
+        "endLine": 126,
+        "endChar": 53
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b2847fa_f2a1d3b6",
         "filename": "test/shared/master.ts",
         "patchSetId": 8
@@ -91,6 +163,30 @@
       "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "606bc90f_42ccd0d8",
+        "filename": "test/shared/master.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "Yes, it\u0027s an internal list AFAIK.",
+      "parentUuid": "6b2847fa_f2a1d3b6",
+      "range": {
+        "startLine": 183,
+        "startChar": 9,
+        "endLine": 183,
+        "endChar": 27
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "c0288d6c_c3011bbc",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "It\u0027s a built-in in Node.",
+      "parentUuid": "2432e56f_7f926223",
+      "range": {
+        "startLine": 8,
+        "startChar": 25,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d48cc50_2aa20a11",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "Nope. Will fix.",
+      "parentUuid": "5bba6dd7_7ce5b7ec",
+      "range": {
+        "startLine": 8,
+        "startChar": 16,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8f8e789_feedc999",
         "filename": "test/shared/worker-task.ts",
         "patchSetId": 8
@@ -160,6 +304,30 @@
       "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f1c8a1f_f3480abd",
+        "filename": "test/shared/worker-task.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "I\u0027d like to avoid mixing that in here. We need to implement our own reporting because of the race you get in stdout if you don\u0027t.",
+      "parentUuid": "a8f8e789_feedc999",
+      "range": {
+        "startLine": 165,
+        "startChar": 9,
+        "endLine": 165,
+        "endChar": 25
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "8a81e67f_53e0d449",
+        "filename": "test/shared/worker.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "It\u0027s not a WebWorker, it\u0027s a Cluster Worker, and AFAIK TS has no idea about those.",
+      "parentUuid": "cf540575_9726d3f1",
+      "range": {
+        "startLine": 20,
+        "startChar": 46,
+        "endLine": 20,
+        "endChar": 85
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13a5f3ea_35de9eea",
         "filename": "test/shared/worker.ts",
         "patchSetId": 8
@@ -206,6 +398,30 @@
       "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fe30503_ab162c22",
+        "filename": "test/shared/worker.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T15:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13a5f3ea_35de9eea",
+      "range": {
+        "startLine": 71,
+        "startChar": 10,
+        "endLine": 71,
+        "endChar": 17
+      },
+      "revId": "22180582e405168dfaf2375269f70be67a3f7a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
