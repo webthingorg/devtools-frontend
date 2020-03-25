@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "e43404c4_7bcdc8f6",
+        "filename": "scripts/component_bridges/cli.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T15:15:06Z",
+      "side": 1,
+      "message": "What makes you think it wouldn\u0027t? Not saying you\u0027re wrong, more for my understanding. I\u0027d expect the Node path tools to work consistently across both.",
+      "parentUuid": "893ed406_577bbd96",
+      "range": {
+        "startLine": 30,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11af56a5_a1447691",
         "filename": "scripts/component_bridges/cli.ts",
         "patchSetId": 24
