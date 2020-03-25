@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "1b5d8c92_9831d520",
+        "filename": "front_end/common/lazy.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-25T18:13:07Z",
+      "side": 1,
+      "message": "Please JSDoc, or consider making this TS if TS is available in the common library. \n\nproducer should be: () \u003d\u003e T\nreturns: () \u003d\u003e T",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "406800a9_8ad8c40f",
+        "filename": "front_end/common/lazy.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-25T18:13:07Z",
+      "side": 1,
+      "message": "I get compiler errors for this file.\n\n    ../../third_party/devtools-frontend/src/front_end/common/lazy.js(8,22): error TS7006: Parameter \u0027producer\u0027 implicitly has an \u0027any\u0027 type.\n    ../../third_party/devtools-frontend/src/front_end/common/lazy.js(10,7): error TS7034: Variable \u0027error\u0027 implicitly has type \u0027any\u0027 in some locations where its type cannot be determined.\n    ../../third_party/devtools-frontend/src/front_end/common/lazy.js(14,13): error TS7005: Variable \u0027error\u0027 implicitly has an \u0027any\u0027 type.",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e2653cc_cd72b5e3",
         "filename": "front_end/ui/UIUtils.js",
         "patchSetId": 2
@@ -30,6 +64,23 @@
       "writtenOn": "2020-03-25T08:00:11Z",
       "side": 1,
       "message": "Why is this body, not on :root (documentElement)? Please add a comment with a quick explanation.",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d577318e_869b09a8",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1762,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-03-25T18:13:07Z",
+      "side": 1,
+      "message": "Should we raise an error here?",
       "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
