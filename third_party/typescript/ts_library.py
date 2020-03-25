@@ -146,6 +146,9 @@ def copy_all_typescript_sources(sources, output_directory):
         front_end_output_location = path.dirname(front_end_output_location)
     for src in sources:
         if src.endswith('.ts') or src.endswith('_bridge.js'):
+            # Type definition files don't generate output
+            if src.endswith('.d.ts'):
+                continue
             generated_javascript_location = path.join(output_directory, path.basename(src).replace('.ts', '.js'))
 
             relative_path_from_generated_front_end_folder = path.relpath(generated_javascript_location, front_end_output_location)
