@@ -2,6 +2,279 @@
   "comments": [
     {
       "key": {
+        "uuid": "a2410f42_cd586c5a",
+        "filename": "scripts/component_bridges/OWNERS",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Why create a special OWNER file here?",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01396749_2b9610ff",
+        "filename": "scripts/component_bridges/README.md",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "\u003c3 the docs",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70a6fb8a_caca7fbb",
+        "filename": "scripts/component_bridges/cli.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "nit: Remove blank lines",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "893ed406_577bbd96",
+        "filename": "scripts/component_bridges/cli.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "We should check this behaves as expected on Windows.",
+      "range": {
+        "startLine": 30,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11af56a5_a1447691",
+        "filename": "scripts/component_bridges/cli.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Remove",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97b2d0c6_9ce155ab",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Generally I would value a few more comments in the functions further down the file that give a strong indication of what\u0027s going on.",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41e017b0_82c06d04",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Split across multiple lines. This is stacked as an as with args[0] and it\u0027s hard to follow.",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5db3a93a_b95f34bb",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Any reason not to join at this point and return a string?",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3286eb97_117ee129",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fd05ceb_1f83aaa5",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Any reason you didn\u0027t leftPad with string.repeat?",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7311a68e_10a18a00",
+        "filename": "scripts/component_bridges/value_for_type_node.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Ultra-nit: Make comments full sentences with caps.",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa806951_5f72d946",
+        "filename": "scripts/component_bridges/value_for_type_node.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "Can we figure out and either mark it as bad or fix it?",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 38
+      },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46b70f0f_eeb8029d",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/array-params.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "License",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a27be53_e11c0229",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/basic-component.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "License",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57e0768e_bd30d8d7",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/component-with-external-interface.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "License",
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b15e517b_8d2c61ef",
         "filename": "test/unittests/scripts/component_bridges/fixtures/expected/array-params_bridge-expected.js",
         "patchSetId": 24
@@ -19,6 +292,23 @@
         "endLine": 19,
         "endChar": 53
       },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56b46ef7_83931f17",
+        "filename": "test/unittests/scripts/component_bridges/generate_closure_test.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-25T14:58:44Z",
+      "side": 1,
+      "message": "How robust are these checks? I don\u0027t mind making them more robust over time, and I don\u0027t want us to just straight-up match the expected files. Just pondering.",
       "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
