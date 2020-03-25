@@ -210,6 +210,24 @@
       "revId": "272db8197f982555a468f65eec42909a47d29cca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8562c8db_447f876c",
+        "filename": "front_end/perf_ui/PieChart.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-03-25T08:07:33Z",
+      "side": 1,
+      "message": "SGTM, thanks for looking into it. Not super urgent",
+      "parentUuid": "46da569d_4cddbebf",
+      "revId": "272db8197f982555a468f65eec42909a47d29cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
