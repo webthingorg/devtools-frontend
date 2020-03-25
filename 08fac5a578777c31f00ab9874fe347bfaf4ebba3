@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9749817b_267dd127",
+        "filename": "test/unittests/scripts/component_bridges/cli_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T14:34:06Z",
+      "side": 1,
+      "message": "I don\u0027t see these expected bridge files in the CL. Are they gitignored?",
+      "range": {
+        "startLine": 16,
+        "startChar": 83,
+        "endLine": 16,
+        "endChar": 91
+      },
+      "revId": "08fac5a578777c31f00ab9874fe347bfaf4ebba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
