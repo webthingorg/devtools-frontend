@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cde3ef70_8ee3f38d",
+        "filename": "third_party/typescript/tests/verify_ts_libary.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T11:39:53Z",
+      "side": 1,
+      "message": "do you think we should consider making this file Python/Node so it\u0027s a bit more approachable? This is far beyond my bash capabilities for example! I don\u0027t feel strongly though.",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "ac7f07a368938ca3dd77c6b676810e241e0f55df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
