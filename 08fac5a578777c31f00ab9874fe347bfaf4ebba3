@@ -22,6 +22,30 @@
       "revId": "08fac5a578777c31f00ab9874fe347bfaf4ebba3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65ddbbc1_27e0ead4",
+        "filename": "test/unittests/scripts/component_bridges/cli_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-25T14:58:26Z",
+      "side": 1,
+      "message": "Good catch, I can\u0027t gitignore properly. Fixed!",
+      "parentUuid": "9749817b_267dd127",
+      "range": {
+        "startLine": 16,
+        "startChar": 83,
+        "endLine": 16,
+        "endChar": 91
+      },
+      "revId": "08fac5a578777c31f00ab9874fe347bfaf4ebba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
