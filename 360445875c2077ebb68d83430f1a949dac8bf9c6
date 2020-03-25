@@ -1,0 +1,239 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a7aa838_2e4cca77",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "Nit: Please use proper typographic quotes (go/punctuation-standards). In this case, we should use the curly apostrophe (’) instead of a straight apostrophe (\u0027).",
+      "range": {
+        "startLine": 488,
+        "startChar": 122,
+        "endLine": 488,
+        "endChar": 123
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "babcc1c0_d4c07410",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "typo: embedded",
+      "range": {
+        "startLine": 488,
+        "startChar": 17,
+        "endLine": 488,
+        "endChar": 24
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c54619_7d8da34d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "typo: embedding",
+      "range": {
+        "startLine": 489,
+        "startChar": 11,
+        "endLine": 489,
+        "endChar": 19
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2188af4a_eeba1c50",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "nit: single quotes for consistency with e.g. line 103",
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a449fd00_3ec26ab4",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "In general, prefer textContent over innerText, because the innerText getter can trigger layout. (In this case we\u0027re using the setter so it doesn\u0027t matter too much, but \"always prefer textContent\" is easier to remember.)",
+      "range": {
+        "startLine": 166,
+        "startChar": 13,
+        "endLine": 166,
+        "endChar": 22
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "331ee9de_f21a3a33",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "nix",
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e454fc70_8c7407f6",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "is this a typo for _toCamelCase?",
+      "range": {
+        "startLine": 42,
+        "startChar": 54,
+        "endLine": 42,
+        "endChar": 65
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90efcdc2_b73dafe5",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "typo: _toCamelCase",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 13
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e82dc32_9b7b9fd7",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "Since this is only used for HTTP headers (right?), we can be more specific than `.` and use `\\p{ASCII}`, `[a-zA-Z]` (only ASCII letters), or \\p{Lowercase_Letter} (only lowercase letters, but this matches some non-ASCII ones). What do you think?",
+      "range": {
+        "startLine": 73,
+        "startChar": 34,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "373cc1a6_52003588",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "We can avoid the need to do match.substr(1) by using a lookbehind assertion for `-`.",
+      "range": {
+        "startLine": 73,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 36
+      },
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03029e31_491dd888",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-25T12:37:28Z",
+      "side": 1,
+      "message": "How about this?\n\n    const first \u003d string.charAt(0).toUpperCase();\n    const rest \u003d string.slice(1)\n        .replace(/(?\u003c\u003d-)\\p{ASCII}/gu, symbol \u003d\u003e symbol.toUpperCase());\n    return `${first}${rest}`;",
+      "revId": "360445875c2077ebb68d83430f1a949dac8bf9c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
