@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b15e517b_8d2c61ef",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/expected/array-params_bridge-expected.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-25T14:50:29Z",
+      "side": 1,
+      "message": "I don\u0027t think this is strictly necessary, as it is in an export. However, no harm in keeping it I suppose? We could also disable eslint on any `_bridge.js` as well",
+      "range": {
+        "startLine": 19,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
