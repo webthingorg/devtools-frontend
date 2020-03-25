@@ -156,6 +156,50 @@ class AffectedCookiesView extends AffectedResourcesView {
   }
 }
 
+class AffectedRequestsView extends AffectedResourcesView {
+  /**
+   * @param {!AggregatedIssueView} parent
+   * @param {!SDK.Issue.AggregatedIssue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`request`, plural: ls`requests`});
+    /** @type {!SDK.Issue.AggregatedIssue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {!Iterable<!SDK.NetworkRequest.NetworkRequest>} requests
+   */
+  _appendAffectedRequests(requests) {
+    let count = 0;
+    for (const request of requests) {
+      count++;
+      this.appendAffectedRequest(request);
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   *
+   * @param {!SDK.NetworkRequest.NetworkRequest} request
+   */
+  appendAffectedRequest(request) {
+    const nameText = request.name().trimMiddle(100);
+    const nameElement = createElementWithClass('td', '');
+    nameElement.appendChild(Components.Linkifier.linkifyRevealable(request, nameText));
+
+    const element = createElementWithClass('tr', 'affected-resource-request');
+    element.appendChild(nameElement);
+    this._affectedResources.appendChild(element);
+  }
+
+  update() {
+    this.clear();
+    this._appendAffectedRequests(this._issue.requests());
+  }
+}
+
+
 class AggregatedIssueView extends UI.Widget.Widget {
   /**
    *
@@ -174,6 +218,8 @@ class AggregatedIssueView extends UI.Widget.Widget {
     this._affectedResources = this._createAffectedResources(this._body);
     this._affectedCookiesView = new AffectedCookiesView(this, this._issue);
     this._affectedCookiesView.update();
+    this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
+    this._affectedRequestsView.update();
     this._createReadMoreLink();
 
     this.contentElement.classList.add('issue');
@@ -203,7 +249,9 @@ class AggregatedIssueView extends UI.Widget.Widget {
   }
 
   updateAffectedResourceVisibility() {
-    const noResources = !this._affectedCookiesView || this._affectedCookiesView.isEmpty();
+    const noCookies = !this._affectedCookiesView || this._affectedCookiesView.isEmpty();
+    const noRequests = !this._affectedRequestsView || this._affectedRequestsView.isEmpty();
+    const noResources = noCookies && noRequests;
     this._affectedResources.style.display = noResources ? 'none' : '';
   }
 
@@ -258,6 +306,7 @@ class AggregatedIssueView extends UI.Widget.Widget {
 
   update() {
     this._affectedCookiesView.update();
+    this._affectedRequestsView.update();
     this.updateAffectedResourceVisibility();
   }
 
