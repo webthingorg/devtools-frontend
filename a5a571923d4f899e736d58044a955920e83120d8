@@ -46,6 +46,30 @@
       "revId": "a5a571923d4f899e736d58044a955920e83120d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f21bdad5_618baaa0",
+        "filename": "test/e2e/elements/sidebar-event-listeners-remove.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-26T15:28:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6968a4ea_241c8a7e",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "a5a571923d4f899e736d58044a955920e83120d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
