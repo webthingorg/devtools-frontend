@@ -24,6 +24,9 @@
   <message name="IDS_DEVTOOLS_0ace6faf288026c1adc56a2a1e7bb6be" desc="Default tag for a periodicsync event in Service Workers View of the Application panel">
     Periodic Sync tag
   </message>
+  <message name="IDS_DEVTOOLS_0ccbb583932ab2c5560f0ed9d83240cb" desc="Text in Clear Storage View of the Application panel">
+    Quota override
+  </message>
   <message name="IDS_DEVTOOLS_0d6fa553290eb4bf9eabe203a43b01d9" desc="Text in Clear Storage View of the Application panel">
     Application cache
   </message>
@@ -88,6 +91,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_301addf2037879acf2a972b157d2f4a7" desc="Text in Application Panel Sidebar of the Application panel">
     Local Files
   </message>
+  <message name="IDS_DEVTOOLS_33f54923726401e3d5fa6fbe99080a22" desc="">
+    Max quota (MB)
+  </message>
   <message name="IDS_DEVTOOLS_3472423ee4037c94e20d64b3aea8aa49" desc="Text in Service Workers View of the Application panel">
     <ph name="SCOPEURL">$1s<ex>example.com</ex></ph> - deleted
   </message>
@@ -114,6 +120,9 @@ table is empty.
   </message>
   <message name="IDS_DEVTOOLS_3afd748bcc6315d69cff002ec6c377ed" desc="Aria accessible name in Service Workers View of the Application panel">
     <ph name="THIS__REGISTRATION_ERRORS_LENGTH">$1s<ex>3</ex></ph> registration errors
+  </message>
+  <message name="IDS_DEVTOOLS_3d214daef347ebce60cd5c066b3a73b4" desc="">
+    negative input
   </message>
   <message name="IDS_DEVTOOLS_3d7394095f1d2e18e2e09b736c5af485" desc="Manifest installability error in the Application panel">
     Manifest specifies prefer_related_applications: true
@@ -150,6 +159,9 @@ table is empty.
   </message>
   <message name="IDS_DEVTOOLS_579fdc74b6520ab8906ecddf3e62d951" desc="Text in Application Panel Sidebar of the Application panel">
     Application Cache
+  </message>
+  <message name="IDS_DEVTOOLS_5a79fd7cb1ef6584c80cfbd2f3fdb3b3" desc="">
+    Enter a number
   </message>
   <message name="IDS_DEVTOOLS_5af7e09b8b3d8b201c0621de9815bcb0" desc="Manifest installability error in the Application panel">
     Downloaded icon was empty or corrupted
@@ -241,6 +253,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_8e935d9783802795a2abb7a31cacba1a" desc="Warning message for icons from the manifest">
     Icon <ph name="ICONURL">$1s<ex>https://example.com/icon.png</ex></ph> failed to load
   </message>
+  <message name="IDS_DEVTOOLS_8f5a278959da409d23d9609519b181e5" desc="">
+    illegal input
+  </message>
   <message name="IDS_DEVTOOLS_8f67973007158337346584551b093be8" desc="Text in App Manifest View of the Application panel">
     Icons
   </message>
@@ -256,6 +271,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_94aa6cfa461998abe42d53963f1344c3" desc="Error msg element text content in Database Table View of the Application panel">
     An error occurred trying to
 read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
+  </message>
+  <message name="IDS_DEVTOOLS_9733ec6d41eb0940a8fd3e04ba8e107c" desc="">
+    empty input
   </message>
   <message name="IDS_DEVTOOLS_98fc9226c3fe878e39cd048fbd1c3692" desc="Text in App Manifest View of the Application panel">
     Short name
