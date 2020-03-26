@@ -16,6 +16,24 @@
       "revId": "4e3453ad63af407cd5b02f5ed9f4d3ef2c34acba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acbd7c8f_91327c85",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-26T14:14:58Z",
+      "side": 1,
+      "message": "Is that a valid header name?\n\nIf it is, we are looking at updating CDP, as the `Protocol.Network.Headers` is a CDP type.",
+      "parentUuid": "c5e91b31_c507e568",
+      "revId": "4e3453ad63af407cd5b02f5ed9f4d3ef2c34acba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
