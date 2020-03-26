@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab472e87_c976d4b0",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-26T21:32:06Z",
+      "side": 1,
+      "message": "see context here: https://chromium-review.googlesource.com/c/chromium/src/+/1721843/19#message-1de1fbdf1a092a4de92bffe5e6cae83a28e81402",
+      "revId": "6f0e9bc7e18dfea5858400a8679ac3f940fd8e95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
