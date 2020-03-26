@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "333a0ac4_8d2ef487",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-26T07:31:50Z",
+      "side": 1,
+      "message": "Did I understand this right: Previously the IssuesModel was enabled for all targets that had the \u0027Network\u0027 capability while now we require the \u0027Audits\u0027 capability?",
+      "range": {
+        "startLine": 251,
+        "startChar": 31,
+        "endLine": 251,
+        "endChar": 48
+      },
+      "revId": "ec8f84f724f24d1f5d46b0f844886850a9cfcb7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
