@@ -6528,6 +6528,37 @@ experimental domain Storage
       # Storage usage per type (bytes).
       array of UsageForType usageBreakdown
 
+	# Override quota for the current origin
+  experimental command overrideQuotaForOrigin
+    parameters
+      # Security origin.
+      string origin
+      # The quota size (in bytes) to override the original quota. It
+      # is used only when actionMode is 'enable'.
+      number quotaSize
+      # Action mode. 'enable'/'disable' sets/cancels quota override
+      # for an origin, and 'abandon' means letting the backend to decide:
+      # quota override should be canceled only if there is no other
+      # frontends inspecting the same origin's quota.
+      enum actionMode
+        enable
+        disable
+        abandon
+				cancel
+
+  # Frontend inquires about an origin's quota override status in the backend.
+  experimental command syncQuotaOverridingStatus
+    parameters
+      # Security origin
+      string origin
+      # The previous of quota overriding stored in the frontend
+      boolean wasOverridden
+    returns
+      # Indicates quota overriding status stored in the backend
+      boolean isOverridden
+      # The quota set by overriding, only valid if isOverridden is true
+      number overridingQuota
+
   # Registers origin to be notified when an update occurs to its cache storage list.
   command trackCacheStorageForOrigin
     parameters
