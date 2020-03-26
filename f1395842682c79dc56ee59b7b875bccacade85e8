@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "05268aec_e2e87add",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 29
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-26T21:12:18Z",
+      "side": 1,
+      "message": "Just checked and it looks like we do. Added",
+      "parentUuid": "e4295bd4_057541bf",
+      "revId": "f1395842682c79dc56ee59b7b875bccacade85e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a32df768_7cdd020c",
         "filename": "front_end/settings/keybindsSettingsTab.css",
         "patchSetId": 29
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9cf23030_f135c12f",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 29
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-26T21:12:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a32df768_7cdd020c",
+      "revId": "f1395842682c79dc56ee59b7b875bccacade85e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac9b7b0f_8f693bf9",
         "filename": "front_end/ui/Action.js",
         "patchSetId": 29
@@ -50,6 +86,24 @@
       "revId": "f1395842682c79dc56ee59b7b875bccacade85e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b720ecd9_8331bc60",
+        "filename": "front_end/ui/Action.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-26T21:12:18Z",
+      "side": 1,
+      "message": "What the changes here and in ActionRegistry do is allow actions that can\u0027t be instantiated to be registered. This allows us to more easily enumerate all actions for the settings tab. Without these changes, ActionRegistry just ignores actions like sources.rename that are handled without the normal ActionDelegate pattern. They aren\u0027t strictly necessary for this list though, so I\u0027ll move these changes into a separate CL.",
+      "parentUuid": "ac9b7b0f_8f693bf9",
+      "revId": "f1395842682c79dc56ee59b7b875bccacade85e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

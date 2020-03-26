@@ -16,6 +16,24 @@
       "revId": "f83fad25ac0e8cb754f7e09e02f818176e39f3e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab8ef0be_355ba295",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-03-26T21:12:18Z",
+      "side": 0,
+      "message": "Elaborated by responding to above comment",
+      "parentUuid": "35b14a28_b255e9f2",
+      "revId": "f83fad25ac0e8cb754f7e09e02f818176e39f3e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
