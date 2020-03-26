@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "6f658d1a_43bdd697",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-26T11:35:58Z",
+      "side": 1,
+      "message": "Resolved via a GVC chat 😊",
+      "parentUuid": "89059a3e_3329b998",
+      "revId": "e0bf9f82aff4966588372367412f48a6fa496524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08a9191d_9ee45025",
         "filename": "test/e2e/elements/sidebar-event-listeners.ts",
         "patchSetId": 2
