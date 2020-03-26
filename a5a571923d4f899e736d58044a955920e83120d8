@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53571b51_e36645d6",
+        "filename": "test/e2e/elements/sidebar-event-listeners-remove.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-26T15:13:12Z",
+      "side": 1,
+      "message": "this code is shared between this test and the other test.\n\nI\u0027m tempted to create an `event-listeners-helpers.ts` file - WDYT ?",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "a5a571923d4f899e736d58044a955920e83120d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
