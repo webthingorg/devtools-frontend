@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c6c0509_7027bcb4",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-26T09:26:50Z",
+      "side": 1,
+      "message": "This looks like it ought to be a helper?",
+      "revId": "e0bf9f82aff4966588372367412f48a6fa496524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a9191d_9ee45025",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-26T09:26:50Z",
+      "side": 1,
+      "message": "Nit: remove",
+      "revId": "e0bf9f82aff4966588372367412f48a6fa496524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
