@@ -64,7 +64,10 @@ export const assertGutterDecorationForDomNodeExists = async () => {
 };
 
 const EVENT_LISTENERS_PANEL_LINK = '[aria-label="Event Listeners"]';
-const EVENT_LISTENERS_SELECTOR = '[aria-label$="event listener"]';
+/* We add :not(.hidden) here as if you create an event listener + remove it via the UI
+ * it gets the class of .hidden rather than being removed
+ */
+const EVENT_LISTENERS_SELECTOR = '[aria-label$="event listener"]:not(.hidden)';
 
 export const openEventListenersPaneAndWaitForListeners = async () => {
   await click(EVENT_LISTENERS_PANEL_LINK);
