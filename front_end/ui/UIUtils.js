@@ -1755,6 +1755,11 @@ export class ThemeSupport {
     this._cachedThemePatches = new Map();
     this._setting = setting;
     this._customSheets = new Set();
+    this._computedBody = Common.lazy(() => window.getComputedStyle(document.body));
+  }
+
+  getComputedValue(variableName) {
+    return this._computedBody().getPropertyValue(variableName);
   }
 
   /**
