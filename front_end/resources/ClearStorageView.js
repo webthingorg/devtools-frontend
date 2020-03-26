@@ -43,6 +43,17 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
       this._settings.set(type, Common.Settings.Settings.instance().createSetting('clear-storage-' + type, true));
     }
 
+    this._quotaOverridden = false;
+    this._enableButtonText = 'Enable';
+    this._disableButtonText = 'Disable';
+    const quotaOverride = this._reportView.appendSection(Common.UIString.UIString('Quota override'));
+    const quotaOverrideWidget =
+        this._initializeQuotaOverrideForm(quotaOverride, ls`Max quota (MB)`, ls`Enter a number`);
+    this._quotaOverrideButton = /** @type {!Element} */ (quotaOverrideWidget.button);
+    this._quotaOverrideEditor = /** @type {!Element} */ (quotaOverrideWidget.editor);
+    this._quotaOverrideErrorMessage = /** @type {!Element} */ (quotaOverrideWidget.errorMessage);
+    quotaOverrideWidget.form.addEventListener('submit', this._quotaOverrideButtonClicked.bind(this));
+
     const quota = this._reportView.appendSection(Common.UIString.UIString('Usage'));
     this._quotaRow = quota.appendSelectableRow();
     const learnMoreRow = quota.appendRow();
@@ -133,6 +144,7 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
    * @param {string} unreachableMainOrigin
    */
   _updateOrigin(mainOrigin, unreachableMainOrigin) {
+    const oldOrigin = this._securityOrigin;
     if (unreachableMainOrigin) {
       this._securityOrigin = unreachableMainOrigin;
       this._reportView.setSubtitle(ls`${unreachableMainOrigin} (failed to load)`);
@@ -141,7 +153,91 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
       this._reportView.setSubtitle(mainOrigin);
     }
 
-    this.doUpdate();
+    if (oldOrigin !== this._securityOrigin) {
+      this._quotaOverrideEditor.nodeValue = '';
+      this._quotaOverrideErrorMessage.textContent = '';
+      this._overrideQuotaForOrigin(oldOrigin, null, QuotaOverrideActionMode.Abandon).then(() => this.doUpdate());
+    } else {
+      this.doUpdate();
+    }
+  }
+
+  /**
+   * @param {!UI.ReportView.Section} section
+   * @param {string} label
+   * @param {string} placeholder
+   * @return {!Object}
+   */
+  _initializeQuotaOverrideForm(section, label, placeholder) {
+    const form = section.appendField(label).createChild('form', 'quota-override-editor-with-button');
+    const editor = form.createChild('input', 'source-code quota-override-notification-editor');
+    editor.title = 'Size should be no larger than what the browser allows by default';
+    const button = UI.UIUtils.createTextButton(this._enableButtonText);
+    button.type = 'submit';
+    form.appendChild(button);
+    const errorMessage = form.createChild('div', 'quota-override-error');
+    errorMessage.textContent = '';
+    editor.value = '';
+    editor.placeholder = placeholder;
+    return {form, editor, button, errorMessage};
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  async _quotaOverrideButtonClicked(event) {
+    /**
+     * @param {string} str
+     * @return {boolean}
+     */
+    function isFloat(str) {
+      return /^\-?[0-9]+(\.[0-9]+)?$/.test(str);
+    }
+
+    event.consume(true);
+    this._quotaOverrideErrorMessage.textContent = '';
+    if (this._quotaOverridden === false) {
+      const editorString = this._quotaOverrideEditor.value;
+      if (!editorString) {
+        this._quotaOverrideErrorMessage.textContent = ls`empty input`;
+        return;
+      }
+      if (!isFloat(editorString)) {
+        this._quotaOverrideErrorMessage.textContent = ls`illegal input`;
+        return;
+      }
+      const quota = parseFloat(editorString);
+      if (quota < 0) {
+        this._quotaOverrideErrorMessage.textContent = ls`negative input`;
+        return;
+      }
+      await this._overrideQuotaForOrigin(this._securityOrigin, quota, QuotaOverrideActionMode.Enable);
+    } else {
+      this._quotaOverrideEditor.value = '';
+      await this._overrideQuotaForOrigin(this._securityOrigin, null, QuotaOverrideActionMode.Disable);
+    }
+  }
+
+  /**
+   * @param {?string} origin
+   * @param {?number} quotaInMB
+   * @param {!QuotaOverrideActionMode} actionMode
+   */
+  async _overrideQuotaForOrigin(origin, quotaInMB, actionMode) {
+    if (!origin) {
+      return;
+    }
+
+    if (actionMode === QuotaOverrideActionMode.Enable) {
+      this._quotaOverridden = true;
+      this._quotaOverrideButton.textContent = this._disableButtonText;
+    } else {
+      this._quotaOverridden = false;
+      this._quotaOverrideButton.textContent = this._enableButtonText;
+    }
+    const originToOverride = /** @type {string} */ (origin);
+    await this._target.storageAgent().overrideQuotaForOrigin(
+        {origin: originToOverride, quotaSize: quotaInMB !== null ? quotaInMB * 1024 * 1024 : -1, actionMode});
   }
 
   _clear() {
@@ -353,3 +449,13 @@ export class ActionDelegate {
     return true;
   }
 }
+
+
+/**
+ * @enum {string}
+ */
+export const QuotaOverrideActionMode = {
+  Enable: 'enable',
+  Disable: 'disable',
+  Abandon: 'abandon'
+};
