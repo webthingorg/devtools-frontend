@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "e7591bcc_f1dd9dbf",
+        "filename": "front_end/common/lazy.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-26T02:04:58Z",
+      "side": 1,
+      "message": "I wasn\u0027t observing this locally, but after a rebase I\u0027m getting these errors. I\u0027ll dig into what\u0027s going on here.",
+      "parentUuid": "406800a9_8ad8c40f",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e2653cc_cd72b5e3",
         "filename": "front_end/ui/UIUtils.js",
         "patchSetId": 2
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "cb312cd4_e58522ed",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-26T02:04:58Z",
+      "side": 1,
+      "message": "After reading docs, `documentElement` is the document property I want. I wasn\u0027t aware of this `documentElement` and mistakenly thought `body` \u003d\u003d `:root`. Today I learned!",
+      "parentUuid": "2e2653cc_cd72b5e3",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d577318e_869b09a8",
         "filename": "front_end/ui/UIUtils.js",
         "patchSetId": 2
@@ -81,6 +117,24 @@
       "writtenOn": "2020-03-25T18:13:07Z",
       "side": 1,
       "message": "Should we raise an error here?",
+      "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac627694_5fc7117b",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1762,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-03-26T02:04:58Z",
+      "side": 1,
+      "message": "I considered this, but felt it might be redundant. The feature author would definitely notice if their color is not being propagated.\n\nHowever, since you also brought it up I feel more confident about tossing an error here.",
+      "parentUuid": "d577318e_869b09a8",
       "revId": "282865b862d888eab1ae9c75804d995d87d21a89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
