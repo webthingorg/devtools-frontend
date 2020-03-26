@@ -99,3 +99,29 @@ export const getEventListenerProperties = async (selector: string) => {
 
   return propertiesOutput as Array<string[]>;
 };
+
+export const getAndAssertTextOnEventListenerNode = async (selector: string, expectedEventText: string) => {
+  // click on the event selector to show all nodes that have that listener
+  await click(selector);
+
+  /* selects the first node, e.g. if the UI looks like:
+     *
+     * > click
+     *   > body
+     *   > footer
+     *
+     * this code selects the "body" node and asserts the text is as expected
+     */
+  const eventNodeSelector = `${selector} + ol>li`;
+  const eventNode = await $(eventNodeSelector);
+  const eventNodeText = await eventNode.evaluate(node => {
+    return node.textContent;
+  });
+
+  // check that we have the right event for the right element
+  // we can't use assert.equal() as the text also includes the "Remove" button
+  assert.include(eventNodeText, expectedEventText);
+
+  // return the selector so the caller can use it to dive deeper if they need
+  return eventNodeSelector;
+};

@@ -4,8 +4,9 @@
 
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
-import {$, click, getBrowserAndPages, resetPages, resourcesPath} from '../../shared/helper.js';
-import {assertContentOfSelectedElementsNode, getDisplayedEventListenerNames, getEventListenerProperties, openEventListenersPaneAndWaitForListeners, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
+
+import {doubleClick, getBrowserAndPages, resetPages, resourcesPath} from '../../shared/helper.js';
+import {assertContentOfSelectedElementsNode, getAndAssertTextOnEventListenerNode, getDisplayedEventListenerNames, getEventListenerProperties, openEventListenersPaneAndWaitForListeners, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
 
 describe('Event listeners in the elements sidebar', async () => {
   beforeEach(async () => {
@@ -33,27 +34,14 @@ describe('Event listeners in the elements sidebar', async () => {
   it('shows the event listener properties when expanding it', async () => {
     await openEventListenersPaneAndWaitForListeners();
 
-    const clickListenerSelector = '[aria-label="click, event listener"]';
-    await click(clickListenerSelector);
-
-    const buttonClickEventSelector = `${clickListenerSelector} + ol>li`;
-    const buttonClickEvent = await $(buttonClickEventSelector);
-    const buttonClickEventText = await buttonClickEvent.evaluate(button => {
-      return button.textContent;
-    });
-
-    // check that we have the right event for the right element
-    // we can't use assert.equal() as the text also includes the "Remove" button
-    assert.include(buttonClickEventText, 'button#test-button');
+    const clickEventSelector =
+        await getAndAssertTextOnEventListenerNode('[aria-label="click, event listener"]', 'button#test-button');
 
     // we have to double click on the event to expand it
     // as single click reveals it in the elements tree
-    await click(buttonClickEventSelector, {
-      clickOptions: {
-        clickCount: 2,
-      },
-    });
-    const clickEventPropertiesSelector = `${buttonClickEventSelector} + ol .name-and-value`;
+    await doubleClick(clickEventSelector);
+
+    const clickEventPropertiesSelector = `${clickEventSelector} + ol .name-and-value`;
     const propertiesOutput = await getEventListenerProperties(clickEventPropertiesSelector);
 
     assert.deepEqual(propertiesOutput, [
@@ -61,6 +49,27 @@ describe('Event listeners in the elements sidebar', async () => {
       ['passive', 'false'],
       ['once', 'false'],
       ['handler', '() => {}'],
+    ]);
+  });
+
+  it('shows custom event listeners and their properties correctly', async () => {
+    await openEventListenersPaneAndWaitForListeners();
+
+    const bodyEventSelector =
+        await getAndAssertTextOnEventListenerNode('[aria-label="custom event, event listener"]', 'body');
+
+    // we have to double click on the event to expand it
+    // as single click reveals it in the elements tree
+    await doubleClick(bodyEventSelector);
+
+    const customEventProperties = `${bodyEventSelector} + ol .name-and-value`;
+    const propertiesOutput = await getEventListenerProperties(customEventProperties);
+
+    assert.deepEqual(propertiesOutput, [
+      ['useCapture', 'true'],
+      ['passive', 'false'],
+      ['once', 'true'],
+      ['handler', '() => console.log(\'test\')'],
     ]);
   });
 });
