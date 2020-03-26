@@ -136,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "1a8f607c_a6fc346f",
+        "filename": "scripts/component_bridges/cli.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-26T09:25:10Z",
+      "side": 1,
+      "message": "We did have one issue where path.relative seemed to be broken / behave differently. But I just tested on Windows and it behaved as expected (switched / for \\ etc).",
+      "parentUuid": "e43404c4_7bcdc8f6",
+      "range": {
+        "startLine": 30,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "0e4618c38aaeef9f8e7ee8f0e1e156f862add10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11af56a5_a1447691",
         "filename": "scripts/component_bridges/cli.ts",
         "patchSetId": 24
