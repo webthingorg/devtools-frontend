@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9d6121e3_666d415c",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-26T10:54:10Z",
+      "side": 1,
+      "message": "Not sure I agree, it\u0027s basically only useful for this e2e file - it hardcodes the resource path and which element we select. I wouldn\u0027t pull it into elements-helper.ts because no other files would ever use it.",
+      "parentUuid": "2c6c0509_7027bcb4",
+      "revId": "e0bf9f82aff4966588372367412f48a6fa496524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08a9191d_9ee45025",
         "filename": "test/e2e/elements/sidebar-event-listeners.ts",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "e0bf9f82aff4966588372367412f48a6fa496524",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8d13f6e_b31630d5",
+        "filename": "test/e2e/elements/sidebar-event-listeners.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-26T10:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08a9191d_9ee45025",
+      "revId": "e0bf9f82aff4966588372367412f48a6fa496524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
