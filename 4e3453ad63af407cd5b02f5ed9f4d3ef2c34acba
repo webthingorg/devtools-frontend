@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5e91b31_c507e568",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-26T14:10:04Z",
+      "side": 1,
+      "message": "What if `name \u003d\u003d\u003d \u0027__proto__\u0027`?",
+      "revId": "4e3453ad63af407cd5b02f5ed9f4d3ef2c34acba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
