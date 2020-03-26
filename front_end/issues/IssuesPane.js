@@ -45,18 +45,6 @@ class AffectedResourcesView {
   createAffectedResources(wrapper) {
     const body = createElementWithClass('div', 'affected-resource-list-wrapper');
     const affectedResources = createElementWithClass('table', 'affected-resource-list');
-    const header = createElementWithClass('tr');
-
-    const name = createElementWithClass('td', 'affected-resource-header');
-    name.textContent = 'Name';
-    header.appendChild(name);
-
-    const info = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
-    // Prepend a space to align them better with cookie domains starting with a "."
-    info.textContent = '\u2009Context';
-    header.appendChild(info);
-
-    affectedResources.appendChild(header);
     body.appendChild(affectedResources);
     wrapper.appendChild(body);
 
@@ -113,6 +101,19 @@ class AffectedCookiesView extends AffectedResourcesView {
    * @param {!Iterable<*>} cookies
    */
   _appendAffectedCookies(cookies) {
+    const header = createElementWithClass('tr');
+
+    const name = createElementWithClass('td', 'affected-resource-header');
+    name.textContent = 'Name';
+    header.appendChild(name);
+
+    const info = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    // Prepend a space to align them better with cookie domains starting with a "."
+    info.textContent = '\u2009Context';
+    header.appendChild(info);
+
+    this._affectedResources.appendChild(header);
+
     let count = 0;
     for (const cookie of cookies) {
       count++;
@@ -203,6 +204,89 @@ class AffectedRequestsView extends AffectedResourcesView {
   }
 }
 
+class AffectedMixedContentView extends AffectedResourcesView {
+  /**
+   * @param {!AggregatedIssueView} parent
+   * @param {!SDK.Issue.AggregatedIssue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`resource`, plural: ls`resources`});
+    /** @type {!SDK.Issue.AggregatedIssue} */
+    this._issue = issue;
+  }
+
+  /**
+   * TODO(chromium:1063765): Strengthen types.
+   * @param {!Iterable<*>} mixedContents
+   */
+  _appendAffectedMixedContents(mixedContents) {
+    const header = createElementWithClass('tr');
+
+    const name = createElementWithClass('td', 'affected-resource-header');
+    name.textContent = 'Name';
+    header.appendChild(name);
+
+    const type = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    type.textContent = 'Type';
+    header.appendChild(type);
+
+    const info = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    info.textContent = 'Status';
+    header.appendChild(info);
+
+    const initiator = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    initiator.textContent = 'Initiator';
+    header.appendChild(initiator);
+
+    this._affectedResources.appendChild(header);
+
+
+    let count = 0;
+    for (const mixedContent of mixedContents) {
+      count++;
+      this.appendAffectedMixedContent(
+          /** @type{!{type:string,status:string,url:string,initiator:string}} */ (mixedContent));
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   *
+   * @param {!!{type:string,status:string,url:string,initiator:string}} mixedContent
+   */
+  appendAffectedMixedContent(mixedContent) {
+    const element = createElementWithClass('tr', 'affected-resource-cookie');
+
+    // regex matches everything after last '/'
+    const filename = (/[^/]+$/.exec(mixedContent.url) || [''])[0];
+    const name = createElementWithClass('td', '');
+    name.appendChild(UI.UIUtils.createTextButton(filename, () => {
+      Network.NetworkPanel.NetworkPanel.revealAndFilter(filename);
+    }, 'link-style devtools-link'));
+    element.appendChild(name);
+
+    const type = createElementWithClass('td', 'affected-resource-cookie-info');
+    type.textContent = mixedContent.type;
+    element.appendChild(type);
+
+    const status = createElementWithClass('td', 'affected-resource-cookie-info');
+    status.textContent = mixedContent.status;
+    element.appendChild(status);
+
+
+    const initiator = createElementWithClass('td', 'affected-resource-cookie-info');
+    // regex matches everything after last '/'
+    initiator.textContent = (/[^/]+$/.exec(mixedContent.initiator) || [''])[0];
+    element.appendChild(initiator);
+
+    this._affectedResources.appendChild(element);
+  }
+
+  update() {
+    this.clear();
+    this._appendAffectedMixedContents(this._issue.mixedContents());
+  }
+}
 
 class AggregatedIssueView extends UI.Widget.Widget {
   /**
@@ -224,6 +308,8 @@ class AggregatedIssueView extends UI.Widget.Widget {
     this._affectedCookiesView.update();
     this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
     this._affectedRequestsView.update();
+    this._affectedMixedContentView = new AffectedMixedContentView(this, this._issue);
+    this._affectedMixedContentView.update();
     this._createReadMoreLink();
 
     this.contentElement.classList.add('issue');
@@ -255,7 +341,8 @@ class AggregatedIssueView extends UI.Widget.Widget {
   updateAffectedResourceVisibility() {
     const noCookies = !this._affectedCookiesView || this._affectedCookiesView.isEmpty();
     const noRequests = !this._affectedRequestsView || this._affectedRequestsView.isEmpty();
-    const noResources = noCookies && noRequests;
+    const noMixedContent = !this._affectedMixedContentView || this._affectedMixedContentView.isEmpty();
+    const noResources = noCookies && noRequests && noMixedContent;
     this._affectedResources.style.display = noResources ? 'none' : '';
   }
 
@@ -311,9 +398,9 @@ class AggregatedIssueView extends UI.Widget.Widget {
   update() {
     this._affectedCookiesView.update();
     this._affectedRequestsView.update();
+    this._affectedMixedContentView.update();
     this.updateAffectedResourceVisibility();
   }
-
 
   /**
    * @param {(boolean|undefined)=} expand - Expands the issue if `true`, collapses if `false`, toggles collapse if undefined
@@ -654,5 +741,13 @@ const issueDescriptions = new Map([
     issueKind: IssueKind.BreakingChange,
     link: ls`https://web.dev/coop-coep/`,
     linkTitle: ls`Enable powerful features with COOP and COEP`,
+  }],
+  ['MixedContentIssue', {
+    title: ls`Mixed content: Not all of the page's resources are being loaded over HTTPS.`,
+    message: () => textOnlyMessage(ls
+    `The initial HTML is loaded over a secure HTTPS connection, but some other resources are loaded over an insecure HTTP connection.`),
+    issueKind: IssueKind.BreakingChange,
+    link: ls`https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content`,
+    linkTitle: ls`Preventing mixed content`,
   }],
 ]);
