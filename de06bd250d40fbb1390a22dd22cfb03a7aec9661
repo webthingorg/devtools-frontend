@@ -22,6 +22,30 @@
       "revId": "de06bd250d40fbb1390a22dd22cfb03a7aec9661",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dae5d1d3_49091975",
+        "filename": "test/unittests/front_end/sdk/CookieParser_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-27T15:01:52Z",
+      "side": 1,
+      "message": "I will defer that to Jan. I think it makes sense to update the CookieParser to handle the conversion.",
+      "parentUuid": "0f8fa2ab_6683be51",
+      "range": {
+        "startLine": 60,
+        "startChar": 21,
+        "endLine": 60,
+        "endChar": 41
+      },
+      "revId": "de06bd250d40fbb1390a22dd22cfb03a7aec9661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
