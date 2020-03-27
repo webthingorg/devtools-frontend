@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ab77892b_ae083ab3",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-27T08:17:54Z",
+      "side": 1,
+      "message": "SGTM!",
+      "parentUuid": "867867b3_28c7f84e",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 92
+      },
+      "revId": "7b57b811b82148a5659dc3d35544da93ce79c47d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d72d819_5223aa94",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 2
