@@ -576,7 +576,7 @@ export class SecurityPanelSidebarTreeElement extends UI.TreeOutline.TreeElement 
 
   /**
    * @param {!SecurityPanelSidebarTreeElement} a
-   * @param {!Security.SecurityPanelSidebarTreeElement} b
+   * @param {!SecurityPanelSidebarTreeElement} b
    * @return {number}
    */
   static SecurityStateComparator(a, b) {
@@ -1019,7 +1019,7 @@ export class SecurityMainView extends UI.Widget.VBox {
 
   /**
    * @param {!Array<!SecurityStyleExplanation>} explanations
-   * @return {!Array<!Security.SecurityStyleExplanation>}
+   * @return {!Array<!SecurityStyleExplanation>}
    */
   _orderExplanations(explanations) {
     if (explanations.length === 0) {

@@ -4,11 +4,7 @@
 
 import * as CookieTableModule from './cookie_table.js';
 
-self.CookieTable = self.CookieTable || {};
 CookieTable = CookieTable || {};
 
 /** @constructor */
 CookieTable.CookiesTable = CookieTableModule.CookiesTable.CookiesTable;
-
-/** @constructor */
-CookieTable.DataGridNode = CookieTableModule.CookiesTable.DataGridNode;

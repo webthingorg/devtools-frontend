@@ -128,7 +128,7 @@ export class WebAudioView extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
-   * @param {!WebAudio.WebAudioModel} webAudioModel
+   * @param {!WebAudioModel} webAudioModel
    */
   _removeEventListeners(webAudioModel) {
     webAudioModel.removeEventListener(ModelEvents.ContextCreated, this._contextCreated, this);

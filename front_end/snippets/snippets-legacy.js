@@ -10,8 +10,6 @@ self.Snippets = self.Snippets || {};
 Snippets = Snippets || {};
 
 Snippets.evaluateScriptSnippet = SnippetsModule.ScriptSnippetFileSystem.evaluateScriptSnippet;
-Snippets.isSnippetsUISourceCode = SnippetsModule.ScriptSnippetFileSystem.isSnippetsUISourceCode;
-Snippets.isSnippetsProject = SnippetsModule.ScriptSnippetFileSystem.isSnippetsProject;
 
 Snippets.project = /** @type {!Workspace.Workspace.Project} */ (
     Workspace.Workspace.WorkspaceImpl.instance()

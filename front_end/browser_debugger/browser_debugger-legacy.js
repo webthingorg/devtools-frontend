@@ -12,9 +12,6 @@ BrowserDebugger = BrowserDebugger || {};
  */
 BrowserDebugger.DOMBreakpointsSidebarPane = BrowserDebuggerModule.DOMBreakpointsSidebarPane.DOMBreakpointsSidebarPane;
 
-BrowserDebugger.DOMBreakpointsSidebarPane.BreakpointTypeLabels =
-    BrowserDebuggerModule.DOMBreakpointsSidebarPane.BreakpointTypeLabels;
-
 BrowserDebugger.DOMBreakpointsSidebarPane.ContextMenuProvider =
     BrowserDebuggerModule.DOMBreakpointsSidebarPane.ContextMenuProvider;
 
@@ -29,9 +26,6 @@ BrowserDebugger.EventListenerBreakpointsSidebarPane =
  */
 BrowserDebugger.ObjectEventListenersSidebarPane =
     BrowserDebuggerModule.ObjectEventListenersSidebarPane.ObjectEventListenersSidebarPane;
-
-BrowserDebugger.ObjectEventListenersSidebarPane._objectGroupName =
-    BrowserDebuggerModule.ObjectEventListenersSidebarPane.objectGroupName;
 
 /**
  * @constructor
