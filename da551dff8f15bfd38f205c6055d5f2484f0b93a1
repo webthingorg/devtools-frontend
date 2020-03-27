@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5aef026d_c947308d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-27T12:49:13Z",
+      "side": 1,
+      "message": "Just reusing some existing code thats also used in the InfoBar. Technically its not a link, as we don\u0027t have a URL, we just need something to install a click handler on it.\n\nLeaving it as is for now. Should we get a second use-site for this helper we should probably turn it into a revealer.",
+      "parentUuid": "c55e91f8_272a3109",
+      "range": {
+        "startLine": 193,
+        "startChar": 39,
+        "endLine": 193,
+        "endChar": 55
+      },
+      "revId": "da551dff8f15bfd38f205c6055d5f2484f0b93a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32f6ee7b_259b5aa5",
         "filename": "front_end/network/NetworkPanel.js",
         "patchSetId": 1
