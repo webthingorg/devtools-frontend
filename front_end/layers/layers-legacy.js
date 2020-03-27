@@ -18,9 +18,4 @@ Layers.LayerTreeModel.Events = LayersModule.LayerTreeModel.Events;
 /**
  * @constructor
  */
-Layers.AgentLayer = LayersModule.LayerTreeModel.AgentLayer;
-
-/**
- * @constructor
- */
 Layers.LayersPanel = LayersModule.LayersPanel.LayersPanel;

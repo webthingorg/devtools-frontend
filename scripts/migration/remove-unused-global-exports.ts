@@ -26,7 +26,7 @@ function computeNamespaceName(folderName: string): string {
   if (folderName in FOLDER_MAPPING) {
     return FOLDER_MAPPING[folderName];
   }
-  return capitalizeFirstLetter(folderName);
+  return folderName.split('_').map(part => capitalizeFirstLetter(part)).join('');
 }
 
 // Transform an expression of UI.ARIAUtils.Foo to its string representation

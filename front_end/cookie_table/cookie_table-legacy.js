@@ -9,6 +9,3 @@ CookieTable = CookieTable || {};
 
 /** @constructor */
 CookieTable.CookiesTable = CookieTableModule.CookiesTable.CookiesTable;
-
-/** @constructor */
-CookieTable.DataGridNode = CookieTableModule.CookiesTable.DataGridNode;

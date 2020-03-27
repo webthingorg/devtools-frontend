@@ -23,16 +23,6 @@ Security.PageVisibleSecurityState = SecurityModule.SecurityModel.PageVisibleSecu
 /**
  * @constructor
  */
-Security.CertificateSecurityState = SecurityModule.SecurityModel.CertificateSecurityState;
-
-/**
- * @constructor
- */
-Security.SecurityStyleExplanation = SecurityModule.SecurityModel.SecurityStyleExplanation;
-
-/**
- * @constructor
- */
 Security.SecurityPanel = SecurityModule.SecurityPanel.SecurityPanel;
 
 /**
@@ -42,13 +32,3 @@ Security.SecurityPanelSidebarTree = SecurityModule.SecurityPanel.SecurityPanelSi
 
 /** @enum {symbol} */
 Security.SecurityPanelSidebarTree.OriginGroup = SecurityModule.SecurityPanel.OriginGroup;
-
-/**
- * @constructor
- */
-Security.SecurityPanelSidebarTreeElement = SecurityModule.SecurityPanel.SecurityPanelSidebarTreeElement;
-
-/**
- * @constructor
- */
-Security.SecurityOriginView = SecurityModule.SecurityPanel.SecurityOriginView;

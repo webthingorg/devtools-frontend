@@ -43,7 +43,7 @@ export class Selection {
 
   /**
    * @param {?Selection} a
-   * @param {?LayerViewer.LayerView.Selection} b
+   * @param {?Selection} b
    * @return {boolean}
    */
   static isEqual(a, b) {
