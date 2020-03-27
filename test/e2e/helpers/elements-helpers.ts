@@ -2,10 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import {assert} from 'chai';
+import * as puppeteer from 'puppeteer';
 
-import {$, click, getBrowserAndPages, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, waitFor} from '../../shared/helper.js';
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
+const CSS_PROPERTY_NAME_SELECTOR = '.webkit-css-property';
 
 export const assertContentOfSelectedElementsNode = async (expectedTextContent: string) => {
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
@@ -61,4 +63,18 @@ export const waitForDomNodeToBeHidden = async (elementSelector: string) => {
 
 export const assertGutterDecorationForDomNodeExists = async () => {
   await waitFor('.elements-gutter-decoration');
+};
+
+export const getAriaLabelSelectorFromPropertiesSelector = (selectorForProperties: string) =>
+    `[aria-label="${selectorForProperties}, css selector"]`;
+
+export const getDisplayedCSSPropertyNames = async (propertiesSection: puppeteer.JSHandle<any>) => {
+  const listNodesContent = (nodes: Element[]) => {
+    const rawContent = nodes.map(node => node.textContent);
+    const filteredContent = rawContent.filter(content => !!content);
+    return filteredContent;
+  };
+  const cssPropertyNames = await $$(CSS_PROPERTY_NAME_SELECTOR, propertiesSection);
+  const propertyNamesText = await cssPropertyNames.evaluate(listNodesContent);
+  return propertyNamesText;
 };

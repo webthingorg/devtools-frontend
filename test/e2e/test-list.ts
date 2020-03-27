@@ -13,6 +13,7 @@ const tests = [
   'elements/shadowroot-styles.js',
   'elements/sidebar-event-listeners.js',
   'elements/sidebar-event-listeners-remove.js',
+  'elements/style-pane-properties.js',
   'host/user-metrics.js',
   'network/network-datagrid.js',
   'rendering/vision-deficiencies.js',
