@@ -11,6 +11,14 @@ The tests therefore have a dual purpose:
 1. Verify that core user stories are working as intended and are not broken by a particular DevTools frontend change.
 1. Serve as documentation and reference point for how DevTools is intended to be used.
 
+## Running tests
+All tests: `npm run e2etest` (note, this requires python2 to be the default python binary!)
+Running a specific test, or running tests when python3 is default:
+`python2 scripts/test/run_e2e.py --test-file=[FILTER] --chrome-binary=[OPTIONAL]`
+--test-file can be omitted if to run the whole suite.
+Additionally, `--chrome-features=[featureList]` can be used to run tests with chrome features enabled.
+
+
 ## General implementation details
 
 To that end, the "what" from the "how" are separate in end-to-end tests.

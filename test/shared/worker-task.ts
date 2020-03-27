@@ -17,6 +17,7 @@ interface DevToolsTarget {
 }
 
 const envChromeBinary = process.env['CHROME_BIN'];
+const envChromeFeatures = process.env['CHROME_FEATURES'];
 const envInteractive = !!process.env['INTERACTIVE'];
 const envDebug = !!process.env['DEBUG'];
 
@@ -44,6 +45,10 @@ export async function initBrowser(port: number) {
     opts.defaultViewport = {width, height};
   } else {
     launchArgs.push(`--window-size=${width},${height}`);
+  }
+
+  if (envChromeFeatures !== undefined) {
+    launchArgs.push(envChromeFeatures);
   }
 
   opts.args = launchArgs;

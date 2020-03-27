@@ -14,6 +14,7 @@ const tests = [
   'elements/sidebar-event-listeners.js',
   'elements/sidebar-event-listeners-remove.js',
   'host/user-metrics.js',
+  'media/media-tab.js',
   'network/network-datagrid.js',
   'rendering/vision-deficiencies.js',
   'sensors/location.js',
