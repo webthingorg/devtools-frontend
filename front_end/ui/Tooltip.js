@@ -139,8 +139,8 @@ export class Tooltip {
     this._tooltipElement.style.maxHeight = '';
     const tooltipWidth = this._tooltipElement.offsetWidth;
     const tooltipHeight = this._tooltipElement.offsetHeight;
-    const anchorTooltipAtElement =
-        this._anchorElement.nodeName === 'BUTTON' || this._anchorElement.nodeName === 'LABEL';
+    const anchorTooltipAtElement = this._anchorElement.nodeName === 'BUTTON' ||
+        this._anchorElement.nodeName === 'LABEL' || this._anchorElement.nodeName === 'SPAN';
     let tooltipX = anchorTooltipAtElement ? anchorBox.x : event.x + cursorOffset;
     tooltipX = Platform.NumberUtilities.clamp(
         tooltipX, containerBox.x + pageMargin, containerBox.x + containerBox.width - tooltipWidth - pageMargin);
