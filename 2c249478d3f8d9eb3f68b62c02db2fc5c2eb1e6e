@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57bd0a8d_5aa3b0b3",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-03-27T10:00:36Z",
+      "side": 1,
+      "message": "This .pdl file is a copy of the one found in Chromium, and we update it regularly to keep sync. Please introduce this in the backend first, then update it here, and then run `npm run generate-protocol-resources`.",
+      "range": {
+        "startLine": 6532,
+        "startChar": 23,
+        "endLine": 6532,
+        "endChar": 45
+      },
+      "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
