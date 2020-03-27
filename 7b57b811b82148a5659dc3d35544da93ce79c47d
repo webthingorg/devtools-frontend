@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d72d819_5223aa94",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-27T06:13:36Z",
+      "side": 1,
+      "message": "I anticipate that only the information in the backend object won\u0027t be enough and we might require additional lookups. Thats why we also pass the IssuesModel as a gateway to get additional information.",
+      "range": {
+        "startLine": 271,
+        "startChar": 32,
+        "endLine": 271,
+        "endChar": 44
+      },
+      "revId": "7b57b811b82148a5659dc3d35544da93ce79c47d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
