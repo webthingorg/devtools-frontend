@@ -8,7 +8,8 @@
 import * as Mocha from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {store} from './helper.js';
+import {getEnvVar} from './config.js';
+import {logToStdOut, store} from './helper.js';
 import {color, TextColor} from './text-color.js';
 
 interface DevToolsTarget {
@@ -16,17 +17,13 @@ interface DevToolsTarget {
   id: string;
 }
 
-const envChromeBinary = process.env['CHROME_BIN'];
-const envInteractive = !!process.env['INTERACTIVE'];
-const envDebug = !!process.env['DEBUG'];
-let envTimeout = Number(process.env['TIMEOUT']);
-if (Number.isNaN(envTimeout) || envTimeout < 1) {
-  if (envDebug || envInteractive) {
-    envTimeout = 300000;
-  } else {
-    envTimeout = 4000;
-  }
-}
+const envSlowMo = getEnvVar('SLOWMO');
+const envStress = getEnvVar('STRESS');
+const envChromeBinary = getEnvVar('CHROME_BIN');
+const envInteractive = getEnvVar('INTERACTIVE');
+const envDebug = getEnvVar('DEBUG');
+const envTimeout = getEnvVar('TIMEOUT', (envDebug || envInteractive) ? 300000 : 5000);
+const envThrottleRate = getEnvVar('THROTTLE', envStress ? 5 : 1);
 
 const interactivePage = 'http://localhost:8090/test/screenshots/interactive/index.html';
 const blankPage = 'data:text/html,';
@@ -45,6 +42,7 @@ export async function initBrowser(port: number) {
     headless,
     executablePath: envChromeBinary,
     defaultViewport: null,
+    slowMo: envSlowMo,
   };
 
   // Toggle either viewport or window size depending on headless vs not.
@@ -96,12 +94,12 @@ export async function initBrowser(port: number) {
     await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
     frontend.on('error', err => {
-      console.log('Error in Frontend');
+      console.log(color('Error in Frontend', TextColor.RED));
       console.log(err);
     });
 
     frontend.on('pageerror', err => {
-      console.log('Page Error in Frontend');
+      console.log(color('Page Error in Frontend', TextColor.RED));
       console.log(err);
     });
 
@@ -147,6 +145,14 @@ export async function initBrowser(port: number) {
 
       // For the unspecified case wait for loading, then wait for the elements panel.
       await frontend.waitForSelector(selectedPanel.selector);
+
+      // Under stress conditions throttle the CPU down.
+      if (envThrottleRate !== 1) {
+        logToStdOut(`${color('Throttling CPU:', TextColor.MAGENTA)}: ${envThrottleRate}x slowdown`);
+
+        const client = await frontend.target().createCDPSession();
+        await client.send('Emulation.setCPUThrottlingRate', {rate: envThrottleRate});
+      }
     };
 
     store(launchedBrowser, srcPage, frontend, screenshotPage, resetPages);
