@@ -7,8 +7,14 @@ import("../../third_party/typescript/typescript.gni")
 ts_library("shared") {
   testonly = true
   sources = [
+    "config.ts",
     "helper.ts",
+    "master.ts",
     "runner.ts",
     "screenshot.ts",
+    "text-color.ts",
+    "worker-message.ts",
+    "worker-task.ts",
+    "worker.ts",
   ]
 }
