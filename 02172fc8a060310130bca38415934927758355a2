@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a11a5e57_d504c75b",
+        "filename": "test/shared/runner.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-27T16:07:42Z",
+      "side": 1,
+      "message": "I wonder if the shared/config.ts file should be where the defaults are defined?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 52
+      },
+      "revId": "02172fc8a060310130bca38415934927758355a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
