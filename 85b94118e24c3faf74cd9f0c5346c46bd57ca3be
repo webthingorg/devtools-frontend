@@ -16,6 +16,29 @@
       "revId": "85b94118e24c3faf74cd9f0c5346c46bd57ca3be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c32040c9_2d64961c",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-27T12:25:06Z",
+      "side": 1,
+      "message": "I feel like we are doing this quite often, we should probably extract a helper for it (in a follow-up CL)",
+      "range": {
+        "startLine": 116,
+        "startChar": 45,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "85b94118e24c3faf74cd9f0c5346c46bd57ca3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
