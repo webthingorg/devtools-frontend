@@ -16,6 +16,24 @@
       "revId": "10a96aa9c0f796c88cfed59519ffd31dc1f426ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08510d73_22af2115",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-03-27T14:07:52Z",
+      "side": 1,
+      "message": "That\u0027s exactly what this does so I don\u0027t quite understand the comment - unless you\u0027re asking if I think a helper is worthwhile which I answered in your other comment so I\u0027ll leave this be. Shout if you\u0027d like to chat more!",
+      "parentUuid": "6e2c98cd_58916419",
+      "revId": "10a96aa9c0f796c88cfed59519ffd31dc1f426ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
