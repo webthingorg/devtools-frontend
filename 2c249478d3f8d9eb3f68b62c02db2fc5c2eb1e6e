@@ -211,6 +211,30 @@
       "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fb513e7_e12d00e2",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-03-27T15:57:49Z",
+      "side": 1,
+      "message": "I see. What does the normal development flow look like in that case? Do you create a symlink for the protocol files pointing at the one in the Chromium repo? Or do you just not push a change up to this repository until you land the Chromium change? Or maybe another method",
+      "parentUuid": "cbe31475_7e39eca8",
+      "range": {
+        "startLine": 6532,
+        "startChar": 23,
+        "endLine": 6532,
+        "endChar": 45
+      },
+      "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
