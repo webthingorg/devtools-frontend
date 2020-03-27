@@ -4,7 +4,7 @@
 import {assert} from 'chai';
 import {performance} from 'perf_hooks';
 
-import {$, click, getBrowserAndPages, timeout, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, timeout, waitFor} from '../../shared/helper.js';
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
 
@@ -40,6 +40,12 @@ export const waitForSelectedNodeChange = async (maxTotalTimeout = 1000) => {
   } while (performance.now() - start < maxTotalTimeout);
 
   throw new Error(`Selected element did not change in ${maxTotalTimeout}`);
+};
+
+export const assertSelectedElementsNodeTextIncludes = async (expectedTextContent: string) => {
+  const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+  const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
+  assert.include(selectedTextContent, expectedTextContent);
 };
 
 export const waitForChildrenOfSelectedElementNode = async () => {
@@ -102,4 +108,20 @@ export const waitForDomNodeToBeHidden = async (elementSelector: string) => {
 
 export const assertGutterDecorationForDomNodeExists = async () => {
   await waitFor('.elements-gutter-decoration');
+};
+
+export const getBreadcrumbsTextContent = async () => {
+  const crumbs = await $$('span.crumb');
+
+  const crumbsAsText: string[] = await crumbs.evaluate((nodes: HTMLElement[]) => {
+    return nodes.map((node: HTMLElement) => node.textContent || '');
+  });
+
+  return crumbsAsText;
+};
+
+export const getSelectedBreadcrumbTextContent = async () => {
+  const selectedCrumb = await $('span.crumb.selected');
+  const text = selectedCrumb.evaluate((node: HTMLElement) => node.textContent || '');
+  return text;
 };
