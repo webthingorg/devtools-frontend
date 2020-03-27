@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "867867b3_28c7f84e",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-27T08:16:23Z",
+      "side": 1,
+      "message": "In terms of the current Design Doc, we want to pass the {InspectorIssueDetails} object here. Each handler will (probably) be specific to a code, so the handler knows exactly which \"optional\" field of {InspectorIssueDetails} to access.",
+      "parentUuid": "758c53ea_5024de91",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 92
+      },
+      "revId": "7b57b811b82148a5659dc3d35544da93ce79c47d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d72d819_5223aa94",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 2
