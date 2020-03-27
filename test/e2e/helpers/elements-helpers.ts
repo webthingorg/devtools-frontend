@@ -2,8 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import {assert} from 'chai';
+import {performance} from 'perf_hooks';
 
-import {$, click, getBrowserAndPages, waitFor} from '../../shared/helper.js';
+import {$, click, getBrowserAndPages, timeout, waitFor} from '../../shared/helper.js';
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
 
@@ -13,6 +14,29 @@ export const assertContentOfSelectedElementsNode = async (expectedTextContent: s
   assert.equal(selectedTextContent, expectedTextContent);
 };
 
+export const waitForSelectedNodeChange = async (maxTotalTimeout = 1000) => {
+  if (maxTotalTimeout === 0) {
+    maxTotalTimeout = Number.POSITIVE_INFINITY;
+  }
+
+  // Helper to get the text content of the currently selected element.
+  const getContentOfSelectedNode = async () => {
+    const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+    return await selectedNode.evaluate(node => node.textContent);
+  };
+
+  const start = performance.now();
+  const initialNodeContent = getContentOfSelectedNode();
+  do {
+    await timeout(30);
+    if (getContentOfSelectedNode() !== initialNodeContent) {
+      return true;
+    }
+  } while (performance.now() - start < maxTotalTimeout);
+
+  throw new Error(`Selected element did not change in ${maxTotalTimeout}`);
+};
+
 export const waitForChildrenOfSelectedElementNode = async () => {
   await waitFor(`${SELECTED_TREE_ELEMENT_SELECTOR} + ol > li`);
 };
@@ -20,6 +44,18 @@ export const waitForChildrenOfSelectedElementNode = async () => {
 export const waitForElementsStyleSection = async () => {
   // Wait for the file to be loaded and selectors to be shown
   await waitFor('.styles-selector');
+};
+
+export const expandSelectedNodeRecursively = async () => {
+  const EXPAND_RECURSIVELY = '[aria-label="Expand recursively"]';
+
+  // Find the selected node, right click.
+  const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+  await click(selectedNode, {clickOptions: {button: 'right'}});
+
+  // Wait for the 'expand recursively' option, and click it.
+  await waitFor(EXPAND_RECURSIVELY);
+  await click(EXPAND_RECURSIVELY);
 };
 
 export const forcePseudoState = async (pseudoState: string) => {
