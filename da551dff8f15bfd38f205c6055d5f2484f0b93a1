@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c55e91f8_272a3109",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-27T12:10:37Z",
+      "side": 1,
+      "message": "Why is it creating a button (I checked, createTextButton is creating a \u003cbutton\u003e) if it renders a link? Isn\u0027t this a confusing interface?\n\nIf the looks don\u0027t change we don\u0027t need a screenshot.\n\nIn a similar situation in the past, I\u0027ve created the CookieReference + revealer. I\u0027ll leave it to you whether you want to create a custom revealer or not.",
+      "parentUuid": "ccdabf3a_b50e308e",
+      "range": {
+        "startLine": 193,
+        "startChar": 39,
+        "endLine": 193,
+        "endChar": 55
+      },
+      "revId": "da551dff8f15bfd38f205c6055d5f2484f0b93a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32f6ee7b_259b5aa5",
         "filename": "front_end/network/NetworkPanel.js",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "da551dff8f15bfd38f205c6055d5f2484f0b93a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f1d2cb0_e06fef6e",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-03-27T12:10:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "989dca9f_57ca957d",
+      "range": {
+        "startLine": 208,
+        "startChar": 8,
+        "endLine": 208,
+        "endChar": 17
+      },
+      "revId": "da551dff8f15bfd38f205c6055d5f2484f0b93a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
