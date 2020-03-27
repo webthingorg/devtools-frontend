@@ -259,6 +259,30 @@
       "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc7b4555_9a6d37cb",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-03-27T16:08:49Z",
+      "side": 1,
+      "message": "I am currently using the setup described in those docs (symlink from Chromium pointing at devtools-frontend repo). The issue is that devtools-frontend/src/third_party.../browser_protocol.pdl does not point at the updated version I changed in my chromium repository. In order to get things working to manually test, I need to update the browser_protocol.pdl that is used in the devtools-frontend repository so that I can run the npm script to generate the required resources. But I can\u0027t upload the pdl, thus I can\u0027t upload the generated resources.\n\nSo what I\u0027m getting (and correct me if this is wrong), is that you have three CLs that land in this order:\n\n 1. Chromium CL\n 2. devtools-frontend CL that ONLY handles layout, but no plumbing\n 3. devtools-frontend CL that has updated pdl from Chromium, and here you run the generate resources script and start making protocol commands from the client to the handler.",
+      "parentUuid": "6703ebac_951714ad",
+      "range": {
+        "startLine": 6532,
+        "startChar": 23,
+        "endLine": 6532,
+        "endChar": 45
+      },
+      "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
