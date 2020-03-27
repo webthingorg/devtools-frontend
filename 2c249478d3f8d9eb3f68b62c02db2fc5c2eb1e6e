@@ -115,6 +115,30 @@
       "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4753a35b_9eacb3c9",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 6532,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-03-27T14:51:47Z",
+      "side": 1,
+      "message": "\"Please introduce this in the backend first, then update it here, and then run `npm run generate-protocol-resources`.\"\n\nDoes this mean that I should first land the change in Chromium? My Chromium CL does have this change included. When you say \"update it here\", does that mean manually? Is there a doc that describes this process?\n\n\n\"Jarryd, did you bypass hooks to upload this CL?\"\n\nI did bypass hooks. I knew there was a lot wrong with the CL, I just wanted to get something up for initial feedback, and was counting on running presubmits as I flesh it out.",
+      "parentUuid": "d3bfe335_a45ec9d3",
+      "range": {
+        "startLine": 6532,
+        "startChar": 23,
+        "endLine": 6532,
+        "endChar": 45
+      },
+      "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
