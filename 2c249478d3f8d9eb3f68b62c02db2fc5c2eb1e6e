@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a99a3d4_32ddf520",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-03-27T14:54:12Z",
+      "side": 1,
+      "message": "I was not the owner of the old doc, so I\u0027ve created a copy and shared with all@ and devtools-dev@. Please let me know if there are any issues, as I\u0027m not 100% confident in my use of the new docs sharing UI.",
+      "parentUuid": "f0a34210_95680118",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 84
+      },
+      "revId": "2c249478d3f8d9eb3f68b62c02db2fc5c2eb1e6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3447d7a_4b11263b",
         "filename": "front_end/resources/ClearStorageView.js",
         "patchSetId": 2
