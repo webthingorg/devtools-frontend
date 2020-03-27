@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d715389_eac23229",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-03-27T12:24:03Z",
+      "side": 1,
+      "message": "The expand recursively call is async anyway, so waiting on the context menu would do little here. Instead one needs to wait for the actual element to be in the elements tree, which the test does.",
+      "parentUuid": "77a1c71f_df604cbe",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 34
+      },
+      "revId": "ab0c65c0d3be8e68a4c033a626ddc2383d984201",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87b81bd5_dd563bae",
         "filename": "test/shared/helper.ts",
         "patchSetId": 3
