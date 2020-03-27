@@ -30,6 +30,8 @@ RESOURCES_INSPECTOR_PATH = path.join(os.getcwd(), 'resources', 'inspector')
 GLOBAL_TYPESCRIPT_DEFINITION_FILES = [
     # legacy definitions used to help us bridge Closure and TypeScript
     path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'front_end', 'legacy', 'legacy-defs.d.ts'),
+    # global definitions that we need
+    path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'front_end', 'global_typings', 'global-defs.d.ts'),
     # generated protocol definitions
     path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'front_end', 'generated', 'protocol.d.ts'),
     # Types for W3C FileSystem API
