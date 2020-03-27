@@ -96,13 +96,13 @@ export async function initBrowser(port: number) {
     await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
     frontend.on('error', err => {
-      console.log('Error in Frontend');
-      console.log(err);
+      console.error('Error in Frontend');
+      console.error(err);
     });
 
     frontend.on('pageerror', err => {
-      console.log('Page Error in Frontend');
-      console.log(err);
+      console.error('Page Error in Frontend');
+      console.error(err);
     });
 
     const resetPages =
