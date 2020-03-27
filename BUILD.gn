@@ -103,7 +103,6 @@ all_devtools_files = [
   "front_end/elements_test_runner/module.json",
   "front_end/elements_test_runner/SetOuterHTMLTestRunner.js",
   "front_end/elements_test_runner/StylesUpdateLinksTestRunner.js",
-  "front_end/elements/breadcrumbs.css",
   "front_end/elements/classesPaneWidget.css",
   "front_end/elements/computedStyleSidebarPane.css",
   "front_end/elements/computedStyleWidgetTree.css",
@@ -313,6 +312,18 @@ all_devtools_files = [
   "front_end/third_party/lighthouse/report-assets/report-generator.js",
   "front_end/third_party/lighthouse/report-assets/template.html",
   "front_end/third_party/lighthouse/report-assets/templates.html",
+  "front_end/third_party/lit-html/package/lit-html.js",
+  "front_end/third_party/lit-html/package/directives/class-map.js",
+  "front_end/third_party/lit-html/package/lib/template-result.js",
+  "front_end/third_party/lit-html/package/lib/default-template-processor.js",
+  "front_end/third_party/lit-html/package/lib/directive.js",
+  "front_end/third_party/lit-html/package/lib/dom.js",
+  "front_end/third_party/lit-html/package/lib/part.js",
+  "front_end/third_party/lit-html/package/lib/parts.js",
+  "front_end/third_party/lit-html/package/lib/render.js",
+  "front_end/third_party/lit-html/package/lib/template-factory.js",
+  "front_end/third_party/lit-html/package/lib/template-instance.js",
+  "front_end/third_party/lit-html/package/lib/template.js",
   "front_end/third_party/wasmparser/module.json",
   "front_end/timeline_model/module.json",
   "front_end/timeline/historyToolbarButton.css",
@@ -924,6 +935,7 @@ group("devtools_all_files") {
 devtools_typescript_deps = [
   "front_end/bindings",
   "front_end/common:common",
+  "front_end/elements:elements",
   "front_end/formatter_worker",
   "front_end/host",
   "front_end/protocol_client",
@@ -958,7 +970,16 @@ devtools_frontend_resources_data_test_deps = devtools_frontend_resources_deps
 # builds. Since we don't run these tests on Android any case, we disable
 # the generation of the tests on Android.
 if (!is_android) {
+<<<<<<< HEAD
   devtools_frontend_resources_data_test_deps += [ "test" ]
+=======
+  devtools_frontend_resources_deps += [
+    ":copy_karma_conf",
+    "test/unittests/front_end/common",
+    "test/unittests/front_end/elements",
+    "test/unittests/front_end/formatter_worker",
+  ]
+>>>>>>> beae20a2... Rewrite ElementsBreadcrumbs as a TypeScript custom element
 }
 
 group("devtools_frontend_resources") {
@@ -1004,7 +1025,6 @@ copy("copy_wasm_deps") {
       [ "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm" ]
 }
 
-input_devtools_modules = []
 output_devtools_modules = []
 
 all_devtools_modules = [
@@ -1609,15 +1629,13 @@ all_devtools_modules = [
   "workspace/WorkspaceImpl.js",
 ]
 
-foreach(module, all_devtools_modules) {
-  input_devtools_modules += [ "front_end/$module" ]
+  input_devtools_modules = []
 
-  if (is_debug) {
+  foreach(module, all_devtools_modules) {
+    input_devtools_modules += [ "front_end/$module" ]
     output_devtools_modules += [ "$resources_out_dir/$module" ]
   }
-}
 
-if (is_debug) {
   action("copy_devtools_modules") {
     script = "scripts/build/copy_devtools_modules.py"
 
@@ -1638,6 +1656,11 @@ if (is_debug) {
   }
 }
 
+generated_typescript_files = [
+  "$resources_out_dir/elements/ElementsBreadcrumbs.js",
+  "$resources_out_dir/elements/ElementsBreadcrumbsUtils.js",
+]
+
 action("generate_devtools_grd") {
   script = "scripts/build/generate_devtools_grd.py"
 
@@ -1647,6 +1670,7 @@ action("generate_devtools_grd") {
       generated_devtools_module_entrypoints + output_devtools_modules +
       generated_applications + generated_non_autostart_non_remote_modules +
       devtools_embedder_scripts + generated_worker_bundles +
+      generated_typescript_files +
       [
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
@@ -1702,7 +1726,7 @@ action("build_release_devtools") {
 
   inputs = helper_scripts + all_devtools_files + devtools_test_files +
            application_templates + all_worker_entrypoints +
-           front_end_devtools_module_entrypoints + input_devtools_modules
+           front_end_devtools_module_entrypoints
   outputs =
       generated_applications + generated_non_autostart_non_remote_modules +
       generated_remote_modules + generated_test_modules +

@@ -1,0 +1,10 @@
+import("../../../../third_party/typescript/typescript.gni")
+
+ts_library("elements") {
+  sources = [ "ElementsBreadcrumbs_test.ts" ]
+
+  deps = [
+    "../../../../front_end/elements",
+    "../helpers",
+  ]
+}

@@ -25,6 +25,14 @@ NODE_LOCATION = devtools_paths.node_path()
 ROOT_DIRECTORY_OF_REPOSITORY = path.join(_CURRENT_DIR, '..', '..')
 BASE_TS_CONFIG_LOCATION = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'tsconfig.base.json')
 TYPES_NODE_MODULES_DIRECTORY = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'node_modules', '@types')
+ROOT_TS_CONFIG_LOCATION = path.join(_CURRENT_DIR, '..', '..', 'tsconfig.json')
+
+LEGACY_GLOBAL_DEFS = path.join(_CURRENT_DIR, '..', '..', 'front_end', 'legacy', 'legacy-defs.d.ts')
+GLOBAL_TYPINGS_ROOT = path.join(_CURRENT_DIR, '..', '..', 'front_end', 'global_typings')
+GLOBAL_DEFS = [
+    path.join(GLOBAL_TYPINGS_ROOT, 'global-defs.d.ts'),
+    path.join(GLOBAL_TYPINGS_ROOT, 'resize-observer.d.ts'),
+]
 RESOURCES_INSPECTOR_PATH = path.join(os.getcwd(), 'resources', 'inspector')
 
 GLOBAL_TYPESCRIPT_DEFINITION_FILES = [
