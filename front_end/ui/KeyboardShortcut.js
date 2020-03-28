@@ -37,11 +37,13 @@ export class KeyboardShortcut {
    * @param {!Descriptor} descriptor
    * @param {string} action
    * @param {!Type=} type
+   * @param {!Descriptor=} prefixDescriptor
    */
-  constructor(descriptor, action, type) {
+  constructor(descriptor, action, type, prefixDescriptor) {
     this.descriptor = descriptor;
     this.action = action;
     this.type = type || Type.UserShortcut;
+    this.prefixDescriptor = prefixDescriptor;
   }
 
   /**
