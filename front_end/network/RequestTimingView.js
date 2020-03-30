@@ -263,7 +263,8 @@ export class RequestTimingView extends UI.Widget.VBox {
       const duration = range.end - range.start;
 
       const tr = tableElement.createChild('tr');
-      tr.createChild('td').createTextChild(RequestTimingView._timeRangeTitle(rangeName));
+      const timingBarTitleEement = tr.createChild('td');
+      timingBarTitleEement.createTextChild(RequestTimingView._timeRangeTitle(rangeName));
 
       const row = tr.createChild('td').createChild('div', 'network-timing-row');
       const bar = row.createChild('span', 'network-timing-bar ' + rangeName);
@@ -273,6 +274,15 @@ export class RequestTimingView extends UI.Widget.VBox {
       UI.ARIAUtils.setAccessibleName(row, ls`Started at ${calculator.formatValue(range.start, 2)}`);
       const label = tr.createChild('td').createChild('div', 'network-timing-bar-title');
       label.textContent = Number.secondsToString(duration, true);
+
+      if (range.name === 'serviceworker-fetch') {
+        timingBarTitleEement.classList.add('network-fetch-timing-bar-clickable');
+        tableElement.createChild('tr', 'network-fetch-timing-bar-details');
+
+        timingBarTitleEement.setAttribute('tabindex', 0);
+        timingBarTitleEement.setAttribute('role', 'switch');
+        timingBarTitleEement.setAttribute('aria-checked', false);
+      }
     }
 
     if (!request.finished) {
@@ -367,6 +377,78 @@ export class RequestTimingView extends UI.Widget.VBox {
     }
   }
 
+  _constructFetchDetailsView() {
+    if (!this._tableElement) {
+      return;
+    }
+
+    const document = this._tableElement.ownerDocument;
+    const fetchDetailsElement = document.querySelector('.network-fetch-timing-bar-details');
+
+    if (!fetchDetailsElement) {
+      return;
+    }
+
+    fetchDetailsElement.classList.add('network-fetch-timing-bar-details-collapsed');
+
+    self.onInvokeElement(this._tableElement, this._onToggleFetchDetails.bind(this, fetchDetailsElement));
+
+    const detailsView = new UI.TreeOutline.TreeOutlineInShadow();
+    fetchDetailsElement.appendChild(detailsView.element);
+
+    const timing = this._request.timing;
+    const execTime = createElementWithClass('div', 'network-fetch-details-treeitem');
+    execTime.textContent = `Execution Time: ${timing.workerFetchEnd - timing.workerFetchStart} ms`;
+
+    let treeElement = new UI.TreeOutline.TreeElement(execTime);
+    detailsView.appendChild(treeElement);
+
+    const origRequest = self.SDK.networkLog.originalRequestForURL(this._request.url());
+    const response = self.SDK.networkLog.originalResponseForURL(this._request.url());
+
+    const requestObject = SDK.RemoteObject.RemoteObject.fromLocalObject(origRequest);
+    const requestObjectPropertiesSection = new ObjectUI.ObjectPropertiesSection(requestObject);
+    treeElement = requestObjectPropertiesSection.objectTreeElement();
+    treeElement.title = ls`Original Request`;
+    detailsView.appendChild(treeElement);
+
+    const responseObject = SDK.RemoteObject.RemoteObject.fromLocalObject(response);
+    const responseObjectPropertiesSection = new ObjectUI.ObjectPropertiesSection(responseObject);
+    treeElement = responseObjectPropertiesSection.objectTreeElement();
+    treeElement.title = ls`Response Received`;
+    detailsView.appendChild(treeElement);
+
+    const responseSource = createElementWithClass('div', 'network-fetch-details-treeitem');
+    responseSource.textContent = `Fetched by: ${this._request.responseSource()}`;
+    treeElement = new UI.TreeOutline.TreeElement(responseSource);
+    detailsView.appendChild(treeElement);
+
+    const fetchErrors = createElementWithClass('div', 'network-fetch-details-treeitem');
+    const error = !!this._request.responseLoadError() ? this._request.responseLoadError() : ls`None`;
+    fetchErrors.textContent = `Errors during fetch: ${error}`;
+    treeElement = new UI.TreeOutline.TreeElement(fetchErrors);
+    detailsView.appendChild(treeElement);
+  }
+
+  /**
+   *
+   * @param {!Element} fetchDetailsElement
+   * @param {!Event} event
+   */
+  _onToggleFetchDetails(fetchDetailsElement, event) {
+    if (!event.target) {
+      return;
+    }
+    if (event.target.classList.contains('network-fetch-timing-bar-clickable')) {
+      const expanded = event.target.getAttribute('aria-checked') === 'true';
+      event.target.setAttribute('aria-checked', !expanded);
+
+      fetchDetailsElement.classList.toggle('network-fetch-timing-bar-details-collapsed');
+      fetchDetailsElement.classList.toggle('network-fetch-timing-bar-details-expanded');
+    }
+  }
+
+
   /**
    * @override
    */
@@ -394,6 +476,10 @@ export class RequestTimingView extends UI.Widget.VBox {
     this._tableElement = RequestTimingView.createTimingTable(this._request, this._calculator);
     this._tableElement.classList.add('resource-timing-table');
     this.element.appendChild(this._tableElement);
+
+    if (this._request.fetchedViaServiceWorker) {
+      this._constructFetchDetailsView();
+    }
   }
 }
 
