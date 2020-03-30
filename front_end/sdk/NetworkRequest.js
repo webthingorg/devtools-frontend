@@ -107,6 +107,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     this._requestHeaderValues = {};
 
     this._remoteAddress = '';
+    this._responseLoadError = '';
+    this._responseSource = '';
 
     /** @type {?Protocol.Network.RequestReferrerPolicy} */
     this._referrerPolicy = null;
@@ -235,6 +237,47 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   remoteAddress() {
     return this._remoteAddress;
   }
+
+  /**
+   * @return {string}
+   */
+  responseLoadError() {
+    return this._responseLoadError;
+  }
+
+  /**
+   * @param {string} responseLoadError
+   */
+  setResponseLoadError(responseLoadError) {
+    this._responseLoadError = responseLoadError;
+  }
+
+  /**
+   * @return {string}
+   */
+  responseSource() {
+    return this._responseSource;
+  }
+
+  /**
+   * @param {!Protocol.Network.ResponseSource<string>} responseSource
+   */
+  setResponseSource(responseSource) {
+    switch (responseSource) {
+      case 'service-worker-cache':
+        this._responseSource = ls`Service Worker Cache`;
+        break;
+      case 'network-fetch':
+        this._responseSource = ls`Network fetch`;
+        break;
+      case 'fallback-code':
+        this._responseSource = ls`Fallback code`;
+        break;
+      default:
+        this._responseSource = ls`Unknown`;
+    }
+  }
+
 
   /**
    * @param {!Protocol.Network.RequestReferrerPolicy} referrerPolicy
