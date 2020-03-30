@@ -210,6 +210,9 @@
   <message name="IDS_DEVTOOLS_3e0dc7bd31f5ad41b900fef5b7aba791" desc="Title of a setting under the Network category that can be invoked through the Command Menu">
     Don&apos;t group network log items by frame
   </message>
+  <message name="IDS_DEVTOOLS_3e150c8e936066f2c4e47dad7a07c9d1" desc="Description for treeitem in ServiceWorker Fetch Details">
+    Original Request
+  </message>
   <message name="IDS_DEVTOOLS_3ebfafd757759c5e0081920b36450c58" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Firefox — Android Mobile</ph>
   </message>
@@ -425,6 +428,9 @@
   </message>
   <message name="IDS_DEVTOOLS_ca092ce554360617d7bb503ff16dcb7c" desc="Text for toggling the view of header data (e.g. query string parameters) from parsed to source in the headers tab">
     View source
+  </message>
+  <message name="IDS_DEVTOOLS_cb9f4f3d979688b70044ea0677679548" desc="Text in Request Timing View of the Network panel">
+    ServiceWorker Fetch
   </message>
   <message name="IDS_DEVTOOLS_ce89cbfed44c10f5dd21427be154f288" desc="Text in Network Log View of the Network panel">
     Copy as Node.js fetch
@@ -998,6 +1004,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f750833a940ae1ba3cd75b86d520fda3" desc="From cache format in Network Time Calculator of the Network panel">
     <ph name="PH1">$1s<ex>20ms latency</ex></ph> (from cache)
+  </message>
+  <message name="IDS_DEVTOOLS_f7aa0779f4d8e843b2877afa34d559e0" desc="Description for treeitem in ServiceWorker Fetch Details">
+    Response Received
   </message>
   <message name="IDS_DEVTOOLS_f9069c6541beaac49cce4b2542069f02" desc="Text in Request Headers View of the Network panel">
     Referrer Policy

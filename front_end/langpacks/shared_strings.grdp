@@ -652,6 +652,9 @@
   <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
     Touch
   </message>
+  <message name="IDS_DEVTOOLS_f18cd4b9f925d85b3a669adc015a9797" desc="Text used to show that data was retrieved from ServiceWorker Cache">
+    Service Worker Cache
+  </message>
   <message name="IDS_DEVTOOLS_f19dbf2edb3a0bd74b0524d960ff21eb" desc="Text to load something">
     Load
   </message>
