@@ -261,6 +261,9 @@
   <message name="IDS_DEVTOOLS_d06337cfbcc777e0a7caa50ef1a9986a" desc="The aria label for the button to open more tabs at the right tabbed pane in Elements tools">
     More tabs
   </message>
+  <message name="IDS_DEVTOOLS_d07af40979e8b29643a3319d883b6ba9" desc="Text that appears in settings when the title of an action cannot be determined">
+    unknown action
+  </message>
   <message name="IDS_DEVTOOLS_d4c2a940947d6e71ed20e1bb31f0c8a2" desc="Text to show how many kilobytes the data size is. The number has 1 digit decimal point">
     <ph name="KILOBYTES">$1.1f<ex>8.1</ex></ph> kB
   </message>

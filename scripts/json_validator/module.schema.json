@@ -19,6 +19,20 @@
                 "category": {"type": "string"}
               }
             }
+          },
+          "bindings": {
+            "type": "array",
+            "items": {
+              "required": ["shortcut"],
+              "properties": {
+                "platform": {"type": "string"},
+                "shortcut": {"type": "string"},
+                "keybindSets": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                }
+              }
+            }
           }
         },
         "if": {
