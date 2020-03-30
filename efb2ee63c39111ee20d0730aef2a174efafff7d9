@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e347ed9_1936bd96",
+        "filename": "front_end/media/PlayerListView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "Seems like Closure is unhappy with this one: https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8884631363285312048/+/steps/Type_Check_with_Closure/0/stdout\n\nYou can run `npm run check-type-closure` to run the check locally.\n\nYou probably want this to be `this.listItemElement().classList`.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bdee09c_d1ec3105",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "Good information, I wasn\u0027t aware of that. We should probably check how `depot_tools` works with python to make sure we are using that version (as that is running on the bots as well).\n\nDo you know if the Python3 migration is tracked anywhere and how we can make sure we don\u0027t block that?",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 15,
+        "endChar": 89
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13d88442_142c1f5d",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "Let\u0027s replace this with `npm run test -- --test-file` instead. We might move this python script to a different place later.",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4d1bfcf_ff9d2169",
+        "filename": "test/e2e/media/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "👍for doing this. You also need to add a reference to `\"media\"` in `test/e2e/BUILD.gn` to make sure it is being built as part of the default build.",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "773315aa_c2de9957",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "Please put this function and the one below in a `helpers/media-helper.ts`",
+      "range": {
+        "startLine": 16,
+        "startChar": 15,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06fb1d61_ea71b0f3",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "After a click, what user visible interaction should we wait for to know that the media has started playing? If we are too eager, we might continue the test while the media hasn\u0027t started playing yet.",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43e6005e_a20207d2",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "Nit: this can be put in the `beforeEach`",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ae76494_d659f962",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "Nit: inline this function into the `getPlayerButton` and rename it to `getPlayerButtonText()`",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 48
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05c1a3bc_18a829ec",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-03-30T11:51:20Z",
+      "side": 1,
+      "message": "Does that mean we have a bug that warrants fixing? 😊",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
