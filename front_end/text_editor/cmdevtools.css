@@ -191,6 +191,7 @@
 }
 
 .breakpoints-deactivated .cm-breakpoint .breakpoint-element:before,
+.cm-breakpoint-unbound .breakpoint-element:before,
 .cm-breakpoint-disabled .breakpoint-element:before {
     content: url(Images/breakpoint-disabled.svg);
 }
@@ -200,6 +201,7 @@
 }
 
 .cm-breakpoint-disabled.cm-breakpoint-conditional .breakpoint-element:before,
+.cm-breakpoint-unbound.cm-breakpoint-conditional .breakpoint-element:before,
 .breakpoints-deactivated .cm-breakpoint.cm-breakpoint-conditional .breakpoint-element:before {
     content: url(Images/breakpoint-conditional-disabled.svg);
 }
@@ -209,6 +211,7 @@
 }
 
 .cm-breakpoint-disabled.cm-breakpoint-logpoint .breakpoint-element:before,
+.cm-breakpoint-unbound.cm-breakpoint-logpoint .breakpoint-element:before,
 .breakpoints-deactivated .cm-breakpoint.cm-breakpoint-logpoint .breakpoint-element:before {
     content: url(Images/logpoint-disabled.svg);
 }
