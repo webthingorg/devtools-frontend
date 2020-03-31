@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dc0b624_4196e7bc",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-31T10:38:03Z",
+      "side": 1,
+      "message": "nit: Could we add comments for these literals?\n\n, /** enabled */ false, /** bound */ true, /** breakpoint */ null",
+      "range": {
+        "startLine": 1494,
+        "startChar": 82,
+        "endLine": 1494,
+        "endChar": 99
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f52dc74c_78209d6b",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-31T10:38:03Z",
+      "side": 1,
+      "message": "nit: I\u0027d extract this into a small helper named {waitForBreakpointsToResolve} or {waitForBreakpointsToBeBound} or similar.\n\nAnd maybe even spell the helper out to make it 100% clear what it does:\n\n  const allBreakpointsCount \u003d document.querySelectorAll(\u0027.cm-breakpoint\u0027).length;\n  const unboundBreakpointsCount \u003d document.querySelectorAll(\u0027.cm-breakpoint-unbound\u0027).length;\n  return allBreakpointsCount \u003e bpCount \u0026\u0026 unboundBreakpointsCount !\u003d\u003d 0;\n\nSide note: The allBreakpointsCount \u003e bpCount condition could turn the {addBreakpointForLine} flaky if we click on a line with an existing breakpoint. Maybe the {addBreakpointForLine} should first check that there are no decorators in {breakpointLineNumber} and fail the test if there already is one.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 40
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
