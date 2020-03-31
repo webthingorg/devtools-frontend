@@ -46,7 +46,8 @@ h1 {
     background-color: var(--focus-bg-color);
 }
 
-.keybinds-list-text {
+.keybinds-list-text,
+.editor-container input[type="text"] {
     white-space: nowrap;
     text-overflow: ellipsis;
     flex: 1 0 150px;
@@ -64,6 +65,10 @@ h1 {
     margin: 0 4px;
 }
 
+.keybinds-edit-text {
+    margin: 0 0 5px 0;
+}
+
 .keybinds-header {
     min-height: 30px;
     margin: 0 18px 0 1px;
@@ -79,4 +84,13 @@ h1 {
 
 .keybinds-category-header:hover {
     background-color: white;
+}
+
+.keybinds-set-select {
+    text-align: right;
+    margin-right: 3px;
+}
+
+.keybinds-set-select select {
+    margin-left: 4px;
 }

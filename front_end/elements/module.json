@@ -207,6 +207,11 @@
                 {
                     "platform": "mac",
                     "shortcut": "Meta+Shift+Z"
+                },
+                {
+                    "platform": "windows,linux",
+                    "shortcut": "Ctrl+Shift+Z",
+                    "keybindSets": ["vsCode"]
                 }
             ]
         },

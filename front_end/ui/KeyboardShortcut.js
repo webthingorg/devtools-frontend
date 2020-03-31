@@ -45,6 +45,61 @@ export class KeyboardShortcut {
   }
 
   /**
+   * @return {string}
+   */
+  actionName() {
+    const actionDetails = UI.actionRegistry.action(this.action);
+    if (!actionDetails) {
+      return ls`unknown action`;
+    }
+    const title = actionDetails.title();
+    if (title) {
+      return title;
+    }
+
+    const splitIndex = this.action.indexOf('.');
+    if (splitIndex >= 0) {
+      return this.action.substr(splitIndex + 1);
+    }
+    return this.action;
+  }
+
+  /**
+   * @return {string}
+   */
+  actionCategory() {
+    if (!this.action.includes('.')) {
+      return '';
+    }
+    const category = this.action.split('.')[0];
+    return category.charAt(0).toUpperCase() + category.substring(1);
+  }
+
+  /**
+   * @param {!Type} type
+   * @return {!KeyboardShortcut}
+   */
+  changeType(type) {
+    return new KeyboardShortcut(this.descriptor, this.action, type);
+  }
+
+  /**
+   * @param {!KeyboardShortcut.Descriptor} descriptor
+   * @return {!KeyboardShortcut}
+   */
+  changeKeys(descriptor) {
+    return new KeyboardShortcut(descriptor, this.action);
+  }
+
+  /**
+   * @param {!{action: string, descriptor: KeyboardShortcut.Descriptor, type: !Type}} settingObject
+   * @return {!KeyboardShortcut}
+   */
+  static createShortcutFromSettingObject(settingObject) {
+    return new KeyboardShortcut(settingObject.descriptor, settingObject.action, settingObject.type);
+  }
+
+  /**
    * Creates a number encoding keyCode in the lower 8 bits and modifiers mask in the higher 8 bits.
    * It is useful for matching pressed keys.
    *
@@ -192,6 +247,15 @@ export class KeyboardShortcut {
   }
 
   /**
+   * @param {number} key
+   * @return {boolean}
+   */
+  static isModifier(key) {
+    return key === UI.KeyboardShortcut.Keys.Shift.code || key === UI.KeyboardShortcut.Keys.Ctrl.code ||
+        key === UI.KeyboardShortcut.Keys.Alt.code || key === UI.KeyboardShortcut.Keys.Meta.code;
+  }
+
+  /**
    * @param {number|undefined} modifiers
    * @return {string}
    */
@@ -241,6 +305,7 @@ export const Keys = {
   Enter: {code: 13, name: {mac: '\u21a9', other: 'Enter'}},
   Shift: {code: 16, name: {mac: '\u21e7', other: 'Shift'}},
   Ctrl: {code: 17, name: 'Ctrl'},
+  Alt: {code: 18, name: 'Alt'},
   Esc: {code: 27, name: 'Esc'},
   Space: {code: 32, name: 'Space'},
   PageUp: {code: 33, name: {mac: '\u21de', other: 'PageUp'}},      // also NUM_NORTH_EAST
@@ -297,6 +362,12 @@ export const Type = {
   DefaultShortcut: Symbol('DefaultShortcut'),
   DisabledDefault: Symbol('DisabledDefault'),
   UnsetShortcut: Symbol('UnsetShortcut'),
+};
+
+/** @type {!UI.KeyboardShortcut.Descriptor} */
+export const EmptyShortcutDescriptor = {
+  key: -1,
+  name: ''
 };
 
 export const KeyBindings = {};

@@ -422,8 +422,8 @@ export class Editor {
   createInput(name, type, title, validator) {
     const input = /** @type {!HTMLInputElement} */ (createInput('', type));
     input.placeholder = title;
-    input.addEventListener('input', this._validateControls.bind(this, false), false);
-    input.addEventListener('blur', this._validateControls.bind(this, false), false);
+    input.addEventListener('input', this.validateControls.bind(this, false), false);
+    input.addEventListener('blur', this.validateControls.bind(this, false), false);
     ARIAUtils.setAccessibleName(input, title);
     this._controlByName.set(name, input);
     this._controls.push(input);
@@ -449,8 +449,8 @@ export class Editor {
       select.title = title;
       ARIAUtils.setAccessibleName(select, title);
     }
-    select.addEventListener('input', this._validateControls.bind(this, false), false);
-    select.addEventListener('blur', this._validateControls.bind(this, false), false);
+    select.addEventListener('input', this.validateControls.bind(this, false), false);
+    select.addEventListener('blur', this.validateControls.bind(this, false), false);
     this._controlByName.set(name, select);
     this._controls.push(select);
     this._validators.push(validator);
@@ -468,7 +468,7 @@ export class Editor {
   /**
    * @param {boolean} forceValid
    */
-  _validateControls(forceValid) {
+  validateControls(forceValid) {
     let allValid = true;
     this._errorMessageContainer.textContent = '';
     for (let index = 0; index < this._controls.length; ++index) {
@@ -509,7 +509,7 @@ export class Editor {
     if (this._controls.length) {
       this._controls[0].focus();
     }
-    this._validateControls(true);
+    this.validateControls(true);
   }
 
   _commitClicked() {
