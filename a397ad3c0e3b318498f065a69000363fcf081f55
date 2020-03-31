@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11cf37ed_09ed8d58",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-31T11:28:21Z",
+      "side": 1,
+      "message": "I think there is a small bug here. When the SDK.IssuesModel.Events.FullUpdateRequired fires, there might still be issues kept around with the new page.\n\nThe SDK.IssuesModel.Events.AggregatedIssueUpdated won\u0027t be fired for those. As that one is only fired for issues added by the backend.\n\nMaybe it would make sense to also fire the SDK.IssuesModel.Events.AggregatedIssueUpdated when we create the aggregate issues after a navigate?\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/IssuesModel.js;l\u003d131?q\u003dIssuesMo\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 111
+      },
+      "revId": "a397ad3c0e3b318498f065a69000363fcf081f55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
