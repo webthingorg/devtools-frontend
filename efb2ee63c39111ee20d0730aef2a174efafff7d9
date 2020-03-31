@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9acfacb8_a7821eec",
+        "filename": "front_end/media/PlayerListView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "Done\n\nturns out the typecheck scripts have the same py2-3 problem",
+      "parentUuid": "8e347ed9_1936bd96",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bdee09c_d1ec3105",
         "filename": "test/e2e/README.md",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-30T11:51:20Z",
       "side": 1,
       "message": "Good information, I wasn\u0027t aware of that. We should probably check how `depot_tools` works with python to make sure we are using that version (as that is running on the bots as well).\n\nDo you know if the Python3 migration is tracked anywhere and how we can make sure we don\u0027t block that?",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 15,
+        "endChar": 89
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f46175e5_13cbb72f",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "I don\u0027t know where chrome is tracking it - I remember seeing random snipits of people trying to upgrade. I only discovered it because my home linux machine uses python\u003dpython3 by default, so I\u0027ve had to do some tweaking to make lots of internal scripts run.",
+      "parentUuid": "4bdee09c_d1ec3105",
       "range": {
         "startLine": 15,
         "startChar": 36,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "68faf05d_f1c2abd9",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13d88442_142c1f5d",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4d1bfcf_ff9d2169",
         "filename": "test/e2e/media/BUILD.gn",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebe0a153_2e4b1488",
+        "filename": "test/e2e/media/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d1bfcf_ff9d2169",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c510315b_a77ccd3d",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773315aa_c2de9957",
+      "range": {
+        "startLine": 16,
+        "startChar": 15,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06fb1d61_ea71b0f3",
         "filename": "test/e2e/media/media-tab.ts",
         "patchSetId": 2
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "041d6ee6_abd0ec14",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06fb1d61_ea71b0f3",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43e6005e_a20207d2",
         "filename": "test/e2e/media/media-tab.ts",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2020-03-30T11:51:20Z",
       "side": 1,
       "message": "Nit: this can be put in the `beforeEach`",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34fe30df_b3aae9c4",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "I don\u0027t think it can, tests can exit early but they count as failed tests.",
+      "parentUuid": "43e6005e_a20207d2",
       "range": {
         "startLine": 35,
         "startChar": 8,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "18152c4d_d0546587",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "Id like to have a \"GetPlayerButton\" function separate, since it might need to be clicked on.",
+      "parentUuid": "2ae76494_d659f962",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 48
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05c1a3bc_18a829ec",
         "filename": "test/e2e/media/media-tab.ts",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2020-03-30T11:51:20Z",
       "side": 1,
       "message": "Does that mean we have a bug that warrants fixing? 😊",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "efb2ee63c39111ee20d0730aef2a174efafff7d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62960fa1_4a12e7a0",
+        "filename": "test/e2e/media/media-tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-03-31T00:04:07Z",
+      "side": 1,
+      "message": "Yup, Its blocked on some other changes tho, there is a backlog I\u0027ve been getting through, and some of it is blocked on protocol changes, which are still in review.",
+      "parentUuid": "05c1a3bc_18a829ec",
       "range": {
         "startLine": 44,
         "startChar": 7,
