@@ -230,7 +230,7 @@ export const waitForElementWithTextContent = (textContent: string, root?: puppet
 export const waitForFunction =
     async<T>(fn: () => Promise<T|undefined>, errorMessage: string, maxTotalTimeout = 0): Promise<T> => {
   if (maxTotalTimeout === 0) {
-    maxTotalTimeout = Number.POSITIVE_INFINITY;
+    maxTotalTimeout = 1000;  // DO NOT CHECK IN!!!  Number.POSITIVE_INFINITY;
   }
 
   const start = performance.now();
