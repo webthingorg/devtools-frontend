@@ -65,7 +65,7 @@ export class ConsoleView extends UI.Widget.VBox {
     this._isSidebarOpen = false;
     this._filter = new ConsoleViewFilter(this._onFilterChanged.bind(this));
 
-    const consoleToolbarContainer = this.element.createChild('div', 'console-toolbar-container');
+    this._consoleToolbarContainer = this.element.createChild('div', 'console-toolbar-container');
     this._splitWidget = new UI.SplitWidget.SplitWidget(
         true /* isVertical */, false /* secondIsSidebar */, 'console.sidebar.width', 100);
     this._splitWidget.setMainWidget(this._searchableView);
@@ -115,8 +115,8 @@ export class ConsoleView extends UI.Widget.VBox {
     const groupSimilarToggle =
         new UI.Toolbar.ToolbarSettingCheckbox(this._groupSimilarSetting, Common.UIString.UIString('Group similar'));
 
-    const toolbar = new UI.Toolbar.Toolbar('console-main-toolbar', consoleToolbarContainer);
-    const rightToolbar = new UI.Toolbar.Toolbar('', consoleToolbarContainer);
+    const toolbar = new UI.Toolbar.Toolbar('console-main-toolbar', this._consoleToolbarContainer);
+    const rightToolbar = new UI.Toolbar.Toolbar('', this._consoleToolbarContainer);
     toolbar.appendToolbarItem(this._splitWidget.createShowHideSidebarButton(ls`console sidebar`));
     toolbar.appendToolbarItem(UI.Toolbar.Toolbar.createActionButton(
         /** @type {!UI.Action.Action }*/ (self.UI.actionRegistry.action('console.clear'))));
@@ -275,6 +275,43 @@ export class ConsoleView extends UI.Widget.VBox {
     SDK.ConsoleModel.ConsoleModel.instance().addEventListener(
         SDK.ConsoleModel.Events.CommandEvaluated, this._commandEvaluated, this);
     SDK.ConsoleModel.ConsoleModel.instance().messages().forEach(this._addConsoleMessage, this);
+
+    const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
+    if (mainTarget) {
+      const issuesModel = mainTarget.model(SDK.IssuesModel.IssuesModel);
+      if (issuesModel) {
+        issuesModel.addEventListener(SDK.IssuesModel.Events.AggregatedIssueUpdated, this._onIssueAdded.bind(this));
+        issuesModel.addEventListener(SDK.IssuesModel.Events.FullUpdateRequired, this._onNavigation.bind(this));
+        issuesModel.ensureEnabled();
+      }
+    }
+  }
+
+  _onIssueAdded() {
+    if (!this._issueBarDiv) {
+      this._issueBarDiv = createElementWithClass('div', 'flex-none');
+      this._issueBar = new UI.Infobar.Infobar(
+          UI.Infobar.Type.Warning,
+          ls
+          `Issues detected. The new issues panel displays information about deprecations, breaking changes and other potential problems.`,
+          [{
+            text: ls`Go to Issues`,
+            highlight: false,
+            delegate: () => UI.ViewManager.ViewManager.instance().showView('issues-pane'),
+            dismiss: true,
+          }]);
+          this.element.insertBefore(this._issueBarDiv, this._consoleToolbarContainer.nextSibling);
+          this._issueBarDiv.appendChild(this._issueBar.element);
+          this._issueBar.setParentView(this);
+          this.doResize();
+    }
+  }
+
+  _onNavigation() {
+    if (this._issueBar) {
+      this._issueBar.dispose();
+      this._issueBarDiv = null;
+    }
   }
 
   /**
