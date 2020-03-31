@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "d998f17a_d1c2b5fc",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-31T12:34:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "147fefa2_ea54fd5d",
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dc0b624_4196e7bc",
         "filename": "front_end/sources/DebuggerPlugin.js",
         "patchSetId": 1
@@ -86,6 +104,30 @@
       "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6997f650_09b5d155",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-31T12:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5133d3b5_78cc8791",
+      "range": {
+        "startLine": 1494,
+        "startChar": 82,
+        "endLine": 1494,
+        "endChar": 99
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +183,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "f52dc74c_78209d6b",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 40
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b5d4055_c54a4637",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-31T12:34:13Z",
+      "side": 1,
+      "message": "I don\u0027t think the meaning of the breakpoint count would be intuitive in a stand-alone function as this is currently implemented. If I change this to assume the breakpoint count goes up by one I could have a helper that takes an expected breakpoint count.\n\nThis wouldn\u0027t turn anything \"flaky\". Existing tests don\u0027t use this function to click on a line that already has a breakpoint, and if you tried to write a test that way it wouldn\u0027t ever pass as it is. If we wanted we could change this to a toggle breakpoint function and change the expectation to only test that the number of breakpoints has changed, but I don\u0027t want to change the meaning of this in advance of any test need. (Note that the prior code also fails this way -- if you use this to click on the only breakpoint, it is removed and waitForFunction never succeeds.)",
+      "parentUuid": "fea6bdc7_7a1d379f",
       "range": {
         "startLine": 85,
         "startChar": 0,
