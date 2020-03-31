@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "147fefa2_ea54fd5d",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-31T11:40:15Z",
+      "side": 1,
+      "message": "Why the change from `isBound` to `bound`? For the name of a boolean-returning function, or even for a getter or plain property, `isBound` seems better. Just curious.\n\nUpdate: Ah, is it for symmetry with `enabled` (which is not `isEnabled`)? Hmm, I\u0027d weakly prefer adding the `is` prefix to both instead of removing it here, but I\u0027ll leave it up to you.",
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8dc0b624_4196e7bc",
         "filename": "front_end/sources/DebuggerPlugin.js",
         "patchSetId": 1
@@ -48,6 +65,47 @@
     },
     {
       "key": {
+        "uuid": "5133d3b5_78cc8791",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-31T11:40:15Z",
+      "side": 1,
+      "message": "Alternatively, change BreakpointDecoration constructor to accept an object with one property for each argument:\n\n    new BreakpointDecoration({\n      enabled: false,\n      bound: true,\n      breakpoint: null,\n    });",
+      "parentUuid": "8dc0b624_4196e7bc",
+      "range": {
+        "startLine": 1494,
+        "startChar": 82,
+        "endLine": 1494,
+        "endChar": 99
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c570eb9a_5ee59489",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-31T11:40:15Z",
+      "side": 1,
+      "message": "Drive-by nit: I get that we\u0027re following the in-file convention here, but these should all really be ::before (for which :before is an alias). (I don\u0027t expect you to tackle this as part of this CL if you\u0027d rather not.)",
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f52dc74c_78209d6b",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 1
@@ -64,6 +122,53 @@
         "startChar": 0,
         "endLine": 92,
         "endChar": 40
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea6bdc7_7a1d379f",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-31T11:40:15Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "f52dc74c_78209d6b",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 40
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d370556_0c7eae7c",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-31T11:40:15Z",
+      "side": 1,
+      "message": "nit: resolves",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 13
       },
       "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
