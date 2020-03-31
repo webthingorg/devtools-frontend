@@ -32,11 +32,13 @@ LICENSES = [
 DEPS = {
     "@types/chai": "4.2.0",
     "@types/filesystem": "0.0.29",
+    "@types/cucumber": "6.0.1",
     "@types/mocha": "5.2.7",
     "@types/puppeteer": "2.0.0",
     "@typescript-eslint/parser": "2.16.0",
     "@typescript-eslint/eslint-plugin": "2.16.0",
     "chai": "4.2.0",
+    "cucumber": "6.0.5",
     "escodegen": "1.12.0",
     "eslint": "6.0.1",
     "eslint-plugin-mocha": "6.2.2",
