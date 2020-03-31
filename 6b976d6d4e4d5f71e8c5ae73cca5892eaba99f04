@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfd71656_111fe457",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-31T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d59ad192_4c3e67c5",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 3
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "147fefa2_ea54fd5d",
         "filename": "front_end/bindings/BreakpointManager.js",
         "patchSetId": 1
@@ -148,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "ed4abd61_88edc8db",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-31T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c570eb9a_5ee59489",
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f52dc74c_78209d6b",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 1
@@ -239,6 +281,30 @@
       "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa886830_f1b2fb22",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-03-31T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d370556_0c7eae7c",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 13
+      },
+      "revId": "6b976d6d4e4d5f71e8c5ae73cca5892eaba99f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
