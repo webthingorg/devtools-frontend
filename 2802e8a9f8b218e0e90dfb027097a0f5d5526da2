@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6c004c1_acec54af",
+        "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-31T07:08:23Z",
+      "side": 1,
+      "message": "I think we can get rid of the ../../ here. IIRC `/front_end/...` works (Paul set up the mappings at some point). Could you give that a try? (Same for the other imports below)",
+      "revId": "2802e8a9f8b218e0e90dfb027097a0f5d5526da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57fd6fe9_62152fed",
+        "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-03-31T07:08:23Z",
+      "side": 1,
+      "message": "Non-actionable drive-by note: I know this is what we do currently, but man this is some weird formatting",
+      "revId": "2802e8a9f8b218e0e90dfb027097a0f5d5526da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
