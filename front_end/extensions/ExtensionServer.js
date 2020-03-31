@@ -155,6 +155,10 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   _inspectedURLChanged(event) {
+    if (!this._canInspectURL(event.data.inspectedURL())) {
+      this._disableExtensions();
+      return;
+    }
     if (event.data !== SDK.SDKModel.TargetManager.instance().mainTarget()) {
       return;
     }
@@ -193,6 +197,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {...*} vararg
    */
   _postNotification(type, vararg) {
+    if (!this._extensionsEnabled) {
+      return;
+    }
     const subscribers = this._subscribers.get(type);
     if (!subscribers) {
       return;
@@ -728,6 +735,13 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     const startPage = extensionInfo.startPage;
     const name = extensionInfo.name;
 
+    const inspectedURL = SDK.SDKModel.TargetManager.instance().mainTarget().inspectedURL();
+    if (!this._canInspectURL(inspectedURL)) {
+      this._disableExtensions();
+    }
+    if (!this._extensionsEnabled) {
+      return;
+    }
     try {
       const originMatch = urlOriginRegExp.exec(startPage);
       if (!originMatch) {
@@ -979,6 +993,31 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
       }
       callback(null, result.object || null, !!result.exceptionDetails);
     }
+  }
+
+  /**
+   *
+   * @param {string} url
+   */
+  _canInspectURL(url) {
+    // TODO(caseq): pass the URL black-list from the host.
+    // Special case for tests.
+    if (url === ':') {
+      return true;
+    }
+    const parsedURL = new URL(url);
+    if (parsedURL.protocol === 'chrome:') {
+      return false;
+    }
+    if (parsedURL.protocol.startsWith('http') && parsedURL.hostname === 'chrome.google.com' &&
+        parsedURL.pathname.startsWith('/webstore')) {
+      return false;
+    }
+    return true;
+  }
+
+  _disableExtensions() {
+    this._extensionsEnabled = false;
   }
 }
 
