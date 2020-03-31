@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f0e7fd9d_43072323",
+        "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-31T07:16:44Z",
+      "side": 1,
+      "message": "After the Covid19 restrictions are lifted, this will be necessary to build the tests with Ninja+TypeScript instead of karam-typescript. All the tests that end in _test.ts are using the imports now this way.",
+      "parentUuid": "d6c004c1_acec54af",
+      "revId": "2802e8a9f8b218e0e90dfb027097a0f5d5526da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57fd6fe9_62152fed",
         "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "2802e8a9f8b218e0e90dfb027097a0f5d5526da2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e590b6_483b16de",
+        "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-03-31T07:16:44Z",
+      "side": 1,
+      "message": "Yep, why I said, the most these tests can do is check for regressions, since the formatting is already pretty weird if not broken.",
+      "parentUuid": "57fd6fe9_62152fed",
+      "revId": "2802e8a9f8b218e0e90dfb027097a0f5d5526da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
