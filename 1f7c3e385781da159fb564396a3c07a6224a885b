@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87d36996_c3d04458",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-01T09:54:56Z",
+      "side": 1,
+      "message": "Should this include other internal protocols like `devtools:` (although I am not sure how you could get there, being overly conservative seems like a good option)?",
+      "range": {
+        "startLine": 1023,
+        "startChar": 32,
+        "endLine": 1023,
+        "endChar": 38
+      },
+      "revId": "1f7c3e385781da159fb564396a3c07a6224a885b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
