@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7c72313_6bc44aed",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-01T03:32:31Z",
+      "side": 1,
+      "message": "Nit: This is more of a personal preference, but you can keep the announcement string building untangled from the existing loop using `join`. I also prefer not reusing the same variable for different string states to make the code a bit easier to follow.\n\n const announcementClasses \u003d classNames.join(\u0027 \u0027);\n const announcementString \u003d classNames.length \u003e 1 ?\n   ls`Classes ${announcementClasses} added.` :\n   ls`Class ${announcementClasses} added.`;",
+      "revId": "0b111d0b928ca6c857ac94ed173a4f5c06435b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
