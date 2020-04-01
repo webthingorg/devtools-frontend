@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8435bb7c_98f1e38f",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-01T09:50:35Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 751,
+        "startChar": 27,
+        "endLine": 751,
+        "endChar": 34
+      },
+      "revId": "c9186570227495ab645d9a06626dbea95beb6a12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
