@@ -22,6 +22,30 @@
       "revId": "1f7c3e385781da159fb564396a3c07a6224a885b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ca977f6_ef6bdcba",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-04-01T22:02:16Z",
+      "side": 1,
+      "message": "Absolutely, thanks for spotting this (you can\u0027t get there by plain navigation, I think, but devtools-on-devtools would still get you there).",
+      "parentUuid": "87d36996_c3d04458",
+      "range": {
+        "startLine": 1023,
+        "startChar": 32,
+        "endLine": 1023,
+        "endChar": 38
+      },
+      "revId": "1f7c3e385781da159fb564396a3c07a6224a885b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
