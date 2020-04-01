@@ -16,6 +16,24 @@
       "revId": "0b111d0b928ca6c857ac94ed173a4f5c06435b31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e84db2e_ce4a707f",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-04-01T16:48:00Z",
+      "side": 1,
+      "message": "Realized that they just split \u0027text\u0027 into an array, so we can just use the \u0027text\u0027 variable instead of stitching it back together.",
+      "parentUuid": "f7c72313_6bc44aed",
+      "revId": "0b111d0b928ca6c857ac94ed173a4f5c06435b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
