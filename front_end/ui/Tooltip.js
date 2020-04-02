@@ -71,6 +71,7 @@ export class Tooltip {
 
     for (const element of path) {
       if (element === this._anchorElement) {
+        this._reposition(element, mouseEvent);
         return;
       }
       // The offsetParent is null when the element or an ancestor has 'display: none'.
@@ -88,44 +89,12 @@ export class Tooltip {
    * @param {!Element} anchorElement
    * @param {!Event} event
    */
-  _show(anchorElement, event) {
-    const tooltip = anchorElement[_symbol];
-    this._anchorElement = anchorElement;
-    this._tooltipElement.removeChildren();
-
-    // Check if native tooltips should be used.
-    for (const element of _nativeOverrideContainer) {
-      if (this._anchorElement.isSelfOrDescendant(element)) {
-        Object.defineProperty(this._anchorElement, 'title', /** @type {!Object} */ (_nativeTitle));
-        this._anchorElement.title = tooltip.content;
-        return;
-      }
+  _reposition(anchorElement, event) {
+    if (this._shouldUseNativeTooltips()) {
+      return;
     }
-
-    if (typeof tooltip.content === 'string') {
-      this._tooltipElement.setTextContentTruncatedIfNeeded(tooltip.content);
-    } else {
-      this._tooltipElement.appendChild(tooltip.content);
-    }
-
-    if (tooltip.actionId) {
-      const shortcuts = self.UI.shortcutRegistry.shortcutDescriptorsForAction(tooltip.actionId);
-      for (const shortcut of shortcuts) {
-        const shortcutElement = this._tooltipElement.createChild('div', 'tooltip-shortcut');
-        shortcutElement.textContent = shortcut.name;
-      }
-    }
-
-    this._tooltipElement.classList.add('shown');
     // Reposition to ensure text doesn't overflow unnecessarily.
     this._tooltipElement.positionAt(0, 0);
-
-    // Show tooltip instantly if a tooltip was shown recently.
-    const now = Date.now();
-    const instant = (this._tooltipLastClosed && now - this._tooltipLastClosed < Timing.InstantThreshold);
-    this._tooltipElement.classList.toggle('instant', instant);
-    this._tooltipLastOpened = instant ? now : now + Timing.OpeningDelay;
-
     // Get container element.
     const container = GlassPane.container(/** @type {!Document} */ (anchorElement.ownerDocument));
     // Position tooltip based on the anchor element.
@@ -155,6 +124,58 @@ export class Tooltip {
       tooltipY = onBottom ? anchorBox.y + anchorBox.height + anchorOffset : anchorBox.y - tooltipHeight - anchorOffset;
     }
     this._tooltipElement.positionAt(tooltipX, tooltipY);
+  }
+
+  /**
+   * @param {!Element} anchorElement
+   * @param {!Event} event
+   */
+  _show(anchorElement, event) {
+    const tooltip = anchorElement[_symbol];
+    this._anchorElement = anchorElement;
+    this._tooltipElement.removeChildren();
+
+    // Check if native tooltips should be used.
+    if (this._shouldUseNativeTooltips()) {
+      Object.defineProperty(this._anchorElement, 'title', /** @type {!Object} */ (_nativeTitle));
+      this._anchorElement.title = tooltip.content;
+      return;
+    }
+
+    if (typeof tooltip.content === 'string') {
+      this._tooltipElement.setTextContentTruncatedIfNeeded(tooltip.content);
+    } else {
+      this._tooltipElement.appendChild(tooltip.content);
+    }
+
+    if (tooltip.actionId) {
+      const shortcuts = self.UI.shortcutRegistry.shortcutDescriptorsForAction(tooltip.actionId);
+      for (const shortcut of shortcuts) {
+        const shortcutElement = this._tooltipElement.createChild('div', 'tooltip-shortcut');
+        shortcutElement.textContent = shortcut.name;
+      }
+    }
+
+    // Show tooltip instantly if a tooltip was shown recently.
+    const now = Date.now();
+    const instant = (this._tooltipLastClosed && now - this._tooltipLastClosed < Timing.InstantThreshold);
+    this._tooltipElement.classList.toggle('instant', instant);
+    this._tooltipLastOpened = instant ? now : now + Timing.OpeningDelay;
+
+    this._reposition(anchorElement, event);
+    this._tooltipElement.classList.add('shown');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _shouldUseNativeTooltips() {
+    for (const element of _nativeOverrideContainer) {
+      if (this._anchorElement.isSelfOrDescendant(element)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /**
