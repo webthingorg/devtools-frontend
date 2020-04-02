@@ -55,7 +55,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
 
     this._preventTabOrder = false;
     this._showSelectionOnKeyboardFocus = false;
-    this.setFocusable(true);
+    this.setFocusable(false);
     this.element = this.contentElement;
     ARIAUtils.markAsTree(this.element);
   }
@@ -112,6 +112,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
    */
   appendChild(child) {
     this._rootElement.appendChild(child);
+    this.setFocusable(true);
   }
 
   /**
@@ -120,6 +121,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
    */
   insertChild(child, index) {
     this._rootElement.insertChild(child, index);
+    this.setFocusable(true);
   }
 
   /**
@@ -127,10 +129,14 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
    */
   removeChild(child) {
     this._rootElement.removeChild(child);
+    if (this._rootElement.childCount() === 0) {
+      this.setFocusable(false);
+    }
   }
 
   removeChildren() {
     this._rootElement.removeChildren();
+    this.setFocusable(false);
   }
 
   /**
