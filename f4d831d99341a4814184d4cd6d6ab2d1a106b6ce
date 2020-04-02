@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5ea9485_be8315bf",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-02T23:13:54Z",
+      "side": 1,
+      "message": "I don\u0027t like this change.",
+      "revId": "f4d831d99341a4814184d4cd6d6ab2d1a106b6ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
