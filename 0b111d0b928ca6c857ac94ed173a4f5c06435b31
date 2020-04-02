@@ -52,6 +52,24 @@
       "revId": "0b111d0b928ca6c857ac94ed173a4f5c06435b31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a210d872_612cebd1",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-04-02T17:17:21Z",
+      "side": 1,
+      "message": "Ah dang.  Good catch.  Changed to using .join",
+      "parentUuid": "5e2b1c9a_38ed24df",
+      "revId": "0b111d0b928ca6c857ac94ed173a4f5c06435b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
