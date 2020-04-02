@@ -9,14 +9,12 @@ import {$, click, getBrowserAndPages, resetPages, resourcesPath, waitFor, waitFo
 import {addBreakpointForLine, listenForSourceFilesAdded, openFileInEditor, openFileInSourcesPanel, openSourcesPanel, PAUSE_ON_EXCEPTION_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
 describe('The CXX DWARF Language Plugin', async () => {
-  beforeEach(async () => {
-    await resetPages({'enabledExperiments': ['wasmDWARFDebugging']});
-  });
-
-  beforeEach(function() {
+  beforeEach(async function() {
     if (!process.env.WITH_SYMBOL_SERVER) {
       this.skip();
     }
+
+    await resetPages({'enabledExperiments': ['wasmDWARFDebugging']});
   });
 
   // Load a simple wasm file and verify that the source file shows up in the file tree.
@@ -59,7 +57,7 @@ describe('The CXX DWARF Language Plugin', async () => {
   });
 
   // Resolve the location for a breakpoint.
-  it.skip('[http://crbug.com/1063864] resolve locations for breakpoints correctly', async () => {
+  it('resolves locations for breakpoints correctly', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await openFileInSourcesPanel(target, 'wasm/global_variable_with_dwarf.html');
