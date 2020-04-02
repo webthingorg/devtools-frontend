@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1bd2379_2633f99a",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-02T04:52:12Z",
+      "side": 1,
+      "message": "One last thing. Every time the infobar is removed and re-added, we create this div. The div itself is never removed, only the reference to it (_issueBarDiv) is set to null. This means that over time we will accumulate empty divs in the console view.\n\nThe issues pane doesn\u0027t have the same problem. As the \"reload\" InfoBar is only ever shown once, afterwards we always observe all the necessary network requests.\n\nProbably the easiest fix for now is to simply add a {this._issueBarDiv.remove()} before we set it to null.",
+      "range": {
+        "startLine": 320,
+        "startChar": 6,
+        "endLine": 320,
+        "endChar": 31
+      },
+      "revId": "d090a7ad59c8a8498068837b1335d6697c0b7348",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

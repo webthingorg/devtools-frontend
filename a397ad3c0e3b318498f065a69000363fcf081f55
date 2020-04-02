@@ -46,6 +46,30 @@
       "revId": "a397ad3c0e3b318498f065a69000363fcf081f55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33a10cb7_4bdb722d",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-02T04:52:12Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "7f04b7ff_c8fecf9c",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 111
+      },
+      "revId": "a397ad3c0e3b318498f065a69000363fcf081f55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
