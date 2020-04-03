@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71193513_88f3ccf2",
+        "filename": "front_end/platform/string-utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-03T08:43:30Z",
+      "side": 1,
+      "message": "We could also avoid the need for calling codePointAt() by using string comparisons instead, and handling the surrogate pair case by checking the `length` of each symbol:\n\n    export const countWtf8Bytes \u003d inputString \u003d\u003e {\n      let count \u003d 0;\n      for (const symbol of inputString) {\n        if (symbol \u003c\u003d \u0027\\x7F\u0027) {\n          count++;\n        } else if (symbol \u003c\u003d \u0027\\u07FF\u0027) {\n          count +\u003d 2;\n        } else if (symbol.length \u003d\u003d\u003d 1) {\n          // Note that we don’t have to special-case the surrogate range\n          // (D800..DFFF) since for-of iteration on strings already takes\n          // care of combining surrogate pairs into a single character,\n          // while preserving any lone surrogates.\n          count +\u003d 3;\n        } else {\n          count +\u003d 4;\n        }\n      }\n      return count;\n    };\n\nThis is less readable and feels more \"clever\", though, so I\u0027m inclined to stick with the current approach. WDYT?",
+      "revId": "2f39db58288aeb0a6c7da42bfbf8ba1442534e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
