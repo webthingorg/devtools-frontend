@@ -159,7 +159,7 @@ export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
 };
 
 // Get multiple element handles, across Shadow DOM boundaries.
-export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
+export const $$ = async (selector: string|puppeteer.JSHandle, root?: puppeteer.JSHandle) => {
   const frontend: puppeteer.Page = globalThis[frontEndPage];
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
@@ -207,7 +207,8 @@ export const waitFor = async (selector: string, root?: puppeteer.JSHandle, maxTo
   }, `Unable to find element with selector ${selector}`, maxTotalTimeout);
 };
 
-export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, maxTotalTimeout = 0) => {
+export const waitForNone =
+    async (selector: string|puppeteer.JSHandle, root?: puppeteer.JSHandle, maxTotalTimeout = 0) => {
   return waitForFunction(async () => {
     const elements = await $$(selector, root);
     if (elements.evaluate(list => list.length === 0)) {

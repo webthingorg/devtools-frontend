@@ -953,6 +953,8 @@ export class HeapSnapshot {
     this._buildLocationMap();
     this._progress.updateStatus(ls`Finished processing.`);
 
+    console.log(this._profile.snapshot.trace_function_count);
+
     if (this._profile.snapshot.trace_function_count) {
       this._progress.updateStatus(ls`Building allocation statistics…`);
       const nodes = this.nodes;
