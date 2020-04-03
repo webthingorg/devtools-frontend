@@ -57,7 +57,6 @@
 }
 
 .body-wrapper {
-    max-height: 400px;
     transition: max-height 200ms;
 }
 
@@ -200,15 +199,7 @@
     transform: rotate(90deg);
 }
 
-.affected-resource-cookie {
-    font-size: 14px;
-    line-height: 20px;
-    color: var(--issue-link);
-    border: 0;
-    border-collapse: collapse;
-}
-
-.affected-resource-request {
+.affected-resource-list-link {
     font-size: 14px;
     line-height: 20px;
     color: var(--issue-link);
@@ -245,13 +236,13 @@
     padding-left: 16px;
 }
 
-.affected-resource-cookie-info {
+.affected-resource-list-item {
     color: #9AA0A6;
     padding-left: 16px;
     opacity: 1;
     transition: opacity 200ms;
 }
 
-.affected-resource-cookie:hover .affected-resource-cookie-info {
+.affected-resource-list-link:hover .affected-resource-list-item {
     opacity: 1;
 }
