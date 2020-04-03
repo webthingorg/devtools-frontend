@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "163b1e96_f7ae2da1",
+        "filename": "test/webtests/http/tests/devtools/audits/audits-linkify-run-expected.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-04-03T22:19:33Z",
+      "side": 1,
+      "message": "dunno what test this is but i think you wanted to get your smallfont element here instead of the HTML element.\n\nyou could querySelector with `#font-size .lh-node[data-path]`",
+      "revId": "208f473a700cb4724972790f80b1a323b890d4e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3ce0151_d8868f6d",
+        "filename": "test/webtests/http/tests/devtools/audits/audits-linkify-run.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-04-03T22:19:33Z",
+      "side": 1,
+      "message": "... and that clicking it reveals the Elements panel ?\n\nat first blush i thought this test just asserted the elem was linkified, didnt expect the test of the interaction too.",
+      "revId": "208f473a700cb4724972790f80b1a323b890d4e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e17512ec_548c20a3",
+        "filename": "test/webtests/http/tests/devtools/audits/audits-linkify-run.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-04-03T22:19:33Z",
+      "side": 1,
+      "message": "if it wasn\u0027t linkified this will fail as .firstChild.shadowRoot is null. https://imgur.com/2VpUHHj\n\nso we may want to check that first and log in that failure case. (just thinking in case someone other than us has to debug this)",
+      "revId": "208f473a700cb4724972790f80b1a323b890d4e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adce15f4_d4f9c0a3",
+        "filename": "test/webtests/http/tests/devtools/audits/audits-linkify-run.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-04-03T22:19:33Z",
+      "side": 1,
+      "message": "this text is basically already an assertion that the link was linkified. which i like\n\nIn addition to this, i think we can also log the textContent of nodeElement, which exists in the linkified and nonlinkified cases. https://imgur.com/ByayIo2\n(we\u0027d do that before L26, natch)",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "208f473a700cb4724972790f80b1a323b890d4e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
