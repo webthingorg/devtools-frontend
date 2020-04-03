@@ -354,3 +354,28 @@ export const replaceControlCharacters = inputString => {
   // Do not replace '\t', \n' and '\r'.
   return inputString.replace(/[\0-\x08\x0B\f\x0E-\x1F\x80-\x9F]/g, '\uFFFD');
 };
+
+/**
+ * @param {string} inputString
+ * @return {number}
+ */
+export const countWtf8Bytes = inputString => {
+  let count = 0;
+  for (const symbol of inputString) {
+    const codePoint = symbol.codePointAt(0);
+    if (codePoint <= 0x7F) {
+      count++;
+    } else if (codePoint <= 0x07FF) {
+      count += 2;
+    } else if (codePoint <= 0xFFFF) {
+      // Note that we don’t have to special-case the surrogate range
+      // (D800..DFFF) since for-of iteration on strings already takes
+      // care of combining surrogate pairs into a single character,
+      // while preserving any lone surrogates.
+      count += 3;
+    } else {
+      count += 4;
+    }
+  }
+  return count;
+};
