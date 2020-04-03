@@ -16,6 +16,24 @@
       "revId": "2f39db58288aeb0a6c7da42bfbf8ba1442534e5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad936150_8018ccbd",
+        "filename": "front_end/platform/string-utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-03T08:46:46Z",
+      "side": 1,
+      "message": "Stick with clearer imo. Out of interest, do we know how this compares counting long strings compared to -- say -- TextEncoder or Blob?",
+      "parentUuid": "71193513_88f3ccf2",
+      "revId": "2f39db58288aeb0a6c7da42bfbf8ba1442534e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
