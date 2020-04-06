@@ -22,6 +22,30 @@
       "revId": "23b1ed62a10798e9bb636f81e6f3b703794dbe78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dbc6150_4652f843",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-06T12:47:52Z",
+      "side": 0,
+      "message": "It appends the output of any non-install command after the actual output of the command, without any benefit. So I opted for removing it alltogether, since it makes using any non-install command not useful.",
+      "parentUuid": "63e9c370_581fb645",
+      "range": {
+        "startLine": 110,
+        "startChar": 13,
+        "endLine": 110,
+        "endChar": 61
+      },
+      "revId": "23b1ed62a10798e9bb636f81e6f3b703794dbe78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
