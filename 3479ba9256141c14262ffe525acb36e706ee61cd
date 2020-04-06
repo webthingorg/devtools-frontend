@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18d1ac8f_8fd51952",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-04-06T11:20:12Z",
+      "side": 1,
+      "message": "Is this really going to be the next stable? I thought the old beta was dead. Or is this another branch?",
+      "range": {
+        "startLine": 34,
+        "startChar": 36,
+        "endLine": 34,
+        "endChar": 40
+      },
+      "revId": "3479ba9256141c14262ffe525acb36e706ee61cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
