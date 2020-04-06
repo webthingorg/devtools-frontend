@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "032acc35_747b581d",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-06T13:47:58Z",
+      "side": 1,
+      "message": "That is exactly the reason, yes. Added a comment.",
+      "parentUuid": "6a39496f_5e4857c0",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 63
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c7e863a_239ef31a",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2201ac47_e0b0c7fa",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-06T13:47:58Z",
+      "side": 1,
+      "message": "Yes and no. The current approach is not feasible for three or four parts in the title below, as it would have to have an if-cascade with a case for each of the possible subsets of a set of four elements.\n\nLet\u0027s revisit this when we remove the experiment.",
+      "parentUuid": "6c7e863a_239ef31a",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 51
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "447f5d7b_6906aed7",
+        "filename": "front_end/console_counters/console_counters_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-06T13:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1f114d1_9bfb9f14",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18b8964a_fd9a7c99",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dc02df2_49cdf72a",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-06T13:47:58Z",
+      "side": 1,
+      "message": "If no issues are left, the next IssuesCountUpdated will only be issued once another issue arrives. So it is necessary in this case.",
+      "parentUuid": "18b8964a_fd9a7c99",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 61
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a90a70ba_0d0d1fcb",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-06T13:47:58Z",
+      "side": 1,
+      "message": "Yes, this was unintentional, I wanted it to fire whenever an issue arrived (so we can later decide to count issues instead of issue codes and display those without updating the notification infrastructure).",
+      "parentUuid": "d6f8d8cb_3758c43a",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 20
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0315cb80_add302ff",
         "filename": "front_end/ui/Icon.js",
         "patchSetId": 2
@@ -137,6 +257,30 @@
       "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0c696bd_68bad7b1",
+        "filename": "front_end/ui/Icon.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-06T13:47:58Z",
+      "side": 1,
+      "message": "It\u0027s the same as the other, but in yellow. I included it as we need it in a follow up.",
+      "parentUuid": "0315cb80_add302ff",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 31
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
