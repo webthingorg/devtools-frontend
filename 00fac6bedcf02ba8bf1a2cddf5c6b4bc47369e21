@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "5b298d92_1a4bbb62",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T15:37:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2201ac47_e0b0c7fa",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 51
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1f114d1_9bfb9f14",
         "filename": "front_end/console_counters/console_counters_strings.grdp",
         "patchSetId": 2
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "57c7f980_1af762d8",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T15:37:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2dc02df2_49cdf72a",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 61
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6f8d8cb_3758c43a",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 2
@@ -272,6 +320,30 @@
       "side": 1,
       "message": "It\u0027s the same as the other, but in yellow. I included it as we need it in a follow up.",
       "parentUuid": "0315cb80_add302ff",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 31
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151b490d_877ad705",
+        "filename": "front_end/ui/Icon.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T15:37:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a0c696bd_68bad7b1",
       "range": {
         "startLine": 147,
         "startChar": 2,
