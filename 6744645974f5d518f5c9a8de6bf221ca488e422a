@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e64e56e9_ca5aac6a",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-06T09:20:33Z",
+      "side": 1,
+      "message": "I\u0027ve fixed this one. (It\u0027s not just about the Accept-Language HTTP header.) The commit message has all the details: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2119672\n\nWebFu PR: https://github.com/google/WebFundamentals/pull/8605. PTAL there as well.",
+      "revId": "6744645974f5d518f5c9a8de6bf221ca488e422a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
