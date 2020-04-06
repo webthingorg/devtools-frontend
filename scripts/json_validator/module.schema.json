@@ -31,10 +31,7 @@
               "items": {
                 "required": ["shortcut"],
                 "properties": {
-                  "shortcut": {
-                    "type": "string",
-                    "pattern": "^[^ ]+$"
-                  },
+                  "shortcut": {"type": "string"},
                   "platform": {"type": "string"}
                 }
               }
