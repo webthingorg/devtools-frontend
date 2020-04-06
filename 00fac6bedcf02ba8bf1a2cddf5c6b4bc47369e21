@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a39496f_5e4857c0",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T11:47:46Z",
+      "side": 1,
+      "message": "Does this class get created before the main target, and thus, the issues model is not available yet? do you think it makes sense to add a comment here to document that?",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 63
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c7e863a_239ef31a",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T11:47:46Z",
+      "side": 1,
+      "message": "Missing UI.ARIAUtils.setAccessibleName(this._issuesCounter, issuesCountTitle)?",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 51
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1f114d1_9bfb9f14",
+        "filename": "front_end/console_counters/console_counters_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T11:47:46Z",
+      "side": 1,
+      "message": "nit: The example should probably be \u00271\u0027, as it\u0027s the only valid value.",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18b8964a_fd9a7c99",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T11:47:46Z",
+      "side": 1,
+      "message": "Isn\u0027t this dispatch unnecessary?\n\n_aggregatedIssuesByCode is cleared. And for each \"new\" issue code we fire the Events.IssuesCountUpdated event so the we receive two IssuesCountUpdated events for the final count.",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 61
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6f8d8cb_3758c43a",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T11:47:46Z",
+      "side": 1,
+      "message": "The name seems misleading. We fire it only when we add a new AggregatedIssue, but don\u0027t fire it if we merge an issue into an existing AggregatedIssue. {AggregatedIssuesCountUpdated} seems more accurate, wdyt?",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 20
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0315cb80_add302ff",
+        "filename": "front_end/ui/Icon.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-06T11:47:46Z",
+      "side": 1,
+      "message": "q: I couldn\u0027t find the usage of this icon in this CL. Is this the one icon used in the issues panel itself?",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 31
+      },
+      "revId": "00fac6bedcf02ba8bf1a2cddf5c6b4bc47369e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
