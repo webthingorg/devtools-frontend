@@ -132,6 +132,7 @@ export class IssuesModel extends SDKModel {
     }
     this._hasSeenMainFrameNavigated = true;
     this.dispatchEventToListeners(Events.FullUpdateRequired);
+    this.dispatchEventToListeners(Events.IssuesCountUpdated);
   }
 
   /**
@@ -182,6 +183,7 @@ export class IssuesModel extends SDKModel {
       this._connectIssue(issue);
       const aggregatedIssue = this._aggregateIssue(issue);
       this.dispatchEventToListeners(Events.AggregatedIssueUpdated, aggregatedIssue);
+      this.dispatchEventToListeners(Events.IssuesCountUpdated);
     }
   }
 
@@ -274,6 +276,7 @@ const issueCodeHandlers = new Map([]);
 
 /** @enum {symbol} */
 export const Events = {
+  IssuesCountUpdated: Symbol('IssuesCountUpdated'),
   AggregatedIssueUpdated: Symbol('AggregatedIssueUpdated'),
   FullUpdateRequired: Symbol('FullUpdateRequired'),
 };
