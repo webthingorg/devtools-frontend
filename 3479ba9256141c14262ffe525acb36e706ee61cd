@@ -70,6 +70,30 @@
       "revId": "3479ba9256141c14262ffe525acb36e706ee61cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b6fcb77_94d7e4ef",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-04-06T17:48:20Z",
+      "side": 1,
+      "message": "I think only beta was supposed to move forward. Thank you spotting this.",
+      "parentUuid": "7eab5ad1_a789984a",
+      "range": {
+        "startLine": 34,
+        "startChar": 36,
+        "endLine": 34,
+        "endChar": 40
+      },
+      "revId": "3479ba9256141c14262ffe525acb36e706ee61cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
