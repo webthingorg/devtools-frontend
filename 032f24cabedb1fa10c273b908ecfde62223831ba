@@ -16,6 +16,24 @@
       "revId": "032f24cabedb1fa10c273b908ecfde62223831ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8d4f55e_87658976",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-07T22:41:22Z",
+      "side": 1,
+      "message": "Yup, nice catch",
+      "parentUuid": "a045754f_b3d07e1f",
+      "revId": "032f24cabedb1fa10c273b908ecfde62223831ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
