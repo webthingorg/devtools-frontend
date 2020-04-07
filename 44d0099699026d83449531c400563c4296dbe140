@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88fdbf6a_4b4cd330",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-04-07T13:18:14Z",
+      "side": 1,
+      "message": "worth a comment explaining this / linking to the mailing list discussion?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 118
+      },
+      "revId": "44d0099699026d83449531c400563c4296dbe140",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
