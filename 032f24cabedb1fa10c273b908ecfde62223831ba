@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a045754f_b3d07e1f",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-07T01:46:20Z",
+      "side": 1,
+      "message": "Should there be `this._activePrefixTimeout \u003d null;` here?",
+      "revId": "032f24cabedb1fa10c273b908ecfde62223831ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
