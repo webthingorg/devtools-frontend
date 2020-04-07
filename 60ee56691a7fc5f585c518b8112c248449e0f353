@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09e5ddfa_28845cee",
+        "filename": "front_end/platform/string-utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-07T06:23:04Z",
+      "side": 1,
+      "message": "re-ordered these expressions to make the ranges more clear\n\nThis way, it\u0027s easier to read this code and understand \"next is between 0xDC00 and 0xDFFF, inclusive\".",
+      "revId": "60ee56691a7fc5f585c518b8112c248449e0f353",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
