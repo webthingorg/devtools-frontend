@@ -579,6 +579,30 @@ export class NetworkDispatcher {
   /**
    * @override
    * @param {!Protocol.Network.RequestId} requestId
+   * @param {boolean} status
+   * @param {!Protocol.Network.MonotonicTime} timestamp
+   */
+  fetchEventFinished(requestId, status, timestamp) {
+    const networkRequest = this._inflightRequestsById[requestId];
+    if (!networkRequest) {
+      return;
+    }
+
+    networkRequest.fetchEventFinished = status;
+    networkRequest.fetchEventCompletionTime = calculateMillisecondDelta(networkRequest, timestamp);
+
+    /**
+     * @param {!NetworkRequest} networkRequest
+     * @param {!Protocol.Network.MonotonicTime} timeInSeconds
+     */
+    function calculateMillisecondDelta(networkRequest, timeInSeconds) {
+      return (timeInSeconds - networkRequest.startTime) * 1000;
+    }
+  }
+
+  /**
+   * @override
+   * @param {!Protocol.Network.RequestId} requestId
    * @param {!Protocol.Network.MonotonicTime} time
    * @param {number} dataLength
    * @param {number} encodedDataLength
