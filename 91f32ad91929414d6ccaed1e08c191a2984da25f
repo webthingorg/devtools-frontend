@@ -16,6 +16,24 @@
       "revId": "91f32ad91929414d6ccaed1e08c191a2984da25f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a9de172_101b57fb",
+        "filename": "front_end/object_ui/objectValue.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-04-08T17:12:53Z",
+      "side": 1,
+      "message": "Nope. But we have a backlog item to move color styles to CSS variables: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d961126",
+      "parentUuid": "92ada9c3_5434f358",
+      "revId": "91f32ad91929414d6ccaed1e08c191a2984da25f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
