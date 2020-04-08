@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f4220b7_6d56c5bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-08T10:20:29Z",
+      "side": 1,
+      "message": "maybe clarify this by saying:\n\n    Previous changes to hide overflow caused the box shadow (used \n    here to create a border effect) to be hidden.\n\nI was looking for shadow in the screenshot and couldn\u0027t find it unless you pointed this out to me :)",
+      "revId": "79b6735d03328c6f713b23c2043610f302f5da8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
