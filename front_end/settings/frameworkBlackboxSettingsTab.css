@@ -55,6 +55,10 @@
     flex: auto 1 1;
 }
 
+.blackbox-list-item:focus[data-keyboard-focus="true"] {
+    background-color: var(--focus-bg-color);
+}
+
  .blackbox-list-item .blackbox-pattern {
     white-space: nowrap;
     text-overflow: ellipsis;

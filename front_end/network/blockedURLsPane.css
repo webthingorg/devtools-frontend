@@ -40,6 +40,10 @@
     flex: auto;
 }
 
+.blocked-url:focus[data-keyboard-focus="true"] {
+    background-color: var(--focus-bg-color);
+}
+
 .blocked-url-count {
     flex: none;
     padding-right: 9px;

@@ -38,6 +38,10 @@
     flex: auto 1 1;
 }
 
+.conditions-list-item:focus[data-keyboard-focus="true"] {
+    background-color: var(--focus-bg-color);
+}
+
 .conditions-list-text {
     white-space: nowrap;
     text-overflow: ellipsis;

@@ -32,6 +32,10 @@
     flex: auto 1 1;
 }
 
+.network-discovery-list-item:focus[data-keyboard-focus="true"] {
+    background-color: var(--focus-bg-color);
+}
+
 .list-item .network-discovery-value {
     white-space: nowrap;
     text-overflow: ellipsis;
