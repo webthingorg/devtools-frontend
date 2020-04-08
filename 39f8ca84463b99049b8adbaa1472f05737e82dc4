@@ -39,6 +39,24 @@
       "revId": "39f8ca84463b99049b8adbaa1472f05737e82dc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74b57284_e47daf5c",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1753,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-08T21:47:05Z",
+      "side": 1,
+      "message": "Good question. So, I just tested and confirmed that right now, the network nodes are max 1 level deep. Even frames with in frames on the page are broken into separate nodes at the top level of the grid. However, I can add a reveal call to the parent, make this recursive, just in case that changes in the future. Let me test it to see if that breaks anything",
+      "parentUuid": "25e7b496_49908941",
+      "revId": "39f8ca84463b99049b8adbaa1472f05737e82dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
