@@ -167,6 +167,12 @@ export class NetworkLogView extends UI.Widget.VBox {
     this._onlyBlockedRequestsUI.element().title = ls`Only show blocked requests`;
     filterBar.addFilter(this._onlyBlockedRequestsUI);
 
+    this._serviceWorkersFilterUI = new UI.FilterBar.CheckboxFilterUI(
+        'only-show-sw-requests', ls`Fetched via Service Worker`, true, this._networkShowSWOnlySetting);
+    this._serviceWorkersFilterUI.addEventListener(
+        UI.FilterBar.FilterUI.Events.FilterChanged, this._filterChanged.bind(this), this);
+    this._serviceWorkersFilterUI.element().title = ls`Only show requests fetched via Service Workers`;
+    filterBar.addFilter(this._serviceWorkersFilterUI);
 
     this._filterParser = new TextUtils.TextUtils.FilterParser(_searchKeys);
     this._suggestionBuilder =
@@ -1254,6 +1260,7 @@ export class NetworkLogView extends UI.Widget.VBox {
     this._dataURLFilterUI.setChecked(false);
     this._onlyIssuesFilterUI.setChecked(false);
     this._onlyBlockedRequestsUI.setChecked(false);
+    this._serviceWorkersFilterUI.setChecked(false);
     this._resourceCategoryFilterUI.reset();
   }
 
@@ -1602,6 +1609,9 @@ export class NetworkLogView extends UI.Widget.VBox {
       return false;
     }
     if (this._onlyBlockedRequestsUI.checked() && !request.wasBlocked()) {
+      return false;
+    }
+    if (this._serviceWorkersFilterUI.checked() && !request.fetchedViaServiceWorker) {
       return false;
     }
     if (request.statusText === 'Service Worker Fallback Required') {
