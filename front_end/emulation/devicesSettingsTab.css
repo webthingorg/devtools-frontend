@@ -37,6 +37,10 @@
     cursor: pointer;
 }
 
+.devices-list-item:focus[data-keyboard-focus="true"] {
+   background-color: var(--focus-bg-color);
+}
+
 .devices-list-checkbox {
     height: 12px;
     width: 12px;
