@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "701af545_35f3e31b",
+        "filename": "front_end/settings/module.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-08T17:21:25Z",
+      "side": 1,
+      "message": "This causes it to just pop up the \"Save settings\" dialog. Not sure if that\u0027s the right thing -- Ctrl+K by itself seems to pop the settings screen, and once I have the settings screen open, Ctrl+S pops the save dialog.",
+      "revId": "bb4f8833cda03c78b8a7b8eb373a8ed104cb2589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdc4d576_27e0a73b",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-08T17:21:25Z",
+      "side": 1,
+      "message": "Should we be adding more console errors here?",
+      "revId": "bb4f8833cda03c78b8a7b8eb373a8ed104cb2589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d27276b1_ee7121dc",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-08T17:21:25Z",
+      "side": 1,
+      "message": "Should we be adding new console assertions here?",
+      "revId": "bb4f8833cda03c78b8a7b8eb373a8ed104cb2589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
