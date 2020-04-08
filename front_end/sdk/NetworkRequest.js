@@ -527,6 +527,22 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     this._fetchedViaServiceWorker = x;
   }
 
+  get fetchEventFinished() {
+    return this._fetchEventFinished;
+  }
+
+  set fetchEventFinished(status) {
+    this._fetchEventFinished = status;
+  }
+
+  get fetchEventCompletionTime() {
+    return this._fetchEventCompletionTime;
+  }
+
+  set fetchEventCompletionTime(time) {
+    this._fetchEventCompletionTime = time;
+  }
+
   /**
    * Returns true if the request was sent by a service worker.
    * @return {boolean}

@@ -255,6 +255,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     drawLines(RequestTimeRangeNames.ServiceWorker);
     drawLines(RequestTimeRangeNames.ServiceWorkerPreparation);
     drawLines(RequestTimeRangeNames.ServiceWorkerRespondWith);
+    drawLines(RequestTimeRangeNames.ServiceWorkerFetch);
     drawLines(RequestTimeRangeNames.Push);
     drawLines(RequestTimeRangeNames.Proxy);
     drawLines(RequestTimeRangeNames.DNS);
