@@ -57,6 +57,24 @@
       "revId": "39f8ca84463b99049b8adbaa1472f05737e82dc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7ead5d_926577a6",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1753,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-08T22:11:37Z",
+      "side": 1,
+      "message": "I\u0027ve updated to also call reveal on the parent, which should recursively handle possible future cases of multiple nesting. Right now, calling reveal on the parent of the frame node just calls reveal on the root, which early returns.",
+      "parentUuid": "74b57284_e47daf5c",
+      "revId": "39f8ca84463b99049b8adbaa1472f05737e82dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
