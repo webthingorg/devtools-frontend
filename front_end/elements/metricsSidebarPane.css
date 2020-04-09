@@ -22,12 +22,35 @@
     contain: strict;
 }
 
-:host-context(.-theme-with-dark-background) .metrics {
+/* all except position, which has a black background in dark mode and so
+ * the default text colour of white works just fine the rest all get
+ * mostly-light colours applied so need a darker font
+ */
+:host-context(.-theme-with-dark-background) .metrics .margin,
+:host-context(.-theme-with-dark-background) .metrics .border,
+:host-context(.-theme-with-dark-background) .metrics .padding,
+:host-context(.-theme-with-dark-background) .metrics .content {
     color: #222;
 }
 
-:host-context(.-theme-with-dark-background) .metrics > div:hover {
+/* when you hover over margin the rest of the items get given a black
+ * background and so then the black text we set above means the numbers
+ * are invisible. So if you're hovering over the margin we set the
+ * colour of the text for all the children to light this also fixes
+ * hovering over anything within margin such as border/padding.
+ */
+:host-context(.-theme-with-dark-background) .metrics .margin:hover div {
     color: #ccc;
+}
+
+/* in dark mode the hover colour that is used when hovering on border
+ * constrasts very poorly with the lighter text colour used in dark mode
+ * so despite being in dark mode when you hover over the border we apply a
+ * dark font colour that contrasts much better with the background
+ */
+
+:host-context(.-theme-with-dark-background) .metrics .border:hover > div:not(.padding) {
+    color: #222;
 }
 
 .metrics .label {
