@@ -4,18 +4,68 @@
  * found in the LICENSE file.
  */
 
+/* Remove container padding from TreeOutline.
+ * Allows issues to touch the edges of the container. */
+:host,
+.issues {
+    padding: 0;
+}
+
+.issues {
+    --breaking-change-color: #F29900;
+    --issue-gray: #5F6368;
+    --issue-link: #1967D2;
+    --issue-black: #202124;
+}
+
+/* Override whitespace behavior for tree items to allow wrapping */
+.issues li {
+    white-space: normal;
+}
+
+/* Hide toggle for tree items which cannot be collapsed */
+.issues .always-parent::before {
+    display: none;
+}
+
+/* Override TreeOutline toggle switching to allow animation */
+.issues li.parent::before {
+    transition: transform 200ms;
+    transform-origin: 25% 50%;
+}
+.issues li.parent.expanded::before {
+    -webkit-mask-position: 0 0;
+    transform: rotate(90deg);
+}
+
 .issue {
     padding: 0 8px;
     overflow: hidden;
     flex: none;
     transition: background-color 200ms;
-    background: #FFFFFF;
+    background: #f3f3f3;
     border: 1px solid #E5E5E5;
     border-width: 0 0 1px;
-    --breaking-change-color: #F29900;
-    --issue-gray: #5F6368;
-    --issue-link: #1967D2;
-    --issue-black: #202124;
+}
+
+.issue.expanded {
+    background: #FFFFFF;
+    border-width: 0;
+}
+
+.issue::before {
+    /* Move toggle for issue items to the right */
+    order: 3;
+    /* Point toggle arrow up for issue items when closed */
+    transform: rotate(-90deg);
+}
+
+/* Override selected tree item styles for issues to avoid changing width. */
+.tree-outline-disclosure:not(.tree-outline-disclosure-hide-overflow)
+.tree-outline.hide-selection-when-blurred
+.issue.selected:focus[data-keyboard-focus="true"] {
+    width: auto;
+    padding-right: 8px;
 }
 
 .header {
@@ -24,6 +74,7 @@
     align-items: center;
     padding: 12px 0;
     cursor: pointer;
+    width: 100%;
 }
 
 .icon {
@@ -41,32 +92,25 @@
     font-weight: normal;
 }
 
-.header::after {
-    transition: transform 200ms;
-    user-select: none;
-    -webkit-mask-image: url(Images/treeoutlineTriangles.svg);
-    -webkit-mask-size: 32px 24px;
-    content: '\00a0\00a0';
-    text-shadow: none;
-    margin-right: -2px;
-    height: 12px;
-    width: 13px;
-    background: var(--issue-gray);
-    transform: rotate(90deg);
-    transform-origin: 25% 50%;
-}
-
-.body-wrapper {
-    max-height: 400px;
-    transition: max-height 200ms;
-}
-
-.body {
+.body.children {
+    border-bottom: 1px solid #E5E5E5;
     padding: 6px 0;
-    margin-left: 9.5px;
+    position: relative;
+    padding-left: 38.5px;
+    padding-bottom: 26px;
+    padding-right: 8px;
+}
+
+/* Show a colored border on the left side of opened issues. */
+.body::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 17.5px;
+    top: 0;
+    bottom: 20px;
     border-left: 2px solid var(--breaking-change-color);
-    padding-left: 21px;
-    margin-bottom: 20px;
+    width: 2px;
 }
 
 .message {
@@ -124,18 +168,6 @@
     margin-top: 8px;
 }
 
-.issue.collapsed {
-    background:  #f3f3f3
-}
-
-.issue.collapsed .header::after {
-    transform: rotate(-90deg);
-}
-
-.issue.collapsed .body-wrapper {
-    max-height: 0;
-}
-
 .issues-toolbar-container {
     display: flex;
     flex: none;
@@ -162,30 +194,10 @@
     text-transform: uppercase;
 }
 
-.affected-resource {
+.affected-resources {
     background: #F8F9FA;
     padding: 12px 3px 12px 20px;
     position: relative;
-}
-
-.affected-resource-label-wrapper {
-    position: relative;
-    margin-left: -12px;
-    cursor: pointer;
-}
-
-.affected-resource-label-wrapper::before {
-    transition: transform 200ms;
-    user-select: none;
-    -webkit-mask-image: url(Images/treeoutlineTriangles.svg);
-    -webkit-mask-size: 32px 24px;
-    -webkit-mask-position: -1px 1px;
-    content: '\00a0\00a0';
-    text-shadow: none;
-    background: var(--issue-gray);
-    transform-origin: center;
-    position: absolute;
-    top: 3px;
 }
 
 .affected-resource-label {
@@ -193,11 +205,7 @@
     line-height: 20px;
     color: var(--issue-black);
     position: relative;
-    margin-left: 12px;
-}
-
-.affected-resource.expanded .affected-resource-label-wrapper::before {
-    transform: rotate(90deg);
+    cursor: pointer;
 }
 
 .affected-resource-cookie {
@@ -214,22 +222,6 @@
     color: var(--issue-link);
     border: 0;
     border-collapse: collapse;
-}
-
-.affected-resource-list-wrapper {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height ease-in-out 200ms;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .affected-resource-list-wrapper {
-        transition: none;
-    }
-}
-
-.affected-resource.expanded .affected-resource-list-wrapper {
-    max-height: 100vh;
 }
 
 .affected-resource-list {
