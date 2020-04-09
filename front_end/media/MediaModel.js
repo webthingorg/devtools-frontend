@@ -23,6 +23,21 @@ export const ProtocolTriggers = {
   PlayersCreated: Symbol('PlayersCreated')
 };
 
+/** @enum {symbol} */
+export const Events = {
+  PlayerPropertiesChanged: Symbol('PlayerPropertiesChanged'),
+  PlayerEventsAdded: Symbol('PlayerEventsAdded'),
+  PlayerMessagesLogged: Symbol('PlayerMessagesLogged'),
+  PlayersCreated: Symbol('PlayersCreated')
+};
+
+/** @enum {string} */
+export const MediaChangeTypeKeys = {
+  Event: 'Events',
+  Property: 'Properties',
+  Message: 'Messages'
+};
+
 /**
  * @implements {Protocol.MediaDispatcher}
  */
@@ -90,6 +105,15 @@ export class MediaModel extends SDK.SDKModel.SDKModel {
    */
   playerErrorsRaised(playerId, errors) {
     this.dispatchEventToListeners(ProtocolTriggers.PlayerErrorsRaised, {playerId: playerId, errors: errors});
+  }
+
+  /**
+   * @param {!Protocol.Media.PlayerId} playerId
+   * @param {!Array.<!Protocol.Media.PlayerMessage>} events
+   * @override
+   */
+  playerMessagesLogged(playerId, events) {
+    this.dispatchEventToListeners(Events.PlayerMessagesLogged, {playerId: playerId, messages: events});
   }
 
   /**

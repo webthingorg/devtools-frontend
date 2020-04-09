@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_13dfca9cbe1740873c59b90e24cfb348" desc="Placeholder text for filter text box.">
+    filter log messages
+  </message>
   <message name="IDS_DEVTOOLS_421b47ffd946ca083b65cd668c6b17e6" desc="Video player">
     video
   </message>
@@ -14,6 +17,15 @@
   </message>
   <message name="IDS_DEVTOOLS_87f9f735a1d36793ceaecd4e47124b63" desc="Button text for viewing events.">
     Events
+  </message>
+  <message name="IDS_DEVTOOLS_9a8eea4475eb7a8d51024b7eefc0c1b1" desc="Column header for messages view.">
+    Player messages
+  </message>
+  <message name="IDS_DEVTOOLS_a603905470e2a5b8c13e96b579ef0dba" desc="Debug log level">
+    Debug
+  </message>
+  <message name="IDS_DEVTOOLS_a74ccc444d6b765cef99475095bcbaaa" desc="Toolbar text prefixing the log level selection dropdown.">
+    Log Level
   </message>
   <message name="IDS_DEVTOOLS_cf6523ecab64a91c7a9b3d83b58f9e61" desc="Hover text for the Events button.">
     Player events
