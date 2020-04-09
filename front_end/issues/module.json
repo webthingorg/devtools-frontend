@@ -28,6 +28,7 @@
       "IssueRevealer.js"
     ],
     "resources": [
-      "issuesPane.css"
+      "issuesPane.css",
+      "issuesTree.css"
     ]
   }
