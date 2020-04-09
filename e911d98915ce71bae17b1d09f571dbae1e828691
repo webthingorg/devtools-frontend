@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ccadad42_1a04c40a",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-09T22:47:10Z",
+      "side": 1,
+      "message": "Woops, reverted to devices-list-checkbox",
+      "parentUuid": "409644a3_6bec0bd9",
+      "revId": "e911d98915ce71bae17b1d09f571dbae1e828691",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f05e7fc2_fe8665e3",
         "filename": "front_end/network/BlockedURLsPane.js",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "b5268089_671393c4",
+        "filename": "front_end/network/BlockedURLsPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-09T22:47:10Z",
+      "side": 1,
+      "message": "The checkbox can be both disabled and checked though, so we can\u0027t make that assumption. This is a pattern we\u0027ve had to use elsewhere for various reasons, e.g. here in DOM breakpoints: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/browser_debugger/DOMBreakpointsSidebarPane.js;l\u003d118",
+      "parentUuid": "f05e7fc2_fe8665e3",
+      "revId": "e911d98915ce71bae17b1d09f571dbae1e828691",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a98a94f9_d682c075",
         "filename": "front_end/ui/ListWidget.js",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "e911d98915ce71bae17b1d09f571dbae1e828691",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adbc7330_cd407932",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-09T22:47:10Z",
+      "side": 1,
+      "message": "Yup, done",
+      "parentUuid": "a98a94f9_d682c075",
+      "revId": "e911d98915ce71bae17b1d09f571dbae1e828691",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
