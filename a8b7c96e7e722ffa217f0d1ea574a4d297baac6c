@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1910ecf_b137c0b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-09T14:09:12Z",
+      "side": 1,
+      "message": "Please add 1066415 too",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "a8b7c96e7e722ffa217f0d1ea574a4d297baac6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
