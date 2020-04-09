@@ -102,12 +102,17 @@ export class PageSecurityState {
  * @unrestricted
  */
 export class PageVisibleSecurityState {
-  constructor(securityState, certificateSecurityState, safetyTipInfo, securityStateIssueIds) {
+  constructor(
+      securityState, certificateSecurityState, safetyTipInfo, securityStateIssueIds,
+      signedExchangeConnectionCertificateSecurityState) {
     this.securityState = securityState;
     this.certificateSecurityState =
         certificateSecurityState ? new CertificateSecurityState(certificateSecurityState) : null;
     this.safetyTipInfo = safetyTipInfo ? new SafetyTipInfo(safetyTipInfo) : null;
     this.securityStateIssueIds = securityStateIssueIds;
+    this.signedExchangeConnectionCertificateSecurityState = signedExchangeConnectionCertificateSecurityState ?
+        new CertificateSecurityState(signedExchangeConnectionCertificateSecurityState) :
+        null;
   }
 }
 
@@ -241,7 +246,8 @@ class SecurityDispatcher {
   visibleSecurityStateChanged(visibleSecurityState) {
     const pageVisibleSecurityState = new PageVisibleSecurityState(
         visibleSecurityState.securityState, visibleSecurityState.certificateSecurityState || null,
-        visibleSecurityState.safetyTipInfo || null, visibleSecurityState.securityStateIssueIds);
+        visibleSecurityState.safetyTipInfo || null, visibleSecurityState.securityStateIssueIds,
+        visibleSecurityState.signedExchangeConnectionCertificateSecurityState || null);
     this._model.dispatchEventToListeners(Events.VisibleSecurityStateChanged, pageVisibleSecurityState);
   }
 

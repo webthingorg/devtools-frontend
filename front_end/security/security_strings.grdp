@@ -32,6 +32,9 @@ If you believe this is shown in error please visit https://bugs.chromium.org/p/c
   <message name="IDS_DEVTOOLS_25bac93dc70921caee0b68a4d741190a" desc="Main summary for page when it has been deemed unsafe by the SafeBrowsing service.">
     This page is dangerous (flagged by Google Safe Browsing).
   </message>
+  <message name="IDS_DEVTOOLS_26086b2a689132f5bf8b3e5e49e014d9" desc="">
+    Certificate of Signed Exchange
+  </message>
   <message name="IDS_DEVTOOLS_278dded33791cce4bb389fdf6a516856" desc="Text in Security Panel of the Security panel">
     Your connection to this origin is not secure.
   </message>
@@ -85,6 +88,9 @@ If you believe this is shown in error please visit https://bugs.chromium.org/p/c
   </message>
   <message name="IDS_DEVTOOLS_56d31ab25d3eafc81549bc134b0f8e90" desc="Summary phrase for a site that has a valid server certificate.">
     valid and trusted
+  </message>
+  <message name="IDS_DEVTOOLS_59cca3fbaa8305c3c9f6416f980c1379" desc="">
+    Certificate used for Signed Exchange transfer
   </message>
   <message name="IDS_DEVTOOLS_5a70e1c7b4fa71a69851e44cda14dff7" desc="Text in Security Panel of the Security panel">
     Secure origins
@@ -187,6 +193,9 @@ If you believe this is shown in error please visit https://bugs.chromium.org/p/c
   <message name="IDS_DEVTOOLS_b1f14f646ef8806a292a6e7d58e488e2" desc="Description for page when there is mixed content">
     This page includes HTTP resources.
   </message>
+  <message name="IDS_DEVTOOLS_b284e20f6ac8189c1109082be77fe586" desc="">
+    Connection used for Signed Exchange transfer
+  </message>
   <message name="IDS_DEVTOOLS_b307d76798aaa401114787fc39b5fbfb" desc="Description for page when there is a non-secure form">
     This page includes a form with a non-secure &quot;action&quot; attribute.
   </message>
@@ -198,6 +207,9 @@ If you believe this is shown in error please visit https://bugs.chromium.org/p/c
   </message>
   <message name="IDS_DEVTOOLS_b7c3bc8136d5373a4125cfe56ab29aac" desc="Main summary for where the site has a non-cryptographic secure origin.">
     This page has a non-HTTPS secure origin.
+  </message>
+  <message name="IDS_DEVTOOLS_b825cbf7b1897df49bb73309b835dac8" desc="">
+    Certificate Transparency of Signed Exchange
   </message>
   <message name="IDS_DEVTOOLS_b92f649b203ca680d444432324771186" desc="Text in Security Panel of the Security panel">
     This request does not comply with <ph name="LOCKED_1">Chrome</ph>&apos;s Certificate Transparency policy.
@@ -249,6 +261,9 @@ If you believe this is shown in error please visit https://bugs.chromium.org/p/c
   </message>
   <message name="IDS_DEVTOOLS_e372a2bdb6592aecd275978b2191c054" desc="Description for page when there is active mixed content">
     You have recently allowed non-secure content (such as scripts or iframes) to run on this site.
+  </message>
+  <message name="IDS_DEVTOOLS_e725cabce535ac5dd7c9a2e7a806a939" desc="">
+    The signed exchange is using a valid, trusted certificate issued by <ph name="VISIBLESECURITYSTATE_CERTIFICATESECURITYSTATE_ISSUER">$1s</ph>.
   </message>
   <message name="IDS_DEVTOOLS_ea21841da70e6405af19fabc4ff8bdd9" desc="Summary phrase for a security problem with the site's certificate.">
     missing
