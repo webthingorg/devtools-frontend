@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24e2799c_efb8f318",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 0,
+      "message": "Removed as TreeElement provides its own click handling.",
+      "revId": "237b8541c13f344050a5db3b93e6c43b5b5458be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6c4d904_c9757c31",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 0,
+      "message": "Removed as TreeElement provides its own `reveal()` method.",
+      "revId": "237b8541c13f344050a5db3b93e6c43b5b5458be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5c941d7_0442c206",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 0,
+      "message": "Removed as this override wasn\u0027t doing anything extra and doesn\u0027t have an equivalent in TreeElement.",
+      "revId": "237b8541c13f344050a5db3b93e6c43b5b5458be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65b506f7_aa959e30",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 0,
+      "message": "Removed as TreeElement provides its own click handling.",
+      "revId": "237b8541c13f344050a5db3b93e6c43b5b5458be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dab6197_535b536c",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 0,
+      "message": "Moved the cursor style directly to .affected-resource-label as the rest of this wrapper is no longer needed with the updated structure.",
+      "revId": "237b8541c13f344050a5db3b93e6c43b5b5458be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1a8581a_d97b606e",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 0,
+      "message": "Removed this and other height animations as they were causing content to be clipped (even prior to this CL).",
+      "revId": "237b8541c13f344050a5db3b93e6c43b5b5458be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

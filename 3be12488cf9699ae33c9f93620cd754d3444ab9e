@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13b5b966_0c635ab9",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 1,
+      "message": "I moved variable declarations here from .issue because TreeElement instances manage children under a sibling of the tree element item instead of as direct descendants.",
+      "revId": "3be12488cf9699ae33c9f93620cd754d3444ab9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "679de67d_59cf6812",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 1,
+      "message": "I swapped the default background colors with the `.collapsed` values because TreeElement instances use an `.expanded` state instead.",
+      "revId": "3be12488cf9699ae33c9f93620cd754d3444ab9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23476753_6bc3faaf",
+        "filename": "front_end/issues/issuesPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-09T18:04:20Z",
+      "side": 1,
+      "message": "Using TreeElement eliminates the ability to add a wrapper element here, so generated content is used to create the indented colored left border instead (so the bottom border can still be full-width).",
+      "revId": "3be12488cf9699ae33c9f93620cd754d3444ab9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
