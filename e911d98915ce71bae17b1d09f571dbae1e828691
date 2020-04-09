@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "409644a3_6bec0bd9",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-09T00:28:06Z",
+      "side": 1,
+      "message": "I don\u0027t see the `devices-list-item-checkbox` class anywhere, what does this do?",
+      "revId": "e911d98915ce71bae17b1d09f571dbae1e828691",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f05e7fc2_fe8665e3",
+        "filename": "front_end/network/BlockedURLsPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-09T00:28:06Z",
+      "side": 1,
+      "message": "Should this be checkboxState \u003d checkbox.checked ? ls`checked` : ls`disabled unchecked` instead? This avoids string concatenation. Also see: https://github.com/ChromeDevTools/devtools-frontend/wiki/Adding-a-Localizable-String",
+      "revId": "e911d98915ce71bae17b1d09f571dbae1e828691",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a98a94f9_d682c075",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-09T00:28:06Z",
+      "side": 1,
+      "message": "Should refocusSelectedItem() be called here?",
+      "revId": "e911d98915ce71bae17b1d09f571dbae1e828691",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
