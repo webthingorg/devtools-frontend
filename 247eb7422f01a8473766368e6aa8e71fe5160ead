@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9925042e_f4dc08cd",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-09T16:43:43Z",
+      "side": 1,
+      "message": "Like I mentioned on your other PR, I think `fetch` here should be camelCased to align with the API name.",
+      "revId": "247eb7422f01a8473766368e6aa8e71fe5160ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
