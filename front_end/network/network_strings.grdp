@@ -51,6 +51,9 @@
   <message name="IDS_DEVTOOLS_100b560e280fea6e7d5ab12179d3f0e2" desc="Tooltip to explain what malformed response cookies are">
     Cookies that were received from the server in the &apos;set-cookie&apos; header of the response but were malformed
   </message>
+  <message name="IDS_DEVTOOLS_10271b16e6a1ba35057363296e9d5b6f" desc="Screen reader label communicating the state of a request blocking list item.">
+    disabled <ph name="CHECKBOXSTATE">$1s<ex>checked</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_117068a6e55846888cbb60978fe82ca2" desc="Text in Request Timing View of the Network panel">
     Stalled
   </message>
@@ -404,6 +407,9 @@
   </message>
   <message name="IDS_DEVTOOLS_8470bd9052ed82990d6e49335b14e41e" desc="Text in Headers View of the Network panel">
     This document was blocked from loading in an <ph name="LOCKED_1">iframe</ph> with a <ph name="LOCKED_1">sandbox</ph> attribute because this document specified a cross-origin opener policy.
+  </message>
+  <message name="IDS_DEVTOOLS_993ffdda078a11edc07edd8295db26c0" desc="Screen reader label for a request blocking list item">
+    <ph name="PATTERNTEXT">$1s<ex>foo.com</ex></ph> pattern
   </message>
   <message name="IDS_DEVTOOLS_b23be8e9d2dc9b79c70ec2acd3f174d3" desc="Label for the Server Timing API">
     the Server Timing API

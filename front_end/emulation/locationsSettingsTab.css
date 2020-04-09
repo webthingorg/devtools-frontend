@@ -38,6 +38,10 @@
   flex: auto 1 1;
 }
 
+.locations-list-item:focus[data-keyboard-focus="true"] {
+    background-color: var(--focus-bg-color);
+}
+
 .locations-list-text {
   white-space: nowrap;
   text-overflow: ellipsis;

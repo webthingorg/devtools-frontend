@@ -71,7 +71,10 @@ export class ListWidget extends VBox {
     this._editable.push(editable);
 
     const element = this._list.createChild('div', 'list-item');
-    element.appendChild(this._delegate.renderItem(item, editable));
+    const innerElement = this._delegate.renderItem(item, editable);
+    innerElement.tabIndex = -1;
+    element.appendChild(innerElement);
+
     if (editable) {
       element.classList.add('editable');
       element.appendChild(this._createControls(item, element));
@@ -237,9 +240,14 @@ export class ListWidget extends VBox {
      * @this {ListWidget}
      */
     function onRemoveClicked() {
-      const index = this._elements.indexOf(element);
-      this.element.focus();
+      let index = this._elements.indexOf(element);
       this._delegate.removeItemRequested(this._items[index], index);
+      const isLastItemIdx = this._elements.length > 0 && index === this._elements.length;
+      if (isLastItemIdx) {
+        index = index - 1;
+      }
+      this._selectedIndex = index;
+      this.refocusSelectedItem();
     }
   }
 
@@ -249,6 +257,10 @@ export class ListWidget extends VBox {
   wasShown() {
     super.wasShown();
     this._stopEditing();
+  }
+
+  refocusSelectedItem() {
+    return this._select(this._selectedIndex, /* takeFocus= */ true);
   }
 
   _updatePlaceholder() {
@@ -298,6 +310,8 @@ export class ListWidget extends VBox {
     const editor = /** @type {!Editor<T>} */ (this._editor);
     this._stopEditing();
     this._delegate.commitEdit(editItem, editor, isNew);
+    const index = this._items.indexOf(editItem);
+    this._select(index, true);
   }
 
   _stopEditing() {

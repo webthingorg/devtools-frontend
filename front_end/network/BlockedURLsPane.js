@@ -88,11 +88,27 @@ export class BlockedURLsPane extends UI.Widget.VBox {
     const element = createElementWithClass('div', 'blocked-url');
     const checkbox = element.createChild('input', 'blocked-url-checkbox');
     checkbox.type = 'checkbox';
+    checkbox.tabIndex = -1;
     checkbox.checked = pattern.enabled;
     checkbox.disabled = !this._manager.blockingEnabled();
-    element.createChild('div', 'blocked-url-label').textContent = pattern.url;
+    const checkboxState = checkbox.checked ? ls`checked` : ls`unchecked`;
+    const patternText = pattern.url;
+    if (checkbox.disabled) {
+      UI.ARIAUtils.setAccessibleName(checkbox, ls`disabled ${checkboxState}`);
+    } else {
+      UI.ARIAUtils.setAccessibleName(checkbox, checkboxState);
+    }
+    const labelElement = element.createChild('div', 'blocked-url-label');
+    labelElement.textContent = patternText;
+    UI.ARIAUtils.setAccessibleName(labelElement, ls`${patternText} pattern`);
     element.createChild('div', 'blocked-url-count').textContent = Common.UIString.UIString('%d blocked', count);
     element.addEventListener('click', event => this._togglePattern(pattern, event), false);
+    element.addEventListener('keydown', event => {
+      if (event.keyCode === UI.KeyboardShortcut.Keys.Space.code && !checkbox.disabled) {
+        this._togglePattern(pattern, event);
+        this._list.refocusSelectedItem();
+      }
+    }, false);
     checkbox.addEventListener('click', event => this._togglePattern(pattern, event), false);
     return element;
   }

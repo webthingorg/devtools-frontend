@@ -111,24 +111,50 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
   renderItem(item, editable) {
     const device = /** @type {!EmulatedDevice} */ (item);
     const element = createElementWithClass('div', 'devices-list-item');
-    const checkbox = element.createChild('input', 'devices-list-checkbox');
-    checkbox.type = 'checkbox';
-    checkbox.checked = device.show();
-    checkbox.addEventListener('click', event => event.consume(), false);
-    element.createChild('div', 'devices-list-title').textContent = device.title;
-    element.addEventListener('click', onItemClicked.bind(this), false);
+    const checkbox = UI.UIUtils.CheckboxLabel.create(device.title, device.show());
+    checkbox.checkboxElement.classList.add('devices-list-checkbox');
+    checkbox.checkboxElement.tabIndex = -1;
+    UI.ARIAUtils.markAsHidden(checkbox);
+    element.appendChild(checkbox);
+
+    checkbox.checkboxElement.addEventListener('click', onClickCheckbox.bind(this));
+    checkbox.textElement.addEventListener('click', onClickCheckbox.bind(this));
+    element.addEventListener('click', onClickListItem);
+    element.addEventListener('keydown', onKeyDown);
+
+    UI.ARIAUtils.markAsCheckbox(element);
+    UI.ARIAUtils.setChecked(element, checkbox.checkboxElement.checked);
+    UI.ARIAUtils.setAccessibleName(element, device.title);
     return element;
 
     /**
      * @param {!Event} event
      * @this {DevicesSettingsTab}
      */
-    function onItemClicked(event) {
-      const show = !checkbox.checked;
+    function onClickCheckbox(event) {
+      const show = checkbox.checkboxElement.checked;
       device.setShow(show);
+      UI.ARIAUtils.setChecked(element, checkbox.checkboxElement.checked);
       this._muteAndSaveDeviceList(editable);
-      checkbox.checked = show;
       event.consume();
+    }
+
+    /**
+     * @param {!Event} event
+     */
+    function onClickListItem(event) {
+      checkbox.checkboxElement.click();
+      event.consume();
+    }
+
+    /**
+     * @param {!Event} event
+     */
+    function onKeyDown(event) {
+      if (event.key === ' ') {
+        checkbox.checkboxElement.click();
+        event.consume(true);
+      }
     }
   }
 
