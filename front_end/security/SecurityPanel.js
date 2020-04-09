@@ -216,6 +216,13 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar {
       return;
     }
 
+    const redirectSource = request.redirectSource();
+    let isSignedExchangeInnerResponse = false;
+    if (redirectSource && redirectSource.signedExchangeInfo()) {
+      isSignedExchangeInnerResponse = true;
+      this._processRequest(redirectSource);
+    }
+
     let securityState = /** @type {!Protocol.Security.SecurityState} */ (request.securityState());
 
     if (request.mixedContentType === Protocol.Security.MixedContentType.Blockable ||
@@ -227,14 +234,23 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar {
       const originState = this._origins.get(origin);
       const oldSecurityState = originState.securityState;
       originState.securityState = this._securityStateMin(oldSecurityState, securityState);
-      if (oldSecurityState !== originState.securityState) {
+      if ((oldSecurityState !== originState.securityState) ||
+          (originState.securityDetails && !originState.securityDetailsOfSignedExchange &&
+           isSignedExchangeInnerResponse) ||
+          (!originState.securityDetails && originState.securityDetailsOfSignedExchange)) {
         const securityDetails = /** @type {?Protocol.Network.SecurityDetails} */ (request.securityDetails());
         if (securityDetails) {
-          originState.securityDetails = securityDetails;
+          if (isSignedExchangeInnerResponse) {
+            originState.securityDetailsOfSignedExchange = securityDetails;
+            const securityDetailsOfSignedExchangeTransfer = /** @type {?Protocol.Network.SecurityDetails} */ (redirectSource.securityDetails());
+            originState.securityDetailsOfSignedExchangeTransfer = securityDetailsOfSignedExchangeTransfer;
+          } else {
+            originState.securityDetails = securityDetails;
+          }
         }
         this._sidebarTree.updateOrigin(origin, securityState);
         if (originState.originView) {
-          originState.originView.setSecurityState(securityState);
+          originState.originView.updateOriginState(originState);
         }
       }
     } else {
@@ -246,7 +262,11 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar {
 
       const securityDetails = request.securityDetails();
       if (securityDetails) {
-        originState.securityDetails = securityDetails;
+        if (isSignedExchangeInnerResponse) {
+          originState.securityDetailsOfSignedExchange = securityDetails;
+        } else {
+          originState.securityDetails = securityDetails;
+        }
       }
 
       originState.loadedFromCache = request.cached();
@@ -818,8 +838,20 @@ export class SecurityMainView extends UI.Widget.VBox {
       return {summary, explanations};
     }
 
-    this._explainCertificateSecurity(visibleSecurityState, explanations);
-    this._explainConnectionSecurity(visibleSecurityState, explanations);
+    if (visibleSecurityState.signedExchangeConnectionCertificateSecurityState) {
+      this._explainCertificateSecurity(visibleSecurityState, explanations, true /* forSignedExchange */);
+      this._explainConnectionSecurity(visibleSecurityState, explanations, true /* forSignedExchange */);
+      if (visibleSecurityState.certificateSecurityState) {
+        explanations.push(new SecurityStyleExplanation(
+            Protocol.Security.SecurityState.Secure, ls`Certificate of Signed Exchange`, ls`valid and trusted`,
+            ls`The signed exchange is using a valid, trusted certificate issued by ${
+                visibleSecurityState.certificateSecurityState.issuer}.`,
+            visibleSecurityState.certificateSecurityState.certificate, Protocol.Security.MixedContentType.None));
+      }
+    } else {
+      this._explainCertificateSecurity(visibleSecurityState, explanations, false /* forSignedExchange */);
+      this._explainConnectionSecurity(visibleSecurityState, explanations, false /* forSignedExchange */);
+    }
     this._explainContentSecurity(visibleSecurityState, explanations);
     return {summary, explanations};
   }
@@ -864,10 +896,14 @@ export class SecurityMainView extends UI.Widget.VBox {
   /**
    * @param {!PageVisibleSecurityState} visibleSecurityState
    * @param {!Array<!SecurityStyleExplanation>} explanations
+   * @param {boolean} forSignedExchange
    */
-  _explainCertificateSecurity(visibleSecurityState, explanations) {
-    const {certificateSecurityState, securityStateIssueIds} = visibleSecurityState;
-    const title = ls`Certificate`;
+  _explainCertificateSecurity(visibleSecurityState, explanations, forSignedExchange) {
+    const certificateSecurityState = forSignedExchange ?
+        visibleSecurityState.signedExchangeConnectionCertificateSecurityState :
+        visibleSecurityState.certificateSecurityState;
+    const {securityStateIssueIds} = visibleSecurityState;
+    const title = forSignedExchange ? ls`Certificate used for Signed Exchange transfer` : ls`Certificate`;
     if (certificateSecurityState && certificateSecurityState.certificateHasSha1Signature) {
       const explanationSummary = ls`insecure (SHA-1)`;
       const description = ls`The certificate chain for this site contains a certificate signed using SHA-1.`;
@@ -919,14 +955,17 @@ export class SecurityMainView extends UI.Widget.VBox {
   /**
    * @param {!PageVisibleSecurityState} visibleSecurityState
    * @param {!Array<!SecurityStyleExplanation>} explanations
+   * @param {boolean} forSignedExchange
    */
-  _explainConnectionSecurity(visibleSecurityState, explanations) {
-    const certificateSecurityState = visibleSecurityState.certificateSecurityState;
+  _explainConnectionSecurity(visibleSecurityState, explanations, forSignedExchange) {
+    const certificateSecurityState = forSignedExchange ?
+        visibleSecurityState.signedExchangeConnectionCertificateSecurityState :
+        visibleSecurityState.certificateSecurityState;
     if (!certificateSecurityState) {
       return;
     }
 
-    const title = ls`Connection`;
+    const title = forSignedExchange ? ls`Connection used for Signed Exchange transfer` : ls`Connection`;
     if (certificateSecurityState.modernSSL) {
       explanations.push(new SecurityStyleExplanation(
           Protocol.Security.SecurityState.Secure, title, ls`secure connection settings`,
@@ -1133,6 +1172,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
   constructor(panel, origin, originState) {
     super();
     this._panel = panel;
+    this._origin = origin;
     this.setMinimumSize(200, 100);
 
     this.element.classList.add('security-origin-view');
@@ -1146,7 +1186,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
 
     const originDisplay = titleSection.createChild('div', 'origin-display');
     this._originLockIcon = originDisplay.createChild('span', 'security-property');
-    this._originLockIcon.classList.add('security-property-' + originState.securityState);
+    // this._originLockIcon.classList.add('security-property-' + originState.securityState);
 
     originDisplay.appendChild(SecurityPanel.createHighlightedUrl(origin, originState.securityState));
 
@@ -1163,156 +1203,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
     });
     UI.ARIAUtils.markAsLink(originNetworkLink);
 
-    if (originState.securityDetails) {
-      const connectionSection = this.element.createChild('div', 'origin-view-section');
-      const connectionDiv = connectionSection.createChild('div', 'origin-view-section-title');
-      connectionDiv.textContent = ls`Connection`;
-      UI.ARIAUtils.markAsHeading(connectionDiv, 2);
-
-      let table = new SecurityDetailsTable();
-      connectionSection.appendChild(table.element());
-      table.addRow(Common.UIString.UIString('Protocol'), originState.securityDetails.protocol);
-      if (originState.securityDetails.keyExchange) {
-        table.addRow(Common.UIString.UIString('Key exchange'), originState.securityDetails.keyExchange);
-      }
-      if (originState.securityDetails.keyExchangeGroup) {
-        table.addRow(Common.UIString.UIString('Key exchange group'), originState.securityDetails.keyExchangeGroup);
-      }
-      table.addRow(
-          Common.UIString.UIString('Cipher'),
-          originState.securityDetails.cipher +
-              (originState.securityDetails.mac ? ' with ' + originState.securityDetails.mac : ''));
-
-      // Create the certificate section outside the callback, so that it appears in the right place.
-      const certificateSection = this.element.createChild('div', 'origin-view-section');
-      const certificateDiv = certificateSection.createChild('div', 'origin-view-section-title');
-      certificateDiv.textContent = ls`Certificate`;
-      UI.ARIAUtils.markAsHeading(certificateDiv, 2);
-
-      const sctListLength = originState.securityDetails.signedCertificateTimestampList.length;
-      const ctCompliance = originState.securityDetails.certificateTransparencyCompliance;
-      let sctSection;
-      if (sctListLength || ctCompliance !== Protocol.Network.CertificateTransparencyCompliance.Unknown) {
-        // Create the Certificate Transparency section outside the callback, so that it appears in the right place.
-        sctSection = this.element.createChild('div', 'origin-view-section');
-        const sctDiv = sctSection.createChild('div', 'origin-view-section-title');
-        sctDiv.textContent = ls`Certificate Transparency`;
-        UI.ARIAUtils.markAsHeading(sctDiv, 2);
-      }
-
-      const sanDiv = this._createSanDiv(originState.securityDetails.sanList);
-      const validFromString = new Date(1000 * originState.securityDetails.validFrom).toUTCString();
-      const validUntilString = new Date(1000 * originState.securityDetails.validTo).toUTCString();
-
-      table = new SecurityDetailsTable();
-      certificateSection.appendChild(table.element());
-      table.addRow(Common.UIString.UIString('Subject'), originState.securityDetails.subjectName);
-      table.addRow(Common.UIString.UIString('SAN'), sanDiv);
-      table.addRow(Common.UIString.UIString('Valid from'), validFromString);
-      table.addRow(Common.UIString.UIString('Valid until'), validUntilString);
-      table.addRow(Common.UIString.UIString('Issuer'), originState.securityDetails.issuer);
-
-      table.addRow(
-          '',
-          SecurityPanel.createCertificateViewerButtonForOrigin(
-              Common.UIString.UIString('Open full certificate details'), origin));
-
-      if (!sctSection) {
-        return;
-      }
-
-      // Show summary of SCT(s) of Certificate Transparency.
-      const sctSummaryTable = new SecurityDetailsTable();
-      sctSummaryTable.element().classList.add('sct-summary');
-      sctSection.appendChild(sctSummaryTable.element());
-      for (let i = 0; i < sctListLength; i++) {
-        const sct = originState.securityDetails.signedCertificateTimestampList[i];
-        sctSummaryTable.addRow(
-            Common.UIString.UIString('SCT'), sct.logDescription + ' (' + sct.origin + ', ' + sct.status + ')');
-      }
-
-      // Show detailed SCT(s) of Certificate Transparency.
-      const sctTableWrapper = sctSection.createChild('div', 'sct-details');
-      sctTableWrapper.classList.add('hidden');
-      for (let i = 0; i < sctListLength; i++) {
-        const sctTable = new SecurityDetailsTable();
-        sctTableWrapper.appendChild(sctTable.element());
-        const sct = originState.securityDetails.signedCertificateTimestampList[i];
-        sctTable.addRow(Common.UIString.UIString('Log name'), sct.logDescription);
-        sctTable.addRow(Common.UIString.UIString('Log ID'), sct.logId.replace(/(.{2})/g, '$1 '));
-        sctTable.addRow(Common.UIString.UIString('Validation status'), sct.status);
-        sctTable.addRow(Common.UIString.UIString('Source'), sct.origin);
-        sctTable.addRow(Common.UIString.UIString('Issued at'), new Date(sct.timestamp).toUTCString());
-        sctTable.addRow(Common.UIString.UIString('Hash algorithm'), sct.hashAlgorithm);
-        sctTable.addRow(Common.UIString.UIString('Signature algorithm'), sct.signatureAlgorithm);
-        sctTable.addRow(Common.UIString.UIString('Signature data'), sct.signatureData.replace(/(.{2})/g, '$1 '));
-      }
-
-      // Add link to toggle between displaying of the summary of the SCT(s) and the detailed SCT(s).
-      if (sctListLength) {
-        function toggleSctDetailsDisplay() {
-          let buttonText;
-          const isDetailsShown = !sctTableWrapper.classList.contains('hidden');
-          if (isDetailsShown) {
-            buttonText = ls`Show full details`;
-          } else {
-            buttonText = ls`Hide full details`;
-          }
-          toggleSctsDetailsLink.textContent = buttonText;
-          UI.ARIAUtils.setAccessibleName(toggleSctsDetailsLink, buttonText);
-          UI.ARIAUtils.setExpanded(toggleSctsDetailsLink, !isDetailsShown);
-          sctSummaryTable.element().classList.toggle('hidden');
-          sctTableWrapper.classList.toggle('hidden');
-        }
-        const toggleSctsDetailsLink =
-            UI.UIUtils.createTextButton(ls`Show full details`, toggleSctDetailsDisplay, 'details-toggle');
-        sctSection.appendChild(toggleSctsDetailsLink);
-      }
-
-      switch (ctCompliance) {
-        case Protocol.Network.CertificateTransparencyCompliance.Compliant:
-          sctSection.createChild('div', 'origin-view-section-notes').textContent =
-              Common.UIString.UIString('This request complies with Chrome\'s Certificate Transparency policy.');
-          break;
-        case Protocol.Network.CertificateTransparencyCompliance.NotCompliant:
-          sctSection.createChild('div', 'origin-view-section-notes').textContent =
-              Common.UIString.UIString('This request does not comply with Chrome\'s Certificate Transparency policy.');
-          break;
-        case Protocol.Network.CertificateTransparencyCompliance.Unknown:
-          break;
-      }
-
-      const noteSection = this.element.createChild('div', 'origin-view-section origin-view-notes');
-      if (originState.loadedFromCache) {
-        noteSection.createChild('div').textContent =
-            Common.UIString.UIString('This response was loaded from cache. Some security details might be missing.');
-      }
-      noteSection.createChild('div').textContent =
-          Common.UIString.UIString('The security details above are from the first inspected response.');
-    } else if (originState.securityState === Protocol.Security.SecurityState.Secure) {
-      // If the security state is secure but there are no security details,
-      // this means that the origin is a non-cryptographic secure origin, e.g.
-      // chrome:// or about:.
-      const secureSection = this.element.createChild('div', 'origin-view-section');
-      const secureDiv = secureSection.createChild('div', 'origin-view-section-title');
-      secureDiv.textContent = ls`Secure`;
-      UI.ARIAUtils.markAsHeading(secureDiv, 2);
-      secureSection.createChild('div').textContent = ls`This origin is a non-HTTPS secure origin.`;
-    } else if (originState.securityState !== Protocol.Security.SecurityState.Unknown) {
-      const notSecureSection = this.element.createChild('div', 'origin-view-section');
-      const notSecureDiv = notSecureSection.createChild('div', 'origin-view-section-title');
-      notSecureDiv.textContent = ls`Not secure`;
-      UI.ARIAUtils.markAsHeading(notSecureDiv, 2);
-      notSecureSection.createChild('div').textContent =
-          Common.UIString.UIString('Your connection to this origin is not secure.');
-    } else {
-      const noInfoSection = this.element.createChild('div', 'origin-view-section');
-      const noInfoDiv = noInfoSection.createChild('div', 'origin-view-section-title');
-      noInfoDiv.textContent = ls`No security information`;
-      UI.ARIAUtils.markAsHeading(noInfoDiv, 2);
-      noInfoSection.createChild('div').textContent =
-          Common.UIString.UIString('No security details are available for this origin.');
-    }
+    this.updateOriginState(originState);
   }
 
   /**
@@ -1361,7 +1252,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
   /**
    * @param {!Protocol.Security.SecurityState} newSecurityState
    */
-  setSecurityState(newSecurityState) {
+  _setSecurityState(newSecurityState) {
     for (const className of Array.prototype.slice.call(this._originLockIcon.classList)) {
       if (className.startsWith('security-property-')) {
         this._originLockIcon.classList.remove(className);
@@ -1369,6 +1260,213 @@ export class SecurityOriginView extends UI.Widget.VBox {
     }
 
     this._originLockIcon.classList.add('security-property-' + newSecurityState);
+  }
+
+  /**
+   * @param {Protocol.Network.SecurityDetails} securityDetails
+   * @param {string} title
+   * @return {!Element}
+   */
+  _createConnectionSection(securityDetails, title) {
+    const connectionSection = createElementWithClass('div', 'origin-view-section');
+    const connectionDiv = connectionSection.createChild('div', 'origin-view-section-title');
+    connectionDiv.textContent = title;
+    UI.ARIAUtils.markAsHeading(connectionDiv, 2);
+
+    const table = new SecurityDetailsTable();
+    connectionSection.appendChild(table.element());
+    table.addRow(Common.UIString.UIString('Protocol'), securityDetails.protocol);
+    if (securityDetails.keyExchange) {
+      table.addRow(Common.UIString.UIString('Key exchange'), securityDetails.keyExchange);
+    }
+    if (securityDetails.keyExchangeGroup) {
+      table.addRow(Common.UIString.UIString('Key exchange group'), securityDetails.keyExchangeGroup);
+    }
+    table.addRow(
+        Common.UIString.UIString('Cipher'),
+        securityDetails.cipher + (securityDetails.mac ? ' with ' + securityDetails.mac : ''));
+    return connectionSection;
+  }
+
+  /**
+   * @param {Protocol.Network.SecurityDetails} securityDetails
+   * @param {string} title
+   * @return {!Element}
+   */
+  _createCertificateSection(securityDetails, title) {
+    const certificateSection = createElementWithClass('div', 'origin-view-section');
+    const certificateDiv = certificateSection.createChild('div', 'origin-view-section-title');
+    certificateDiv.textContent = title;
+    UI.ARIAUtils.markAsHeading(certificateDiv, 2);
+
+    const sanDiv = this._createSanDiv(securityDetails.sanList);
+    const validFromString = new Date(1000 * securityDetails.validFrom).toUTCString();
+    const validUntilString = new Date(1000 * securityDetails.validTo).toUTCString();
+
+    const table = new SecurityDetailsTable();
+    certificateSection.appendChild(table.element());
+    table.addRow(Common.UIString.UIString('Subject'), securityDetails.subjectName);
+    table.addRow(Common.UIString.UIString('SAN'), sanDiv);
+    table.addRow(Common.UIString.UIString('Valid from'), validFromString);
+    table.addRow(Common.UIString.UIString('Valid until'), validUntilString);
+    table.addRow(Common.UIString.UIString('Issuer'), securityDetails.issuer);
+    table.addRow(
+        '',
+        SecurityPanel.createCertificateViewerButtonForOrigin(
+            Common.UIString.UIString('Open full certificate details'), this._origin));
+    return certificateSection;
+  }
+
+  /**
+   * @param {Protocol.Network.SecurityDetails} securityDetails
+   * @param {string} title
+   * @return {?Element}
+   */
+  _maybeCreateSctSection(securityDetails, title) {
+    const sctListLength = securityDetails.signedCertificateTimestampList.length;
+    const ctCompliance = securityDetails.certificateTransparencyCompliance;
+    if (sctListLength === 0 && ctCompliance === Protocol.Network.CertificateTransparencyCompliance.Unknown) {
+      return null;
+    }
+    const sctSection = createElementWithClass('div', 'origin-view-section');
+    const sctDiv = sctSection.createChild('div', 'origin-view-section-title');
+    sctDiv.textContent = title;
+    UI.ARIAUtils.markAsHeading(sctDiv, 2);
+    const sctSummaryTable = new SecurityDetailsTable();
+    sctSummaryTable.element().classList.add('sct-summary');
+    sctSection.appendChild(sctSummaryTable.element());
+    for (let i = 0; i < sctListLength; i++) {
+      const sct = securityDetails.signedCertificateTimestampList[i];
+      sctSummaryTable.addRow(
+          Common.UIString.UIString('SCT'), sct.logDescription + ' (' + sct.origin + ', ' + sct.status + ')');
+    }
+
+    // Show detailed SCT(s) of Certificate Transparency.
+    const sctTableWrapper = sctSection.createChild('div', 'sct-details');
+    sctTableWrapper.classList.add('hidden');
+    for (let i = 0; i < sctListLength; i++) {
+      const sctTable = new SecurityDetailsTable();
+      sctTableWrapper.appendChild(sctTable.element());
+      const sct = securityDetails.signedCertificateTimestampList[i];
+      sctTable.addRow(Common.UIString.UIString('Log name'), sct.logDescription);
+      sctTable.addRow(Common.UIString.UIString('Log ID'), sct.logId.replace(/(.{2})/g, '$1 '));
+      sctTable.addRow(Common.UIString.UIString('Validation status'), sct.status);
+      sctTable.addRow(Common.UIString.UIString('Source'), sct.origin);
+      sctTable.addRow(Common.UIString.UIString('Issued at'), new Date(sct.timestamp).toUTCString());
+      sctTable.addRow(Common.UIString.UIString('Hash algorithm'), sct.hashAlgorithm);
+      sctTable.addRow(Common.UIString.UIString('Signature algorithm'), sct.signatureAlgorithm);
+      sctTable.addRow(Common.UIString.UIString('Signature data'), sct.signatureData.replace(/(.{2})/g, '$1 '));
+    }
+
+    // Add link to toggle between displaying of the summary of the SCT(s) and the detailed SCT(s).
+    if (sctListLength) {
+      function toggleSctDetailsDisplay() {
+        let buttonText;
+        const isDetailsShown = !sctTableWrapper.classList.contains('hidden');
+        if (isDetailsShown) {
+          buttonText = ls`Show full details`;
+        } else {
+          buttonText = ls`Hide full details`;
+        }
+        toggleSctsDetailsLink.textContent = buttonText;
+        UI.ARIAUtils.setAccessibleName(toggleSctsDetailsLink, buttonText);
+        UI.ARIAUtils.setExpanded(toggleSctsDetailsLink, !isDetailsShown);
+        sctSummaryTable.element().classList.toggle('hidden');
+        sctTableWrapper.classList.toggle('hidden');
+      }
+      const toggleSctsDetailsLink =
+          UI.UIUtils.createTextButton(ls`Show full details`, toggleSctDetailsDisplay, 'details-toggle');
+      sctSection.appendChild(toggleSctsDetailsLink);
+    }
+
+    switch (ctCompliance) {
+      case Protocol.Network.CertificateTransparencyCompliance.Compliant:
+        sctSection.createChild('div', 'origin-view-section-notes').textContent =
+            Common.UIString.UIString('This request complies with Chrome\'s Certificate Transparency policy.');
+        break;
+      case Protocol.Network.CertificateTransparencyCompliance.NotCompliant:
+        sctSection.createChild('div', 'origin-view-section-notes').textContent =
+            Common.UIString.UIString('This request does not comply with Chrome\'s Certificate Transparency policy.');
+        break;
+      case Protocol.Network.CertificateTransparencyCompliance.Unknown:
+        break;
+    }
+    return sctSection;
+  }
+
+  /**
+  * @param {!OriginState} originState
+  */
+  updateOriginState(originState) {
+    this._setSecurityState(originState.securityState);
+    const elements = this.element.getElementsByClassName('origin-view-section');
+    for (let i = elements.length - 1; i >= 0; i--) {
+      const element = elements[i];
+      if (element) {
+        element.parentNode.removeChild(element);
+      }
+    }
+
+    if (originState.securityDetails) {
+      this.element.appendChild(this._createConnectionSection(originState.securityDetails, ls`Connection`));
+      this.element.appendChild(
+          this._createCertificateSection(originState.securityDetails, ls`Certificate`));
+      const sctSection = this._maybeCreateSctSection(originState.securityDetails, ls`Certificate Transparency`);
+      if (sctSection) {
+        this.element.appendChild(sctSection);
+      }
+      const noteSection = this.element.createChild('div', 'origin-view-section origin-view-notes');
+      if (originState.loadedFromCache) {
+        noteSection.createChild('div').textContent =
+            Common.UIString.UIString('This response was loaded from cache. Some security details might be missing.');
+      }
+      noteSection.createChild('div').textContent =
+          Common.UIString.UIString('The security details above are from the first inspected response.');
+    } else if (originState.securityState === Protocol.Security.SecurityState.Secure) {
+      if (!originState.securityDetailsOfSignedExchange) {
+        // If the security state is secure but there are no security details,
+        // this means that the origin is a non-cryptographic secure origin, e.g.
+        // chrome:// or about:.
+        const secureSection = this.element.createChild('div', 'origin-view-section');
+        const secureDiv = secureSection.createChild('div', 'origin-view-section-title');
+        secureDiv.textContent = ls`Secure`;
+        UI.ARIAUtils.markAsHeading(secureDiv, 2);
+        secureSection.createChild('div').textContent = ls`This origin is a non-HTTPS secure origin.`;
+      }
+    } else if (originState.securityState !== Protocol.Security.SecurityState.Unknown) {
+      const notSecureSection = this.element.createChild('div', 'origin-view-section');
+      const notSecureDiv = notSecureSection.createChild('div', 'origin-view-section-title');
+      notSecureDiv.textContent = ls`Not secure`;
+      UI.ARIAUtils.markAsHeading(notSecureDiv, 2);
+      notSecureSection.createChild('div').textContent =
+          Common.UIString.UIString('Your connection to this origin is not secure.');
+    } else {
+      const noInfoSection = this.element.createChild('div', 'origin-view-section');
+      const noInfoDiv = noInfoSection.createChild('div', 'origin-view-section-title');
+      noInfoDiv.textContent = ls`No security information`;
+      UI.ARIAUtils.markAsHeading(noInfoDiv, 2);
+      noInfoSection.createChild('div').textContent =
+          Common.UIString.UIString('No security details are available for this origin.');
+    }
+    if (originState.securityDetailsOfSignedExchangeTransfer) {
+      this.element.appendChild(this._createConnectionSection(originState.securityDetailsOfSignedExchangeTransfer, ls`Connection of Signed Exchange transfer`));
+      this.element.appendChild(
+          this._createCertificateSection(originState.securityDetailsOfSignedExchangeTransfer, ls`Certificate of Signed Exchange transfer`));
+      const sctSection =
+          this._maybeCreateSctSection(originState.securityDetailsOfSignedExchangeTransfer, ls`Certificate Transparency of Signed Exchange transfer`);
+      if (sctSection) {
+        this.element.appendChild(sctSection);
+      }
+    }
+    if (originState.securityDetailsOfSignedExchange) {
+      this.element.appendChild(
+          this._createCertificateSection(originState.securityDetailsOfSignedExchange, ls`Certificate of Signed Exchange`));
+      const sctSection =
+          this._maybeCreateSctSection(originState.securityDetailsOfSignedExchange, ls`Certificate Transparency of Signed Exchange`);
+      if (sctSection) {
+        this.element.appendChild(sctSection);
+      }
+    }
   }
 }
 
@@ -1409,6 +1507,8 @@ export class SecurityDetailsTable {
  * @typedef {{
  * securityState: !Protocol.Security.SecurityState,
  * securityDetails: ?Protocol.Network.SecurityDetails,
+ * securityDetailsOfSignedExchange: ?Protocol.Network.SecurityDetails,
+ * securityDetailsOfSignedExchangeTransfer: ?Protocol.Network.SecurityDetails,
  * loadedFromCache: boolean,
  * originView: (?SecurityOriginView|undefined),
  * }}
