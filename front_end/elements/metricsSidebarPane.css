@@ -67,6 +67,16 @@
     margin: 3px;
 }
 
+/* in dark mode the hover colour that is used when hovering on border
+ * constrasts very poorly with the lighter text colour used in dark mode
+ * so despite being in dark mode when you hover over the border we apply a
+ * dark font colour that contrasts much better with the background
+ * see http://crbug.com/1053978
+ */
+:host-context(.-theme-with-dark-background) .metrics .border:hover > div:not(.padding) {
+    color: #222;
+}
+
 .metrics .padding {
     border: 1px grey dashed;
     background-color: white;
