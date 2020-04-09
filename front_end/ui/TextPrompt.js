@@ -364,7 +364,19 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Event} event
    */
   onInput(event) {
-    const text = this.text();
+    let text = this.text();
+
+    if (event.inputType === 'insertFromPaste' && text.includes('\n')) {
+      /* Ensure that we remove any linebreaks from copied/pasted content
+       * to avoid breaking the rendering of the filter bar.
+       * See crbug.com/849563.
+       * We don't let users enter linebreaks when
+       * typing manually, so we should escape them if copying text in.
+       */
+      text = text.replace(/\n/g, '');
+      this.setText(text);
+    }
+
     if (event.data && !this._acceptSuggestionOnStopCharacters(event.data)) {
       const hasCommonPrefix = text.startsWith(this._previousText) || this._previousText.startsWith(text);
       if (this._queryRange && hasCommonPrefix) {
