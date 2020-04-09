@@ -43,7 +43,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this.element.classList.add('request-headers-view');
 
     this._request = request;
-    this._decodeRequestParameters = true;
+    const isReqUrlEncoded = !!request.requestContentType().match(/^application\/x-www-form-urlencoded\s*(;.*)?$/i);
+    this._decodeRequestParameters = isReqUrlEncoded;
     this._showRequestHeadersText = false;
     this._showResponseHeadersText = false;
 
@@ -222,20 +223,21 @@ export class RequestHeadersView extends UI.Widget.VBox {
   }
 
   async _refreshFormData() {
-    this._formDataCategory.hidden = true;
-    this._requestPayloadCategory.hidden = true;
-
     const formData = await this._request.requestFormData();
     if (!formData) {
+      this._formDataCategory.hidden = true;
+      this._requestPayloadCategory.hidden = true;
       return;
     }
 
     const formParameters = await this._request.formParameters();
     if (formParameters) {
       this._formDataCategory.hidden = false;
+      this._requestPayloadCategory.hidden = true;
       this._refreshParams(Common.UIString.UIString('Form Data'), formParameters, formData, this._formDataCategory);
     } else {
       this._requestPayloadCategory.hidden = false;
+      this._formDataCategory.hidden = true;
       try {
         const json = JSON.parse(formData);
         this._refreshRequestJSONPayload(json, formData);
