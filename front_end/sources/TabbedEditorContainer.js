@@ -756,8 +756,11 @@ export class History {
    */
   static fromObject(serializedHistory) {
     const items = [];
-    for (let i = 0; i < serializedHistory.length; ++i) {
-      items.push(HistoryItem.fromObject(serializedHistory[i]));
+    for (const historyEntry of serializedHistory) {
+      // Check if url exists as a workaround for crbug.com/876265
+      if (historyEntry.url) {
+        items.push(HistoryItem.fromObject(historyEntry));
+      }
     }
     return new History(items);
   }
