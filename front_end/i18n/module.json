@@ -1,0 +1,9 @@
+{
+    "dependencies": [
+        "platform"
+    ],
+    "modules": [
+        "i18n.js"
+    ],
+    "scripts": [ ]
+}

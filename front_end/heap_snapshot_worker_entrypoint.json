@@ -5,6 +5,7 @@
     { "name": "heap_snapshot_model", "type": "autostart" },
     { "name": "platform", "type": "autostart" },
     { "name": "text_utils", "type": "autostart" },
-    { "name": "common", "type": "autostart" }
+    { "name": "common", "type": "autostart" },
+    { "name": "i18n", "type": "autostart" }
   ]
 }

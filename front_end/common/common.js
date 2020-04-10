@@ -4,6 +4,8 @@
 
 import '../platform/platform.js';
 
+import * as i18n from '../i18n/i18n.js';
+
 import * as App from './App.js';
 import * as AppProvider from './AppProvider.js';
 import * as CharacterIdMap from './CharacterIdMap.js';
@@ -42,6 +44,7 @@ export {
   Color,
   Console,
   EventTarget,
+  i18n,
   JavaScriptMetaData,
   Linkifier,
   ObjectWrapper,
