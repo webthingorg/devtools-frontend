@@ -4,6 +4,22 @@
 
 import * as UI from '../ui/ui.js';
 
+export const UIStrings = {
+  /**
+  *@description Title of the custom keyboard shortcuts settings tab
+  */
+  IDS_DEVTOOLS_5b66a8c94102f25f01dd96889754deca: 'Custom keyboard shortcuts',
+  /**
+  *@description Column header in the custom keyboard shortcuts settings tab for the action column
+  */
+  IDS_DEVTOOLS_004bf6c9a40003140292e97330236c53: 'Action',
+  /**
+  *@description Header of a column in the custom keyboard shortcuts settings containing the keyboard shortcuts (e.g. Ctrl+Shift+P)
+  */
+  IDS_DEVTOOLS_7c8cd1a8f31536cf63b618b65f347250: 'Keyboard input',
+};
+const str_ = Common.i18n.registerUIStrings('settings/KeybindsSettingsTab.js', UIStrings);
+
 /**
  * @implements {UI.ListWidget.Delegate}
  */
@@ -28,11 +44,14 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     });
 
     const header = this.contentElement.createChild('header');
-    header.createChild('h1').textContent = ls`Custom keyboard shortcuts`;
+    header.createChild('h1').textContent =
+        Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_5b66a8c94102f25f01dd96889754deca);
 
     const listHeader = this.contentElement.createChild('div', 'keybinds-list-item keybinds-header');
-    listHeader.createChild('div', 'keybinds-list-text').textContent = ls`Action`;
-    listHeader.createChild('div', 'keybinds-list-text').textContent = ls`Keyboard input`;
+    listHeader.createChild('div', 'keybinds-list-text').textContent =
+        Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_004bf6c9a40003140292e97330236c53);
+    listHeader.createChild('div', 'keybinds-list-text').textContent =
+        Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_7c8cd1a8f31536cf63b618b65f347250);
     this._list = new UI.ListWidget.ListWidget(this);
     this._list.registerRequiredCSS('settings/keybindsSettingsTab.css');
     this._list.show(this.contentElement);

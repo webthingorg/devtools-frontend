@@ -1,0 +1,98 @@
+{
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_2cce43a6505a5d1bdf7ea98bf7fd1bc8": {
+    "message": "B̂ĺâćk̂b́ôx́"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_331f303e56b067dd84abf94c3bd349c4": {
+    "message": "F̂ŕâḿêẃôŕk̂ B́l̂áĉḱb̂óx̂ín̂ǵ"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_34fbf59db640eda5a3c07d59333f1d18": {
+    "message": "P̂át̂t́êŕn̂ ćâńn̂ót̂ b́ê ém̂ṕt̂ý"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_4a3aaf1edf15288e9ff3994088e2277a": {
+    "message": "B̂ĺâćk̂b́ôx́ ŝćr̂íp̂t́ŝ ẃĥóŝé n̂ám̂éŝ ḿât́ĉh́ '{PH1}'"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_57391192dfa1f247ad015a0fe2eca48e": {
+    "message": "P̂át̂t́êŕn̂"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_87ae3156c118350d6b13cdebc37485e9": {
+    "message": "P̂át̂t́êŕn̂ ḿûśt̂ b́ê á v̂ál̂íd̂ ŕêǵûĺâŕ êx́p̂ŕêśŝíôń"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_ae25bc3ceebf44be4b59d0ade0e53f0b": {
+    "message": "N̂ó b̂ĺâćk̂b́ôx́êd́ p̂át̂t́êŕn̂ś"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_b39a035a995fc6597c8eb942210d1527": {
+    "message": "B̂éĥáv̂íôŕ"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_b791f463c10f80e87e887e1f863f6209": {
+    "message": "Âd́d̂ ṕât́t̂ér̂ń..."
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_b9f5c797ebbf55adccdd8539a65a0241": {
+    "message": "D̂íŝáb̂ĺêd́"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_c745d3ac390f120535d734cd14e2f6aa": {
+    "message": "B̂ĺâćk̂b́ôx́ ĉón̂t́êńt̂ śĉŕîṕt̂ś (êx́t̂én̂śîón̂ śĉŕîṕt̂ś îń t̂h́ê ṕâǵê)"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_d2ef7dcdede23820e315ca1c3425ba4f": {
+    "message": "D̂éb̂úĝǵêŕ ŵíl̂ĺ ŝḱîṕ t̂h́r̂óûǵĥ t́ĥé ŝćr̂íp̂t́ŝ án̂d́ ŵíl̂ĺ n̂ót̂ śt̂óp̂ ón̂ éx̂ćêṕt̂íôńŝ t́ĥŕôẃn̂ b́ŷ t́ĥém̂."
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_dd08f9d5ae3e9ba421754fd31db1a44a": {
+    "message": "P̂át̂t́êŕn̂ ál̂ŕêád̂ý êx́îśt̂ś"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | IDS_DEVTOOLS_ffebb5ad32e2b253aa418b8d7a70028e": {
+    "message": "B̂ĺâćk̂b́ôx́ ĉón̂t́êńt̂ śĉŕîṕt̂ś"
+  },
+  "settings/KeybindsSettingsTab.js | IDS_DEVTOOLS_004bf6c9a40003140292e97330236c53": {
+    "message": "Âćt̂íôń"
+  },
+  "settings/KeybindsSettingsTab.js | IDS_DEVTOOLS_5b66a8c94102f25f01dd96889754deca": {
+    "message": "Ĉúŝt́ôḿ k̂éŷb́ôár̂d́ ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/KeybindsSettingsTab.js | IDS_DEVTOOLS_7c8cd1a8f31536cf63b618b65f347250": {
+    "message": "K̂éŷb́ôár̂d́ îńp̂út̂"
+  },
+  "settings/moduleUIStrings.js | IDS_DEVTOOLS_29e9d8e295b1d5b3002d2d3d5baa4c37": {
+    "message": "Ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/moduleUIStrings.js | IDS_DEVTOOLS_4829262cecb9828817b33e0f9c907f91": {
+    "message": "Êx́p̂ér̂ím̂én̂t́ŝ"
+  },
+  "settings/moduleUIStrings.js | IDS_DEVTOOLS_5b6cf869265c13af8566f192b4ab3d2a": {
+    "message": "D̂óĉúm̂én̂t́ât́îón̂"
+  },
+  "settings/moduleUIStrings.js | IDS_DEVTOOLS_c9deece3e6de26d07ef6409b96f21fd0": {
+    "message": "B̂ĺâćk̂b́ôx́îńĝ"
+  },
+  "settings/moduleUIStrings.js | IDS_DEVTOOLS_d0834fcec6337785ee749c8f5464f6f6": {
+    "message": "P̂ŕêf́êŕêńĉéŝ"
+  },
+  "settings/moduleUIStrings.js | IDS_DEVTOOLS_dd9d37c902c417ff340e28a19e2ff00d": {
+    "message": "Ĉúŝt́ôḿ Ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/moduleUIStrings.js | IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c": {
+    "message": "Ŝét̂t́îńĝś"
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_0f653ae68147586eb189d7baf37a696a": {
+    "message": "R̂éŝt́ôŕê d́êf́âúl̂t́ŝ án̂d́ r̂él̂óâd́"
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_29e9d8e295b1d5b3002d2d3d5baa4c37": {
+    "message": "Ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_4829262cecb9828817b33e0f9c907f91": {
+    "message": "Êx́p̂ér̂ím̂én̂t́ŝ"
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_7c3ebe810fd87afa74649e8230167a75": {
+    "message": "T̂h́êśê éx̂ṕêŕîḿêńt̂ś âŕê ṕâŕt̂íĉúl̂ár̂ĺŷ ún̂śt̂áb̂ĺê. Én̂áb̂ĺê át̂ ýôúr̂ óŵń r̂íŝḱ."
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_89bacc9715d030658f2602ce65426a7f": {
+    "message": "ŴÁR̂ŃÎŃĜ:"
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_d0834fcec6337785ee749c8f5464f6f6": {
+    "message": "P̂ŕêf́êŕêńĉéŝ"
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_e3b2f7d0af9c89f5ea504968ffcd2ef0": {
+    "message": "T̂h́êśê éx̂ṕêŕîḿêńt̂ś ĉóûĺd̂ b́ê d́âńĝér̂óûś âńd̂ ḿâý r̂éq̂úîŕê ŕêśt̂ár̂t́."
+  },
+  "settings/SettingsScreen.js | IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c": {
+    "message": "Ŝét̂t́îńĝś"
+  }
+}

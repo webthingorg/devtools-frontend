@@ -33,6 +33,43 @@ import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
 import * as UI from '../ui/ui.js';
 
+export const UIStrings = {
+  /**
+  *@description Name of the Settings view
+  */
+  IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c: 'Settings',
+  /**
+  *@description Text for keyboard shortcuts
+  */
+  IDS_DEVTOOLS_29e9d8e295b1d5b3002d2d3d5baa4c37: 'Shortcuts',
+  /**
+  *@description Text in Settings Screen of the Settings
+  */
+  IDS_DEVTOOLS_d0834fcec6337785ee749c8f5464f6f6: 'Preferences',
+  /**
+  *@description Text of button in Settings Screen of the Settings
+  */
+  IDS_DEVTOOLS_0f653ae68147586eb189d7baf37a696a: 'Restore defaults and reload',
+  /**
+  *@description Text in Settings Screen of the Settings
+  */
+  IDS_DEVTOOLS_4829262cecb9828817b33e0f9c907f91: 'Experiments',
+  /**
+  *@description Message text content in Settings Screen of the Settings
+  */
+  IDS_DEVTOOLS_e3b2f7d0af9c89f5ea504968ffcd2ef0: 'These experiments could be dangerous and may require restart.',
+  /**
+  *@description Message text content in Settings Screen of the Settings
+  */
+  IDS_DEVTOOLS_7c3ebe810fd87afa74649e8230167a75:
+      'These experiments are particularly unstable. Enable at your own risk.',
+  /**
+  *@description Warning text content in Settings Screen of the Settings
+  */
+  IDS_DEVTOOLS_89bacc9715d030658f2602ce65426a7f: 'WARNING:',
+};
+const str_ = Common.i18n.registerUIStrings('settings/SettingsScreen.js', UIStrings);
+
 /**
  * @implements {UI.View.ViewLocationResolver}
  * @unrestricted
@@ -51,7 +88,8 @@ export class SettingsScreen extends UI.Widget.VBox {
             .createChild('div', 'settings-window-title');
 
     UI.ARIAUtils.markAsHeading(settingsTitleElement, 1);
-    settingsTitleElement.textContent = ls`Settings`;
+    settingsTitleElement.textContent =
+        Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c);
 
     this._tabbedLocation = UI.ViewManager.ViewManager.instance().createTabbedLocation(
         () => SettingsScreen._revealSettingsScreen(), 'settings-view');
@@ -61,7 +99,8 @@ export class SettingsScreen extends UI.Widget.VBox {
     tabbedPane.makeVerticalTabLayout();
 
     if (!Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
-      const shortcutsView = new UI.View.SimpleView(ls`Shortcuts`);
+      const shortcutsView = new UI.View.SimpleView(
+          Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_29e9d8e295b1d5b3002d2d3d5baa4c37));
       self.UI.shortcutsScreen.createShortcutsTabView().show(shortcutsView.element);
       this._tabbedLocation.appendView(shortcutsView);
     }
@@ -150,7 +189,7 @@ export class SettingsScreen extends UI.Widget.VBox {
    * @param {string} tabId
    */
   _reportSettingsPanelShown(tabId) {
-    if (tabId === ls`Shortcuts`) {
+    if (tabId === Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_29e9d8e295b1d5b3002d2d3d5baa4c37)) {
       Host.userMetrics.settingsPanelShown('shortcuts');
       return;
     }
@@ -201,7 +240,9 @@ class SettingsTab extends UI.Widget.VBox {
  */
 export class GenericSettingsTab extends SettingsTab {
   constructor() {
-    super(Common.UIString.UIString('Preferences'), 'preferences-tab-content');
+    super(
+        Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_d0834fcec6337785ee749c8f5464f6f6),
+        'preferences-tab-content');
 
     /** @const */
     const explicitSectionOrder =
@@ -214,8 +255,9 @@ export class GenericSettingsTab extends SettingsTab {
     self.runtime.extensions('setting').forEach(this._addSetting.bind(this));
     self.runtime.extensions(UI.SettingsUI.SettingUI).forEach(this._addSettingUI.bind(this));
 
-    this._appendSection().appendChild(
-        UI.UIUtils.createTextButton(Common.UIString.UIString('Restore defaults and reload'), restoreAndReload));
+    this._appendSection().appendChild(UI.UIUtils.createTextButton(
+        Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_0f653ae68147586eb189d7baf37a696a),
+        restoreAndReload));
 
     function restoreAndReload() {
       Common.Settings.Settings.instance().clearAll();
@@ -281,7 +323,7 @@ export class GenericSettingsTab extends SettingsTab {
   _sectionElement(sectionName) {
     let sectionElement = this._nameToSection.get(sectionName);
     if (!sectionElement) {
-      const uiSectionName = sectionName && Common.UIString.UIString(sectionName);
+      const uiSectionName = sectionName && Common.i18n.getLocalizedString(str_, sectionName);
       sectionElement = this._appendSection(uiSectionName);
       this._nameToSection.set(sectionName, sectionElement);
     }
@@ -294,14 +336,17 @@ export class GenericSettingsTab extends SettingsTab {
  */
 export class ExperimentsSettingsTab extends SettingsTab {
   constructor() {
-    super(Common.UIString.UIString('Experiments'), 'experiments-tab-content');
+    super(
+        Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_4829262cecb9828817b33e0f9c907f91),
+        'experiments-tab-content');
 
     const experiments = Root.Runtime.experiments.allConfigurableExperiments().sort();
     const unstableExperiments = experiments.filter(e => e.unstable);
     const stableExperiments = experiments.filter(e => !e.unstable);
     if (stableExperiments.length) {
       const experimentsSection = this._appendSection();
-      const warningMessage = Common.UIString.UIString('These experiments could be dangerous and may require restart.');
+      const warningMessage =
+          Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_e3b2f7d0af9c89f5ea504968ffcd2ef0);
       experimentsSection.appendChild(this._createExperimentsWarningSubsection(warningMessage));
       for (const experiment of stableExperiments) {
         experimentsSection.appendChild(this._createExperimentCheckbox(experiment));
@@ -310,7 +355,7 @@ export class ExperimentsSettingsTab extends SettingsTab {
     if (unstableExperiments.length) {
       const experimentsSection = this._appendSection();
       const warningMessage =
-          Common.UIString.UIString('These experiments are particularly unstable. Enable at your own risk.');
+          Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_7c3ebe810fd87afa74649e8230167a75);
       experimentsSection.appendChild(this._createExperimentsWarningSubsection(warningMessage));
       for (const experiment of unstableExperiments) {
         experimentsSection.appendChild(this._createExperimentCheckbox(experiment));
@@ -325,7 +370,7 @@ export class ExperimentsSettingsTab extends SettingsTab {
   _createExperimentsWarningSubsection(warningMessage) {
     const subsection = createElement('div');
     const warning = subsection.createChild('span', 'settings-experiments-warning-subsection-warning');
-    warning.textContent = Common.UIString.UIString('WARNING:');
+    warning.textContent = Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_89bacc9715d030658f2602ce65426a7f);
     subsection.createTextChild(' ');
     const message = subsection.createChild('span', 'settings-experiments-warning-subsection-message');
     message.textContent = warningMessage;
@@ -333,7 +378,8 @@ export class ExperimentsSettingsTab extends SettingsTab {
   }
 
   _createExperimentCheckbox(experiment) {
-    const label = UI.UIUtils.CheckboxLabel.create(Common.UIString.UIString(experiment.title), experiment.isEnabled());
+    const label =
+        UI.UIUtils.CheckboxLabel.create(Common.i18n.getLocalizedString(str_, experiment.title), experiment.isEnabled());
     const input = label.checkboxElement;
     input.name = experiment.name;
     function listener() {
@@ -371,7 +417,10 @@ export class ActionDelegate {
         return true;
       case 'settings.shortcuts':
         Host.userMetrics.actionTaken(Host.UserMetrics.Action.SettingsOpenedFromMenu);
-        screen = {name: ls`Shortcuts`, focusTabHeader: true};
+        screen = {
+          name: Common.i18n.getLocalizedString(str_, UIStrings.IDS_DEVTOOLS_29e9d8e295b1d5b3002d2d3d5baa4c37),
+          focusTabHeader: true
+        };
         if (Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
           screen = {name: 'keybinds', focusTabHeader: true};
         }
