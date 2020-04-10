@@ -24,6 +24,14 @@ export class ShortcutRegistry {
     this._keyToShortcut = new Platform.Multimap();
     /** @type {!Platform.Multimap.<string, !KeyboardShortcut>} */
     this._actionToShortcut = new Platform.Multimap();
+    /** @type {!Set.<number>} */
+    this._prefixKeys = new Set();
+    /** @type {?number} */
+    this._activePrefixKey = null;
+    /** @type {?number} */
+    this._activePrefixTimeout = null;
+    /** @type {?function():Promise<void>} */
+    this._consumePrefix = null;
     this._registerBindings();
   }
 
@@ -32,7 +40,10 @@ export class ShortcutRegistry {
    * @return {!Array.<!Action>}
    */
   _applicableActions(key) {
-    return this._actionRegistry.applicableActions(this.actionsForKey(key), self.UI.context);
+    const shortcuts = [...this._keyToShortcut.get(key)].filter(
+        shortcut => (!shortcut.prefixDescriptor && !this._activePrefixKey) ||
+            (shortcut.prefixDescriptor && (shortcut.prefixDescriptor.key === this._activePrefixKey)));
+    return this._actionRegistry.applicableActions(shortcuts.map(shortcut => shortcut.action), self.UI.context);
   }
 
   /**
@@ -95,17 +106,18 @@ export class ShortcutRegistry {
    * @return {string|undefined}
    */
   shortcutTitleForAction(actionId) {
-    const descriptors = this.shortcutDescriptorsForAction(actionId);
-    if (descriptors.length) {
-      return descriptors[0].name;
+    const shortcuts = this._actionToShortcut.get(actionId);
+    if (shortcuts.length) {
+      return shortcuts[0].name;
     }
   }
 
   /**
    * @param {!KeyboardEvent} event
+   * @param {!Object.<string, function():Promise.<boolean>>=} handlers
    */
-  handleShortcut(event) {
-    this.handleKey(KeyboardShortcut.makeKeyFromEvent(event), event.key, event);
+  handleShortcut(event, handlers) {
+    this.handleKey(KeyboardShortcut.makeKeyFromEvent(event), event.key, event, handlers);
   }
 
   /**
@@ -113,56 +125,79 @@ export class ShortcutRegistry {
    * @param {string} actionId
    * @return {boolean}
    */
-  eventMatchesAction(event, actionId) {
+  _eventMatchesAction(event, actionId) {
     console.assert(this._actionToShortcut.has(actionId), 'Unknown action ' + actionId);
     const key = KeyboardShortcut.makeKeyFromEvent(event);
-    return [...this._actionToShortcut.get(actionId)].some(shortcut => shortcut.descriptor.key === key);
+    return [...this._actionToShortcut.get(actionId)].some(shortcut => {
+      if (!this._activePrefixKey && shortcut.prefixDescriptor) {
+        return false;
+      }
+      if (this._activePrefixKey &&
+          (!shortcut.prefixDescriptor || this._activePrefixKey !== shortcut.prefixDescriptor.key)) {
+        return false;
+      }
+      return shortcut.descriptor.key === key;
+    });
   }
 
   /**
    * @param {!Element} element
-   * @param {string} actionId
-   * @param {function():boolean} listener
-   * @param {boolean=} capture
+   * @param {!Object.<string, function():Promise.<boolean>>} handlers
    */
-  addShortcutListener(element, actionId, listener, capture) {
-    console.assert(this._actionToShortcut.has(actionId), 'Unknown action ' + actionId);
+  addShortcutListener(element, handlers) {
     element.addEventListener('keydown', event => {
-      if (!this.eventMatchesAction(/** @type {!KeyboardEvent} */ (event), actionId) || !listener.call(null)) {
-        return;
+      for (const action of Object.keys(handlers)) {
+        if (this._eventMatchesAction(/** @type {!KeyboardEvent} */ (event), action)) {
+          this.handleShortcut(/** @type {!KeyboardEvent} */ (event), handlers);
+          return;
+        }
       }
-      event.consume(true);
-    }, capture);
+    });
   }
 
   /**
    * @param {number} key
    * @param {string} domKey
    * @param {!KeyboardEvent=} event
+   * @param {!Object.<string, function():Promise.<boolean>>=} handlers
    */
-  async handleKey(key, domKey, event) {
+  async handleKey(key, domKey, event, handlers) {
     const keyModifiers = key >> 8;
-    const actions = this._applicableActions(key);
-    if (!actions.length || isPossiblyInputKey()) {
+    if ((!handlers && (isPossiblyInputKey() || Dialog.hasInstance())) ||
+        KeyboardShortcut.isModifier(KeyboardShortcut.keyCodeAndModifiersFromKey(key).keyCode)) {
       return;
     }
-    if (event) {
-      event.consume(true);
-    }
-    if (Dialog.hasInstance()) {
-      return;
-    }
-    for (const action of actions) {
-      try {
-        const result = await action.execute();
-        if (result) {
-          Host.userMetrics.keyboardShortcutFired(action.id());
-          return;
+
+    if (this._activePrefixTimeout) {
+      clearTimeout(this._activePrefixTimeout);
+      const handled = await this._maybeExecuteActionForKey(key, handlers);
+      this._activePrefixKey = null;
+      this._activePrefixTimeout = null;
+      if (handled) {
+        if (event) {
+          event.consume(true);
         }
-      } catch (e) {
-        console.error(e);
-        throw e;
+        return;
       }
+      if (this._consumePrefix) {
+        await this._consumePrefix();
+      }
+    }
+    let handled;
+    if (this._prefixKeys.has(key)) {
+      handled = true;
+      this._activePrefixKey = key;
+      this._consumePrefix = async () => {
+        this._activePrefixKey = null;
+        this._activePrefixTimeout = null;
+        this._maybeExecuteActionForKey(key, handlers);
+      };
+      this._activePrefixTimeout = setTimeout(this._consumePrefix, KeyTimeout);
+    } else {
+      handled = await this._maybeExecuteActionForKey(key, handlers);
+    }
+    if (handled && event) {
+      event.consume(true);
     }
 
     /**
@@ -215,11 +250,45 @@ export class ShortcutRegistry {
   }
 
   /**
+   * @param {number} key
+   * @return {!Promise.<boolean>};
+   * @param {!Object.<string, function():Promise.<boolean>>=} handlers
+   */
+  async _maybeExecuteActionForKey(key, handlers) {
+    const actions = this._applicableActions(key);
+    if (!actions.length) {
+      return false;
+    }
+    for (const action of actions) {
+      try {
+        let result;
+        if (handlers && handlers[action.id()]) {
+          result = handlers[action.id()]();
+        }
+        if (!result) {
+          result = await action.execute();
+        }
+        if (result) {
+          Host.userMetrics.keyboardShortcutFired(action.id());
+          return true;
+        }
+      } catch (e) {
+        console.error(e);
+        throw e;
+      }
+    }
+    return false;
+  }
+
+  /**
    * @param {!KeyboardShortcut} shortcut
    */
   _registerShortcut(shortcut) {
     this._actionToShortcut.set(shortcut.action, shortcut);
     this._keyToShortcut.set(shortcut.descriptor.key, shortcut);
+    if (shortcut.prefixDescriptor) {
+      this._prefixKeys.add(shortcut.prefixDescriptor.key);
+    }
   }
 
   _registerBindings() {
@@ -237,10 +306,20 @@ export class ShortcutRegistry {
         if (!platformMatches(bindings[i].platform)) {
           continue;
         }
-        const shortcutDescriptor = KeyboardShortcut.makeDescriptorFromBindingShortcut(bindings[i].shortcut);
+        const keys = bindings[i].shortcut.split(/\s+/);
+        console.assert(keys.length <= 2, `Too many keys: ${bindings[i].shortcut}`);
+        let prefixDescriptor;
+        let shortcutDescriptor;
+        if (keys.length === 2) {
+          prefixDescriptor = KeyboardShortcut.makeDescriptorFromBindingShortcut(keys[0]);
+          shortcutDescriptor = KeyboardShortcut.makeDescriptorFromBindingShortcut(keys[1]);
+        } else {
+          shortcutDescriptor = KeyboardShortcut.makeDescriptorFromBindingShortcut(keys[0]);
+        }
         if (shortcutDescriptor) {
           this._registerShortcut(new KeyboardShortcut(
-              shortcutDescriptor, /** @type {string} */ (descriptor.actionId), Type.DefaultShortcut));
+              shortcutDescriptor, /** @type {string} */ (descriptor.actionId), Type.DefaultShortcut,
+              prefixDescriptor || undefined));
         }
       }
     }
@@ -270,3 +349,5 @@ export class ShortcutRegistry {
 export class ForwardedShortcut {}
 
 ForwardedShortcut.instance = new ForwardedShortcut();
+
+export const KeyTimeout = 1000;
