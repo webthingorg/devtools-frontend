@@ -33,7 +33,7 @@
                 "properties": {
                   "shortcut": {
                     "type": "string",
-                    "pattern": "^[^ ]+$"
+                    "pattern": "^[^\\s]+(\\s[^\\s]*)?$"
                   },
                   "platform": {"type": "string"}
                 }
