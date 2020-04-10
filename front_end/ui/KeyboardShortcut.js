@@ -37,11 +37,23 @@ export class KeyboardShortcut {
    * @param {!Descriptor} descriptor
    * @param {string} action
    * @param {!Type=} type
+   * @param {!Descriptor=} prefixDescriptor
    */
-  constructor(descriptor, action, type) {
+  constructor(descriptor, action, type, prefixDescriptor) {
     this.descriptor = descriptor;
     this.action = action;
     this.type = type || Type.UserShortcut;
+    this.prefixDescriptor = prefixDescriptor;
+  }
+
+  /**
+   * @return {string}
+   */
+  title() {
+    if (this.prefixDescriptor) {
+      return `${this.prefixDescriptor.name} ${this.descriptor.name}`;
+    }
+    return this.descriptor.name;
   }
 
   /**
@@ -192,7 +204,14 @@ export class KeyboardShortcut {
   }
 
   /**
-   * @param {number|undefined} modifiers
+   * @param {number} key
+   * @return {boolean}
+   */
+  static isModifier(key) {
+    return key === Keys.Shift.code || key === Keys.Ctrl.code || key === Keys.Alt.code || key === Keys.Meta.code;
+  }
+
+  /**  * @param {number|undefined} modifiers
    * @return {string}
    */
   static _modifiersToString(modifiers) {
@@ -241,6 +260,7 @@ export const Keys = {
   Enter: {code: 13, name: {mac: '\u21a9', other: 'Enter'}},
   Shift: {code: 16, name: {mac: '\u21e7', other: 'Shift'}},
   Ctrl: {code: 17, name: 'Ctrl'},
+  Alt: {code: 18, name: 'Alt'},
   Esc: {code: 27, name: 'Esc'},
   Space: {code: 32, name: 'Space'},
   PageUp: {code: 33, name: {mac: '\u21de', other: 'PageUp'}},      // also NUM_NORTH_EAST
