@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ec235d73_85d8ccb6",
+        "filename": "front_end/settings/module.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-10T18:03:13Z",
+      "side": 1,
+      "message": "That\u0027s very strange. Are you on mac?",
+      "parentUuid": "701af545_35f3e31b",
+      "revId": "bb4f8833cda03c78b8a7b8eb373a8ed104cb2589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cdc4d576_27e0a73b",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 8
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "473a815c_78173937",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-10T18:03:13Z",
+      "side": 1,
+      "message": "This one was actually just moved from above, do you think we should get rid of it?",
+      "parentUuid": "cdc4d576_27e0a73b",
+      "revId": "bb4f8833cda03c78b8a7b8eb373a8ed104cb2589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d27276b1_ee7121dc",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 8
@@ -50,6 +86,24 @@
       "revId": "bb4f8833cda03c78b8a7b8eb373a8ed104cb2589",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c2ce41_ab2afbb0",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-10T18:03:13Z",
+      "side": 1,
+      "message": "This is enforced by the module.json schema anyway so i\u0027ll just get rid of it",
+      "parentUuid": "d27276b1_ee7121dc",
+      "revId": "bb4f8833cda03c78b8a7b8eb373a8ed104cb2589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
