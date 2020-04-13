@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8be13453_dfa3405c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-13T20:59:44Z",
+      "side": 1,
+      "message": "We should come up with some kind of way to surface this to the user (e.g., InfoBar). Since chords are configurable, this error condition is now actually user-actionable.",
+      "revId": "3691b77d48334e8ebf83426d5ef22f18be945e66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

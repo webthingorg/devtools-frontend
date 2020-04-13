@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "288a6aa2_a384ce23",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-13T20:59:44Z",
+      "side": 1,
+      "message": "\"Key\" doesn\u0027t really seem to make sense being mapped to \"number\". Can you add a comment explaining what this mapping means?",
+      "revId": "96edc43f95035506119d77a5b8aad9151b5d5dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cd22e00_6427dac1",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-13T20:59:44Z",
+      "side": 1,
+      "message": "This looks like the wrong thing to do here. Each time we call this function, we have to make a shallow copy of the entire key-to-shortcut map, and then filter against this lambda.\n\nIs it possible to restructure this, perhaps like a tree, so that we don\u0027t need to make copies? It might be more expensive to initialize, but it should be much more performant per-keystroke.",
+      "revId": "96edc43f95035506119d77a5b8aad9151b5d5dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
