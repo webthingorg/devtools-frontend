@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d14495f_ede309fa",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-04-13T21:17:23Z",
+      "side": 1,
+      "message": "This seems untenable. Do the keys have to be hash-named? Why not just \u0027.customKeyboardShortcuts\u0027?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
