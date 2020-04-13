@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e69088e_c1d582ed",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-13T21:34:32Z",
+      "side": 1,
+      "message": "When I remove items in the Emulated Devices list by clicking on the trash can, focus seems to be lost completely until I shift-tab and tab forward again. Is there a bug with the refocus behavior on item removal?\n\nAlso, I\u0027m not sure the implementation here is right. this._select uses this._selectedIndex as the \"old selected element\", but line 249 tries to make it refer to the new selected element (?).",
+      "revId": "f9cc5310313718d54293b945bd292cac48af2966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
