@@ -22,6 +22,30 @@
       "revId": "95afd246eb0f3d6ef6eebfd1e9ff919ec33bcaae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41c41d23_aa84b973",
+        "filename": "scripts/test/run_lint_check.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T16:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2ef2c12_db1e812e",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 32
+      },
+      "revId": "95afd246eb0f3d6ef6eebfd1e9ff919ec33bcaae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
