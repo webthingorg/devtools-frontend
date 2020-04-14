@@ -7,6 +7,7 @@ import {join} from 'path';
 const tests = [
   'application/session-storage.js',
   'application/websql-database.js',
+  'application/cookies.js',
   'console/console-message-format.js',
   'console/console-repl-mode.js',
   'elements/pseudo-states.js',
