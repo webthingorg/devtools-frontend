@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0c5f7e6_bf507493",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T14:14:55Z",
+      "side": 1,
+      "message": "Nit: you probably need to click the resume button and wait for execution to be finished. We have seen other tests where V8 was having trouble if the debugger was not properly resumed.",
+      "range": {
+        "startLine": 182,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 35
+      },
+      "revId": "1105d7f8fc3122fd635692470a326bb213ee439b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
