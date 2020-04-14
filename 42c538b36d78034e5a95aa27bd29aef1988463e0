@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de54bc78_eea75a6e",
+        "filename": "test/e2e/application/cookies.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T15:34:08Z",
+      "side": 1,
+      "message": "This is not necessary per se, but you are free to leave it in 😊",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "42c538b36d78034e5a95aa27bd29aef1988463e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f862cac_199c1759",
+        "filename": "test/e2e/lighthouse/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T15:34:08Z",
+      "side": 1,
+      "message": "Once you move the helpers file into `e2e/helpers` this deps should include `\"../helpers\"`",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 11,
+        "endChar": 6
+      },
+      "revId": "42c538b36d78034e5a95aa27bd29aef1988463e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc3887a_e6d13148",
+        "filename": "test/e2e/lighthouse/generate-report.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T15:34:08Z",
+      "side": 1,
+      "message": "This file should be in `e2e/helpers/lighthouse.ts`",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "42c538b36d78034e5a95aa27bd29aef1988463e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "687511e7_3b7bc85b",
+        "filename": "test/e2e/lighthouse/generate-report.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T15:34:08Z",
+      "side": 1,
+      "message": "This function should be moved into the helper.",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "42c538b36d78034e5a95aa27bd29aef1988463e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
