@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "160a9931_14f04657",
+        "filename": "front_end/ui/TextPrompt.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-14T13:41:10Z",
+      "side": 1,
+      "message": "Thanks for pointing this out!",
+      "parentUuid": "e5ff8e8b_2455013c",
+      "revId": "09fe59123a4a8d68fb7a93728cee14de51493fe3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f68c293_b1de9ae8",
         "filename": "front_end/ui/TextPrompt.js",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "09fe59123a4a8d68fb7a93728cee14de51493fe3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c61ea0ac_4108cd85",
+        "filename": "front_end/ui/TextPrompt.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-14T13:41:10Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "6f68c293_b1de9ae8",
+      "revId": "09fe59123a4a8d68fb7a93728cee14de51493fe3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
