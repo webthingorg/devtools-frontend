@@ -15,6 +15,7 @@ front_end/javascript_metadata/NativeFunctions.js
 front_end/sdk/wasm_source_map/pkg/wasm_source_map.js
 front_end/third_party/
 test/e2e/**/*.js
+test/e2e/resources/sources/multi-workers.min.js
 test/shared/**/*.js
 test/unittests/scripts/component_bridges/gen/*
 test/**/fixtures/
