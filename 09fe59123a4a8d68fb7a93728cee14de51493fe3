@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5ff8e8b_2455013c",
+        "filename": "front_end/ui/TextPrompt.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-14T13:06:17Z",
+      "side": 1,
+      "message": "Nit:\n\n    // Skip the current \u0027)\u0027 entry if the caret is right before a \u0027)\u0027 and there\u0027s an unmatched \u0027(\u0027.",
+      "revId": "09fe59123a4a8d68fb7a93728cee14de51493fe3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f68c293_b1de9ae8",
+        "filename": "front_end/ui/TextPrompt.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-14T13:06:17Z",
+      "side": 1,
+      "message": "Nit: multi-line code comments should read like a sentence, i.e.\n\n   * Try matching the most recent open parenthesis with the given right\n   * parenthesis, and closes the matched left parenthesis if found.\n   * Return the result of the matching.",
+      "revId": "09fe59123a4a8d68fb7a93728cee14de51493fe3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
