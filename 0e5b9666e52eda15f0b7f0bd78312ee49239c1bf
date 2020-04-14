@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dc16fe0_e41d8a3a",
+        "filename": "front_end/accessibility/AXBreadcrumbsPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-14T20:09:37Z",
+      "side": 1,
+      "message": "This should be `{!AXBreadcrumb}` because we\u0027re not expecting/allowing `breadcrumb` to be nullable.",
+      "revId": "0e5b9666e52eda15f0b7f0bd78312ee49239c1bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
