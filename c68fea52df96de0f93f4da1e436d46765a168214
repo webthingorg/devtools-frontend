@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd0b4605_c13b8f75",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-14T06:47:39Z",
+      "side": 1,
+      "message": "Nit: Please use two-space indentation for new files, matching .editorconfig.\n\n(We should really do a \"reformat *.css\" CL at some point...)",
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99ebcc1a_ed0725bd",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-14T06:47:39Z",
+      "side": 1,
+      "message": "nit: uppercase for consistency",
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab4a6704_118cf7c4",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-14T06:47:39Z",
+      "side": 1,
+      "message": "Nit: Please keep each selector on a single line. There\u0027s only one selector here. (Having it span multiple lines implies that there\u0027s a comma somewhere and can be confusing.)",
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "185474ba_04664037",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-14T06:47:39Z",
+      "side": 1,
+      "message": "nit:\n\n    content: \u0027·\u0027;\n\nOnly use escape sequences when needed, e.g. when it\u0027s a non-printable/whitespace character.",
+      "range": {
+        "startLine": 147,
+        "startChar": 13,
+        "endLine": 147,
+        "endChar": 18
+      },
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47daf729_57683657",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-14T06:47:39Z",
+      "side": 1,
+      "message": "Do we want this on :focus as well?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 15
+      },
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
