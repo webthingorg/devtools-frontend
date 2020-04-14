@@ -146,8 +146,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
       handled = this._preselectNext();
     } else if (event.key === 'ArrowLeft' && !event.altKey) {
       if (this._preselectedBreadcrumb.parentBreadcrumb() && this._preselectedBreadcrumb.hasExpandedChildren()) {
-        this._collapsingBreadcrumbId = this._preselectedBreadcrumb.axNode().backendDOMNodeId();
-        this._inspectDOMNode(this._preselectedBreadcrumb.parentBreadcrumb().axNode());
+        this._collapseBreadcrumb(this._preselectedBreadcrumb);
       } else {
         handled = this._preselectParent();
       }
@@ -222,6 +221,14 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   /**
+   * @param {?AXBreadcrumb} breadcrumb
+   */
+  _collapseBreadcrumb(breadcrumb) {
+    this._collapsingBreadcrumbId = breadcrumb.axNode().backendDOMNodeId();
+    this._inspectDOMNode(breadcrumb.parentBreadcrumb().axNode());
+  }
+
+  /**
    * @param {!Event} event
    */
   _onMouseLeave(event) {
@@ -267,6 +274,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     if (breadcrumb.inspected()) {
       // If the user is clicking the inspected breadcrumb, they probably want to
       // focus it.
+      this._collapseBreadcrumb(breadcrumb);
       breadcrumb.nodeElement().focus();
       return;
     }
