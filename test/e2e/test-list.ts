@@ -7,6 +7,7 @@ import {join} from 'path';
 const tests = [
   'application/session-storage.js',
   'application/websql-database.js',
+  'application/cookies.js',
   'console/console-message-format.js',
   'console/console-repl-mode.js',
   'elements/pseudo-states.js',
@@ -30,6 +31,7 @@ const tests = [
   'sources/debugger-language-plugins.js',
   'sources/dwarf-cxx-language-plugin.js',
   'sources/script-in-multiple-workers.js',
+  'lighthouse/generate-report.js',
 ];
 
 export const testList = tests.map(testPath => {
