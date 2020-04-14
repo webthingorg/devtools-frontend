@@ -4,8 +4,17 @@
     The resource was loaded in a context that is not same-origin and that enables the cross-origin embedder policy. The resource specified a cross-origin resource policy that allows only same-origin usage, and was hence blocked.
   To use this resource from a different origin, the server may relax the cross-origin resource policy response header:
   </message>
+  <message name="IDS_DEVTOOLS_07bf8b49b1b25c6c43d1cda075e258b9" desc="Label for a possible resolution of an issue">
+    If this cookie is not intended for third parties, consider explicitly marking the cookie as &apos;SameSite=Strict&apos; or &apos;SameSite=Lax&apos; to make your intent clear and provide a consistent experience across browsers.
+  </message>
   <message name="IDS_DEVTOOLS_0c94f752d037fd8475e98b0711b543a6" desc="Label for the link for SameSiteCookies Issues">
     SameSite cookies explained
+  </message>
+  <message name="IDS_DEVTOOLS_21aecea9fbacf3ff8cb7fbacd5e123a7" desc="Label for a possible resolution of an issue">
+    If this cookie is intended for third parties, mark the cookie as &apos;Secure&apos;.
+  </message>
+  <message name="IDS_DEVTOOLS_2b5c1de75e87664414dca8cf64bc75a9" desc="Title for an issue in the issues view">
+    A cookie was blocked. A cookie specified &apos;SameSite=None&apos; without &apos;Secure&apos;
   </message>
   <message name="IDS_DEVTOOLS_2dccd1ab3e03990aea77359831c85ca2" desc="Label for number of affected resource indication in issue view">
     cookie
@@ -16,12 +25,18 @@
   <message name="IDS_DEVTOOLS_40bf79d4fb1a6c55040a72b7eab1b7aa" desc="Title for an issue in the issues view">
     An <ph name="LOCKED_1">iframe</ph> navigation to a document with a cross-origin opener policy was blocked
   </message>
+  <message name="IDS_DEVTOOLS_449e9664e0943e78dd5967b22aa9f5de" desc="Label for a possible resolution of an issue">
+    If this cookie is intended for third parties, mark the cookie as &apos;SameSite=None; Secure&apos;.
+  </message>
   <message name="IDS_DEVTOOLS_55e7dd3016ce4ac57b9a0f56af12f7c2" desc="Label for number of affected resource indication in issue view">
     cookies
   </message>
   <message name="IDS_DEVTOOLS_59a88821ae1cfa9637365d5fa2b46242" desc="Description for an issue in the issues view">
     An <ph name="LOCKED_1">iframe</ph> was emdbedded on a site which enables the cross-origin embedder policy, but the response headers for the document of the <ph name="LOCKED_1">iframe</ph> did not specify a cross-origin embedder policy, which causes the <ph name="LOCKED_1">iframe</ph> to get blocked.
   To allow embedding of the <ph name="LOCKED_1">iframe</ph>, the response needs to enable the cross-origin embedder policy for the <ph name="LOCKED_1">iframe</ph> by specifying the following response header:
+  </message>
+  <message name="IDS_DEVTOOLS_5a108d71acae16fc357fba6b2a91bee6" desc="Title for an issue in the issues view">
+    A cookie was blocked. A cookie without a valid &apos;SameSite&apos; attribute is treated as &apos;SameSite=Lax&apos;
   </message>
   <message name="IDS_DEVTOOLS_6011ea0969680deba3975ac5bd0e153e" desc="Title for a link to further information in issue view">
     Learn more: <ph name="THIS__DETAILS_LINKTITLE">$1s<ex>SameSite Cookies Explained</ex></ph>
@@ -32,6 +47,9 @@
   <message name="IDS_DEVTOOLS_77df128d7d124446c107c9bf445eed0c" desc="Description for an issue in the issues view">
     The resource was loaded in a context that is not same-site and that enables the cross-origin embedder policy. The resource specified a cross-origin resource policy that allows only same-site usage, and was hence blocked.
   To allow usage of the resource from a different site, the server may relax the cross-origin resource policy response header:
+  </message>
+  <message name="IDS_DEVTOOLS_852552f26d737138427a9932625f00e4" desc="Description for an issue in the issues view">
+    A cookie was available to send in a cross-site request, but it has no valid &apos;SameSite&apos; attribute. The default behavior of &apos;SameSite=Lax&apos; blocked this cookie from being sent cross-site.
   </message>
   <message name="IDS_DEVTOOLS_8aa85d8015c515cde89fade0983df424" desc="Description for an issue in the issues view">
     A document was blocked from loading in an <ph name="LOCKED_1">iframe</ph> with a <ph name="LOCKED_1">sandbox</ph> attribute because the document specified a cross-origin opener policy.
@@ -45,11 +63,14 @@
   <message name="IDS_DEVTOOLS_a08f2685b9b1a561a133769715321e40" desc="Label for the issue kind in the issues view">
     Breaking change
   </message>
+  <message name="IDS_DEVTOOLS_a269876ed9865d2b5c54b5c12ee1c26b" desc="Label for a list of possible solutions for a given issue">
+    Resolve by
+  </message>
   <message name="IDS_DEVTOOLS_b02478e52979ba9af8bffc41f342f4b6" desc="Header for the section listing affected resources">
     Affected Resources
   </message>
-  <message name="IDS_DEVTOOLS_bb1be05a71dffef6cfe9564fa1fcf515" desc="Title of an issue in the issues view">
-    A Cookie in a third-party context has been set without SameSite=None
+  <message name="IDS_DEVTOOLS_c0e623f09c7d13c060b593c938187b90" desc="Description for an issue in the issues view">
+    A cookie was sent with the &apos;SameSite=None&apos; attribute, marking it as available for third-party use. Cookies with &apos;SameSite=None&apos; are not set unless they also have the &apos;Secure&apos; attribute.
   </message>
   <message name="IDS_DEVTOOLS_d3330d895eefdef1b6272db5775fd351" desc="Title for an issue in the issues view">
     A resource was blocked because it is missing a cross-origin resource policy
@@ -63,14 +84,8 @@
   <message name="IDS_DEVTOOLS_80b768b15c3693e345a436b9dc0ea36f" desc="Label for the issues Pane">
     Issues
   </message>
-  <message name="IDS_DEVTOOLS_888fab4d70ed5244fb152416372e6e3c" desc="Title for the SameSiteCookies::SameSiteNoneWithoutSecure issue code">
-    A Cookie has been set with SameSite=None but without Secure
-  </message>
   <message name="IDS_DEVTOOLS_8e6aefb01ad865cdce56f1992b317e4a" desc="Link for SameSiteCookies Issues">
     https://web.dev/samesite-cookies-explained/
-  </message>
-  <message name="IDS_DEVTOOLS_0ed7212d68b6867bc1294244c9bc0b33" desc="Message for the SameSiteCookies::SameSiteNoneMissingForThirdParty issue code">
-    In a future version of Chrome, third-party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man-in-the-middle scenario.
   </message>
   <message name="IDS_DEVTOOLS_eeb7bd647d3fade40ab848754327dd63" desc="Description for an issue in the issues view">
     The resource is not a same-origin resource, and the response headers for the resource did not specify any cross-origin resource policy.

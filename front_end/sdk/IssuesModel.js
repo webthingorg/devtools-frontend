@@ -267,12 +267,53 @@ export class IssuesModel extends SDKModel {
 }
 
 /**
+ * @param {!IssuesModel} issuesModel
+ * @param {*} inspectorIssue
+ * @return {!Array<!Issue>}
+ */
+function createIssuesForSameSiteCookieIssue(issuesModel, inspectorIssue) {
+  const sameSiteDetails = inspectorIssue.details.sameSiteCookieIssueDetails;
+  console.assert(sameSiteDetails, 'SameSite issue without details received');
+
+  /** @type {!Array<!Issue>} */
+  const issues = [];
+
+  // Exclusion reasons have priority. It means a cookie was blocked. Create an issue
+  // for every exclusion reason but ignore warning reasons if the cookie was blocked.
+  if (sameSiteDetails.cookieExclusionReasons && sameSiteDetails.cookieExclusionReasons.length > 0) {
+    for (const exclusionReason of sameSiteDetails.cookieExclusionReasons) {
+      // TODO(szuend): Find a better why to set the aggregation key. This is very implicit.
+      const code = inspectorIssue.code + '::' + exclusionReason + '::' + sameSiteDetails.operation;
+      const resources = {cookies: [sameSiteDetails.cookie]};
+      if (sameSiteDetails.request) {
+        resources.requests = [sameSiteDetails.request];
+      }
+      issues.push(new Issue(code, resources));
+    }
+    return issues;
+  }
+
+  if (sameSiteDetails.cookieWarningReasons) {
+    for (const warningReason of sameSiteDetails.cookieWarningReasons) {
+      // TODO(szuend): Find a better why to set the aggregation key. This is very implicit.
+      const code = inspectorIssue.code + '::' + warningReason;
+      const resources = {cookies: [sameSiteDetails.cookie]};
+      if (sameSiteDetails.request) {
+        resources.requests = [sameSiteDetails.request];
+      }
+      issues.push(new Issue(code, resources));
+    }
+  }
+  return issues;
+}
+
+/**
  * TODO(chromium:1063765): Change the type (once the protocol/backend changes have landed) to:
  *   !Map<!Protocol.Audits.InspectorIssueCode, function(!IssuesModel, !Protocol.Audits.InspectorIssueDetails):!Array<!Issue>>
  *
  * @type {!Map<string, function(!IssuesModel, *):!Array<!Issue>>}
  */
-const issueCodeHandlers = new Map([]);
+const issueCodeHandlers = new Map([['SameSiteCookieIssue', createIssuesForSameSiteCookieIssue]]);
 
 /** @enum {symbol} */
 export const Events = {
