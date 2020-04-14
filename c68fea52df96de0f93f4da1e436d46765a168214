@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e5b3603f_df0a154e",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-14T18:05:28Z",
+      "side": 1,
+      "message": "Currently these can be reached using \"Tab\" after expanding the list of cookies. That said we could consider making these TreeElements as well to allow arrow-key navigation. If so, I\u0027d prefer to leave that for a follow-up CL if that\u0027s okay with you.",
+      "parentUuid": "9146d0b2_77fe910e",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 77
+      },
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e9fc6a34_398e9114",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-14T08:46:57Z",
       "side": 1,
       "message": "These elements should also be accessible on their own.",
+      "range": {
+        "startLine": 190,
+        "startChar": 3,
+        "endLine": 190,
+        "endChar": 78
+      },
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a60fe649_3f05abde",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-14T18:05:28Z",
+      "side": 1,
+      "message": "Same as affected cookies. Can currently be accessed using \"Tab\" once the section is expanded.",
+      "parentUuid": "e9fc6a34_398e9114",
       "range": {
         "startLine": 190,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d6c865bb_d8e887e0",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-14T18:05:28Z",
+      "side": 1,
+      "message": "No, good catch! I\u0027ll change this to `this._issuesTree.removeChild(view)`.",
+      "parentUuid": "0ff363b6_8b757d44",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 409,
+        "endChar": 20
+      },
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd0b4605_c13b8f75",
         "filename": "front_end/issues/issuesTree.css",
         "patchSetId": 2
@@ -82,6 +154,24 @@
       "writtenOn": "2020-04-14T06:47:39Z",
       "side": 1,
       "message": "Nit: Please use two-space indentation for new files, matching .editorconfig.\n\n(We should really do a \"reformat *.css\" CL at some point...)",
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "789ea2d9_b065ecd1",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-14T18:05:28Z",
+      "side": 1,
+      "message": "Will do. I\u0027ll go ahead and update issuesPane.css as well since I\u0027ve significantly modified that file.",
+      "parentUuid": "cd0b4605_c13b8f75",
       "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -156,6 +246,30 @@
       "writtenOn": "2020-04-14T06:47:39Z",
       "side": 1,
       "message": "Do we want this on :focus as well?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 15
+      },
+      "revId": "c68fea52df96de0f93f4da1e436d46765a168214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d365b04_e0e7d0f4",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-14T18:05:28Z",
+      "side": 1,
+      "message": "Actually it looks like this can be removed. This was just moved here from the old code, but the opacity is already 1 in the base case so this selector isn\u0027t actually changing anything.",
+      "parentUuid": "47daf729_57683657",
       "range": {
         "startLine": 230,
         "startChar": 0,
