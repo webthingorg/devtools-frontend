@@ -22,6 +22,30 @@
       "revId": "a5a37f27b88abfb3ece94d3f4d2f89facbc16d0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c21c0d29_a6186a08",
+        "filename": "front_end/i18n/i18n-bundle.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-04-14T21:26:50Z",
+      "side": 1,
+      "message": "Got it! This is just to show how the bundle will work with DevTools. We will work with LH team to get the final bundle into the right directory. Thanks!",
+      "parentUuid": "959b231c_b70b1028",
+      "range": {
+        "startLine": 4,
+        "startChar": 4,
+        "endLine": 4,
+        "endChar": 8
+      },
+      "revId": "a5a37f27b88abfb3ece94d3f4d2f89facbc16d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
