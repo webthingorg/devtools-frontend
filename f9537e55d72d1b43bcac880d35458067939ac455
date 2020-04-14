@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30d34ed4_55c8cfca",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-04-14T21:48:47Z",
+      "side": 1,
+      "message": "Quick question: do we want to check nullness of this._inlineReloadButton here? Looks like if _startWithReloadButton is null, then _inlineReloadButton can also be null?",
+      "range": {
+        "startLine": 227,
+        "startChar": 15,
+        "endLine": 227,
+        "endChar": 33
+      },
+      "revId": "f9537e55d72d1b43bcac880d35458067939ac455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
