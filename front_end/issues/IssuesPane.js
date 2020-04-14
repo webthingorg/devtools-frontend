@@ -493,6 +493,29 @@ function textOnlyMessage(text) {
   return message;
 }
 
+/**
+ * @param {string} text
+ * @param {!Array<string>} resolutions
+ * @return {!Element}
+ */
+function textMessageWithResolutions(text, resolutions) {
+  const message = createElementWithClass('div', 'message');
+  message.createChild('p').textContent = text;
+
+  if (resolutions.length > 0) {
+    const resolutionParagraph = message.createChild('p');
+    resolutionParagraph.createChild('strong').textContent = ls`Resolve by`;
+    const resolutionList = createElementWithClass('ul');
+    resolutionParagraph.appendChild(resolutionList);
+
+    for (const resolution of resolutions) {
+      resolutionList.createChild('li').textContent = resolution;
+    }
+  }
+
+  return message;
+}
+
 /** @enum {symbol} */
 const IssueKind = {
   BreakingChange: Symbol('BreakingChange'),
@@ -596,26 +619,24 @@ let AggregatedIssueDescription;  // eslint-disable-line no-unused-vars
 
 /** @type {!Map<string, !AggregatedIssueDescription>} */
 const issueDescriptions = new Map([
-  ['SameSiteCookies::SameSiteNoneWithoutSecure',
-      {title: ls`A Cookie has been set with SameSite=None but without Secure`, message:
-        () => textOnlyMessage(ls
-    `In a future version of Chrome, third-party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man-in-the-middle scenario.`),
+  ['SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::ReadCookie', {
+    title: ls`A cookie was blocked. A cookie without a valid 'SameSite' attribute is treated as 'SameSite=Lax'`,
+    message: () => textMessageWithResolutions(ls`A cookie was available to send in a cross-site request, but it has no valid 'SameSite' attribute. The default behavior of 'SameSite=Lax' blocked this cookie from being sent cross-site.`,
+    [
+      ls`If this cookie is intended for third parties, mark the cookie as 'SameSite=None; Secure'.`,
+      ls`If this cookie is not intended for third parties, consider explicitly marking the cookie as 'SameSite=Strict' or 'SameSite=Lax' to make your intent clear and provide a consistent experience across browsers.`,
+    ]),
     issueKind: IssueKind.BreakingChange,
     link: ls`https://web.dev/samesite-cookies-explained/`,
     linkTitle: ls`SameSite cookies explained`,
   }],
-  ['SameSiteCookies::SameSiteNoneMissingForThirdParty', {
-    title: ls`A Cookie in a third-party context has been set without SameSite=None`,
-    message: () => textOnlyMessage(ls
-    `In a future version of Chrome, third-party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man-in-the-middle scenario.`),
-    issueKind: IssueKind.BreakingChange,
-    link: ls`https://web.dev/samesite-cookies-explained/`,
-    linkTitle: ls`SameSite cookies explained`,
-  }],
-  ['SameSiteCookieIssue', {
-    title: ls`A Cookie in a third-party context has been set without SameSite=None`,
-    message: () => textOnlyMessage(ls
-    `In a future version of Chrome, third-party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man-in-the-middle scenario.`),
+  ['SameSiteCookieIssue::ExcludeSameSiteNoneInsecure::SetCookie', {
+    title: ls`A cookie was blocked. A cookie specified 'SameSite=None' without 'Secure'`,
+    message: () => textMessageWithResolutions(ls`A cookie was sent with the 'SameSite=None' attribute, marking it as available for third-party use. Cookies with 'SameSite=None' are not set unless they also have the 'Secure' attribute.`,
+    [
+      ls`If this cookie is intended for third parties, mark the cookie as 'Secure'.`,
+      ls`If this cookie is not intended for third parties, consider explicitly marking the cookie as 'SameSite=Strict' or 'SameSite=Lax' to make your intent clear and provide a consistent experience across browsers.`,
+    ]),
     issueKind: IssueKind.BreakingChange,
     link: ls`https://web.dev/samesite-cookies-explained/`,
     linkTitle: ls`SameSite cookies explained`,
