@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4bd82163_f4643162",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T15:44:19Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "b6bfdb96_3f5a6fab",
+      "range": {
+        "startLine": 162,
+        "startChar": 8,
+        "endLine": 162,
+        "endChar": 79
+      },
+      "revId": "57e9cb0e3e0d0bf6c58387777247f2b42d999e59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc63a2c8_ba240414",
         "filename": "scripts/test/run_lint_check.js",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3be95259_587afc1c",
+        "filename": "scripts/test/run_lint_check.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T15:44:19Z",
+      "side": 1,
+      "message": "This was copied from bin/ESLint but I suppose I can change it here.",
+      "parentUuid": "dc63a2c8_ba240414",
+      "range": {
+        "startLine": 5,
+        "startChar": 3,
+        "endLine": 5,
+        "endChar": 56
+      },
+      "revId": "57e9cb0e3e0d0bf6c58387777247f2b42d999e59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "939de8db_a52da064",
         "filename": "scripts/test/run_lint_check.py",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2020-04-14T15:35:46Z",
       "side": 1,
       "message": "Any reason we aren\u0027t just removing this file entirely? Seems like it doesn\u0027t serve a purpose but to redirect?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "57e9cb0e3e0d0bf6c58387777247f2b42d999e59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61d84b2e_e5699c54",
+        "filename": "scripts/test/run_lint_check.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-14T15:44:19Z",
+      "side": 1,
+      "message": "The bots only execute Python scripts, so this has to stay 😭",
+      "parentUuid": "939de8db_a52da064",
       "range": {
         "startLine": 7,
         "startChar": 0,
