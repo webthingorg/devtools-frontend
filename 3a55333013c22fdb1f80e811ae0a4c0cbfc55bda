@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b1cc2844_80ec4754",
+        "filename": "test/e2e/application/cookies.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "I\u0027ll fix it manually for now.",
+      "parentUuid": "0f542076_c08c03be",
+      "range": {
+        "startLine": 10,
+        "startChar": 86,
+        "endLine": 10,
+        "endChar": 92
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad70fe5b_d93873e2",
         "filename": "test/e2e/application/cookies.ts",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95aaf7be_34b1520e",
+        "filename": "test/e2e/application/cookies.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "Thanks! Should I add the crbug link here to keep it as a reference?",
+      "parentUuid": "ad70fe5b_d93873e2",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
       "key": {
@@ -71,6 +119,53 @@
     },
     {
       "key": {
+        "uuid": "81984d80_833de349",
+        "filename": "test/e2e/application/websql-database.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "This is used further down.",
+      "parentUuid": "61cb8ed5_ceb8d376",
+      "range": {
+        "startLine": 8,
+        "startChar": 11,
+        "endLine": 8,
+        "endChar": 28
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "198fcd25_b708cf96",
+        "filename": "test/e2e/application/websql-database.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "debuggerStatement is used down here.",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b14e358_0e794e95",
         "filename": "test/e2e/lighthouse/BUILD.gn",
         "patchSetId": 4
@@ -91,6 +186,30 @@
       "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d80cb9ac_62dac97a",
+        "filename": "test/e2e/lighthouse/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b14e358_0e794e95",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "ee9421cc_641ff70d",
+        "filename": "test/e2e/lighthouse/generate-report.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b82bbadd_a4edcf02",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "865222e6_b464d967",
         "filename": "test/e2e/lighthouse/generate-report.ts",
         "patchSetId": 4
@@ -137,6 +280,30 @@
       "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a510542_d0e00288",
+        "filename": "test/e2e/lighthouse/generate-report.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "865222e6_b464d967",
+      "range": {
+        "startLine": 18,
+        "startChar": 14,
+        "endLine": 18,
+        "endChar": 25
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "a0855778_b77cce2a",
+        "filename": "test/e2e/lighthouse/generate-report.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f09eae7_207f9544",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caa86fb5_673070e2",
         "filename": "test/e2e/resources/application/cookies.html",
         "patchSetId": 4
@@ -183,6 +374,30 @@
       "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebece61a_be5c368f",
+        "filename": "test/e2e/resources/application/cookies.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-04-14T14:31:50Z",
+      "side": 1,
+      "message": "Good catch! I added a cleanup call in afterEach.",
+      "parentUuid": "caa86fb5_673070e2",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "3a55333013c22fdb1f80e811ae0a4c0cbfc55bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
