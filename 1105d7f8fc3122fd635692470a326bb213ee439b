@@ -22,6 +22,30 @@
       "revId": "1105d7f8fc3122fd635692470a326bb213ee439b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c980efa_0df8b1b5",
+        "filename": "test/e2e/sources/script-in-multiple-workers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-15T09:00:41Z",
+      "side": 1,
+      "message": "There is nothing to wait for. We already waited for the postMessage() to finish; this breakpoint happened in a worker where we aren\u0027t directly controlling the evaluation.",
+      "parentUuid": "d0c5f7e6_bf507493",
+      "range": {
+        "startLine": 182,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 35
+      },
+      "revId": "1105d7f8fc3122fd635692470a326bb213ee439b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
