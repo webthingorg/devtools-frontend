@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a81c81c_e38c5980",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-15T12:09:01Z",
+      "side": 1,
+      "message": "can\u0027t we remove this TODO?",
+      "range": {
+        "startLine": 46,
+        "startChar": 5,
+        "endLine": 46,
+        "endChar": 46
+      },
+      "revId": "ea23e880b4923cb209eb314ada18bd3aecd05394",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0b34c11_eac4ff78",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-15T12:09:01Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 46
+      },
+      "revId": "ea23e880b4923cb209eb314ada18bd3aecd05394",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b29c0a4_876ef047",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-15T12:09:01Z",
+      "side": 1,
+      "message": "can also be removed :)",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 92
+      },
+      "revId": "ea23e880b4923cb209eb314ada18bd3aecd05394",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38ad8f69_64b7ef62",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-15T12:09:01Z",
+      "side": 1,
+      "message": "the \"vice versa\" is missleading after the rebase. Sry, I forgot to update the comment in my CL.",
+      "range": {
+        "startLine": 217,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 75
+      },
+      "revId": "ea23e880b4923cb209eb314ada18bd3aecd05394",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c4e5f22_48916d02",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-15T12:09:01Z",
+      "side": 1,
+      "message": "dont forget to remove this line after rebasing.",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 42
+      },
+      "revId": "ea23e880b4923cb209eb314ada18bd3aecd05394",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
