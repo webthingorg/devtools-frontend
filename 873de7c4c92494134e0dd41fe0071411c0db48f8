@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a25701c1_130306b7",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-15T11:28:45Z",
+      "side": 1,
+      "message": "One of these is not like the others. Tim, any thoughts on this? Also, since this is not a class export, should it be a different directory structure?",
+      "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa1f93d6_302a6837",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-15T11:28:45Z",
+      "side": 1,
+      "message": "Same here, the lowercase l jumps out. (I get that it’s not a class, and so uppercasing it doesn’t make sense, but… maybe there’s some other way of dealing with this.)",
+      "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6cc9afe_edd6d54a",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-15T11:28:45Z",
+      "side": 1,
+      "message": "The name `_computedBody` doesn’t make sense now that we use the root element.",
+      "range": {
+        "startLine": 1755,
+        "startChar": 9,
+        "endLine": 1755,
+        "endChar": 22
+      },
+      "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
