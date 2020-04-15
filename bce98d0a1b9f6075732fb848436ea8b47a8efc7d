@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "832cfa86_1c8627c2",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-15T13:38:27Z",
+      "side": 0,
+      "message": "It looks like this was the only callsite for `turnIntoSelect` with a `width` parameter. If this is correct, then let\u0027s remove the special-casing from `turnIntoSelect` as well.",
+      "range": {
+        "startLine": 93,
+        "startChar": 42,
+        "endLine": 93,
+        "endChar": 45
+      },
+      "revId": "bce98d0a1b9f6075732fb848436ea8b47a8efc7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
