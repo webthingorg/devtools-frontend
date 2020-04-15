@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8178109_93f9d75c",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-15T04:55:35Z",
+      "side": 1,
+      "message": "Aren\u0027t arrays iterable by default anyway? Why is the {values} call necessary?",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 22
+      },
+      "revId": "bd98ec23f9be15fd37127496d9b8cdf3fe8ea8c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "125c4cbe_7e261b1c",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-15T04:55:35Z",
+      "side": 1,
+      "message": "\"iframe\" was locked in all the message. We shouldn\u0027t forget to lock \"iframe\" again before landing.",
+      "range": {
+        "startLine": 110,
+        "startChar": 7,
+        "endLine": 110,
+        "endChar": 13
+      },
+      "revId": "bd98ec23f9be15fd37127496d9b8cdf3fe8ea8c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
