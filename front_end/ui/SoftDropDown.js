@@ -49,6 +49,7 @@ export class SoftDropDown {
         .appendChild(this._list.element);
     ARIAUtils.markAsMenu(this._list.element);
 
+    this._hideTimeout = null;
     this._listWasShowing200msAgo = false;
     this.element.addEventListener('mousedown', event => {
       if (this._listWasShowing200msAgo) {
@@ -60,6 +61,8 @@ export class SoftDropDown {
     this.element.addEventListener('keydown', this._onKeyDownButton.bind(this), false);
     this._list.element.addEventListener('keydown', this._onKeyDownList.bind(this), false);
     this._list.element.addEventListener('focusout', this._hide.bind(this), false);
+    this._list.element.addEventListener('mouseover', this._onMouseOver.bind(this), false);
+    this._list.element.addEventListener('mouseleave', this._onMouseLeave.bind(this), false);
     this._list.element.addEventListener('mousedown', event => event.consume(true), false);
     this._list.element.addEventListener('mouseup', event => {
       if (event.target === this._list.element) {
@@ -98,6 +101,20 @@ export class SoftDropDown {
     const maxHeight = this._rowHeight * (Math.min(this._model.length, 9));
     this._glassPane.setMaxContentSize(new Size(this._width, maxHeight));
     this._list.viewportResized();
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onMouseLeave(event) {
+    this._hideTimeout = setTimeout(() => this._hide(event), 200);
+  }
+
+  _onMouseOver() {
+    if (this._hideTimeout) {
+      clearTimeout(this._hideTimeout);
+      this._hideTimeout = null;
+    }
   }
 
   /**
