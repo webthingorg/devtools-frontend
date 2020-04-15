@@ -29,6 +29,7 @@ npm-debug.log
 !/third_party/blink
 !/third_party/pyjson5
 !/third_party/typescript
+!/third_party/conductor
 
 test/e2e/**/*.js
 !test/e2e/resources/**/*.js
