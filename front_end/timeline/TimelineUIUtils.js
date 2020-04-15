@@ -1254,11 +1254,10 @@ export class TimelineUIUtils {
         return;
       }
 
-      // aggeregatedStats is a map by categories. For each category there's an array
+      // aggregatedStats is a map by categories. For each category there's an array
       // containing sorted time points which records accumulated value of the category.
       const aggregatedStats = {};
       const categoryStack = [];
-      let lastTime = 0;
       TimelineModel.TimelineModel.TimelineModelImpl.forEachEvent(
           events, onStartEvent, onEndEvent, undefined, undefined, undefined, filterForStats());
 
@@ -1274,7 +1273,7 @@ export class TimelineUIUtils {
        * @param {string} category
        * @param {number} time
        */
-      function updateCategory(category, time) {
+      function updateCategoryOnStart(category, time) {
         let statsArrays = aggregatedStats[category];
         if (!statsArrays) {
           statsArrays = {time: [], value: []};
@@ -1284,23 +1283,23 @@ export class TimelineUIUtils {
           return;
         }
         const lastValue = statsArrays.value.length ? statsArrays.value.peekLast() : 0;
-        statsArrays.value.push(lastValue + time - lastTime);
+        statsArrays.value.push(lastValue);
         statsArrays.time.push(time);
       }
 
       /**
-       * @param {?string} from
-       * @param {?string} to
+       * @param {string} category
        * @param {number} time
        */
-      function categoryChange(from, to, time) {
-        if (from) {
-          updateCategory(from, time);
+      function updateCategoryOnEnd(category, time) {
+        const statsArrays = aggregatedStats[category];
+        const lastTime = statsArrays.time.peekLast();
+        if (lastTime === time) {
+          return;
         }
-        lastTime = time;
-        if (to) {
-          updateCategory(to, time);
-        }
+        const lastValue = statsArrays.value.peekLast();
+        statsArrays.value.push(lastValue + time - lastTime);
+        statsArrays.time.push(time);
       }
 
       /**
@@ -1310,7 +1309,7 @@ export class TimelineUIUtils {
         const category = TimelineUIUtils.eventStyle(e).category.name;
         const parentCategory = categoryStack.length ? categoryStack.peekLast() : null;
         if (category !== parentCategory) {
-          categoryChange(parentCategory, category, e.startTime);
+          updateCategoryOnStart(category, e.startTime);
         }
         categoryStack.push(category);
       }
@@ -1322,7 +1321,7 @@ export class TimelineUIUtils {
         const category = categoryStack.pop();
         const parentCategory = categoryStack.length ? categoryStack.peekLast() : null;
         if (category !== parentCategory) {
-          categoryChange(category, parentCategory, e.endTime);
+          updateCategoryOnEnd(category, e.endTime);
         }
       }
 
