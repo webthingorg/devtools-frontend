@@ -22,6 +22,30 @@
       "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0137d19a_9a04fee6",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-04-15T00:07:59Z",
+      "side": 1,
+      "message": "Hi Connor,\nThey don\u0027t need to be hashes, they can be any strings. We had a discussion around this, and the best solution we can come up to automatize the migration was the hashes. We have another option (I can show it on another CL) which involves using the string itself but without spaces and trimmed to a max length (which if I understand correctly is the same as your proposal?). That being said we are open to any suggestions in here 😊",
+      "parentUuid": "6d14495f_ede309fa",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
