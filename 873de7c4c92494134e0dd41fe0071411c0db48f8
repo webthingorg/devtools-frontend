@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "851db23f_d21d42ba",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-15T11:32:22Z",
+      "side": 1,
+      "message": "Yes this needs to be `import * as Lazy from \u0027./Lazy.js\u0027`. I will take a look as to why the linter didn\u0027t warn on this.",
+      "parentUuid": "a25701c1_130306b7",
+      "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa1f93d6_302a6837",
         "filename": "front_end/common/common.js",
         "patchSetId": 5
