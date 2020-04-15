@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b7e7e10_e36543d1",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-15T10:27:01Z",
+      "side": 1,
+      "message": "This is quadratic and can easily be rewritten to n log n leveraging the includes test of the set.",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 116,
+        "endChar": 5
+      },
+      "revId": "bc65e66df94060145486c6174528ef432d26bb2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
