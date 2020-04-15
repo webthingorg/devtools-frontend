@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8bf7a0ae_5bcbb433",
+        "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-04-15T23:27:18Z",
+      "side": 1,
+      "message": "I imagine the plan is to make a script that takes the current .grdp files and emits a UIStrings object? and maybe even inject that resulting code to the top of the .js file? At least that much should be easy to automate. I don\u0027t know how much effort it\u0027d be to do the rest (anything beyond L70 in this file) - have you considered this?",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d14495f_ede309fa",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 2
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "Hi Connor,\nThey don\u0027t need to be hashes, they can be any strings. We had a discussion around this, and the best solution we can come up to automatize the migration was the hashes. We have another option (I can show it on another CL) which involves using the string itself but without spaces and trimmed to a max length (which if I understand correctly is the same as your proposal?). That being said we are open to any suggestions in here 😊",
       "parentUuid": "6d14495f_ede309fa",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5668463_450f4ddd",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-04-15T23:27:18Z",
+      "side": 1,
+      "message": "I think it\u0027ll be worth the effort to give each of the strings a name. It could be automated somewhat by making a script that makes a name based on the contents, but a manual human pass should be done. A big part of a good i18n system is the developer ergonomics, and good names is important for that.\n\nA script to help with this might be like:\n\n1) collect all the string ids (the hashes)\n2) create a default name from the contents (camel case, set a max char limit)\n3) override where appropriate (maybe this part could be done in a spreadsheet and the work can be split up)\n4) use the resultant original hash id \u003d\u003e new property name dictionary in an automated codemod (the \"Migration\" step)",
+      "parentUuid": "0137d19a_9a04fee6",
       "range": {
         "startLine": 48,
         "startChar": 8,
