@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e9964714_3b5d85dd",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-04-16T00:12:25Z",
+      "side": 1,
+      "message": "Is there a technical reason for this requirement or is this an idiom we\u0027re applying to devtools-frontend? I specifically didn\u0027t follow the pattern because I didn\u0027t care for the redundancy of `Common.Lazy.lazy()`",
+      "parentUuid": "851db23f_d21d42ba",
+      "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa1f93d6_302a6837",
         "filename": "front_end/common/common.js",
         "patchSetId": 5
@@ -51,6 +69,24 @@
       "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b69f31f_8f338cc7",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-04-16T00:12:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa1f93d6_302a6837",
+      "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
