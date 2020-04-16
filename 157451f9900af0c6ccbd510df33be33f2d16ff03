@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a6806cb_e3f1e88f",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 0,
+      "message": "Very nice to get rid of these two!",
+      "range": {
+        "startLine": 224,
+        "startChar": 2,
+        "endLine": 224,
+        "endChar": 18
+      },
+      "revId": "157451f9900af0c6ccbd510df33be33f2d16ff03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

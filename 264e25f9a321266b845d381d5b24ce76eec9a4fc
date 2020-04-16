@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "687a0ec8_c133de57",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 1,
+      "message": "Iterable?",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e48827b_1798b7c2",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 1,
+      "message": "This is slow if we have a lot of issues, but I like the general design. Maybe the IssuesModel needs to do some keying, i.e. keep a map from requestId \u003d\u003e [issues] or something similar. This would considerably speed things up if need be.",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e6304b1_599618a6",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 1,
+      "message": "Let\u0027s rewrite this as a generator and yield all matching issues.",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 43
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "313a6680_4a50c83e",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 1,
+      "message": "Let\u0027s rewrite this as a generator and yield all matching issues.",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9decf641_0291f1b7",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 1,
+      "message": "would it be an option to just make this object?",
+      "range": {
+        "startLine": 70,
+        "startChar": 12,
+        "endLine": 70,
+        "endChar": 30
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb50d1a5_32785444",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 1,
+      "message": "@throws documentation?",
+      "range": {
+        "startLine": 80,
+        "startChar": 12,
+        "endLine": 80,
+        "endChar": 17
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c776ae15_2a10341a",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-16T07:24:14Z",
+      "side": 1,
+      "message": "Let\u0027s have a predicate as additional argument too all the issuesAssociatedWith* functions instead of filtering afterwards.\n\nI understand now why you chose Array as return type for those.",
+      "range": {
+        "startLine": 106,
+        "startChar": 17,
+        "endLine": 106,
+        "endChar": 37
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
