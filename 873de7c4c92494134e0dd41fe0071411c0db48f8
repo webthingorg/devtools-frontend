@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "803984ef_969a409e",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-16T09:45:27Z",
+      "side": 1,
+      "message": "Yes to keep all code consistent per the style guide in https://docs.google.com/presentation/d/1KaTDaKEcLmgv3Wum79gPP9mv9x2fm3kuEgx_b8wLVug/edit#slide\u003did.g6f3bb6e30c_0_163",
+      "parentUuid": "e9964714_3b5d85dd",
+      "revId": "873de7c4c92494134e0dd41fe0071411c0db48f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa1f93d6_302a6837",
         "filename": "front_end/common/common.js",
         "patchSetId": 5
