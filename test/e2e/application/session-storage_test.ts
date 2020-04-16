@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, resetPages, resourcesPath, waitFor} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, resourcesPath, waitFor} from '../../shared/helper.js';
 
 const SESSION_STORAGE_SELECTOR = '[aria-label="Session Storage"]';
 const DOMAIN_SELECTOR = `${SESSION_STORAGE_SELECTOR} + ol > [aria-label="http://localhost:8090"]`;
@@ -24,10 +24,6 @@ async function doubleClickSourceTreeItem(selector: string) {
 }
 
 describe('The Application Tab', async () => {
-  beforeEach(async () => {
-    await resetPages();
-  });
-
   it('shows Session Storage keys and values', async () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'session-storage');

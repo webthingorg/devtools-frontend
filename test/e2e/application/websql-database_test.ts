@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {$, click, debuggerStatement, getBrowserAndPages, resetPages, resourcesPath, waitFor} from '../../shared/helper.js';
+import {$, click, debuggerStatement, getBrowserAndPages, resourcesPath, waitFor} from '../../shared/helper.js';
 
 const WEB_SQL_SELECTOR = '[aria-label="Web SQL"]';
 const DATABASES_SELECTOR = `${WEB_SQL_SELECTOR} + ol`;
@@ -24,10 +24,6 @@ async function doubleClickSourceTreeItem(selector: string) {
 }
 
 describe('The Application Tab', async () => {
-  beforeEach(async () => {
-    await resetPages();
-  });
-
   it('shows WebSQL database', async () => {
     const {target, frontend} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'websql-database');
