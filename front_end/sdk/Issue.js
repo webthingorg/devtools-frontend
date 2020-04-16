@@ -57,6 +57,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @returns {Protocol.Audits.MixedContentIssueDetails}
+   */
+  mixedContent() {
+    return null;
+  }
+
+  /**
    * @param {string} requestId
    * @returns {boolean}
    */
@@ -102,6 +109,8 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     this._requests = new Set();
     /** @type {?Issue} */
     this._representative = null;
+    /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
+    this._mixedContents = new Map();
   }
 
   /**
@@ -118,6 +127,10 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     return this._cookies.values();
   }
 
+  mixedContents() {
+    return this._mixedContents.values();
+  }
+
   /**
    * @returns {!Iterable<!NetworkRequest>}
    */
@@ -130,6 +143,10 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
       return this._representative.getDescription();
     }
     return null;
+  }
+
+  numberOfMixedContents() {
+    return this._mixedContents.size;
   }
 
   /**
@@ -147,6 +164,10 @@ export class AggregatedIssue extends Common.ObjectWrapper.ObjectWrapper {
     }
     for (const request of issue.requests()) {
       this._requests.add(request.requestId);
+    }
+    const mixedContent = issue.mixedContent();
+    if (mixedContent) {
+      this._mixedContents.set(mixedContent.insecureURL, mixedContent);
     }
   }
 }

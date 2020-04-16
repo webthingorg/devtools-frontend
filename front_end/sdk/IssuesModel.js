@@ -7,6 +7,7 @@ import * as Common from '../common/common.js';  // eslint-disable-line no-unused
 import {CookieModel} from './CookieModel.js';
 import {CrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
 import {AggregatedIssue, Issue} from './Issue.js';  // eslint-disable-line no-unused-vars
+import {MixedContentIssue} from './MixedContentIssue.js';
 import {Events as NetworkManagerEvents, NetworkManager} from './NetworkManager.js';
 import {NetworkRequest} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
 import * as RelatedIssue from './RelatedIssue.js';
@@ -256,6 +257,13 @@ const issueCodeHandlers = new Map([
     'SameSiteCookieIssue',
     (model, details) => {
       const issue = new SameSiteCookieIssue('SameSiteCookieIssue', details.sameSiteCookieIssueDetails);
+      return [issue];
+    }
+  ],
+  [
+    'MixedContentIssue',
+    (model, details) => {
+      const issue = new MixedContentIssue('MixedContentIssue', details.mixedContentIssueDetails);
       return [issue];
     }
   ],

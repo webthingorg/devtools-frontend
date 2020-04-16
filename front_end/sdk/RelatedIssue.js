@@ -9,6 +9,7 @@ const connectedIssueSymbol = Symbol('issue');
 export const IssueCategory = {
   CrossOriginEmbedderPolicy: Symbol('CrossOriginEmbedderPolicy'),
   SameSiteCookie: Symbol('SameSiteCookie'),
+  MixedContent: Symbol('MixedContent'),
   Other: Symbol('Other')
 };
 
