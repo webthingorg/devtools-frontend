@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7800abf8_5af4f8e0",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-16T09:30:07Z",
+      "side": 1,
+      "message": "As noted below, if we use iterable here we have to spread it again into new arrays if we wanna use things like \"filter\" or \"some\".",
+      "parentUuid": "687a0ec8_c133de57",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e48827b_1798b7c2",
         "filename": "front_end/sdk/RelatedIssue.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-16T07:24:14Z",
       "side": 1,
       "message": "This is slow if we have a lot of issues, but I like the general design. Maybe the IssuesModel needs to do some keying, i.e. keep a map from requestId \u003d\u003e [issues] or something similar. This would considerably speed things up if need be.",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48077ae0_516dc947",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-16T09:30:07Z",
+      "side": 1,
+      "message": "Agreed. I\u0027d like to do that in a follow up CL. The methods {issuesAssociatedWithNetworkRequest}, etc will then utilise such a cache. This method would then go away.",
+      "parentUuid": "2e48827b_1798b7c2",
       "range": {
         "startLine": 28,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ceabc68a_a0898353",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-16T09:30:07Z",
+      "side": 1,
+      "message": "See comment below.",
+      "parentUuid": "5e6304b1_599618a6",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 43
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "313a6680_4a50c83e",
         "filename": "front_end/sdk/RelatedIssue.js",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d9650d19_d8db5686",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-16T09:30:07Z",
+      "side": 1,
+      "message": "See comment below.",
+      "parentUuid": "313a6680_4a50c83e",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9decf641_0291f1b7",
         "filename": "front_end/sdk/RelatedIssue.js",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2020-04-16T07:24:14Z",
       "side": 1,
       "message": "would it be an option to just make this object?",
+      "range": {
+        "startLine": 70,
+        "startChar": 12,
+        "endLine": 70,
+        "endChar": 30
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0676d358_eda12d10",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-16T09:30:07Z",
+      "side": 1,
+      "message": "It would, but given that the Issues panel needs explicit support for all the different affected resources, I strongly prefer the guarantees we get from the type checker using explicit types here.",
+      "parentUuid": "9decf641_0291f1b7",
       "range": {
         "startLine": 70,
         "startChar": 12,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "dd77c4a8_b4216302",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-16T09:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb50d1a5_32785444",
+      "range": {
+        "startLine": 80,
+        "startChar": 12,
+        "endLine": 80,
+        "endChar": 17
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c776ae15_2a10341a",
         "filename": "front_end/sdk/RelatedIssue.js",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2020-04-16T07:24:14Z",
       "side": 1,
       "message": "Let\u0027s have a predicate as additional argument too all the issuesAssociatedWith* functions instead of filtering afterwards.\n\nI understand now why you chose Array as return type for those.",
+      "range": {
+        "startLine": 106,
+        "startChar": 17,
+        "endLine": 106,
+        "endChar": 37
+      },
+      "revId": "264e25f9a321266b845d381d5b24ce76eec9a4fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "969e8cf1_e276a131",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-16T09:30:07Z",
+      "side": 1,
+      "message": "Indeed. I tried two solutions:\n\n1) passing in an additional predicate that we can use for the category\n2) rewrite it in a more functional way that creates different matchers and use an \"all\" operation to narrow down the issues list.\n\nAll of these turned out to be way more unreadable and overly convoluted. I\u0027d prefer to keep the code as is for now (modulo changes needed to make it testable). Doing the follow up improvement of having a \"reverse map\" of requestId -\u003e Issues will solve the biggest performance bottle neck. wdyt?",
+      "parentUuid": "c776ae15_2a10341a",
       "range": {
         "startLine": 106,
         "startChar": 17,
