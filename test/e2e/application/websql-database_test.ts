@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {$, click, getBrowserAndPages, resetPages, resourcesPath, waitFor, debuggerStatement} from '../../shared/helper.js';
+import {$, click, debuggerStatement, getBrowserAndPages, resetPages, resourcesPath, waitFor} from '../../shared/helper.js';
 
 const WEB_SQL_SELECTOR = '[aria-label="Web SQL"]';
 const DATABASES_SELECTOR = `${WEB_SQL_SELECTOR} + ol`;
