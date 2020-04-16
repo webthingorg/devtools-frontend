@@ -16,6 +16,24 @@
       "revId": "3691b77d48334e8ebf83426d5ef22f18be945e66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b977f2fb_41c78026",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-16T20:26:01Z",
+      "side": 1,
+      "message": "It\u0027s not user-actionable just yet--allowing users to set arbitrary shortcuts is in progress, but lower priority than allow users to choose editor presets. I agree that we should surface it though, and my plan right now is to have the shortcut editor validate shortcuts and surface errors.",
+      "parentUuid": "8be13453_dfa3405c",
+      "revId": "3691b77d48334e8ebf83426d5ef22f18be945e66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

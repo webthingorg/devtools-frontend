@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "30d99c5a_6007f227",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-16T20:26:01Z",
+      "side": 1,
+      "message": "Such a comment exists here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/KeyboardShortcut.js;drc\u003d94a9b0c7684f6c7b1ce50c1c8f1db8bd028a57e9;l\u003d47\n\n   * Creates a number encoding keyCode in the lower 8 bits and modifiers mask in the higher 8 bits.\n   * It is useful for matching pressed keys.",
+      "parentUuid": "288a6aa2_a384ce23",
+      "revId": "96edc43f95035506119d77a5b8aad9151b5d5dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cd22e00_6427dac1",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 17
@@ -33,6 +51,24 @@
       "revId": "96edc43f95035506119d77a5b8aad9151b5d5dbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "408996b7_c57a71ca",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-16T20:26:01Z",
+      "side": 1,
+      "message": "We\u0027re not copying and filtering the entire map, just the set of shortcuts that match key--probably fewer than 5 shortcuts or so. I agree that this isn\u0027t a great implementation though, so I\u0027ve refactored it to use a tree",
+      "parentUuid": "0cd22e00_6427dac1",
+      "revId": "96edc43f95035506119d77a5b8aad9151b5d5dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
