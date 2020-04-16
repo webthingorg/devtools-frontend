@@ -4,14 +4,10 @@
 
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
-import {$, $$, getBrowserAndPages, resetPages, resourcesPath, waitFor} from '../../shared/helper.js';
+import {$, $$, getBrowserAndPages, resourcesPath, waitFor} from '../../shared/helper.js';
 import {triggerFindDialog} from '../helpers/search-helpers.js';
 
 describe('The Search Panel', async () => {
-  beforeEach(async () => {
-    await resetPages();
-  });
-
   it('provides results across scopes', async () => {
     const {target, frontend} = getBrowserAndPages();
     const SEARCH_QUERY = '[aria-label="Search Query"]';

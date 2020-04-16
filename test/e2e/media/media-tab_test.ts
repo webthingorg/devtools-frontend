@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {resetPages} from '../../shared/helper.js';
+// import {resetPages} from '../../shared/helper.js';
 import {getPlayerButtonText, playMediaFile} from '../helpers/media-helpers.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
@@ -15,9 +15,9 @@ function shouldRunTest() {
 }
 
 describe('Media Tab', () => {
-  beforeEach(async () => {
-    await resetPages({'enabledExperiments': ['mediaInspector']});
-  });
+  // beforeEach(async () => {
+  //   await resetPages({'enabledExperiments': ['mediaInspector']});
+  // });
 
   it('ensures video playback adds entry', async () => {
     if (!shouldRunTest()) {

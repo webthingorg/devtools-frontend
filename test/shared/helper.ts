@@ -2,9 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as os from 'os';
 import {performance} from 'perf_hooks';
 import * as puppeteer from 'puppeteer';
-import * as os from 'os';
+
+import {getBrowserAndPages} from '../../third_party/conductor/puppeteerState.js';
 
 export let platform: string;
 switch (os.platform()) {
@@ -21,24 +23,6 @@ switch (os.platform()) {
     break;
 }
 
-interface BrowserAndPages {
-  browser: puppeteer.Browser;
-  target: puppeteer.Page;
-  frontend: puppeteer.Page;
-  screenshot?: puppeteer.Page;
-}
-
-const targetPage = Symbol('TargetPage');
-const frontEndPage = Symbol('DevToolsPage');
-const screenshotPage = Symbol('ScreenshotPage');
-const browserInstance = Symbol('BrowserInstance');
-
-interface ResetPages {
-  (opts?: {enabledExperiments?: string[], selectedPanel?: {name: string, selector?: string}}): void
-}
-
-export let resetPages: ResetPages;
-
 // TODO: Remove once Chromium updates its version of Node.js to 12+.
 const globalThis: any = global;
 
@@ -50,7 +34,7 @@ const globalThis: any = global;
  * dances.
  */
 const collectAllElementsFromPage = async (root?: puppeteer.JSHandle) => {
-  const frontend: puppeteer.Page = globalThis[frontEndPage];
+  const {frontend} = getBrowserAndPages();
   await frontend.evaluate(root => {
     const container = (self as any);
     container.__elements = [];
@@ -100,7 +84,7 @@ export const getElementPosition = async (selector: string|puppeteer.JSHandle, ro
 export const click = async (
     selector: string|puppeteer.JSHandle,
     options?: {root?: puppeteer.JSHandle, clickOptions?: puppeteer.ClickOptions}) => {
-  const frontend: puppeteer.Page = globalThis[frontEndPage];
+  const {frontend} = getBrowserAndPages();
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
@@ -132,7 +116,7 @@ export const doubleClick =
 };
 
 export const typeText = async (text: string) => {
-  const frontend: puppeteer.Page = globalThis[frontEndPage];
+  const {frontend} = getBrowserAndPages();
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
@@ -142,7 +126,7 @@ export const typeText = async (text: string) => {
 
 // Get a single element handle, across Shadow DOM boundaries.
 export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
-  const frontend: puppeteer.Page = globalThis[frontEndPage];
+  const {frontend} = getBrowserAndPages();
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
@@ -160,7 +144,7 @@ export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
 
 // Get multiple element handles, across Shadow DOM boundaries.
 export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
-  const frontend: puppeteer.Page = globalThis[frontEndPage];
+  const {frontend} = getBrowserAndPages();
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
@@ -179,7 +163,7 @@ export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
  * @param root The root of the search.
  */
 export const $textContent = async (textContent: string, root?: puppeteer.JSHandle) => {
-  const frontend: puppeteer.Page = globalThis[frontEndPage];
+  const {frontend} = getBrowserAndPages();
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
@@ -274,35 +258,6 @@ export const logFailure = () => {
   });
 };
 
-export const store =
-    (browser: puppeteer.Browser, target: puppeteer.Page, frontend: puppeteer.Page, screenshot: puppeteer.Page | undefined,
-     reset: ResetPages) => {
-      globalThis[browserInstance] = browser;
-      globalThis[targetPage] = target;
-      globalThis[frontEndPage] = frontend;
-      globalThis[screenshotPage] = screenshot;
-      resetPages = reset;
-    };
-
-export const getBrowserAndPages = (): BrowserAndPages => {
-  if (!globalThis[targetPage]) {
-    throw new Error('Unable to locate target page. Was it stored first?');
-  }
-
-  if (!globalThis[frontEndPage]) {
-    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
-  }
-
-  if (!globalThis[browserInstance]) {
-    throw new Error('Unable to locate browser instance. Was it stored first?');
-  }
-
-  return {
-    browser: globalThis[browserInstance],
-    target: globalThis[targetPage],
-    frontend: globalThis[frontEndPage],
-    screenshot: globalThis[screenshotPage],
-  };
-};
-
 export const resourcesPath = 'http://localhost:8090/test/e2e/resources';
+
+export {getBrowserAndPages};
