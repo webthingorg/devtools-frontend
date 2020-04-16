@@ -4,14 +4,12 @@
 
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
-import {click, getBrowserAndPages, resetPages, resourcesPath, waitForElementWithTextContent} from '../../shared/helper.js';
+import {click, getBrowserAndPages, resourcesPath, waitForElementWithTextContent} from '../../shared/helper.js';
 import {assertContentOfSelectedElementsNode, assertSelectedElementsNodeTextIncludes, expandSelectedNodeRecursively, getBreadcrumbsTextContent, getSelectedBreadcrumbTextContent, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
 
 
 describe('Element breadcrumbs', async () => {
   beforeEach(async () => {
-    await resetPages();
-
     const {target} = getBrowserAndPages();
     await target.goto(`${resourcesPath}/elements/element-breadcrumbs.html`);
     await waitForElementsStyleSection();
