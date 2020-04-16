@@ -25,7 +25,9 @@ import './ElementsPanel.js';
 import './ClassesPaneWidget.js';
 import './ElementStatePaneWidget.js';
 import './ElementsTreeElementHighlighter.js';
+import './Adorner.js';
 
+import * as Adorner from './Adorner.js';
 import * as ClassesPaneWidget from './ClassesPaneWidget.js';
 import * as ColorSwatchPopoverIcon from './ColorSwatchPopoverIcon.js';
 import * as ComputedStyleModel from './ComputedStyleModel.js';
@@ -51,6 +53,7 @@ import * as StylePropertyTreeElement from './StylePropertyTreeElement.js';
 import * as StylesSidebarPane from './StylesSidebarPane.js';
 
 export {
+  Adorner,
   ClassesPaneWidget,
   ColorSwatchPopoverIcon,
   ComputedStyleModel,

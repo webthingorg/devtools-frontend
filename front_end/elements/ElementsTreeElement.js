@@ -37,6 +37,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
+import {Adorner} from './Adorner.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {MappedCharToEntity, UpdateRecord} from './ElementsTreeOutline.js';  // eslint-disable-line no-unused-vars
 import {MarkerDecorator} from './MarkerDecorator.js';
@@ -68,6 +69,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     this._searchQuery = null;
     this._expandedChildrenLimit = InitialChildrenLimit;
     this._decorationsThrottler = new Common.Throttler.Throttler(100);
+
+    this._adornerContainer = this.listItemElement.createChild('div', 'adorner-container hidden');
+    /** @type {!Array<!Adorner>} */
+    this._adorners = [];
 
     /**
      * @type {!Element|undefined}
@@ -1172,9 +1177,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       const highlightElement = createElement('span');
       highlightElement.className = 'highlight';
       highlightElement.appendChild(nodeInfo);
+      // fixme: make it clear that `this.title = x` is a setter with significant side effects
       this.title = highlightElement;
       this.updateDecorations();
       this.listItemElement.insertBefore(this._gutterContainer, this.listItemElement.firstChild);
+      this.listItemElement.appendChild(this._adornerContainer);
       delete this._highlightResult;
       delete this.selectionElement;
       delete this._hintElement;
@@ -1835,6 +1842,39 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   _editAsHTML() {
     const promise = Common.Revealer.reveal(this.node());
     promise.then(() => self.UI.actionRegistry.action('elements.edit-as-html').execute());
+  }
+
+  /**
+   *
+   * @param {string} text
+   * @param {!Object} options
+   * @return {!Adorner}
+   */
+  adornText(text, options = {}) {
+    const adornerContent = document.createElement('span');
+    adornerContent.textContent = text;
+    const adorner = Adorner.create(adornerContent, options);
+    this._adornerContainer.appendChild(adorner);
+    this._adornerContainer.classList.remove('hidden');
+    return adorner;
+  }
+
+  /**
+   *
+   * @param {!Adorner} adorner
+   */
+  removeAdorner(adorner) {
+    adorner.remove();
+    if (this._adorners.length === 0) {
+      this._adornerContainer.classList.add('hidden');
+    }
+  }
+
+  removeAllAdorners() {
+    for (const adorner of this._adorners) {
+      this.removeAdorner(adorner);
+    }
+    this._adornerContainer.classList.add('hidden');
   }
 }
 

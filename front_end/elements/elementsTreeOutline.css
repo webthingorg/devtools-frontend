@@ -345,3 +345,23 @@ li.selected:not(.always-parent) + ol.children {
         forced-color-adjust: none;
     }
 }
+
+/** Adorner */
+.adorner-container {
+    display: inline-block;
+}
+
+.adorner-container.hidden {
+    display: none;
+}
+
+.adorner-container devtools-adorner {
+    display: inline-flex;
+    margin-left: 6px;
+}
+
+devtools-adorner.grid {
+    --adorner-text-color: #ffffff;
+    --adorner-background-color: #3375e0;
+    --adorner-border-radius: 5px;
+}
