@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3fdd8465_4855094b",
+        "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-04-16T22:12:07Z",
+      "side": 1,
+      "message": "We have a script to automate the generation of this UIStrings object. For anything beyond L70 I think it\u0027s still WIP. @vidorteg can correct me if I\u0027m wrong :)",
+      "parentUuid": "8bf7a0ae_5bcbb433",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d14495f_ede309fa",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 2
