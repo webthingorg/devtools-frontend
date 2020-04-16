@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34d8ff4e_89c77866",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-16T15:05:29Z",
+      "side": 1,
+      "message": "If we use `append` instead of `appendChild` here, we get the same functionality with added support for strings of HTML in addition to `HTMLElement`s. WDYT, does this seem worthwhile?",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
