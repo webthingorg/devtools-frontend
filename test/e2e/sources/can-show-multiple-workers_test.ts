@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {click, getBrowserAndPages, resetPages, resourcesPath, waitFor} from '../../shared/helper.js';
+import {click, getBrowserAndPages, resourcesPath, waitFor} from '../../shared/helper.js';
 import {createSelectorsForWorkerFile, expandFileTree, NestedFileSelector} from '../helpers/sources-helpers.js';
 
 const WORKER1_SELECTORS = createSelectorsForFile('worker1.js');
@@ -22,10 +22,6 @@ async function openNestedWorkerFile(selectors: NestedFileSelector) {
 }
 
 describe('The Sources Tab', async () => {
-  beforeEach(async () => {
-    await resetPages();
-  });
-
   it('can show multiple dedicated workers with different scripts', async () => {
     const {target} = getBrowserAndPages();
 
