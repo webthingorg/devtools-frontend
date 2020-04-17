@@ -1027,16 +1027,17 @@ export class DOMNodeRevealer {
        */
       function onNodeResolved(resolvedNode) {
         panel._pendingNodeReveal = false;
+        if (!resolvedNode) {
+          return;
+        }
 
         // A detached node could still have a parent and ownerDocument
         // properties, which means stepping up through the hierarchy to ensure
         // that the root node is the document itself. Any break implies
         // detachment.
         let currentNode = resolvedNode;
-        if (currentNode) {
-          while (currentNode.parentNode) {
-            currentNode = currentNode.parentNode;
-          }
+        while (currentNode.parentNode) {
+          currentNode = currentNode.parentNode;
         }
         const isDetached = !(currentNode instanceof SDK.DOMModel.DOMDocument);
 
