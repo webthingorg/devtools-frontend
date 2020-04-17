@@ -4,14 +4,10 @@
 
 import {describe, it} from 'mocha';
 
-import {click, getBrowserAndPages, resetPages, resourcesPath, waitFor, waitForElementWithTextContent} from '../../shared/helper.js';
+import {click, getBrowserAndPages, resourcesPath, waitFor, waitForElementWithTextContent} from '../../shared/helper.js';
 import {assertContentOfSelectedElementsNode, expandSelectedNodeRecursively, getContentOfSelectedNode, waitForSelectedNodeChange} from '../helpers/elements-helpers.js';
 
 describe('The Elements tab', async () => {
-  beforeEach(async () => {
-    await resetPages();
-  });
-
   it('can delete elements in the tree', async () => {
     const {target, frontend} = getBrowserAndPages();
 
