@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "aeeccd34_6ace3b71",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb4b783d_1d071aff",
+      "range": {
+        "startLine": 100,
+        "startChar": 94,
+        "endLine": 100,
+        "endChar": 95
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a45a19c_403c2573",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a260696_a2b55136",
+      "range": {
+        "startLine": 100,
+        "startChar": 37,
+        "endLine": 100,
+        "endChar": 38
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3da81bf6_638c58ea",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b4b1faf_65e6a082",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3da81bf6_638c58ea",
+      "range": {
+        "startLine": 103,
+        "startChar": 118,
+        "endLine": 103,
+        "endChar": 122
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "bde9f1eb_fcf76c10",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "685475a1_35407559",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 23
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9663fa1_c8c1f1b9",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 4
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ea12a0d1_d7e141a1",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9663fa1_c8c1f1b9",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 107,
+        "endChar": 21
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aae9eedc_da722a3b",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2020-04-17T12:23:14Z",
       "side": 1,
       "message": "Wasn\u0027t there a comment from Rowan about also needing to upgrade to https?",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 90
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11db781b_2fc8de8f",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "Yes, but I\u0027d like to only include that comment if the request was made over HTTP, and not show it if the request was made over HTTPS.",
+      "parentUuid": "aae9eedc_da722a3b",
       "range": {
         "startLine": 121,
         "startChar": 15,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f828bb03_d5e0fecb",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "As discussed offline, additional warnings will be added (hopefully) early next week.\n\nI also like to delay extracting common text blocks until after we get some feedback.",
+      "parentUuid": "2bd8d707_26d65e3a",
+      "range": {
+        "startLine": 131,
+        "startChar": 26,
+        "endLine": 131,
+        "endChar": 50
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e04d806e_5ee5b4a1",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 4
@@ -183,6 +351,30 @@
       "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fe8543f_7afd0513",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-17T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e04d806e_5ee5b4a1",
+      "range": {
+        "startLine": 133,
+        "startChar": 37,
+        "endLine": 133,
+        "endChar": 61
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
