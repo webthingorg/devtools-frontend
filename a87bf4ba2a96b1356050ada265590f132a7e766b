@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed8bc1e2_8eae58a5",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-04-17T22:58:42Z",
+      "side": 1,
+      "message": "FYI: Button is re-enabled here",
+      "revId": "a87bf4ba2a96b1356050ada265590f132a7e766b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
