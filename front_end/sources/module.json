@@ -43,11 +43,23 @@
       ],
       "bindings": [
         {
-          "shortcut": "F8"
+          "shortcut": "F8",
+          "keybindSets": ["devToolsDefault"]
         },
         {
           "platform": "windows,linux",
-          "shortcut": "Ctrl+\\"
+          "shortcut": "Ctrl+\\",
+          "keybindSets": ["devToolsDefault"]
+        },
+        {
+          "platform": "windows,linux",
+          "shortcut": "F5",
+          "keybindSets": ["vsCode"]
+        },
+        {
+          "platform": "windows,linux",
+          "shortcut": "F6",
+          "keybindSets": ["vsCode"]
         },
         {
           "platform": "mac",
@@ -115,7 +127,8 @@
       ],
       "bindings": [
         {
-          "shortcut": "F9"
+          "shortcut": "F9",
+          "keybindSets": ["devToolsDefault"]
         }
       ]
     },
@@ -672,6 +685,14 @@
       "bindings": [
         {
           "shortcut": "Alt+w"
+        },
+        {
+          "shortcut": "Ctrl+W",
+          "keybindSets": ["devToolsDefault"]
+        },
+        {
+          "shortcut": "Ctrl+F4",
+          "keybindSets": ["devToolsDefault"]
         }
       ]
     },
@@ -707,6 +728,10 @@
         {
           "platform": "mac",
           "shortcut": "Meta+Shift+o"
+        },
+        {
+          "shortcut": "Meta+Shift+o",
+          "keybindSets": ["vsCode"]
         }
       ]
     },
@@ -723,6 +748,10 @@
         {
           "platform": "mac",
           "shortcut": "Meta+b"
+        },
+        {
+          "shortcut": "F9",
+          "keybindSets": ["vsCode"]
         }
       ]
     },

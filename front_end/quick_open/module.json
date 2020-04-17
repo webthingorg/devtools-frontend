@@ -56,6 +56,11 @@
         {
           "platform": "windows,linux",
           "shortcut": "Ctrl+O"
+        },
+        {
+          "platform": "windows,linux",
+          "shortcut": "Ctrl+E",
+          "keybindSets": ["vsCode"]
         }
       ]
     },

@@ -13,6 +13,10 @@
         },
         {
           "shortcut": "Shift+?"
+        },
+        {
+          "shortcut": "Ctrl+,",
+          "keybindSets": ["vsCode"]
         }
       ]
     },
