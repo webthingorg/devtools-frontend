@@ -1298,6 +1298,19 @@
     this.releaseControl();
   };
 
+  TestSuite.prototype.testCreateAndDestroyBrowserContext = async function(url) {
+    this.takeControl();
+    // Create a BrowserContext
+    const targetAgent = self.SDK.targetManager.mainTarget().targetAgent();
+    const {browserContextId} = await targetAgent.invoke_createBrowserContext();
+
+    // Cause a Browser to be created with the Independent OTR profile.
+    const {targetId} = await targetAgent.invoke_createTarget({url: 'about:blank', browserContextId, newWindow: true});
+    await targetAgent.invoke_attachToTarget({targetId, flatten: true});
+
+    this.releaseControl();
+  };
+
   TestSuite.prototype.testCreateBrowserContext = async function(url) {
     this.takeControl();
     const browserContextIds = [];
