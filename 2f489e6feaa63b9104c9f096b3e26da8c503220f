@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "261254ec_974f32f0",
+        "filename": "test/e2e/helpers/search-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-17T10:52:14Z",
+      "side": 1,
+      "message": "Ugh",
+      "parentUuid": "b56f90ef_f1da55f3",
+      "revId": "2f489e6feaa63b9104c9f096b3e26da8c503220f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15f12fbc_0a9ad24c",
         "filename": "test/e2e/host/user-metrics_test.ts",
         "patchSetId": 13
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "No we did not. My assumption is that Puppeteer scripts start before DevTools and on the `waitFor` the application starts loading.",
       "parentUuid": "15f12fbc_0a9ad24c",
+      "revId": "2f489e6feaa63b9104c9f096b3e26da8c503220f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49537bab_8cec98be",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-17T10:52:14Z",
+      "side": 1,
+      "message": "Should we add it then to be sure?",
+      "parentUuid": "685cb2be_f5b608c8",
       "revId": "2f489e6feaa63b9104c9f096b3e26da8c503220f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
