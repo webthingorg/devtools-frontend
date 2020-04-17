@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b868ab3b_eccaa558",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-17T12:58:52Z",
+      "side": 1,
+      "message": "Yes eventually it should add itself to the internal list of _adorners. Now it\u0027s not done because I haven\u0027t figured out if/how ElementsTreeElement should provide APIs to reorder adorners, e.g. insert in the middle, at the front, etc. Thanks for noticing!\n\nIt\u0027s possible to test these three methods. I\u0027ll add the tests soon, together with Adorner\u0027s test as well.",
+      "parentUuid": "1692625a_c72e73e1",
+      "range": {
+        "startLine": 1853,
+        "startChar": 2,
+        "endLine": 1853,
+        "endChar": 11
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c552dac1_5e5676e4",
         "filename": "front_end/elements/elements.js",
         "patchSetId": 1
