@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "650874ae_488ea65e",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:56:53Z",
+      "side": 1,
+      "message": "I have two more comments about this code, which we need to critically evaluate once you are finished with setting up the websites that trigger all the warning cases:\n\n (1) Can there be more than one exclusion reason, and if so, may it be the case that we have an exclusion reason without the associated warning reason, and what would that mean?\n (2) In cases where there is at least one exclusion reason, can there be additional (unrelated) warning reasons that we want to warn about?\n (3) Can it be the case that there is an exclusion reason without the related warning reason (according to Lily this would mean the exclusion reason is a common one and probably not important), but also an interesting warning reason (different from the exclusion reason)?\n\nCould you make sure to explore this in your tests next week?",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 37
+      },
+      "revId": "a0f7aba4c132307d77276facb9e1b5d038d0772a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
