@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "1692625a_c72e73e1",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T11:31:20Z",
+      "side": 1,
+      "message": "Should this add the adorner to this._adorners?\n\nWould it be possible to test these three methods?",
+      "range": {
+        "startLine": 1853,
+        "startChar": 2,
+        "endLine": 1853,
+        "endChar": 11
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c552dac1_5e5676e4",
         "filename": "front_end/elements/elements.js",
         "patchSetId": 1
