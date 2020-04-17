@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0ec22434_2f6b69c0",
+        "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-04-17T17:58:37Z",
+      "side": 1,
+      "message": "Yes, everything is automated 😊. Still I\u0027m doing a manual pass just to be sure we are covering all scenarios.",
+      "parentUuid": "3fdd8465_4855094b",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d14495f_ede309fa",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 2
@@ -117,6 +141,30 @@
       "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f1657e7_f215b0c8",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-04-17T17:58:37Z",
+      "side": 1,
+      "message": "Thanks for the feedback Connor, I\u0027ll modify this CL to adress them",
+      "parentUuid": "e5668463_450f4ddd",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "abbb1b5edfe90a7215cda8db19481a8a35ec518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
