@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb4b783d_1d071aff",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 100,
+        "startChar": 94,
+        "endLine": 100,
+        "endChar": 95
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a260696_a2b55136",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "no comma?",
+      "range": {
+        "startLine": 100,
+        "startChar": 37,
+        "endLine": 100,
+        "endChar": 38
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3da81bf6_638c58ea",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "The?",
+      "range": {
+        "startLine": 103,
+        "startChar": 118,
+        "endLine": 103,
+        "endChar": 122
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "685475a1_35407559",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 23
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9663fa1_c8c1f1b9",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 107,
+        "endChar": 21
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aae9eedc_da722a3b",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "Wasn\u0027t there a comment from Rowan about also needing to upgrade to https?",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 90
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd8d707_26d65e3a",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "Is this the only warning reason? \n\nAlso: Can we merge the warning/exclusion definitions somehow? They seem to share most of the text anyway.",
+      "range": {
+        "startLine": 131,
+        "startChar": 26,
+        "endLine": 131,
+        "endChar": 50
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e04d806e_5ee5b4a1",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-17T12:23:14Z",
+      "side": 1,
+      "message": "I just noticed that this doesn\u0027t work for MS, lets say \u0027in the future\u0027",
+      "range": {
+        "startLine": 133,
+        "startChar": 37,
+        "endLine": 133,
+        "endChar": 61
+      },
+      "revId": "f07496a05d0f3f57b2c285640007611514a24ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
