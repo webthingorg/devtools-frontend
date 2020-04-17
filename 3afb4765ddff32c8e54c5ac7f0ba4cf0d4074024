@@ -140,6 +140,30 @@
       "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51da672a_4d06f0b3",
+        "filename": "front_end/elements/elements.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-17T13:29:38Z",
+      "side": 1,
+      "message": "The side-effect import of `import \u0027./Adorner.js\u0027` is required if you put symbols on the global namespace in `Adorner.js` that are required by other files. If you don\u0027t do that (and I don\u0027t think you do), you don\u0027t need to add this side-effect import.",
+      "parentUuid": "3d2c1e49_96646852",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
