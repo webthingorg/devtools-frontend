@@ -16,6 +16,9 @@
   <message name="IDS_DEVTOOLS_07ba1c48fc0b478df5462700f993fa5e" desc="Message in Network Manager">
     <ph name="NETWORKREQUEST_RESOURCETYPE___TITLE__">$1s<ex>XHR</ex></ph> failed loading: <ph name="NETWORKREQUEST_REQUESTMETHOD">$2s<ex>GET</ex></ph> &quot;<ph name="NETWORKREQUEST_URL__">$3s<ex>https://example.com</ex></ph>&quot;.
   </message>
+  <message name="IDS_DEVTOOLS_07bf8b49b1b25c6c43d1cda075e258b9" desc="Label for a possible resolution of an issue">
+    If this cookie is not intended for third parties, consider explicitly marking the cookie as &apos;SameSite=Strict&apos; or &apos;SameSite=Lax&apos; to make your intent clear and provide a consistent experience across browsers.
+  </message>
   <message name="IDS_DEVTOOLS_08a0eff6ec6a38189b8f84511b42ab4a" desc="Tooltip to explain why a cookie was blocked">
     This cookie was blocked because it had the &quot;SameSite=Lax&quot; attribute and the request was made from a different site and was not initiated by a top-level navigation.
   </message>
@@ -27,9 +30,6 @@
   </message>
   <message name="IDS_DEVTOOLS_0d66520dddd8718f59f517582fafaebb" desc="Title of a media query that can be emulated via the Rendering drawer">
     prefers-color-scheme: light
-  </message>
-  <message name="IDS_DEVTOOLS_0ed7212d68b6867bc1294244c9bc0b33" desc="Message for the SameSiteCookies::SameSiteNoneMissingForThirdParty issue code">
-    In a future version of Chrome, third-party cookies will only be sent when marked as SameSite=None and Secure to prevent them from being accessed in a man-in-the-middle scenario.
   </message>
   <message name="IDS_DEVTOOLS_0fe1f9158e2f164da1332501f9e65702" desc="Text in Console Model">
     Navigated to <ph name="EVENT_DATA_URL">$1s<ex>https://example.com</ex></ph>
@@ -73,6 +73,9 @@
   <message name="IDS_DEVTOOLS_2187e1021a911b3807cc1bea2eb1a9ca" desc="Text for a stack, the programming concept">
     Stack
   </message>
+  <message name="IDS_DEVTOOLS_21aecea9fbacf3ff8cb7fbacd5e123a7" desc="Label for a possible resolution of an issue">
+    If this cookie is intended for third parties, mark the cookie as &apos;Secure&apos;.
+  </message>
   <message name="IDS_DEVTOOLS_22af645d1859cb5ca6da0c484f1f37ea" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     new
   </message>
@@ -90,6 +93,9 @@
   </message>
   <message name="IDS_DEVTOOLS_2973958e77629e3a167a1a4c60dd5c5f" desc="Text in Network Manager">
     Slow 3G
+  </message>
+  <message name="IDS_DEVTOOLS_2a3f815d455df994bb53a9648c90ae61" desc="Title of an issue in the issues panel">
+    A cookie was not sent, because the cookie&apos;s &apos;SameSite&apos; attribute was defaulted &apos;SameSite=Lax&apos;
   </message>
   <message name="IDS_DEVTOOLS_2d4f58197f03de72c0472189fd18c162" desc="Title of a setting under the Rendering drawer">
     Emulate vision deficiencies
@@ -111,6 +117,12 @@
   </message>
   <message name="IDS_DEVTOOLS_43fde213dddc0ce31eca48a551757f41" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Emulate blurred vision
+  </message>
+  <message name="IDS_DEVTOOLS_449e9664e0943e78dd5967b22aa9f5de" desc="Label for a possible resolution of an issue">
+    If this cookie is intended for third parties, mark the cookie as &apos;SameSite=None; Secure&apos;.
+  </message>
+  <message name="IDS_DEVTOOLS_47ba9664b0390add15c987c1f956e124" desc="Title of an issue in the issues panel">
+    A cookie will be blocked in a future version of Chrome, because the cookie specified &apos;SameSite=None&apos; without &apos;Secure&apos;
   </message>
   <message name="IDS_DEVTOOLS_534a6087ddb75adb6dccea8139b18fd2" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie was blocked because it had the &quot;SameSite=None&quot; attribute but did not have the &quot;Secure&quot; attribute, which is required in order to use &quot;SameSite=None&quot;.
@@ -288,11 +300,14 @@
   <message name="IDS_DEVTOOLS_83f2229658949472d34f78e19475fcdd" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Show layer borders
   </message>
-  <message name="IDS_DEVTOOLS_888fab4d70ed5244fb152416372e6e3c" desc="Title for the SameSiteCookies::SameSiteNoneWithoutSecure issue code">
-    A Cookie has been set with SameSite=None but without Secure
+  <message name="IDS_DEVTOOLS_8685061f9e660f88b9b27870ccfee597" desc="Description of an issue in the issues panel">
+    A cookie was received with the &apos;SameSite=None&apos; attribute, marking it as available for third-party use, but did not have the &apos;Secure&apos; attribute. Cookies with &apos;SameSite=None&apos; will not be set unless they also have the &apos;Secure&apos; attribute.
   </message>
   <message name="IDS_DEVTOOLS_8aa85d8015c515cde89fade0983df424" desc="Description for an issue in the issues view">
     A document was blocked from loading in an <ph name="LOCKED_1">iframe</ph> with a <ph name="LOCKED_1">sandbox</ph> attribute because the document specified a cross-origin opener policy.
+  </message>
+  <message name="IDS_DEVTOOLS_8bfd98e44c95f20aecceb52930b2c300" desc="Description of an issue in the issues panel">
+    A cookie was received with the &apos;SameSite=None&apos; attribute, marking it as available for third-party use, but did not have the &apos;Secure&apos; attribute. Cookies with &apos;SameSite=None&apos; are not set unless they also have the &apos;Secure&apos; attribute.
   </message>
   <message name="IDS_DEVTOOLS_8e6aefb01ad865cdce56f1992b317e4a" desc="Link for SameSiteCookies Issues">
     https://web.dev/samesite-cookies-explained/
@@ -327,6 +342,9 @@
   <message name="IDS_DEVTOOLS_9850063efe194af1c63d2aa61ef94c62" desc="Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel">
     Create canvas context
   </message>
+  <message name="IDS_DEVTOOLS_9ac0a2bb2dca80c697322837cbbdbaab" desc="Title for an issue in the issues view">
+    A cookie was blocked, because the cookie specified &apos;SameSite=None&apos; without &apos;Secure&apos;
+  </message>
   <message name="IDS_DEVTOOLS_9bd335d81da7fb52ceab31f45df228cb" desc="Title for an issue in the issues view">
     A resource was blocked because its cross-origin resource policy only allows same-site usage
   </message>
@@ -344,6 +362,9 @@
   </message>
   <message name="IDS_DEVTOOLS_a1595abbb4c3a326636dd178757cd6c1" desc="Text in DOMDebugger Model">
     Control
+  </message>
+  <message name="IDS_DEVTOOLS_a269876ed9865d2b5c54b5c12ee1c26b" desc="Label for a list of possible solutions for a given issue">
+    Resolve by
   </message>
   <message name="IDS_DEVTOOLS_a2b7a2f1bb0d832325c673c5bc858576" desc="Tooltip to explain why a cookie was blocked">
     This cookie was blocked because its path was not an exact match for or a superdirectory of the request url&apos;s path.
@@ -383,9 +404,6 @@
   </message>
   <message name="IDS_DEVTOOLS_ba50636875d999db0c9218b48b23027d" desc="Title of a setting under the Debugger category that can be invoked through the Command Menu">
     Do not capture async stack traces
-  </message>
-  <message name="IDS_DEVTOOLS_bb1be05a71dffef6cfe9564fa1fcf515" desc="Title of an issue in the issues view">
-    A Cookie in a third-party context has been set without SameSite=None
   </message>
   <message name="IDS_DEVTOOLS_be06029749b376cc5dec53b60a0cf135" desc="Title of a media query that can be emulated via the Rendering drawer">
     prefers-reduced-motion: reduce
@@ -514,6 +532,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f99d691018d8f37dda14a9cd29c1d1ee" desc="Text in DOMDebugger Model">
     Script blocked due to Content Security Policy directive: <ph name="AUXDATA__DIRECTIVETEXT__">$1s<ex>"script-src 'self'"</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_f9d6317e170e6d3b3e673bd1aa93ebff" desc="Description for an issue in the issues view">
+    A cookie was defaulted to &apos;SameSite=Lax&apos; because the cookie&apos;s &apos;SameSite&apos; attribute was not set or invalid. This cookie was not sent because the default behavior for &apos;SameSite=Lax&apos; prevents this cookie from beeing sent in cross-site requests.
   </message>
   <message name="IDS_DEVTOOLS_fa79cdac06c8d2166fd5cda17ccbc0ce" desc="Text in Server Timing">
     Extraneous trailing characters.
