@@ -45,6 +45,30 @@
       "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bbab171_b6284cb0",
+        "filename": "front_end/elements/elements.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-17T11:12:29Z",
+      "side": 1,
+      "message": "What are the other double-imports for? I was actually confused and thought it would be better to follow suit.",
+      "parentUuid": "c552dac1_5e5676e4",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
