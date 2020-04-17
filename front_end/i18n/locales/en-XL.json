@@ -1,0 +1,98 @@
+{
+  "settings/FrameworkBlackboxSettingsTab.js | addPattern": {
+    "message": "Âd́d̂ ṕât́t̂ér̂ń..."
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | behavior": {
+    "message": "B̂éĥáv̂íôŕ"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | blackbox": {
+    "message": "B̂ĺâćk̂b́ôx́"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | blackboxContentScripts": {
+    "message": "B̂ĺâćk̂b́ôx́ ĉón̂t́êńt̂ śĉŕîṕt̂ś"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | blackboxContentScriptsExtension": {
+    "message": "B̂ĺâćk̂b́ôx́ ĉón̂t́êńt̂ śĉŕîṕt̂ś (êx́t̂én̂śîón̂ śĉŕîṕt̂ś îń t̂h́ê ṕâǵê)"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | blackboxScriptsWhoseNamesMatchS": {
+    "message": "B̂ĺâćk̂b́ôx́ ŝćr̂íp̂t́ŝ ẃĥóŝé n̂ám̂éŝ ḿât́ĉh́ '{PH1}'"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | debuggerWillSkipThroughThe": {
+    "message": "D̂éb̂úĝǵêŕ ŵíl̂ĺ ŝḱîṕ t̂h́r̂óûǵĥ t́ĥé ŝćr̂íp̂t́ŝ án̂d́ ŵíl̂ĺ n̂ót̂ śt̂óp̂ ón̂ éx̂ćêṕt̂íôńŝ t́ĥŕôẃn̂ b́ŷ t́ĥém̂."
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | disabled": {
+    "message": "D̂íŝáb̂ĺêd́"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | frameworkBlackboxing": {
+    "message": "F̂ŕâḿêẃôŕk̂ B́l̂áĉḱb̂óx̂ín̂ǵ"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | noBlackboxedPatterns": {
+    "message": "N̂ó b̂ĺâćk̂b́ôx́êd́ p̂át̂t́êŕn̂ś"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | pattern": {
+    "message": "P̂át̂t́êŕn̂"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | patternAlreadyExists": {
+    "message": "P̂át̂t́êŕn̂ ál̂ŕêád̂ý êx́îśt̂ś"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | patternCannotBeEmpty": {
+    "message": "P̂át̂t́êŕn̂ ćâńn̂ót̂ b́ê ém̂ṕt̂ý"
+  },
+  "settings/FrameworkBlackboxSettingsTab.js | patternMustBeAValidRegular": {
+    "message": "P̂át̂t́êŕn̂ ḿûśt̂ b́ê á v̂ál̂íd̂ ŕêǵûĺâŕ êx́p̂ŕêśŝíôń"
+  },
+  "settings/KeybindsSettingsTab.js | action": {
+    "message": "Âćt̂íôń"
+  },
+  "settings/KeybindsSettingsTab.js | customKeyboardShortcuts": {
+    "message": "Ĉúŝt́ôḿ k̂éŷb́ôár̂d́ ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/KeybindsSettingsTab.js | keyboardInput": {
+    "message": "K̂éŷb́ôár̂d́ îńp̂út̂"
+  },
+  "settings/moduleUIStrings.js | blackboxing": {
+    "message": "B̂ĺâćk̂b́ôx́îńĝ"
+  },
+  "settings/moduleUIStrings.js | customShortcuts": {
+    "message": "Ĉúŝt́ôḿ Ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/moduleUIStrings.js | documentation": {
+    "message": "D̂óĉúm̂én̂t́ât́îón̂"
+  },
+  "settings/moduleUIStrings.js | experiments": {
+    "message": "Êx́p̂ér̂ím̂én̂t́ŝ"
+  },
+  "settings/moduleUIStrings.js | preferences": {
+    "message": "P̂ŕêf́êŕêńĉéŝ"
+  },
+  "settings/moduleUIStrings.js | settings": {
+    "message": "Ŝét̂t́îńĝś"
+  },
+  "settings/moduleUIStrings.js | shortcuts": {
+    "message": "Ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/SettingsScreen.js | experiments": {
+    "message": "Êx́p̂ér̂ím̂én̂t́ŝ"
+  },
+  "settings/SettingsScreen.js | preferences": {
+    "message": "P̂ŕêf́êŕêńĉéŝ"
+  },
+  "settings/SettingsScreen.js | restoreDefaultsAndReload": {
+    "message": "R̂éŝt́ôŕê d́êf́âúl̂t́ŝ án̂d́ r̂él̂óâd́"
+  },
+  "settings/SettingsScreen.js | settings": {
+    "message": "Ŝét̂t́îńĝś"
+  },
+  "settings/SettingsScreen.js | shortcuts": {
+    "message": "Ŝh́ôŕt̂ćût́ŝ"
+  },
+  "settings/SettingsScreen.js | theseExperimentsAreParticularly": {
+    "message": "T̂h́êśê éx̂ṕêŕîḿêńt̂ś âŕê ṕâŕt̂íĉúl̂ár̂ĺŷ ún̂śt̂áb̂ĺê. Én̂áb̂ĺê át̂ ýôúr̂ óŵń r̂íŝḱ."
+  },
+  "settings/SettingsScreen.js | theseExperimentsCouldBeDangerous": {
+    "message": "T̂h́êśê éx̂ṕêŕîḿêńt̂ś ĉóûĺd̂ b́ê d́âńĝér̂óûś âńd̂ ḿâý r̂éq̂úîŕê ŕêśt̂ár̂t́."
+  },
+  "settings/SettingsScreen.js | warning": {
+    "message": "ŴÁR̂ŃÎŃĜ:"
+  }
+}

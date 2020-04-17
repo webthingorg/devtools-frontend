@@ -1444,6 +1444,7 @@ all_devtools_modules = [
   "settings/FrameworkBlackboxSettingsTab.js",
   "settings/KeybindsSettingsTab.js",
   "settings/SettingsScreen.js",
+  "settings/moduleUIStrings.js",
   "snippets/ScriptSnippetFileSystem.js",
   "snippets/SnippetsQuickOpen.js",
   "sources/WatchExpressionsSidebarPane.js",
