@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9bd22d3_af6e0ee7",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-04-18T06:22:11Z",
+      "side": 1,
+      "message": "Looks cleaner. Maybe this is my misreading of the original code: where does the null reference happen.Also, it seems that the intention was to reject if resolvedNode is null, shall we keep this semantics?",
+      "range": {
+        "startLine": 1030,
+        "startChar": 13,
+        "endLine": 1030,
+        "endChar": 25
+      },
+      "revId": "55c839228349f3406489ff6679891091edd5de2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
