@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6fd20211_3458ea85",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-04-20T19:17:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb6fe7ab_599b66e1",
+      "revId": "02b543040bf568b0a8bc93ba9bbd1d36db4b32de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3ce016c_be1ac4d1",
         "filename": "front_end/sources/ScriptFormatterEditorAction.js",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "02b543040bf568b0a8bc93ba9bbd1d36db4b32de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e94f75f8_1dcf512d",
+        "filename": "front_end/sources/ScriptFormatterEditorAction.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-04-20T19:17:43Z",
+      "side": 1,
+      "message": "All other methods spelt it with a single t, so I kept it the same way for consistency. I didn\u0027t want to make this change bigger by renaming all other misspelled methods.",
+      "parentUuid": "c3ce016c_be1ac4d1",
+      "revId": "02b543040bf568b0a8bc93ba9bbd1d36db4b32de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
