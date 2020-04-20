@@ -5,3 +5,7 @@ CommentPragmas: .*\@.*
 AllowShortBlocksOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 ReflowComments: false
+---
+Language: Cpp
+BasedOnStyle: LLVM
+ColumnLimit: 80
