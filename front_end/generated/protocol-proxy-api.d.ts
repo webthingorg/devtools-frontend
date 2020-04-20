@@ -303,6 +303,11 @@ declare namespace ProtocolProxyApi {
     resetPermissions(params: Protocol.Browser.ResetPermissionsRequest): Promise<void>;
 
     /**
+     * Set the behavior when downloading a file.
+     */
+    setDownloadBehavior(params: Protocol.Browser.SetDownloadBehaviorRequest): Promise<void>;
+
+    /**
      * Close browser gracefully.
      */
     close(): Promise<void>;
@@ -1161,6 +1166,11 @@ declare namespace ProtocolProxyApi {
     setUserAgentOverride(params: Protocol.Emulation.SetUserAgentOverrideRequest): Promise<void>;
 
     /**
+     * Allows overriding user agent client hints.
+     */
+    setUserAgentMetadataOverride(params: Protocol.Emulation.SetUserAgentMetadataOverrideRequest): Promise<void>;
+
+    /**
      * Notification sent after the virtual time budget for the current VirtualTimePolicy has run out.
      */
     on(event: 'virtualTimeBudgetExpired', listener: () => void): void;
@@ -1635,6 +1645,11 @@ declare namespace ProtocolProxyApi {
      * Allows overriding user agent with the given string.
      */
     setUserAgentOverride(params: Protocol.Network.SetUserAgentOverrideRequest): Promise<void>;
+
+    /**
+     * Allows overriding user agent client hints.
+     */
+    setUserAgentMetadataOverride(params: Protocol.Network.SetUserAgentMetadataOverrideRequest): Promise<void>;
 
     /**
      * Fired when data chunk was received over the network.
@@ -2192,6 +2207,11 @@ declare namespace ProtocolProxyApi {
      * Fired when page is about to start a download.
      */
     on(event: 'downloadWillBegin', listener: (params: Protocol.Page.DownloadWillBeginEvent) => void): void;
+
+    /**
+     * Fired when download makes progress. Last call has |done| == true.
+     */
+    on(event: 'downloadProgress', listener: (params: Protocol.Page.DownloadProgressEvent) => void): void;
 
     /**
      * Fired when interstitial page was hidden
