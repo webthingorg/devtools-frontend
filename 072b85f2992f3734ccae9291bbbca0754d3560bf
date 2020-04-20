@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c397936f_30140ea5",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-20T08:59:04Z",
+      "side": 1,
+      "message": "Should we file a bug and a TODO here to collapse these into just the {_requestsMap}?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "072b85f2992f3734ccae9291bbbca0754d3560bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38906d86_020301eb",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-20T08:59:04Z",
+      "side": 1,
+      "message": "Nice refactor!",
+      "range": {
+        "startLine": 388,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 24
+      },
+      "revId": "072b85f2992f3734ccae9291bbbca0754d3560bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93904e25_5d62494b",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-20T08:59:04Z",
+      "side": 1,
+      "message": "I\u0027d change this to !Array. The array is already there, so no additional overhead of explicitly constructing one.\n\nIf users of this function want to use filter/sort/map etc, they have to spread the iterable into an array again.",
+      "range": {
+        "startLine": 530,
+        "startChar": 15,
+        "endLine": 530,
+        "endChar": 23
+      },
+      "revId": "072b85f2992f3734ccae9291bbbca0754d3560bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
