@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c70dc7c3_0ee977c5",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-20T06:37:17Z",
+      "side": 1,
+      "message": "nit: this should probably be private",
+      "range": {
+        "startLine": 378,
+        "startChar": 2,
+        "endLine": 378,
+        "endChar": 16
+      },
+      "revId": "e251e6eeb7c55da8ffe85b93055f47eb9b58f124",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
