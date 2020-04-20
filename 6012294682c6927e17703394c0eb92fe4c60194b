@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd29d1d3_c1ba7571",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-20T12:39:50Z",
+      "side": 1,
+      "message": "Seems like `if (!(link instanceof Element))` should suffice. Same for the other instances of this pattern in this CL. How about this?\n\n    if (link instanceof Element) {\n      return link;\n    }\n    return null;",
+      "revId": "6012294682c6927e17703394c0eb92fe4c60194b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
