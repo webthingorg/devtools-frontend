@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b3eb8c2_2f097ad7",
+        "filename": "package.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-20T15:24:31Z",
+      "side": 1,
+      "message": "Ah I see, Windows doesn\u0027t even ignore them. I will remove this one as well.",
+      "parentUuid": "9a00a997_6e77720e",
+      "range": {
+        "startLine": 50,
+        "startChar": 22,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "484e3b32_a64c15da",
         "filename": "scripts/test/run_unittests.py",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-20T15:15:17Z",
       "side": 1,
       "message": "I keep running into this. As best as I can tell, the downloaded_chrome_binary is supposed to happen during a gclient sync? but it doesn\u0027t seem to be working on my machine. Any idea what actually triggers this to download? \n\nHow do you feel about being able to specify a path to chrome canary binary?",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fe875c3_3a0f9fdf",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-20T15:24:31Z",
+      "side": 1,
+      "message": "Yes it should be happening during `gclient sync`. You can find the logic to download the binary in `/DEPS` under `download_chromium_win`. Can you verify that the download location is `third_party/chrome/chrome-win/chrome.exe`?\n\nIf that is not the location, we have to update the `downloaded_chrome_binary_path` function in `devtools_paths.py`",
+      "parentUuid": "484e3b32_a64c15da",
       "range": {
         "startLine": 58,
         "startChar": 4,
