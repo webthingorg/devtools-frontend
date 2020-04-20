@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "195176b6_bbca6422",
+        "filename": "scripts/build/efficiently_recompile.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-20T16:04:35Z",
+      "side": 1,
+      "message": "It only supports folders nested inside of DevTools, so it won\u0027t support a Chromium out folder. That said, the path separator needs changing no matter what, so I will fix that.",
+      "parentUuid": "db98d96e_ad74b09e",
+      "range": {
+        "startLine": 19,
+        "startChar": 55,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "764f7d2b_8662f00a",
         "filename": "scripts/test/run_unittests.py",
         "patchSetId": 7
@@ -131,6 +155,30 @@
       "writtenOn": "2020-04-20T15:54:04Z",
       "side": 1,
       "message": "Ahh, I think this is assuming that I\u0027m working in the standalone checkout? I left a more detailed comment on the recompile script, but I don\u0027t think this works properly for full chromium/subrepo environment. I ran into:\n\nhttps://imgur.com/P00sgSx",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 123
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "645b8193_e1daf32c",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-20T16:04:35Z",
+      "side": 1,
+      "message": "Yes that seems like the culprit of this issue. I would personally say that is the intended behavior. I will follow-up with an email to devtools-dev for a discussion.",
+      "parentUuid": "764f7d2b_8662f00a",
       "range": {
         "startLine": 27,
         "startChar": 3,
@@ -202,6 +250,30 @@
       "side": 1,
       "message": "Hmmmm, best I can tell, that hook doesn\u0027t run for me on a gclient sync. I\u0027m working in the full chromium build, and I wonder if this assumes that I\u0027m working in the standalone checkout?\n\nI was able to run the hook directly to get it to download for testing this change, so maybe we should follow up separately for this issue",
       "parentUuid": "8fe875c3_3a0f9fdf",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48f884af_fb3cd3cc",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-20T16:04:35Z",
+      "side": 1,
+      "message": "Ah yes. This will only work if you have the standalone checkout. Not sure if we want to support the full-chromium checkout for tests that only run on the DevTools side (e.g. they are not supposed to run on the Chromium CQ).",
+      "parentUuid": "a352d05e_7607eee2",
       "range": {
         "startLine": 58,
         "startChar": 4,
