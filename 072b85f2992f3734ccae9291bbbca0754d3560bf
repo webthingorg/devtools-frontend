@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d6ecc58f_25a66ef9",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-20T09:56:18Z",
+      "side": 1,
+      "message": "I am not sure I understand your point. We are not loosing any requests, we are just organizing them differently. Even the ordering between requests with the same id would probably be preserved.\n\nThe only issue would arise for NetworkRequests that don\u0027t have an id in the first place, but those could also be grouped together.",
+      "parentUuid": "3359c57f_6cf00e42",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "072b85f2992f3734ccae9291bbbca0754d3560bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38906d86_020301eb",
         "filename": "front_end/sdk/NetworkLog.js",
         "patchSetId": 1
