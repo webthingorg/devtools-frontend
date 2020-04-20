@@ -16,6 +16,23 @@
       "revId": "02b543040bf568b0a8bc93ba9bbd1d36db4b32de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3ce016c_be1ac4d1",
+        "filename": "front_end/sources/ScriptFormatterEditorAction.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-20T18:52:22Z",
+      "side": 1,
+      "message": "\"Formattable\" is misspelled.",
+      "revId": "02b543040bf568b0a8bc93ba9bbd1d36db4b32de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
