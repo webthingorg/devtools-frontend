@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "682fddb5_308d583f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-20T08:06:57Z",
+      "side": 1,
+      "message": "Let\u0027s track it in a bug, the four lines below are not worth keeping.",
+      "range": {
+        "startLine": 286,
+        "startChar": 3,
+        "endLine": 287,
+        "endChar": 103
+      },
+      "revId": "dc5044b27c10b48df3df705a86d3124e994d3549",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
