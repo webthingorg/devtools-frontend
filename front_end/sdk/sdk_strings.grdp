@@ -227,6 +227,9 @@
   <message name="IDS_DEVTOOLS_6617a779f50f7afb7949c7ea3ad52b28" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Show hit-test borders
   </message>
+  <message name="IDS_DEVTOOLS_68a533725701759155b01979f1a6afd0" desc="Title of an issue in the issues view">
+    A cookie will not be sent in the future, because the cookie was set without the &apos;SameSite&apos; attribute
+  </message>
   <message name="IDS_DEVTOOLS_6948a469c79f7dd5426e4f291cba3db1" desc="Text in Network Log">
     <ph name="LOCKED_1">Chrome Data Saver</ph>
   </message>
@@ -383,6 +386,9 @@
   </message>
   <message name="IDS_DEVTOOLS_aec445acc1539341cf9a79c3a336131d" desc="Tooltip to explain why a cookie was blocked">
     This cookie was blocked due to user preferences.
+  </message>
+  <message name="IDS_DEVTOOLS_afdd8ba3f9edc129df3e9158d0a521f3" desc="Description of an issue in the issues view">
+    A cross-site request deliviered a cookie that will not be included in the future. A future release will only include a cookie in a cross-site request if the cookie is set with the &apos;SameSite=None&apos; and &apos;Secure&apos; attributes.
   </message>
   <message name="IDS_DEVTOOLS_b28354b543375bfa94dabaeda722927f" desc="Text in Resource Tree Model">
     top

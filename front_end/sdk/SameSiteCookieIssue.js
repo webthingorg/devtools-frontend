@@ -143,4 +143,16 @@ const issueDescriptions = new Map([
       linkTitle: ls`SameSite cookies explained`,
     }
   ],
+  [
+    'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::ReadCookie', {
+      title: ls `A cookie will not be sent in the future, because the cookie was set without the 'SameSite' attribute`,
+      message: () => textMessageWithResolutions(
+        ls`A cross-site request deliviered a cookie that will not be included in the future. A future release will only include a cookie in a cross-site request if the cookie is set with the 'SameSite=None' and 'Secure' attributes.`, [ls`If the cookie is intended for third parties, mark the cookie as 'SameSite=None; Secure'.`,
+        ls
+        `If the cookie is not intended for third parties, consider explicitly marking the cookie as 'SameSite=Strict' or 'SameSite=Lax' to make your intent clear and provide a consistent experience across browsers.`,]),
+      issueKind: IssueKind.BreakingChange,
+      link: ls`https://web.dev/samesite-cookies-explained/`,
+      linkTitle: ls`SameSite cookies explained`,
+    }
+  ]
 ]);
