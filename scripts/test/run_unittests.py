@@ -13,6 +13,7 @@ import re
 from subprocess import Popen
 import sys
 import signal
+import argparse
 
 scripts_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(scripts_path)
@@ -20,12 +21,17 @@ sys.path.append(scripts_path)
 import test_helpers
 import devtools_paths
 
-NINJA_BUILD_NAME = os.environ.get('NINJA_BUILD_NAME') or 'Release'
 
-
-def run_tests(chrome_binary):
+def run_tests(chrome_binary, ninja_build_name):
     cwd = devtools_paths.devtools_root_path()
-    karmaconfig_path = os.path.join(cwd, 'karma.conf.js')
+    karmaconfig_path = os.path.join(cwd, 'out', ninja_build_name, 'gen', 'test', 'unittests', 'front_end', 'karma.conf.js')
+
+    if not os.path.exists(karmaconfig_path):
+        print('Unable to find Karma config at ' + karmaconfig_path)
+        print('Make sure to set the --ninja-build-name argument to the folder name of "out/ninja_build_name"')
+        sys.exit(1)
+
+    print('Using karma config ' + karmaconfig_path)
 
     exec_command = [devtools_paths.node_path(), devtools_paths.karma_path(), 'start', test_helpers.to_platform_path_exact(karmaconfig_path)]
 
@@ -41,7 +47,7 @@ def run_tests(chrome_binary):
     return False
 
 
-def main():
+def run_unit_tests_on_ninja_build_target(ninja_build_name):
     chrome_binary = None
 
     # Default to the downloaded / pinned Chromium binary
@@ -55,10 +61,22 @@ def main():
 
     print('Using Chromium binary (%s)\n' % chrome_binary)
 
-    errors_found = run_tests(chrome_binary)
+    errors_found = run_tests(chrome_binary, ninja_build_name)
     if errors_found:
         print('ERRORS DETECTED')
         sys.exit(1)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Run unittests on Ninja targets.')
+    parser.add_argument(
+        '--ninja-build-name',
+        default='Release',
+        dest='ninja_build_name',
+        help='The name of the Ninja output directory. Defaults to "Release"')
+    args = parser.parse_args(sys.argv[1:])
+
+    run_unit_tests_on_ninja_build_target(args.ninja_build_name)
 
 
 if __name__ == '__main__':
