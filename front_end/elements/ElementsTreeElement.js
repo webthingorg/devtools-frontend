@@ -39,6 +39,7 @@ import * as UI from '../ui/ui.js';
 
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {MappedCharToEntity, UpdateRecord} from './ElementsTreeOutline.js';  // eslint-disable-line no-unused-vars
+import {HrefSymbol} from './ImagePreviewPopover.js';
 import {MarkerDecorator} from './MarkerDecorator.js';
 
 /**
@@ -1838,7 +1839,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 }
 
-export const HrefSymbol = Symbol('ElementsTreeElement.Href');
 export const InitialChildrenLimit = 500;
 
 // A union of HTML4 and HTML5-Draft elements that explicitly
