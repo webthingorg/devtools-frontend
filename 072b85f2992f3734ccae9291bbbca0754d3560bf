@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a2bb0fb9_60593e92",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-20T11:44:25Z",
+      "side": 1,
+      "message": "Right, I see. Yes, we could consider doing that in the future.",
+      "parentUuid": "d6ecc58f_25a66ef9",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "072b85f2992f3734ccae9291bbbca0754d3560bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38906d86_020301eb",
         "filename": "front_end/sdk/NetworkLog.js",
         "patchSetId": 1
