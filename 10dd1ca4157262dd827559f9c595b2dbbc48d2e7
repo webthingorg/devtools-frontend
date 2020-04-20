@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a00a997_6e77720e",
+        "filename": "package.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-20T15:15:17Z",
+      "side": 1,
+      "message": "It\u0027s these style env variable settings that are causing problems on windows:\n\nhttps://imgur.com/CztumxU",
+      "range": {
+        "startLine": 50,
+        "startChar": 22,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "484e3b32_a64c15da",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-20T15:15:17Z",
+      "side": 1,
+      "message": "I keep running into this. As best as I can tell, the downloaded_chrome_binary is supposed to happen during a gclient sync? but it doesn\u0027t seem to be working on my machine. Any idea what actually triggers this to download? \n\nHow do you feel about being able to specify a path to chrome canary binary?",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
