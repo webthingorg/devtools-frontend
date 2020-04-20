@@ -73,6 +73,76 @@
     },
     {
       "key": {
+        "uuid": "4a6f952f_6d8df1e7",
+        "filename": "package.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-20T15:54:04Z",
+      "side": 1,
+      "message": "Excellent. was able to launch script from npm now",
+      "parentUuid": "b0ea21d6_49160fea",
+      "range": {
+        "startLine": 50,
+        "startChar": 22,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db98d96e_ad74b09e",
+        "filename": "scripts/build/efficiently_recompile.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-20T15:54:04Z",
+      "side": 1,
+      "message": "2 things: I don\u0027t think the out/ is platform independent (with the forward slash after out)\n\n2) does this assume we are in a standalone checkout? I\u0027m working in a full chromium build, and I tried running: \npython scripts/test/run_auto_unittests.py --ninja-build-name\u003drelease_x64 with the following result\n\nhttps://imgur.com/GLP8kH6\n\nfor reference: my devtools are located at D:\\chromium\\src\\third_party\\devtools-frontend\\src\u003e (where I ran command)\nbut my ninja output folder is\nD:\\chromium\\src\\out\\release_x64\n\nDoes this script support that case?",
+      "range": {
+        "startLine": 19,
+        "startChar": 55,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "764f7d2b_8662f00a",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-20T15:54:04Z",
+      "side": 1,
+      "message": "Ahh, I think this is assuming that I\u0027m working in the standalone checkout? I left a more detailed comment on the recompile script, but I don\u0027t think this works properly for full chromium/subrepo environment. I ran into:\n\nhttps://imgur.com/P00sgSx",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 123
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "484e3b32_a64c15da",
         "filename": "scripts/test/run_unittests.py",
         "patchSetId": 7
@@ -108,6 +178,30 @@
       "side": 1,
       "message": "Yes it should be happening during `gclient sync`. You can find the logic to download the binary in `/DEPS` under `download_chromium_win`. Can you verify that the download location is `third_party/chrome/chrome-win/chrome.exe`?\n\nIf that is not the location, we have to update the `downloaded_chrome_binary_path` function in `devtools_paths.py`",
       "parentUuid": "484e3b32_a64c15da",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "10dd1ca4157262dd827559f9c595b2dbbc48d2e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a352d05e_7607eee2",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-20T15:54:04Z",
+      "side": 1,
+      "message": "Hmmmm, best I can tell, that hook doesn\u0027t run for me on a gclient sync. I\u0027m working in the full chromium build, and I wonder if this assumes that I\u0027m working in the standalone checkout?\n\nI was able to run the hook directly to get it to download for testing this change, so maybe we should follow up separately for this issue",
+      "parentUuid": "8fe875c3_3a0f9fdf",
       "range": {
         "startLine": 58,
         "startChar": 4,
