@@ -303,6 +303,10 @@ export namespace ProtocolMapping {
      */
     'Page.downloadWillBegin': [Protocol.Page.DownloadWillBeginEvent];
     /**
+     * Fired when download makes progress. Last call has |done| == true.
+     */
+    'Page.downloadProgress': [Protocol.Page.DownloadProgressEvent];
+    /**
      * Fired when interstitial page was hidden
      */
     'Page.interstitialHidden': [];
@@ -733,6 +737,10 @@ export namespace ProtocolMapping {
      * Reset all permission management for all origins.
      */
     'Browser.resetPermissions': {paramsType: [Protocol.Browser.ResetPermissionsRequest?]; returnType: void;};
+    /**
+     * Set the behavior when downloading a file.
+     */
+    'Browser.setDownloadBehavior': {paramsType: [Protocol.Browser.SetDownloadBehaviorRequest]; returnType: void;};
     /**
      * Close browser gracefully.
      */
@@ -1385,6 +1393,11 @@ export namespace ProtocolMapping {
      */
     'Emulation.setUserAgentOverride': {paramsType: [Protocol.Emulation.SetUserAgentOverrideRequest]; returnType: void;};
     /**
+     * Allows overriding user agent client hints.
+     */
+    'Emulation.setUserAgentMetadataOverride':
+        {paramsType: [Protocol.Emulation.SetUserAgentMetadataOverrideRequest?]; returnType: void;};
+    /**
      * Sends a BeginFrame to the target and returns when the frame was completed. Optionally captures a
      * screenshot from the resulting frame. Requires that the target was created with enabled
      * BeginFrameControl. Designed for use with --run-all-compositor-stages-before-draw, see also
@@ -1754,6 +1767,11 @@ export namespace ProtocolMapping {
      * Allows overriding user agent with the given string.
      */
     'Network.setUserAgentOverride': {paramsType: [Protocol.Network.SetUserAgentOverrideRequest]; returnType: void;};
+    /**
+     * Allows overriding user agent client hints.
+     */
+    'Network.setUserAgentMetadataOverride':
+        {paramsType: [Protocol.Network.SetUserAgentMetadataOverrideRequest?]; returnType: void;};
     /**
      * Disables domain notifications.
      */

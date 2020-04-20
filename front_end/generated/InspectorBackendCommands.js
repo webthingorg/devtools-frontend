@@ -166,6 +166,23 @@ export function registerCommands(inspectorBackend) {
       ['manifestURL'], false);
 
   // Audits.
+  inspectorBackend.registerEnum('Audits.SameSiteCookieExclusionReason', {
+    ExcludeSameSiteUnspecifiedTreatedAsLax: 'ExcludeSameSiteUnspecifiedTreatedAsLax',
+    ExcludeSameSiteNoneInsecure: 'ExcludeSameSiteNoneInsecure'
+  });
+  inspectorBackend.registerEnum('Audits.SameSiteCookieWarningReason', {
+    WarnSameSiteUnspecifiedCrossSiteContext: 'WarnSameSiteUnspecifiedCrossSiteContext',
+    WarnSameSiteNoneInsecure: 'WarnSameSiteNoneInsecure',
+    WarnSameSiteUnspecifiedLaxAllowUnsafe: 'WarnSameSiteUnspecifiedLaxAllowUnsafe',
+    WarnSameSiteCrossSchemeSecureUrlMethodUnsafe: 'WarnSameSiteCrossSchemeSecureUrlMethodUnsafe',
+    WarnSameSiteCrossSchemeSecureUrlLax: 'WarnSameSiteCrossSchemeSecureUrlLax',
+    WarnSameSiteCrossSchemeSecureUrlStrict: 'WarnSameSiteCrossSchemeSecureUrlStrict',
+    WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe: 'WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe',
+    WarnSameSiteCrossSchemeInsecureUrlLax: 'WarnSameSiteCrossSchemeInsecureUrlLax',
+    WarnSameSiteCrossSchemeInsecureUrlStrict: 'WarnSameSiteCrossSchemeInsecureUrlStrict'
+  });
+  inspectorBackend.registerEnum('Audits.SameSiteCookieOperation', {SetCookie: 'SetCookie', ReadCookie: 'ReadCookie'});
+  inspectorBackend.registerEnum('Audits.InspectorIssueCode', {SameSiteCookieIssue: 'SameSiteCookieIssue'});
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerCommand(
       'Audits.getEncodedResponse',
@@ -235,7 +252,7 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerCommand(
       'Browser.setPermission',
       [
-        {'name': 'origin', 'type': 'string', 'optional': false},
+        {'name': 'origin', 'type': 'string', 'optional': true},
         {'name': 'permission', 'type': 'object', 'optional': false},
         {'name': 'setting', 'type': 'string', 'optional': false},
         {'name': 'browserContextId', 'type': 'string', 'optional': true}
@@ -244,13 +261,21 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerCommand(
       'Browser.grantPermissions',
       [
-        {'name': 'origin', 'type': 'string', 'optional': false},
+        {'name': 'origin', 'type': 'string', 'optional': true},
         {'name': 'permissions', 'type': 'object', 'optional': false},
         {'name': 'browserContextId', 'type': 'string', 'optional': true}
       ],
       [], false);
   inspectorBackend.registerCommand(
       'Browser.resetPermissions', [{'name': 'browserContextId', 'type': 'string', 'optional': true}], [], false);
+  inspectorBackend.registerCommand(
+      'Browser.setDownloadBehavior',
+      [
+        {'name': 'behavior', 'type': 'string', 'optional': false},
+        {'name': 'browserContextId', 'type': 'string', 'optional': true},
+        {'name': 'downloadPath', 'type': 'string', 'optional': true}
+      ],
+      [], false);
   inspectorBackend.registerCommand('Browser.close', [], [], false);
   inspectorBackend.registerCommand('Browser.crash', [], [], false);
   inspectorBackend.registerCommand('Browser.crashGpuProcess', [], [], false);
@@ -885,6 +910,9 @@ export function registerCommands(inspectorBackend) {
         {'name': 'platform', 'type': 'string', 'optional': true}
       ],
       [], false);
+  inspectorBackend.registerCommand(
+      'Emulation.setUserAgentMetadataOverride', [{'name': 'userAgentMetadata', 'type': 'object', 'optional': true}], [],
+      false);
 
   // HeadlessExperimental.
   inspectorBackend.registerEnum('HeadlessExperimental.ScreenshotParamsFormat', {Jpeg: 'jpeg', Png: 'png'});
@@ -1431,6 +1459,9 @@ export function registerCommands(inspectorBackend) {
         {'name': 'platform', 'type': 'string', 'optional': true}
       ],
       [], false);
+  inspectorBackend.registerCommand(
+      'Network.setUserAgentMetadataOverride', [{'name': 'userAgentMetadata', 'type': 'object', 'optional': true}], [],
+      false);
 
   // Overlay.
   inspectorBackend.registerEnum('Overlay.InspectMode', {
@@ -1564,7 +1595,8 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Page.frameScheduledNavigation', ['frameId', 'delay', 'reason', 'url']);
   inspectorBackend.registerEvent('Page.frameStartedLoading', ['frameId']);
   inspectorBackend.registerEvent('Page.frameStoppedLoading', ['frameId']);
-  inspectorBackend.registerEvent('Page.downloadWillBegin', ['frameId', 'url']);
+  inspectorBackend.registerEvent('Page.downloadWillBegin', ['frameId', 'guid', 'url']);
+  inspectorBackend.registerEvent('Page.downloadProgress', ['guid', 'totalBytes', 'receivedBytes', 'state']);
   inspectorBackend.registerEvent('Page.interstitialHidden', []);
   inspectorBackend.registerEvent('Page.interstitialShown', []);
   inspectorBackend.registerEvent('Page.javascriptDialogClosed', ['result', 'userInput']);
