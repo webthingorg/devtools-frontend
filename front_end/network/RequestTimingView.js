@@ -80,6 +80,8 @@ export class RequestTimingView extends UI.Widget.VBox {
         return Common.UIString.UIString('ServiceWorker Preparation');
       case RequestTimeRangeNames.ServiceWorkerRespondWith:
         return Common.UIString.UIString('ServiceWorker respondWith');
+      case RequestTimeRangeNames.ServiceWorkerFetch:
+        return Common.UIString.UIString('ServiceWorker fetch');
       case RequestTimeRangeNames.SSL:
         return Common.UIString.UIString('SSL');
       case RequestTimeRangeNames.Total:
@@ -167,6 +169,8 @@ export class RequestTimingView extends UI.Widget.VBox {
       addOffsetRange(RequestTimeRangeNames.ServiceWorkerPreparation, timing.workerStart, timing.workerReady);
       addOffsetRange(
           RequestTimeRangeNames.ServiceWorkerRespondWith, timing.workerFetchStart, timing.workerRespondWithSettled);
+      addOffsetRange(
+          RequestTimeRangeNames.ServiceWorkerFetch, timing.workerFetchStart, request.fetchEventCompletionTime);
       addOffsetRange(RequestTimeRangeNames.ServiceWorker, timing.workerReady, timing.sendEnd);
       addOffsetRange(RequestTimeRangeNames.Waiting, timing.sendEnd, responseReceived);
     } else if (!timing.pushStart) {
