@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf976000_06e730e5",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-21T07:45:32Z",
+      "side": 1,
+      "message": "Please add a test for this to test/e2e/host/user-metrics_test.ts",
+      "range": {
+        "startLine": 216,
+        "startChar": 3,
+        "endLine": 216,
+        "endChar": 21
+      },
+      "revId": "b12071c41133e2c08a8d41474fad588f76d91ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
