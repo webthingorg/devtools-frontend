@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f0e1de3_c985f8bf",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 28
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-21T16:21:56Z",
+      "side": 1,
+      "message": "What\u0027s the point of catch-\u003econsole.error-\u003ethrow? If a user is debugging with \u0027Pause on Exceptions\u0027 mode enabled, they\u0027ll be able to see the error too. It doesn\u0027t feel like we should have this console.error call possibly occurring on every keypress.",
+      "revId": "114dce339017d6c24b62bd9c6db9569c5be35441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbcac4b7_6726a779",
+        "filename": "scripts/json_validator/module.schema.json",
+        "patchSetId": 28
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-04-21T16:21:56Z",
+      "side": 1,
+      "message": "Instead of using ^ to start your matching groups, you can use capital-S to indicate the inverse (non-whitespace characters). that way you constrain ^ to be the start-of-line test.\n\n    ^[\\S]+(\\s[\\S]*)?$\n\nWhy * within the second matching group? That allows for the candidate string to match if it ends with a whitespace (because * matches 0 or more times greedily).",
+      "revId": "114dce339017d6c24b62bd9c6db9569c5be35441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
