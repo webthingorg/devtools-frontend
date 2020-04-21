@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d071d1b_b7d81409",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-21T14:19:56Z",
+      "side": 1,
+      "message": "Maybe point out that they\u0027ve done so *for a long time*, to the point where it\u0027s now possible to use the modern syntax without breaking any modern browser. (The browser support link has this information, but we should call it out explicitly.)",
+      "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1345acb_675db106",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-21T14:19:56Z",
+      "side": 1,
+      "message": "What\u0027s your thinking w.r.t. the formatOptions?\n\nIs it meant to be a temporary, easy way to revert the changes without having to remove the code?\nOr are you thinking of keeping this permanently, and exposing an extra setting for this?",
+      "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
