@@ -656,8 +656,94 @@ declare namespace Protocol {
    */
   export namespace Audits {
 
-    export interface Issue {
-      code: string;
+    /**
+     * Information about a cookie that is affected by an inspector issue.
+     */
+    export interface AffectedCookie {
+      /**
+       * The following three properties uniquely identify a cookie
+       */
+      name: string;
+      path: string;
+      domain: string;
+    }
+
+    /**
+     * Information about a request that is affected by an inspector issue.
+     */
+    export interface AffectedRequest {
+      /**
+       * The unique request id.
+       */
+      requestId: Network.RequestId;
+      url?: string;
+    }
+
+    export enum SameSiteCookieExclusionReason {
+      ExcludeSameSiteUnspecifiedTreatedAsLax = 'ExcludeSameSiteUnspecifiedTreatedAsLax',
+      ExcludeSameSiteNoneInsecure = 'ExcludeSameSiteNoneInsecure',
+    }
+
+    export enum SameSiteCookieWarningReason {
+      WarnSameSiteUnspecifiedCrossSiteContext = 'WarnSameSiteUnspecifiedCrossSiteContext',
+      WarnSameSiteNoneInsecure = 'WarnSameSiteNoneInsecure',
+      WarnSameSiteUnspecifiedLaxAllowUnsafe = 'WarnSameSiteUnspecifiedLaxAllowUnsafe',
+      WarnSameSiteCrossSchemeSecureUrlMethodUnsafe = 'WarnSameSiteCrossSchemeSecureUrlMethodUnsafe',
+      WarnSameSiteCrossSchemeSecureUrlLax = 'WarnSameSiteCrossSchemeSecureUrlLax',
+      WarnSameSiteCrossSchemeSecureUrlStrict = 'WarnSameSiteCrossSchemeSecureUrlStrict',
+      WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe = 'WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe',
+      WarnSameSiteCrossSchemeInsecureUrlLax = 'WarnSameSiteCrossSchemeInsecureUrlLax',
+      WarnSameSiteCrossSchemeInsecureUrlStrict = 'WarnSameSiteCrossSchemeInsecureUrlStrict',
+    }
+
+    export enum SameSiteCookieOperation {
+      SetCookie = 'SetCookie',
+      ReadCookie = 'ReadCookie',
+    }
+
+    /**
+     * This information is currently necessary, as the front-end has a difficult
+     * time finding a specific cookie. With this, we can convey specific error
+     * information without the cookie.
+     */
+    export interface SameSiteCookieIssueDetails {
+      cookie: AffectedCookie;
+      cookieWarningReasons: SameSiteCookieWarningReason[];
+      cookieExclusionReasons: SameSiteCookieExclusionReason[];
+      /**
+       * Optionally identifies the site-for-cookies and the cookie url, which
+       * may be used by the front-end as additional context.
+       */
+      operation: SameSiteCookieOperation;
+      siteForCookies?: string;
+      cookieUrl?: string;
+      request?: AffectedRequest;
+    }
+
+    /**
+     * A unique identifier for the type of issue. Each type may use one of the
+     * optional fields in InspectorIssueDetails to convey more specific
+     * information about the kind of issue.
+     */
+    export enum InspectorIssueCode {
+      SameSiteCookieIssue = 'SameSiteCookieIssue',
+    }
+
+    /**
+     * This struct holds a list of optional fields with additional information
+     * specific to the kind of issue. When adding a new issue code, please also
+     * add a new optional field to this type.
+     */
+    export interface InspectorIssueDetails {
+      sameSiteCookieIssueDetails?: SameSiteCookieIssueDetails;
+    }
+
+    /**
+     * An inspector issue reported from the back-end.
+     */
+    export interface InspectorIssue {
+      code: InspectorIssueCode;
+      details: InspectorIssueDetails;
     }
 
     export enum GetEncodedResponseRequestEncoding {
@@ -701,7 +787,7 @@ declare namespace Protocol {
     }
 
     export interface IssueAddedEvent {
-      issue: Issue;
+      issue: InspectorIssue;
     }
   }
 
@@ -943,9 +1029,9 @@ declare namespace Protocol {
 
     export interface SetPermissionRequest {
       /**
-       * Origin the permission applies to.
+       * Origin the permission applies to, all origins if not specified.
        */
-      origin: string;
+      origin?: string;
       /**
        * Descriptor of permission to override.
        */
@@ -961,7 +1047,10 @@ declare namespace Protocol {
     }
 
     export interface GrantPermissionsRequest {
-      origin: string;
+      /**
+       * Origin the permission applies to, all origins if not specified.
+       */
+      origin?: string;
       permissions: PermissionType[];
       /**
        * BrowserContext to override permissions. When omitted, default browser context is used.
@@ -974,6 +1063,31 @@ declare namespace Protocol {
        * BrowserContext to reset permissions. When omitted, default browser context is used.
        */
       browserContextId?: BrowserContextID;
+    }
+
+    export enum SetDownloadBehaviorRequestBehavior {
+      Deny = 'deny',
+      Allow = 'allow',
+      AllowAndName = 'allowAndName',
+      Default = 'default',
+    }
+
+    export interface SetDownloadBehaviorRequest {
+      /**
+       * Whether to allow all or deny all download requests, or use default Chrome behavior if
+       * available (otherwise deny). |allowAndName| allows download and names files according to
+       * their dowmload guids.
+       */
+      behavior: SetDownloadBehaviorRequestBehavior;
+      /**
+       * BrowserContext to set download behavior. When omitted, default browser context is used.
+       */
+      browserContextId?: BrowserContextID;
+      /**
+       * The default path to save downloaded files to. This is requred if behavior is set to 'allow'
+       * or 'allowAndName'.
+       */
+      downloadPath?: string;
     }
 
     export interface GetVersionResponse {
@@ -4096,6 +4210,17 @@ declare namespace Protocol {
       PauseIfNetworkFetchesPending = 'pauseIfNetworkFetchesPending',
     }
 
+    export interface UserAgentMetadata {
+      brand: string;
+      fullVersion: string;
+      majorVersion: string;
+      platform: string;
+      platformVersion: string;
+      architecture: string;
+      model: string;
+      mobile: boolean;
+    }
+
     export interface CanEmulateResponse {
       /**
        * True if emulation is supported.
@@ -4221,14 +4346,10 @@ declare namespace Protocol {
 
     export enum SetEmulatedVisionDeficiencyRequestType {
       None = 'none',
-      Achromatomaly = 'achromatomaly',
       Achromatopsia = 'achromatopsia',
       BlurredVision = 'blurredVision',
-      Deuteranomaly = 'deuteranomaly',
       Deuteranopia = 'deuteranopia',
-      Protanomaly = 'protanomaly',
       Protanopia = 'protanopia',
-      Tritanomaly = 'tritanomaly',
       Tritanopia = 'tritanopia',
     }
 
@@ -4356,6 +4477,10 @@ declare namespace Protocol {
        * The platform navigator.platform should return.
        */
       platform?: string;
+    }
+
+    export interface SetUserAgentMetadataOverrideRequest {
+      userAgentMetadata?: UserAgentMetadata;
     }
   }
 
@@ -7004,6 +7129,10 @@ declare namespace Protocol {
       platform?: string;
     }
 
+    export interface SetUserAgentMetadataOverrideRequest {
+      userAgentMetadata?: Emulation.UserAgentMetadata;
+    }
+
     /**
      * Fired when data chunk was received over the network.
      */
@@ -8952,9 +9081,41 @@ declare namespace Protocol {
        */
       frameId: FrameId;
       /**
+       * Global unique identifier of the download.
+       */
+      guid: string;
+      /**
        * URL of the resource being downloaded.
        */
       url: string;
+    }
+
+    export enum DownloadProgressEventState {
+      InProgress = 'inProgress',
+      Completed = 'completed',
+      Canceled = 'canceled',
+    }
+
+    /**
+     * Fired when download makes progress. Last call has |done| == true.
+     */
+    export interface DownloadProgressEvent {
+      /**
+       * Global unique identifier of the download.
+       */
+      guid: string;
+      /**
+       * Total expected bytes to download.
+       */
+      totalBytes: number;
+      /**
+       * Total bytes received.
+       */
+      receivedBytes: number;
+      /**
+       * Download status.
+       */
+      state: DownloadProgressEventState;
     }
 
     /**
@@ -10680,7 +10841,7 @@ declare namespace Protocol {
        */
       postData?: string;
       /**
-       * If set, overrides the request headrts.
+       * If set, overrides the request headers.
        */
       headers?: HeaderEntry[];
     }
