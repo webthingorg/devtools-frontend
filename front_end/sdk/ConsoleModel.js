@@ -198,6 +198,13 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
       this._clearIfNecessary();
     }
 
+    // Duplicate message: after portal activation, previous messages will be
+    // re-sent after the runtime agent(s) are reenabled, but those messages are
+    // still in |_messages| as clear() is not called after activation.
+    if (this._messages.some(m => m.timestamp === msg.timestamp)) {
+      return;
+    }
+
     this._messages.push(msg);
     const runtimeModel = msg.runtimeModel();
     if (msg._exceptionId && runtimeModel) {
