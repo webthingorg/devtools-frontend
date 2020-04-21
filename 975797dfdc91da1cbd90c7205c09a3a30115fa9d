@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bc28efc_75824524",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-21T11:19:09Z",
+      "side": 1,
+      "message": "Can you type this as ClipboardEvent instead? Or that doesn\u0027t work?",
+      "range": {
+        "startLine": 1044,
+        "startChar": 14,
+        "endLine": 1044,
+        "endChar": 19
+      },
+      "revId": "975797dfdc91da1cbd90c7205c09a3a30115fa9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
