@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "765408c7_49d09057",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-21T14:39:45Z",
+      "side": 1,
+      "message": "Rephrased the commit message",
+      "parentUuid": "6d071d1b_b7d81409",
+      "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1345acb_675db106",
         "filename": "front_end/color_picker/Spectrum.js",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-04-21T14:19:56Z",
       "side": 1,
       "message": "What\u0027s your thinking w.r.t. the formatOptions?\n\nIs it meant to be a temporary, easy way to revert the changes without having to remove the code?\nOr are you thinking of keeping this permanently, and exposing an extra setting for this?",
+      "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b15b652_291485c2",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-21T14:39:45Z",
+      "side": 1,
+      "message": "Color::asString is used in several other places and I didn\u0027t investigate if they all can be updated. Eventually, if every usage switches to the new notation, the options can be removed.\n\nSpectrum will always use whitespaceSeparated\u003dtrue but the general default value is whitespaceSeparated\u003dfalse.",
+      "parentUuid": "d1345acb_675db106",
       "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
