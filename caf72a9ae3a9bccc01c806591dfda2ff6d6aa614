@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb7d2df7_62d6840f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-21T12:23:02Z",
+      "side": 1,
+      "message": "nit: test",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "caf72a9ae3a9bccc01c806591dfda2ff6d6aa614",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1d3a17a_94acad3b",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-21T12:23:02Z",
+      "side": 1,
+      "message": "nit: trailing `.`",
+      "revId": "caf72a9ae3a9bccc01c806591dfda2ff6d6aa614",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fb5a89c_f6ac9bc6",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-21T12:23:02Z",
+      "side": 1,
+      "message": "You could choose to use the URL\n\n    data:text/html,\n\ninstead, given the surprising complexity of about:blank in all browsers: https://hsivonen.fi/about-blank/",
+      "range": {
+        "startLine": 1308,
+        "startChar": 68,
+        "endLine": 1308,
+        "endChar": 79
+      },
+      "revId": "caf72a9ae3a9bccc01c806591dfda2ff6d6aa614",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
