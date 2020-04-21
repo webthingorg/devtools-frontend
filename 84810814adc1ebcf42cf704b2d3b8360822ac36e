@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03bd6370_5e3c9257",
+        "filename": "test/e2e/sources/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-21T14:08:12Z",
+      "side": 1,
+      "message": "Nit: As you hinted at in chat, this should be moved to the sources-helper.",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "84810814adc1ebcf42cf704b2d3b8360822ac36e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7a5e72_6135b604",
+        "filename": "test/e2e/sources/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-21T14:08:12Z",
+      "side": 1,
+      "message": "Nit: it is usually better to evaluate on an element instead of the Puppeteer handle API, as it more closely resembles the DOM apis you would normally be using. (This is not part of any style guide, so if you have a stronger preference for this pattern then that is okay as well). E.g.\n\n`await element.evaluate(button \u003d\u003e button.value);`",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 80
+      },
+      "revId": "84810814adc1ebcf42cf704b2d3b8360822ac36e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
