@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {AssertionError} from 'chai';
 import * as os from 'os';
 import {performance} from 'perf_hooks';
 import * as puppeteer from 'puppeteer';
@@ -269,6 +270,48 @@ export const enableExperiment = async (experiment: string) => {
   }, experiment);
 
   await reloadDevTools();
+};
+
+export const step = async (description: string, step: Function) => {
+  try {
+    function stackTrace() {
+      const err = new Error();
+      return err.stack;
+    }
+    const st = stackTrace();
+    let nestedCount;
+    if (typeof st === 'string') {
+      nestedCount = st.split('at helper_js_1.step').length;
+    }
+    if (typeof nestedCount !== 'undefined') {
+      let preStr;
+      if (nestedCount === 1) {
+        preStr = '├─';
+      } else {
+        preStr = '\t'.repeat(nestedCount) + '├─';
+      }
+      console.log(`     ${preStr} Running step: ${description}`);
+    }
+    return step();
+  } catch (error) {
+    if (error instanceof AssertionError) {
+      if (error.message.includes('Unexpected Result in Step: ')) {
+        const comp_desc = description + ' => ' + error.message.replace('Unexpected Result in Step: ', '');
+        throw new AssertionError('Unexpected Result in Step: ' + comp_desc, error);
+      } else {
+        throw new AssertionError('Unexpected Result in Step: ' + description, error);
+      }
+    } else {
+      if (error.message.includes('in Step: ')) {
+        const steps_raised = error.message.split(':');
+        error.message = steps_raised.shift() + ': ' + description + ' => ' + steps_raised;
+        throw error;
+      } else {
+        error.message = error.message + ' in Step: ' + description;
+        throw error;
+      }
+    }
+  }
 };
 
 export {getBrowserAndPages, reloadDevTools};
