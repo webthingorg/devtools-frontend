@@ -69,6 +69,24 @@
       "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e0a234_45ab6c97",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-21T15:42:32Z",
+      "side": 1,
+      "message": "In that case, do you want to add a TODO and file a crbug for tracking this follow-up work? Long-term, it\u0027d be nice if we didn\u0027t need the option anymore.",
+      "parentUuid": "0b15b652_291485c2",
+      "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
