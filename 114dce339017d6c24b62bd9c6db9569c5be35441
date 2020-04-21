@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5f523e23_b4d50f67",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 28
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-21T21:49:58Z",
+      "side": 1,
+      "message": "This code already existed (above), but I haven\u0027t noticed any particular reason why in the time that I\u0027ve been working in this file. Removed the try/catch",
+      "parentUuid": "6f0e1de3_c985f8bf",
+      "revId": "114dce339017d6c24b62bd9c6db9569c5be35441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbcac4b7_6726a779",
         "filename": "scripts/json_validator/module.schema.json",
         "patchSetId": 28
@@ -33,6 +51,24 @@
       "revId": "114dce339017d6c24b62bd9c6db9569c5be35441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88048991_49c838cc",
+        "filename": "scripts/json_validator/module.schema.json",
+        "patchSetId": 28
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-21T21:49:58Z",
+      "side": 1,
+      "message": "I\u0027m not sure why I initially put a * there--swapped for a +",
+      "parentUuid": "cbcac4b7_6726a779",
+      "revId": "114dce339017d6c24b62bd9c6db9569c5be35441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
