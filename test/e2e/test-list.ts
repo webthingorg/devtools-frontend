@@ -17,6 +17,7 @@ const tests = [
   'elements/style-pane-properties_test.js',
   'elements/element-breadcrumbs_test.js',
   'host/user-metrics_test.js',
+  'layers/layers_test.js',
   'media/media-tab_test.js',
   'network/network-datagrid_test.js',
   'rendering/vision-deficiencies_test.js',
