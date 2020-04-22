@@ -185,11 +185,22 @@ class AffectedRequestsView extends AffectedResourcesView {
     const nameText = request.name().trimMiddle(100);
     const nameElement = createElementWithClass('td', '');
     nameElement.appendChild(UI.UIUtils.createTextButton(nameText, () => {
-      Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, Network.NetworkItemView.Tabs.Headers);
+      Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, this._getNetworkTabForIssue());
     }, 'link-style devtools-link'));
     const element = createElementWithClass('tr', 'affected-resource-request');
     element.appendChild(nameElement);
     this._affectedResources.appendChild(element);
+  }
+
+  /**
+   * @return {!Network.NetworkItemView.Tabs}
+   */
+  _getNetworkTabForIssue() {
+    let issue = this._issue;
+    if (this._issue instanceof SDK.Issue.AggregatedIssue && this._issue.representative()) {
+      issue = /** {!SDK.Issue.Issue} */ (this._issue.representative());
+    }
+    return issueTypeToNetworkHeaderMap.get(issue.constructor.name) || Network.NetworkItemView.Tabs.Headers;
   }
 
   update() {
@@ -198,6 +209,11 @@ class AffectedRequestsView extends AffectedResourcesView {
   }
 }
 
+/** @type {!Map<string, !Network.NetworkItemView.Tabs>} */
+const issueTypeToNetworkHeaderMap = new Map([
+  [SDK.SameSiteCookieIssue.SameSiteCookieIssue.name, Network.NetworkItemView.Tabs.Cookies],
+  [SDK.CrossOriginEmbedderPolicyIssue.CrossOriginEmbedderPolicyIssue.name, Network.NetworkItemView.Tabs.Headers]
+]);
 
 class IssueView extends UI.TreeOutline.TreeElement {
   /**

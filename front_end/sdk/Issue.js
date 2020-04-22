@@ -135,6 +135,13 @@ export class AggregatedIssue extends Issue {
   }
 
   /**
+   * @return {?Issue}
+   */
+  representative() {
+    return this._representative;
+  }
+
+  /**
    * @override
    * @return {symbol}
    */

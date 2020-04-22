@@ -20,6 +20,7 @@ import * as CookieModel from './CookieModel.js';
 import * as CookieParser from './CookieParser.js';
 import * as CPUProfileDataModel from './CPUProfileDataModel.js';
 import * as CPUProfilerModel from './CPUProfilerModel.js';
+import * as CrossOriginEmbedderPolicyIssue from './CrossOriginEmbedderPolicyIssue.js';
 import * as CSSMatchedStyles from './CSSMatchedStyles.js';
 import * as CSSMedia from './CSSMedia.js';
 import * as CSSMetadata from './CSSMetadata.js';
@@ -52,6 +53,7 @@ import * as RemoteObject from './RemoteObject.js';
 import * as Resource from './Resource.js';
 import * as ResourceTreeModel from './ResourceTreeModel.js';
 import * as RuntimeModel from './RuntimeModel.js';
+import * as SameSiteCookieIssue from './SameSiteCookieIssue.js';
 import * as ScreenCaptureModel from './ScreenCaptureModel.js';
 import * as Script from './Script.js';
 import * as SDKModel from './SDKModel.js';
@@ -74,6 +76,7 @@ export {
   CookieParser,
   CPUProfileDataModel,
   CPUProfilerModel,
+  CrossOriginEmbedderPolicyIssue,
   CSSMatchedStyles,
   CSSMedia,
   CSSMetadata,
@@ -106,6 +109,7 @@ export {
   Resource,
   ResourceTreeModel,
   RuntimeModel,
+  SameSiteCookieIssue,
   ScreenCaptureModel,
   Script,
   SDKModel,
