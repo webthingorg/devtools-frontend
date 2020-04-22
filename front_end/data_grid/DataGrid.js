@@ -38,7 +38,7 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
   constructor(dataGridParameters) {
     super();
     const {displayName, columns: columnsArray, editCallback, deleteCallback, refreshCallback} = dataGridParameters;
-    this.element = createElementWithClass('div', 'data-grid');
+    this.element = createElementWithClass('div', 'data-grid-test');
     UI.Utils.appendStyle(this.element, 'data_grid/dataGrid.css');
     this.element.tabIndex = 0;
     this.element.addEventListener('keydown', this._keyDown.bind(this), false);
