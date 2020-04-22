@@ -22,6 +22,30 @@
       "revId": "8a9a2e1836c08d06df252c6247b56e241241886e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af14ab6b_9ac572f1",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-22T07:27:35Z",
+      "side": 1,
+      "message": "Ahh, totally forgot we have those as well. That makes way more sense, will replace the constructors with the categories.",
+      "parentUuid": "dca9afd4_4db98a2b",
+      "range": {
+        "startLine": 200,
+        "startChar": 20,
+        "endLine": 200,
+        "endChar": 56
+      },
+      "revId": "8a9a2e1836c08d06df252c6247b56e241241886e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
