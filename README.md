@@ -80,10 +80,10 @@ fetch devtools-frontend
 To build, follow these steps:
 ```bash
 cd devtools-frontend
-gn gen out/Default
-autoninja -C out/Default
+gn gen out/Release
+autoninja -C out/Release
 ```
-The resulting build artifacts can be found in `out/Default/resources/inspector`.
+The resulting build artifacts can be found in `out/Release/resources/inspector`.
 
 ##### Update to latest
 
@@ -102,14 +102,14 @@ To run the production build, use
 **(Requires `brew install coreutils` on Mac.)**
 
 ```bash
-<path-to-chrome>/chrome --custom-devtools-frontend=file://$(realpath out/Default/resources/inspector)
+<path-to-chrome>/chrome --custom-devtools-frontend=file://$(realpath out/Release/resources/inspector)
 ```
 
 To run the debug build (directly symlinked to the original unminified source files),
 build both Chromium and DevTools frontend with the [GN flag](https://www.chromium.org/developers/gn-build-configuration) `debug_devtools=true`, and use
 
 ```bash
-<path-to-chrome>/chrome --custom-devtools-frontend=file://$(realpath out/Default/resources/inspector/debug)
+<path-to-chrome>/chrome --custom-devtools-frontend=file://$(realpath out/Release/resources/inspector/debug)
 ```
 
 You can inspect DevTools with DevTools by undocking DevTools and then open the developers tools (F12 on Windows/Linux, Cmd+Option+I on Mac).
@@ -140,21 +140,21 @@ However, it is different to our infrastructure setup and how to execute general 
 Follow [instructions](https://www.chromium.org/developers/how-tos/get-the-code) to check out Chromium. DevTools frontend can be found under `third_party/devtools-frontend/src/`.
 
 ##### Build
-Refer to [instructions](https://www.chromium.org/developers/how-tos/get-the-code) to build Chromium. To only build DevTools frontend, use `devtools_frontend_resources` as build target. The resulting build artifacts for DevTools frontend can be found in `out/Default/resources/inspector`.
+Refer to [instructions](https://www.chromium.org/developers/how-tos/get-the-code) to build Chromium. To only build DevTools frontend, use `devtools_frontend_resources` as build target. The resulting build artifacts for DevTools frontend can be found in `out/Release/resources/inspector`.
 
 Consider building with the [GN flag](https://www.chromium.org/developers/gn-build-configuration) `debug_devtools=true` to symlink to the original unminified source.
 
 ##### Run
 Run Chrome with DevTools frontend bundled:
 ```bash
-out/Default/chrome
+out/Release/chrome
 ```
 
 ##### Test
 Test are available by running scripts in `third_party/devtools-frontend/src/scripts/test/`.
 After building content shell, we can also run layout tests that are relevant for DevTools frontend:
 ```bash
-autoninja -C out/Default content_shell
+autoninja -C out/Release content_shell
 third_party/blink/tools/run_web_tests.py http/tests/devtools
 ```
 
