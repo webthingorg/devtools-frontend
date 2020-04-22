@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "60d8a887_43d3b655",
+        "filename": "test/unittests/front_end/sdk/Issue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-22T09:04:24Z",
+      "side": 1,
+      "message": "Added it to my ToDo list, would like to do it in a follow up CL though, in case more code changes are required in Issues.js.",
+      "parentUuid": "bb25a89e_8145ce50",
+      "range": {
+        "startLine": 19,
+        "startChar": 49,
+        "endLine": 19,
+        "endChar": 51
+      },
+      "revId": "40dd0642f01c80dd8538045e3809d44b80d4c746",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df5ea553_aa496ab2",
         "filename": "test/unittests/front_end/sdk/Issue_test.ts",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "40dd0642f01c80dd8538045e3809d44b80d4c746",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0649490_772d6051",
+        "filename": "test/unittests/front_end/sdk/Issue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-22T09:04:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df5ea553_aa496ab2",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 60
+      },
+      "revId": "40dd0642f01c80dd8538045e3809d44b80d4c746",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
