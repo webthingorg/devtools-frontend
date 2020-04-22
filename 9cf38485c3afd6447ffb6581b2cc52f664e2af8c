@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4afed37f_c5f8c66f",
+        "filename": "test/e2e/layers/layers_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-22T12:17:06Z",
+      "side": 1,
+      "message": "Nit: this should be in `layer-helpers.ts`",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "9cf38485c3afd6447ffb6581b2cc52f664e2af8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7769e8f_db6766d4",
+        "filename": "test/e2e/layers/layers_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-22T12:17:06Z",
+      "side": 1,
+      "message": "This is brittle. What are we waiting for and can we use a different waiting condition?\n\n(What I suspect you want is a `waitUntil` condition on the `target.goto`: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/conductor/hooks.ts;l\u003d87;drc\u003d869374bcab6fa261360d6cd62fd135898274204d?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F )",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "9cf38485c3afd6447ffb6581b2cc52f664e2af8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
