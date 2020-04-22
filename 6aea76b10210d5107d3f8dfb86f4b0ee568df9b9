@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04ad5f86_d3adf869",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-22T08:53:35Z",
+      "side": 1,
+      "message": "Is `element` a regular DOM element (I think it is)? In that case we can just do:\n\n    element.tabIndex \u003d 0;",
+      "revId": "6aea76b10210d5107d3f8dfb86f4b0ee568df9b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
