@@ -16,6 +16,24 @@
       "revId": "6aea76b10210d5107d3f8dfb86f4b0ee568df9b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87c5e536_261ca5de",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-22T08:59:04Z",
+      "side": 1,
+      "message": "yes, we can. I changed that",
+      "parentUuid": "04ad5f86_d3adf869",
+      "revId": "6aea76b10210d5107d3f8dfb86f4b0ee568df9b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
