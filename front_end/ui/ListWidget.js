@@ -72,6 +72,7 @@ export class ListWidget extends VBox {
     element.appendChild(this._delegate.renderItem(item, editable));
     if (editable) {
       element.classList.add('editable');
+      element.setAttribute('tabindex', '0');
       element.appendChild(this._createControls(item, element));
     }
     this._elements.push(element);
