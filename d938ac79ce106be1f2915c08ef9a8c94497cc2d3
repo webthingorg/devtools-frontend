@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f96b195f_3b4ebdfd",
+        "filename": "back_end/CXXDWARFSymbols/CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-04-22T14:09:43Z",
+      "side": 1,
+      "message": "Does that mean we include X86 compilation targets in the code we ship?",
+      "parentUuid": "0153e5d4_195588da",
+      "range": {
+        "startLine": 13,
+        "startChar": 27,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "d938ac79ce106be1f2915c08ef9a8c94497cc2d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37abd2d3_cd3af510",
         "filename": "back_end/CXXDWARFSymbols/src/CMakeLists.txt",
         "patchSetId": 2
