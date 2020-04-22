@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7518aa23_6fbb3eb8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-22T20:27:23Z",
+      "side": 1,
+      "message": "can you update these to replace --ninja-build-name with --target, it was a bit confusing to test 😊",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 51
+      },
+      "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3bb329b_20ac0709",
+        "filename": "scripts/build/efficiently_recompile.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-22T20:27:23Z",
+      "side": 1,
+      "message": "For this to work on windows, it needs the shell\u003dTrue option. Also, I totally misspoke last time I did this, and autoninja is smart enough to resolve out/Default on windows without replacing the sep\n\nSo this reads on my machine:\n`ninja_proc \u003d subprocess.Popen([\u0027autoninja\u0027, \u0027-C\u0027, \u0027out/{}\u0027.format(ninja_build_name), ninja_target_name], cwd\u003dROOT_DIRECTORY, shell\u003dTrue)`",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 130
+      },
+      "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
