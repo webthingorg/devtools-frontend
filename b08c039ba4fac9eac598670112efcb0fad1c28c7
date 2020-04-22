@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e3f72b9_18efcf7d",
+        "filename": "test/e2e/layers/layers_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-22T13:14:05Z",
+      "side": 1,
+      "message": "I am still seeing the timeout here. Do you have local changes leftover?",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "b08c039ba4fac9eac598670112efcb0fad1c28c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
