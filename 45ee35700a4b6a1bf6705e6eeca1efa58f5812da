@@ -22,6 +22,30 @@
       "revId": "45ee35700a4b6a1bf6705e6eeca1efa58f5812da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a49c379f_b20714bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-22T10:36:12Z",
+      "side": 1,
+      "message": "I could make that change, but the Chromium tooling does not support your use case: https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/linux/build_instructions.md#setting-up-the-build\n\n\u003e You can replace Default with another name, but it should be a subdirectory of out.\n\nTherefore I am reluctant to support a use case that Chromium also doesn\u0027t support.\n\nIt also means that certain lookups in the actual implementation will break, because it currently has to traverse parent directories. And there it assumes that you use the supported `out/X` structure.",
+      "parentUuid": "824fd53c_9f4e8448",
+      "range": {
+        "startLine": 15,
+        "startChar": 39,
+        "endLine": 15,
+        "endChar": 46
+      },
+      "revId": "45ee35700a4b6a1bf6705e6eeca1efa58f5812da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
