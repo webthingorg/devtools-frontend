@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb25a89e_8145ce50",
+        "filename": "test/unittests/front_end/sdk/Issue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-22T08:53:12Z",
+      "side": 1,
+      "message": "Since you are on it, do you want to add a (probably separate) test for the cookies logic as well?",
+      "range": {
+        "startLine": 19,
+        "startChar": 49,
+        "endLine": 19,
+        "endChar": 51
+      },
+      "revId": "40dd0642f01c80dd8538045e3809d44b80d4c746",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5ea553_aa496ab2",
+        "filename": "test/unittests/front_end/sdk/Issue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-22T08:53:12Z",
+      "side": 1,
+      "message": "We could map the requests to their request ids and check that those are right?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 60
+      },
+      "revId": "40dd0642f01c80dd8538045e3809d44b80d4c746",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
