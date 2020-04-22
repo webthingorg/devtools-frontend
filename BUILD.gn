@@ -1157,6 +1157,7 @@ all_devtools_modules = [
   "elements/ColorSwatchPopoverIcon.js",
   "elements/ComputedStyleModel.js",
   "elements/ComputedStyleWidget.js",
+  "elements/Adorner.js",
   "elements/DOMLinkifier.js",
   "elements/DOMPath.js",
   "elements/ElementsBreadcrumbs.js",
