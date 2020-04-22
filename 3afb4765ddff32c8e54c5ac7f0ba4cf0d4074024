@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f555342c_46574a07",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-22T11:38:34Z",
+      "side": 1,
+      "message": "I would say not at the moment, since right now users can bind event listeners using addEventListener API just as if an Adorner is a regular HTMLElement. When I continue to work on Grid-specific adornment, I will be able to see if any internal states need to be updated when adorners are interacted, and will add handlers respectively. Thanks for noticing!",
+      "parentUuid": "2c9b5195_d758787a",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "325c541b_99eb2614",
         "filename": "front_end/elements/Adorner.js",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-17T21:16:10Z",
       "side": 1,
       "message": "We have the ARIAUtils.js file to set this attribute for most elements. look for the setAccessibleName function\n\nAlso, I\u0027m not sure exactly what the expected behavior for SR users would be. My guess is that the accessible name of the element in the tree outline would have it\u0027s accessible text updated to read out adorner names. I\u0027m not sure this would ever get read since it\u0027s not currently focusable?",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 79
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae163cf4_75a5428d",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-22T11:38:34Z",
+      "side": 1,
+      "message": "Sounds good! I\u0027ve updated the code to use the internal method.\n\nI\u0027m still working with UX side to decide what would happen to ARIA properties when adorner\u0027s state gets updated (e.g. activated, bound with onclick event listeners so that it can act as a button). I\u0027ll update this part once we have a clearer understanding.",
+      "parentUuid": "325c541b_99eb2614",
       "range": {
         "startLine": 30,
         "startChar": 4,
@@ -68,6 +116,30 @@
       "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e1c10d2_4bf9171e",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-22T11:38:34Z",
+      "side": 1,
+      "message": "Sounds good. It may be useful in the future. I\u0027ll upate the code.",
+      "parentUuid": "34d8ff4e_89c77866",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -213,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "058ad6bd_23d7206f",
+        "filename": "front_end/elements/elements.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-22T11:38:34Z",
+      "side": 1,
+      "message": "I have removed the extra \"import\" line. Thanks for clarifying this up.",
+      "parentUuid": "51da672a_4d06f0b3",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cd30e02_8f0dd07a",
         "filename": "front_end/elements/elementsTreeOutline.css",
         "patchSetId": 1
@@ -233,6 +329,30 @@
       "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b453122a_196e9380",
+        "filename": "front_end/elements/elementsTreeOutline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-22T11:38:34Z",
+      "side": 1,
+      "message": "I have considered adding style-related properties as parameters to the Adorner.create factory, but decided to wait until I have a more robust Grid-specific adornment CL to think about this case. In the future, if we have better support to declaratively create UIs, I would say adding style options as properties and reflect them with attributes would be useful as well. \nCurrently it has a separation between style definitions and JS code behavior, and for now I think that\u0027s enough to get future work going.",
+      "parentUuid": "7cd30e02_8f0dd07a",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 1
+      },
+      "revId": "3afb4765ddff32c8e54c5ac7f0ba4cf0d4074024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
