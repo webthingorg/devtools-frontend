@@ -87,6 +87,24 @@
       "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dd679ef_29bad4dc",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-22T06:33:50Z",
+      "side": 1,
+      "message": "Added a TODO and filed a bug",
+      "parentUuid": "b3e0a234_45ab6c97",
+      "revId": "bb16f0c158d28ad14cb3f854a6f231a6e76d5470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
