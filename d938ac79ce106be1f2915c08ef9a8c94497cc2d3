@@ -131,6 +131,23 @@
       "revId": "d938ac79ce106be1f2915c08ef9a8c94497cc2d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35c00fb0_e15edc36",
+        "filename": "back_end/CXXDWARFSymbols/src/Modules.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-22T07:49:22Z",
+      "side": 1,
+      "message": "NewModule can be empty; can we add an if case here to check whether it actually exists?",
+      "revId": "d938ac79ce106be1f2915c08ef9a8c94497cc2d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
