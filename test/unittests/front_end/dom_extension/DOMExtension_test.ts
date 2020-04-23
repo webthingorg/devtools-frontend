@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const { assert } = chai;
+const {assert} = chai;
 import '../../../../front_end/dom_extension/DOMExtension.js';
 
 declare global {
-    function createElementWithClass(tagName: string, className?: string, content?: string): HTMLElement;
+  function createElementWithClass(tagName: string, className?: string, content?: string): HTMLElement;
 
-    interface HTMLElement {
-        traverseNextNode(node: HTMLElement): HTMLElement;
-        createChild(tagName: string, className?: string, content?: string): HTMLElement;
-    }
+  interface HTMLElement {
+    traverseNextNode(node: HTMLElement): HTMLElement;
+    createChild(tagName: string, className?: string, content?: string): HTMLElement;
+  }
 }
 
 function createSlot(parent: HTMLElement, name?: string) {

@@ -4,7 +4,7 @@
 
 const {assert} = chai;
 
-import { measuredScrollbarWidth } from '../../../../../front_end/ui/utils/measured-scrollbar-width.js';
+import {measuredScrollbarWidth} from '../../../../../front_end/ui/utils/measured-scrollbar-width.js';
 
 describe('measuredScrollbarWidth', () => {
   let style: HTMLStyleElement;

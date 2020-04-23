@@ -29,6 +29,10 @@
  * Contains diff method based on Javascript Diff Algorithm By John Resig
  * http://ejohn.org/files/jsdiff.js (released under the MIT license).
  */
+
+// @ts-nocheck
+// TODO(crbug.com/1011811): Enable TypeScript compiler checks
+
 /**
  * @param {number} offset
  * @param {string} stopCharacters
@@ -493,7 +497,7 @@ Element.prototype.createSVGChild = function(childType, className) {
 /**
  * @unrestricted
  */
-var AnchorBox = class {  // eslint-disable-line
+export class AnchorBox {
   /**
    * @param {number=} x
    * @param {number=} y
@@ -540,7 +544,7 @@ var AnchorBox = class {  // eslint-disable-line
     return !!anchorBox && this.x === anchorBox.x && this.y === anchorBox.y && this.width === anchorBox.width &&
         this.height === anchorBox.height;
   }
-};
+}
 
 /** @constructor */
 self.AnchorBox = AnchorBox;

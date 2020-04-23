@@ -10,12 +10,12 @@ import {SourceMapEntry, TextSourceMap} from '../../../../front_end/sdk/SourceMap
 describe.skip('SourceMapEntry', () => {
   it('can be instantiated correctly', () => {
     const sourceMapEntry = new SourceMapEntry(1, 1, 'http://www.example.com/', 1, 1, 'example');
-    assert.equal(sourceMapEntry.lineNumber, 1,'line number was not set correctly');
-    assert.equal(sourceMapEntry.columnNumber, 1,'column number was not set correctly');
-    assert.equal(sourceMapEntry.sourceURL, 'http://www.example.com/','source URL was not set correctly');
-    assert.equal(sourceMapEntry.sourceLineNumber, 1,'source line number was not set correctly');
-    assert.equal(sourceMapEntry.sourceColumnNumber, 1,'source column number was not set correctly');
-    assert.equal(sourceMapEntry.name, 'example','name was not set correctly');
+    assert.equal(sourceMapEntry.lineNumber, 1, 'line number was not set correctly');
+    assert.equal(sourceMapEntry.columnNumber, 1, 'column number was not set correctly');
+    assert.equal(sourceMapEntry.sourceURL, 'http://www.example.com/', 'source URL was not set correctly');
+    assert.equal(sourceMapEntry.sourceLineNumber, 1, 'source line number was not set correctly');
+    assert.equal(sourceMapEntry.sourceColumnNumber, 1, 'source column number was not set correctly');
+    assert.equal(sourceMapEntry.name, 'example', 'name was not set correctly');
   });
 
   describe('comparison', () => {
