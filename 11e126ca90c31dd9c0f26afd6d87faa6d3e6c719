@@ -93,6 +93,30 @@
       "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfb3a9f0_7d8dec70",
+        "filename": "scripts/build/efficiently_recompile.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-23T14:45:02Z",
+      "side": 1,
+      "message": "Hmm, not sure why, but without shell\u003dTrue, windows throws an error finding autoninja:\n\nhttps://imgur.com/GR2bHVn\n\nI confirmed it was autoninja by hardcoding the rest of the args to valid paths, and it still failed.\ncalling the desired command directly also worked, its just the Popen that failed: \n`autoninja -C out/Default test/unittests/front_end`\n\npassing shell\u003dTrue resolved that issue, but let me see if I can find a different solution",
+      "parentUuid": "d8b82de0_f097e923",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 130
+      },
+      "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
