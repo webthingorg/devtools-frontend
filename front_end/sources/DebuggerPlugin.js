@@ -1544,6 +1544,24 @@ export class DebuggerPlugin extends Plugin {
     const isSourceMapSource =
         !!Bindings.CompilerScriptMapping.CompilerScriptMapping.uiSourceCodeOrigin(this._uiSourceCode);
     if (!isSourceMapSource) {
+      // Check to see if it is Wasm Disassembly.
+      for (const scriptFile of this._scriptFileForDebuggerModel.values()) {
+        if (!scriptFile) {
+          return;
+        }
+        if (scriptFile._uiSourceCode === this._uiSourceCode) {
+          const script = scriptFile._script;
+          if (script.hasWasmDisassembly()) {
+            const linesCount = this._textEditor.linesCount;
+            for (let i = 0; i < linesCount; ++i) {
+              const lineIsBreakable = script.isWasmDisassemblyBreakableLine(i);
+              if (!lineIsBreakable) {
+                this._textEditor.toggleLineClass(i, 'cm-line-without-source-mapping', true);
+              }
+            }
+          }
+        }
+      }
       return;
     }
     const linesCount = this._textEditor.linesCount;
