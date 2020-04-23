@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6470c136_6aba51b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-23T09:24:37Z",
+      "side": 1,
+      "message": "Ah yes good catch.",
+      "parentUuid": "7518aa23_6fbb3eb8",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 51
+      },
+      "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3bb329b_20ac0709",
         "filename": "scripts/build/efficiently_recompile.py",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-22T20:27:23Z",
       "side": 1,
       "message": "For this to work on windows, it needs the shell\u003dTrue option. Also, I totally misspoke last time I did this, and autoninja is smart enough to resolve out/Default on windows without replacing the sep\n\nSo this reads on my machine:\n`ninja_proc \u003d subprocess.Popen([\u0027autoninja\u0027, \u0027-C\u0027, \u0027out/{}\u0027.format(ninja_build_name), ninja_target_name], cwd\u003dROOT_DIRECTORY, shell\u003dTrue)`",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 130
+      },
+      "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8b82de0_f097e923",
+        "filename": "scripts/build/efficiently_recompile.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-23T09:24:37Z",
+      "side": 1,
+      "message": "https://docs.python.org/3/library/subprocess.html states:\n\n\u003e On Windows with shell\u003dTrue, the COMSPEC environment variable specifies the default shell. The only time you need to specify shell\u003dTrue on Windows is when the command you wish to execute is built into the shell (e.g. dir or copy). You do not need shell\u003dTrue to run a batch file or console-based executable.\n\n\u003e Note Read the Security Considerations section before using shell\u003dTrue.\n\nCould you elaborate on what is breaking on your machine? I would like to not use `shell\u003dTrue` here given the security considerations listed in the docs.",
+      "parentUuid": "b3bb329b_20ac0709",
       "range": {
         "startLine": 19,
         "startChar": 17,
