@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b96d5b5_68e9321b",
+        "filename": "front_end/cm/simple.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-23T09:37:59Z",
+      "side": 1,
+      "message": "Nit: I don\u0027t think we are using this particular mode anywhere, do we? We might want to not include it in the bundle (thus remove the ES import and BUILD.gn changes). Not sure though, so let me know if I missed something.",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "b7d4d63198ee7e6dceab5ce7b3e8d2256fb31eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
