@@ -4,17 +4,9 @@
 
 import("../../third_party/typescript/typescript.gni")
 
-ts_library("formatter_worker") {
+ts_library("dom_extension") {
   sources = [
-    "AcornTokenizer.js",
-    "ESTreeWalker.js",
-    "FormattedContentBuilder.js",
-    "JavaScriptFormatter.js",
-  ]
-
-  deps = [
-    "../platform",
-    "../text_utils",
-    "acorn",
+    "DOMExtension.js",
+    "dom_extension.js",
   ]
 }
