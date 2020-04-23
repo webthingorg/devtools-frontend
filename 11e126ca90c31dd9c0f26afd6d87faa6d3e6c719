@@ -141,6 +141,30 @@
       "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8629c146_1b2720da",
+        "filename": "scripts/build/efficiently_recompile.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-23T14:58:53Z",
+      "side": 1,
+      "message": "Based on https://bugs.python.org/issue33515 it might not be possible to invoke autoninja on windows in this way without shell\u003dTrue, as .bat files behave that way anyway.",
+      "parentUuid": "bc4b9e2c_7947955b",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 130
+      },
+      "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
