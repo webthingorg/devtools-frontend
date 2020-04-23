@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e42aa630_1326e288",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-23T15:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3615ba96_d1a6a782",
+      "range": {
+        "startLine": 103,
+        "startChar": 12,
+        "endLine": 103,
+        "endChar": 13
+      },
+      "revId": "f2043faeb2b1ce48b33c9210318064efcbac9bba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1664635_0b0f07ae",
         "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-23T14:48:51Z",
       "side": 1,
       "message": "I guess the advantage/disadvantage of this approach is that we now await all the contents, rather than asynchronously updating the UI items individually. In practice I think this will be fine",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 16
+      },
+      "revId": "f2043faeb2b1ce48b33c9210318064efcbac9bba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fefd050_49c3bcf3",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-23T15:09:34Z",
+      "side": 1,
+      "message": "right, the code is simpler this way but the breakpoints will render only after all source files are fetched. This is required for the diffing algorithm: we need to know if the source code has changed to decide if we update the model.",
+      "parentUuid": "a1664635_0b0f07ae",
       "range": {
         "startLine": 125,
         "startChar": 11,
@@ -68,6 +116,30 @@
       "revId": "f2043faeb2b1ce48b33c9210318064efcbac9bba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6fdf779_f7ef21d1",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-23T15:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3589ab18_0bd1eddc",
+      "range": {
+        "startLine": 152,
+        "startChar": 20,
+        "endLine": 152,
+        "endChar": 25
+      },
+      "revId": "f2043faeb2b1ce48b33c9210318064efcbac9bba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

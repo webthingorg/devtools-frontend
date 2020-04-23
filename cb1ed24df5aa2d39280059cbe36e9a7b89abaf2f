@@ -22,6 +22,30 @@
       "revId": "cb1ed24df5aa2d39280059cbe36e9a7b89abaf2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0861f6cd_872009a0",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-23T15:09:34Z",
+      "side": 0,
+      "message": "it was used in line 114 and 273. The line 114 is removed as I have not found it to have any effect. And the line 273 can be rewritten using locations because breakpointLocation is the first element of locations.",
+      "parentUuid": "797e9030_abc84417",
+      "range": {
+        "startLine": 111,
+        "startChar": 20,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "cb1ed24df5aa2d39280059cbe36e9a7b89abaf2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
