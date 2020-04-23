@@ -183,13 +183,13 @@ describe('Multi-Workers', async function() {
       });
 
       // Flaky test: crbug.com/1073406
-      it.skip('for newly created workers', async () => {
+      it.only('for newly created workers', async () => {
         const {target} = getBrowserAndPages();
         // Launch a new worker and make it hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
 
         // Validate that we are paused
-        await waitFor(RESUME_BUTTON);
+        await waitFor(RESUME_BUTTON, undefined, 1500);
 
         // Validate that the source line is highlighted
         assert.equal(await getExecutionLine(), 6);
