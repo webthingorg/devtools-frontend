@@ -10,6 +10,7 @@ import * as Common from '../common/common.js';
 /** @enum {symbol} */
 export const IssueCategory = {
   CrossOriginEmbedderPolicy: Symbol('CrossOriginEmbedderPolicy'),
+  MixedContent: Symbol('MixedContent'),
   SameSiteCookie: Symbol('SameSiteCookie'),
   Other: Symbol('Other')
 };
@@ -65,6 +66,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @returns {Protocol.Audits.MixedContentIssueDetails}
+   */
+  mixedContent() {
+    return null;
+  }
+
+  /**
    * @param {string} requestId
    * @returns {boolean}
    */
@@ -109,6 +117,8 @@ export class AggregatedIssue extends Issue {
     this._requests = new Map();
     /** @type {?Issue} */
     this._representative = null;
+    /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
+    this._mixedContents = new Map();
   }
 
   /**
@@ -117,6 +127,10 @@ export class AggregatedIssue extends Issue {
    */
   cookies() {
     return this._cookies.values();
+  }
+
+  mixedContents() {
+    return this._mixedContents.values();
   }
 
   /**
@@ -135,6 +149,10 @@ export class AggregatedIssue extends Issue {
       return this._representative.getDescription();
     }
     return null;
+  }
+
+  numberOfMixedContents() {
+    return this._mixedContents.size;
   }
 
   /**
@@ -165,6 +183,10 @@ export class AggregatedIssue extends Issue {
       if (!this._requests.has(request.requestId)) {
         this._requests.set(request.requestId, request);
       }
+    }
+    const mixedContent = issue.mixedContent();
+    if (mixedContent) {
+      this._mixedContents.set(mixedContent.insecureURL, mixedContent);
     }
   }
 }

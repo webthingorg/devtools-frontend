@@ -6,6 +6,17 @@ import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+/**
+ *
+ * @param {string} path
+ * @return {string}
+ */
+const extractShortPath = path => {
+  // 1st regex matches everything after last '/'
+  // if path ends with '/', 2nd regex returns everything between the last two '/'
+  return (/[^/]+$/.exec(path) || /[^/]+\/$/.exec(path) || [''])[0];
+};
+
 class AffectedResourcesView extends UI.TreeOutline.TreeElement {
   /**
    * @param {!IssueView} parent
@@ -39,18 +50,7 @@ class AffectedResourcesView extends UI.TreeOutline.TreeElement {
   createAffectedResources() {
     const body = new UI.TreeOutline.TreeElement();
     const affectedResources = createElementWithClass('table', 'affected-resource-list');
-    const header = createElementWithClass('tr');
 
-    const name = createElementWithClass('td', 'affected-resource-header');
-    name.textContent = 'Name';
-    header.appendChild(name);
-
-    const info = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
-    // Prepend a space to align them better with cookie domains starting with a "."
-    info.textContent = '\u2009Context';
-    header.appendChild(info);
-
-    affectedResources.appendChild(header);
     body.listItemElement.appendChild(affectedResources);
     this.appendChild(body);
 
@@ -105,6 +105,19 @@ class AffectedCookiesView extends AffectedResourcesView {
    * @param {!Iterable<!Protocol.Audits.AffectedCookie>} cookies
    */
   _appendAffectedCookies(cookies) {
+    const header = createElementWithClass('tr');
+
+    const name = createElementWithClass('td', 'affected-resource-header');
+    name.textContent = 'Name';
+    header.appendChild(name);
+
+    const info = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    // Prepend a space to align them better with cookie domains starting with a "."
+    info.textContent = '\u2009Context';
+    header.appendChild(info);
+
+    this._affectedResources.appendChild(header);
+
     let count = 0;
     for (const cookie of cookies) {
       count++;
@@ -205,6 +218,87 @@ const issueTypeToNetworkHeaderMap = new Map([
   [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, Network.NetworkItemView.Tabs.Headers]
 ]);
 
+class AffectedMixedContentView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`resource`, plural: ls`resources`});
+    /** @type {!SDK.Issue.Issue} */
+    this._issue = issue;
+  }
+
+  /**
+   * TODO(chromium:1063765): Strengthen types.
+   * @param {!Iterable<*>} mixedContents
+   */
+  _appendAffectedMixedContents(mixedContents) {
+    const header = createElementWithClass('tr');
+
+    const name = createElementWithClass('td', 'affected-resource-header');
+    name.textContent = 'Name';
+    header.appendChild(name);
+
+    const type = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    type.textContent = 'Type';
+    header.appendChild(type);
+
+    const info = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    info.textContent = 'Status';
+    header.appendChild(info);
+
+    const initiator = createElementWithClass('td', 'affected-resource-header affected-resource-header-info');
+    initiator.textContent = 'Initiator';
+    header.appendChild(initiator);
+
+    this._affectedResources.appendChild(header);
+
+    let count = 0;
+    for (const mixedContent of mixedContents) {
+      count++;
+      this.appendAffectedMixedContent(
+          /** @type{!{type:string,status:string,url:string,initiator:string}} */ (mixedContent));
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   *
+   * @param {!{type:string,status:string,url:string,initiator:string}} mixedContent
+   */
+  appendAffectedMixedContent(mixedContent) {
+    const element = createElementWithClass('tr', 'affected-resource-mixed-content');
+    const filename = extractShortPath(mixedContent.insecureURL);
+    const name = createElementWithClass('td', '');
+    name.appendChild(UI.UIUtils.createTextButton(filename, () => {
+      Network.NetworkPanel.NetworkPanel.revealAndFilter(filename);
+    }, 'link-style devtools-link'));
+    UI.Tooltip.Tooltip.install(name, mixedContent.insecureURL);
+    element.appendChild(name);
+
+    const type = createElementWithClass('td', 'affected-resource-mixed-content-info');
+    type.textContent = mixedContent.resourceType;
+    element.appendChild(type);
+
+    const status = createElementWithClass('td', 'affected-resource-mixed-content-info');
+    status.textContent = mixedContent.resolutionStatusText;
+    element.appendChild(status);
+
+    const initiator = createElementWithClass('td', 'affected-resource-mixed-content-info');
+    initiator.textContent = extractShortPath(mixedContent.mainResourceURL);
+    UI.Tooltip.Tooltip.install(initiator, mixedContent.mainResourceURL);
+    element.appendChild(initiator);
+
+    this._affectedResources.appendChild(element);
+  }
+
+  update() {
+    this.clear();
+    this._appendAffectedMixedContents(this._issue.mixedContents());
+  }
+}
+
 class IssueView extends UI.TreeOutline.TreeElement {
   /**
    *
@@ -226,6 +320,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedResources = this._createAffectedResources();
     this._affectedCookiesView = new AffectedCookiesView(this, this._issue);
     this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
+    this._affectedMixedContentView = new AffectedMixedContentView(this, this._issue);
   }
 
   /**
@@ -239,6 +334,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedCookiesView.update();
     this.appendAffectedResource(this._affectedRequestsView);
     this._affectedRequestsView.update();
+    this.appendAffectedResource(this._affectedMixedContentView);
+    this._affectedMixedContentView.update();
     this._createReadMoreLink();
 
     this.updateAffectedResourceVisibility();
@@ -266,7 +363,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
   updateAffectedResourceVisibility() {
     const noCookies = !this._affectedCookiesView || this._affectedCookiesView.isEmpty();
     const noRequests = !this._affectedRequestsView || this._affectedRequestsView.isEmpty();
-    const noResources = noCookies && noRequests;
+    const noMixedContent = !this._affectedMixedContentView || this._affectedMixedContentView.isEmpty();
+    const noResources = noCookies && noRequests && noMixedContent;
     this._affectedResources.hidden = noResources;
   }
 
@@ -321,9 +419,9 @@ class IssueView extends UI.TreeOutline.TreeElement {
   update() {
     this._affectedCookiesView.update();
     this._affectedRequestsView.update();
+    this._affectedMixedContentView.update();
     this.updateAffectedResourceVisibility();
   }
-
 
   /**
    * @param {(boolean|undefined)=} expand - Expands the issue if `true`, collapses if `false`, toggles collapse if undefined
