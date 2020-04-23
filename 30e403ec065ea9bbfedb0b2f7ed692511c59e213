@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6181ed91_1b72b050",
+        "filename": "back_end/CXXDWARFSymbols/src/RPC.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-23T06:27:25Z",
+      "side": 1,
+      "message": "nit: duplicate\nnit: remove space at the end of the string",
+      "revId": "30e403ec065ea9bbfedb0b2f7ed692511c59e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd4aa66_b3b2813b",
+        "filename": "back_end/CXXDWARFSymbols/src/RPC.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-23T06:27:25Z",
+      "side": 1,
+      "message": "I guess this comment is obsolete?",
+      "revId": "30e403ec065ea9bbfedb0b2f7ed692511c59e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "098685d1_36087a09",
+        "filename": "back_end/CXXDWARFSymbols/src/RPC.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-23T06:27:25Z",
+      "side": 1,
+      "message": "Same here, guess this comment is obsolete?",
+      "revId": "30e403ec065ea9bbfedb0b2f7ed692511c59e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "890411c3_f2e631a2",
+        "filename": "back_end/CXXDWARFSymbols/src/runtime/formatters.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-23T06:27:25Z",
+      "side": 1,
+      "message": "Can we move digits down to right above line 125?",
+      "revId": "30e403ec065ea9bbfedb0b2f7ed692511c59e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06ea68b6_679169b7",
+        "filename": "back_end/CXXDWARFSymbols/src/runtime/formatters.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-23T06:27:25Z",
+      "side": 1,
+      "message": "Can you explain/add a comment on what is happening in this loop?",
+      "revId": "30e403ec065ea9bbfedb0b2f7ed692511c59e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
