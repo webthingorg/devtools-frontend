@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ce22ad76_e5147fb2",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-23T08:08:36Z",
+      "side": 1,
+      "message": "nit: uppercase these for consistency",
+      "revId": "eb8eb5dbe0231837daa30762baf7c7fb4e5703b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af2f41d6_9d1f54c9",
         "filename": "front_end/issues/issuesTree.css",
         "patchSetId": 2
@@ -17,6 +34,53 @@
         "startLine": 206,
         "startChar": 14,
         "endLine": 206,
+        "endChar": 21
+      },
+      "revId": "eb8eb5dbe0231837daa30762baf7c7fb4e5703b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf2223b7_88dbc01f",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-23T08:08:36Z",
+      "side": 1,
+      "message": "+1 I just wrote the same comment below",
+      "parentUuid": "af2f41d6_9d1f54c9",
+      "range": {
+        "startLine": 206,
+        "startChar": 14,
+        "endLine": 206,
+        "endChar": 21
+      },
+      "revId": "eb8eb5dbe0231837daa30762baf7c7fb4e5703b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e31e1d9_815d3366",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-23T08:08:36Z",
+      "side": 1,
+      "message": "Let\u0027s make this a variable as well.",
+      "range": {
+        "startLine": 212,
+        "startChar": 14,
+        "endLine": 212,
         "endChar": 21
       },
       "revId": "eb8eb5dbe0231837daa30762baf7c7fb4e5703b2",
