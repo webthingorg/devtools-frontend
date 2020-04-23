@@ -19,6 +19,11 @@
   --issue-black: #202124;
 }
 
+:host-context(.-theme-with-dark-background) .issues {
+  --issue-gray: #a09c97;
+  --issue-black: #dfdedb;
+}
+
 /* Override whitespace behavior for tree items to allow wrapping */
 .issues li {
   white-space: normal;
@@ -203,6 +208,10 @@ p {
   position: relative;
 }
 
+:host-context(.-theme-with-dark-background) .affected-resources {
+  background: #070605;
+}
+
 .affected-resource-label {
   font-size: 14px;
   line-height: 20px;
@@ -241,6 +250,6 @@ p {
 }
 
 .affected-resource-cookie-info {
-  color: #9AA0A6;
+  color: var(--issue-gray);
   padding-left: 16px;
 }
