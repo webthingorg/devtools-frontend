@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "797e9030_abc84417",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-23T14:48:51Z",
+      "side": 0,
+      "message": "Oh, we just never used this before?",
+      "range": {
+        "startLine": 111,
+        "startChar": 20,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "cb1ed24df5aa2d39280059cbe36e9a7b89abaf2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

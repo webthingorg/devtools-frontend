@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3615ba96_d1a6a782",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-23T14:48:51Z",
+      "side": 1,
+      "message": "Should be @return?",
+      "range": {
+        "startLine": 103,
+        "startChar": 12,
+        "endLine": 103,
+        "endChar": 13
+      },
+      "revId": "f2043faeb2b1ce48b33c9210318064efcbac9bba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1664635_0b0f07ae",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-23T14:48:51Z",
+      "side": 1,
+      "message": "I guess the advantage/disadvantage of this approach is that we now await all the contents, rather than asynchronously updating the UI items individually. In practice I think this will be fine",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 16
+      },
+      "revId": "f2043faeb2b1ce48b33c9210318064efcbac9bba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3589ab18_0bd1eddc",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-23T14:48:51Z",
+      "side": 1,
+      "message": "I think there\u0027s an extra promise somewhere here? _getContent already awaits the Promise.all(). Maybe _getContent() can just return the Promise.all() promise given it is async?",
+      "range": {
+        "startLine": 152,
+        "startChar": 20,
+        "endLine": 152,
+        "endChar": 25
+      },
+      "revId": "f2043faeb2b1ce48b33c9210318064efcbac9bba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
