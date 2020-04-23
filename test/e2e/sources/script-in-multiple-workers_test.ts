@@ -176,23 +176,23 @@ describe('Multi-Workers', async function() {
         await waitFor(RESUME_BUTTON);
 
         // Validate that the source line is highlighted
-        assert.strictEqual(await getExecutionLine(), 6);
+        assert.equal(await getExecutionLine(), 6);
 
         // Look at source tabs
         await validateSourceTabs();
       });
 
       // Flaky test
-      it.skip('[crbug.com/1073406] for newly created workers', async () => {
+      it.only('[crbug.com/1073406] for newly created workers', async () => {
         const {target} = getBrowserAndPages();
         // Launch a new worker and make it hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
 
         // Validate that we are paused
-        await waitFor(RESUME_BUTTON);
+        await waitFor(RESUME_BUTTON, undefined, 1500);
 
         // Validate that the source line is highlighted
-        assert.strictEqual(await getExecutionLine(), 6);
+        assert.equal(await getExecutionLine(), 6);
 
         // Look at source tabs
         await validateSourceTabs();
