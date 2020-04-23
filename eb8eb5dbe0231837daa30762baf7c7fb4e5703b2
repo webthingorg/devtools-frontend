@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af2f41d6_9d1f54c9",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-23T07:51:33Z",
+      "side": 1,
+      "message": "nit: if you cleaned this up right now and introduced another variable for this back-ground you could handle everything nicely in the rule you added above.",
+      "range": {
+        "startLine": 206,
+        "startChar": 14,
+        "endLine": 206,
+        "endChar": 21
+      },
+      "revId": "eb8eb5dbe0231837daa30762baf7c7fb4e5703b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
