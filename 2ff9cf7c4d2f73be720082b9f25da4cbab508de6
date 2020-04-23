@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c44d9cb4_6edaa522",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-23T05:44:43Z",
+      "side": 1,
+      "message": "See the comment in NetworkManager.js.\n\nI\u0027d replace these with something like \u003cwill be patched\u003e, or leave them out completely.",
+      "range": {
+        "startLine": 270,
+        "startChar": 36,
+        "endLine": 270,
+        "endChar": 38
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04b2bd01_2d8a81c1",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-23T05:44:43Z",
+      "side": 1,
+      "message": "See the comment in NetworkManager. This would be {getChromeVersion()} and {getChromeMajorVersion()} respectively.",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 103
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76b7d8a2_a6751462",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-23T05:44:43Z",
+      "side": 1,
+      "message": "See comment in NetworkManager.js\n\nThis would also become {getChromeVersion()} and {getChromeMajorVersion}.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 84
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efc5c991_5897c421",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-23T05:44:43Z",
+      "side": 1,
+      "message": "The fullVersion and majorVersion field do not really require patching machinery. I suggest we extract two small helpers: {getChromeVersion} and {getChromeMajorVersion}, which use the regex to get the the full and major version from {navigator.userAgent}. These two helpers won\u0027t take any arguments but simply return the versions.\n\n{patchUserAgentWithChromeVersion} can then use the {getChromeVersion} helper.",
+      "range": {
+        "startLine": 1062,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 3
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "550a8204_f60dc7bf",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-23T05:44:43Z",
+      "side": 1,
+      "message": "This is called when the user enters a custom UserAgent string in the network view. I assume for that use case we don\u0027t want to set the AgentMetadata from the frontend but let the backend figure it out?",
+      "range": {
+        "startLine": 1224,
+        "startChar": 2,
+        "endLine": 1224,
+        "endChar": 28
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "143ed2a7_b0ff307e",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 3
+      },
+      "lineNbr": 4814,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-23T05:44:43Z",
+      "side": 1,
+      "message": "I think having {setUserAgentOverride} in the \"Emulation\" domain is enough. My guess is, that {setUserAgentOverride} started out in the \"Network\" domain, but was moved to \"Emulation\" later on. To stay backwards compatible, it was left this way in \"Network\". I could only find one implementation of this in the emulation agent.",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4814,
+        "endChar": 60
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
