@@ -205,6 +205,7 @@ export class Script {
           const result = await promise;
           this._source = result.data.source;
           this._lineMap = result.data.offsets;
+          this._codeSectionOffsets = result.data.codeSectionOffsets;
           this.endLine = this._lineMap.length;
         }
       }
@@ -338,6 +339,22 @@ export class Script {
       line++;
     }
     return line;
+  }
+
+  /**
+   * @param {number} lineNumber
+   * @return {boolean}
+   */
+  isWasmDisassemblyBreakableLine(lineNumber) {
+    if (!this._codeSectionOffsets || this._codeSectionOffsets.length !== 2) {
+      return false;
+    }
+    const location = this.wasmByteLocation(lineNumber);
+    if (!location) {
+      return false;
+    }
+    const byteOffset = location.columnNumber;
+    return byteOffset > this._codeSectionOffsets[0] && byteOffset <= this._codeSectionOffsets[1];
   }
 
   /**
