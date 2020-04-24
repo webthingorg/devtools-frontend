@@ -709,7 +709,12 @@ export class ScreencastView extends UI.Widget.VBox {
     if (!url.match(_SchemeRegex)) {
       url = 'http://' + url;
     }
-    this._resourceTreeModel.navigate(url);
+
+    // Perform decodeURI in case the user enters an encoded string
+    // decodeURI has no effect on strings that are already decoded
+    // encodeURI ensures an encoded URL is always passed to the backend
+    // This allows the input field to support both encoded and decoded URLs
+    this._resourceTreeModel.navigate(encodeURI(decodeURI(url)));
     this._canvasElement.focus();
   }
 
