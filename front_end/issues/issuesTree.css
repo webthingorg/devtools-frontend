@@ -226,6 +226,14 @@ p {
   border-collapse: collapse;
 }
 
+.affected-resource-mixed-content {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--issue-link);
+  border: 0;
+  border-collapse: collapse;
+}
+
 .affected-resource-request {
   font-size: 14px;
   line-height: 20px;
@@ -241,6 +249,7 @@ p {
 .affected-resource-header {
   font-size: 12px;
   color: rgba(95, 99, 104, 0.5);
+  padding-left: 2px;
 }
 
 .affected-resource-header-info {
@@ -249,5 +258,10 @@ p {
 
 .affected-resource-cookie-info {
   color: var(--issue-gray);
+  padding-left: 16px;
+}
+
+.affected-resource-mixed-content-info {
+  color: #9AA0A6;
   padding-left: 16px;
 }
