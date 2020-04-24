@@ -25,6 +25,10 @@
         {
           "platform": "mac",
           "shortcut": "Meta+Shift+P"
+        },
+        {
+          "shortcut": "F1",
+          "keybindSets": ["vsCode"]
         }
       ]
     },

@@ -453,6 +453,24 @@
       ]
     },
     {
+      "type": "setting",
+      "settingName": "activeKeybindSet",
+      "settingType": "enum",
+      "defaultValue": "devToolsDefault",
+      "options": [
+        {
+          "value": "devToolsDefault",
+          "title": "DevTools default shortcuts",
+          "text": "DevTools default shortcuts"
+        },
+        {
+          "value": "vsCode",
+          "title": "VS Code shortcuts",
+          "text": "VS Code shortcuts"
+        }
+      ]
+    },
+    {
       "type": "@UI.ViewLocationResolver",
       "name": "drawer-view",
       "category": "Drawer",
