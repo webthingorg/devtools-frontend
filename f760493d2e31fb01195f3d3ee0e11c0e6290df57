@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7640efe1_633b3056",
+        "filename": "back_end/CXXDWARFSymbols/src/Variables.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-04-24T07:39:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69b08a64_f3573f95",
+      "revId": "f760493d2e31fb01195f3d3ee0e11c0e6290df57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f241c7_8c400da6",
         "filename": "back_end/CXXDWARFSymbols/src/symbol_server.proto",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "f760493d2e31fb01195f3d3ee0e11c0e6290df57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6eef854_bec4b292",
+        "filename": "back_end/CXXDWARFSymbols/src/symbol_server.proto",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-04-24T07:39:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19f241c7_8c400da6",
+      "revId": "f760493d2e31fb01195f3d3ee0e11c0e6290df57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
