@@ -10,6 +10,7 @@ import * as Common from '../common/common.js';
 /** @enum {symbol} */
 export const IssueCategory = {
   CrossOriginEmbedderPolicy: Symbol('CrossOriginEmbedderPolicy'),
+  MixedContent: Symbol('MixedContent'),
   SameSiteCookie: Symbol('SameSiteCookie'),
   Other: Symbol('Other')
 };
@@ -54,6 +55,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    * @returns {!Iterable<!Protocol.Audits.AffectedCookie>}
    */
   cookies() {
+    return [];
+  }
+
+  /**
+   * @returns {!Iterable<!Protocol.Audits.MixedContentIssueDetails>}
+   */
+  mixedContents() {
     return [];
   }
 
@@ -109,6 +117,8 @@ export class AggregatedIssue extends Issue {
     this._requests = new Map();
     /** @type {?Issue} */
     this._representative = null;
+    /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
+    this._mixedContents = new Map();
   }
 
   /**
@@ -117,6 +127,14 @@ export class AggregatedIssue extends Issue {
    */
   cookies() {
     return this._cookies.values();
+  }
+
+  /**
+   * @override
+   * @returns {!Iterable<!Protocol.Audits.MixedContentIssueDetails>}
+   */
+  mixedContents() {
+    return this._mixedContents.values();
   }
 
   /**
@@ -135,6 +153,10 @@ export class AggregatedIssue extends Issue {
       return this._representative.getDescription();
     }
     return null;
+  }
+
+  numberOfMixedContents() {
+    return this._mixedContents.size;
   }
 
   /**
@@ -165,6 +187,10 @@ export class AggregatedIssue extends Issue {
       if (!this._requests.has(request.requestId)) {
         this._requests.set(request.requestId, request);
       }
+    }
+    for (const mixedContent of issue.mixedContents()) {
+      const key = JSON.stringify(mixedContent);
+      this._mixedContents.set(key, mixedContent);
     }
   }
 }

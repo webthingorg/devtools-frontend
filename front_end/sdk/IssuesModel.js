@@ -10,6 +10,7 @@ import * as Common from '../common/common.js';  // eslint-disable-line no-unused
 import {CookieModel} from './CookieModel.js';
 import {CrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
 import {AggregatedIssue, Issue} from './Issue.js';  // eslint-disable-line no-unused-vars
+import {MixedContentIssue} from './MixedContentIssue.js';
 import {Events as NetworkManagerEvents, NetworkManager} from './NetworkManager.js';
 import {NetworkRequest} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
 import {Events as ResourceTreeModelEvents, ResourceTreeFrame, ResourceTreeModel} from './ResourceTreeModel.js';  // eslint-disable-line no-unused-vars
@@ -191,9 +192,7 @@ export class IssuesModel extends SDKModel {
 
   /**
    * Each issue reported by the backend can result in multiple {!Issue} instances.
-   * Handlers are simple functions hard-coded into a map. If no handler is found for
-   * a given Issue code, the default behavior creates one {!Issue} per incoming backend
-   * issue.
+   * Handlers are simple functions hard-coded into a map.
    * @param {!Protocol.Audits.InspectorIssue} inspectorIssue} inspectorIssue
    * @return {!Array<!Issue>}
    */
@@ -230,7 +229,7 @@ export class IssuesModel extends SDKModel {
 function createIssuesForSameSiteCookieIssue(issuesModel, inspectorDetails) {
   const sameSiteDetails = inspectorDetails.sameSiteCookieIssueDetails;
   if (!sameSiteDetails) {
-    console.warn('SameSite issue without details received');
+    console.warn('SameSite issue without details received.');
     return [];
   }
 
@@ -257,10 +256,27 @@ function createIssuesForSameSiteCookieIssue(issuesModel, inspectorDetails) {
 }
 
 /**
+ * @param {!IssuesModel} issuesModel
+ * @param {!Protocol.Audits.InspectorIssueDetails} inspectorDetails
+ * @return {!Array<!Issue>}
+ */
+function createIssuesForMixedContentIssue(issuesModel, inspectorDetails) {
+  const mixedContentDetails = inspectorDetails.mixedContentIssueDetails;
+  if (!mixedContentDetails) {
+    console.warn('Mixed content issue without details received.');
+    return [];
+  }
+
+
+  return [new MixedContentIssue('MixedContentIssue', mixedContentDetails)];  // TODO
+}
+
+/**
  * @type {!Map<!Protocol.Audits.InspectorIssueCode, function(!IssuesModel, !Protocol.Audits.InspectorIssueDetails):!Array<!Issue>>}
  */
 const issueCodeHandlers = new Map([
   [Protocol.Audits.InspectorIssueCode.SameSiteCookieIssue, createIssuesForSameSiteCookieIssue],
+  ['MixedContentIssue', createIssuesForMixedContentIssue],  // TODO (wolfib): update with protocol type
 ]);
 
 /** @enum {symbol} */
