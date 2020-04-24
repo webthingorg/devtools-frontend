@@ -709,7 +709,7 @@ export class ScreencastView extends UI.Widget.VBox {
     if (!url.match(_SchemeRegex)) {
       url = 'http://' + url;
     }
-    this._resourceTreeModel.navigate(url);
+    this._resourceTreeModel.navigate(encodeURI(decodeURI(url)));
     this._canvasElement.focus();
   }
 
@@ -738,7 +738,7 @@ export class ScreencastView extends UI.Widget.VBox {
       url = match[1];
     }
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.inspectedURLChanged(url);
-    this._navigationUrl.value = url;
+    this._navigationUrl.value = decodeURI(url);
   }
 
   _focusNavigationBar() {
