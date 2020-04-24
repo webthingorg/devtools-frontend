@@ -15,6 +15,20 @@ import {CoverageDecorationManager, decoratorType} from './CoverageDecorationMana
 import {CoverageListView} from './CoverageListView.js';
 import {CoverageInfo, CoverageModel, CoverageType, Events, URLCoverageInfo} from './CoverageModel.js';  // eslint-disable-line no-unused-vars
 
+export const UIStrings = {
+  /**
+  *@description Message in Coverage View of the Coverage tab
+  *@example {record button icon} PH1
+  */
+  reloadButtonMessage: 'Click the reload button {PH1} to reload and start capturing coverage.',
+  /**
+  *@description Message in Coverage View of the Coverage tab
+  *@example {record button icon} PH1
+  */
+  recordButtonMessage: 'Click the record button {PH1} to start capturing coverage.',
+};
+const str_ = Common.i18n.registerUIStrings('coverage/CoverageView.js', UIStrings);
+
 export class CoverageView extends UI.Widget.VBox {
   constructor() {
     super(true);
@@ -143,12 +157,12 @@ export class CoverageView extends UI.Widget.VBox {
     if (this._startWithReloadButton) {
       this._inlineReloadButton =
           UI.UIUtils.createInlineButton(UI.Toolbar.Toolbar.createActionButtonForId('coverage.start-with-reload'));
-      message = UI.UIUtils.formatLocalized(
-          'Click the reload button %s to reload and start capturing coverage.', [this._inlineReloadButton]);
+      message =
+          Common.i18n.getFormatLocalizedString(str_, UIStrings.reloadButtonMessage, {PH1: this._inlineReloadButton});
     } else {
       const recordButton =
           UI.UIUtils.createInlineButton(UI.Toolbar.Toolbar.createActionButton(this._toggleRecordAction));
-      message = UI.UIUtils.formatLocalized('Click the record button %s to start capturing coverage.', [recordButton]);
+      message = Common.i18n.getFormatLocalizedString(str_, UIStrings.recordButtonMessage, {PH1: recordButton});
     }
     message.classList.add('message');
     widget.contentElement.appendChild(message);
