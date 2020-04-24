@@ -1061,6 +1061,24 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
+   * @param {string} uaString
+   * @return {string}
+   */
+  static patchUserAgentWithChromeMajorVersion(uaString) {
+    // Like patchUserAgentWithChromeVersion, but replaces %s with just the major
+    // version.
+    const chromeRegex = new RegExp('(?:^|\\W)Chrome/(\\S+)');
+    const chromeMatch = navigator.userAgent.match(chromeRegex);
+    if (chromeMatch && chromeMatch.length > 1) {
+      // "1.2.3.4" becomes "1"
+      const majorAppVersion = chromeMatch[1].split('.', 1)[0];
+      console.log('### major:' + majorAppVersion);
+      return Platform.StringUtilities.sprintf(uaString, majorAppVersion);
+    }
+    return uaString;
+  }
+
+  /**
    * @override
    * @param {!NetworkManager} networkManager
    */
@@ -1071,6 +1089,9 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     }
     if (this.currentUserAgent()) {
       networkAgent.setUserAgentOverride(this.currentUserAgent());
+      if (this._userAgentMetadataOverride) {
+        networkAgent.setUserAgentMetadataOverride(this._userAgentMetadataOverride);
+      }
     }
     if (this._effectiveBlockedURLs.length) {
       networkAgent.setBlockedURLs(this._effectiveBlockedURLs);
@@ -1167,19 +1188,26 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     const userAgent = this.currentUserAgent();
     for (const agent of this._agents) {
       agent.setUserAgentOverride(userAgent);
+      if (this._userAgentMetadataOverride) {
+        agent.setUserAgentMetadataOverride(this._userAgentMetadataOverride);
+      }
     }
   }
 
   /**
    * @param {string} userAgent
+   * @param {?Protocol.Emulation.UserAgentMetadata} userAgentMetadata
    */
-  setUserAgentOverride(userAgent) {
+  setUserAgentOverride(userAgent, userAgentMetadataOverride) {
     if (this._userAgentOverride === userAgent) {
       return;
     }
     this._userAgentOverride = userAgent;
     if (!this._customUserAgent) {
+      this._userAgentMetadataOverride = userAgentMetadataOverride;
       this._updateUserAgentOverride();
+    } else {
+      this._userAgentMetadataOverride = null;
     }
     this.dispatchEventToListeners(MultitargetNetworkManager.Events.UserAgentChanged);
   }
@@ -1196,6 +1224,8 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
    */
   setCustomUserAgentOverride(userAgent) {
     this._customUserAgent = userAgent;
+    // ### change this?
+    this._userAgentMetadataOverride = null;
     this._updateUserAgentOverride();
   }
 
