@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac12b98d_d1108097",
+        "filename": "back_end/CXXDWARFSymbols/src/Util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-24T15:41:57Z",
+      "side": 1,
+      "message": "Optional: I think it would be worth putting most of this into a separate Indexed.h or something more specifically named, perhaps along with the macro implementations.",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 63
+      },
+      "revId": "cd30565667ee175600f22480d2636bcdecb0f450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d166985_5c920926",
+        "filename": "scripts/deps/roll_llvm.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-24T15:41:57Z",
+      "side": 1,
+      "message": "Nit: Google style is to indent python blocks two spaces.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "cd30565667ee175600f22480d2636bcdecb0f450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

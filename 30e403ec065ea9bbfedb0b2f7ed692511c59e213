@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "015d87a6_9a9c6772",
+        "filename": ".clang-format",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-24T15:41:57Z",
+      "side": 1,
+      "message": "If we\u0027re not keeping the llvm style, why are we defining a new style particular to our project rather than use Chromium style or copy the V8 style based on Google style?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 15
+      },
+      "revId": "30e403ec065ea9bbfedb0b2f7ed692511c59e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6181ed91_1b72b050",
         "filename": "back_end/CXXDWARFSymbols/src/RPC.cc",
         "patchSetId": 3
