@@ -70,6 +70,7 @@ export class TimelineController {
       disabledByDefault('devtools.timeline'),
       disabledByDefault('devtools.timeline.frame'),
       'v8.execute',
+      'devtools.sad',
       TimelineModel.TimelineModel.TimelineModelImpl.Category.Console,
       TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming,
       TimelineModel.TimelineModel.TimelineModelImpl.Category.Loading,

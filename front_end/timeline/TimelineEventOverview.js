@@ -572,6 +572,40 @@ export class TimelineEventOverviewFrames extends TimelineEventOverview {
     ctx.lineWidth = lineWidth;
     ctx.fill();
     ctx.stroke();
+
+    const droppedFrames = this._extractDroppedFrames();
+    ctx.beginPath();
+    for (const event of droppedFrames) {
+      x = Math.round((event.startTime - timeOffset) * scale) + offset;
+      ctx.moveTo(x, bottomY);
+      ctx.lineTo(x, 0);
+    }
+    ctx.fillStyle = 'red';
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 2 * window.devicePixelRatio;
+    ctx.stroke();
+  }
+
+  _extractDroppedFrames() {
+    if (this._cachedDroppedFrames) {
+      return this._cachedDroppedFrames;
+    }
+    const droppedFrames = [];
+    const tracingModel = this._model.tracingModel();
+    for (const process of tracingModel.sortedProcesses()) {
+      for (const thread of process.sortedThreads()) {
+        const events = thread.events();
+        for (let i = 0; i < events.length; ++i) {
+          const event = events[i];
+          if (event.hasCategory('devtools.sad') && event.name === 'DroppedFrame') {
+            droppedFrames.push(event);
+          }
+        }
+      }
+    }
+    droppedFrames.sort((x, y) => x.startTime - y.startTime);
+    this._cachedDroppedFrames = droppedFrames;
+    return this._cachedDroppedFrames;
   }
 }
 
