@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "fea35619_ccc7214c",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-24T18:17:14Z",
+      "side": 1,
+      "message": "Hmm, there is no usage now, but I originally thought it it may be useful for emulating something like Edgium.\n\nThough their docs have something like:\n\n\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.74 Safari/537.36 Edg/79.0.309.43\"\n\n... which given we won\u0027t know what to put under Edg/ that makes sense, maybe that\u0027s not actually useful. So I guess what\u0027s needed is just filling it in if it\u0027s not there, using this sort of function you suggested, so the Edgium whatever target will specify its version, and \nChrome-using targets won\u0027t and get it filled in.\n\n(Also major version is going to go away/change for different reasons).",
+      "parentUuid": "efc5c991_5897c421",
+      "range": {
+        "startLine": 1062,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 3
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "550a8204_f60dc7bf",
         "filename": "front_end/sdk/NetworkManager.js",
         "patchSetId": 3
@@ -117,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "90200f38_3b0499ea",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-24T18:17:14Z",
+      "side": 1,
+      "message": "Well, it doesn\u0027t have any magic to figure it out, it will just disable them.",
+      "parentUuid": "550a8204_f60dc7bf",
+      "range": {
+        "startLine": 1224,
+        "startChar": 2,
+        "endLine": 1224,
+        "endChar": 28
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "143ed2a7_b0ff307e",
         "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
         "patchSetId": 3
@@ -128,6 +176,30 @@
       "writtenOn": "2020-04-23T05:44:43Z",
       "side": 1,
       "message": "I think having {setUserAgentOverride} in the \"Emulation\" domain is enough. My guess is, that {setUserAgentOverride} started out in the \"Network\" domain, but was moved to \"Emulation\" later on. To stay backwards compatible, it was left this way in \"Network\". I could only find one implementation of this in the emulation agent.",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4814,
+        "endChar": 60
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "143dd298_66d15a1a",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 3
+      },
+      "lineNbr": 4814,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-24T18:17:14Z",
+      "side": 1,
+      "message": "What about the client code being in MultiTargetNetworkManager?",
+      "parentUuid": "143ed2a7_b0ff307e",
       "range": {
         "startLine": 4810,
         "startChar": 0,
