@@ -35,8 +35,12 @@ export class ShortcutRegistry {
     this._activePrefixTimeout = null;
     /** @type {?function():Promise<void>} */
     this._consumePrefix = null;
+    const keybindSetSetting = self.Common.settings.moduleSetting('activeKeybindSet');
+    keybindSetSetting.addChangeListener(this._registerBindings, this);
+
     this._registerBindings();
   }
+
 
   /**
    * @param {number} key
@@ -284,6 +288,8 @@ export class ShortcutRegistry {
   }
 
   _registerBindings() {
+    this._keyToShortcut.clear();
+    this._actionToShortcut.clear();
     const extensions = self.runtime.extensions('action');
     extensions.forEach(registerExtension, this);
 
@@ -295,7 +301,7 @@ export class ShortcutRegistry {
       const descriptor = extension.descriptor();
       const bindings = descriptor.bindings;
       for (let i = 0; bindings && i < bindings.length; ++i) {
-        if (!platformMatches(bindings[i].platform)) {
+        if (!platformMatches(bindings[i].platform) || !keybindSetsMatch(bindings[i].keybindSets)) {
           continue;
         }
         const keys = bindings[i].shortcut.split(/\s+/);
@@ -322,6 +328,17 @@ export class ShortcutRegistry {
         isMatch = platforms[i] === currentPlatform;
       }
       return isMatch;
+    }
+
+    /**
+     * @param {!Array<string>=} keybindSets
+     */
+    function keybindSetsMatch(keybindSets) {
+      if (!keybindSets) {
+        return true;
+      }
+      const keybindSet = self.Common.settings.moduleSetting('activeKeybindSet').get();
+      return keybindSets.includes(keybindSet);
     }
   }
 }

@@ -43,11 +43,20 @@
       ],
       "bindings": [
         {
-          "shortcut": "F8"
+          "shortcut": "F8",
+          "keybindSets": ["devToolsDefault"]
         },
         {
           "platform": "windows,linux",
           "shortcut": "Ctrl+\\"
+        },
+        {
+          "shortcut": "F5",
+          "keybindSets": ["vsCode"]
+        },
+        {
+          "shortcut": "Shift+F5",
+          "keybindSets": ["vsCode"]
         },
         {
           "platform": "mac",
@@ -115,7 +124,8 @@
       ],
       "bindings": [
         {
-          "shortcut": "F9"
+          "shortcut": "F9",
+          "keybindSets": ["devToolsDefault"]
         }
       ]
     },
@@ -156,11 +166,13 @@
       "bindings": [
         {
           "platform": "windows,linux",
-          "shortcut": "Ctrl+Enter"
+          "shortcut": "Ctrl+Enter",
+          "keybindSets": ["devToolsDefault"]
         },
         {
           "platform": "mac",
-          "shortcut": "Meta+Enter"
+          "shortcut": "Meta+Enter",
+          "keybindSets": ["devToolsDefault"]
         }
       ]
     },
@@ -672,6 +684,14 @@
       "bindings": [
         {
           "shortcut": "Alt+w"
+        },
+        {
+          "shortcut": "Ctrl+W",
+          "keybindSets": ["vsCode"]
+        },
+        {
+          "shortcut": "Ctrl+F4",
+          "keybindSets": ["vsCode"]
         }
       ]
     },
@@ -707,6 +727,14 @@
         {
           "platform": "mac",
           "shortcut": "Meta+Shift+o"
+        },
+        {
+          "shortcut": "Ctrl+T",
+          "keybindSets": ["vsCode"]
+        },
+        {
+          "shortcut": "F12",
+          "keybindSets": ["vsCode"]
         }
       ]
     },
@@ -723,6 +751,10 @@
         {
           "platform": "mac",
           "shortcut": "Meta+b"
+        },
+        {
+          "shortcut": "F9",
+          "keybindSets": ["vsCode"]
         }
       ]
     },
@@ -795,6 +827,10 @@
         {
           "platform": "mac",
           "shortcut": "Meta+Alt+s"
+        },
+        {
+          "shortcut": "Ctrl+K S",
+          "keybindSets": ["vsCode"]
         }
       ]
     },
@@ -954,6 +990,10 @@
         {
           "platform": "windows,linux",
           "shortcut": "Ctrl+Shift+F"
+        },
+        {
+          "shortcut": "Ctrl+Shift+J",
+          "keybindSets": ["vsCode"]
         }
       ]
     },
