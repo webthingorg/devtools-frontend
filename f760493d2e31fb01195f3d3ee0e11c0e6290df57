@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69b08a64_f3573f95",
+        "filename": "back_end/CXXDWARFSymbols/src/Variables.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-24T07:23:44Z",
+      "side": 1,
+      "message": "nit: // namespace llvm",
+      "revId": "f760493d2e31fb01195f3d3ee0e11c0e6290df57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19f241c7_8c400da6",
+        "filename": "back_end/CXXDWARFSymbols/src/symbol_server.proto",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-24T07:23:44Z",
+      "side": 1,
+      "message": "Copyright is missing",
+      "revId": "f760493d2e31fb01195f3d3ee0e11c0e6290df57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
