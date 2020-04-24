@@ -189,6 +189,30 @@
       "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333a6ccc_48da92b5",
+        "filename": "scripts/build/efficiently_recompile.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-24T14:52:25Z",
+      "side": 1,
+      "message": "I am currently considering writing a Node watch script (based on Chokidar) instead. I have also asked Chromium infrastructure to allow us to use Node scripts rather than Python scripts. Therefore, we might be able to work around these issues by switching to Node.\n\nHowever, since you can still run `autoninja` and `npm run unittest` separately on Windows, this should work as-is. We can port the scripts to Node later once we have Chromium infrastructure support.",
+      "parentUuid": "afdaa399_82d8539b",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 130
+      },
+      "revId": "11e126ca90c31dd9c0f26afd6d87faa6d3e6c719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
