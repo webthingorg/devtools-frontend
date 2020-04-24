@@ -5,3 +5,10 @@ CommentPragmas: .*\@.*
 AllowShortBlocksOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 ReflowComments: false
+---
+Language: Cpp
+AllowShortBlocksOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
+ReflowComments: true
+ColumnLimit: 80
