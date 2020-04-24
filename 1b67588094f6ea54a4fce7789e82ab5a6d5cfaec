@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dea66da_baef5e19",
+        "filename": "front_end/timeline/TimelineController.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-24T07:39:43Z",
+      "side": 1,
+      "message": "The perfect trace category for dropped frames",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 19
+      },
+      "revId": "1b67588094f6ea54a4fce7789e82ab5a6d5cfaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e7f6781_5cdadb44",
+        "filename": "front_end/timeline/TimelineEventOverview.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-24T07:39:43Z",
+      "side": 1,
+      "message": "Do we not already scale the canvas by dPR?",
+      "range": {
+        "startLine": 585,
+        "startChar": 4,
+        "endLine": 585,
+        "endChar": 48
+      },
+      "revId": "1b67588094f6ea54a4fce7789e82ab5a6d5cfaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2a0db36_f2e732ad",
+        "filename": "front_end/timeline/TimelineEventOverview.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-24T07:39:43Z",
+      "side": 1,
+      "message": "We definitely have trace processing functionality that this should go into so we avoid a whole other traversal of the data 👍",
+      "range": {
+        "startLine": 601,
+        "startChar": 12,
+        "endLine": 601,
+        "endChar": 38
+      },
+      "revId": "1b67588094f6ea54a4fce7789e82ab5a6d5cfaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
