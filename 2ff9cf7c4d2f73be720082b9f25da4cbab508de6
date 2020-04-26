@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "118d6d58_61d27de7",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-26T19:54:58Z",
+      "side": 1,
+      "message": "A question on leaving stuff out: I do:\n    result.userAgentMetadata \u003d /** @type {?Protocol.Emulation.UserAgentMetadata} */ (\n          parseValue(json, \u0027user-agent-metadata\u0027, \u0027object\u0027, null));\n\nwhen reading this. Now, in the protocol message, though fields aren\u0027t optional; so is not specifying them here given the cast valid? Or should I delay the cast comment and assignment to result.userAgentMetadata until I patch in the default values?\n\nI think I\u0027ll go ahead with that, but please let me know if this is wrong.",
+      "parentUuid": "c44d9cb4_6edaa522",
+      "range": {
+        "startLine": 270,
+        "startChar": 36,
+        "endLine": 270,
+        "endChar": 38
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04b2bd01_2d8a81c1",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 3
