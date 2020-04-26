@@ -7,6 +7,7 @@
       "title": "CSS Overview",
       "className": "CssOverview.CSSOverviewPanel",
       "order": 95,
+      "persistence": "closeable",
       "experiment": "cssOverview"
     }
   ],
