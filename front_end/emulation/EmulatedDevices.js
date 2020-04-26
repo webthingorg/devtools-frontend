@@ -27,6 +27,8 @@ export class EmulatedDevice {
     this.capabilities = [Capability.Touch, Capability.Mobile];
     /** @type {string} */
     this.userAgent = '';
+    /** @type {?Protocol.Emulation.UserAgentMetadata} */
+    this.userAgentMetadata = null;
     /** @type {!Array.<!Mode>} */
     this.modes = [];
 
@@ -122,6 +124,15 @@ export class EmulatedDevice {
       result.type = /** @type {string} */ (parseValue(json, 'type', 'string'));
       const rawUserAgent = /** @type {string} */ (parseValue(json, 'user-agent', 'string'));
       result.userAgent = SDK.NetworkManager.MultitargetNetworkManager.patchUserAgentWithChromeVersion(rawUserAgent);
+
+      let templateUserAgentMetadata = parseValue(json, 'user-agent-metadata', 'object', null);
+      if (templateUserAgentMetadata) {
+        if (templateUserAgentMetadata.brands === undefined)
+          templateUserAgentMetadata.brands = SDK.NetworkManager.MultitargetNetworkManager.getChromeBrands();
+        if (templateUserAgentMetadata.fullVersion === undefined)
+          templateUserAgentMetadata.fullVersion = SDK.NetworkManager.MultitargetNetworkManager.getChromeVersion();
+      }
+      result.userAgentMetadata = /** @type {?Protocol.Emulation.UserAgentMetadata} */ (templateUserAgentMetadata);
 
       const capabilities = parseValue(json, 'capabilities', 'object', []);
       if (!Array.isArray(capabilities)) {
