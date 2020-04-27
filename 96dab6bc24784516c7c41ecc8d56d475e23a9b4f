@@ -16,6 +16,24 @@
       "revId": "96dab6bc24784516c7c41ecc8d56d475e23a9b4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a60e3a3a_1fbba5c7",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-04-27T14:44:25Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "9eb27524_2a7208a0",
+      "revId": "96dab6bc24784516c7c41ecc8d56d475e23a9b4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
