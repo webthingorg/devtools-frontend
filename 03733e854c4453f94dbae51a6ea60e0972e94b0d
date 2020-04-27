@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f0329f97_32b76172",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:42:34Z",
+      "side": 1,
+      "message": "I think it is nicer if we export `ls` in `platform.js` and allow that to be imported separately. E.g. the only one out for a good reason.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "976399e8_0ae16d3d",
         "filename": "front_end/common/ResourceType.js",
         "patchSetId": 2
@@ -41,6 +64,52 @@
         "startChar": 0,
         "endLine": 32,
         "endChar": 39
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e381c3dc_73242f23",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:42:34Z",
+      "side": 1,
+      "message": "Let\u0027s maybe add a comment here saying that you should `Platform.ls` from now on? (In combination with the comment below about re-exporting `ls` solely in `platform.js`)",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc884b58_6270daf5",
+        "filename": "front_end/platform/UIString.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:42:34Z",
+      "side": 1,
+      "message": "Nit: needs to be suppressed in `check_license_header.js` (rename from `common/UIString.js` to `platform/UIString.js`)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 29
       },
       "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
