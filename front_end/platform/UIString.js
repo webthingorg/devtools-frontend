@@ -1,3 +1,7 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 /*
  * Copyright (C) 2011 Google Inc.  All rights reserved.
  * Copyright (C) 2006, 2007, 2008 Apple Inc.  All rights reserved.
@@ -29,7 +33,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Platform from '../platform/platform.js';
+import * as StringUtilities from './string-utilities.js';
 
 /**
  * @param {string} string
@@ -37,7 +41,7 @@ import * as Platform from '../platform/platform.js';
  * @return {string}
  */
 export function UIString(string, ...vararg) {
-  return Platform.StringUtilities.vsprintf(localize(string), Array.prototype.slice.call(arguments, 1));
+  return StringUtilities.vsprintf(localize(string), Array.prototype.slice.call(arguments, 1));
 }
 
 /**
@@ -82,8 +86,8 @@ export class UIStringFormat {
     /** @type {string} */
     this._localizedFormat = localize(format);
     /** @type {!Array.<!Object>} */
-    this._tokenizedFormat = Platform.StringUtilities.tokenizeFormatString(
-        this._localizedFormat, Platform.StringUtilities.standardFormatters);
+    this._tokenizedFormat =
+        StringUtilities.tokenizeFormatString(this._localizedFormat, StringUtilities.standardFormatters);
   }
 
   /**
@@ -100,12 +104,12 @@ export class UIStringFormat {
    * @return {string}
    */
   format(vararg) {
-    return Platform.StringUtilities
+    return StringUtilities
         .format(
-          // the code here uses odd generics that Closure likes but TS doesn't
-          // so rather than fight to typecheck this in a dodgy way we just let TS ignore it
-          // @ts-ignore
-            this._localizedFormat, arguments, Platform.StringUtilities.standardFormatters, '', UIStringFormat._append,
+            // the code here uses odd generics that Closure likes but TS doesn't
+            // so rather than fight to typecheck this in a dodgy way we just let TS ignore it
+            // @ts-ignore
+            this._localizedFormat, arguments, StringUtilities.standardFormatters, '', UIStringFormat._append,
             this._tokenizedFormat)
         .formattedResult;
   }
