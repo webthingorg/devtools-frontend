@@ -646,6 +646,13 @@ export class TargetBase {
   router() {
     return this._router;
   }
+
+  /**
+   * @return {!ProtocolProxyApi.NetworkApi}
+   */
+  networkAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
 }
 
 /**
@@ -809,7 +816,7 @@ class _AgentPrototype {
    * @return {!Promise<!Object>}
    */
   _invoke(method, request) {
-    return new Promise(fulfill => {
+    return new Promise((fulfill, reject) => {
       /**
        * @param {*} error
        * @param {*} result
@@ -825,7 +832,15 @@ class _AgentPrototype {
           result = {};
         }
         if (error) {
+          // TODO(crbug.com/1011811): Remove Old lookup of ProtocolError
           result[ProtocolError] = error.message;
+          result.getError = () => {
+            return error.message;
+          };
+        } else {
+          result.getError = () => {
+            return undefined;
+          };
         }
         fulfill(result);
       };
