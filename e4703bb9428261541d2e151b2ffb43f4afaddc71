@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "53e9f000_993414b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T11:46:39Z",
+      "side": 1,
+      "message": "intended",
+      "range": {
+        "startLine": 11,
+        "startChar": 18,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cb975baa_5c2e9642",
         "filename": "front_end/issues/BUILD.gn",
         "patchSetId": 1
@@ -25,6 +48,75 @@
     },
     {
       "key": {
+        "uuid": "e04cbadf_29a26886",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T11:46:39Z",
+      "side": 1,
+      "message": "FYI: After adding \u0027issues\u0027 as a dependency to \u0027devtools_typescript_deps\u0027, these files will actually be typechecked using TypeScript when building the frontend. Since most of SDK does not yet work (not to mention the rest of the frontend), listing these files here will cause the build to break.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f8dd43e_4f7fa717",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T11:46:39Z",
+      "side": 1,
+      "message": "Assuming AggregatedIssues are not held on to by the {IssuesModel} and {primaryKey} is not used by the {IssueAggregator}, I\u0027d feel more comfortable throwing an exception here. That way, we could make sure that {AggregatedIssue} doesn\u0027t leak accidentally to the IssuesModel.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b79b2f99_02840a7b",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T11:46:39Z",
+      "side": 1,
+      "message": "q: I assume the next CL will turn this into an array of IssuesModels?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 28
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13b12966_aeabbb68",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 1
@@ -41,6 +133,29 @@
         "startChar": 0,
         "endLine": 5,
         "endChar": 49
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa2ed718_82bea1ef",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T11:46:39Z",
+      "side": 1,
+      "message": "how are these changes related? Problems with unit tests and imports?",
+      "range": {
+        "startLine": 472,
+        "startChar": 70,
+        "endLine": 472,
+        "endChar": 95
       },
       "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -133,6 +248,29 @@
         "startChar": 0,
         "endLine": 9,
         "endChar": 46
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a061dab_4df6788e",
+        "filename": "test/unittests/front_end/issues/IssueAggregator_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T11:46:39Z",
+      "side": 1,
+      "message": "Too much copypasta. This test is part of Issue_test.ts.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 3
       },
       "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
