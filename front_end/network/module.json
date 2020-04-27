@@ -6,6 +6,7 @@
       "id": "network",
       "title": "Network",
       "order": 40,
+      "persistence": "closeable",
       "className": "Network.NetworkPanel"
     },
     {
