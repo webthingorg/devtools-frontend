@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e8851c1c_747ed6e9",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T04:55:07Z",
+      "side": 1,
+      "message": "Good point. If possible, we shouldn\u0027t lie about our types. In this particular case that means we have the two solutions you mentioned:\n\na) Have placeholder values that get patched after {parseValue}\nb) Delay the cast until all the necessary fields are there\n\nI have no strong preference here, so I leave the choice up to you.",
+      "parentUuid": "118d6d58_61d27de7",
+      "range": {
+        "startLine": 270,
+        "startChar": 36,
+        "endLine": 270,
+        "endChar": 38
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04b2bd01_2d8a81c1",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 3
@@ -142,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "6a35a312_5052269b",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T04:55:07Z",
+      "side": 1,
+      "message": "I\u0027d say this part feels small enough that we shouldn\u0027t worry about edge. Lets keep the code as simple as possible and refactor it again when we actually need it.",
+      "parentUuid": "fea35619_ccc7214c",
+      "range": {
+        "startLine": 1062,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 3
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "550a8204_f60dc7bf",
         "filename": "front_end/sdk/NetworkManager.js",
         "patchSetId": 3
@@ -189,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "ced0568f_45fb79ff",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T04:55:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "90200f38_3b0499ea",
+      "range": {
+        "startLine": 1224,
+        "startChar": 2,
+        "endLine": 1224,
+        "endChar": 28
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "143ed2a7_b0ff307e",
         "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
         "patchSetId": 3
@@ -224,6 +296,30 @@
       "side": 1,
       "message": "What about the client code being in MultiTargetNetworkManager?",
       "parentUuid": "143ed2a7_b0ff307e",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4814,
+        "endChar": 60
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b9936c_dc963bb9",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 3
+      },
+      "lineNbr": 4814,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T04:55:07Z",
+      "side": 1,
+      "message": "NetworkManager could get the emulation target in addition to the network target and dispatch the request directly.\n\nI suggest you list the CDP changes explicitly in the Design Doc and we get some more opinions from the reviewers there. CDP commands tend to stick around for a while and its hard (if not impossible) to remove them again, so it is worth the extra scrutiny.",
+      "parentUuid": "143dd298_66d15a1a",
       "range": {
         "startLine": 4810,
         "startChar": 0,

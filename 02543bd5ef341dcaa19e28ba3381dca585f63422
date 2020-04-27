@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9baeca58_63f2e4d0",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T04:55:07Z",
+      "side": 1,
+      "message": "nit: can be const",
+      "range": {
+        "startLine": 128,
+        "startChar": 6,
+        "endLine": 128,
+        "endChar": 9
+      },
+      "revId": "02543bd5ef341dcaa19e28ba3381dca585f63422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b4863b2_e55300d8",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T04:55:07Z",
+      "side": 1,
+      "message": "Replace with\n\nconst chromeVersion \u003d NetworkManager.getChromeVersion();\nif (chromeVersion.length \u003e 0) {\n\nAlternatively {getChromeVersion} could return null to indicate it was not able to retrieve the version.",
+      "range": {
+        "startLine": 1075,
+        "startChar": 0,
+        "endLine": 1077,
+        "endChar": 48
+      },
+      "revId": "02543bd5ef341dcaa19e28ba3381dca585f63422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
