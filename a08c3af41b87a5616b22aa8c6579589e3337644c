@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "0a04737f_27da959f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T12:43:41Z",
+      "side": 1,
+      "message": "Is the CDP change not rolled yet? Otherwise the type here should be available.",
+      "range": {
+        "startLine": 233,
+        "startChar": 23,
+        "endLine": 233,
+        "endChar": 24
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7507801f_f3f46bf0",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T12:43:41Z",
+      "side": 1,
+      "message": "Thanks for updating the comment!",
+      "range": {
+        "startLine": 203,
+        "startChar": 5,
+        "endLine": 203,
+        "endChar": 57
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d996bc3_55fddc1b",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T12:43:41Z",
+      "side": 1,
+      "message": "You can use the protocol enum here. Also you don\u0027t have to pass it in, unless you create {MixedContentIssue} instances with different codes. Calling {super} in the constructor with {Protocol.Audits.InspectorIssueCode.MixedContentIssue} is fine.",
+      "range": {
+        "startLine": 277,
+        "startChar": 32,
+        "endLine": 277,
+        "endChar": 53
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc7ae5c2_c2eb0cbe",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T12:43:41Z",
+      "side": 1,
+      "message": "Why is this necessary?",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3355ddb_20693f77",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T12:43:41Z",
+      "side": 1,
+      "message": "I am not a fan of patching protocol data structures. We should treat {MixedContentIssueDetails} as immutable. For users of the {MixedContentClass} its weird that they see a getter for a protocol data structure and they probably won\u0027t expect it, that it gets patched underneath.\n\nEasiest solution is to simply add a separate getter for the resolutionStatusText that does the map lookup dynamically. Or have a private field that holds the resolved value.",
+      "range": {
+        "startLine": 15,
+        "startChar": 23,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2a119c5_dbddf59e",
         "filename": "front_end/sdk/MixedContentIssue.js",
         "patchSetId": 17
@@ -13,6 +128,29 @@
       "writtenOn": "2020-04-27T12:00:27Z",
       "side": 1,
       "message": "This line still causes a TS error.",
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cae012e1_bfe15b03",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T12:43:41Z",
+      "side": 1,
+      "message": "Do the values in this map need to be translated?",
+      "range": {
+        "startLine": 82,
+        "startChar": 26,
+        "endLine": 82,
+        "endChar": 35
+      },
       "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
