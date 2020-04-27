@@ -28,6 +28,15 @@ export const IssueKind = {
 export let IssueDescription;  // eslint-disable-line no-unused-vars
 
 /**
+ * @typedef {{
+ *            columnNumber: (number|undefined),
+ *            lineNumber: number,
+ *            url:string
+ *          }}
+ */
+export let AffectedSource;  // eslint-disable-line no-unused-vars
+
+/**
  * @abstract
  */
 export class Issue extends Common.ObjectWrapper.ObjectWrapper {
@@ -59,6 +68,24 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    */
   requests() {
     return [];
+  }
+
+  /**
+   * @returns {!Iterable<!AffectedSource>}
+   */
+  sources() {
+    return [
+      {
+        url: 'https://www.google-analytics.com/plugins/ua/linkid.js',
+        columnNumber: 20,
+        lineNumber: 1,
+      },
+      {
+        url: 'https://www.google-analytics.com/analytics.js',
+        columnNumber: 3,
+        lineNumber: 7,
+      }
+    ];
   }
 
   /**
