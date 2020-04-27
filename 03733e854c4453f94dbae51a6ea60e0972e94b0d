@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a9a927b0_f476bf92",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:50:54Z",
+      "side": 1,
+      "message": "Yes. And bless that as the only import (currently) that allows that.",
+      "parentUuid": "d025dcc5_2c7a1c4d",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "976399e8_0ae16d3d",
         "filename": "front_end/common/ResourceType.js",
         "patchSetId": 2
