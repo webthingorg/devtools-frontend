@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e207aef6_96980d81",
+        "filename": ".clang-format",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-04-27T10:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "015d87a6_9a9c6772",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 15
+      },
+      "revId": "30e403ec065ea9bbfedb0b2f7ed692511c59e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6181ed91_1b72b050",
         "filename": "back_end/CXXDWARFSymbols/src/RPC.cc",
         "patchSetId": 3

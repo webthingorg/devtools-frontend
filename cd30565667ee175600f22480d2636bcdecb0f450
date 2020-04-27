@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "27f345e3_2be935bb",
+        "filename": "back_end/CXXDWARFSymbols/src/Util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-04-27T10:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac12b98d_d1108097",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 63
+      },
+      "revId": "cd30565667ee175600f22480d2636bcdecb0f450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d166985_5c920926",
         "filename": "scripts/deps/roll_llvm.py",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "cd30565667ee175600f22480d2636bcdecb0f450",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50fecc6a_34509c71",
+        "filename": "scripts/deps/roll_llvm.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-04-27T10:52:34Z",
+      "side": 1,
+      "message": "DevTools overrides that in //.style.yapf.",
+      "parentUuid": "3d166985_5c920926",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "cd30565667ee175600f22480d2636bcdecb0f450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
