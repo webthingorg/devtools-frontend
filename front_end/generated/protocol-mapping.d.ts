@@ -512,6 +512,14 @@ export namespace ProtocolMapping {
      */
     'Media.playerEventsAdded': [Protocol.Media.PlayerEventsAddedEvent];
     /**
+     * Send a list of any messages that need to be delivered.
+     */
+    'Media.playerMessagesLogged': [Protocol.Media.PlayerMessagesLoggedEvent];
+    /**
+     * Send a list of any errors that need to be delivered.
+     */
+    'Media.playerErrorsRaised': [Protocol.Media.PlayerErrorsRaisedEvent];
+    /**
      * Called whenever a player is created, or when a new agent joins and recieves
      * a list of active players. If an agent is restored, it will recieve the full
      * list of player ids and all events again.
@@ -1393,6 +1401,11 @@ export namespace ProtocolMapping {
      */
     'Emulation.setUserAgentOverride': {paramsType: [Protocol.Emulation.SetUserAgentOverrideRequest]; returnType: void;};
     /**
+     * Allows overriding user agent client hints.
+     */
+    'Emulation.setUserAgentMetadataOverride':
+        {paramsType: [Protocol.Emulation.SetUserAgentMetadataOverrideRequest?]; returnType: void;};
+    /**
      * Sends a BeginFrame to the target and returns when the frame was completed. Optionally captures a
      * screenshot from the resulting frame. Requires that the target was created with enabled
      * BeginFrameControl. Designed for use with --run-all-compositor-stages-before-draw, see also
@@ -1762,6 +1775,11 @@ export namespace ProtocolMapping {
      * Allows overriding user agent with the given string.
      */
     'Network.setUserAgentOverride': {paramsType: [Protocol.Network.SetUserAgentOverrideRequest]; returnType: void;};
+    /**
+     * Allows overriding user agent client hints.
+     */
+    'Network.setUserAgentMetadataOverride':
+        {paramsType: [Protocol.Network.SetUserAgentMetadataOverrideRequest?]; returnType: void;};
     /**
      * Disables domain notifications.
      */
