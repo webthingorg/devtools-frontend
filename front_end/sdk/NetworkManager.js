@@ -1043,6 +1043,28 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
+   * @return {string}
+   */
+  static getChromeVersion() {
+    const chromeRegex = new RegExp('(?:^|\\W)Chrome/(\\S+)');
+    const chromeMatch = navigator.userAgent.match(chromeRegex);
+    if (chromeMatch && chromeMatch.length > 1) {
+      return chromeMatch[1];
+    }
+    return '';
+  }
+
+  /**
+   * @return {Array<Protocol.Emulation.UserAgentBrandVersion>}
+   */
+  static getChromeBrands() {
+    if (navigator.userAgentData) {
+      return navigator.userAgentData.brands;
+    }
+    return [];
+  }
+
+  /**
    * @param {string} uaString
    * @return {string}
    */
@@ -1050,12 +1072,11 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     // Patches Chrome/CriOS version from user agent ("1.2.3.4" when user agent is: "Chrome/1.2.3.4").
     // Edge also contains an appVersion which should be patched to match the Chrome major version.
     // Otherwise, ignore it. This assumes additional appVersions appear after the Chrome version.
-    const chromeRegex = new RegExp('(?:^|\\W)Chrome/(\\S+)');
-    const chromeMatch = navigator.userAgent.match(chromeRegex);
-    if (chromeMatch && chromeMatch.length > 1) {
+    const chromeVersion = MultitargetNetworkManager.getChromeVersion();
+    if (chromeVersion.length > 0) {
       // "1.2.3.4" becomes "1.0.100.0"
-      const additionalAppVersion = chromeMatch[1].split('.', 1)[0] + '.0.100.0';
-      return Platform.StringUtilities.sprintf(uaString, chromeMatch[1], additionalAppVersion);
+      const additionalAppVersion = chromeVersion.split('.', 1)[0] + '.0.100.0';
+      return Platform.StringUtilities.sprintf(uaString, chromeVersion, additionalAppVersion);
     }
     return uaString;
   }
@@ -1071,6 +1092,9 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     }
     if (this.currentUserAgent()) {
       networkAgent.setUserAgentOverride(this.currentUserAgent());
+      if (this._userAgentMetadataOverride) {
+        networkAgent.setUserAgentMetadataOverride(this._userAgentMetadataOverride);
+      }
     }
     if (this._effectiveBlockedURLs.length) {
       networkAgent.setBlockedURLs(this._effectiveBlockedURLs);
@@ -1167,19 +1191,26 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     const userAgent = this.currentUserAgent();
     for (const agent of this._agents) {
       agent.setUserAgentOverride(userAgent);
+      if (this._userAgentMetadataOverride) {
+        agent.setUserAgentMetadataOverride(this._userAgentMetadataOverride);
+      }
     }
   }
 
   /**
    * @param {string} userAgent
+   * @param {?Protocol.Emulation.UserAgentMetadata} userAgentMetadata
    */
-  setUserAgentOverride(userAgent) {
+  setUserAgentOverride(userAgent, userAgentMetadataOverride) {
     if (this._userAgentOverride === userAgent) {
       return;
     }
     this._userAgentOverride = userAgent;
     if (!this._customUserAgent) {
+      this._userAgentMetadataOverride = userAgentMetadataOverride;
       this._updateUserAgentOverride();
+    } else {
+      this._userAgentMetadataOverride = null;
     }
     this.dispatchEventToListeners(MultitargetNetworkManager.Events.UserAgentChanged);
   }
@@ -1196,6 +1227,8 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
    */
   setCustomUserAgentOverride(userAgent) {
     this._customUserAgent = userAgent;
+    // ### change this?
+    this._userAgentMetadataOverride = null;
     this._updateUserAgentOverride();
   }
 
