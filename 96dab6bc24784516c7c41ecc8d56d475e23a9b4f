@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eb27524_2a7208a0",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-27T14:41:51Z",
+      "side": 1,
+      "message": "nit: this could be\n\n    content.slot \u003d \u0027content\u0027;",
+      "revId": "96dab6bc24784516c7c41ecc8d56d475e23a9b4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
