@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1d6bf55b_f2ef8a41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53e9f000_993414b5",
+      "range": {
+        "startLine": 11,
+        "startChar": 18,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb975baa_5c2e9642",
         "filename": "front_end/issues/BUILD.gn",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da5ae7af_bc50afec",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb975baa_5c2e9642",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "455b63ad_5493627f",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Yes, I thought about this as well. Changed.",
+      "parentUuid": "4f8dd43e_4f7fa717",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b79b2f99_02840a7b",
         "filename": "front_end/issues/IssueAggregator.js",
         "patchSetId": 1
@@ -114,6 +186,30 @@
       "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d62b466f_2d44dc75",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "No, this will turn into the IssuesManager (a class that works similar to LogManager, but also stores the issues).",
+      "parentUuid": "b79b2f99_02840a7b",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 28
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "b719d075_c99ba90b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13b12966_aeabbb68",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 49
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa2ed718_82bea1ef",
         "filename": "front_end/sdk/ServiceWorkerManager.js",
         "patchSetId": 1
@@ -160,6 +280,30 @@
       "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6712852_dff4f817",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Yes, I was trying to fix the TS problems in this CL, but have factored them out now. Tim fixed most of them here: https://crrev.com/c/2165795\nThe remaining ones were easy:\nhttps://crrev.com/c/2165797\nhttps://crrev.com/c/2165798",
+      "parentUuid": "aa2ed718_82bea1ef",
+      "range": {
+        "startLine": 472,
+        "startChar": 70,
+        "endLine": 472,
+        "endChar": 95
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "b3f0da08_2e56583d",
+        "filename": "test/unittests/front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "910478f4_14950b20",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9771b07_b6ab190a",
         "filename": "test/unittests/front_end/issues/BUILD.gn",
         "patchSetId": 1
@@ -206,6 +374,30 @@
       "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "606c56a3_f02306d2",
+        "filename": "test/unittests/front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9771b07_b6ab190a",
+      "range": {
+        "startLine": 8,
+        "startChar": 5,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "93ae86f1_314c5c8a",
+        "filename": "test/unittests/front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a5fc8e5_89d3c019",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 42
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb4625cf_acfd9cc6",
         "filename": "test/unittests/front_end/issues/IssueAggregator_test.ts",
         "patchSetId": 1
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "6cf720c7_a6f319b3",
+        "filename": "test/unittests/front_end/issues/IssueAggregator_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb4625cf_acfd9cc6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a061dab_4df6788e",
         "filename": "test/unittests/front_end/issues/IssueAggregator_test.ts",
         "patchSetId": 1
@@ -275,6 +515,30 @@
       "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c66c68be_22cd9d48",
+        "filename": "test/unittests/front_end/issues/IssueAggregator_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T15:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a061dab_4df6788e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 3
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
