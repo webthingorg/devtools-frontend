@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d025dcc5_2c7a1c4d",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-04-27T10:49:53Z",
+      "side": 1,
+      "message": "So you\u0027d want this to be `import {ls} from \u0027../platform/platform.js\u0027` ? Just checking my understanding.",
+      "parentUuid": "f0329f97_32b76172",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "976399e8_0ae16d3d",
         "filename": "front_end/common/ResourceType.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-27T10:42:21Z",
       "side": 1,
       "message": "How come this one file in common needs the import? Or, another way, is this the only one in the whole of Common?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 0
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eff382d2_9dfc16f0",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-04-27T10:49:53Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "976399e8_0ae16d3d",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -114,6 +162,30 @@
       "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f11d263_9a767f68",
+        "filename": "front_end/platform/UIString.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-04-27T10:49:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc884b58_6270daf5",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
