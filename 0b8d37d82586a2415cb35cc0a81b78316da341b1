@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69722e0b_2a5d9d1b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T12:47:24Z",
+      "side": 1,
+      "message": "You should be able to do this in this CL, just roll the protocol changes before landing this CL.",
+      "range": {
+        "startLine": 232,
+        "startChar": 19,
+        "endLine": 232,
+        "endChar": 26
+      },
+      "revId": "0b8d37d82586a2415cb35cc0a81b78316da341b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b71e99a4_3b4f263e",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-27T12:47:24Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to make much sense?",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 50
+      },
+      "revId": "0b8d37d82586a2415cb35cc0a81b78316da341b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
