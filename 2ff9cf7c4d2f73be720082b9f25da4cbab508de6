@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "252eda47_5fa4b2b6",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-27T18:29:10Z",
+      "side": 1,
+      "message": "ended up doing (b)",
+      "parentUuid": "e8851c1c_747ed6e9",
+      "range": {
+        "startLine": 270,
+        "startChar": 36,
+        "endLine": 270,
+        "endChar": 38
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04b2bd01_2d8a81c1",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 3
@@ -187,6 +211,30 @@
       "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d91a18e_9a398d85",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-27T18:29:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a35a312_5052269b",
+      "range": {
+        "startLine": 1062,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 3
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -320,6 +368,30 @@
       "side": 1,
       "message": "NetworkManager could get the emulation target in addition to the network target and dispatch the request directly.\n\nI suggest you list the CDP changes explicitly in the Design Doc and we get some more opinions from the reviewers there. CDP commands tend to stick around for a while and its hard (if not impossible) to remove them again, so it is worth the extra scrutiny.",
       "parentUuid": "143dd298_66d15a1a",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4814,
+        "endChar": 60
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f682db0b_fab1497c",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 3
+      },
+      "lineNbr": 4814,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-27T18:29:10Z",
+      "side": 1,
+      "message": "hmm, so basically conceptually this would be best as an extra argument to setUserAgentOverride, but that seemed particularly bad for interface stability, unless the compatibility constraints for this protocol are widely different from what I expected.\n\nIt still feels best for it to work in a similar manner, regardless, though. I don\u0027t know enough about how targets work to know how to implement a different approach, at any rate.\n\nNew method was mentionned in doc, but not the mirroring, so added that.",
+      "parentUuid": "b7b9936c_dc963bb9",
       "range": {
         "startLine": 4810,
         "startChar": 0,

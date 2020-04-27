@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c79b4c0c_a605ddef",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-27T18:29:10Z",
+      "side": 1,
+      "message": "Is that considered OK when const\u0027ness is only at reference level, not at value level?",
+      "parentUuid": "9baeca58_63f2e4d0",
+      "range": {
+        "startLine": 128,
+        "startChar": 6,
+        "endLine": 128,
+        "endChar": 9
+      },
+      "revId": "02543bd5ef341dcaa19e28ba3381dca585f63422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b4863b2_e55300d8",
         "filename": "front_end/sdk/NetworkManager.js",
         "patchSetId": 5
@@ -45,6 +69,54 @@
       "revId": "02543bd5ef341dcaa19e28ba3381dca585f63422",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "689e9db2_4bf1d8dc",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-27T18:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b4863b2_e55300d8",
+      "range": {
+        "startLine": 1075,
+        "startChar": 0,
+        "endLine": 1077,
+        "endChar": 48
+      },
+      "revId": "02543bd5ef341dcaa19e28ba3381dca585f63422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdb8a55f_b695cd1c",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-04-27T18:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b4863b2_e55300d8",
+      "range": {
+        "startLine": 1075,
+        "startChar": 0,
+        "endLine": 1077,
+        "endChar": 48
+      },
+      "revId": "02543bd5ef341dcaa19e28ba3381dca585f63422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
