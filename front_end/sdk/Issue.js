@@ -28,6 +28,15 @@ export const IssueKind = {
 export let IssueDescription;  // eslint-disable-line no-unused-vars
 
 /**
+ * @typedef {{
+ *            columnNumber: (number|undefined),
+ *            lineNumber: number,
+ *            url:string
+ *          }}
+ */
+export let AffectedSource;  // eslint-disable-line no-unused-vars
+
+/**
  * @abstract
  */
 export class Issue extends Common.ObjectWrapper.ObjectWrapper {
@@ -58,6 +67,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    * @returns {!Iterable<!Protocol.Audits.AffectedRequest>}
    */
   requests() {
+    return [];
+  }
+
+  /**
+   * @returns {!Iterable<!AffectedSource>}
+   */
+  sources() {
     return [];
   }
 
