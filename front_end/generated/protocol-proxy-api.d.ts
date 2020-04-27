@@ -1166,6 +1166,11 @@ declare namespace ProtocolProxyApi {
     setUserAgentOverride(params: Protocol.Emulation.SetUserAgentOverrideRequest): Promise<void>;
 
     /**
+     * Allows overriding user agent client hints.
+     */
+    setUserAgentMetadataOverride(params: Protocol.Emulation.SetUserAgentMetadataOverrideRequest): Promise<void>;
+
+    /**
      * Notification sent after the virtual time budget for the current VirtualTimePolicy has run out.
      */
     on(event: 'virtualTimeBudgetExpired', listener: () => void): void;
@@ -1640,6 +1645,11 @@ declare namespace ProtocolProxyApi {
      * Allows overriding user agent with the given string.
      */
     setUserAgentOverride(params: Protocol.Network.SetUserAgentOverrideRequest): Promise<void>;
+
+    /**
+     * Allows overriding user agent client hints.
+     */
+    setUserAgentMetadataOverride(params: Protocol.Network.SetUserAgentMetadataOverrideRequest): Promise<void>;
 
     /**
      * Fired when data chunk was received over the network.
@@ -2892,6 +2902,16 @@ declare namespace ProtocolProxyApi {
      * congestion. If batched, events must ALWAYS be in chronological order.
      */
     on(event: 'playerEventsAdded', listener: (params: Protocol.Media.PlayerEventsAddedEvent) => void): void;
+
+    /**
+     * Send a list of any messages that need to be delivered.
+     */
+    on(event: 'playerMessagesLogged', listener: (params: Protocol.Media.PlayerMessagesLoggedEvent) => void): void;
+
+    /**
+     * Send a list of any errors that need to be delivered.
+     */
+    on(event: 'playerErrorsRaised', listener: (params: Protocol.Media.PlayerErrorsRaisedEvent) => void): void;
 
     /**
      * Called whenever a player is created, or when a new agent joins and recieves
