@@ -1353,6 +1353,7 @@ all_devtools_modules = [
   "protocol_monitor/ProtocolMonitor.js",
   "issues/IssuesPane.js",
   "issues/IssueRevealer.js",
+  "issues/IssueAggregator.js",
   "protocol_client/InspectorBackend.js",
   "protocol_client/NodeURL.js",
   "quick_open/CommandMenu.js",

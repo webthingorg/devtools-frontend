@@ -1,0 +1,22 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../third_party/typescript/typescript.gni")
+
+ts_library("ui") {
+  sources = [
+    "IssueAggregator.js",
+    "IssueRevealer.js",
+    "IssuesPane.js",
+    "issues.js",
+  ]
+
+  deps = [
+    "../common",
+    "../host",
+    "../platform",
+    "../text_utils",
+    "../ui",
+  ]
+}

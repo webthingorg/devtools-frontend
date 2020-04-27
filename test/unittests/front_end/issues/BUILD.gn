@@ -1,0 +1,13 @@
+import("../../../../third_party/typescript/typescript.gni")
+
+ts_library("issues") {
+  testonly = true
+  sources = [ "IssueAggregator_test.ts" ]
+
+  deps = [
+    "../../../../front_end/common",
+    "../../../../front_end/issues",
+    "../../../../front_end/protocol_client",
+    "../../../../front_end/sdk",
+  ]
+}

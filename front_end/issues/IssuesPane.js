@@ -6,6 +6,8 @@ import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+import {Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';
+
 class AffectedResourcesView extends UI.TreeOutline.TreeElement {
   /**
    * @param {!IssueView} parent
@@ -356,18 +358,22 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this.contentElement.appendChild(this._issuesTree.element);
 
     const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
+    /** @type {?SDK.IssuesModel.IssuesModel} */
     this._model = null;
+    /** @type {?IssueAggregator} */
+    this._aggregator = null;
     if (mainTarget) {
       this._model = mainTarget.model(SDK.IssuesModel.IssuesModel);
       if (this._model) {
-        this._model.addEventListener(SDK.IssuesModel.Events.AggregatedIssueUpdated, this._issueUpdated, this);
-        this._model.addEventListener(SDK.IssuesModel.Events.FullUpdateRequired, this._fullUpdate, this);
+        this._aggregator = new IssueAggregator(this._model);
         this._model.ensureEnabled();
       }
     }
 
-    if (this._model) {
-      for (const issue of this._model.aggregatedIssues()) {
+    if (this._aggregator) {
+      this._aggregator.addEventListener(IssueAggregatorEvents.AggregatedIssueUpdated, this._issueUpdated, this);
+      this._aggregator.addEventListener(IssueAggregatorEvents.FullUpdateRequired, this._fullUpdate, this);
+      for (const issue of this._aggregator.aggregatedIssues()) {
         this._updateIssueView(issue);
       }
     }
@@ -403,7 +409,7 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!{data: !SDK.Issue.Issue}} event
+   * @param {!{data: *}} event
    */
   _issueUpdated(event) {
     const issue = /** @type {!SDK.Issue.Issue} */ (event.data);
@@ -434,14 +440,17 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
       this._issuesTree.removeChild(view);
     }
     this._issueViews.clear();
-    for (const issue of this._model.aggregatedIssues()) {
-      this._updateIssueView(issue);
+    if (this._aggregator) {
+      for (const issue of this._aggregator.aggregatedIssues()) {
+        this._updateIssueView(issue);
+      }
     }
     this._updateCounts();
   }
 
   _updateCounts() {
-    this._updateToolbarIssuesCount(this._model.numberOfIssues());
+    const count = this._model ? this._model.numberOfIssues() : 0;
+    this._updateToolbarIssuesCount(count);
   }
 
   /**
