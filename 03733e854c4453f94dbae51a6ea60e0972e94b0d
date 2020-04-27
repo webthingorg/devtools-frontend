@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "976399e8_0ae16d3d",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-27T10:42:21Z",
+      "side": 1,
+      "message": "How come this one file in common needs the import? Or, another way, is this the only one in the whole of Common?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 0
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85ae13a8_9f80617b",
+        "filename": "front_end/common/common.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-04-27T10:42:21Z",
+      "side": 1,
+      "message": "Add a TODO that we would like to remove this function eventually, but that it\u0027s here for legacy reasons.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "03733e854c4453f94dbae51a6ea60e0972e94b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
