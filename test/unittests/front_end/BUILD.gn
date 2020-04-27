@@ -10,6 +10,7 @@ group("front_end") {
     "dom_extension",
     "formatter_worker",
     "inline_editor",
+    "issues",
     "persistence",
     "platform",
     "protocol_client",

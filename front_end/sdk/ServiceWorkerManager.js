@@ -469,22 +469,22 @@ export class ServiceWorkerVersion {
  * @type {!Object<string, string>}
  */
 ServiceWorkerVersion.RunningStatus = {
-  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Running]: ls`running`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Starting]: ls`starting`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped]: ls`stopped`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopping]: ls`stopping`,
+  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Running]: Common.UIString.UIString('running'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Starting]: Common.UIString.UIString('starting'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped]: Common.UIString.UIString('stopped'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopping]: Common.UIString.UIString('stopping'),
 };
 
 /**
  * @type {!Object<string, string>}
  */
 ServiceWorkerVersion.Status = {
-  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated]: ls`activated`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating]: ls`activating`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installed]: ls`installed`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installing]: ls`installing`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.New]: ls`new`,
-  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant]: ls`redundant`,
+  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated]: Common.UIString.UIString('activated'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating]: Common.UIString.UIString('activating'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installed]: Common.UIString.UIString('installed'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installing]: Common.UIString.UIString('installing'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.New]: Common.UIString.UIString('new'),
+  [Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant]: Common.UIString.UIString('redundant'),
 };
 
 /**
@@ -679,7 +679,7 @@ class ServiceWorkerContextNamer {
     const parsedUrl = Common.ParsedURL.ParsedURL.fromString(context.origin);
     const label = parsedUrl ? parsedUrl.lastPathComponentWithFragment() : context.name;
     const localizedStatus = ServiceWorkerVersion.Status[version.status];
-    context.setLabel(ls`${label} #${version.id} (${localizedStatus})`);
+    context.setLabel(Common.UIString.UIString(`${label} #${version.id} (${localizedStatus})`));
   }
 }
 
