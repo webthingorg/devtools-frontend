@@ -6,6 +6,7 @@
       "id": "console",
       "title": "Console",
       "order": 20,
+      "persistence": "closeable",
       "className": "Console.ConsolePanel"
     },
     {

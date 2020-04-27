@@ -6,6 +6,7 @@
       "id": "heap_profiler",
       "title": "Memory",
       "order": 60,
+      "persistence": "closeable",
       "className": "Profiler.HeapProfilerPanel"
     },
     {
