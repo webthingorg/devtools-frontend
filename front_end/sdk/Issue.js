@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 
 /** @enum {symbol} */
@@ -28,6 +25,7 @@ export const IssueKind = {
   *            linkTitle: string
   *          }}
   */
+// @ts-ignore typedef
 export let IssueDescription;  // eslint-disable-line no-unused-vars
 
 /**
@@ -44,28 +42,28 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @returns {string}
+   * @return {string}
    */
   code() {
     return this._code;
   }
 
   /**
-   * @abstract
-   * @returns {string}
+   * @return {string}
    */
   primaryKey() {
+    throw new Error('Not implemented');
   }
 
   /**
-   * @returns {!Iterable<!Protocol.Audits.AffectedCookie>}
+   * @return {!Iterable<!Protocol.Audits.AffectedCookie>}
    */
   cookies() {
     return [];
   }
 
   /**
-   * @returns {!Iterable<!Protocol.Audits.AffectedRequest>}
+   * @return {!Iterable<!Protocol.Audits.AffectedRequest>}
    */
   requests() {
     return [];
@@ -73,7 +71,7 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {string} requestId
-   * @returns {boolean}
+   * @return {boolean}
    */
   isAssociatedWithRequestId(requestId) {
     for (const request of this.requests()) {
@@ -85,17 +83,17 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @abstract
-   * @returns {?IssueDescription}
+   * @return {?IssueDescription}
    */
   getDescription() {
+    throw new Error('Not implemented');
   }
 
   /**
-   * @abstract
    * @return {!IssueCategory}
    */
   getCategory() {
+    throw new Error('Not implemented');
   }
 }
 
@@ -128,7 +126,7 @@ export class AggregatedIssue extends Issue {
 
   /**
    * @override
-   * @returns {!Iterable<!Protocol.Audits.AffectedCookie>}
+   * @return {!Iterable<!Protocol.Audits.AffectedCookie>}
    */
   cookies() {
     return this._cookies.values();
@@ -136,7 +134,7 @@ export class AggregatedIssue extends Issue {
 
   /**
    * @override
-   * @returns {!Iterable<!Protocol.Audits.AffectedRequest>}
+   * @return {!Iterable<!Protocol.Audits.AffectedRequest>}
    */
   requests() {
     return this._requests.values();
