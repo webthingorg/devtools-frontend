@@ -27,8 +27,11 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as Platform from '../platform/platform.js';
+
 import {ParsedURL} from './ParsedURL.js';
-import {ls} from './UIString.js';
+
+const {ls} = Platform.UIString;
 
 /**
  * @unrestricted

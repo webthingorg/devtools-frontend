@@ -128,7 +128,7 @@ const OTHER_LICENSE_HEADERS = [
   // IBM Corp
   'sources/WatchExpressionsSidebarPane.js',
   // Multiple authors
-  'common/UIString.js',
+  'platform/UIString.js',
   'components/JSPresentationUtils.js',
   'console/ConsoleView.js',
   'console/ConsoleViewMessage.js',
