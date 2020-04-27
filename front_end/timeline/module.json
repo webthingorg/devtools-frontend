@@ -6,6 +6,7 @@
       "id": "timeline",
       "title": "Performance",
       "order": 50,
+      "persistence": "closeable",
       "className": "Timeline.TimelinePanel"
     },
     {
