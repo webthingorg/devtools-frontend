@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Components from '../components/components.js';
 import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -199,6 +200,51 @@ class AffectedRequestsView extends AffectedResourcesView {
   }
 }
 
+class AffectedSourcesView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`source`, plural: ls`sources`});
+    /** @type {!SDK.Issue.Issue} */
+    this._issue = issue;
+    /** @type {!Components.Linkifier.Linkifier} */
+    this._linkifer = new Components.Linkifier.Linkifier();
+  }
+
+  /**
+   * @param {!Iterable<!SDK.Issue.AffectedSource>} affectedSources
+   */
+  _appendAffectedSources(affectedSources) {
+    let count = 0;
+    for (const source of affectedSources) {
+      this._appendAffectedSource(source);
+      count++;
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   * @param {!SDK.Issue.AffectedSource} source
+   */
+  _appendAffectedSource({url, lineNumber, columnNumber}) {
+    const cellElement = createElementWithClass('td', '');
+    const target = SDK.SDKModel.TargetManager.instance().mainTarget();
+    const linkifierOptions = /** @type {!Components.Linkifier.LinkifyOptions} */ ({columnNumber, tabStop: true});
+    const anchorElement = this._linkifer.linkifyScriptLocation(target, null, url, lineNumber, linkifierOptions);
+    cellElement.appendChild(anchorElement);
+    const rowElement = createElementWithClass('tr', 'affected-resource-request');
+    rowElement.appendChild(cellElement);
+    this._affectedResources.appendChild(rowElement);
+  }
+
+  update() {
+    this.clear();
+    this._appendAffectedSources(this._issue.sources());
+  }
+}
+
 /** @type {!Map<!SDK.Issue.IssueCategory, !Network.NetworkItemView.Tabs>} */
 const issueTypeToNetworkHeaderMap = new Map([
   [SDK.Issue.IssueCategory.SameSiteCookie, Network.NetworkItemView.Tabs.Cookies],
@@ -226,6 +272,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedResources = this._createAffectedResources();
     this._affectedCookiesView = new AffectedCookiesView(this, this._issue);
     this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
+    this._affectedSourcesView = new AffectedSourcesView(this, this._issue);
   }
 
   /**
@@ -239,6 +286,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedCookiesView.update();
     this.appendAffectedResource(this._affectedRequestsView);
     this._affectedRequestsView.update();
+    this.appendAffectedResource(this._affectedSourcesView);
+    this._affectedSourcesView.update();
     this._createReadMoreLink();
 
     this.updateAffectedResourceVisibility();
@@ -266,7 +315,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
   updateAffectedResourceVisibility() {
     const noCookies = !this._affectedCookiesView || this._affectedCookiesView.isEmpty();
     const noRequests = !this._affectedRequestsView || this._affectedRequestsView.isEmpty();
-    const noResources = noCookies && noRequests;
+    const noSources = !this._affectedSourcesView || this._affectedSourcesView.isEmpty();
+    const noResources = noCookies && noRequests && noSources;
     this._affectedResources.hidden = noResources;
   }
 
@@ -321,6 +371,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
   update() {
     this._affectedCookiesView.update();
     this._affectedRequestsView.update();
+    this._affectedSourcesView.update();
     this.updateAffectedResourceVisibility();
   }
 
