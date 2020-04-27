@@ -1,0 +1,18 @@
+import("../../third_party/typescript/typescript.gni")
+
+ts_library("elements") {
+  sources = [
+    "Adorner.js",
+    "ElementsTreeElement.js",
+  ]
+
+  deps = [
+    "../common",
+    "../host",
+    "../platform",
+    "../protocol_client",
+    "../sdk",
+    "../text_utils",
+    "../ui",
+  ]
+}

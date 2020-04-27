@@ -28,6 +28,9 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// @ts-nocheck
+// TODO(crbug.com/1011811): Enable TypeScript compiler checks
+
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
@@ -37,6 +40,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
+import {Adorner, AdornerCategories} from './Adorner.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {MappedCharToEntity, UpdateRecord} from './ElementsTreeOutline.js';  // eslint-disable-line no-unused-vars
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
@@ -69,6 +73,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     this._searchQuery = null;
     this._expandedChildrenLimit = InitialChildrenLimit;
     this._decorationsThrottler = new Common.Throttler.Throttler(100);
+
+    this._adornerContainer = this.listItemElement.createChild('div', 'adorner-container hidden');
+    /** @type {!Array<!Adorner>} */
+    this._adorners = [];
 
     /**
      * @type {!Element|undefined}
@@ -1173,9 +1181,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       const highlightElement = createElement('span');
       highlightElement.className = 'highlight';
       highlightElement.appendChild(nodeInfo);
+      // fixme: make it clear that `this.title = x` is a setter with significant side effects
       this.title = highlightElement;
       this.updateDecorations();
       this.listItemElement.insertBefore(this._gutterContainer, this.listItemElement.firstChild);
+      this.listItemElement.appendChild(this._adornerContainer);
       delete this._highlightResult;
       delete this.selectionElement;
       delete this._hintElement;
@@ -1836,6 +1846,67 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const promise = Common.Revealer.reveal(this.node());
     promise.then(() => self.UI.actionRegistry.action('elements.edit-as-html').execute());
   }
+
+  /**
+   *
+   * @param {string} text
+   * @param {!AdornerCategories} category
+   * @return {!Adorner}
+   */
+  adornText(text, category) {
+    const adornerContent = document.createElement('span');
+    adornerContent.textContent = text;
+    const options = {
+      category,
+    };
+    const adorner = Adorner.create(adornerContent, text, options);
+    this._adorners.push(adorner);
+    this._updateAdorners();
+    return adorner;
+  }
+
+  /**
+   *
+   * @param {!Adorner} adornerToRemove
+   */
+  removeAdorner(adornerToRemove) {
+    const adorners = this._adorners;
+    adornerToRemove.remove();
+    for (let i = 0; i < adorners.length; ++i) {
+      if (adorners[i] === adornerToRemove) {
+        adorners.splice(i, 1);
+        this._updateAdorners();
+        return;
+      }
+    }
+  }
+
+  removeAllAdorners() {
+    for (const adorner of this._adorners) {
+      adorner.remove();
+    }
+
+    this._adorners = [];
+    this._updateAdorners();
+  }
+
+  // TODO(changhaohan): throttle adorner updates
+  _updateAdorners() {
+    const adorners = this._adorners;
+    const adornerContainer = this._adornerContainer;
+    if (adorners.length === 0) {
+      adornerContainer.classList.add('hidden');
+      return;
+    }
+
+    adorners.sort(adornerComparator);
+
+    adornerContainer.removeChildren();
+    for (const adorner of adorners) {
+      adornerContainer.appendChild(adorner);
+    }
+    adornerContainer.classList.remove('hidden');
+  }
 }
 
 export const InitialChildrenLimit = 500;
@@ -1849,3 +1920,26 @@ export const ForbiddenClosingTagElements = new Set([
 
 // These tags we do not allow editing their tag name.
 export const EditTagBlacklist = new Set(['html', 'head', 'body']);
+
+const OrderedAdornerCategories = [
+  AdornerCategories.Security,
+  AdornerCategories.Layout,
+  AdornerCategories.Default,
+];
+const AdornerCategoryOrder = new Map(OrderedAdornerCategories.map((category, i) => [category, i]));
+
+/**
+ *
+ * @param {!Adorner} adornerA
+ * @param {!Adorner} adornerB
+ * @return {number}
+ */
+function adornerComparator(adornerA, adornerB) {
+  const categoryA = adornerA.category;
+  const categoryB = adornerB.category;
+  if (categoryA === categoryB) {
+    return adornerA.name.localeCompare(adornerB.name);
+  }
+
+  return AdornerCategoryOrder.get(categoryA) - AdornerCategoryOrder.get(categoryB);
+}
