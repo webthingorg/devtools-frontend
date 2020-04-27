@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be25d987_2092abdc",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T05:21:51Z",
+      "side": 1,
+      "message": "nit: \"for (const [key, issue] of this._issues) {\" also works. If you prefer, keep the \".entries()\" for readability though.",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 56
+      },
+      "revId": "813edf3bc5471481df81dd7eca62a80b9dcc97f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df7c6868_ce546ba7",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T05:21:51Z",
+      "side": 1,
+      "message": "nit: use the {primaryKey} variable :)",
+      "range": {
+        "startLine": 188,
+        "startChar": 21,
+        "endLine": 188,
+        "endChar": 39
+      },
+      "revId": "813edf3bc5471481df81dd7eca62a80b9dcc97f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38329759_3347969e",
+        "filename": "front_end/sdk/RelatedIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-27T05:21:51Z",
+      "side": 1,
+      "message": "nit: I\u0027d prefer [...model.issues()], your choice though",
+      "range": {
+        "startLine": 29,
+        "startChar": 19,
+        "endLine": 29,
+        "endChar": 46
+      },
+      "revId": "813edf3bc5471481df81dd7eca62a80b9dcc97f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
