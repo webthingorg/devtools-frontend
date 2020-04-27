@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb975baa_5c2e9642",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:15:36Z",
+      "side": 1,
+      "message": "Needs to be `issues`. Also, you need to add it as a dependency to `devtools_typescript_deps` in the root `BUILD.gn`.",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13b12966_aeabbb68",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:15:36Z",
+      "side": 1,
+      "message": "Since `network` hasn\u0027t been typescriptified yet, you can\u0027t add this file to the `BUILD.gn` yet. However, since you haven\u0027t written a unit test for it that probably is also not necessary yet.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 49
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "910478f4_14950b20",
+        "filename": "test/unittests/front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:15:36Z",
+      "side": 1,
+      "message": "You need to add a dependency on `:issues` in `test/unittests/front_end/BUILD.gn`",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9771b07_b6ab190a",
+        "filename": "test/unittests/front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:15:36Z",
+      "side": 1,
+      "message": "Your test doesn\u0027t depend on this file, so you don\u0027t have to add this dependency.",
+      "range": {
+        "startLine": 8,
+        "startChar": 5,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a5fc8e5_89d3c019",
+        "filename": "test/unittests/front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:15:36Z",
+      "side": 1,
+      "message": "Doesn\u0027t depend on this file.",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 42
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb4625cf_acfd9cc6",
+        "filename": "test/unittests/front_end/issues/IssueAggregator_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-27T10:15:36Z",
+      "side": 1,
+      "message": "In your `BUILD.gn` you need to add a deps on `\"../sdk\"`, as you are importing this file from there.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "e4703bb9428261541d2e151b2ffb43f4afaddc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
