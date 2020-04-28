@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3776c0ec_ed50ebae",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-28T18:34:03Z",
+      "side": 1,
+      "message": "Would the static Linkifier.linkifyURL be more appropriate here since we\u0027re not passing a scriptId anyway? Seems simpler and aligns with some uses in other panels, though I\u0027m admittedly not too familiar with the Linkifier.",
+      "revId": "44462bb489c118caf90ba801a1d8846642ef8848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bcf75fc_e5c813b2",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-04-28T18:34:03Z",
+      "side": 1,
+      "message": "Change class name to \u0027affected-resource-source\u0027",
+      "revId": "44462bb489c118caf90ba801a1d8846642ef8848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
