@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51206fea_b7439d8e",
+        "filename": "front_end/screencast/ScreencastView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-28T00:12:18Z",
+      "side": 1,
+      "message": "This allows both encoded and decoded URLs to be passed as input, and an encoded URL to be passed to the backend.\n\nURL input in decoded form -\u003e decode does nothing -\u003e encode\nURL input in encoded form -\u003e decode -\u003e encode",
+      "revId": "aa7cbebfd6bdcd216b9664f7918d3f2d945b9e73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad829530_cc060daf",
+        "filename": "front_end/screencast/ScreencastView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-28T00:12:18Z",
+      "side": 1,
+      "message": "URL is already decoded -\u003e does nothing\nURL has encoded characters -\u003e converts to decoded form",
+      "revId": "aa7cbebfd6bdcd216b9664f7918d3f2d945b9e73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
