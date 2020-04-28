@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cacb236_ad7a2e4e",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-28T05:42:20Z",
+      "side": 1,
+      "message": "Missing \u0027!\u0027 for closure.",
+      "range": {
+        "startLine": 115,
+        "startChar": 34,
+        "endLine": 115,
+        "endChar": 61
+      },
+      "revId": "75735d51164a5660ae60da606aa6adcbac60b7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
