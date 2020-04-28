@@ -1428,6 +1428,7 @@ export const RecordType = {
   ScrollLayer: 'ScrollLayer',
   CompositeLayers: 'CompositeLayers',
   InteractiveTime: 'InteractiveTime',
+  DroppedFrame: 'DroppedFrame',
 
   ScheduleStyleInvalidationTracking: 'ScheduleStyleInvalidationTracking',
   StyleRecalcInvalidationTracking: 'StyleRecalcInvalidationTracking',

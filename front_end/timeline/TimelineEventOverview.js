@@ -572,6 +572,18 @@ export class TimelineEventOverviewFrames extends TimelineEventOverview {
     ctx.lineWidth = lineWidth;
     ctx.fill();
     ctx.stroke();
+
+    const droppedFrames = this._model.frameModel().droppedFrames();
+    ctx.beginPath();
+    for (const droppedEvent of droppedFrames) {
+      x = Math.round((droppedEvent.startTime - timeOffset) * scale) + offset;
+      ctx.moveTo(x, bottomY);
+      ctx.lineTo(x, 0);
+    }
+    ctx.fillStyle = 'red';
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
   }
 }
 
