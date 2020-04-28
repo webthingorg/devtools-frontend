@@ -35,8 +35,18 @@ export class ShortcutRegistry {
     this._activePrefixTimeout = null;
     /** @type {?function():Promise<void>} */
     this._consumePrefix = null;
+    /** @type {!Set.<string>} */
+    this._devToolsDefaultShortcutActions = new Set();
+    const keybindSetSetting = self.Common.settings.moduleSetting('activeKeybindSet');
+    if (!Root.Runtime.experiments.isEnabled('customKeyboardShortcuts') &&
+        keybindSetSetting.get() !== 'devToolsDefault') {
+      keybindSetSetting.set('devToolsDefault');
+    }
+    keybindSetSetting.addChangeListener(this._registerBindings, this);
+
     this._registerBindings();
   }
+
 
   /**
    * @param {number} key
@@ -130,6 +140,14 @@ export class ShortcutRegistry {
   }
 
   /**
+   * @param {string} actionId
+   * return {boolean}
+   */
+  actionHasDefaultShortcut(actionId) {
+    return this._devToolsDefaultShortcutActions.has(actionId);
+  }
+
+  /**
    * @param {!Element} element
    * @param {!Object.<string, function():Promise.<boolean>>} handlers
    */
@@ -165,7 +183,7 @@ export class ShortcutRegistry {
    */
   async handleKey(key, domKey, event, handlers) {
     const keyModifiers = key >> 8;
-    if ((!handlers && (isPossiblyInputKey() || Dialog.hasInstance())) ||
+    if (((!handlers && !this._activePrefixKey) && (isPossiblyInputKey() || Dialog.hasInstance())) ||
         KeyboardShortcut.isModifier(KeyboardShortcut.keyCodeAndModifiersFromKey(key).keyCode)) {
       return;
     }
@@ -284,6 +302,10 @@ export class ShortcutRegistry {
   }
 
   _registerBindings() {
+    this._keyToShortcut.clear();
+    this._actionToShortcut.clear();
+    this._keyMap.clear();
+    const keybindSet = self.Common.settings.moduleSetting('activeKeybindSet').get();
     const extensions = self.runtime.extensions('action');
     extensions.forEach(registerExtension, this);
 
@@ -295,14 +317,24 @@ export class ShortcutRegistry {
       const descriptor = extension.descriptor();
       const bindings = descriptor.bindings;
       for (let i = 0; bindings && i < bindings.length; ++i) {
-        if (!platformMatches(bindings[i].platform)) {
+        const keybindSets = bindings[i].keybindSets;
+        if (!platformMatches(bindings[i].platform) || !keybindSetsMatch(keybindSets)) {
           continue;
         }
         const keys = bindings[i].shortcut.split(/\s+/);
         const shortcutDescriptors = keys.map(KeyboardShortcut.makeDescriptorFromBindingShortcut);
         if (shortcutDescriptors.length > 0) {
-          this._registerShortcut(new KeyboardShortcut(
-              shortcutDescriptors, /** @type {string} */ (descriptor.actionId), Type.DefaultShortcut));
+          const actionId = /** @type {string} */ (descriptor.actionId);
+          if (!keybindSets) {
+            this._devToolsDefaultShortcutActions.add(actionId);
+            this._registerShortcut(new KeyboardShortcut(shortcutDescriptors, actionId, Type.DefaultShortcut));
+          } else {
+            if (keybindSets.includes('devToolsDefault')) {
+              this._devToolsDefaultShortcutActions.add(actionId);
+            }
+            this._registerShortcut(
+                new KeyboardShortcut(shortcutDescriptors, actionId, Type.KeybindSetShortcut, keybindSet));
+          }
         }
       }
     }
@@ -322,6 +354,16 @@ export class ShortcutRegistry {
         isMatch = platforms[i] === currentPlatform;
       }
       return isMatch;
+    }
+
+    /**
+     * @param {!Array<string>=} keybindSets
+     */
+    function keybindSetsMatch(keybindSets) {
+      if (!keybindSets) {
+        return true;
+      }
+      return keybindSets.includes(keybindSet);
     }
   }
 }
@@ -400,6 +442,11 @@ export class ShortcutTreeNode {
    */
   actions() {
     return this._actions;
+  }
+
+  clear() {
+    this._actions = [];
+    this._chords = new Map();
   }
 }
 
