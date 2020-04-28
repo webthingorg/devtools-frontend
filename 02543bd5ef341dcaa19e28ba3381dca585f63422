@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d4f9a1ae_4cb41d96",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-28T05:10:41Z",
+      "side": 1,
+      "message": "const in JS is on the reference level, i.e. the variable points to the same JS object for its lifetime. Convention is to use \u0027const\u0027 everywhere where its allowed, even if the referenced object is changed. Using \u0027let\u0027 signals that the variable gets re-assigned later down the line.",
+      "parentUuid": "c79b4c0c_a605ddef",
+      "range": {
+        "startLine": 128,
+        "startChar": 6,
+        "endLine": 128,
+        "endChar": 9
+      },
+      "revId": "02543bd5ef341dcaa19e28ba3381dca585f63422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b4863b2_e55300d8",
         "filename": "front_end/sdk/NetworkManager.js",
         "patchSetId": 5

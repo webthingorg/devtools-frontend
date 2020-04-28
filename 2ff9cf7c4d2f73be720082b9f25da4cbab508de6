@@ -401,6 +401,30 @@
       "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9cf6ca6_611924bf",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 3
+      },
+      "lineNbr": 4814,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-28T05:10:41Z",
+      "side": 1,
+      "message": "Just to clarify, the new method is the way to go. I was just wondering if the mirroring is necessary.",
+      "parentUuid": "f682db0b_fab1497c",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4814,
+        "endChar": 60
+      },
+      "revId": "2ff9cf7c4d2f73be720082b9f25da4cbab508de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
