@@ -8,7 +8,7 @@ import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as UI from '../ui/ui.js';
 
 import {defaultMobileScaleFactor, DeviceModeModel, Type, UA} from './DeviceModeModel.js';
-import {EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Mode, Vertical} from './EmulatedDevices.js';  // eslint-disable-line no-unused-vars
+import {EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Mode, Vertical, HorizontalSpanned, VerticalSpanned} from './EmulatedDevices.js'; // eslint-disable-line no-unused-vars
 
 /**
  * @unrestricted
@@ -195,7 +195,10 @@ export class DeviceModeToolbar {
         this._wrapToolbarItem(createElementWithClass('div', 'device-mode-empty-toolbar-element')));
     this._modeButton = new UI.Toolbar.ToolbarButton('', 'largeicon-rotate-screen');
     this._modeButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._modeMenuClicked, this);
+    this._spanButton = new UI.Toolbar.ToolbarToggle('', 'largeicon-dual-screen');
+    this._spanButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._spanClicked, this);
     toolbar.appendToolbarItem(this._modeButton);
+    toolbar.appendToolbarItem(this._spanButton);
   }
 
   /**
@@ -460,6 +463,28 @@ export class DeviceModeToolbar {
   }
 
   /**
+   * @param {!Common.Event} event
+   */
+  _spanClicked(event) {
+    const device = this._model.device();
+
+    if (!device.isDualScreen) {
+      return;
+    }
+    const model = this._model;
+    const autoAdjustScaleSetting = this._autoAdjustScaleSetting;
+
+    const scale = autoAdjustScaleSetting.get() ? undefined : model.scaleSetting().get();
+    const newMode = device.getSpanPartner(model.mode());
+    if (!newMode) {
+      return;
+    }
+    this._spanButton.setToggled(newMode.orientation === HorizontalSpanned || newMode.orientation === VerticalSpanned);
+    model.emulate(model.type(), model.device(), newMode, scale);
+    return;
+  }
+
+  /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _modeMenuClicked(event) {
@@ -478,10 +503,10 @@ export class DeviceModeToolbar {
       return;
     }
 
-    if (device.modes.length === 2 && device.modes[0].orientation !== device.modes[1].orientation) {
+    if ((device.isDualScreen || device.modes.length === 2) && device.modes[0].orientation !== device.modes[1].orientation) {
       const scale = autoAdjustScaleSetting.get() ? undefined : model.scaleSetting().get();
       model.emulate(
-          model.type(), model.device(), model.mode() === device.modes[0] ? device.modes[1] : device.modes[0], scale);
+          model.type(), model.device(), device.getRotationPartner(model.mode()), scale);
       return;
     }
 
@@ -544,6 +569,7 @@ export class DeviceModeToolbar {
       if (this._model.type() === Type.Responsive) {
         this._modeButton.setEnabled(true);
         this._modeButton.setTitle(ls`Rotate`);
+        this._spanButton.setEnabled(false);
       } else {
         this._modeButton.setEnabled(false);
       }
@@ -588,6 +614,9 @@ export class DeviceModeToolbar {
         this._modeButton.setEnabled(modeCount >= 2);
         this._modeButton.setTitle(
             modeCount === 2 ? Common.UIString.UIString('Rotate') : Common.UIString.UIString('Screen options'));
+        if (device.isDualScreen) {
+          this._spanButton.setEnabled(true);
+        }
       }
       this._cachedModelDevice = device;
     }

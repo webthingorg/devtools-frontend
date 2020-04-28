@@ -291,6 +291,18 @@ export class OverlayModel extends SDKModel {
     this._highlighter.highlightFrame(frameId);
   }
 
+   /**
+   * @param {boolean} show
+   * @param {?HighlightRect} hinge
+   */
+  showHingeForDualScreen(show, hinge) {
+    if (show) {
+      this._overlayAgent.setShowHinge(hinge);
+    } else {
+      this._overlayAgent.setShowHinge();
+    }
+  }
+
   /**
    * @param {string=} mode
    * @param {boolean=} showStyles
@@ -471,3 +483,4 @@ SDKModel.register(OverlayModel, Capability.DOM, true);
  selectorList: (string|undefined),
  object:(!RemoteObject|undefined)}} */
 export let HighlightData;
+
