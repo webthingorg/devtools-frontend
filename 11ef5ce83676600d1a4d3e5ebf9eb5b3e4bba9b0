@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cbd3c11_f2f8b4ba",
+        "filename": "front_end/layer_viewer/LayerDetailsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-28T15:02:48Z",
+      "side": 1,
+      "message": "Nit: Not sure what happened here with the indentation. Are we missing a semi-colon somewhere? If not, we should file a bug for clang-format..",
+      "range": {
+        "startLine": 367,
+        "startChar": 4,
+        "endLine": 367,
+        "endChar": 25
+      },
+      "revId": "11ef5ce83676600d1a4d3e5ebf9eb5b3e4bba9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
