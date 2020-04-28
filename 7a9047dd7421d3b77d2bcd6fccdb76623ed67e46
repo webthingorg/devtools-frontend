@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6bf214bc_b5ed7d6f",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-28T16:55:06Z",
+      "side": 1,
+      "message": "You can see it in https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8881805271192144800/+/steps/Type_Check_with_Closure/0/stdout\n\nIt is part of `npm run check`, more specifically this one: python scripts/test/run_type_check.py",
+      "parentUuid": "7c561d9a_cca36899",
+      "revId": "7a9047dd7421d3b77d2bcd6fccdb76623ed67e46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faa88810_3baff41f",
         "filename": "front_end/third_party/wasmparser/WasmDis.js",
         "patchSetId": 6
