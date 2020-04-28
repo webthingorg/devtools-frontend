@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "94980bdc_ee7aede1",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-28T09:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a04737f_27da959f",
+      "range": {
+        "startLine": 233,
+        "startChar": 23,
+        "endLine": 233,
+        "endChar": 24
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7507801f_f3f46bf0",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 17
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "ae60a044_b2b97136",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-28T09:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d996bc3_55fddc1b",
+      "range": {
+        "startLine": 277,
+        "startChar": 32,
+        "endLine": 277,
+        "endChar": 53
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc7ae5c2_c2eb0cbe",
         "filename": "front_end/sdk/MixedContentIssue.js",
         "patchSetId": 17
@@ -91,6 +139,30 @@
       "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f414463_8ce6920e",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-28T09:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc7ae5c2_c2eb0cbe",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "c5a158be_8f2866e6",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-28T09:50:03Z",
+      "side": 1,
+      "message": "I fixed it by introducing a static method for MixedContentIssue. This works well even with AggregatedIssue, which is what is available at the call site in IssuesPane.",
+      "parentUuid": "f3355ddb_20693f77",
+      "range": {
+        "startLine": 15,
+        "startChar": 23,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2a119c5_dbddf59e",
         "filename": "front_end/sdk/MixedContentIssue.js",
         "patchSetId": 17
@@ -131,6 +227,24 @@
       "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ebba68_ef813eaa",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-28T09:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2a119c5_dbddf59e",
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -154,6 +268,30 @@
       "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "943c4bb9_9a85b346",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-28T09:50:03Z",
+      "side": 1,
+      "message": "good catch",
+      "parentUuid": "cae012e1_bfe15b03",
+      "range": {
+        "startLine": 82,
+        "startChar": 26,
+        "endLine": 82,
+        "endChar": 35
+      },
+      "revId": "a08c3af41b87a5616b22aa8c6579589e3337644c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
