@@ -69,6 +69,24 @@
       "revId": "7a9047dd7421d3b77d2bcd6fccdb76623ed67e46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01c60bbb_20f47a9d",
+        "filename": "front_end/third_party/wasmparser/WasmDis.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-28T23:19:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faa88810_3baff41f",
+      "revId": "7a9047dd7421d3b77d2bcd6fccdb76623ed67e46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
