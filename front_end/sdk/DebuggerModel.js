@@ -403,7 +403,7 @@ export class DebuggerModel extends SDKModel {
       restrictToFunction: restrictToFunction
     });
     if (response[ProtocolClient.InspectorBackend.ProtocolError] || !response.locations) {
-      return [];
+      return [];  // add test comment.
     }
     return response.locations.map(location => BreakLocation.fromPayload(this, location));
   }
