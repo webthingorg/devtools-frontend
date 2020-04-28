@@ -942,7 +942,8 @@ export function registerCommands(inspectorBackend) {
       [
         {'name': 'userAgent', 'type': 'string', 'optional': false},
         {'name': 'acceptLanguage', 'type': 'string', 'optional': true},
-        {'name': 'platform', 'type': 'string', 'optional': true}
+        {'name': 'platform', 'type': 'string', 'optional': true},
+        {'name': 'userAgentMetadata', 'type': 'object', 'optional': true}
       ],
       [], false);
 
@@ -1488,7 +1489,8 @@ export function registerCommands(inspectorBackend) {
       [
         {'name': 'userAgent', 'type': 'string', 'optional': false},
         {'name': 'acceptLanguage', 'type': 'string', 'optional': true},
-        {'name': 'platform', 'type': 'string', 'optional': true}
+        {'name': 'platform', 'type': 'string', 'optional': true},
+        {'name': 'userAgentMetadata', 'type': 'object', 'optional': true}
       ],
       [], false);
 
@@ -1603,6 +1605,9 @@ export function registerCommands(inspectorBackend) {
     Reload: 'reload',
     AnchorClick: 'anchorClick'
   });
+  inspectorBackend.registerEnum(
+      'Page.ClientNavigationDisposition',
+      {CurrentTab: 'currentTab', NewTab: 'newTab', NewWindow: 'newWindow', Download: 'download'});
   inspectorBackend.registerEnum('Page.ReferrerPolicy', {
     NoReferrer: 'noReferrer',
     NoReferrerWhenDowngrade: 'noReferrerWhenDowngrade',
@@ -1620,7 +1625,7 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Page.frameDetached', ['frameId']);
   inspectorBackend.registerEvent('Page.frameNavigated', ['frame']);
   inspectorBackend.registerEvent('Page.frameResized', []);
-  inspectorBackend.registerEvent('Page.frameRequestedNavigation', ['frameId', 'reason', 'url']);
+  inspectorBackend.registerEvent('Page.frameRequestedNavigation', ['frameId', 'reason', 'url', 'disposition']);
   inspectorBackend.registerEvent('Page.frameScheduledNavigation', ['frameId', 'delay', 'reason', 'url']);
   inspectorBackend.registerEvent('Page.frameStartedLoading', ['frameId']);
   inspectorBackend.registerEvent('Page.frameStoppedLoading', ['frameId']);
@@ -2255,10 +2260,13 @@ export function registerCommands(inspectorBackend) {
 
   // Media.
   inspectorBackend.registerEnum(
-      'Media.PlayerEventType',
-      {ErrorEvent: 'errorEvent', TriggeredEvent: 'triggeredEvent', MessageEvent: 'messageEvent'});
+      'Media.PlayerMessageLevel', {Error: 'error', Warning: 'warning', Info: 'info', Debug: 'debug'});
+  inspectorBackend.registerEnum(
+      'Media.PlayerErrorType', {Pipeline_error: 'pipeline_error', Media_error: 'media_error'});
   inspectorBackend.registerEvent('Media.playerPropertiesChanged', ['playerId', 'properties']);
   inspectorBackend.registerEvent('Media.playerEventsAdded', ['playerId', 'events']);
+  inspectorBackend.registerEvent('Media.playerMessagesLogged', ['playerId', 'messages']);
+  inspectorBackend.registerEvent('Media.playerErrorsRaised', ['playerId', 'errors']);
   inspectorBackend.registerEvent('Media.playersCreated', ['players']);
   inspectorBackend.registerCommand('Media.enable', [], [], false);
   inspectorBackend.registerCommand('Media.disable', [], [], false);

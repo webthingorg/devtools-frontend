@@ -35,14 +35,10 @@ import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
-import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
 
 import {Cookie} from './Cookie.js';
 import {ContentData, Events as NetworkRequestEvents, ExtraRequestInfo, ExtraResponseInfo, NameValue, NetworkRequest} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
 import {Capability, SDKModel, SDKModelObserver, Target, TargetManager} from './SDKModel.js';  // eslint-disable-line no-unused-vars
-
-/** @type {!WeakMap<!NetworkRequest, !NetworkManager>} */
-const requestToManagerMap = new WeakMap();
 
 /**
  * @unrestricted
@@ -57,10 +53,10 @@ export class NetworkManager extends SDKModel {
     this._networkAgent = target.networkAgent();
     target.registerNetworkDispatcher(this._dispatcher);
     if (Common.Settings.Settings.instance().moduleSetting('cacheDisabled').get()) {
-      this._networkAgent.invoke_setCacheDisabled({cacheDisabled: true});
+      this._networkAgent.setCacheDisabled(true);
     }
 
-    this._networkAgent.invoke_enable({maxPostDataSize: MAX_EAGER_POST_REQUEST_BODY_LENGTH});
+    this._networkAgent.enable(undefined, undefined, MAX_EAGER_POST_REQUEST_BODY_LENGTH);
 
     this._bypassServiceWorkerSetting = Common.Settings.Settings.instance().createSetting('bypassServiceWorker', false);
     if (this._bypassServiceWorkerSetting.get()) {
@@ -78,7 +74,7 @@ export class NetworkManager extends SDKModel {
    * @return {?NetworkManager}
    */
   static forRequest(request) {
-    return requestToManagerMap.get(request) || null;
+    return request[_networkManagerForRequestSymbol];
   }
 
   /**
@@ -86,18 +82,19 @@ export class NetworkManager extends SDKModel {
    * @return {boolean}
    */
   static canReplayRequest(request) {
-    return !!requestToManagerMap.get(request) && request.resourceType() === Common.ResourceType.resourceTypes.XHR;
+    return !!request[_networkManagerForRequestSymbol] &&
+        request.resourceType() === Common.ResourceType.resourceTypes.XHR;
   }
 
   /**
    * @param {!NetworkRequest} request
    */
   static replayRequest(request) {
-    const manager = requestToManagerMap.get(request);
+    const manager = request[_networkManagerForRequestSymbol];
     if (!manager) {
       return;
     }
-    manager._networkAgent.invoke_replayXHR({requestId: request.requestId()});
+    manager._networkAgent.replayXHR(request.requestId());
   }
 
   /**
@@ -133,7 +130,7 @@ export class NetworkManager extends SDKModel {
       return {error: 'No network manager for request', content: null, encoded: false};
     }
     const response = await manager._networkAgent.invoke_getResponseBody({requestId: request.requestId()});
-    const error = response.getError() || null;
+    const error = response[ProtocolClient.InspectorBackend.ProtocolError] || null;
     return {error: error, content: error ? null : response.body, encoded: response.base64Encoded};
   }
 
@@ -141,16 +138,10 @@ export class NetworkManager extends SDKModel {
    * @param {!NetworkRequest} request
    * @return {!Promise<?string>}
    */
-  static async requestPostData(request) {
+  static requestPostData(request) {
     const manager = NetworkManager.forRequest(request);
     if (manager) {
-      try {
-        const {postData} =
-            await manager._networkAgent.invoke_getRequestPostData({requestId: request.backendRequestId()});
-        return postData;
-      } catch (e) {
-        return e.message;
-      }
+      return manager._networkAgent.getRequestPostData(request.backendRequestId());
     }
     console.error('No network manager for request');
     return /** @type {!Promise<?string>} */ (Promise.resolve(null));
@@ -282,6 +273,7 @@ export const Fast3GConditions = {
   latency: 150 * 3.75,
 };
 
+const _networkManagerForRequestSymbol = Symbol('NetworkManager');
 const MAX_EAGER_POST_REQUEST_BODY_LENGTH = 64 * 1024;  // bytes
 
 /**
@@ -669,7 +661,7 @@ export class NetworkDispatcher {
    */
   webSocketCreated(requestId, requestURL, initiator) {
     const networkRequest = new NetworkRequest(requestId, requestURL, '', '', '', initiator || null);
-    requestToManagerMap.set(networkRequest, this._manager);
+    networkRequest[_networkManagerForRequestSymbol] = this._manager;
     networkRequest.setResourceType(Common.ResourceType.resourceTypes.WebSocket);
     this._startNetworkRequest(networkRequest);
   }
@@ -929,7 +921,7 @@ export class NetworkDispatcher {
     delete oldDispatcher._inflightRequestsByURL[request.url()];
     this._inflightRequestsById.set(requestId, request);
     this._inflightRequestsByURL[request.url()] = request;
-    requestToManagerMap.set(request, this._manager);
+    request[_networkManagerForRequestSymbol] = this._manager;
     return request;
   }
 
@@ -1016,7 +1008,7 @@ export class NetworkDispatcher {
    */
   _createNetworkRequest(requestId, frameId, loaderId, url, documentURL, initiator) {
     const request = new NetworkRequest(requestId, url, documentURL, frameId, loaderId, initiator);
-    requestToManagerMap.set(request, this._manager);
+    request[_networkManagerForRequestSymbol] = this._manager;
     return request;
   }
 }
@@ -1029,6 +1021,8 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   constructor() {
     super();
     this._userAgentOverride = '';
+    /** @type {?Protocol.Emulation.UserAgentMetadata} */
+    this._userAgentMetadataOverride = null;
     /** @type {!Set<!ProtocolProxyApi.NetworkApi>} */
     this._agents = new Set();
     /** @type {!Map<string, !NetworkRequest>} */
@@ -1051,6 +1045,28 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
+   * @return {string}
+   */
+  static getChromeVersion() {
+    const chromeRegex = new RegExp('(?:^|\\W)Chrome/(\\S+)');
+    const chromeMatch = navigator.userAgent.match(chromeRegex);
+    if (chromeMatch && chromeMatch.length > 1) {
+      return chromeMatch[1];
+    }
+    return '';
+  }
+
+  /**
+   * @return {Array<Protocol.Emulation.UserAgentBrandVersion>}
+   */
+  static getChromeBrands() {
+    if (navigator.userAgentData) {
+      return navigator.userAgentData.brands;
+    }
+    return [];
+  }
+
+  /**
    * @param {string} uaString
    * @return {string}
    */
@@ -1058,12 +1074,11 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     // Patches Chrome/CriOS version from user agent ("1.2.3.4" when user agent is: "Chrome/1.2.3.4").
     // Edge also contains an appVersion which should be patched to match the Chrome major version.
     // Otherwise, ignore it. This assumes additional appVersions appear after the Chrome version.
-    const chromeRegex = new RegExp('(?:^|\\W)Chrome/(\\S+)');
-    const chromeMatch = navigator.userAgent.match(chromeRegex);
-    if (chromeMatch && chromeMatch.length > 1) {
+    const chromeVersion = MultitargetNetworkManager.getChromeVersion();
+    if (chromeVersion.length > 0) {
       // "1.2.3.4" becomes "1.0.100.0"
-      const additionalAppVersion = chromeMatch[1].split('.', 1)[0] + '.0.100.0';
-      return Platform.StringUtilities.sprintf(uaString, chromeMatch[1], additionalAppVersion);
+      const additionalAppVersion = chromeVersion.split('.', 1)[0] + '.0.100.0';
+      return Platform.StringUtilities.sprintf(uaString, chromeVersion, additionalAppVersion);
     }
     return uaString;
   }
@@ -1078,7 +1093,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
       networkAgent.setExtraHTTPHeaders(this._extraHeaders);
     }
     if (this.currentUserAgent()) {
-      networkAgent.setUserAgentOverride(this.currentUserAgent());
+      networkAgent.setUserAgentOverride(this.currentUserAgent(), undefined, undefined, this._userAgentMetadataOverride);
     }
     if (this._effectiveBlockedURLs.length) {
       networkAgent.setBlockedURLs(this._effectiveBlockedURLs);
@@ -1174,20 +1189,24 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   _updateUserAgentOverride() {
     const userAgent = this.currentUserAgent();
     for (const agent of this._agents) {
-      agent.setUserAgentOverride(userAgent);
+      agent.setUserAgentOverride(userAgent, undefined, undefined, this._userAgentMetadataOverride);
     }
   }
 
   /**
    * @param {string} userAgent
+   * @param {?Protocol.Emulation.UserAgentMetadata} userAgentMetadata
    */
-  setUserAgentOverride(userAgent) {
+  setUserAgentOverride(userAgent, userAgentMetadataOverride) {
     if (this._userAgentOverride === userAgent) {
       return;
     }
     this._userAgentOverride = userAgent;
     if (!this._customUserAgent) {
+      this._userAgentMetadataOverride = userAgentMetadataOverride;
       this._updateUserAgentOverride();
+    } else {
+      this._userAgentMetadataOverride = null;
     }
     this.dispatchEventToListeners(MultitargetNetworkManager.Events.UserAgentChanged);
   }
@@ -1204,6 +1223,8 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
    */
   setCustomUserAgentOverride(userAgent) {
     this._customUserAgent = userAgent;
+    // ### change this?
+    this._userAgentMetadataOverride = null;
     this._updateUserAgentOverride();
   }
 
