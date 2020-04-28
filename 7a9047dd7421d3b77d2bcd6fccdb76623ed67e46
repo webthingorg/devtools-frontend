@@ -16,6 +16,41 @@
       "revId": "7a9047dd7421d3b77d2bcd6fccdb76623ed67e46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c561d9a_cca36899",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-28T05:05:03Z",
+      "side": 1,
+      "message": "Where do you see that warning? I checked out your code, had a look in the IDE, ran your code, and do not encounter it. It\u0027s not obvious to me either why you get it. If you can share where you see that warning when doing what, I can have another look!",
+      "parentUuid": "a016b04e_4f866fbe",
+      "revId": "7a9047dd7421d3b77d2bcd6fccdb76623ed67e46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faa88810_3baff41f",
+        "filename": "front_end/third_party/wasmparser/WasmDis.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-28T05:05:03Z",
+      "side": 1,
+      "message": "You probably also want to set _bodyFunctionOffsets.length \u003d 0 (while I\u0027m looking for the culprit :))",
+      "revId": "7a9047dd7421d3b77d2bcd6fccdb76623ed67e46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
