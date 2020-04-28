@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "557689cd_dd053d31",
+        "filename": "front_end/screencast/ScreencastView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-28T01:00:18Z",
+      "side": 1,
+      "message": "I think it\u0027d be helpful to leave this explanation as a comment. If I came across this without context, I\u0027d be tempted to remove the encoding/decoding",
+      "parentUuid": "51206fea_b7439d8e",
+      "revId": "aa7cbebfd6bdcd216b9664f7918d3f2d945b9e73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad829530_cc060daf",
         "filename": "front_end/screencast/ScreencastView.js",
         "patchSetId": 3
