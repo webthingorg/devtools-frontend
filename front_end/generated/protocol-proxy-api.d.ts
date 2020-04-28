@@ -12,6 +12,7 @@
  * API generated from Protocol commands and events.
  */
 declare namespace ProtocolProxyApi {
+
   declare interface ProtocolApi {
     Accessibility: AccessibilityApi;
 
@@ -102,6 +103,7 @@ declare namespace ProtocolProxyApi {
     Runtime: RuntimeApi;
 
     Schema: SchemaApi;
+
   }
 
 
@@ -120,13 +122,13 @@ declare namespace ProtocolProxyApi {
     /**
      * Fetches the accessibility node and partial accessibility tree for this DOM node, if it exists.
      */
-    getPartialAXTree(params: Protocol.Accessibility.GetPartialAXTreeRequest):
-        Promise<Protocol.Accessibility.GetPartialAXTreeResponse>;
+    getPartialAXTree(params: Protocol.Accessibility.GetPartialAXTreeRequest): Promise<Protocol.Accessibility.GetPartialAXTreeResponse>;
 
     /**
      * Fetches the entire accessibility tree
      */
     getFullAXTree(): Promise<Protocol.Accessibility.GetFullAXTreeResponse>;
+
   }
 
   export interface AnimationApi {
@@ -143,8 +145,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns the current time of the an animation.
      */
-    getCurrentTime(params: Protocol.Animation.GetCurrentTimeRequest):
-        Promise<Protocol.Animation.GetCurrentTimeResponse>;
+    getCurrentTime(params: Protocol.Animation.GetCurrentTimeRequest): Promise<Protocol.Animation.GetCurrentTimeResponse>;
 
     /**
      * Gets the playback rate of the document timeline.
@@ -159,8 +160,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Gets the remote object of the Animation.
      */
-    resolveAnimation(params: Protocol.Animation.ResolveAnimationRequest):
-        Promise<Protocol.Animation.ResolveAnimationResponse>;
+    resolveAnimation(params: Protocol.Animation.ResolveAnimationRequest): Promise<Protocol.Animation.ResolveAnimationResponse>;
 
     /**
      * Seek a set of animations to a particular time within each animation.
@@ -196,6 +196,7 @@ declare namespace ProtocolProxyApi {
      * Event for animation that has been started.
      */
     on(event: 'animationStarted', listener: (params: Protocol.Animation.AnimationStartedEvent) => void): void;
+
   }
 
   export interface ApplicationCacheApi {
@@ -207,8 +208,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns relevant application cache data for the document in given frame.
      */
-    getApplicationCacheForFrame(params: Protocol.ApplicationCache.GetApplicationCacheForFrameRequest):
-        Promise<Protocol.ApplicationCache.GetApplicationCacheForFrameResponse>;
+    getApplicationCacheForFrame(params: Protocol.ApplicationCache.GetApplicationCacheForFrameRequest): Promise<Protocol.ApplicationCache.GetApplicationCacheForFrameResponse>;
 
     /**
      * Returns array of frame identifiers with manifest urls for each frame containing a document
@@ -219,14 +219,12 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns manifest URL for document in the given frame.
      */
-    getManifestForFrame(params: Protocol.ApplicationCache.GetManifestForFrameRequest):
-        Promise<Protocol.ApplicationCache.GetManifestForFrameResponse>;
+    getManifestForFrame(params: Protocol.ApplicationCache.GetManifestForFrameRequest): Promise<Protocol.ApplicationCache.GetManifestForFrameResponse>;
 
-    on(event: 'applicationCacheStatusUpdated',
-       listener: (params: Protocol.ApplicationCache.ApplicationCacheStatusUpdatedEvent) => void): void;
+    on(event: 'applicationCacheStatusUpdated', listener: (params: Protocol.ApplicationCache.ApplicationCacheStatusUpdatedEvent) => void): void;
 
-    on(event: 'networkStateUpdated',
-       listener: (params: Protocol.ApplicationCache.NetworkStateUpdatedEvent) => void): void;
+    on(event: 'networkStateUpdated', listener: (params: Protocol.ApplicationCache.NetworkStateUpdatedEvent) => void): void;
+
   }
 
   export interface AuditsApi {
@@ -234,8 +232,7 @@ declare namespace ProtocolProxyApi {
      * Returns the response body and size if it were re-encoded with the specified settings. Only
      * applies to images.
      */
-    getEncodedResponse(params: Protocol.Audits.GetEncodedResponseRequest):
-        Promise<Protocol.Audits.GetEncodedResponseResponse>;
+    getEncodedResponse(params: Protocol.Audits.GetEncodedResponseRequest): Promise<Protocol.Audits.GetEncodedResponseResponse>;
 
     /**
      * Disables issues domain, prevents further issues from being reported to the client.
@@ -249,6 +246,7 @@ declare namespace ProtocolProxyApi {
     enable(): Promise<void>;
 
     on(event: 'issueAdded', listener: (params: Protocol.Audits.IssueAddedEvent) => void): void;
+
   }
 
   export interface BackgroundServiceApi {
@@ -275,15 +273,14 @@ declare namespace ProtocolProxyApi {
     /**
      * Called when the recording state for the service has been updated.
      */
-    on(event: 'recordingStateChanged',
-       listener: (params: Protocol.BackgroundService.RecordingStateChangedEvent) => void): void;
+    on(event: 'recordingStateChanged', listener: (params: Protocol.BackgroundService.RecordingStateChangedEvent) => void): void;
 
     /**
      * Called with all existing backgroundServiceEvents when enabled, and all new
      * events afterwards if enabled and recording.
      */
-    on(event: 'backgroundServiceEventReceived',
-       listener: (params: Protocol.BackgroundService.BackgroundServiceEventReceivedEvent) => void): void;
+    on(event: 'backgroundServiceEventReceived', listener: (params: Protocol.BackgroundService.BackgroundServiceEventReceivedEvent) => void): void;
+
   }
 
   export interface BrowserApi {
@@ -351,8 +348,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Get the browser window that contains the devtools target.
      */
-    getWindowForTarget(params: Protocol.Browser.GetWindowForTargetRequest):
-        Promise<Protocol.Browser.GetWindowForTargetResponse>;
+    getWindowForTarget(params: Protocol.Browser.GetWindowForTargetRequest): Promise<Protocol.Browser.GetWindowForTargetResponse>;
 
     /**
      * Set position and/or size of the browser window.
@@ -363,6 +359,7 @@ declare namespace ProtocolProxyApi {
      * Set dock tile details, platform-specific.
      */
     setDockTile(params: Protocol.Browser.SetDockTileRequest): Promise<void>;
+
   }
 
   export interface CSSApi {
@@ -399,27 +396,23 @@ declare namespace ProtocolProxyApi {
      */
     forcePseudoState(params: Protocol.CSS.ForcePseudoStateRequest): Promise<void>;
 
-    getBackgroundColors(params: Protocol.CSS.GetBackgroundColorsRequest):
-        Promise<Protocol.CSS.GetBackgroundColorsResponse>;
+    getBackgroundColors(params: Protocol.CSS.GetBackgroundColorsRequest): Promise<Protocol.CSS.GetBackgroundColorsResponse>;
 
     /**
      * Returns the computed style for a DOM node identified by `nodeId`.
      */
-    getComputedStyleForNode(params: Protocol.CSS.GetComputedStyleForNodeRequest):
-        Promise<Protocol.CSS.GetComputedStyleForNodeResponse>;
+    getComputedStyleForNode(params: Protocol.CSS.GetComputedStyleForNodeRequest): Promise<Protocol.CSS.GetComputedStyleForNodeResponse>;
 
     /**
      * Returns the styles defined inline (explicitly in the "style" attribute and implicitly, using DOM
      * attributes) for a DOM node identified by `nodeId`.
      */
-    getInlineStylesForNode(params: Protocol.CSS.GetInlineStylesForNodeRequest):
-        Promise<Protocol.CSS.GetInlineStylesForNodeResponse>;
+    getInlineStylesForNode(params: Protocol.CSS.GetInlineStylesForNodeRequest): Promise<Protocol.CSS.GetInlineStylesForNodeResponse>;
 
     /**
      * Returns requested styles for a DOM node identified by `nodeId`.
      */
-    getMatchedStylesForNode(params: Protocol.CSS.GetMatchedStylesForNodeRequest):
-        Promise<Protocol.CSS.GetMatchedStylesForNodeResponse>;
+    getMatchedStylesForNode(params: Protocol.CSS.GetMatchedStylesForNodeRequest): Promise<Protocol.CSS.GetMatchedStylesForNodeResponse>;
 
     /**
      * Returns all media queries parsed by the rendering engine.
@@ -430,8 +423,7 @@ declare namespace ProtocolProxyApi {
      * Requests information about platform fonts which we used to render child TextNodes in the given
      * node.
      */
-    getPlatformFontsForNode(params: Protocol.CSS.GetPlatformFontsForNodeRequest):
-        Promise<Protocol.CSS.GetPlatformFontsForNodeResponse>;
+    getPlatformFontsForNode(params: Protocol.CSS.GetPlatformFontsForNodeRequest): Promise<Protocol.CSS.GetPlatformFontsForNodeResponse>;
 
     /**
      * Returns the current textual content for a stylesheet.
@@ -512,6 +504,7 @@ declare namespace ProtocolProxyApi {
      * Fired whenever an active document stylesheet is removed.
      */
     on(event: 'styleSheetRemoved', listener: (params: Protocol.CSS.StyleSheetRemovedEvent) => void): void;
+
   }
 
   export interface CacheStorageApi {
@@ -528,20 +521,18 @@ declare namespace ProtocolProxyApi {
     /**
      * Requests cache names.
      */
-    requestCacheNames(params: Protocol.CacheStorage.RequestCacheNamesRequest):
-        Promise<Protocol.CacheStorage.RequestCacheNamesResponse>;
+    requestCacheNames(params: Protocol.CacheStorage.RequestCacheNamesRequest): Promise<Protocol.CacheStorage.RequestCacheNamesResponse>;
 
     /**
      * Fetches cache entry.
      */
-    requestCachedResponse(params: Protocol.CacheStorage.RequestCachedResponseRequest):
-        Promise<Protocol.CacheStorage.RequestCachedResponseResponse>;
+    requestCachedResponse(params: Protocol.CacheStorage.RequestCachedResponseRequest): Promise<Protocol.CacheStorage.RequestCachedResponseResponse>;
 
     /**
      * Requests data from cache.
      */
-    requestEntries(params: Protocol.CacheStorage.RequestEntriesRequest):
-        Promise<Protocol.CacheStorage.RequestEntriesResponse>;
+    requestEntries(params: Protocol.CacheStorage.RequestEntriesRequest): Promise<Protocol.CacheStorage.RequestEntriesResponse>;
+
   }
 
   export interface CastApi {
@@ -586,14 +577,14 @@ declare namespace ProtocolProxyApi {
      * |issueMessage| is empty if there is no issue.
      */
     on(event: 'issueUpdated', listener: (params: Protocol.Cast.IssueUpdatedEvent) => void): void;
+
   }
 
   export interface DOMApi {
     /**
      * Collects class names for the node with given id and all of it's child nodes.
      */
-    collectClassNamesFromSubtree(params: Protocol.DOM.CollectClassNamesFromSubtreeRequest):
-        Promise<Protocol.DOM.CollectClassNamesFromSubtreeResponse>;
+    collectClassNamesFromSubtree(params: Protocol.DOM.CollectClassNamesFromSubtreeRequest): Promise<Protocol.DOM.CollectClassNamesFromSubtreeResponse>;
 
     /**
      * Creates a deep copy of the specified node and places it into the target container before the
@@ -659,15 +650,13 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns the root DOM node (and optionally the subtree) to the caller.
      */
-    getFlattenedDocument(params: Protocol.DOM.GetFlattenedDocumentRequest):
-        Promise<Protocol.DOM.GetFlattenedDocumentResponse>;
+    getFlattenedDocument(params: Protocol.DOM.GetFlattenedDocumentRequest): Promise<Protocol.DOM.GetFlattenedDocumentResponse>;
 
     /**
      * Returns node id at given location. Depending on whether DOM domain is enabled, nodeId is
      * either returned or not.
      */
-    getNodeForLocation(params: Protocol.DOM.GetNodeForLocationRequest):
-        Promise<Protocol.DOM.GetNodeForLocationResponse>;
+    getNodeForLocation(params: Protocol.DOM.GetNodeForLocationRequest): Promise<Protocol.DOM.GetNodeForLocationResponse>;
 
     /**
      * Returns node's HTML markup.
@@ -677,8 +666,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns the id of the nearest ancestor that is a relayout boundary.
      */
-    getRelayoutBoundary(params: Protocol.DOM.GetRelayoutBoundaryRequest):
-        Promise<Protocol.DOM.GetRelayoutBoundaryResponse>;
+    getRelayoutBoundary(params: Protocol.DOM.GetRelayoutBoundaryRequest): Promise<Protocol.DOM.GetRelayoutBoundaryResponse>;
 
     /**
      * Returns search results from given `fromIndex` to given `toIndex` from the search with the given
@@ -720,14 +708,12 @@ declare namespace ProtocolProxyApi {
     /**
      * Requests that the node is sent to the caller given its path. // FIXME, use XPath
      */
-    pushNodeByPathToFrontend(params: Protocol.DOM.PushNodeByPathToFrontendRequest):
-        Promise<Protocol.DOM.PushNodeByPathToFrontendResponse>;
+    pushNodeByPathToFrontend(params: Protocol.DOM.PushNodeByPathToFrontendRequest): Promise<Protocol.DOM.PushNodeByPathToFrontendResponse>;
 
     /**
      * Requests that a batch of nodes is sent to the caller given their backend node ids.
      */
-    pushNodesByBackendIdsToFrontend(params: Protocol.DOM.PushNodesByBackendIdsToFrontendRequest):
-        Promise<Protocol.DOM.PushNodesByBackendIdsToFrontendResponse>;
+    pushNodesByBackendIdsToFrontend(params: Protocol.DOM.PushNodesByBackendIdsToFrontendRequest): Promise<Protocol.DOM.PushNodesByBackendIdsToFrontendResponse>;
 
     /**
      * Executes `querySelector` on a given node.
@@ -797,8 +783,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Gets stack traces associated with a Node. As of now, only provides stack trace for Node creation.
      */
-    getNodeStackTraces(params: Protocol.DOM.GetNodeStackTracesRequest):
-        Promise<Protocol.DOM.GetNodeStackTracesResponse>;
+    getNodeStackTraces(params: Protocol.DOM.GetNodeStackTracesRequest): Promise<Protocol.DOM.GetNodeStackTracesResponse>;
 
     /**
      * Returns file information for the given
@@ -907,14 +892,14 @@ declare namespace ProtocolProxyApi {
      * Called when shadow root is pushed into the element.
      */
     on(event: 'shadowRootPushed', listener: (params: Protocol.DOM.ShadowRootPushedEvent) => void): void;
+
   }
 
   export interface DOMDebuggerApi {
     /**
      * Returns event listeners of the given object.
      */
-    getEventListeners(params: Protocol.DOMDebugger.GetEventListenersRequest):
-        Promise<Protocol.DOMDebugger.GetEventListenersResponse>;
+    getEventListeners(params: Protocol.DOMDebugger.GetEventListenersRequest): Promise<Protocol.DOMDebugger.GetEventListenersResponse>;
 
     /**
      * Removes DOM breakpoint that was set using `setDOMBreakpoint`.
@@ -955,6 +940,7 @@ declare namespace ProtocolProxyApi {
      * Sets breakpoint on XMLHttpRequest.
      */
     setXHRBreakpoint(params: Protocol.DOMDebugger.SetXHRBreakpointRequest): Promise<void>;
+
   }
 
   export interface DOMSnapshotApi {
@@ -982,8 +968,8 @@ declare namespace ProtocolProxyApi {
      * white-listed computed style information for the nodes. Shadow DOM in the returned DOM tree is
      * flattened.
      */
-    captureSnapshot(params: Protocol.DOMSnapshot.CaptureSnapshotRequest):
-        Promise<Protocol.DOMSnapshot.CaptureSnapshotResponse>;
+    captureSnapshot(params: Protocol.DOMSnapshot.CaptureSnapshotRequest): Promise<Protocol.DOMSnapshot.CaptureSnapshotResponse>;
+
   }
 
   export interface DOMStorageApi {
@@ -999,8 +985,7 @@ declare namespace ProtocolProxyApi {
      */
     enable(): Promise<void>;
 
-    getDOMStorageItems(params: Protocol.DOMStorage.GetDOMStorageItemsRequest):
-        Promise<Protocol.DOMStorage.GetDOMStorageItemsResponse>;
+    getDOMStorageItems(params: Protocol.DOMStorage.GetDOMStorageItemsRequest): Promise<Protocol.DOMStorage.GetDOMStorageItemsResponse>;
 
     removeDOMStorageItem(params: Protocol.DOMStorage.RemoveDOMStorageItemRequest): Promise<void>;
 
@@ -1008,14 +993,12 @@ declare namespace ProtocolProxyApi {
 
     on(event: 'domStorageItemAdded', listener: (params: Protocol.DOMStorage.DomStorageItemAddedEvent) => void): void;
 
-    on(event: 'domStorageItemRemoved',
-       listener: (params: Protocol.DOMStorage.DomStorageItemRemovedEvent) => void): void;
+    on(event: 'domStorageItemRemoved', listener: (params: Protocol.DOMStorage.DomStorageItemRemovedEvent) => void): void;
 
-    on(event: 'domStorageItemUpdated',
-       listener: (params: Protocol.DOMStorage.DomStorageItemUpdatedEvent) => void): void;
+    on(event: 'domStorageItemUpdated', listener: (params: Protocol.DOMStorage.DomStorageItemUpdatedEvent) => void): void;
 
-    on(event: 'domStorageItemsCleared',
-       listener: (params: Protocol.DOMStorage.DomStorageItemsClearedEvent) => void): void;
+    on(event: 'domStorageItemsCleared', listener: (params: Protocol.DOMStorage.DomStorageItemsClearedEvent) => void): void;
+
   }
 
   export interface DatabaseApi {
@@ -1031,10 +1014,10 @@ declare namespace ProtocolProxyApi {
 
     executeSQL(params: Protocol.Database.ExecuteSQLRequest): Promise<Protocol.Database.ExecuteSQLResponse>;
 
-    getDatabaseTableNames(params: Protocol.Database.GetDatabaseTableNamesRequest):
-        Promise<Protocol.Database.GetDatabaseTableNamesResponse>;
+    getDatabaseTableNames(params: Protocol.Database.GetDatabaseTableNamesRequest): Promise<Protocol.Database.GetDatabaseTableNamesResponse>;
 
     on(event: 'addDatabase', listener: (params: Protocol.Database.AddDatabaseEvent) => void): void;
+
   }
 
   export interface DeviceOrientationApi {
@@ -1047,6 +1030,7 @@ declare namespace ProtocolProxyApi {
      * Overrides the Device Orientation.
      */
     setDeviceOrientationOverride(params: Protocol.DeviceOrientation.SetDeviceOrientationOverrideRequest): Promise<void>;
+
   }
 
   export interface EmulationApi {
@@ -1084,8 +1068,7 @@ declare namespace ProtocolProxyApi {
      * Sets or clears an override of the default background color of the frame. This override is used
      * if the content does not specify one.
      */
-    setDefaultBackgroundColorOverride(params: Protocol.Emulation.SetDefaultBackgroundColorOverrideRequest):
-        Promise<void>;
+    setDefaultBackgroundColorOverride(params: Protocol.Emulation.SetDefaultBackgroundColorOverrideRequest): Promise<void>;
 
     /**
      * Overrides the values of device screen dimensions (window.screen.width, window.screen.height,
@@ -1140,8 +1123,7 @@ declare namespace ProtocolProxyApi {
      * Turns on virtual time for all frames (replacing real-time with a synthetic time source) and sets
      * the current virtual time policy.  Note this supersedes any previous time budget.
      */
-    setVirtualTimePolicy(params: Protocol.Emulation.SetVirtualTimePolicyRequest):
-        Promise<Protocol.Emulation.SetVirtualTimePolicyResponse>;
+    setVirtualTimePolicy(params: Protocol.Emulation.SetVirtualTimePolicyRequest): Promise<Protocol.Emulation.SetVirtualTimePolicyResponse>;
 
     /**
      * Overrides default host system locale with the specified one.
@@ -1169,6 +1151,7 @@ declare namespace ProtocolProxyApi {
      * Notification sent after the virtual time budget for the current VirtualTimePolicy has run out.
      */
     on(event: 'virtualTimeBudgetExpired', listener: () => void): void;
+
   }
 
   export interface HeadlessExperimentalApi {
@@ -1178,8 +1161,7 @@ declare namespace ProtocolProxyApi {
      * BeginFrameControl. Designed for use with --run-all-compositor-stages-before-draw, see also
      * https://goo.gl/3zHXhB for more background.
      */
-    beginFrame(params: Protocol.HeadlessExperimental.BeginFrameRequest):
-        Promise<Protocol.HeadlessExperimental.BeginFrameResponse>;
+    beginFrame(params: Protocol.HeadlessExperimental.BeginFrameRequest): Promise<Protocol.HeadlessExperimental.BeginFrameResponse>;
 
     /**
      * Disables headless events for the target.
@@ -1196,8 +1178,8 @@ declare namespace ProtocolProxyApi {
      * Deprecated. Issue beginFrame unconditionally instead and use result from
      * beginFrame to detect whether the frames were suppressed.
      */
-    on(event: 'needsBeginFramesChanged',
-       listener: (params: Protocol.HeadlessExperimental.NeedsBeginFramesChangedEvent) => void): void;
+    on(event: 'needsBeginFramesChanged', listener: (params: Protocol.HeadlessExperimental.NeedsBeginFramesChangedEvent) => void): void;
+
   }
 
   // eslint thinks this is us prefixing our interfaces but it's not!
@@ -1217,6 +1199,7 @@ declare namespace ProtocolProxyApi {
      * Return UUID of Blob object specified by a remote object id.
      */
     resolveBlob(params: Protocol.IO.ResolveBlobRequest): Promise<Protocol.IO.ResolveBlobResponse>;
+
   }
 
   // eslint thinks this is us prefixing our interfaces but it's not!
@@ -1260,14 +1243,13 @@ declare namespace ProtocolProxyApi {
     /**
      * Requests database with given name in given frame.
      */
-    requestDatabase(params: Protocol.IndexedDB.RequestDatabaseRequest):
-        Promise<Protocol.IndexedDB.RequestDatabaseResponse>;
+    requestDatabase(params: Protocol.IndexedDB.RequestDatabaseRequest): Promise<Protocol.IndexedDB.RequestDatabaseResponse>;
 
     /**
      * Requests database names for given security origin.
      */
-    requestDatabaseNames(params: Protocol.IndexedDB.RequestDatabaseNamesRequest):
-        Promise<Protocol.IndexedDB.RequestDatabaseNamesResponse>;
+    requestDatabaseNames(params: Protocol.IndexedDB.RequestDatabaseNamesRequest): Promise<Protocol.IndexedDB.RequestDatabaseNamesResponse>;
+
   }
 
   // eslint thinks this is us prefixing our interfaces but it's not!
@@ -1318,6 +1300,7 @@ declare namespace ProtocolProxyApi {
      * Synthesizes a tap gesture over a time period by issuing appropriate touch events.
      */
     synthesizeTapGesture(params: Protocol.Input.SynthesizeTapGestureRequest): Promise<void>;
+
   }
 
   // eslint thinks this is us prefixing our interfaces but it's not!
@@ -1347,14 +1330,14 @@ declare namespace ProtocolProxyApi {
      * Fired when debugging target has reloaded after crash
      */
     on(event: 'targetReloadedAfterCrash', listener: () => void): void;
+
   }
 
   export interface LayerTreeApi {
     /**
      * Provides the reasons why the given layer was composited.
      */
-    compositingReasons(params: Protocol.LayerTree.CompositingReasonsRequest):
-        Promise<Protocol.LayerTree.CompositingReasonsResponse>;
+    compositingReasons(params: Protocol.LayerTree.CompositingReasonsRequest): Promise<Protocol.LayerTree.CompositingReasonsResponse>;
 
     /**
      * Disables compositing tree inspection.
@@ -1376,8 +1359,7 @@ declare namespace ProtocolProxyApi {
      */
     makeSnapshot(params: Protocol.LayerTree.MakeSnapshotRequest): Promise<Protocol.LayerTree.MakeSnapshotResponse>;
 
-    profileSnapshot(params: Protocol.LayerTree.ProfileSnapshotRequest):
-        Promise<Protocol.LayerTree.ProfileSnapshotResponse>;
+    profileSnapshot(params: Protocol.LayerTree.ProfileSnapshotRequest): Promise<Protocol.LayerTree.ProfileSnapshotResponse>;
 
     /**
      * Releases layer snapshot captured by the back-end.
@@ -1387,18 +1369,17 @@ declare namespace ProtocolProxyApi {
     /**
      * Replays the layer snapshot and returns the resulting bitmap.
      */
-    replaySnapshot(params: Protocol.LayerTree.ReplaySnapshotRequest):
-        Promise<Protocol.LayerTree.ReplaySnapshotResponse>;
+    replaySnapshot(params: Protocol.LayerTree.ReplaySnapshotRequest): Promise<Protocol.LayerTree.ReplaySnapshotResponse>;
 
     /**
      * Replays the layer snapshot and returns canvas log.
      */
-    snapshotCommandLog(params: Protocol.LayerTree.SnapshotCommandLogRequest):
-        Promise<Protocol.LayerTree.SnapshotCommandLogResponse>;
+    snapshotCommandLog(params: Protocol.LayerTree.SnapshotCommandLogRequest): Promise<Protocol.LayerTree.SnapshotCommandLogResponse>;
 
     on(event: 'layerPainted', listener: (params: Protocol.LayerTree.LayerPaintedEvent) => void): void;
 
     on(event: 'layerTreeDidChange', listener: (params: Protocol.LayerTree.LayerTreeDidChangeEvent) => void): void;
+
   }
 
   export interface LogApi {
@@ -1432,6 +1413,7 @@ declare namespace ProtocolProxyApi {
      * Issued when new message was logged.
      */
     on(event: 'entryAdded', listener: (params: Protocol.Log.EntryAddedEvent) => void): void;
+
   }
 
   export interface MemoryApi {
@@ -1447,8 +1429,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Enable/disable suppressing memory pressure notifications in all processes.
      */
-    setPressureNotificationsSuppressed(params: Protocol.Memory.SetPressureNotificationsSuppressedRequest):
-        Promise<void>;
+    setPressureNotificationsSuppressed(params: Protocol.Memory.SetPressureNotificationsSuppressedRequest): Promise<void>;
 
     /**
      * Simulate a memory pressure notification in all processes.
@@ -1482,6 +1463,7 @@ declare namespace ProtocolProxyApi {
      * `startSampling` call.
      */
     getSamplingProfile(): Promise<Protocol.Memory.GetSamplingProfileResponse>;
+
   }
 
   export interface NetworkApi {
@@ -1564,14 +1546,12 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns post data sent with the request. Returns an error when no data was sent with the request.
      */
-    getRequestPostData(params: Protocol.Network.GetRequestPostDataRequest):
-        Promise<Protocol.Network.GetRequestPostDataResponse>;
+    getRequestPostData(params: Protocol.Network.GetRequestPostDataRequest): Promise<Protocol.Network.GetRequestPostDataResponse>;
 
     /**
      * Returns content served for the given currently intercepted request.
      */
-    getResponseBodyForInterception(params: Protocol.Network.GetResponseBodyForInterceptionRequest):
-        Promise<Protocol.Network.GetResponseBodyForInterceptionResponse>;
+    getResponseBodyForInterception(params: Protocol.Network.GetResponseBodyForInterceptionRequest): Promise<Protocol.Network.GetResponseBodyForInterceptionResponse>;
 
     /**
      * Returns a handle to the stream representing the response body. Note that after this command,
@@ -1579,8 +1559,7 @@ declare namespace ProtocolProxyApi {
      * the response body. The stream only supports sequential read, IO.read will fail if the position
      * is specified.
      */
-    takeResponseBodyForInterceptionAsStream(params: Protocol.Network.TakeResponseBodyForInterceptionAsStreamRequest):
-        Promise<Protocol.Network.TakeResponseBodyForInterceptionAsStreamResponse>;
+    takeResponseBodyForInterceptionAsStream(params: Protocol.Network.TakeResponseBodyForInterceptionAsStreamRequest): Promise<Protocol.Network.TakeResponseBodyForInterceptionAsStreamResponse>;
 
     /**
      * This method sends a new XMLHttpRequest which is identical to the original one. The following
@@ -1592,8 +1571,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Searches for given string in response content.
      */
-    searchInResponseBody(params: Protocol.Network.SearchInResponseBodyRequest):
-        Promise<Protocol.Network.SearchInResponseBodyResponse>;
+    searchInResponseBody(params: Protocol.Network.SearchInResponseBodyRequest): Promise<Protocol.Network.SearchInResponseBodyResponse>;
 
     /**
      * Blocks URLs from loading.
@@ -1649,8 +1627,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Fired when EventSource message is received.
      */
-    on(event: 'eventSourceMessageReceived',
-       listener: (params: Protocol.Network.EventSourceMessageReceivedEvent) => void): void;
+    on(event: 'eventSourceMessageReceived', listener: (params: Protocol.Network.EventSourceMessageReceivedEvent) => void): void;
 
     /**
      * Fired when HTTP request has failed to load.
@@ -1682,8 +1659,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Fired when resource loading priority is changed
      */
-    on(event: 'resourceChangedPriority',
-       listener: (params: Protocol.Network.ResourceChangedPriorityEvent) => void): void;
+    on(event: 'resourceChangedPriority', listener: (params: Protocol.Network.ResourceChangedPriorityEvent) => void): void;
 
     /**
      * Fired when a signed exchange was received over the network
@@ -1723,14 +1699,12 @@ declare namespace ProtocolProxyApi {
     /**
      * Fired when WebSocket handshake response becomes available.
      */
-    on(event: 'webSocketHandshakeResponseReceived',
-       listener: (params: Protocol.Network.WebSocketHandshakeResponseReceivedEvent) => void): void;
+    on(event: 'webSocketHandshakeResponseReceived', listener: (params: Protocol.Network.WebSocketHandshakeResponseReceivedEvent) => void): void;
 
     /**
      * Fired when WebSocket is about to initiate handshake.
      */
-    on(event: 'webSocketWillSendHandshakeRequest',
-       listener: (params: Protocol.Network.WebSocketWillSendHandshakeRequestEvent) => void): void;
+    on(event: 'webSocketWillSendHandshakeRequest', listener: (params: Protocol.Network.WebSocketWillSendHandshakeRequestEvent) => void): void;
 
     /**
      * Fired when additional information about a requestWillBeSent event is available from the
@@ -1738,16 +1712,15 @@ declare namespace ProtocolProxyApi {
      * requestWillBeSentExtraInfo fired for it, and there is no guarantee whether requestWillBeSent
      * or requestWillBeSentExtraInfo will be fired first for the same request.
      */
-    on(event: 'requestWillBeSentExtraInfo',
-       listener: (params: Protocol.Network.RequestWillBeSentExtraInfoEvent) => void): void;
+    on(event: 'requestWillBeSentExtraInfo', listener: (params: Protocol.Network.RequestWillBeSentExtraInfoEvent) => void): void;
 
     /**
      * Fired when additional information about a responseReceived event is available from the network
      * stack. Not every responseReceived event will have an additional responseReceivedExtraInfo for
      * it, and responseReceivedExtraInfo may be fired before or after responseReceived.
      */
-    on(event: 'responseReceivedExtraInfo',
-       listener: (params: Protocol.Network.ResponseReceivedExtraInfoEvent) => void): void;
+    on(event: 'responseReceivedExtraInfo', listener: (params: Protocol.Network.ResponseReceivedExtraInfoEvent) => void): void;
+
   }
 
   export interface OverlayApi {
@@ -1764,8 +1737,7 @@ declare namespace ProtocolProxyApi {
     /**
      * For testing.
      */
-    getHighlightObjectForTest(params: Protocol.Overlay.GetHighlightObjectForTestRequest):
-        Promise<Protocol.Overlay.GetHighlightObjectForTestResponse>;
+    getHighlightObjectForTest(params: Protocol.Overlay.GetHighlightObjectForTestRequest): Promise<Protocol.Overlay.GetHighlightObjectForTestResponse>;
 
     /**
      * Hides any highlight.
@@ -1842,6 +1814,11 @@ declare namespace ProtocolProxyApi {
     setShowViewportSizeOnResize(params: Protocol.Overlay.SetShowViewportSizeOnResizeRequest): Promise<void>;
 
     /**
+     * Add a dual screen device hinge
+     */
+    setShowHinge(params: Protocol.Overlay.SetShowHingeRequest): Promise<void>;
+
+    /**
      * Fired when the node should be inspected. This happens after call to `setInspectMode` or when
      * user manually inspects an element.
      */
@@ -1861,20 +1838,19 @@ declare namespace ProtocolProxyApi {
      * Fired when user cancels the inspect mode.
      */
     on(event: 'inspectModeCanceled', listener: () => void): void;
+
   }
 
   export interface PageApi {
     /**
      * Deprecated, please use addScriptToEvaluateOnNewDocument instead.
      */
-    addScriptToEvaluateOnLoad(params: Protocol.Page.AddScriptToEvaluateOnLoadRequest):
-        Promise<Protocol.Page.AddScriptToEvaluateOnLoadResponse>;
+    addScriptToEvaluateOnLoad(params: Protocol.Page.AddScriptToEvaluateOnLoadRequest): Promise<Protocol.Page.AddScriptToEvaluateOnLoadResponse>;
 
     /**
      * Evaluates given script in every frame upon creation (before loading frame's scripts).
      */
-    addScriptToEvaluateOnNewDocument(params: Protocol.Page.AddScriptToEvaluateOnNewDocumentRequest):
-        Promise<Protocol.Page.AddScriptToEvaluateOnNewDocumentResponse>;
+    addScriptToEvaluateOnNewDocument(params: Protocol.Page.AddScriptToEvaluateOnNewDocumentRequest): Promise<Protocol.Page.AddScriptToEvaluateOnNewDocumentResponse>;
 
     /**
      * Brings page to front (activates tab).
@@ -1910,8 +1886,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Creates an isolated world for the given frame.
      */
-    createIsolatedWorld(params: Protocol.Page.CreateIsolatedWorldRequest):
-        Promise<Protocol.Page.CreateIsolatedWorldResponse>;
+    createIsolatedWorld(params: Protocol.Page.CreateIsolatedWorldRequest): Promise<Protocol.Page.CreateIsolatedWorldResponse>;
 
     /**
      * Deletes browser cookie with given name, domain and path.
@@ -1963,8 +1938,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns content of the given resource.
      */
-    getResourceContent(params: Protocol.Page.GetResourceContentRequest):
-        Promise<Protocol.Page.GetResourceContentResponse>;
+    getResourceContent(params: Protocol.Page.GetResourceContentRequest): Promise<Protocol.Page.GetResourceContentResponse>;
 
     /**
      * Returns present frame / resource tree structure.
@@ -2004,8 +1978,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Removes given script from the list.
      */
-    removeScriptToEvaluateOnNewDocument(params: Protocol.Page.RemoveScriptToEvaluateOnNewDocumentRequest):
-        Promise<void>;
+    removeScriptToEvaluateOnNewDocument(params: Protocol.Page.RemoveScriptToEvaluateOnNewDocumentRequest): Promise<void>;
 
     /**
      * Acknowledges that a screencast frame has been received by the frontend.
@@ -2155,8 +2128,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Fired when frame no longer has a scheduled navigation.
      */
-    on(event: 'frameClearedScheduledNavigation',
-       listener: (params: Protocol.Page.FrameClearedScheduledNavigationEvent) => void): void;
+    on(event: 'frameClearedScheduledNavigation', listener: (params: Protocol.Page.FrameClearedScheduledNavigationEvent) => void): void;
 
     /**
      * Fired when frame has been detached from its parent.
@@ -2174,14 +2146,12 @@ declare namespace ProtocolProxyApi {
      * Fired when a renderer-initiated navigation is requested.
      * Navigation may still be cancelled after the event is issued.
      */
-    on(event: 'frameRequestedNavigation',
-       listener: (params: Protocol.Page.FrameRequestedNavigationEvent) => void): void;
+    on(event: 'frameRequestedNavigation', listener: (params: Protocol.Page.FrameRequestedNavigationEvent) => void): void;
 
     /**
      * Fired when frame schedules a potential navigation.
      */
-    on(event: 'frameScheduledNavigation',
-       listener: (params: Protocol.Page.FrameScheduledNavigationEvent) => void): void;
+    on(event: 'frameScheduledNavigation', listener: (params: Protocol.Page.FrameScheduledNavigationEvent) => void): void;
 
     /**
      * Fired when frame has started loading.
@@ -2245,8 +2215,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Fired when the page with currently enabled screencast was shown or hidden `.
      */
-    on(event: 'screencastVisibilityChanged',
-       listener: (params: Protocol.Page.ScreencastVisibilityChangedEvent) => void): void;
+    on(event: 'screencastVisibilityChanged', listener: (params: Protocol.Page.ScreencastVisibilityChangedEvent) => void): void;
 
     /**
      * Fired when a new window is going to be opened, via window.open(), link click, form submission,
@@ -2258,8 +2227,8 @@ declare namespace ProtocolProxyApi {
      * Issued for every compilation cache generated. Is only available
      * if Page.setGenerateCompilationCache is enabled.
      */
-    on(event: 'compilationCacheProduced',
-       listener: (params: Protocol.Page.CompilationCacheProducedEvent) => void): void;
+    on(event: 'compilationCacheProduced', listener: (params: Protocol.Page.CompilationCacheProducedEvent) => void): void;
+
   }
 
   export interface PerformanceApi {
@@ -2289,6 +2258,7 @@ declare namespace ProtocolProxyApi {
      * Current values of the metrics.
      */
     on(event: 'metrics', listener: (params: Protocol.Performance.MetricsEvent) => void): void;
+
   }
 
   export interface SecurityApi {
@@ -2329,13 +2299,13 @@ declare namespace ProtocolProxyApi {
     /**
      * The security state of the page changed.
      */
-    on(event: 'visibleSecurityStateChanged',
-       listener: (params: Protocol.Security.VisibleSecurityStateChangedEvent) => void): void;
+    on(event: 'visibleSecurityStateChanged', listener: (params: Protocol.Security.VisibleSecurityStateChangedEvent) => void): void;
 
     /**
      * The security state of the page changed.
      */
     on(event: 'securityStateChanged', listener: (params: Protocol.Security.SecurityStateChangedEvent) => void): void;
+
   }
 
   export interface ServiceWorkerApi {
@@ -2367,11 +2337,10 @@ declare namespace ProtocolProxyApi {
 
     on(event: 'workerErrorReported', listener: (params: Protocol.ServiceWorker.WorkerErrorReportedEvent) => void): void;
 
-    on(event: 'workerRegistrationUpdated',
-       listener: (params: Protocol.ServiceWorker.WorkerRegistrationUpdatedEvent) => void): void;
+    on(event: 'workerRegistrationUpdated', listener: (params: Protocol.ServiceWorker.WorkerRegistrationUpdatedEvent) => void): void;
 
-    on(event: 'workerVersionUpdated',
-       listener: (params: Protocol.ServiceWorker.WorkerVersionUpdatedEvent) => void): void;
+    on(event: 'workerVersionUpdated', listener: (params: Protocol.ServiceWorker.WorkerVersionUpdatedEvent) => void): void;
+
   }
 
   export interface StorageApi {
@@ -2398,8 +2367,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns usage and quota in bytes.
      */
-    getUsageAndQuota(params: Protocol.Storage.GetUsageAndQuotaRequest):
-        Promise<Protocol.Storage.GetUsageAndQuotaResponse>;
+    getUsageAndQuota(params: Protocol.Storage.GetUsageAndQuotaRequest): Promise<Protocol.Storage.GetUsageAndQuotaResponse>;
 
     /**
      * Registers origin to be notified when an update occurs to its cache storage list.
@@ -2424,25 +2392,23 @@ declare namespace ProtocolProxyApi {
     /**
      * A cache's contents have been modified.
      */
-    on(event: 'cacheStorageContentUpdated',
-       listener: (params: Protocol.Storage.CacheStorageContentUpdatedEvent) => void): void;
+    on(event: 'cacheStorageContentUpdated', listener: (params: Protocol.Storage.CacheStorageContentUpdatedEvent) => void): void;
 
     /**
      * A cache has been added/deleted.
      */
-    on(event: 'cacheStorageListUpdated',
-       listener: (params: Protocol.Storage.CacheStorageListUpdatedEvent) => void): void;
+    on(event: 'cacheStorageListUpdated', listener: (params: Protocol.Storage.CacheStorageListUpdatedEvent) => void): void;
 
     /**
      * The origin's IndexedDB object store has been modified.
      */
-    on(event: 'indexedDBContentUpdated',
-       listener: (params: Protocol.Storage.IndexedDBContentUpdatedEvent) => void): void;
+    on(event: 'indexedDBContentUpdated', listener: (params: Protocol.Storage.IndexedDBContentUpdatedEvent) => void): void;
 
     /**
      * The origin's IndexedDB database list has been modified.
      */
     on(event: 'indexedDBListUpdated', listener: (params: Protocol.Storage.IndexedDBListUpdatedEvent) => void): void;
+
   }
 
   export interface SystemInfoApi {
@@ -2455,6 +2421,7 @@ declare namespace ProtocolProxyApi {
      * Returns information about all running processes.
      */
     getProcessInfo(): Promise<Protocol.SystemInfo.GetProcessInfoResponse>;
+
   }
 
   export interface TargetApi {
@@ -2494,8 +2461,7 @@ declare namespace ProtocolProxyApi {
      * Creates a new empty BrowserContext. Similar to an incognito profile but you can have more than
      * one.
      */
-    createBrowserContext(params: Protocol.Target.CreateBrowserContextRequest):
-        Promise<Protocol.Target.CreateBrowserContextResponse>;
+    createBrowserContext(params: Protocol.Target.CreateBrowserContextRequest): Promise<Protocol.Target.CreateBrowserContextResponse>;
 
     /**
      * Returns all browser contexts created with `Target.createBrowserContext` method.
@@ -2569,8 +2535,7 @@ declare namespace ProtocolProxyApi {
      * Notifies about a new protocol message received from the session (as reported in
      * `attachedToTarget` event).
      */
-    on(event: 'receivedMessageFromTarget',
-       listener: (params: Protocol.Target.ReceivedMessageFromTargetEvent) => void): void;
+    on(event: 'receivedMessageFromTarget', listener: (params: Protocol.Target.ReceivedMessageFromTargetEvent) => void): void;
 
     /**
      * Issued when a possible inspection target is created.
@@ -2592,6 +2557,7 @@ declare namespace ProtocolProxyApi {
      * `targetCreated` and `targetDestroyed`.
      */
     on(event: 'targetInfoChanged', listener: (params: Protocol.Target.TargetInfoChangedEvent) => void): void;
+
   }
 
   export interface TetheringApi {
@@ -2609,6 +2575,7 @@ declare namespace ProtocolProxyApi {
      * Informs that port was successfully bound and got a specified connection id.
      */
     on(event: 'accepted', listener: (params: Protocol.Tethering.AcceptedEvent) => void): void;
+
   }
 
   export interface TracingApi {
@@ -2630,8 +2597,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Request a global memory dump.
      */
-    requestMemoryDump(params: Protocol.Tracing.RequestMemoryDumpRequest):
-        Promise<Protocol.Tracing.RequestMemoryDumpResponse>;
+    requestMemoryDump(params: Protocol.Tracing.RequestMemoryDumpRequest): Promise<Protocol.Tracing.RequestMemoryDumpResponse>;
 
     /**
      * Start trace events collection.
@@ -2651,6 +2617,7 @@ declare namespace ProtocolProxyApi {
      * delivered via dataCollected events.
      */
     on(event: 'tracingComplete', listener: (params: Protocol.Tracing.TracingCompleteEvent) => void): void;
+
   }
 
   export interface FetchApi {
@@ -2707,8 +2674,7 @@ declare namespace ProtocolProxyApi {
      * Calling other methods that affect the request or disabling fetch
      * domain before body is received results in an undefined behavior.
      */
-    takeResponseBodyAsStream(params: Protocol.Fetch.TakeResponseBodyAsStreamRequest):
-        Promise<Protocol.Fetch.TakeResponseBodyAsStreamResponse>;
+    takeResponseBodyAsStream(params: Protocol.Fetch.TakeResponseBodyAsStreamRequest): Promise<Protocol.Fetch.TakeResponseBodyAsStreamResponse>;
 
     /**
      * Issued when the domain is enabled and the request URL matches the
@@ -2725,6 +2691,7 @@ declare namespace ProtocolProxyApi {
      * The request is paused until client responds with continueWithAuth.
      */
     on(event: 'authRequired', listener: (params: Protocol.Fetch.AuthRequiredEvent) => void): void;
+
   }
 
   export interface WebAudioApi {
@@ -2741,8 +2708,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Fetch the realtime data from the registered contexts.
      */
-    getRealtimeData(params: Protocol.WebAudio.GetRealtimeDataRequest):
-        Promise<Protocol.WebAudio.GetRealtimeDataResponse>;
+    getRealtimeData(params: Protocol.WebAudio.GetRealtimeDataRequest): Promise<Protocol.WebAudio.GetRealtimeDataResponse>;
 
     /**
      * Notifies that a new BaseAudioContext has been created.
@@ -2752,8 +2718,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Notifies that an existing BaseAudioContext will be destroyed.
      */
-    on(event: 'contextWillBeDestroyed',
-       listener: (params: Protocol.WebAudio.ContextWillBeDestroyedEvent) => void): void;
+    on(event: 'contextWillBeDestroyed', listener: (params: Protocol.WebAudio.ContextWillBeDestroyedEvent) => void): void;
 
     /**
      * Notifies that existing BaseAudioContext has changed some properties (id stays the same)..
@@ -2768,8 +2733,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Notifies that a new AudioListener has been created.
      */
-    on(event: 'audioListenerWillBeDestroyed',
-       listener: (params: Protocol.WebAudio.AudioListenerWillBeDestroyedEvent) => void): void;
+    on(event: 'audioListenerWillBeDestroyed', listener: (params: Protocol.WebAudio.AudioListenerWillBeDestroyedEvent) => void): void;
 
     /**
      * Notifies that a new AudioNode has been created.
@@ -2779,8 +2743,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Notifies that an existing AudioNode has been destroyed.
      */
-    on(event: 'audioNodeWillBeDestroyed',
-       listener: (params: Protocol.WebAudio.AudioNodeWillBeDestroyedEvent) => void): void;
+    on(event: 'audioNodeWillBeDestroyed', listener: (params: Protocol.WebAudio.AudioNodeWillBeDestroyedEvent) => void): void;
 
     /**
      * Notifies that a new AudioParam has been created.
@@ -2790,8 +2753,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Notifies that an existing AudioParam has been destroyed.
      */
-    on(event: 'audioParamWillBeDestroyed',
-       listener: (params: Protocol.WebAudio.AudioParamWillBeDestroyedEvent) => void): void;
+    on(event: 'audioParamWillBeDestroyed', listener: (params: Protocol.WebAudio.AudioParamWillBeDestroyedEvent) => void): void;
 
     /**
      * Notifies that two AudioNodes are connected.
@@ -2812,6 +2774,7 @@ declare namespace ProtocolProxyApi {
      * Notifies that an AudioNode is disconnected to an AudioParam.
      */
     on(event: 'nodeParamDisconnected', listener: (params: Protocol.WebAudio.NodeParamDisconnectedEvent) => void): void;
+
   }
 
   export interface WebAuthnApi {
@@ -2829,8 +2792,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Creates and adds a virtual authenticator.
      */
-    addVirtualAuthenticator(params: Protocol.WebAuthn.AddVirtualAuthenticatorRequest):
-        Promise<Protocol.WebAuthn.AddVirtualAuthenticatorResponse>;
+    addVirtualAuthenticator(params: Protocol.WebAuthn.AddVirtualAuthenticatorRequest): Promise<Protocol.WebAuthn.AddVirtualAuthenticatorResponse>;
 
     /**
      * Removes the given authenticator.
@@ -2868,6 +2830,7 @@ declare namespace ProtocolProxyApi {
      * The default is true.
      */
     setUserVerified(params: Protocol.WebAuthn.SetUserVerifiedRequest): Promise<void>;
+
   }
 
   export interface MediaApi {
@@ -2894,11 +2857,22 @@ declare namespace ProtocolProxyApi {
     on(event: 'playerEventsAdded', listener: (params: Protocol.Media.PlayerEventsAddedEvent) => void): void;
 
     /**
+     * Send a list of any messages that need to be delivered.
+     */
+    on(event: 'playerMessagesLogged', listener: (params: Protocol.Media.PlayerMessagesLoggedEvent) => void): void;
+
+    /**
+     * Send a list of any errors that need to be delivered.
+     */
+    on(event: 'playerErrorsRaised', listener: (params: Protocol.Media.PlayerErrorsRaisedEvent) => void): void;
+
+    /**
      * Called whenever a player is created, or when a new agent joins and recieves
      * a list of active players. If an agent is restored, it will recieve the full
      * list of player ids and all events again.
      */
     on(event: 'playersCreated', listener: (params: Protocol.Media.PlayersCreatedEvent) => void): void;
+
   }
 
   export interface ConsoleApi {
@@ -2922,6 +2896,7 @@ declare namespace ProtocolProxyApi {
      * Issued when new console message is added.
      */
     on(event: 'messageAdded', listener: (params: Protocol.Console.MessageAddedEvent) => void): void;
+
   }
 
   export interface DebuggerApi {
@@ -2944,27 +2919,23 @@ declare namespace ProtocolProxyApi {
     /**
      * Evaluates expression on a given call frame.
      */
-    evaluateOnCallFrame(params: Protocol.Debugger.EvaluateOnCallFrameRequest):
-        Promise<Protocol.Debugger.EvaluateOnCallFrameResponse>;
+    evaluateOnCallFrame(params: Protocol.Debugger.EvaluateOnCallFrameRequest): Promise<Protocol.Debugger.EvaluateOnCallFrameResponse>;
 
     /**
      * Returns possible locations for breakpoint. scriptId in start and end range locations should be
      * the same.
      */
-    getPossibleBreakpoints(params: Protocol.Debugger.GetPossibleBreakpointsRequest):
-        Promise<Protocol.Debugger.GetPossibleBreakpointsResponse>;
+    getPossibleBreakpoints(params: Protocol.Debugger.GetPossibleBreakpointsRequest): Promise<Protocol.Debugger.GetPossibleBreakpointsResponse>;
 
     /**
      * Returns source for the script with given id.
      */
-    getScriptSource(params: Protocol.Debugger.GetScriptSourceRequest):
-        Promise<Protocol.Debugger.GetScriptSourceResponse>;
+    getScriptSource(params: Protocol.Debugger.GetScriptSourceRequest): Promise<Protocol.Debugger.GetScriptSourceResponse>;
 
     /**
      * This command is deprecated. Use getScriptSource instead.
      */
-    getWasmBytecode(params: Protocol.Debugger.GetWasmBytecodeRequest):
-        Promise<Protocol.Debugger.GetWasmBytecodeResponse>;
+    getWasmBytecode(params: Protocol.Debugger.GetWasmBytecodeRequest): Promise<Protocol.Debugger.GetWasmBytecodeResponse>;
 
     /**
      * Returns stack trace with given `stackTraceId`.
@@ -2996,8 +2967,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Searches for given string in script content.
      */
-    searchInContent(params: Protocol.Debugger.SearchInContentRequest):
-        Promise<Protocol.Debugger.SearchInContentResponse>;
+    searchInContent(params: Protocol.Debugger.SearchInContentRequest): Promise<Protocol.Debugger.SearchInContentResponse>;
 
     /**
      * Enables or disables async call stacks tracking.
@@ -3027,8 +2997,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Sets instrumentation breakpoint.
      */
-    setInstrumentationBreakpoint(params: Protocol.Debugger.SetInstrumentationBreakpointRequest):
-        Promise<Protocol.Debugger.SetInstrumentationBreakpointResponse>;
+    setInstrumentationBreakpoint(params: Protocol.Debugger.SetInstrumentationBreakpointRequest): Promise<Protocol.Debugger.SetInstrumentationBreakpointResponse>;
 
     /**
      * Sets JavaScript breakpoint at given location specified either by URL or URL regex. Once this
@@ -3036,16 +3005,14 @@ declare namespace ProtocolProxyApi {
      * `locations` property. Further matching script parsing will result in subsequent
      * `breakpointResolved` events issued. This logical breakpoint will survive page reloads.
      */
-    setBreakpointByUrl(params: Protocol.Debugger.SetBreakpointByUrlRequest):
-        Promise<Protocol.Debugger.SetBreakpointByUrlResponse>;
+    setBreakpointByUrl(params: Protocol.Debugger.SetBreakpointByUrlRequest): Promise<Protocol.Debugger.SetBreakpointByUrlResponse>;
 
     /**
      * Sets JavaScript breakpoint before each call to the given function.
      * If another function was created from the same source as a given one,
      * calling it will also trigger the breakpoint.
      */
-    setBreakpointOnFunctionCall(params: Protocol.Debugger.SetBreakpointOnFunctionCallRequest):
-        Promise<Protocol.Debugger.SetBreakpointOnFunctionCallResponse>;
+    setBreakpointOnFunctionCall(params: Protocol.Debugger.SetBreakpointOnFunctionCallRequest): Promise<Protocol.Debugger.SetBreakpointOnFunctionCallResponse>;
 
     /**
      * Activates / deactivates all breakpoints on the page.
@@ -3066,8 +3033,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Edits JavaScript source live.
      */
-    setScriptSource(params: Protocol.Debugger.SetScriptSourceRequest):
-        Promise<Protocol.Debugger.SetScriptSourceResponse>;
+    setScriptSource(params: Protocol.Debugger.SetScriptSourceRequest): Promise<Protocol.Debugger.SetScriptSourceResponse>;
 
     /**
      * Makes page not interrupt on any pauses (breakpoint, exception, dom exception etc).
@@ -3120,6 +3086,7 @@ declare namespace ProtocolProxyApi {
      * scripts upon enabling debugger.
      */
     on(event: 'scriptParsed', listener: (params: Protocol.Debugger.ScriptParsedEvent) => void): void;
+
   }
 
   export interface HeapProfilerApi {
@@ -3135,11 +3102,9 @@ declare namespace ProtocolProxyApi {
 
     enable(): Promise<void>;
 
-    getHeapObjectId(params: Protocol.HeapProfiler.GetHeapObjectIdRequest):
-        Promise<Protocol.HeapProfiler.GetHeapObjectIdResponse>;
+    getHeapObjectId(params: Protocol.HeapProfiler.GetHeapObjectIdRequest): Promise<Protocol.HeapProfiler.GetHeapObjectIdResponse>;
 
-    getObjectByHeapObjectId(params: Protocol.HeapProfiler.GetObjectByHeapObjectIdRequest):
-        Promise<Protocol.HeapProfiler.GetObjectByHeapObjectIdResponse>;
+    getObjectByHeapObjectId(params: Protocol.HeapProfiler.GetObjectByHeapObjectIdRequest): Promise<Protocol.HeapProfiler.GetObjectByHeapObjectIdResponse>;
 
     getSamplingProfile(): Promise<Protocol.HeapProfiler.GetSamplingProfileResponse>;
 
@@ -3153,8 +3118,7 @@ declare namespace ProtocolProxyApi {
 
     takeHeapSnapshot(params: Protocol.HeapProfiler.TakeHeapSnapshotRequest): Promise<void>;
 
-    on(event: 'addHeapSnapshotChunk',
-       listener: (params: Protocol.HeapProfiler.AddHeapSnapshotChunkEvent) => void): void;
+    on(event: 'addHeapSnapshotChunk', listener: (params: Protocol.HeapProfiler.AddHeapSnapshotChunkEvent) => void): void;
 
     /**
      * If heap objects tracking has been started then backend may send update for one or more fragments
@@ -3168,10 +3132,10 @@ declare namespace ProtocolProxyApi {
      */
     on(event: 'lastSeenObjectId', listener: (params: Protocol.HeapProfiler.LastSeenObjectIdEvent) => void): void;
 
-    on(event: 'reportHeapSnapshotProgress',
-       listener: (params: Protocol.HeapProfiler.ReportHeapSnapshotProgressEvent) => void): void;
+    on(event: 'reportHeapSnapshotProgress', listener: (params: Protocol.HeapProfiler.ReportHeapSnapshotProgressEvent) => void): void;
 
     on(event: 'resetProfiles', listener: () => void): void;
+
   }
 
   export interface ProfilerApi {
@@ -3197,8 +3161,7 @@ declare namespace ProtocolProxyApi {
      * coverage may be incomplete. Enabling prevents running optimized code and resets execution
      * counters.
      */
-    startPreciseCoverage(params: Protocol.Profiler.StartPreciseCoverageRequest):
-        Promise<Protocol.Profiler.StartPreciseCoverageResponse>;
+    startPreciseCoverage(params: Protocol.Profiler.StartPreciseCoverageRequest): Promise<Protocol.Profiler.StartPreciseCoverageResponse>;
 
     /**
      * Enable type profile.
@@ -3244,8 +3207,7 @@ declare namespace ProtocolProxyApi {
      */
     getRuntimeCallStats(): Promise<Protocol.Profiler.GetRuntimeCallStatsResponse>;
 
-    on(event: 'consoleProfileFinished',
-       listener: (params: Protocol.Profiler.ConsoleProfileFinishedEvent) => void): void;
+    on(event: 'consoleProfileFinished', listener: (params: Protocol.Profiler.ConsoleProfileFinishedEvent) => void): void;
 
     /**
      * Sent when new profile recording is started using console.profile() call.
@@ -3258,8 +3220,8 @@ declare namespace ProtocolProxyApi {
      * coverage has been started. This event can be trigged by the embedder to, for example,
      * trigger collection of coverage data immediatelly at a certain point in time.
      */
-    on(event: 'preciseCoverageDeltaUpdate',
-       listener: (params: Protocol.Profiler.PreciseCoverageDeltaUpdateEvent) => void): void;
+    on(event: 'preciseCoverageDeltaUpdate', listener: (params: Protocol.Profiler.PreciseCoverageDeltaUpdateEvent) => void): void;
+
   }
 
   export interface RuntimeApi {
@@ -3321,8 +3283,7 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns all let, const and class variables from global scope.
      */
-    globalLexicalScopeNames(params: Protocol.Runtime.GlobalLexicalScopeNamesRequest):
-        Promise<Protocol.Runtime.GlobalLexicalScopeNamesResponse>;
+    globalLexicalScopeNames(params: Protocol.Runtime.GlobalLexicalScopeNamesRequest): Promise<Protocol.Runtime.GlobalLexicalScopeNamesResponse>;
 
     queryObjects(params: Protocol.Runtime.QueryObjectsRequest): Promise<Protocol.Runtime.QueryObjectsResponse>;
 
@@ -3402,14 +3363,12 @@ declare namespace ProtocolProxyApi {
     /**
      * Issued when new execution context is created.
      */
-    on(event: 'executionContextCreated',
-       listener: (params: Protocol.Runtime.ExecutionContextCreatedEvent) => void): void;
+    on(event: 'executionContextCreated', listener: (params: Protocol.Runtime.ExecutionContextCreatedEvent) => void): void;
 
     /**
      * Issued when execution context is destroyed.
      */
-    on(event: 'executionContextDestroyed',
-       listener: (params: Protocol.Runtime.ExecutionContextDestroyedEvent) => void): void;
+    on(event: 'executionContextDestroyed', listener: (params: Protocol.Runtime.ExecutionContextDestroyedEvent) => void): void;
 
     /**
      * Issued when all executionContexts were cleared in browser
@@ -3421,6 +3380,7 @@ declare namespace ProtocolProxyApi {
      * call).
      */
     on(event: 'inspectRequested', listener: (params: Protocol.Runtime.InspectRequestedEvent) => void): void;
+
   }
 
   export interface SchemaApi {
@@ -3428,5 +3388,7 @@ declare namespace ProtocolProxyApi {
      * Returns supported domains.
      */
     getDomains(): Promise<Protocol.Schema.GetDomainsResponse>;
+
   }
 }
+
