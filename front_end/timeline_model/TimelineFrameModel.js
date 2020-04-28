@@ -99,6 +99,7 @@ export class TimelineFrameModel {
     this._minimumRecordTime = Infinity;
     this._frames = [];
     this._frameById = {};
+    this._droppedFrames = [];
     this._lastFrame = null;
     this._lastLayerTree = null;
     this._mainFrameCommitted = false;
@@ -180,6 +181,20 @@ export class TimelineFrameModel {
   }
 
   /**
+   * @param {!SDK.TracingModel.Event} event
+   */
+  handleDroppedFrame(event) {
+    this._droppedFrames.push(event);
+  }
+
+  /**
+   * @return {!Array<!SDK.TracingModel.Event>}
+   */
+  droppedFrames() {
+    return this._droppedFrames;
+  }
+
+  /**
    * @param {!TracingFrameLayerTree} layerTree
    */
   handleLayerTreeSnapshot(layerTree) {
@@ -250,6 +265,7 @@ export class TimelineFrameModel {
       this._addTraceEvent(events[i]);
     }
     this._currentProcessMainThread = null;
+    this._droppedFrames.sort((x, y) => x.startTime - y.startTime);
   }
 
   /**
@@ -299,6 +315,8 @@ export class TimelineFrameModel {
       this.handleRequestMainThreadFrame();
     } else if (event.name === eventNames.NeedsBeginFrameChanged) {
       this.handleNeedFrameChanged(timestamp, event.args['data'] && event.args['data']['needsBeginFrame']);
+    } else if (event.name === eventNames.DroppedFrame) {
+      this.handleDroppedFrame(event);
     }
   }
 
