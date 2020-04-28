@@ -307,7 +307,10 @@ export class ConsoleView extends UI.Widget.VBox {
           [{
             text: ls`Go to Issues`,
             highlight: false,
-            delegate: () => UI.ViewManager.ViewManager.instance().showView('issues-pane'),
+            delegate: () => {
+        Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.ConsoleInfoBar);
+        UI.ViewManager.ViewManager.instance().showView('issues-pane');
+            },
             dismiss: true,
           }]);
           this.element.insertBefore(this._issueBarDiv, this._consoleToolbarContainer.nextSibling);
