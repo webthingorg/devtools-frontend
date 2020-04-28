@@ -82,6 +82,7 @@ export class Script {
     this._codeOffset = codeOffset;
     this._language = scriptLanguage;
     this._lineMap = null;
+    this._bodyFunctionOffsets = null;
   }
 
   /**
@@ -208,6 +209,7 @@ export class Script {
           const result = await promise;
           this._source = result.data.source;
           this._lineMap = result.data.offsets;
+          this._bodyFunctionOffsets = result.data.bodyFunctionOffsets;
           this.endLine = this._lineMap.length;
         }
       }
@@ -341,6 +343,44 @@ export class Script {
       line++;
     }
     return line;
+  }
+
+  /**
+   * @param {number} lineNumber
+   * @return {boolean}
+   */
+  isWasmDisassemblyBreakableLine(lineNumber) {
+    if (!this._bodyFunctionOffsets || this._bodyFunctionOffsets.length === 0) {
+      return false;
+    }
+    const location = this.wasmByteLocation(lineNumber);
+    if (!location) {
+      return false;
+    }
+    const byteOffset = location.columnNumber;
+
+    // Here, this._bodyFunctionOffsets is [[a0, b0], [a1, b1], ...]
+    // Also, we have a_0 < b_0 <= a1 <= b1 ...
+    let start = 0;
+    let end = this._bodyFunctionOffsets.length - 1;
+    // Quick return if it is outside of code section.
+    if (byteOffset <= this._bodyFunctionOffsets[start][0] || byteOffset >= this._bodyFunctionOffsets[end][1]) {
+      return false;
+    }
+    // Binary search.
+    while (start <= end) {
+      const mid = Math.round((start + end) / 2);
+      const bodyFunctionOffset = this._bodyFunctionOffsets[mid];
+      if (byteOffset <= bodyFunctionOffset[0]) {
+        end = mid - 1;
+      } else if (byteOffset >= bodyFunctionOffset[1]) {
+        start = mid + 1;
+      } else {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /**

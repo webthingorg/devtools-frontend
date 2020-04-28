@@ -329,6 +329,8 @@ export class WasmDisassembler {
         this._currentPosition = 0;
         this._nameResolver = new DefaultNameResolver();
         this._labelMode = LabelMode.WhenUsed;
+        this._bodyFunctionOffsets = [];
+        this._currentBodyFunctionOffset = [];
         this._reset();
     }
     _reset() {
@@ -379,6 +381,17 @@ export class WasmDisassembler {
             this._offsets.push(this._currentPosition);
         this._lines.push(this._buffer);
         this._buffer = '';
+    }
+    logStartOfBodyFunctionOffset() {
+        if (this.addOffsets) {
+            this._currentBodyFunctionOffset = [this._currentPosition];
+        }
+    }
+    logEndOfBodyFunctionOffset() {
+        if (this.addOffsets && this._currentBodyFunctionOffset.length == 1) {
+            this._currentBodyFunctionOffset.push(this._currentPosition);
+            this._bodyFunctionOffsets.push(this._currentBodyFunctionOffset);
+        }
     }
     printFuncType(typeIndex) {
         var type = this._types[typeIndex];
@@ -711,6 +724,7 @@ export class WasmDisassembler {
                 lines: [],
                 offsets: this._addOffsets ? [] : undefined,
                 done: this._done,
+                bodyFunctionOffsets: this._addOffsets ? [] : undefined,
             };
         }
         if (linesReady === this._lines.length) {
@@ -718,16 +732,20 @@ export class WasmDisassembler {
                 lines: this._lines,
                 offsets: this._addOffsets ? this._offsets : undefined,
                 done: this._done,
+                bodyFunctionOffsets: this._addOffsets ? this._bodyFunctionOffsets : undefined,
             };
             this._lines = [];
-            if (this._addOffsets)
+            if (this._addOffsets) {
                 this._offsets = [];
+                this._bodyFunctionOffsets = [];
+            }
             return result;
         }
         let result = {
             lines: this._lines.splice(0, linesReady),
             offsets: this._addOffsets ? this._offsets.splice(0, linesReady) : undefined,
             done: false,
+            bodyFunctionOffsets: this._addOffsets ? this._bodyFunctionOffsets : undefined,
         };
         if (this._backrefLabels) {
             this._backrefLabels.forEach((backrefLabel) => {
@@ -993,6 +1011,7 @@ export class WasmDisassembler {
                     this._indentLevel = 0;
                     this._labelIndex = 0;
                     this._backrefLabels = this._labelMode === LabelMode.Depth ? null : [];
+                    this.logStartOfBodyFunctionOffset();
                     break;
                 case 30 /* CODE_OPERATOR */:
                     var operator = reader.result;
@@ -1023,6 +1042,7 @@ export class WasmDisassembler {
                 case 31 /* END_FUNCTION_BODY */:
                     this._funcIndex++;
                     this._backrefLabels = null;
+                    this.logEndOfBodyFunctionOffset();
                     // See case BinaryReaderState.CODE_OPERATOR for closing of body
                     break;
                 default:
