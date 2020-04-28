@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc715e8d_701f7b07",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-04-28T09:16:37Z",
+      "side": 1,
+      "message": "I am SO HAPPY about this change.\n\nMight be worth an email to devtools-dev about so everyone knows?",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 72
+      },
+      "revId": "eb2e9c5919a10b156aa1f2a7b47c22db190ab35b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
