@@ -412,6 +412,8 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         this._onModelAvailable = null;
         callback();
       }
+      const resourceTreeModel = emulationModel.target().model(SDK.ResourceTreeModel.ResourceTreeModel);
+      resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameResized, this._onFrameResized, this);
     } else {
       emulationModel.emulateTouch(this._touchEnabled, this._touchMobile);
     }
@@ -432,6 +434,21 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
    */
   inspectedURL() {
     return this._emulationModel ? this._emulationModel.target().inspectedURL() : null;
+  }
+
+  _onFrameResized() {
+    const overlayModel = this._emulationModel ? this._emulationModel.overlayModel() : null;
+    if (!overlayModel || !this._type)
+      return;
+
+    if (this._type === Type.Device) {
+      const orientation = this._device.orientationByName(this._mode.orientation);
+      if (orientation.hinge) {
+        overlayModel.showHingeForDualScreen(true, orientation.hinge);
+      } else {
+        overlayModel.showHingeForDualScreen(false);
+      }
+    }
   }
 
   _scaleSettingChanged() {
@@ -505,6 +522,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
       this._onModelAvailable = this._calculateAndEmulate.bind(this, resetPageScaleFactor);
     }
     const mobile = this._isMobile();
+    const overlayModel = this._emulationModel ? this._emulationModel.overlayModel() : null;
     if (this._type === Type.Device) {
       const orientation = this._device.orientationByName(this._mode.orientation);
       const outline = this._currentOutline();
@@ -514,6 +532,13 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         this._appliedUserAgentType = this._device.touch() ? UA.Mobile : UA.MobileNoTouch;
       } else {
         this._appliedUserAgentType = this._device.touch() ? UA.DesktopTouch : UA.Desktop;
+      }
+      if (overlayModel) {
+        if (orientation.hinge) {
+          overlayModel.showHingeForDualScreen(true, orientation.hinge);
+        } else {
+          overlayModel.showHingeForDualScreen(false);
+        }
       }
       this._applyDeviceMetrics(
           new UI.Geometry.Size(orientation.width, orientation.height), insets, outline, this._scaleSetting.get(),
@@ -555,7 +580,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
           this._uaSetting.get() === UA.DesktopTouch || this._uaSetting.get() === UA.Mobile,
           this._uaSetting.get() === UA.Mobile);
     }
-    const overlayModel = this._emulationModel ? this._emulationModel.overlayModel() : null;
+
     if (overlayModel) {
       overlayModel.setShowViewportSizeOnResize(this._type === Type.None);
     }
@@ -697,6 +722,13 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
       this._emulationModel.emulateDevice(metrics);
     } else {
       this._emulationModel.emulateDevice(null);
+    }
+  }
+
+  exitHingeMode() {
+    const overlayModel = this._emulationModel ? this._emulationModel.overlayModel() : null;
+    if (overlayModel) {
+      overlayModel.showHingeForDualScreen(false);
     }
   }
 

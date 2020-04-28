@@ -102,4 +102,7 @@
   <message name="IDS_DEVTOOLS_f8896f769d62b6102e48039154c4ca5e" desc="Title of the Galaxy S5 device">
     <ph name="LOCKED_1">Galaxy S5</ph>
   </message>
+  <message name="IDS_DEVTOOLS_d79ebf44864cc4dde48342f0da49214c" desc="Title of the Microsoft Surface Duo device">
+    <ph name="LOCKED_1">Surface Duo</ph>
+  </message>
 </grit-part>
