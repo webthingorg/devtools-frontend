@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4441f610_f01c2e27",
+        "filename": "front_end/timeline/TimelineController.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2020-04-28T07:00:34Z",
+      "side": 1,
+      "message": ":) I have cleaned this up.",
+      "parentUuid": "0dea66da_baef5e19",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 19
+      },
+      "revId": "1b67588094f6ea54a4fce7789e82ab5a6d5cfaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e7f6781_5cdadb44",
         "filename": "front_end/timeline/TimelineEventOverview.js",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "388b65a3_1ea3dc33",
+        "filename": "front_end/timeline/TimelineEventOverview.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2020-04-28T07:00:34Z",
+      "side": 1,
+      "message": "I have removed the scaling from here, but it looks like this normally does scale for the line-width (e.g. above in lines ~547, 551).",
+      "parentUuid": "7e7f6781_5cdadb44",
+      "range": {
+        "startLine": 585,
+        "startChar": 4,
+        "endLine": 585,
+        "endChar": 48
+      },
+      "revId": "1b67588094f6ea54a4fce7789e82ab5a6d5cfaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2a0db36_f2e732ad",
         "filename": "front_end/timeline/TimelineEventOverview.js",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2020-04-24T07:39:43Z",
       "side": 1,
       "message": "We definitely have trace processing functionality that this should go into so we avoid a whole other traversal of the data 👍",
+      "range": {
+        "startLine": 601,
+        "startChar": 12,
+        "endLine": 601,
+        "endChar": 38
+      },
+      "revId": "1b67588094f6ea54a4fce7789e82ab5a6d5cfaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "167858de_3626e40d",
+        "filename": "front_end/timeline/TimelineEventOverview.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2020-04-28T07:00:34Z",
+      "side": 1,
+      "message": "I am not sure what the right place would be. TimelineFrameModel felt like a reasonable place to add this, so I have gone ahead and done that. But happy to move it to a more appropriate place.",
+      "parentUuid": "e2a0db36_f2e732ad",
       "range": {
         "startLine": 601,
         "startChar": 12,
