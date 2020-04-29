@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "04e878c0_4c345f1e",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-29T09:35:58Z",
+      "side": 1,
+      "message": "I wasn\u0027t aware of the API before you mentioned it, so thanks for linking that! I still prefer this pattern, as I find it more readable. Therefore I will keep the code like this for now.",
+      "parentUuid": "80fc828d_5a8f78cb",
+      "revId": "b5ddaa2909caaa3e3c1fc0b5ec34e714dc310643",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ca5936b_fc03f9fb",
         "filename": "front_end/text_editor/CodeMirrorTextEditor.js",
         "patchSetId": 1
