@@ -9,8 +9,9 @@
   ],
   "dependencies": [
     "common",
-    "ui",
-    "sdk"
+    "host",
+    "sdk",
+    "ui"
   ],
   "scripts": [],
   "modules": [

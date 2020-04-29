@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
@@ -36,6 +37,7 @@ export class WarningErrorCounter {
 
     this._issuesCounter = createElement('div');
     this._issuesCounter.addEventListener('click', () => {
+      Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.StatusBarIssuesCounter);
       UI.ViewManager.ViewManager.instance().showView('issues-pane');
     });
     const issuesShadowRoot =
