@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc3720d9_fb4cad3e",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:07:06Z",
+      "side": 1,
+      "message": "Can you verify that \"host\" is an official dependency of \"console_counters\" in its module.json?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 40
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09e4a446_48a7e16a",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:07:06Z",
+      "side": 1,
+      "message": "Same here, please add \"host\" as a dependency to module.json.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 40
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3272d5be_7df5714d",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:07:06Z",
+      "side": 1,
+      "message": "will this work once we have translations?\n\nq: How is this case different from the one implemented in MainImpl.js? Both increase the count for \"HamburgerMenu\".",
+      "range": {
+        "startLine": 524,
+        "startChar": 20,
+        "endLine": 524,
+        "endChar": 28
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9b6d1b1_95efb8fc",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:07:06Z",
+      "side": 1,
+      "message": "This should probably be \"this.showView(view, undefined, true)\". The bind will just return a bound function but not actually call it.",
+      "range": {
+        "startLine": 527,
+        "startChar": 10,
+        "endLine": 527,
+        "endChar": 58
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
