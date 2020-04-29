@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fc800ba_5b503872",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T07:01:02Z",
+      "side": 1,
+      "message": "Left-over?",
+      "range": {
+        "startLine": 40,
+        "startChar": 51,
+        "endLine": 40,
+        "endChar": 53
+      },
+      "revId": "43925cadf9b2c3f013e41e6133fcd6d2ac3a64c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eae8fc81_64cda4a1",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T07:01:02Z",
+      "side": 1,
+      "message": "This could be \"Common.EventTarget.EventTarget.removeEventListeners([this._listener]);\n\nThen we don\u0027t have to sync the event type and event handler between the add and remove calls.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 110
+      },
+      "revId": "43925cadf9b2c3f013e41e6133fcd6d2ac3a64c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
