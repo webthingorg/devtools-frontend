@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e2829c5_e360f6e6",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "nit: I think it\u0027s more intuitive to have {start:a0, end:a1}, {start:b0, end:b1}.",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef0a86f1_7308b179",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "nit: and the breakable lines are defined by the union of..",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97321faa_61219017",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "nit: I think it would be nice to have it without the negation\nif (isSourceMapSource) {\n  // code for source map\n  return;\n}\n\n// Check to see if it is Wasm Disassembly",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a712fa0_8d20128f",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "We should rename the class from \u0027cm-line-without-source-mapping\u0027 to something different, since it\u0027s not about source maps anymore. Maybe \u0027cm-non-breakable-line\u0027?",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "303a01f8_485161da",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "Maybe rename possibleFail to \"expectedFail\"? Then one only uses it if the breakpoint setting doesn\u0027t work.",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58578ce3_f4a0dc21",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "This .cm-line.. would need to be adapted when we change the class name",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aa2bc58_5d021cc8",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "nit: \"unbreakable line in raw wasm\"",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3df488ca_7608d5e5",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-29T13:02:06Z",
+      "side": 1,
+      "message": "Why do you set possibleFail \u003d true here?",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
