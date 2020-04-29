@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2d5b329b_4db6c818",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-29T09:30:45Z",
+      "side": 1,
+      "message": "Given the indentation of the `const` and the very deep nesting, I would say this is kind of expected. You don\u0027t want to indent too far here either.\n\nYes this doesn\u0027t look that great, but I think that is mostly because of the high density of code here, rather than clang-format being overly wrong. I would suggest extracting this out of either a function/class to make it more readable.\n\n(Reading this code, I have absolutely no idea what it is doing and why it is doing so much, so probably this is in need of a good refactor 😞)",
+      "parentUuid": "fabc9b79_3fff9239",
+      "range": {
+        "startLine": 311,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 70
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc3720d9_fb4cad3e",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 3
