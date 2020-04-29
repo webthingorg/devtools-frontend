@@ -305,6 +305,30 @@
       "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e4bc656_35c7a89a",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T08:48:34Z",
+      "side": 1,
+      "message": "{call} is also unnecessary, since the callback is implemented as an arrow function which doesn\u0027t get its own \"this\". If \"this\" is invalid, \"this.showView\" would reference a non-existing function in the first place :)",
+      "parentUuid": "216834fd_1d4260ac",
+      "range": {
+        "startLine": 527,
+        "startChar": 10,
+        "endLine": 527,
+        "endChar": 58
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
