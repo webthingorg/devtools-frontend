@@ -71,7 +71,7 @@ export async function getOpenSources() {
 
 // We can't use the click helper, as it is not possible to select a particular
 // line number element in CodeMirror.
-export async function addBreakpointForLine(frontend: puppeteer.Page, index: number) {
+export async function addBreakpointForLine(frontend: puppeteer.Page, index: number, possibleFail: boolean = false) {
   await frontend.waitForFunction(index => {
     return document.querySelectorAll('.CodeMirror-linenumber').length >= index;
   }, undefined, index);
@@ -88,6 +88,10 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
   const currentBreakpointCount = await frontend.$$eval('.cm-breakpoint', nodes => nodes.length);
 
   await frontend.mouse.click(breakpointLineNumber.x, breakpointLineNumber.y);
+
+  if (possibleFail) {
+    return;
+  }
 
   await frontend.waitForFunction(bpCount => {
     return document.querySelectorAll('.cm-breakpoint').length > bpCount &&
