@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {click, getBrowserAndPages, platform, reloadDevTools, waitFor} from '../../shared/helper.js';
+import {click, enableExperiment, getBrowserAndPages, platform, reloadDevTools, waitFor} from '../../shared/helper.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 interface UserMetric {
@@ -32,6 +32,7 @@ declare global {
     __panelShown: (evt: Event) => void;
     __actionTaken: (evt: Event) => void;
     __keyboardShortcutFired: (evt: Event) => void;
+    __keybindSetSettingChanged: (evt: Event) => void;
     Host: {UserMetrics: UserMetrics; userMetrics: {actionTaken(name: number): void;}};
     UI: {inspectorView: {_showDrawer(show: boolean): void; showView(name: string): void;}};
   }
@@ -59,12 +60,18 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.__caughtEvents.push({name: 'DevTools.KeyboardShortcutFired', value: customEvt.detail.value});
     };
 
+    window.__keybindSetSettingChanged = (evt: Event) => {
+      const customEvt = evt as CustomEvent;
+      window.__caughtEvents.push({name: 'DevTools.KeybindSetSettingChanged', value: customEvt.detail.value});
+    };
+
     window.__caughtEvents = [];
     window.__beginCatchEvents = () => {
       window.addEventListener('DevTools.PanelShown', window.__panelShown);
       window.addEventListener('DevTools.PanelLoaded', window.__panelLoaded);
       window.addEventListener('DevTools.ActionTaken', window.__actionTaken);
       window.addEventListener('DevTools.KeyboardShortcutFired', window.__keyboardShortcutFired);
+      window.addEventListener('DevTools.KeybindSetSettingChanged', window.__keyboardShortcutFired);
     };
 
     window.__endCatchEvents = () => {
@@ -72,6 +79,7 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.removeEventListener('DevTools.PanelLoaded', window.__panelLoaded);
       window.removeEventListener('DevTools.ActionTaken', window.__actionTaken);
       window.removeEventListener('DevTools.KeyboardShortcutFired', window.__keyboardShortcutFired);
+      window.removeEventListener('DevTools.KeybindSetSettingChanged', window.__keyboardShortcutFired);
     };
 
     window.__beginCatchEvents();
@@ -243,6 +251,31 @@ describe('User Metrics', () => {
       {
         name: 'DevTools.KeyboardShortcutFired',
         value: 0,  // OtherShortcut
+      },
+    ]);
+  });
+
+  it('dispatches an event when the keybindSet setting is changed', async () => {
+    const {frontend} = getBrowserAndPages();
+    await enableExperiment('customKeyboardShortcuts');
+
+    await frontend.keyboard.press('F1');
+    await waitFor('.settings-window-main');
+    await click('[aria-label="Custom Shortcuts"]');
+    await waitFor('.keybinds-set-select');
+
+    await frontend.focus('.keybinds-set-select select');
+    await frontend.keyboard.press('ArrowDown');
+    await waitFor('.keybinds-key:nth-child(4)');
+
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.KeyboardShortcutFired',
+        value: 22,  // settings.show
+      },
+      {
+        name: 'DevTools.KeybindSetSettingChanged',
+        value: 1,  // vsCode
       },
     ]);
   });
