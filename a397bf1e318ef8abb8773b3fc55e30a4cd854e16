@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fabc9b79_3fff9239",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-29T08:40:28Z",
+      "side": 1,
+      "message": "Yes, this is the formatter\u0027s output.",
+      "parentUuid": "611a7ffc_e68d0a2d",
+      "range": {
+        "startLine": 311,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 70
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc3720d9_fb4cad3e",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b71b7ecb_e86924eb",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-29T08:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc3720d9_fb4cad3e",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 40
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4a5a2ced_1ece2ed6",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-29T08:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69552b84_7b6574f9",
+      "range": {
+        "startLine": 259,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 15
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09e4a446_48a7e16a",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "557e2f70_8ba1b377",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-29T08:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09e4a446_48a7e16a",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 40
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "79712fb1_236073e9",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-29T08:40:28Z",
+      "side": 1,
+      "message": "1) It probably wouldn\u0027t: fixed now\n2) The MainImpl case is responsible for the 3-dot/hamburger menu in the top menu bar (top right), whereas ViewManager is responsible for the 3-dot/hamburger menu in the menu bar of the drawers panel(?) (bottom (-half) left).\nI elected to increment the same counter for both actions since they are similar enough imo.",
+      "parentUuid": "3272d5be_7df5714d",
+      "range": {
+        "startLine": 524,
+        "startChar": 20,
+        "endLine": 524,
+        "endChar": 28
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9b6d1b1_95efb8fc",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 3
@@ -161,6 +281,30 @@
       "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "216834fd_1d4260ac",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-04-29T08:40:28Z",
+      "side": 1,
+      "message": "Thanks, good catch!\nI think using `call` here is the correct way to do it. We\u0027re trying to pass along the current value of `this` just like in line 532.",
+      "parentUuid": "d9b6d1b1_95efb8fc",
+      "range": {
+        "startLine": 527,
+        "startChar": 10,
+        "endLine": 527,
+        "endChar": 58
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
