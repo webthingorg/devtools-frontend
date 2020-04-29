@@ -81,7 +81,7 @@ export class UIStringFormat {
   constructor(format) {
     /** @type {string} */
     this._localizedFormat = localize(format);
-    /** @type {!Array.<!Object>} */
+    /** @type {!Array.<!StringUtilities.FORMATTER_TOKEN>} */
     this._tokenizedFormat =
         StringUtilities.tokenizeFormatString(this._localizedFormat, StringUtilities.standardFormatters);
   }
@@ -100,11 +100,11 @@ export class UIStringFormat {
    * @return {string}
    */
   format(vararg) {
+    // the code here uses odd generics that Closure likes but TS doesn't
+    // so rather than fight to typecheck this in a dodgy way we just let TS ignore it
+    // @ts-ignore
     return StringUtilities
         .format(
-            // the code here uses odd generics that Closure likes but TS doesn't
-            // so rather than fight to typecheck this in a dodgy way we just let TS ignore it
-            // @ts-ignore
             this._localizedFormat, arguments, StringUtilities.standardFormatters, '', UIStringFormat._append,
             this._tokenizedFormat)
         .formattedResult;
