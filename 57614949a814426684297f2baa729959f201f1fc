@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "05ec5eb4_c93f36c0",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "I understand your confusion here but want to keep index number as well 😊",
+      "parentUuid": "9e2829c5_e360f6e6",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef0a86f1_7308b179",
         "filename": "front_end/sdk/Script.js",
         "patchSetId": 10
@@ -33,6 +51,24 @@
       "revId": "57614949a814426684297f2baa729959f201f1fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5158064d_f2594c68",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef0a86f1_7308b179",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b00a3ac4_547ef522",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97321faa_61219017",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a712fa0_8d20128f",
         "filename": "front_end/sources/DebuggerPlugin.js",
         "patchSetId": 10
@@ -64,6 +118,24 @@
       "writtenOn": "2020-04-29T13:02:06Z",
       "side": 1,
       "message": "We should rename the class from \u0027cm-line-without-source-mapping\u0027 to something different, since it\u0027s not about source maps anymore. Maybe \u0027cm-non-breakable-line\u0027?",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52db8d06_151353bf",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "\u0027cm-non-breakable-line\u0027 is good to me. Do I need to add CSS/style for this?",
+      "parentUuid": "7a712fa0_8d20128f",
       "revId": "57614949a814426684297f2baa729959f201f1fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "38afba6e_bc071c6c",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "303a01f8_485161da",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58578ce3_f4a0dc21",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 10
@@ -101,6 +191,24 @@
       "revId": "57614949a814426684297f2baa729959f201f1fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dacf1090_018b38ed",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58578ce3_f4a0dc21",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "7e618bf2_411a8ad1",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0aa2bc58_5d021cc8",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3df488ca_7608d5e5",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 10
@@ -135,6 +261,24 @@
       "revId": "57614949a814426684297f2baa729959f201f1fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc0e3b96_32573bcc",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-04-29T22:30:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3df488ca_7608d5e5",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
