@@ -14,6 +14,7 @@ export class AccessibilityNode {
    */
   constructor(accessibilityModel, payload) {
     this._accessibilityModel = accessibilityModel;
+    // Test change
     this._agent = accessibilityModel._agent;
 
     this._id = payload.nodeId;
