@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed3e3a3d_264159fa",
+        "filename": ".style.yapf",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-29T14:20:43Z",
+      "side": 1,
+      "message": "Should we also remove this one?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "a7b2bddb126b59dd8e0db2b2087e61271646c721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
