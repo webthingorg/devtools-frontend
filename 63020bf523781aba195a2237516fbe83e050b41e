@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fd68858_40341a47",
+        "filename": "front_end/browser_sdk/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:55:11Z",
+      "side": 1,
+      "message": "This needs to added to \"devtools_typescript_deps\" in the root BUILD.gn",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7a5fb91_a5e3a41b",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:55:11Z",
+      "side": 1,
+      "message": "DBC: The IssueAggregator also has a FullUpdateRequired event, which seems confusing.",
+      "range": {
+        "startLine": 138,
+        "startChar": 2,
+        "endLine": 138,
+        "endChar": 20
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81f9013d_7ec5a373",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:55:11Z",
+      "side": 1,
+      "message": "{numberOfIssues} returns a number, why the \"|| 0\"?",
+      "range": {
+        "startLine": 116,
+        "startChar": 86,
+        "endLine": 116,
+        "endChar": 90
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb41988d_454dcacf",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:55:11Z",
+      "side": 1,
+      "message": "nit: Also rename to issuesManager.",
+      "range": {
+        "startLine": 110,
+        "startChar": 54,
+        "endLine": 110,
+        "endChar": 65
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6a45bb3_e323c1ff",
+        "filename": "test/unittests/front_end/browser_sdk/IssuesManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:55:11Z",
+      "side": 1,
+      "message": "nit: AFAICT this test exercises the IssuesManager \u003c\u003d\u003e IssuesModel interaction.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 59
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21636d71_a5fc9da2",
+        "filename": "test/unittests/front_end/sdk/MockIssuesModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T06:55:11Z",
+      "side": 1,
+      "message": "My TypeScript foo is not really that great but this could be made \"really\" private by adding the \"private\" keyword.",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
