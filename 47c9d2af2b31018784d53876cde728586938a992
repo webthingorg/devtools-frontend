@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33dc2c37_1aff723f",
+        "filename": "front_end/emulated_devices/emulated_devices_strings.grdp",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "this needs to be locked. See the above entry for how to do it",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 23
+      },
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27afbb69_06cfadef",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 1776,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "do you plan to add frames in a future CL?",
+      "range": {
+        "startLine": 1775,
+        "startChar": 15,
+        "endLine": 1776,
+        "endChar": 31
+      },
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b0826f_da17348e",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "I feel like a comment here about why we needed to listen to frame resized would be good",
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60fc8ff0_1ae846c4",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "This is clang format not really knowing how to fix a lack of brackets. Can you updated to put the open on the if line?",
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9390dd3_5b000136",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "nit: no preference either way, but I think this could be written as if(this._emulationModel \u0026\u0026 this._emulationModel.overlayModel())",
+      "range": {
+        "startLine": 721,
+        "startChar": 4,
+        "endLine": 722,
+        "endChar": 20
+      },
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01eb67e3_5446959f",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "Have we double checked we don\u0027t need to handle this logic?",
+      "range": {
+        "startLine": 513,
+        "startChar": 4,
+        "endLine": 527,
+        "endChar": 15
+      },
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d26838_90dbc7ee",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "have you tested this butten gets properly enabled/disabled? I remember having some issues with it the first time I tried this.",
+      "range": {
+        "startLine": 572,
+        "startChar": 7,
+        "endLine": 572,
+        "endChar": 43
+      },
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c320dbc_7b408678",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-04-29T20:00:02Z",
+      "side": 1,
+      "message": "nit \"invalid\" (for all of these errors).",
+      "range": {
+        "startLine": 110,
+        "startChar": 37,
+        "endLine": 110,
+        "endChar": 43
+      },
+      "revId": "47c9d2af2b31018784d53876cde728586938a992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
