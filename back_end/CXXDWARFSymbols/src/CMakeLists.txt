@@ -129,12 +129,13 @@ if (SYMBOL_SERVER_BUILD_FORMATTERS)
     )
 
   add_custom_target(SymbolServerRuntime
-    COMMAND $<TARGET_FILE:clang>
+    COMMAND ${PROJECT_SOURCE_DIR}/tools/compile-formatters.py
+    $<TARGET_FILE:clang> --
     ${CMAKE_CURRENT_SOURCE_DIR}/runtime/formatters.cc
+    -o ${CMAKE_CURRENT_BINARY_DIR}/formatters.bc
     -std=c++14 -emit-llvm -c
     --target=wasm32-unknown-unknown-wasm
     ${_optargs}
-    ${_formatter_includes}
     DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/runtime/formatters.cc clang
     BYPRODUCTS formatters.bc
     )
