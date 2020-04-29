@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "642509cd_906d736f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T05:52:28Z",
+      "side": 1,
+      "message": "I don\u0027t see any CSS changes in this CL. Is \u0027affected-resource-source\u0027 already declared?",
+      "range": {
+        "startLine": 250,
+        "startChar": 53,
+        "endLine": 250,
+        "endChar": 77
+      },
+      "revId": "162a6e9886427bbedda127ee9080a6d061768180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

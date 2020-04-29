@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7a0f0ae4_8e93cdd0",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-04-29T05:52:28Z",
+      "side": 1,
+      "message": "I\u0027d like to keep using {linkifyScriptLocation} here. The reason being that links created via {linkifyScriptLocation} will also work with source mapping and formatted scripts. The only issue will be to wire the correct target and scriptId all the way through here and since I haven\u0027t seen the construction sites for {AffectedSource} yet, those values might not be available or feasible to obtain.\n\nWe can use {linkifyURL} for now, but as soon as we have some actual users, we should revisit. (You can also leave a TODO(chromium:1070376) here as a reminder).",
+      "parentUuid": "3776c0ec_ed50ebae",
+      "revId": "44462bb489c118caf90ba801a1d8846642ef8848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bcf75fc_e5c813b2",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 11
