@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fdc063be_628822f5",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T11:35:34Z",
+      "side": 1,
+      "message": "I\u0027m surprised that type checking did not catch this typo.",
+      "parentUuid": "4fc800ba_5b503872",
+      "range": {
+        "startLine": 40,
+        "startChar": 51,
+        "endLine": 40,
+        "endChar": 53
+      },
+      "revId": "43925cadf9b2c3f013e41e6133fcd6d2ac3a64c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eae8fc81_64cda4a1",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "43925cadf9b2c3f013e41e6133fcd6d2ac3a64c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7089e07f_68a7f5f4",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T11:35:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eae8fc81_64cda4a1",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 110
+      },
+      "revId": "43925cadf9b2c3f013e41e6133fcd6d2ac3a64c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
