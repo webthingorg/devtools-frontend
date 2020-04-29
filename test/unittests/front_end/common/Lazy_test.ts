@@ -12,8 +12,8 @@ describe('lazy', () => {
     const arrayOne: any = initializeArrayOnce();
     const arrayTwo: any = initializeArrayOnce();
 
-    assert.strictEqual(arrayOne, arrayTwo);
-    assert.notStrictEqual([], arrayOne);
+    assert.equal(arrayOne, arrayTwo);
+    assert.notEqual([], arrayOne);
   });
   it('handles callback exceptions', () => {
     let callCount = 0;
@@ -25,6 +25,6 @@ describe('lazy', () => {
     // Subsequent calls of the function should throw an exception without
     // re-evaluation
     assert.throws(exceptionCallback, Error);
-    assert.strictEqual(callCount, 1);
+    assert.equal(callCount, 1);
   });
 });
