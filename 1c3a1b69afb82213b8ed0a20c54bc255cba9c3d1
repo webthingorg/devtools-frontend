@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b68c97f_aeebedb9",
+        "filename": "back_end/CXXDWARFSymbols/tools/compile-formatters.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-29T14:39:59Z",
+      "side": 1,
+      "message": "go/pystyle#naming\n\nGoogle style is to use lower case variable names and function names, with _ as a separator.\n\nparse_args(argv), etc.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 20
+      },
+      "revId": "1c3a1b69afb82213b8ed0a20c54bc255cba9c3d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b50b055_041ac5e6",
+        "filename": "back_end/CXXDWARFSymbols/tools/compile-formatters.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-29T14:39:59Z",
+      "side": 1,
+      "message": "Optional: Might it be simpler to have the build file run this clang command and pipe its output into a script that parses it?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 96
+      },
+      "revId": "1c3a1b69afb82213b8ed0a20c54bc255cba9c3d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d0701f_a45c970c",
+        "filename": "back_end/CXXDWARFSymbols/tools/compile-formatters.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-29T14:39:59Z",
+      "side": 1,
+      "message": "Optional: I\u0027d marginally prefer a tool that returned the include paths, and have the build file run clang with include paths added to the command line, but if that\u0027s trickier don\u0027t bother.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "1c3a1b69afb82213b8ed0a20c54bc255cba9c3d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
