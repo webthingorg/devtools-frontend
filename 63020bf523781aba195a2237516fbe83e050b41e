@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "efbe8170_7b481f5d",
+        "filename": "front_end/browser_sdk/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T10:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fd68858_40341a47",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7a5fb91_a5e3a41b",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-04-29T06:55:11Z",
       "side": 1,
       "message": "DBC: The IssueAggregator also has a FullUpdateRequired event, which seems confusing.",
+      "range": {
+        "startLine": 138,
+        "startChar": 2,
+        "endLine": 138,
+        "endChar": 20
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b93afc_0dafe6ea",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T10:56:16Z",
+      "side": 1,
+      "message": "They have different qualified names (IssuesManager.Events.FullUpdateRequired/IssuesAggregator.Events.FullUpdateRequired), though, and their meaning is analogous.",
+      "parentUuid": "c7a5fb91_a5e3a41b",
       "range": {
         "startLine": 138,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "baa959f7_b84c53e9",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T10:56:16Z",
+      "side": 1,
+      "message": "Right, I was too defensive here.",
+      "parentUuid": "81f9013d_7ec5a373",
+      "range": {
+        "startLine": 116,
+        "startChar": 86,
+        "endLine": 116,
+        "endChar": 90
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb41988d_454dcacf",
         "filename": "front_end/issues/IssueAggregator.js",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "63020bf523781aba195a2237516fbe83e050b41e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ee68cf9_9240aa48",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T10:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb41988d_454dcacf",
+      "range": {
+        "startLine": 110,
+        "startChar": 54,
+        "endLine": 110,
+        "endChar": 65
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "be80c3e9_e5028577",
+        "filename": "test/unittests/front_end/browser_sdk/IssuesManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T10:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6a45bb3_e323c1ff",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 59
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21636d71_a5fc9da2",
         "filename": "test/unittests/front_end/sdk/MockIssuesModel.ts",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "63020bf523781aba195a2237516fbe83e050b41e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a834fcf8_53ded8b1",
+        "filename": "test/unittests/front_end/sdk/MockIssuesModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T10:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21636d71_a5fc9da2",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "63020bf523781aba195a2237516fbe83e050b41e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
