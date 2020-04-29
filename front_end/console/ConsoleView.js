@@ -301,13 +301,16 @@ export class ConsoleView extends UI.Widget.VBox {
     if (!this._issueBarDiv) {
       this._issueBarDiv = createElementWithClass('div', 'flex-none');
       const issueBar = new UI.Infobar.Infobar(
-          UI.Infobar.Type.Warning,
+            UI.Infobar.Type.Warning,
           ls
           `Issues detected. The new issues panel displays information about deprecations, breaking changes and other potential problems.`,
           [{
             text: ls`Go to Issues`,
             highlight: false,
-            delegate: () => UI.ViewManager.ViewManager.instance().showView('issues-pane'),
+            delegate: () => {
+        Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.ConsoleInfoBar);
+        UI.ViewManager.ViewManager.instance().showView('issues-pane');
+            },
             dismiss: true,
           }]);
           this.element.insertBefore(this._issueBarDiv, this._consoleToolbarContainer.nextSibling);
