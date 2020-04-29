@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "611a7ffc_e68d0a2d",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T07:18:47Z",
+      "side": 1,
+      "message": "The formatting seems off. Is this what clang-format produces? If so, let Tim know.",
+      "range": {
+        "startLine": 311,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 70
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc3720d9_fb4cad3e",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 3
@@ -18,6 +41,29 @@
         "startChar": 0,
         "endLine": 6,
         "endChar": 40
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69552b84_7b6574f9",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T07:18:47Z",
+      "side": 1,
+      "message": "Can we differentiate these by \"from where\", i.e. LearnMoreLinkCOEP, (and in the future LearnMoreLinkElementsPanel, etc). I think this will give is a better signal.",
+      "range": {
+        "startLine": 259,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 15
       },
       "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -59,6 +105,30 @@
       "writtenOn": "2020-04-29T06:07:06Z",
       "side": 1,
       "message": "will this work once we have translations?\n\nq: How is this case different from the one implemented in MainImpl.js? Both increase the count for \"HamburgerMenu\".",
+      "range": {
+        "startLine": 524,
+        "startChar": 20,
+        "endLine": 524,
+        "endChar": 28
+      },
+      "revId": "a397bf1e318ef8abb8773b3fc55e30a4cd854e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e94ffef_16963e9c",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-04-29T07:18:47Z",
+      "side": 1,
+      "message": "+1 to this, can we find a better way than to look at the title? viewId() should give you \u0027issues-pane\u0027.",
+      "parentUuid": "3272d5be_7df5714d",
       "range": {
         "startLine": 524,
         "startChar": 20,
