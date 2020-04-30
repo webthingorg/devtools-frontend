@@ -1,3 +1,7 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 /*
  * Copyright (C) 2007 Apple Inc.  All rights reserved.
  *
@@ -359,7 +363,32 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
      * @this {TreeOutline}
      */
     function deferredScrollIntoView() {
-      this._treeElementToScrollIntoView.listItemElement.scrollIntoViewIfNeeded(this._centerUponScrollIntoView);
+      const itemRect = this._treeElementToScrollIntoView.listItemElement.getBoundingClientRect();
+      const itemLeft = itemRect.left || 0;
+      const itemTop = itemRect.top || 0;
+
+      const treeRect = this.element.getBoundingClientRect();
+      const treeLeft = treeRect.Left || 0;
+      const treeTop = treeRect.top || 0;
+      const treeWidth = treeRect.width || 0;
+      const treeHeight = treeRect.height || 0;
+
+      // Only scroll into view on each axis if the item is not visible at all
+      // but if we do scroll and _centerUponScrollIntoView is true
+      // then we center the top left corner of the item in view.
+      let deltaLeft = itemLeft - treeLeft;
+      if (deltaLeft > 0 || deltaLeft < treeWidth) {
+        deltaLeft = 0;
+      } else if (this._centerUponScrollIntoView) {
+        deltaLeft = deltaLeft - treeWidth / 2;
+      }
+      let deltaTop = itemTop - treeTop;
+      if (deltaTop < treeHeight) {
+        deltaTop = 0;
+      } else if (this._centerUponScrollIntoView) {
+        deltaTop = deltaTop - treeHeight / 2;
+      }
+      this.element.scrollTo(deltaLeft, deltaTop);
       delete this._treeElementToScrollIntoView;
       delete this._centerUponScrollIntoView;
     }
