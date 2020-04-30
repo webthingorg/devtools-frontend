@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ccbfe513_de526512",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-04-30T07:59:34Z",
+      "side": 1,
+      "message": "Array#includes is O(n). Set#has is O(1). Let\u0027s use the latter?",
+      "revId": "267a64f04f99b6fec591659e3bbd938db07c96f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
