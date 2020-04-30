@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b349b0b2_d6dc7e1d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-04-30T04:56:57Z",
+      "side": 1,
+      "message": "Thanks for the feedback!\n\nI didn\u0027t realize linkifyScriptLocation was needed for source map / formatted script support, thanks for mentioning this.\n\nI agree we should try to plump through the script id and added the comment for now as you suggested.",
+      "parentUuid": "7a0f0ae4_8e93cdd0",
+      "revId": "44462bb489c118caf90ba801a1d8846642ef8848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bcf75fc_e5c813b2",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 11
@@ -51,6 +69,24 @@
       "revId": "44462bb489c118caf90ba801a1d8846642ef8848",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "287ec31e_cbd69831",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-04-30T04:56:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bcf75fc_e5c813b2",
+      "revId": "44462bb489c118caf90ba801a1d8846642ef8848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

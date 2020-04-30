@@ -22,6 +22,30 @@
       "revId": "162a6e9886427bbedda127ee9080a6d061768180",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a8271da_4f4e54e8",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-04-30T04:56:57Z",
+      "side": 1,
+      "message": "Removed. This CSS class isn\u0027t needed, it was a copy-pasta mistake.\n\nThanks for catching it!",
+      "parentUuid": "642509cd_906d736f",
+      "range": {
+        "startLine": 250,
+        "startChar": 53,
+        "endLine": 250,
+        "endChar": 77
+      },
+      "revId": "162a6e9886427bbedda127ee9080a6d061768180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
