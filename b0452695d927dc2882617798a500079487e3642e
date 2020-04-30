@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "788b0fe0_dd04bc70",
+        "filename": "front_end/third_party/codemirror/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-04-30T22:25:36Z",
+      "side": 1,
+      "message": "This folder path looks like a typo because all other entries are full file paths.\n\nI think the inclusion of this folder path creates a timing issue in the build. If the below files are copied into the measurement folder first subsequently copying the entire measurement folder fails.\n\nSee the buildbot failure here:\nhttps://ci.chromium.org/p/devtools-frontend/builders/ci/DevTools%20Linux/1208\n\nI did not reproduce the failure locally (on Win10).",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 30
+      },
+      "revId": "b0452695d927dc2882617798a500079487e3642e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
