@@ -3,18 +3,33 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
 
-class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
+class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
   /**
-   * @param {!SDK.RuntimeModel.RuntimeModel} runtimeModel
-   * @param {string} type
+   * @param {!SDK.DebuggerModel.CallFrame} callFrame
+   * @param {!Variable} variables
+   * @param {!DebuggerLanguagePlugin} plugin
+   * @param {!RawLocation} location
    */
-  constructor(runtimeModel, type) {
-    super(runtimeModel, undefined, 'object', undefined, null);
-    /** @type {!Array<!Variable>} */
-    this.variables = [];
+  constructor(callFrame, variable, plugin, location) {
+    super(callFrame.debuggerModel.runtimeModel(), undefined, variable.type, undefined, null, null, variable.type);
+    this._variable = variable;
+    this._callFrame = callFrame;
+    this._plugin = plugin;
+    this._location = location;
+    this._hasChildren = true;
+    this._evaluator = plugin.evaluateVariable(variable.name, location);
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  get type() {
+    this._variable.type;
   }
 
   /**
@@ -29,28 +44,77 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
       return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: [], internalProperties: []});
     }
 
-    const variableObjects = this.variables.map(
-        v => new SDK.RemoteObject.RemoteObjectProperty(
-            v.name, new SDK.RemoteObject.LocalJSONObject('(type: ' + v.type + ')'), false, false, true, false));
+    const evaluator = await this._evaluator;
+    const evaluateResponse = await this._callFrame.debuggerModel._agent.invoke_executeWasmEvaluator(
+        {callFrameId: this._callFrame.id, evaluator: evaluator.code});
+    if (evaluateResponse[ProtocolClient.InspectorBackend.ProtocolError] || evaluateResponse.exceptionDetails) {
+      console.error(evaluateResponse.exceptionDetails.exception.description);
+      return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({
+        properties: [new SDK.RemoteObject.RemoteObjectProperty('value', null, false, false, true, false)],
+        internalProperties: []
+      });
+    }
 
+    const value = JSON.parse(evaluateResponse.result.value);
+    const repr = await this._plugin.getRepresentation(value);
+    return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({
+      properties: [new SDK.RemoteObject.RemoteObjectProperty('value', repr, false, false, true, false)],
+      internalProperties: []
+    });
+  }
+}
 
-    return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: variableObjects, internalProperties: []});
+class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
+  /**
+   * @param {!SDK.DebuggerModel.CallFrame} callFrame
+   * @param {!DebuggerLanguagePlugin} plugin
+   * @param {!RawLocation} location
+   */
+  constructor(callFrame, plugin, location) {
+    super(callFrame.debuggerModel.runtimeModel(), undefined, 'object', undefined, null);
+    /** @type {!Array<!Variable>} */
+    this.variables = [];
+    this._callFrame = callFrame;
+    this._plugin = plugin;
+    this._location = location;
+  }
+
+  /**
+   * @override
+   * @param {boolean} ownProperties
+   * @param {boolean} accessorPropertiesOnly
+   * @param {boolean} generatePreview
+   * @return {!Promise<!SDK.RemoteObject.GetPropertiesResult>}
+   */
+  async doGetProperties(ownProperties, accessorPropertiesOnly, generatePreview) {
+    if (accessorPropertiesOnly) {
+      return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: [], internalProperties: []});
+    }
+
+    const properties = this.variables.map(
+        variable => new SDK.RemoteObject.RemoteObjectProperty(
+            variable.name, new SourceVariable(this._callFrame, variable, this._plugin, this._location), false, false,
+            true, false));
+
+    return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: properties, internalProperties: []});
   }
 }
 
 /**
  * @unrestricted
- * TODO rename Scope to RawScope and add an interface
+ * TODO rename Scope to RawScope and add a common interface
  */
 class SourceScope {
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
-   * @param {string} type Scope type.
+   * @param {string} type
+   * @param {!DebuggerLanguagePlugin} plugin
+   * @param {!RawLocation} location
    */
-  constructor(callFrame, type) {
+  constructor(callFrame, type, plugin, location) {
     this._callFrame = callFrame;
     this._type = type;
-    this._object = new SourceScopeRemoteObject(callFrame.debuggerModel.runtimeModel(), type);
+    this._object = new SourceScopeRemoteObject(callFrame, plugin, location);
     this._name = type;
     /** @type {?Location} */
     this._startLocation = null;
@@ -449,12 +513,16 @@ export class DebuggerLanguagePluginManager {
     }
     /** @type {!Map<string, !SourceScope>} */
     const scopes = new Map();
-    const variables = await plugin.listVariablesInScope(
-        {'rawModuleId': script.scriptId, 'codeOffset': callFrame.location().columnNumber - script.codeOffset()});
+    /** @type {!RawLocation}} */
+    const location = {
+      'rawModuleId': script.scriptId,
+      'codeOffset': callFrame.location().columnNumber - script.codeOffset()
+    };
+    const variables = await plugin.listVariablesInScope(location);
     if (variables) {
       for (const variable of variables) {
         if (!scopes.has(variable.scope)) {
-          scopes.set(variable.scope, new SourceScope(callFrame, variable.scope));
+          scopes.set(variable.scope, new SourceScope(callFrame, variable.scope, plugin, location));
         }
         scopes.get(variable.scope).object().variables.push(variable);
       }
@@ -565,5 +633,12 @@ export class DebuggerLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async evaluateVariable(name, location) {
+  }
+
+  /** Produce a language specific representation of a variable value
+   * @param {*} value
+   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
+   */
+  async getRepresentation(value) {
   }
 }
