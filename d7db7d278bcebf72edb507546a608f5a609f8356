@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9395af63_9eecfa05",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-04-30T22:57:44Z",
+      "side": 1,
+      "message": "can deltaLeft be negative? if not, doesn\u0027t \"deltaLeft \u003e 0\" already cover \"deltaLeft \u003c treeWidth\" ?",
+      "range": {
+        "startLine": 380,
+        "startChar": 10,
+        "endLine": 380,
+        "endChar": 48
+      },
+      "revId": "d7db7d278bcebf72edb507546a608f5a609f8356",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
