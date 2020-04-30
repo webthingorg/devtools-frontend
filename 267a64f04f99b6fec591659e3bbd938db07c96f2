@@ -16,6 +16,24 @@
       "revId": "267a64f04f99b6fec591659e3bbd938db07c96f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "658b58e7_e1683e98",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-30T08:09:13Z",
+      "side": 1,
+      "message": "Let\u0027s use Set! The overall complexity would be still O(n) because of the insertion into Set (also n is constant)",
+      "parentUuid": "ccbfe513_de526512",
+      "revId": "267a64f04f99b6fec591659e3bbd938db07c96f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
