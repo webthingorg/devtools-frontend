@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3b9e9384_7144c7e5",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-30T20:30:49Z",
+      "side": 1,
+      "message": "Good idea, done",
+      "parentUuid": "d9f0639b_3a2ecbb6",
+      "revId": "745abb7ea006ff63ff63e5271aa56ee96b91145b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82367f83_6451c253",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 20
@@ -33,6 +51,24 @@
       "revId": "745abb7ea006ff63ff63e5271aa56ee96b91145b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "555cdde1_175ce36c",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-30T20:30:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82367f83_6451c253",
+      "revId": "745abb7ea006ff63ff63e5271aa56ee96b91145b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

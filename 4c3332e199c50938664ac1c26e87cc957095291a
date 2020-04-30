@@ -16,6 +16,24 @@
       "revId": "4c3332e199c50938664ac1c26e87cc957095291a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a397687_235036ae",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-04-30T20:30:49Z",
+      "side": 1,
+      "message": "This allows us to display an icon next to default shortcuts that have been disabled by the active preset. I\u0027ve moved it into the CL with the icon: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2173748",
+      "parentUuid": "de397b2b_f89e0dc3",
+      "revId": "4c3332e199c50938664ac1c26e87cc957095291a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
