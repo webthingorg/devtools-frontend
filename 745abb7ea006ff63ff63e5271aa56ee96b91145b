@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9f0639b_3a2ecbb6",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-30T01:46:31Z",
+      "side": 1,
+      "message": "Would be nice to set \u0027devToolsDefault\u0027 as an (exported) constant somewhere to prevent typos.",
+      "revId": "745abb7ea006ff63ff63e5271aa56ee96b91145b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82367f83_6451c253",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-30T01:46:31Z",
+      "side": 1,
+      "message": "nit: unnecessary newline 😊",
+      "revId": "745abb7ea006ff63ff63e5271aa56ee96b91145b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

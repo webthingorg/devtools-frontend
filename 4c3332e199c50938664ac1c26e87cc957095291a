@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de397b2b_f89e0dc3",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-04-30T01:46:31Z",
+      "side": 1,
+      "message": "Where is this function used? I\u0027m not really sure what the _devToolsDefaultShortcutActions map does.\n\nYou could also probably simplify the name to defaultShortcutActions as well.",
+      "revId": "4c3332e199c50938664ac1c26e87cc957095291a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
