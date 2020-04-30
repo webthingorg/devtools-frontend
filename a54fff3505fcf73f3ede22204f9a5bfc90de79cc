@@ -46,6 +46,30 @@
       "revId": "a54fff3505fcf73f3ede22204f9a5bfc90de79cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b02116a_4dd0f947",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-30T09:53:02Z",
+      "side": 1,
+      "message": "ohhh OK this is not obvious from reading the code so far - can you add a comment here explaining that?",
+      "parentUuid": "bf957a4d_fbf277fa",
+      "range": {
+        "startLine": 330,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 5
+      },
+      "revId": "a54fff3505fcf73f3ede22204f9a5bfc90de79cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
