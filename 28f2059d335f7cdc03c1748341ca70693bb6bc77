@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c85324ca_31869079",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-30T04:38:48Z",
+      "side": 1,
+      "message": "Suggestion: Disallow setting breakpoints on unbreakable lines in Wasm Disassembly",
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8016368_89669f63",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-30T04:38:48Z",
+      "side": 1,
+      "message": "nit: \"on\" non-breakable line",
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

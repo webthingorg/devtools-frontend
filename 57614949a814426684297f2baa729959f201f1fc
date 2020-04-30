@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "10639d79_cc65a2b6",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-04-30T04:38:48Z",
+      "side": 1,
+      "message": "I\u0027d suggest to rename the already existing cm-line-without-source-mapping for this (front_end/text_editor/cmdevtools.css), since we don\u0027t really need separate style classes for this.",
+      "parentUuid": "52db8d06_151353bf",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "303a01f8_485161da",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 10
