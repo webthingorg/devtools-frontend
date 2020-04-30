@@ -19,6 +19,46 @@
     },
     {
       "key": {
+        "uuid": "36ce4496_ee68d7f7",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-30T15:28:06Z",
+      "side": 1,
+      "message": "Optional: I\u0027m inclined to suggest (first + last) \u003e\u003e 1 so I know we\u0027re not using floating point math, but I\u0027m not sure if that\u0027s JS style and it\u0027s not particularly performance critical.",
+      "range": {
+        "startLine": 372,
+        "startChar": 18,
+        "endLine": 372,
+        "endChar": 48
+      },
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1702356e_f033d9ad",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-04-30T15:28:06Z",
+      "side": 1,
+      "message": "I\u0027m concerned that we are coupling previously uncoupled parts of the code. Maybe instead of getting the Script here, we can change the code to provide no raw locations for unbreakable locations? I don\u0027t think that would break any existing use case.\n\nSo in this case you would modify Script.wasmByteLocation to check if the byte location is within a function and only return a location if it is, and then we don\u0027t need this function and don\u0027t need to interact with the Script object from the DebuggerPlugin, we would just not get a location if it isn\u0027t breakable. Does that make sense?",
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8016368_89669f63",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 13
