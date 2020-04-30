@@ -1153,7 +1153,12 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     // TODO: using this.property.index to access its containing StyleDeclaration's property will result in
     // off-by-1 errors when the containing StyleDeclaration's respective property has already been deleted.
     // These referencing logic needs to be updated to be more robust.
-    const updatedProperty = property || this._style.propertyAt(this.property.index);
+    let updatedProperty;
+    if (majorChange && !styleText.length) {
+      updatedProperty = this.property;
+    } else {
+      updatedProperty = property || this._style.propertyAt(this.property.index);
+    }
     const isPropertyWithinBounds = this.property.index < this._style.allProperties().length;
     if (!success || (!updatedProperty && isPropertyWithinBounds)) {
       if (majorChange) {
