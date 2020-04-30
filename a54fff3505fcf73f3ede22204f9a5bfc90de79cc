@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "122bb1cb_2a4879ed",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-30T08:42:01Z",
+      "side": 1,
+      "message": "So we will only send valid values, but an invalid value could get stored in settings still? Maybe it\u0027s better to just send whatever value was stored so that we get the error back - then all the validation is in one place in the backend.",
+      "range": {
+        "startLine": 330,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 5
+      },
+      "revId": "a54fff3505fcf73f3ede22204f9a5bfc90de79cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

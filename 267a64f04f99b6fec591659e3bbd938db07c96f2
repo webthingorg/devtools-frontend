@@ -34,6 +34,24 @@
       "revId": "267a64f04f99b6fec591659e3bbd938db07c96f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dc9509c_f1ac1074",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-04-30T08:42:01Z",
+      "side": 1,
+      "message": "n is also 3 (!). Now we need to analyze string hash times 🤓",
+      "parentUuid": "658b58e7_e1683e98",
+      "revId": "267a64f04f99b6fec591659e3bbd938db07c96f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
