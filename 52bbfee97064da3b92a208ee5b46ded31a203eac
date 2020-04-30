@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6c20039_311cb933",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-30T13:24:49Z",
+      "side": 1,
+      "message": "Nit: can be `Fixed: 1076863`",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "52bbfee97064da3b92a208ee5b46ded31a203eac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89f5bf78_02a6553e",
+        "filename": "front_end/Images/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-30T13:24:49Z",
+      "side": 1,
+      "message": "Nit: Missing license header",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 4
+      },
+      "revId": "52bbfee97064da3b92a208ee5b46ded31a203eac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ecea977_f1a4e48b",
+        "filename": "test/unittests/front_end/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-04-30T13:24:49Z",
+      "side": 1,
+      "message": "Nit: Should also include `png`: `*.{svg,png}`",
+      "range": {
+        "startLine": 47,
+        "startChar": 61,
+        "endLine": 47,
+        "endChar": 64
+      },
+      "revId": "52bbfee97064da3b92a208ee5b46ded31a203eac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
