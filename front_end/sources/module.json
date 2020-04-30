@@ -855,13 +855,6 @@
     },
     {
       "type": "view",
-      "id": "sources.sourceScopeChain",
-      "title": "Source Scope",
-      "persistence": "permanent",
-      "className": "Sources.SourceScopeChainSidebarPane"
-    },
-    {
-      "type": "view",
       "id": "sources.scopeChain",
       "title": "Scope",
       "persistence": "permanent",
@@ -895,13 +888,6 @@
         "SDK.DebuggerPausedDetails"
       ],
       "className": "Sources.CallStackSidebarPane"
-    },
-    {
-      "type": "@UI.ContextFlavorListener",
-      "contextTypes": [
-        "SDK.DebuggerModel.CallFrame"
-      ],
-      "className": "Sources.SourceScopeChainSidebarPane"
     },
     {
       "type": "@UI.ContextFlavorListener",
