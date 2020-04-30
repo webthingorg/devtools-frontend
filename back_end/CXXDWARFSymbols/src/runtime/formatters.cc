@@ -3,8 +3,7 @@
 // found in the LICENSE file.
 
 #include <errno.h>
-#include <stddef.h>
-#include <stdint.h>
+#include <cstddef>
 #include <cstdint>
 #include <cstring>
 #include <type_traits>

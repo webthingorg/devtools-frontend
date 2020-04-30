@@ -17,6 +17,8 @@ vars = {
 
   'llvm_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/',
   'llvm_revision': '302e11cd974255eafd80ee4fdf52054a00b3e4be',
+  'emscripten_url': 'https://chromium.googlesource.com/external/github.com/emscripten-core/emscripten/',
+  'emscripten_revision': 'fb47212ca200f3b1e62d9ecd93c66642a82320ee',
   'build_symbol_server': False,
 
   'clang_format_url': 'https://chromium.googlesource.com/chromium/llvm-project/cfe/tools/clang-format.git',
@@ -85,7 +87,11 @@ deps = {
   'devtools-frontend/back_end/CXXDWARFSymbols/third_party/llvm': {
     'url': Var('llvm_url') + '@' + Var('llvm_revision'),
     'condition': 'build_symbol_server'
-  }
+  },
+  'devtools-frontend/back_end/CXXDWARFSymbols/third_party/emscripten': {
+    'url': Var('emscripten_url') + '@' + Var('emscripten_revision'),
+    'condition': 'build_symbol_server',
+  },
 }
 
 hooks = [
