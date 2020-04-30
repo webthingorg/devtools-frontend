@@ -16,6 +16,24 @@
       "revId": "eb6c483a7a3d9e2ae6dae437d56192603418a450",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a995943f_3eba5eea",
+        "filename": "back_end/CXXDWARFSymbols/src/DWARFLocationParser.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-04-30T17:48:36Z",
+      "side": 1,
+      "message": "we decided to switch to chromium style since this now lives in the chromium tree.",
+      "parentUuid": "d824b6ff_3c786059",
+      "revId": "eb6c483a7a3d9e2ae6dae437d56192603418a450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
