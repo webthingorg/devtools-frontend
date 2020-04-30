@@ -1170,7 +1170,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     this._matchedStyles.resetActiveProperties();
     this._hasBeenEditedIncrementally = true;
-    this.property = updatedProperty;
+    if (!majorChange || styleText.length) {
+      this.property = updatedProperty;
+    }
 
     if (currentNode === this.node()) {
       this._updatePane();
