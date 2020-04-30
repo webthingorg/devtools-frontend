@@ -7710,6 +7710,16 @@ declare namespace Protocol {
        * The grid layout color (default: transparent).
        */
       cssGridColor?: DOM.RGBA;
+      /**
+       * The color format used to format color styles (default: hex).
+       */
+      colorFormat?: ColorFormat;
+    }
+
+    export enum ColorFormat {
+      Rgb = 'rgb',
+      Hsl = 'hsl',
+      Hex = 'hex',
     }
 
     export enum InspectMode {
@@ -7733,6 +7743,10 @@ declare namespace Protocol {
        * Whether to include style info.
        */
       includeStyle?: boolean;
+      /**
+       * The color format to get config with (default: hex)
+       */
+      colorFormat?: ColorFormat;
     }
 
     export interface GetHighlightObjectForTestResponse extends ProtocolResponseWithError {
@@ -8313,6 +8327,13 @@ declare namespace Protocol {
       PageBlockInterstitial = 'pageBlockInterstitial',
       Reload = 'reload',
       AnchorClick = 'anchorClick',
+    }
+
+    export enum ClientNavigationDisposition {
+      CurrentTab = 'currentTab',
+      NewTab = 'newTab',
+      NewWindow = 'newWindow',
+      Download = 'download',
     }
 
     export interface InstallabilityErrorArgument {
@@ -9087,6 +9108,10 @@ declare namespace Protocol {
        * The destination URL for the requested navigation.
        */
       url: string;
+      /**
+       * The disposition for the navigation.
+       */
+      disposition: ClientNavigationDisposition;
     }
 
     /**

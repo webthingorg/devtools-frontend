@@ -5146,6 +5146,14 @@ experimental domain Overlay
       optional DOM.RGBA shapeMarginColor
       # The grid layout color (default: transparent).
       optional DOM.RGBA cssGridColor
+      # The color format used to format color styles (default: hex).
+      optional ColorFormat colorFormat
+
+  type ColorFormat extends string
+    enum
+      rgb
+      hsl
+      hex
 
   type InspectMode extends string
     enum
@@ -5170,6 +5178,8 @@ experimental domain Overlay
       optional boolean includeDistance
       # Whether to include style info.
       optional boolean includeStyle
+      # The color format to get config with (default: hex)
+      optional ColorFormat colorFormat
     returns
       # Highlight data for the node.
       object highlight
@@ -5541,6 +5551,13 @@ domain Page
       pageBlockInterstitial
       reload
       anchorClick
+
+  experimental type ClientNavigationDisposition extends string
+    enum
+      currentTab
+      newTab
+      newWindow
+      download
 
   experimental type InstallabilityErrorArgument extends object
     properties
@@ -6118,6 +6135,8 @@ domain Page
       ClientNavigationReason reason
       # The destination URL for the requested navigation.
       string url
+      # The disposition for the navigation.
+      ClientNavigationDisposition disposition
 
   # Fired when frame schedules a potential navigation.
   deprecated event frameScheduledNavigation
