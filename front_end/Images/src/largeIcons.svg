@@ -12,7 +12,7 @@
    height="216"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="largeIcons.svg">
   <metadata
      id="metadata606">
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -77,16 +77,21 @@
      inkscape:window-height="1378"
      id="namedview602"
      showgrid="true"
-     inkscape:zoom="2.0624059"
-     inkscape:cx="157.72124"
-     inkscape:cy="153.42465"
-     inkscape:window-x="612"
-     inkscape:window-y="-43"
+     inkscape:zoom="16"
+     inkscape:cx="239.85904"
+     inkscape:cy="32.968716"
+     inkscape:window-x="731"
+     inkscape:window-y="367"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg2"
      inkscape:snap-grids="true"
      showguides="true"
-     inkscape:guide-bbox="true">
+     inkscape:guide-bbox="true"
+     inkscape:snap-to-guides="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-bbox="false"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-others="false">
     <inkscape:grid
        type="xygrid"
        id="grid3583"
@@ -1573,4 +1578,17 @@
        x="-15.644068"
        y="15.559311"
        style="font-size:12px;line-height:1.25;font-family:sans-serif">9</tspan></text>
+  <!--
+    The following icon is a modification of one provided by Microsoft
+    as part of the vscode-icons project, hosted at
+    https://github.com/microsoft/vscode-icons. It is licensed under the
+    Creative Commons Attribution 4.0 International Public License,
+    available at: https://creativecommons.org/licenses/by/4.0/legalcode.
+  -->
+  <path
+     id="path4030"
+     d="m 242,173 h -11 c -0.55229,0 -1,0.40661 -1,1 v 7.628 c -1e-5,0.59339 0.44771,1.07434 1,1.07434 h 7.02699 c 0.039,-0.37283 0.11701,-0.73275 0.23001,-1.07443 H 231 V 174 h 11 v 4.43368 c 0.33232,-0.0395 0.66768,-0.0395 1,0 V 174 c 0,-0.59339 -0.44771,-1 -1,-1 z m -3.24201,7 c 0.076,-0.12141 0.15601,-0.0628 0.24201,-0.17675 V 179 h -5.00001 v 1 z M 239,175 l -1,2.1e-4 V 176 h 1 z m -1,2 h -1.00001 v 1 H 238 Z m 1.99999,-1.99979 H 241 V 176 h -1.00001 z M 241,178 v -1 h -2 v 1 z m -5,-2.99979 h 0.99999 V 176 H 236 Z M 236,177 h -1.00001 v 1 H 236 Z m -4,2 h 1 v 1 h -1 z m 0,-4 1,-2.1e-4 V 176 h -1 z m 2.99999,2.1e-4 h -1 V 176 h 1 z M 232,177 h 1.99999 v 1 H 232 Z m 7.274,4.77296 c -0.18413,0.46194 -0.27742,0.95978 -0.274,1.46228 0.0101,0.39754 0.068,0.78111 0.172,1.15178 0.104,0.36959 0.25999,0.70912 0.46999,1.0164 0.20801,0.30836 0.453,0.58018 0.73501,0.81548 0.281,0.2353 0.59699,0.41903 0.946,0.5544 l 0.336,-1.00887 c -0.24862,-0.0883 -0.48132,-0.22162 -0.68801,-0.39431 -0.19914,-0.16932 -0.37548,-0.36746 -0.52399,-0.58879 -0.1503,-0.2222 -0.26645,-0.46887 -0.34401,-0.73061 -0.0739,-0.26286 -0.1087,-0.53664 -0.103,-0.81118 -0.0118,-0.36443 0.0499,-0.7273 0.18101,-1.06366 0.25418,-0.64354 0.73103,-1.15587 1.32999,-1.42898 0.31416,-0.13546 0.65057,-0.20125 0.98901,-0.1934 0.344,0 0.64999,0.0537 0.958,0.19447 0.308,0.13968 0.57399,0.33307 0.79799,0.58019 0.22401,0.24711 0.40101,0.53184 0.53201,0.85631 0.12999,0.32555 0.21199,0.68548 0.21199,1.05507 -0.0104,0.41421 -0.10711,0.82064 -0.283,1.18939 -0.16344,0.37729 -0.40944,0.70648 -0.717,0.95944 v -1.61485 H 242.997 V 187 h 3.00299 v -1.0755 H 244.928 c 0.33999,-0.35884 0.60001,-0.77034 0.78299,-1.23556 0.182,-0.46524 0.289,-0.93904 0.289,-1.4494 -0.003,-0.50771 -0.10163,-1.00952 -0.28999,-1.47517 -0.17452,-0.44669 -0.4294,-0.85197 -0.75001,-1.1926 -0.32056,-0.33796 -0.697,-0.60869 -1.10999,-0.79829 -0.42605,-0.19791 -0.88584,-0.29818 -1.35,-0.2944 -0.47999,0 -0.945,0.0978 -1.373,0.2944 -0.41576,0.18748 -0.79297,0.46132 -1.11,0.80581 -0.31301,0.34274 -0.56001,0.74027 -0.743,1.19367 z"
+     inkscape:connector-curvature="0"
+     style="clip-rule:evenodd;fill-rule:evenodd;stroke-width:1.03654087"
+     sodipodi:nodetypes="ssccsccccccccsccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
 </svg>
