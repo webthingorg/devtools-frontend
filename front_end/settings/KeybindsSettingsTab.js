@@ -59,10 +59,16 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
       itemElement.createChild('div', 'keybinds-action-name keybinds-list-text').textContent = item.title();
       const shortcuts = self.UI.shortcutRegistry.shortcutsForAction(item.id());
       shortcuts.forEach((shortcut, index) => {
+        if (!shortcut.isDefault()) {
+          itemElement.appendChild(UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified'));
+        }
         const shortcutElement = itemElement.createChild('div', 'keybinds-shortcut keybinds-list-text');
         const keys = shortcut.descriptors.flatMap(descriptor => descriptor.name.split(' + '));
         keys.forEach(key => shortcutElement.createChild('span', 'keybinds-key').textContent = key);
       });
+      if (shortcuts.length === 0 && self.UI.shortcutRegistry.actionHasDefaultShortcut(item.id())) {
+        itemElement.appendChild(UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified'));
+      }
     }
 
     return itemElement;
