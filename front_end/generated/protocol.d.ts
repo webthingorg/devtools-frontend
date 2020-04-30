@@ -11828,6 +11828,28 @@ declare namespace Protocol {
       exceptionDetails?: Runtime.ExceptionDetails;
     }
 
+    export interface ExecuteWasmEvaluatorRequest {
+      /**
+       * WebAssembly call frame identifier to evaluate on.
+       */
+      callFrameId: CallFrameId;
+      /**
+       * Code of the evaluator module.
+       */
+      evaluator: binary;
+    }
+
+    export interface ExecuteWasmEvaluatorResponse extends ProtocolResponseWithError {
+      /**
+       * Object wrapper for the evaluation result.
+       */
+      result: Runtime.RemoteObject;
+      /**
+       * Exception details.
+       */
+      exceptionDetails?: Runtime.ExceptionDetails;
+    }
+
     export interface GetPossibleBreakpointsRequest {
       /**
        * Start of range to search possible breakpoint locations in.

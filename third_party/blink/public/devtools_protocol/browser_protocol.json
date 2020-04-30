@@ -17401,6 +17401,36 @@
                     ]
                 },
                 {
+                    "name": "executeWasmEvaluator",
+                    "description": "Execute a Wasm Evaluator module on a given call frame.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "callFrameId",
+                            "description": "WebAssembly call frame identifier to evaluate on.",
+                            "$ref": "CallFrameId"
+                        },
+                        {
+                            "name": "evaluator",
+                            "description": "Code of the evaluator module.",
+                            "type": "binary"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "name": "result",
+                            "description": "Object wrapper for the evaluation result.",
+                            "$ref": "Runtime.RemoteObject"
+                        },
+                        {
+                            "name": "exceptionDetails",
+                            "description": "Exception details.",
+                            "optional": true,
+                            "$ref": "Runtime.ExceptionDetails"
+                        }
+                    ]
+                },
+                {
                     "name": "getPossibleBreakpoints",
                     "description": "Returns possible locations for breakpoint. scriptId in start and end range locations should be\nthe same.",
                     "parameters": [
