@@ -22,6 +22,30 @@
       "revId": "a54fff3505fcf73f3ede22204f9a5bfc90de79cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf957a4d_fbf277fa",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-04-30T08:49:57Z",
+      "side": 1,
+      "message": "The only value that is omitted is \"original\". It\u0027s not invalid I\u0027d say: it\u0027s not supported by the backend at the moment because there is no way to get the original text using computed styles.",
+      "parentUuid": "122bb1cb_2a4879ed",
+      "range": {
+        "startLine": 330,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 5
+      },
+      "revId": "a54fff3505fcf73f3ede22204f9a5bfc90de79cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
