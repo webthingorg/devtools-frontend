@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d824b6ff_3c786059",
+        "filename": "back_end/CXXDWARFSymbols/src/DWARFLocationParser.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001135
+      },
+      "writtenOn": "2020-04-30T16:09:05Z",
+      "side": 1,
+      "message": "High-level question: are you intending to follow Chromium or LLVM style here?\nGiven that this is basically an LLVM-derived project, that probably makes the most sense.\nIf LLVM, you can do\n`using namespace llvm;` which is ubiquitous in LLVM and makes things more readable IMO, at least when using common constructs like `Value`, `Error`, etc.",
+      "revId": "eb6c483a7a3d9e2ae6dae437d56192603418a450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
