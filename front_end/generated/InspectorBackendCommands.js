@@ -2322,6 +2322,13 @@ export function registerCommands(inspectorBackend) {
       ],
       ['result', 'exceptionDetails'], false);
   inspectorBackend.registerCommand(
+      'Debugger.executeWasmEvaluator',
+      [
+        {'name': 'callFrameId', 'type': 'string', 'optional': false},
+        {'name': 'evaluator', 'type': 'string', 'optional': false}
+      ],
+      ['result', 'exceptionDetails'], false);
+  inspectorBackend.registerCommand(
       'Debugger.getPossibleBreakpoints',
       [
         {'name': 'start', 'type': 'object', 'optional': false}, {'name': 'end', 'type': 'object', 'optional': true},
