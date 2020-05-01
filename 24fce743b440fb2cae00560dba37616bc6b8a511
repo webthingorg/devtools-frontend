@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "15f1996e_9c30a662",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-05-01T03:30:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2db204f5_611367dc",
+      "range": {
+        "startLine": 366,
+        "startChar": 6,
+        "endLine": 366,
+        "endChar": 7
+      },
+      "revId": "24fce743b440fb2cae00560dba37616bc6b8a511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea2d6a5b_a498f319",
         "filename": "front_end/ui/Treeoutline.js",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b70fc81d_49d6e284",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-05-01T03:30:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea2d6a5b_a498f319",
+      "range": {
+        "startLine": 371,
+        "startChar": 32,
+        "endLine": 371,
+        "endChar": 36
+      },
+      "revId": "24fce743b440fb2cae00560dba37616bc6b8a511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ab1391a_91deda08",
         "filename": "front_end/ui/Treeoutline.js",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "24fce743b440fb2cae00560dba37616bc6b8a511",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f70900_71245758",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-05-01T03:30:58Z",
+      "side": 1,
+      "message": "Thanks for the advice!",
+      "parentUuid": "3ab1391a_91deda08",
+      "range": {
+        "startLine": 377,
+        "startChar": 25,
+        "endLine": 377,
+        "endChar": 41
+      },
+      "revId": "24fce743b440fb2cae00560dba37616bc6b8a511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
