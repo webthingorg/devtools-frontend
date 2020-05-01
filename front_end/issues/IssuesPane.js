@@ -304,14 +304,15 @@ class AffectedSourcesView extends AffectedResourcesView {
    * @param {!SDK.Issue.AffectedSource} source
    */
   _appendAffectedSource({url, lineNumber, columnNumber}) {
-    const cellElement = createElementWithClass('td', '');
+    const cellElement = document.createElement('td');
     // TODO(chromium:1072331): Check feasibility of plumping through scriptId for `linkifyScriptLocation`
     //                         to support source maps and formatted scripts.
     const linkifierURLOptions =
         /** @type {!Components.Linkifier.LinkifyURLOptions} */ ({columnNumber, lineNumber, tabStop: true});
     const anchorElement = Components.Linkifier.Linkifier.linkifyURL(url, linkifierURLOptions);
     cellElement.appendChild(anchorElement);
-    const rowElement = createElementWithClass('tr', '');
+    const rowElement = document.createElement('tr');
+    rowElement.classList.add('affected-resource-source');
     rowElement.appendChild(cellElement);
     this._affectedResources.appendChild(rowElement);
   }
