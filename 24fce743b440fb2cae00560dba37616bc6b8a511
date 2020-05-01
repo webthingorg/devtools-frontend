@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2db204f5_611367dc",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-01T03:05:53Z",
+      "side": 1,
+      "message": "maybe add a comment here on why we moved away from scrollIntoViewIfNeeded",
+      "range": {
+        "startLine": 366,
+        "startChar": 6,
+        "endLine": 366,
+        "endChar": 7
+      },
+      "revId": "24fce743b440fb2cae00560dba37616bc6b8a511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea2d6a5b_a498f319",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-01T03:05:53Z",
+      "side": 1,
+      "message": "should this be lowercase?",
+      "range": {
+        "startLine": 371,
+        "startChar": 32,
+        "endLine": 371,
+        "endChar": 36
+      },
+      "revId": "24fce743b440fb2cae00560dba37616bc6b8a511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ab1391a_91deda08",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-01T03:05:53Z",
+      "side": 1,
+      "message": "I think you can assume the getBoundingClientRect will return a DOMRect that will have all the variables, so you can use them directly instead of creating a new const :)",
+      "range": {
+        "startLine": 377,
+        "startChar": 25,
+        "endLine": 377,
+        "endChar": 41
+      },
+      "revId": "24fce743b440fb2cae00560dba37616bc6b8a511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
