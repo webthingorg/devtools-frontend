@@ -101,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "a44dcadb_654eb0fd",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-01T02:31:58Z",
+      "side": 1,
+      "message": "Sounds like a reasonable idea @Eric. But when I change Script.wasmByteLocation to return nothing, I can still set breakpoint (of course it does not break but still display in the UI).\nThat means it would require to change some more logic 😊",
+      "parentUuid": "1702356e_f033d9ad",
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8016368_89669f63",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 13
