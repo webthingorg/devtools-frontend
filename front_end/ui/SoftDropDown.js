@@ -263,7 +263,8 @@ export class SoftDropDown {
    * @return {!Element}
    */
   createElementForItem(item) {
-    const element = createElementWithClass('div', 'item');
+    const element = document.createElement('div');
+    element.classList.add('item');
     element.addEventListener('mousemove', e => {
       if ((e.movementX || e.movementY) && this._delegate.isItemSelectable(item)) {
         this._list.selectItem(item, false, /* Don't scroll */ true);

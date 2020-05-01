@@ -1055,10 +1055,12 @@ export class NetworkRequestNode extends NetworkNode {
         previewImage.alt = this._request.resourceType().title();
         this._request.populateImageSource(previewImage);
 
-        iconElement = createElementWithClass('div', 'icon');
+        iconElement = document.createElement('div');
+        iconElement.classList.add('icon');
         iconElement.appendChild(previewImage);
       } else {
-        iconElement = createElementWithClass('img', 'icon');
+        iconElement = document.createElement('img');
+        iconElement.classList.add('icon');
         iconElement.alt = this._request.resourceType().title();
       }
       iconElement.classList.add(this._request.resourceType().name());
