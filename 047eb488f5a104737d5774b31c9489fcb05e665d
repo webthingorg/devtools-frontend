@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9085babb_8d7b27ea",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-05-01T16:31:55Z",
+      "side": 1,
+      "message": "gclient will create standalone checkouts for you (without a symclink) if you add a solution entry.\n\nWhen done via the solution config running `gclient sync` once in any folder will update all solutions accordingly.\n\nSee:\nhttps://www.chromium.org/developers/how-tos/chromium-modularization#Advanced_Usage\n\nI am just not sure how compatible it is with our infrastructure.\nTim@ do you see any problem with using multiple gclient solutions?\n\nHere is what my .gclient file looks like:\n\n```\nsolutions \u003d [\n  {\n    \"url\": \"https://chromium.googlesource.com/chromium/src.git\",\n    \"managed\": False,\n    \"name\": \"src\",\n    \"custom_deps\": {\n      \"src/third_party/devtools-frontend/src\": None,\n    },\n    \"custom_vars\": {},\n  },\n  { \"name\"        : \"devtools\",\n    \"url\"         : \"https://chromium.googlesource.com/devtools/devtools-frontend\",\n    \"custom_deps\" : {}\n  }\n]\n```\n\nFYI brgoddar@",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 128
+      },
+      "revId": "047eb488f5a104737d5774b31c9489fcb05e665d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
