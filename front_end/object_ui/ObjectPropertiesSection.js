@@ -901,7 +901,8 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       return null;
     }
 
-    const valueElement = createElementWithClass('span', 'value');
+    const valueElement = document.createElement('span');
+    valueElement.classList.add('value');
     if (value.description === 'Object') {
       valueElement.textContent = '';
     } else {
@@ -925,7 +926,8 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     const isInternalEntries = this.property.synthetic && this.property.name === '[[Entries]]';
     if (isInternalEntries) {
-      this.valueElement = createElementWithClass('span', 'value');
+      this.valueElement = document.createElement('span');
+      this.valueElement.classList.add('value');
     } else if (this.property.value) {
       const showPreview = this.property.name !== '__proto__';
       this.propertyValue = ObjectPropertiesSection.createPropertyValueWithCustomSupport(

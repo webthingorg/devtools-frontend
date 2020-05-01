@@ -2235,7 +2235,8 @@ export class InvalidationsGroupElement extends UI.TreeOutline.TreeElement {
     const title = UI.UIUtils.formatLocalized('%s for %s', [reason, truncatedNodesElement]);
 
     if (topFrame && this._contentHelper.linkifier()) {
-      const stack = createElementWithClass('span', 'monospace');
+      const stack = document.createElement('span');
+      stack.classList.add('monospace');
       const completeTitle = UI.UIUtils.formatLocalized('%s. %s', [title, stack]);
       stack.createChild('span').textContent = TimelineUIUtils.frameDisplayName(topFrame);
       const link = this._contentHelper.linkifier().maybeLinkifyConsoleCallFrame(target, topFrame);
@@ -2254,7 +2255,8 @@ export class InvalidationsGroupElement extends UI.TreeOutline.TreeElement {
    * @returns {!Promise}
    */
   async onpopulate() {
-    const content = createElementWithClass('div', 'content');
+    const content = document.createElement('div');
+    content.classList.add('content');
 
     const first = this._invalidations[0];
     if (first.cause.stackTrace) {

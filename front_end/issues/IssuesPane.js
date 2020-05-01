@@ -473,11 +473,13 @@ class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   _appendHeader() {
-    const header = createElementWithClass('div', 'header');
+    const header = document.createElement('div');
+    header.classList.add('header');
     const icon = UI.Icon.Icon.create('largeicon-breaking-change', 'icon');
     header.appendChild(icon);
 
-    const title = createElementWithClass('div', 'title');
+    const title = document.createElement('div');
+    title.classList.add('title');
     title.textContent = this._description.title;
     header.appendChild(title);
 
