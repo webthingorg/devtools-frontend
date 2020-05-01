@@ -70,6 +70,13 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
   }
 
   /**
+   * This function is needed when using this class as a delegate.
+   * TODO: When the add functionality is created, call "this._addButton.focus();"
+   */
+  focusAddButton() {
+  }
+
+  /**
    * None of the items are editable, so this method will never be called
    * @override
    * @param {!KeybindsItem} item

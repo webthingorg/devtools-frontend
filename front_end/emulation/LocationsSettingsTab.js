@@ -16,9 +16,9 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
 
     this.contentElement.createChild('div', 'header').textContent = Common.UIString.UIString('Custom locations');
 
-    const addButton = UI.UIUtils.createTextButton(
+    this._addButton = UI.UIUtils.createTextButton(
         Common.UIString.UIString('Add location\u2026'), this._addButtonClicked.bind(this), 'add-locations-button');
-    this.contentElement.appendChild(addButton);
+    this.contentElement.appendChild(this._addButton);
 
     this._list = new UI.ListWidget.ListWidget(this);
     this._list.element.classList.add('locations-list');
@@ -28,7 +28,7 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
     this._customSetting = Common.Settings.Settings.instance().moduleSetting('emulation.locations');
     this._customSetting.addChangeListener(this._locationsUpdated, this);
 
-    this.setDefaultFocusedElement(addButton);
+    this.setDefaultFocusedElement(this._addButton);
   }
 
   /**
@@ -52,6 +52,10 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
 
   _addButtonClicked() {
     this._list.addNewItem(this._customSetting.get().length, {title: '', lat: 0, long: 0, timezoneId: '', locale: ''});
+  }
+
+  focusAddButton() {
+    this._addButton.focus();
   }
 
   /**
