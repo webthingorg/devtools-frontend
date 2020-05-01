@@ -1380,7 +1380,8 @@ export class ConsoleViewMessage {
     }
 
     if (!this._repeatCountElement) {
-      this._repeatCountElement = createElementWithClass('span', 'console-message-repeat-count', 'dt-small-bubble');
+      this._repeatCountElement = document.createElement('span', {is: 'dt-small-bubble'});
+      this._repeatCountElement.classList.add('console-message-repeat-count');
       switch (this._message.level) {
         case SDK.ConsoleModel.MessageLevel.Warning:
           this._repeatCountElement.type = 'warning';
