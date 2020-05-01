@@ -70,6 +70,30 @@
       "revId": "047eb488f5a104737d5774b31c9489fcb05e665d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7a887d8_ba8cbbbd",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-05-01T18:42:59Z",
+      "side": 1,
+      "message": "I see, \n\nI deleted the src/third_party/devtools-frontend directory then re-ran `gclient sync`.\n\nAnd unfortunately as you both suspected the build does not work without the symlink\u0027d devtools directory.\n\nSo the only advantage of using the solution in .gclient is only needing to run `gclient sync` once which I don\u0027t think is worth updating the readme for- it also means gclient syncing will take longer if you only want to update the devtools DEPS.\n\nI will keep piloting this setup for now.\n\nHere is my updated .glclient file:\nNote that I got gclient sync errors if the devtools solution name was not \"devtools-frontend\".\n\n```\nsolutions \u003d [\n  {\n    \"url\": \"https://chromium.googlesource.com/chromium/src.git\",\n    \"managed\": False,\n    \"name\": \"src\",\n    \"custom_deps\": {\n      \"src/third_party/devtools-frontend/src\": None,\n    },\n    \"custom_vars\": {},\n  },\n  {\n\t\"name\"        : \"devtools-frontend\",\n    \"url\"         : \"https://chromium.googlesource.com/devtools/devtools-frontend\",\n    \"custom_deps\" : {}\n  }\n]\n\n```\n\nHere is how I setup my symlink to get the build working (Win10)\n```\nchromium\u003e gclient sync -D\n\n# ensure current devtools-frontend\\src dir is deleted\nchromium\u003e rmdir /s /q src\\third_party\\devtools-frontend\\src\n\nchromium\u003e mklink /J src\\third_party\\devtools-frontend\\src devtools-frontend\n```",
+      "parentUuid": "38b92875_9be174ee",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 128
+      },
+      "revId": "047eb488f5a104737d5774b31c9489fcb05e665d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
