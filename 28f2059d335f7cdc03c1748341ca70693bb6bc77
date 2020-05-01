@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b434fc97_5a099738",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-01T00:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85324ca_31869079",
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36ce4496_ee68d7f7",
         "filename": "front_end/sdk/Script.js",
         "patchSetId": 13
@@ -30,6 +48,30 @@
       "writtenOn": "2020-04-30T15:28:06Z",
       "side": 1,
       "message": "Optional: I\u0027m inclined to suggest (first + last) \u003e\u003e 1 so I know we\u0027re not using floating point math, but I\u0027m not sure if that\u0027s JS style and it\u0027s not particularly performance critical.",
+      "range": {
+        "startLine": 372,
+        "startChar": 18,
+        "endLine": 372,
+        "endChar": 48
+      },
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9c52061_566f3a9b",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-01T00:02:32Z",
+      "side": 1,
+      "message": "I did a search and saw that  \u003e\u003e 1 was used in many places in devtools so I would go with it 😊 thanks",
+      "parentUuid": "36ce4496_ee68d7f7",
       "range": {
         "startLine": 372,
         "startChar": 18,
@@ -73,6 +115,24 @@
       "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e81efa5_2775b514",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-01T00:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8016368_89669f63",
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

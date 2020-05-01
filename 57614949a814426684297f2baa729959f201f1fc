@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "688b3cda_2022b3ee",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-01T00:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10639d79_cc65a2b6",
+      "revId": "57614949a814426684297f2baa729959f201f1fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "303a01f8_485161da",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 10
