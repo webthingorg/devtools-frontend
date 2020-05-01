@@ -46,6 +46,30 @@
       "revId": "047eb488f5a104737d5774b31c9489fcb05e665d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38b92875_9be174ee",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-01T16:53:53Z",
+      "side": 1,
+      "message": "Brandon is correct. As long as `third_party/devtools-frontend/src/` has the DevTools frontend source, this should be working as intended.\n\nIf you could confirm that, we can add it to the docs. Thanks for investigating this!",
+      "parentUuid": "bd21aec9_37d71b96",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 128
+      },
+      "revId": "047eb488f5a104737d5774b31c9489fcb05e665d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
