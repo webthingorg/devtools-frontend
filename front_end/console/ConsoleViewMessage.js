@@ -310,7 +310,7 @@ export class ConsoleViewMessage {
       this._selectableChildren.push({element: linkElement, forceSelect: () => linkElement.focus()});
       messageElement.appendChild(linkElement);
       if (request.failed) {
-        messageElement.createTextChildren(' ', request.localizedFailDescription);
+        messageElement.createTextChildren(' ', request.localizedFailDescription || '');
       }
       if (request.statusCode !== 0) {
         messageElement.createTextChildren(' ', String(request.statusCode));
