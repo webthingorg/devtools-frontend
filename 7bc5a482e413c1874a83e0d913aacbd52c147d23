@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c225cd62_b06226ba",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-01T17:32:29Z",
+      "side": 1,
+      "message": "have you tried this when this._centerUponScrollIntoView is true? Based on this logic it looks like if the item is somewhere in the view it wont be centered even if _centerUponScrollIntoView  is true",
+      "range": {
+        "startLine": 381,
+        "startChar": 6,
+        "endLine": 385,
+        "endChar": 7
+      },
+      "revId": "7bc5a482e413c1874a83e0d913aacbd52c147d23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
