@@ -1945,7 +1945,8 @@ export class DataGridNode extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Element}
    */
   _createTDWithClass(className) {
-    const cell = createElementWithClass('td', className);
+    const cell = document.createElement('td');
+    cell.classList.add(className);
     const cellClass = this.dataGrid._cellClass;
     if (cellClass) {
       cell.classList.add(cellClass);
