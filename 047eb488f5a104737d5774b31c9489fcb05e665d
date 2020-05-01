@@ -22,6 +22,30 @@
       "revId": "047eb488f5a104737d5774b31c9489fcb05e665d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd21aec9_37d71b96",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-01T16:37:07Z",
+      "side": 1,
+      "message": "Nice! Only issue I see with something like this is that the symlink puts the devtools back in third_party\\devtools-frontend\\src, which is needed for builds. Do you still have this symlinked for full chromium builds? Either way, this is nice for running gclient sync just once and getting it working anywhere",
+      "parentUuid": "9085babb_8d7b27ea",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 128
+      },
+      "revId": "047eb488f5a104737d5774b31c9489fcb05e665d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
