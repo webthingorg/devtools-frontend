@@ -91,7 +91,11 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    * @returns {!Iterable<!AffectedSource>}
    */
   sources() {
-    return [];
+    return [{
+      columnNumber: 1,
+      lineNumber: 42,
+      url: 'https://cdn.foo.test/js/my-script.js',
+    }];
   }
 
   /**
