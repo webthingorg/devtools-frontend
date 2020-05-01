@@ -623,7 +623,8 @@ export class MainMenuItem {
    */
   _handleContextMenu(contextMenu) {
     if (self.Components.dockController.canDock()) {
-      const dockItemElement = createElementWithClass('div', 'flex-centered flex-auto');
+      const dockItemElement = document.createElement('div');
+      dockItemElement.classList.add('flex-centered flex-auto');
       dockItemElement.tabIndex = -1;
       const titleElement = dockItemElement.createChild('span', 'flex-auto');
       titleElement.textContent = Common.UIString.UIString('Dock side');

@@ -791,7 +791,8 @@ export class TreeElement {
       return;
     }
     if (!this._leadingIconsElement) {
-      this._leadingIconsElement = createElementWithClass('div', 'leading-icons');
+      this._leadingIconsElement = document.createElement('div');
+      this._leadingIconsElement.classList.add('leading-icons');
       this._leadingIconsElement.classList.add('icons-container');
       this._listItemNode.insertBefore(this._leadingIconsElement, this.titleElement);
       this._ensureSelection();
@@ -810,7 +811,8 @@ export class TreeElement {
       return;
     }
     if (!this._trailingIconsElement) {
-      this._trailingIconsElement = createElementWithClass('div', 'trailing-icons');
+      this._trailingIconsElement = document.createElement('div');
+      this._trailingIconsElement.classList.add('trailing-icons');
       this._trailingIconsElement.classList.add('icons-container');
       this._listItemNode.appendChild(this._trailingIconsElement);
       this._ensureSelection();
@@ -916,7 +918,8 @@ export class TreeElement {
       return;
     }
     if (!this._selectionElement) {
-      this._selectionElement = createElementWithClass('div', 'selection fill');
+      this._selectionElement = document.createElement('div');
+      this._selectionElement.classList.add('selection fill');
     }
     this._listItemNode.insertBefore(this._selectionElement, this.listItemElement.firstChild);
   }

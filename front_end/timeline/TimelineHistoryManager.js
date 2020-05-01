@@ -191,7 +191,8 @@ export class TimelineHistoryManager {
     this._nextNumberByDomain.set(domain, sequenceNumber + 1);
     const timeElement = createElement('span');
 
-    const preview = createElementWithClass('div', 'preview-item vbox');
+    const preview = document.createElement('div');
+    preview.classList.add('preview-item vbox');
     const data = {preview: preview, title: title, time: timeElement, lastUsed: Date.now()};
     performanceModel[previewDataSymbol] = data;
 
@@ -209,7 +210,8 @@ export class TimelineHistoryManager {
    * @return {!Element}
    */
   _buildTextDetails(performanceModel, title, timeElement) {
-    const container = createElementWithClass('div', 'text-details hbox');
+    const container = document.createElement('div');
+    container.classList.add('text-details hbox');
     const nameSpan = container.createChild('span', 'name');
     nameSpan.textContent = title;
     UI.ARIAUtils.setAccessibleName(nameSpan, title);
@@ -226,7 +228,8 @@ export class TimelineHistoryManager {
    * @return {!Element}
    */
   _buildScreenshotThumbnail(performanceModel) {
-    const container = createElementWithClass('div', 'screenshot-thumb');
+    const container = document.createElement('div');
+    container.classList.add('screenshot-thumb');
     const thumbnailAspectRatio = 3 / 2;
     container.style.width = this._totalHeight * thumbnailAspectRatio + 'px';
     container.style.height = this._totalHeight + 'px';

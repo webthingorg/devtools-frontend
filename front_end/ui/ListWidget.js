@@ -139,7 +139,8 @@ export class ListWidget extends VBox {
    * @return {!Element}
    */
   _createControls(item, element) {
-    const controls = createElementWithClass('div', 'controls-container fill');
+    const controls = document.createElement('div');
+    controls.classList.add('controls-container fill');
     controls.createChild('div', 'controls-gradient');
 
     const buttons = controls.createChild('div', 'controls-buttons');
@@ -291,7 +292,8 @@ export class Delegate {
  */
 export class Editor {
   constructor() {
-    this.element = createElementWithClass('div', 'editor-container');
+    this.element = document.createElement('div');
+    this.element.classList.add('editor-container');
     this.element.addEventListener('keydown', onKeyDown.bind(null, isEscKey, this._cancelClicked.bind(this)), false);
     this.element.addEventListener('keydown', onKeyDown.bind(null, isEnterKey, this._commitClicked.bind(this)), false);
 

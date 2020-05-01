@@ -152,7 +152,8 @@ export class ScopeChainSidebarPaneBase extends UI.Widget.VBox {
       subtitle = undefined;
     }
 
-    const titleElement = createElementWithClass('div', 'scope-chain-sidebar-pane-section-header tree-element-title');
+    const titleElement = document.createElement('div');
+    titleElement.classList.add('scope-chain-sidebar-pane-section-header tree-element-title');
     titleElement.createChild('div', 'scope-chain-sidebar-pane-section-subtitle').textContent = subtitle;
     titleElement.createChild('div', 'scope-chain-sidebar-pane-section-title').textContent = title;
 

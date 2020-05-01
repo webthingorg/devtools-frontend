@@ -164,11 +164,13 @@ export class RequestHeadersView extends UI.Widget.VBox {
       if (Root.Runtime.experiments.isEnabled('issuesPane') &&
           BrowserSDK.RelatedIssue.hasIssueOfCategory(
               this._request, SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy)) {
-        const link = createElementWithClass('div', 'devtools-link');
+        const link = document.createElement('div');
+        link.classList.add('devtools-link');
         link.onclick = () => {
           BrowserSDK.RelatedIssue.reveal(this._request, SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy);
         };
-        const text = createElementWithClass('span', 'devtools-link');
+        const text = document.createElement('span');
+        text.classList.add('devtools-link');
         text.textContent = 'Learn more in the issues panel';
         link.appendChild(text);
         link.prepend(UI.Icon.Icon.create('largeicon-breaking-change', 'icon'));
@@ -261,7 +263,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
     const text = (sourceText || '').trim();
     const trim = text.length > max_len;
 
-    const sourceTextElement = createElementWithClass('span', 'header-value source-code');
+    const sourceTextElement = document.createElement('span');
+    sourceTextElement.classList.add('header-value source-code');
     sourceTextElement.textContent = trim ? text.substr(0, max_len) : text;
 
     const sourceTreeElement = new UI.TreeOutline.TreeElement(sourceTextElement);
@@ -271,7 +274,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
       return;
     }
 
-    const showMoreButton = createElementWithClass('button', 'request-headers-show-more-button');
+    const showMoreButton = document.createElement('button');
+    showMoreButton.classList.add('request-headers-show-more-button');
     showMoreButton.textContent = Common.UIString.UIString('Show more');
 
     function showMore() {
@@ -307,7 +311,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
     paramsTreeElement.listItemElement.createChild('div', 'selection fill');
     paramsTreeElement.listItemElement.createTextChild(title);
 
-    const headerCount = createElementWithClass('span', 'header-count');
+    const headerCount = document.createElement('span');
+    headerCount.classList.add('header-count');
     headerCount.textContent = Common.UIString.UIString('\xA0(%d)', params.length);
     paramsTreeElement.listItemElement.appendChild(headerCount);
 
@@ -821,7 +826,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
    * @return {!Element}
    */
   _createToggleButton(title) {
-    const button = createElementWithClass('span', 'header-toggle');
+    const button = document.createElement('span');
+    button.classList.add('header-toggle');
     button.textContent = title;
     return button;
   }
