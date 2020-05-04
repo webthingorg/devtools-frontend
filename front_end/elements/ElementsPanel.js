@@ -36,13 +36,35 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {ComputedStyleWidget} from './ComputedStyleWidget.js';
-import {ElementsBreadcrumbs, Events} from './ElementsBreadcrumbs.js';
+import {createElementsBreadcrumbs, DOMNode} from './ElementsBreadcrumbs_bridge.js';  // eslint-disable-line no-unused-vars
 import {ElementsTreeElement} from './ElementsTreeElement.js';  // eslint-disable-line no-unused-vars
 import {ElementsTreeElementHighlighter} from './ElementsTreeElementHighlighter.js';
 import {ElementsTreeOutline} from './ElementsTreeOutline.js';
 import {MarkerDecorator} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
 import {MetricsSidebarPane} from './MetricsSidebarPane.js';
 import {StylesSidebarPane} from './StylesSidebarPane.js';
+
+/**
+ *
+ * @param {!SDK.DOMModel.DOMNode} node
+ * @return {!DOMNode}
+ */
+const legacyNodeToNewBreadcrumbsNode = node => {
+  return {
+    parentNode: node.parentNode,
+    id: /** @type {number} */ (node.id),
+    nodeType: node.nodeType(),
+    pseudoType: node.pseudoType(),
+    shadowRootType: node.shadowRootType(),
+    nodeName: node.nodeName(),
+    nodeNameNicelyCased: node.nodeNameInCorrectCase(),
+    legacyDomNode: node,
+    highlightNode: () => node.highlight(),
+    clearHighlight: () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight(),
+    getAttribute: node.getAttribute.bind(node),
+  };
+};
+
 
 /**
  * @implements {UI.SearchableView.Searchable}
@@ -83,10 +105,13 @@ export class ElementsPanel extends UI.Panel.Panel {
         .moduleSetting('domWordWrap')
         .addChangeListener(this._domWordWrapSettingChanged.bind(this));
 
+    this._newBreadcrumbs = createElementsBreadcrumbs();
+    this._newBreadcrumbs.addEventListener('node-selected', event => {
+      this._crumbNodeSelected(/** @type {{data: *}} */ (event));
+    });
+
     crumbsContainer.id = 'elements-crumbs';
-    this._breadcrumbs = new ElementsBreadcrumbs();
-    this._breadcrumbs.show(crumbsContainer);
-    this._breadcrumbs.addEventListener(Events.NodeSelected, this._crumbNodeSelected, this);
+    crumbsContainer.appendChild(this._newBreadcrumbs);
 
     this._stylesWidget = new StylesSidebarPane();
     this._computedStyleWidget = new ComputedStyleWidget();
@@ -233,8 +258,6 @@ export class ElementsPanel extends UI.Panel.Panel {
     for (const treeOutline of this._treeOutlines) {
       treeOutline.setVisibleWidth(width);
     }
-
-    this._breadcrumbs.updateSizes();
   }
 
   /**
@@ -271,7 +294,6 @@ export class ElementsPanel extends UI.Panel.Panel {
       }
     }
     super.wasShown();
-    this._breadcrumbs.update();
 
     const domModels = SDK.SDKModel.TargetManager.instance().models(SDK.DOMModel.DOMModel);
     for (const domModel of domModels) {
@@ -330,7 +352,19 @@ export class ElementsPanel extends UI.Panel.Panel {
       }
     }
 
-    this._breadcrumbs.setSelectedNode(selectedNode);
+    if (selectedNode) {
+      const activeNode = legacyNodeToNewBreadcrumbsNode(selectedNode);
+      const crumbs = [activeNode];
+
+      for (let current = selectedNode.parentNode; current; current = current.parentNode) {
+        crumbs.push(legacyNodeToNewBreadcrumbsNode(current));
+      }
+
+      this._newBreadcrumbs.update(crumbs, legacyNodeToNewBreadcrumbsNode(selectedNode));
+
+    } else {
+      this._newBreadcrumbs.update([], null);
+    }
 
     self.UI.context.setFlavor(SDK.DOMModel.DOMNode, selectedNode);
 
@@ -646,7 +680,9 @@ export class ElementsPanel extends UI.Panel.Panel {
    */
   _updateBreadcrumbIfNeeded(event) {
     const nodes = /** @type {!Array.<!SDK.DOMModel.DOMNode>} */ (event.data);
-    this._breadcrumbs.updateNodes(nodes);
+
+    const newNodes = nodes.map(legacyNodeToNewBreadcrumbsNode);
+    this._newBreadcrumbs.updateIfRequiredBasedOnNodeChanges(newNodes);
   }
 
   /**
