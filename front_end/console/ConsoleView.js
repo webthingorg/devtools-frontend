@@ -278,8 +278,20 @@ export class ConsoleView extends UI.Widget.VBox {
     SDK.ConsoleModel.ConsoleModel.instance().messages().forEach(this._addConsoleMessage, this);
 
     if (Root.Runtime.experiments.isEnabled('issuesPane')) {
-      BrowserSDK.IssuesManager.IssuesManager.instance().addEventListener(
+      const issuesManager = BrowserSDK.IssuesManager.IssuesManager.instance();
+      issuesManager.addEventListener(
           BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._onIssuesCountChanged.bind(this));
+      if (issuesManager.numberOfIssues()) {
+        this._onIssuesCountChanged();
+      }
+      const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
+      if (mainTarget) {
+        const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+        if (resourceTreeModel) {
+          resourceTreeModel.addEventListener(
+              SDK.ResourceTreeModel.Events.MainFrameNavigated, this._onMainFrameNavigated.bind(this));
+        }
+      }
     }
   }
 
