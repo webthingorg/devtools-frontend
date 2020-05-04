@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1589e112_88317143",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-04T22:18:07Z",
+      "side": 1,
+      "message": "(suggestion) maybe can you break these conditionals into smaller pieces? (similar to what you did with hasHandlersOrPrefixKey), I think it will improve readability.",
+      "range": {
+        "startLine": 176,
+        "startChar": 61,
+        "endLine": 176,
+        "endChar": 117
+      },
+      "revId": "eb1955f300ad7683737ec9dad5e8a8455f563d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
