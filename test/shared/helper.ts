@@ -274,8 +274,10 @@ export const enableExperiment = async (experiment: string) => {
 
 export const step = async (description: string, step: Function) => {
   try {
-    // eslint-disable-next-line no-console
-    console.log(`     Running step "${description}"`);
+    if (!!process.env['STEPS']) {
+      // eslint-disable-next-line no-console
+      console.log(`     Running step "${description}"`);
+    }
     return await step();
   } catch (error) {
     if (error instanceof AssertionError) {
