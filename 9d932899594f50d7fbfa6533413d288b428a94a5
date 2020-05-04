@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77fb8c84_efabfa52",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-04T17:14:55Z",
+      "side": 1,
+      "message": "This seems like the wrong level of abstraction. TabbedPane is shared by the Sources view. It doesn\u0027t look like this belongs here because it would impact all TabbedPanes (even if you do this check for the parent location). Is it possible to only do this for the main- and drawer-view tabbed panes?",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ecb1d9a_50994e96",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-04T17:14:55Z",
+      "side": 1,
+      "message": "Overwrite -\u003e override?",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8a5f3d3_7785aeea",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-04T17:14:55Z",
+      "side": 1,
+      "message": "In 5 lines (including the line immediately before your change starts), you access `descriptor[\u0027id\u0027]` 4 times. I think that\u0027s a good candidate for pulling into a separate variable.",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c138f8f_85163a22",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-04T17:14:55Z",
+      "side": 1,
+      "message": "This error will be unobserved because `moveView` isn\u0027t async and you don\u0027t have a `.catch` handler.",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "236a214d_c6289781",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-04T17:14:55Z",
+      "side": 1,
+      "message": "How does the fact that Console can run in both the main view and the Drawer affect the persistence for it?",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c750ab83_f87f14ae",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-04T17:14:55Z",
+      "side": 1,
+      "message": "Nit: Can you just use spread?\n\n    const newClosable \u003d {\n      ...tabs,\n      ...defaultClosable,\n    };",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
