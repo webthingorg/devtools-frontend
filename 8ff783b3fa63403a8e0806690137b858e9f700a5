@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a90533a_07d3d29c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-04T18:04:31Z",
+      "side": 1,
+      "message": "Isn\u0027t there a way to escape $ in GRIT?",
+      "revId": "8ff783b3fa63403a8e0806690137b858e9f700a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
