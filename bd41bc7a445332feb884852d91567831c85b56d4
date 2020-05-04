@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "412e2700_5824cd71",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-04T14:15:46Z",
+      "side": 1,
+      "message": "This should be unnecessary, the issuesManager sends an IssuesCountUpdated on main frame navigated.",
+      "range": {
+        "startLine": 287,
+        "startChar": 6,
+        "endLine": 294,
+        "endChar": 7
+      },
+      "revId": "bd41bc7a445332feb884852d91567831c85b56d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0da5d48_13f7a2e7",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-04T14:15:46Z",
+      "side": 1,
+      "message": "You need to query the issues number here and remove the bar if necessary (i.e. #issues \u003d\u003d\u003d 0).",
+      "range": {
+        "startLine": 299,
+        "startChar": 4,
+        "endLine": 299,
+        "endChar": 29
+      },
+      "revId": "bd41bc7a445332feb884852d91567831c85b56d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96bd8a32_15276fdd",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-04T14:15:46Z",
+      "side": 1,
+      "message": "This can be moved to _onIssuesCountChanged and made dependent on the issues count.",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 3
+      },
+      "revId": "bd41bc7a445332feb884852d91567831c85b56d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
