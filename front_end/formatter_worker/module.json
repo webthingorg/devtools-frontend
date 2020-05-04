@@ -2,8 +2,7 @@
   "dependencies": [
     "platform",
     "text_utils",
-    "cm_headless",
-    "cm_web_modes"
+    "cm_headless"
   ],
   "scripts": [],
   "modules": [
