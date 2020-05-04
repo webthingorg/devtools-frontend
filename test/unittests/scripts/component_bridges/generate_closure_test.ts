@@ -265,6 +265,86 @@ describe('generateClosure', () => {
   * @param {?Person} person
   */`);
     });
+
+    it('parses getter functions', () => {
+      const state = parseCode(`interface Person {
+        name: string
+        age: number
+      }
+      class Breadcrumbs extends HTMLElement {
+        public get person(): Person {
+        }
+      }`);
+
+      const classOutput = generateClosureClass(state);
+
+      assert.include(classOutput.join('\n'), `
+  /**
+  * @return {!Person}
+  */`);
+
+      assert.include(classOutput.join('\n'), 'get person() {}');
+    });
+
+    it('handles getter functions with optional return', () => {
+      const state = parseCode(`interface Person {
+        name: string
+        age: number
+      }
+      class Breadcrumbs extends HTMLElement {
+        public get person(): Person | null {
+        }
+      }`);
+
+      const classOutput = generateClosureClass(state);
+
+      assert.include(classOutput.join('\n'), `
+  /**
+  * @return {?Person}
+  */`);
+
+      assert.include(classOutput.join('\n'), 'get person() {}');
+    });
+
+    it('parses setter functions', () => {
+      const state = parseCode(`interface Person {
+        name: string
+        age: number
+      }
+      class Breadcrumbs extends HTMLElement {
+        public set person(person: Person) {
+        }
+      }`);
+
+      const classOutput = generateClosureClass(state);
+
+      assert.include(classOutput.join('\n'), `
+  /**
+  * @param {!Person} person
+  */`);
+
+      assert.include(classOutput.join('\n'), 'set person(person) {}');
+    });
+
+    it('handles setter functions with optional parameters', () => {
+      const state = parseCode(`interface Person {
+        name: string
+        age: number
+      }
+      class Breadcrumbs extends HTMLElement {
+        public set person(person?: Person) {
+        }
+      }`);
+
+      const classOutput = generateClosureClass(state);
+
+      assert.include(classOutput.join('\n'), `
+  /**
+  * @param {!Person=} person
+  */`);
+
+      assert.include(classOutput.join('\n'), 'set person(person) {}');
+    });
   });
 
   describe('generateInterfaces', () => {
