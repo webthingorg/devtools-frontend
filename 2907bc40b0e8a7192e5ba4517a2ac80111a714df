@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d60e8f9_ec595c38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-04T15:30:25Z",
+      "side": 1,
+      "message": "Seems like this doesn\u0027t work, because of the way `module.json` is implemented... Trying to figure out a workaround.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 72
+      },
+      "revId": "2907bc40b0e8a7192e5ba4517a2ac80111a714df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
