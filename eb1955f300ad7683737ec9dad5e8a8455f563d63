@@ -22,6 +22,30 @@
       "revId": "eb1955f300ad7683737ec9dad5e8a8455f563d63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cec1c7f9_bf235341",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-04T23:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1589e112_88317143",
+      "range": {
+        "startLine": 176,
+        "startChar": 61,
+        "endLine": 176,
+        "endChar": 117
+      },
+      "revId": "eb1955f300ad7683737ec9dad5e8a8455f563d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
