@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef1e0266_b05ab29b",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-04T16:12:24Z",
+      "side": 1,
+      "message": "worth noting that this function\u0027s body hasn\u0027t changed logically; it\u0027s just been pulled out now we need to call it in more than one place.",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 31
+      },
+      "revId": "924fa00432dc871e88e154cbc2447fc673b495e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
