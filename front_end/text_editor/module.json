@@ -13,8 +13,7 @@
     "ui",
     "platform",
     "common",
-    "cm",
-    "cm_web_modes"
+    "cm"
   ],
   "scripts": [],
   "modules": [
