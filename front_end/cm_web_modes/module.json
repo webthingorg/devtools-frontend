@@ -1,5 +1,7 @@
 {
-  "dependencies": [],
+  "dependencies": [
+    "cm"
+  ],
   "scripts": [],
   "modules": [
     "cm_web_modes.js",
