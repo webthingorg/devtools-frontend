@@ -33,7 +33,7 @@
   <message name="IDS_DEVTOOLS_9c47daafb73e178239b3bf4d618a3bb8" desc="Title of the first and last points of an animation">
     Animation Endpoint slider
   </message>
-  <message name="IDS_DEVTOOLS_9ea575b416c0fb4d80772ab08ce039f8" desc="Timeline hint text content in Animation Timeline of the Animation Inspector">
+  <message name="IDS_DEVTOOLS_9ea575b416c0fb4d80772ab08ce039f8" desc="Enter a Description here">
     Select an effect above to inspect and modify.
   </message>
   <message name="IDS_DEVTOOLS_ba5ef3fb1e406e7707dc5f449adaa176" desc="Empty buffer hint text content in Animation Timeline of the Animation Inspector">
