@@ -240,6 +240,52 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @return {string}
+   * The cache name of the CacheStorage from where the response is served via
+   * the ServiceWorker. Empty if the response isn't from the CacheStorage.
+   */
+  get responseCacheStorageCacheName() {
+    return this._responseCacheStorageCacheName || ls`Unknown`;
+  }
+
+  /**
+   * @param {string} x
+   */
+  set responseCacheStorageCacheName(x) {
+    this._responseCacheStorageCacheName = x;
+  }
+
+  /**
+   * @return {string}
+   */
+  responseSource() {
+    return this._responseSource;
+  }
+
+  /**
+   * @param {!Protocol.Network.ResponseSource<string>} responseSource
+   */
+  setResponseSource(responseSource) {
+    switch (responseSource) {
+      case 'cache-storage':
+        this._responseSource = ls`Serviceworker cache storage`;
+        break;
+      case 'http-cache':
+        this._responseSource = ls`From Http cache`;
+        break;
+      case 'network':
+        this._responseSource = ls`Network fetch`;
+        break;
+      case 'fallback-code':
+        this._responseSource = ls`Fallback code`;
+        break;
+      default:
+        this._responseSource = ls`Unknown`;
+    }
+  }
+
+
+  /**
    * @param {!Protocol.Network.RequestReferrerPolicy} referrerPolicy
    */
   setReferrerPolicy(referrerPolicy) {
@@ -325,6 +371,22 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
    */
   set responseReceivedTime(x) {
     this._responseReceivedTime = x;
+  }
+
+  /**
+   * @return {!Date|number}
+   * The time at which the returned response was generated. For cached
+   * responses, this is the last time the cache entry was validated.
+   */
+  getResponseRetrievalTime() {
+    return this._responseRetrievalTime || -1;
+  }
+
+  /**
+   * @param {number} x
+   */
+  setResponseRetrievalTime(x) {
+    this._responseRetrievalTime = new Date(x);
   }
 
   /**
@@ -525,6 +587,20 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
    */
   set fetchedViaServiceWorker(x) {
     this._fetchedViaServiceWorker = x;
+  }
+
+  /**
+   * @return {number}
+   */
+  get fetchEventCompletionTime() {
+    return this._fetchEventCompletionTime || -1;
+  }
+
+  /**
+   * @param {number} time
+   */
+  set fetchEventCompletionTime(time) {
+    this._fetchEventCompletionTime = time;
   }
 
   /**

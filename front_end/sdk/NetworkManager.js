@@ -366,9 +366,21 @@ export class NetworkDispatcher {
       networkRequest.setFromPrefetchCache();
     }
 
+    if (response.cacheStorageCacheName) {
+      networkRequest.responseCacheStorageCacheName = response.cacheStorageCacheName;
+    }
+
+    if (response.responseTime) {
+      networkRequest.setResponseRetrievalTime(response.responseTime);
+    }
+
     networkRequest.timing = response.timing;
 
     networkRequest.protocol = response.protocol || '';
+
+    if (response.responseSource) {
+      networkRequest.setResponseSource(response.responseSource);
+    }
 
     networkRequest.setSecurityState(response.securityState);
 
@@ -464,7 +476,8 @@ export class NetworkDispatcher {
 
     this._updateNetworkRequestWithResponse(networkRequest, info.outerResponse);
     this._updateNetworkRequest(networkRequest);
-    this._manager.dispatchEventToListeners(Events.ResponseReceived, networkRequest);
+    this._manager.dispatchEventToListeners(
+        Events.ResponseReceived, {request: networkRequest, response: info.outerResponse});
   }
 
   /**
@@ -510,7 +523,7 @@ export class NetworkDispatcher {
 
     this._getExtraInfoBuilder(requestId).addRequest(networkRequest);
 
-    this._startNetworkRequest(networkRequest);
+    this._startNetworkRequest(networkRequest, request);
   }
 
   /**
@@ -573,7 +586,29 @@ export class NetworkDispatcher {
     this._updateNetworkRequestWithResponse(networkRequest, response);
 
     this._updateNetworkRequest(networkRequest);
-    this._manager.dispatchEventToListeners(Events.ResponseReceived, networkRequest);
+    this._manager.dispatchEventToListeners(Events.ResponseReceived, {request: networkRequest, response});
+  }
+
+  /**
+   * @override
+   * @param {!Protocol.Network.RequestId} requestId
+   * @param {!Protocol.Network.MonotonicTime} timestamp
+   */
+  fetchEventFinished(requestId, timestamp) {
+    const networkRequest = this._inflightRequestsById[requestId];
+    if (!networkRequest) {
+      return;
+    }
+    networkRequest.fetchEventCompletionTime = calculateMillisecondDelta(networkRequest, timestamp);
+
+    /**
+     * @param {!NetworkRequest} networkRequest
+     * @param {!Protocol.Network.MonotonicTime} timeInSeconds
+     * @return {number}
+     */
+    function calculateMillisecondDelta(networkRequest, timeInSeconds) {
+      return (timeInSeconds - networkRequest.startTime) * 1000;
+    }
   }
 
   /**
@@ -662,7 +697,7 @@ export class NetworkDispatcher {
     const networkRequest = new NetworkRequest(requestId, requestURL, '', '', '', initiator || null);
     networkRequest[_networkManagerForRequestSymbol] = this._manager;
     networkRequest.setResourceType(Common.ResourceType.resourceTypes.WebSocket);
-    this._startNetworkRequest(networkRequest);
+    this._startNetworkRequest(networkRequest, null);
   }
 
   /**
@@ -926,8 +961,9 @@ export class NetworkDispatcher {
 
   /**
    * @param {!NetworkRequest} networkRequest
+   * @param {?Protocol.Network.Request} originalRequest
    */
-  _startNetworkRequest(networkRequest) {
+  _startNetworkRequest(networkRequest, originalRequest) {
     this._inflightRequestsById[networkRequest.requestId()] = networkRequest;
     this._inflightRequestsByURL[networkRequest.url()] = networkRequest;
     // The following relies on the fact that loaderIds and requestIds are
@@ -936,7 +972,7 @@ export class NetworkDispatcher {
       self.SDK.multitargetNetworkManager._inflightMainResourceRequests.set(networkRequest.requestId(), networkRequest);
     }
 
-    this._manager.dispatchEventToListeners(Events.RequestStarted, networkRequest);
+    this._manager.dispatchEventToListeners(Events.RequestStarted, {request: networkRequest, originalRequest});
   }
 
   /**

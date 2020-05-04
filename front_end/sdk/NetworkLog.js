@@ -45,6 +45,10 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
     super();
     /** @type {!Array<!NetworkRequest>} */
     this._requests = [];
+    /** @type {!Array<!Protocol.Network.Request>} */
+    this._sentNetworkRequests = [];
+    /** @type {!Array<!Protocol.Network.Response>} */
+    this._receivedNetworkResponses = [];
     /** @type {!Set<!NetworkRequest>} */
     this._requestsSet = new Set();
     /** @type {!Map<!NetworkManager, !PageLoad>} */
@@ -69,6 +73,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
         networkManager.addEventListener(NetworkManagerEvents.RequestFinished, this._onRequestUpdated, this));
     eventListeners.push(networkManager.addEventListener(
         NetworkManagerEvents.MessageGenerated, this._networkMessageGenerated.bind(this, networkManager)));
+    eventListeners.push(
+        networkManager.addEventListener(NetworkManagerEvents.ResponseReceived, this._onResponseReceived, this));
 
     const resourceTreeModel = networkManager.target().model(ResourceTreeModel);
     if (resourceTreeModel) {
@@ -121,6 +127,22 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
    */
   requestForURL(url) {
     return this._requests.find(request => request.url() === url) || null;
+  }
+
+  /**
+   * @param {string} url
+   * @return {?Protocol.Network.Request}
+   */
+  originalRequestForURL(url) {
+    return this._sentNetworkRequests.find(request => request.url === url) || null;
+  }
+
+  /**
+   * @param {string} url
+   * @return {?Protocol.Network.Response}
+   */
+  originalResponseForURL(url) {
+    return this._receivedNetworkResponses.find(response => response.url === url) || null;
   }
 
   /**
@@ -325,6 +347,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
     const oldManagerRequests = this._requests.filter(request => NetworkManager.forRequest(request) === manager);
     const oldRequestsSet = this._requestsSet;
     this._requests = [];
+    this._sentNetworkRequests = [];
+    this._receivedNetworkResponses = [];
     this._requestsSet = new Set();
     this.dispatchEventToListeners(Events.Reset);
 
@@ -389,6 +413,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
   importRequests(requests) {
     this.reset();
     this._requests = [];
+    this._sentNetworkRequests = [];
+    this._receivedNetworkResponses = [];
     this._requestsSet.clear();
     for (const request of requests) {
       this._requests.push(request);
@@ -401,8 +427,11 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _onRequestStarted(event) {
-    const request = /** @type {!NetworkRequest} */ (event.data);
+    const request = /** @type {!NetworkRequest} */ (event.data.request);
     this._requests.push(request);
+    if (event.data.originalRequest) {
+      this._sentNetworkRequests.push(event.data.originalRequest);
+    }
     this._requestsSet.add(request);
     const manager = NetworkManager.forRequest(request);
     const pageLoad = manager ? this._pageLoadForManager.get(manager) : null;
@@ -410,6 +439,14 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
       pageLoad.bindRequest(request);
     }
     this.dispatchEventToListeners(Events.RequestAdded, request);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _onResponseReceived(event) {
+    const response = /** @type {!Protocol.Network.Response} */ (event.data.response);
+    this._receivedNetworkResponses.push(response);
   }
 
   /**
@@ -456,6 +493,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
 
   reset() {
     this._requests = [];
+    this._sentNetworkRequests = [];
+    this._receivedNetworkResponses = [];
     this._requestsSet.clear();
     const managers = new Set(TargetManager.instance().models(NetworkManager));
     for (const manager of this._pageLoadForManager.keys()) {
