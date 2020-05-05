@@ -10,7 +10,7 @@ import * as MixedContentIssue from '../sdk/MixedContentIssue.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {AggregatedIssue, Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';  // eslint-disable-line no-unused-vars
+import {Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';
 
 /**
  * @param {string} path
@@ -145,19 +145,67 @@ class AffectedResourcesView extends UI.TreeOutline.TreeElement {
   }
 }
 
-class AffectedCookiesView extends AffectedResourcesView {
+class AffectedElementsView extends AffectedResourcesView {
   /**
    * @param {!IssueView} parent
-   * @param {!AggregatedIssue} issue
+   * @param {!SDK.Issue.Issue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`cookie`, plural: ls`cookies`});
-    /** @type {!AggregatedIssue} */
+    super(parent, {singular: ls`element`, plural: ls`elements`});
+    /** @type {!SDK.Issue.Issue} */
     this._issue = issue;
   }
 
   /**
-   * @param {!Iterable<!{cookie: !Protocol.Audits.AffectedCookie, hasRequest: boolean}>} cookies
+   * @param {!Iterable<!SDK.Issue.AffectedElement>} affectedElements
+   */
+  async _appendAffectedElements(affectedElements) {
+    let count = 0;
+    for (const element of affectedElements) {
+      await this._appendAffectedElement(element);
+      count++;
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   * @param {!SDK.Issue.AffectedElement} element
+   */
+  async _appendAffectedElement({backendNodeId, nodeName}) {
+    const mainTarget = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
+    const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(mainTarget, backendNodeId);
+    const anchorElement = await Common.Linkifier.Linkifier.linkify(deferredDOMNode);
+    anchorElement.textContent = nodeName;
+    const cellElement = document.createElement('td');
+    cellElement.classList.add('affected-resource-element', 'devtools-link');
+    cellElement.appendChild(anchorElement);
+    const rowElement = document.createElement('tr');
+    rowElement.appendChild(cellElement);
+    this._affectedResources.appendChild(rowElement);
+  }
+
+  /**
+   * @override
+   */
+  update() {
+    this.clear();
+    this._appendAffectedElements(this._issue.elements());
+  }
+}
+
+class AffectedCookiesView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`cookie`, plural: ls`cookies`});
+    /** @type {!SDK.Issue.Issue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {!Iterable<!Protocol.Audits.AffectedCookie>} cookies
    */
   _appendAffectedCookies(cookies) {
     const header = document.createElement('tr');
@@ -178,39 +226,34 @@ class AffectedCookiesView extends AffectedResourcesView {
     let count = 0;
     for (const cookie of cookies) {
       count++;
-      this.appendAffectedCookie(cookie.cookie, cookie.hasRequest);
+      this.appendAffectedCookie(cookie);
     }
     this.updateAffectedResourceCount(count);
   }
 
   /**
    * @param {!Protocol.Audits.AffectedCookie} cookie
-   * @param {boolean} hasAssociatedRequest
    */
-  appendAffectedCookie(cookie, hasAssociatedRequest) {
+  appendAffectedCookie(cookie) {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-cookie');
     const name = document.createElement('td');
-    if (hasAssociatedRequest) {
-      name.appendChild(UI.UIUtils.createTextButton(cookie.name, () => {
-        Network.NetworkPanel.NetworkPanel.revealAndFilter([
-          {
-            filterType: 'cookie-domain',
-            filterValue: cookie.domain,
-          },
-          {
-            filterType: 'cookie-name',
-            filterValue: cookie.name,
-          },
-          {
-            filterType: 'cookie-path',
-            filterValue: cookie.path,
-          }
-        ]);
-      }, 'link-style devtools-link'));
-    } else {
-      name.textContent = cookie.name;
-    }
+    name.appendChild(UI.UIUtils.createTextButton(cookie.name, () => {
+      Network.NetworkPanel.NetworkPanel.revealAndFilter([
+        {
+          filterType: 'cookie-domain',
+          filterValue: cookie.domain,
+        },
+        {
+          filterType: 'cookie-name',
+          filterValue: cookie.name,
+        },
+        {
+          filterType: 'cookie-path',
+          filterValue: cookie.path,
+        }
+      ]);
+    }, 'link-style devtools-link'));
     const info = document.createElement('td');
     info.classList.add('affected-resource-cookie-info');
 
@@ -227,7 +270,7 @@ class AffectedCookiesView extends AffectedResourcesView {
    */
   update() {
     this.clear();
-    this._appendAffectedCookies(this._issue.cookiesWithRequestIndicator());
+    this._appendAffectedCookies(this._issue.cookies());
   }
 }
 
@@ -446,7 +489,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
   /**
    *
    * @param {!IssuesPaneImpl} parent
-   * @param {!AggregatedIssue} issue
+   * @param {!SDK.Issue.Issue} issue
    * @param {!SDK.Issue.IssueDescription} description
    */
   constructor(parent, issue, description) {
@@ -462,6 +505,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
 
     this._affectedResources = this._createAffectedResources();
     this._affectedCookiesView = new AffectedCookiesView(this, this._issue);
+    this._affectedElementsView = new AffectedElementsView(this, this._issue);
     this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
     this._affectedMixedContentView = new AffectedMixedContentView(this, this._issue);
     this._affectedSourcesView = new AffectedSourcesView(this, this._issue);
@@ -476,6 +520,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this.appendChild(this._affectedResources);
     this.appendAffectedResource(this._affectedCookiesView);
     this._affectedCookiesView.update();
+    this.appendAffectedResource(this._affectedElementsView);
+    this._affectedElementsView.update();
     this.appendAffectedResource(this._affectedRequestsView);
     this._affectedRequestsView.update();
     this.appendAffectedResource(this._affectedMixedContentView);
@@ -510,10 +556,11 @@ class IssueView extends UI.TreeOutline.TreeElement {
 
   updateAffectedResourceVisibility() {
     const noCookies = !this._affectedCookiesView || this._affectedCookiesView.isEmpty();
+    const noElements = !this._affectedElementsView || this._affectedElementsView.isEmpty();
     const noRequests = !this._affectedRequestsView || this._affectedRequestsView.isEmpty();
     const noMixedContent = !this._affectedMixedContentView || this._affectedMixedContentView.isEmpty();
     const noSources = !this._affectedSourcesView || this._affectedSourcesView.isEmpty();
-    const noResources = noCookies && noRequests && noMixedContent && noSources;
+    const noResources = noCookies && noElements && noRequests && noMixedContent && noSources;
     this._affectedResources.hidden = noResources;
   }
 
@@ -640,12 +687,12 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _issueUpdated(event) {
-    const issue = /** @type {!AggregatedIssue} */ (event.data);
+    const issue = /** @type {!SDK.Issue.Issue} */ (event.data);
     this._updateIssueView(issue);
   }
 
   /**
-   * @param {!AggregatedIssue} issue
+   * @param {!SDK.Issue.Issue} issue
    */
   _updateIssueView(issue) {
     const description = issue.getDescription();
