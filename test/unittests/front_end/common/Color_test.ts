@@ -287,6 +287,12 @@ describe('Color', () => {
     const result = color.asString('nickname');
     assert.strictEqual(result, 'red', 'color was not converted to a string correctly');
   });
+
+  it('is able to clear the original text', () => {
+    const color = new Color.Color([1, 0, 0, 1], 'rgb', 'testColor');
+    const result = color.clearOriginalText();
+    assert.strictEqual(result.asString(), 'rgb(255 0 0)', 'originalText was not cleared correctly');
+  });
 });
 
 describe('Generator', () => {
