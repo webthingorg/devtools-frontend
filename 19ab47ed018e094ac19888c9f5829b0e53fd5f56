@@ -209,6 +209,30 @@
       "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16971db9_4601db8c",
+        "filename": "test/unittests/scripts/component_bridges/walk_tree_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-05T14:02:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9346f183_a7af1bff",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 6
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
