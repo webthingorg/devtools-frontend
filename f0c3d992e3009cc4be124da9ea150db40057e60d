@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d5af431_6cc25588",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-05T09:34:37Z",
+      "side": 1,
+      "message": "I would have preferred to add whitespace to all but the last element using last-child css, but the TreeOutline component has a more complicated DOM structure, so I couldn\u0027t make that work. Elected to add top-margin to all parent elements and decreasing the padding of the enclosing div instead.",
+      "revId": "f0c3d992e3009cc4be124da9ea150db40057e60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
