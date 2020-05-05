@@ -16,6 +16,23 @@
       "revId": "343abd9560d026f86a60ec5c749fb3ae051f9f28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8eb1aa2_91bdc6a2",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-05T10:10:29Z",
+      "side": 1,
+      "message": "should the default be RGB as well?",
+      "revId": "343abd9560d026f86a60ec5c749fb3ae051f9f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
