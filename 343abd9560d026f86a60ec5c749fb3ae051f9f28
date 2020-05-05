@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fe2b8f3_ce96b7a0",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-05T10:05:53Z",
+      "side": 1,
+      "message": "This simplification is now possible because of https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2172417",
+      "revId": "343abd9560d026f86a60ec5c749fb3ae051f9f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
