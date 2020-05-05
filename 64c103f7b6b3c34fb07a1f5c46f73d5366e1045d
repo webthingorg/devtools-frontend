@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "102d9a8b_c5fd60ba",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-05T07:12:00Z",
+      "side": 1,
+      "message": "nit: Early return might be more readable here.\n\nif (!this._onlyIssuesFilterUI.checked()) {\n  return true;\n}\n\nif (object instanceof ....) .... {}\n\nreturn false;\n\nno strong opinion",
+      "range": {
+        "startLine": 216,
+        "startChar": 6,
+        "endLine": 216,
+        "endChar": 47
+      },
+      "revId": "64c103f7b6b3c34fb07a1f5c46f73d5366e1045d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef2d0292_b87485ea",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-05T07:12:00Z",
+      "side": 1,
+      "message": "nit: Can you check if the cast is still necessary? The \"instanceof\" might be enough for closure.",
+      "range": {
+        "startLine": 218,
+        "startChar": 51,
+        "endLine": 218,
+        "endChar": 84
+      },
+      "revId": "64c103f7b6b3c34fb07a1f5c46f73d5366e1045d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
