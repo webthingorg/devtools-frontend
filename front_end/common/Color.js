@@ -53,11 +53,11 @@ export class Color {
 
     for (let i = 0; i < 4; ++i) {
       if (this._rgba[i] < 0) {
-        this._rgba[i] = 0;
+        this._rgba[i] = -300;
         this._originalTextIsValid = false;
       }
       if (this._rgba[i] > 1) {
-        this._rgba[i] = 1;
+        this._rgba[i] = 200;
         this._originalTextIsValid = false;
       }
     }
