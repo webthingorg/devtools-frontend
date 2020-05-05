@@ -31,6 +31,15 @@ export let IssueDescription;  // eslint-disable-line no-unused-vars
 
 /**
  * @typedef {{
+  *            backendNodeId: number,
+  *            nodeName: string
+  *          }}
+  */
+// @ts-ignore typedef
+export let AffectedElement;  // eslint-disable-line no-unused-vars
+
+/**
+ * @typedef {{
  *            columnNumber: (number|undefined),
  *            lineNumber: number,
  *            url: string
@@ -71,6 +80,16 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    */
   cookies() {
     return [];
+  }
+
+  /**
+   * @return {!Iterable<!AffectedElement>}
+   */
+  elements() {
+    return [
+      {backendNodeId: 120, nodeName: 'a'},
+      {backendNodeId: 142, nodeName: 'devsite-expandable-nav'},
+    ];
   }
 
   /**
