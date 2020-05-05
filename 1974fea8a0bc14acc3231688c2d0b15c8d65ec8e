@@ -22,6 +22,47 @@
       "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1682915a_c2a8278a",
+        "filename": "front_end/bindings/ResourceScriptMapping.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-05T17:36:55Z",
+      "side": 1,
+      "message": "it is used inside _getScriptForCurrentUISourceCode() line 1550",
+      "parentUuid": "06bf780c_4e3752ba",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 12
+      },
+      "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb2c7110_6a0ada02",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-05T17:36:55Z",
+      "side": 1,
+      "message": "For some reason, it is still complaining about this line for `npm run check-type-closure`\n\n WARNING - [JSC_POSSIBLE_INEXISTENT_PROPERTY] Property functionBodyOffsets never defined on result.data\n          this._functionBodyOffsets \u003d result.data.functionBodyOffsets;\n                                                  ^^^^^^^^^^^^^^^^^^^\n\n@Kim @Eric: do you have any idea?",
+      "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
