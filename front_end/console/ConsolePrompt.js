@@ -52,12 +52,12 @@ export class ConsolePrompt extends UI.Widget.Widget {
     self.runtime.extension(UI.TextEditor.TextEditorFactory).instance().then(gotFactory.bind(this));
 
     /**
-     * @param {!UI.TextEditor.TextEditorFactory} factory
+     * @param {!UI.TextEditor.TextEditorFactory23} factory
      * @this {ConsolePrompt}
      */
     function gotFactory(factory) {
       this._editor = factory.createEditor({
-        devtoolsAccessibleName: ls`Console prompt`,
+        devtoolsAccessibleName: ls`The Console prompt`,
         lineNumbers: false,
         lineWrapping: true,
         mimeType: 'javascript',

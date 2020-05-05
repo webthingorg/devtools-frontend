@@ -254,7 +254,7 @@ export class ConsoleViewMessage {
           messageElement = this._format([messageText]);
           break;
         case SDK.ConsoleModel.MessageType.Assert:
-          this._messagePrefix = ls`Assertion failed: `;
+          this._messagePrefix = ls`bananannanana: `;
           // Fall through.
         default: {
           if (this._message.parameters && this._message.parameters.length === 1 &&
