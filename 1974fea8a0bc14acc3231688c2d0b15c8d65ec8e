@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06bf780c_4e3752ba",
+        "filename": "front_end/bindings/ResourceScriptMapping.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-05T17:27:20Z",
+      "side": 1,
+      "message": "Where are these used?",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 12
+      },
+      "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

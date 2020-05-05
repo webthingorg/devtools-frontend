@@ -155,6 +155,24 @@
     },
     {
       "key": {
+        "uuid": "82d29ffc_4e491b48",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-05T17:27:20Z",
+      "side": 1,
+      "message": "On second thought it appears that this class already interacts with Script objects for other reasons so perhaps my concern was misplaced.",
+      "parentUuid": "13821d9a_cb4831a1",
+      "revId": "28f2059d335f7cdc03c1748341ca70693bb6bc77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8016368_89669f63",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 13
