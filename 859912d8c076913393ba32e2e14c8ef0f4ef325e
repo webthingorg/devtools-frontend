@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39a78103_81bce526",
+        "filename": "scripts/common.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-05T12:50:47Z",
+      "side": 1,
+      "message": "If I understand correctly, you want to filter a particular test on this command right?",
+      "range": {
+        "startLine": 154,
+        "startChar": 8,
+        "endLine": 154,
+        "endChar": 39
+      },
+      "revId": "859912d8c076913393ba32e2e14c8ef0f4ef325e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
