@@ -40,13 +40,24 @@ function handleHostedModeError(error: Error) {
   throw new Error(`Hosted mode server: ${error}`);
 }
 
-const envChromeBinary = process.env['CHROME_BIN'];
+const CHROME_DIRECTORY = path.join(__dirname, '..', '..', 'third_party', 'chrome');
+const CHROME_PLATFORM_MAP = new Map<NodeJS.Platform, string>([
+  ['linux', path.join(CHROME_DIRECTORY, 'chrome-linux', 'chrome')],
+  ['darwin', path.join(CHROME_DIRECTORY, 'chrome-mac', 'Chromium.app', 'Contents', 'MacOS', 'Chromium')],
+  ['win32', path.join(CHROME_DIRECTORY, 'third_party', 'chrome', 'chrome-win', 'chrome.exe')],
+]);
+
+const executablePath = CHROME_PLATFORM_MAP.get(process.platform);
+
+if (!executablePath) {
+  throw new Error(`Could not find chrome binary for platform "${process.platform}"`);
+}
 
 async function loadTargetPageAndDevToolsFrontend() {
   const launchArgs = [`--remote-debugging-port=${envPort}`];
   const opts: puppeteer.LaunchOptions = {
     headless,
-    executablePath: envChromeBinary,
+    executablePath,
     defaultViewport: null,
     dumpio: !headless,
     slowMo: envSlowMo,

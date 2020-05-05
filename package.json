@@ -31,7 +31,7 @@
     "debug-e2etest": "DEBUG=1 python scripts/test/run_test_suite.py --test-suite=e2e",
     "debug-test": "node scripts/npm_test.js --debug-devtools",
     "debug-unittest": "DEBUG=1 npm run unittest",
-    "e2etest": "python scripts/test/run_test_suite.py --test-suite=e2e",
+    "e2etest": "third_party/node/node.py node_modules/.bin/mocha --config test/e2e/.mocharc.js",
     "eslint-test": "mocha \"./scripts/eslint_rules/tests/*_test.js\"",
     "grdp-utils-test": "mocha \"./scripts/localization/utils/tests/*_test.js\"",
     "generate-bridge-file": "tsc -p scripts/component_bridges/tsconfig.json && node scripts/component_bridges/gen/cli.js",
