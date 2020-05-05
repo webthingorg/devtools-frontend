@@ -728,6 +728,13 @@ export class Color {
     Color.blendColors(fgColor._rgba, this._rgba, rgba);
     return new Color(rgba, Format.RGBA);
   }
+
+  /**
+   * @return {!Color}
+   */
+  clearOriginalText() {
+    return new Color(this._rgba, Format.RGB);
+  }
 }
 
 /** @type {!RegExp} */

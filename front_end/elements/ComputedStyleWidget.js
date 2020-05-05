@@ -148,11 +148,14 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
    * @return {!Node}
    */
   _processColor(text) {
-    const color = Common.Color.Color.parse(text);
+    let color = Common.Color.Color.parse(text);
     if (!color) {
       return createTextNode(text);
     }
     const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
+    // computed styles don't provide the original format
+    // therefore, the rgb value they provide cannot be used as originalText
+    color = color.clearOriginalText();
     swatch.setColor(color);
     swatch.setFormat(Common.Settings.detectColorFormat(color));
     return swatch;
