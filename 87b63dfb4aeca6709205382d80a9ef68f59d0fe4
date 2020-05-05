@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4189506f_a91cb20c",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-05T14:18:26Z",
+      "side": 1,
+      "message": "It seems more direct to do:\n\n    this._originalText \u003d null;\n\nThat way we avoid creating a new Color instance and we can continue to use `const` in `_processColor`.\n\nI know this is different from setAlpha/blendWith etc. but those actually need a new color, whereas `clearOriginalText` implies it changes the existing one IMHO. WDYT?",
+      "revId": "87b63dfb4aeca6709205382d80a9ef68f59d0fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
