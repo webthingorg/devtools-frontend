@@ -17,7 +17,7 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    */
   constructor(code) {
     super(code);
-    /** @type {!Map<string, !Protocol.Audits.AffectedCookie>} */
+    /** @type {!Map<string, !{cookie: !Protocol.Audits.AffectedCookie, hasRequest: boolean}>} */
     this._cookies = new Map();
     /** @type {!Map<string, !Protocol.Audits.AffectedRequest>} */
     this._requests = new Map();
@@ -40,6 +40,13 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    * @returns {!Iterable<!Protocol.Audits.AffectedCookie>}
    */
   cookies() {
+    return Array.from(this._cookies.values()).map(x => x.cookie);
+  }
+
+  /**
+   * @returns {!Iterable<!{cookie: !Protocol.Audits.AffectedCookie, hasRequest: boolean}>}
+   */
+  cookiesWithRequestIndicator() {
     return this._cookies.values();
   }
 
@@ -87,15 +94,17 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     if (!this._representative) {
       this._representative = issue;
     }
+    let hasRequest = false;
+    for (const request of issue.requests()) {
+      hasRequest = true;
+      if (!this._requests.has(request.requestId)) {
+        this._requests.set(request.requestId, request);
+      }
+    }
     for (const cookie of issue.cookies()) {
       const key = JSON.stringify(cookie);
       if (!this._cookies.has(key)) {
-        this._cookies.set(key, cookie);
-      }
-    }
-    for (const request of issue.requests()) {
-      if (!this._requests.has(request.requestId)) {
-        this._requests.set(request.requestId, request);
+        this._cookies.set(key, {cookie, hasRequest});
       }
     }
     for (const mixedContent of issue.mixedContents()) {
