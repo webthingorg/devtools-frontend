@@ -22,6 +22,30 @@
       "revId": "859912d8c076913393ba32e2e14c8ef0f4ef325e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60980672_bd78aab4",
+        "filename": "scripts/common.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-05T13:27:06Z",
+      "side": 1,
+      "message": "Yes, exactly!",
+      "parentUuid": "39a78103_81bce526",
+      "range": {
+        "startLine": 154,
+        "startChar": 8,
+        "endLine": 154,
+        "endChar": 39
+      },
+      "revId": "859912d8c076913393ba32e2e14c8ef0f4ef325e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
