@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cdd45a5c_f9639163",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-05T14:01:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure it\u0027s worth it given the usage is all contained to this file. If we referred to `docType` elsewhere I\u0027d pull it out 👍",
+      "parentUuid": "9c550478_6bd04085",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 27
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea71dc8c_e34113e7",
         "filename": "scripts/component_bridges/generate_closure.ts",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "5c8fda56_a95a6d0e",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-05T14:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f32d27e4_3211b225",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 188,
+        "endChar": 19
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9701c69_ca566b31",
         "filename": "scripts/component_bridges/generate_closure.ts",
         "patchSetId": 3
@@ -82,6 +130,30 @@
       "writtenOn": "2020-05-05T12:59:15Z",
       "side": 1,
       "message": "(In combination with the above point): I would rather prohibit creating bridges if the return type is not mentioned. Because it could be inferred to a type that is not exposed. That would in turn confuse Closure and potentially hide problems.",
+      "range": {
+        "startLine": 205,
+        "startChar": 8,
+        "endLine": 205,
+        "endChar": 19
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e5c3a7_563e61cf",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-05T14:01:55Z",
+      "side": 1,
+      "message": "Agree. I\u0027ll shout loudly.",
+      "parentUuid": "b9701c69_ca566b31",
       "range": {
         "startLine": 205,
         "startChar": 8,
