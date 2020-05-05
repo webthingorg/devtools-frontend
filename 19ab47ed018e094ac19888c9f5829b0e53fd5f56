@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c550478_6bd04085",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-05T12:59:15Z",
+      "side": 1,
+      "message": "Ultra nit: can be a separate enum",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 27
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea71dc8c_e34113e7",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-05T12:59:15Z",
+      "side": 1,
+      "message": "Ah I see you use it a string here. So maybe an enum doesn\u0027t work? Or maybe it does, depending on how TS desugars it...",
+      "range": {
+        "startLine": 84,
+        "startChar": 17,
+        "endLine": 84,
+        "endChar": 24
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f32d27e4_3211b225",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-05T12:59:15Z",
+      "side": 1,
+      "message": "What should we do if it doesn\u0027t have a type? Is it relying on type inference at that point?",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 188,
+        "endChar": 19
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9701c69_ca566b31",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-05T12:59:15Z",
+      "side": 1,
+      "message": "(In combination with the above point): I would rather prohibit creating bridges if the return type is not mentioned. Because it could be inferred to a type that is not exposed. That would in turn confuse Closure and potentially hide problems.",
+      "range": {
+        "startLine": 205,
+        "startChar": 8,
+        "endLine": 205,
+        "endChar": 19
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "175b4f9a_7800f4e0",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-05T12:59:15Z",
+      "side": 1,
+      "message": "Ah yes nice! +1 to this for getters.",
+      "range": {
+        "startLine": 220,
+        "startChar": 6,
+        "endLine": 220,
+        "endChar": 79
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9346f183_a7af1bff",
+        "filename": "test/unittests/scripts/component_bridges/walk_tree_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-05T12:59:15Z",
+      "side": 1,
+      "message": "Nit: Maybe also add some tests for the cases where a setter type is missing and it should throw an error.",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 6
+      },
+      "revId": "19ab47ed018e094ac19888c9f5829b0e53fd5f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
