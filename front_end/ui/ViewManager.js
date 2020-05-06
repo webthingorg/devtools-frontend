@@ -431,8 +431,14 @@ export class _TabbedLocation extends _Location {
 
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabSelected, this._tabSelected, this);
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabClosed, this._tabClosed, this);
+
     // Note: go via self.Common for globally-namespaced singletons.
     this._closeableTabSetting = Common.Settings.Settings.instance().createSetting(location + '-closeableTabs', {});
+    if (location === 'panel') {
+      this._moveToCloseableTabSetting =
+          Common.Settings.Settings.instance().createSetting(location + '-moveToCloseableTabs', true);
+      this._createInitialClosableSetting();
+    }
     // Note: go via self.Common for globally-namespaced singletons.
     this._tabOrderSetting = Common.Settings.Settings.instance().createSetting(location + '-tabOrder', {});
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabOrderChanged, this._persistTabOrder, this);
@@ -447,6 +453,28 @@ export class _TabbedLocation extends _Location {
 
     if (location) {
       this.appendApplicableItems(location);
+    }
+  }
+
+  _createInitialClosableSetting() {
+    // If this is the first time devtools is open after we converted all tabs to closable
+    // set the previously persistent tabs to the list of
+    const defaultClosable = {
+      'elements': true,
+      'console': true,
+      'sources': true,
+      'network': true,
+      'resources': true,
+      'timeline': true,
+      'lighthouse': true,
+      'profiler': true,
+      'security': true
+    };
+    if (this._moveToCloseableTabSetting.get() === true) {
+      const tabs = this._closeableTabSetting.get();
+      const newClosable = Object.assign({}, tabs, defaultClosable);
+      this._closeableTabSetting.set(newClosable);
+      this._moveToCloseableTabSetting.set(false);
     }
   }
 
