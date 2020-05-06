@@ -117,7 +117,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "showPaintRects",
       "settingType": "boolean",
       "storageType": "session",
@@ -135,7 +134,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "showLayoutShiftRegions",
       "settingType": "boolean",
       "storageType": "session",
@@ -153,7 +151,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "showAdHighlights",
       "settingType": "boolean",
       "storageType": "session",
@@ -171,7 +168,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "showDebugBorders",
       "settingType": "boolean",
       "storageType": "session",
@@ -189,7 +185,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "showFPSCounter",
       "settingType": "boolean",
       "storageType": "session",
@@ -207,7 +202,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "showScrollBottleneckRects",
       "settingType": "boolean",
       "storageType": "session",
@@ -225,7 +219,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "showHitTestBorders",
       "settingType": "boolean",
       "storageType": "session",
@@ -243,7 +236,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "emulatedCSSMedia",
       "settingType": "enum",
       "storageType": "session",
@@ -270,7 +262,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "emulatedCSSMediaFeaturePrefersColorScheme",
       "settingType": "enum",
       "storageType": "session",
@@ -297,7 +288,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "emulatedCSSMediaFeaturePrefersReducedMotion",
       "settingType": "enum",
       "storageType": "session",
@@ -319,7 +309,6 @@
     },
     {
       "type": "setting",
-      "category": "Rendering",
       "settingName": "emulatedVisionDeficiency",
       "settingType": "enum",
       "storageType": "session",
