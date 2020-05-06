@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c012f5d_dd400dda",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-06T22:23:08Z",
+      "side": 1,
+      "message": "Is this icon keyboard-focusable? If not, the accessible name seems to me to be irrelevant.",
+      "revId": "2866c0311102a4e82d22bf93cf1caee344ea6203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
