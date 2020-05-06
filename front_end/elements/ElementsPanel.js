@@ -568,6 +568,7 @@ export class ElementsPanel extends UI.Panel.Panel {
   }
 
   _highlightCurrentSearchResult() {
+    const searchConfig = this._searchConfig;
     const index = this._currentSearchResultIndex;
     const searchResults = this._searchResults;
     if (!searchResults) {
@@ -584,7 +585,11 @@ export class ElementsPanel extends UI.Panel.Panel {
       // No data for slot, request it.
       searchResult.domModel.searchResult(searchResult.index).then(node => {
         searchResult.node = node;
-        this._highlightCurrentSearchResult();
+
+        // If any of these properties are undefined, this means the search/highlight request is outdated.
+        if (this._searchConfig && this._currentSearchResultIndex && this._searchResults) {
+          this._highlightCurrentSearchResult();
+        }
       });
       return;
     }
@@ -592,7 +597,7 @@ export class ElementsPanel extends UI.Panel.Panel {
     const treeElement = this._treeElementForNode(searchResult.node);
     searchResult.node.scrollIntoView();
     if (treeElement) {
-      treeElement.highlightSearchResults(this._searchConfig.query);
+      treeElement.highlightSearchResults(searchConfig.query);
       treeElement.reveal();
       const matches = treeElement.listItemElement.getElementsByClassName(UI.UIUtils.highlightedSearchResultClassName);
       if (matches.length) {
