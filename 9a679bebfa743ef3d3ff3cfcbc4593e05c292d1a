@@ -22,6 +22,30 @@
       "revId": "9a679bebfa743ef3d3ff3cfcbc4593e05c292d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e73b407_4676a529",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T11:57:50Z",
+      "side": 1,
+      "message": "Maybe after TurboFan\u0027ing it will be the same :)",
+      "parentUuid": "201df26d_401fc21b",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 65
+      },
+      "revId": "9a679bebfa743ef3d3ff3cfcbc4593e05c292d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
