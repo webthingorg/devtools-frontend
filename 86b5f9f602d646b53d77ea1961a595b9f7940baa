@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c57194d8_b4c9b746",
+        "filename": "front_end/Images/src/optimize_svg.hashes",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-06T21:50:44Z",
+      "side": 1,
+      "message": "Hmm, I\u0027m not sure how the optimized scripts work out, but I\u0027m surprised more than just the largeIcons.svg hash changed. Maybe doublecheck that this didn\u0027t carry over from when you rebased?",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53b56cdb_04461517",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-06T21:50:44Z",
+      "side": 1,
+      "message": "may not be necessary, but we might want to put this behind the experiment",
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ac110b5_9c0be76f",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-06T21:50:44Z",
+      "side": 1,
+      "message": "I think this is the most important thing to put behind the experiment flag. We want to make sure this button isn\u0027t even appended unless the experiment is enabled",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 208,
+        "endChar": 48
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1da4732_bdc9fe22",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-06T21:50:44Z",
+      "side": 1,
+      "message": "nit: These seem like they were added for debugging at one point. Maybe consider removing and just accessing the members directly?",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 63
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5c6f562_1d7ad47f",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-06T21:50:44Z",
+      "side": 1,
+      "message": "also needs to be experiment gated I think",
+      "range": {
+        "startLine": 576,
+        "startChar": 7,
+        "endLine": 576,
+        "endChar": 41
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4d17182_23aff136",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-06T21:50:44Z",
+      "side": 1,
+      "message": "So, this is actually the text that customers will see with the checkbox. Maybe something like \"enable emulation for dual screen devices\"",
+      "range": {
+        "startLine": 180,
+        "startChar": 60,
+        "endLine": 180,
+        "endChar": 76
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
