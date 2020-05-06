@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "9aa17d2a_339c2bbc",
+        "filename": "back_end/CXXDWARFSymbols/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-06T12:12:01Z",
+      "side": 1,
+      "message": "Removing libtool looks good.\n\nI didn\u0027t mean to remove protobuf, rather only to install it using brew, and leaving the extra steps out that are mentioned in the article that\u0027s linked in the opencv build doc.",
+      "parentUuid": "0986accc_b3ace836",
+      "revId": "4f21e1e74f02a3ff48c033cf1518a28258115d2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3ed6721_1fefda79",
         "filename": "back_end/CXXDWARFSymbols/README.md",
         "patchSetId": 2
