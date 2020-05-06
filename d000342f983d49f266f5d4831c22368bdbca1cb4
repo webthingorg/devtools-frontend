@@ -22,6 +22,30 @@
       "revId": "d000342f983d49f266f5d4831c22368bdbca1cb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ba8e1ed_7f2eee49",
+        "filename": "front_end/sdk/CrossOriginEmbedderPolicyIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-06T14:20:22Z",
+      "side": 1,
+      "message": "No, this replaces the CSS:\n\n.message .example .comment::before {\n   content: \u0027 — \u0027;\n}",
+      "parentUuid": "185a8418_10b597b3",
+      "range": {
+        "startLine": 154,
+        "startChar": 44,
+        "endLine": 154,
+        "endChar": 51
+      },
+      "revId": "d000342f983d49f266f5d4831c22368bdbca1cb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
