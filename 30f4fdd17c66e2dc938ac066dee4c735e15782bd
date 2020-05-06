@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "742b267e_c5385e08",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-06T14:18:35Z",
+      "side": 1,
+      "message": "Yes, plus on the TTY running chrome.",
+      "parentUuid": "14768273_29400726",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9beffb9_605ce933",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 4
@@ -93,6 +117,30 @@
       "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8f6af34_3c2c6501",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-06T14:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9beffb9_605ce933",
+      "range": {
+        "startLine": 63,
+        "startChar": 76,
+        "endLine": 63,
+        "endChar": 101
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -167,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "a334a823_1f474f48",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-06T14:18:35Z",
+      "side": 1,
+      "message": "Making a useful representation is the job of the symbol server backend. In the frontend, we only need to decide how we represent the representation in the scope view, where I think the options are: show it as the backend represents it (which is this case here), show it as a number, or show the structure (compound and array below).",
+      "parentUuid": "c4ada3c2_6a0bf00d",
+      "range": {
+        "startLine": 155,
+        "startChar": 11,
+        "endLine": 155,
+        "endChar": 22
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "465ed019_1c0cd403",
         "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
         "patchSetId": 4
@@ -187,6 +259,30 @@
       "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "327e7855_3e4cdd08",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-06T14:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "465ed019_1c0cd403",
+      "range": {
+        "startLine": 171,
+        "startChar": 8,
+        "endLine": 171,
+        "endChar": 36
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
