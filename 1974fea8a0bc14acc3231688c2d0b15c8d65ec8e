@@ -81,6 +81,24 @@
       "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a6f40e3_ad18254b",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-06T21:49:21Z",
+      "side": 1,
+      "message": "I think it is just missing some JSDoc so I added it.",
+      "parentUuid": "a32ada26_e136dcdc",
+      "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
