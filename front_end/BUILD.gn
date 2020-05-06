@@ -1,8 +1,7 @@
 # Copyright 2020 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
-
-resources_out_dir = "$root_out_dir/resources/inspector"
+import("../scripts/build/grd_file_group.gni")
 
 group("front_end") {
   public_deps = [ ":front_end_html_entrypoints" ]
@@ -21,4 +20,8 @@ copy("front_end_html_entrypoints") {
   ]
 
   outputs = [ "$resources_out_dir/{{source_file_part}}" ]
+}
+
+grd_file_group("front_end_file_group") {
+  deps = [ ":front_end_html_entrypoints" ]
 }

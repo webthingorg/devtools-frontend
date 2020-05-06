@@ -1,0 +1,40 @@
+# Copyright 2020 The Chromium Authors.  All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+import("./devtools_location.gni")
+
+template("grd_file_group") {
+  action(target_name) {
+    script = "//$devtools_location/scripts/build/grd_file_group.py"
+
+    forward_variables_from(invoker,
+                           [
+                             "sources",
+                             "visibility",
+                             "deps",
+                           ])
+
+    args = [
+      "--output_location",
+      rebase_path(target_gen_dir, root_build_dir) +
+          "/$target_name-grd_file_group.json",
+    ]
+
+    _target_outputs = []
+
+    if (defined(sources)) {
+      _target_outputs += sources
+    }
+
+    if (defined(deps)) {
+      foreach(dep, deps) {
+        _target_outputs += get_target_outputs(dep)
+      }
+    }
+
+    args +=
+        [ "--target_outputs" ] + rebase_path(_target_outputs, root_build_dir)
+
+    outputs = [ "$target_gen_dir/$target_name-grd_file_group.json" ]
+  }
+}
