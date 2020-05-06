@@ -623,7 +623,6 @@ devtools_test_files = [
   "front_end/extensions_test_runner/module.json",
   "front_end/heap_profiler_test_runner/HeapProfilerTestRunner.js",
   "front_end/heap_profiler_test_runner/module.json",
-  "front_end/integration_test_runner.html",
   "front_end/integration_test_runner.js",
   "front_end/integration_test_runner.json",
   "front_end/layers_test_runner/LayersTestRunner.js",
@@ -759,31 +758,25 @@ devtools_image_files = [
 
 resources_out_dir = "$root_out_dir/resources/inspector"
 
-application_templates = [
-  "front_end/devtools_app.html",
-  "front_end/inspector.html",
-  "front_end/integration_test_runner.html",
-  "front_end/js_app.html",
-  "front_end/ndb_app.html",
-  "front_end/node_app.html",
-  "front_end/toolbox.html",
-  "front_end/worker_app.html",
+generated_applications_html = [
+  "$resources_out_dir/devtools_app.html",
+  "$resources_out_dir/inspector.html",
+  "$resources_out_dir/integration_test_runner.html",
+  "$resources_out_dir/js_app.html",
+  "$resources_out_dir/ndb_app.html",
+  "$resources_out_dir/node_app.html",
+  "$resources_out_dir/toolbox.html",
+  "$resources_out_dir/worker_app.html",
 ]
 
-generated_applications = [
+generated_applications_js = [
   "$resources_out_dir/lighthouse_worker.js",
-  "$resources_out_dir/devtools_app.html",
   "$resources_out_dir/devtools_app.js",
-  "$resources_out_dir/inspector.html",
   "$resources_out_dir/inspector.js",
-  "$resources_out_dir/js_app.html",
   "$resources_out_dir/js_app.js",
-  "$resources_out_dir/node_app.html",
   "$resources_out_dir/node_app.js",
   "$resources_out_dir/shell.js",
-  "$resources_out_dir/toolbox.html",
   "$resources_out_dir/toolbox.js",
-  "$resources_out_dir/worker_app.html",
   "$resources_out_dir/worker_app.js",
 ]
 
@@ -860,7 +853,6 @@ generated_test_modules = [
   "$resources_out_dir/extensions_test_runner/extensions_test_runner_module.js",
   "$resources_out_dir/heap_profiler_test_runner/heap_profiler_test_runner_module.js",
   "$resources_out_dir/heap_snapshot_worker/heap_snapshot_worker_module.js",
-  "$resources_out_dir/integration_test_runner.html",
   "$resources_out_dir/integration_test_runner.js",
   "$resources_out_dir/layers_test_runner/layers_test_runner_module.js",
   "$resources_out_dir/network_test_runner/network_test_runner_module.js",
@@ -1651,12 +1643,16 @@ if (is_debug) {
 action("generate_devtools_grd") {
   script = "scripts/build/generate_devtools_grd.py"
 
-  deps = [ ":devtools_frontend_resources" ]
+  deps = [
+    ":devtools_frontend_resources",
+    "front_end",
+  ]
 
   grd_files =
       generated_devtools_module_entrypoints + output_devtools_modules +
-      generated_applications + generated_non_autostart_non_remote_modules +
-      devtools_embedder_scripts + generated_worker_bundles +
+      generated_applications_html + generated_applications_js +
+      generated_non_autostart_non_remote_modules + devtools_embedder_scripts +
+      generated_worker_bundles +
       [
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
@@ -1711,10 +1707,10 @@ action("build_release_devtools") {
   ]
 
   inputs = helper_scripts + all_devtools_files + devtools_test_files +
-           application_templates + all_worker_entrypoints +
-           front_end_devtools_module_entrypoints + input_devtools_modules
+           all_worker_entrypoints + front_end_devtools_module_entrypoints +
+           input_devtools_modules
   outputs =
-      generated_applications + generated_non_autostart_non_remote_modules +
+      generated_applications_js + generated_non_autostart_non_remote_modules +
       generated_remote_modules + generated_test_modules +
       generated_worker_bundles + generated_devtools_module_entrypoints
 
@@ -1731,7 +1727,7 @@ if (debug_devtools) {
 
   action("build_debug_devtools") {
     script = "scripts/build/build_debug_applications.py"
-    inputs = all_devtools_files + application_templates
+    inputs = all_devtools_files
     stamp = "$resources_out_debug_dir/build.stamp"
     outputs = [ stamp ]
 
