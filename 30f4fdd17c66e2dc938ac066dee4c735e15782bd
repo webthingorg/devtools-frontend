@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d353199_dd2e9ac8",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-06T11:37:24Z",
+      "side": 1,
+      "message": "The scope view will show this as \"value: \u003cunreadable\u003e\" which I actually think is kinda neat. The console.error above will print the actual error on the terminal.",
+      "parentUuid": "bb759fc8_c8e34a86",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9beffb9_605ce933",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 4
@@ -59,6 +83,30 @@
       "writtenOn": "2020-05-06T11:24:43Z",
       "side": 1,
       "message": "Is this a string? Does it make sense to surface this here (given that it is the fall-back in L185)?",
+      "range": {
+        "startLine": 155,
+        "startChar": 11,
+        "endLine": 155,
+        "endChar": 22
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2f1d93a_804c1e53",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-06T11:37:24Z",
+      "side": 1,
+      "message": "value.value is a javascript string here, yes. What do you mean by surface exactly?",
+      "parentUuid": "c8d40301_25a72dc8",
       "range": {
         "startLine": 155,
         "startChar": 11,
