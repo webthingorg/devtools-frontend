@@ -16,6 +16,24 @@
       "revId": "e40944b6b895240a7ff6a449a803f7b8236e7dbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95cd8c2c_164239c5",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-05-06T17:39:15Z",
+      "side": 1,
+      "message": "Fixed. Thanks for catching this!",
+      "parentUuid": "dcb13165_76a5203f",
+      "revId": "e40944b6b895240a7ff6a449a803f7b8236e7dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
