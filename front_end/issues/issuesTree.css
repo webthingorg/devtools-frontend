@@ -126,20 +126,15 @@ p {
   user-select: text;
 }
 
-.message .example {
-  margin-top: 2px;
-  margin-bottom: 2px;
+.message p {
+  margin-bottom: 8px;
 }
 
-.message .example code {
+.message code {
   color: var(--issue-black);
   font-size: 90%;
   user-select: text;
   cursor: text;
-}
-
-.message .example .comment::before {
-   content: ' — ';
 }
 
 .separator::before {
