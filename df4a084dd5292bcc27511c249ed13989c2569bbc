@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1de63d27_4640dfef",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-06T22:57:44Z",
+      "side": 1,
+      "message": "nit: having the flag, the comment is less valuable now.",
+      "range": {
+        "startLine": 588,
+        "startChar": 7,
+        "endLine": 588,
+        "endChar": 105
+      },
+      "revId": "df4a084dd5292bcc27511c249ed13989c2569bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
