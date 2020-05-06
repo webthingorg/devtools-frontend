@@ -22,6 +22,30 @@
       "revId": "7646af8ca756c8b1ff8f67aadc4a88227ee5b838",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9955f6d6_812daadc",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T06:18:18Z",
+      "side": 1,
+      "message": "I think it is fine as-is, but thanks!",
+      "parentUuid": "05fb336e_51aefb4d",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 27
+      },
+      "revId": "7646af8ca756c8b1ff8f67aadc4a88227ee5b838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
