@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "14768273_29400726",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T11:44:32Z",
+      "side": 1,
+      "message": "The \"unreadable\" string LGTM.\n\nThe console message goes to the DevTools-on-DevTools terminal, not the user console I guess?",
+      "parentUuid": "2d353199_dd2e9ac8",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9beffb9_605ce933",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 4
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "value.value is a javascript string here, yes. What do you mean by surface exactly?",
       "parentUuid": "c8d40301_25a72dc8",
+      "range": {
+        "startLine": 155,
+        "startChar": 11,
+        "endLine": 155,
+        "endChar": 22
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4ada3c2_6a0bf00d",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T11:44:32Z",
+      "side": 1,
+      "message": "I was wondering whether this string might contain an internal representation that isn\u0027t useful to the DevTools user.",
+      "parentUuid": "c2f1d93a_804c1e53",
       "range": {
         "startLine": 155,
         "startChar": 11,
