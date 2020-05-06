@@ -18,6 +18,7 @@ Some additional, optional, helpful flags:
 LOCATION is a path to the chrome executable
 FEATURES is a comma separated list of chrome features passed as `--enable-features=[FEATURES]` to the chrome binary.
 
+If you only want to run a single test or testsuite, use respectively `it.only` or `describe.only`.
 
 ## General implementation details
 
