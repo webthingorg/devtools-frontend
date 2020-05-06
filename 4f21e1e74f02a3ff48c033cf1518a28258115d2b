@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbf30f38_398f9dfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-06T05:14:15Z",
+      "side": 1,
+      "message": "nit: no . in the end",
+      "revId": "4f21e1e74f02a3ff48c033cf1518a28258115d2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9a3ba3d_50b83d99",
+        "filename": "back_end/CXXDWARFSymbols/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-06T05:14:15Z",
+      "side": 1,
+      "message": "* XCode and XCode developer tools (MacOS)\n* brew (MacOS)",
+      "revId": "4f21e1e74f02a3ff48c033cf1518a28258115d2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "face5d58_bd300064",
+        "filename": "back_end/CXXDWARFSymbols/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-06T05:14:15Z",
+      "side": 1,
+      "message": "On MacOS, install the dependencies by\n\n* Getting XCode (Mac App Store)\n* XCode developer tools\n\n    ```bash xcode-select --install```\n* brew\n\n   ```bash /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\"```\n\n* cmake, python3, swig, libtool, protobuf\n\n    ```bash \n    brew install cmake python3 swig libtool protobuf\n    pip3 install --user python-watchdog\n    ```\n\n\u003d\u003d\u003d\u003d\u003d\u003d\nFeel free to edit/format as you like. Regarding protobuf we have a comment to install protobuf from the github page for the OpenCV example, need to check with Yang as well, since he added the comment. I think I followed it, but brew should be enough now that I look over it. I left it out here, but if anything we can still add it later.",
+      "revId": "4f21e1e74f02a3ff48c033cf1518a28258115d2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ed6721_1fefda79",
+        "filename": "back_end/CXXDWARFSymbols/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-06T05:14:15Z",
+      "side": 1,
+      "message": "I would suggest to include the -I option already in line 57 to make sure that people use it.",
+      "revId": "4f21e1e74f02a3ff48c033cf1518a28258115d2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
