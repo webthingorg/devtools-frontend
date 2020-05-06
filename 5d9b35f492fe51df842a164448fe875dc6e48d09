@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fd48c8f_f48d39ba",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/expected/setters-object-literal_bridge-expected.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-06T10:18:16Z",
+      "side": 1,
+      "message": "Nit: add a cat interface to make sure we can handle multiple interfaces as well.",
+      "range": {
+        "startLine": 23,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 38
+      },
+      "revId": "5d9b35f492fe51df842a164448fe875dc6e48d09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46fd7d31_609755ed",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/setters-object-literal.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-06T10:18:16Z",
+      "side": 1,
+      "message": "Yes.",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "5d9b35f492fe51df842a164448fe875dc6e48d09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
