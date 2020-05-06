@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb759fc8_c8e34a86",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T11:24:43Z",
+      "side": 1,
+      "message": "Does this mean we don\u0027t surface anything to the devtools user if evaluation fails?",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9beffb9_605ce933",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T11:24:43Z",
+      "side": 1,
+      "message": "I know this is nit\u0027ing on old code, but could you use /* ... */ for each of the booleans to indicate what they mean?",
+      "range": {
+        "startLine": 63,
+        "startChar": 76,
+        "endLine": 63,
+        "endChar": 101
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8d40301_25a72dc8",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T11:24:43Z",
+      "side": 1,
+      "message": "Is this a string? Does it make sense to surface this here (given that it is the fall-back in L185)?",
+      "range": {
+        "startLine": 155,
+        "startChar": 11,
+        "endLine": 155,
+        "endChar": 22
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "465ed019_1c0cd403",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T11:24:43Z",
+      "side": 1,
+      "message": "How do you know nothing in this chain is undefined?",
+      "range": {
+        "startLine": 171,
+        "startChar": 8,
+        "endLine": 171,
+        "endChar": 36
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
