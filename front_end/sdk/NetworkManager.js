@@ -820,13 +820,27 @@ export class NetworkDispatcher {
    * @param {!Protocol.Network.RequestId} requestId
    * @param {!Array<!Protocol.Network.BlockedCookieWithReason>} blockedCookies
    * @param {!Protocol.Network.Headers} headers
+   * @param {!Array<!Protocol.Network.BlockedCookieWithReason>} associatedCookies
    */
-  requestWillBeSentExtraInfo(requestId, blockedCookies, headers) {
-    /** @type {!ExtraRequestInfo} */
-    const extraRequestInfo = {
-      blockedRequestCookies: blockedCookies.map(blockedCookie => {
+  requestWillBeSentExtraInfo(requestId, blockedCookies, headers, associatedCookies) {
+    let blockedRequestCookies = [];
+    const requestCookies = [];
+    if (blockedCookies) {
+      blockedRequestCookies = blockedCookies.map(blockedCookie => {
         return {blockedReasons: blockedCookie.blockedReasons, cookie: Cookie.fromProtocolCookie(blockedCookie.cookie)};
-      }),
+      });
+    } else if (associatedCookies) {
+      for (const {blockedReasons, cookie} of associatedCookies) {
+        if (blockedReasons.length === 0) {
+          requestCookies.push({blockedReasons, cookie: Cookie.fromProtocolCookie(cookie)});
+        } else {
+          blockedRequestCookies.push({blockedReasons, cookie: Cookie.fromProtocolCookie(cookie)});
+        }
+      }
+    }
+    const extraRequestInfo = {
+      blockedRequestCookies,
+      requestCookies,
       requestHeaders: this._headersMapToHeadersArray(headers)
     };
     this._getExtraInfoBuilder(requestId).addRequestExtraInfo(extraRequestInfo);
