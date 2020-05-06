@@ -63,6 +63,24 @@
       "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a32ada26_e136dcdc",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-06T05:23:08Z",
+      "side": 1,
+      "message": "I already had a look previously; functionBodyOffsets seems to be properly defined; or at least defined everywhere where where the offsets are defined too. Couldn\u0027t find the reason; I was hoping that Eric might have a clue on that?",
+      "parentUuid": "bb2c7110_6a0ada02",
+      "revId": "1974fea8a0bc14acc3231688c2d0b15c8d65ec8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
