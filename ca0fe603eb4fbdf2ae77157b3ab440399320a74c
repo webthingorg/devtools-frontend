@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31da799d_abe2c8dd",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T16:47:17Z",
+      "side": 1,
+      "message": "This seems to be a recursive type Value \u003d !{value:string|!Array\u003c!Value\u003e, type: string}.\n\nCan we define that and use it here (and in the _ helpers?). You can cast the value at the call-site if necessary.",
+      "range": {
+        "startLine": 190,
+        "startChar": 13,
+        "endLine": 190,
+        "endChar": 14
+      },
+      "revId": "ca0fe603eb4fbdf2ae77157b3ab440399320a74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

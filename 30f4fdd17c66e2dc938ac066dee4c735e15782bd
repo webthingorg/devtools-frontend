@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "de08a890_d5628d55",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T16:47:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "742b267e_c5385e08",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9beffb9_605ce933",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 4
@@ -236,6 +260,30 @@
       "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79e7d2e1_616aa724",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-06T16:47:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a334a823_1f474f48",
+      "range": {
+        "startLine": 155,
+        "startChar": 11,
+        "endLine": 155,
+        "endChar": 22
+      },
+      "revId": "30f4fdd17c66e2dc938ac066dee4c735e15782bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
