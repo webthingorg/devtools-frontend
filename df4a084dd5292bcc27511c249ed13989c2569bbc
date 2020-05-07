@@ -22,6 +22,30 @@
       "revId": "df4a084dd5292bcc27511c249ed13989c2569bbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6bf9045_a8da2bd0",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-05-07T17:30:18Z",
+      "side": 1,
+      "message": "I\u0027m leaning towards leaving this comment in just for clarity.",
+      "parentUuid": "1de63d27_4640dfef",
+      "range": {
+        "startLine": 588,
+        "startChar": 7,
+        "endLine": 588,
+        "endChar": 105
+      },
+      "revId": "df4a084dd5292bcc27511c249ed13989c2569bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
