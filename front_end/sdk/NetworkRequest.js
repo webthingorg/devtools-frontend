@@ -579,6 +579,20 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @return {number}
+   */
+  get fetchEventCompletionTime() {
+    return this._fetchEventCompletionTime || -1;
+  }
+
+  /**
+   * @param {number} time
+   */
+  set fetchEventCompletionTime(time) {
+    this._fetchEventCompletionTime = time;
+  }
+
+  /**
    * Returns true if the request was sent by a service worker.
    * @return {boolean}
    */
