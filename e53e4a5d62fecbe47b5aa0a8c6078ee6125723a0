@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca9f8232_be7cf220",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-07T08:57:29Z",
+      "side": 1,
+      "message": "\"chromium\"",
+      "revId": "e53e4a5d62fecbe47b5aa0a8c6078ee6125723a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
