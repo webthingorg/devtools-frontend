@@ -10,6 +10,7 @@ ts_library("e2e") {
   deps = [
     "application",
     "console",
+    "cross_tool_integration",
     "elements",
     "host",
     "layers",
