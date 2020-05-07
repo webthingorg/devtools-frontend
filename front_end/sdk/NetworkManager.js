@@ -827,7 +827,7 @@ export class NetworkDispatcher {
     const requestCookies = [];
     for (const {blockedReasons, cookie} of associatedCookies) {
       if (blockedReasons.length === 0) {
-        requestCookies.push({blockedReasons, cookie: Cookie.fromProtocolCookie(cookie)});
+        requestCookies.push(Cookie.fromProtocolCookie(cookie));
       } else {
         blockedRequestCookies.push({blockedReasons, cookie: Cookie.fromProtocolCookie(cookie)});
       }

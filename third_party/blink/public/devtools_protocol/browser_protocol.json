@@ -11104,6 +11104,14 @@
                             "name": "headers",
                             "description": "Raw request headers as they will be sent over the wire.",
                             "$ref": "Headers"
+                        },
+                        {
+                            "name": "requestCookies",
+                            "description": "The cookies that will be sent over the wire (excluding the blocked cookies reported above).",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Cookie"
+                            }
                         }
                     ]
                 },

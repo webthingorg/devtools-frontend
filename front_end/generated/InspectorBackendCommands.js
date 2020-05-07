@@ -1380,7 +1380,8 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Network.webSocketHandshakeResponseReceived', ['requestId', 'timestamp', 'response']);
   inspectorBackend.registerEvent(
       'Network.webSocketWillSendHandshakeRequest', ['requestId', 'timestamp', 'wallTime', 'request']);
-  inspectorBackend.registerEvent('Network.requestWillBeSentExtraInfo', ['requestId', 'associatedCookies', 'headers']);
+  inspectorBackend.registerEvent(
+      'Network.requestWillBeSentExtraInfo', ['requestId', 'associatedCookies', 'headers', 'requestCookies']);
   inspectorBackend.registerEvent(
       'Network.responseReceivedExtraInfo', ['requestId', 'blockedCookies', 'headers', 'headersText']);
   inspectorBackend.registerCommand('Network.canClearBrowserCache', [], ['result'], false);
