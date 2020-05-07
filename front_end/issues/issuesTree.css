@@ -170,7 +170,6 @@ p {
   margin-top: 5px;
   font-size: 10px;
   font-weight: 500;
-  line-height: 2em;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--issue-black);
@@ -193,9 +192,8 @@ p {
   display: list-item;
 }
 
-.affected-resources {
-  background: var(--affected-resource-background);
-  padding: 9px 3px 12px 20px;
+.affected-resources-label + .affected-resources {
+  padding-left: 0px;
   position: relative;
   user-select: text;
 }
@@ -260,4 +258,14 @@ p {
 
 .affected-resources > .parent {
   margin-top: 3px;
+  padding: 2px 5px 0px 5px;
+}
+
+.affected-resources > .parent.expanded {
+  background: var(--affected-resource-background);
+}
+
+.affected-resources > .children.expanded {
+  background: var(--affected-resource-background);
+  padding-bottom: 2px
 }
