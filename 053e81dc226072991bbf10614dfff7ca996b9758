@@ -34,6 +34,24 @@
       "revId": "053e81dc226072991bbf10614dfff7ca996b9758",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc96d097_3f49a2d2",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-07T09:31:49Z",
+      "side": 1,
+      "message": "ARGH. No this is the python formatter change. We have to turn off yapf: https://github.com/google/yapf#why-does-yapf-destroy-my-awesome-formatting",
+      "parentUuid": "c5f319c8_3329e7b0",
+      "revId": "053e81dc226072991bbf10614dfff7ca996b9758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
