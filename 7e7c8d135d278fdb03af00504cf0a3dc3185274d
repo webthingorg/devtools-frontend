@@ -45,6 +45,30 @@
       "revId": "7e7c8d135d278fdb03af00504cf0a3dc3185274d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bbb4a80_fb2a4698",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-07T08:29:36Z",
+      "side": 1,
+      "message": "As discussed offline, they are not. Left a comment.",
+      "parentUuid": "c8c91ff5_8d7334eb",
+      "range": {
+        "startLine": 828,
+        "startChar": 8,
+        "endLine": 828,
+        "endChar": 22
+      },
+      "revId": "7e7c8d135d278fdb03af00504cf0a3dc3185274d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
