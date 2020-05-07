@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee2ac35c_16b0630d",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-07T05:50:19Z",
+      "side": 1,
+      "message": "Assuming that every cookie in blockedCookies always contains at least 1 blocked reason, we could have (pseudo):\n\nlet cookiesToIterate \u003d [];\nif (blockedCookies.length \u003e 0) cookiesToIterate \u003d blockedCookies;\nelse if (associatedCookies.length \u003e 0) cookiesToIterate \u003d associatedCookies;\n\nand then just use the for..of loop that currently loops over {associatedCookies} for {cookiesToIterate}?",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 85
+      },
+      "revId": "7e7c8d135d278fdb03af00504cf0a3dc3185274d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8c91ff5_8d7334eb",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-07T05:50:19Z",
+      "side": 1,
+      "message": "Assuming the type annotations are true, then this branch will always be taken, since blockedCookies is non-null and will always be an Array (sometimes an empty one)",
+      "range": {
+        "startLine": 828,
+        "startChar": 8,
+        "endLine": 828,
+        "endChar": 22
+      },
+      "revId": "7e7c8d135d278fdb03af00504cf0a3dc3185274d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
