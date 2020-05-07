@@ -34,6 +34,7 @@ from os import path
 
 import errno
 import os
+import json
 import shlex
 import shutil
 import sys
@@ -63,11 +64,15 @@ kGrdTemplate = '''<?xml version="1.0" encoding="UTF-8"?>
 
 class ParsedArgs:
 
-    def __init__(self, file_list, relative_path_dirs, image_dirs, output_filename):
+    def __init__(self, file_list, file_groups, relative_path_dirs, image_dirs,
+                 output_filename):
         self.file_list = file_list
         file_list_file = open(file_list, 'r')
-        file_list_contents = file_list_file.read();
+        file_list_contents = file_list_file.read()
         self.source_files = shlex.split(file_list_contents)
+        for file_group_location in file_groups:
+            with open(file_group_location, 'rt') as input:
+                self.source_files += json.loads(input.read())['files']
         self.relative_path_dirs = relative_path_dirs
         self.image_dirs = image_dirs
         self.output_filename = output_filename
@@ -79,14 +84,18 @@ def parse_args(argv):
     #   --relative_path_dirs [ <directory> ]*
     #   --images [ <image_dirs> ]*
     #   --output <output_file>
+    #   --file_groups [ file_groups ]*
     file_list_position = argv.index('--file_list')
     relative_path_dirs_position = argv.index('--relative_path_dirs')
     images_position = argv.index('--images')
     output_position = argv.index('--output')
+    file_groups_position = argv.index('--file_groups')
     file_list = argv[file_list_position + 1]
     relative_path_dirs = argv[relative_path_dirs_position + 1:images_position]
     image_dirs = argv[images_position + 1:output_position]
-    return ParsedArgs(file_list, relative_path_dirs, image_dirs, argv[output_position + 1])
+    file_groups = argv[file_groups_position + 1:]
+    return ParsedArgs(file_list, file_groups, relative_path_dirs, image_dirs,
+                      argv[output_position + 1])
 
 
 def make_name_from_filename(filename):

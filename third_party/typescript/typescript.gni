@@ -1,14 +1,7 @@
 # Copyright 2019 The Chromium Authors.  All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
-
-if (!defined(devtools_location)) {
-  if (defined(use_devtools_typescript) && use_devtools_typescript) {
-    devtools_location = ""
-  } else {
-    devtools_location = "third_party/devtools-frontend/src"
-  }
-}
+import("../../scripts/build/devtools_location.gni")
 
 # Defines a target that compiles .ts files using TypeScript.
 # A temporary tsconfig.json is generated which uses the

@@ -759,17 +759,6 @@ devtools_image_files = [
 
 resources_out_dir = "$root_out_dir/resources/inspector"
 
-generated_applications_html = [
-  "$resources_out_dir/devtools_app.html",
-  "$resources_out_dir/inspector.html",
-  "$resources_out_dir/integration_test_runner.html",
-  "$resources_out_dir/js_app.html",
-  "$resources_out_dir/ndb_app.html",
-  "$resources_out_dir/node_app.html",
-  "$resources_out_dir/toolbox.html",
-  "$resources_out_dir/worker_app.html",
-]
-
 generated_applications_js = [
   "$resources_out_dir/lighthouse_worker.js",
   "$resources_out_dir/devtools_app.js",
@@ -1645,16 +1634,17 @@ if (is_debug) {
 action("generate_devtools_grd") {
   script = "scripts/build/generate_devtools_grd.py"
 
+  file_groups = [ "front_end:front_end_file_group" ]
+
   deps = [
-    ":devtools_frontend_resources",
-    "front_end",
-  ]
+           ":devtools_frontend_resources",
+           "front_end",
+         ] + file_groups
 
   grd_files =
       generated_devtools_module_entrypoints + output_devtools_modules +
-      generated_applications_html + generated_applications_js +
-      generated_non_autostart_non_remote_modules + devtools_embedder_scripts +
-      generated_worker_bundles +
+      generated_applications_js + generated_non_autostart_non_remote_modules +
+      devtools_embedder_scripts + generated_worker_bundles +
       [
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
@@ -1680,7 +1670,13 @@ action("generate_devtools_grd") {
            rebase_path("front_end/Images", root_build_dir),
            "--output",
            rebase_path(outfile, root_build_dir),
-         ]
+         ] + [ "--file_groups" ]
+  foreach(file_group, file_groups) {
+    _file_output_name =
+        get_label_info(file_group, "target_gen_dir") + "/" +
+        get_label_info(file_group, "name") + "-grd_file_group.json"
+    args += [ rebase_path(_file_output_name, root_build_dir) ]
+  }
 }
 
 action("devtools_extension_api") {
