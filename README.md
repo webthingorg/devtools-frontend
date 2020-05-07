@@ -1,5 +1,7 @@
 # Chrome DevTools frontend
 
+Benedikt was here!
+
 <!-- [START badges] -->
 [![NPM package](https://img.shields.io/npm/v/chrome-devtools-frontend.svg)](https://npmjs.org/package/chrome-devtools-frontend)
 <!-- [END badges] -->
