@@ -22,6 +22,30 @@
       "revId": "ca0fe603eb4fbdf2ae77157b3ab440399320a74c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8237106_897cc7d4",
+        "filename": "front_end/bindings/language_plugins/CXXDWARFLanguagePlugin.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-07T07:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31da799d_abe2c8dd",
+      "range": {
+        "startLine": 190,
+        "startChar": 13,
+        "endLine": 190,
+        "endChar": 14
+      },
+      "revId": "ca0fe603eb4fbdf2ae77157b3ab440399320a74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
