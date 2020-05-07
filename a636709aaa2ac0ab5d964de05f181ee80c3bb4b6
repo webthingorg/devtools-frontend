@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac0ca45e_3a9ce910",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-07T10:19:37Z",
+      "side": 1,
+      "message": "nit: can\u0027t we use the utf8 character here?",
+      "range": {
+        "startLine": 181,
+        "startChar": 20,
+        "endLine": 181,
+        "endChar": 25
+      },
+      "revId": "a636709aaa2ac0ab5d964de05f181ee80c3bb4b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786bda1d_e193ed84",
+        "filename": "front_end/sdk/CrossOriginEmbedderPolicyIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-07T10:19:37Z",
+      "side": 1,
+      "message": "We should link to two explainer here, shouldn\u0027t we? (and in some other cases as well).",
+      "range": {
+        "startLine": 209,
+        "startChar": 11,
+        "endLine": 209,
+        "endChar": 37
+      },
+      "revId": "a636709aaa2ac0ab5d964de05f181ee80c3bb4b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
