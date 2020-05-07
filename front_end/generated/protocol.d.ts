@@ -7652,6 +7652,10 @@ declare namespace Protocol {
        * Raw request headers as they will be sent over the wire.
        */
       headers: Headers;
+      /**
+       * The cookies that will be sent over the wire (excluding the blocked cookies reported above).
+       */
+      requestCookies: Cookie[];
     }
 
     /**
