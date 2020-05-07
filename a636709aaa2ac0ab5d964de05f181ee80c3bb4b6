@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0729d1e_4a533eeb",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-07T12:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac0ca45e_3a9ce910",
+      "range": {
+        "startLine": 181,
+        "startChar": 20,
+        "endLine": 181,
+        "endChar": 25
+      },
+      "revId": "a636709aaa2ac0ab5d964de05f181ee80c3bb4b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "786bda1d_e193ed84",
         "filename": "front_end/sdk/CrossOriginEmbedderPolicyIssue.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "a636709aaa2ac0ab5d964de05f181ee80c3bb4b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3685fbb0_efbf566e",
+        "filename": "front_end/sdk/CrossOriginEmbedderPolicyIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-07T12:27:24Z",
+      "side": 1,
+      "message": "As discussed, will do in a follow up.",
+      "parentUuid": "786bda1d_e193ed84",
+      "range": {
+        "startLine": 209,
+        "startChar": 11,
+        "endLine": 209,
+        "endChar": 37
+      },
+      "revId": "a636709aaa2ac0ab5d964de05f181ee80c3bb4b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
