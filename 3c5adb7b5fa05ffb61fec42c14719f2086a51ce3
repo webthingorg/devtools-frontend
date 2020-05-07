@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4affdee3_e02c50ba",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2020-05-07T15:54:47Z",
+      "side": 1,
+      "message": "I think this failed an e2e-test: https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8880947905993937056/+/steps/E2E_tests/0/stdout",
+      "range": {
+        "startLine": 832,
+        "startChar": 45,
+        "endLine": 832,
+        "endChar": 62
+      },
+      "revId": "3c5adb7b5fa05ffb61fec42c14719f2086a51ce3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
