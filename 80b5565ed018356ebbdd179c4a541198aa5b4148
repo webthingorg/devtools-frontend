@@ -22,6 +22,30 @@
       "revId": "80b5565ed018356ebbdd179c4a541198aa5b4148",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "612103e1_1a5455ca",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-07T09:47:43Z",
+      "side": 1,
+      "message": "Added a mention of Mocha at the top 👍",
+      "parentUuid": "cdd9ebf7_525fd255",
+      "range": {
+        "startLine": 21,
+        "startChar": 70,
+        "endLine": 21,
+        "endChar": 77
+      },
+      "revId": "80b5565ed018356ebbdd179c4a541198aa5b4148",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
