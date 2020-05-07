@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "88b6bd2f_38a52f8f",
+        "filename": "front_end/Images/src/optimize_svg.hashes",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-07T21:00:05Z",
+      "side": 1,
+      "message": "I will double check on this one later.",
+      "parentUuid": "c57194d8_b4c9b746",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "53b56cdb_04461517",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6a95731_710a4981",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-07T21:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53b56cdb_04461517",
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "95ed5dca_35a703c1",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-07T21:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ac110b5_9c0be76f",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 208,
+        "endChar": 48
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1da4732_bdc9fe22",
         "filename": "front_end/emulation/DeviceModeToolbar.js",
         "patchSetId": 2
@@ -85,6 +151,30 @@
       "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "978b28a6_fb2c4261",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-07T21:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1da4732_bdc9fe22",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 63
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "6ff07e8c_2f7c4481",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-07T21:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5c6f562_1d7ad47f",
+      "range": {
+        "startLine": 576,
+        "startChar": 7,
+        "endLine": 576,
+        "endChar": 41
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4d17182_23aff136",
         "filename": "front_end/main/MainImpl.js",
         "patchSetId": 2
@@ -131,6 +245,30 @@
       "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6de7d440_c3dea947",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-07T21:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4d17182_23aff136",
+      "range": {
+        "startLine": 180,
+        "startChar": 60,
+        "endLine": 180,
+        "endChar": 76
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
