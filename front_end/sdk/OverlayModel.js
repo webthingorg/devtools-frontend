@@ -292,6 +292,20 @@ export class OverlayModel extends SDKModel {
   }
 
   /**
+   * @param {boolean} show
+   * @param {?HighlightRect} hinge
+   */
+  showHingeForDualScreen(show, hinge) {
+    if (show) {
+      const {x, y, width, height, contentColor, outlineColor} = hinge;
+      this._overlayAgent.setShowHinge(
+          {rect: {x: x, y: y, width: width, height: height}, contentColor: contentColor, outlineColor: outlineColor});
+    } else {
+      this._overlayAgent.setShowHinge();
+    }
+  }
+
+  /**
    * @param {string=} mode
    * @param {boolean=} showStyles
    * @return {!Protocol.Overlay.HighlightConfig}
