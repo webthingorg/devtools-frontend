@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "83c98842_911986ce",
+        "filename": "front_end/Images/src/optimize_svg.hashes",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-08T18:27:20Z",
+      "side": 1,
+      "message": "The scripts that generates the hash, does update the hash of other svgs, despite that it only finds one changed file.",
+      "parentUuid": "88b6bd2f_38a52f8f",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "86b5f9f602d646b53d77ea1961a595b9f7940baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53b56cdb_04461517",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 2
