@@ -407,20 +407,10 @@ class AffectedMixedContentView extends AffectedResourcesView {
     name.textContent = 'Name';
     header.appendChild(name);
 
-    const type = document.createElement('td');
-    type.classList.add('affected-resource-header');
-    type.textContent = 'Type';
-    header.appendChild(type);
-
     const info = document.createElement('td');
     info.classList.add('affected-resource-header');
-    info.textContent = 'Status';
+    info.textContent = 'Restriction Status';
     header.appendChild(info);
-
-    const initiator = document.createElement('td');
-    initiator.classList.add('affected-resource-header');
-    initiator.textContent = 'Initiator';
-    header.appendChild(initiator);
 
     this._affectedResources.appendChild(header);
 
@@ -462,21 +452,10 @@ class AffectedMixedContentView extends AffectedResourcesView {
     UI.Tooltip.Tooltip.install(name, mixedContent.insecureURL);
     element.appendChild(name);
 
-    const type = document.createElement('td');
-    type.classList.add('affected-resource-mixed-content-info');
-    type.textContent = mixedContent.resourceType || '';
-    element.appendChild(type);
-
     const status = document.createElement('td');
     status.classList.add('affected-resource-mixed-content-info');
     status.textContent = MixedContentIssue.MixedContentIssue.translateStatus(mixedContent.resolutionStatus);
     element.appendChild(status);
-
-    const initiator = document.createElement('td');
-    initiator.classList.add('affected-resource-mixed-content-info');
-    initiator.textContent = extractShortPath(mixedContent.mainResourceURL);
-    UI.Tooltip.Tooltip.install(initiator, mixedContent.mainResourceURL);
-    element.appendChild(initiator);
 
     this._affectedResources.appendChild(element);
   }
