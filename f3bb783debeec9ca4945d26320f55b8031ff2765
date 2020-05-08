@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36cf727e_d50c12e0",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-08T07:49:46Z",
+      "side": 0,
+      "message": "Do I understand correctly that removal of NetworkRequest.requestCookies field is depending on {HARLog} and HARLogs layout test?",
+      "range": {
+        "startLine": 960,
+        "startChar": 14,
+        "endLine": 960,
+        "endChar": 28
+      },
+      "revId": "f3bb783debeec9ca4945d26320f55b8031ff2765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

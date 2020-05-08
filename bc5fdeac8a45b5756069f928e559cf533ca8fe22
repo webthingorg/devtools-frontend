@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39f1a3d5_069ff8b0",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-08T07:49:46Z",
+      "side": 1,
+      "message": "super-nit: Possible drive-by cleanup, replace with:\n\nthis._request.includedRequestCookies().length.toString()\n\nhere and below and remove the {this._arrayLength} method :)",
+      "range": {
+        "startLine": 946,
+        "startChar": 36,
+        "endLine": 946,
+        "endChar": 94
+      },
+      "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89faef4a_102de9c6",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-08T07:49:46Z",
+      "side": 1,
+      "message": "Is the semantic change ok here? Since {hasRequestCookies} also includes blocked ones, while the {requestCookies} property only has the included ones.",
+      "range": {
+        "startLine": 127,
+        "startChar": 41,
+        "endLine": 127,
+        "endChar": 58
+      },
+      "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52db4dfe_e6c6b62a",
+        "filename": "front_end/network/RequestCookiesView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-08T07:49:46Z",
+      "side": 1,
+      "message": "Getting rid of this extra backend roundtrip is so awesome.",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 74
+      },
+      "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beb40ccf_b84c65b3",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1719,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-08T07:49:46Z",
+      "side": 1,
+      "message": "wdyt about renaming this to \"includedRequestCookies\". It would be consistent with {NetworkRequest} and will avoid confusion, since \"requestCookies\" is a bit ambiguous, in that it could also contain the blocked cookies. Fine in a follow-up CL.",
+      "range": {
+        "startLine": 1719,
+        "startChar": 6,
+        "endLine": 1719,
+        "endChar": 20
+      },
+      "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
