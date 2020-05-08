@@ -117,15 +117,16 @@ include_what_you_use(DWARFSymbolServer)
 
 if (SYMBOL_SERVER_BUILD_FORMATTERS)
   if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(optargs -O1)
+    set(_optargs -O1)
   else()
-    set(optargs -O3 -DNDEBUG)
+    set(_optargs -O3 -DNDEBUG)
   endif()
   set(_formatter_includes
-    -I/usr/include/x86_64-linux-gnu
-    -I/usr/include
-    -I/usr/include/c++/8
-    -I/usr/include/x86_64-linux-gnu/c++/8
+    -I${PROJECT_SOURCE_DIR}/third_party/emscripten/system/include
+    -I${PROJECT_SOURCE_DIR}/third_party/emscripten/system/include/libcxx
+    -I${PROJECT_SOURCE_DIR}/third_party/emscripten/system/include/libc
+    -I${PROJECT_SOURCE_DIR}/third_party/emscripten/system/lib/libc/musl/arch/emscripten
+    -D_LIBCPP_HAS_NO_THREADS
     )
 
   add_custom_target(SymbolServerRuntime
