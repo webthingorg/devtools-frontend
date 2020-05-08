@@ -38,8 +38,7 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
   constructor(dataGridParameters) {
     super();
     const {displayName, columns: columnsArray, editCallback, deleteCallback, refreshCallback} = dataGridParameters;
-    this.element = document.createElement('div');
-    this.element.classList.add('data-grid');
+    this.element = createElementWithClass('div', 'data-grid');
     UI.Utils.appendStyle(this.element, 'data_grid/dataGrid.css');
     this.element.tabIndex = 0;
     this.element.addEventListener('keydown', this._keyDown.bind(this), false);
@@ -1661,8 +1660,7 @@ export class DataGridNode extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Element}
    */
   createElement() {
-    this._element = document.createElement('tr');
-    this._element.classList.add('data-grid-data-grid-node');
+    this._element = createElementWithClass('tr', 'data-grid-data-grid-node');
     this._element._dataGridNode = this;
 
     if (this._hasChildren) {
@@ -1945,10 +1943,7 @@ export class DataGridNode extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Element}
    */
   _createTDWithClass(className) {
-    const cell = document.createElement('td');
-    if (className) {
-      cell.className = className;
-    }
+    const cell = createElementWithClass('td', className);
     const cellClass = this.dataGrid._cellClass;
     if (cellClass) {
       cell.classList.add(cellClass);

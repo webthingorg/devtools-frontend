@@ -4,9 +4,7 @@
 
 import * as UI from '../ui/ui.js';
 
-import {TriggerDispatcher} from './MainView.js';  // eslint-disable-line no-unused-vars
-import {PlayerEvent} from './MediaModel.js';      // eslint-disable-line no-unused-vars
-import {PlayerPropertyKeys} from './PlayerPropertiesView.js';
+import {Event, MediaChangeTypeKeys} from './MediaModel.js';  // eslint-disable-line no-unused-vars
 
 /**
  * @typedef {{playerTitle: string, playerID: string, exists: boolean, playing: boolean, titleEdited: boolean}}
@@ -43,10 +41,7 @@ export class PlayerEntryTreeElement extends UI.TreeOutline.TreeElement {
   }
 }
 
-/**
- * @unrestricted
- * @implements TriggerDispatcher
- */
+
 export class PlayerListView extends UI.Widget.VBox {
   /**
    * @param {!Media.MainView} mainContainer
@@ -125,54 +120,42 @@ export class PlayerListView extends UI.Widget.VBox {
   }
 
   /**
-   * @override
    * @param {string} playerID
-   * @param {!Protocol.Media.PlayerProperty} property
+   * @param {!Array.<!Event>} changes
+   * @param {string} changeType
    */
-  onProperty(playerID, property) {
-    // Sometimes the title will be an empty string, since this is provided
-    // by the website. We don't want to swap title to an empty string.
-    if (property.name === PlayerPropertyKeys.kFrameTitle && property.value) {
-      this.setMediaElementPlayerTitle(playerID, /** @type {string} */ (property.value), false);
+  renderChanges(playerID, changes, changeType) {
+    // We only want to try setting the title from the 'frame_title' and 'frame_url' properties.
+    if (changeType === MediaChangeTypeKeys.Property) {
+      for (const change of changes) {
+        // Sometimes frame_title can be an empty string.
+        if (change.name === 'frame_title' && change.value) {
+          this.setMediaElementPlayerTitle(playerID, /** @type {string} */ (change.value), false);
+        }
+
+        if (change.name === 'frame_url') {
+          const url_path_component = change.value.substring(change.value.lastIndexOf('/') + 1);
+          this.setMediaElementPlayerTitle(playerID, url_path_component, true);
+        }
+      }
     }
 
-    // Url always has a value.
-    if (property.name === PlayerPropertyKeys.kFrameUrl) {
-      const url_path_component = property.value.substring(property.value.lastIndexOf('/') + 1);
-      this.setMediaElementPlayerTitle(playerID, url_path_component, true);
-    }
-  }
-
-  /**
-   * @override
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerError} error
-   */
-  onError(playerID, error) {
-    // TODO(tmathmeyer) show an error icon next to the player name
-  }
-
-  /**
-   * @override
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerMessage} message
-   */
-  onMessage(playerID, message) {
-    // TODO(tmathmeyer) show a message count number next to the player name.
-  }
-
-  /**
-   * @override
-   * @param {string} playerID
-   * @param {!PlayerEvent} event
-   */
-  onEvent(playerID, event) {
-    if (event.value === 'PLAY') {
-      this.setMediaElementPlayerIcon(playerID, 'playing');
-    } else if (event.value === 'PAUSE') {
-      this.setMediaElementPlayerIcon(playerID, 'paused');
-    } else if (event.value === 'WEBMEDIAPLAYER_DESTROYED') {
-      this.setMediaElementPlayerIcon(playerID, 'destroyed');
+    if (changeType === MediaChangeTypeKeys.Event) {
+      let change_to = null;
+      for (const change of changes) {
+        if (change.name === 'Event') {
+          if (change.value === 'PLAY') {
+            change_to = 'playing';
+          } else if (change.value === 'PAUSE') {
+            change_to = 'paused';
+          } else if (change.value === 'WEBMEDIAPLAYER_DESTROYED') {
+            change_to = 'destroyed';
+          }
+        }
+      }
+      if (change_to) {
+        this.setMediaElementPlayerIcon(playerID, change_to);
+      }
     }
   }
 }

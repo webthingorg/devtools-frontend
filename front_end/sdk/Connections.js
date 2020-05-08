@@ -5,7 +5,6 @@
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
-import * as Root from '../root/root.js';
 
 import {TargetManager} from './SDKModel.js';
 
@@ -28,7 +27,7 @@ export class MainConnection {
 
   /**
    * @override
-   * @param {function((!Object|string)):void} onMessage
+   * @param {function((!Object|string))} onMessage
    */
   setOnMessage(onMessage) {
     this._onMessage = onMessage;
@@ -36,7 +35,7 @@ export class MainConnection {
 
   /**
    * @override
-   * @param {function(string):void} onDisconnect
+   * @param {function(string)} onDisconnect
    */
   setOnDisconnect(onDisconnect) {
     this._onDisconnect = onDisconnect;
@@ -72,7 +71,7 @@ export class MainConnection {
       this._messageSize = messageSize;
     }
     this._messageBuffer += messageChunk;
-    if (this._messageBuffer.length === this._messageSize && this._onMessage) {
+    if (this._messageBuffer.length === this._messageSize) {
       this._onMessage.call(null, this._messageBuffer);
       this._messageBuffer = '';
       this._messageSize = 0;
@@ -81,7 +80,7 @@ export class MainConnection {
 
   /**
    * @override
-   * @return {!Promise<void>}
+   * @return {!Promise}
    */
   disconnect() {
     const onDisconnect = this._onDisconnect;
@@ -102,10 +101,9 @@ export class MainConnection {
 export class WebSocketConnection {
   /**
    * @param {string} url
-   * @param {function():void} onWebSocketDisconnect
+   * @param {function()} onWebSocketDisconnect
    */
   constructor(url, onWebSocketDisconnect) {
-    /** @type {?WebSocket} */
     this._socket = new WebSocket(url);
     this._socket.onerror = this._onError.bind(this);
     this._socket.onopen = this._onOpen.bind(this);
@@ -118,16 +116,14 @@ export class WebSocketConnection {
 
     this._onMessage = null;
     this._onDisconnect = null;
-    /** @type {?function():void} */
     this._onWebSocketDisconnect = onWebSocketDisconnect;
     this._connected = false;
-    /** @type {!Array<string>} */
     this._messages = [];
   }
 
   /**
    * @override
-   * @param {function((!Object|string)):void} onMessage
+   * @param {function((!Object|string))} onMessage
    */
   setOnMessage(onMessage) {
     this._onMessage = onMessage;
@@ -135,56 +131,44 @@ export class WebSocketConnection {
 
   /**
    * @override
-   * @param {function(string):void} onDisconnect
+   * @param {function(string)} onDisconnect
    */
   setOnDisconnect(onDisconnect) {
     this._onDisconnect = onDisconnect;
   }
 
   _onError() {
-    if (this._onWebSocketDisconnect) {
-      this._onWebSocketDisconnect.call(null);
-    }
-    if (this._onDisconnect) {
-      // This is called if error occurred while connecting.
-      this._onDisconnect.call(null, 'connection failed');
-    }
+    this._onWebSocketDisconnect.call(null);
+    // This is called if error occurred while connecting.
+    this._onDisconnect.call(null, 'connection failed');
     this._close();
   }
 
   _onOpen() {
+    this._socket.onerror = console.error;
     this._connected = true;
-    if (this._socket) {
-      this._socket.onerror = console.error;
-      for (const message of this._messages) {
-        this._socket.send(message);
-      }
+    for (const message of this._messages) {
+      this._socket.send(message);
     }
     this._messages = [];
   }
 
   _onClose() {
-    if (this._onWebSocketDisconnect) {
-      this._onWebSocketDisconnect.call(null);
-    }
-    if (this._onDisconnect) {
-      this._onDisconnect.call(null, 'websocket closed');
-    }
+    this._onWebSocketDisconnect.call(null);
+    this._onDisconnect.call(null, 'websocket closed');
     this._close();
   }
 
   /**
-   * @param {function():void=} callback
+   * @param {function()=} callback
    */
   _close(callback) {
-    if (this._socket) {
-      this._socket.onerror = null;
-      this._socket.onopen = null;
-      this._socket.onclose = callback || null;
-      this._socket.onmessage = null;
-      this._socket.close();
-      this._socket = null;
-    }
+    this._socket.onerror = null;
+    this._socket.onopen = null;
+    this._socket.onclose = callback || null;
+    this._socket.onmessage = null;
+    this._socket.close();
+    this._socket = null;
     this._onWebSocketDisconnect = null;
   }
 
@@ -193,7 +177,7 @@ export class WebSocketConnection {
    * @param {string} message
    */
   sendRawMessage(message) {
-    if (this._connected && this._socket) {
+    if (this._connected) {
       this._socket.send(message);
     } else {
       this._messages.push(message);
@@ -202,10 +186,9 @@ export class WebSocketConnection {
 
   /**
    * @override
-   * @return {!Promise<void>}
+   * @return {!Promise}
    */
   disconnect() {
-    /** @type {function():void} */
     let fulfill;
     const promise = new Promise(f => fulfill = f);
     this._close(() => {
@@ -229,7 +212,7 @@ export class StubConnection {
 
   /**
    * @override
-   * @param {function((!Object|string)):void} onMessage
+   * @param {function((!Object|string))} onMessage
    */
   setOnMessage(onMessage) {
     this._onMessage = onMessage;
@@ -237,7 +220,7 @@ export class StubConnection {
 
   /**
    * @override
-   * @param {function(string):void} onDisconnect
+   * @param {function(string)} onDisconnect
    */
   setOnDisconnect(onDisconnect) {
     this._onDisconnect = onDisconnect;
@@ -268,7 +251,7 @@ export class StubConnection {
 
   /**
    * @override
-   * @return {!Promise<void>}
+   * @return {!Promise}
    */
   disconnect() {
     if (this._onDisconnect) {
@@ -297,7 +280,7 @@ export class ParallelConnection {
 
   /**
    * @override
-   * @param {function(!Object):void} onMessage
+   * @param {function(!Object)} onMessage
    */
   setOnMessage(onMessage) {
     this._onMessage = onMessage;
@@ -305,7 +288,7 @@ export class ParallelConnection {
 
   /**
    * @override
-   * @param {function(string):void} onDisconnect
+   * @param {function(string)} onDisconnect
    */
   setOnDisconnect(onDisconnect) {
     this._onDisconnect = onDisconnect;
@@ -326,7 +309,7 @@ export class ParallelConnection {
 
   /**
    * @override
-   * @return {!Promise<void>}
+   * @return {!Promise}
    */
   disconnect() {
     if (this._onDisconnect) {
@@ -340,8 +323,8 @@ export class ParallelConnection {
 
 /**
  * @param {function():!Promise<undefined>} createMainTarget
- * @param {function():void} websocketConnectionLost
- * @return {!Promise<void>}
+ * @param {function()} websocketConnectionLost
+ * @return {!Promise}
  */
 export async function initMainConnection(createMainTarget, websocketConnectionLost) {
   ProtocolClient.InspectorBackend.Connection.setFactory(_createMainConnection.bind(null, websocketConnectionLost));
@@ -349,25 +332,19 @@ export async function initMainConnection(createMainTarget, websocketConnectionLo
   Host.InspectorFrontendHost.InspectorFrontendHostInstance.connectionReady();
   Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
       Host.InspectorFrontendHostAPI.Events.ReattachMainTarget, () => {
-        const target = TargetManager.instance().mainTarget();
-        if (target) {
-          const router = target.router();
-          if (router) {
-            router.connection().disconnect();
-          }
-        }
+        TargetManager.instance().mainTarget().router().connection().disconnect();
         createMainTarget();
       });
   return Promise.resolve();
 }
 
 /**
- * @param {function():void} websocketConnectionLost
+ * @param {function()} websocketConnectionLost
  * @return {!ProtocolClient.InspectorBackend.Connection}
  */
 export function _createMainConnection(websocketConnectionLost) {
-  const wsParam = Root.Runtime.Runtime.queryParam('ws');
-  const wssParam = Root.Runtime.Runtime.queryParam('wss');
+  const wsParam = Root.Runtime.queryParam('ws');
+  const wssParam = Root.Runtime.queryParam('wss');
   if (wsParam || wssParam) {
     const ws = wsParam ? `ws://${wsParam}` : `wss://${wssParam}`;
     return new WebSocketConnection(ws, websocketConnectionLost);

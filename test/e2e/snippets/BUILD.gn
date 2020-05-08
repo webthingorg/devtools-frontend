@@ -6,7 +6,7 @@ import("../../../third_party/typescript/typescript.gni")
 
 ts_library("snippets") {
   testonly = true
-  sources = [ "context-menu_test.ts" ]
+  sources = [ "context-menu.ts" ]
 
   deps = [
     "../../shared",

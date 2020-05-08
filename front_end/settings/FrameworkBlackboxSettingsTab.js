@@ -32,8 +32,7 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
     this._list.element.classList.add('blackbox-list');
     this._list.registerRequiredCSS('settings/frameworkBlackboxSettingsTab.css');
 
-    const placeholder = document.createElement('div');
-    placeholder.classList.add('blackbox-list-empty');
+    const placeholder = createElementWithClass('div', 'blackbox-list-empty');
     placeholder.textContent = Common.UIString.UIString('No blackboxed patterns');
     this._list.setEmptyPlaceholder(placeholder);
     this._list.show(this.contentElement);
@@ -74,8 +73,7 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
    * @return {!Element}
    */
   renderItem(item, editable) {
-    const element = document.createElement('div');
-    element.classList.add('blackbox-list-item');
+    const element = createElementWithClass('div', 'blackbox-list-item');
     const pattern = element.createChild('div', 'blackbox-pattern');
     pattern.textContent = item.pattern;
     pattern.title = ls`Blackbox scripts whose names match '${item.pattern}'`;

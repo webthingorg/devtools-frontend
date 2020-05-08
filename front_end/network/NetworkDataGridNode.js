@@ -34,7 +34,6 @@ import * as Components from '../components/components.js';
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as Host from '../host/host.js';
 import * as PerfUI from '../perf_ui/perf_ui.js';
-import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -891,8 +890,7 @@ export class NetworkRequestNode extends NetworkNode {
   _setTextAndTitleAndLink(element, cellText, linkText, handler) {
     element.createTextChild(cellText);
     element.createChild('span', 'separator-in-cell');
-    const link = document.createElement('span');
-    link.classList.add('devtools-link');
+    const link = createElementWithClass('span', 'devtools-link');
     link.textContent = linkText;
     link.addEventListener('click', handler);
     element.appendChild(link);
@@ -1052,17 +1050,14 @@ export class NetworkRequestNode extends NetworkNode {
       });
       let iconElement;
       if (this._request.resourceType() === Common.ResourceType.resourceTypes.Image) {
-        const previewImage = document.createElement('img');
-        previewImage.classList.add('image-network-icon-preview');
+        const previewImage = createElementWithClass('img', 'image-network-icon-preview');
         previewImage.alt = this._request.resourceType().title();
-        this._request.populateImageSource(/** @type {!HTMLImageElement} */ (previewImage));
+        this._request.populateImageSource(previewImage);
 
-        iconElement = document.createElement('div');
-        iconElement.classList.add('icon');
+        iconElement = createElementWithClass('div', 'icon');
         iconElement.appendChild(previewImage);
       } else {
-        iconElement = document.createElement('img');
-        iconElement.classList.add('icon');
+        iconElement = createElementWithClass('img', 'icon');
         iconElement.alt = this._request.resourceType().title();
       }
       iconElement.classList.add(this._request.resourceType().name());
@@ -1257,7 +1252,7 @@ export class NetworkRequestNode extends NetworkNode {
    * @param {!Element} cell
    */
   _renderSizeCell(cell) {
-    const resourceSize = Platform.NumberUtilities.bytesToString(this._request.resourceSize);
+    const resourceSize = Number.bytesToString(this._request.resourceSize);
 
     if (this._request.cachedInMemory()) {
       cell.createTextChild(ls`(memory cache)`);
@@ -1282,7 +1277,7 @@ export class NetworkRequestNode extends NetworkNode {
       cell.title = ls`Served from disk cache, resource size: ${resourceSize}`;
       cell.classList.add('network-dim-cell');
     } else {
-      const transferSize = Platform.NumberUtilities.bytesToString(this._request.transferSize);
+      const transferSize = Number.bytesToString(this._request.transferSize);
       cell.createTextChild(transferSize);
       cell.title = `${transferSize} transferred over network, resource size: ${resourceSize}`;
     }

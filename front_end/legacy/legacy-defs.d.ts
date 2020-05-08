@@ -20,7 +20,6 @@ interface String {
   compareTo(other: string): number;
   removeURLFragment(): string;
   trimEndWithMaxLength(maxLength: number): string;
-  escapeForRegExp(): string;
 }
 
 declare let ls: (template: ITemplateArray, ...args: any[]) => string;
@@ -28,8 +27,6 @@ declare let ls: (template: ITemplateArray, ...args: any[]) => string;
 declare namespace Runtime {
   const cachedResources: {[cachePath: string]: string};
 }
-
-declare class AnchorBox {}
 
 declare namespace Adb {
   interface Page {

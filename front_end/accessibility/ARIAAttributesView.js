@@ -77,8 +77,7 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
    * @return {!Element}
    */
   static createARIAValueElement(value) {
-    const valueElement = document.createElement('span');
-    valueElement.classList.add('monospace');
+    const valueElement = createElementWithClass('span', 'monospace');
     // TODO(aboxhall): quotation marks?
     valueElement.setTextContentTruncatedIfNeeded(value || '');
     return valueElement;

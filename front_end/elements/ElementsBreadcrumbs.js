@@ -165,8 +165,7 @@ export class ElementsBreadcrumbs extends UI.Widget.HBox {
         continue;
       }
 
-      crumb = document.createElement('span');
-      crumb.classList.add('crumb');
+      crumb = createElementWithClass('span', 'crumb');
       crumb[this._nodeSymbol] = current;
       crumb.addEventListener('mousedown', this._onClickCrumb.bind(this), false);
 
@@ -227,9 +226,7 @@ export class ElementsBreadcrumbs extends UI.Widget.HBox {
 
     // Layout 1: Measure total and normal crumb sizes at the same time as a
     // dummy element for the collapsed size.
-    const collapsedElement = document.createElement('span');
-    collapsedElement.classList.add('crumb');
-    collapsedElement.classList.add('collapsed');
+    const collapsedElement = createElementWithClass('span', 'crumb collapsed');
     crumbs.insertBefore(collapsedElement, crumbs.firstChild);
 
     const available = crumbs.offsetWidth;

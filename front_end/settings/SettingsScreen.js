@@ -102,12 +102,10 @@ export class SettingsScreen extends UI.Widget.VBox {
     const settingsScreen = SettingsScreen._revealSettingsScreen();
 
     settingsScreen._selectTab(name || 'preferences');
-    const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
-    await tabbedPane.waitForTabElementUpdate();
     if (focusTabHeader) {
+      const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
+      await tabbedPane.waitForTabElementUpdate();
       tabbedPane.focusSelectedTabHeader();
-    } else {
-      tabbedPane.focus();
     }
   }
 
@@ -204,14 +202,12 @@ export class GenericSettingsTab extends SettingsTab {
     super(Common.UIString.UIString('Preferences'), 'preferences-tab-content');
 
     /** @const */
-    const explicitSectionOrder = [
-      '', 'Appearance', 'Sources', 'Elements', 'Network', 'Performance', 'Console', 'Extensions', 'Persistence',
-      'Debugger', 'Global'
-    ];
+    const explicitSectionOrder =
+        ['', 'Appearance', 'Sources', 'Elements', 'Network', 'Performance', 'Console', 'Extensions'];
     /** @type {!Map<string, !Element>} */
     this._nameToSection = new Map();
     for (const sectionName of explicitSectionOrder) {
-      this._createSectionElement(sectionName);
+      this._sectionElement(sectionName);
     }
     self.runtime.extensions('setting').forEach(this._addSetting.bind(this));
     self.runtime.extensions(UI.SettingsUI.SettingUI).forEach(this._addSettingUI.bind(this));
@@ -248,9 +244,6 @@ export class GenericSettingsTab extends SettingsTab {
       return;
     }
     const sectionElement = this._sectionElement(extension.descriptor()['category']);
-    if (!sectionElement) {
-      return;
-    }
     const setting = Common.Settings.Settings.instance().moduleSetting(extension.descriptor()['settingName']);
     const settingControl = UI.SettingsUI.createControlForSetting(setting);
     if (settingControl) {
@@ -274,11 +267,7 @@ export class GenericSettingsTab extends SettingsTab {
       const settingUI = /** @type {!UI.SettingsUI.SettingUI} */ (object);
       const element = settingUI.settingElement();
       if (element) {
-        let sectionElement = this._sectionElement(sectionName);
-        if (!sectionElement) {
-          sectionElement = this._createSectionElement(sectionName);
-        }
-        sectionElement.appendChild(element);
+        this._sectionElement(sectionName).appendChild(element);
       }
     }
   }
@@ -287,19 +276,14 @@ export class GenericSettingsTab extends SettingsTab {
    * @param {string} sectionName
    * @return {!Element}
    */
-  _createSectionElement(sectionName) {
-    const uiSectionName = sectionName && Common.UIString.UIString(sectionName);
-    const sectionElement = this._appendSection(uiSectionName);
-    this._nameToSection.set(sectionName, sectionElement);
-    return sectionElement;
-  }
-
-  /**
-   * @param {string} sectionName
-   * @return {?Element}
-   */
   _sectionElement(sectionName) {
-    return this._nameToSection.get(sectionName) || null;
+    let sectionElement = this._nameToSection.get(sectionName);
+    if (!sectionElement) {
+      const uiSectionName = sectionName && Common.UIString.UIString(sectionName);
+      sectionElement = this._appendSection(uiSectionName);
+      this._nameToSection.set(sectionName, sectionElement);
+    }
+    return sectionElement;
   }
 }
 

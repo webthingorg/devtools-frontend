@@ -166,58 +166,6 @@ export function registerCommands(inspectorBackend) {
       ['manifestURL'], false);
 
   // Audits.
-  inspectorBackend.registerEnum('Audits.SameSiteCookieExclusionReason', {
-    ExcludeSameSiteUnspecifiedTreatedAsLax: 'ExcludeSameSiteUnspecifiedTreatedAsLax',
-    ExcludeSameSiteNoneInsecure: 'ExcludeSameSiteNoneInsecure'
-  });
-  inspectorBackend.registerEnum('Audits.SameSiteCookieWarningReason', {
-    WarnSameSiteUnspecifiedCrossSiteContext: 'WarnSameSiteUnspecifiedCrossSiteContext',
-    WarnSameSiteNoneInsecure: 'WarnSameSiteNoneInsecure',
-    WarnSameSiteUnspecifiedLaxAllowUnsafe: 'WarnSameSiteUnspecifiedLaxAllowUnsafe',
-    WarnSameSiteCrossSchemeSecureUrlMethodUnsafe: 'WarnSameSiteCrossSchemeSecureUrlMethodUnsafe',
-    WarnSameSiteCrossSchemeSecureUrlLax: 'WarnSameSiteCrossSchemeSecureUrlLax',
-    WarnSameSiteCrossSchemeSecureUrlStrict: 'WarnSameSiteCrossSchemeSecureUrlStrict',
-    WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe: 'WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe',
-    WarnSameSiteCrossSchemeInsecureUrlLax: 'WarnSameSiteCrossSchemeInsecureUrlLax',
-    WarnSameSiteCrossSchemeInsecureUrlStrict: 'WarnSameSiteCrossSchemeInsecureUrlStrict'
-  });
-  inspectorBackend.registerEnum('Audits.SameSiteCookieOperation', {SetCookie: 'SetCookie', ReadCookie: 'ReadCookie'});
-  inspectorBackend.registerEnum('Audits.MixedContentResolutionStatus', {
-    MixedContentBlocked: 'MixedContentBlocked',
-    MixedContentAutomaticallyUpgraded: 'MixedContentAutomaticallyUpgraded',
-    MixedContentWarning: 'MixedContentWarning'
-  });
-  inspectorBackend.registerEnum('Audits.MixedContentResourceType', {
-    Audio: 'Audio',
-    Beacon: 'Beacon',
-    CSPReport: 'CSPReport',
-    Download: 'Download',
-    EventSource: 'EventSource',
-    Favicon: 'Favicon',
-    Font: 'Font',
-    Form: 'Form',
-    Frame: 'Frame',
-    Image: 'Image',
-    Import: 'Import',
-    Manifest: 'Manifest',
-    Ping: 'Ping',
-    PluginData: 'PluginData',
-    PluginResource: 'PluginResource',
-    Prefetch: 'Prefetch',
-    Resource: 'Resource',
-    Script: 'Script',
-    ServiceWorker: 'ServiceWorker',
-    SharedWorker: 'SharedWorker',
-    Stylesheet: 'Stylesheet',
-    Track: 'Track',
-    Video: 'Video',
-    Worker: 'Worker',
-    XMLHttpRequest: 'XMLHttpRequest',
-    XSLT: 'XSLT'
-  });
-  inspectorBackend.registerEnum(
-      'Audits.InspectorIssueCode',
-      {SameSiteCookieIssue: 'SameSiteCookieIssue', MixedContentIssue: 'MixedContentIssue'});
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerCommand(
       'Audits.getEncodedResponse',
@@ -287,30 +235,22 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerCommand(
       'Browser.setPermission',
       [
+        {'name': 'origin', 'type': 'string', 'optional': false},
         {'name': 'permission', 'type': 'object', 'optional': false},
         {'name': 'setting', 'type': 'string', 'optional': false},
-        {'name': 'origin', 'type': 'string', 'optional': true},
         {'name': 'browserContextId', 'type': 'string', 'optional': true}
       ],
       [], false);
   inspectorBackend.registerCommand(
       'Browser.grantPermissions',
       [
+        {'name': 'origin', 'type': 'string', 'optional': false},
         {'name': 'permissions', 'type': 'object', 'optional': false},
-        {'name': 'origin', 'type': 'string', 'optional': true},
         {'name': 'browserContextId', 'type': 'string', 'optional': true}
       ],
       [], false);
   inspectorBackend.registerCommand(
       'Browser.resetPermissions', [{'name': 'browserContextId', 'type': 'string', 'optional': true}], [], false);
-  inspectorBackend.registerCommand(
-      'Browser.setDownloadBehavior',
-      [
-        {'name': 'behavior', 'type': 'string', 'optional': false},
-        {'name': 'browserContextId', 'type': 'string', 'optional': true},
-        {'name': 'downloadPath', 'type': 'string', 'optional': true}
-      ],
-      [], false);
   inspectorBackend.registerCommand('Browser.close', [], [], false);
   inspectorBackend.registerCommand('Browser.crash', [], [], false);
   inspectorBackend.registerCommand('Browser.crashGpuProcess', [], [], false);
@@ -1493,7 +1433,6 @@ export function registerCommands(inspectorBackend) {
       [], false);
 
   // Overlay.
-  inspectorBackend.registerEnum('Overlay.ColorFormat', {Rgb: 'rgb', Hsl: 'hsl', Hex: 'hex'});
   inspectorBackend.registerEnum('Overlay.InspectMode', {
     SearchForNode: 'searchForNode',
     SearchForUAShadowDOM: 'searchForUAShadowDOM',
@@ -1512,8 +1451,7 @@ export function registerCommands(inspectorBackend) {
       [
         {'name': 'nodeId', 'type': 'number', 'optional': false},
         {'name': 'includeDistance', 'type': 'boolean', 'optional': true},
-        {'name': 'includeStyle', 'type': 'boolean', 'optional': true},
-        {'name': 'colorFormat', 'type': 'string', 'optional': true}
+        {'name': 'includeStyle', 'type': 'boolean', 'optional': true}
       ],
       ['highlight'], false);
   inspectorBackend.registerCommand('Overlay.hideHighlight', [], [], false);
@@ -1576,8 +1514,6 @@ export function registerCommands(inspectorBackend) {
       'Overlay.setShowHitTestBorders', [{'name': 'show', 'type': 'boolean', 'optional': false}], [], false);
   inspectorBackend.registerCommand(
       'Overlay.setShowViewportSizeOnResize', [{'name': 'show', 'type': 'boolean', 'optional': false}], [], false);
-  inspectorBackend.registerCommand(
-      'Overlay.setShowHinge', [{'name': 'hingeConfig', 'type': 'object', 'optional': true}], [], false);
 
   // Page.
   inspectorBackend.registerEnum('Page.TransitionType', {
@@ -1607,9 +1543,6 @@ export function registerCommands(inspectorBackend) {
     Reload: 'reload',
     AnchorClick: 'anchorClick'
   });
-  inspectorBackend.registerEnum(
-      'Page.ClientNavigationDisposition',
-      {CurrentTab: 'currentTab', NewTab: 'newTab', NewWindow: 'newWindow', Download: 'download'});
   inspectorBackend.registerEnum('Page.ReferrerPolicy', {
     NoReferrer: 'noReferrer',
     NoReferrerWhenDowngrade: 'noReferrerWhenDowngrade',
@@ -1627,12 +1560,11 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Page.frameDetached', ['frameId']);
   inspectorBackend.registerEvent('Page.frameNavigated', ['frame']);
   inspectorBackend.registerEvent('Page.frameResized', []);
-  inspectorBackend.registerEvent('Page.frameRequestedNavigation', ['frameId', 'reason', 'url', 'disposition']);
+  inspectorBackend.registerEvent('Page.frameRequestedNavigation', ['frameId', 'reason', 'url']);
   inspectorBackend.registerEvent('Page.frameScheduledNavigation', ['frameId', 'delay', 'reason', 'url']);
   inspectorBackend.registerEvent('Page.frameStartedLoading', ['frameId']);
   inspectorBackend.registerEvent('Page.frameStoppedLoading', ['frameId']);
-  inspectorBackend.registerEvent('Page.downloadWillBegin', ['frameId', 'guid', 'url']);
-  inspectorBackend.registerEvent('Page.downloadProgress', ['guid', 'totalBytes', 'receivedBytes', 'state']);
+  inspectorBackend.registerEvent('Page.downloadWillBegin', ['frameId', 'url']);
   inspectorBackend.registerEvent('Page.interstitialHidden', []);
   inspectorBackend.registerEvent('Page.interstitialShown', []);
   inspectorBackend.registerEvent('Page.javascriptDialogClosed', ['result', 'userInput']);
@@ -2262,13 +2194,10 @@ export function registerCommands(inspectorBackend) {
 
   // Media.
   inspectorBackend.registerEnum(
-      'Media.PlayerMessageLevel', {Error: 'error', Warning: 'warning', Info: 'info', Debug: 'debug'});
-  inspectorBackend.registerEnum(
-      'Media.PlayerErrorType', {Pipeline_error: 'pipeline_error', Media_error: 'media_error'});
+      'Media.PlayerEventType',
+      {ErrorEvent: 'errorEvent', TriggeredEvent: 'triggeredEvent', MessageEvent: 'messageEvent'});
   inspectorBackend.registerEvent('Media.playerPropertiesChanged', ['playerId', 'properties']);
   inspectorBackend.registerEvent('Media.playerEventsAdded', ['playerId', 'events']);
-  inspectorBackend.registerEvent('Media.playerMessagesLogged', ['playerId', 'messages']);
-  inspectorBackend.registerEvent('Media.playerErrorsRaised', ['playerId', 'errors']);
   inspectorBackend.registerEvent('Media.playersCreated', ['players']);
   inspectorBackend.registerCommand('Media.enable', [], [], false);
   inspectorBackend.registerCommand('Media.disable', [], [], false);
@@ -2289,9 +2218,6 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Debugger.BreakLocationType', {DebuggerStatement: 'debuggerStatement', Call: 'call', Return: 'return'});
   inspectorBackend.registerEnum('Debugger.ScriptLanguage', {JavaScript: 'JavaScript', WebAssembly: 'WebAssembly'});
-  inspectorBackend.registerEnum(
-      'Debugger.DebugSymbolsType',
-      {None: 'None', SourceMap: 'SourceMap', EmbeddedDWARF: 'EmbeddedDWARF', ExternalDWARF: 'ExternalDWARF'});
   inspectorBackend.registerEvent('Debugger.breakpointResolved', ['breakpointId', 'location']);
   inspectorBackend.registerEvent('Debugger.paused', [
     'callFrames', 'reason', 'data', 'hitBreakpoints', 'asyncStackTrace', 'asyncStackTraceId', 'asyncCallStackTraceId'
@@ -2305,7 +2231,7 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Debugger.scriptParsed', [
     'scriptId', 'url', 'startLine', 'startColumn', 'endLine', 'endColumn', 'executionContextId', 'hash',
     'executionContextAuxData', 'isLiveEdit', 'sourceMapURL', 'hasSourceURL', 'isModule', 'length', 'stackTrace',
-    'codeOffset', 'scriptLanguage', 'debugSymbols'
+    'codeOffset', 'scriptLanguage'
   ]);
   inspectorBackend.registerCommand(
       'Debugger.continueToLocation',
@@ -2328,14 +2254,6 @@ export function registerCommands(inspectorBackend) {
         {'name': 'returnByValue', 'type': 'boolean', 'optional': true},
         {'name': 'generatePreview', 'type': 'boolean', 'optional': true},
         {'name': 'throwOnSideEffect', 'type': 'boolean', 'optional': true},
-        {'name': 'timeout', 'type': 'number', 'optional': true}
-      ],
-      ['result', 'exceptionDetails'], false);
-  inspectorBackend.registerCommand(
-      'Debugger.executeWasmEvaluator',
-      [
-        {'name': 'callFrameId', 'type': 'string', 'optional': false},
-        {'name': 'evaluator', 'type': 'string', 'optional': false},
         {'name': 'timeout', 'type': 'number', 'optional': true}
       ],
       ['result', 'exceptionDetails'], false);
@@ -2546,8 +2464,7 @@ export function registerCommands(inspectorBackend) {
     I64: 'i64',
     F32: 'f32',
     F64: 'f64',
-    V128: 'v128',
-    Anyref: 'anyref'
+    V128: 'v128'
   });
   inspectorBackend.registerEnum('Runtime.ObjectPreviewType', {
     Object: 'object',

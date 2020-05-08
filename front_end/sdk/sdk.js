@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import './SDKModel.js';
 import './CSSMetadata.js';
 import '../generated/SupportedCSSProperties.js';
@@ -50,6 +47,7 @@ import * as OverlayModel from './OverlayModel.js';
 import * as PaintProfiler from './PaintProfiler.js';
 import * as PerformanceMetricsModel from './PerformanceMetricsModel.js';
 import * as ProfileTreeModel from './ProfileTreeModel.js';
+import * as RelatedIssue from './RelatedIssue.js';
 import * as RemoteObject from './RemoteObject.js';
 import * as Resource from './Resource.js';
 import * as ResourceTreeModel from './ResourceTreeModel.js';
@@ -103,6 +101,7 @@ export {
   PaintProfiler,
   PerformanceMetricsModel,
   ProfileTreeModel,
+  RelatedIssue,
   RemoteObject,
   Resource,
   ResourceTreeModel,

@@ -84,6 +84,9 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
     this._pathForStyle = new Map();
     /** @type {!Array<!_TextLayer>} */
     this._textLayers = [];
+
+    /** @type {?CSSStyleDeclaration} */
+    this._computedDatagridStyle = null;
   }
 
   /**
@@ -106,6 +109,7 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
     styleMap.set(types.ServiceWorker, {fillStyle: 'orange'});
     styleMap.set(types.ServiceWorkerPreparation, {fillStyle: 'orange'});
     styleMap.set(types.ServiceWorkerRespondWith, {fillStyle: '#A8A3FF'});
+    styleMap.set(types.ServiceWorkerFetch, {fillStyle: '#D879D2'});
     return styleMap;
   }
 
@@ -657,10 +661,18 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
    * @param {number} y
    */
   _decorateRow(context, node, y) {
-    const nodeBgColorId = node.backgroundColor();
+    if (!this._computedDatagridStyle && node.dataGrid) {
+      // Get BackgroundColor for Waterfall from css variable on datagrid
+      this._computedDatagridStyle = window.getComputedStyle(node.dataGrid.element);
+    }
+    if (!this._computedDatagridStyle) {
+      context.restore();
+      return;
+    }
+    const nodeBgColor = node.backgroundColor();
     context.save();
     context.beginPath();
-    context.fillStyle = self.UI.themeSupport.getComputedValue(nodeBgColorId);
+    context.fillStyle = this._computedDatagridStyle.getPropertyValue(nodeBgColor);
     context.rect(0, y, this._offsetWidth, this._rowHeight);
     context.fill();
     context.restore();

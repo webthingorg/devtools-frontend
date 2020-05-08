@@ -22,6 +22,7 @@
     { "name": "changes" },
     { "name": "cm" },
     { "name": "cm_modes" },
+    { "name": "cm_web_modes" },
     { "name": "color_picker" },
     { "name": "console" },
     { "name": "coverage" },

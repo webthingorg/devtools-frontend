@@ -5,10 +5,7 @@
 import("../../third_party/typescript/typescript.gni")
 
 ts_library("generated") {
-  sources = [
-    "InspectorBackendCommands.js",
-    "SupportedCSSProperties.js",
-  ]
+  sources = [ "InspectorBackendCommands.js" ]
 
   deps = []
 }

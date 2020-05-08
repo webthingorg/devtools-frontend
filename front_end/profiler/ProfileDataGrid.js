@@ -216,8 +216,7 @@ export class ProfileDataGridNode extends DataGrid.DataGrid.DataGridNode {
    * @return {!Element}
    */
   _createValueCell(value, percent, columnId) {
-    const cell = document.createElement('td');
-    cell.classList.add('numeric-column');
+    const cell = createElementWithClass('td', 'numeric-column');
     const div = cell.createChild('div', 'profile-multiple-values');
     const valueSpan = div.createChild('span');
     const valueText = this.tree._formatter.formatValue(value, this);

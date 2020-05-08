@@ -28,13 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as TextUtils from '../text_utils/text_utils.js';
-
-import {MultitargetNetworkManager} from './NetworkManager.js';
 
 /**
  * @implements {TextUtils.ContentProvider.ContentProvider}
@@ -80,7 +75,7 @@ export class CompilerSourceMappingContentProvider {
    */
   requestContent() {
     return new Promise(resolve => {
-      MultitargetNetworkManager.instance().loadResource(
+      self.SDK.multitargetNetworkManager.loadResource(
           this._sourceURL, (success, _headers, content, errorDescription) => {
             if (!success) {
               const error = ls`Could not load content for ${this._sourceURL} (${errorDescription.message})`;

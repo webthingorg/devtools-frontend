@@ -104,11 +104,6 @@ export class ScriptFormatterEditorAction {
     return uiSourceCode.contentType().hasScripts();
   }
 
-  isCurrentUISourceCodeFormatable() {
-    const uiSourceCode = this._sourcesView.currentUISourceCode();
-    return this._isFormatableScript(uiSourceCode);
-  }
-
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */

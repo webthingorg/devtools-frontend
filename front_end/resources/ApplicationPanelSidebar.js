@@ -407,11 +407,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
    * @param {!SDK.ResourceTreeModel.ResourceTreeFrame} frame
    */
   _addCookieDocument(frame) {
-    // In case the current frame was unreachable, show it's cookies
-    // instead of the error interstitials because they might help to
-    // debug why the frame was unreachable.
-    const urlToParse = frame.unreachableUrl() || frame.url;
-    const parsedURL = Common.ParsedURL.ParsedURL.fromString(urlToParse);
+    const parsedURL = Common.ParsedURL.ParsedURL.fromString(frame.url);
     if (!parsedURL || (parsedURL.scheme !== 'http' && parsedURL.scheme !== 'https' && parsedURL.scheme !== 'file')) {
       return;
     }

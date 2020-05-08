@@ -6,6 +6,7 @@ import * as Common from '../common/common.js';
 import * as UI from '../ui/ui.js';
 
 import {ChevronTabbedPanel} from './ChevronTabbedPanel.js';
+import {Event, MediaChangeTypeKeys} from './MediaModel.js';  // eslint-disable-line no-unused-vars
 
 /** @enum {string} */
 export const PlayerPropertyKeys = {
@@ -76,8 +77,7 @@ export class PropertyRenderer extends UI.Widget.VBox {
     if (value === null) {
       this.contentElement.classList.add('media-property-renderer-hidden');
       if (this._pseudo_color_protection_element === null) {
-        this._pseudo_color_protection_element = document.createElement('div');
-        this._pseudo_color_protection_element.classList.add('media-property-renderer');
+        this._pseudo_color_protection_element = createElementWithClass('div', 'media-property-renderer');
         this._pseudo_color_protection_element.classList.add('media-property-renderer-hidden');
         this.contentElement.parentNode.insertBefore(this._pseudo_color_protection_element, this.contentElement);
       }
@@ -269,14 +269,19 @@ export class PlayerPropertiesView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Protocol.Media.PlayerProperty} property
+   * @param {string} playerID
+   * @param {!Array.<!Event>} changes
+   * @param {!MediaChangeTypeKeys} changeType
    */
-  onProperty(property) {
-    const renderer = this._attributeMap.get(property.name);
-    if (!renderer) {
-      throw new Error(`PlayerProperty ${property.name} not supported.`);
+  renderChanges(playerID, changes, changeType) {
+    for (const change of changes) {
+      const renderer = this._attributeMap.get(change.name);
+      if (renderer) {
+        renderer.updateData(change.name, change.value);
+      } else {
+        throw new Error(`PlayerProperty ${change.name} not supported.`);
+      }
     }
-    renderer.updateData(property.name, property.value);
   }
 
   formatKbps(bitsPerSecond) {

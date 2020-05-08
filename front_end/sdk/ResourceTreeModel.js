@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 
@@ -69,9 +66,7 @@ export class ResourceTreeModel extends SDKModel {
     /** @type {?ResourceTreeFrame} */
     this.mainFrame = null;
 
-    this._agent.getResourceTree()
-        .then(this._processCachedResources.bind(this))
-        .catch(() => this._processCachedResources(null));
+    this._agent.getResourceTree().then(this._processCachedResources.bind(this));
   }
 
   /**
@@ -943,6 +938,14 @@ export class PageDispatcher {
    * @param {!Protocol.Page.Frame} frame
    */
   frameNavigated(frame) {
+    const url = new URL(frame.url);
+    if (url.protocol === 'chrome-error:') {
+      // Skip navigation to chrome-error interstitials to
+      // allow developers to see resources of the origin they
+      // originally intended to see.
+      return;
+    }
+
     this._resourceTreeModel._frameNavigated(frame);
   }
 
@@ -1090,12 +1093,6 @@ export class PageDispatcher {
    * @param {string} url
    */
   downloadWillBegin(frameId, url) {
-  }
-
-  /**
-   * @override
-   */
-  downloadProgress() {
   }
 }
 

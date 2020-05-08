@@ -85,41 +85,6 @@ export class DebuggerPlugin extends Plugin {
     this._boundPopoverHelperHide = this._popoverHelper.hidePopover.bind(this._popoverHelper);
     this._scriptsPanel.element.addEventListener('scroll', this._boundPopoverHelperHide, true);
 
-    const shortcutHandlers = {
-      'debugger.toggle-breakpoint': async () => {
-        const selection = this._textEditor.selection();
-        if (!selection) {
-          return false;
-        }
-        await this._toggleBreakpoint(selection.startLine, false);
-        return true;
-      },
-      'debugger.toggle-breakpoint-enabled': async () => {
-        const selection = this._textEditor.selection();
-        if (!selection) {
-          return false;
-        }
-        await this._toggleBreakpoint(selection.startLine, true);
-        return true;
-      },
-      'debugger.breakpoint-input-window': async () => {
-        const selection = this._textEditor.selection();
-        if (!selection) {
-          return false;
-        }
-        const breakpoints = this._lineBreakpointDecorations(selection.startLine)
-                                .map(decoration => decoration.breakpoint)
-                                .filter(breakpoint => !!breakpoint);
-        let breakpoint;
-        if (breakpoints.length) {
-          breakpoint = breakpoints[0];
-        }
-        const isLogpoint = breakpoint ? breakpoint.condition().includes(LogpointPrefix) : false;
-        this._editBreakpointCondition(selection.startLine, breakpoint, null, isLogpoint);
-        return true;
-      }
-    };
-    self.UI.shortcutRegistry.addShortcutListener(this._textEditor.element, shortcutHandlers);
     this._boundKeyDown = /** @type {function(!Event)} */ (this._onKeyDown.bind(this));
     this._textEditor.element.addEventListener('keydown', this._boundKeyDown, true);
     this._boundKeyUp = /** @type {function(!Event)} */ (this._onKeyUp.bind(this));
@@ -208,8 +173,7 @@ export class DebuggerPlugin extends Plugin {
     // so that the contextMenu event handler can determine which row was clicked on.
     this._textEditor.installGutter(breakpointsGutterType, true);
     for (let i = 0; i < this._textEditor.linesCount; ++i) {
-      const gutterElement = document.createElement('div');
-      gutterElement.classList.add('breakpoint-element');
+      const gutterElement = createElementWithClass('div', 'breakpoint-element');
       this._textEditor.setGutterDecoration(i, breakpointsGutterType, gutterElement);
     }
   }
@@ -638,6 +602,42 @@ export class DebuggerPlugin extends Plugin {
       return;
     }
 
+    if (self.UI.shortcutRegistry.eventMatchesAction(event, 'debugger.toggle-breakpoint')) {
+      const selection = this._textEditor.selection();
+      if (!selection) {
+        return;
+      }
+      await this._toggleBreakpoint(selection.startLine, false);
+      event.consume(true);
+      return;
+    }
+    if (self.UI.shortcutRegistry.eventMatchesAction(event, 'debugger.toggle-breakpoint-enabled')) {
+      const selection = this._textEditor.selection();
+      if (!selection) {
+        return;
+      }
+      await this._toggleBreakpoint(selection.startLine, true);
+      event.consume(true);
+      return;
+    }
+    if (self.UI.shortcutRegistry.eventMatchesAction(event, 'debugger.breakpoint-input-window')) {
+      const selection = this._textEditor.selection();
+      if (!selection) {
+        return;
+      }
+      const breakpoints = this._lineBreakpointDecorations(selection.startLine)
+                              .map(decoration => decoration.breakpoint)
+                              .filter(breakpoint => !!breakpoint);
+      let breakpoint;
+      if (breakpoints.length) {
+        breakpoint = breakpoints[0];
+      }
+      const isLogpoint = breakpoint ? breakpoint.condition().includes(LogpointPrefix) : false;
+      this._editBreakpointCondition(selection.startLine, breakpoint, null, isLogpoint);
+      event.consume(true);
+      return;
+    }
+
     if (UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlOrMeta(event) && this._executionLocation) {
       this._controlDown = true;
       if (event.key === (Host.Platform.isMac() ? 'Meta' : 'Control')) {
@@ -769,7 +769,7 @@ export class DebuggerPlugin extends Plugin {
   async _executionLineChanged(liveLocation) {
     this._clearExecutionLine();
     const uiLocation = await liveLocation.uiLocation();
-    if (!uiLocation || uiLocation.uiSourceCode.url() !== this._uiSourceCode.url()) {
+    if (!uiLocation || uiLocation.uiSourceCode !== this._uiSourceCode) {
       this._executionLocation = null;
       return;
     }
@@ -1023,9 +1023,8 @@ export class DebuggerPlugin extends Plugin {
             callFrame.location());
     const [functionUILocation, executionUILocation] =
         await Promise.all([functionUILocationPromise, executionUILocationPromise]);
-    if (!functionUILocation || !executionUILocation ||
-        functionUILocation.uiSourceCode.url() !== this._uiSourceCode.url() ||
-        executionUILocation.uiSourceCode.url() !== this._uiSourceCode.url()) {
+    if (!functionUILocation || !executionUILocation || functionUILocation.uiSourceCode !== this._uiSourceCode ||
+        executionUILocation.uiSourceCode !== this._uiSourceCode) {
       return;
     }
 
@@ -1095,8 +1094,7 @@ export class DebuggerPlugin extends Plugin {
         continue;
       }
 
-      const widget = document.createElement('div');
-      widget.classList.add('text-editor-value-decoration');
+      const widget = createElementWithClass('div', 'text-editor-value-decoration');
       const base = this._textEditor.cursorPositionToCoordinates(i, 0);
       const offset = this._textEditor.cursorPositionToCoordinates(i, this._textEditor.line(i).length);
       const codeMirrorLinesLeftPadding = 4;
@@ -1630,10 +1628,6 @@ export class DebuggerPlugin extends Plugin {
     let formatterCallback = null;
     for (const editorAction of editorActions) {
       if (editorAction instanceof Sources.ScriptFormatterEditorAction) {
-        // Check if the source code is formattable the same way the pretty print button does
-        if (!editorAction.isCurrentUISourceCodeFormatable()) {
-          return;
-        }
         formatterCallback = editorAction.toggleFormatScriptSource.bind(editorAction);
         break;
       }

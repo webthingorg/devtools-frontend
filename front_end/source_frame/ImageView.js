@@ -28,7 +28,6 @@
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
-import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -44,7 +43,7 @@ export class ImageView extends UI.View.SimpleView {
   constructor(mimeType, contentProvider) {
     super(Common.UIString.UIString('Image'));
     this.registerRequiredCSS('source_frame/imageView.css');
-    this.element.tabIndex = -1;
+    this.element.tabIndex = 0;
     this.element.classList.add('image-view');
     this._url = contentProvider.contentURL();
     this._parsedURL = new Common.ParsedURL.ParsedURL(this._url);
@@ -116,7 +115,7 @@ export class ImageView extends UI.View.SimpleView {
     const loadPromise = new Promise(x => this._imagePreviewElement.onload = x);
     this._imagePreviewElement.src = imageSrc;
     const size = content && !contentEncoded ? content.length : base64ToSize(content);
-    this._sizeLabel.setText(Platform.NumberUtilities.bytesToString(size));
+    this._sizeLabel.setText(Number.bytesToString(size));
     await loadPromise;
     this._dimensionsLabel.setText(Common.UIString.UIString(
         '%d × %d', this._imagePreviewElement.naturalWidth, this._imagePreviewElement.naturalHeight));

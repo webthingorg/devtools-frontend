@@ -46,7 +46,7 @@ export class StorageItemsView extends UI.Widget.VBox {
   /**
    * @param {string} label
    * @param {string} glyph
-   * @param {function(!Common.EventTarget.EventTargetEvent):void} callback
+   * @param {!Function} callback
    * @return {!UI.Toolbar.ToolbarButton}
    */
   _addButton(label, glyph, callback) {
@@ -65,18 +65,16 @@ export class StorageItemsView extends UI.Widget.VBox {
   }
 
   /**
-   * @template T
-   * @param {!Array<!T>} items
-   * @param {function(!T): string} keyFunction
-   * @return {!Array<!T>}
+   * @param {!Array<?Object>} items
+   * @param {function(?Object): string} keyFunction
+   * @return {!Array<?Object>}
    * @protected
    */
   filter(items, keyFunction) {
-    if (this._filterRegex) {
-      const regExp = this._filterRegex;
-      return items.filter(item => regExp.test(keyFunction(item)));
+    if (!this._filterRegex) {
+      return items;
     }
-    return items;
+    return items.filter(item => this._filterRegex.test(keyFunction(item)));
   }
 
   /**

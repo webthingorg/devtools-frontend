@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import {Action} from './Action.js';
 import {Context} from './Context.js';  // eslint-disable-line no-unused-vars
 
@@ -26,6 +23,9 @@ export class ActionRegistry {
      * @this {ActionRegistry}
      */
     function registerExtension(extension) {
+      if (!extension.canInstantiate()) {
+        return;
+      }
       const actionId = extension.descriptor()['actionId'];
       console.assert(actionId);
       console.assert(!this._actionsById.get(actionId));
@@ -35,9 +35,6 @@ export class ActionRegistry {
         this._actionsById.set(actionId, action);
       } else {
         console.error(`Category actions require a title for command menu: ${actionId}`);
-      }
-      if (!extension.canInstantiate()) {
-        action.setEnabled(false);
       }
     }
   }
@@ -65,7 +62,7 @@ export class ActionRegistry {
     const extensions = [];
     actionIds.forEach(function(actionId) {
       const action = this._actionsById.get(actionId);
-      if (action && action.enabled()) {
+      if (action) {
         extensions.push(action.extension());
       }
     }, this);

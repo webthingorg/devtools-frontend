@@ -28,7 +28,6 @@
  */
 
 import * as Bindings from '../bindings/bindings.js';
-import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
@@ -278,41 +277,49 @@ export class ConsoleView extends UI.Widget.VBox {
     SDK.ConsoleModel.ConsoleModel.instance().messages().forEach(this._addConsoleMessage, this);
 
     if (Root.Runtime.experiments.isEnabled('issuesPane')) {
-      const issuesManager = BrowserSDK.IssuesManager.IssuesManager.instance();
-      issuesManager.addEventListener(
-          BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._onIssuesCountChanged.bind(this));
-      if (issuesManager.numberOfIssues()) {
-        this._onIssuesCountChanged();
+      const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
+      if (mainTarget) {
+        const issuesModel = mainTarget.model(SDK.IssuesModel.IssuesModel);
+        if (issuesModel) {
+          issuesModel.addEventListener(SDK.IssuesModel.Events.AggregatedIssueUpdated, this._onIssueAdded.bind(this));
+          issuesModel.ensureEnabled();
+          if (issuesModel.numberOfAggregatedIssues()) {
+            this._onIssueAdded();
+          }
+        }
+        const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+        if (resourceTreeModel) {
+          resourceTreeModel.addEventListener(
+              SDK.ResourceTreeModel.Events.MainFrameNavigated, this._onMainFrameNavigated.bind(this));
+        }
       }
     }
   }
 
-  _onIssuesCountChanged() {
-    if (BrowserSDK.IssuesManager.IssuesManager.instance().numberOfIssues() === 0) {
-      if (this._issueBarDiv) {
-        this._issueBarDiv.remove();
-        this._issueBarDiv = null;
-      }
-    } else if (!this._issueBarDiv) {
-      this._issueBarDiv = document.createElement('div');
-      this._issueBarDiv.classList.add('flex-none');
-      const issueBarAction = /** @type {!UI.Infobar.InfobarAction} */ ({
-        text: ls`Go to Issues`,
-        highlight: false,
-        delegate: () => {
-          Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.ConsoleInfoBar);
-          UI.ViewManager.ViewManager.instance().showView('issues-pane');
-        },
-        dismiss: true,
-      });
+  _onIssueAdded() {
+    if (!this._issueBarDiv) {
+      this._issueBarDiv = createElementWithClass('div', 'flex-none');
       const issueBar = new UI.Infobar.Infobar(
           UI.Infobar.Type.Warning,
-          ls`Issues detected. The new issues panel displays information about deprecations, breaking changes and other potential problems.`,
-          [issueBarAction]);
-      this.element.insertBefore(this._issueBarDiv, this._consoleToolbarContainer.nextSibling);
-      this._issueBarDiv.appendChild(issueBar.element);
-      issueBar.setParentView(this);
-      this.doResize();
+          ls
+          `Issues detected. The new issues panel displays information about deprecations, breaking changes and other potential problems.`,
+          [{
+            text: ls`Go to Issues`,
+            highlight: false,
+            delegate: () => UI.ViewManager.ViewManager.instance().showView('issues-pane'),
+            dismiss: true,
+          }]);
+          this.element.insertBefore(this._issueBarDiv, this._consoleToolbarContainer.nextSibling);
+          this._issueBarDiv.appendChild(issueBar.element);
+          issueBar.setParentView(this);
+          this.doResize();
+    }
+  }
+
+  _onMainFrameNavigated() {
+    if (this._issueBarDiv) {
+      this._issueBarDiv.remove();
+      this._issueBarDiv = null;
     }
   }
 
@@ -1512,15 +1519,13 @@ export class ConsoleCommand extends ConsoleViewMessage {
    */
   contentElement() {
     if (!this._contentElement) {
-      this._contentElement = document.createElement('div');
-      this._contentElement.classList.add('console-user-command');
+      this._contentElement = createElementWithClass('div', 'console-user-command');
       const icon = UI.Icon.Icon.create('smallicon-user-command', 'command-result-icon');
       this._contentElement.appendChild(icon);
 
       this._contentElement.message = this;
 
-      this._formattedCommand = document.createElement('span');
-      this._formattedCommand.classList.add('source-code');
+      this._formattedCommand = createElementWithClass('span', 'source-code');
       this._formattedCommand.textContent = Platform.StringUtilities.replaceControlCharacters(this.text);
       this._contentElement.appendChild(this._formattedCommand);
 

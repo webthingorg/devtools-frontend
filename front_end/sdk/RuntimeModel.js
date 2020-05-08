@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
@@ -61,9 +58,9 @@ export class RuntimeModel extends SDKModel {
     /** @type {?boolean} */
     this._hasSideEffectSupport = null;
 
-    // TODO(1016755): remove custom formatters altogether.
-    Common.Settings.Settings.instance().moduleSetting('customFormatters').set(false);
-    this._agent.setCustomObjectFormatterEnabled(false);
+    if (Common.Settings.Settings.instance().moduleSetting('customFormatters').get()) {
+      this._agent.setCustomObjectFormatterEnabled(true);
+    }
 
     Common.Settings.Settings.instance()
         .moduleSetting('customFormatters')

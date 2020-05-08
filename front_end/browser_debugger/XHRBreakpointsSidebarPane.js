@@ -62,8 +62,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox {
   async _addButtonClicked() {
     await UI.ViewManager.ViewManager.instance().showView('sources.xhrBreakpoints');
 
-    const inputElementContainer = document.createElement('p');
-    inputElementContainer.classList.add('breakpoint-condition');
+    const inputElementContainer = createElementWithClass('p', 'breakpoint-condition');
     inputElementContainer.textContent = Common.UIString.UIString('Break when URL contains:');
 
     const inputElement = inputElementContainer.createChild('span', 'breakpoint-condition-input');
@@ -300,8 +299,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox {
    */
   _labelClicked(url) {
     const element = this._breakpointElements.get(url) || null;
-    const inputElement = document.createElement('span');
-    inputElement.classList.add('breakpoint-condition');
+    const inputElement = createElementWithClass('span', 'breakpoint-condition');
     inputElement.textContent = url;
     this._list.element.insertBefore(inputElement, element);
     element.classList.add('hidden');

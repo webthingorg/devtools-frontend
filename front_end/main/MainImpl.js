@@ -182,7 +182,6 @@ export class MainImpl {
       'backgroundServicesNotifications',
       'backgroundServicesPushMessaging',
       'backgroundServicesPaymentHandler',
-      'issuesPane',
     ]);
 
     if (Host.InspectorFrontendHost.isUnderTest() &&
@@ -220,7 +219,7 @@ export class MainImpl {
     UI.Tooltip.Tooltip.installHandler(document);
     self.SDK.consoleModel = SDK.ConsoleModel.ConsoleModel.instance();
     self.Components.dockController = new Components.DockController.DockController(canDock);
-    self.SDK.multitargetNetworkManager = SDK.NetworkManager.MultitargetNetworkManager.instance({forceNew: true});
+    self.SDK.multitargetNetworkManager = new SDK.NetworkManager.MultitargetNetworkManager();
     self.SDK.domDebuggerManager = new SDK.DOMDebuggerModel.DOMDebuggerManager();
     SDK.SDKModel.TargetManager.instance().addEventListener(
         SDK.SDKModel.Events.SuspendStateChanged, this._onSuspendStateChanged.bind(this));
@@ -623,16 +622,13 @@ export class MainMenuItem {
    */
   _handleContextMenu(contextMenu) {
     if (self.Components.dockController.canDock()) {
-      const dockItemElement = document.createElement('div');
-      dockItemElement.classList.add('flex-centered');
-      dockItemElement.classList.add('flex-auto');
+      const dockItemElement = createElementWithClass('div', 'flex-centered flex-auto');
       dockItemElement.tabIndex = -1;
       const titleElement = dockItemElement.createChild('span', 'flex-auto');
       titleElement.textContent = Common.UIString.UIString('Dock side');
-      const toggleDockSideShorcuts = self.UI.shortcutRegistry.shortcutsForAction('main.toggle-dock');
+      const toggleDockSideShorcuts = self.UI.shortcutRegistry.shortcutDescriptorsForAction('main.toggle-dock');
       titleElement.title = Common.UIString.UIString(
-          'Placement of DevTools relative to the page. (%s to restore last position)',
-          toggleDockSideShorcuts[0].title());
+          'Placement of DevTools relative to the page. (%s to restore last position)', toggleDockSideShorcuts[0].name);
       dockItemElement.appendChild(titleElement);
       const dockItemToolbar = new UI.Toolbar.Toolbar('', dockItemElement);
       if (Host.Platform.isMac() && !self.UI.themeSupport.hasTheme()) {
@@ -725,14 +721,6 @@ export class MainMenuItem {
         moreTools.defaultSection().appendItem(extension.title(), () => {
           Host.userMetrics.actionTaken(Host.UserMetrics.Action.SettingsOpenedFromMenu);
           UI.ViewManager.ViewManager.instance().showView('preferences', /* userGesture */ true);
-        });
-        continue;
-      }
-
-      if (descriptor['id'] === 'issues-pane') {
-        moreTools.defaultSection().appendItem(extension.title(), () => {
-          Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.HamburgerMenu);
-          UI.ViewManager.ViewManager.instance().showView('issues-pane', /* userGesture */ true);
         });
         continue;
       }

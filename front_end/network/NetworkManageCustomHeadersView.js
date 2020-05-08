@@ -27,8 +27,7 @@ export class NetworkManageCustomHeadersView extends UI.Widget.VBox {
     this._list.element.classList.add('custom-headers-list');
     this._list.registerRequiredCSS('network/networkManageCustomHeadersView.css');
 
-    const placeholder = document.createElement('div');
-    placeholder.classList.add('custom-headers-list-list-empty');
+    const placeholder = createElementWithClass('div', 'custom-headers-list-list-empty');
     placeholder.textContent = Common.UIString.UIString('No custom headers');
     this._list.setEmptyPlaceholder(placeholder);
     this._list.show(this.contentElement);
@@ -69,8 +68,7 @@ export class NetworkManageCustomHeadersView extends UI.Widget.VBox {
    * @return {!Element}
    */
   renderItem(item, editable) {
-    const element = document.createElement('div');
-    element.classList.add('custom-headers-list-item');
+    const element = createElementWithClass('div', 'custom-headers-list-item');
     const header = element.createChild('div', 'custom-header-name');
     header.textContent = item.header;
     header.title = item.header;

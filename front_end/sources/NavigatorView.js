@@ -54,7 +54,6 @@ export class NavigatorView extends UI.Widget.VBox {
     this._scriptsTree = new UI.TreeOutline.TreeOutlineInShadow();
     this._scriptsTree.registerRequiredCSS('sources/navigatorTree.css');
     this._scriptsTree.setComparator(NavigatorView._treeElementsCompare);
-    this._scriptsTree.setFocusable(false);
     this.contentElement.appendChild(this._scriptsTree.element);
     this.setDefaultFocusedElement(this._scriptsTree.element);
 
@@ -71,7 +70,7 @@ export class NavigatorView extends UI.Widget.VBox {
 
     this.contentElement.addEventListener('contextmenu', this.handleContextMenu.bind(this), false);
     self.UI.shortcutRegistry.addShortcutListener(
-        this.contentElement, {'sources.rename': this._renameShortcut.bind(this)});
+        this.contentElement, 'sources.rename', this._renameShortcut.bind(this), true);
 
     this._navigatorGroupByFolderSetting = Common.Settings.Settings.instance().moduleSetting('navigatorGroupByFolder');
     this._navigatorGroupByFolderSetting.addChangeListener(this._groupingChanged.bind(this));
@@ -237,32 +236,6 @@ export class NavigatorView extends UI.Widget.VBox {
    */
   focus() {
     this._scriptsTree.focus();
-  }
-
-  /**
-   * Central place to add elements to the tree to
-   * enable focus if the tree has elements
-   *
-   * @param {!UI.TreeOutline.TreeElement} parent
-   * @param {!UI.TreeOutline.TreeElement} child
-   */
-  appendChild(parent, child) {
-    this._scriptsTree.setFocusable(true);
-    parent.appendChild(child);
-  }
-
-  /**
-   * Central place to remove elements from the tree to
-   * disable focus if the tree is empty
-   *
-   * @param {!UI.TreeOutline.TreeElement} parent
-   * @param {!UI.TreeOutline.TreeElement} child
-   */
-  removeChild(parent, child) {
-    parent.removeChild(child);
-    if (this._scriptsTree.rootElement().childCount() === 0) {
-      this._scriptsTree.setFocusable(false);
-    }
   }
 
   /**
@@ -745,7 +718,6 @@ export class NavigatorView extends UI.Widget.VBox {
     }
 
     this._scriptsTree.removeChildren();
-    this._scriptsTree.setFocusable(false);
     this._uiSourceCodeNodes.clear();
     this._subfolderNodes.clear();
     this._frameNodes.clear();
@@ -871,9 +843,10 @@ export class NavigatorView extends UI.Widget.VBox {
     const project = node._project;
 
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
-    NavigatorView.appendSearchItem(contextMenu, path);
 
     if (project.type() === Workspace.Workspace.projectTypes.FileSystem) {
+      NavigatorView.appendSearchItem(contextMenu, path);
+
       const folderPath = Common.ParsedURL.ParsedURL.urlToPlatformPath(
           Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding.completeURL(project, path),
           Host.Platform.isWin());
@@ -1163,8 +1136,7 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
   updateIcon() {
     const binding = self.Persistence.persistence.binding(this._uiSourceCode);
     if (binding) {
-      const container = document.createElement('span');
-      container.classList.add('icon-stack');
+      const container = createElementWithClass('span', 'icon-stack');
       let iconType = 'largeicon-navigator-file-sync';
       if (Snippets.ScriptSnippetFileSystem.isSnippetsUISourceCode(binding.fileSystem)) {
         iconType = 'largeicon-navigator-snippet';
@@ -1299,13 +1271,11 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
  */
 export class NavigatorTreeNode {
   /**
-   * @param {!NavigatorView} navigatorView
    * @param {string} id
    * @param {string} type
    */
-  constructor(navigatorView, id, type) {
+  constructor(id, type) {
     this.id = id;
-    this._navigatorView = navigatorView;
     this._type = type;
     /** @type {!Map.<string, !NavigatorTreeNode>} */
     this._children = new Map();
@@ -1359,8 +1329,7 @@ export class NavigatorTreeNode {
   wasPopulated() {
     const children = this.children();
     for (let i = 0; i < children.length; ++i) {
-      this._navigatorView.appendChild(
-          this.treeNode(), /** @type {!UI.TreeOutline.TreeElement} */ (children[i].treeNode()));
+      this.treeNode().appendChild(/** @type {!UI.TreeOutline.TreeElement} */ (children[i].treeNode()));
     }
   }
 
@@ -1369,7 +1338,7 @@ export class NavigatorTreeNode {
    */
   didAddChild(node) {
     if (this.isPopulated()) {
-      this._navigatorView.appendChild(this.treeNode(), /** @type {!UI.TreeOutline.TreeElement} */ (node.treeNode()));
+      this.treeNode().appendChild(/** @type {!UI.TreeOutline.TreeElement} */ (node.treeNode()));
     }
   }
 
@@ -1378,7 +1347,7 @@ export class NavigatorTreeNode {
    */
   willRemoveChild(node) {
     if (this.isPopulated()) {
-      this._navigatorView.removeChild(this.treeNode(), /** @type {!UI.TreeOutline.TreeElement} */ (node.treeNode()));
+      this.treeNode().removeChild(/** @type {!UI.TreeOutline.TreeElement} */ (node.treeNode()));
     }
   }
 
@@ -1443,7 +1412,8 @@ export class NavigatorRootTreeNode extends NavigatorTreeNode {
    * @param {!NavigatorView} navigatorView
    */
   constructor(navigatorView) {
-    super(navigatorView, '', Types.Root);
+    super('', Types.Root);
+    this._navigatorView = navigatorView;
   }
 
   /**
@@ -1473,7 +1443,8 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
    * @param {?SDK.ResourceTreeModel.ResourceTreeFrame} frame
    */
   constructor(navigatorView, uiSourceCode, frame) {
-    super(navigatorView, uiSourceCode.project().id() + ':' + uiSourceCode.url(), Types.File);
+    super(uiSourceCode.project().id() + ':' + uiSourceCode.url(), Types.File);
+    this._navigatorView = navigatorView;
     this._uiSourceCode = uiSourceCode;
     this._treeElement = null;
     this._eventListeners = [];
@@ -1639,7 +1610,8 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
    * @param {string} title
    */
   constructor(navigatorView, project, id, type, folderPath, title) {
-    super(navigatorView, id, type);
+    super(id, type);
+    this._navigatorView = navigatorView;
     this._project = project;
     this._folderPath = folderPath;
     this._title = title;
@@ -1770,18 +1742,18 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
       for (let i = 0; i < mergedToNodes.length; ++i) {
         mergedToNodes[i]._treeElement = treeElement;
       }
-      this._navigatorView.appendChild(oldTreeElement.parent, treeElement);
+      oldTreeElement.parent.appendChild(treeElement);
 
       oldTreeElement.setNode(nodes[nodes.length - 1]);
       oldTreeElement.title = nodes.map(titleForNode).join('/');
-      this._navigatorView.removeChild(oldTreeElement.parent, oldTreeElement);
-      this._navigatorView.appendChild(this._treeElement, oldTreeElement);
+      oldTreeElement.parent.removeChild(oldTreeElement);
+      this._treeElement.appendChild(oldTreeElement);
       if (oldTreeElement.expanded) {
         treeElement.expand();
       }
     }
     if (this.isPopulated()) {
-      this._navigatorView.appendChild(this._treeElement, node.treeNode());
+      this._treeElement.appendChild(node.treeNode());
     }
   }
 
@@ -1793,7 +1765,7 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
     if (node._isMerged || !this.isPopulated()) {
       return;
     }
-    this._navigatorView.removeChild(this._treeElement, node._treeElement);
+    this._treeElement.removeChild(node._treeElement);
   }
 }
 
@@ -1809,8 +1781,9 @@ export class NavigatorGroupTreeNode extends NavigatorTreeNode {
    * @param {string} title
    */
   constructor(navigatorView, project, id, type, title) {
-    super(navigatorView, id, type);
+    super(id, type);
     this._project = project;
+    this._navigatorView = navigatorView;
     this._title = title;
     this.populate();
   }

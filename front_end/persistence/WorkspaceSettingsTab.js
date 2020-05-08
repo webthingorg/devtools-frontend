@@ -120,8 +120,7 @@ export class WorkspaceSettingsTab extends UI.Widget.VBox {
     const lastIndexOfSlash = fileSystemPath.lastIndexOf('/');
     const folderName = fileSystemPath.substr(lastIndexOfSlash + 1);
 
-    const element = document.createElement('div');
-    element.classList.add('file-system-container');
+    const element = createElementWithClass('div', 'file-system-container');
     const header = element.createChild('div', 'file-system-header');
 
     const nameElement = header.createChild('div', 'file-system-name');

@@ -5,7 +5,6 @@
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
-import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as SourceFrame from '../source_frame/source_frame.js';
 import * as TextEditor from '../text_editor/text_editor.js';  // eslint-disable-line no-unused-vars
@@ -62,8 +61,6 @@ export class CoverageView extends UI.Widget.VBox {
     const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
     const mainTargetSupportsRecordOnReload = mainTarget && mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
     if (mainTargetSupportsRecordOnReload) {
-      /** @type {?Element} */
-      this._inlineReloadButton = null;
       const startWithReloadAction =
           /** @type {!UI.Action.Action }*/ (self.UI.actionRegistry.action('coverage.start-with-reload'));
       this._startWithReloadButton = UI.Toolbar.Toolbar.createActionButton(startWithReloadAction);
@@ -142,10 +139,10 @@ export class CoverageView extends UI.Widget.VBox {
     const widget = new UI.Widget.VBox();
     let message;
     if (this._startWithReloadButton) {
-      this._inlineReloadButton =
+      const reloadButton =
           UI.UIUtils.createInlineButton(UI.Toolbar.Toolbar.createActionButtonForId('coverage.start-with-reload'));
       message = UI.UIUtils.formatLocalized(
-          'Click the reload button %s to reload and start capturing coverage.', [this._inlineReloadButton]);
+          'Click the reload button %s to reload and start capturing coverage.', [reloadButton]);
     } else {
       const recordButton =
           UI.UIUtils.createInlineButton(UI.Toolbar.Toolbar.createActionButton(this._toggleRecordAction));
@@ -226,8 +223,7 @@ export class CoverageView extends UI.Widget.VBox {
    */
   async _startRecording(options) {
     let hadFocus, reloadButtonFocused;
-    if ((this._startWithReloadButton && this._startWithReloadButton.element.hasFocus()) ||
-        (this._inlineReloadButton && this._inlineReloadButton.hasFocus())) {
+    if (this._startWithReloadButton && this._startWithReloadButton.element.hasFocus()) {
       reloadButtonFocused = true;
     } else if (this.hasFocus()) {
       hadFocus = true;
@@ -351,9 +347,9 @@ export class CoverageView extends UI.Widget.VBox {
 
     const used = total - unused;
     const percentUsed = total ? Math.round(100 * used / total) : 0;
-    this._statusMessageElement.textContent = ls`${Platform.NumberUtilities.bytesToString(used)} of ${
-        Platform.NumberUtilities.bytesToString(total)} (${percentUsed}%) used so far.
-        ${Platform.NumberUtilities.bytesToString(unused)} unused.`;
+    this._statusMessageElement.textContent =
+        ls`${Number.bytesToString(used)} of ${Number.bytesToString(total)} (${percentUsed}%) used so far.
+        ${Number.bytesToString(unused)} unused.`;
   }
 
   _onFilterChanged() {
@@ -498,8 +494,7 @@ export class LineDecorator {
         continue;
       }
       const className = lineUsage[line] ? 'text-editor-coverage-used-marker' : 'text-editor-coverage-unused-marker';
-      const gutterElement = document.createElement('div');
-      gutterElement.classList.add(className);
+      const gutterElement = createElementWithClass('div', className);
       textEditor.setGutterDecoration(line, gutterType, gutterElement);
     }
   }

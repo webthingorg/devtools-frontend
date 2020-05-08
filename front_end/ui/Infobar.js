@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 
 import * as ARIAUtils from './ARIAUtils.js';
@@ -24,8 +21,7 @@ export class Infobar {
    * @param {!Common.Settings.Setting=} disableSetting
    */
   constructor(type, text, actions, disableSetting) {
-    this.element = document.createElement('div');
-    this.element.classList.add('flex-none');
+    this.element = createElementWithClass('div', 'flex-none');
     this._shadowRoot = createShadowRootWithCoreStyles(this.element, 'ui/infobar.css');
     this._contentElement = this._shadowRoot.createChild('div', 'infobar infobar-' + type);
 
@@ -54,7 +50,7 @@ export class Infobar {
       }
     }
 
-    /** @type {?Common.Settings.Setting<*>} */
+    /** @type {?Common.Settings.Setting} */
     this._disableSetting = disableSetting || null;
     if (disableSetting) {
       const disableButton = createTextButton(ls`Don't show again`, this._onDisable.bind(this), 'infobar-button');
@@ -90,7 +86,7 @@ export class Infobar {
       }
     });
 
-    /** @type {?function():void} */
+    /** @type {?function()} */
     this._closeCallback = null;
   }
 

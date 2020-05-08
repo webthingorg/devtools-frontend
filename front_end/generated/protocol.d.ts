@@ -10,10 +10,6 @@
 declare namespace Protocol {
   export type integer = number
   export type binary = string
-  export interface ProtocolResponseWithError {
-    /** Returns an error message if the request failed. */
-    getError(): string|undefined;
-  }
 
   export namespace Accessibility {
 
@@ -276,7 +272,7 @@ declare namespace Protocol {
       fetchRelatives?: boolean;
     }
 
-    export interface GetPartialAXTreeResponse extends ProtocolResponseWithError {
+    export interface GetPartialAXTreeResponse {
       /**
        * The `Accessibility.AXNode` for this DOM node, if it exists, plus its ancestors, siblings and
        * children, if requested.
@@ -284,7 +280,7 @@ declare namespace Protocol {
       nodes: AXNode[];
     }
 
-    export interface GetFullAXTreeResponse extends ProtocolResponseWithError {
+    export interface GetFullAXTreeResponse {
       nodes: AXNode[];
     }
   }
@@ -425,14 +421,14 @@ declare namespace Protocol {
       id: string;
     }
 
-    export interface GetCurrentTimeResponse extends ProtocolResponseWithError {
+    export interface GetCurrentTimeResponse {
       /**
        * Current time of the page.
        */
       currentTime: number;
     }
 
-    export interface GetPlaybackRateResponse extends ProtocolResponseWithError {
+    export interface GetPlaybackRateResponse {
       /**
        * Playback rate for animations on page.
        */
@@ -453,7 +449,7 @@ declare namespace Protocol {
       animationId: string;
     }
 
-    export interface ResolveAnimationResponse extends ProtocolResponseWithError {
+    export interface ResolveAnimationResponse {
       /**
        * Corresponding remote object.
        */
@@ -606,14 +602,14 @@ declare namespace Protocol {
       frameId: Page.FrameId;
     }
 
-    export interface GetApplicationCacheForFrameResponse extends ProtocolResponseWithError {
+    export interface GetApplicationCacheForFrameResponse {
       /**
        * Relevant application cache data for the document in given frame.
        */
       applicationCache: ApplicationCache;
     }
 
-    export interface GetFramesWithManifestsResponse extends ProtocolResponseWithError {
+    export interface GetFramesWithManifestsResponse {
       /**
        * Array of frame identifiers with manifest urls for each frame containing a document
        * associated with some application cache.
@@ -628,7 +624,7 @@ declare namespace Protocol {
       frameId: Page.FrameId;
     }
 
-    export interface GetManifestForFrameResponse extends ProtocolResponseWithError {
+    export interface GetManifestForFrameResponse {
       /**
        * Manifest URL for document in the given frame.
        */
@@ -660,169 +656,8 @@ declare namespace Protocol {
    */
   export namespace Audits {
 
-    /**
-     * Information about a cookie that is affected by an inspector issue.
-     */
-    export interface AffectedCookie {
-      /**
-       * The following three properties uniquely identify a cookie
-       */
-      name: string;
-      path: string;
-      domain: string;
-    }
-
-    /**
-     * Information about a request that is affected by an inspector issue.
-     */
-    export interface AffectedRequest {
-      /**
-       * The unique request id.
-       */
-      requestId: Network.RequestId;
-      url?: string;
-    }
-
-    /**
-     * Information about the frame affected by an inspector issue.
-     */
-    export interface AffectedFrame {
-      frameId: Page.FrameId;
-    }
-
-    export enum SameSiteCookieExclusionReason {
-      ExcludeSameSiteUnspecifiedTreatedAsLax = 'ExcludeSameSiteUnspecifiedTreatedAsLax',
-      ExcludeSameSiteNoneInsecure = 'ExcludeSameSiteNoneInsecure',
-    }
-
-    export enum SameSiteCookieWarningReason {
-      WarnSameSiteUnspecifiedCrossSiteContext = 'WarnSameSiteUnspecifiedCrossSiteContext',
-      WarnSameSiteNoneInsecure = 'WarnSameSiteNoneInsecure',
-      WarnSameSiteUnspecifiedLaxAllowUnsafe = 'WarnSameSiteUnspecifiedLaxAllowUnsafe',
-      WarnSameSiteCrossSchemeSecureUrlMethodUnsafe = 'WarnSameSiteCrossSchemeSecureUrlMethodUnsafe',
-      WarnSameSiteCrossSchemeSecureUrlLax = 'WarnSameSiteCrossSchemeSecureUrlLax',
-      WarnSameSiteCrossSchemeSecureUrlStrict = 'WarnSameSiteCrossSchemeSecureUrlStrict',
-      WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe = 'WarnSameSiteCrossSchemeInsecureUrlMethodUnsafe',
-      WarnSameSiteCrossSchemeInsecureUrlLax = 'WarnSameSiteCrossSchemeInsecureUrlLax',
-      WarnSameSiteCrossSchemeInsecureUrlStrict = 'WarnSameSiteCrossSchemeInsecureUrlStrict',
-    }
-
-    export enum SameSiteCookieOperation {
-      SetCookie = 'SetCookie',
-      ReadCookie = 'ReadCookie',
-    }
-
-    /**
-     * This information is currently necessary, as the front-end has a difficult
-     * time finding a specific cookie. With this, we can convey specific error
-     * information without the cookie.
-     */
-    export interface SameSiteCookieIssueDetails {
-      cookie: AffectedCookie;
-      cookieWarningReasons: SameSiteCookieWarningReason[];
-      cookieExclusionReasons: SameSiteCookieExclusionReason[];
-      /**
-       * Optionally identifies the site-for-cookies and the cookie url, which
-       * may be used by the front-end as additional context.
-       */
-      operation: SameSiteCookieOperation;
-      siteForCookies?: string;
-      cookieUrl?: string;
-      request?: AffectedRequest;
-    }
-
-    export enum MixedContentResolutionStatus {
-      MixedContentBlocked = 'MixedContentBlocked',
-      MixedContentAutomaticallyUpgraded = 'MixedContentAutomaticallyUpgraded',
-      MixedContentWarning = 'MixedContentWarning',
-    }
-
-    export enum MixedContentResourceType {
-      Audio = 'Audio',
-      Beacon = 'Beacon',
-      CSPReport = 'CSPReport',
-      Download = 'Download',
-      EventSource = 'EventSource',
-      Favicon = 'Favicon',
-      Font = 'Font',
-      Form = 'Form',
-      Frame = 'Frame',
-      Image = 'Image',
-      Import = 'Import',
-      Manifest = 'Manifest',
-      Ping = 'Ping',
-      PluginData = 'PluginData',
-      PluginResource = 'PluginResource',
-      Prefetch = 'Prefetch',
-      Resource = 'Resource',
-      Script = 'Script',
-      ServiceWorker = 'ServiceWorker',
-      SharedWorker = 'SharedWorker',
-      Stylesheet = 'Stylesheet',
-      Track = 'Track',
-      Video = 'Video',
-      Worker = 'Worker',
-      XMLHttpRequest = 'XMLHttpRequest',
-      XSLT = 'XSLT',
-    }
-
-    export interface MixedContentIssueDetails {
-      /**
-       * The type of resource causing the mixed content issue (css, js, iframe,
-       * form,...). Marked as optional because it is mapped to from
-       * blink::mojom::RequestContextType, which will be replaced
-       * by network::mojom::RequestDestination
-       */
-      resourceType?: MixedContentResourceType;
-      /**
-       * The way the mixed content issue is being resolved.
-       */
-      resolutionStatus: MixedContentResolutionStatus;
-      /**
-       * The unsafe http url causing the mixed content issue.
-       */
-      insecureURL: string;
-      /**
-       * The url responsible for the call to an unsafe url.
-       */
-      mainResourceURL: string;
-      /**
-       * The mixed content request.
-       * Does not always exist (e.g. for unsafe form submission urls).
-       */
-      request?: AffectedRequest;
-      /**
-       * Optional because not every mixed content issue is necessarily linked to a frame.
-       */
-      frame?: AffectedFrame;
-    }
-
-    /**
-     * A unique identifier for the type of issue. Each type may use one of the
-     * optional fields in InspectorIssueDetails to convey more specific
-     * information about the kind of issue.
-     */
-    export enum InspectorIssueCode {
-      SameSiteCookieIssue = 'SameSiteCookieIssue',
-      MixedContentIssue = 'MixedContentIssue',
-    }
-
-    /**
-     * This struct holds a list of optional fields with additional information
-     * specific to the kind of issue. When adding a new issue code, please also
-     * add a new optional field to this type.
-     */
-    export interface InspectorIssueDetails {
-      sameSiteCookieIssueDetails?: SameSiteCookieIssueDetails;
-      mixedContentIssueDetails?: MixedContentIssueDetails;
-    }
-
-    /**
-     * An inspector issue reported from the back-end.
-     */
-    export interface InspectorIssue {
-      code: InspectorIssueCode;
-      details: InspectorIssueDetails;
+    export interface Issue {
+      code: string;
     }
 
     export enum GetEncodedResponseRequestEncoding {
@@ -850,7 +685,7 @@ declare namespace Protocol {
       sizeOnly?: boolean;
     }
 
-    export interface GetEncodedResponseResponse extends ProtocolResponseWithError {
+    export interface GetEncodedResponseResponse {
       /**
        * The encoded body as a base64 string. Omitted if sizeOnly is true.
        */
@@ -866,7 +701,7 @@ declare namespace Protocol {
     }
 
     export interface IssueAddedEvent {
-      issue: InspectorIssue;
+      issue: Issue;
     }
   }
 
@@ -1108,6 +943,10 @@ declare namespace Protocol {
 
     export interface SetPermissionRequest {
       /**
+       * Origin the permission applies to.
+       */
+      origin: string;
+      /**
        * Descriptor of permission to override.
        */
       permission: PermissionDescriptor;
@@ -1116,21 +955,14 @@ declare namespace Protocol {
        */
       setting: PermissionSetting;
       /**
-       * Origin the permission applies to, all origins if not specified.
-       */
-      origin?: string;
-      /**
        * Context to override. When omitted, default browser context is used.
        */
       browserContextId?: BrowserContextID;
     }
 
     export interface GrantPermissionsRequest {
+      origin: string;
       permissions: PermissionType[];
-      /**
-       * Origin the permission applies to, all origins if not specified.
-       */
-      origin?: string;
       /**
        * BrowserContext to override permissions. When omitted, default browser context is used.
        */
@@ -1144,32 +976,7 @@ declare namespace Protocol {
       browserContextId?: BrowserContextID;
     }
 
-    export enum SetDownloadBehaviorRequestBehavior {
-      Deny = 'deny',
-      Allow = 'allow',
-      AllowAndName = 'allowAndName',
-      Default = 'default',
-    }
-
-    export interface SetDownloadBehaviorRequest {
-      /**
-       * Whether to allow all or deny all download requests, or use default Chrome behavior if
-       * available (otherwise deny). |allowAndName| allows download and names files according to
-       * their dowmload guids.
-       */
-      behavior: SetDownloadBehaviorRequestBehavior;
-      /**
-       * BrowserContext to set download behavior. When omitted, default browser context is used.
-       */
-      browserContextId?: BrowserContextID;
-      /**
-       * The default path to save downloaded files to. This is requred if behavior is set to 'allow'
-       * or 'allowAndName'.
-       */
-      downloadPath?: string;
-    }
-
-    export interface GetVersionResponse extends ProtocolResponseWithError {
+    export interface GetVersionResponse {
       /**
        * Protocol version.
        */
@@ -1192,7 +999,7 @@ declare namespace Protocol {
       jsVersion: string;
     }
 
-    export interface GetBrowserCommandLineResponse extends ProtocolResponseWithError {
+    export interface GetBrowserCommandLineResponse {
       /**
        * Commandline parameters
        */
@@ -1212,7 +1019,7 @@ declare namespace Protocol {
       delta?: boolean;
     }
 
-    export interface GetHistogramsResponse extends ProtocolResponseWithError {
+    export interface GetHistogramsResponse {
       /**
        * Histograms.
        */
@@ -1230,7 +1037,7 @@ declare namespace Protocol {
       delta?: boolean;
     }
 
-    export interface GetHistogramResponse extends ProtocolResponseWithError {
+    export interface GetHistogramResponse {
       /**
        * Histogram.
        */
@@ -1244,7 +1051,7 @@ declare namespace Protocol {
       windowId: WindowID;
     }
 
-    export interface GetWindowBoundsResponse extends ProtocolResponseWithError {
+    export interface GetWindowBoundsResponse {
       /**
        * Bounds information of the window. When window state is 'minimized', the restored window
        * position and size are returned.
@@ -1259,7 +1066,7 @@ declare namespace Protocol {
       targetId?: Target.TargetID;
     }
 
-    export interface GetWindowForTargetResponse extends ProtocolResponseWithError {
+    export interface GetWindowForTargetResponse {
       /**
        * Browser window id.
        */
@@ -1824,7 +1631,7 @@ declare namespace Protocol {
       location: SourceRange;
     }
 
-    export interface AddRuleResponse extends ProtocolResponseWithError {
+    export interface AddRuleResponse {
       /**
        * The newly created rule.
        */
@@ -1835,7 +1642,7 @@ declare namespace Protocol {
       styleSheetId: StyleSheetId;
     }
 
-    export interface CollectClassNamesResponse extends ProtocolResponseWithError {
+    export interface CollectClassNamesResponse {
       /**
        * Class name list.
        */
@@ -1849,7 +1656,7 @@ declare namespace Protocol {
       frameId: Page.FrameId;
     }
 
-    export interface CreateStyleSheetResponse extends ProtocolResponseWithError {
+    export interface CreateStyleSheetResponse {
       /**
        * Identifier of the created "via-inspector" stylesheet.
        */
@@ -1874,7 +1681,7 @@ declare namespace Protocol {
       nodeId: DOM.NodeId;
     }
 
-    export interface GetBackgroundColorsResponse extends ProtocolResponseWithError {
+    export interface GetBackgroundColorsResponse {
       /**
        * The range of background colors behind this element, if it contains any visible text. If no
        * visible text is present, this will be undefined. In the case of a flat background color,
@@ -1898,7 +1705,7 @@ declare namespace Protocol {
       nodeId: DOM.NodeId;
     }
 
-    export interface GetComputedStyleForNodeResponse extends ProtocolResponseWithError {
+    export interface GetComputedStyleForNodeResponse {
       /**
        * Computed style for the specified DOM node.
        */
@@ -1909,7 +1716,7 @@ declare namespace Protocol {
       nodeId: DOM.NodeId;
     }
 
-    export interface GetInlineStylesForNodeResponse extends ProtocolResponseWithError {
+    export interface GetInlineStylesForNodeResponse {
       /**
        * Inline style for the specified DOM node.
        */
@@ -1924,7 +1731,7 @@ declare namespace Protocol {
       nodeId: DOM.NodeId;
     }
 
-    export interface GetMatchedStylesForNodeResponse extends ProtocolResponseWithError {
+    export interface GetMatchedStylesForNodeResponse {
       /**
        * Inline style for the specified DOM node.
        */
@@ -1951,7 +1758,7 @@ declare namespace Protocol {
       cssKeyframesRules?: CSSKeyframesRule[];
     }
 
-    export interface GetMediaQueriesResponse extends ProtocolResponseWithError {
+    export interface GetMediaQueriesResponse {
       medias: CSSMedia[];
     }
 
@@ -1959,7 +1766,7 @@ declare namespace Protocol {
       nodeId: DOM.NodeId;
     }
 
-    export interface GetPlatformFontsForNodeResponse extends ProtocolResponseWithError {
+    export interface GetPlatformFontsForNodeResponse {
       /**
        * Usage statistics for every employed platform font.
        */
@@ -1970,7 +1777,7 @@ declare namespace Protocol {
       styleSheetId: StyleSheetId;
     }
 
-    export interface GetStyleSheetTextResponse extends ProtocolResponseWithError {
+    export interface GetStyleSheetTextResponse {
       /**
        * The stylesheet text.
        */
@@ -1992,7 +1799,7 @@ declare namespace Protocol {
       keyText: string;
     }
 
-    export interface SetKeyframeKeyResponse extends ProtocolResponseWithError {
+    export interface SetKeyframeKeyResponse {
       /**
        * The resulting key text after modification.
        */
@@ -2005,7 +1812,7 @@ declare namespace Protocol {
       text: string;
     }
 
-    export interface SetMediaTextResponse extends ProtocolResponseWithError {
+    export interface SetMediaTextResponse {
       /**
        * The resulting CSS media rule after modification.
        */
@@ -2018,7 +1825,7 @@ declare namespace Protocol {
       selector: string;
     }
 
-    export interface SetRuleSelectorResponse extends ProtocolResponseWithError {
+    export interface SetRuleSelectorResponse {
       /**
        * The resulting selector list after modification.
        */
@@ -2030,7 +1837,7 @@ declare namespace Protocol {
       text: string;
     }
 
-    export interface SetStyleSheetTextResponse extends ProtocolResponseWithError {
+    export interface SetStyleSheetTextResponse {
       /**
        * URL of source map associated with script (if any).
        */
@@ -2041,18 +1848,18 @@ declare namespace Protocol {
       edits: StyleDeclarationEdit[];
     }
 
-    export interface SetStyleTextsResponse extends ProtocolResponseWithError {
+    export interface SetStyleTextsResponse {
       /**
        * The resulting styles after modification.
        */
       styles: CSSStyle[];
     }
 
-    export interface StopRuleUsageTrackingResponse extends ProtocolResponseWithError {
+    export interface StopRuleUsageTrackingResponse {
       ruleUsage: RuleUsage[];
     }
 
-    export interface TakeCoverageDeltaResponse extends ProtocolResponseWithError {
+    export interface TakeCoverageDeltaResponse {
       coverage: RuleUsage[];
       /**
        * Monotonically increasing time, in seconds.
@@ -2214,7 +2021,7 @@ declare namespace Protocol {
       securityOrigin: string;
     }
 
-    export interface RequestCacheNamesResponse extends ProtocolResponseWithError {
+    export interface RequestCacheNamesResponse {
       /**
        * Caches for the security origin.
        */
@@ -2236,7 +2043,7 @@ declare namespace Protocol {
       requestHeaders: Header[];
     }
 
-    export interface RequestCachedResponseResponse extends ProtocolResponseWithError {
+    export interface RequestCachedResponseResponse {
       /**
        * Response read from the cache.
        */
@@ -2262,7 +2069,7 @@ declare namespace Protocol {
       pathFilter?: string;
     }
 
-    export interface RequestEntriesResponse extends ProtocolResponseWithError {
+    export interface RequestEntriesResponse {
       /**
        * Array of object store data entries.
        */
@@ -2621,7 +2428,7 @@ declare namespace Protocol {
       nodeId: NodeId;
     }
 
-    export interface CollectClassNamesFromSubtreeResponse extends ProtocolResponseWithError {
+    export interface CollectClassNamesFromSubtreeResponse {
       /**
        * Class name list.
        */
@@ -2644,7 +2451,7 @@ declare namespace Protocol {
       insertBeforeNodeId?: NodeId;
     }
 
-    export interface CopyToResponse extends ProtocolResponseWithError {
+    export interface CopyToResponse {
       /**
        * Id of the node clone.
        */
@@ -2676,7 +2483,7 @@ declare namespace Protocol {
       pierce?: boolean;
     }
 
-    export interface DescribeNodeResponse extends ProtocolResponseWithError {
+    export interface DescribeNodeResponse {
       /**
        * Node description.
        */
@@ -2732,7 +2539,7 @@ declare namespace Protocol {
       nodeId: NodeId;
     }
 
-    export interface GetAttributesResponse extends ProtocolResponseWithError {
+    export interface GetAttributesResponse {
       /**
        * An interleaved array of node attribute names and values.
        */
@@ -2754,7 +2561,7 @@ declare namespace Protocol {
       objectId?: Runtime.RemoteObjectId;
     }
 
-    export interface GetBoxModelResponse extends ProtocolResponseWithError {
+    export interface GetBoxModelResponse {
       /**
        * Box model for the node.
        */
@@ -2776,7 +2583,7 @@ declare namespace Protocol {
       objectId?: Runtime.RemoteObjectId;
     }
 
-    export interface GetContentQuadsResponse extends ProtocolResponseWithError {
+    export interface GetContentQuadsResponse {
       /**
        * Quads that describe node layout relative to viewport.
        */
@@ -2796,7 +2603,7 @@ declare namespace Protocol {
       pierce?: boolean;
     }
 
-    export interface GetDocumentResponse extends ProtocolResponseWithError {
+    export interface GetDocumentResponse {
       /**
        * Resulting node.
        */
@@ -2816,7 +2623,7 @@ declare namespace Protocol {
       pierce?: boolean;
     }
 
-    export interface GetFlattenedDocumentResponse extends ProtocolResponseWithError {
+    export interface GetFlattenedDocumentResponse {
       /**
        * Resulting node.
        */
@@ -2842,7 +2649,7 @@ declare namespace Protocol {
       ignorePointerEventsNone?: boolean;
     }
 
-    export interface GetNodeForLocationResponse extends ProtocolResponseWithError {
+    export interface GetNodeForLocationResponse {
       /**
        * Resulting node.
        */
@@ -2872,7 +2679,7 @@ declare namespace Protocol {
       objectId?: Runtime.RemoteObjectId;
     }
 
-    export interface GetOuterHTMLResponse extends ProtocolResponseWithError {
+    export interface GetOuterHTMLResponse {
       /**
        * Outer HTML markup.
        */
@@ -2886,7 +2693,7 @@ declare namespace Protocol {
       nodeId: NodeId;
     }
 
-    export interface GetRelayoutBoundaryResponse extends ProtocolResponseWithError {
+    export interface GetRelayoutBoundaryResponse {
       /**
        * Relayout boundary node id for the given node.
        */
@@ -2908,7 +2715,7 @@ declare namespace Protocol {
       toIndex: integer;
     }
 
-    export interface GetSearchResultsResponse extends ProtocolResponseWithError {
+    export interface GetSearchResultsResponse {
       /**
        * Ids of the search result nodes.
        */
@@ -2931,7 +2738,7 @@ declare namespace Protocol {
       insertBeforeNodeId?: NodeId;
     }
 
-    export interface MoveToResponse extends ProtocolResponseWithError {
+    export interface MoveToResponse {
       /**
        * New id of the moved node.
        */
@@ -2949,7 +2756,7 @@ declare namespace Protocol {
       includeUserAgentShadowDOM?: boolean;
     }
 
-    export interface PerformSearchResponse extends ProtocolResponseWithError {
+    export interface PerformSearchResponse {
       /**
        * Unique search session identifier.
        */
@@ -2967,7 +2774,7 @@ declare namespace Protocol {
       path: string;
     }
 
-    export interface PushNodeByPathToFrontendResponse extends ProtocolResponseWithError {
+    export interface PushNodeByPathToFrontendResponse {
       /**
        * Id of the node for given path.
        */
@@ -2981,7 +2788,7 @@ declare namespace Protocol {
       backendNodeIds: BackendNodeId[];
     }
 
-    export interface PushNodesByBackendIdsToFrontendResponse extends ProtocolResponseWithError {
+    export interface PushNodesByBackendIdsToFrontendResponse {
       /**
        * The array of ids of pushed nodes that correspond to the backend ids specified in
        * backendNodeIds.
@@ -3000,7 +2807,7 @@ declare namespace Protocol {
       selector: string;
     }
 
-    export interface QuerySelectorResponse extends ProtocolResponseWithError {
+    export interface QuerySelectorResponse {
       /**
        * Query selector result.
        */
@@ -3018,7 +2825,7 @@ declare namespace Protocol {
       selector: string;
     }
 
-    export interface QuerySelectorAllResponse extends ProtocolResponseWithError {
+    export interface QuerySelectorAllResponse {
       /**
        * Query selector result.
        */
@@ -3067,7 +2874,7 @@ declare namespace Protocol {
       objectId: Runtime.RemoteObjectId;
     }
 
-    export interface RequestNodeResponse extends ProtocolResponseWithError {
+    export interface RequestNodeResponse {
       /**
        * Node id for given object.
        */
@@ -3093,7 +2900,7 @@ declare namespace Protocol {
       executionContextId?: Runtime.ExecutionContextId;
     }
 
-    export interface ResolveNodeResponse extends ProtocolResponseWithError {
+    export interface ResolveNodeResponse {
       /**
        * JavaScript object wrapper for given node.
        */
@@ -3164,7 +2971,7 @@ declare namespace Protocol {
       nodeId: NodeId;
     }
 
-    export interface GetNodeStackTracesResponse extends ProtocolResponseWithError {
+    export interface GetNodeStackTracesResponse {
       /**
        * Creation stack trace, if available.
        */
@@ -3178,7 +2985,7 @@ declare namespace Protocol {
       objectId: Runtime.RemoteObjectId;
     }
 
-    export interface GetFileInfoResponse extends ProtocolResponseWithError {
+    export interface GetFileInfoResponse {
       path: string;
     }
 
@@ -3200,7 +3007,7 @@ declare namespace Protocol {
       name: string;
     }
 
-    export interface SetNodeNameResponse extends ProtocolResponseWithError {
+    export interface SetNodeNameResponse {
       /**
        * New node's id.
        */
@@ -3233,7 +3040,7 @@ declare namespace Protocol {
       frameId: Page.FrameId;
     }
 
-    export interface GetFrameOwnerResponse extends ProtocolResponseWithError {
+    export interface GetFrameOwnerResponse {
       /**
        * Resulting node.
        */
@@ -3510,7 +3317,7 @@ declare namespace Protocol {
       pierce?: boolean;
     }
 
-    export interface GetEventListenersResponse extends ProtocolResponseWithError {
+    export interface GetEventListenersResponse {
       /**
        * Array of relevant listeners.
        */
@@ -4049,7 +3856,7 @@ declare namespace Protocol {
       includeUserAgentShadowTree?: boolean;
     }
 
-    export interface GetSnapshotResponse extends ProtocolResponseWithError {
+    export interface GetSnapshotResponse {
       /**
        * The nodes in the DOM tree. The DOMNode at index 0 corresponds to the root document.
        */
@@ -4079,7 +3886,7 @@ declare namespace Protocol {
       includeDOMRects?: boolean;
     }
 
-    export interface CaptureSnapshotResponse extends ProtocolResponseWithError {
+    export interface CaptureSnapshotResponse {
       /**
        * The nodes in the DOM tree. The DOMNode at index 0 corresponds to the root document.
        */
@@ -4123,7 +3930,7 @@ declare namespace Protocol {
       storageId: StorageId;
     }
 
-    export interface GetDOMStorageItemsResponse extends ProtocolResponseWithError {
+    export interface GetDOMStorageItemsResponse {
       entries: Item[];
     }
 
@@ -4209,7 +4016,7 @@ declare namespace Protocol {
       query: string;
     }
 
-    export interface ExecuteSQLResponse extends ProtocolResponseWithError {
+    export interface ExecuteSQLResponse {
       columnNames?: string[];
       values?: any[];
       sqlError?: Error;
@@ -4219,7 +4026,7 @@ declare namespace Protocol {
       databaseId: DatabaseId;
     }
 
-    export interface GetDatabaseTableNamesResponse extends ProtocolResponseWithError {
+    export interface GetDatabaseTableNamesResponse {
       tableNames: string[];
     }
 
@@ -4289,7 +4096,7 @@ declare namespace Protocol {
       PauseIfNetworkFetchesPending = 'pauseIfNetworkFetchesPending',
     }
 
-    export interface CanEmulateResponse extends ProtocolResponseWithError {
+    export interface CanEmulateResponse {
       /**
        * True if emulation is supported.
        */
@@ -4414,10 +4221,14 @@ declare namespace Protocol {
 
     export enum SetEmulatedVisionDeficiencyRequestType {
       None = 'none',
+      Achromatomaly = 'achromatomaly',
       Achromatopsia = 'achromatopsia',
       BlurredVision = 'blurredVision',
+      Deuteranomaly = 'deuteranomaly',
       Deuteranopia = 'deuteranopia',
+      Protanomaly = 'protanomaly',
       Protanopia = 'protanopia',
+      Tritanomaly = 'tritanomaly',
       Tritanopia = 'tritanopia',
     }
 
@@ -4498,7 +4309,7 @@ declare namespace Protocol {
       initialVirtualTime?: Network.TimeSinceEpoch;
     }
 
-    export interface SetVirtualTimePolicyResponse extends ProtocolResponseWithError {
+    export interface SetVirtualTimePolicyResponse {
       /**
        * Absolute timestamp at which virtual time was first enabled (up time in milliseconds).
        */
@@ -4597,7 +4408,7 @@ declare namespace Protocol {
       screenshot?: ScreenshotParams;
     }
 
-    export interface BeginFrameResponse extends ProtocolResponseWithError {
+    export interface BeginFrameResponse {
       /**
        * Whether the BeginFrame resulted in damage and, thus, a new frame was committed to the
        * display. Reported for diagnostic uses, may be removed in the future.
@@ -4656,7 +4467,7 @@ declare namespace Protocol {
       size?: integer;
     }
 
-    export interface ReadResponse extends ProtocolResponseWithError {
+    export interface ReadResponse {
       /**
        * Set if the data is base64-encoded
        */
@@ -4678,7 +4489,7 @@ declare namespace Protocol {
       objectId: Runtime.RemoteObjectId;
     }
 
-    export interface ResolveBlobResponse extends ProtocolResponseWithError {
+    export interface ResolveBlobResponse {
       /**
        * UUID of the specified Blob.
        */
@@ -4915,7 +4726,7 @@ declare namespace Protocol {
       keyRange?: KeyRange;
     }
 
-    export interface RequestDataResponse extends ProtocolResponseWithError {
+    export interface RequestDataResponse {
       /**
        * Array of object store data entries.
        */
@@ -4941,7 +4752,7 @@ declare namespace Protocol {
       objectStoreName: string;
     }
 
-    export interface GetMetadataResponse extends ProtocolResponseWithError {
+    export interface GetMetadataResponse {
       /**
        * the entries count
        */
@@ -4965,7 +4776,7 @@ declare namespace Protocol {
       databaseName: string;
     }
 
-    export interface RequestDatabaseResponse extends ProtocolResponseWithError {
+    export interface RequestDatabaseResponse {
       /**
        * Database with an array of object stores.
        */
@@ -4979,7 +4790,7 @@ declare namespace Protocol {
       securityOrigin: string;
     }
 
-    export interface RequestDatabaseNamesResponse extends ProtocolResponseWithError {
+    export interface RequestDatabaseNamesResponse {
       /**
        * Database names for origin.
        */
@@ -5536,7 +5347,7 @@ declare namespace Protocol {
       layerId: LayerId;
     }
 
-    export interface CompositingReasonsResponse extends ProtocolResponseWithError {
+    export interface CompositingReasonsResponse {
       /**
        * A list of strings specifying reasons for the given layer to become composited.
        */
@@ -5554,7 +5365,7 @@ declare namespace Protocol {
       tiles: PictureTile[];
     }
 
-    export interface LoadSnapshotResponse extends ProtocolResponseWithError {
+    export interface LoadSnapshotResponse {
       /**
        * The id of the snapshot.
        */
@@ -5568,7 +5379,7 @@ declare namespace Protocol {
       layerId: LayerId;
     }
 
-    export interface MakeSnapshotResponse extends ProtocolResponseWithError {
+    export interface MakeSnapshotResponse {
       /**
        * The id of the layer snapshot.
        */
@@ -5594,7 +5405,7 @@ declare namespace Protocol {
       clipRect?: DOM.Rect;
     }
 
-    export interface ProfileSnapshotResponse extends ProtocolResponseWithError {
+    export interface ProfileSnapshotResponse {
       /**
        * The array of paint profiles, one per run.
        */
@@ -5627,7 +5438,7 @@ declare namespace Protocol {
       scale?: number;
     }
 
-    export interface ReplaySnapshotResponse extends ProtocolResponseWithError {
+    export interface ReplaySnapshotResponse {
       /**
        * A data: URL for resulting image.
        */
@@ -5641,7 +5452,7 @@ declare namespace Protocol {
       snapshotId: SnapshotId;
     }
 
-    export interface SnapshotCommandLogResponse extends ProtocolResponseWithError {
+    export interface SnapshotCommandLogResponse {
       /**
        * The array of canvas function calls.
        */
@@ -5842,7 +5653,7 @@ declare namespace Protocol {
       size: number;
     }
 
-    export interface GetDOMCountersResponse extends ProtocolResponseWithError {
+    export interface GetDOMCountersResponse {
       documents: integer;
       nodes: integer;
       jsEventListeners: integer;
@@ -5873,15 +5684,15 @@ declare namespace Protocol {
       suppressRandomness?: boolean;
     }
 
-    export interface GetAllTimeSamplingProfileResponse extends ProtocolResponseWithError {
+    export interface GetAllTimeSamplingProfileResponse {
       profile: SamplingProfile;
     }
 
-    export interface GetBrowserSamplingProfileResponse extends ProtocolResponseWithError {
+    export interface GetBrowserSamplingProfileResponse {
       profile: SamplingProfile;
     }
 
-    export interface GetSamplingProfileResponse extends ProtocolResponseWithError {
+    export interface GetSamplingProfileResponse {
       profile: SamplingProfile;
     }
   }
@@ -6833,21 +6644,21 @@ declare namespace Protocol {
       errors?: SignedExchangeError[];
     }
 
-    export interface CanClearBrowserCacheResponse extends ProtocolResponseWithError {
+    export interface CanClearBrowserCacheResponse {
       /**
        * True if browser cache can be cleared.
        */
       result: boolean;
     }
 
-    export interface CanClearBrowserCookiesResponse extends ProtocolResponseWithError {
+    export interface CanClearBrowserCookiesResponse {
       /**
        * True if browser cookies can be cleared.
        */
       result: boolean;
     }
 
-    export interface CanEmulateNetworkConditionsResponse extends ProtocolResponseWithError {
+    export interface CanEmulateNetworkConditionsResponse {
       /**
        * True if emulation of network conditions is supported.
        */
@@ -6950,7 +6761,7 @@ declare namespace Protocol {
       maxPostDataSize?: integer;
     }
 
-    export interface GetAllCookiesResponse extends ProtocolResponseWithError {
+    export interface GetAllCookiesResponse {
       /**
        * Array of cookie objects.
        */
@@ -6964,7 +6775,7 @@ declare namespace Protocol {
       origin: string;
     }
 
-    export interface GetCertificateResponse extends ProtocolResponseWithError {
+    export interface GetCertificateResponse {
       tableNames: string[];
     }
 
@@ -6975,7 +6786,7 @@ declare namespace Protocol {
       urls?: string[];
     }
 
-    export interface GetCookiesResponse extends ProtocolResponseWithError {
+    export interface GetCookiesResponse {
       /**
        * Array of cookie objects.
        */
@@ -6989,7 +6800,7 @@ declare namespace Protocol {
       requestId: RequestId;
     }
 
-    export interface GetResponseBodyResponse extends ProtocolResponseWithError {
+    export interface GetResponseBodyResponse {
       /**
        * Response body.
        */
@@ -7007,7 +6818,7 @@ declare namespace Protocol {
       requestId: RequestId;
     }
 
-    export interface GetRequestPostDataResponse extends ProtocolResponseWithError {
+    export interface GetRequestPostDataResponse {
       /**
        * Request body string, omitting files from multipart requests
        */
@@ -7021,7 +6832,7 @@ declare namespace Protocol {
       interceptionId: InterceptionId;
     }
 
-    export interface GetResponseBodyForInterceptionResponse extends ProtocolResponseWithError {
+    export interface GetResponseBodyForInterceptionResponse {
       /**
        * Response body.
        */
@@ -7036,7 +6847,7 @@ declare namespace Protocol {
       interceptionId: InterceptionId;
     }
 
-    export interface TakeResponseBodyForInterceptionAsStreamResponse extends ProtocolResponseWithError {
+    export interface TakeResponseBodyForInterceptionAsStreamResponse {
       stream: IO.StreamHandle;
     }
 
@@ -7066,7 +6877,7 @@ declare namespace Protocol {
       isRegex?: boolean;
     }
 
-    export interface SearchInResponseBodyResponse extends ProtocolResponseWithError {
+    export interface SearchInResponseBodyResponse {
       /**
        * List of search matches.
        */
@@ -7138,7 +6949,7 @@ declare namespace Protocol {
       priority?: CookiePriority;
     }
 
-    export interface SetCookieResponse extends ProtocolResponseWithError {
+    export interface SetCookieResponse {
       /**
        * True if successfully set cookie.
        */
@@ -7710,34 +7521,6 @@ declare namespace Protocol {
        * The grid layout color (default: transparent).
        */
       cssGridColor?: DOM.RGBA;
-      /**
-       * The color format used to format color styles (default: hex).
-       */
-      colorFormat?: ColorFormat;
-    }
-
-    export enum ColorFormat {
-      Rgb = 'rgb',
-      Hsl = 'hsl',
-      Hex = 'hex',
-    }
-
-    /**
-     * Configuration for dual screen hinge
-     */
-    export interface HingeConfig {
-      /**
-       * A rectangle represent hinge
-       */
-      rect: DOM.Rect;
-      /**
-       * The content box highlight fill color (default: a dark color).
-       */
-      contentColor?: DOM.RGBA;
-      /**
-       * The content box highlight outline color (default: transparent).
-       */
-      outlineColor?: DOM.RGBA;
     }
 
     export enum InspectMode {
@@ -7761,13 +7544,9 @@ declare namespace Protocol {
        * Whether to include style info.
        */
       includeStyle?: boolean;
-      /**
-       * The color format to get config with (default: hex)
-       */
-      colorFormat?: ColorFormat;
     }
 
-    export interface GetHighlightObjectForTestResponse extends ProtocolResponseWithError {
+    export interface GetHighlightObjectForTestResponse {
       /**
        * Highlight data for the node.
        */
@@ -7927,13 +7706,6 @@ declare namespace Protocol {
        * Whether to paint size or not.
        */
       show: boolean;
-    }
-
-    export interface SetShowHingeRequest {
-      /**
-       * hinge data, null means hideHinge
-       */
-      hingeConfig?: HingeConfig;
     }
 
     /**
@@ -8354,13 +8126,6 @@ declare namespace Protocol {
       AnchorClick = 'anchorClick',
     }
 
-    export enum ClientNavigationDisposition {
-      CurrentTab = 'currentTab',
-      NewTab = 'newTab',
-      NewWindow = 'newWindow',
-      Download = 'download',
-    }
-
     export interface InstallabilityErrorArgument {
       /**
        * Argument name (e.g. name:'minimum-icon-size-in-pixels').
@@ -8404,7 +8169,7 @@ declare namespace Protocol {
       scriptSource: string;
     }
 
-    export interface AddScriptToEvaluateOnLoadResponse extends ProtocolResponseWithError {
+    export interface AddScriptToEvaluateOnLoadResponse {
       /**
        * Identifier of the added script.
        */
@@ -8421,7 +8186,7 @@ declare namespace Protocol {
       worldName?: string;
     }
 
-    export interface AddScriptToEvaluateOnNewDocumentResponse extends ProtocolResponseWithError {
+    export interface AddScriptToEvaluateOnNewDocumentResponse {
       /**
        * Identifier of the added script.
        */
@@ -8452,7 +8217,7 @@ declare namespace Protocol {
       fromSurface?: boolean;
     }
 
-    export interface CaptureScreenshotResponse extends ProtocolResponseWithError {
+    export interface CaptureScreenshotResponse {
       /**
        * Base64-encoded image data.
        */
@@ -8470,7 +8235,7 @@ declare namespace Protocol {
       format?: CaptureSnapshotRequestFormat;
     }
 
-    export interface CaptureSnapshotResponse extends ProtocolResponseWithError {
+    export interface CaptureSnapshotResponse {
       /**
        * Serialized page data.
        */
@@ -8493,7 +8258,7 @@ declare namespace Protocol {
       grantUniveralAccess?: boolean;
     }
 
-    export interface CreateIsolatedWorldResponse extends ProtocolResponseWithError {
+    export interface CreateIsolatedWorldResponse {
       /**
        * Execution context of the isolated world.
        */
@@ -8511,7 +8276,7 @@ declare namespace Protocol {
       url: string;
     }
 
-    export interface GetAppManifestResponse extends ProtocolResponseWithError {
+    export interface GetAppManifestResponse {
       /**
        * Manifest location.
        */
@@ -8527,29 +8292,29 @@ declare namespace Protocol {
       parsed?: AppManifestParsedProperties;
     }
 
-    export interface GetInstallabilityErrorsResponse extends ProtocolResponseWithError {
+    export interface GetInstallabilityErrorsResponse {
       installabilityErrors: InstallabilityError[];
     }
 
-    export interface GetManifestIconsResponse extends ProtocolResponseWithError {
+    export interface GetManifestIconsResponse {
       primaryIcon?: binary;
     }
 
-    export interface GetCookiesResponse extends ProtocolResponseWithError {
+    export interface GetCookiesResponse {
       /**
        * Array of cookie objects.
        */
       cookies: Network.Cookie[];
     }
 
-    export interface GetFrameTreeResponse extends ProtocolResponseWithError {
+    export interface GetFrameTreeResponse {
       /**
        * Present frame tree structure.
        */
       frameTree: FrameTree;
     }
 
-    export interface GetLayoutMetricsResponse extends ProtocolResponseWithError {
+    export interface GetLayoutMetricsResponse {
       /**
        * Metrics relating to the layout viewport.
        */
@@ -8564,7 +8329,7 @@ declare namespace Protocol {
       contentSize: DOM.Rect;
     }
 
-    export interface GetNavigationHistoryResponse extends ProtocolResponseWithError {
+    export interface GetNavigationHistoryResponse {
       /**
        * Index of the current navigation history entry.
        */
@@ -8586,7 +8351,7 @@ declare namespace Protocol {
       url: string;
     }
 
-    export interface GetResourceContentResponse extends ProtocolResponseWithError {
+    export interface GetResourceContentResponse {
       /**
        * Resource content.
        */
@@ -8597,7 +8362,7 @@ declare namespace Protocol {
       base64Encoded: boolean;
     }
 
-    export interface GetResourceTreeResponse extends ProtocolResponseWithError {
+    export interface GetResourceTreeResponse {
       /**
        * Present frame / resource tree structure.
        */
@@ -8639,7 +8404,7 @@ declare namespace Protocol {
       referrerPolicy?: ReferrerPolicy;
     }
 
-    export interface NavigateResponse extends ProtocolResponseWithError {
+    export interface NavigateResponse {
       /**
        * Frame id that has navigated (or failed to navigate)
        */
@@ -8744,7 +8509,7 @@ declare namespace Protocol {
       transferMode?: PrintToPDFRequestTransferMode;
     }
 
-    export interface PrintToPDFResponse extends ProtocolResponseWithError {
+    export interface PrintToPDFResponse {
       /**
        * Base64-encoded pdf data. Empty if |returnAsStream| is specified.
        */
@@ -8805,7 +8570,7 @@ declare namespace Protocol {
       isRegex?: boolean;
     }
 
-    export interface SearchInResourceResponse extends ProtocolResponseWithError {
+    export interface SearchInResourceResponse {
       /**
        * List of search matches.
        */
@@ -9133,10 +8898,6 @@ declare namespace Protocol {
        * The destination URL for the requested navigation.
        */
       url: string;
-      /**
-       * The disposition for the navigation.
-       */
-      disposition: ClientNavigationDisposition;
     }
 
     /**
@@ -9191,41 +8952,9 @@ declare namespace Protocol {
        */
       frameId: FrameId;
       /**
-       * Global unique identifier of the download.
-       */
-      guid: string;
-      /**
        * URL of the resource being downloaded.
        */
       url: string;
-    }
-
-    export enum DownloadProgressEventState {
-      InProgress = 'inProgress',
-      Completed = 'completed',
-      Canceled = 'canceled',
-    }
-
-    /**
-     * Fired when download makes progress. Last call has |done| == true.
-     */
-    export interface DownloadProgressEvent {
-      /**
-       * Global unique identifier of the download.
-       */
-      guid: string;
-      /**
-       * Total expected bytes to download.
-       */
-      totalBytes: number;
-      /**
-       * Total bytes received.
-       */
-      receivedBytes: number;
-      /**
-       * Download status.
-       */
-      state: DownloadProgressEventState;
     }
 
     /**
@@ -9410,7 +9139,7 @@ declare namespace Protocol {
       timeDomain: SetTimeDomainRequestTimeDomain;
     }
 
-    export interface GetMetricsResponse extends ProtocolResponseWithError {
+    export interface GetMetricsResponse {
       /**
        * Current values for run-time metrics.
        */
@@ -9915,7 +9644,7 @@ declare namespace Protocol {
       browserContextId?: Browser.BrowserContextID;
     }
 
-    export interface GetCookiesResponse extends ProtocolResponseWithError {
+    export interface GetCookiesResponse {
       /**
        * Array of cookie objects.
        */
@@ -9947,7 +9676,7 @@ declare namespace Protocol {
       origin: string;
     }
 
-    export interface GetUsageAndQuotaResponse extends ProtocolResponseWithError {
+    export interface GetUsageAndQuotaResponse {
       /**
        * Storage usage (bytes).
        */
@@ -10235,7 +9964,7 @@ declare namespace Protocol {
       cpuTime: number;
     }
 
-    export interface GetInfoResponse extends ProtocolResponseWithError {
+    export interface GetInfoResponse {
       /**
        * Information about the GPUs on the system.
        */
@@ -10257,7 +9986,7 @@ declare namespace Protocol {
       commandLine: string;
     }
 
-    export interface GetProcessInfoResponse extends ProtocolResponseWithError {
+    export interface GetProcessInfoResponse {
       /**
        * An array of process info blocks.
        */
@@ -10312,14 +10041,14 @@ declare namespace Protocol {
       flatten?: boolean;
     }
 
-    export interface AttachToTargetResponse extends ProtocolResponseWithError {
+    export interface AttachToTargetResponse {
       /**
        * Id assigned to the session.
        */
       sessionId: SessionID;
     }
 
-    export interface AttachToBrowserTargetResponse extends ProtocolResponseWithError {
+    export interface AttachToBrowserTargetResponse {
       /**
        * Id assigned to the session.
        */
@@ -10330,7 +10059,7 @@ declare namespace Protocol {
       targetId: TargetID;
     }
 
-    export interface CloseTargetResponse extends ProtocolResponseWithError {
+    export interface CloseTargetResponse {
       success: boolean;
     }
 
@@ -10349,14 +10078,14 @@ declare namespace Protocol {
       disposeOnDetach?: boolean;
     }
 
-    export interface CreateBrowserContextResponse extends ProtocolResponseWithError {
+    export interface CreateBrowserContextResponse {
       /**
        * The id of the context created.
        */
       browserContextId: Browser.BrowserContextID;
     }
 
-    export interface GetBrowserContextsResponse extends ProtocolResponseWithError {
+    export interface GetBrowserContextsResponse {
       /**
        * An array of browser context ids.
        */
@@ -10396,7 +10125,7 @@ declare namespace Protocol {
       background?: boolean;
     }
 
-    export interface CreateTargetResponse extends ProtocolResponseWithError {
+    export interface CreateTargetResponse {
       /**
        * The id of the page opened.
        */
@@ -10422,11 +10151,11 @@ declare namespace Protocol {
       targetId?: TargetID;
     }
 
-    export interface GetTargetInfoResponse extends ProtocolResponseWithError {
+    export interface GetTargetInfoResponse {
       targetInfo: TargetInfo;
     }
 
-    export interface GetTargetsResponse extends ProtocolResponseWithError {
+    export interface GetTargetsResponse {
       /**
        * The list of targets.
        */
@@ -10660,7 +10389,7 @@ declare namespace Protocol {
       Gzip = 'gzip',
     }
 
-    export interface GetCategoriesResponse extends ProtocolResponseWithError {
+    export interface GetCategoriesResponse {
       /**
        * A list of supported tracing categories.
        */
@@ -10681,7 +10410,7 @@ declare namespace Protocol {
       deterministic?: boolean;
     }
 
-    export interface RequestMemoryDumpResponse extends ProtocolResponseWithError {
+    export interface RequestMemoryDumpResponse {
       /**
        * GUID of the resulting global memory dump.
        */
@@ -10951,7 +10680,7 @@ declare namespace Protocol {
        */
       postData?: string;
       /**
-       * If set, overrides the request headers.
+       * If set, overrides the request headrts.
        */
       headers?: HeaderEntry[];
     }
@@ -10974,7 +10703,7 @@ declare namespace Protocol {
       requestId: RequestId;
     }
 
-    export interface GetResponseBodyResponse extends ProtocolResponseWithError {
+    export interface GetResponseBodyResponse {
       /**
        * Response body.
        */
@@ -10989,7 +10718,7 @@ declare namespace Protocol {
       requestId: RequestId;
     }
 
-    export interface TakeResponseBodyAsStreamResponse extends ProtocolResponseWithError {
+    export interface TakeResponseBodyAsStreamResponse {
       stream: IO.StreamHandle;
     }
 
@@ -11216,7 +10945,7 @@ declare namespace Protocol {
       contextId: GraphObjectId;
     }
 
-    export interface GetRealtimeDataResponse extends ProtocolResponseWithError {
+    export interface GetRealtimeDataResponse {
       realtimeData: ContextRealtimeData;
     }
 
@@ -11403,7 +11132,7 @@ declare namespace Protocol {
       options: VirtualAuthenticatorOptions;
     }
 
-    export interface AddVirtualAuthenticatorResponse extends ProtocolResponseWithError {
+    export interface AddVirtualAuthenticatorResponse {
       authenticatorId: AuthenticatorId;
     }
 
@@ -11421,7 +11150,7 @@ declare namespace Protocol {
       credentialId: binary;
     }
 
-    export interface GetCredentialResponse extends ProtocolResponseWithError {
+    export interface GetCredentialResponse {
       credential: Credential;
     }
 
@@ -11429,7 +11158,7 @@ declare namespace Protocol {
       authenticatorId: AuthenticatorId;
     }
 
-    export interface GetCredentialsResponse extends ProtocolResponseWithError {
+    export interface GetCredentialsResponse {
       credentials: Credential[];
     }
 
@@ -11460,67 +11189,32 @@ declare namespace Protocol {
 
     export type Timestamp = number;
 
-    export enum PlayerMessageLevel {
-      Error = 'error',
-      Warning = 'warning',
-      Info = 'info',
-      Debug = 'debug',
-    }
-
     /**
-     * Have one type per entry in MediaLogRecord::Type
-     * Corresponds to kMessage
-     */
-    export interface PlayerMessage {
-      /**
-       * Keep in sync with MediaLogMessageLevel
-       * We are currently keeping the message level 'error' separate from the
-       * PlayerError type because right now they represent different things,
-       * this one being a DVLOG(ERROR) style log message that gets printed
-       * based on what log level is selected in the UI, and the other is a
-       * representation of a media::PipelineStatus object. Soon however we're
-       * going to be moving away from using PipelineStatus for errors and
-       * introducing a new error type which should hopefully let us integrate
-       * the error log level into the PlayerError type.
-       */
-      level: PlayerMessageLevel;
-      message: string;
-    }
-
-    /**
-     * Corresponds to kMediaPropertyChange
+     * Player Property type
      */
     export interface PlayerProperty {
       name: string;
-      value: string;
+      value?: string;
     }
 
     /**
-     * Corresponds to kMediaEventTriggered
+     * Break out events into different types
      */
+    export enum PlayerEventType {
+      ErrorEvent = 'errorEvent',
+      TriggeredEvent = 'triggeredEvent',
+      MessageEvent = 'messageEvent',
+    }
+
     export interface PlayerEvent {
-      timestamp: Timestamp;
-      value: string;
-    }
-
-    export enum PlayerErrorType {
-      Pipeline_error = 'pipeline_error',
-      Media_error = 'media_error',
-    }
-
-    /**
-     * Corresponds to kMediaError
-     */
-    export interface PlayerError {
-      type: PlayerErrorType;
+      type: PlayerEventType;
       /**
-       * When this switches to using media::Status instead of PipelineStatus
-       * we can remove "errorCode" and replace it with the fields from
-       * a Status instance. This also seems like a duplicate of the error
-       * level enum - there is a todo bug to have that level removed and
-       * use this instead. (crbug.com/1068454)
+       * Events are timestamped relative to the start of the player creation
+       * not relative to the start of playback.
        */
-      errorCode: string;
+      timestamp: Timestamp;
+      name: string;
+      value: string;
     }
 
     /**
@@ -11539,22 +11233,6 @@ declare namespace Protocol {
     export interface PlayerEventsAddedEvent {
       playerId: PlayerId;
       events: PlayerEvent[];
-    }
-
-    /**
-     * Send a list of any messages that need to be delivered.
-     */
-    export interface PlayerMessagesLoggedEvent {
-      playerId: PlayerId;
-      messages: PlayerMessage[];
-    }
-
-    /**
-     * Send a list of any errors that need to be delivered.
-     */
-    export interface PlayerErrorsRaisedEvent {
-      playerId: PlayerId;
-      errors: PlayerError[];
     }
 
     /**
@@ -11797,27 +11475,6 @@ declare namespace Protocol {
       WebAssembly = 'WebAssembly',
     }
 
-    export enum DebugSymbolsType {
-      None = 'None',
-      SourceMap = 'SourceMap',
-      EmbeddedDWARF = 'EmbeddedDWARF',
-      ExternalDWARF = 'ExternalDWARF',
-    }
-
-    /**
-     * Debug symbols available for a wasm script.
-     */
-    export interface DebugSymbols {
-      /**
-       * Type of the debug symbols.
-       */
-      type: DebugSymbolsType;
-      /**
-       * URL of the external symbol source.
-       */
-      externalURL?: string;
-    }
-
     export enum ContinueToLocationRequestTargetCallFrames {
       Any = 'any',
       Current = 'current',
@@ -11839,7 +11496,7 @@ declare namespace Protocol {
       maxScriptsCacheSize?: number;
     }
 
-    export interface EnableResponse extends ProtocolResponseWithError {
+    export interface EnableResponse {
       /**
        * Unique identifier of the debugger.
        */
@@ -11888,33 +11545,7 @@ declare namespace Protocol {
       timeout?: Runtime.TimeDelta;
     }
 
-    export interface EvaluateOnCallFrameResponse extends ProtocolResponseWithError {
-      /**
-       * Object wrapper for the evaluation result.
-       */
-      result: Runtime.RemoteObject;
-      /**
-       * Exception details.
-       */
-      exceptionDetails?: Runtime.ExceptionDetails;
-    }
-
-    export interface ExecuteWasmEvaluatorRequest {
-      /**
-       * WebAssembly call frame identifier to evaluate on.
-       */
-      callFrameId: CallFrameId;
-      /**
-       * Code of the evaluator module.
-       */
-      evaluator: binary;
-      /**
-       * Terminate execution after timing out (number of milliseconds).
-       */
-      timeout?: Runtime.TimeDelta;
-    }
-
-    export interface ExecuteWasmEvaluatorResponse extends ProtocolResponseWithError {
+    export interface EvaluateOnCallFrameResponse {
       /**
        * Object wrapper for the evaluation result.
        */
@@ -11941,7 +11572,7 @@ declare namespace Protocol {
       restrictToFunction?: boolean;
     }
 
-    export interface GetPossibleBreakpointsResponse extends ProtocolResponseWithError {
+    export interface GetPossibleBreakpointsResponse {
       /**
        * List of the possible breakpoint locations.
        */
@@ -11955,7 +11586,7 @@ declare namespace Protocol {
       scriptId: Runtime.ScriptId;
     }
 
-    export interface GetScriptSourceResponse extends ProtocolResponseWithError {
+    export interface GetScriptSourceResponse {
       /**
        * Script source (empty in case of Wasm bytecode).
        */
@@ -11973,7 +11604,7 @@ declare namespace Protocol {
       scriptId: Runtime.ScriptId;
     }
 
-    export interface GetWasmBytecodeResponse extends ProtocolResponseWithError {
+    export interface GetWasmBytecodeResponse {
       /**
        * Script source.
        */
@@ -11984,7 +11615,7 @@ declare namespace Protocol {
       stackTraceId: Runtime.StackTraceId;
     }
 
-    export interface GetStackTraceResponse extends ProtocolResponseWithError {
+    export interface GetStackTraceResponse {
       stackTrace: Runtime.StackTrace;
     }
 
@@ -12006,7 +11637,7 @@ declare namespace Protocol {
       callFrameId: CallFrameId;
     }
 
-    export interface RestartFrameResponse extends ProtocolResponseWithError {
+    export interface RestartFrameResponse {
       /**
        * New stack trace.
        */
@@ -12051,7 +11682,7 @@ declare namespace Protocol {
       isRegex?: boolean;
     }
 
-    export interface SearchInContentResponse extends ProtocolResponseWithError {
+    export interface SearchInContentResponse {
       /**
        * List of search matches.
        */
@@ -12093,7 +11724,7 @@ declare namespace Protocol {
       condition?: string;
     }
 
-    export interface SetBreakpointResponse extends ProtocolResponseWithError {
+    export interface SetBreakpointResponse {
       /**
        * Id of the created breakpoint for further reference.
        */
@@ -12116,7 +11747,7 @@ declare namespace Protocol {
       instrumentation: SetInstrumentationBreakpointRequestInstrumentation;
     }
 
-    export interface SetInstrumentationBreakpointResponse extends ProtocolResponseWithError {
+    export interface SetInstrumentationBreakpointResponse {
       /**
        * Id of the created breakpoint for further reference.
        */
@@ -12152,7 +11783,7 @@ declare namespace Protocol {
       condition?: string;
     }
 
-    export interface SetBreakpointByUrlResponse extends ProtocolResponseWithError {
+    export interface SetBreakpointByUrlResponse {
       /**
        * Id of the created breakpoint for further reference.
        */
@@ -12175,7 +11806,7 @@ declare namespace Protocol {
       condition?: string;
     }
 
-    export interface SetBreakpointOnFunctionCallResponse extends ProtocolResponseWithError {
+    export interface SetBreakpointOnFunctionCallResponse {
       /**
        * Id of the created breakpoint for further reference.
        */
@@ -12225,7 +11856,7 @@ declare namespace Protocol {
       dryRun?: boolean;
     }
 
-    export interface SetScriptSourceResponse extends ProtocolResponseWithError {
+    export interface SetScriptSourceResponse {
       /**
        * New stack trace in case editing has happened while VM was stopped.
        */
@@ -12488,10 +12119,6 @@ declare namespace Protocol {
        * The language of the script.
        */
       scriptLanguage?: Debugger.ScriptLanguage;
-      /**
-       * If the scriptLanguage is WebASsembly, the source of debug symbols for the module.
-       */
-      debugSymbols?: Debugger.DebugSymbols;
     }
   }
 
@@ -12565,7 +12192,7 @@ declare namespace Protocol {
       objectId: Runtime.RemoteObjectId;
     }
 
-    export interface GetHeapObjectIdResponse extends ProtocolResponseWithError {
+    export interface GetHeapObjectIdResponse {
       /**
        * Id of the heap snapshot object corresponding to the passed remote object id.
        */
@@ -12580,14 +12207,14 @@ declare namespace Protocol {
       objectGroup?: string;
     }
 
-    export interface GetObjectByHeapObjectIdResponse extends ProtocolResponseWithError {
+    export interface GetObjectByHeapObjectIdResponse {
       /**
        * Evaluation result.
        */
       result: Runtime.RemoteObject;
     }
 
-    export interface GetSamplingProfileResponse extends ProtocolResponseWithError {
+    export interface GetSamplingProfileResponse {
       /**
        * Return the sampling profile being collected.
        */
@@ -12606,7 +12233,7 @@ declare namespace Protocol {
       trackAllocations?: boolean;
     }
 
-    export interface StopSamplingResponse extends ProtocolResponseWithError {
+    export interface StopSamplingResponse {
       /**
        * Recorded sampling heap profile.
        */
@@ -12850,7 +12477,7 @@ declare namespace Protocol {
       value: integer;
     }
 
-    export interface GetBestEffortCoverageResponse extends ProtocolResponseWithError {
+    export interface GetBestEffortCoverageResponse {
       /**
        * Coverage data for the current isolate.
        */
@@ -12879,21 +12506,21 @@ declare namespace Protocol {
       allowTriggeredUpdates?: boolean;
     }
 
-    export interface StartPreciseCoverageResponse extends ProtocolResponseWithError {
+    export interface StartPreciseCoverageResponse {
       /**
        * Monotonically increasing time (in seconds) when the coverage update was taken in the backend.
        */
       timestamp: number;
     }
 
-    export interface StopResponse extends ProtocolResponseWithError {
+    export interface StopResponse {
       /**
        * Recorded profile.
        */
       profile: Profile;
     }
 
-    export interface TakePreciseCoverageResponse extends ProtocolResponseWithError {
+    export interface TakePreciseCoverageResponse {
       /**
        * Coverage data for the current isolate.
        */
@@ -12904,14 +12531,14 @@ declare namespace Protocol {
       timestamp: number;
     }
 
-    export interface TakeTypeProfileResponse extends ProtocolResponseWithError {
+    export interface TakeTypeProfileResponse {
       /**
        * Type profile for all scripts since startTypeProfile() was turned on.
        */
       result: ScriptTypeProfile[];
     }
 
-    export interface GetRuntimeCallStatsResponse extends ProtocolResponseWithError {
+    export interface GetRuntimeCallStatsResponse {
       /**
        * Collected counter information.
        */
@@ -13028,7 +12655,6 @@ declare namespace Protocol {
       F32 = 'f32',
       F64 = 'f64',
       V128 = 'v128',
-      Anyref = 'anyref',
     }
 
     /**
@@ -13468,7 +13094,7 @@ declare namespace Protocol {
       generatePreview?: boolean;
     }
 
-    export interface AwaitPromiseResponse extends ProtocolResponseWithError {
+    export interface AwaitPromiseResponse {
       /**
        * Promise result. Will contain rejected value if promise was rejected.
        */
@@ -13528,7 +13154,7 @@ declare namespace Protocol {
       objectGroup?: string;
     }
 
-    export interface CallFunctionOnResponse extends ProtocolResponseWithError {
+    export interface CallFunctionOnResponse {
       /**
        * Call result.
        */
@@ -13559,7 +13185,7 @@ declare namespace Protocol {
       executionContextId?: ExecutionContextId;
     }
 
-    export interface CompileScriptResponse extends ProtocolResponseWithError {
+    export interface CompileScriptResponse {
       /**
        * Id of the script.
        */
@@ -13631,7 +13257,7 @@ declare namespace Protocol {
       replMode?: boolean;
     }
 
-    export interface EvaluateResponse extends ProtocolResponseWithError {
+    export interface EvaluateResponse {
       /**
        * Evaluation result.
        */
@@ -13642,14 +13268,14 @@ declare namespace Protocol {
       exceptionDetails?: ExceptionDetails;
     }
 
-    export interface GetIsolateIdResponse extends ProtocolResponseWithError {
+    export interface GetIsolateIdResponse {
       /**
        * The isolate id.
        */
       id: string;
     }
 
-    export interface GetHeapUsageResponse extends ProtocolResponseWithError {
+    export interface GetHeapUsageResponse {
       /**
        * Used heap size in bytes.
        */
@@ -13681,7 +13307,7 @@ declare namespace Protocol {
       generatePreview?: boolean;
     }
 
-    export interface GetPropertiesResponse extends ProtocolResponseWithError {
+    export interface GetPropertiesResponse {
       /**
        * Object properties.
        */
@@ -13707,7 +13333,7 @@ declare namespace Protocol {
       executionContextId?: ExecutionContextId;
     }
 
-    export interface GlobalLexicalScopeNamesResponse extends ProtocolResponseWithError {
+    export interface GlobalLexicalScopeNamesResponse {
       names: string[];
     }
 
@@ -13722,7 +13348,7 @@ declare namespace Protocol {
       objectGroup?: string;
     }
 
-    export interface QueryObjectsResponse extends ProtocolResponseWithError {
+    export interface QueryObjectsResponse {
       /**
        * Array with objects.
        */
@@ -13781,7 +13407,7 @@ declare namespace Protocol {
       awaitPromise?: boolean;
     }
 
-    export interface RunScriptResponse extends ProtocolResponseWithError {
+    export interface RunScriptResponse {
       /**
        * Run result.
        */
@@ -13958,7 +13584,7 @@ declare namespace Protocol {
       version: string;
     }
 
-    export interface GetDomainsResponse extends ProtocolResponseWithError {
+    export interface GetDomainsResponse {
       /**
        * List of supported domains.
        */

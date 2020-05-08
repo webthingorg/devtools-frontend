@@ -31,7 +31,7 @@ function isSideEffectImportSpecifier(specifiers) {
 
 function isModuleEntrypoint(fileName) {
   const fileNameWithoutExtension = path.basename(fileName).replace(path.extname(fileName), '');
-  const directoryName = computeTopLevelFolder(fileName);
+  const directoryName = path.basename(path.dirname(fileName));
 
   // TODO(crbug.com/1011811): remove -legacy fallback
   return directoryName === fileNameWithoutExtension || `${directoryName}-legacy` === fileNameWithoutExtension;
@@ -40,30 +40,6 @@ function isModuleEntrypoint(fileName) {
 function computeTopLevelFolder(fileName) {
   const namespaceName = path.relative(FRONT_END_DIRECTORY, fileName);
   return namespaceName.substring(0, namespaceName.indexOf(path.sep));
-}
-
-function checkImportExtension(importPath, context, node) {
-  // import * as fs from 'fs';
-  if (!importPath.startsWith('.')) {
-    return;
-  }
-
-  if (!importPath.endsWith('.js')) {
-    context.report({
-      node,
-      message: 'Missing file extension for import "{{importPath}}"',
-      data: {
-        importPath,
-      },
-      fix(fixer) {
-        return fixer.replaceText(node.source, `'${importPath}.js'`);
-      }
-    });
-  }
-}
-
-function nodeSpecifiersImportLsOnly(specifiers) {
-  return specifiers.length === 1 && specifiers[0].type === 'ImportSpecifier' && specifiers[0].imported.name === 'ls';
 }
 
 module.exports = {
@@ -80,25 +56,25 @@ module.exports = {
   create: function(context) {
     const importingFileName = path.resolve(context.getFilename());
 
-    return {
-      ExportNamedDeclaration(node) {
-        // Any export in a file is called an `ExportNamedDeclaration`, but
-        // only directly-exporting-from-import declarations have the
-        // `node.source` set.
-        if (!node.source) {
-          return;
-        }
-        const importPath = path.normalize(node.source.value);
+    if (!importingFileName.startsWith(FRONT_END_DIRECTORY)) {
+      return {};
+    }
 
-        checkImportExtension(importPath, context, node);
-      },
+    return {
       ImportDeclaration(node) {
         const importPath = path.normalize(node.source.value);
 
-        checkImportExtension(importPath, context, node);
-
-        if (!importingFileName.startsWith(FRONT_END_DIRECTORY)) {
-          return;
+        if (!importPath.endsWith('.js')) {
+          context.report({
+            node,
+            message: 'Missing file extension for import "{{importPath}}"',
+            data: {
+              importPath,
+            },
+            fix(fixer) {
+              return fixer.replaceText(node.source, `'${node.source.value}.js'`);
+            }
+          });
         }
 
         if (isSideEffectImportSpecifier(node.specifiers)) {
@@ -118,8 +94,10 @@ module.exports = {
           return;
         }
 
-        if (importPath.endsWith(path.join('platform', 'platform.js')) && nodeSpecifiersImportLsOnly(node.specifiers)) {
-          /* We allow direct importing of the ls utility as it's so frequently used. */
+        if (importPath.endsWith(path.join('common', 'ls.js')) && path.extname(importingFileName) === '.ts') {
+          /* We allow TypeScript files to import the ls module directly.
+           * See common/ls.ts for more detail.
+           */
           return;
         }
 
@@ -155,15 +133,6 @@ module.exports = {
               data: {
                 importPath,
               },
-            });
-          } else if (isModuleEntrypoint(importingFileName)) {
-            context.report({
-              node,
-              message:
-                  'Incorrect same-namespace import: "{{importPath}}". Use "import * as File from \'./File.js\';" instead.',
-              data: {
-                importPath,
-              }
             });
           }
         }

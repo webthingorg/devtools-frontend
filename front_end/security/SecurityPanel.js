@@ -20,8 +20,7 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar {
 
     this._mainView = new SecurityMainView(this);
 
-    const title = document.createElement('span');
-    title.classList.add('title');
+    const title = createElementWithClass('span', 'title');
     title.textContent = Common.UIString.UIString('Overview');
     this._sidebarMainViewElement = new SecurityPanelSidebarTreeElement(
         title, this._setVisibleView.bind(this, this._mainView), 'security-main-view-sidebar-tree-item', 'lock-icon');
@@ -57,7 +56,7 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar {
   static createCertificateViewerButtonForOrigin(text, origin) {
     const certificateButton = UI.UIUtils.createTextButton(text, async e => {
       e.consume();
-      const names = await SDK.NetworkManager.MultitargetNetworkManager.instance().getCertificate(origin);
+      const names = await self.SDK.multitargetNetworkManager.getCertificate(origin);
       if (names.length > 0) {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.showCertificateViewer(names);
       }
@@ -200,7 +199,7 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar {
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _onResponseReceived(event) {
-    const request = /** @type {!SDK.NetworkRequest.NetworkRequest} */ (event.data);
+    const request = /** @type {!SDK.NetworkRequest.NetworkRequest} */ (event.data.request);
     if (request.resourceType() === Common.ResourceType.resourceTypes.Document) {
       this._lastResponseReceivedForLoaderId.set(request.loaderId, request);
     }
@@ -1153,7 +1152,6 @@ export class SecurityOriginView extends UI.Widget.VBox {
 
     const originNetworkDiv = titleSection.createChild('div', 'view-network-button');
     const originNetworkLink = originNetworkDiv.createChild('span', 'devtools-link origin-button');
-    originNetworkLink.tabIndex = 0;
     originNetworkLink.textContent = ls`View requests in Network Panel`;
     originNetworkLink.addEventListener('click', e => {
       e.consume();

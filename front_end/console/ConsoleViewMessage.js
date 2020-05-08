@@ -138,8 +138,7 @@ export class ConsoleViewMessage {
    * @return {!Element}
    */
   _buildTableMessage() {
-    const formattedMessage = document.createElement('span');
-    formattedMessage.classList.add('source-code');
+    const formattedMessage = createElementWithClass('span', 'source-code');
     this._anchorElement = this._buildMessageAnchor();
     if (this._anchorElement) {
       formattedMessage.appendChild(this._anchorElement);
@@ -208,8 +207,7 @@ export class ConsoleViewMessage {
       this._dataGrid.setStriped(true);
       this._dataGrid.setFocusable(false);
 
-      const formattedResult = document.createElement('span');
-      formattedResult.classList.add('console-message-text');
+      const formattedResult = createElementWithClass('span', 'console-message-text');
       const tableElement = formattedResult.createChild('div', 'console-message-formatted-table');
       const dataGridContainer = tableElement.createChild('span');
       tableElement.appendChild(this._formatParameter(table, true, false));
@@ -232,8 +230,7 @@ export class ConsoleViewMessage {
           messageElement = this._format(this._message.parameters || ['console.trace']);
           break;
         case SDK.ConsoleModel.MessageType.Clear:
-          messageElement = document.createElement('span');
-          messageElement.classList.add('console-info');
+          messageElement = createElementWithClass('span', 'console-info');
           if (Common.Settings.Settings.instance().moduleSetting('preserveConsoleLog').get()) {
             messageElement.textContent =
                 Common.UIString.UIString('console.clear() was prevented due to \'Preserve log\'');
@@ -287,8 +284,7 @@ export class ConsoleViewMessage {
     }
     messageElement.classList.add('console-message-text');
 
-    const formattedMessage = document.createElement('span');
-    formattedMessage.classList.add('source-code');
+    const formattedMessage = createElementWithClass('span', 'source-code');
     this._anchorElement = this._buildMessageAnchor();
     if (this._anchorElement) {
       formattedMessage.appendChild(this._anchorElement);
@@ -314,7 +310,7 @@ export class ConsoleViewMessage {
       this._selectableChildren.push({element: linkElement, forceSelect: () => linkElement.focus()});
       messageElement.appendChild(linkElement);
       if (request.failed) {
-        messageElement.createTextChildren(' ', request.localizedFailDescription || '');
+        messageElement.createTextChildren(' ', request.localizedFailDescription);
       }
       if (request.statusCode !== 0) {
         messageElement.createTextChildren(' ', String(request.statusCode));
@@ -362,8 +358,7 @@ export class ConsoleViewMessage {
         element: anchorElement,
         forceSelect: () => anchorElement.focus(),
       });
-      const anchorWrapperElement = document.createElement('span');
-      anchorWrapperElement.classList.add('console-message-anchor');
+      const anchorWrapperElement = createElementWithClass('span', 'console-message-anchor');
       anchorWrapperElement.appendChild(anchorElement);
       anchorWrapperElement.createTextChild(' ');
       return anchorWrapperElement;
@@ -375,8 +370,7 @@ export class ConsoleViewMessage {
    * @return {!Element}
    */
   _buildMessageWithStackTrace() {
-    const toggleElement = document.createElement('div');
-    toggleElement.classList.add('console-message-stack-trace-toggle');
+    const toggleElement = createElementWithClass('div', 'console-message-stack-trace-toggle');
     const contentElement = toggleElement.createChild('div', 'console-message-stack-trace-wrapper');
 
     const messageElement = this._buildMessage();
@@ -625,8 +619,7 @@ export class ConsoleViewMessage {
    * @return {!Element}
    */
   _formatParameterAsObject(obj, includePreview) {
-    const titleElement = document.createElement('span');
-    titleElement.classList.add('console-object');
+    const titleElement = createElementWithClass('span', 'console-object');
     if (includePreview && obj.preview) {
       titleElement.classList.add('console-object-preview');
       this._previewFormatter.appendObjectPreview(titleElement, obj.preview, false /* isEntry */);
@@ -1024,8 +1017,7 @@ export class ConsoleViewMessage {
 
     if (Common.Settings.Settings.instance().moduleSetting('consoleTimestampsEnabled').get()) {
       if (!this._timestampElement) {
-        this._timestampElement = document.createElement('span');
-        this._timestampElement.classList.add('console-timestamp');
+        this._timestampElement = createElementWithClass('span', 'console-timestamp');
       }
       this._timestampElement.textContent = UI.UIUtils.formatTimestamp(this._message.timestamp, false) + ' ';
       this._timestampElement.title = UI.UIUtils.formatTimestamp(this._message.timestamp, true);
@@ -1054,8 +1046,7 @@ export class ConsoleViewMessage {
       this._similarGroupMarker.remove();
       this._similarGroupMarker = null;
     } else if (this._element && !this._similarGroupMarker && inSimilarGroup) {
-      this._similarGroupMarker = document.createElement('div');
-      this._similarGroupMarker.classList.add('nesting-level-marker');
+      this._similarGroupMarker = createElementWithClass('div', 'nesting-level-marker');
       this._element.insertBefore(this._similarGroupMarker, this._element.firstChild);
       this._similarGroupMarker.classList.toggle('group-closed', this._lastInSimilarGroup);
     }
@@ -1211,8 +1202,7 @@ export class ConsoleViewMessage {
       return this._contentElement;
     }
 
-    const contentElement = document.createElement('div');
-    contentElement.classList.add('console-message');
+    const contentElement = createElementWithClass('div', 'console-message');
     if (this._messageLevelIcon) {
       contentElement.appendChild(this._messageLevelIcon);
     }
@@ -1374,17 +1364,13 @@ export class ConsoleViewMessage {
     this._showRepeatCountElement();
   }
 
-  /**
-   * @suppress {checkTypes}
-   */
   _showRepeatCountElement() {
     if (!this._element) {
       return;
     }
 
     if (!this._repeatCountElement) {
-      this._repeatCountElement = document.createElement('span', {is: 'dt-small-bubble'});
-      this._repeatCountElement.classList.add('console-message-repeat-count');
+      this._repeatCountElement = createElementWithClass('span', 'console-message-repeat-count', 'dt-small-bubble');
       switch (this._message.level) {
         case SDK.ConsoleModel.MessageLevel.Warning:
           this._repeatCountElement.type = 'warning';

@@ -22,8 +22,7 @@ export class ReleaseNoteView extends UI.Widget.VBox {
    * @return {!Element}
    */
   _createReleaseNoteElement(releaseNote) {
-    const hbox = document.createElement('div');
-    hbox.classList.add('hbox');
+    const hbox = createElementWithClass('div', 'hbox');
     const container = hbox.createChild('div', 'release-note-container');
     const contentContainer = container.createChild('ul');
     UI.ARIAUtils.setAccessibleName(contentContainer, ls`${latestReleaseNote().header}`);

@@ -25,7 +25,6 @@
 
 import * as Common from '../common/common.js';
 import * as DataGrid from '../data_grid/data_grid.js';
-import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
 import {CHECKING, DOWNLOADING, IDLE, OBSOLETE, UNCACHED, UPDATEREADY} from './ApplicationCacheModel.js';
@@ -236,7 +235,7 @@ export class ApplicationCacheItemsView extends UI.View.SimpleView {
       const resource = this._resources[i];
       data.resource = resource.url;
       data.type = resource.type;
-      data.size = Platform.NumberUtilities.bytesToString(resource.size);
+      data.size = Number.bytesToString(resource.size);
       const node = new DataGrid.DataGrid.DataGridNode(data);
       node.resource = resource;
       node.selectable = true;

@@ -491,8 +491,7 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
      * @return {?Element}
      */
     function createFrameElement(image) {
-      const element = document.createElement('div');
-      element.classList.add('frame');
+      const element = createElementWithClass('div', 'frame');
       if (image) {
         element.createChild('div', 'thumbnail').appendChild(image);
       }
@@ -700,8 +699,7 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
     ctx.stroke();
 
     this._heapSizeLabel.textContent = Common.UIString.UIString(
-        '%s \u2013 %s', Platform.NumberUtilities.bytesToString(minUsedHeapSize),
-        Platform.NumberUtilities.bytesToString(maxUsedHeapSize));
+        '%s \u2013 %s', Number.bytesToString(minUsedHeapSize), Number.bytesToString(maxUsedHeapSize));
   }
 }
 

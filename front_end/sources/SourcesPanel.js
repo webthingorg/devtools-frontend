@@ -767,8 +767,7 @@ export class SourcesPanel extends UI.Panel.Panel {
   }
 
   _createDebugToolbarDrawer() {
-    const debugToolbarDrawer = document.createElement('div');
-    debugToolbarDrawer.classList.add('scripts-debug-toolbar-drawer');
+    const debugToolbarDrawer = createElementWithClass('div', 'scripts-debug-toolbar-drawer');
 
     const label = Common.UIString.UIString('Pause on caught exceptions');
     const setting = Common.Settings.Settings.instance().moduleSetting('pauseOnCaughtException');

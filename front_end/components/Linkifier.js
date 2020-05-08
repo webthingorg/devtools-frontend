@@ -396,10 +396,7 @@ export class Linkifier {
     const maxLength = options.maxLength || UI.UIUtils.MaxLengthForDisplayedURLs;
     const bypassURLTrimming = options.bypassURLTrimming;
     if (!url || url.trim().toLowerCase().startsWith('javascript:')) {
-      const element = document.createElement('span');
-      if (className) {
-        element.className = className;
-      }
+      const element = createElementWithClass('span', className);
       element.textContent = text || url || Common.UIString.UIString('(unknown)');
       return element;
     }
@@ -442,10 +439,7 @@ export class Linkifier {
   static _createLink(text, className, options) {
     options = options || {};
     const {maxLength, title, href, preventClick, tabStop, bypassURLTrimming} = options;
-    const link = document.createElement('span');
-    if (className) {
-      link.className = className;
-    }
+    const link = createElementWithClass('span', className);
     link.classList.add('devtools-link');
     if (title) {
       link.title = title;
@@ -758,8 +752,7 @@ export class LinkContextMenuProvider {
  */
 export class LinkHandlerSettingUI {
   constructor() {
-    this._element = document.createElement('select');
-    this._element.classList.add('chrome-select');
+    this._element = createElementWithClass('select', 'chrome-select');
     this._element.addEventListener('change', this._onChange.bind(this), false);
     this._update();
   }

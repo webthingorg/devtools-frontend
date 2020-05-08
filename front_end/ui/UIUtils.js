@@ -29,8 +29,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
@@ -663,6 +661,30 @@ Number.secondsToString = function(seconds, higherResolution) {
 };
 
 /**
+ * @param {number} bytes
+ * @return {string}
+ */
+Number.bytesToString = function(bytes) {
+  if (bytes < 1000) {
+    return Common.UIString.UIString('%.0f\xA0B', bytes);
+  }
+
+  const kilobytes = bytes / 1000;
+  if (kilobytes < 100) {
+    return Common.UIString.UIString('%.1f\xA0kB', kilobytes);
+  }
+  if (kilobytes < 1000) {
+    return Common.UIString.UIString('%.0f\xA0kB', kilobytes);
+  }
+
+  const megabytes = kilobytes / 1000;
+  if (megabytes < 100) {
+    return Common.UIString.UIString('%.1f\xA0MB', megabytes);
+  }
+  return Common.UIString.UIString('%.0f\xA0MB', megabytes);
+};
+
+/**
  * @param {number} num
  * @return {string}
  */
@@ -684,11 +706,11 @@ export function formatLocalized(format, substitutions) {
   const formatters = {s: substitution => substitution};
   /**
    * @param {!Element} a
-   * @param {*} b
+   * @param {string|!Element} b
    * @return {!Element}
    */
   function append(a, b) {
-    a.appendChild(typeof b === 'string' ? createTextNode(b) : /** @type {!Element} */ (b));
+    a.appendChild(typeof b === 'string' ? createTextNode(b) : b);
     return a;
   }
   return Platform.StringUtilities
@@ -1116,9 +1138,6 @@ export class LongClickController extends Common.ObjectWrapper.ObjectWrapper {
     this._callback = callback;
     this._editKey = isEditKeyFunc;
     this._enable();
-
-    /** @type {{mouseUp: function(!Event):void, mouseDown: function(!Event):void, reset: function():void }} */
-    this._longClickData;
   }
 
   reset() {
@@ -1209,7 +1228,7 @@ LongClickController.TIME_MS = 200;
 
 function _trackKeyboardFocus() {
   UI._keyboardFocus = true;
-  document.defaultView.requestAnimationFrame(() => void (UI._keyboardFocus = false));
+  document.defaultView.requestAnimationFrame(() => void(UI._keyboardFocus = false));
 }
 
 /**
@@ -1254,10 +1273,7 @@ export function beautifyFunctionName(name) {
  * @return {!Element}
  */
 export function createTextButton(text, clickHandler, className, primary) {
-  const element = document.createElement('button');
-  if (className) {
-    element.className = className;
-  }
+  const element = createElementWithClass('button', className || '');
   element.textContent = text;
   element.classList.add('text-button');
   if (primary) {
@@ -1276,10 +1292,7 @@ export function createTextButton(text, clickHandler, className, primary) {
  * @return {!Element}
  */
 export function createInput(className, type) {
-  const element = document.createElement('input');
-  if (className) {
-    element.className = className;
-  }
+  const element = createElementWithClass('input', className || '');
   element.spellcheck = false;
   element.classList.add('harmony-input');
   if (type) {
@@ -1295,10 +1308,7 @@ export function createInput(className, type) {
  * @return {!Element}
  */
 export function createLabel(title, className, associatedControl) {
-  const element = document.createElement('label');
-  if (className) {
-    element.className = className;
-  }
+  const element = createElementWithClass('label', className || '');
   element.textContent = title;
   if (associatedControl) {
     ARIAUtils.bindLabelToControl(element, associatedControl);
@@ -1474,8 +1484,7 @@ registerCustomElement('span', 'dt-slider', class extends HTMLSpanElement {
   constructor() {
     super();
     const root = createShadowRootWithCoreStyles(this, 'ui/slider.css');
-    this.sliderElement = document.createElement('input');
-    this.sliderElement.classList.add('dt-range-input');
+    this.sliderElement = createElementWithClass('input', 'dt-range-input');
     this.sliderElement.type = 'range';
     root.appendChild(this.sliderElement);
   }
@@ -1743,21 +1752,6 @@ export class ThemeSupport {
     this._cachedThemePatches = new Map();
     this._setting = setting;
     this._customSheets = new Set();
-    this._computedRoot = Common.Lazy.lazy(() => window.getComputedStyle(document.documentElement));
-  }
-
-  /**
-   * @param {string} variableName
-   * @returns {string}
-   */
-  getComputedValue(variableName) {
-    const computedRoot = this._computedRoot();
-
-    if (typeof computedRoot === 'symbol') {
-      throw new Error(`Computed value for property (${variableName}) could not be found on :root.`);
-    }
-
-    return computedRoot.getPropertyValue(variableName);
   }
 
   /**
@@ -1786,11 +1780,11 @@ export class ThemeSupport {
     this._injectingStyleSheet = false;
   }
 
-  /**
+   /**
    * @param {!Element|!ShadowRoot} element
    */
   injectCustomStyleSheets(element) {
-    for (const sheet of this._customSheets) {
+    for (const sheet of this._customSheets){
       const styleElement = createElement('style');
       styleElement.textContent = sheet;
       element.appendChild(styleElement);

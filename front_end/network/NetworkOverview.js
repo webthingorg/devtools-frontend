@@ -255,6 +255,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     drawLines(RequestTimeRangeNames.ServiceWorker);
     drawLines(RequestTimeRangeNames.ServiceWorkerPreparation);
     drawLines(RequestTimeRangeNames.ServiceWorkerRespondWith);
+    drawLines(RequestTimeRangeNames.ServiceWorkerFetch);
     drawLines(RequestTimeRangeNames.Push);
     drawLines(RequestTimeRangeNames.Proxy);
     drawLines(RequestTimeRangeNames.DNS);
@@ -272,7 +273,9 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
       const y = ((band === -1) ? 0 : (band % this._numBands + 1)) * _bandHeight + paddingTop;
       const timeRanges = RequestTimingView.calculateRequestTimeRanges(request, this.calculator().minimumBoundary());
 
-      context.fillStyle = self.UI.themeSupport.getComputedValue('--selection-bg-color');
+      // This is the value of var(--selection-bg-color)
+      // to match the selection color used in the performance panel
+      context.fillStyle = '#1a73e8';
 
       const start = timeRanges[0].start * 1000;
       const end = timeRanges[0].end * 1000;
@@ -319,7 +322,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     if (this._selectedFilmStripTime !== -1) {
       context.lineWidth = 2;
       context.beginPath();
-      context.strokeStyle = self.UI.themeSupport.getComputedValue('--network-frame-divider-color');
+      context.strokeStyle = '#FCCC49';  // Keep in sync with .network-frame-divider CSS rule.
       const x = Math.round(calculator.computePosition(this._selectedFilmStripTime));
       context.moveTo(x, 0);
       context.lineTo(x, height);

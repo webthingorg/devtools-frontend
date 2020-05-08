@@ -645,11 +645,12 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
      * @return {string}
      */
     function restoreURLs(fieldValue, modelValue) {
-      const splitFieldValue = fieldValue.split(SDK.CSSMetadata.URLRegex);
+      const urlRegex = /\b(url\([^)]*\))/g;
+      const splitFieldValue = fieldValue.split(urlRegex);
       if (splitFieldValue.length === 1) {
         return fieldValue;
       }
-      const modelUrlRegex = new RegExp(SDK.CSSMetadata.URLRegex);
+      const modelUrlRegex = new RegExp(urlRegex);
       for (let i = 1; i < splitFieldValue.length; i += 2) {
         const match = modelUrlRegex.exec(modelValue);
         if (match) {
@@ -1170,14 +1171,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     this._matchedStyles.resetActiveProperties();
     this._hasBeenEditedIncrementally = true;
-
-    // null check for updatedProperty before setting this.property as the code never expects this.property to be undefined or null.
-    // This occurs when deleting the last index of a StylePropertiesSection as this._style._allProperties array gets updated
-    // before we index it when setting the value for updatedProperty
-    const deleteProperty = majorChange && !styleText.length;
-    if (!deleteProperty && updatedProperty) {
-      this.property = updatedProperty;
-    }
+    this.property = updatedProperty;
 
     if (currentNode === this.node()) {
       this._updatePane();

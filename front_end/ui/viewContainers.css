@@ -59,7 +59,7 @@
 }
 
 .expandable-view-title[data-keyboard-focus="true"]:focus {
-    background-color: var(--focus-bg-color);
+    background-color: #e0e0e0;
 }
 
 .expandable-view-title > .toolbar {

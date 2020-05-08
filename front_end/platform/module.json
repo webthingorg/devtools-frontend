@@ -1,12 +1,12 @@
 {
-  "dependencies": [],
-  "scripts": [],
-  "modules": [
-    "platform.js",
-    "utilities.js",
-    "string-utilities.js",
-    "number-utilities.js",
-    "array-utilities.js",
-    "UIString.js"
-  ]
+    "dependencies": [
+    ],
+    "scripts": [],
+    "modules": [
+        "platform.js",
+        "utilities.js",
+        "string-utilities.js",
+        "number-utilities.js",
+        "array-utilities.js"
+    ]
 }

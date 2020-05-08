@@ -1043,13 +1043,13 @@ export function detectColorFormat(color) {
   if (formatSetting === cf.Original) {
     format = cf.Original;
   } else if (formatSetting === cf.RGB) {
-    format = cf.RGB;
+    format = (color.hasAlpha() ? cf.RGBA : cf.RGB);
   } else if (formatSetting === cf.HSL) {
-    format = cf.HSL;
+    format = (color.hasAlpha() ? cf.HSLA : cf.HSL);
   } else if (formatSetting === cf.HEX) {
     format = color.detectHEXFormat();
   } else {
-    format = cf.RGB;
+    format = cf.RGBA;
   }
 
   return format;

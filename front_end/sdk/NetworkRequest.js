@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// @ts-nocheck
+
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
@@ -37,32 +39,6 @@ import {CookieParser} from './CookieParser.js';
 import {NetworkManager} from './NetworkManager.js';
 import {Type} from './SDKModel.js';
 import {ServerTiming} from './ServerTiming.js';
-
-/** @enum {string} */
-export const MIME_TYPE = {
-  HTML: 'text/html',
-  XML: 'text/xml',
-  PLAIN: 'text/plain',
-  XHTML: 'application/xhtml+xml',
-  SVG: 'image/svg+xml',
-  CSS: 'text/css',
-  XSL: 'text/xsl',
-  VTT: 'text/vtt',
-  PDF: 'application/pdf',
-};
-
-/** @type {!Map<!MIME_TYPE, *>} */
-export const MIME_TYPE_TO_RESOURCE_TYPE = new Map([
-  [MIME_TYPE.HTML, {'document': true}],
-  [MIME_TYPE.XML, {'document': true}],
-  [MIME_TYPE.PLAIN, {'document': true}],
-  [MIME_TYPE.XHTML, {'document': true}],
-  [MIME_TYPE.SVG, {'document': true}],
-  [MIME_TYPE.CSS, {'stylesheet': true}],
-  [MIME_TYPE.XSL, {'stylesheet': true}],
-  [MIME_TYPE.VTT, {'texttrack': true}],
-  [MIME_TYPE.PDF, {'document': true}],
-]);
 
 /**
  * @implements {TextUtils.ContentProvider.ContentProvider}
@@ -145,10 +121,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
 
     /** @type {string} */
     this.connectionId = '0';
-    /** @type {boolean} */
-    this.connectionReused = false;
-    /** @type {boolean} */
-    this.hasNetworkData = false;
     /** @type {?Promise<?Array.<!NameValue>>} */
     this._formParametersPromise = null;
     // Assume no body initially
@@ -164,29 +136,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     this._blockedRequestCookies = [];
     /** @type {!Array<!BlockedSetCookieWithReason>} */
     this._blockedResponseCookies = [];
-
-    /** @type {?string} */
-    this.localizedFailDescription = null;
-    /** @type {string} */
-    this._url;
-    /** @type {number} */
-    this._responseReceivedTime;
-    /** @type {number} */
-    this._transferSize;
-    /** @type {boolean} */
-    this._finished;
-    /** @type {boolean} */
-    this._failed;
-    /** @type {boolean} */
-    this._canceled;
-    /** @type {!MIME_TYPE} */
-    this._mimeType;
-    /** @type {!Common.ParsedURL.ParsedURL} */
-    this._parsedURL;
-    /** @type {string} */
-    this._name;
-    /** @type {string} */
-    this._path;
   }
 
   /**
@@ -291,6 +240,52 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @return {string}
+   * The cache name of the CacheStorage from where the response is served via
+   * the ServiceWorker. Empty if the response isn't from the CacheStorage.
+   */
+  get responseCacheStorageCacheName() {
+    return this._responseCacheStorageCacheName || ls`Unknown`;
+  }
+
+  /**
+   * @param {string} x
+   */
+  set responseCacheStorageCacheName(x) {
+    this._responseCacheStorageCacheName = x;
+  }
+
+  /**
+   * @return {string}
+   */
+  serviceWorkerResponseSource() {
+    return this._serviceWorkerResponseSource;
+  }
+
+  /**
+   * @param {!Protocol.Network.ResponseSource<string>} serviceWorkerResponseSource
+   */
+  setServiceWorkerResponseSoure(serviceWorkerResponseSource) {
+    switch (serviceWorkerResponseSource) {
+      case 'cache-storage':
+        this._serviceWorkerResponseSource = ls`Serviceworker cache storage`;
+        break;
+      case 'http-cache':
+        this._serviceWorkerResponseSource = ls`From Http cache`;
+        break;
+      case 'network':
+        this._serviceWorkerResponseSource = ls`Network fetch`;
+        break;
+      case 'fallback-code':
+        this._serviceWorkerResponseSource = ls`Fallback code`;
+        break;
+      default:
+        this._serviceWorkerResponseSource = ls`Unknown`;
+    }
+  }
+
+
+  /**
    * @param {!Protocol.Network.RequestReferrerPolicy} referrerPolicy
    */
   setReferrerPolicy(referrerPolicy) {
@@ -376,6 +371,22 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
    */
   set responseReceivedTime(x) {
     this._responseReceivedTime = x;
+  }
+
+  /**
+   * @return {!Date|number}
+   * The time at which the returned response was generated. For cached
+   * responses, this is the last time the cache entry was validated.
+   */
+  getResponseRetrievalTime() {
+    return this._responseRetrievalTime || -1;
+  }
+
+  /**
+   * @param {number} x
+   */
+  setResponseRetrievalTime(x) {
+    this._responseRetrievalTime = new Date(x);
   }
 
   /**
@@ -579,6 +590,20 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @return {number}
+   */
+  get fetchEventCompletionTime() {
+    return this._fetchEventCompletionTime || -1;
+  }
+
+  /**
+   * @param {number} time
+   */
+  set fetchEventCompletionTime(time) {
+    this._fetchEventCompletionTime = time;
+  }
+
+  /**
    * Returns true if the request was sent by a service worker.
    * @return {boolean}
    */
@@ -620,14 +645,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!MIME_TYPE}
+   * @return {string}
    */
   get mimeType() {
     return this._mimeType;
   }
 
   /**
-   * @param {!MIME_TYPE} x
+   * @param {string} x
    */
   set mimeType(x) {
     this._mimeType = x;
@@ -956,12 +981,12 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Array.<!Cookie>}
    */
   allCookiesIncludingBlockedOnes() {
-    return /** @type {!Array.<!Cookie>} */ ([
+    return [
       ...this.requestCookies, ...this.responseCookies,
       ...this.blockedRequestCookies().map(blockedRequestCookie => blockedRequestCookie.cookie),
       ...this.blockedResponseCookies().map(blockedResponseCookie => blockedResponseCookie.cookie),
       // blockedRequestCookie or blockedResponseCookie might not contain a cookie in case of SyntaxErrors:
-    ].filter(v => !!v));
+    ].filter(v => !!v);
   }
 
   /**
@@ -1083,9 +1108,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Array.<!NameValue>}
    */
   _parseParameters(queryString) {
-    /**
-     * @param {string} pair
-     */
     function parseNameValue(pair) {
       const position = pair.indexOf('=');
       if (position === -1) {
@@ -1320,7 +1342,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!HTMLImageElement} image
+   * @param {!Element} image
    */
   async populateImageSource(image) {
     const {content, encoded} = await this.contentData();
@@ -1661,11 +1683,9 @@ export const setCookieBlockedReasonToAttribute = function(blockedReason) {
 };
 
 /** @typedef {!{name: string, value: string}} */
-// @ts-ignore typedef
 export let NameValue;
 
 /** @typedef {!{type: WebSocketFrameType, time: number, text: string, opCode: number, mask: boolean}} */
-// @ts-ignore typedef
 export let WebSocketFrame;
 
 /**
@@ -1675,7 +1695,6 @@ export let WebSocketFrame;
   *   cookie: ?Cookie
   * }}
   */
-// @ts-ignore typedef
 export let BlockedSetCookieWithReason;
 
 /**
@@ -1684,15 +1703,12 @@ export let BlockedSetCookieWithReason;
  *   cookie: !Cookie
  * }}
  */
-// @ts-ignore typedef
 export let BlockedCookieWithReason;
 
 /** @typedef {!{error: ?string, content: ?string, encoded: boolean}} */
-// @ts-ignore typedef
 export let ContentData;
 
 /** @typedef {!{time: number, eventName: string, eventId: string, data: string}} */
-// @ts-ignore typedef
 export let EventSourceMessage;
 
 /**
@@ -1701,7 +1717,6 @@ export let EventSourceMessage;
   *   requestHeaders: !Array<!NameValue>
   * }}
   */
-// @ts-ignore typedef
 export let ExtraRequestInfo;
 
 /**
@@ -1711,5 +1726,4 @@ export let ExtraRequestInfo;
   *   responseHeadersText: (string|undefined)
   * }}
   */
-// @ts-ignore typedef
 export let ExtraResponseInfo;

@@ -757,10 +757,7 @@ export class History {
   static fromObject(serializedHistory) {
     const items = [];
     for (let i = 0; i < serializedHistory.length; ++i) {
-      // crbug.com/876265 Old versions of DevTools don't have urls set in their localStorage
-      if (serializedHistory[i].url) {
-        items.push(HistoryItem.fromObject(serializedHistory[i]));
-      }
+      items.push(HistoryItem.fromObject(serializedHistory[i]));
     }
     return new History(items);
   }

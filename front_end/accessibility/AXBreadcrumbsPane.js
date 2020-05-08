@@ -145,8 +145,9 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     } else if ((event.key === 'ArrowDown') && !event.altKey) {
       handled = this._preselectNext();
     } else if (event.key === 'ArrowLeft' && !event.altKey) {
-      if (this._preselectedBreadcrumb.hasExpandedChildren()) {
-        this._collapseBreadcrumb(this._preselectedBreadcrumb);
+      if (this._preselectedBreadcrumb.parentBreadcrumb() && this._preselectedBreadcrumb.hasExpandedChildren()) {
+        this._collapsingBreadcrumbId = this._preselectedBreadcrumb.axNode().backendDOMNodeId();
+        this._inspectDOMNode(this._preselectedBreadcrumb.parentBreadcrumb().axNode());
       } else {
         handled = this._preselectParent();
       }
@@ -221,17 +222,6 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   /**
-   * @param {!AXBreadcrumb} breadcrumb
-   */
-  _collapseBreadcrumb(breadcrumb) {
-    if (!breadcrumb.parentBreadcrumb()) {
-      return;
-    }
-    this._collapsingBreadcrumbId = breadcrumb.axNode().backendDOMNodeId();
-    this._inspectDOMNode(breadcrumb.parentBreadcrumb().axNode());
-  }
-
-  /**
    * @param {!Event} event
    */
   _onMouseLeave(event) {
@@ -275,8 +265,8 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     }
     const breadcrumb = breadcrumbElement.breadcrumb;
     if (breadcrumb.inspected()) {
-      // This will collapse and preselect/focus the breadcrumb.
-      this._collapseBreadcrumb(breadcrumb);
+      // If the user is clicking the inspected breadcrumb, they probably want to
+      // focus it.
       breadcrumb.nodeElement().focus();
       return;
     }
@@ -364,26 +354,20 @@ export class AXBreadcrumb {
     /** @type {!AccessibilityNode} */
     this._axNode = axNode;
 
-    this._element = document.createElement('div');
-    this._element.classList.add('ax-breadcrumb');
+    this._element = createElementWithClass('div', 'ax-breadcrumb');
     this._element.breadcrumb = this;
 
-    this._nodeElement = document.createElement('div');
-    this._nodeElement.classList.add('ax-node');
+    this._nodeElement = createElementWithClass('div', 'ax-node');
     UI.ARIAUtils.markAsTreeitem(this._nodeElement);
     this._nodeElement.tabIndex = -1;
     this._element.appendChild(this._nodeElement);
-    this._nodeWrapper = document.createElement('div');
-    this._nodeWrapper.classList.add('wrapper');
+    this._nodeWrapper = createElementWithClass('div', 'wrapper');
     this._nodeElement.appendChild(this._nodeWrapper);
 
-    this._selectionElement = document.createElement('div');
-    this._selectionElement.classList.add('selection');
-    this._selectionElement.classList.add('fill');
+    this._selectionElement = createElementWithClass('div', 'selection fill');
     this._nodeElement.appendChild(this._selectionElement);
 
-    this._childrenGroupElement = document.createElement('div');
-    this._childrenGroupElement.classList.add('children');
+    this._childrenGroupElement = createElementWithClass('div', 'children');
     UI.ARIAUtils.markAsGroup(this._childrenGroupElement);
     this._element.appendChild(this._childrenGroupElement);
 
@@ -576,8 +560,7 @@ export class AXBreadcrumb {
       return;
     }
 
-    const roleElement = document.createElement('span');
-    roleElement.classList.add('monospace');
+    const roleElement = createElementWithClass('span', 'monospace');
     roleElement.classList.add(RoleStyles[role.type]);
     roleElement.setTextContentTruncatedIfNeeded(role.value || '');
 
@@ -585,8 +568,7 @@ export class AXBreadcrumb {
   }
 
   _appendIgnoredNodeElement() {
-    const ignoredNodeElement = document.createElement('span');
-    ignoredNodeElement.classList.add('monospace');
+    const ignoredNodeElement = createElementWithClass('span', 'monospace');
     ignoredNodeElement.textContent = ls`Ignored`;
     ignoredNodeElement.classList.add('ax-breadcrumbs-ignored-node');
     this._nodeWrapper.appendChild(ignoredNodeElement);

@@ -24,9 +24,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import {Constraints, Size} from './Geometry.js';
 import {appendStyle} from './utils/append-style.js';
@@ -43,12 +40,9 @@ export class Widget extends Common.ObjectWrapper.ObjectWrapper {
    */
   constructor(isWebComponent, delegatesFocus) {
     super();
-    this.contentElement = document.createElement('div');
-    this.contentElement.classList.add('widget');
+    this.contentElement = createElementWithClass('div', 'widget');
     if (isWebComponent) {
-      this.element = document.createElement('div');
-      this.element.classList.add('vbox');
-      this.element.classList.add('flex-auto');
+      this.element = createElementWithClass('div', 'vbox flex-auto');
       this._shadowRoot = createShadowRootWithCoreStyles(this.element, undefined, delegatesFocus);
       this._shadowRoot.appendChild(this.contentElement);
     } else {
@@ -93,6 +87,27 @@ export class Widget extends Common.ObjectWrapper.ObjectWrapper {
   static __assert(condition, message) {
     if (!condition) {
       throw new Error(message);
+    }
+  }
+
+  /**
+   * @param {?Node} node
+   */
+  static focusWidgetForNode(node) {
+    while (node) {
+      if (node.__widget) {
+        break;
+      }
+      node = node.parentNodeOrShadowHost();
+    }
+    if (!node) {
+      return;
+    }
+
+    let widget = node.__widget;
+    while (widget._parentWidget) {
+      widget._parentWidget._defaultFocusedChild = widget;
+      widget = widget._parentWidget;
     }
   }
 

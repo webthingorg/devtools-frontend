@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
@@ -18,14 +15,14 @@ import {VBox} from './Widget.js';
 export class ListWidget extends VBox {
   /**
    * @param {!Delegate<T>} delegate
-   * @param {boolean=} delegatesFocus
    */
-  constructor(delegate, delegatesFocus = true) {
-    super(true, delegatesFocus);
+  constructor(delegate) {
+    super(true, true /* delegatesFocus */);
     this.registerRequiredCSS('ui/listWidget.css');
     this._delegate = delegate;
 
     this._list = this.contentElement.createChild('div', 'list');
+    this._list.addEventListener('keydown', event => this._onKeyDown(event));
 
     this._lastSeparator = false;
     /** @type {?ElementFocusRestorer} */
@@ -42,6 +39,7 @@ export class ListWidget extends VBox {
     this._editItem = null;
     /** @type {?Element} */
     this._editElement = null;
+    this._selectedIndex = -1;
 
     /** @type {?Element} */
     this._emptyPlaceholder = null;
@@ -65,9 +63,7 @@ export class ListWidget extends VBox {
    */
   appendItem(item, editable) {
     if (this._lastSeparator && this._items.length) {
-      const element = document.createElement('div');
-      element.classList.add('list-separator');
-      this._list.appendChild(element);
+      this._list.appendChild(createElementWithClass('div', 'list-separator'));
     }
     this._lastSeparator = false;
 
@@ -78,10 +74,17 @@ export class ListWidget extends VBox {
     element.appendChild(this._delegate.renderItem(item, editable));
     if (editable) {
       element.classList.add('editable');
-      element.tabIndex = 0;
       element.appendChild(this._createControls(item, element));
     }
+    const index = this._items.length - 1;
+    element.addEventListener('click', () => {
+      this._select(index, /* takeFocus */ true);
+    });
     this._elements.push(element);
+    if (this._selectedIndex === -1 || this._selectedIndex === index) {
+      this._select(index, /* takeFocus */ false);
+    }
+
     this._updatePlaceholder();
   }
 
@@ -113,6 +116,10 @@ export class ListWidget extends VBox {
     }
     element.remove();
 
+    if (this._selectedIndex === index) {
+      this._selectNext();
+    }
+
     this._elements.splice(index, 1);
     this._items.splice(index, 1);
     this._editable.splice(index, 1);
@@ -136,14 +143,71 @@ export class ListWidget extends VBox {
   }
 
   /**
+   * @param {!Event} event
+   */
+  _onKeyDown(event) {
+    if (this._editor || this._elements.length < 1) {
+      return;
+    }
+
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      if (this._selectedIndex < 0) {
+        return;
+      }
+
+      const offset = event.key === 'ArrowUp' ? -1 : 1;
+      const newIndex = this._selectedIndex + offset;
+      if (newIndex < 0 || newIndex >= this._elements.length) {
+        return;
+      }
+
+      this._select(newIndex, /* takeFocus */ true);
+      event.consume(true);
+    }
+  }
+
+  /**
+   * @param {number} index
+   * @param {boolean} takeFocus
+   */
+  _select(index, takeFocus) {
+    if (index < 0 || index >= this._elements.length) {
+      return;
+    }
+
+    if (this._selectedIndex >= 0) {
+      const oldSelectedElement = this._elements[this._selectedIndex].firstElementChild;
+      oldSelectedElement.tabIndex = -1;
+    }
+
+    const newSelectedElement = this._elements[index].firstElementChild;
+    newSelectedElement.tabIndex = 0;
+    this._selectedIndex = index;
+
+    if (takeFocus) {
+      newSelectedElement.focus();
+    }
+  }
+
+  _selectNext() {
+    if (this._selectedIndex < 0 || this._list.length === 0) {
+      return;
+    }
+
+    const offset = this._selectedIndex < this._list.length ? 1 : -1;
+    const nextIndex = this._selectedIndex + offset;
+
+    this._select(nextIndex, /* takeFocus */ false);
+  }
+
+
+  /**
    * @param {!T} item
    * @param {!Element} element
    * @return {!Element}
    */
   _createControls(item, element) {
-    const controls = document.createElement('div');
-    controls.classList.add('controls-container');
-    controls.classList.add('fill');
+    const controls = createElementWithClass('div', 'controls-container fill');
     controls.createChild('div', 'controls-gradient');
 
     const buttons = controls.createChild('div', 'controls-buttons');
@@ -295,8 +359,7 @@ export class Delegate {
  */
 export class Editor {
   constructor() {
-    this.element = document.createElement('div');
-    this.element.classList.add('editor-container');
+    this.element = createElementWithClass('div', 'editor-container');
     this.element.addEventListener('keydown', onKeyDown.bind(null, isEscKey, this._cancelClicked.bind(this)), false);
     this.element.addEventListener('keydown', onKeyDown.bind(null, isEnterKey, this._commitClicked.bind(this)), false);
 
@@ -332,9 +395,9 @@ export class Editor {
     /** @type {!Array<function(!T, number, (!HTMLInputElement|!HTMLSelectElement)): !ValidatorResult>} */
     this._validators = [];
 
-    /** @type {?function():void} */
+    /** @type {?function()} */
     this._commit = null;
-    /** @type {?function():void} */
+    /** @type {?function()} */
     this._cancel = null;
     /** @type {?T} */
     this._item = null;
@@ -376,8 +439,7 @@ export class Editor {
    * @return {!HTMLSelectElement}
    */
   createSelect(name, options, validator, title) {
-    const select = /** @type {!HTMLSelectElement} */ (document.createElement('select'));
-    select.classList.add('chrome-select');
+    const select = /** @type {!HTMLSelectElement} */ (createElementWithClass('select', 'chrome-select'));
     for (let index = 0; index < options.length; ++index) {
       const option = select.createChild('option');
       option.value = options[index];

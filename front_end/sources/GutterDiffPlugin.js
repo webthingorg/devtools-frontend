@@ -234,8 +234,7 @@ export class GutterDecoration {
     if (!location) {
       return;
     }
-    const element = document.createElement('div');
-    element.classList.add('diff-marker');
+    const element = createElementWithClass('div', 'diff-marker');
     element.textContent = '\xA0';
     this._textEditor.setGutterDecoration(location.lineNumber, DiffGutterType, element);
     this._textEditor.toggleLineClass(location.lineNumber, this._className, true);

@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Platform from '../platform/platform.js';
 
 import {Size} from './Geometry.js';  // eslint-disable-line no-unused-vars
@@ -25,7 +22,7 @@ export class GlassPane {
     this.setPointerEventsBehavior(PointerEventsBehavior.PierceGlassPane);
 
     this._onMouseDownBound = this._onMouseDown.bind(this);
-    /** @type {?function(!Event):void} */
+    /** @type {?function(!Event)} */
     this._onClickOutsideCallback = null;
     /** @type {?Size} */
     this._maxSize = null;

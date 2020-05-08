@@ -37,7 +37,7 @@ import * as UI from '../ui/ui.js';
 
 import {ComputedStyleWidget} from './ComputedStyleWidget.js';
 import {ElementsBreadcrumbs, Events} from './ElementsBreadcrumbs.js';
-import {ElementsTreeElement} from './ElementsTreeElement.js';  // eslint-disable-line no-unused-vars
+import {ElementsTreeElement, HrefSymbol} from './ElementsTreeElement.js';  // eslint-disable-line no-unused-vars
 import {ElementsTreeElementHighlighter} from './ElementsTreeElementHighlighter.js';
 import {ElementsTreeOutline} from './ElementsTreeOutline.js';
 import {MarkerDecorator} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
@@ -169,9 +169,7 @@ export class ElementsPanel extends UI.Panel.Panel {
       new ElementsTreeElementHighlighter(treeOutline);
       this._treeOutlines.add(treeOutline);
       if (domModel.target().parentTarget()) {
-        const element = document.createElement('div');
-        element.classList.add('elements-tree-header');
-        this._treeOutlineHeaders.set(treeOutline, element);
+        this._treeOutlineHeaders.set(treeOutline, createElementWithClass('div', 'elements-tree-header'));
         this._targetNameChanged(domModel.target());
       }
     }
@@ -307,6 +305,9 @@ export class ElementsPanel extends UI.Panel.Panel {
       if (header) {
         this._contentElement.removeChild(header);
       }
+    }
+    if (this._popoverHelper) {
+      this._popoverHelper.hidePopover();
     }
     super.willHide();
     self.UI.context.setFlavor(ElementsPanel, null);
@@ -520,6 +521,36 @@ export class ElementsPanel extends UI.Panel.Panel {
     // Reset search restore.
     this._searchableView.cancelSearch();
     UI.ViewManager.ViewManager.instance().showView('elements').then(() => this.selectDOMNode(node, true));
+  }
+
+  /**
+   * @param {!Event} event
+   * @return {?UI.PopoverRequest}
+   */
+  _getPopoverRequest(event) {
+    let link = event.target;
+    while (link && !link[HrefSymbol]) {
+      link = link.parentElementOrShadowHost();
+    }
+    if (!link) {
+      return null;
+    }
+
+    return {
+      box: link.boxInWindow(),
+      show: async popover => {
+        const node = this.selectedDOMNode();
+        if (!node) {
+          return false;
+        }
+        const preview =
+            await Components.ImagePreview.ImagePreview.build(node.domModel().target(), link[HrefSymbol], true);
+        if (preview) {
+          popover.contentElement.appendChild(preview);
+        }
+        return !!preview;
+      }
+    };
   }
 
   _jumpToSearchResult(index) {
@@ -849,6 +880,12 @@ export class ElementsPanel extends UI.Panel.Panel {
     this.sidebarPaneView = UI.ViewManager.ViewManager.instance().createTabbedLocation(
         () => UI.ViewManager.ViewManager.instance().showView('elements'));
     const tabbedPane = this.sidebarPaneView.tabbedPane();
+    if (this._popoverHelper) {
+      this._popoverHelper.hidePopover();
+    }
+    this._popoverHelper = new UI.PopoverHelper.PopoverHelper(tabbedPane.element, this._getPopoverRequest.bind(this));
+    this._popoverHelper.setHasPadding(true);
+    this._popoverHelper.setTimeout(0);
 
     if (this._splitMode !== _splitMode.Vertical) {
       this._splitWidget.installResizer(tabbedPane.headerElement());
@@ -971,12 +1008,12 @@ export class DOMNodeRevealer {
       if (node instanceof SDK.DOMModel.DOMNode) {
         onNodeResolved(/** @type {!SDK.DOMModel.DOMNode} */ (node));
       } else if (node instanceof SDK.DOMModel.DeferredDOMNode) {
-        (/** @type {!SDK.DOMModel.DeferredDOMNode} */ (node)).resolve(checkDeferredDOMNodeThenReveal);
+        (/** @type {!SDK.DOMModel.DeferredDOMNode} */ (node)).resolve(onNodeResolved);
       } else if (node instanceof SDK.RemoteObject.RemoteObject) {
         const domModel =
             /** @type {!SDK.RemoteObject.RemoteObject} */ (node).runtimeModel().target().model(SDK.DOMModel.DOMModel);
         if (domModel) {
-          domModel.pushObjectAsNodeToFrontend(node).then(checkRemoteObjectThenReveal);
+          domModel.pushObjectAsNodeToFrontend(node).then(onNodeResolved);
         } else {
           reject(new Error('Could not resolve a node to reveal.'));
         }
@@ -986,7 +1023,7 @@ export class DOMNodeRevealer {
       }
 
       /**
-       * @param {!SDK.DOMModel.DOMNode} resolvedNode
+       * @param {?SDK.DOMModel.DOMNode} resolvedNode
        */
       function onNodeResolved(resolvedNode) {
         panel._pendingNodeReveal = false;
@@ -996,8 +1033,10 @@ export class DOMNodeRevealer {
         // that the root node is the document itself. Any break implies
         // detachment.
         let currentNode = resolvedNode;
-        while (currentNode.parentNode) {
-          currentNode = currentNode.parentNode;
+        if (currentNode) {
+          while (currentNode.parentNode) {
+            currentNode = currentNode.parentNode;
+          }
         }
         const isDetached = !(currentNode instanceof SDK.DOMModel.DOMDocument);
 
@@ -1014,32 +1053,6 @@ export class DOMNodeRevealer {
           return;
         }
         reject(new Error('Could not resolve node to reveal.'));
-      }
-
-      /**
-       * @param {?SDK.DOMModel.DOMNode} resolvedNode
-       */
-      function checkRemoteObjectThenReveal(resolvedNode) {
-        if (!resolvedNode) {
-          const msg = ls`The remote object could not be resolved into a valid node.`;
-          Common.Console.Console.instance().warn(msg);
-          reject(new Error(msg));
-          return;
-        }
-        onNodeResolved(resolvedNode);
-      }
-
-      /**
-       * @param {?SDK.DOMModel.DOMNode} resolvedNode
-       */
-      function checkDeferredDOMNodeThenReveal(resolvedNode) {
-        if (!resolvedNode) {
-          const msg = ls`The deferred DOM Node could not be resolved into a valid node.`;
-          Common.Console.Console.instance().warn(msg);
-          reject(new Error(msg));
-          return;
-        }
-        onNodeResolved(resolvedNode);
       }
     }
   }

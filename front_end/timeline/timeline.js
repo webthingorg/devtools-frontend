@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as CLSLinkifier from './CLSLinkifier.js';
 import * as CountersGraph from './CountersGraph.js';
 import * as EventsTimelineTreeView from './EventsTimelineTreeView.js';
 import * as ExtensionTracingSession from './ExtensionTracingSession.js';
@@ -25,7 +24,6 @@ import * as UIDevtoolsController from './UIDevtoolsController.js';
 import * as UIDevtoolsUtils from './UIDevtoolsUtils.js';
 
 export {
-  CLSLinkifier,
   CountersGraph,
   EventsTimelineTreeView,
   ExtensionTracingSession,

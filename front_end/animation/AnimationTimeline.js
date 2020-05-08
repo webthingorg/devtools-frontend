@@ -114,9 +114,7 @@ export class AnimationTimeline extends UI.Widget.VBox {
    * @return {!Element} element
    */
   _createScrubber() {
-    this._timelineScrubber = document.createElement('div');
-    this._timelineScrubber.classList.add('animation-scrubber');
-    this._timelineScrubber.classList.add('hidden');
+    this._timelineScrubber = createElementWithClass('div', 'animation-scrubber hidden');
     this._timelineScrubberLine = this._timelineScrubber.createChild('div', 'animation-scrubber-line');
     this._timelineScrubberLine.createChild('div', 'animation-scrubber-head');
     this._timelineScrubber.createChild('div', 'animation-time-overlay');
@@ -238,9 +236,6 @@ export class AnimationTimeline extends UI.Widget.VBox {
           }
         }
         console.assert(animGroup);
-        if (!animGroup) {
-          return Promise.resolve(false);
-        }
         const screenshots = animGroup.screenshots();
         if (!screenshots.length) {
           return Promise.resolve(false);
@@ -821,8 +816,7 @@ export class NodeUI {
    * @param {!AnimationEffect} animationEffect
    */
   constructor(animationEffect) {
-    this.element = document.createElement('div');
-    this.element.classList.add('animation-node-row');
+    this.element = createElementWithClass('div', 'animation-node-row');
     this._description = this.element.createChild('div', 'animation-node-description');
     this._description.tabIndex = 0;
     this._timelineElement = this.element.createChild('div', 'animation-node-timeline');

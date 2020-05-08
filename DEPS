@@ -4,20 +4,16 @@
 
 vars = {
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': '4b54ad3f6acc0123910af3b3a5f4a5ee215f8bbe',
+  'build_revision': 'e5ebf1e3437b7961b5723c8e076b0e231d6ef2eb',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
-  'buildtools_revision': '204a35a2a64f7179f8b76d7a0385653690839e21',
+  'buildtools_revision': '2c41dfb19abe40908834803b6fed797b0f341fe1',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': 'f7df9c456088241005e2d6a4a5391844c53989d5',
+  'depot_tools_revision': 'c440b23d505b810a49f3ee9ae55693f30b78c30e',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
   'inspector_protocol_revision': 'b7cda08cd6e522df2159413ba5f29d2a953cc1c4',
-
-  'llvm_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/',
-  'llvm_revision': '302e11cd974255eafd80ee4fdf52054a00b3e4be',
-  'build_symbol_server': False,
 
   'clang_format_url': 'https://chromium.googlesource.com/chromium/llvm-project/cfe/tools/clang-format.git',
   'clang_format_revision': '96636aa0e9f047f17447f2d45a094d0b59ed7917',
@@ -27,11 +23,11 @@ vars = {
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
-  'chromium_linux': '758711',
+  'chromium_linux': '757317',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
-  'chromium_win': '758699',
+  'chromium_win': '757314',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '758697',
+  'chromium_mac': '757314',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
@@ -81,11 +77,6 @@ deps = {
     Var('depot_tools_url') + '@' + Var('depot_tools_revision'),
   'devtools-frontend/third_party/inspector_protocol':
     Var('inspector_protocol_url') + '@' + Var('inspector_protocol_revision'),
-
-  'devtools-frontend/back_end/CXXDWARFSymbols/third_party/llvm': {
-    'url': Var('llvm_url') + '@' + Var('llvm_revision'),
-    'condition': 'build_symbol_server'
-  }
 }
 
 hooks = [
@@ -99,7 +90,7 @@ hooks = [
                 '--no_resume',
                 '--extract',
                 '--no_auth',
-                '--bucket', 'chromium-nodejs/12.14.1',
+                '--bucket', 'chromium-nodejs/10.15.3',
                 '-s', 'devtools-frontend/third_party/node/linux/node-linux-x64.tar.gz.sha1',
     ],
   },
@@ -112,7 +103,7 @@ hooks = [
                 '--no_resume',
                 '--extract',
                 '--no_auth',
-                '--bucket', 'chromium-nodejs/12.14.1',
+                '--bucket', 'chromium-nodejs/10.15.3',
                 '-s', 'devtools-frontend/third_party/node/mac/node-darwin-x64.tar.gz.sha1',
     ],
   },
@@ -124,7 +115,7 @@ hooks = [
                 'devtools-frontend/third_party/depot_tools/download_from_google_storage.py',
                 '--no_resume',
                 '--no_auth',
-                '--bucket', 'chromium-nodejs/12.14.1',
+                '--bucket', 'chromium-nodejs/10.15.3',
                 '-s', 'devtools-frontend/third_party/node/win/node.exe.sha1',
     ],
   },

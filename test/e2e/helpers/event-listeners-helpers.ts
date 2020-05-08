@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {$, $$, click, getBrowserAndPages, resourcesPath, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, resourcesPath, waitFor} from '../../shared/helper';
 
-import {assertContentOfSelectedElementsNode, waitForElementsStyleSection} from './elements-helpers.js';
+import {assertContentOfSelectedElementsNode, waitForElementsStyleSection} from './elements-helpers';
 
 export const loadEventListenersAndSelectButtonNode = async () => {
   const {target, frontend} = getBrowserAndPages();

@@ -646,13 +646,6 @@ export class TargetBase {
   router() {
     return this._router;
   }
-
-  /**
-   * @return {!ProtocolProxyApi.NetworkApi}
-   */
-  networkAgent() {
-    throw new Error('Implemented in InspectorBackend.js');
-  }
 }
 
 /**
@@ -695,11 +688,11 @@ class _AgentPrototype {
     this[methodName] = sendMessagePromise;
 
     /**
-     * @param {!Object=} request
+     * @param {!Object} request
      * @return {!Promise<?Object>}
      * @this {_AgentPrototype}
      */
-    function invoke(request = {}) {
+    function invoke(request) {
       return this._invoke(domainAndMethod, request);
     }
 
@@ -832,15 +825,7 @@ class _AgentPrototype {
           result = {};
         }
         if (error) {
-          // TODO(crbug.com/1011811): Remove Old lookup of ProtocolError
           result[ProtocolError] = error.message;
-          result.getError = () => {
-            return error.message;
-          };
-        } else {
-          result.getError = () => {
-            return undefined;
-          };
         }
         fulfill(result);
       };

@@ -51,8 +51,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     otherUserAgentElement.required = true;
     UI.ARIAUtils.setAccessibleName(otherUserAgentElement, otherUserAgentElement.placeholder);
 
-    const errorElement = document.createElement('div');
-    errorElement.classList.add('network-config-input-validation-error');
+    const errorElement = createElementWithClass('div', 'network-config-input-validation-error');
     UI.ARIAUtils.markAsAlert(errorElement);
     if (!otherUserAgentElement.value) {
       errorElement.textContent = ls`Custom user agent field is required`;
@@ -149,7 +148,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
       if (autoCheckbox.checked) {
         return;
       }
-      SDK.NetworkManager.MultitargetNetworkManager.instance().setCustomUserAgentOverride(customUserAgentSetting.get());
+      self.SDK.multitargetNetworkManager.setCustomUserAgentOverride(customUserAgentSetting.get());
     });
     const customUserAgentSelectBox = section.createChild('div', 'network-config-ua-custom');
     autoCheckbox.addEventListener('change', userAgentSelectBoxChanged);
@@ -167,7 +166,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
       customSelectAndInput.input.disabled = !useCustomUA;
       customSelectAndInput.error.hidden = !useCustomUA;
       const customUA = useCustomUA ? customUserAgentSetting.get() : '';
-      SDK.NetworkManager.MultitargetNetworkManager.instance().setCustomUserAgentOverride(customUA);
+      self.SDK.multitargetNetworkManager.setCustomUserAgentOverride(customUA);
     }
   }
 }

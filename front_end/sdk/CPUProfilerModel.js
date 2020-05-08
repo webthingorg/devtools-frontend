@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 
 import {DebuggerModel, Location} from './DebuggerModel.js';
@@ -50,7 +47,7 @@ export class CPUProfilerModel extends SDKModel {
     this._nextAnonymousConsoleProfileNumber = 1;
     this._anonymousConsoleProfileIdToTitle = new Map();
     this._profilerAgent = target.profilerAgent();
-    /** @type {?function(number, string, !Array<!Protocol.Profiler.ScriptCoverage>):void} */
+    /** @type {?function(number, string, !Array<!Protocol.Profiler.ScriptCoverage>)} */
     this._preciseCoverageDeltaUpdateCallback = null;
     target.registerProfilerDispatcher(this);
     this._profilerAgent.enable();

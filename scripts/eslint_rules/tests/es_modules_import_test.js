@@ -47,16 +47,12 @@ ruleTester.run('es_modules_import', rule, {
       filename: 'front_end/ui/Toolbar.js',
     },
     {
-      code: 'import * as Issue from \'./Issue.js\';',
+      code: 'import * as RelatedIssue from \'./RelatedIssue.js\';',
       filename: 'front_end/sdk/IssuesModel.js',
     },
+    // the `ls` helper is an exception in a TypeScript file
     {
-      code: 'import {appendStyle} from \'./append-style.js\';',
-      filename: 'front_end/ui/utils/utils.js',
-    },
-    // the `ls` helper from Platform is an exception
-    {
-      code: 'import {ls} from \'../platform/platform.js\';',
+      code: 'import {ls} from \'../common/ls.js\';',
       filename: 'front_end/elements/ElementsBreadcrumbs.ts',
     },
     // lit-html is exempt from any rules
@@ -64,18 +60,6 @@ ruleTester.run('es_modules_import', rule, {
       code: 'import {classMap} from \'../third_party/lit-html/package/directives/class-map.js\';',
       filename: 'front_end/elements/ElementsBreadcrumbs.ts',
     },
-    {
-      code: 'import * as fs from \'fs\';',
-      filename: 'test/unittests/front_end/Unit_test.ts',
-    },
-    {
-      code: 'export {UIString} from \'../platform/platform.js\';',
-      filename: 'front_end/common/common.js',
-    },
-    {
-      code: 'export async function foo() {};',
-      filename: 'front_end/common/common.js',
-    }
   ],
 
   invalid: [
@@ -96,13 +80,6 @@ ruleTester.run('es_modules_import', rule, {
       }],
     },
     {
-      code: 'import { Exporting } from \'./Exporting.js\';',
-      filename: 'front_end/common/common.js',
-      errors: [{
-        message: 'Incorrect same-namespace import: "Exporting.js". Use "import * as File from \'./File.js\';" instead.'
-      }],
-    },
-    {
       code: 'import * as Common from \'../common/common\';',
       filename: 'front_end/elements/ElementsPanel.ts',
       errors: [{
@@ -118,21 +95,14 @@ ruleTester.run('es_modules_import', rule, {
       }],
       output: 'import \'../common/common.js\';'
     },
+    // the `ls` helper is not an exception in a JS file
     {
-      code: 'import \'../../../../front_end/common/common\';',
-      filename: 'test/unittests/front_end/common/Unit_test.ts',
+      code: 'import {ls} from \'../common/ls.js\';',
+      filename: 'front_end/elements/ElementsPanel.js',
       errors: [{
-        message: 'Missing file extension for import "../../../../front_end/common/common"',
+        message:
+            'Incorrect cross-namespace import: "../common/ls.js". Use "import * as Namespace from \'../namespace/namespace.js\';" instead. You may only import common/ls.js directly from TypeScript source files.'
       }],
-      output: 'import \'../../../../front_end/common/common.js\';'
-    },
-    {
-      code: 'export {UIString} from \'../platform/platform\';',
-      filename: 'front_end/common/common.js',
-      errors: [{
-        message: 'Missing file extension for import "../platform/platform"',
-      }],
-      output: 'export {UIString} from \'../platform/platform.js\';'
     },
     // third-party modules are not exempt by default
     {

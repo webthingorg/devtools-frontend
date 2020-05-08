@@ -151,8 +151,7 @@ export class AXNodePropertyTreeElement extends UI.TreeOutline.TreeElement {
     if (!type || type === AXValueType.ValueUndefined || type === AXValueType.ComputedString) {
       valueElement = createElement('span');
     } else {
-      valueElement = document.createElement('span');
-      valueElement.classList.add('monospace');
+      valueElement = createElementWithClass('span', 'monospace');
     }
     let valueText;
     const isStringProperty = type && StringProperties.has(type);

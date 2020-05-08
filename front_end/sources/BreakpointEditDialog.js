@@ -124,7 +124,6 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
     }
     if (isEscKey(event)) {
       this._finishEditing(false);
-      event.stopImmediatePropagation();
     }
   }
 }

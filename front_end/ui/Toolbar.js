@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 
@@ -510,9 +507,7 @@ export class ToolbarText extends ToolbarItem {
    * @param {string=} text
    */
   constructor(text) {
-    const element = document.createElement('div');
-    element.classList.add('toolbar-text');
-    super(element);
+    super(createElementWithClass('div', 'toolbar-text'));
     this.element.classList.add('toolbar-text');
     this.setText(text || '');
   }
@@ -542,9 +537,7 @@ export class ToolbarButton extends ToolbarItem {
    * @param {string=} text
    */
   constructor(title, glyph, text) {
-    const element = document.createElement('button');
-    element.classList.add('toolbar-button');
-    super(element);
+    super(createElementWithClass('button', 'toolbar-button'));
     this.element.addEventListener('click', this._clicked.bind(this), false);
     this.element.addEventListener('mousedown', this._mouseDown.bind(this), false);
 
@@ -600,10 +593,16 @@ export class ToolbarButton extends ToolbarItem {
     this.element.classList.add('dark-text');
   }
 
-  turnIntoSelect() {
+  /**
+   * @param {number=} width
+   */
+  turnIntoSelect(width) {
     this.element.classList.add('toolbar-has-dropdown');
     const dropdownArrowIcon = Icon.create('smallicon-triangle-down', 'toolbar-dropdown-arrow');
     this.element.appendChild(dropdownArrowIcon);
+    if (width) {
+      this.element.style.width = width + 'px';
+    }
   }
 
   /**
@@ -643,9 +642,7 @@ export class ToolbarInput extends ToolbarItem {
    * @param {(function(string, string, boolean=):!Promise<!Suggestions>)=} completions
    */
   constructor(placeholder, accessiblePlaceholder, growFactor, shrinkFactor, tooltip, completions) {
-    const element = document.createElement('div');
-    element.classList.add('toolbar-input');
-    super(element);
+    super(createElementWithClass('div', 'toolbar-input'));
 
     const internalPromptElement = this.element.createChild('div', 'toolbar-input-prompt');
     internalPromptElement.addEventListener('focus', () => this.element.classList.add('focused'));
@@ -891,9 +888,7 @@ export class ToolbarSeparator extends ToolbarItem {
    * @param {boolean=} spacer
    */
   constructor(spacer) {
-    const element = document.createElement('div');
-    element.classList.add(spacer ? 'toolbar-spacer' : 'toolbar-divider');
-    super(element);
+    super(createElementWithClass('div', spacer ? 'toolbar-spacer' : 'toolbar-divider'));
   }
 }
 
@@ -927,9 +922,7 @@ export class ToolbarComboBox extends ToolbarItem {
    * @param {string=} className
    */
   constructor(changeHandler, title, className) {
-    const element = document.createElement('span');
-    element.classList.add('toolbar-select-container');
-    super(element);
+    super(createElementWithClass('span', 'toolbar-select-container'));
 
     this._selectElement = this.element.createChild('select', 'toolbar-item');
     const dropdownArrowIcon = Icon.create('smallicon-triangle-down', 'toolbar-dropdown-arrow');

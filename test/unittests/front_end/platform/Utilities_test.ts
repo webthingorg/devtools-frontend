@@ -22,6 +22,7 @@ declare global {
   interface String {
     trimMiddle(maxLength: number): string;
     repeat(length: number): string;
+    escapeForRegExp(): string;
   }
 
   interface StringConstructor {
@@ -57,7 +58,7 @@ describe('Utilities', () => {
         const value = allValues[i];
         expectedCount = checkOperation(count(a, value), count(b, value));
         actualCount = count(actual, value);
-        assert.strictEqual(
+        assert.equal(
             expectedCount, actualCount,
             'Incorrect result for value: ' + value + ' at [' + a + '] ' + opName + ' [' + b + '] -> [' + actual + ']');
       }
@@ -216,7 +217,7 @@ describe('Utilities', () => {
     ];
 
     for (let i = 0, n = testArray.length; i < n; ++i) {
-      assert.strictEqual(0, String.naturalOrderComparator(testArray[i], testArray[i]), 'comparing equal strings');
+      assert.equal(0, String.naturalOrderComparator(testArray[i], testArray[i]), 'comparing equal strings');
     }
 
     testArray.sort(String.naturalOrderComparator);
@@ -228,7 +229,7 @@ describe('Utilities', () => {
         const b = testArray[j];
         const diff = String.naturalOrderComparator(a, b);
         if (diff === 0) {
-          assert.strictEqual(a, b, 'zero diff');
+          assert.equal(a, b, 'zero diff');
         } else if (diff < 0) {
           assert.isTrue(i < j);
         } else {
@@ -250,7 +251,7 @@ describe('Utilities', () => {
   it('escapes regex characters', () => {
     const inputString = '^[]{}()\\.^$*+?|-';
     const outputString = inputString.escapeForRegExp();
-    assert.strictEqual(outputString, '\\^\\[\\]\\{\\}\\(\\)\\\\\\.\\^\\$\\*\\+\\?\\|\\-');
+    assert.equal(outputString, '\\^\\[\\]\\{\\}\\(\\)\\\\\\.\\^\\$\\*\\+\\?\\|\\-');
   });
 
   it('trims the middle of strings', () => {
@@ -269,18 +270,18 @@ describe('Utilities', () => {
   });
 
   it('unescapes CSS strings', () => {
-    assert.strictEqual(
+    assert.equal(
         unescapeCssString(String.raw`"I\F1 t\EB rn\E2 ti\F4 n\E0 liz\E6 ti\F8 n\2603 \1F308  can be \t\r\ic\k\y"`),
         '"I\xF1t\xEBrn\xE2ti\xF4n\xE0liz\xE6ti\xF8n\u2603\u{1F308} can be tricky"');
-    assert.strictEqual(
+    assert.equal(
         unescapeCssString(String.raw`"_\DBFF_\\DBFF_\\\DBFF_\\\\DBFF_\\\\\DBFF_"`),
         '"_\uFFFD_\\DBFF_\\\\DBFF_\\\\\\DBFF_\\\\\\\\DBFF_"');
-    assert.strictEqual(
+    assert.equal(
         unescapeCssString(String.raw`"\0_\DBFF_\DFFF_\110000"`), '"\uFFFD_\uFFFD_\uFFFD_\uFFFD"',
         'U+0000, lone surrogates, and values above U+10FFFF should become U+FFFD');
-    assert.strictEqual(
+    assert.equal(
         unescapeCssString(String.raw`"_\D83C\DF08_"`), '"_\uFFFD\uFFFD_"', 'surrogates should not be combined');
-    assert.strictEqual(
+    assert.equal(
         unescapeCssString('"_\\41\n_\\41\t_\\41\x20_"'), '"_A_A_A_"',
         'certain trailing whitespace characters should be consumed as part of the escape sequence');
   });

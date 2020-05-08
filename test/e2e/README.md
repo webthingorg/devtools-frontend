@@ -14,7 +14,8 @@ The tests therefore have a dual purpose:
 ## Running tests
 All tests: `npm run e2etest` (note, this requires python2 to be the default python binary!)
 Some additional, optional, helpful flags:
-`npm run e2etest -- --chrome-binary=[LOCATION] --chrome-features=[FEATURES]`
+`npm run e2etest -- --test-file=[FILTER] --chrome-binary=[LOCATION] --chrome-features=[FEATURES]`
+FILTER is the name of the test file, such as `media-tab.ts` or `network-datagrid.ts`.
 LOCATION is a path to the chrome executable
 FEATURES is a comma separated list of chrome features passed as `--enable-features=[FEATURES]` to the chrome binary.
 

@@ -28,9 +28,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';
-import * as Host from '../host/host.js';
 import * as ObjectUI from '../object_ui/object_ui.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -48,11 +46,6 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this._decodeRequestParameters = true;
     this._showRequestHeadersText = false;
     this._showResponseHeadersText = false;
-
-    const contentType = request.requestContentType();
-    if (contentType) {
-      this._decodeRequestParameters = !!contentType.match(/^application\/x-www-form-urlencoded\s*(;.*)?$/i);
-    }
 
     /** @type {?UI.TreeOutline.TreeElement} */
     this._highlightedElement = null;
@@ -163,16 +156,13 @@ export class RequestHeadersView extends UI.Widget.VBox {
       }
 
       if (Root.Runtime.experiments.isEnabled('issuesPane') &&
-          BrowserSDK.RelatedIssue.hasIssueOfCategory(
-              this._request, SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy)) {
-        const link = document.createElement('div');
-        link.classList.add('devtools-link');
+          SDK.RelatedIssue.hasIssueOfCategory(
+              this._request, SDK.RelatedIssue.IssueCategory.CrossOriginEmbedderPolicy)) {
+        const link = createElementWithClass('div', 'devtools-link');
         link.onclick = () => {
-          Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.LearnMoreLinkCOEP);
-          BrowserSDK.RelatedIssue.reveal(this._request, SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy);
+          SDK.RelatedIssue.reveal(this._request, SDK.RelatedIssue.IssueCategory.CrossOriginEmbedderPolicy);
         };
-        const text = document.createElement('span');
-        text.classList.add('devtools-link');
+        const text = createElementWithClass('span', 'devtools-link');
         text.textContent = 'Learn more in the issues panel';
         link.appendChild(text);
         link.prepend(UI.Icon.Icon.create('largeicon-breaking-change', 'icon'));
@@ -205,10 +195,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
         }
       }
     }
-    const div = document.createElement('div');
-    if (className) {
-      div.className = className;
-    }
+    const div = createElementWithClass('div', className);
     if (value === '') {
       div.classList.add('empty-value');
     }
@@ -235,21 +222,20 @@ export class RequestHeadersView extends UI.Widget.VBox {
   }
 
   async _refreshFormData() {
+    this._formDataCategory.hidden = true;
+    this._requestPayloadCategory.hidden = true;
+
     const formData = await this._request.requestFormData();
     if (!formData) {
-      this._formDataCategory.hidden = true;
-      this._requestPayloadCategory.hidden = true;
       return;
     }
 
     const formParameters = await this._request.formParameters();
     if (formParameters) {
       this._formDataCategory.hidden = false;
-      this._requestPayloadCategory.hidden = true;
       this._refreshParams(Common.UIString.UIString('Form Data'), formParameters, formData, this._formDataCategory);
     } else {
       this._requestPayloadCategory.hidden = false;
-      this._formDataCategory.hidden = true;
       try {
         const json = JSON.parse(formData);
         this._refreshRequestJSONPayload(json, formData);
@@ -268,9 +254,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     const text = (sourceText || '').trim();
     const trim = text.length > max_len;
 
-    const sourceTextElement = document.createElement('span');
-    sourceTextElement.classList.add('header-value');
-    sourceTextElement.classList.add('source-code');
+    const sourceTextElement = createElementWithClass('span', 'header-value source-code');
     sourceTextElement.textContent = trim ? text.substr(0, max_len) : text;
 
     const sourceTreeElement = new UI.TreeOutline.TreeElement(sourceTextElement);
@@ -280,8 +264,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
       return;
     }
 
-    const showMoreButton = document.createElement('button');
-    showMoreButton.classList.add('request-headers-show-more-button');
+    const showMoreButton = createElementWithClass('button', 'request-headers-show-more-button');
     showMoreButton.textContent = Common.UIString.UIString('Show more');
 
     function showMore() {
@@ -317,8 +300,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     paramsTreeElement.listItemElement.createChild('div', 'selection fill');
     paramsTreeElement.listItemElement.createTextChild(title);
 
-    const headerCount = document.createElement('span');
-    headerCount.classList.add('header-count');
+    const headerCount = createElementWithClass('span', 'header-count');
     headerCount.textContent = Common.UIString.UIString('\xA0(%d)', params.length);
     paramsTreeElement.listItemElement.appendChild(headerCount);
 
@@ -832,8 +814,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
    * @return {!Element}
    */
   _createToggleButton(title) {
-    const button = document.createElement('span');
-    button.classList.add('header-toggle');
+    const button = createElementWithClass('span', 'header-toggle');
     button.textContent = title;
     return button;
   }

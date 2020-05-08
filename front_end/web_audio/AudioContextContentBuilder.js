@@ -10,8 +10,7 @@ export class ContextDetailBuilder {
    */
   constructor(context) {
     this._fragment = createDocumentFragment();
-    this._container = document.createElement('div');
-    this._container.classList.add('context-detail-container');
+    this._container = createElementWithClass('div', 'context-detail-container');
     this._fragment.appendChild(this._container);
     this._build(context);
   }
