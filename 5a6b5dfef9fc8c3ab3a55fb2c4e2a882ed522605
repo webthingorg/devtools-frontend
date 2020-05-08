@@ -16,6 +16,24 @@
       "revId": "5a6b5dfef9fc8c3ab3a55fb2c4e2a882ed522605",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a31ec8ef_cb752ac1",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-08T01:35:44Z",
+      "side": 1,
+      "message": "The timeout is not necessary, I must have forgotten to delete it. I think it makes sense that this calls closePanelTab()",
+      "parentUuid": "40510b57_36d3ebb7",
+      "revId": "5a6b5dfef9fc8c3ab3a55fb2c4e2a882ed522605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
