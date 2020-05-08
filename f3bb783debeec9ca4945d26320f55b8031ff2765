@@ -22,6 +22,30 @@
       "revId": "f3bb783debeec9ca4945d26320f55b8031ff2765",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7efe6613_843ac556",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-08T08:28:46Z",
+      "side": 0,
+      "message": "That is my current understanding, yes. I\u0027ve filed crbug.com/1079234, which is already mentioned in the CL description.",
+      "parentUuid": "36cf727e_d50c12e0",
+      "range": {
+        "startLine": 960,
+        "startChar": 14,
+        "endLine": 960,
+        "endChar": 28
+      },
+      "revId": "f3bb783debeec9ca4945d26320f55b8031ff2765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

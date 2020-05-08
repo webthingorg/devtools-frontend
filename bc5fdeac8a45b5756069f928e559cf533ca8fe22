@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "493e87ce_d9c93bef",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-08T08:28:46Z",
+      "side": 1,
+      "message": "The method will still be needed for L950. I\u0027ll leave the cleanup to whoever cleans up responseCookies.",
+      "parentUuid": "39f1a3d5_069ff8b0",
+      "range": {
+        "startLine": 946,
+        "startChar": 36,
+        "endLine": 946,
+        "endChar": 94
+      },
+      "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89faef4a_102de9c6",
         "filename": "front_end/network/NetworkItemView.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd5d7a2_444b68c4",
+        "filename": "front_end/network/NetworkItemView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-08T08:28:46Z",
+      "side": 1,
+      "message": "Yes, nice spot! This is what fixes chromium:1057451",
+      "parentUuid": "89faef4a_102de9c6",
+      "range": {
+        "startLine": 127,
+        "startChar": 41,
+        "endLine": 127,
+        "endChar": 58
+      },
+      "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -91,6 +139,30 @@
       "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d29140b6_fa56431a",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1719,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-08T08:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beb40ccf_b84c65b3",
+      "range": {
+        "startLine": 1719,
+        "startChar": 6,
+        "endLine": 1719,
+        "endChar": 20
+      },
+      "revId": "bc5fdeac8a45b5756069f928e559cf533ca8fe22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
