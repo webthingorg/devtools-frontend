@@ -14,10 +14,16 @@ export const LOG_LEVELS_VERBOSE_OPTION_SELECTOR = '[aria-label^="Verbose"]';
 export const CONSOLE_PROMPT_SELECTOR = '.console-prompt-editor-container';
 
 export async function getConsoleMessages(testName: string, callback?: (page: puppeteer.Page) => Promise<void>) {
-  const {target, frontend} = getBrowserAndPages();
+  const {target} = getBrowserAndPages();
 
   // Have the target load the page.
   await target.goto(`${resourcesPath}/console/${testName}.html`);
+
+  return getCurrentConsoleMessages(callback);
+}
+
+export async function getCurrentConsoleMessages(callback?: (page: puppeteer.Page) => Promise<void>) {
+  const {frontend} = getBrowserAndPages();
 
   // Locate the button for switching to the console tab.
   await click(CONSOLE_TAB_SELECTOR);
