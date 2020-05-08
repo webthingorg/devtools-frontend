@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b82fe5a_0d028afa",
+        "filename": "back_end/CXXDWARFSymbols/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-08T07:38:47Z",
+      "side": 1,
+      "message": "The symbol server build system includes that directly now.",
+      "revId": "29d09f552c95a21d606b4521a7560be41e172dd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
