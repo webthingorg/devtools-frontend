@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af56ed46_52b2d1ae",
+        "filename": "front_end/media/playerPropertiesView.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1222584
+      },
+      "writtenOn": "2020-05-08T09:54:22Z",
+      "side": 1,
+      "message": "What is the reason for underlining on hover? This strongly implies the item is interactive so do you plan on adding some actions like copy-on-click? If not, the underlining should be removed and I can open a new issue for tracking it if needed.",
+      "revId": "7dffce1bb663e1afdcd68c3e4ca7935089fff7d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
