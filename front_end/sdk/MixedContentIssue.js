@@ -61,8 +61,8 @@ export class MixedContentIssue extends Issue {
       message: () => textOnlyMessage(ls
       `The initial HTML is loaded over a secure HTTPS connection, but some other resources are loaded over an insecure HTTP connection.`),
       issueKind: IssueKind.BreakingChange,
-      link: ls`https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content`,
-      linkTitle: ls`Preventing mixed content`,
+      links: [{link: ls`https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content`,
+              linkTitle: ls`Preventing mixed content`}],
     };
   }
 
