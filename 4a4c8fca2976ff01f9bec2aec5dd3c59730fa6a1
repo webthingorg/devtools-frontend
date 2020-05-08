@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce7bff0c_250d34ef",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-08T19:42:03Z",
+      "side": 1,
+      "message": "Since the function `focus()` is on the _networkItemView already, I feel like it would be preferable to return the network item view, and let the caller call .focus() on it instead, rather than having the parameter propagate through multiple layers.",
+      "revId": "4a4c8fca2976ff01f9bec2aec5dd3c59730fa6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
