@@ -9,12 +9,16 @@ set(SYMBOL_SERVER_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 set(SYMBOL_SERVER_BINARY_DIR ${PROJECT_BINARY_DIR}/bin)
 set(SYMBOL_SERVER_LIBRARY_DIR ${PROJECT_BINARY_DIR}/lib)
 
-# Build dependencies.
+# Build LLVM dependencies.
 set(LLVM_TARGETS_TO_BUILD "WebAssembly" CACHE STRING "")
 set(LLVM_ENABLE_PROJECTS "clang;clang-tools-extra;lldb;lld" CACHE STRING "")
+set(LLVM_ENABLE_RTTI "ON" CACHE STRING "")
+set(LLVM_ENABLE_THREADS "OFF" CACHE STRING "")
+set(LLDB_INCLUDE_TESTS "OFF" CACHE STRING "")
+if (NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
 set(LLVM_DEFAULT_EXTERNAL_LIT
   ${CMAKE_CURRENT_BINARY_DIR}/third_party/llvm/llvm/bin/llvm-lit CACHE STRING "")
-set(LLDB_INCLUDE_TESTS "OFF" CACHE STRING "")
+endif()
 add_subdirectory(third_party/llvm/llvm)
 set_property(DIRECTORY third_party/llvm/llvm
   PROPERTY EXCLUDE_FROM_ALL TRUE)
@@ -48,6 +52,11 @@ endfunction()
 set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
 
-add_subdirectory(src)
-add_subdirectory(unittests)
-add_subdirectory(tests)
+add_subdirectory(lib)
+if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+  add_subdirectory(driver/wasm-plugin)
+else()
+  add_subdirectory(driver/lsp)
+  add_subdirectory(unittests)
+  add_subdirectory(tests)
+endif()
