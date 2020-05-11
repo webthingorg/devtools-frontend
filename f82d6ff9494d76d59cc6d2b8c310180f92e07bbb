@@ -22,6 +22,30 @@
       "revId": "f82d6ff9494d76d59cc6d2b8c310180f92e07bbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54fcb688_ab768751",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-11T08:01:07Z",
+      "side": 1,
+      "message": "The label for _onlyIssuesFilterUI (see above) says \"Has Blocked cookies\", so I brought it in line.",
+      "parentUuid": "df68d359_53fd3160",
+      "range": {
+        "startLine": 1608,
+        "startChar": 33,
+        "endLine": 1608,
+        "endChar": 51
+      },
+      "revId": "f82d6ff9494d76d59cc6d2b8c310180f92e07bbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
