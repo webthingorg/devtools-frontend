@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39aab60e_669a1451",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "nit: While I am ok with this, the hinge color can be a bit jarring in light theme. In dark, this matches the background perfectly, but in light, it looks like: https://imgur.com/t7RVZWu\n\nMaybe we want to add support in the future for multiple hinge colors?",
+      "range": {
+        "startLine": 1888,
+        "startChar": 22,
+        "endLine": 1893,
+        "endChar": 23
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39a966be_f1590429",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "do we even know if the galaxy fold single screen can rotate?",
+      "range": {
+        "startLine": 1951,
+        "startChar": 13,
+        "endLine": 1954,
+        "endChar": 16
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4bfdc94_7a694cb7",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "This results in a massive window. The device pixel ratio is used to scale down the width/height. i.e, if the real screen is 840x1960, and you set the pixel ratio, it will triple those values.\n\nI would expect something like:\n\"device-pixel-ratio\": 3,\n              \"vertical\": {\n                  \"width\": 280,\n                  \"height\": 653\n              },\n.. and so on",
+      "range": {
+        "startLine": 1955,
+        "startChar": 14,
+        "endLine": 1967,
+        "endChar": 15
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76f1206d_ba4fc66c",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "Can any of this ever return null?",
+      "range": {
+        "startLine": 416,
+        "startChar": 32,
+        "endLine": 416,
+        "endChar": 103
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc106b48_07b42d05",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "might need to update the toolbar button here. See other comment",
+      "range": {
+        "startLine": 448,
+        "startChar": 11,
+        "endLine": 448,
+        "endChar": 33
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb27f1a8_b5de262e",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "when changing devices from one dual screen to another, it\u0027s possible that the span icon gets out of sync: https://imgur.com/q319CTs\n\nI.e if I\u0027m spanned with the duo and select the fold, the span button will be \"true\" even though the fold is not spanned\n\nfor simplicity, it might be worth it to just make this a button with no toggle, and update later, as the rotate button doesn\u0027t toggle",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 104
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27a2c697_802981ac",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "nit: remove this? no need to label an experiement since they already turned on the experiment",
+      "range": {
+        "startLine": 633,
+        "startChar": 62,
+        "endLine": 633,
+        "endChar": 75
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc948e5b_d421598b",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T16:54:07Z",
+      "side": 1,
+      "message": "do we ever use outline color? the emulated devices can\u0027t read/write it to the json settings file",
+      "range": {
+        "startLine": 305,
+        "startChar": 89,
+        "endLine": 305,
+        "endChar": 115
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
