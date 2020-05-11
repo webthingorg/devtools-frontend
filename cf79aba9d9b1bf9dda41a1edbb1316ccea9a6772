@@ -22,6 +22,30 @@
       "revId": "cf79aba9d9b1bf9dda41a1edbb1316ccea9a6772",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34b2141e_26414747",
+        "filename": "front_end/sdk/CSSProperty.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-11T13:03:15Z",
+      "side": 1,
+      "message": "I see, thanks. I think VSCode adds the imports like that automatically if you use autocompletion.",
+      "parentUuid": "48fd3167_d8d280fe",
+      "range": {
+        "startLine": 5,
+        "startChar": 42,
+        "endLine": 5,
+        "endChar": 51
+      },
+      "revId": "cf79aba9d9b1bf9dda41a1edbb1316ccea9a6772",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
