@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "272c1e08_eef38b08",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T12:14:46Z",
+      "side": 1,
+      "message": "Nit: can be a simple `let` now, since are in module scope. E.g. remove the CSSMetadata namespacing with a normal variable declaration.",
+      "range": {
+        "startLine": 388,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 11
+      },
+      "revId": "74ce2c49d1877258256d60b99cc46e5cf52dca18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
