@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3fe2e2ff_fafa5ec7",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39aab60e_669a1451",
+      "range": {
+        "startLine": 1888,
+        "startChar": 22,
+        "endLine": 1893,
+        "endChar": 23
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39a966be_f1590429",
         "filename": "front_end/emulated_devices/module.json",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-11T16:54:07Z",
       "side": 1,
       "message": "do we even know if the galaxy fold single screen can rotate?",
+      "range": {
+        "startLine": 1951,
+        "startChar": 13,
+        "endLine": 1954,
+        "endChar": 16
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d02e3791_f153ddcd",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "Yes and no. People complained about that it couldn\u0027t automatically rotate but there are apps that help you with that (there is one called rotate). So I think we should support it.",
+      "parentUuid": "39a966be_f1590429",
       "range": {
         "startLine": 1951,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "57276235_8373554b",
+        "filename": "front_end/emulated_devices/module.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4bfdc94_7a694cb7",
+      "range": {
+        "startLine": 1955,
+        "startChar": 14,
+        "endLine": 1967,
+        "endChar": 15
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76f1206d_ba4fc66c",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 9
@@ -91,6 +163,30 @@
       "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a93f23f_d6d76fb7",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "Let\u0027s be defensive and add null checking. I saw this pattern(without checking) elsewhere in the code base when I wrote this. That was why I left out checking. But since I don\u0027t really know for sure, I think we should add the checking.",
+      "parentUuid": "76f1206d_ba4fc66c",
+      "range": {
+        "startLine": 416,
+        "startChar": 32,
+        "endLine": 416,
+        "endChar": 103
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1f0bbccd_771ed529",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "Simplify it to a button that doesn\u0027t have a visual clue as there are plenty of info on the screen that indicates which mode we are in.",
+      "parentUuid": "fc106b48_07b42d05",
+      "range": {
+        "startLine": 448,
+        "startChar": 11,
+        "endLine": 448,
+        "endChar": 33
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb27f1a8_b5de262e",
         "filename": "front_end/emulation/DeviceModeToolbar.js",
         "patchSetId": 9
@@ -137,6 +257,30 @@
       "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8300dfd0_7a7c065b",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "Change it to a no toggle button.",
+      "parentUuid": "fb27f1a8_b5de262e",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 104
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "3cdca848_d2ade87e",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27a2c697_802981ac",
+      "range": {
+        "startLine": 633,
+        "startChar": 62,
+        "endLine": 633,
+        "endChar": 75
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc948e5b_d421598b",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 9
@@ -183,6 +351,30 @@
       "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2901b889_fc8922ea",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-11T19:54:22Z",
+      "side": 1,
+      "message": "My mistake.",
+      "parentUuid": "cc948e5b_d421598b",
+      "range": {
+        "startLine": 305,
+        "startChar": 89,
+        "endLine": 305,
+        "endChar": 115
+      },
+      "revId": "230deaa0a8ac9ae3146be7dd55b9811c0030d5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
