@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ea9ea6ef_a6b180f0",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-11T15:26:18Z",
+      "side": 1,
+      "message": "Should this be a separate CL where we address the change to the panel label separately form the test?",
+      "parentUuid": "c343cfc7_c69333a4",
+      "range": {
+        "startLine": 16,
+        "startChar": 32,
+        "endLine": 16,
+        "endChar": 45
+      },
+      "revId": "2ac0cff937e5ce612300faa7c5b54cd5d7ca87d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ada7108b_7e753988",
         "filename": "test/e2e/memory/memory_test.ts",
         "patchSetId": 2
@@ -82,6 +106,30 @@
       "writtenOn": "2020-05-11T09:56:59Z",
       "side": 1,
       "message": "This user action does not have a corresponding wait condition (similar to the animations CL)",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 37
+      },
+      "revId": "2ac0cff937e5ce612300faa7c5b54cd5d7ca87d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0ecbe20_6901a138",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-11T15:26:18Z",
+      "side": 1,
+      "message": "My intention here was to test that a user can take a heap snapshot without breaking or causing an error. I was thinking that verifying that the individual results render as expected could be a separate tests.  Should that all be part of a longer single tests?",
+      "parentUuid": "531d6658_a23c1c50",
       "range": {
         "startLine": 33,
         "startChar": 4,
