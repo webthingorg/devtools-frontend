@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
+import {Text, TextRange, TextUtils} from 'front_end/text_utils/text_utils.js';
 
 import * as Common from '../common/common.js';
 import * as HostModule from '../host/host.js';
 import * as Platform from '../platform/platform.js';
+import * as Root from '../root/root.js';
 
 import {cssMetadata, GridAreaRowRegex} from './CSSMetadata.js';
 import {Edit} from './CSSModel.js';                            // eslint-disable-line no-unused-vars
@@ -39,7 +39,8 @@ export class CSSProperty {
     this.parsedOk = parsedOk;
     this.implicit = implicit;  // A longhand, implicitly set by missing values of shorthand.
     this.text = text;
-    this.range = range ? TextUtils.TextRange.fromObject(range) : null;
+    /** @type {?TextRange.TextRange} */
+    this.range = range ? TextRange.TextRange.fromObject(range) : null;
     this._active = true;
     this._nameRange = null;
     this._valueRange = null;
@@ -68,7 +69,7 @@ export class CSSProperty {
       return;
     }
     const range = this.range;
-    const text = this.text ? new TextUtils.Text(this.text) : null;
+    const text = this.text ? new Text.Text(this.text) : null;
     if (!range || !text) {
       return;
     }
@@ -79,17 +80,17 @@ export class CSSProperty {
       return;
     }
 
-    const nameSourceRange = new TextUtils.SourceRange(nameIndex, this.name.length);
-    const valueSourceRange = new TextUtils.SourceRange(valueIndex, this.value.length);
+    const nameSourceRange = new TextRange.SourceRange(nameIndex, this.name.length);
+    const valueSourceRange = new TextRange.SourceRange(valueIndex, this.value.length);
 
     this._nameRange = rebase(text.toTextRange(nameSourceRange), range.startLine, range.startColumn);
     this._valueRange = rebase(text.toTextRange(valueSourceRange), range.startLine, range.startColumn);
 
     /**
-     * @param {!TextUtils.TextRange} oneLineRange
+     * @param {!TextRange.TextRange} oneLineRange
      * @param {number} lineOffset
      * @param {number} columnOffset
-     * @return {!TextUtils.TextRange}
+     * @return {!TextRange.TextRange}
      */
     function rebase(oneLineRange, lineOffset, columnOffset) {
       if (oneLineRange.startLine === 0) {
@@ -103,7 +104,7 @@ export class CSSProperty {
   }
 
   /**
-   * @return {?TextUtils.TextRange}
+   * @return {?TextRange.TextRange}
    */
   nameRange() {
     this._ensureRanges();
@@ -111,7 +112,7 @@ export class CSSProperty {
   }
 
   /**
-   * @return {?TextUtils.TextRange}
+   * @return {?TextRange.TextRange}
    */
   valueRange() {
     this._ensureRanges();
@@ -175,7 +176,7 @@ export class CSSProperty {
     }
 
     if (majorChange) {
-      HostModule.userMetrics.actionTaken(Host.UserMetrics.Action.StyleRuleEdited);
+      HostModule.userMetrics.actionTaken(HostModule.UserMetrics.Action.StyleRuleEdited);
     }
 
     if (overwrite && propertyText === this.propertyText) {
@@ -188,10 +189,15 @@ export class CSSProperty {
         this._detectIndentation(this.ownerStyle.cssText) :
         Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
     const endIndentation = this.ownerStyle.cssText ? indentation.substring(0, this.ownerStyle.range.endColumn) : '';
-    const text = new TextUtils.Text(this.ownerStyle.cssText || '');
+    const text = new Text.Text(this.ownerStyle.cssText || '');
     const newStyleText = text.replaceRange(range, Platform.StringUtilities.sprintf(';%s;', propertyText));
 
-    const tokenizerFactory = await self.runtime.extension(TextUtils.TokenizerFactory).instance();
+    const runtime = Root.Runtime.Runtime.instance();
+    const tokenizerFactoryExt = runtime.extension(TextUtils.TokenizerFactory);
+    if (!tokenizerFactoryExt) {
+      throw new Error('TextUtils.TokenizerFactory extension does not exist');
+    }
+    const tokenizerFactory = /** @type {!TextUtils.TokenizerFactory} */ (await tokenizerFactoryExt.instance());
     const styleText = CSSProperty._formatStyle(newStyleText, indentation, endIndentation, tokenizerFactory);
     return this.ownerStyle.setText(styleText, majorChange);
   }
@@ -210,7 +216,7 @@ export class CSSProperty {
     }
     let result = '';
     let propertyName = '';
-    let propertyText;
+    let propertyText = '';
     let insideProperty = false;
     let needsSemi = false;
     const tokenize = tokenizerFactory.createTokenizer('text/css');
@@ -296,7 +302,7 @@ export class CSSProperty {
     if (lines.length < 2) {
       return '';
     }
-    return TextUtils.TextUtils.lineIndent(lines[1]);
+    return TextUtils.Utils.lineIndent(lines[1]);
   }
 
   /**
@@ -319,6 +325,9 @@ export class CSSProperty {
       return Promise.resolve(false);
     }
     if (disabled === this.disabled) {
+      return Promise.resolve(true);
+    }
+    if (!this.text) {
       return Promise.resolve(true);
     }
     const propertyText = this.text.trim();
