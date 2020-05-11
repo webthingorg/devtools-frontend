@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48fd3167_d8d280fe",
+        "filename": "front_end/sdk/CSSProperty.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T12:54:19Z",
+      "side": 1,
+      "message": "Should be `import * as TextUtils from \u0027../text_utils/text_utils.js\u0027;`\n\nIt might be good to take a look at the DevTools ES modules style guide: https://docs.google.com/presentation/d/1KaTDaKEcLmgv3Wum79gPP9mv9x2fm3kuEgx_b8wLVug/edit#slide\u003did.p\n\nI am surprised ESLint didn\u0027t fail on this. I will update the linter rule implementation.",
+      "range": {
+        "startLine": 5,
+        "startChar": 42,
+        "endLine": 5,
+        "endChar": 51
+      },
+      "revId": "cf79aba9d9b1bf9dda41a1edbb1316ccea9a6772",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
