@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df68d359_53fd3160",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-11T06:49:11Z",
+      "side": 1,
+      "message": "what is the motivation of this change? Shouldn\u0027t we (for example) include requests with COEP issues? Or is the {onlyeIssuesFilterUI} name missleading and we consider only cookie issues?",
+      "range": {
+        "startLine": 1608,
+        "startChar": 33,
+        "endLine": 1608,
+        "endChar": 51
+      },
+      "revId": "f82d6ff9494d76d59cc6d2b8c310180f92e07bbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
