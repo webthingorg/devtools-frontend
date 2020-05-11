@@ -25,6 +25,7 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._representative = null;
     /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
     this._mixedContents = new Map();
+    this._aggregatedIssuesCount = 0;
   }
 
   /**
@@ -101,6 +102,7 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    * @param {!SDK.Issue.Issue} issue
    */
   addInstance(issue) {
+    this._aggregatedIssuesCount++;
     if (!this._representative) {
       this._representative = issue;
     }
