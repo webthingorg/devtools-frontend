@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e4f3647_cd2edf44",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-11T14:20:23Z",
+      "side": 1,
+      "message": "This also needs a more descriptive name because it changes with the _issuesTree.",
+      "range": {
+        "startLine": 728,
+        "startChar": 2,
+        "endLine": 728,
+        "endChar": 38
+      },
+      "revId": "ec89da1f321773a2a2cb9afe0c30ea92ab805d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95ba2ade_3c9a3539",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-11T14:20:23Z",
+      "side": 1,
+      "message": "This method need a better name that captures that it (re)-attaches the issues tree.",
+      "range": {
+        "startLine": 742,
+        "startChar": 2,
+        "endLine": 742,
+        "endChar": 30
+      },
+      "revId": "ec89da1f321773a2a2cb9afe0c30ea92ab805d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
