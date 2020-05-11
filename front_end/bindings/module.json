@@ -19,6 +19,8 @@
     "DebuggerWorkspaceBinding.js",
     "DebuggerLanguagePlugins.js",
     "language_plugins/CXXDWARFLanguagePlugin.js",
+    "language_plugins/CXXDWARFWasmPlugin.js",
+    "language_plugins/CXXDWARFWasmWorker.js",
     "BreakpointManager.js",
     "ContentProviderBasedProject.js",
     "DefaultScriptMapping.js",
