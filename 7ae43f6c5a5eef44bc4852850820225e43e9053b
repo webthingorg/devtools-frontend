@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eba0fecc_2b5cce83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T14:10:25Z",
+      "side": 1,
+      "message": "Let\u0027s add the full reasoning in the commit message to make sure we can later use the git history to figure out why this change is necessary. Proposed commit message:\n\nRevert promise rejection behavior in CDP error handling\n\nIn https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1934208 the\nbehavior for handling errors emitted by CDP was changed. It changes the implementation\nof `InspectorBackend.js` to reject on errors rather than resolving with `null`.\n\nHowever, the majority of existing callsides of the CDP invocations can not handle\npromise rejections, which can lead to a broken UI. One example of a user report is\nhttps://crbug.com/1063012 where it broken logging to the console.\n\nSince there are likely other usages we are unaware of, that use the InspectorBackend\nexpecting `null` on a CDP error, we should revert back to the original behavior.\n\nIn the future, we will be using proper promise rejections once we can design a\ngradual migration strategy for the codebase.\n\nBug: chromium:1077892",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "7ae43f6c5a5eef44bc4852850820225e43e9053b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
