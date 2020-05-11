@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75fd197b_f08b60d9",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-11T19:52:21Z",
+      "side": 1,
+      "message": "Shouldn\u0027t all these calls be awaited?",
+      "revId": "dce8a7fd80bf7adba9bf8fa5c0c20cf7276ea3aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
