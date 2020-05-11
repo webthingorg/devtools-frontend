@@ -22,6 +22,30 @@
       "revId": "b957f844910ddec049c6c9059a73be6e305a780e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ad1c10b_cdf518fa",
+        "filename": "front_end/sdk/CSSMedia.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-11T14:17:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71109048_03e36d1a",
+      "range": {
+        "startLine": 5,
+        "startChar": 42,
+        "endLine": 5,
+        "endChar": 51
+      },
+      "revId": "b957f844910ddec049c6c9059a73be6e305a780e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
