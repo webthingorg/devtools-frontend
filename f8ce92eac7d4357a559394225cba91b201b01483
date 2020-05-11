@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e483ee38_175b7de9",
+        "filename": "front_end/sdk/CSSProperty.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T14:44:16Z",
+      "side": 1,
+      "message": "Can we add a tracking bug here to untangle this reference? Preferably a separate bug, otherwise you can use `// TODO(crbug.com/1011811): Requires untangling before removal of `self.runtime``",
+      "range": {
+        "startLine": 192,
+        "startChar": 7,
+        "endLine": 192,
+        "endChar": 17
+      },
+      "revId": "f8ce92eac7d4357a559394225cba91b201b01483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
