@@ -644,6 +644,9 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     /** @type {?Element} */
     this._infoBarDiv = null;
     this._showReloadInfobarIfNeeded();
+
+    /** @type {?Element} */
+    this._noIssuesMessageDiv = null;
   }
 
   /**
@@ -716,6 +719,32 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
   _updateCounts() {
     const count = this._issuesManager.numberOfIssues();
     this._updateToolbarIssuesCount(count);
+    this._showNoIssuesDetectedMessageIfNeeded(count);
+  }
+
+  /**
+   * @param {number} issuesCount
+   */
+  _showNoIssuesDetectedMessageIfNeeded(issuesCount) {
+    this._hideNoIssuesDetectedMessage();
+    if (issuesCount > 0 || this._issuesManager.reloadForAccurateInformationRequired()) {
+      return;
+    }
+
+    this._noIssuesMessageDiv = document.createElement('div');
+    this._noIssuesMessageDiv.classList.add('issues-pane-no-issues');
+    this._noIssuesMessageDiv.textContent = ls`No issues detected so far`;
+
+    this.contentElement.removeChild(this._issuesTree.element);
+    this.contentElement.prepend(this._noIssuesMessageDiv);
+  }
+
+  _hideNoIssuesDetectedMessage() {
+    if (this._noIssuesMessageDiv) {
+      this.contentElement.removeChild(this._noIssuesMessageDiv);
+      this._noIssuesMessageDiv = null;
+      this.contentElement.append(this._issuesTree.element);
+    }
   }
 
   /**
