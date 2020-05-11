@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83b1f44d_5cbd791b",
+        "filename": "test/e2e/animations/animations_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-11T19:32:09Z",
+      "side": 1,
+      "message": "consider this an \"approved with suggestions\" suggestion: \"waitForAnimationContent\" sounds like it\u0027s just waiting for the tab to load. I\u0027m understanding you\u0027re actually waiting for an animation to appear. Maybe these two concerns should be split?",
+      "revId": "5de5c9640afac154af852d101a0cff12f63fff92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
