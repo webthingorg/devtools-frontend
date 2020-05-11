@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5a6366b_8a513410",
+        "filename": "front_end/sdk/CSSProperty.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-11T13:15:56Z",
+      "side": 1,
+      "message": "I guess the way to get rid of such long chains would be local aliases or flattening the structure of the namespace, right?",
+      "revId": "3f30273776f8bf9a7e7f0bfb3dfc341142bcf790",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
