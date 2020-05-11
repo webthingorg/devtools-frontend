@@ -653,6 +653,20 @@ export class TargetBase {
   networkAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
+
+  /**
+   * @return {!ProtocolProxyApi.ProfilerApi}
+   */
+  profilerAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @param {!Object} cpuProfilerModel
+   */
+  registerProfilerDispatcher(cpuProfilerModel) {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
 }
 
 /**
