@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7ab37219_b45740ec",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-11T07:29:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a0b4283_c8f127c6",
+      "range": {
+        "startLine": 412,
+        "startChar": 23,
+        "endLine": 412,
+        "endChar": 43
+      },
+      "revId": "f77c445c9032f285d2ab5e2edf5a2136a8e80a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53f7e35a_4d56f3df",
         "filename": "front_end/sdk/MixedContentIssue.js",
         "patchSetId": 2
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "98c16c48_e833946b",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-11T07:29:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53f7e35a_4d56f3df",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 35
+      },
+      "revId": "f77c445c9032f285d2ab5e2edf5a2136a8e80a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6be71424_d44683bc",
         "filename": "front_end/sdk/MixedContentIssue.js",
         "patchSetId": 2
@@ -92,6 +140,30 @@
       "revId": "f77c445c9032f285d2ab5e2edf5a2136a8e80a60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4f85d87_111f83d0",
+        "filename": "front_end/sdk/MixedContentIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-11T07:29:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6be71424_d44683bc",
+      "range": {
+        "startLine": 87,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 23
+      },
+      "revId": "f77c445c9032f285d2ab5e2edf5a2136a8e80a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
