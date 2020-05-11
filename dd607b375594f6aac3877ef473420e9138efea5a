@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e41a77f1_ed2f662c",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T21:19:42Z",
+      "side": 1,
+      "message": "nit: we should annotate this parameter with a comment: showHingForDualScreen( /* paramName */ true, orientation.hinge).\n\nSame below with the false call",
+      "range": {
+        "startLine": 816,
+        "startChar": 42,
+        "endLine": 816,
+        "endChar": 46
+      },
+      "revId": "dd607b375594f6aac3877ef473420e9138efea5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68910b99_33e993b8",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-11T21:19:42Z",
+      "side": 1,
+      "message": "nit: do we want to call this dual-screen mode even for the GalaxyFold/other foldables? I\u0027m not sure what else to call it, but maybe \"spanned mode\"? not sure if that is any better.",
+      "range": {
+        "startLine": 632,
+        "startChar": 62,
+        "endLine": 632,
+        "endChar": 85
+      },
+      "revId": "dd607b375594f6aac3877ef473420e9138efea5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
