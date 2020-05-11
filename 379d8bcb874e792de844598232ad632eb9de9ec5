@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92b54876_e29dbe12",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-11T20:02:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure that waiting for this element multiple times makes sense. An ID should only appear once in a given tree. Is it possible that this will remain in the DOM across multiple subsequent calls?\n\nIf it isn\u0027t (just not sure because I haven\u0027t dug into the actual implementation of the memory tool), then consider this signed off. If it does stay up across calls, then we\u0027ll probably need to figure out a better option.",
+      "revId": "379d8bcb874e792de844598232ad632eb9de9ec5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
