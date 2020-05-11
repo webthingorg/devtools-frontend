@@ -22,6 +22,30 @@
       "revId": "ccb9711e33cd7fa9eef27fd1471046525b449296",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71ac0577_beffabc0",
+        "filename": "test/e2e/animations/animations_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-11T15:30:26Z",
+      "side": 1,
+      "message": "My intention with this was to test that nothing breaks when clicking the animation button, but I think you are correct and we should wait for the result of the action, which is that a new row is appended and it contains an SVG. In this case I will test that the svg exists, and leave it for a separate test to make sure the svg content is what we expect.",
+      "parentUuid": "62888878_f4546e19",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "ccb9711e33cd7fa9eef27fd1471046525b449296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
