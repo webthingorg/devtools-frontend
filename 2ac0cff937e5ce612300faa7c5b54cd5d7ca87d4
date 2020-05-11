@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c343cfc7_c69333a4",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T09:56:59Z",
+      "side": 1,
+      "message": "This seems like a wrong label and not a great experience for screenreader users. Can we fix this by using a more descriptive label?",
+      "range": {
+        "startLine": 16,
+        "startChar": 32,
+        "endLine": 16,
+        "endChar": 45
+      },
+      "revId": "2ac0cff937e5ce612300faa7c5b54cd5d7ca87d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ada7108b_7e753988",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T09:56:59Z",
+      "side": 1,
+      "message": "Extract these into a helper called `memory-helpers.ts` and call it `openMemoryTab()`. This keeps the code descriptive and maintainable.",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 50
+      },
+      "revId": "2ac0cff937e5ce612300faa7c5b54cd5d7ca87d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34b43b7_b1c3c82d",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T09:56:59Z",
+      "side": 1,
+      "message": "Same here, put it in helpers and rename to `takeHeapSnapshot()`",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 37
+      },
+      "revId": "2ac0cff937e5ce612300faa7c5b54cd5d7ca87d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "531d6658_a23c1c50",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-11T09:56:59Z",
+      "side": 1,
+      "message": "This user action does not have a corresponding wait condition (similar to the animations CL)",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 37
+      },
+      "revId": "2ac0cff937e5ce612300faa7c5b54cd5d7ca87d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
