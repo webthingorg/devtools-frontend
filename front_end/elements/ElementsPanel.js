@@ -36,13 +36,35 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {ComputedStyleWidget} from './ComputedStyleWidget.js';
-import {ElementsBreadcrumbs, Events} from './ElementsBreadcrumbs.js';
+import {createElementsBreadcrumbs, DOMNode} from './ElementsBreadcrumbs_bridge.js';  // eslint-disable-line no-unused-vars
 import {ElementsTreeElement} from './ElementsTreeElement.js';  // eslint-disable-line no-unused-vars
 import {ElementsTreeElementHighlighter} from './ElementsTreeElementHighlighter.js';
 import {ElementsTreeOutline} from './ElementsTreeOutline.js';
 import {MarkerDecorator} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
 import {MetricsSidebarPane} from './MetricsSidebarPane.js';
 import {StylesSidebarPane} from './StylesSidebarPane.js';
+
+/**
+ *
+ * @param {!SDK.DOMModel.DOMNode} node
+ * @return {!DOMNode}
+ */
+const legacyNodeToNewBreadcrumbsNode = node => {
+  return {
+    parentNode: node.parentNode,
+    id: /** @type {number} */ (node.id),
+    nodeType: node.nodeType(),
+    pseudoType: node.pseudoType(),
+    shadowRootType: node.shadowRootType(),
+    nodeName: node.nodeName(),
+    nodeNameNicelyCased: node.nodeNameInCorrectCase(),
+    legacyDomNode: node,
+    highlightNode: () => node.highlight(),
+    clearHighlight: () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight(),
+    getAttribute: node.getAttribute.bind(node),
+  };
+};
+
 
 /**
  * @implements {UI.SearchableView.Searchable}
@@ -83,10 +105,13 @@ export class ElementsPanel extends UI.Panel.Panel {
         .moduleSetting('domWordWrap')
         .addChangeListener(this._domWordWrapSettingChanged.bind(this));
 
+    this._newBreadcrumbs = createElementsBreadcrumbs();
+    this._newBreadcrumbs.addEventListener('node-selected', event => {
+      this._crumbNodeSelected(/** @type {{data: *}} */ (event));
+    });
+
     crumbsContainer.id = 'elements-crumbs';
-    this._breadcrumbs = new ElementsBreadcrumbs();
-    this._breadcrumbs.show(crumbsContainer);
-    this._breadcrumbs.addEventListener(Events.NodeSelected, this._crumbNodeSelected, this);
+    crumbsContainer.appendChild(this._newBreadcrumbs);
 
     this._stylesWidget = new StylesSidebarPane();
     this._computedStyleWidget = new ComputedStyleWidget();
@@ -235,8 +260,6 @@ export class ElementsPanel extends UI.Panel.Panel {
     for (const treeOutline of this._treeOutlines) {
       treeOutline.setVisibleWidth(width);
     }
-
-    this._breadcrumbs.updateSizes();
   }
 
   /**
@@ -273,7 +296,6 @@ export class ElementsPanel extends UI.Panel.Panel {
       }
     }
     super.wasShown();
-    this._breadcrumbs.update();
 
     const domModels = SDK.SDKModel.TargetManager.instance().models(SDK.DOMModel.DOMModel);
     for (const domModel of domModels) {
@@ -332,7 +354,23 @@ export class ElementsPanel extends UI.Panel.Panel {
       }
     }
 
-    this._breadcrumbs.setSelectedNode(selectedNode);
+    if (selectedNode) {
+      const activeNode = legacyNodeToNewBreadcrumbsNode(selectedNode);
+      const crumbs = [activeNode];
+
+      for (let current = selectedNode.parentNode; current; current = current.parentNode) {
+        crumbs.push(legacyNodeToNewBreadcrumbsNode(current));
+      }
+
+      this._newBreadcrumbs.data = {
+        crumbs: crumbs,
+        selectedNode: legacyNodeToNewBreadcrumbsNode(selectedNode),
+      };
+
+    } else {
+      // this._newBreadcrumbs.update([], null);
+      this._newBreadcrumbs.data = {crumbs: [], selectedNode: null};
+    }
 
     self.UI.context.setFlavor(SDK.DOMModel.DOMNode, selectedNode);
 
@@ -653,7 +691,55 @@ export class ElementsPanel extends UI.Panel.Panel {
    */
   _updateBreadcrumbIfNeeded(event) {
     const nodes = /** @type {!Array.<!SDK.DOMModel.DOMNode>} */ (event.data);
-    this._breadcrumbs.updateNodes(nodes);
+
+    /* If we don't have a selected node then we can tell the breadcrumbs that & bail. */
+    const selectedNode = this.selectedDOMNode();
+    if (!selectedNode) {
+      this._newBreadcrumbs.data = {
+        crumbs: [],
+        selectedNode: null,
+      };
+      return;
+    }
+
+    /* This function gets called whenever the tree outline is updated
+     * and that might mean breadcrumbs have been changed, but it might not.
+     * e.g. if a user changes a style attribute, this function gets called, but
+     * the breadcrumbs can stay as they are.
+     * Therefore we get the "new" nodes from the event and see if any are new
+     * compared to the current crumbs. Only if we have new nodes do we update the breadcrumbs.
+     */
+
+    // Get the current set of active crumbs
+    const activeNode = legacyNodeToNewBreadcrumbsNode(selectedNode);
+    const existingCrumbs = [activeNode];
+
+    for (let current = selectedNode.parentNode; current; current = current.parentNode) {
+      existingCrumbs.push(legacyNodeToNewBreadcrumbsNode(current));
+    }
+
+    const newNodes = nodes.map(legacyNodeToNewBreadcrumbsNode);
+    const nodesThatHaveChangedMap = new Map();
+    newNodes.forEach(c => nodesThatHaveChangedMap.set(c.id, c));
+
+    let shouldUpdate = false;
+
+    const newCrumbs = existingCrumbs.map(crumb => {
+      const replacement = nodesThatHaveChangedMap.get(crumb.id);
+
+      if (replacement) {
+        shouldUpdate = true;
+      }
+
+      return replacement || crumb;
+    });
+
+    if (shouldUpdate) {
+      this._newBreadcrumbs.data = {
+        crumbs: newCrumbs,
+        selectedNode: activeNode,
+      };
+    }
   }
 
   /**
