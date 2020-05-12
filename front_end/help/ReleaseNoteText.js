@@ -17,6 +17,35 @@ const commandMenuShortcut = Host.Platform.isMac() ? 'Command+Shift+P' : 'Control
 /** @type {!Array<!ReleaseNote>} */
 export const releaseNoteText = [
   {
+    version: 26,
+    header: 'Highlights from the Chrome 84 update',
+    highlights: [
+      {
+        title: 'Issues panel',
+        subtitle:
+            'A new tab in the Drawer that structures and aggregates Console messages into a more actionable format.',
+        link: 'https://developers.google.com/web/updates/2020/05/devtools#issues',
+      },
+      {
+        title: 'Performance panel updates',
+        subtitle: 'New features related to Total Blocking Time (TBT) and Cumulative Layout Shift (CLS).',
+        link: 'https://developers.google.com/web/updates/2020/05/devtools#performance',
+      },
+      {
+        title: 'Styles pane updates',
+        subtitle:
+            'Support for the revert keyword, image previews, and support for space-separated functional color notation.',
+        link: 'https://developers.google.com/web/updates/2020/05/devtools#styles',
+      },
+      {
+        title: 'Deprecation of the Properties pane',
+        subtitle: 'Use console.dir($0) instead.',
+        link: 'https://developers.google.com/web/updates/2020/05/devtools#properties',
+      },
+    ],
+    link: 'https://developers.google.com/web/updates/2020/05/devtools',
+  },
+  {
     version: 25,
     header: 'Highlights from the Chrome 83 update',
     highlights: [
