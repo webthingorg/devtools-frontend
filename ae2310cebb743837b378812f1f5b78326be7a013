@@ -22,6 +22,30 @@
       "revId": "ae2310cebb743837b378812f1f5b78326be7a013",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc963e39_80aa5899",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-05-12T12:40:53Z",
+      "side": 1,
+      "message": "I get the JSC type mismatch warning if I do it that way",
+      "parentUuid": "8a6b069c_a87d820b",
+      "range": {
+        "startLine": 497,
+        "startChar": 9,
+        "endLine": 497,
+        "endChar": 31
+      },
+      "revId": "ae2310cebb743837b378812f1f5b78326be7a013",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
