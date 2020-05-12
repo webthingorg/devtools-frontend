@@ -69,6 +69,10 @@ export class SwatchPopoverHelper extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   reposition() {
+    // This protects against trying to reposition the popover after it has been hidden.
+    if (!this._view) {
+      return;
+    }
     // Unbind "blur" listener to avoid reenterability: |popover.show()| will hide the popover and trigger it synchronously.
     this._view.contentElement.removeEventListener('focusout', this._boundFocusOut, false);
     this._view.show(this._popover.contentElement);
