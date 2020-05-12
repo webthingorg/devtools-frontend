@@ -4,13 +4,13 @@
 
 vars = {
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': '26651b8c4403b2ffc6cb1b3f803bb8c341ca717c',
+  'build_revision': '1b904cc30093c25d5fd48389bd58e3f7409bcf80',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
   'buildtools_revision': '204a35a2a64f7179f8b76d7a0385653690839e21',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': 'ddcba7ca3c7f0432aee6bd9740c21f785c32a982',
+  'depot_tools_revision': '454f4ba4b3a69feb03c73f93d789062033433b4c',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
   'inspector_protocol_revision': 'b7cda08cd6e522df2159413ba5f29d2a953cc1c4',
@@ -27,11 +27,11 @@ vars = {
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
-  'chromium_linux': '766738',
+  'chromium_linux': '767672',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
-  'chromium_win': '766734',
+  'chromium_win': '767669',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '766729',
+  'chromium_mac': '767669',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
