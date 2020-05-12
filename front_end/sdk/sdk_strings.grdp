@@ -22,6 +22,9 @@
   <message name="IDS_DEVTOOLS_08a0eff6ec6a38189b8f84511b42ab4a" desc="Tooltip to explain why a cookie was blocked">
     This cookie was blocked because it had the &quot;SameSite=Lax&quot; attribute and the request was made from a different site and was not initiated by a top-level navigation.
   </message>
+  <message name="IDS_DEVTOOLS_0938b838c7d2deec3675635ab48bf1c5" desc="Phase used to descript the security of a context">
+    an insecure
+  </message>
   <message name="IDS_DEVTOOLS_09cdd6a7321c64bae05b8cca859f1461" desc="Title of a setting under the Network category that can be invoked through the Command Menu">
     Enable cache
   </message>
@@ -94,6 +97,11 @@
   <message name="IDS_DEVTOOLS_242dd6b02f1ff7db7cbba7f7226abb4a" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Do not emulate CSS prefers-color-scheme
   </message>
+  <message name="IDS_DEVTOOLS_28d877f94dad332daec6ef71087d4b94" desc="Description of a SameSiteCookie issue">
+    A cookie is being sent from <ph name="ORIGIN">$1s<ex>a secure</ex></ph> context to <ph name="DESTINATION">$2s<ex>an insecure</ex></ph> origin on a navigation and is specified with <ph name="LOCKED_1">|SameSite=Strict|</ph>.
+        Because this cookie is being sent across schemes on the same site, it will not be sent in a future version of Chrome.
+        This behavior protects user data from request forgery by network attackers.
+  </message>
   <message name="IDS_DEVTOOLS_28e486be4b3bad598b6e9eaa34ebec76" desc="Text in Network Manager">
     Set-Cookie header is ignored in response from url: <ph name="RESPONSE_URL">$1s<ex>https://example.com</ex></ph>. Cookie length should be less than or equal to 4096 characters.
   </message>
@@ -108,6 +116,9 @@
   </message>
   <message name="IDS_DEVTOOLS_2d4f58197f03de72c0472189fd18c162" desc="Title of a setting under the Rendering drawer">
     Emulate vision deficiencies
+  </message>
+  <message name="IDS_DEVTOOLS_2dc1023ffeedc0b5563eec53f8947026" desc="Text of a link in a SameSiteCookie issue">
+    Schemeful SameSite explained
   </message>
   <message name="IDS_DEVTOOLS_301c6a898ab412749bfb0e72381d91d2" desc="Title for the MixedContentIssue issue code">
     Mixed content: load all resources via HTTPS to improve the security of your site
@@ -178,6 +189,9 @@
   </message>
   <message name="IDS_DEVTOOLS_61326117ed4a9ddf3f754e71e119e5b3" desc="The kind of resolution for a mixed content issue">
     blocked
+  </message>
+  <message name="IDS_DEVTOOLS_6210038187f9fe73d2b999fe9d2d44b3" desc="Phase used to descript the security of a context">
+    a secure
   </message>
   <message name="IDS_DEVTOOLS_658f254bbf18be3fb45877de2eb0547d" desc="Part of a text describing an issue in the issues view">
     Your site tries to access an external resource that only allows same-site usage.
@@ -363,6 +377,11 @@
   <message name="IDS_DEVTOOLS_9028784c589c0c809700c7fbc66a5d96" desc="Text in Network Manager">
     Resource interpreted as <ph name="NETWORKREQUEST_RESOURCETYPE___TITLE__">$1s<ex>application</ex></ph> but transferred with MIME type <ph name="NETWORKREQUEST_MIMETYPE">$2s<ex>image</ex></ph>: &quot;<ph name="NETWORKREQUEST_URL__">$3s<ex>https://example.com</ex></ph>&quot;.
   </message>
+  <message name="IDS_DEVTOOLS_9095e3604e6810622a70a4fc13f2b995" desc="Description of a SameSiteCookie issue">
+    A cookie is being set by <ph name="ORIGIN">$1s<ex>a secure</ex></ph> origin from <ph name="DESTINATION">$2s<ex>an insecure</ex></ph> context and is specified with <ph name="LOCKED_1">|SameSite=Strict|</ph> or <ph name="LOCKED_1">|SameSite=Lax|</ph>.
+        Because this cookie is being set across schemes on the same site, it will be blocked in a future version of Chrome.
+        This behavior protects user data from request forgery by network attackers.
+  </message>
   <message name="IDS_DEVTOOLS_9108ae673b7efa9620aec771edc9d4de" desc="Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel">
     setTimeout fired
   </message>
@@ -458,6 +477,9 @@
   <message name="IDS_DEVTOOLS_b600e0facf21b7d4a9a769a60b236ba1" desc="Title of a setting under the Debugger category that can be invoked through the Command Menu">
     Enable JavaScript
   </message>
+  <message name="IDS_DEVTOOLS_b7b1e314614cf326c6e2b6eba1540682" desc="Placeholder">
+    TODO
+  </message>
   <message name="IDS_DEVTOOLS_b9a5a0162829cba9db8b77daa75ec604" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Hide layout shift regions
   </message>
@@ -492,6 +514,9 @@
   <message name="IDS_DEVTOOLS_c432f4e5fdec5760a2f06b38f646168e" desc="Text in Console Model">
     Profile &apos;<ph name="DATA_TITLE">$1s<ex>title</ex></ph>&apos; started.
   </message>
+  <message name="IDS_DEVTOOLS_c468e11819de45943d492f1dcb308a1f" desc="Title for a SameSiteCookie issue">
+    Migrate entirely to https to continue having cookies sent to same-site subresources
+  </message>
   <message name="IDS_DEVTOOLS_c5d59568835d0760e318829b800ee06d" desc="Text in Debugger Model">
     Catch
   </message>
@@ -510,6 +535,9 @@
   </message>
   <message name="IDS_DEVTOOLS_ca4fbb6d710463b20755b9a024d841c1" desc="Error message when failing to load a source map text">
     DevTools failed to load SourceMap: <ph name="ERROR_MESSAGE"><ex>An error occurred</ex>$1s</ph>
+  </message>
+  <message name="IDS_DEVTOOLS_cb9360083c6ea564967888e676bc3e67" desc="Title for a SameSiteCookie">
+    Migrate entirely to https to continue allowing cookies to be set by same-site subresources
   </message>
   <message name="IDS_DEVTOOLS_ccab918ce9f085b521a52ac13f653c0b" desc="Tooltip to explain why a cookie was blocked">
     An unknown error was encountered when trying to send this cookie.
@@ -531,6 +559,11 @@
   </message>
   <message name="IDS_DEVTOOLS_d5746b506b158b2dfedca3c0868bf51a" desc="Title for SameSiteCookie issue">
     Indicate whether a cookie is intended to be set in a cross-site context by specifying its SameSite attribute
+  </message>
+  <message name="IDS_DEVTOOLS_d8e859dc455c59c30b396adf797d6005" desc="Description of a SameSiteCookie issue">
+    A cookie is being sent from <ph name="ORIGIN">$1s<ex>a secure</ex></ph> context to <ph name="DESTINATION">$2s<ex>an insecure</ex></ph> origin and is specified with |SameSite=Strict| or |SameSite=Lax|.
+        Because this cookie is being sent across schemes on the same site, it will not be sent in a future version of Chrome.
+        This behavior protects user data from request forgery by network attackers.
   </message>
   <message name="IDS_DEVTOOLS_dcd9c13c4f8ae68ea7ae92edf9191264" desc="Text in Server Timing">
     Deprecated syntax found. Please use: &lt;name&gt;;dur=&lt;duration&gt;;desc=&lt;description&gt;
@@ -562,6 +595,9 @@
   <message name="IDS_DEVTOOLS_ea9de21c426731035828b2e46709391c" desc="Title for an external link to more information in the issues view">
     Same-Site and Same-Origin
   </message>
+  <message name="IDS_DEVTOOLS_eb5a5c3103571cb6e64dd186a8780f90" desc="Resolution for a SameSiteCookie issue">
+    Resolve this issue by migrating your site entirely to HTTPS. It is also recommended to mark the cookie with the |Secure| attribute if that is not already the case.
+  </message>
   <message name="IDS_DEVTOOLS_eb6ff454fb651bb604121a229e5baec3" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     <ph name="LABEL">$1s<ex>sw.js</ex></ph> #<ph name="VERSION_ID">$2s<ex>117</ex></ph> (<ph name="STATUS">$3s<ex>activated</ex></ph>)
   </message>
@@ -588,6 +624,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f2a47c6809d88e175dade0ef7b16aa13" desc="Text in DOMDebugger Model">
     Mouse
+  </message>
+  <message name="IDS_DEVTOOLS_f43cbd4a1a33a14b459e80598dd28b47" desc="Title for a SameSiteCookie issue">
+    Migrate entirely to HTTPS to continue having cookies sent on same-site requests
   </message>
   <message name="IDS_DEVTOOLS_f45d84159df792235cfe12839b868a26" desc="Title of a setting under the Console category in Settings">
     Temporarily enable deprecated custom formatters
