@@ -16,6 +16,24 @@
       "revId": "5de5c9640afac154af852d101a0cff12f63fff92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76286760_a8ec4e67",
+        "filename": "test/e2e/animations/animations_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-12T10:11:03Z",
+      "side": 1,
+      "message": "Agree with Rob here. We should assert that the actual animation content is correct. The page could arguably still be added to the DOM, even though the content is wrong/not loading.",
+      "parentUuid": "83b1f44d_5cbd791b",
+      "revId": "5de5c9640afac154af852d101a0cff12f63fff92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
