@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75b48245_e46b8ff3",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-12T06:05:50Z",
+      "side": 1,
+      "message": "This is considered a \"cross-module\" import. We import from the \"elements\" module into the \"issues\" model, these work a bit differently.\n\nFor background: https://docs.google.com/presentation/d/1KaTDaKEcLmgv3Wum79gPP9mv9x2fm3kuEgx_b8wLVug/edit\n\nLong story short, this needs to be \"import * as Elements from \u0027../elements/elements.js;\",\nand then it can be used as {Elements.Adorner.Adorner}.\n\nSimilarly, could you fix the MixedContentIssue import below? The import can be removed because SDK is already included, the use site of the {MixedContentIssue} type needs to be updated though.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 50
+      },
+      "revId": "a55c9a4149398f710b32e60f30686775b8fa97b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "581c381c_4d047759",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-12T06:05:50Z",
+      "side": 1,
+      "message": "To fix the closure error, this private member needs to be set in the constructor. Either to null or directly create the span there.",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 31
+      },
+      "revId": "a55c9a4149398f710b32e60f30686775b8fa97b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "801fd50d_33cc4e0f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-12T06:05:50Z",
+      "side": 1,
+      "message": "nit: Is the template literal really needed here? Assigning the variable directly should also work.",
+      "range": {
+        "startLine": 535,
+        "startChar": 46,
+        "endLine": 535,
+        "endChar": 85
+      },
+      "revId": "a55c9a4149398f710b32e60f30686775b8fa97b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
