@@ -34,6 +34,24 @@
       "revId": "5de5c9640afac154af852d101a0cff12f63fff92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5556306_30fb584f",
+        "filename": "test/e2e/animations/animations_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-12T19:28:05Z",
+      "side": 1,
+      "message": "waitForAnimationContent actually makes sure the animation is being displayed in the tool by checking for the SVG element that contains the timeline. This is different than waiting for the panel to load.\nI updated the names used in the helper so the methods are more explicit about what they do.",
+      "parentUuid": "76286760_a8ec4e67",
+      "revId": "5de5c9640afac154af852d101a0cff12f63fff92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
