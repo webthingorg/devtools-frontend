@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00f0f939_8af385bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-12T11:06:11Z",
+      "side": 1,
+      "message": "Tip: for non-albums, you can link straight to the image: https://i.imgur.com/8Ev4eXV.png",
+      "revId": "4309aa71455d9bac5c94c6c00fd5b01adf0e1bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e83366eb_5e204d15",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-12T11:06:11Z",
+      "side": 1,
+      "message": "Why the half pixel?\n\nnit: double space",
+      "range": {
+        "startLine": 191,
+        "startChar": 16,
+        "endLine": 191,
+        "endChar": 19
+      },
+      "revId": "4309aa71455d9bac5c94c6c00fd5b01adf0e1bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
