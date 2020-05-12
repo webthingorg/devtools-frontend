@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60749493_dc7dbf78",
+        "filename": "front_end/platform/set-utilities.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-12T11:14:59Z",
+      "side": 1,
+      "message": "nit: What is the benefit of adding Array\u003cT\u003e? Array\u003cT\u003e implies Iterable\u003cT\u003e",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "09653303dc22ee20897028d84a4a4f8f03453e64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
