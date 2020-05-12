@@ -22,6 +22,30 @@
       "revId": "958b2db5a07463f84ead3fc0fde46277949d7851",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc23457_56eead6d",
+        "filename": "front_end/sdk/HARLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-12T10:00:00Z",
+      "side": 0,
+      "message": "The change below (removing \u0027utf-8\u0027) makes sense given https://encoding.spec.whatwg.org/#interface-textencoder:\n\n\u003e A TextEncoder object offers no label argument as it only supports UTF-8.\n\nThe comment is unrelated to this change though and remains valid.",
+      "parentUuid": "36d9ae6d_e4e9aa0b",
+      "range": {
+        "startLine": 429,
+        "startChar": 5,
+        "endLine": 429,
+        "endChar": 114
+      },
+      "revId": "958b2db5a07463f84ead3fc0fde46277949d7851",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
