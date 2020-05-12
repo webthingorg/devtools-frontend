@@ -16,6 +16,29 @@
       "revId": "379d8bcb874e792de844598232ad632eb9de9ec5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "258bc8e6_7d2c8d25",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-12T10:09:46Z",
+      "side": 1,
+      "message": "Can we add another assertion here that we successfully created the snapshot? E.g. I can imagine that the snapshot creation would fail, but the `waitFor` assertions in the helper would not catch that.\n\nOne option would be to gather some minimal relevant data from the page and assert that it is correct. As an example, see `session-storage_test.ts`.",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "379d8bcb874e792de844598232ad632eb9de9ec5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
