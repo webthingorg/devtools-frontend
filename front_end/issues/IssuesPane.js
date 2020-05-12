@@ -5,6 +5,7 @@
 import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Components from '../components/components.js';
+import * as Elements from '../elements/elements.js';
 import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -527,7 +528,12 @@ class IssueView extends UI.TreeOutline.TreeElement {
     const header = document.createElement('div');
     header.classList.add('header');
     const icon = UI.Icon.Icon.create('largeicon-breaking-change', 'icon');
+    this._aggregatedIssuesCount = document.createElement('span');
+    const countAdorner = Elements.Adorner.Adorner.create(this._aggregatedIssuesCount, 'countWrapper');
+    countAdorner.classList.add('aggregated-issues-count');
+    this._aggregatedIssuesCount.textContent = `${this._issue._aggregatedIssuesCount}`;
     header.appendChild(icon);
+    header.appendChild(countAdorner);
 
     const title = document.createElement('div');
     title.classList.add('title');
@@ -535,6 +541,12 @@ class IssueView extends UI.TreeOutline.TreeElement {
     header.appendChild(title);
 
     this.listItemElement.appendChild(header);
+  }
+
+  _updateAggregatedIssuesCount() {
+    if (this._aggregatedIssuesCount) {
+      this._aggregatedIssuesCount.textContent = `${this._issue._aggregatedIssuesCount}`;
+    }
   }
 
   updateAffectedResourceVisibility() {
@@ -595,6 +607,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedMixedContentView.update();
     this._affectedSourcesView.update();
     this.updateAffectedResourceVisibility();
+    this._updateAggregatedIssuesCount();
   }
 
   /**
