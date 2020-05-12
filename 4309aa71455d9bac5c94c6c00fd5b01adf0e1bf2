@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a8266d07_2277f6be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-12T11:25:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00f0f939_8af385bd",
+      "revId": "4309aa71455d9bac5c94c6c00fd5b01adf0e1bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e83366eb_5e204d15",
         "filename": "front_end/text_editor/cmdevtools.css",
         "patchSetId": 4
@@ -39,6 +57,30 @@
       "revId": "4309aa71455d9bac5c94c6c00fd5b01adf0e1bf2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c6f32d1_fcf6ac7a",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-12T11:25:35Z",
+      "side": 1,
+      "message": "I used a value of \u00271px\u0027 first, but when zooming in, breakpoints in the gutter were misaligned with inline breakpoints. \u00271.5px\u0027 improves the alignment.",
+      "parentUuid": "e83366eb_5e204d15",
+      "range": {
+        "startLine": 191,
+        "startChar": 16,
+        "endLine": 191,
+        "endChar": 19
+      },
+      "revId": "4309aa71455d9bac5c94c6c00fd5b01adf0e1bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
