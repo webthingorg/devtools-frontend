@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c4ba3a2b_44312eff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-12T21:53:35Z",
+      "side": 1,
+      "message": "I\u0027m confused. The text says flag is off by default but the image shows \u0027Surface Duo\u0027 in the dropdown",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "dd607b375594f6aac3877ef473420e9138efea5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e41a77f1_ed2f662c",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 10
@@ -13,6 +36,30 @@
       "writtenOn": "2020-05-11T21:19:42Z",
       "side": 1,
       "message": "nit: we should annotate this parameter with a comment: showHingForDualScreen( /* paramName */ true, orientation.hinge).\n\nSame below with the false call",
+      "range": {
+        "startLine": 816,
+        "startChar": 42,
+        "endLine": 816,
+        "endChar": 46
+      },
+      "revId": "dd607b375594f6aac3877ef473420e9138efea5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0cfa021_d79ade12",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-12T21:53:35Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "e41a77f1_ed2f662c",
       "range": {
         "startLine": 816,
         "startChar": 42,
