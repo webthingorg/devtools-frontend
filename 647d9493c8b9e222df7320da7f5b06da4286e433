@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1103f213_825cd43c",
+        "filename": "test/e2e/helpers/performance-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-12T21:33:49Z",
+      "side": 1,
+      "message": "No need to await for the selector first then call click. You can just call click(record_button_selector) directly since the inner implementation does the await for you.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "647d9493c8b9e222df7320da7f5b06da4286e433",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f3f399a_a81d6a88",
+        "filename": "test/e2e/helpers/performance-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-12T21:33:49Z",
+      "side": 1,
+      "message": "For all these aria-label selectors you should add the \" marks around the value, to keep consistency with other tests.",
+      "range": {
+        "startLine": 25,
+        "startChar": 31,
+        "endLine": 25,
+        "endChar": 42
+      },
+      "revId": "647d9493c8b9e222df7320da7f5b06da4286e433",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ee82e81_dc8e4688",
+        "filename": "test/e2e/helpers/performance-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-12T21:33:49Z",
+      "side": 1,
+      "message": "extract reused selectors to a const",
+      "range": {
+        "startLine": 30,
+        "startChar": 31,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "647d9493c8b9e222df7320da7f5b06da4286e433",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
