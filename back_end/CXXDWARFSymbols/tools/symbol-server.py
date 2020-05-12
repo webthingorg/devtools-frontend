@@ -17,9 +17,6 @@ import time
 from threading import Timer
 import urllib
 
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
-
 parser = argparse.ArgumentParser()
 parser.add_argument('-port', default=8888, type=int)
 parser.add_argument('tool', default='/abs/path/to/DWARFSymbolServer')
@@ -53,19 +50,6 @@ def restartLC():
         SymbolServer, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     StdIn = LC.stdin
     StdOut = LC.stdout
-
-
-class ToolWatchdog(FileSystemEventHandler):
-    def __init__(self):
-        self.timer = None
-
-    def on_any_event(self, event):
-        if event.src_path == options.tool and os.access(
-                event.src_path, os.X_OK):
-            if self.timer:
-                self.timer.cancel()
-            self.timer = Timer(2, restartLC)
-            self.timer.start()
 
 
 def DownloadResources(Input):
@@ -146,10 +130,29 @@ class SymbolServerServerHandler(http.server.SimpleHTTPRequestHandler):
         http.server.SimpleHTTPRequestHandler.end_headers(self)
 
 
-Tool = Observer()
-Tool.schedule(
-    ToolWatchdog(), path=os.path.dirname(options.tool), recursive=False)
-Tool.start()
+try:
+    from watchdog.observers import Observer
+    from watchdog.events import FileSystemEventHandler
+
+    class ToolWatchdog(FileSystemEventHandler):
+        def __init__(self):
+            self.timer = None
+
+        def on_any_event(self, event):
+            if event.src_path == options.tool and os.access(
+                    event.src_path, os.X_OK):
+                if self.timer:
+                    self.timer.cancel()
+                self.timer = Timer(2, restartLC)
+                self.timer.start()
+
+    Tool = Observer()
+    Tool.schedule(ToolWatchdog(),
+                  path=os.path.dirname(options.tool),
+                  recursive=False)
+    Tool.start()
+except:
+    pass
 
 while True:
     try:
