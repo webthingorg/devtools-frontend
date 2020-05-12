@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8a93d76_ce64bd58",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-12T10:17:52Z",
+      "side": 1,
+      "message": "this type was incorrect before. Typing the new `addAll` utility exposed this.",
+      "range": {
+        "startLine": 916,
+        "startChar": 5,
+        "endLine": 916,
+        "endChar": 79
+      },
+      "revId": "4283d5b6c0098e5ef1b20bd73c85ae851f8b7489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
