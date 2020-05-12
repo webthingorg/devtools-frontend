@@ -517,7 +517,13 @@ export class StylesSidebarPane extends ElementsSidebarPane {
   continueEditingElement(sectionIndex, propertyIndex) {
     const section = this.allSections()[sectionIndex];
     if (section) {
-      section.propertiesTreeOutline.rootElement().childAt(propertyIndex).startEditing();
+      const element = section.closestEditableProperty(propertyIndex);
+      if (!element) {
+        section.element.focus();
+        UI.UIUtils.markAsFocusedByKeyboard(section.element);
+        return;
+      }
+      element.startEditing();
     }
   }
 
@@ -2094,6 +2100,19 @@ export class StylePropertiesSection {
     // Mark the selectors in group if necessary.
     // This is overridden by BlankStylePropertiesSection.
     this._markSelectorMatches();
+  }
+
+  /**
+   * Either the last property, or property at index, if such a property exists.
+   * Otherwise, null.
+   * @param {number} propertyIndex
+   * @returns {?UI.TreeOutline.TreeElement}
+   */
+  closestEditableProperty(propertyIndex) {
+    if (propertyIndex >= this.propertiesTreeOutline.rootElement().childCount()) {
+      return this.propertiesTreeOutline.rootElement().lastChild();
+    }
+    return this.propertiesTreeOutline.rootElement().childAt(propertyIndex);
   }
 }
 
