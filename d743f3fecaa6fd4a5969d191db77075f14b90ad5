@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5644f9fd_b0d2efba",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-05-12T14:19:25Z",
+      "side": 1,
+      "message": "@aerotwist: This is the change I was talking about",
+      "revId": "d743f3fecaa6fd4a5969d191db77075f14b90ad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
