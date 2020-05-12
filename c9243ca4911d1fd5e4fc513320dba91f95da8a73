@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3e8a903_784063a0",
+        "filename": "front_end/sdk/HARLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-12T10:09:44Z",
+      "side": 1,
+      "message": "Huh, these seem to be indented by a single space. I guess `git cl format --js` does not fix this for us since it\u0027s technically a comment...",
+      "revId": "c9243ca4911d1fd5e4fc513320dba91f95da8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
