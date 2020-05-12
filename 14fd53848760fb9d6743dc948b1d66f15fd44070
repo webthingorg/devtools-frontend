@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "66ac48c8_d51c9060",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-12T07:10:20Z",
+      "side": 1,
+      "message": "Could you maybe add a screenshot of how these right-aligned tables look like? Is the look still consistent with what we do for other tables?",
+      "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3f9aac6_4ea465f1",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 7
@@ -42,6 +59,23 @@
         "endLine": 91,
         "endChar": 5
       },
+      "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7c4ea5b_2f7f32ec",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-12T07:10:20Z",
+      "side": 1,
+      "message": "nit: I think this should end with a \u0027.\u0027 too.",
       "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
