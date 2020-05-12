@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2017 Google Inc. All Rights Reserved.
+ * Copyright 2017 The Lighthouse Authors. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -128,7 +128,7 @@
   --scorescale-width: 18px;
   --section-padding-vertical: 12px;
   --snippet-background-color: var(--color-gray-50);
-  --snippet-color: var(--color-gray-800);
+  --snippet-color: #0938C2;
   --sparkline-height: 5px;
   --stackpack-padding-horizontal: 10px;
   --sticky-header-background-color: var(--report-background-color);
@@ -167,6 +167,7 @@
     /* Pallete */
     --color-gray-200: var(--color-gray-800);
     --color-gray-400: var(--color-gray-600);
+    --color-gray-700: var(--color-gray-400);
     --color-gray-50: #757575;
     --color-gray-600: var(--color-gray-500);
     --color-green-700: var(--color-green);
@@ -186,6 +187,7 @@
     --report-text-color-secondary: var(--color-gray-400);
     --report-text-color: var(--color-gray-100);
     --topbar-background-color: var(--color-gray);
+    --snippet-color: var(--color-cyan-500);
 
     /* SVGs */
     --plugin-icon-url: var(--plugin-icon-url-dark);
@@ -312,6 +314,10 @@
   display: none !important;
 }
 
+.lh-root pre {
+  margin: 0;
+}
+
 .lh-root details > summary {
   cursor: pointer;
 }
@@ -340,7 +346,8 @@
 .lh-audit-group a,
 .lh-category-header__description a,
 .lh-audit__description a,
-.lh-footer a {
+.lh-footer a,
+.lh-table-column--link a {
   color: var(--color-informative);
 }
 
@@ -407,9 +414,9 @@
 /* Node */
 .lh-node__snippet {
   font-family: var(--report-font-family-monospace);
-  color: var(--color-teal-600);
-  font-size: 12px;
-  line-height: 1.5em;
+  color: var(--snippet-color);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 /* Score */
@@ -490,6 +497,11 @@
 
 .lh-audit__title-and-text {
   flex: 1;
+}
+
+.lh-audit__title-and-text code {
+  color: var(--snippet-color);
+  font-size: calc(var(--report-font-size) - 1); /* because monospace is big */
 }
 
 /* Prepend display text with em dash separator. But not in Opportunities. */
@@ -859,8 +871,9 @@
 }
 
 /* Style the "over budget" columns red. */
-.lh-audit-group--budgets .lh-table tbody tr td:nth-child(4),
-.lh-audit-group--budgets .lh-table tbody tr td:nth-child(5){
+.lh-audit-group--budgets #performance-budget tbody tr td:nth-child(4),
+.lh-audit-group--budgets #performance-budget tbody tr td:nth-child(5),
+.lh-audit-group--budgets #timing-budget tbody tr td:nth-child(3) {
   color: var(--color-red-700);
 }
 
@@ -871,6 +884,7 @@
 
 .lh-audit-group--budgets .lh-table {
   width: 100%;
+  margin: 16px 0px 16px 0px;
 }
 
 .lh-audit-group--pwa-fast-reliable .lh-audit-group__header::before {
@@ -988,13 +1002,14 @@
   white-space: normal;
   margin-top: 0;
   font-size: 85%;
+  font-size: calc(var(--report-font-size) - 1);
 }
 
 .lh-warnings {
   --item-margin: calc(var(--report-line-height) / 6);
   color: var(--color-average);
   margin: var(--audit-padding-vertical) 0;
-  padding: calc(var(--audit-padding-vertical) / 2) var(--audit-padding-vertical);
+  padding: calc(var(--audit-padding-vertical) / 2) calc(var(--audit-description-padding-left));
 }
 .lh-warnings span {
   font-weight: bold;
@@ -1064,13 +1079,12 @@
 .lh-gauge-base {
     opacity: 0.1;
     stroke: var(--circle-background);
-    stroke-width: var(--circle-border-width);
 }
 
 .lh-gauge-arc {
     fill: none;
     stroke: var(--circle-color);
-    stroke-width: var(--circle-border-width);
+    transform-origin: 50% 50%;
     animation: load-gauge var(--transition-length) ease forwards;
     animation-delay: 250ms;
 }
@@ -1134,7 +1148,6 @@
   text-decoration: none;
   padding: var(--score-container-padding);
 
-  --circle-border-width: 8;
   --transition-length: 1s;
 
   /* Contain the layout style paint & layers during animation*/
@@ -1333,8 +1346,13 @@
   padding-right: 0;
 }
 
+.lh-table tr {
+  vertical-align: baseline;
+}
+
 /* Looks unnecessary, but mostly for keeping the <th>s left-aligned */
 .lh-table-column--text,
+.lh-table-column--source-location,
 .lh-table-column--url,
 /* .lh-table-column--thumbnail, */
 /* .lh-table-column--empty,*/
@@ -1360,6 +1378,10 @@
 
 .lh-table-column--url {
   min-width: 250px;
+}
+
+.lh-table-column--text {
+  min-width: 80px;
 }
 
 /* Keep columns narrow if they follow the URL column */
@@ -1402,6 +1424,14 @@
 
 .lh-text__url > a:hover {
   text-decoration: underline dotted #999;
+}
+
+.lh-sub-rows:not(:first-child) .lh-sub-row {
+  margin-left: 20px;
+  color: var(--color-gray-700);
+}
+.lh-sub-row {
+  margin-bottom: 0;
 }
 
 /* Chevron
@@ -1507,3 +1537,5 @@
   75% { opacity: 1; }
   100% { opacity: 1;  filter: drop-shadow(1px 0px 1px #aaa) drop-shadow(0px 2px 4px hsla(206, 6%, 25%, 0.15)); pointer-events: auto; }
 }
+
+/*# sourceURL=report-styles.css */
