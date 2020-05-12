@@ -1,0 +1,40 @@
+import("//third_party/blink/public/public_features.gni")
+import("../../third_party/typescript/typescript.gni")
+
+resources_out_dir = "$root_gen_dir/inspector_overlay"
+
+action("build_inspector_overlay") {
+  script = "../../scripts/build/build_inspector_overlay.py"
+
+  inputs = [
+    "./common.css",
+    "./common.js",
+    "./tool_highlight_impl.js",
+    "./tool_highlight.js",
+  ]
+
+  outputs = [
+    "$resources_out_dir/common.css",
+    "$resources_out_dir/tool_highlight.js",
+    "$resources_out_dir/inspector_overlay_resources.grd",
+  ]
+
+  args = [
+    "common.css",
+    "tool_highlight.js",
+    "--input_path",
+    rebase_path(".", root_build_dir),
+    "--output_path",
+    rebase_path(resources_out_dir, root_build_dir),
+  ]
+}
+
+ts_library("inspector_overlay") {
+  sources = [
+    "common.js",
+    "tool_highlight.js",
+    "tool_highlight_impl.js",
+  ]
+
+  deps = []
+}
