@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c297c89f_57026762",
+        "filename": "front_end/sdk/ScreenCaptureModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-12T14:37:18Z",
+      "side": 0,
+      "message": "I am absolutely amazed how this function was every typed correctly. Thanks for this cleanup.",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "71ca229a48ab2a6819c7b8a8a1ec9620c7ce1954",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
