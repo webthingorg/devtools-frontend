@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "01b1e39f_80648085",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-12T08:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8878686_2eb56935",
+      "range": {
+        "startLine": 220,
+        "startChar": 23,
+        "endLine": 220,
+        "endChar": 38
+      },
+      "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66ac48c8_d51c9060",
         "filename": "front_end/issues/issuesTree.css",
         "patchSetId": 7
@@ -39,6 +63,24 @@
       "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b6e060a_88f4c1f6",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-12T08:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66ac48c8_d51c9060",
+      "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "57087c7f_f715db34",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-12T08:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3f9aac6_4ea465f1",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 5
+      },
+      "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7c4ea5b_2f7f32ec",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 7
@@ -76,6 +142,24 @@
       "writtenOn": "2020-05-12T07:10:20Z",
       "side": 1,
       "message": "nit: I think this should end with a \u0027.\u0027 too.",
+      "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c89b9a8_ce9301fe",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-12T08:19:12Z",
+      "side": 1,
+      "message": "I am unsure, I think the style advice was to not use a dot in enumerations that had only a single sentence.",
+      "parentUuid": "b7c4ea5b_2f7f32ec",
       "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -102,6 +186,30 @@
       "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdc8a40d_09186a5a",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-12T08:19:12Z",
+      "side": 1,
+      "message": "Agreed, we need a presubmit check for this. Happy to do it for the ones I introduce.",
+      "parentUuid": "ac0289e1_b4b33a46",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "14fd53848760fb9d6743dc948b1d66f15fd44070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
