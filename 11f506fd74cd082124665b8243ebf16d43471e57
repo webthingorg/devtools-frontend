@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "146c8544_e657a28d",
+        "filename": "front_end/platform/date-utilities.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-12T05:49:41Z",
+      "side": 1,
+      "message": "whats the reasoning behind not typing this as {!Date} and let the type checker do the null checks?",
+      "range": {
+        "startLine": 6,
+        "startChar": 11,
+        "endLine": 6,
+        "endChar": 18
+      },
+      "revId": "11f506fd74cd082124665b8243ebf16d43471e57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
