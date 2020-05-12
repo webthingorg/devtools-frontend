@@ -22,6 +22,30 @@
       "revId": "7a960fb8ffd08719e4692a3ed88f6f800084c4b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66961773_4b159539",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-12T07:09:29Z",
+      "side": 1,
+      "message": "Not sure. The updateCounts is run as part of the constructor, so once the constructor finishes, we are in a sane state. Assuming we only attach the HTML after the IssuesView is created, we should be fine. But I know too little of how DevTools rendering works to say for certain. I didn\u0027t notice any flickering while testing though.",
+      "parentUuid": "4947fd40_03263058",
+      "range": {
+        "startLine": 628,
+        "startChar": 36,
+        "endLine": 628,
+        "endChar": 60
+      },
+      "revId": "7a960fb8ffd08719e4692a3ed88f6f800084c4b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
