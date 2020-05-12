@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab22596_f28d3091",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-05-12T20:29:01Z",
+      "side": 1,
+      "message": "Where would a unit test for this go?",
+      "revId": "33a9460116ec68f5aa5ca03b8b99538031ef818c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
