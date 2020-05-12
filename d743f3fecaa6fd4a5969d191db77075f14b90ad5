@@ -34,6 +34,24 @@
       "revId": "d743f3fecaa6fd4a5969d191db77075f14b90ad5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aac40c1_6fb63892",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-12T14:41:53Z",
+      "side": 1,
+      "message": "Oh Alex already took care of this: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2196385",
+      "parentUuid": "a7bc9d93_26cec5c9",
+      "revId": "d743f3fecaa6fd4a5969d191db77075f14b90ad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
