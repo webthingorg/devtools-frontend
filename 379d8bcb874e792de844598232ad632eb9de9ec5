@@ -39,6 +39,30 @@
       "revId": "379d8bcb874e792de844598232ad632eb9de9ec5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "806f2de6_76707bde",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-12T19:02:16Z",
+      "side": 1,
+      "message": "Sounds good, I added a new check to verify the grid section to the right has rows",
+      "parentUuid": "258bc8e6_7d2c8d25",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "379d8bcb874e792de844598232ad632eb9de9ec5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
