@@ -124,6 +124,9 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
 
     return Promise.all(locations.map(async ([breakpointLocation]) => {
       const content = await breakpointLocation.uiLocation.uiSourceCode.requestContent();
+      if (content.content === null) {
+        return '';
+      }
       if (contentToTextMap.has(content.content)) {
         return contentToTextMap.get(content.content);
       }
