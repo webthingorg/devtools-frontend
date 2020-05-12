@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec996e7b_2119e599",
+        "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-12T15:29:35Z",
+      "side": 1,
+      "message": "Turns out there is no CSS for this class but I\u0027m afraid to remove it",
+      "range": {
+        "startLine": 313,
+        "startChar": 30,
+        "endLine": 313,
+        "endChar": 55
+      },
+      "revId": "c6865dc3f92ec78057c1320f6bfd631fdbca02dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
