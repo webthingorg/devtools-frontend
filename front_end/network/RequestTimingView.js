@@ -78,6 +78,8 @@ export class RequestTimingView extends UI.Widget.VBox {
         return Common.UIString.UIString('Request to ServiceWorker');
       case RequestTimeRangeNames.ServiceWorkerPreparation:
         return Common.UIString.UIString('ServiceWorker Preparation');
+      case RequestTimeRangeNames.ServiceWorkerRespondWith:
+        return Common.UIString.UIString('ServiceWorker respondWith');
       case RequestTimeRangeNames.SSL:
         return Common.UIString.UIString('SSL');
       case RequestTimeRangeNames.Total:
@@ -163,6 +165,8 @@ export class RequestTimingView extends UI.Widget.VBox {
     if (request.fetchedViaServiceWorker) {
       addOffsetRange(RequestTimeRangeNames.Blocking, 0, timing.workerStart);
       addOffsetRange(RequestTimeRangeNames.ServiceWorkerPreparation, timing.workerStart, timing.workerReady);
+      addOffsetRange(
+          RequestTimeRangeNames.ServiceWorkerRespondWith, timing.workerFetchStart, timing.workerRespondWithSettled);
       addOffsetRange(RequestTimeRangeNames.ServiceWorker, timing.workerReady, timing.sendEnd);
       addOffsetRange(RequestTimeRangeNames.Waiting, timing.sendEnd, responseReceived);
     } else if (!timing.pushStart) {
@@ -408,6 +412,8 @@ export const RequestTimeRangeNames = {
   Sending: 'sending',
   ServiceWorker: 'serviceworker',
   ServiceWorkerPreparation: 'serviceworker-preparation',
+  ServiceWorkerRespondWith: 'serviceworker-respondwith',
+  ServiceWorkerFetch: 'serviceworker-fetch',
   SSL: 'ssl',
   Total: 'total',
   Waiting: 'waiting'
