@@ -359,9 +359,21 @@ export class NetworkDispatcher {
       networkRequest.setFromPrefetchCache();
     }
 
+    if (response.cacheStorageCacheName) {
+      networkRequest.responseCacheStorageCacheName = response.cacheStorageCacheName;
+    }
+
+    if (response.responseTime) {
+      networkRequest.setResponseRetrievalTime(response.responseTime);
+    }
+
     networkRequest.timing = response.timing;
 
     networkRequest.protocol = response.protocol || '';
+
+    if (response.serviceWorkerResponseSource) {
+      networkRequest.setServiceWorkerResponseSoure(response.serviceWorkerResponseSource);
+    }
 
     networkRequest.setSecurityState(response.securityState);
 
@@ -457,7 +469,8 @@ export class NetworkDispatcher {
 
     this._updateNetworkRequestWithResponse(networkRequest, info.outerResponse);
     this._updateNetworkRequest(networkRequest);
-    this._manager.dispatchEventToListeners(Events.ResponseReceived, networkRequest);
+    this._manager.dispatchEventToListeners(
+        Events.ResponseReceived, {request: networkRequest, response: info.outerResponse});
   }
 
   /**
@@ -503,7 +516,7 @@ export class NetworkDispatcher {
 
     this._getExtraInfoBuilder(requestId).addRequest(networkRequest);
 
-    this._startNetworkRequest(networkRequest);
+    this._startNetworkRequest(networkRequest, request);
   }
 
   /**
@@ -567,7 +580,7 @@ export class NetworkDispatcher {
     this._updateNetworkRequestWithResponse(networkRequest, response);
 
     this._updateNetworkRequest(networkRequest);
-    this._manager.dispatchEventToListeners(Events.ResponseReceived, networkRequest);
+    this._manager.dispatchEventToListeners(Events.ResponseReceived, {request: networkRequest, response});
   }
 
   /**
@@ -658,7 +671,7 @@ export class NetworkDispatcher {
     const networkRequest = new NetworkRequest(requestId, requestURL, '', '', '', initiator || null);
     requestToManagerMap.set(networkRequest, this._manager);
     networkRequest.setResourceType(Common.ResourceType.resourceTypes.WebSocket);
-    this._startNetworkRequest(networkRequest);
+    this._startNetworkRequest(networkRequest, null);
   }
 
   /**
@@ -938,8 +951,9 @@ export class NetworkDispatcher {
 
   /**
    * @param {!NetworkRequest} networkRequest
+   * @param {?Protocol.Network.Request} originalRequest
    */
-  _startNetworkRequest(networkRequest) {
+  _startNetworkRequest(networkRequest, originalRequest) {
     this._inflightRequestsById.set(networkRequest.requestId(), networkRequest);
     this._inflightRequestsByURL[networkRequest.url()] = networkRequest;
     // The following relies on the fact that loaderIds and requestIds are
@@ -949,7 +963,7 @@ export class NetworkDispatcher {
           networkRequest.requestId(), networkRequest);
     }
 
-    this._manager.dispatchEventToListeners(Events.RequestStarted, networkRequest);
+    this._manager.dispatchEventToListeners(Events.RequestStarted, {request: networkRequest, originalRequest});
   }
 
   /**
