@@ -22,6 +22,8 @@ config.gypi
 npm-debug.log
 /scripts/protocol_typescript/*.js
 
+/back_end/cmake
+/back_end/protoc
 /build
 /buildtools
 /out
