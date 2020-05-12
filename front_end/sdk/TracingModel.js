@@ -575,7 +575,7 @@ export class Event {
     this.startTime = startTime;
     /** @type {!Thread} */
     this.thread = thread;
-    /** @type {!Object} */
+    /** @type {!any} */
     this.args = {};
 
     /** @type {number} */
