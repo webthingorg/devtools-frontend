@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38b95040_45c7c18f",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-05-12T23:57:09Z",
+      "side": 1,
+      "message": "wut",
+      "revId": "09f5ffe72216fc6ecf900288e2a5b31bfa9bfee4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
