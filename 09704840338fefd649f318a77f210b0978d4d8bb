@@ -16,6 +16,24 @@
       "revId": "09704840338fefd649f318a77f210b0978d4d8bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8c8b42d_e97177a5",
+        "filename": "back_end/CXXDWARFSymbols/tools/symbol-server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-12T11:55:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f2c0de0_2919bc31",
+      "revId": "09704840338fefd649f318a77f210b0978d4d8bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
