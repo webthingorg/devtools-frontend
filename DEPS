@@ -22,6 +22,12 @@ vars = {
   'clang_format_url': 'https://chromium.googlesource.com/chromium/llvm-project/cfe/tools/clang-format.git',
   'clang_format_revision': '96636aa0e9f047f17447f2d45a094d0b59ed7917',
 
+  'clang_url': 'https://chromium.googlesource.com/chromium/src/tools/clang.git',
+  'clang_revision': '116e3ee70d1877ee7d92e0d8bfdf9420b773cd43',
+
+  'cmake_version': 'version:3.16.1',
+  'protoc_version': 'protobuf_version:v3.11.4',
+
   # GN CIPD package version.
   'gn_version': 'git_revision:5ed3c9cc67b090d5e311e4bd2aba072173e82db9',
 
@@ -84,6 +90,30 @@ deps = {
 
   'devtools-frontend/back_end/CXXDWARFSymbols/third_party/llvm': {
     'url': Var('llvm_url') + '@' + Var('llvm_revision'),
+    'condition': 'build_symbol_server'
+  },
+  'devtools-frontend/back_end/clang': {
+    'url': Var('clang_url') + '@' + Var('clang_revision'),
+    'condition': 'build_symbol_server'
+  },
+  'devtools-frontend/back_end/cmake': {
+    'packages': [
+      {
+        'package': 'infra/cmake/${{platform}}',
+        'version': Var('cmake_version')
+      }
+    ],
+    'dep_type': 'cipd',
+    'condition': 'build_symbol_server'
+  },
+  'devtools-frontend/back_end/protoc': {
+    'packages': [
+      {
+        'package': 'infra/tools/protoc/${{platform}}',
+        'version':  Var('protoc_version')
+      }
+    ],
+    'dep_type': 'cipd',
     'condition': 'build_symbol_server'
   }
 }
