@@ -16,6 +16,24 @@
       "revId": "347d6122a28212bc28b2b55f62cdc09bd236d101",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94b99a19_de1222f0",
+        "filename": "back_end/CXXDWARFSymbols/src/Modules.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-12T12:48:10Z",
+      "side": 1,
+      "message": "No, `name` is fully qualified here. FindGlobalVariables however only compares against the base name.",
+      "parentUuid": "33b0e7e5_2bcdcbe0",
+      "revId": "347d6122a28212bc28b2b55f62cdc09bd236d101",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
