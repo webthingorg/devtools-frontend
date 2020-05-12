@@ -106,6 +106,7 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
     styleMap.set(types.ServiceWorker, {fillStyle: 'orange'});
     styleMap.set(types.ServiceWorkerPreparation, {fillStyle: 'orange'});
     styleMap.set(types.ServiceWorkerRespondWith, {fillStyle: '#A8A3FF'});
+    styleMap.set(types.ServiceWorkerFetch, {fillStyle: '#D879D2'});
     return styleMap;
   }
 
