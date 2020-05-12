@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a53faddb_6901ef1a",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-12T06:06:47Z",
+      "side": 1,
+      "message": "You can run closure locally by invoking \"npm run check-type-closure\" in the DevTools frontend.",
+      "parentUuid": "581c381c_4d047759",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 31
+      },
+      "revId": "a55c9a4149398f710b32e60f30686775b8fa97b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "801fd50d_33cc4e0f",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 3
