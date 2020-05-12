@@ -183,7 +183,7 @@ export class Script {
       return {content: this._source, isEncoded: false};
     }
     if (!this.scriptId) {
-      return {error: ls`Script removed or deleted.`, isEncoded: false};
+      return {content: null, error: ls`Script removed or deleted.`, isEncoded: false};
     }
 
     try {
@@ -221,7 +221,7 @@ export class Script {
       }
       return {content: this._source, isEncoded: false};
     } catch (err) {
-      return {error: ls`Unable to fetch script source.`, isEncoded: false};
+      return {content: null, error: ls`Unable to fetch script source.`, isEncoded: false};
     }
   }
 
