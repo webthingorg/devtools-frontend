@@ -37,7 +37,8 @@ export class AppManifestView extends UI.Widget.VBox {
     this._identitySection = this._reportView.appendSection(Common.UIString.UIString('Identity'));
 
     this._presentationSection = this._reportView.appendSection(Common.UIString.UIString('Presentation'));
-    this._iconsSection = this._reportView.appendSection(Common.UIString.UIString('Icons'), 'report-section-icons');
+    this._iconsSection = this._reportView.appendSection(Common.UIString.UIString('Icons'));
+    this._shortcutsSection = this._reportView.appendSection(Common.UIString.UIString('Shortcuts'));
 
     this._nameField = this._identitySection.appendField(Common.UIString.UIString('Name'));
     this._shortNameField = this._identitySection.appendField(Common.UIString.UIString('Short name'));
@@ -182,6 +183,9 @@ export class AppManifestView extends UI.Widget.VBox {
     const icons = parsedManifest['icons'] || [];
     this._iconsSection.clearContent();
 
+    const shortcuts = parsedManifest['shortcuts'] || [];
+    this._shortcutsSection.clearContent();
+
     const imageErrors = [];
 
     const setIconMaskedCheckbox =
@@ -240,6 +244,55 @@ export class AppManifestView extends UI.Widget.VBox {
         }
       }
       field.appendChild(wrapper);
+    }
+
+    let shortcutIndex = 1;
+    for (const shortcut of shortcuts) {
+      this._shortcutsSection.appendFlexedField(`Name #${shortcutIndex}`, shortcut.name);
+      if (shortcut.short_name) {
+        this._shortcutsSection.appendFlexedField(`Short name #${shortcutIndex}`, shortcut.short_name);
+      }
+      if (shortcut.description) {
+        this._shortcutsSection.appendFlexedField(`Description #${shortcutIndex}`, shortcut.description);
+      }
+      const urlField = this._shortcutsSection.appendFlexedField(`URL #${shortcutIndex}`);
+      const shortcutUrl = /** @type {string} */ (Common.ParsedURL.ParsedURL.completeURL(url, shortcut.url));
+      const link = Components.Linkifier.Linkifier.linkifyURL(shortcutUrl, {text: shortcut.url});
+      link.tabIndex = 0;
+      urlField.appendChild(link);
+
+      for (const icon of shortcut.icons) {
+        const iconUrl = Common.ParsedURL.ParsedURL.completeURL(url, icon['src']);
+        const result = await this._loadImage(iconUrl);
+        if (!result) {
+          imageErrors.push(ls`Shortcut icon ${iconUrl} failed to load`);
+          continue;
+        }
+        const {wrapper, image} = result;
+        const sizes = icon['sizes'] ? icon['sizes'].replace('x', '×') + 'px' : '';
+        const title = sizes + '\n' + (icon['type'] || '');
+        const field = this._shortcutsSection.appendFlexedField(`${title} #${shortcutIndex}`);
+        if (!icon.sizes) {
+          imageErrors.push(ls`Shortcut icon ${iconUrl} does not specify its size in the manifest`);
+        } else if (!/^\d+x\d+$/.test(icon.sizes)) {
+          imageErrors.push(ls`Shortcut icon ${iconUrl} should specify its size as \`{width}x{height}\``);
+        } else {
+          const [width, height] = icon.sizes.split('x').map(x => parseInt(x, 10));
+          if (image.naturalWidth !== width && image.naturalHeight !== height) {
+            imageErrors.push(ls`Actual size (${image.naturalWidth}×${image.naturalHeight})px of shortcut icon ${
+                iconUrl} does not match specified size (${width}×${height}px)`);
+          } else if (image.naturalWidth !== width) {
+            imageErrors.push(
+                ls
+                `Actual width (${image.naturalWidth}px) of shortcut icon ${iconUrl} does not match specified width (${width}px)`);
+          } else if (image.naturalHeight !== height) {
+            imageErrors.push(ls`Actual height (${image.naturalHeight}px) of shortcut icon ${
+                iconUrl} does not match specified height (${height}px)`);
+          }
+        }
+        field.appendChild(wrapper);
+      }
+      shortcutIndex++;
     }
 
     this._installabilitySection.clearContent();
