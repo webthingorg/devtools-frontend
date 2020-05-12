@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36d9ae6d_e4e9aa0b",
+        "filename": "front_end/sdk/HARLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-12T09:53:52Z",
+      "side": 0,
+      "message": "Should we remove this TODO? Also adding Mathias as reviewer as he knows best what this code does.",
+      "range": {
+        "startLine": 429,
+        "startChar": 5,
+        "endLine": 429,
+        "endChar": 114
+      },
+      "revId": "958b2db5a07463f84ead3fc0fde46277949d7851",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
