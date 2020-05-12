@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 
 import {Attributes, Cookie} from './Cookie.js';  // eslint-disable-line no-unused-vars
@@ -47,8 +44,8 @@ export class CookieModel extends SDKModel {
    * @return {!Promise<!Array<!Cookie>>}
    */
   async getCookies(urls) {
-    const normalCookies = await this.target().networkAgent().getCookies(urls).then(
-        cookies => (cookies || []).map(cookie => Cookie.fromProtocolCookie(cookie)));
+    const normalCookies = await this.target().networkAgent().invoke_getCookies({urls}).then(
+        ({cookies}) => (cookies || []).map(cookie => Cookie.fromProtocolCookie(cookie)));
 
     return normalCookies.concat(Array.from(this._blockedCookies.values()));
   }
@@ -80,13 +77,22 @@ export class CookieModel extends SDKModel {
     }
     let expires = undefined;
     if (cookie.expires()) {
-      expires = Math.floor(Date.parse(cookie.expires()) / 1000);
+      expires = Math.floor(Date.parse(`${cookie.expires()}`) / 1000);
     }
     return this.target()
         .networkAgent()
-        .setCookie(
-            cookie.name(), cookie.value(), cookie.url() || undefined, domain, cookie.path(), cookie.secure(),
-            cookie.httpOnly(), cookie.sameSite(), expires, cookie.priority())
+        .invoke_setCookie({
+          name: cookie.name(),
+          value: cookie.value(),
+          url: cookie.url() || undefined,
+          domain,
+          path: cookie.path(),
+          secure: cookie.secure(),
+          httpOnly: cookie.httpOnly(),
+          sameSite: cookie.sameSite(),
+          expires,
+          priority: cookie.priority()
+        })
         .then(success => !!success);
   }
 
@@ -128,8 +134,9 @@ export class CookieModel extends SDKModel {
     this._blockedCookies.clear();
     this._cookieToBlockedReasons.clear();
     Promise
-        .all(
-            cookies.map(cookie => networkAgent.deleteCookies(cookie.name(), undefined, cookie.domain(), cookie.path())))
+        .all(cookies.map(
+            cookie => networkAgent.invoke_deleteCookies(
+                {name: cookie.name(), url: undefined, domain: cookie.domain(), path: cookie.path()})))
         .then(callback || function() {});
   }
 }
@@ -137,4 +144,5 @@ export class CookieModel extends SDKModel {
 SDKModel.register(CookieModel, Capability.Network, false);
 
 /** @typedef {!{uiString: string, attribute: ?Attributes}} */
+// @ts-ignore typedef
 export let BlockedReason;
