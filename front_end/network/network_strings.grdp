@@ -66,6 +66,9 @@
   <message name="IDS_DEVTOOLS_16c32be3b42643aee708e7ccdd52c9f4" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Microsoft Edge — Android Mobile</ph>
   </message>
+  <message name="IDS_DEVTOOLS_17145319aba079a26c6d3bb2b1d58894" desc="Text in Request Timing View of the Network panel">
+    Service Worker
+  </message>
   <message name="IDS_DEVTOOLS_17439cab6b197fcaff231614384c9dcc" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Opera (Presto) — Windows</ph>
   </message>
@@ -407,6 +410,9 @@
   </message>
   <message name="IDS_DEVTOOLS_8470bd9052ed82990d6e49335b14e41e" desc="Text in Headers View of the Network panel">
     This document was blocked from loading in an <ph name="LOCKED_1">iframe</ph> with a <ph name="LOCKED_1">sandbox</ph> attribute because this document specified a cross-origin opener policy.
+  </message>
+  <message name="IDS_DEVTOOLS_09df2cca9837c4a7b58817a8e959577a" desc="Text in Request Timing View of the Network panel">
+    ServiceWorker respondWith
   </message>
   <message name="IDS_DEVTOOLS_b23be8e9d2dc9b79c70ec2acd3f174d3" desc="Label for the Server Timing API">
     the Server Timing API
