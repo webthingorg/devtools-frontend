@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbee9ce2_3f8072af",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T13:08:18Z",
+      "side": 1,
+      "message": "I have given up on the Args type. It\u0027s not possible to define optional properties and adding undefined properties has lots of side effects on tests. Is it fine if it remains `*` for now?",
+      "revId": "5f9bf98e169941537e0f84b6de475a16eedbcba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
