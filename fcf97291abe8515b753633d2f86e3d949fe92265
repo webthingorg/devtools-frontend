@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bbe5345_072c530f",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-13T12:04:42Z",
+      "side": 1,
+      "message": "Did you mean to append this to imageErrors instead of overwriting it on each iteration?",
+      "revId": "fcf97291abe8515b753633d2f86e3d949fe92265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cff01f5_c2a34310",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-13T12:04:42Z",
+      "side": 1,
+      "message": "Same question here.",
+      "revId": "fcf97291abe8515b753633d2f86e3d949fe92265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
