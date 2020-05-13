@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82259945_83e7ee05",
+        "filename": "test/e2e/performance/recording_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-13T16:51:48Z",
+      "side": 1,
+      "message": "Tim left this comment in another CL, perhaps you can refactor this test to wait for a selector and remove the timeout.\n\nTim: \"Do not use timeouts in tests. They should only be used during debugging. Instead, wait for a concrete change in the UI that is deterministic (and could take arbitrarily long).\"",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "d49158aa74b6fede36d232ce80e68b4463a0d02a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
