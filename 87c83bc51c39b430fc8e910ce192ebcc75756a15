@@ -22,6 +22,30 @@
       "revId": "87c83bc51c39b430fc8e910ce192ebcc75756a15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e03040_e3310ad0",
+        "filename": "front_end/sdk/TracingManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-13T14:08:32Z",
+      "side": 1,
+      "message": "I already wrote all the CLs! I\u0027ll file a bug and tag them though",
+      "parentUuid": "7100ee4d_092163b5",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 23
+      },
+      "revId": "87c83bc51c39b430fc8e910ce192ebcc75756a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
