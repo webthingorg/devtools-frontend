@@ -16,6 +16,24 @@
       "revId": "288c32aeaed97634f195e16ee21350718ab1e967",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fe8e353_9722fee2",
+        "filename": "AUTHORS",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2020-05-13T12:19:50Z",
+      "side": 1,
+      "message": "I\u0027ve been using this email address for years now. See https://chromiumdash.appspot.com/commits?user\u003dbeaufort.francois%40gmail.com",
+      "parentUuid": "1bd0c304_a5a01d91",
+      "revId": "288c32aeaed97634f195e16ee21350718ab1e967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
