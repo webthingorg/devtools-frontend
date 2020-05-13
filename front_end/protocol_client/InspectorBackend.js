@@ -653,6 +653,27 @@ export class TargetBase {
   networkAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
+
+  /**
+   * @return {!ProtocolProxyApi.PageApi}
+   */
+  pageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.EmulationApi}
+   */
+  emulationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.DeviceOrientationApi}
+   */
+  deviceOrientationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
 }
 
 /**

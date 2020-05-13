@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 
 import {CSSModel} from './CSSModel.js';
@@ -28,9 +25,9 @@ export class EmulationModel extends SDKModel {
 
     const disableJavascriptSetting = Common.Settings.Settings.instance().moduleSetting('javaScriptDisabled');
     disableJavascriptSetting.addChangeListener(
-        () => this._emulationAgent.setScriptExecutionDisabled(disableJavascriptSetting.get()));
+        () => this._emulationAgent.invoke_setScriptExecutionDisabled({value: disableJavascriptSetting.get()}));
     if (disableJavascriptSetting.get()) {
-      this._emulationAgent.setScriptExecutionDisabled(true);
+      this._emulationAgent.invoke_setScriptExecutionDisabled({value: true});
     }
 
     const mediaTypeSetting = Common.Settings.Settings.instance().moduleSetting('emulatedCSSMedia');
@@ -70,7 +67,16 @@ export class EmulationModel extends SDKModel {
     this._touchEnabled = false;
     this._touchMobile = false;
     this._customTouchEnabled = false;
-    this._touchConfiguration = {enabled: false, configuration: 'mobile', scriptId: ''};
+    /** @type {{
+     *  enabled: boolean,
+     * configuration: !Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration,
+     * scriptId: string
+     * }} */
+    this._touchConfiguration = {
+      enabled: false,
+      configuration: Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile,
+      scriptId: ''
+    };
   }
 
   /**
@@ -81,21 +87,21 @@ export class EmulationModel extends SDKModel {
   }
 
   /**
-   * @return {!Promise}
+   * @return {!Promise<void>}
    */
   resetPageScaleFactor() {
-    return this._emulationAgent.resetPageScaleFactor();
+    return this._emulationAgent.invoke_resetPageScaleFactor();
   }
 
   /**
-   * @param {?Protocol.PageAgent.SetDeviceMetricsOverrideRequest} metrics
-   * @return {!Promise}
+   * @param {?Protocol.Emulation.SetDeviceMetricsOverrideRequest} metrics
+   * @return {!Promise<void>}
    */
-  emulateDevice(metrics) {
+  async emulateDevice(metrics) {
     if (metrics) {
-      return this._emulationAgent.invoke_setDeviceMetricsOverride(metrics);
+      await this._emulationAgent.invoke_setDeviceMetricsOverride(metrics);
     }
-    return this._emulationAgent.clearDeviceMetricsOverride();
+    await this._emulationAgent.invoke_clearDeviceMetricsOverride();
   }
 
   /**
@@ -107,56 +113,38 @@ export class EmulationModel extends SDKModel {
 
   /**
    * @param {?Location} location
+   * @return {!Promise<void>}
    */
   async emulateLocation(location) {
     if (!location) {
-      this._emulationAgent.clearGeolocationOverride();
-      this._emulationAgent.setTimezoneOverride('');
-      this._emulationAgent.setLocaleOverride('');
-      this._emulationAgent.setUserAgentOverride(SDK.multitargetNetworkManager.currentUserAgent());
-    }
-
-    if (location.error) {
-      this._emulationAgent.setGeolocationOverride();
-      this._emulationAgent.setTimezoneOverride('');
-      this._emulationAgent.setLocaleOverride('');
-      this._emulationAgent.setUserAgentOverride(SDK.multitargetNetworkManager.currentUserAgent());
+      this._emulationAgent.invoke_clearGeolocationOverride();
+      this._emulationAgent.invoke_setTimezoneOverride({timezoneId: ''});
+      this._emulationAgent.invoke_setLocaleOverride({locale: ''});
+      this._emulationAgent.invoke_setUserAgentOverride(
+          {userAgent: SDK.MultitargetNetworkManager.instance().currentUserAgent()});
+    } else if (location && location.error) {
+      this._emulationAgent.invoke_setGeolocationOverride({});
+      this._emulationAgent.invoke_setTimezoneOverride({timezoneId: ''});
+      this._emulationAgent.invoke_setLocaleOverride({locale: ''});
+      this._emulationAgent.invoke_setUserAgentOverride(
+          {userAgent: SDK.MultitargetNetworkManager.instance().currentUserAgent()});
     } else {
-      const processEmulationResult = (errorType, result) => {
-        const errorMessage = result.getError();
-        if (errorMessage) {
-          return Promise.reject({
-            type: errorType,
-            message: errorMessage,
-          });
-        }
-        return Promise.resolve(result);
-      };
-
-      return Promise.all([
-        this._emulationAgent
-            .invoke_setGeolocationOverride({
-              latitude: location.latitude,
-              longitude: location.longitude,
-              accuracy: Location.DefaultGeoMockAccuracy,
-            })
-            .then(result => processEmulationResult('emulation-set-location', result)),
-        this._emulationAgent
-            .invoke_setTimezoneOverride({
-              timezoneId: location.timezoneId,
-            })
-            .then(result => processEmulationResult('emulation-set-timezone', result)),
-        this._emulationAgent
-            .invoke_setLocaleOverride({
-              locale: location.locale,
-            })
-            .then(result => processEmulationResult('emulation-set-locale', result)),
-        this._emulationAgent
-            .invoke_setUserAgentOverride({
-              userAgent: SDK.multitargetNetworkManager.currentUserAgent(),
-              acceptLanguage: location.locale,
-            })
-            .then(result => processEmulationResult('emulation-set-user-agent', result)),
+      Promise.all([
+        this._emulationAgent.invoke_setGeolocationOverride({
+          latitude: location.latitude,
+          longitude: location.longitude,
+          accuracy: Location.DefaultGeoMockAccuracy,
+        }),
+        this._emulationAgent.invoke_setTimezoneOverride({
+          timezoneId: location.timezoneId,
+        }),
+        this._emulationAgent.invoke_setLocaleOverride({
+          locale: location.locale,
+        }),
+        this._emulationAgent.invoke_setUserAgentOverride({
+          userAgent: SDK.MultitargetNetworkManager.instance().currentUserAgent(),
+          acceptLanguage: location.locale,
+        }),
       ]);
     }
   }
@@ -166,36 +154,36 @@ export class EmulationModel extends SDKModel {
    */
   emulateDeviceOrientation(deviceOrientation) {
     if (deviceOrientation) {
-      this._deviceOrientationAgent.setDeviceOrientationOverride(
-          deviceOrientation.alpha, deviceOrientation.beta, deviceOrientation.gamma);
+      this._deviceOrientationAgent.invoke_setDeviceOrientationOverride(
+          {alpha: deviceOrientation.alpha, beta: deviceOrientation.beta, gamma: deviceOrientation.gamma});
     } else {
-      this._deviceOrientationAgent.clearDeviceOrientationOverride();
+      this._deviceOrientationAgent.invoke_clearDeviceOrientationOverride();
     }
   }
 
   /**
-   * @param {string} type
+   * @param {string} media
    * @param {!Array<{name: string, value: string}>} features
    */
-  _emulateCSSMedia(type, features) {
-    this._emulationAgent.setEmulatedMedia(type, features);
+  _emulateCSSMedia(media, features) {
+    this._emulationAgent.invoke_setEmulatedMedia({media, features});
     if (this._cssModel) {
       this._cssModel.mediaQueryResultChanged();
     }
   }
 
   /**
-   * @param {string} type
+   * @param {!Protocol.Emulation.SetEmulatedVisionDeficiencyRequestType} type
    */
   _emulateVisionDeficiency(type) {
-    this._emulationAgent.setEmulatedVisionDeficiency(type);
+    this._emulationAgent.invoke_setEmulatedVisionDeficiency({type});
   }
 
   /**
    * @param {number} rate
    */
   setCPUThrottlingRate(rate) {
-    this._emulationAgent.setCPUThrottlingRate(rate);
+    this._emulationAgent.invoke_setCPUThrottlingRate({rate});
   }
 
   /**
@@ -219,14 +207,21 @@ export class EmulationModel extends SDKModel {
   _updateTouch() {
     let configuration = {
       enabled: this._touchEnabled,
-      configuration: this._touchMobile ? 'mobile' : 'desktop',
+      configuration: this._touchMobile ? Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile :
+                                         Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Desktop,
     };
     if (this._customTouchEnabled) {
-      configuration = {enabled: true, configuration: 'mobile'};
+      configuration = {
+        enabled: true,
+        configuration: Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile
+      };
     }
 
     if (this._overlayModel && this._overlayModel.inspectModeEnabled()) {
-      configuration = {enabled: false, configuration: 'mobile'};
+      configuration = {
+        enabled: false,
+        configuration: Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile
+      };
     }
 
     if (!this._touchConfiguration.enabled && !configuration.enabled) {
@@ -237,9 +232,11 @@ export class EmulationModel extends SDKModel {
       return;
     }
 
-    this._touchConfiguration = configuration;
-    this._emulationAgent.setTouchEmulationEnabled(configuration.enabled, 1);
-    this._emulationAgent.setEmitTouchEventsForMouse(configuration.enabled, configuration.configuration);
+    this._touchConfiguration.enabled = configuration.enabled;
+    this._touchConfiguration.configuration = configuration.configuration;
+    this._emulationAgent.invoke_setTouchEmulationEnabled({enabled: configuration.enabled, maxTouchPoints: 1});
+    this._emulationAgent.invoke_setEmitTouchEventsForMouse(
+        {enabled: configuration.enabled, configuration: configuration.configuration});
   }
 
   _updateCssMedia() {
@@ -276,6 +273,7 @@ export class Location {
   }
 
   /**
+   * @param {string} value
    * @return {!Location}
    */
   static parseSetting(value) {
@@ -291,6 +289,7 @@ export class Location {
    * @param {string} latitudeString
    * @param {string} longitudeString
    * @param {string} timezoneId
+   * @param {string} locale
    * @return {?Location}
    */
   static parseUserInput(latitudeString, longitudeString, timezoneId, locale) {
@@ -317,7 +316,7 @@ export class Location {
   static latitudeValidator(value) {
     const numValue = parseFloat(value);
     const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value) && numValue >= -90 && numValue <= 90;
-    return {valid};
+    return {valid, errorMessage: undefined};
   }
 
   /**
@@ -327,7 +326,7 @@ export class Location {
   static longitudeValidator(value) {
     const numValue = parseFloat(value);
     const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value) && numValue >= -180 && numValue <= 180;
-    return {valid};
+    return {valid, errorMessage: undefined};
   }
 
   /**
@@ -342,7 +341,7 @@ export class Location {
     // the input other than checking if it contains at least one alphabet.
     // The empty string resets the override, and is accepted as well.
     const valid = value === '' || /[a-zA-Z]/.test(value);
-    return {valid};
+    return {valid, errorMessage: undefined};
   }
 
   /**
@@ -357,7 +356,7 @@ export class Location {
     // The empty string resets the override, and is accepted as
     // well.
     const valid = value === '' || /[a-zA-Z]{2}/.test(value);
-    return {valid};
+    return {valid, errorMessage: undefined};
   }
 
   /**
@@ -383,6 +382,7 @@ export class DeviceOrientation {
   }
 
   /**
+   * @param {string} value
    * @return {!DeviceOrientation}
    */
   static parseSetting(value) {
@@ -394,6 +394,9 @@ export class DeviceOrientation {
   }
 
   /**
+   * @param {string} alphaString
+   * @param {string} betaString
+   * @param {string} gammaString
    * @return {?DeviceOrientation}
    */
   static parseUserInput(alphaString, betaString, gammaString) {
@@ -422,7 +425,7 @@ export class DeviceOrientation {
    */
   static validator(value) {
     const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value);
-    return {valid};
+    return {valid, errorMessage: undefined};
   }
 
   /**
