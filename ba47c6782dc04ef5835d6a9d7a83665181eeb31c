@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5114abe3_6ee307c5",
+        "filename": "test/e2e/cross_tool_integration/browser_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T10:00:58Z",
+      "side": 1,
+      "message": "In combination with the note below, this comment actually indicates an interesting comment with what the test is doing. E.g. it is not related to a specific user action. Therefore, this comment would remain as-is.",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 57
+      },
+      "revId": "ba47c6782dc04ef5835d6a9d7a83665181eeb31c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a38c58e_a89d0b15",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T10:00:58Z",
+      "side": 1,
+      "message": "A general question: what are the user journeys associated with these tests? E.g. what actions do we expect a user to perform to fulfill a certain journey? It might be good to have a chat with Peter and Rachel on the UX side to figure out what the relevant journeys are. (Rather than adding exhaustive tests for every possible permutation)",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "ba47c6782dc04ef5835d6a9d7a83665181eeb31c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c4f560c_59b96246",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T10:00:58Z",
+      "side": 1,
+      "message": "With the comment below, this would become `navigateToConsoleTab()`",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "ba47c6782dc04ef5835d6a9d7a83665181eeb31c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f2a30cd_859096d7",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T10:00:58Z",
+      "side": 1,
+      "message": "These must be helpers as well, to reduce code duplication and unique names (for maintainability)",
+      "range": {
+        "startLine": 19,
+        "startChar": 42,
+        "endLine": 19,
+        "endChar": 87
+      },
+      "revId": "ba47c6782dc04ef5835d6a9d7a83665181eeb31c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30b73b92_997d4347",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T10:00:58Z",
+      "side": 1,
+      "message": "As a general note: whenever you feel the urge to write a comment like this one to describe what the user actions are, it probably means you have to write a helper for it. E.g. in this case you are looking for the helper `navigateToIssuesTab()`",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "ba47c6782dc04ef5835d6a9d7a83665181eeb31c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a998d46_37a3e292",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T10:00:58Z",
+      "side": 1,
+      "message": "Move this to `elements-helpers` (I think we have a helper for this already)",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 64
+      },
+      "revId": "ba47c6782dc04ef5835d6a9d7a83665181eeb31c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f5572aa_41a4ff17",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T10:00:58Z",
+      "side": 1,
+      "message": "Hm, this was pre-existing (it was one of the first helpers we wrote), but this helper is doing too much. It shouldn\u0027t do both navigation and then getting the messages.\n\nIt would be better to factor out a function to `navigateToConsoleTab` and then you can remove all content from this new function up to line 40.",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "ba47c6782dc04ef5835d6a9d7a83665181eeb31c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
