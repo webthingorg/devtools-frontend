@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "014c4f0f_cf1eb37b",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-13T06:45:52Z",
+      "side": 1,
+      "message": "Yes, I had hoped to get the link to the article already. Leaving the link out is probably a good choice.",
+      "parentUuid": "a50191e3_deed7042",
+      "range": {
+        "startLine": 254,
+        "startChar": 11,
+        "endLine": 254,
+        "endChar": 15
+      },
+      "revId": "7da6672266279e1ed428749a2d7897510c81fc79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "252e69e6_f72a650d",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-13T00:32:54Z",
       "side": 1,
       "message": "Is the usage of \"origin\" in two different ways here confusing? Is it worth clarifying with a comment? \nThe one I\u0027ve commented on is the term in the context of web platform boundries https://html.spec.whatwg.org/multipage/origin.html\n\nFeel free to resolve this without doing anything, just wanted to highlight it.",
+      "range": {
+        "startLine": 307,
+        "startChar": 46,
+        "endLine": 307,
+        "endChar": 52
+      },
+      "revId": "7da6672266279e1ed428749a2d7897510c81fc79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb3f7553_26ea9087",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-13T06:45:52Z",
+      "side": 1,
+      "message": "This is the text you provided, if you want to change it feel free to change it in the authoritative doc.",
+      "parentUuid": "252e69e6_f72a650d",
       "range": {
         "startLine": 307,
         "startChar": 46,
