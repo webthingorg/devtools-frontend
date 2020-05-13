@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6e2520e_5a92d9c0",
+        "filename": "back_end/CXXDWARFSymbols/tools/symbol-server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-13T14:16:31Z",
+      "side": 1,
+      "message": "Python style is to use lower_case for variable names.",
+      "range": {
+        "startLine": 89,
+        "startChar": 12,
+        "endLine": 89,
+        "endChar": 18
+      },
+      "revId": "c930fa040bfc1fe8547c922d9215165e9dbdb496",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa66e08f_cdfd0cd8",
+        "filename": "back_end/CXXDWARFSymbols/tools/symbol-server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-13T14:16:31Z",
+      "side": 1,
+      "message": "Lower case file and temp_modules\n\nAlso, don\u0027t use the top for anything beyond global variables. Create a main() function where you spawn the process and clean up after it, and then at the bottom of the file add:\n\nif __name__ \u003d\u003d \u0027__main__\u0027:\n    sys.exit(main(sys.argv))",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 50
+      },
+      "revId": "c930fa040bfc1fe8547c922d9215165e9dbdb496",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
