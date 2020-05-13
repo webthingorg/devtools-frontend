@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "252e69e6_f72a650d",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-05-13T00:32:54Z",
+      "side": 1,
+      "message": "Is the usage of \"origin\" in two different ways here confusing? Is it worth clarifying with a comment? \nThe one I\u0027ve commented on is the term in the context of web platform boundries https://html.spec.whatwg.org/multipage/origin.html\n\nFeel free to resolve this without doing anything, just wanted to highlight it.",
+      "range": {
+        "startLine": 307,
+        "startChar": 46,
+        "endLine": 307,
+        "endChar": 52
+      },
+      "revId": "7da6672266279e1ed428749a2d7897510c81fc79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
