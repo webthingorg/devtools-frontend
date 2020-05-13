@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45bb92f2_67424db9",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T06:25:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88eff4e1_01b8cbba",
+      "range": {
+        "startLine": 556,
+        "startChar": 4,
+        "endLine": 556,
+        "endChar": 39
+      },
+      "revId": "0b7be6511ab979d3f17d7a38d12fd6ac8289d756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a8c9ee5_f21639e2",
         "filename": "front_end/sdk/TracingModel.js",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7a764db1_35ffe732",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T06:25:11Z",
+      "side": 1,
+      "message": "I have changed how Args are defined. PTAL",
+      "parentUuid": "2a8c9ee5_f21639e2",
+      "range": {
+        "startLine": 565,
+        "startChar": 74,
+        "endLine": 565,
+        "endChar": 75
+      },
+      "revId": "0b7be6511ab979d3f17d7a38d12fd6ac8289d756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "813a1d63_31ec1a7f",
         "filename": "front_end/sdk/TracingModel.js",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "0b7be6511ab979d3f17d7a38d12fd6ac8289d756",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55a1e425_aad37a49",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T06:25:11Z",
+      "side": 1,
+      "message": "I created a separate issue because it would be possible only after the closure compiler is turned off.",
+      "parentUuid": "813a1d63_31ec1a7f",
+      "range": {
+        "startLine": 870,
+        "startChar": 13,
+        "endLine": 870,
+        "endChar": 24
+      },
+      "revId": "0b7be6511ab979d3f17d7a38d12fd6ac8289d756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
