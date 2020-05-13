@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42a13f17_811c7442",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T12:30:17Z",
+      "side": 1,
+      "message": "would it make sense to load all images with Promise.all and collect errors upfront? and build UI in a sync way?",
+      "revId": "6d19256950e9fe2f0adf93642322b43bb191e771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
