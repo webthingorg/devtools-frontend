@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bd0c304_a5a01d91",
+        "filename": "AUTHORS",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-13T12:15:42Z",
+      "side": 1,
+      "message": "Since you\u0027re a Googler, you should use either your @google.com or @chromium.org address, which is already covered by the wildcard above.",
+      "revId": "288c32aeaed97634f195e16ee21350718ab1e967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
