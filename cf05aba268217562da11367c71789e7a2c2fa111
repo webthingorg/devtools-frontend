@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "75645250_14f1269d",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-13T22:26:26Z",
+      "side": 1,
+      "message": "Don\u0027t believe it will hit else as section is the current section, but also don\u0027t want to remove this guard either.",
+      "range": {
+        "startLine": 519,
+        "startChar": 4,
+        "endLine": 519,
+        "endChar": 18
+      },
+      "revId": "cf05aba268217562da11367c71789e7a2c2fa111",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc7a5aad_5c607944",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 7
@@ -16,6 +39,24 @@
       "revId": "cf05aba268217562da11367c71789e7a2c2fa111",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b31e731_fb267250",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2114,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-13T22:26:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bc7a5aad_5c607944",
+      "revId": "cf05aba268217562da11367c71789e7a2c2fa111",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
