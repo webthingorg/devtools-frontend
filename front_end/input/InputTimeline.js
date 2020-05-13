@@ -348,10 +348,9 @@ export class TracingClient {
       return 'disabled-by-default-' + category;
     }
 
-    const categoriesArray = ['devtools.timeline', disabledByDefault('devtools.timeline.inputs')];
-    const categories = categoriesArray.join(',');
+    const categories = ['devtools.timeline', disabledByDefault('devtools.timeline.inputs')];
 
-    const response = await this._tracingManager.start(this, categories, '');
+    const response = await this._tracingManager.start(this, categories, []);
     if (response['Protocol.Error']) {
       await this._waitForTracingToStop(false);
     }

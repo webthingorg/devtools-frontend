@@ -64,8 +64,7 @@ export class TimelineController {
     function disabledByDefault(category) {
       return 'disabled-by-default-' + category;
     }
-    const categoriesArray = [
-      '-*',
+    const enabledCategories = [
       'devtools.timeline',
       disabledByDefault('devtools.timeline'),
       disabledByDefault('devtools.timeline.frame'),
@@ -74,35 +73,37 @@ export class TimelineController {
       TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming,
       TimelineModel.TimelineModel.TimelineModelImpl.Category.Loading,
     ];
-    categoriesArray.push(TimelineModel.TimelineModel.TimelineModelImpl.Category.LatencyInfo);
+    const disabledCategories = ['*'];
+    enabledCategories.push(TimelineModel.TimelineModel.TimelineModelImpl.Category.LatencyInfo);
 
     if (Root.Runtime.experiments.isEnabled('timelineFlowEvents')) {
-      categoriesArray.push('devtools.timeline.async');
+      enabledCategories.push('devtools.timeline.async');
     }
 
     if (Root.Runtime.experiments.isEnabled('timelineV8RuntimeCallStats') && options.enableJSSampling) {
-      categoriesArray.push(disabledByDefault('v8.runtime_stats_sampling'));
+      enabledCategories.push(disabledByDefault('v8.runtime_stats_sampling'));
     }
     if (!Root.Runtime.queryParam('timelineTracingJSProfileDisabled') && options.enableJSSampling) {
-      categoriesArray.push(disabledByDefault('v8.cpu_profiler'));
+      enabledCategories.push(disabledByDefault('v8.cpu_profiler'));
     }
-    categoriesArray.push(disabledByDefault('devtools.timeline.stack'));
+    enabledCategories.push(disabledByDefault('devtools.timeline.stack'));
     if (Root.Runtime.experiments.isEnabled('timelineInvalidationTracking')) {
-      categoriesArray.push(disabledByDefault('devtools.timeline.invalidationTracking'));
+      enabledCategories.push(disabledByDefault('devtools.timeline.invalidationTracking'));
     }
     if (options.capturePictures) {
-      categoriesArray.push(
+      enabledCategories.push(
           disabledByDefault('devtools.timeline.layers'), disabledByDefault('devtools.timeline.picture'),
           disabledByDefault('blink.graphics_context_annotations'));
     }
     if (options.captureFilmStrip) {
-      categoriesArray.push(disabledByDefault('devtools.screenshot'));
+      enabledCategories.push(disabledByDefault('devtools.screenshot'));
     }
 
     this._extensionSessions = providers.map(provider => new ExtensionTracingSession(provider, this._performanceModel));
     this._extensionSessions.forEach(session => session.start());
     this._performanceModel.setRecordStartTime(Date.now());
-    const response = await this._startRecordingWithCategories(categoriesArray.join(','), options.enableJSSampling);
+    const response =
+        await this._startRecordingWithCategories(enabledCategories, disabledCategories, options.enableJSSampling);
     if (response[ProtocolClient.InspectorBackend.ProtocolError]) {
       await this._waitForTracingToStop(false);
       await SDK.SDKModel.TargetManager.instance().resumeAllTargets();
@@ -204,11 +205,12 @@ export class TimelineController {
   }
 
   /**
-   * @param {string} categories
+   * @param {!Array<string>} enabled
+   * @param {!Array<string>} disabled
    * @param {boolean=} enableJSSampling
    * @return {!Promise<!Object|undefined>}
    */
-  async _startRecordingWithCategories(categories, enableJSSampling) {
+  async _startRecordingWithCategories(enabled, disabled, enableJSSampling) {
     // There might be a significant delay in the beginning of timeline recording
     // caused by starting CPU profiler, that needs to traverse JS heap to collect
     // all the functions data.
@@ -220,7 +222,7 @@ export class TimelineController {
       return;
     }
 
-    return this._tracingManager.start(this, categories, '');
+    return this._tracingManager.start(this, enabled, disabled);
   }
 
   /**
