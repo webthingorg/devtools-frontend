@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0e0f3ef_63a11897",
+        "filename": "INFRA_OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-05-13T17:43:59Z",
+      "side": 1,
+      "message": "Please add vidorteg@microsoft.com, he\u0027s been working on infra especially around loc.",
+      "revId": "dc60c60f9fe1c6f7ee2e4554def5296932d07896",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
