@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "dc7f7eba_116b49c3",
+        "filename": "front_end/inspector_overlay/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T09:50:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ca033e2_3dae80d8",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "57d1c1797127258d20fc4123e8aff7580a60e352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "576348da_bc31bbc3",
+        "filename": "front_end/inspector_overlay/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T09:50:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bca71454_026f21b0",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 54
+      },
+      "revId": "57d1c1797127258d20fc4123e8aff7580a60e352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71aa685b_8d41db39",
         "filename": "front_end/inspector_overlay/BUILD.gn",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2020-05-13T09:24:50Z",
       "side": 1,
       "message": "This will create `gen/inspector_overlay`. Instead, I think you will want to replace `resources_out_dir` with `target_gen_dir`: https://gn.googlesource.com/gn/+/master/docs/reference.md#var_target_gen_dir",
+      "range": {
+        "startLine": 4,
+        "startChar": 21,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "57d1c1797127258d20fc4123e8aff7580a60e352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d79bc789_d37f9e34",
+        "filename": "front_end/inspector_overlay/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T09:50:34Z",
+      "side": 1,
+      "message": "It appears to be causing a conflict between `build_inspector_overlay` and `inspector_overlay`. Are there any negative effects of using a new folder?",
+      "parentUuid": "71aa685b_8d41db39",
       "range": {
         "startLine": 4,
         "startChar": 21,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "e433ff61_5f6e038c",
+        "filename": "front_end/inspector_overlay/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T09:50:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6624a1f8_278bfb8c",
+      "range": {
+        "startLine": 40,
+        "startChar": 12,
+        "endLine": 40,
+        "endChar": 29
+      },
+      "revId": "57d1c1797127258d20fc4123e8aff7580a60e352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99c21763_66402067",
         "filename": "front_end/inspector_overlay/BUILD.gn",
         "patchSetId": 7
@@ -137,6 +233,30 @@
       "revId": "57d1c1797127258d20fc4123e8aff7580a60e352",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48603a93_81aebfa6",
+        "filename": "front_end/inspector_overlay/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-13T09:50:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99c21763_66402067",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 11
+      },
+      "revId": "57d1c1797127258d20fc4123e8aff7580a60e352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
