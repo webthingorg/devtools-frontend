@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a50191e3_deed7042",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-13T05:55:52Z",
+      "side": 1,
+      "message": "Will this be updated before branch-cut? Otherwise we should not show the link at all if it doesn\u0027t link to anywhere.",
+      "range": {
+        "startLine": 254,
+        "startChar": 11,
+        "endLine": 254,
+        "endChar": 15
+      },
+      "revId": "7da6672266279e1ed428749a2d7897510c81fc79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "252e69e6_f72a650d",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 3
