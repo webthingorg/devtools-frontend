@@ -22,6 +22,30 @@
       "revId": "d49158aa74b6fede36d232ce80e68b4463a0d02a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43080cf4_ea096dd4",
+        "filename": "test/e2e/performance/recording_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-13T17:50:22Z",
+      "side": 1,
+      "message": "Everything is passing and I don\u0027t see anything particularly wrong with the code, but I agree with Jose. We have seen some flakiness in the tests related to the timeout value on some of them, so I would prefer to take a different route if possible.",
+      "parentUuid": "82259945_83e7ee05",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "d49158aa74b6fede36d232ce80e68b4463a0d02a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
