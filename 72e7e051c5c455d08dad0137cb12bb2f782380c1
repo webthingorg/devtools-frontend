@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a5951c0_f8ab7e8d",
+        "filename": "front_end/lighthouse/LighthouseReportRenderer.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-05-13T22:21:26Z",
+      "side": 1,
+      "message": "comment should be \"There will be no lh-metrics if just the PWA category\"",
+      "revId": "72e7e051c5c455d08dad0137cb12bb2f782380c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "054248b4_d842dd65",
+        "filename": "front_end/third_party/lighthouse/report-assets/report.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-05-13T22:21:26Z",
+      "side": 1,
+      "message": "cool flex",
+      "revId": "72e7e051c5c455d08dad0137cb12bb2f782380c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
