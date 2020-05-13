@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30e5274a_fb93a30e",
+        "filename": "back_end/CXXDWARFSymbols/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-13T05:42:26Z",
+      "side": 1,
+      "message": "This is optional now, and only useful for folks developing the symbol server itself.",
+      "revId": "d95bcb6482a9ba2978d93c2d7b4df7fe89768bfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
