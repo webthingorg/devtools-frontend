@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b26bc6d6_55147983",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-13T08:26:01Z",
+      "side": 1,
+      "message": "You\u0027re right. Sorry for the confusion!",
+      "parentUuid": "5e87a00f_bd92c0d5",
+      "revId": "c91e31fbf841a18fd8a297d943556f0dff91d641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39398e40_1be29ad3",
         "filename": "DEPS",
         "patchSetId": 2
