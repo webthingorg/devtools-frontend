@@ -25,16 +25,16 @@ export class LighthouseReportRenderer extends ReportRenderer {
     }
 
     const container = el.querySelector('.lh-audit-group');
-    const columnsEl = container.querySelector('.lh-columns');
+    const disclaimerEl = container.querySelector('.lh-metrics__disclaimer');
     // There will be no columns if just the PWA category.
-    if (!columnsEl) {
+    if (!disclaimerEl) {
       return;
     }
 
     const defaultPassTrace = artifacts.traces.defaultPass;
     const timelineButton =
         UI.UIUtils.createTextButton(Common.UIString.UIString('View Trace'), onViewTraceClick, 'view-trace');
-    container.insertBefore(timelineButton, columnsEl.nextSibling);
+    container.insertBefore(timelineButton, disclaimerEl.nextSibling);
 
     async function onViewTraceClick() {
       HostModule.userMetrics.actionTaken(Host.UserMetrics.Action.LighthouseViewTrace);
