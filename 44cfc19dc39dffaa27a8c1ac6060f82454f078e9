@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a00bf1da_452219ed",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T09:47:25Z",
+      "side": 1,
+      "message": "Do not use timeouts in tests. They should only be used during debugging. Instead, wait for a concrete change in the UI that is deterministic (and could take arbitrarily long).",
+      "range": {
+        "startLine": 21,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "44cfc19dc39dffaa27a8c1ac6060f82454f078e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "810eb76d_e70750bf",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T09:47:25Z",
+      "side": 1,
+      "message": "Nit: typo `Grid`",
+      "range": {
+        "startLine": 28,
+        "startChar": 39,
+        "endLine": 28,
+        "endChar": 42
+      },
+      "revId": "44cfc19dc39dffaa27a8c1ac6060f82454f078e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
