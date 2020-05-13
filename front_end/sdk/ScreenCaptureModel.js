@@ -2,11 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
-import * as ProtocolClient from '../protocol_client/protocol_client.js';
-
 import {OverlayModel} from './OverlayModel.js';
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
@@ -20,53 +15,55 @@ export class ScreenCaptureModel extends SDKModel {
   constructor(target) {
     super(target);
     this._agent = target.pageAgent();
-    /** @type {?function(string, !Protocol.Page.ScreencastFrameMetadata):void} */
+    /** @type {?function(!Protocol.binary, !Protocol.Page.ScreencastFrameMetadata):void} */
     this._onScreencastFrame = null;
     /** @type {?function(boolean):void} */
     this._onScreencastVisibilityChanged = null;
+    // @ts-ignore
+    // TODO(crbug.com/1081686): fix type
     target.registerPageDispatcher(this);
   }
 
   /**
-   * @param {string} format
+   * @param {!Protocol.Page.StartScreencastRequestFormat} format
    * @param {number} quality
-   * @param {number|undefined} width
-   * @param {number|undefined} height
+   * @param {number|undefined} maxWidth
+   * @param {number|undefined} maxHeight
    * @param {number|undefined} everyNthFrame
-   * @param {function(string, !Protocol.Page.ScreencastFrameMetadata)} onFrame
-   * @param {function(boolean)} onVisibilityChanged
+   * @param {function(!Protocol.binary, !Protocol.Page.ScreencastFrameMetadata): void} onFrame
+   * @param {function(boolean): void} onVisibilityChanged
    */
-  startScreencast(format, quality, width, height, everyNthFrame, onFrame, onVisibilityChanged) {
+  startScreencast(format, quality, maxWidth, maxHeight, everyNthFrame, onFrame, onVisibilityChanged) {
     this._onScreencastFrame = onFrame;
     this._onScreencastVisibilityChanged = onVisibilityChanged;
-    this._agent.startScreencast(format, quality, width, height, everyNthFrame);
+    this._agent.invoke_startScreencast({format, quality, maxWidth, maxHeight, everyNthFrame});
   }
 
   stopScreencast() {
     this._onScreencastFrame = null;
     this._onScreencastVisibilityChanged = null;
-    this._agent.stopScreencast();
+    this._agent.invoke_stopScreencast();
   }
 
   /**
-   * @param {string} format
+   * @param {!Protocol.Page.CaptureScreenshotRequestFormat} format
    * @param {number} quality
    * @param {!Protocol.Page.Viewport=} clip
-   * @return {!Promise<?string>}
+   * @return {!Promise<?Protocol.binary>}
    */
   async captureScreenshot(format, quality, clip) {
     await OverlayModel.muteHighlight();
-    const result = await this._agent.captureScreenshot(format, quality, clip, true);
+    const result = await this._agent.invoke_captureScreenshot({format, quality, clip, fromSurface: true});
     await OverlayModel.unmuteHighlight();
-    return result;
+    return result.data;
   }
 
   /**
    * @return {!Promise<?{viewportX: number, viewportY: number, viewportScale: number, contentWidth: number, contentHeight: number}>}
    */
   async fetchLayoutMetrics() {
-    const response = await this._agent.invoke_getLayoutMetrics({});
-    if (response[ProtocolClient.InspectorBackend.ProtocolError]) {
+    const response = await this._agent.invoke_getLayoutMetrics();
+    if (response.getError()) {
       return null;
     }
     return {
@@ -80,12 +77,12 @@ export class ScreenCaptureModel extends SDKModel {
 
   /**
    * @override
-   * @param {string} data
+   * @param {!Protocol.binary} data
    * @param {!Protocol.Page.ScreencastFrameMetadata} metadata
-   * @param {number} sessionId
+   * @param {!Protocol.integer} sessionId
    */
   screencastFrame(data, metadata, sessionId) {
-    this._agent.screencastFrameAck(sessionId);
+    this._agent.invoke_screencastFrameAck({sessionId});
     if (this._onScreencastFrame) {
       this._onScreencastFrame.call(null, data, metadata);
     }
