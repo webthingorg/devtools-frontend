@@ -16,6 +16,47 @@
       "revId": "33a9460116ec68f5aa5ca03b8b99538031ef818c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "471ac1c0_33e2c798",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-13T05:48:04Z",
+      "side": 1,
+      "message": "This would go into test/unittests/front_end/sdk/NetworkManager_test.ts\n\nThe file does currently not exist so feel free to add it. Don\u0027t forget to add the file to the BUILD.gn in the the above directory. You can look at other tests how the \u0027describe\u0027/\u0027it\u0027 syntax works in case you are not familiar with it yet (or we can schedule a quick VC :)).\n\nTests can then be run using \"npm run unittests\", this requires that the frontend is built using the normal ninja workflow first (i.e. autoninja -C out/Default). \"npm run auto-unittests\" combines the two.\n\nPlease be aware that due to current architectural changes, it might not yet be possible to unittest {NetworkManager}, in that case you can put the test in a follow up CL and I can ping/land it once this is resolved (should be this or next week).",
+      "parentUuid": "1ab22596_f28d3091",
+      "revId": "33a9460116ec68f5aa5ca03b8b99538031ef818c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4c7a752_26cd636e",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-13T05:48:04Z",
+      "side": 1,
+      "message": "nit: Lets move this after {orders} is initialised and make it\n\nconst permutation \u003d seed % orders.length;",
+      "range": {
+        "startLine": 1107,
+        "startChar": 4,
+        "endLine": 1107,
+        "endChar": 33
+      },
+      "revId": "33a9460116ec68f5aa5ca03b8b99538031ef818c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
