@@ -16,6 +16,24 @@
       "revId": "7dffce1bb663e1afdcd68c3e4ca7935089fff7d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48d2e767_e40ee582",
+        "filename": "front_end/media/playerPropertiesView.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-05-13T23:30:13Z",
+      "side": 1,
+      "message": "There\u0027s not much point in commenting on a merged issue (unless you\u0027re looking for a rollback). In the future, please just create a new bug and assign it somewhere. In this case, I\u0027ve made a change here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2200145",
+      "parentUuid": "af56ed46_52b2d1ae",
+      "revId": "7dffce1bb663e1afdcd68c3e4ca7935089fff7d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
