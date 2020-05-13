@@ -5,6 +5,7 @@
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
+import {ObjectSnapshot} from './TracingModel.js';            // eslint-disable-line no-unused-vars
 
 /**
  * @unrestricted
@@ -182,7 +183,12 @@ SDKModel.register(TracingManager, Capability.Tracing, false);
         ts: number,
         ph: string,
         name: string,
-        args: !Object,
+        args: !{
+          sort_index: number,
+          name: string,
+          snapshot: (ObjectSnapshot|undefined),
+          _imageData: (string|undefined),
+        },
         dur: number,
         id: string,
         id2: (!{global: (string|undefined), local: (string|undefined)}|undefined),
