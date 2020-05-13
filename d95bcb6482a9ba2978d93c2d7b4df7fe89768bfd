@@ -16,6 +16,23 @@
       "revId": "d95bcb6482a9ba2978d93c2d7b4df7fe89768bfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66d9a5a0_fddf3cf7",
+        "filename": "back_end/CXXDWARFSymbols/src/CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1322305
+      },
+      "writtenOn": "2020-05-13T17:40:40Z",
+      "side": 1,
+      "message": "FYI, with this change, I am able to build `ninja DWARFSymbolServer` in my local. `ninja all` still failed to find diaguids.lib",
+      "revId": "d95bcb6482a9ba2978d93c2d7b4df7fe89768bfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
