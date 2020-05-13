@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5ebd0ff_628f2128",
+        "filename": "front_end/inspector_overlay/BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T12:02:51Z",
+      "side": 1,
+      "message": "I am not familiar with how the backend C++-side can include the resource files in its .pak. Therefore, I will assume that that part of the review will be handled in the Chromium CL. I don\u0027t see any issues with this approach.",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 62
+      },
+      "revId": "3bce4a901876a5da60e1f14cfcfc31ce4b567ebd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
