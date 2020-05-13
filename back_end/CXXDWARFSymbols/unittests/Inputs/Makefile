@@ -2,6 +2,9 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+#DNCI
+CXX=../../../../out/SymbolServer/third_party/llvm/llvm/bin/clang++
+
 INPUTS=$(wildcard *.cc) $(wildcard *.c)
 CFLAGS=-gfull -O0 --target=wasm32 -nostdlib -fdebug-prefix-map=`pwd`=. \
 	   -Wl,--no-entry,--allow-undefined,--export-all
