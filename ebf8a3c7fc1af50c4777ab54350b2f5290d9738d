@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b4af94d_8df71d97",
+        "filename": "back_end/CXXDWARFSymbols/unittests/Inputs/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-13T14:01:49Z",
+      "side": 1,
+      "message": "DNCI",
+      "revId": "ebf8a3c7fc1af50c4777ab54350b2f5290d9738d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8bb70ce_3d984458",
+        "filename": "back_end/CXXDWARFSymbols/unittests/OffsetComputations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-13T14:01:49Z",
+      "side": 1,
+      "message": "Why not 5, given that you updated the sizes below?",
+      "revId": "ebf8a3c7fc1af50c4777ab54350b2f5290d9738d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
