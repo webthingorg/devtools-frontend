@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "734e946e_1c172e71",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T16:27:58Z",
+      "side": 0,
+      "message": "This class didn\u0027t even implement this interface \u003e.\u003c",
+      "range": {
+        "startLine": 254,
+        "startChar": 3,
+        "endLine": 254,
+        "endChar": 42
+      },
+      "revId": "d4131e6fbd1de72e8f791d12a6a383594ebf29f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c9a8077_7c4e9ebe",
+        "filename": "front_end/sdk/RemoteObject.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-13T16:27:58Z",
+      "side": 0,
+      "message": "This breaks TypeScript declaration emits. I am filing a bug.",
+      "range": {
+        "startLine": 300,
+        "startChar": 40,
+        "endLine": 300,
+        "endChar": 41
+      },
+      "revId": "d4131e6fbd1de72e8f791d12a6a383594ebf29f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
