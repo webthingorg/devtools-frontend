@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e997f105_2d3b32b4",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-13T23:03:27Z",
+      "side": 0,
+      "message": "Initially this _resolveIcuMessageInstanceId call chain would return the formatted localized string, but we need to get the formatter halfway, so I broke this down into separate calls.",
+      "revId": "8355052cad11d53f6d2d843d81133d8a1c77b0c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
