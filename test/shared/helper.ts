@@ -290,4 +290,11 @@ export const step = async (description: string, step: Function) => {
   }
 };
 
+export const enableCDPLogging = async () => {
+  const {frontend} = getBrowserAndPages();
+  await frontend.evaluate(() => {
+    globalThis.ProtocolClient.test.dumpProtocol = console.log;
+  });
+}
+
 export {getBrowserAndPages, reloadDevTools};

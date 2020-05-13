@@ -42,6 +42,8 @@ function handleHostedModeError(error: Error) {
 
 const envChromeBinary = process.env['CHROME_BIN'];
 
+const debugLog = console.log;
+
 async function loadTargetPageAndDevToolsFrontend() {
   const launchArgs = [`--remote-debugging-port=${envPort}`];
   const opts: puppeteer.LaunchOptions = {
@@ -93,6 +95,13 @@ async function loadTargetPageAndDevToolsFrontend() {
 
   frontend.on('pageerror', error => {
     throw new Error(`Page error in Frontend: ${error}`);
+  });
+
+  frontend.on('console', msg => {
+    if (msg.type() === 'log') {
+      const filename = msg.location()!.url!.replace(/^.*\//, '');
+      debugLog(`${filename}:${msg.location().lineNumber}: ${msg.text()}`);
+    }
   });
 
   setBrowserAndPages({target: srcPage, frontend, browser});

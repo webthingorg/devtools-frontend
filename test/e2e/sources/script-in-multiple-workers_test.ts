@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {click, getBrowserAndPages, resourcesPath, step, waitFor} from '../../shared/helper.js';
+import {click, getBrowserAndPages, resourcesPath, step, waitFor, enableCDPLogging} from '../../shared/helper.js';
 import {addBreakpointForLine, createSelectorsForWorkerFile, getBreakpointDecorators, getExecutionLine, getOpenSources, openNestedWorkerFile, PAUSE_BUTTON, RESUME_BUTTON} from '../helpers/sources-helpers.js';
 
 async function validateSourceTabs() {
@@ -30,7 +30,7 @@ describe('Multi-Workers', async function() {
     }
 
     async function validateNavigationTree() {
-      await step('Ensure 10 works exist', async () => {
+      await step('Ensure 10 workers exist', async () => {
         await waitFor(workerFileSelectors(10).rootSelector);
       });
     }
@@ -153,7 +153,7 @@ describe('Multi-Workers', async function() {
       });
     });
 
-    describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
+    describe.only(`hits breakpoints added to workers ${withOrWithout}`, () => {
       beforeEach(async () => {
         const {target, frontend} = getBrowserAndPages();
 
@@ -191,6 +191,7 @@ describe('Multi-Workers', async function() {
       });
 
       it('for newly created workers', async () => {
+        await enableCDPLogging();
         const {target} = getBrowserAndPages();
         await step('Launch new worker to hit breakpoint', async () => {
           await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
