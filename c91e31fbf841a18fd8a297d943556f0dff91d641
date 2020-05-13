@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5e87a00f_bd92c0d5",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-05-13T07:23:04Z",
+      "side": 1,
+      "message": "They are conditioned already. Or am I missing some subtleties?",
+      "parentUuid": "731f6da9_b0b545db",
+      "revId": "c91e31fbf841a18fd8a297d943556f0dff91d641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39398e40_1be29ad3",
         "filename": "DEPS",
         "patchSetId": 2
@@ -63,6 +81,30 @@
       "revId": "c91e31fbf841a18fd8a297d943556f0dff91d641",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82a387f7_e1315398",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-05-13T07:23:04Z",
+      "side": 1,
+      "message": "The code above is what we do in V8. I just think this is not the best way to do it in both projects. I might be wrong.",
+      "parentUuid": "511a6a2d_54c8d2a6",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 4
+      },
+      "revId": "c91e31fbf841a18fd8a297d943556f0dff91d641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
