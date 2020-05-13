@@ -22,6 +22,30 @@
       "revId": "09653303dc22ee20897028d84a4a4f8f03453e64",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fbbae6e_d71f8fa1",
+        "filename": "front_end/platform/set-utilities.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-13T08:13:43Z",
+      "side": 1,
+      "message": "None, this was a straight up copy + paste from the old version. I\u0027ll update it!",
+      "parentUuid": "60749493_dc7dbf78",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "09653303dc22ee20897028d84a4a4f8f03453e64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
