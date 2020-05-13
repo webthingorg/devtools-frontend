@@ -69,6 +69,8 @@ export class TracingManager extends SDKModel {
     this._finishing = false;
   }
 
+  // TODO(petermarshall): Use the traceConfig argument instead of deprecated
+  // categories + options.
   /**
    * @param {!TracingManagerClient} client
    * @param {string} categoryFilter
