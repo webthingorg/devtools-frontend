@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc7a5aad_5c607944",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2114,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-05-13T21:50:26Z",
+      "side": 1,
+      "message": "Nit: consider saving the return value of rootElement() so the function doesn\u0027t have to be called again.",
+      "revId": "cf05aba268217562da11367c71789e7a2c2fa111",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
