@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0aee62c4_00f6de9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-13T06:14:43Z",
+      "side": 1,
+      "message": "Ah, the duo is still there but only single screen is supported by default.",
+      "parentUuid": "c4ba3a2b_44312eff",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "dd607b375594f6aac3877ef473420e9138efea5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e41a77f1_ed2f662c",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 10
