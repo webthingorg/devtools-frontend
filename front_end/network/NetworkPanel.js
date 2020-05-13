@@ -809,7 +809,7 @@ export class FilmStripRecorder {
       this._tracingModel.dispose();
     }
     this._tracingModel = new SDK.TracingModel.TracingModel(new Bindings.TempFile.TempFileBackingStorage());
-    this._tracingManager.start(this, '-*,disabled-by-default-devtools.screenshot', '');
+    this._tracingManager.start(this, ['disabled-by-default-devtools.screenshot'], ['*']);
 
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.FilmStripStartedRecording);
   }
