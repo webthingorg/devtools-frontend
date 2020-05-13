@@ -1,4 +1,4 @@
-// lighthouse, browserified. 6.0.0-rc.0 (074ca8c481eb12095b6b3e62fcf2d6f713f4f749)
+// lighthouse, browserified. 6.0.0-rc.1 (946c5add912bf294ac42c3cdf9ee7c6ceba7f0af)
 // @ts-nocheck
 require=function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a;}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r);},p,p.exports,r,e,n,t);}return n[i].exports;}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o;}return r;}()({"../audits/accessibility/accesskeys":[function(require,module,exports){
 (function(__filename){
@@ -9430,7 +9430,7 @@ id:'largest-contentful-paint',
 title:str_(i18n.UIStrings.largestContentfulPaintMetric),
 description:str_(UIStrings.description),
 scoreDisplayMode:Audit.SCORING_MODES.NUMERIC,
-requiredArtifacts:['traces','devtoolsLogs']};
+requiredArtifacts:['traces','devtoolsLogs','TestedAsMobileDevice']};
 
 }
 
@@ -9439,12 +9439,30 @@ requiredArtifacts:['traces','devtoolsLogs']};
 
 static get defaultOptions(){
 return{
+mobile:{
 
 
 
 
+scoring:{
 p10:2500,
-median:4000};
+median:4000}},
+
+
+desktop:{
+
+
+
+
+
+
+
+
+scoring:{
+p10:1200,
+median:2400}}};
+
+
 
 }
 
@@ -9459,9 +9477,12 @@ const devtoolsLog=artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
 const metricComputationData={trace,devtoolsLog,settings:context.settings};
 const metricResult=await ComputedLcp.request(metricComputationData,context);
 
+const isDesktop=artifacts.TestedAsMobileDevice===false;
+const options=isDesktop?context.options.desktop:context.options.mobile;
+
 return{
 score:Audit.computeLogNormalScore(
-{p10:context.options.p10,median:context.options.median},
+options.scoring,
 metricResult.timing),
 
 numericValue:metricResult.timing,
@@ -9674,7 +9695,7 @@ id:'total-blocking-time',
 title:str_(i18n.UIStrings.totalBlockingTimeMetric),
 description:str_(UIStrings.description),
 scoreDisplayMode:Audit.SCORING_MODES.NUMERIC,
-requiredArtifacts:['traces','devtoolsLogs']};
+requiredArtifacts:['traces','devtoolsLogs','TestedAsMobileDevice']};
 
 }
 
@@ -9683,14 +9704,32 @@ requiredArtifacts:['traces','devtoolsLogs']};
 
 static get defaultOptions(){
 return{
+mobile:{
 
 
 
 
 
 
-median:600,
-p10:287};
+scoring:{
+p10:287,
+median:600}},
+
+
+desktop:{
+
+
+
+
+
+
+
+
+scoring:{
+p10:150,
+median:350}}};
+
+
 
 }
 
@@ -9712,9 +9751,12 @@ const devtoolsLog=artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
 const metricComputationData={trace,devtoolsLog,settings:context.settings};
 const metricResult=await ComputedTBT.request(metricComputationData,context);
 
+const isDesktop=artifacts.TestedAsMobileDevice===false;
+const options=isDesktop?context.options.desktop:context.options.mobile;
+
 return{
 score:Audit.computeLogNormalScore(
-{p10:context.options.p10,median:context.options.median},
+options.scoring,
 metricResult.timing),
 
 numericValue:metricResult.timing,
@@ -37805,6 +37847,13 @@ return categoryId.startsWith('lighthouse-plugin-');
 
 
 
+
+
+
+Util.reportJson=null;
+
+
+
 Util.i18n=null;
 
 
@@ -37813,6 +37862,8 @@ Util.i18n=null;
 Util.UIStrings={
 
 varianceDisclaimer:'Values are estimated and may vary. The [performance score is calculated](https://web.dev/performance-scoring/) directly from these metrics.',
+
+calculatorLink:'See calculator.',
 
 opportunityResourceColumnLabel:'Opportunity',
 
@@ -72302,7 +72353,7 @@ arguments[4][106][0].apply(exports,arguments);
 arguments[4][107][0].apply(exports,arguments);
 },{"./support/isBuffer":203,"_process":170,"dup":107,"inherits":123}],205:[function(require,module,exports){
 module.exports={
-"version":"6.0.0-rc.0"};
+"version":"6.0.0-rc.1"};
 
 },{}],206:[function(require,module,exports){
 
@@ -72688,7 +72739,8 @@ module.exports={
 {"id":"npm:highcharts:20180225","severity":"high","semver":{"vulnerable":["<6.1.0"]}}],
 
 "jquery":[
-{"id":"SNYK-JS-JQUERY-565129","severity":"medium","semver":{"vulnerable":[">=2.2.0 <3.5.0"]}},
+{"id":"SNYK-JS-JQUERY-567880","severity":"medium","semver":{"vulnerable":[">=1.2.0 <3.5.0"]}},
+{"id":"SNYK-JS-JQUERY-565129","severity":"medium","semver":{"vulnerable":[">=1.0.3 <3.5.0"]}},
 {"id":"SNYK-JS-JQUERY-174006","severity":"medium","semver":{"vulnerable":["<3.4.0"]}},
 {"id":"npm:jquery:20160529","severity":"low","semver":{"vulnerable":[">=3.0.0-rc1 <3.0.0"]}},
 {"id":"npm:jquery:20150627","severity":"medium","semver":{"vulnerable":["<1.12.2",">=1.12.3 <2.2.2",">=2.2.3 <3.0.0"]}},
@@ -72710,6 +72762,7 @@ module.exports={
 {"id":"npm:knockout:20130701","severity":"medium","semver":{"vulnerable":[">=2.1.0-pre <3.0.0"]}}],
 
 "lodash":[
+{"id":"SNYK-JS-LODASH-567746","severity":"medium","semver":{"vulnerable":["<=4.17.15"]}},
 {"id":"SNYK-JS-LODASH-450202","severity":"high","semver":{"vulnerable":["<4.17.12"]}},
 {"id":"SNYK-JS-LODASH-73639","severity":"medium","semver":{"vulnerable":["<4.17.11"]}},
 {"id":"SNYK-JS-LODASH-73638","severity":"high","semver":{"vulnerable":["<4.17.11"]}},
@@ -72723,6 +72776,14 @@ module.exports={
 "mustache":[
 {"id":"npm:mustache:20151207","severity":"medium","semver":{"vulnerable":["<2.2.1"]}},
 {"id":"npm:mustache:20110814","severity":"medium","semver":{"vulnerable":["< 0.3.1"]}}],
+
+"next":[
+{"id":"SNYK-JS-NEXT-561584","severity":"medium","semver":{"vulnerable":["<9.3.2"]}},
+{"id":"SNYK-JS-NEXT-174590","severity":"high","semver":{"vulnerable":["<2.4.1"]}},
+{"id":"SNYK-JS-NEXT-72454","severity":"medium","semver":{"vulnerable":[">=7.0.0 <7.0.2"]}},
+{"id":"npm:next:20180124","severity":"high","semver":{"vulnerable":["<4.2.3"]}},
+{"id":"npm:next:20170607","severity":"medium","semver":{"vulnerable":["<2.4.3"]}},
+{"id":"npm:next:20170601","severity":"high","semver":{"vulnerable":["<2.4.1",">=3.0.0-beta1 <3.0.0-beta7"]}}],
 
 "react":[
 {"id":"npm:react:20150318","severity":"high","semver":{"vulnerable":[">=0.0.1 <0.14.0"]}},
