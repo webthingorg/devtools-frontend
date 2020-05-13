@@ -34,6 +34,24 @@
       "revId": "288c32aeaed97634f195e16ee21350718ab1e967",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b57a0b8b_41085b97",
+        "filename": "AUTHORS",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-13T12:39:28Z",
+      "side": 1,
+      "message": "The other option is not changing the AUTHORS file at all and adding `No-Presubmit: true` to the commit message. (Context: As the person who had to deal with setting up AUTHORS after the move to a separate repository, I prefer keeping the list as small as possible.)",
+      "parentUuid": "8fe8e353_9722fee2",
+      "revId": "288c32aeaed97634f195e16ee21350718ab1e967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

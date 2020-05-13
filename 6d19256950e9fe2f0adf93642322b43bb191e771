@@ -16,6 +16,24 @@
       "revId": "6d19256950e9fe2f0adf93642322b43bb191e771",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80480016_1aa4cca4",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-13T12:39:28Z",
+      "side": 1,
+      "message": "I like this suggestion. Given that this is pre-existing code I\u0027d be okay with this happening as a separate, follow-up CL.",
+      "parentUuid": "42a13f17_811c7442",
+      "revId": "6d19256950e9fe2f0adf93642322b43bb191e771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
