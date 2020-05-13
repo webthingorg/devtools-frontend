@@ -16,6 +16,24 @@
       "revId": "dc60c60f9fe1c6f7ee2e4554def5296932d07896",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a86f45ec_0ff5809f",
+        "filename": "INFRA_OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-13T18:13:25Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "c0e0f3ef_63a11897",
+      "revId": "dc60c60f9fe1c6f7ee2e4554def5296932d07896",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
