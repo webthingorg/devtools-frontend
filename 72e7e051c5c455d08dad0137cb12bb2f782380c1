@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eb645e94_234c54d4",
+        "filename": "front_end/lighthouse/LighthouseReportRenderer.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-05-13T23:14:15Z",
+      "side": 1,
+      "message": "tweaked the comment. \n\n      // If it was a PWA-only run, we\u0027d have a trace but no perf category to add the button to\n\n\nthat work for you?",
+      "parentUuid": "3a5951c0_f8ab7e8d",
+      "revId": "72e7e051c5c455d08dad0137cb12bb2f782380c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "054248b4_d842dd65",
         "filename": "front_end/third_party/lighthouse/report-assets/report.css",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "72e7e051c5c455d08dad0137cb12bb2f782380c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d05c4ed_111245ff",
+        "filename": "front_end/third_party/lighthouse/report-assets/report.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-05-13T23:14:15Z",
+      "side": 1,
+      "message": ";)",
+      "parentUuid": "054248b4_d842dd65",
+      "revId": "72e7e051c5c455d08dad0137cb12bb2f782380c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
