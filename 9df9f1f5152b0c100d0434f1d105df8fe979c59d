@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2be56a8_1e7273ad",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-05-14T20:29:37Z",
+      "side": 1,
+      "message": "This weird whitespace was introduced by the presubmit formatter.",
+      "revId": "9df9f1f5152b0c100d0434f1d105df8fe979c59d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
