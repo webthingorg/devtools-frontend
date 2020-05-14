@@ -24,8 +24,16 @@ template.innerHTML = `
       display: inline-flex;
     }
 
-    :host.hidden {
+    :host(.hidden) {
       display: none;
+    }
+
+    :host(.clickable) {
+      cursor: pointer;
+    }
+
+    :host(:focus) slot[name=content] {
+      border: var(--adorner-border-focus, 1px solid #1a73e8);
     }
 
     slot[name=content] {
@@ -34,7 +42,6 @@ template.innerHTML = `
       line-height: 13px;
       padding: 0 6px;
       font-size: 8.5px;
-      font-weight: 700;
       color: var(--adorner-text-color, #3c4043);
       background-color: var(--adorner-background-color, #f1f3f4);
       border: var(--adorner-border, 1px solid #dadce0);
@@ -84,7 +91,9 @@ export class Adorner extends HTMLElement {
    * @override
    */
   connectedCallback() {
-    UI.ARIAUtils.setAccessibleName(this, `${this.name}, adorner`);
+    if (!this.getAttribute('aria-label')) {
+      UI.ARIAUtils.setAccessibleName(this, `${this.name}, adorner`);
+    }
   }
 
   // TODO(changhaohan): add active/inactive toggle with style and ARIA updates
@@ -94,6 +103,21 @@ export class Adorner extends HTMLElement {
 
   hide() {
     this.classList.add('hidden');
+  }
+
+  /**
+   *
+   * @param {string} ariaLabel
+   * @param {!EventListener} action
+   */
+  addInteraction(ariaLabel, action) {
+    if (ariaLabel) {
+      UI.ARIAUtils.setAccessibleName(this, ariaLabel);
+    }
+    this.classList.add('clickable');
+    UI.ARIAUtils.markAsButton(this);
+    this.tabIndex = 0;
+    this.addEventListener('click', action);
   }
 }
 

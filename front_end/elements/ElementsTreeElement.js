@@ -75,6 +75,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     /** @type {!Array<!Adorner>} */
     this._adorners = [];
     this._adornersThrottler = new Common.Throttler.Throttler(100);
+    this._updateStyleAdorners();
 
     /**
      * @type {!Element|undefined}
@@ -1845,6 +1846,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     promise.then(() => self.UI.actionRegistry.action('elements.edit-as-html').execute());
   }
 
+  // TODO: add unit tests for adorner-related methods after component and TypeScript works are done
   /**
    *
    * @param {string} text
@@ -1911,6 +1913,20 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
     adornerContainer.classList.remove('hidden');
     return Promise.resolve();
+  }
+
+  // TODO: design doc
+  async _updateStyleAdorners() {
+    const node = this.node();
+    const styles = await node.domModel().cssModel().computedStylePromise(node.id);
+    if (styles.get('display') === 'grid') {
+      const gridAdorner = this.adornText('grid', AdornerCategories.Layout);
+      gridAdorner.classList.add('grid');
+      gridAdorner.addInteraction('Enable grid mode', () => {
+        // FIXME: waiting for Grid Overlay; this in its current state should not land
+        node.highlight();
+      });
+    }
   }
 }
 
