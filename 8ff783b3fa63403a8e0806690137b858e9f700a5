@@ -16,6 +16,24 @@
       "revId": "8ff783b3fa63403a8e0806690137b858e9f700a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e1af20b_cbf36333",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-14T02:14:32Z",
+      "side": 1,
+      "message": "good question, took me some time to figure this one out 👍 There is not, mostly because GRIT supports placeholders for 3+ formats (Chrome, Windows and Android), \nFWIW, this is the change that introduced the verification:\nhttps://chromium-review.googlesource.com/c/chromium/src/+/1405148\n\nIn this specific case it still makes more sense to use the placeholder as $0 \"could change\" for something else in the future (e.g $1) having it like this allows the change without the need to relocalize the sentence.",
+      "parentUuid": "2a90533a_07d3d29c",
+      "revId": "8ff783b3fa63403a8e0806690137b858e9f700a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
