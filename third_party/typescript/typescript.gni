@@ -6,7 +6,7 @@ if (!defined(devtools_location)) {
   if (defined(use_devtools_typescript) && use_devtools_typescript) {
     devtools_location = ""
   } else {
-    devtools_location = "third_party/devtools-frontend/src"
+    devtools_location = "third_party/devtools-frontend/src/"
   }
 }
 
@@ -36,8 +36,9 @@ if (!defined(devtools_location)) {
 #   }
 #
 template("ts_library") {
+  _devtools_location_prepend = "//$devtools_location"
   action(target_name) {
-    script = "//$devtools_location/third_party/typescript/ts_library.py"
+    script = _devtools_location_prepend + "third_party/typescript/ts_library.py"
 
     forward_variables_from(invoker,
                            [
@@ -47,12 +48,13 @@ template("ts_library") {
                            ])
 
     inputs = [
-      "//$devtools_location/tsconfig.base.json",
-      "//$devtools_location/node_modules/typescript/lib/tsc.js",
-      "//$devtools_location/front_end/legacy/legacy-defs.d.ts",
-      "//$devtools_location/front_end/generated/protocol.d.ts",
-      "//$devtools_location/front_end/generated/protocol-proxy-api.d.ts",
-      "//$devtools_location/node_modules/@types/filesystem/index.d.ts",
+      _devtools_location_prepend + "tsconfig.base.json",
+      _devtools_location_prepend + "node_modules/typescript/lib/tsc.js",
+      _devtools_location_prepend + "front_end/legacy/legacy-defs.d.ts",
+      _devtools_location_prepend + "front_end/generated/protocol.d.ts",
+      _devtools_location_prepend +
+          "front_end/generated/protocol-proxy-api.d.ts",
+      _devtools_location_prepend + "node_modules/@types/filesystem/index.d.ts",
     ]
 
     args = [
@@ -124,7 +126,10 @@ template("ts_library") {
           # check that the file is TypeScript and not a unittest file
           # add it to the outputs
           if (_extension == "ts" && !_test_only) {
-            _front_end_module_name = get_path_info(target_gen_dir, "name")
+            _front_end_module_name = string_replace(
+                    get_path_info(target_gen_dir, "abspath"),
+                    root_gen_dir + "/" + devtools_location + "front_end/",
+                    "")
 
             # Generate JavaScript files are temporarily copied into the old
             # resources/inspector directory. See ts_library.py for more info
