@@ -148,3 +148,16 @@ export const getSelectedBreadcrumbTextContent = async () => {
   const text = selectedCrumb.evaluate((node: HTMLElement) => node.textContent || '');
   return text;
 };
+
+export const getNodeContentBySelector = async (selector: string) => {
+  const selectedNode = await $(selector);
+  const content = await selectedNode.evaluate((node: HTMLElement) => node.textContent);
+  return content;
+};
+
+export const getNodesContentBySelectorAll = async (selector: string) => {
+  const selectedNodes = await $$(selector);
+  const content =
+      await selectedNodes.evaluate((nodes: HTMLElement[]) => nodes.map((node: HTMLElement) => node.textContent));
+  return content;
+};
