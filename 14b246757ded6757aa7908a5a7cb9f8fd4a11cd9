@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4354b75f_8080549a",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-14T16:40:59Z",
+      "side": 1,
+      "message": "Do you need to open \u0027Elements\u0027 first?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 41
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c60b356_f811c068",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-14T16:40:59Z",
+      "side": 1,
+      "message": "I think you can break this in 2 methods, one that gets all the current properties and one that checks the specific property has the value you want. \nThis way you can avoid retrieving all the nodes from COMPUTED_PROPERTY_SELECTOR every time you want to check the value of one single property.\n\nThen you can have an assert in the test that checks the value is the one you expect. This way you can be more granular in the testing and make it easier to debug. The way it is written right now this function won\u0027t return a property if the name doesn\u0027t exist or if the value is not what you expect.",
+      "range": {
+        "startLine": 80,
+        "startChar": 13,
+        "endLine": 80,
+        "endChar": 37
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d64f7b78_d0541159",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-14T16:40:59Z",
+      "side": 1,
+      "message": "Should this be 3000 ms like the max timeout in waitForFunction ?",
+      "range": {
+        "startLine": 82,
+        "startChar": 22,
+        "endLine": 82,
+        "endChar": 47
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fce8f3d_c31b0463",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-14T16:40:59Z",
+      "side": 1,
+      "message": "In what cases do you expect 0 ?",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 29
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
