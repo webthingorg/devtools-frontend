@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f8a7b7f_c6ee5136",
+        "filename": "front_end/bindings/NetworkProject.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-05-14T21:13:10Z",
+      "side": 1,
+      "message": "We can combine this if statement and the one below if we do\n\nif(!attributionInfo || attributionInfo.count \u003e 1) {\n...\n}\n\nI did it this way because it seems intentional that they decremented the count and then checked the count for clarity.  The attributionInfo.count -\u003d1 looks like it is only done to set up the attributionInfo.count \u003e 0 comparison.  Let me know if the simplified version is preferred.",
+      "revId": "9c01cd15f22ec56abcbf745b862f6c2588263563",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
