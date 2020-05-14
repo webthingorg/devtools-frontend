@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "8b0ff661_1c4c4deb",
+        "filename": "test/e2e/coverage/coverage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-14T17:01:17Z",
+      "side": 1,
+      "message": "right, I should have been more clear, can we also add a \"can clear instrumenting coverage test\" (now or in future), it just seemed a little odd to use removing the landing page as the start check instead of the stop button appearing, and then we don\u0027t ever check the landing page again (which I know is tied to the clear button)",
+      "parentUuid": "f0c84b39_4fcf0bdd",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "8c235ca00642b7876f1b82f10896aa44f3d7d300",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1604499a_97f3c619",
         "filename": "test/e2e/helpers/coverage-helpers.ts",
         "patchSetId": 1
