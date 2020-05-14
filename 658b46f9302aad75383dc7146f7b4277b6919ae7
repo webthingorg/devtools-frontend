@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6f4e9b8_36e2ec7c",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-14T13:01:43Z",
+      "side": 1,
+      "message": "Please add a todo that this can eventually be removed once we don\u0027t need the gimli-based solution anymore.",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 81
+      },
+      "revId": "658b46f9302aad75383dc7146f7b4277b6919ae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb8a2544_94f9a6e0",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-14T13:01:43Z",
+      "side": 1,
+      "message": "This fixes an unrelated issue, I\u0027d let Wolfgang fix this.",
+      "range": {
+        "startLine": 239,
+        "startChar": 3,
+        "endLine": 239,
+        "endChar": 84
+      },
+      "revId": "658b46f9302aad75383dc7146f7b4277b6919ae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
