@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d998444e_62c03432",
+        "filename": "front_end/component_docs/example/basic.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-05-14T11:54:06Z",
+      "side": 1,
+      "message": "Unexpected.",
+      "range": {
+        "startLine": 13,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 61
+      },
+      "revId": "5d92cba4b1e8ad04ea2681062115c72b02190163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
