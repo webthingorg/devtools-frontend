@@ -124,7 +124,10 @@ template("ts_library") {
           # check that the file is TypeScript and not a unittest file
           # add it to the outputs
           if (_extension == "ts" && !_test_only) {
-            _front_end_module_name = get_path_info(target_gen_dir, "name")
+            _front_end_module_name =
+                string_replace(get_path_info(target_gen_dir, "abspath"),
+                               "$root_gen_dir/front_end/",
+                               "")
 
             # Generate JavaScript files are temporarily copied into the old
             # resources/inspector directory. See ts_library.py for more info

@@ -5,7 +5,10 @@
 resources_out_dir = "$root_out_dir/resources/inspector"
 
 group("front_end") {
-  public_deps = [ ":front_end_html_entrypoints" ]
+  public_deps = [
+    ":front_end_html_entrypoints",
+    "generic_components/devtools-key-value-table",
+  ]
 }
 
 copy("front_end_html_entrypoints") {

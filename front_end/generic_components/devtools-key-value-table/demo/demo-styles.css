@@ -1,0 +1,12 @@
+:root {
+  --toolbar-bg-color: #f3f3f3;
+  --table-secondary-color: hsl(214, 70%, 97%);
+  --table-divider-color: 1px solid #aaa;
+  --selection-bg-color: #1a73e8;
+  --selection-fg-color: white;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}

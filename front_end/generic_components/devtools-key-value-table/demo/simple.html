@@ -1,0 +1,21 @@
+<head>
+  <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body>
+  <devtools-key-value-table></devtools-key-value-table>
+  <script type="module">
+    import '../devtools-key-value-table.js';
+
+    document.querySelector('devtools-key-value-table').data = {
+      mapping: [
+        {key: 'Cookie', value: 'Cookie string'},
+        {key: 'Cookie2', value: 'Cookie string2'},
+        {key: 'Cookie3', value: 'Cookie string3'},
+        {key: 'Cookie4', value: 'Cookie string4'},
+        {key: 'Cookie5', value: 'Cookie string5'},
+        {key: 'Cookie6', value: 'Cookie string6'},
+        {key: 'Cookie7', value: 'Cookie string7'},
+      ],
+    };
+  </script>
+</body>
