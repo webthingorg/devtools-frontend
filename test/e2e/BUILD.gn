@@ -17,6 +17,7 @@ ts_library("e2e") {
     "lighthouse",
     "media",
     "network",
+    "performance",
     "profiler",
     "rendering",
     "search",
