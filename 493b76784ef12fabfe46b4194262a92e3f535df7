@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "677c4f31_79441d52",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-14T12:56:54Z",
+      "side": 1,
+      "message": "Given that this is not set in the constructor, and the methods check whether it is present, the type can\u0027t be right.",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 21
+      },
+      "revId": "493b76784ef12fabfe46b4194262a92e3f535df7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "742ae316_a5070e5b",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-14T12:56:54Z",
+      "side": 1,
+      "message": "This is the response now, not the bytecode.",
+      "range": {
+        "startLine": 232,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 17
+      },
+      "revId": "493b76784ef12fabfe46b4194262a92e3f535df7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
