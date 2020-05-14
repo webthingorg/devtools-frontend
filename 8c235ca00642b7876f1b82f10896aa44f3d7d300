@@ -46,6 +46,53 @@
       "revId": "8c235ca00642b7876f1b82f10896aa44f3d7d300",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "377d5c31_97e4187b",
+        "filename": "test/e2e/coverage/coverage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-14T16:20:52Z",
+      "side": 1,
+      "message": "I guess that\u0027s fair. I\u0027d maybe add a test that it can clear the content and the landing page shows back up, since we test for it disappearing as a condition of starting, but we don\u0027t test that it can re-appear? left similar comment in the helper file",
+      "parentUuid": "ee65626d_057d47f0",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "8c235ca00642b7876f1b82f10896aa44f3d7d300",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1604499a_97f3c619",
+        "filename": "test/e2e/helpers/coverage-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-14T16:20:52Z",
+      "side": 1,
+      "message": "Can we also add a check to wait for the stop instrumenting button?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 55
+      },
+      "revId": "8c235ca00642b7876f1b82f10896aa44f3d7d300",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
