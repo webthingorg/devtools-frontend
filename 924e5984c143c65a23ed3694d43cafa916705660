@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf7ac3ec_7ba721c1",
+        "filename": "front_end/sdk/ChildTargetManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-14T09:20:53Z",
+      "side": 1,
+      "message": "what does this mean? Not seen the use of `?` as a type on its own. Maybe anything?",
+      "range": {
+        "startLine": 70,
+        "startChar": 21,
+        "endLine": 70,
+        "endChar": 26
+      },
+      "revId": "924e5984c143c65a23ed3694d43cafa916705660",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
