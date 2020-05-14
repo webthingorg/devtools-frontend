@@ -9,6 +9,8 @@ import {$, $$, click, getBrowserAndPages, timeout, waitFor, waitForFunction} fro
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
 const CSS_PROPERTY_NAME_SELECTOR = '.webkit-css-property';
+const CSS_STYLE_RULE_SELECTOR = '[aria-label*="css selector"]';
+const COMPUTED_PROPERTY_SELECTOR = '.computed-style-property';
 
 export const assertContentOfSelectedElementsNode = async (expectedTextContent: string) => {
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
@@ -61,9 +63,48 @@ export const waitForChildrenOfSelectedElementNode = async () => {
   await waitFor(`${SELECTED_TREE_ELEMENT_SELECTOR} + ol > li`);
 };
 
+export const navigateToSidePane = async (paneName: string) => {
+  await click(`[aria-label="${paneName}"]`);
+  await waitFor(`[aria-label="${paneName} panel"]`);
+};
+
 export const waitForElementsStyleSection = async () => {
   // Wait for the file to be loaded and selectors to be shown
   await waitFor('.styles-selector');
+};
+
+export const waitForElementsComputedSection = async () => {
+  await waitFor(COMPUTED_PROPERTY_SELECTOR);
+};
+
+export const waitForComputedProperty = async (expectedName: string, expectedValue: string, maxTotalTimeout = 1000) => {
+  if (maxTotalTimeout === 0) {
+    maxTotalTimeout = Number.POSITIVE_INFINITY;
+  }
+
+  const start = performance.now();
+  do {
+    const properties = await $$(COMPUTED_PROPERTY_SELECTOR);
+    const isPropertyFound = properties.evaluate((nodes: Element[], expectedName: string, expectedValue: string) => {
+      return nodes.some(node => {
+        const name = node.querySelector('.property-name');
+        const value = node.querySelector('.property-value');
+        if (!name || !value) {
+          return false;
+        }
+
+        return name.textContent === `${expectedName}:` && value.textContent === `${expectedValue};`;
+      });
+    }, expectedName, expectedValue);
+
+    if (isPropertyFound) {
+      return;
+    }
+
+    await timeout(30);
+  } while (performance.now() - start < maxTotalTimeout);
+
+  throw new Error(`Computed property ${expectedName}:${expectedValue} did not appear in ${maxTotalTimeout}ms`);
 };
 
 export const expandSelectedNodeRecursively = async () => {
@@ -121,6 +162,43 @@ export const assertGutterDecorationForDomNodeExists = async () => {
 
 export const getAriaLabelSelectorFromPropertiesSelector = (selectorForProperties: string) =>
     `[aria-label="${selectorForProperties}, css selector"]`;
+
+
+export const waitForStyleRule = async (expectedSelector: string, maxTotalTimeout = 1000) => {
+  if (maxTotalTimeout === 0) {
+    maxTotalTimeout = Number.POSITIVE_INFINITY;
+  }
+
+  const start = performance.now();
+  do {
+    const rules = await getDisplayedStyleRules();
+    if (rules.map(rule => rule.selectorText).includes(expectedSelector)) {
+      return;
+    }
+
+    await timeout(30);
+  } while (performance.now() - start < maxTotalTimeout);
+
+  throw new Error(`Style rule matching ${expectedSelector} did not appear in ${maxTotalTimeout}ms`);
+};
+
+export const getDisplayedStyleRules = async () => {
+  const allRuleSelectors = await $$(CSS_STYLE_RULE_SELECTOR);
+
+  const rules = [];
+
+  for (const ruleSelector of (await allRuleSelectors.getProperties()).values()) {
+    const propertyNames = await getDisplayedCSSPropertyNames(ruleSelector);
+    const selectorText = await ruleSelector.evaluate((node: Element) => {
+      const attribute = node.getAttribute('aria-label') || '';
+      return attribute.substring(0, attribute.lastIndexOf(', css selector'));
+    });
+
+    rules.push({selectorText, propertyNames});
+  }
+
+  return rules;
+};
 
 export const getDisplayedCSSPropertyNames = async (propertiesSection: puppeteer.JSHandle<any>) => {
   const listNodesContent = (nodes: Element[]) => {
