@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d8260a6d_7ed0262b",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-14T19:30:52Z",
+      "side": 1,
+      "message": "Yep, we have an example for bundle script here that bundle dependencies and export LH i18n as a module https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2090459/10/scripts/localizationV2/buildI18nBundle.js\nAs a reference this is a bundle script in LH that also uses browserify.\nhttps://github.com/GoogleChrome/lighthouse/blob/master/build/build-bundle.js",
+      "parentUuid": "99f29a72_1eb5f838",
+      "range": {
+        "startLine": 8,
+        "startChar": 29,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2bb832e_cbf0326c",
         "filename": "front_end/third_party/i18n/i18n.js",
         "patchSetId": 4
@@ -60,6 +84,30 @@
       "writtenOn": "2020-05-14T19:16:24Z",
       "side": 1,
       "message": "we can remove this line 😊",
+      "range": {
+        "startLine": 293,
+        "startChar": 2,
+        "endLine": 293,
+        "endChar": 39
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "377d5523_9e882888",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-14T19:30:52Z",
+      "side": 1,
+      "message": "will do.",
+      "parentUuid": "f2bb832e_cbf0326c",
       "range": {
         "startLine": 293,
         "startChar": 2,
@@ -170,6 +218,30 @@
       "writtenOn": "2020-05-14T19:16:24Z",
       "side": 1,
       "message": "Good catch, I agree is better to implement this from scratch. I think we have a similar logic for this on the browser side so we can potentially reuse it from there.",
+      "parentUuid": "b3620743_df980537",
+      "range": {
+        "startLine": 466,
+        "startChar": 9,
+        "endLine": 466,
+        "endChar": 28
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75935eca_f752b6c4",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-14T19:30:52Z",
+      "side": 1,
+      "message": "You are right! I did this work quite some time ago so I forgot it was from another library and though it\u0027s also from LH. \nI agreed that we should just re-implement it. I will update.",
       "parentUuid": "b3620743_df980537",
       "range": {
         "startLine": 466,
