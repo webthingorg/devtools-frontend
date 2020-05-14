@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6f26910_be0c5c8a",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-14T10:03:54Z",
+      "side": 1,
+      "message": "These imports aren\u0027t going to work inside devtools if these packages aren\u0027t in the top-level package json right? Also we need to think about how to make them work with ESM and not node-require I think?",
+      "range": {
+        "startLine": 8,
+        "startChar": 29,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d16159e7_419bc8fb",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-14T10:03:54Z",
+      "side": 1,
+      "message": "We need to figure out how we\u0027ll type check this file. Right now I don\u0027t think closure will be happy as the types don\u0027t have ! or ? which is required AFAIK. Possibly we could type check with just typescript. I\u0027ll start an email thread with some people, we don\u0027t have to block on it in this CL.\n\nI don\u0027t think the LH.Locale type is available here either, outside of the lighthouse code base. Same goes for some other types in this file.",
+      "range": {
+        "startLine": 463,
+        "startChar": 11,
+        "endLine": 463,
+        "endChar": 20
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3620743_df980537",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-14T10:03:54Z",
+      "side": 1,
+      "message": "It looks like this is copied from https://github.com/format-message/format-message/blob/master/packages/lookup-closest-locale/index.js?\n\nFor licence reasons we would need to split this out into a new directory under third_party as the licence and copyright are different.\n\nIt looks like we only call this with a single locale (never an array) so the implementation could be simplified - I think the easiest thing to do is re-implement this from scratch here. WDYT?",
+      "range": {
+        "startLine": 466,
+        "startChar": 9,
+        "endLine": 466,
+        "endChar": 28
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
