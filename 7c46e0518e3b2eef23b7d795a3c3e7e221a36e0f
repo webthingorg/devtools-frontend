@@ -94,6 +94,30 @@
       "revId": "7c46e0518e3b2eef23b7d795a3c3e7e221a36e0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "316c29f2_85c590b2",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-14T08:41:39Z",
+      "side": 1,
+      "message": "Right! SG. Thanks!",
+      "parentUuid": "d04b3a28_fabdad33",
+      "range": {
+        "startLine": 18,
+        "startChar": 13,
+        "endLine": 18,
+        "endChar": 28
+      },
+      "revId": "7c46e0518e3b2eef23b7d795a3c3e7e221a36e0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
