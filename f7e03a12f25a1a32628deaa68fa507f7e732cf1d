@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "05be9d6e_4e77783d",
+        "filename": "scripts/suggest_owners.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-14T13:36:02Z",
+      "side": 1,
+      "message": "No but this makes the linter happy :)",
+      "parentUuid": "1a81ed35_b930ccf9",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69ce0812_0850461f",
         "filename": "scripts/suggest_owners.js",
         "patchSetId": 3
