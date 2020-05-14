@@ -936,6 +936,7 @@ devtools_typescript_deps = [
   "front_end/sdk:sdk",
   "front_end/third_party/codemirror",
   "front_end/workspace",
+  "front_end/component_docs",
 ]
 
 devtools_frontend_resources_deps = devtools_typescript_deps + [
