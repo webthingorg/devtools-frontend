@@ -22,6 +22,30 @@
       "revId": "6eb8f973cd85296b74efaf1e42cf8b7a2fdf9796",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c123672a_a6fafa60",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-14T11:21:47Z",
+      "side": 1,
+      "message": "Ah yes, I must have not been paying attention there.",
+      "parentUuid": "0a798c0a_a8df4bad",
+      "range": {
+        "startLine": 267,
+        "startChar": 34,
+        "endLine": 267,
+        "endChar": 46
+      },
+      "revId": "6eb8f973cd85296b74efaf1e42cf8b7a2fdf9796",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
