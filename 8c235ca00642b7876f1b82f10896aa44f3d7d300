@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f0c84b39_4fcf0bdd",
+        "filename": "test/e2e/coverage/coverage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-14T16:58:19Z",
+      "side": 1,
+      "message": "That happens with a different action, you need to press the clear button to see the landing page again. It doesn\u0027t happen with stop.",
+      "parentUuid": "377d5c31_97e4187b",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "8c235ca00642b7876f1b82f10896aa44f3d7d300",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1604499a_97f3c619",
         "filename": "test/e2e/helpers/coverage-helpers.ts",
         "patchSetId": 1
