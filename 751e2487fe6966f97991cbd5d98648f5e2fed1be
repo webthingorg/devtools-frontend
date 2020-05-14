@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "160d0d32_970455b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-14T10:28:01Z",
+      "side": 1,
+      "message": "Please include before/after screenshots in the commit message. You can use Imgur to host them.",
+      "revId": "751e2487fe6966f97991cbd5d98648f5e2fed1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58a2689e_9ccb5b94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-14T10:28:01Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like the right bug number :) Did you mean chromium:794255?",
+      "revId": "751e2487fe6966f97991cbd5d98648f5e2fed1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
