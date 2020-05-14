@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "a044e71b_86f8f13a",
+        "filename": "test/e2e/coverage/coverage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-14T17:19:34Z",
+      "side": 1,
+      "message": "Gotcha, I agree. I added a step  to test for that.",
+      "parentUuid": "8b0ff661_1c4c4deb",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "8c235ca00642b7876f1b82f10896aa44f3d7d300",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1604499a_97f3c619",
         "filename": "test/e2e/helpers/coverage-helpers.ts",
         "patchSetId": 1
