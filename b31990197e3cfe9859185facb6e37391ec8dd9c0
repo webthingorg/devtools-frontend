@@ -25,6 +25,70 @@
     },
     {
       "key": {
+        "uuid": "99f29a72_1eb5f838",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-14T19:16:24Z",
+      "side": 1,
+      "message": "I think that we used browserify for this, that will create a bundle with the dependencies.",
+      "parentUuid": "a6f26910_be0c5c8a",
+      "range": {
+        "startLine": 8,
+        "startChar": 29,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2bb832e_cbf0326c",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-14T19:16:24Z",
+      "side": 1,
+      "message": "we can remove this line 😊",
+      "range": {
+        "startLine": 293,
+        "startChar": 2,
+        "endLine": 293,
+        "endChar": 39
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08d37090_301fc66d",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-14T19:16:24Z",
+      "side": 1,
+      "message": "nit:Extra space",
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d16159e7_419bc8fb",
         "filename": "front_end/third_party/i18n/i18n.js",
         "patchSetId": 4
@@ -48,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "3ac1e340_4a32c8a2",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-14T19:16:24Z",
+      "side": 1,
+      "message": "I may be misunderstanding the question, but AFAIK this file won\u0027t be scanned as it is included in third_party?",
+      "parentUuid": "d16159e7_419bc8fb",
+      "range": {
+        "startLine": 463,
+        "startChar": 11,
+        "endLine": 463,
+        "endChar": 20
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3620743_df980537",
         "filename": "front_end/third_party/i18n/i18n.js",
         "patchSetId": 4
@@ -59,6 +147,30 @@
       "writtenOn": "2020-05-14T10:03:54Z",
       "side": 1,
       "message": "It looks like this is copied from https://github.com/format-message/format-message/blob/master/packages/lookup-closest-locale/index.js?\n\nFor licence reasons we would need to split this out into a new directory under third_party as the licence and copyright are different.\n\nIt looks like we only call this with a single locale (never an array) so the implementation could be simplified - I think the easiest thing to do is re-implement this from scratch here. WDYT?",
+      "range": {
+        "startLine": 466,
+        "startChar": 9,
+        "endLine": 466,
+        "endChar": 28
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c7a9b63_aca09944",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-05-14T19:16:24Z",
+      "side": 1,
+      "message": "Good catch, I agree is better to implement this from scratch. I think we have a similar logic for this on the browser side so we can potentially reuse it from there.",
+      "parentUuid": "b3620743_df980537",
       "range": {
         "startLine": 466,
         "startChar": 9,
