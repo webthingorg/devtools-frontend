@@ -2,6 +2,91 @@
   "comments": [
     {
       "key": {
+        "uuid": "40553ea9_2fdce81e",
+        "filename": "front_end/emulation/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-05-14T21:39:24Z",
+      "side": 1,
+      "message": "please add soxia@microsoft.com",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "429cefb4_918809dc",
+        "filename": "front_end/resources/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-05-14T21:39:24Z",
+      "side": 1,
+      "message": "can you add brgoddar@microsoft.com?",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f7cb6c_c0259d2a",
+        "filename": "front_end/sdk/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-05-14T21:39:24Z",
+      "side": 1,
+      "message": "please add chrche@microsoft.com",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c28afc77_a1636f7d",
+        "filename": "front_end/text_editor/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-05-14T21:39:24Z",
+      "side": 1,
+      "message": "please add these folks:\n\nanubmat@microsoft.com\njohn.emau@microsoft.com\nbrcui@microsoft.com",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6cc8338_0b030b7a",
+        "filename": "front_end/timeline/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-05-14T21:39:24Z",
+      "side": 1,
+      "message": "please add brgoddar@microsoft.com",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a81ed35_b930ccf9",
         "filename": "scripts/suggest_owners.js",
         "patchSetId": 3
