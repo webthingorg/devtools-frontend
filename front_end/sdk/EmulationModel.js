@@ -70,7 +70,12 @@ export class EmulationModel extends SDKModel {
     this._touchEnabled = false;
     this._touchMobile = false;
     this._customTouchEnabled = false;
-    this._touchConfiguration = {enabled: false, configuration: 'mobile', scriptId: ''};
+    /** @type {{enabled: boolean, configuration: !Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration, scriptId: string}} */
+    this._touchConfiguration = {
+      enabled: false,
+      configuration: Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile,
+      scriptId: ''
+    };
   }
 
   /**
@@ -185,7 +190,7 @@ export class EmulationModel extends SDKModel {
   }
 
   /**
-   * @param {string} type
+   * @param {!Protocol.Emulation.SetEmulatedVisionDeficiencyRequestType} type
    */
   _emulateVisionDeficiency(type) {
     this._emulationAgent.setEmulatedVisionDeficiency(type);
@@ -219,14 +224,21 @@ export class EmulationModel extends SDKModel {
   _updateTouch() {
     let configuration = {
       enabled: this._touchEnabled,
-      configuration: this._touchMobile ? 'mobile' : 'desktop',
+      configuration: this._touchMobile ? Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile :
+                                         Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Desktop,
     };
     if (this._customTouchEnabled) {
-      configuration = {enabled: true, configuration: 'mobile'};
+      configuration = {
+        enabled: true,
+        configuration: Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile
+      };
     }
 
     if (this._overlayModel && this._overlayModel.inspectModeEnabled()) {
-      configuration = {enabled: false, configuration: 'mobile'};
+      configuration = {
+        enabled: false,
+        configuration: Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile
+      };
     }
 
     if (!this._touchConfiguration.enabled && !configuration.enabled) {
@@ -237,7 +249,8 @@ export class EmulationModel extends SDKModel {
       return;
     }
 
-    this._touchConfiguration = configuration;
+    this._touchConfiguration.enabled = configuration.enabled;
+    this._touchConfiguration.configuration = configuration.configuration;
     this._emulationAgent.setTouchEmulationEnabled(configuration.enabled, 1);
     this._emulationAgent.setEmitTouchEventsForMouse(configuration.enabled, configuration.configuration);
   }
