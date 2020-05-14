@@ -67,8 +67,6 @@ const EXCLUDED_FILES = [
   'cm/multiplex.js',
   'cm/overlay.js',
   'cm/simple.js',
-  // FIXME: Dagre bundles must be moved to third_party
-  'dagre_layout/dagre.js',
   // FIXME: Diff bundles must be moved to third_party
   'diff/diff_match_patch.js',
   // FIXME: Acorn bundles must be moved to third_party
