@@ -6,7 +6,7 @@ import {beforeEach, describe, it} from 'mocha';
 import {$, click, getBrowserAndPages, typeText, waitForFunction} from '../../shared/helper.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpers.js';
 
-describe('The Console Tab', async () => {
+describe.skip('[crbug.com/1083264] The Console Tab', async () => {
   function typeTextAndWaitForSuggestBox(text: string) {
     return Promise.all([
       waitForFunction(
