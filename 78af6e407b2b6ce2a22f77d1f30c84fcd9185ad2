@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ad7457e_4b9bad1b",
+        "filename": "scripts/build/generate_protocol_externs.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-15T14:18:20Z",
+      "side": 1,
+      "message": "Did we miss this in a previous CL?",
+      "range": {
+        "startLine": 175,
+        "startChar": 59,
+        "endLine": 175,
+        "endChar": 66
+      },
+      "revId": "78af6e407b2b6ce2a22f77d1f30c84fcd9185ad2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
