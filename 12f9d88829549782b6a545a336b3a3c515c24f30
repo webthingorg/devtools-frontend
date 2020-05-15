@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c15d501a_e7f909b7",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-15T10:52:14Z",
+      "side": 1,
+      "message": "Is there a better type for this, maybe in the protocol? Or was this blocked on crbug.com/1081686",
+      "range": {
+        "startLine": 673,
+        "startChar": 13,
+        "endLine": 673,
+        "endChar": 14
+      },
+      "revId": "12f9d88829549782b6a545a336b3a3c515c24f30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
