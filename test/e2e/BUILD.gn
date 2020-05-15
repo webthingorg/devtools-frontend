@@ -21,6 +21,7 @@ ts_library("e2e") {
     "profiler",
     "rendering",
     "search",
+    "security",
     "snippets",
     "sources",
   ]
