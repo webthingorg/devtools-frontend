@@ -75,7 +75,14 @@
 
 .object-value-null,
 .object-value-undefined {
-    color: rgb(128, 128, 128);
+    color: rgb(94 94 94);
+}
+
+.-theme-with-dark-background .object-value-null,
+:host-context(.-theme-with-dark-background) .object-value-null,
+.-theme-with-dark-background .object-value-undefined,
+:host-context(.-theme-with-dark-background) .object-value-undefined {
+    color: rgb(161 161 161);
 }
 
 .object-value-calculate-value-button:hover {
