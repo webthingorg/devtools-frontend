@@ -676,6 +676,13 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.DOMApi}
+   */
+  domAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.PageApi}
    */
   pageAgent() {
@@ -686,6 +693,12 @@ export class TargetBase {
    * @param {!Protocol.PageDispatcher} dispatcher
    */
   registerPageDispatcher(dispatcher) {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+  /**
+   * @param {!Protocol.DOMDispatcher} dispatcher
+   */
+  registerDOMDispatcher(dispatcher) {
     throw new Error('Implemented in InspectorBackend.js');
   }
 }
