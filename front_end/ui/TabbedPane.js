@@ -1343,6 +1343,14 @@ export class TabbedPaneTab {
       this._closeTabs(this._tabbedPane._tabsToTheRight(this.id));
     }
 
+    async function moveToDrawer() {
+      UI.ViewManager.instance().moveView(this.id, 'drawer-view');
+    }
+
+    async function moveToMainPanel() {
+      UI.ViewManager.instance().moveView(this.id, 'panel');
+    }
+
     const contextMenu = new ContextMenu(event);
     if (this._closeable) {
       contextMenu.defaultSection().appendItem(Common.UIString.UIString('Close'), close.bind(this));
@@ -1350,7 +1358,16 @@ export class TabbedPaneTab {
       contextMenu.defaultSection().appendItem(
           Common.UIString.UIString('Close tabs to the right'), closeToTheRight.bind(this));
       contextMenu.defaultSection().appendItem(Common.UIString.UIString('Close all'), closeAll.bind(this));
+
+      const locationName = UI.ViewManager.instance().locationNameForViewId(this.id);
+      if (locationName === 'drawer-view') {
+        contextMenu.defaultSection().appendItem(
+            Common.UIString.UIString('Move to main panel'), moveToMainPanel.bind(this));
+      } else {
+        contextMenu.defaultSection().appendItem(Common.UIString.UIString('Move to drawer'), moveToDrawer.bind(this));
+      }
     }
+
     if (this._delegate) {
       this._delegate.onContextMenu(this.id, contextMenu);
     }
