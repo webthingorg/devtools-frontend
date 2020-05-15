@@ -16,6 +16,24 @@
       "revId": "0f65e3325f5acb51501a3e9ff35ddc625236ba0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bfb577e_ba0cfe79",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-15T07:36:40Z",
+      "side": 1,
+      "message": "Ah, right, thanks, Mathias. Will update as soon as I get some info from Peter.",
+      "parentUuid": "0e0c636a_4cfe6614",
+      "revId": "0f65e3325f5acb51501a3e9ff35ddc625236ba0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
