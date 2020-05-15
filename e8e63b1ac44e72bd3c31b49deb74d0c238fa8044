@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "637e3b6a_d10eeecf",
+        "filename": "front_end/sdk/CSSMatchedStyles.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-05-15T02:41:23Z",
+      "side": 1,
+      "message": "Could you think of a better way than casting parentRule to CSSStyleRule? I don\u0027t think this matches exactly what the original code does, but I can\u0027t think of a beter way yet.",
+      "revId": "e8e63b1ac44e72bd3c31b49deb74d0c238fa8044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
