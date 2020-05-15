@@ -67,6 +67,10 @@ const emitModule = (moduleName: string, domains: Protocol.Domain[]) => {
   emitOpenBlock(`declare namespace ${moduleName}`);
   emitGlobalTypeDefs();
   domains.forEach(emitDomain);
+  emitLine();
+  emitLine('// These empty interfaces are meant to unblock TypeScript work');
+  emitLine('// TODO(crbug.com/1081686)');
+  domains.forEach(emitDispatcher);
   emitCloseBlock();
   emitLine();
 };
@@ -98,6 +102,11 @@ const emitDomain = (domain: Protocol.Domain) => {
     domain.events.forEach(emitEvent);
   }
   emitCloseBlock();
+};
+
+const emitDispatcher = (domain: Protocol.Domain) => {
+  const domainName = toTitleCase(domain.domain);
+  emitLine(`export interface ${domainName}Dispatcher {}`);
 };
 
 const getCommentLines = (description: string) => {
