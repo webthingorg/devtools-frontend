@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "909c0abf_bb3d291f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-15T08:38:18Z",
+      "side": 1,
+      "message": "nit: You should use https://crbug.com/1072335 now :)",
+      "range": {
+        "startLine": 13,
+        "startChar": 14,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "50963ff11240a4fe881dd844adef2934f8032b4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
