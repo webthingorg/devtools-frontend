@@ -674,6 +674,20 @@ export class TargetBase {
   performanceAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
+
+  /**
+   * @return {!ProtocolProxyApi.MemoryApi}
+   */
+  memoryAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.HeapProfilerApi}
+   */
+  heapProfilerAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
 }
 
 /**
