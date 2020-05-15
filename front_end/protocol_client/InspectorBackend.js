@@ -655,9 +655,23 @@ export class TargetBase {
   }
 
   /**
-   * @return {!ProtocolProxyApi.LayerTreeApi}
+   * @return {!ProtocolProxyApi.PageApi}
    */
-  layerTreeAgent() {
+  pageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.EmulationApi}
+   */
+  emulationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.DeviceOrientationApi}
+   */
+  deviceOrientationAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
@@ -665,6 +679,13 @@ export class TargetBase {
    * @return {!ProtocolProxyApi.DebuggerApi}
    */
   debuggerAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.LayerTreeApi}
+   */
+  layerTreeAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
