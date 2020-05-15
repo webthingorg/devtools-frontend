@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0c636a_4cfe6614",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-15T07:26:49Z",
+      "side": 1,
+      "message": "With the current change, it looks like we don\u0027t need this rule set (line 245-248) anymore.\n\nBut, for accessibility it\u0027s important that we have distinct focus styles, so we should rethink this patch.\n\nI think the focus styles can remain as they were before, and we just need to figure out what the default style should be. Peter, can you advise from the UX/UI side? Thanks.",
+      "revId": "0f65e3325f5acb51501a3e9ff35ddc625236ba0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
