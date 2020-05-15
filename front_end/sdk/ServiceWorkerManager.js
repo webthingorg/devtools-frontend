@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 
 import {ls} from '../platform/platform.js';
@@ -53,6 +50,7 @@ export class ServiceWorkerManager extends SDKModel {
     /** @type {!Map.<string, !ServiceWorkerRegistration>} */
     this._registrations = new Map();
     this.enable();
+    /** @type {!Common.Settings.Setting<boolean>} */
     this._forceUpdateSetting = Common.Settings.Settings.instance().createSetting('serviceWorkerUpdateOnReload', false);
     if (this._forceUpdateSetting.get()) {
       this._forceUpdateSettingChanged();
@@ -61,21 +59,21 @@ export class ServiceWorkerManager extends SDKModel {
     new ServiceWorkerContextNamer(target, this);
   }
 
-  enable() {
+  async enable() {
     if (this._enabled) {
       return;
     }
     this._enabled = true;
-    this._agent.enable();
+    await this._agent.invoke_enable();
   }
 
-  disable() {
+  async disable() {
     if (!this._enabled) {
       return;
     }
     this._enabled = false;
     this._registrations.clear();
-    this._agent.disable();
+    await this._agent.invoke_enable();
   }
 
   /**
@@ -135,25 +133,25 @@ export class ServiceWorkerManager extends SDKModel {
   /**
    * @param {string} registrationId
    */
-  updateRegistration(registrationId) {
+  async updateRegistration(registrationId) {
     const registration = this._registrations.get(registrationId);
     if (!registration) {
       return;
     }
-    this._agent.updateRegistration(registration.scopeURL);
+    await this._agent.invoke_updateRegistration({scopeURL: registration.scopeURL});
   }
 
   /**
    * @param {string} registrationId
    * @param {string} data
    */
-  deliverPushMessage(registrationId, data) {
+  async deliverPushMessage(registrationId, data) {
     const registration = this._registrations.get(registrationId);
     if (!registration) {
       return;
     }
     const origin = Common.ParsedURL.ParsedURL.extractOrigin(registration.scopeURL);
-    this._agent.deliverPushMessage(origin, registrationId, data);
+    await this._agent.invoke_deliverPushMessage({origin, registrationId, data});
   }
 
   /**
@@ -161,61 +159,61 @@ export class ServiceWorkerManager extends SDKModel {
    * @param {string} tag
    * @param {boolean} lastChance
    */
-  dispatchSyncEvent(registrationId, tag, lastChance) {
+  async dispatchSyncEvent(registrationId, tag, lastChance) {
     const registration = this._registrations.get(registrationId);
     if (!registration) {
       return;
     }
     const origin = Common.ParsedURL.ParsedURL.extractOrigin(registration.scopeURL);
-    this._agent.dispatchSyncEvent(origin, registrationId, tag, lastChance);
+    await this._agent.invoke_dispatchSyncEvent({origin, registrationId, tag, lastChance});
   }
 
   /**
    * @param {string} registrationId
    * @param {string} tag
    */
-  dispatchPeriodicSyncEvent(registrationId, tag) {
+  async dispatchPeriodicSyncEvent(registrationId, tag) {
     const registration = this._registrations.get(registrationId);
     if (!registration) {
       return;
     }
     const origin = Common.ParsedURL.ParsedURL.extractOrigin(registration.scopeURL);
-    this._agent.dispatchPeriodicSyncEvent(origin, registrationId, tag);
+    await this._agent.invoke_dispatchPeriodicSyncEvent({origin, registrationId, tag});
   }
 
   /**
-   * @param {string} scope
+   * @param {string} scopeURL
    */
-  _unregister(scope) {
-    this._agent.unregister(scope);
+  async _unregister(scopeURL) {
+    await this._agent.invoke_unregister({scopeURL});
   }
 
   /**
-   * @param {string} scope
+   * @param {string} scopeURL
    */
-  startWorker(scope) {
-    this._agent.startWorker(scope);
+  async startWorker(scopeURL) {
+    await this._agent.invoke_startWorker({scopeURL});
   }
 
   /**
-   * @param {string} scope
+   * @param {string} scopeURL
    */
-  skipWaiting(scope) {
-    this._agent.skipWaiting(scope);
-  }
-
-  /**
-   * @param {string} versionId
-   */
-  stopWorker(versionId) {
-    this._agent.stopWorker(versionId);
+  async skipWaiting(scopeURL) {
+    await this._agent.invoke_skipWaiting({scopeURL});
   }
 
   /**
    * @param {string} versionId
    */
-  inspectWorker(versionId) {
-    this._agent.inspectWorker(versionId);
+  async stopWorker(versionId) {
+    await this._agent.invoke_stopWorker({versionId});
+  }
+
+  /**
+   * @param {string} versionId
+   */
+  async inspectWorker(versionId) {
+    await this._agent.invoke_inspectWorker({versionId});
   }
 
   /**
@@ -278,14 +276,15 @@ export class ServiceWorkerManager extends SDKModel {
   }
 
   /**
-   * @return {!Common.Settings.Setting<*>}
+   * @return {!Common.Settings.Setting<boolean>}
    */
   forceUpdateOnReloadSetting() {
     return this._forceUpdateSetting;
   }
 
   _forceUpdateSettingChanged() {
-    this._agent.setForceUpdateOnPageLoad(this._forceUpdateSetting.get());
+    const forceUpdateOnPageLoad = this._forceUpdateSetting.get();
+    this._agent.invoke_setForceUpdateOnPageLoad({forceUpdateOnPageLoad});
   }
 }
 
@@ -342,6 +341,16 @@ export class ServiceWorkerVersion {
    * @param {!Protocol.ServiceWorker.ServiceWorkerVersion} payload
    */
   constructor(registration, payload) {
+    /** @type {string} */ this.id;
+    /** @type {string} */ this.scriptURL;
+    /** @type {!Common.ParsedURL.ParsedURL} */ this.parsedURL;
+    /** @type {string} */ this.securityOrigin;
+    /** @type {!Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus} */ this.runningStatus;
+    /** @type {!Protocol.ServiceWorker.ServiceWorkerVersionStatus} */ this.status;
+    /** @type {number|undefined} */ this.scriptLastModified;
+    /** @type {number|undefined} */ this.scriptResponseTime;
+    /** @type {!Array<!Protocol.Target.TargetID>} */ this.controlledClients;
+    /** @type {?Protocol.Target.TargetID} */ this.targetId;
     this.registration = registration;
     this._update(payload);
   }
@@ -358,9 +367,10 @@ export class ServiceWorkerVersion {
     this.status = payload.status;
     this.scriptLastModified = payload.scriptLastModified;
     this.scriptResponseTime = payload.scriptResponseTime;
-    this.controlledClients = [];
-    for (let i = 0; i < payload.controlledClients.length; ++i) {
-      this.controlledClients.push(payload.controlledClients[i]);
+    if (payload.controlledClients) {
+      this.controlledClients = payload.controlledClients.slice();
+    } else {
+      this.controlledClients = [];
     }
     this.targetId = payload.targetId || null;
   }
@@ -507,6 +517,10 @@ export class ServiceWorkerRegistration {
    * @param {!Protocol.ServiceWorker.ServiceWorkerRegistration} payload
    */
   constructor(payload) {
+    /** @type {symbol} */ this._fingerprint;
+    /** @type {string} */ this.id;
+    /** @type {string} */ this.scopeURL;
+    /** @type {string} */ this.securityOrigin;
     this._update(payload);
     /** @type {!Map.<string, !ServiceWorkerVersion>} */
     this.versions = new Map();
@@ -525,7 +539,6 @@ export class ServiceWorkerRegistration {
     const parsedURL = new Common.ParsedURL.ParsedURL(payload.scopeURL);
     this.securityOrigin = parsedURL.securityOrigin();
     this.isDeleted = payload.isDeleted;
-    this.forceUpdateOnPageLoad = payload.forceUpdateOnPageLoad;
   }
 
   /**
