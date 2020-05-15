@@ -458,7 +458,6 @@
 
 .palette-panel {
     width: 100%;
-    height: 100%;
     position: absolute;
     top: 100%;
     display: flex;
@@ -471,7 +470,7 @@
 }
 
 .palette-panel-showing > .palette-panel {
-    transform: translateY(calc(-100% + 104px));
+    transform: translateY(-100%);
     transition-delay: 0s;
     visibility: visible;
 }
