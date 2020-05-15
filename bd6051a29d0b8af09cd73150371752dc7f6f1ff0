@@ -45,6 +45,30 @@
       "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e457c496_293d1f97",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-15T14:25:52Z",
+      "side": 1,
+      "message": "Sadly, they should be numbers. The root cause is probably that we are misusing the protocol type when we should allow a less restrictive type (that allows for source location information to not be available).\n\nI had to ts-ignore here otherwise TS notices that scriptId should be a string, and the others should be numbers.",
+      "parentUuid": "f410120a_b90c1f7c",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 158,
+        "endChar": 21
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
