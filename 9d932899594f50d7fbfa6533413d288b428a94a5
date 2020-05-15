@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "7e0608c7_70f666fa",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-15T23:36:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3ecb1d9a_50994e96",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8a5f3d3_7785aeea",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 4
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "1a6dc950_94a9f756",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-15T23:36:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b8a5f3d3_7785aeea",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c138f8f_85163a22",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 4
@@ -64,6 +100,24 @@
       "writtenOn": "2020-05-04T17:14:55Z",
       "side": 1,
       "message": "This error will be unobserved because `moveView` isn\u0027t async and you don\u0027t have a `.catch` handler.",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf151373_23fc6da3",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-15T23:36:03Z",
+      "side": 1,
+      "message": "I was following the same logic as in method showView()",
+      "parentUuid": "9c138f8f_85163a22",
       "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "ad32330e_5e70cf05",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-15T23:36:03Z",
+      "side": 1,
+      "message": "will address this in the closeable tabs CL",
+      "parentUuid": "236a214d_c6289781",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c750ab83_f87f14ae",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 4
@@ -98,6 +170,24 @@
       "writtenOn": "2020-05-04T17:14:55Z",
       "side": 1,
       "message": "Nit: Can you just use spread?\n\n    const newClosable \u003d {\n      ...tabs,\n      ...defaultClosable,\n    };",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8651b2ff_8a6aaf3c",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-15T23:36:03Z",
+      "side": 1,
+      "message": "will solve this in the closeable tabs CL",
+      "parentUuid": "c750ab83_f87f14ae",
       "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
