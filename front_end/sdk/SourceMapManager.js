@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
 
@@ -22,6 +19,7 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
     super();
 
     this._target = target;
+    /** @type {boolean} */
     this._isEnabled = true;
 
     /** @type {!Map<!T, string>} */
@@ -76,8 +74,11 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
     for (const [client, prevSourceMapId] of prevSourceMapIds) {
       const relativeSourceURL = this._relativeSourceURL.get(client);
       const relativeSourceMapURL = this._relativeSourceMapURL.get(client);
-      const {sourceMapId} = this._resolveRelativeURLs(relativeSourceURL, relativeSourceMapURL);
-      if (prevSourceMapId !== sourceMapId) {
+      if (relativeSourceURL === undefined || relativeSourceMapURL === undefined) {
+        continue;
+      }
+      const resolvedUrls = this._resolveRelativeURLs(relativeSourceURL, relativeSourceMapURL);
+      if (resolvedUrls !== null && prevSourceMapId !== resolvedUrls.sourceMapId) {
         this.detachSourceMap(client);
         this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL);
       }
@@ -141,11 +142,12 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {!T} client
-   * @param {string} relativeSourceURL
+   * @param {string|undefined} relativeSourceURL
    * @param {string|undefined} relativeSourceMapURL
    */
   attachSourceMap(client, relativeSourceURL, relativeSourceMapURL) {
-    if (!relativeSourceMapURL) {
+    // TODO(chromium:1011811): Strengthen the type to make this check unnecessary once sdk/ is fully typescriptified.
+    if (!relativeSourceURL || !relativeSourceMapURL) {
       return;
     }
     console.assert(!this._resolvedSourceMapId.has(client), 'SourceMap is already attached to client');
@@ -170,12 +172,15 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
     if (!this._sourceMapIdToLoadingClients.has(sourceMapId)) {
-      const sourceMapPromise = sourceMapURL === WasmSourceMap.FAKE_URL ? WasmSourceMap.load(client, sourceURL) :
-                                                                         TextSourceMap.load(sourceMapURL, sourceURL);
+      /** @type {!Promise<!SourceMap>} */
+      const sourceMapPromise =
+          (sourceMapURL === WasmSourceMap.FAKE_URL ? WasmSourceMap.load(client, sourceURL) :
+                                                     TextSourceMap.load(sourceMapURL, sourceURL));
 
       sourceMapPromise
           .catch(error => {
             Common.Console.Console.instance().warn(ls`DevTools failed to load SourceMap: ${error.message}`);
+            return null;
           })
           .then(onSourceMap.bind(this, sourceMapId));
     }
@@ -184,7 +189,7 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
     /**
      * @param {string} sourceMapId
      * @param {?SourceMap} sourceMap
-     * @this {SourceMapManager}
+     * @this {SourceMapManager<T>}
      */
     function onSourceMap(sourceMapId, sourceMap) {
       this._sourceMapLoadedForTest();
@@ -208,7 +213,7 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
     /**
      * @param {string} sourceMapId
      * @param {!T} client
-     * @this {SourceMapManager}
+     * @this {SourceMapManager<T>}
      */
     function attach(sourceMapId, client) {
       this._sourceMapIdToClients.set(sourceMapId, client);
@@ -237,6 +242,9 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
     }
     this._sourceMapIdToClients.delete(sourceMapId, client);
     const sourceMap = this._sourceMapById.get(sourceMapId);
+    if (!sourceMap) {
+      return;
+    }
     this.dispatchEventToListeners(Events.SourceMapDetached, {client: client, sourceMap: sourceMap});
     if (!this._sourceMapIdToClients.has(sourceMapId)) {
       sourceMap.dispose();

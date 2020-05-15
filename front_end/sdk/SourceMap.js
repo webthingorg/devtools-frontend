@@ -229,7 +229,8 @@ export class TextSourceMap {
   /**
    * @param {string} sourceMapURL
    * @param {string} compiledURL
-   * @return {!Promise<?TextSourceMap>}
+   * @return {!Promise<!TextSourceMap>}
+   * @throws {!Error}
    * @this {TextSourceMap}
    */
   static async load(sourceMapURL, compiledURL) {
@@ -667,6 +668,12 @@ export class WasmSourceMap {
     return WasmSourceMap._asyncResolver = WasmSourceMap._asyncResolver || WasmSourceMap._loadBindings();
   }
 
+  /**
+   *
+   * @param {*} script
+   * @param {string} wasmUrl
+   * @returns {!Promise<!WasmSourceMap>}
+   */
   static async load(script, wasmUrl) {
     const [Resolver, wasm] = await Promise.all([WasmSourceMap._loadBindingsOnce(), script.getWasmBytecode()]);
 
