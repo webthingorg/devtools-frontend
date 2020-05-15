@@ -827,6 +827,7 @@ export class NetworkDispatcher {
     /** @type {!Array<!BlockedCookieWithReason>} */
     const blockedRequestCookies = [];
     const includedRequestCookies = [];
+    console.error(typeof associatedCookies);
     for (const {blockedReasons, cookie} of associatedCookies) {
       if (blockedReasons.length === 0) {
         includedRequestCookies.push(Cookie.fromProtocolCookie(cookie));

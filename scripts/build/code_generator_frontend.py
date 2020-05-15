@@ -214,6 +214,17 @@ class Generator:
                                     enum_name = "%s.%s%s" % (domain_name, json_type["id"], to_title_case(json_property["name"]))
                                     Generator.process_enum(json_property, enum_name)
 
+            if "commands" in json_domain:
+                for json_command in json_domain["commands"]:
+                    if "parameters" in json_command:
+                        for param in json_command["parameters"]:
+                            if "enum" in param:
+                                enum_name = "%s.%sRequest%s" % (
+                                    domain_name,
+                                    to_title_case(json_command["name"]),
+                                    to_title_case(param["name"]))
+                                Generator.process_enum(param, enum_name)
+
             if "events" in json_domain:
                 for json_event in json_domain["events"]:
                     Generator.process_event(json_event, domain_name)

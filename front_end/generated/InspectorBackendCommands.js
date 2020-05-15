@@ -217,6 +217,7 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Audits.InspectorIssueCode',
       {SameSiteCookieIssue: 'SameSiteCookieIssue', MixedContentIssue: 'MixedContentIssue'});
+  inspectorBackend.registerEnum('Audits.GetEncodedResponseRequestEncoding', {Webp: 'webp', Jpeg: 'jpeg', Png: 'png'});
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerCommand(
       'Audits.getEncodedResponse',
@@ -283,6 +284,9 @@ export function registerCommands(inspectorBackend) {
     WakeLockSystem: 'wakeLockSystem'
   });
   inspectorBackend.registerEnum('Browser.PermissionSetting', {Granted: 'granted', Denied: 'denied', Prompt: 'prompt'});
+  inspectorBackend.registerEnum(
+      'Browser.SetDownloadBehaviorRequestBehavior',
+      {Deny: 'deny', Allow: 'allow', AllowAndName: 'allowAndName', Default: 'default'});
   inspectorBackend.registerCommand(
       'Browser.setPermission',
       [
@@ -854,6 +858,16 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Emulation.VirtualTimePolicy',
       {Advance: 'advance', Pause: 'pause', PauseIfNetworkFetchesPending: 'pauseIfNetworkFetchesPending'});
+  inspectorBackend.registerEnum(
+      'Emulation.SetEmitTouchEventsForMouseRequestConfiguration', {Mobile: 'mobile', Desktop: 'desktop'});
+  inspectorBackend.registerEnum('Emulation.SetEmulatedVisionDeficiencyRequestType', {
+    None: 'none',
+    Achromatopsia: 'achromatopsia',
+    BlurredVision: 'blurredVision',
+    Deuteranopia: 'deuteranopia',
+    Protanopia: 'protanopia',
+    Tritanopia: 'tritanopia'
+  });
   inspectorBackend.registerEvent('Emulation.virtualTimeBudgetExpired', []);
   inspectorBackend.registerCommand('Emulation.canEmulate', [], ['result'], false);
   inspectorBackend.registerCommand('Emulation.clearDeviceMetricsOverride', [], [], false);
@@ -1039,6 +1053,25 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Input.MouseButton',
       {None: 'none', Left: 'left', Middle: 'middle', Right: 'right', Back: 'back', Forward: 'forward'});
+  inspectorBackend.registerEnum(
+      'Input.DispatchKeyEventRequestType',
+      {KeyDown: 'keyDown', KeyUp: 'keyUp', RawKeyDown: 'rawKeyDown', Char: 'char'});
+  inspectorBackend.registerEnum('Input.DispatchMouseEventRequestType', {
+    MousePressed: 'mousePressed',
+    MouseReleased: 'mouseReleased',
+    MouseMoved: 'mouseMoved',
+    MouseWheel: 'mouseWheel'
+  });
+  inspectorBackend.registerEnum('Input.DispatchMouseEventRequestPointerType', {Mouse: 'mouse', Pen: 'pen'});
+  inspectorBackend.registerEnum(
+      'Input.DispatchTouchEventRequestType',
+      {TouchStart: 'touchStart', TouchEnd: 'touchEnd', TouchMove: 'touchMove', TouchCancel: 'touchCancel'});
+  inspectorBackend.registerEnum('Input.EmulateTouchFromMouseEventRequestType', {
+    MousePressed: 'mousePressed',
+    MouseReleased: 'mouseReleased',
+    MouseMoved: 'mouseMoved',
+    MouseWheel: 'mouseWheel'
+  });
   inspectorBackend.registerCommand(
       'Input.dispatchKeyEvent',
       [
@@ -1621,6 +1654,16 @@ export function registerCommands(inspectorBackend) {
     StrictOriginWhenCrossOrigin: 'strictOriginWhenCrossOrigin',
     UnsafeUrl: 'unsafeUrl'
   });
+  inspectorBackend.registerEnum('Page.CaptureScreenshotRequestFormat', {Jpeg: 'jpeg', Png: 'png'});
+  inspectorBackend.registerEnum('Page.CaptureSnapshotRequestFormat', {MHTML: 'mhtml'});
+  inspectorBackend.registerEnum(
+      'Page.PrintToPDFRequestTransferMode', {ReturnAsBase64: 'ReturnAsBase64', ReturnAsStream: 'ReturnAsStream'});
+  inspectorBackend.registerEnum(
+      'Page.SetDownloadBehaviorRequestBehavior', {Deny: 'deny', Allow: 'allow', Default: 'default'});
+  inspectorBackend.registerEnum(
+      'Page.SetTouchEmulationEnabledRequestConfiguration', {Mobile: 'mobile', Desktop: 'desktop'});
+  inspectorBackend.registerEnum('Page.StartScreencastRequestFormat', {Jpeg: 'jpeg', Png: 'png'});
+  inspectorBackend.registerEnum('Page.SetWebLifecycleStateRequestState', {Frozen: 'frozen', Active: 'active'});
   inspectorBackend.registerEvent('Page.domContentEventFired', ['timestamp']);
   inspectorBackend.registerEvent('Page.fileChooserOpened', ['frameId', 'backendNodeId', 'mode']);
   inspectorBackend.registerEvent('Page.frameAttached', ['frameId', 'parentFrameId', 'stack']);
@@ -1852,6 +1895,10 @@ export function registerCommands(inspectorBackend) {
       'Page.setInterceptFileChooserDialog', [{'name': 'enabled', 'type': 'boolean', 'optional': false}], [], false);
 
   // Performance.
+  inspectorBackend.registerEnum(
+      'Performance.EnableRequestTimeDomain', {TimeTicks: 'timeTicks', ThreadTicks: 'threadTicks'});
+  inspectorBackend.registerEnum(
+      'Performance.SetTimeDomainRequestTimeDomain', {TimeTicks: 'timeTicks', ThreadTicks: 'threadTicks'});
   inspectorBackend.registerEvent('Performance.metrics', ['metrics', 'title']);
   inspectorBackend.registerCommand('Performance.disable', [], [], false);
   inspectorBackend.registerCommand(
@@ -2097,6 +2144,8 @@ export function registerCommands(inspectorBackend) {
   });
   inspectorBackend.registerEnum('Tracing.StreamFormat', {Json: 'json', Proto: 'proto'});
   inspectorBackend.registerEnum('Tracing.StreamCompression', {None: 'none', Gzip: 'gzip'});
+  inspectorBackend.registerEnum(
+      'Tracing.StartRequestTransferMode', {ReportEvents: 'ReportEvents', ReturnAsStream: 'ReturnAsStream'});
   inspectorBackend.registerEvent('Tracing.bufferUsage', ['percentFull', 'eventCount', 'value']);
   inspectorBackend.registerEvent('Tracing.dataCollected', ['value']);
   inspectorBackend.registerEvent(
@@ -2293,6 +2342,13 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Debugger.DebugSymbolsType',
       {None: 'None', SourceMap: 'SourceMap', EmbeddedDWARF: 'EmbeddedDWARF', ExternalDWARF: 'ExternalDWARF'});
+  inspectorBackend.registerEnum('Debugger.ContinueToLocationRequestTargetCallFrames', {Any: 'any', Current: 'current'});
+  inspectorBackend.registerEnum('Debugger.SetInstrumentationBreakpointRequestInstrumentation', {
+    BeforeScriptExecution: 'beforeScriptExecution',
+    BeforeScriptWithSourceMapExecution: 'beforeScriptWithSourceMapExecution'
+  });
+  inspectorBackend.registerEnum(
+      'Debugger.SetPauseOnExceptionsRequestState', {None: 'none', Uncaught: 'uncaught', All: 'all'});
   inspectorBackend.registerEvent('Debugger.breakpointResolved', ['breakpointId', 'location']);
   inspectorBackend.registerEvent('Debugger.paused', [
     'callFrames', 'reason', 'data', 'hitBreakpoints', 'asyncStackTrace', 'asyncStackTraceId', 'asyncCallStackTraceId'
