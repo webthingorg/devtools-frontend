@@ -16,6 +16,24 @@
       "revId": "9c01cd15f22ec56abcbf745b862f6c2588263563",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70de613e_13dd7b86",
+        "filename": "front_end/bindings/NetworkProject.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-05-15T00:07:14Z",
+      "side": 1,
+      "message": "I think the semantics are best preserved the way you\u0027ve written it.",
+      "parentUuid": "4f8a7b7f_c6ee5136",
+      "revId": "9c01cd15f22ec56abcbf745b862f6c2588263563",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
