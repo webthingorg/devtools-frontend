@@ -1,5 +1,3 @@
-file://ENG_REVIEW_OWNERS
-
 per-file .*=file://INFRA_OWNERS
 per-file AUTHORS=file://COMMON_OWNERS
 per-file BUILD.gn=file://INFRA_OWNERS

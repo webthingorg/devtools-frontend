@@ -1,7 +1,7 @@
 # Copyright 2019 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
-
+# TEST
 vars = {
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
   'build_revision': 'f70e3b9685e03176b131ef03d185ba367e981c1d',
