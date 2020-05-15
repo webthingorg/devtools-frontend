@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2625ded_bdc957af",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-15T14:23:18Z",
+      "side": 1,
+      "message": "Nit: move this to top-level at the bottom of this file for easier reading.",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f410120a_b90c1f7c",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-15T14:23:18Z",
+      "side": 1,
+      "message": "Is this still necessary? It seems like we *are* specifying the missing properties as `undefined`, so maybe I am misunderstanding the comment.",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 158,
+        "endChar": 21
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
