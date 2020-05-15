@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05b7ed8f_b2bdfb31",
+        "filename": "front_end/generated/protocol.d.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 14044,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-05-15T21:44:58Z",
+      "side": 1,
+      "message": "@Tim: I added this as a temporary solution to unblock TypeScript because I didn\u0027t find a way to ts-ignore the following statement:\n/**\n * @implements {Protocol.PageDispatcher}\n */\nWDYT?",
+      "range": {
+        "startLine": 13997,
+        "startChar": 0,
+        "endLine": 14044,
+        "endChar": 1
+      },
+      "revId": "0894b63b92ceb59dfc90eb6e3e5e6d172124954c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
