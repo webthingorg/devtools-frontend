@@ -6,6 +6,7 @@
       "id": "elements",
       "title": "Elements",
       "order": 10,
+      "persistence": "closeable",
       "className": "Elements.ElementsPanel"
     },
     {

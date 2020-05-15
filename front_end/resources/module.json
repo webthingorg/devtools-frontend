@@ -6,6 +6,7 @@
       "id": "resources",
       "title": "Application",
       "order": 70,
+      "persistence": "closeable",
       "className": "Resources.ResourcesPanel",
       "tags": "pwa"
     },

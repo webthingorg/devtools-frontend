@@ -34,10 +34,16 @@ export class ViewManager {
     /** @type {!Map<string, string>} */
     this._locationNameByViewId = new Map();
 
+    // Read override setting for location
+    this._locationOverwriteSetting = Common.Settings.Settings.instance().createSetting('viewsLocationOverwrite', {});
+
     for (const extension of self.runtime.extensions('view')) {
       const descriptor = extension.descriptor();
       this._views.set(descriptor['id'], new ProvidedView(extension));
-      this._locationNameByViewId.set(descriptor['id'], descriptor['location']);
+      // Use the preferred user location if available
+      const locations = this._locationOverwriteSetting.get();
+      const locationName = locations[descriptor['id']] || descriptor['location'];
+      this._locationNameByViewId.set(descriptor['id'], locationName);
     }
   }
 
@@ -66,6 +72,47 @@ export class ViewManager {
       toolbar.appendToolbarItem(item);
     }
     return toolbar.element;
+  }
+
+  /**
+   * @param {string} viewId
+   * @returns {string}
+   */
+  locationNameForViewId(viewId) {
+    return this._locationNameByViewId.get(viewId);
+  }
+
+  /**
+   * Moves a view to a new location
+   * @param {string} viewId
+   * @param {string} locationName
+   */
+  moveView(viewId, locationName) {
+    if (!viewId || !locationName) {
+      return;
+    }
+
+    const view = this.view(viewId);
+    if (!view) {
+      return;
+    }
+
+    // Update the inner map of locations
+    this._locationNameByViewId.set(viewId, locationName);
+
+    // Update the settings of location overwrites
+    const locations = this._locationOverwriteSetting.get();
+    locations[viewId] = locationName;
+    this._locationOverwriteSetting.set(locations);
+
+    // Find new location and show view there
+    this.resolveLocation(locationName).then(location => {
+      if (!location) {
+        throw new Error('Move view: Could not resolve location for view: ' + viewId);
+      }
+      location._reveal();
+      return location.showView(view, undefined, true /* userGesture*/);
+    });
   }
 
   /**
@@ -431,8 +478,14 @@ export class _TabbedLocation extends _Location {
 
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabSelected, this._tabSelected, this);
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabClosed, this._tabClosed, this);
+
     // Note: go via self.Common for globally-namespaced singletons.
     this._closeableTabSetting = Common.Settings.Settings.instance().createSetting(location + '-closeableTabs', {});
+    if (location === 'panel') {
+      this._moveToCloseableTabSetting =
+          Common.Settings.Settings.instance().createSetting(location + '-moveToCloseableTabs', true);
+      this._createInitialClosableSetting();
+    }
     // Note: go via self.Common for globally-namespaced singletons.
     this._tabOrderSetting = Common.Settings.Settings.instance().createSetting(location + '-tabOrder', {});
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabOrderChanged, this._persistTabOrder, this);
@@ -447,6 +500,28 @@ export class _TabbedLocation extends _Location {
 
     if (location) {
       this.appendApplicableItems(location);
+    }
+  }
+
+  _createInitialClosableSetting() {
+    // If this is the first time devtools is open after we converted all tabs to closable
+    // set the previously persistent tabs to the list of
+    const defaultClosable = {
+      'elements': true,
+      'console': true,
+      'sources': true,
+      'network': true,
+      'resources': true,
+      'timeline': true,
+      'lighthouse': true,
+      'profiler': true,
+      'security': true
+    };
+    if (this._moveToCloseableTabSetting.get() === true) {
+      const tabs = this._closeableTabSetting.get();
+      const newClosable = Object.assign({}, tabs, defaultClosable);
+      this._closeableTabSetting.set(newClosable);
+      this._moveToCloseableTabSetting.set(false);
     }
   }
 
