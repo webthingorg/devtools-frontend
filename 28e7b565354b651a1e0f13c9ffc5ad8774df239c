@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88f0e235_4cd50f4c",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-15T14:56:21Z",
+      "side": 1,
+      "message": "it is not fixing colors yet, right?",
+      "revId": "28e7b565354b651a1e0f13c9ffc5ad8774df239c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
