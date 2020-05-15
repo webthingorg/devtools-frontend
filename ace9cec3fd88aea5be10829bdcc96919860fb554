@@ -22,6 +22,30 @@
       "revId": "ace9cec3fd88aea5be10829bdcc96919860fb554",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "399b1488_17cc9f68",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-15T11:00:12Z",
+      "side": 1,
+      "message": "There is some duplicate logic here. We already process the commands on line 232 below. Instead, I think we can update `process_command` to include the enum check.\n\nE.g. in the `for json_parameter in json_params:` loop in `process_command`, you can put the logic for the `if \"enum\" in json_parameter`",
+      "parentUuid": "821fe873_961f1f55",
+      "range": {
+        "startLine": 217,
+        "startChar": 11,
+        "endLine": 226,
+        "endChar": 72
+      },
+      "revId": "ace9cec3fd88aea5be10829bdcc96919860fb554",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
