@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1895d3a4_13b01160",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-15T14:06:40Z",
+      "side": 1,
+      "message": "Nit: A `Bug: ` or `Fixed: ` should come after a `KEY\u003d`. So move this after the `R\u003d`.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "fab243e793d3c4d60658cac6cebeaf355fd7b356",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
