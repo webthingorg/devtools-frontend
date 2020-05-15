@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39671c60_7f8c9add",
+        "filename": "front_end/emulation/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-15T07:29:04Z",
+      "side": 1,
+      "message": "Very hesitant to do so. soxia@microsoft.com has had one commit from this week.",
+      "parentUuid": "40553ea9_2fdce81e",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "429cefb4_918809dc",
         "filename": "front_end/resources/OWNERS",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d0c335e_b19b27ea",
+        "filename": "front_end/resources/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-15T07:29:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "429cefb4_918809dc",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "a86b66b5_f806a74d",
+        "filename": "front_end/text_editor/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-15T07:29:04Z",
+      "side": 1,
+      "message": "Neither anubmat@microsoft.com and john.emau@microsoft.com have committed/reviewed anything in the last six months and only have one commit each prior to that. I\u0027d like to wait for more contributions.",
+      "parentUuid": "c28afc77_a1636f7d",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6cc8338_0b030b7a",
         "filename": "front_end/timeline/OWNERS",
         "patchSetId": 3
@@ -84,6 +138,24 @@
       "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa404fcf_785cf67d",
+        "filename": "front_end/timeline/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-15T07:29:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6cc8338_0b030b7a",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -119,6 +191,24 @@
       "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2ad15d3_be133ab4",
+        "filename": "scripts/suggest_owners.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-15T07:29:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05be9d6e_4e77783d",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -183,6 +273,24 @@
       "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "168bcfdf_42776a76",
+        "filename": "scripts/suggest_owners.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-15T07:29:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "708dbd18_2c2b2b05",
+      "revId": "f7e03a12f25a1a32628deaa68fa507f7e732cf1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
