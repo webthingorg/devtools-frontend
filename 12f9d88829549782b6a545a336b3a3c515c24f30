@@ -22,6 +22,30 @@
       "revId": "12f9d88829549782b6a545a336b3a3c515c24f30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85bbe16a_ebfae882",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-15T11:16:49Z",
+      "side": 1,
+      "message": "This code is orthogonal to and a fallback for our wasm debugging work. \n\nThe only caller of this method is SourceMapManager\u003cT\u003e, which passes a T object as script argument here. Nevertheless this method will currently only ever be called when T is SDK.Script.Script, and it will actually throw otherwise (no getWasmBytecode() on CSSStyleSheetHeader, for instance). So I think the argument type should be Script, with a cast in  the caller.",
+      "parentUuid": "c15d501a_e7f909b7",
+      "range": {
+        "startLine": 673,
+        "startChar": 13,
+        "endLine": 673,
+        "endChar": 14
+      },
+      "revId": "12f9d88829549782b6a545a336b3a3c515c24f30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
