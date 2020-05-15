@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28d8c13f_1cce6b73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-15T08:22:27Z",
+      "side": 1,
+      "message": "nit notation",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "aec95f49e911897fde4e58272fda1b323ca78643",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "911d101e_8d4085d5",
+        "filename": "test/e2e/console/console-autocomplete_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-15T08:22:27Z",
+      "side": 1,
+      "message": "A failure in these tests would result in a timeout I guess? It might be helpful to set a timeout on the waitFor and then assert than it didn\u0027t time out, with an error message?\n\nIf it\u0027s too hard then don\u0027t worry",
+      "range": {
+        "startLine": 16,
+        "startChar": 10,
+        "endLine": 16,
+        "endChar": 23
+      },
+      "revId": "aec95f49e911897fde4e58272fda1b323ca78643",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
