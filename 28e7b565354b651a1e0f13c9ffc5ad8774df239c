@@ -16,6 +16,24 @@
       "revId": "28e7b565354b651a1e0f13c9ffc5ad8774df239c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51956a36_5f570b7e",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-15T14:58:55Z",
+      "side": 1,
+      "message": "Not yet; this CL is just for the standard config with the latest release. The patch for color-fixing is still under review upstream and hasn’t been released yet. I’ll do it in a separate CL next week.",
+      "parentUuid": "88f0e235_4cd50f4c",
+      "revId": "28e7b565354b651a1e0f13c9ffc5ad8774df239c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
