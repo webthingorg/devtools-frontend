@@ -52,6 +52,9 @@ export class DOMNode {
    */
   constructor(domModel) {
     this._domModel = domModel;
+
+    /** @type {number} */
+    this.id;
   }
 
   /**

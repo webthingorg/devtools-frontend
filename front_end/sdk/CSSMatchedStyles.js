@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
+import * as TextUtils from '../text_utils/text_utils.js';
 
 import {cssMetadata, VariableRegex} from './CSSMetadata.js';
 import {CSSModel} from './CSSModel.js';        // eslint-disable-line no-unused-vars
@@ -41,6 +40,7 @@ export class CSSMatchedStyles {
     this._addedStyles = new Map();
     /** @type {!Map<!Protocol.DOM.NodeId, !Map<string, boolean>>} */
     this._matchingSelectors = new Map();
+    /** @type {!Array.<!CSSKeyframesRule>} */
     this._keyframes = [];
     if (animationsPayload) {
       this._keyframes = animationsPayload.map(rule => new CSSKeyframesRule(cssModel, rule));
@@ -109,8 +109,8 @@ export class CSSMatchedStyles {
         for (const entry of from.rule.style.cssProperties) {
           properties.set(entry.name, entry.value);
         }
-        to.rule.style.shorthandEntries = [...shorthands.keys()].map(name => ({name, value: shorthands.get(name)}));
-        to.rule.style.cssProperties = [...properties.keys()].map(name => ({name, value: properties.get(name)}));
+        to.rule.style.shorthandEntries = [...shorthands.entries()].map(([name, value]) => ({name, value}));
+        to.rule.style.cssProperties = [...properties.entries()].map(([name, value]) => ({name, value}));
       }
 
       /**
@@ -228,7 +228,7 @@ export class CSSMatchedStyles {
 
     /**
      * @param {!Array<!CSSStyleDeclaration>|!Set<!CSSStyleDeclaration>} styles
-     * @param {!SDK.CSSStyleDeclaration} query
+     * @param {!CSSStyleDeclaration} query
      * @return {boolean}
      */
     function containsStyle(styles, query) {
@@ -398,7 +398,10 @@ export class CSSMatchedStyles {
    * @return {boolean}
    */
   mediaMatches(style) {
-    const media = style.parentRule ? style.parentRule.media : [];
+    if (!style.parentRule) {
+      return true;
+    }
+    const media = /** @type {CSSStyleRule} */ (style.parentRule).media;
     for (let i = 0; media && i < media.length; ++i) {
       if (!media[i].active()) {
         return false;
@@ -606,7 +609,11 @@ class DOMInheritanceCascade {
       return [];
     }
     this._ensureInitialized();
-    return Array.from(this._availableCSSVariables.get(nodeCascade).keys());
+    const availableCSSVariables = this._availableCSSVariables.get(nodeCascade);
+    if (!availableCSSVariables) {
+      return [];
+    }
+    return Array.from(availableCSSVariables.keys());
   }
 
   /**
@@ -622,6 +629,9 @@ class DOMInheritanceCascade {
     this._ensureInitialized();
     const availableCSSVariables = this._availableCSSVariables.get(nodeCascade);
     const computedCSSVariables = this._computedCSSVariables.get(nodeCascade);
+    if (!availableCSSVariables || !computedCSSVariables) {
+      return null;
+    }
     return this._innerComputeCSSVariable(availableCSSVariables, computedCSSVariables, variableName);
   }
 
@@ -638,6 +648,9 @@ class DOMInheritanceCascade {
     this._ensureInitialized();
     const availableCSSVariables = this._availableCSSVariables.get(nodeCascade);
     const computedCSSVariables = this._computedCSSVariables.get(nodeCascade);
+    if (!availableCSSVariables || !computedCSSVariables) {
+      return null;
+    }
     return this._innerComputeValue(availableCSSVariables, computedCSSVariables, value);
   }
 
@@ -652,11 +665,14 @@ class DOMInheritanceCascade {
       return null;
     }
     if (computedCSSVariables.has(variableName)) {
-      return computedCSSVariables.get(variableName);
+      return computedCSSVariables.get(variableName) || null;
     }
     // Set dummy value to avoid infinite recursion.
     computedCSSVariables.set(variableName, null);
     const definedValue = availableCSSVariables.get(variableName);
+    if (definedValue === undefined) {
+      return null;
+    }
     const computedValue = this._innerComputeValue(availableCSSVariables, computedCSSVariables, definedValue);
     computedCSSVariables.set(variableName, computedValue);
     return computedValue;
@@ -669,7 +685,7 @@ class DOMInheritanceCascade {
    * @return {?string}
    */
   _innerComputeValue(availableCSSVariables, computedCSSVariables, value) {
-    const results = TextUtils.TextUtils.splitStringByRegexes(value, [VariableRegex]);
+    const results = TextUtils.TextUtils.Utils.splitStringByRegexes(value, [VariableRegex]);
     const tokens = [];
     for (const result of results) {
       if (result.regexIndex === -1) {
