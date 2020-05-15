@@ -354,6 +354,9 @@ export class Linkifier {
     if (typeof uiLocation.lineNumber === 'number') {
       titleText += ':' + (uiLocation.lineNumber + 1);
     }
+    if (typeof uiLocation.columnNumber === 'number') {
+      titleText += ':' + (uiLocation.columnNumber + 1);
+    }
     anchor.title = titleText;
     anchor.classList.toggle('webkit-html-blackbox-link', await liveLocation.isBlackboxed());
     Linkifier._updateLinkDecorations(anchor);
@@ -407,6 +410,9 @@ export class Linkifier {
     let linkText = text || Bindings.ResourceUtils.displayNameForURL(url);
     if (typeof lineNumber === 'number' && !text) {
       linkText += ':' + (lineNumber + 1);
+    }
+    if (typeof columnNumber === 'number' && !text) {
+      linkText += ':' + (columnNumber + 1);
     }
     const title = linkText !== url ? url : '';
     const linkOptions = {maxLength, title, href: url, preventClick, tabStop: options.tabStop, bypassURLTrimming};
