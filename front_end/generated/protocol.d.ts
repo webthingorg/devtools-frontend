@@ -13993,4 +13993,52 @@ declare namespace Protocol {
       domains: Domain[];
     }
   }
+
+  // These empty interfaces are meant to unblock TypeScript work
+  // TODO(crbug.com/1081686)
+  export interface AccessibilityDispatcher {}
+  export interface AnimationDispatcher {}
+  export interface ApplicationCacheDispatcher {}
+  export interface AuditsDispatcher {}
+  export interface BackgroundServiceDispatcher {}
+  export interface BrowserDispatcher {}
+  export interface CSSDispatcher {}
+  export interface CacheStorageDispatcher {}
+  export interface CastDispatcher {}
+  export interface DOMDispatcher {}
+  export interface DOMDebuggerDispatcher {}
+  export interface DOMSnapshotDispatcher {}
+  export interface DOMStorageDispatcher {}
+  export interface DatabaseDispatcher {}
+  export interface DeviceOrientationDispatcher {}
+  export interface EmulationDispatcher {}
+  export interface HeadlessExperimentalDispatcher {}
+  export interface IODispatcher {}
+  export interface IndexedDBDispatcher {}
+  export interface InputDispatcher {}
+  export interface InspectorDispatcher {}
+  export interface LayerTreeDispatcher {}
+  export interface LogDispatcher {}
+  export interface MemoryDispatcher {}
+  export interface NetworkDispatcher {}
+  export interface OverlayDispatcher {}
+  export interface PageDispatcher {}
+  export interface PerformanceDispatcher {}
+  export interface SecurityDispatcher {}
+  export interface ServiceWorkerDispatcher {}
+  export interface StorageDispatcher {}
+  export interface SystemInfoDispatcher {}
+  export interface TargetDispatcher {}
+  export interface TetheringDispatcher {}
+  export interface TracingDispatcher {}
+  export interface FetchDispatcher {}
+  export interface WebAudioDispatcher {}
+  export interface WebAuthnDispatcher {}
+  export interface MediaDispatcher {}
+  export interface ConsoleDispatcher {}
+  export interface DebuggerDispatcher {}
+  export interface HeapProfilerDispatcher {}
+  export interface ProfilerDispatcher {}
+  export interface RuntimeDispatcher {}
+  export interface SchemaDispatcher {}
 }
