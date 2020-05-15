@@ -16,6 +16,24 @@
       "revId": "a3bc1333f44ae52624d8a2e660baf15dddf9cffa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f9a51ad_0c9ed4b4",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-15T19:20:12Z",
+      "side": 1,
+      "message": "This wait for MEMORY_PANEL_CONTENT makes sure the panel exists with the correct aria label, since this is loaded before the content is populated we also need to wait for the sidebar",
+      "parentUuid": "f0556cdb_16ea9959",
+      "revId": "a3bc1333f44ae52624d8a2e660baf15dddf9cffa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
