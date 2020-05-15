@@ -22,6 +22,30 @@
       "revId": "78af6e407b2b6ce2a22f77d1f30c84fcd9185ad2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1334b3ec_dc6397ba",
+        "filename": "scripts/build/generate_protocol_externs.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-05-15T14:21:06Z",
+      "side": 1,
+      "message": "No, this refers to the change introduced in crrev.com/r/2204105 to make those enums known to closure. But this forces them to be used.",
+      "parentUuid": "0ad7457e_4b9bad1b",
+      "range": {
+        "startLine": 175,
+        "startChar": 59,
+        "endLine": 175,
+        "endChar": 66
+      },
+      "revId": "78af6e407b2b6ce2a22f77d1f30c84fcd9185ad2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
