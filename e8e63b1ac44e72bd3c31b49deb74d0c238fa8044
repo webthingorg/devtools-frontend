@@ -34,6 +34,24 @@
       "revId": "e8e63b1ac44e72bd3c31b49deb74d0c238fa8044",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87711269_172957e9",
+        "filename": "front_end/sdk/CSSMatchedStyles.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-15T10:48:58Z",
+      "side": 1,
+      "message": "Not sure either. I\u0027d suggest landing this as-is, as it\u0027s already better than the status quo. We can always improve it later if we figure out a better way.",
+      "parentUuid": "9dacbbda_2bb68519",
+      "revId": "e8e63b1ac44e72bd3c31b49deb74d0c238fa8044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
