@@ -148,3 +148,14 @@ export const getSelectedBreadcrumbTextContent = async () => {
   const text = selectedCrumb.evaluate((node: HTMLElement) => node.textContent || '');
   return text;
 };
+
+export const navigateToElementsTab = async () => {
+  // Open Elements panel
+  await click('#tab-elements');
+  await waitFor('.panel[aria-label="elements"]');
+};
+
+export const clickOnFirstLinkInStylesPanel = async () => {
+  const stylesPane = await waitFor('div.styles-pane');
+  await click('div.styles-section-subtitle span.devtools-link', {root: stylesPane});
+};
