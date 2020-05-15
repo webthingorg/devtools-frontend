@@ -48,7 +48,7 @@ export class CSSStyleSheetHeader {
         const originalText = await this._cssModel.originalStyleSheetText(this);
         // originalText might be an empty string which should not trigger the error
         if (originalText === null) {
-          return {error: ls`Could not find the original style sheet.`, isEncoded: false};
+          return {content: null, error: ls`Could not find the original style sheet.`, isEncoded: false};
         }
         return {content: originalText, isEncoded: false};
       });
@@ -166,6 +166,7 @@ export class CSSStyleSheetHeader {
       return {content: /** @type{string} */ (cssText), isEncoded: false};
     } catch (err) {
       return {
+        content: null,
         error: ls`There was an error retrieving the source styles.`,
         isEncoded: false,
       };
