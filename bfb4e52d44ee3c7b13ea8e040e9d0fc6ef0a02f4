@@ -45,6 +45,29 @@
       "revId": "bfb4e52d44ee3c7b13ea8e040e9d0fc6ef0a02f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "076320b2_e17549a7",
+        "filename": "docs/TRIAGE_GUIDELINES.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-15T07:58:33Z",
+      "side": 1,
+      "message": "Please also mention that we can request bisection via Needs-Bisect label!",
+      "range": {
+        "startLine": 40,
+        "startChar": 24,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "bfb4e52d44ee3c7b13ea8e040e9d0fc6ef0a02f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
