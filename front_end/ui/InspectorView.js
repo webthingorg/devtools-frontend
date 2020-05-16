@@ -64,6 +64,8 @@ export class InspectorView extends VBox {
     this._drawerSplitWidget.enableShowModeSaving();
     this._drawerSplitWidget.show(this.element);
 
+    this._tabDelegate = new InspectorViewTabDelegate();
+
     // Create drawer tabbed pane.
     this._drawerTabbedLocation =
         ViewManager.instance().createTabbedLocation(this._showDrawer.bind(this, false), 'drawer-view', true, true);
@@ -74,6 +76,7 @@ export class InspectorView extends VBox {
     const closeDrawerButton = new ToolbarButton(Common.UIString.UIString('Close drawer'), 'largeicon-delete');
     closeDrawerButton.addEventListener(ToolbarButton.Events.Click, this._closeDrawer, this);
     this._drawerTabbedPane.addEventListener(TabbedPaneEvents.TabSelected, this._drawerTabSelected, this);
+    this._drawerTabbedPane.setTabDelegate(this._tabDelegate);
 
     this._drawerSplitWidget.setSidebarWidget(this._drawerTabbedPane);
     this._drawerTabbedPane.rightToolbar().appendToolbarItem(closeDrawerButton);
@@ -88,6 +91,7 @@ export class InspectorView extends VBox {
     this._tabbedPane.registerRequiredCSS('ui/inspectorViewTabbedPane.css');
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabSelected, this._tabSelected, this);
     this._tabbedPane.setAccessibleName(Common.UIString.UIString('Panels'));
+    this._tabbedPane.setTabDelegate(this._tabDelegate);
 
     // Store the initial selected panel for use in launch histograms
     Host.userMetrics.setLaunchPanel(this._tabbedPane.selectedTabId);
@@ -396,5 +400,41 @@ export class ActionDelegate {
         return true;
     }
     return false;
+  }
+}
+
+/**
+ * @implements {UI.TabbedPane.TabbedPaneTabDelegate}
+ * @unrestricted
+ */
+export class InspectorViewTabDelegate {
+  /**
+   * @param {string} tabId
+   */
+  async moveToDrawer(tabId) {
+    UI.ViewManager.instance().moveView(tabId, 'drawer-view');
+  }
+
+  /**
+   * @param {string} tabId
+   */
+  async moveToMainPanel(tabId) {
+    UI.ViewManager.instance().moveView(tabId, 'panel');
+  }
+
+  /**
+   * @override
+   * @param {string} tabId
+   * @param {!UI.ContextMenu.ContextMenu} contextMenu
+   */
+  onContextMenu(tabId, contextMenu) {
+    const locationName = UI.ViewManager.instance().locationNameForViewId(tabId);
+    if (locationName === 'drawer-view') {
+      contextMenu.defaultSection().appendItem(
+          Common.UIString.UIString('Move to main panel'), this.moveToMainPanel.bind(this, tabId));
+    } else {
+      contextMenu.defaultSection().appendItem(
+          Common.UIString.UIString('Move to drawer'), this.moveToDrawer.bind(this, tabId));
+    }
   }
 }

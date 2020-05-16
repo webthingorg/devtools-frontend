@@ -1351,6 +1351,7 @@ export class TabbedPaneTab {
           Common.UIString.UIString('Close tabs to the right'), closeToTheRight.bind(this));
       contextMenu.defaultSection().appendItem(Common.UIString.UIString('Close all'), closeAll.bind(this));
     }
+
     if (this._delegate) {
       this._delegate.onContextMenu(this.id, contextMenu);
     }
