@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7c3fab34_8b366e6d",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-16T00:12:54Z",
+      "side": 1,
+      "message": "I think you are right, I created a tab delegate just for the tabbed locations used in InspectorView. This makes it cleaner and follows the same architecture used by other implementations for delegates.",
+      "parentUuid": "77fb8c84_efabfa52",
+      "revId": "9d932899594f50d7fbfa6533413d288b428a94a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ecb1d9a_50994e96",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 4
