@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97ab7d32_e8cda22f",
+        "filename": "test/e2e/cross_tool_integration/browser_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-18T21:35:12Z",
+      "side": 1,
+      "message": "nit: I\u0027d imagine this pattern is used all over the place, should we have a helper method that navigates to a url?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "c46c8d7f9ac13040f443f7ae19850db72cbc86ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "417dd963_d6b276b3",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-18T21:35:12Z",
+      "side": 1,
+      "message": "should this be a constant too?",
+      "range": {
+        "startLine": 89,
+        "startChar": 17,
+        "endLine": 89,
+        "endChar": 30
+      },
+      "revId": "c46c8d7f9ac13040f443f7ae19850db72cbc86ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cedbc172_e07e73db",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-18T21:35:12Z",
+      "side": 1,
+      "message": "I\u0027m inclined to prefer aria-label selectors as consts too, given how malleable they are. (maybe not the elements string in particular, but you get the idea)",
+      "range": {
+        "startLine": 155,
+        "startChar": 16,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "c46c8d7f9ac13040f443f7ae19850db72cbc86ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "026039e0_1dc66fbc",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-18T21:35:12Z",
+      "side": 1,
+      "message": "nit: instead of making a new array and then iterating over it, maybe just do something like buttons.forEach(button \u003d\u003e closePanelTab(...))",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 3
+      },
+      "revId": "c46c8d7f9ac13040f443f7ae19850db72cbc86ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
