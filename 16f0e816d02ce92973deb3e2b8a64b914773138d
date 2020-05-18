@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f01fd339_116bd6de",
+        "filename": "front_end/color_picker/spectrum.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-18T13:15:37Z",
+      "side": 1,
+      "message": "I think it should be 2 space indentation here",
+      "revId": "16f0e816d02ce92973deb3e2b8a64b914773138d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03c3d2f1_43d0161d",
+        "filename": "front_end/color_picker/spectrum.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-18T13:15:37Z",
+      "side": 1,
+      "message": "I am curious what +104px was here for?",
+      "revId": "16f0e816d02ce92973deb3e2b8a64b914773138d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
