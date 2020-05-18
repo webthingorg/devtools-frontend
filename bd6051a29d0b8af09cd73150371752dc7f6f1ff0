@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c478e2e1_4829ceab",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-18T14:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96bddf3c_bd9f8abf",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 107,
+        "endChar": 11
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0928f01_c598a5b0",
         "filename": "front_end/sdk/HeapProfilerModel.js",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "57a2dbf6_58b4905d",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-18T14:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0928f01_c598a5b0",
+      "range": {
+        "startLine": 108,
+        "startChar": 28,
+        "endLine": 108,
+        "endChar": 47
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2625ded_bdc957af",
         "filename": "front_end/sdk/HeapProfilerModel.js",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44296c18_1835aacb",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-18T14:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2625ded_bdc957af",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -115,6 +187,30 @@
       "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6134fc7_0ea7e156",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-18T14:14:13Z",
+      "side": 1,
+      "message": "I resolved this by introducing types that make the undefined explicit.",
+      "parentUuid": "e457c496_293d1f97",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 158,
+        "endChar": 21
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

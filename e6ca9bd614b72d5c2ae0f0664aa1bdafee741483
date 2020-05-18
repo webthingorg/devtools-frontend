@@ -22,6 +22,30 @@
       "revId": "e6ca9bd614b72d5c2ae0f0664aa1bdafee741483",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46914b3d_a97c6c5c",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-18T14:14:13Z",
+      "side": 0,
+      "message": "I don\u0027t really know, but if you look here: https://source.chromium.org/chromium/chromium/src/+/master:v8/include/js_protocol.pdl;l\u003d673?q\u003djs_protocol\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F\nthen you see that type is a non-optional field, so I guess we are guaranteed to get a string.\n\nLooking around in V8 also doesn\u0027t seem to uncover an obvious places where we pass the empty string, so I\u0027m willing to risk not checking here (and fix a regression bug if we need to). The benefit of this approach is that we will actually learn whether this check is necessary, and why.\n\nWDYT?",
+      "parentUuid": "882cbe21_c908f569",
+      "range": {
+        "startLine": 172,
+        "startChar": 21,
+        "endLine": 172,
+        "endChar": 32
+      },
+      "revId": "e6ca9bd614b72d5c2ae0f0664aa1bdafee741483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
