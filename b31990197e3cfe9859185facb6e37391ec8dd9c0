@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "73304f02_b15c6343",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-18T12:39:51Z",
+      "side": 1,
+      "message": "OK let\u0027s review it there",
+      "parentUuid": "d8260a6d_7ed0262b",
+      "range": {
+        "startLine": 8,
+        "startChar": 29,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2bb832e_cbf0326c",
         "filename": "front_end/third_party/i18n/i18n.js",
         "patchSetId": 4
@@ -172,6 +196,30 @@
       "side": 1,
       "message": "I may be misunderstanding the question, but AFAIK this file won\u0027t be scanned as it is included in third_party?",
       "parentUuid": "d16159e7_419bc8fb",
+      "range": {
+        "startLine": 463,
+        "startChar": 11,
+        "endLine": 463,
+        "endChar": 20
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fe9492a_841b3d1a",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-18T12:39:51Z",
+      "side": 1,
+      "message": "We don\u0027t run closure type checking on anything in front_end/third_party yet, so you would need to configure it. You can check if it\u0027s working by adding some clearly-wrong typing and running `npm run check-type-closure`.",
+      "parentUuid": "3ac1e340_4a32c8a2",
       "range": {
         "startLine": 463,
         "startChar": 11,
