@@ -46,6 +46,30 @@
       "revId": "e6ca9bd614b72d5c2ae0f0664aa1bdafee741483",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9800dae0_495d791a",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-18T14:18:43Z",
+      "side": 0,
+      "message": "Empty string doesn\u0027t seem to be allowed according to the definition so I think we should be good. Thanks for checking",
+      "parentUuid": "46914b3d_a97c6c5c",
+      "range": {
+        "startLine": 172,
+        "startChar": 21,
+        "endLine": 172,
+        "endChar": 32
+      },
+      "revId": "e6ca9bd614b72d5c2ae0f0664aa1bdafee741483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
