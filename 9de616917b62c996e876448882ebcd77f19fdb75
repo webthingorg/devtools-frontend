@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "424838d3_145587f9",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-18T10:06:00Z",
+      "side": 1,
+      "message": "You could also write this as\n    this._uiSourceCodes.some(uiSourceCode \u003d\u003e uiSourceCode.project().type() \u003d\u003d\u003d Workspace.Workspace.projectTypes.Network",
+      "range": {
+        "startLine": 505,
+        "startChar": 31,
+        "endLine": 505,
+        "endChar": 50
+      },
+      "revId": "9de616917b62c996e876448882ebcd77f19fdb75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
