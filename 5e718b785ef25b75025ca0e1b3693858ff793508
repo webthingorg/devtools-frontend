@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "216ed3db_6cb724e7",
+        "filename": "test/e2e/cross_tool_integration/browser_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-18T16:54:52Z",
+      "side": 1,
+      "message": "What\u0027s funny about your test naming here is that usually people put the verb into the test title so that it reads smoothly, e.g.\n\ndescribe(\u0027Browser\u0027, async () \u003d\u003e {\n  it(\u0027can reload...\u0027 ...\n\nNot saying you need to change. Just stood out since it\u0027s right there.",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "631e8606_991818a4",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-18T16:54:52Z",
+      "side": 1,
+      "message": "What is the difference between `getConsoleMessages` and `getCurrentConsoleMessages`?",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "807e877a_957d8cf0",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-18T16:54:52Z",
+      "side": 1,
+      "message": "I realize you\u0027re following the pattern, but why are we exporting these as consts instead of just declaring them `export async function ...` ? We\u0027re not in a context where having an arrow makes any difference lexically.",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d79b64_ecae7d36",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-18T16:54:52Z",
+      "side": 1,
+      "message": "Why are we naming this with underscores?",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
