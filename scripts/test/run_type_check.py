@@ -430,10 +430,10 @@ def main():
         print line
     errors_found |= has_errors(frontend_compile_out)
 
-    os.remove(protocol_externs_file)
-    os.remove(namespace_externs_path)
-    os.remove(compiler_args_file_path)
-    shutil.rmtree(temp_devtools_path, True)
+    # os.remove(protocol_externs_file)
+    # os.remove(namespace_externs_path)
+    # os.remove(compiler_args_file_path)
+    # shutil.rmtree(temp_devtools_path, True)
 
     if errors_found:
         print 'ERRORS DETECTED'

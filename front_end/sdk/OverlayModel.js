@@ -491,8 +491,11 @@ class DefaultHighlighter {
 
 SDKModel.register(OverlayModel, Capability.DOM, true);
 
-/** @typedef {{node: (!DOMNode|undefined),
- deferredNode: (!DeferredDOMNode|undefined),
- selectorList: (string|undefined),
- object:(!RemoteObject|undefined)}} */
+/** @typedef {{
+ * node: (!DOMNode|undefined),
+ * deferredNode: (!DeferredDOMNode|undefined),
+ * selectorList: (string|undefined),
+ * object: (!RemoteObject|undefined)
+ * }}
+ */
 export let HighlightData;
