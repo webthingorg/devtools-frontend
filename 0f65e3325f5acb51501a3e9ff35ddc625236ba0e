@@ -52,6 +52,24 @@
       "revId": "0f65e3325f5acb51501a3e9ff35ddc625236ba0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a6cfe9_4e646a2c",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-18T07:44:03Z",
+      "side": 1,
+      "message": "I think I might\u0027ve misread this the first time when I posted that comment, sorry!\n\nWith this patch, the default style is --focus-ring-inactive-shadow, and the focus style becomes --focus-ring-active-shadow (note active vs. inactive). So all good here!",
+      "parentUuid": "7bfb577e_ba0cfe79",
+      "revId": "0f65e3325f5acb51501a3e9ff35ddc625236ba0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
