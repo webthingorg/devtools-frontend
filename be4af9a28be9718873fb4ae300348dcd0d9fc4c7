@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32991cc9_822930b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:47:00Z",
+      "side": 1,
+      "message": "FYI: `Fixed: 1082735`",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "be4af9a28be9718873fb4ae300348dcd0d9fc4c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
