@@ -45,6 +45,30 @@
       "revId": "2255c2180afb06f7b2cd081799e6f6371a88a6f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9210870_94bbf173",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-05-18T12:28:34Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "fa0e3887_2f9235b7",
+      "range": {
+        "startLine": 1647,
+        "startChar": 20,
+        "endLine": 1647,
+        "endChar": 34
+      },
+      "revId": "2255c2180afb06f7b2cd081799e6f6371a88a6f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
