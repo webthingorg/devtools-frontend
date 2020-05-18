@@ -674,6 +674,20 @@ export class TargetBase {
   performanceAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
+
+  /**
+   * @return {!ProtocolProxyApi.CacheStorageApi}
+   */
+  cacheStorageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.StorageApi}
+   */
+  storageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
 }
 
 /**
