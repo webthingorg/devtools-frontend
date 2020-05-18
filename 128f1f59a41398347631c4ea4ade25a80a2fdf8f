@@ -22,6 +22,30 @@
       "revId": "128f1f59a41398347631c4ea4ade25a80a2fdf8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04312709_eb824fda",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-05-18T10:06:00Z",
+      "side": 0,
+      "message": "Yeah, that\u0027s right. When I uploaded this patch, the invoke_s below still returned void.",
+      "parentUuid": "30af7751_a020309d",
+      "range": {
+        "startLine": 129,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 8
+      },
+      "revId": "128f1f59a41398347631c4ea4ade25a80a2fdf8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
