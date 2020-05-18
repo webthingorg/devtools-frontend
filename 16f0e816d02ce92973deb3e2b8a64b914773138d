@@ -33,6 +33,23 @@
       "revId": "16f0e816d02ce92973deb3e2b8a64b914773138d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f5a89a_536f9a17",
+        "filename": "front_end/color_picker/spectrum.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-18T13:16:58Z",
+      "side": 1,
+      "message": "nit: please stick to two-space indents. You can probably let your editor take care of this for you based on the .editorconfig file in our repo.",
+      "revId": "16f0e816d02ce92973deb3e2b8a64b914773138d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
