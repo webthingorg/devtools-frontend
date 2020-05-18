@@ -175,7 +175,8 @@ describe('Multi-Workers', async function() {
         });
       });
 
-      it('for pre-loaded workers', async () => {
+      // Flaky test
+      it.skip('[crbug.com/1073406] for pre-loaded workers', async () => {
         const {target} = getBrowserAndPages();
         // Send message to a worker to trigger break
         await target.evaluate('workers[5].postMessage({});');
