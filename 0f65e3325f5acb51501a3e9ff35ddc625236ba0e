@@ -70,6 +70,24 @@
       "revId": "0f65e3325f5acb51501a3e9ff35ddc625236ba0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d202c600_55415807",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-18T07:54:22Z",
+      "side": 1,
+      "message": "Oh right; also misread active/inactive after the comment on Friday :); thanks for pointing out!",
+      "parentUuid": "08a6cfe9_4e646a2c",
+      "revId": "0f65e3325f5acb51501a3e9ff35ddc625236ba0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
