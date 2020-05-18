@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30af7751_a020309d",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:35:13Z",
+      "side": 0,
+      "message": "Seems like these changes were reverted by accident? Can we put them back?",
+      "range": {
+        "startLine": 129,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 8
+      },
+      "revId": "128f1f59a41398347631c4ea4ade25a80a2fdf8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
