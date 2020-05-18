@@ -25,5 +25,6 @@ ts_library("e2e") {
     "search",
     "snippets",
     "sources",
+    "webaudio",
   ]
 }
