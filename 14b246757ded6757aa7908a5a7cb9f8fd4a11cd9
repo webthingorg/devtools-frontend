@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a0346d0c_2e552da9",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-18T12:37:15Z",
+      "side": 1,
+      "message": "None of the other Elements test do it. I guess because the Elements panel is the one shown by default when running tests.",
+      "parentUuid": "4354b75f_8080549a",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 41
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c60b356_f811c068",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-14T16:40:59Z",
       "side": 1,
       "message": "I think you can break this in 2 methods, one that gets all the current properties and one that checks the specific property has the value you want. \nThis way you can avoid retrieving all the nodes from COMPUTED_PROPERTY_SELECTOR every time you want to check the value of one single property.\n\nThen you can have an assert in the test that checks the value is the one you expect. This way you can be more granular in the testing and make it easier to debug. The way it is written right now this function won\u0027t return a property if the name doesn\u0027t exist or if the value is not what you expect.",
+      "range": {
+        "startLine": 80,
+        "startChar": 13,
+        "endLine": 80,
+        "endChar": 37
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "590e0db2_ab04eb47",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-18T12:37:15Z",
+      "side": 1,
+      "message": "The problem I\u0027m having here is that in order to know that the computed pane has been updated, I don\u0027t really have any other way than to check that some property has some value.\nThere\u0027s nothing in the UI of the computed pane that says that a different node has been selected. So in theory, if I select a new node and immediately check the computed properties, I could actually be checking the ones from the previously selected node. I need to wait for something to tell me that the right properties are now displayed. But doing so means I\u0027m already asserting what I want to assert in the test, if that makes sense.\nI could wait for a certain number of properties to be displayed. Or maybe wait until a markup mutation happens in the computed pane. Or something else that I haven\u0027t thought of. But I do need to wait for this pane to be updated after I\u0027ve selected a new node in the Elements tree.\nThat\u0027s why I was getting all properties, and then searching for the right one with the right value, in a loop.",
+      "parentUuid": "9c60b356_f811c068",
       "range": {
         "startLine": 80,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "02b24756_ee5a9bf8",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-18T12:37:15Z",
+      "side": 1,
+      "message": "I was just trying to be consistent with how it\u0027s done elsewhere in the file, i.e. in waitForSelectedNodeChange\nBut I realized I can get rid of this and use waitForFunction instead. I like the idea of minimizing the number of places where we run these timers.",
+      "parentUuid": "d64f7b78_d0541159",
+      "range": {
+        "startLine": 82,
+        "startChar": 22,
+        "endLine": 82,
+        "endChar": 47
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fce8f3d_c31b0463",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-05-14T16:40:59Z",
       "side": 1,
       "message": "In what cases do you expect 0 ?",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 29
+      },
+      "revId": "14b246757ded6757aa7908a5a7cb9f8fd4a11cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab2a57b7_8d2254e8",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-18T12:37:15Z",
+      "side": 1,
+      "message": "This was made to be consistent with waitForSelectedNodeChange. So that callers of this function could pass 0 as a value to wait forever, instead of being limited to 1000ms.\nBut again, I\u0027m not terribly happy with having to copy this do/while/timeout logic and I can probably change this with waitForFunction so the logic is in fewer places.",
+      "parentUuid": "3fce8f3d_c31b0463",
       "range": {
         "startLine": 168,
         "startChar": 2,
