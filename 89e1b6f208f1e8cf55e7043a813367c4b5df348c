@@ -16,6 +16,24 @@
       "revId": "89e1b6f208f1e8cf55e7043a813367c4b5df348c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c0893e_8932f9a1",
+        "filename": "test/e2e/helpers/animations-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-18T21:32:22Z",
+      "side": 1,
+      "message": "waitFor waits for a selector to appear, it can be any element.",
+      "parentUuid": "60f5e978_021d937c",
+      "revId": "89e1b6f208f1e8cf55e7043a813367c4b5df348c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
