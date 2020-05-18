@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "768d1f48_9807f705",
+        "filename": "test/e2e/helpers/performance-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:50:37Z",
+      "side": 1,
+      "message": "Nit: I think this comment can be removed, given the line below is equivalent",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "ccd4762b795842b6cdc40ea9753d6bf264a45616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fff0433_22c4828c",
+        "filename": "test/e2e/helpers/performance-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:50:37Z",
+      "side": 1,
+      "message": "Nit: same",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "ccd4762b795842b6cdc40ea9753d6bf264a45616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a91913de_a3f9f74d",
+        "filename": "test/e2e/helpers/performance-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:50:37Z",
+      "side": 1,
+      "message": "Should this throw maybe? Or if `totalText` is `\u0027\u0027` maybe return `undefined` or something?",
+      "range": {
+        "startLine": 45,
+        "startChar": 92,
+        "endLine": 45,
+        "endChar": 94
+      },
+      "revId": "ccd4762b795842b6cdc40ea9753d6bf264a45616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
