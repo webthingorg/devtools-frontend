@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5b59a62_56e92a7d",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:46:22Z",
+      "side": 1,
+      "message": "I think we can remove this now? If they are still used in return types, the return types have to be updated accordingly. They probably meant to use `string` instead, rather than the ProtocolError symbol.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "95c1b9882f796ca4c0df23bc237e3db0539e382f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e53d4d5d_92c28e2c",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:46:22Z",
+      "side": 1,
+      "message": "You can add crbug.com/1050549 here.",
+      "range": {
+        "startLine": 1095,
+        "startChar": 13,
+        "endLine": 1095,
+        "endChar": 19
+      },
+      "revId": "95c1b9882f796ca4c0df23bc237e3db0539e382f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db8b41fa_741baaec",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:46:22Z",
+      "side": 1,
+      "message": "Revert these changes.",
+      "range": {
+        "startLine": 433,
+        "startChar": 4,
+        "endLine": 433,
+        "endChar": 5
+      },
+      "revId": "95c1b9882f796ca4c0df23bc237e3db0539e382f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

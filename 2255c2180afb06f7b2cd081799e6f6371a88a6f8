@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea8ddb57_fd3af22f",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:46:22Z",
+      "side": 0,
+      "message": "Let\u0027s keep this for now (and fix the type of `_children`).",
+      "range": {
+        "startLine": 935,
+        "startChar": 11,
+        "endLine": 935,
+        "endChar": 25
+      },
+      "revId": "2255c2180afb06f7b2cd081799e6f6371a88a6f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa0e3887_2f9235b7",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-18T09:46:22Z",
+      "side": 0,
+      "message": "Is `_children` maybe mistyped? I rather take the conservative route here and keep the conditional for now just to be sure.",
+      "range": {
+        "startLine": 1647,
+        "startChar": 20,
+        "endLine": 1647,
+        "endChar": 34
+      },
+      "revId": "2255c2180afb06f7b2cd081799e6f6371a88a6f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
