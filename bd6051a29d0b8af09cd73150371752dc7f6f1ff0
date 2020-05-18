@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "96bddf3c_bd9f8abf",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-18T09:16:32Z",
+      "side": 1,
+      "message": "Bug # or username?",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 107,
+        "endChar": 11
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0928f01_c598a5b0",
+        "filename": "front_end/sdk/HeapProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-18T09:16:32Z",
+      "side": 1,
+      "message": "Now we don\u0027t call stopSampling if getSamplingProfile failed. I think it would be better to still try and stop the profile in that case, unless there\u0027s a good reason to do otherwise (callers could rely on this somehow)",
+      "range": {
+        "startLine": 108,
+        "startChar": 28,
+        "endLine": 108,
+        "endChar": 47
+      },
+      "revId": "bd6051a29d0b8af09cd73150371752dc7f6f1ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2625ded_bdc957af",
         "filename": "front_end/sdk/HeapProfilerModel.js",
         "patchSetId": 1
