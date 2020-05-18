@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a3cd66de_eef18634",
+        "filename": "test/e2e/cross_tool_integration/browser_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-18T19:28:53Z",
+      "side": 1,
+      "message": "Not hard for me to change, if it helps readability for folks I can change it :)",
+      "parentUuid": "216ed3db_6cb724e7",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "631e8606_991818a4",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-18T16:54:52Z",
       "side": 1,
       "message": "What is the difference between `getConsoleMessages` and `getCurrentConsoleMessages`?",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1038260c_7d1f8054",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-18T19:28:53Z",
+      "side": 1,
+      "message": "getConsoleMessages navigates to a new page then reads the console messages. \ngetCurrentConsoleMessages reads whatever is in console right now",
+      "parentUuid": "631e8606_991818a4",
       "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d0c219ee_09073ac8",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-18T19:28:53Z",
+      "side": 1,
+      "message": "just followed the same style used in this file to keep consistency",
+      "parentUuid": "807e877a_957d8cf0",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9d79b64_ecae7d36",
         "filename": "test/shared/helper.ts",
         "patchSetId": 5
@@ -67,6 +121,24 @@
       "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e7a08bc_220e73f1",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-18T19:28:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9d79b64_ecae7d36",
+      "revId": "5e718b785ef25b75025ca0e1b3693858ff793508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
