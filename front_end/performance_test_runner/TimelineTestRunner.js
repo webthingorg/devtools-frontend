@@ -83,17 +83,30 @@ PerformanceTestRunner.tracingModel = function() {
 };
 
 PerformanceTestRunner.invokeWithTracing = function(functionName, callback, additionalCategories, enableJSSampling) {
-  let categories = '-*,disabled-by-default-devtools.timeline*,devtools.timeline,blink.user_timing,' +
-      SDK.TracingModel.LegacyTopLevelEventCategory;
+  const includedCategories = [
+    'disabled-by-default-devtools.timeline*',
+    'devtools.timeline,blink.user_timing',
+    SDK.TracingModel.LegacyTopLevelEventCategory,
+  ];
+  const excludedCategories = ['*'];
 
+  // TODO(petermarshall): Split arguments into enabled and disabled categories.
   if (additionalCategories) {
-    categories += ',' + additionalCategories;
+    const splitCategories = additionalCategories.split(',');
+    for (const category of splitCategories) {
+      if (category.startsWith('-')) {
+        excludedCategories.push(category.substring(1));
+      } else {
+        includedCategories.push(category);
+      }
+    }
   }
 
   const timelinePanel = UI.panels.timeline;
   const timelineController = PerformanceTestRunner.createTimelineController();
   timelinePanel._timelineController = timelineController;
-  timelineController._startRecordingWithCategories(categories, enableJSSampling).then(tracingStarted);
+  timelineController._startRecordingWithCategories(includedCategories, excludedCategories, enableJSSampling)
+      .then(tracingStarted);
 
   function tracingStarted() {
     timelinePanel._recordingStarted();
