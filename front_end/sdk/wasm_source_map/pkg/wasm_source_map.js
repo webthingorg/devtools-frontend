@@ -5,6 +5,8 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import {SourceMapEntry} from '../../SourceMap.js';
+
 (function() {
     const __exports = {};
     let wasm;
@@ -176,7 +178,7 @@ function init(module) {
         takeObject(arg0);
     };
     imports.wbg.__wbg_new_8e4c496df8c98a76 = function(arg0, arg1, arg2, arg3, arg4) {
-        const ret = new SDK.SourceMapEntry(arg0 >>> 0, arg1 >>> 0, getObject(arg2), arg3 >>> 0, arg4 >>> 0);
+        const ret = new SourceMapEntry(arg0 >>> 0, arg1 >>> 0, getObject(arg2), arg3 >>> 0, arg4 >>> 0);
         return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
