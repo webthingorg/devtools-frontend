@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e3f5c3d_d04eaba5",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-19T09:34:53Z",
+      "side": 1,
+      "message": "I can\u0027t immediately see the reason for the do -\u003e while change, is that just a drive-by cleanup?",
+      "range": {
+        "startLine": 293,
+        "startChar": 4,
+        "endLine": 293,
+        "endChar": 9
+      },
+      "revId": "6bc5600c8827074511d424237fd0343fa4a95164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9501df8_4dcfb946",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-19T09:34:53Z",
+      "side": 1,
+      "message": "Would this be better as a static class field on PageLoad? Then it\u0027s scoped to PageLoad. Same with consoleMessageToRequest above.",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 612,
+        "endChar": 41
+      },
+      "revId": "6bc5600c8827074511d424237fd0343fa4a95164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
