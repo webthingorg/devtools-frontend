@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b38d779_8f0a7e63",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-19T10:53:10Z",
+      "side": 1,
+      "message": "DOMNode should always have an id, but it is not set in its constructor, but in _init().",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "238df892_0abb44ee",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-19T10:53:10Z",
+      "side": 1,
+      "message": "How can I handle this better?",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ac8bdaf_eee4c7d0",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-19T10:53:10Z",
+      "side": 1,
+      "message": "Is there a better way to return a Promise\u003cundefined\u003e?",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
