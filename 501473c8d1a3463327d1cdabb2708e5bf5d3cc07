@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dc0e3b7_dfb0314c",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T16:48:44Z",
+      "side": 0,
+      "message": "Somehow I think that this is the problem. But if I keep it GN starts complaining about duplicate outputs...",
+      "range": {
+        "startLine": 868,
+        "startChar": 2,
+        "endLine": 868,
+        "endChar": 52
+      },
+      "revId": "501473c8d1a3463327d1cdabb2708e5bf5d3cc07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
