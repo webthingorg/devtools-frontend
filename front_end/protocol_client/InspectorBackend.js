@@ -674,6 +674,27 @@ export class TargetBase {
   performanceAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
+
+  /**
+   * @return {!ProtocolProxyApi.CacheStorageApi}
+   */
+  cacheStorageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.StorageApi}
+   */
+  storageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @param {!ProtocolProxyApi.StorageDispatcher} dispatcher
+   */
+  registerStorageDispatcher(dispatcher) {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
 }
 
 /**
@@ -924,8 +945,13 @@ class _DispatcherPrototype {
 
     for (let index = 0; index < this._dispatchers.length; ++index) {
       const dispatcher = this._dispatchers[index];
+
       if (functionName in dispatcher) {
-        dispatcher[functionName].apply(dispatcher, params);
+        if (dispatcher.usesObjectNotation && dispatcher.usesObjectNotation()) {
+          dispatcher[functionName].call(dispatcher, {...messageObject.params});
+        } else {
+          dispatcher[functionName].apply(dispatcher, params);
+        }
       }
     }
   }
