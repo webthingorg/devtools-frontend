@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6639a15d_55277350",
+        "filename": "front_end/persistence/IsolatedFileSystem.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-19T08:38:41Z",
+      "side": 1,
+      "message": "this might have side-effects for the layout tests, I am afraid :-(",
+      "revId": "b27dc160e51072fa19298c8d06b88df6cafb8dd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
