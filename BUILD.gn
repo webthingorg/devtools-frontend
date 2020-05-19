@@ -865,7 +865,6 @@ generated_test_modules = [
   "$resources_out_dir/extensions_test_runner/extensions_test_runner_module.js",
   "$resources_out_dir/heap_profiler_test_runner/heap_profiler_test_runner_module.js",
   "$resources_out_dir/heap_snapshot_worker/heap_snapshot_worker_module.js",
-  "$resources_out_dir/integration_test_runner.html",
   "$resources_out_dir/integration_test_runner.js",
   "$resources_out_dir/layers_test_runner/layers_test_runner_module.js",
   "$resources_out_dir/network_test_runner/network_test_runner_module.js",

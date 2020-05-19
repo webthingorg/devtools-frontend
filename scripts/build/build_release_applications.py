@@ -121,9 +121,6 @@ class ReleaseBuilder(object):
         return result
 
     def build_app(self):
-        if self.descriptors.has_html:
-            html_entrypoint = self.app_file('html')
-            write_file(join(self.output_dir, html_entrypoint), read_file(join(self.application_dir, html_entrypoint)))
         self._build_app_script()
         for module in filter(lambda desc: (not desc.get('type') or desc.get('type') == 'remote'),
                              self.descriptors.application.values()):
