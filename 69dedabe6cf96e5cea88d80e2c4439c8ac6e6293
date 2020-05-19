@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f011063_d652bc56",
+        "filename": "front_end/sdk/ServiceWorkerCacheModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T15:24:54Z",
+      "side": 1,
+      "message": "Nit: I would prefer to inline this in the argument, as we don\u0027t really use the `event` in any case. E.g. `cacheStorageListUpdated({origin})`. WDYT?",
+      "range": {
+        "startLine": 304,
+        "startChar": 10,
+        "endLine": 304,
+        "endChar": 18
+      },
+      "revId": "69dedabe6cf96e5cea88d80e2c4439c8ac6e6293",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
