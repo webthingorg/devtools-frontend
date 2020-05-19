@@ -12,19 +12,22 @@ interface PerfTimings {
 }
 
 describe('Boot performance', () => {
-  it('runs 37 times', async () => {
-    const times: PerfTimings = {
-      bootperf: [],
-    };
-    for (let run = 0; run < 37; run++) {
+  const total = 37;
+  const times: PerfTimings = {
+    bootperf: [],
+  };
+
+  after(async () => {
+    await storeGeneratedResults('devtools-perf.json', JSON.stringify(times));
+  });
+  for (let run = 1; run <= total; run++) {
+    it(`run ${run}/${total}`, async () => {
       const start = performance.now();
       await reloadDevTools();
 
       // Ensure only 2 decimal places.
       const timeTaken = (performance.now() - start).toFixed(2);
       times.bootperf.push(Number(timeTaken));
-    }
-
-    await storeGeneratedResults('devtools-perf.json', JSON.stringify(times));
-  }).timeout(90000);  // 90 second timeout because booting can take a second or so.
+    }).timeout(5000);  // 5 second timeout because booting can take a second or so.
+  }
 });
