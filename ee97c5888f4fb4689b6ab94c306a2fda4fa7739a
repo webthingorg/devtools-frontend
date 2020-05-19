@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "6c48b535_bd745e35",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T12:02:15Z",
+      "side": 1,
+      "message": "Nit: same",
+      "range": {
+        "startLine": 412,
+        "startChar": 18,
+        "endLine": 412,
+        "endChar": 26
+      },
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "238df892_0abb44ee",
         "filename": "front_end/sdk/DOMDebuggerModel.js",
         "patchSetId": 2
@@ -36,6 +59,47 @@
     },
     {
       "key": {
+        "uuid": "4e8eae6b_f7e473f7",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T12:02:15Z",
+      "side": 1,
+      "message": "I don\u0027t think you can. It is essentially a hack that a type-checker can not reason about 😭",
+      "parentUuid": "238df892_0abb44ee",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1711c7a1_c71f8d0d",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T12:02:15Z",
+      "side": 1,
+      "message": "Nit: use `function():void`",
+      "range": {
+        "startLine": 440,
+        "startChar": 18,
+        "endLine": 440,
+        "endChar": 26
+      },
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ac8bdaf_eee4c7d0",
         "filename": "front_end/sdk/DOMDebuggerModel.js",
         "patchSetId": 2
@@ -47,6 +111,70 @@
       "writtenOn": "2020-05-19T10:53:10Z",
       "side": 1,
       "message": "Is there a better way to return a Promise\u003cundefined\u003e?",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf45d808_00833306",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T12:02:15Z",
+      "side": 1,
+      "message": "Nope this is fine.",
+      "parentUuid": "8ac8bdaf_eee4c7d0",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2856ad_49a8408d",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T12:02:15Z",
+      "side": 1,
+      "message": "Nit: use `function():void` instead.",
+      "range": {
+        "startLine": 488,
+        "startChar": 16,
+        "endLine": 488,
+        "endChar": 24
+      },
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b64fb1b_0370f897",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T12:02:15Z",
+      "side": 1,
+      "message": "Nit: same",
+      "range": {
+        "startLine": 491,
+        "startChar": 33,
+        "endLine": 491,
+        "endChar": 41
+      },
       "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
