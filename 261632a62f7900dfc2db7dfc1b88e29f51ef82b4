@@ -22,6 +22,30 @@
       "revId": "261632a62f7900dfc2db7dfc1b88e29f51ef82b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d58b8e4_97ad4b29",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-19T10:28:45Z",
+      "side": 1,
+      "message": "Yes if you have built your DevTools frontend with `is_debug\u003dtrue`, you will get unbundled frontend files.",
+      "parentUuid": "a8fc9f2a_02b078bc",
+      "range": {
+        "startLine": 124,
+        "startChar": 1,
+        "endLine": 124,
+        "endChar": 15
+      },
+      "revId": "261632a62f7900dfc2db7dfc1b88e29f51ef82b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
