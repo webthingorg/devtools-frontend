@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ed22aa9_5750e14e",
+        "filename": "front_end/accessibility/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-19T09:15:34Z",
+      "side": 1,
+      "message": "I\u0027d suggest alexrudenko@ as well, given his a11y work on the inspector overlay (which now lives in the devtools-frontend repo).",
+      "revId": "450e160ccc393cb95760da9dcddc0cb2501fcfc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
