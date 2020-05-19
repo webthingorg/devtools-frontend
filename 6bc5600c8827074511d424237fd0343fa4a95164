@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "425a036f_28562717",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-19T09:42:36Z",
+      "side": 1,
+      "message": "The combination of the type of checkRequest and the check of the while loop ensures that TypeScript correctly infers the type !NetworkRequest for checkRequest inside the loop body.\n\nFor the do-while loop TypeScript can\u0027t do this, because the type of checkRequest still needs to be ?NetworkRequest (to allow the assignment at the end of the body), but that doesn\u0027t convey the fact that the type of `request` is always !NetworkRequest, i.e. in do-while loop, TypeScript wouldn\u0027t be able to infer that for the first loop iteration checkRequest was indeed a !NetworkRequest.",
+      "parentUuid": "5e3f5c3d_d04eaba5",
+      "range": {
+        "startLine": 293,
+        "startChar": 4,
+        "endLine": 293,
+        "endChar": 9
+      },
+      "revId": "6bc5600c8827074511d424237fd0343fa4a95164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9501df8_4dcfb946",
         "filename": "front_end/sdk/NetworkLog.js",
         "patchSetId": 2
