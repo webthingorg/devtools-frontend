@@ -34,6 +34,24 @@
       "revId": "89e1b6f208f1e8cf55e7043a813367c4b5df348c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786ae8c8_1d8d4dda",
+        "filename": "test/e2e/helpers/animations-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-19T00:13:32Z",
+      "side": 1,
+      "message": "Right, but how do we know the timeline will appear? Are we assuming that the animations drawer is already open?",
+      "parentUuid": "21c0893e_8932f9a1",
+      "revId": "89e1b6f208f1e8cf55e7043a813367c4b5df348c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
