@@ -151,7 +151,9 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel {
     for (const isLocal of [true, false]) {
       const key = this._storageKey(origin, isLocal);
       const storage = this._storages[key];
-      storage.clear();
+      if (storage) {
+        storage.clear();
+      }
     }
     this._removeOrigin(origin);
     this._addOrigin(origin);
