@@ -69,6 +69,30 @@
       "revId": "6bc5600c8827074511d424237fd0343fa4a95164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7991fb_6e991b69",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-19T15:27:02Z",
+      "side": 1,
+      "message": "I prefer to have it as a scoped constant. Note that since this is a module, it isn\u0027t exposed to the outside.",
+      "parentUuid": "c9501df8_4dcfb946",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 612,
+        "endChar": 41
+      },
+      "revId": "6bc5600c8827074511d424237fd0343fa4a95164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
