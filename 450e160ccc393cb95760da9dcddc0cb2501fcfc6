@@ -16,6 +16,29 @@
       "revId": "450e160ccc393cb95760da9dcddc0cb2501fcfc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35706010_a8358bb4",
+        "filename": "front_end/color_picker/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-05-20T05:28:39Z",
+      "side": 1,
+      "message": "please remove, chshrest\u0027s no longer on our team",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 8
+      },
+      "revId": "450e160ccc393cb95760da9dcddc0cb2501fcfc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
