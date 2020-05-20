@@ -22,6 +22,30 @@
       "revId": "45eea933336843a9328484f1fe093d0321857094",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a63d25e_9791a0f0",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-20T23:37:34Z",
+      "side": 1,
+      "message": "It is an overlay domain command. It just sets the hingetool to null and doesnt rely on any device related information.",
+      "parentUuid": "da923f3d_904ff567",
+      "range": {
+        "startLine": 816,
+        "startChar": 3,
+        "endLine": 816,
+        "endChar": 47
+      },
+      "revId": "45eea933336843a9328484f1fe093d0321857094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
