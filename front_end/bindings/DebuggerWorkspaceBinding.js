@@ -358,7 +358,7 @@ class ModelData {
 
     if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
       this._pluginManager = new DebuggerLanguagePluginManager(debuggerModel, workspace, debuggerWorkspaceBinding);
-      this._pluginManager.addPlugin(new CXXDWARFLanguagePlugin());
+      // this._pluginManager.addPlugin(new CXXDWARFLanguagePlugin());
     }
 
 

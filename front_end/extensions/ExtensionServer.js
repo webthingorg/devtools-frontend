@@ -102,6 +102,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     this._registerHandler(commands.OpenResource, this._onOpenResource.bind(this));
     this._registerHandler(commands.Unsubscribe, this._onUnsubscribe.bind(this));
     this._registerHandler(commands.UpdateButton, this._onUpdateButton.bind(this));
+    this._registerHandler(commands.SetLanguagePluginResponse, this._setLanguagePluginResponse.bind(this));
+    this._registerHandler(commands.RegisterLanguagePluginExtension, this._registerLanguagePluginExtension.bind(this));
     window.addEventListener('message', this._onWindowMessage.bind(this), false);  // Only for main window.
 
     /** @suppress {checkTypes} */
@@ -114,6 +116,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.SetInspectedTabId, this._setInspectedTabId, this);
 
+    this._languagePluginRequests = new Map();
+    this._languagePluginExtensions = [];
     this._initExtensions();
   }
 
@@ -157,6 +161,43 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    */
   notifyButtonClicked(identifier) {
     this._postNotification(Extensions.extensionAPI.Events.ButtonClicked + identifier);
+  }
+
+  sendLanguagePluginRequest(pluginId, requestId, method, parameters, callback) {
+    const callbackId = pluginId + requestId;
+    if (this._languagePluginRequests.has(callbackId)) {
+      throw `Plugin ${pluginId} already has a pending request`;
+    }
+    // console.error(`Got request ${requestId} from ${pluginId}: ${method}(${JSON.stringify(parameters)}]`);
+    const identifier = 'sources';
+    this._languagePluginRequests.set(callbackId, callback);
+    this._postNotification(
+        Extensions.extensionAPI.Events.LanguagePluginRequest + identifier, pluginId, requestId, method, parameters);
+  }
+
+  sendLanguagePluginRequestAsync(pluginId, requestId, method, parameters) {
+    return new Promise(resolve => this.sendLanguagePluginRequest(pluginId, requestId, method, parameters, resolve));
+  }
+
+  _registerLanguagePluginExtension(message, port) {
+    console.error(`Regster new plugin ${JSON.stringify(message)}`);
+    this._languagePluginExtensions.push(message.pluginId);
+    this.dispatchEventToListeners(Events.LanguagePluginExtensionAdded, message.pluginId);
+  }
+
+  get languagePluginExtensions() {
+    return this._languagePluginExtensions;
+  }
+
+  _setLanguagePluginResponse(message, port) {
+    const callbackId = message.pluginId + message.requestId;
+    // console.error(`Got response ${JSON.stringify(message)}`);
+    if (!this._languagePluginRequests.has(callbackId)) {
+      throw `Plugin ${message.pluginId} has no pending request ${message.requestId}`;
+    }
+    const callback = this._languagePluginRequests.get(callbackId);
+    this._languagePluginRequests.delete(callbackId);
+    callback(message.response);
   }
 
   _inspectedURLChanged(event) {
@@ -210,6 +251,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
     const message = {command: 'notify-' + type, arguments: Array.prototype.slice.call(arguments, 1)};
+    // console.error(`Posting notification ${type}: ${JSON.stringify(message)}`);
     for (const subscriber of subscribers) {
       subscriber.postMessage(message);
     }
@@ -799,6 +841,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     } else if (!this._extensionsEnabled) {
       result = this._status.E_FAILED('Permission denied');
     } else {
+      // console.error(`received postMessage(${JSON.stringify(message)}`);
       result = await this._handlers[message.command](message, event.target);
     }
 
@@ -1037,7 +1080,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
 /** @enum {symbol} */
 export const Events = {
   SidebarPaneAdded: Symbol('SidebarPaneAdded'),
-  TraceProviderAdded: Symbol('TraceProviderAdded')
+  TraceProviderAdded: Symbol('TraceProviderAdded'),
+  LanguagePluginExtensionAdded: Symbol('LanguagePluginExtensionAdded')
 };
 
 /**
