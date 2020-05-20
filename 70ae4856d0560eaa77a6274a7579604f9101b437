@@ -22,6 +22,30 @@
       "revId": "70ae4856d0560eaa77a6274a7579604f9101b437",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d32c0a8e_c79b28dc",
+        "filename": "README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-20T14:40:53Z",
+      "side": 1,
+      "message": "Good catch. I\u0027ll fix",
+      "parentUuid": "d6a20be5_d1c1b03b",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 1
+      },
+      "revId": "70ae4856d0560eaa77a6274a7579604f9101b437",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
