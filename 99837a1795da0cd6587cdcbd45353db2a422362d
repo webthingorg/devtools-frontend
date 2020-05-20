@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a81c465_634aaab7",
+        "filename": "test/e2e/helpers/changes-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T19:43:44Z",
+      "side": 1,
+      "message": "Maybe rename this to openChangesPanelAndNavigateTo",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "99837a1795da0cd6587cdcbd45353db2a422362d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
