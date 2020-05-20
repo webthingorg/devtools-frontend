@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2f70ba3_274a48de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-20T10:42:54Z",
+      "side": 1,
+      "message": "Nit: no longer included.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "9cc27db3895506c124e7e2ca6984e4ab75ab638c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4925e4e2_47fa6c59",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-20T10:42:54Z",
+      "side": 1,
+      "message": "Nit: we can use `regex.test(registration.scopeURL)` instead.",
+      "range": {
+        "startLine": 299,
+        "startChar": 35,
+        "endLine": 299,
+        "endChar": 40
+      },
+      "revId": "9cc27db3895506c124e7e2ca6984e4ab75ab638c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
