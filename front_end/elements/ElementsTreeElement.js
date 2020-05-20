@@ -908,10 +908,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
      * @this {ElementsTreeElement}
      */
     function resize() {
-      if (this._htmlEditElement) {
+      if (this._htmlEditElement && this.treeOutline) {
         this._htmlEditElement.style.width = this.treeOutline.visibleWidth() - this._computeLeftIndent() - 30 + 'px';
       }
-      this._editing.editor.onResize();
+      if (this._editing) {
+        this._editing.editor.onResize();
+      }
     }
 
     /**
