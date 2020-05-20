@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67412854_a19dfb3e",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T19:27:56Z",
+      "side": 1,
+      "message": "+1",
+      "range": {
+        "startLine": 12,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "fcb1a3f85a74ea04ae9da75c02a3e59709528f66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
