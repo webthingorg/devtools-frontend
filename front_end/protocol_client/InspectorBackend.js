@@ -674,6 +674,13 @@ export class TargetBase {
   performanceAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
+
+  /**
+   * @return {!ProtocolProxyApi.DOMDebuggerApi}
+   */
+  domdebuggerAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
 }
 
 /**
