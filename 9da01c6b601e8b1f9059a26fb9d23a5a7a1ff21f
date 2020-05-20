@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6fec4ab_628d6c11",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-20T06:15:44Z",
+      "side": 1,
+      "message": "nit: set up (because it\u0027s the verb)",
+      "revId": "9da01c6b601e8b1f9059a26fb9d23a5a7a1ff21f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
