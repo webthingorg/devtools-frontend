@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87982ee6_7646a735",
+        "filename": "scripts/build/build_release_applications.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-20T15:32:49Z",
+      "side": 0,
+      "message": "do we need this minify_js function now or can we delete it?",
+      "range": {
+        "startLine": 224,
+        "startChar": 76,
+        "endLine": 224,
+        "endChar": 86
+      },
+      "revId": "797a8ccff647ed8647472679c3e40c4edf9bc969",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
