@@ -647,17 +647,13 @@ export class TargetBase {
     return this._router;
   }
 
-  /**
-   * @return {!ProtocolProxyApi.NetworkApi}
-   */
-  networkAgent() {
-    throw new Error('Implemented in InspectorBackend.js');
-  }
+
+  // Agent accessors, keep alphabetically sorted.
 
   /**
-   * @return {!ProtocolProxyApi.LayerTreeApi}
+   * @return {!ProtocolProxyApi.CacheStorageApi}
    */
-  layerTreeAgent() {
+  cacheStorageAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
@@ -669,6 +665,27 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.DOMDebuggerApi}
+   */
+  domDebuggerAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.LayerTreeApi}
+   */
+  layerTreeAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.NetworkApi}
+   */
+  networkAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.PerformanceApi}
    */
   performanceAgent() {
@@ -676,11 +693,21 @@ export class TargetBase {
   }
 
   /**
-   * @return {!ProtocolProxyApi.DOMDebuggerApi}
+   * @return {!ProtocolProxyApi.ServiceWorkerApi}
    */
-  domdebuggerAgent() {
+  serviceWorkerAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
+
+  /**
+   * @return {!ProtocolProxyApi.StorageApi}
+   */
+  storageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+
+  // Dispatcher registration, keep alphabetically sorted.
 
   /**
    * @param {!ProtocolProxyApi.NetworkDispatcher} dispatcher
@@ -690,16 +717,9 @@ export class TargetBase {
   }
 
   /**
-   * @return {!ProtocolProxyApi.CacheStorageApi}
+   * @param {!ProtocolProxyApi.ServiceWorkerDispatcher} dispatcher
    */
-  cacheStorageAgent() {
-    throw new Error('Implemented in InspectorBackend.js');
-  }
-
-  /**
-   * @return {!ProtocolProxyApi.StorageApi}
-   */
-  storageAgent() {
+  registerServiceWorkerDispatcher(dispatcher) {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
