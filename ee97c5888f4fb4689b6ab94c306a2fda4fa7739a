@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "8c799f5e_2d43d992",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-20T07:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c48b535_bd745e35",
+      "range": {
+        "startLine": 412,
+        "startChar": 18,
+        "endLine": 412,
+        "endChar": 26
+      },
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "238df892_0abb44ee",
         "filename": "front_end/sdk/DOMDebuggerModel.js",
         "patchSetId": 2
@@ -77,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "93100bad_5bed1f61",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-20T07:37:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4e8eae6b_f7e473f7",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1711c7a1_c71f8d0d",
         "filename": "front_end/sdk/DOMDebuggerModel.js",
         "patchSetId": 2
@@ -97,6 +139,30 @@
       "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2b6ad45_74ac79b3",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-20T07:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1711c7a1_c71f8d0d",
+      "range": {
+        "startLine": 440,
+        "startChar": 18,
+        "endLine": 440,
+        "endChar": 26
+      },
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -135,6 +201,24 @@
     },
     {
       "key": {
+        "uuid": "748bb137_ce14ceea",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-20T07:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf45d808_00833306",
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd2856ad_49a8408d",
         "filename": "front_end/sdk/DOMDebuggerModel.js",
         "patchSetId": 2
@@ -158,6 +242,30 @@
     },
     {
       "key": {
+        "uuid": "a7cf3df1_96978b6a",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-20T07:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2856ad_49a8408d",
+      "range": {
+        "startLine": 488,
+        "startChar": 16,
+        "endLine": 488,
+        "endChar": 24
+      },
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b64fb1b_0370f897",
         "filename": "front_end/sdk/DOMDebuggerModel.js",
         "patchSetId": 2
@@ -178,6 +286,30 @@
       "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c3c168_ddc99a15",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-20T07:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b64fb1b_0370f897",
+      "range": {
+        "startLine": 491,
+        "startChar": 33,
+        "endLine": 491,
+        "endChar": 41
+      },
+      "revId": "ee97c5888f4fb4689b6ab94c306a2fda4fa7739a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
