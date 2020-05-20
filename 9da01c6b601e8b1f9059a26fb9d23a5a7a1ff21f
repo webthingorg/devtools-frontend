@@ -16,6 +16,24 @@
       "revId": "9da01c6b601e8b1f9059a26fb9d23a5a7a1ff21f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ba863de_c8b2393e",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2020-05-20T06:22:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6fec4ab_628d6c11",
+      "revId": "9da01c6b601e8b1f9059a26fb9d23a5a7a1ff21f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
