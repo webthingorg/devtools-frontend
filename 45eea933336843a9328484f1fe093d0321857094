@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7fed3f50_67fa132a",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-20T23:44:25Z",
+      "side": 1,
+      "message": "what happens if this._type \u003d\u003d\u003d Type.Responsive? I.e. if we switch from a hinge device to a responsive view, wouldn\u0027t skip this and the hinge would remain?",
+      "range": {
+        "startLine": 448,
+        "startChar": 7,
+        "endLine": 448,
+        "endChar": 37
+      },
+      "revId": "45eea933336843a9328484f1fe093d0321857094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da923f3d_904ff567",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 2
