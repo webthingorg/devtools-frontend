@@ -16,7 +16,7 @@ export class DOMDebuggerModel extends SDKModel {
    */
   constructor(target) {
     super(target);
-    this._agent = target.domdebuggerAgent();
+    this._agent = target.domDebuggerAgent();
     this._runtimeModel = /** @type {!RuntimeModel} */ (target.model(RuntimeModel));
     this._domModel = /** @type {!DOMModel} */ (target.model(DOMModel));
     this._domModel.addEventListener(DOMModelEvents.DocumentUpdated, this._documentUpdated, this);
