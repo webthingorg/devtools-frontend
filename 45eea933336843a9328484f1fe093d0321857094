@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da923f3d_904ff567",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-20T18:17:13Z",
+      "side": 1,
+      "message": "Just wondering, what does this command do if we are no longer in emulation mode? It looks like it might be possible to send this after we have no device or mode, and I just want to make sure that won\u0027t cause any issues",
+      "range": {
+        "startLine": 816,
+        "startChar": 3,
+        "endLine": 816,
+        "endChar": 47
+      },
+      "revId": "45eea933336843a9328484f1fe093d0321857094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
