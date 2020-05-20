@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "acba529d_4f846bf6",
+        "filename": "front_end/accessibility/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-20T06:52:02Z",
+      "side": 1,
+      "message": "Checking the log, Alex only contributed to one commit in this subdirectory. Let\u0027s revisit when necessary.",
+      "parentUuid": "3ed22aa9_5750e14e",
+      "revId": "450e160ccc393cb95760da9dcddc0cb2501fcfc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35706010_a8358bb4",
         "filename": "front_end/color_picker/OWNERS",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "450e160ccc393cb95760da9dcddc0cb2501fcfc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32f8f46d_10e2514a",
+        "filename": "front_end/color_picker/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-20T06:52:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35706010_a8358bb4",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 8
+      },
+      "revId": "450e160ccc393cb95760da9dcddc0cb2501fcfc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
