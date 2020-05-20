@@ -11,6 +11,7 @@ import {CompilerScriptMapping} from './CompilerScriptMapping.js';
 import {DebuggerLanguagePluginManager} from './DebuggerLanguagePlugins.js';
 import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 import {CXXDWARFLanguagePlugin} from './language_plugins/CXXDWARFLanguagePlugin.js';
+import {CXXDWARFWasmPlugin} from './language_plugins/CXXDWARFWasmPlugin.js';
 import {LiveLocation, LiveLocationPool, LiveLocationWithPool} from './LiveLocation.js';  // eslint-disable-line no-unused-vars
 import {ResourceMapping} from './ResourceMapping.js';
 import {ResourceScriptFile, ResourceScriptMapping} from './ResourceScriptMapping.js';  // eslint-disable-line no-unused-vars
@@ -358,7 +359,7 @@ class ModelData {
 
     if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
       this._pluginManager = new DebuggerLanguagePluginManager(debuggerModel, workspace, debuggerWorkspaceBinding);
-      this._pluginManager.addPlugin(new CXXDWARFLanguagePlugin());
+      // this._pluginManager.addPlugin(new CXXDWARFLanguagePlugin());
     }
 
 
