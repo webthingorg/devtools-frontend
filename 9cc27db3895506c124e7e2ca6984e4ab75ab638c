@@ -45,6 +45,30 @@
       "revId": "9cc27db3895506c124e7e2ca6984e4ab75ab638c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2c2b735_d98fb19e",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-05-20T11:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4925e4e2_47fa6c59",
+      "range": {
+        "startLine": 299,
+        "startChar": 35,
+        "endLine": 299,
+        "endChar": 40
+      },
+      "revId": "9cc27db3895506c124e7e2ca6984e4ab75ab638c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
