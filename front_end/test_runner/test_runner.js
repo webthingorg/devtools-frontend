@@ -16,7 +16,7 @@ function _setupTestHelpers(target) {
   self.TestRunner.CSSAgent = target.cssAgent();
   self.TestRunner.DeviceOrientationAgent = target.deviceOrientationAgent();
   self.TestRunner.DOMAgent = target.domAgent();
-  self.TestRunner.DOMDebuggerAgent = target.domdebuggerAgent();
+  self.TestRunner.DOMDebuggerAgent = target.domDebuggerAgent();
   self.TestRunner.DebuggerAgent = target.debuggerAgent();
   self.TestRunner.EmulationAgent = target.emulationAgent();
   self.TestRunner.HeapProfilerAgent = target.heapProfilerAgent();
