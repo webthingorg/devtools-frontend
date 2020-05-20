@@ -22,6 +22,30 @@
       "revId": "797a8ccff647ed8647472679c3e40c4edf9bc969",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc97a56b_a5bc8e90",
+        "filename": "scripts/build/build_release_applications.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-20T15:34:16Z",
+      "side": 0,
+      "message": "We still use it for the `_module.js` files so we have to keep it for now. Once these are gone, we can indeed remove the function.",
+      "parentUuid": "87982ee6_7646a735",
+      "range": {
+        "startLine": 224,
+        "startChar": 76,
+        "endLine": 224,
+        "endChar": 86
+      },
+      "revId": "797a8ccff647ed8647472679c3e40c4edf9bc969",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
