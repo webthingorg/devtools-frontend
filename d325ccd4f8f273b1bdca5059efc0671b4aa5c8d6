@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f2ef0250_d000ae98",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T18:22:27Z",
+      "side": 1,
+      "message": "Interesting, good to know!",
+      "parentUuid": "2eea4e3c_68a3f519",
+      "range": {
+        "startLine": 408,
+        "startChar": 3,
+        "endLine": 408,
+        "endChar": 16
+      },
+      "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe171e14_d38423af",
         "filename": "front_end/ui/InspectorView.js",
         "patchSetId": 12
@@ -45,6 +69,30 @@
       "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2f5ac76_86d26229",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T18:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe171e14_d38423af",
+      "range": {
+        "startLine": 414,
+        "startChar": 2,
+        "endLine": 414,
+        "endChar": 7
+      },
+      "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2773c2bc_d61b1f91",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T18:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e45b7eae_1a453269",
+      "range": {
+        "startLine": 416,
+        "startChar": 4,
+        "endLine": 416,
+        "endChar": 18
+      },
+      "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db22372f_8cd657d4",
         "filename": "front_end/ui/InspectorView.js",
         "patchSetId": 12
@@ -91,6 +163,30 @@
       "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cc296e8_5ec0de7b",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T18:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "db22372f_8cd657d4",
+      "range": {
+        "startLine": 422,
+        "startChar": 2,
+        "endLine": 422,
+        "endChar": 7
+      },
+      "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0125b87b_bae8cad2",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T18:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9d2c1d1b_f2ad4410",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 424,
+        "endChar": 18
+      },
+      "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33776935_4d916e4f",
         "filename": "front_end/ui/InspectorView.js",
         "patchSetId": 12
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "dc8bc89c_cd55ee30",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T18:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33776935_4d916e4f",
+      "range": {
+        "startLine": 433,
+        "startChar": 25,
+        "endLine": 433,
+        "endChar": 39
+      },
+      "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e66b95d_dfe5def8",
         "filename": "front_end/ui/InspectorView.js",
         "patchSetId": 12
@@ -151,6 +295,30 @@
       "writtenOn": "2020-05-20T11:20:40Z",
       "side": 1,
       "message": "Meta: We should probably extract these magic strings to some place, so that we can update. However, currently they live in `module.json` files right? I guess we would need to get rid of these first and port them to proper JavaScript files...",
+      "range": {
+        "startLine": 434,
+        "startChar": 25,
+        "endLine": 434,
+        "endChar": 38
+      },
+      "revId": "d325ccd4f8f273b1bdca5059efc0671b4aa5c8d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba55321a_624ac760",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-20T18:22:27Z",
+      "side": 1,
+      "message": "We could extract them to consts since they are used in multiple places on .js files, but then we would need to keep those in sync with the module.json as you say",
+      "parentUuid": "6e66b95d_dfe5def8",
       "range": {
         "startLine": 434,
         "startChar": 25,
