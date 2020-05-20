@@ -55,6 +55,16 @@
 #include "llvm/Transforms/Utils/BasicBlockUtils.h"
 #include "symbol-server-config.h"
 
+#ifdef _WIN32
+#include "llvm/Support/Windows/WindowsSupport.h"
+#endif
+
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+#include <unistd.h>
+#else
+#include <io.h>
+#endif
+
 #define DEBUG_TYPE "symbol_server"
 
 namespace symbol_server {
@@ -403,11 +413,72 @@ std::unique_ptr<llvm::Module> VariablePrinter::LoadRuntimeModule() {
 }
 
 namespace {
-class TempFileScope {
-  llvm::sys::fs::TempFile* the_file_;
+
+class TempFile {
+  TempFile(const std::string& tmp_name, int fd) : TmpName(tmp_name), FD(fd) {}
 
  public:
-  explicit TempFileScope(llvm::sys::fs::TempFile* f) : the_file_(f) {}
+  /// This creates a temporary file with createUniqueFile.
+  static llvm::Expected<TempFile> create(
+      const llvm::Twine& Model,
+      unsigned Mode = llvm::sys::fs::all_read | llvm::sys::fs::all_write);
+
+  // Delete the file.
+  llvm::Error discard();
+
+  // Name of the temporary file.
+  std::string TmpName;
+
+  // The open file descriptor.
+  int FD = -1;
+};
+
+// static
+llvm::Expected<TempFile> TempFile::create(const llvm::Twine& Model,
+                                          unsigned Mode) {
+  llvm::SmallString<128> temp_file_path;
+  int FD;
+  if (std::error_code EC =
+          llvm::sys::fs::createUniqueFile(Model, FD, temp_file_path))
+    return llvm::errorCodeToError(EC);
+
+  return TempFile{std::string(temp_file_path), FD};
+}
+
+llvm::Error TempFile::discard() {
+  if (FD != -1 && _close(FD) == -1) {
+    std::error_code EC = std::error_code(errno, std::generic_category());
+    return llvm::errorCodeToError(EC);
+  }
+  FD = -1;
+
+#ifdef _WIN32
+  ::DeleteFileA(TmpName.c_str());
+  TmpName = "";
+  return llvm::Error::success();
+#else
+  // Always try to close and remove.
+  std::error_code RemoveEC;
+  if (!TmpName.empty()) {
+    RemoveEC = fs::remove(TmpName);
+    sys::DontRemoveFileOnSignal(TmpName);
+    if (!RemoveEC)
+      TmpName = "";
+  }
+  return llvm::errorCodeToError(RemoveEC);
+#endif
+}
+
+class TempFileScope {
+  TempFile* the_file_;
+
+  TempFileScope(const TempFileScope&) = delete;
+  TempFileScope(TempFileScope&&) = delete;
+  TempFileScope& operator=(const TempFileScope&) = delete;
+  TempFileScope& operator=(TempFileScope&&) = delete;
+
+ public:
+  explicit TempFileScope(TempFile* f) : the_file_(f) {}
   ~TempFileScope() {
     auto e = the_file_->discard();
     if (e) {
@@ -417,11 +488,11 @@ class TempFileScope {
   }
 };
 
-auto GetTempFile(llvm::StringRef model) {
+llvm::Expected<TempFile> GetTempFile(llvm::StringRef model) {
   llvm::SmallString<128> tmpfile;
   llvm::sys::path::system_temp_directory(true, tmpfile);
   llvm::sys::path::append(tmpfile, model);
-  return llvm::sys::fs::TempFile::create(tmpfile);
+  return TempFile::create(tmpfile);
 }
 }  // namespace
 std::unique_ptr<llvm::MemoryBuffer> VariablePrinter::GenerateCode(
