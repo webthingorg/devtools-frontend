@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "061895df_784567cb",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-21T14:16:12Z",
+      "side": 1,
+      "message": "Nit: can be removed (and reminded me I should still send that email)",
+      "range": {
+        "startLine": 408,
+        "startChar": 3,
+        "endLine": 408,
+        "endChar": 16
+      },
+      "revId": "5b434a4d2f9406fd750008fe3c33cb2fc811b423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
