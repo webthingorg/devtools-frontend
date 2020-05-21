@@ -28,6 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as acorn from '../third_party/acorn/package/dist/acorn.mjs';
 import * as Platform from '../platform/platform.js';
 
 import {AcornTokenizer, ECMA_VERSION} from './AcornTokenizer.js';

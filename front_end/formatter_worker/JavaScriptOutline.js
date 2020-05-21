@@ -2,6 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as acorn from '../third_party/acorn/package/dist/acorn.mjs';
+import * as acornLoose from '../third_party/acorn-loose/package/dist/acorn-loose.mjs';
+
 import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 
@@ -20,7 +23,7 @@ export function javaScriptOutline(content) {
   try {
     ast = acorn.parse(content, {ecmaVersion: ECMA_VERSION, ranges: false});
   } catch (e) {
-    ast = acorn.loose.parse(content, {ecmaVersion: ECMA_VERSION, ranges: false});
+    ast = acornLoose.parse(content, {ecmaVersion: ECMA_VERSION, ranges: false});
   }
 
   const contentLineEndings = Platform.StringUtilities.findLineEndingIndexes(content);

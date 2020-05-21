@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as acorn from '../third_party/acorn/package/dist/acorn.mjs';
+
 import {ECMA_VERSION} from './AcornTokenizer.js';
 import {ESTreeWalker} from './ESTreeWalker.js';
 

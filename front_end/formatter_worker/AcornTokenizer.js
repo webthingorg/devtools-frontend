@@ -5,6 +5,8 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import * as acorn from '../third_party/acorn/package/dist/acorn.mjs';
+
 import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 
