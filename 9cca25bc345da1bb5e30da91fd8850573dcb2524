@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9d67ca8_bbda5513",
+        "filename": "front_end/sources/SourcesNavigator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-22T21:46:57Z",
+      "side": 1,
+      "message": "Nit: do you think \"Workspaces\" should be capitalized (as it\u0027s a feature name)?",
+      "revId": "9cca25bc345da1bb5e30da91fd8850573dcb2524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
