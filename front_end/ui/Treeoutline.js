@@ -1259,14 +1259,15 @@ export class TreeElement {
     this.selected = true;
 
     this.treeOutline.selectedTreeElement = this;
+    this._listItemNode.classList.add('selected');
+    ARIAUtils.setSelected(this._listItemNode, true);
+    this.treeOutline.dispatchEventToListeners(Events.ElementSelected, this);
+
     this.treeOutline.updateFocusable();
     if (!omitFocus || this.treeOutline.contentElement.hasFocus()) {
       this.listItemElement.focus();
     }
 
-    this._listItemNode.classList.add('selected');
-    ARIAUtils.setSelected(this._listItemNode, true);
-    this.treeOutline.dispatchEventToListeners(Events.ElementSelected, this);
     if (lastSelected) {
       lastSelected.deselect();
     }
