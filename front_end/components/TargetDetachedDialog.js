@@ -14,9 +14,6 @@ export class TargetDetachedDialog extends SDK.SDKModel.SDKModel {
    */
   constructor(target) {
     super(target);
-    if (target.parentTarget()) {
-      return;
-    }
     target.registerInspectorDispatcher(this);
     target.inspectorAgent().enable();
     this._hideCrashedDialog = null;
@@ -40,6 +37,9 @@ export class TargetDetachedDialog extends SDK.SDKModel.SDKModel {
    * @override
    */
   targetCrashed() {
+    if (this.target().parentTarget()) {
+      return;
+    }
     const dialog = new UI.Dialog.Dialog();
     dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.MeasureContent);
     dialog.addCloseButton();
