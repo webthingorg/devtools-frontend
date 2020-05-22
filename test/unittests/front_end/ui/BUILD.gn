@@ -8,6 +8,7 @@ ts_library("ui") {
     "Geometry_test.ts",
     "Icon_test.ts",
     "ListModel_test.ts",
+    "ShortcutRegistry_test.ts",
     "SyntaxHighlighter_test.ts",
     "UIUtils_test.ts",
     "utils/measured-scrollbar-width_test.ts",
