@@ -11,7 +11,6 @@ ts_library("helpers") {
     "application-helpers.ts",
     "console-helpers.ts",
     "coverage-helpers.ts",
-    "cross-tool-helper.ts",
     "elements-helpers.ts",
     "event-listeners-helpers.ts",
     "layers-helpers.ts",
