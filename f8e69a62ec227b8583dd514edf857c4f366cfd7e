@@ -22,6 +22,30 @@
       "revId": "f8e69a62ec227b8583dd514edf857c4f366cfd7e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c05bd28_d0b6946a",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1116071
+      },
+      "writtenOn": "2020-05-23T16:11:25Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5e6f1d9c_e66be8ec",
+      "range": {
+        "startLine": 40,
+        "startChar": 22,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "f8e69a62ec227b8583dd514edf857c4f366cfd7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
