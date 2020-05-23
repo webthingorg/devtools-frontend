@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e6f1d9c_e66be8ec",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-05-23T07:07:10Z",
+      "side": 1,
+      "message": "From the CL description it sounds like this may not necessarily be a crash. Can you add a comment explaining this condition? Thanks.",
+      "range": {
+        "startLine": 40,
+        "startChar": 22,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "f8e69a62ec227b8583dd514edf857c4f366cfd7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
