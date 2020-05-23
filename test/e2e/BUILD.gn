@@ -12,7 +12,6 @@ ts_library("e2e") {
     "application",
     "console",
     "coverage",
-    "cross_tool_integration",
     "elements",
     "host",
     "layers",
