@@ -7,7 +7,7 @@ import * as Common from '../common/common.js';  // eslint-disable-line no-unused
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
-import {CoverageInfo, CoverageModel} from './CoverageModel.js';  // eslint-disable-line no-unused-vars
+import {CoverageInfo, CoverageModel, TypeProfile} from './CoverageModel.js';  // eslint-disable-line no-unused-vars
 
 export const decoratorType = 'coverage';
 
@@ -49,8 +49,34 @@ export class CoverageDecorationManager {
       for (const uiSourceCode of this._uiSourceCodeByContentProvider.get(entry.contentProvider())) {
         uiSourceCode.removeDecorationsForType(decoratorType);
         uiSourceCode.addLineDecoration(0, decoratorType, this);
+        // const content = uiSourceCode.content();
+        // let newContent = content.substring(0, 12) + "/* number */" + content.substring(12, content.length);
+        // uiSourceCode.setContent(newContent, false);
+        // uiSourceCode.addMessage(Workspace.UISourceCode.Message.Level.Warning, "types: number", new TextUtils.TextRange.TextRange(0, 12, 0, 13));
+        // uiSourceCode.addDecoration(new TextUtils.TextRange.TextRange(0, 12, 0, 13), "type", ["number"]);
       }
     }
+  }
+
+  /**
+   *
+   * @param {TypeProfile} typeProfile
+   */
+  updateTypeProfile(typeProfile) {
+    for (const [scriptId, offsetToTypes] of typeProfile.getRawProfile()) {
+      const url = typeProfile.urlForScriptId(scriptId);
+      for (const uiSourceCode of this._uiSourceCodeByContentProvider.valuesArray()) {
+        if (url && url === uiSourceCode.url()) {
+          for (const [offset, types] of offsetToTypes) {
+            const text = new TextUtils.Text.Text(uiSourceCode.content());
+            const position = text.positionFromOffset(offset);
+            const range = TextUtils.TextRange.TextRange.createFromLocation(position.lineNumber, position.columnNumber);
+            uiSourceCode.addDecoration(range, "type", Array.from(types));
+          }
+        }
+      }
+    }
+
   }
 
   /**

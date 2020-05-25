@@ -27,10 +27,83 @@ export const SuspensionState = {
 export const Events = {
   CoverageUpdated: Symbol('CoverageUpdated'),
   CoverageReset: Symbol('CoverageReset'),
+  TypeProfileUpdated: Symbol('TypeProfileUpdated'),
 };
 
 /** @type {number} */
 const _coveragePollingPeriodMs = 200;
+
+/**
+ * @unrestricted
+ */
+export class TypeProfile {
+  constructor() {
+    // script id -> { offset -> [types] }
+    /** @type {!Map<string, !Map<number, !Set<string>>>} */
+    this._profile = new Map();
+    // script id -> url
+    /** @type {!Map<string, string>} */
+    this._urls = new Map();
+  }
+
+  /**
+   * @param {Array<!Protocol.Profiler.ScriptTypeProfile>} typeProfiles
+   */
+  addScriptTypeProfiles(typeProfiles) {
+    for (const typeProfile of typeProfiles) {
+      for (const entry of typeProfile.entries) {
+        this.addType(typeProfile.scriptId, typeProfile.url, entry.offset, entry.types.map(t => t.name));
+      }
+    }
+  }
+
+  /**
+   * @param {string} scriptId
+   * @param {string} url
+   * @param {number} offset
+   * @param {!Array<string>} types Must not contain duplicates
+   */
+  addType(scriptId, url, offset, types) {
+    this._urls.set(scriptId, url);
+
+    const offsetToTypes = this._profile.get(scriptId);
+    if (!offsetToTypes) {
+      /** @type {!Map<number, !Set<string>>} */
+      const newMap = new Map();
+      newMap.set(offset, new Set(types));
+      this._profile.set(scriptId, newMap);
+    } else {
+      const currentTypes = offsetToTypes.get(offset)
+      if (!currentTypes) {
+        offsetToTypes.set(offset, new Set(types));
+      } else {
+        for (const type of types) {
+          currentTypes.add(type);
+        }
+      }
+    }
+  }
+
+  getRawProfile() {
+    return this._profile;
+  }
+
+  /**
+   * @param {string} scriptId
+   */
+  urlForScriptId(scriptId) {
+    return this._urls.get(scriptId);
+  }
+
+  printToConsole() {
+    for (const [scriptId, offsetToTypes] of this._profile) {
+      console.log(`Script ID: ${scriptId}. URL: ${this._urls.get(scriptId)}`);
+      for (const [offset, types] of offsetToTypes) {
+        console.log(`  offset ${offset}: ${Array.from(types).join()}`);
+      }
+    }
+  }
+}
 
 export class CoverageModel extends SDK.SDKModel.SDKModel {
   /**
@@ -41,6 +114,8 @@ export class CoverageModel extends SDK.SDKModel.SDKModel {
     this._cpuProfilerModel = target.model(SDK.CPUProfilerModel.CPUProfilerModel);
     this._cssModel = target.model(SDK.CSSModel.CSSModel);
     this._debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+
+    this._typeProfile = new TypeProfile();
 
     /** @type {!Map<string, !URLCoverageInfo>} */
     this._coverageByURL = new Map();
@@ -89,6 +164,7 @@ export class CoverageModel extends SDK.SDKModel.SDKModel {
     if (this._cpuProfilerModel) {
       promises.push(
           this._cpuProfilerModel.startPreciseCoverage(jsCoveragePerBlock, this.preciseCoverageDeltaUpdate.bind(this)));
+      promises.push(this._cpuProfilerModel._profilerAgent.startTypeProfile());
     }
 
     await Promise.all(promises);
@@ -108,12 +184,14 @@ export class CoverageModel extends SDK.SDKModel.SDKModel {
     const promises = [];
     if (this._cpuProfilerModel) {
       promises.push(this._cpuProfilerModel.stopPreciseCoverage());
+      promises.push(this._cpuProfilerModel._profilerAgent.stopTypeProfile());
     }
     if (this._cssModel) {
       promises.push(this._cssModel.stopCoverage());
       this._cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetAdded, this._handleStyleSheetAdded, this);
     }
     await Promise.all(promises);
+    this._typeProfile.printToConsole();
   }
 
   reset() {
@@ -168,6 +246,7 @@ export class CoverageModel extends SDK.SDKModel.SDKModel {
         'CoverageModel was suspended while polling.');
     if (updates.length) {
       this.dispatchEventToListeners(Events.CoverageUpdated, updates);
+      this.dispatchEventToListeners(Events.TypeProfileUpdated);
     }
   }
 
@@ -298,6 +377,10 @@ export class CoverageModel extends SDK.SDKModel.SDKModel {
       return [];
     }
     const {coverage, timestamp} = await this._cpuProfilerModel.takePreciseCoverage();
+    /** @type {Array<!Protocol.Profiler.ScriptTypeProfile>} */
+    const typeProfiles = (await this._cpuProfilerModel._profilerAgent.invoke_takeTypeProfile()).result;
+    // console.log('Type profiles', typeProfiles);
+    this._typeProfile.addScriptTypeProfiles(typeProfiles);
     this._coverageUpdateTimes.add(timestamp);
     return this._backlogOrProcessJSCoverage(coverage, timestamp);
   }

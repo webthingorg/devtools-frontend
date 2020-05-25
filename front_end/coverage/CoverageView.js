@@ -255,6 +255,7 @@ export class CoverageView extends UI.Widget.VBox {
     this._selectCoverageType(jsCoveragePerBlock);
 
     this._model.addEventListener(Events.CoverageUpdated, this._onCoverageDataReceived, this);
+    this._model.addEventListener(Events.TypeProfileUpdated, this._onTypeProfileReceived, this);
     this._resourceTreeModel = /** @type {?SDK.ResourceTreeModel.ResourceTreeModel} */ (
         mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel));
     if (this._resourceTreeModel) {
@@ -292,6 +293,10 @@ export class CoverageView extends UI.Widget.VBox {
 
   _onCoverageDataReceived(event) {
     this._updateViews(event.data);
+  }
+
+  _onTypeProfileReceived() {
+    this._decorationManager.updateTypeProfile(this._model._typeProfile);
   }
 
   async stopRecording() {
@@ -450,6 +455,46 @@ export class ActionDelegate {
         break;
       default:
         console.assert(false, `Unknown action: ${actionId}`);
+    }
+  }
+}
+
+/**
+ * @implements {SourceFrame.SourceFrame.LineDecorator}
+ */
+export class TypeLineDecorator {
+  constructor() {
+    this._symbol = Symbol("TypeBookmark");
+  }
+
+  /**
+   * @override
+   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
+   * @param {!TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditor} textEditor
+   */
+  decorate(uiSourceCode, textEditor) {
+    const decorations = uiSourceCode.decorationsForType("type");
+    if (!decorations || !decorations.size) {
+      return;
+    }
+    for (const /** @type {UISourceCode.LineMarker} */ lineMarker of Array.from(decorations)) {
+      const typeArray = /** @type {Array<string>} */ lineMarker.data();
+      const range = lineMarker.range();
+      textEditor.operation(() => {
+        // Remove existing bookmarks.
+        const bookmarks = textEditor.bookmarks(range, this._symbol);
+        for (const bookmark of bookmarks) {
+          bookmark.clear();
+        }
+
+        for (const type of typeArray) {
+          const element = document.createElement("span");
+          element.textContent = type;
+          element.classList.add('cm-type-bookmark');
+          textEditor.addBookmark(range.startLine, range.startColumn, element, this._symbol);
+        }
+
+      });
     }
   }
 }

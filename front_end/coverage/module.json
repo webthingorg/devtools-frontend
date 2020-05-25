@@ -15,6 +15,11 @@
       "decoratorType": "coverage"
     },
     {
+      "type": "@SourceFrame.LineDecorator",
+      "className": "Coverage.CoverageView.TypeLineDecorator",
+      "decoratorType": "type"
+    },
+    {
       "type": "action",
       "actionId": "coverage.toggle-recording",
       "iconClass": "largeicon-start-recording",

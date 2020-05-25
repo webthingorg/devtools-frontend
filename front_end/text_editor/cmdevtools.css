@@ -279,6 +279,13 @@
   content: url(Images/logpoint-disabled.svg);
 }
 
+.cm-type-bookmark {
+  margin: 0 2px;
+  padding: 0 2px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
 .cm-execution-line-tail + .CodeMirror-widget {
   background-color: #abbffe;
 }

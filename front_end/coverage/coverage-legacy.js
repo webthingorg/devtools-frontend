@@ -55,4 +55,9 @@ Coverage.CoverageView.LineDecorator = CoverageModule.CoverageView.LineDecorator;
 /**
  * @constructor
  */
+Coverage.CoverageView.TypeLineDecorator = CoverageModule.CoverageView.TypeLineDecorator;
+
+/**
+ * @constructor
+ */
 Coverage.CoverageView.ActionDelegate = CoverageModule.CoverageView.ActionDelegate;
