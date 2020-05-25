@@ -22,6 +22,30 @@
       "revId": "278f58b4ed82cd7da7b33273c64846829fee5ff2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a00f1f72_725961f6",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1116071
+      },
+      "writtenOn": "2020-05-25T22:18:17Z",
+      "side": 1,
+      "message": "Dedicated workers are child targets relative to their owning pages. Also since they share render process with the owning page Inspector.targetCrashed will only be fired for the page whose target survives reload after the crash.\n\nSimple type check wouldn\u0027t work in the case when service worker is inspected from chrome://inspect and as such is a top level target. DevTools needs to show the dialog in that case. If you think the logic when such dialogs are displayed to the user has to be changed, it can be done separately. Regardless of that the target must be resumed if it restarts after crash as otherwise it will hang whether or not the dialog has been displayed. This CL only fixes the latter.",
+      "parentUuid": "46c7100b_b2df36ec",
+      "range": {
+        "startLine": 43,
+        "startChar": 22,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "278f58b4ed82cd7da7b33273c64846829fee5ff2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
