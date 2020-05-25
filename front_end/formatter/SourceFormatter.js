@@ -185,9 +185,9 @@ class ScriptMapping {
   /**
    * @override
    * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {?Workspace.UISourceCode.UILocation}
+   * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
-  rawLocationToUILocation(rawLocation) {
+  async rawLocationToUILocation(rawLocation) {
     const script = rawLocation.script();
     const formatData = script && SourceFormatData._for(script);
     if (!formatData) {
@@ -218,9 +218,9 @@ class ScriptMapping {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
    */
-  uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
     const formatData = SourceFormatData._for(uiSourceCode);
     if (!formatData) {
       return [];

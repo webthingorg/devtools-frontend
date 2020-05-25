@@ -186,7 +186,7 @@ export class DebuggerWorkspaceBinding {
    */
   async rawLocationToUILocation(rawLocation) {
     for (const sourceMapping of this._sourceMappings) {
-      const uiLocation = sourceMapping.rawLocationToUILocation(rawLocation);
+      const uiLocation = await sourceMapping.rawLocationToUILocation(rawLocation);
       if (uiLocation) {
         return uiLocation;
       }
@@ -216,7 +216,7 @@ export class DebuggerWorkspaceBinding {
    */
   async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
     for (const sourceMapping of this._sourceMappings) {
-      const locations = sourceMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+      const locations = await sourceMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
       if (locations.length) {
         return locations;
       }
@@ -620,17 +620,17 @@ class StackTraceTopFrameLocation extends LiveLocationWithPool {
 export class DebuggerSourceMapping {
   /**
    * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {?Workspace.UISourceCode.UILocation}
+   * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
-  rawLocationToUILocation(rawLocation) {
+  async rawLocationToUILocation(rawLocation) {
   }
 
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
    */
-  uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
   }
 }

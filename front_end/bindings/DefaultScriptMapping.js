@@ -72,9 +72,9 @@ export class DefaultScriptMapping {
   /**
    * @override
    * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {?Workspace.UISourceCode.UILocation}
+   * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
-  rawLocationToUILocation(rawLocation) {
+  async rawLocationToUILocation(rawLocation) {
     const script = rawLocation.script();
     if (!script) {
       return null;
@@ -93,9 +93,9 @@ export class DefaultScriptMapping {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
    */
-  uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
     const script = uiSourceCode[this._scriptSymbol];
     if (!script) {
       return [];
