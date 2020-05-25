@@ -38,38 +38,53 @@ let ListVariablesInScopeResponse;  // eslint-disable-line no-unused-vars
 let EvaluateVariableResponse;  // eslint-disable-line no-unused-vars
 
 /**
- * @param {string} method
- * @param {!Object} params
- * @return {!Promise<!AddRawModuleResponse|!SourceLocationToRawLocationResponse|!RawLocationToSourceLocationResponse|!ListVariablesInScopeResponse|!EvaluateVariableResponse>}
- *
- */
-async function _sendJsonRPC(method, params) {
-  const payload = JSON.stringify({jsonrpc: '2.0', method: method, params, id: 0});
-  const request = new Request(
-      'http://localhost:8888',
-      {method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}, body: payload});
-  const response = await fetch(request);
-  if (response.status !== 200) {
-    throw new DebuggerLanguagePluginError(response.status.toString(), 'JSON-RPC request failed');
-  }
-  const result = (await response.json()).result;
-  if (result.error) {
-    throw new DebuggerLanguagePluginError(result.error.code, result.error.message);
-  }
-  return result;
-}
-
-/**
  * @implements {DebuggerLanguagePlugin}
  */
-export class CXXDWARFLanguagePlugin {
+export class CXXDWARFWasmPlugin {
+  constructor() {
+    this._worker = null;
+  }
+
+  async _loadWorker() {
+    if (!this._worker) {
+      this._worker = await new Promise(fulfill => {
+        const worker = new Worker('./bindings/language_plugins/CXXDWARFWasmWorker.js');
+        worker.onmessage = event => {
+          console.assert(event.data === 'workerReady');
+          worker.onmessage = null;
+          fulfill(worker);
+        };
+      });
+    }
+    return this._worker;
+  }
+
+
+  /**
+   * @param {string} method
+   * @param {!Object} parameters
+   * @return {!Promise<!AddRawModuleResponse|!SourceLocationToRawLocationResponse|!RawLocationToSourceLocationResponse|!ListVariablesInScopeResponse|!EvaluateVariableResponse>}
+   */
+  async _sendRPC(method, parameters) {
+    const worker = await this._loadWorker();
+    console.error(`Sending method ${method}`);
+    const response = new Promise((resolve, reject) => {
+      worker.onmessage = e => {
+        console.error(`Result: ${JSON.stringify(e.data)}`);
+        resolve(e.data);
+      };
+    });
+    worker.postMessage({method, parameters});
+    return await response;
+  }
+
   /**
    * @override
    * @param {!SDK.Script.Script} script
    * @return {boolean} True if this plugin should handle this script
    */
   handleScript(script) {
-    return script.isWasm() && false &&              // Only handle wasm scripts
+    return script.isWasm() &&                       // Only handle wasm scripts
         !script.sourceURL.startsWith('wasm://') &&  // Only handle scripts with valid response URL
         (script.sourceMapURL === 'wasm://dwarf' ||  // Only handle scripts with either embedded dwarf ...
          !script.sourceMapURL);                     // ... or no source map at all (look up symbols out of band).
@@ -84,23 +99,21 @@ export class CXXDWARFLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async addRawModule(rawModuleId, symbols, rawModule) {
-    return (await _sendJsonRPC(
-                'addRawModule', {rawModuleId: rawModuleId, symbols: symbols, rawModule: getProtocolModule(rawModule)}))
+    return (await this._sendRPC(
+                'addRawModule',
+                {rawModuleId: rawModuleId, symbols: symbols, rawModule: await getProtocolModule(rawModule)}))
         .sources;
 
-    function getProtocolModule(rawModule) {
+    async function getProtocolModule(rawModule) {
       if (!rawModule.code) {
-        return {url: rawModule.url};
-      }
-      const moduleBytes = new Uint8Array(rawModule.code);
+        const sourceMapURL = rawModule.url;
+        const arrayBuffer = await self.runtime.loadBinaryResourcePromise(sourceMapURL, true);
 
-      let binary = '';
-      const len = moduleBytes.byteLength;
-      for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(moduleBytes[i]);
+        console.error(arrayBuffer);
+        return {code: arrayBuffer};
       }
 
-      return {code: btoa(binary)};
+      return {code: rawModule.code};
     }
   }
 
@@ -111,7 +124,8 @@ export class CXXDWARFLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async sourceLocationToRawLocation(sourceLocation) {
-    return (await _sendJsonRPC('sourceLocationToRawLocation', sourceLocation)).rawLocation;
+    return [];
+    // return (await _sendRPC('sourceLocationToRawLocation', sourceLocation)).rawLocation;
   }
 
   /** Find locations in source files from a location in a raw module
@@ -121,7 +135,7 @@ export class CXXDWARFLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async rawLocationToSourceLocation(rawLocation) {
-    return (await _sendJsonRPC('rawLocationToSourceLocation', rawLocation)).sourceLocation;
+    return [];  // (await _sendRPC('rawLocationToSourceLocation', rawLocation)).sourceLocation;
   }
 
   /** List all variables in lexical scope at a given location in a raw module
@@ -131,7 +145,7 @@ export class CXXDWARFLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async listVariablesInScope(rawLocation) {
-    return (await _sendJsonRPC('listVariablesInScope', rawLocation)).variable;
+    return [];  // (await _sendRPC('listVariablesInScope', rawLocation)).variable;
   }
 
   /** Evaluate the content of a variable in a given lexical scope
@@ -142,13 +156,16 @@ export class CXXDWARFLanguagePlugin {
    * @throws {DebuggerLanguagePluginError}
   */
   async evaluateVariable(name, location) {
-    return (await _sendJsonRPC('evaluateVariable', {name: name, location: location})).value;
+    return [];  // (await _sendRPC('evaluateVariable', {name: name, location: location})).value;
   }
 
   /**
    * @override
    */
   dispose() {
+    if (this._worker) {
+      this._worker.terminate();
+    }
   }
 
   /** Get the representation when value contains a string
@@ -193,13 +210,10 @@ export class CXXDWARFLanguagePlugin {
     if (Array.isArray(value.value)) {
       return this._reprArray(value);
     }
-    console.error(`Repr for type ${value.type}`);
-    const numberTypes = [
-      'int8_t', 'int16_t', 'int32_t', 'int64_t', 'uint8_t', 'uint16_t', 'uint32_t', 'uint64_t', 'float', 'double',
-      'long double'
-    ];
-    if (numberTypes.indexOf(value.type) > -1) {
-      return this._reprNumber(value);
+    console.error(`repr for ${value.type}`);
+    switch (value.type) {
+      case 'int':
+        return this._reprNumber(value);
     }
     return this._reprString(value);
   }
@@ -210,6 +224,6 @@ export class CXXDWARFLanguagePlugin {
    * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
    */
   async getRepresentation(value) {
-    return new SDK.RemoteObject.LocalJSONObject(this._repr(value));
+    return new SDK.RemoteObject.LocalObject(this._repr(value));
   }
 }

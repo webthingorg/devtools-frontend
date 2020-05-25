@@ -44,6 +44,10 @@ include_what_you_use(DWARFSymbols)
 get_target_property(SYMBOL_SERVER_SOURCES DWARFSymbols SOURCES)
 set(LLVM_OPTIONAL_SOURCES ${LLVM_OPTIONAL_SOURCES} ${SYMBOL_SERVER_SOURCES})
 
+if (NOT LLVM_REQUIRES_EH AND NOT LLVM_ENABLE_RTTI)
+  target_compile_options(DWARFSymbols PUBLIC -fno-rtti)
+endif()
+
 get_target_property(LLD_INCLUDE_DIRS lldDriver INCLUDE_DIRECTORIES)
 get_target_property(LLDB_INCLUDE_DIRS lldbBase INCLUDE_DIRECTORIES)
 get_target_property(CLANG_INCLUDE_DIRS clang INCLUDE_DIRECTORIES)
