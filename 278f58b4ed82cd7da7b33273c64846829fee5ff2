@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46c7100b_b2df36ec",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-25T09:42:15Z",
+      "side": 1,
+      "message": "Just to clarify, regular workers don\u0027t have a parent target so won\u0027t be caught by this?\nWould using SDKModel::type() to check that it is a service worker also work? I think it\u0027s more explicit.",
+      "range": {
+        "startLine": 43,
+        "startChar": 22,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "278f58b4ed82cd7da7b33273c64846829fee5ff2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
