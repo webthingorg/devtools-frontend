@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6752fad3_41f92a15",
+        "filename": "third_party/i18n/collect-strings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-25T10:01:47Z",
+      "side": 1,
+      "message": "nit: \"front_end/\".length?",
+      "range": {
+        "startLine": 600,
+        "startChar": 62,
+        "endLine": 600,
+        "endChar": 64
+      },
+      "revId": "8b93bc251aec12c6d4ebb205a50b71e4c4324517",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
