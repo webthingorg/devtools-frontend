@@ -186,13 +186,13 @@ export class DebuggerWorkspaceBinding {
    */
   async rawLocationToUILocation(rawLocation) {
     for (const sourceMapping of this._sourceMappings) {
-      const uiLocation = sourceMapping.rawLocationToUILocation(rawLocation);
+      const uiLocation = await sourceMapping.rawLocationToUILocation(rawLocation);
       if (uiLocation) {
         return uiLocation;
       }
     }
     const modelData = this._debuggerModelToData.get(rawLocation.debuggerModel);
-    return modelData ? modelData._rawLocationToUILocation(rawLocation) : null;
+    return modelData ? await modelData._rawLocationToUILocation(rawLocation) : null;
   }
 
   /**
@@ -216,7 +216,7 @@ export class DebuggerWorkspaceBinding {
    */
   async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
     for (const sourceMapping of this._sourceMappings) {
-      const locations = sourceMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+      const locations = await sourceMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
       if (locations.length) {
         return locations;
       }
@@ -233,15 +233,15 @@ export class DebuggerWorkspaceBinding {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
    */
-  uiLocationToRawLocationsForUnformattedJavaScript(uiSourceCode, lineNumber, columnNumber) {
+  async uiLocationToRawLocationsForUnformattedJavaScript(uiSourceCode, lineNumber, columnNumber) {
     console.assert(uiSourceCode.contentType().isScript());
-    const locations = [];
+    const locationsPromises = [];
     for (const modelData of this._debuggerModelToData.values()) {
-      locations.push(...modelData._uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber));
+      locationsPromises.push(modelData._uiLocationToRawLocationsExcludePlugins(uiSourceCode, lineNumber, columnNumber));
     }
-    return locations;
+    return (await Promise.all(locationsPromises)).flat();
   }
 
   /**
@@ -421,10 +421,10 @@ class ModelData {
     if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
       uiLocation = await this._pluginManager.rawLocationToUILocation(rawLocation);
     }
-    uiLocation = uiLocation || this._compilerMapping.rawLocationToUILocation(rawLocation);
-    uiLocation = uiLocation || this._resourceMapping.rawLocationToUILocation(rawLocation);
+    uiLocation = uiLocation || await this._compilerMapping.rawLocationToUILocation(rawLocation);
+    uiLocation = uiLocation || await this._resourceMapping.rawLocationToUILocation(rawLocation);
     uiLocation = uiLocation || ResourceMapping.instance().jsLocationToUILocation(rawLocation);
-    uiLocation = uiLocation || this._defaultMapping.rawLocationToUILocation(rawLocation);
+    uiLocation = uiLocation || await this._defaultMapping.rawLocationToUILocation(rawLocation);
     return /** @type {!Workspace.UISourceCode.UILocation} */ (uiLocation);
   }
 
@@ -439,7 +439,8 @@ class ModelData {
     if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
       rawLocations = await this._pluginManager.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
     }
-    rawLocations = rawLocations || this._uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber);
+    rawLocations =
+        rawLocations || await this._uiLocationToRawLocationsExcludePlugins(uiSourceCode, lineNumber, columnNumber);
     return rawLocations;
   }
 
@@ -447,19 +448,19 @@ class ModelData {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
    */
-  _uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber) {
-    let locations = this._compilerMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+  async _uiLocationToRawLocationsExcludePlugins(uiSourceCode, lineNumber, columnNumber) {
+    let locations = await this._compilerMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
     locations = locations.length ?
         locations :
-        this._resourceMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+        await this._resourceMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
     locations = locations.length ?
         locations :
-        ResourceMapping.instance().uiLocationToJSLocations(uiSourceCode, lineNumber, columnNumber);
+        await ResourceMapping.instance().uiLocationToJSLocations(uiSourceCode, lineNumber, columnNumber);
     locations = locations.length ?
         locations :
-        this._defaultMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+        await this._defaultMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
     return locations;
   }
 
@@ -506,7 +507,7 @@ class Location extends LiveLocationWithPool {
    * @override
    * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
-  async uiLocation() {
+  uiLocation() {
     const debuggerModelLocation = this._rawLocation;
     return this._binding.rawLocationToUILocation(debuggerModelLocation);
   }
@@ -620,17 +621,17 @@ class StackTraceTopFrameLocation extends LiveLocationWithPool {
 export class DebuggerSourceMapping {
   /**
    * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {?Workspace.UISourceCode.UILocation}
+   * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
-  rawLocationToUILocation(rawLocation) {
+  async rawLocationToUILocation(rawLocation) {
   }
 
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
    */
-  uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
   }
 }
