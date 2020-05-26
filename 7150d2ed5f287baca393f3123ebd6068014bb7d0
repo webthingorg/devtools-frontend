@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5db14934_730904e2",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-26T11:51:11Z",
+      "side": 1,
+      "message": "Consider calling isWasm() so that we don\u0027t unnecessarily fetch content for JS scripts.",
+      "revId": "7150d2ed5f287baca393f3123ebd6068014bb7d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
