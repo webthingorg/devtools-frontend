@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a9d4b14_815f8413",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-26T06:41:48Z",
+      "side": 1,
+      "message": "Don\u0027t we await the Promise in line 244, such that we only return an array? If so, this would propagate to the other functions too.",
+      "revId": "14b998955f38f47b8ec7e7a2274ed9c1eef311c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
