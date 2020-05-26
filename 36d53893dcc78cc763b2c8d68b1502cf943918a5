@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6725c772_ec37edcd",
+        "filename": "front_end/sdk/Resource.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T10:18:07Z",
+      "side": 1,
+      "message": "You can refactor this to the following to prevent the `ts-ignore`:\n\nreturn new Promise((resolve) \u003d\u003e {\n  this_pendingContentCallbacks.push(resolve);\n  if (!this._request || this._request.finished) {\n    this._innerRequestContent();\n  }\n});",
+      "range": {
+        "startLine": 218,
+        "startChar": 3,
+        "endLine": 225,
+        "endChar": 19
+      },
+      "revId": "36d53893dcc78cc763b2c8d68b1502cf943918a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf8827ef_922d7c65",
+        "filename": "front_end/sdk/Resource.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T10:18:07Z",
+      "side": 1,
+      "message": "Call `.getError()` on the `response` to get the error instead.",
+      "range": {
+        "startLine": 289,
+        "startChar": 28,
+        "endLine": 289,
+        "endChar": 36
+      },
+      "revId": "36d53893dcc78cc763b2c8d68b1502cf943918a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
