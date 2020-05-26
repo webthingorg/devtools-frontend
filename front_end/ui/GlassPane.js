@@ -175,6 +175,10 @@ export class GlassPane {
     this._onClickOutsideCallback.call(null, event);
   }
 
+  positionContent() {
+    this._positionContent();
+  }
+
   _positionContent() {
     if (!this.isShowing()) {
       return;
