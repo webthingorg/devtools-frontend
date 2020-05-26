@@ -34,6 +34,24 @@
       "revId": "14b998955f38f47b8ec7e7a2274ed9c1eef311c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b903e88_9b561f94",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-26T08:14:02Z",
+      "side": 1,
+      "message": "Ok, thanks for the clarification!",
+      "parentUuid": "e46a0214_770ea645",
+      "revId": "14b998955f38f47b8ec7e7a2274ed9c1eef311c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
