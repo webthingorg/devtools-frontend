@@ -188,9 +188,10 @@ export const _cssPathStep = function(node, optimized, isTargetNode) {
   }
 
   let result = nodeName;
-  if (isTargetNode && nodeName.toLowerCase() === 'input' && node.getAttribute('type') && !node.getAttribute('id') &&
+  const type = node.getAttribute('type');
+  if (isTargetNode && nodeName.toLowerCase() === 'input' && type && !node.getAttribute('id') &&
       !node.getAttribute('class')) {
-    result += '[type=' + CSS.escape(node.getAttribute('type')) + ']';
+    result += '[type=' + CSS.escape(type) + ']';
   }
   if (needsNthChild) {
     result += ':nth-child(' + (ownIndex + 1) + ')';
