@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "903e10ea_03860d0d",
+        "filename": "front_end/sdk/Resource.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-26T13:43:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6725c772_ec37edcd",
+      "range": {
+        "startLine": 218,
+        "startChar": 3,
+        "endLine": 225,
+        "endChar": 19
+      },
+      "revId": "36d53893dcc78cc763b2c8d68b1502cf943918a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf8827ef_922d7c65",
         "filename": "front_end/sdk/Resource.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "36d53893dcc78cc763b2c8d68b1502cf943918a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e712906e_263b9853",
+        "filename": "front_end/sdk/Resource.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-05-26T13:43:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf8827ef_922d7c65",
+      "range": {
+        "startLine": 289,
+        "startChar": 28,
+        "endLine": 289,
+        "endChar": 36
+      },
+      "revId": "36d53893dcc78cc763b2c8d68b1502cf943918a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
