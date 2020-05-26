@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "7d800889_3f690e78",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-05-26T14:14:00Z",
+      "side": 1,
+      "message": "I see. How about explicit conversion via `sourceLineNumber ?? NaN` (or older-ES equivalent) then? Then values would at least be indeed numbers, comparison results would be preserved and we wouldn\u0027t need to lie about types.",
+      "parentUuid": "bbf6c25a_220768ac",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c306a0cf_0eb51402",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Yes. The first `Runtime` is the filename. The second `Runtime` is the class reference.",
       "parentUuid": "c306a0cf_0eb51402",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d991e2a5_0c6f77c6",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-05-26T14:14:00Z",
+      "side": 1,
+      "message": "That\u0027s somewhat confusing TBH. Do we plan to make `Runtime` importable as a separate module in future?",
+      "parentUuid": "1bd498ab_2d416018",
       "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
