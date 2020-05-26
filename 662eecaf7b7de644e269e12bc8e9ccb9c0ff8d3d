@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a60f89c_31350362",
+        "filename": "test/e2e/helpers/changes-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-26T10:19:26Z",
+      "side": 1,
+      "message": "nit: it might be useful if this error message included the values of the length? \"expected list of changes length to change from X to Y\" or similar?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 55
+      },
+      "revId": "662eecaf7b7de644e269e12bc8e9ccb9c0ff8d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
