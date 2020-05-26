@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e56feac2_0e81a568",
+        "filename": "front_end/sdk/ChildTargetManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-26T14:54:12Z",
+      "side": 1,
+      "message": "this is a bit of a breaking change - is it OK that we now unregister the session after we know we\u0027ve detached rather than before when we didn\u0027t wait for the detach call to resolve? I can\u0027t see why it would be an issue but just in case.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 7
+      },
+      "revId": "24e1175ceb6b46bb030b68fc62061e3078173dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
