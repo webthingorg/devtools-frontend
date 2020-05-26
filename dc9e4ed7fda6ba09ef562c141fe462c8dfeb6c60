@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64164e3d_156e0aef",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-05-26T22:53:00Z",
+      "side": 1,
+      "message": "Prefer await instead of .then",
+      "revId": "dc9e4ed7fda6ba09ef562c141fe462c8dfeb6c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dda2535a_c63b0834",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-05-26T22:53:00Z",
+      "side": 1,
+      "message": "Is calling .show(...) necessary if the widget will detach? (Should .show(...) be conditional only when expanded?)",
+      "revId": "dc9e4ed7fda6ba09ef562c141fe462c8dfeb6c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
