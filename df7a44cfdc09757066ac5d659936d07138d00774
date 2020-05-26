@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2bcaf22_87af8652",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T10:10:53Z",
+      "side": 1,
+      "message": "Nit: add `1058320` here as well. It is the bug that tracks all global references.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "df7a44cfdc09757066ac5d659936d07138d00774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "415cf262_2f5a70b6",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T10:10:53Z",
+      "side": 1,
+      "message": "FYI: since we don\u0027t use this event ever, other than we destructure it, I think it is nicer to use `issueAdded({issue})` here. However, that would clash with the variable defined below.\n\nSo in this case I think this is fine, but for other dispatchers I would prefer the destructuring.",
+      "range": {
+        "startLine": 117,
+        "startChar": 13,
+        "endLine": 117,
+        "endChar": 28
+      },
+      "revId": "df7a44cfdc09757066ac5d659936d07138d00774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33ae0fd8_f4b10b4e",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T10:10:53Z",
+      "side": 1,
+      "message": "Nit: remove",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "df7a44cfdc09757066ac5d659936d07138d00774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b45800_c3e6bd58",
+        "filename": "front_end/sdk/sdk-legacy.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T10:10:53Z",
+      "side": 1,
+      "message": "Nit: remove.",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 63
+      },
+      "revId": "df7a44cfdc09757066ac5d659936d07138d00774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

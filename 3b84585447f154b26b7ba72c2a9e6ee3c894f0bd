@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af696589_e73d98aa",
+        "filename": "front_end/network_test_runner/NetworkTestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T10:10:53Z",
+      "side": 0,
+      "message": "FYI: Testrunners still have to use the legacy globals. This change works, because we also assign `SDK.NetworkLog` as a global. That\u0027s the reason you don\u0027t use `SDK.NetworkLog.NetworkLog`.\n\nI would like to refrain from making changes to test runners if we can, but this change is safe for the explanation above.",
+      "range": {
+        "startLine": 60,
+        "startChar": 20,
+        "endLine": 60,
+        "endChar": 39
+      },
+      "revId": "3b84585447f154b26b7ba72c2a9e6ee3c894f0bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
