@@ -185,9 +185,9 @@ class ScriptMapping {
   /**
    * @override
    * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {?Workspace.UISourceCode.UILocation}
+   * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
-  rawLocationToUILocation(rawLocation) {
+  async rawLocationToUILocation(rawLocation) {
     const script = rawLocation.script();
     const formatData = script && SourceFormatData._for(script);
     if (!formatData) {
@@ -218,9 +218,9 @@ class ScriptMapping {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
    */
-  uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
     const formatData = SourceFormatData._for(uiSourceCode);
     if (!formatData) {
       return [];
@@ -230,7 +230,7 @@ class ScriptMapping {
       // Here we have a script that is displayed on its own (i.e. it has a dedicated uiSourceCode). This means it is
       // either a stand-alone script or an inline script with a #sourceURL= and in both cases we can just forward the
       // question to the original (unformatted) source code.
-      const rawLocations = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()
+      const rawLocations = await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()
                                .uiLocationToRawLocationsForUnformattedJavaScript(
                                    formatData.originalSourceCode, originalLine, originalColumn);
       console.assert(rawLocations.every(l => l && !!l.script()));
@@ -257,7 +257,7 @@ class ScriptMapping {
    * @param {boolean} enabled
    */
   async _setSourceMappingEnabled(formatData, enabled) {
-    const scripts = this._scriptsForUISourceCode(formatData.originalSourceCode);
+    const scripts = await this._scriptsForUISourceCode(formatData.originalSourceCode);
     if (!scripts.length) {
       return;
     }
@@ -277,9 +277,9 @@ class ScriptMapping {
 
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @return {!Array<!SDK.Script.Script>}
+   * @return {!Promise<!Array<!SDK.Script.Script>>}
    */
-  _scriptsForUISourceCode(uiSourceCode) {
+  async _scriptsForUISourceCode(uiSourceCode) {
     if (uiSourceCode.contentType() === Common.ResourceType.resourceTypes.Document) {
       const target = Bindings.NetworkProject.NetworkProject.targetForUISourceCode(uiSourceCode);
       const debuggerModel = target && target.model(SDK.DebuggerModel.DebuggerModel);
@@ -293,7 +293,7 @@ class ScriptMapping {
       console.assert(
           !uiSourceCode[SourceFormatData._formatDataSymbol] ||
           uiSourceCode[SourceFormatData._formatDataSymbol] === uiSourceCode);
-      const rawLocations = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()
+      const rawLocations = await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()
                                .uiLocationToRawLocationsForUnformattedJavaScript(uiSourceCode, 0, 0);
       return rawLocations.map(location => location.script()).filter(script => !!script);
     }
