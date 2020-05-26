@@ -22,6 +22,30 @@
       "revId": "24e1175ceb6b46bb030b68fc62061e3078173dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b28c42_56633dee",
+        "filename": "front_end/sdk/ChildTargetManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T16:39:45Z",
+      "side": 1,
+      "message": "Yes it seemed to fail tests. I think we should actually reverse the order to be absolutely correct.",
+      "parentUuid": "e56feac2_0e81a568",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 7
+      },
+      "revId": "24e1175ceb6b46bb030b68fc62061e3078173dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
