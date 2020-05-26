@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44e7b857_be1684c2",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-05-26T13:54:27Z",
+      "side": 1,
+      "message": "I\u0027m nitpicking, but I think I\u0027d add a separate\n\n```\nclass UnimplementedError extends Error {\n  constructor() {\n    super(\u0027Not implemented\u0027);\n  }\n}\n```\n\nabove or elsewhere given how common this is.",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e50abe5c_01f7cfe4",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-05-26T13:54:27Z",
+      "side": 1,
+      "message": "To clarify - if we don\u0027t do something like `|| 0` here, then comparators below produce `NaN` when comparing e.g. `undefined` and `10`. Is this the desired behaviour?",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c306a0cf_0eb51402",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-05-26T13:54:27Z",
+      "side": 1,
+      "message": "`Runtime.Runtime` - is this intentional?",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
