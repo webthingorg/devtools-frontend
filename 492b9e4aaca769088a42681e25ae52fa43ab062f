@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a3c83c06_f8e82579",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T14:07:14Z",
+      "side": 1,
+      "message": "We use this pattern during the typescriptification. It will be removed after. For consistency with the whole codebase, I will keep it like this.",
+      "parentUuid": "44e7b857_be1684c2",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e50abe5c_01f7cfe4",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "bbf6c25a_220768ac",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T14:07:14Z",
+      "side": 1,
+      "message": "Yes and sadly that is desired behavior at this moment in time. I tried to fix it and then lots of tests started failing.",
+      "parentUuid": "e50abe5c_01f7cfe4",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c306a0cf_0eb51402",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2020-05-26T13:54:27Z",
       "side": 1,
       "message": "`Runtime.Runtime` - is this intentional?",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bd498ab_2d416018",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-26T14:07:14Z",
+      "side": 1,
+      "message": "Yes. The first `Runtime` is the filename. The second `Runtime` is the class reference.",
+      "parentUuid": "c306a0cf_0eb51402",
       "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
