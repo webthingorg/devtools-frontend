@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a2350e4_f97076ed",
+        "filename": "scripts/deps/ensure_symlink.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-26T17:49:38Z",
+      "side": 1,
+      "message": "Nit: Should this be single quotes?",
+      "revId": "4cbbbe60b01893c9f4e36c1f4beea7b0b4c74b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
