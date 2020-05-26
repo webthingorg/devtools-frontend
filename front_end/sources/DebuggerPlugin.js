@@ -1581,13 +1581,17 @@ export class DebuggerPlugin extends Plugin {
 
     // Check to see if it is Wasm Disassembly.
     const script = this._getScriptForCurrentUISourceCode();
-    if (script && script.hasWasmDisassembly()) {
-      const linesCount = this._textEditor.linesCount;
-      for (let i = 0; i < linesCount; ++i) {
-        if (!script.isWasmDisassemblyBreakableLine(i)) {
-          this._textEditor.toggleLineClass(i, 'cm-non-breakable-line', true);
+    if (script) {
+      script.wasmDisassembly().then(wasmDisassembly => {
+        if (wasmDisassembly) {
+          const linesCount = this._textEditor.linesCount;
+          for (let lineNumber = 0; lineNumber < linesCount; ++lineNumber) {
+            if (!wasmDisassembly.isBreakableLine(lineNumber)) {
+              this._textEditor.toggleLineClass(lineNumber, 'cm-non-breakable-line', true);
+            }
+          }
         }
-      }
+      });
     }
   }
 
@@ -1774,8 +1778,11 @@ export class DebuggerPlugin extends Plugin {
 
     // Check to see if it is Wasm Disassembly.
     const script = this._getScriptForCurrentUISourceCode();
-    if (script && script.hasWasmDisassembly() && !script.isWasmDisassemblyBreakableLine(lineNumber)) {
-      return;
+    if (script) {
+      const wasmDisassembly = await script.wasmDisassembly();
+      if (wasmDisassembly && !wasmDisassembly.isBreakableLine(lineNumber)) {
+        return;
+      }
     }
 
     Common.Settings.Settings.instance().moduleSetting('breakpointsActive').set(true);

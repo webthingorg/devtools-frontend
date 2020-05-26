@@ -32,6 +32,95 @@ import {ResourceTreeModel} from './ResourceTreeModel.js';
 import {ExecutionContext} from './RuntimeModel.js';  // eslint-disable-line no-unused-vars
 
 /**
+ * Metadata for the WebAssembly disassembly associated with a script that
+ * corresponds to a WebAssembly module. This metadata is generated lazily
+ * in the front-end together with the actual disassembly text.
+ */
+export class WasmDisassembly {
+  /**
+   * @param {!Array<number>} bytecodeOffsets
+   * @param {!Array<{start: number, end: number}>} functionBodyOffsets
+   */
+  constructor(bytecodeOffsets, functionBodyOffsets) {
+    this._bytecodeOffsets = bytecodeOffsets;
+    this._functionBodyOffsets = functionBodyOffsets;
+  }
+
+  /**
+   * @param {number} lineNumber
+   * @return {?number}
+   */
+  lineNumberToBytecodeOffset(lineNumber) {
+    if (lineNumber < this._bytecodeOffsets.length) {
+      return this._bytecodeOffsets[lineNumber];
+    }
+    return null;
+  }
+
+  /**
+   * @param {number} bytecodeOffset
+   * @return {number}
+   */
+  bytecodeOffsetToLineNumber(bytecodeOffset) {
+    let line = 0;
+    // TODO(bmeurer): Implement binary search if necessary for large wasm modules
+    while (this._bytecodeOffsets && line < this._bytecodeOffsets.length &&
+           bytecodeOffset > this._bytecodeOffsets[line]) {
+      line++;
+    }
+    return line;
+  }
+
+  /**
+   * @param {number} lineNumber
+   * @return {boolean}
+   */
+  isBreakableLine(lineNumber) {
+    if (!this._functionBodyOffsets || this._functionBodyOffsets.length === 0) {
+      return false;
+    }
+    const bytecodeOffset = this.lineNumberToBytecodeOffset(lineNumber);
+    if (!bytecodeOffset) {
+      return false;
+    }
+
+    // Here, this._functionBodyOffsets is [{start:s0, end:e0}, {start:s1, end:e1}, ...].
+    // Also, we have s0 < e0 < s1 < e1 ... and the breakable lines are defined by the union of [a0,b0), [a1,b1), ...
+    let first = 0;
+    let last = this._functionBodyOffsets.length - 1;
+    // Quick return if it is outside of code section.
+    if (bytecodeOffset < this._functionBodyOffsets[first].start ||
+        bytecodeOffset >= this._functionBodyOffsets[last].end) {
+      return false;
+    }
+    // Binary search.
+    while (first <= last) {
+      const mid = (first + last) >> 1;
+      const functionBodyOffset = this._functionBodyOffsets[mid];
+      if (bytecodeOffset < functionBodyOffset.start) {
+        last = mid - 1;
+      } else if (bytecodeOffset >= functionBodyOffset.end) {
+        first = mid + 1;
+      } else {
+        return true;
+      }
+    }
+
+    return false;
+  }
+}
+
+/**
+ * @typedef {{
+ *   content: string,
+ *   originalContent: string,
+ *   wasmDisassembly: ?WasmDisassembly
+ * }}
+ */
+// @ts-ignore typedef
+let ScriptLazyData;  // eslint-disable-line no-unused-vars
+
+/**
  * @implements {TextUtils.ContentProvider.ContentProvider}
  * @unrestricted
  */
@@ -60,9 +149,6 @@ export class Script {
       debuggerModel, scriptId, sourceURL, startLine, startColumn, endLine, endColumn, executionContextId, hash,
       isContentScript, isLiveEdit, sourceMapURL, hasSourceURL, length, originStackTrace, codeOffset, scriptLanguage,
       debugSymbols) {
-    /** @type {?string} */
-    this._source;
-
     this.debuggerModel = debuggerModel;
     this.scriptId = scriptId;
     this.sourceURL = sourceURL;
@@ -83,13 +169,12 @@ export class Script {
     this.debugSymbols = debugSymbols;
     this.hasSourceURL = hasSourceURL;
     this.contentLength = length;
+    /** @type {?Promise<!ScriptLazyData>} */
+    this._lazyDataPromise = null;
     this._originalContentProvider = null;
-    this._originalSource = null;
     this.originStackTrace = originStackTrace;
     this._codeOffset = codeOffset;
     this._language = scriptLanguage;
-    this._lineMap = null;
-    this._functionBodyOffsets = null;
   }
 
   /**
@@ -137,13 +222,6 @@ export class Script {
   }
 
   /**
-   * @return {boolean}
-   */
-  hasWasmDisassembly() {
-    return !!this._lineMap && !this.sourceMapURL;
-  }
-
-  /**
    * @return {?ExecutionContext}
    */
   executionContext() {
@@ -182,53 +260,53 @@ export class Script {
   }
 
   /**
+   * @return {!Promise<!ScriptLazyData>}
+   */
+  _requestLazyData() {
+    if (!this._lazyDataPromise) {
+      this._lazyDataPromise = (async () => {
+        if (!this.scriptId) {
+          throw new Error(ls`Script removed or deleted.`);
+        }
+        try {
+          const {bytecode, scriptSource} =
+              await this.debuggerModel.target().debuggerAgent().invoke_getScriptSource({scriptId: this.scriptId});
+          if (bytecode) {
+            const worker = new Common.Worker.WorkerWrapper('wasmparser_worker_entrypoint');
+            /** @type {!Promise<!{source: string, offsets: !Array<number>, functionBodyOffsets: !Array<{start:number, end:number}>}>} */
+            const promise = new Promise((resolve, reject) => {
+              worker.onmessage = ({data}) => resolve(data);
+              worker.onerror = reject;
+            });
+            worker.postMessage({method: 'disassemble', params: {content: bytecode}});
+
+            const {source: content, offsets, functionBodyOffsets} = await promise;
+            // TODO(bmeurer): Do we need this in the Wasm case at all?
+            this.endLine = offsets.length;
+            const wasmDisassembly = new WasmDisassembly(offsets, functionBodyOffsets);
+            return {content, originalContent: content, wasmDisassembly};
+          }
+          const content = this.hasSourceURL ? Script._trimSourceURLComment(scriptSource) : scriptSource;
+          return {content, originalContent: content, wasmDisassembly: null};
+
+        } catch (error) {
+          throw new Error(ls`Unable to fetch script source.`);
+        }
+      })();
+    }
+    return this._lazyDataPromise;
+  }
+
+  /**
    * @override
    * @return {!Promise<!TextUtils.ContentProvider.DeferredContent>}
    */
   async requestContent() {
-    if (this._source) {
-      return {content: this._source, isEncoded: false};
-    }
-    if (!this.scriptId) {
-      return {content: null, error: ls`Script removed or deleted.`, isEncoded: false};
-    }
-
     try {
-      const sourceOrBytecode =
-          await this.debuggerModel.target().debuggerAgent().invoke_getScriptSource({scriptId: this.scriptId});
-      const source = sourceOrBytecode.scriptSource;
-      if (source) {
-        if (this.hasSourceURL) {
-          this._source = Script._trimSourceURLComment(source);
-        } else {
-          this._source = source;
-        }
-      } else {
-        this._source = '';
-        if (sourceOrBytecode.bytecode) {
-          const worker = new Common.Worker.WorkerWrapper('wasmparser_worker_entrypoint');
-          /** @type {!Promise<!MessageEvent>} */
-          const promise = new Promise(function(resolve, reject) {
-            worker.onmessage = resolve;
-            worker.onerror = reject;
-          });
-          worker.postMessage({method: 'disassemble', params: {content: sourceOrBytecode.bytecode}});
-
-          /** @type {{source: string, offsets: ?Array<number>, functionBodyOffsets: ?Array<{start: number, end: number}>}} */
-          const data = (await promise).data;
-          this._source = data.source;
-          this._lineMap = data.offsets;
-          this._functionBodyOffsets = data.functionBodyOffsets;
-          this.endLine = (this._lineMap && this._lineMap.length) || 0;
-        }
-      }
-
-      if (this._originalSource === null) {
-        this._originalSource = this._source;
-      }
-      return {content: this._source, isEncoded: false};
-    } catch (err) {
-      return {content: null, error: ls`Unable to fetch script source.`, isEncoded: false};
+      const {content} = await this._requestLazyData();
+      return {content, isEncoded: false};
+    } catch (error) {
+      return {content: null, error: error.message, isEncoded: false};
     }
   }
 
@@ -246,12 +324,8 @@ export class Script {
    */
   originalContentProvider() {
     if (!this._originalContentProvider) {
-      const lazyContent = () => this.requestContent().then(() => {
-        return {
-          content: this._originalSource || '',
-          isEncoded: false,
-        };
-      });
+      const lazyContent = () =>
+          this._requestLazyData().then(({originalContent: content}) => ({content, isEncoded: false}));
       this._originalContentProvider =
           new TextUtils.StaticContentProvider.StaticContentProvider(this.contentURL(), this.contentType(), lazyContent);
     }
@@ -292,25 +366,24 @@ export class Script {
    * @param {function(?ProtocolClient.InspectorBackend.ProtocolError, !Protocol.Runtime.ExceptionDetails=, !Array.<!Protocol.Debugger.CallFrame>=, !Protocol.Runtime.StackTrace=, !Protocol.Runtime.StackTraceId=, boolean=):void} callback
    */
   async editSource(newSource, callback) {
-    newSource = Script._trimSourceURLComment(newSource);
     // We append correct sourceURL to script for consistency only. It's not actually needed for things to work correctly.
-    newSource = this._appendSourceURLCommentIfNeeded(newSource);
+    const newContent = this._appendSourceURLCommentIfNeeded(Script._trimSourceURLComment(newSource));
 
     if (!this.scriptId) {
       callback('Script failed to parse');
       return;
     }
 
-    await this.requestContent();
-    if (this._source === newSource) {
+    const {content, originalContent} = await this._requestLazyData();
+    if (content === newContent) {
       callback(null);
       return;
     }
     const response = await this.debuggerModel.target().debuggerAgent().invoke_setScriptSource(
-        {scriptId: this.scriptId, scriptSource: newSource});
+        {scriptId: this.scriptId, scriptSource: newContent});
 
     if (!response.getError() && !response.exceptionDetails) {
-      this._source = newSource;
+      this._lazyDataPromise = Promise.resolve({content: newContent, originalContent, wasmDisassembly: null});
     }
 
     const needsStepIn = !!response.stackChanged;
@@ -332,69 +405,16 @@ export class Script {
   }
 
   /**
-   * @param {number} lineNumber
-   * @return {?Location}
-   */
-  wasmByteLocation(lineNumber) {
-    if (this._lineMap && lineNumber < this._lineMap.length) {
-      return new Location(this.debuggerModel, this.scriptId, 0, this._lineMap[lineNumber]);
-    }
-    return null;
-  }
-
-  /**
-   * @param {number} byteOffset
-   * @return {number}
-   */
-  wasmDisassemblyLine(byteOffset) {
-    let line = 0;
-    // TODO: Implement binary search if necessary for large wasm modules
-    while (this._lineMap && line < this._lineMap.length && byteOffset > this._lineMap[line]) {
-      line++;
-    }
-    return line;
-  }
-
-  /**
-   * @param {number} lineNumber
-   * @return {boolean}
-   */
-  isWasmDisassemblyBreakableLine(lineNumber) {
-    if (!this._functionBodyOffsets || this._functionBodyOffsets.length === 0) {
-      return false;
-    }
-    const location = this.wasmByteLocation(lineNumber);
-    if (!location) {
-      return false;
-    }
-    const byteOffset = location.columnNumber;
-
-    // Here, this._functionBodyOffsets is [{start:s0, end:e0}, {start:s1, end:e1}, ...].
-    // Also, we have s0 < e0 < s1 < e1 ... and the breakable lines are defined by the union of [a0,b0), [a1,b1), ...
-    let first = 0;
-    let last = this._functionBodyOffsets.length - 1;
-    // Quick return if it is outside of code section.
-    if (byteOffset < this._functionBodyOffsets[first].start || byteOffset >= this._functionBodyOffsets[last].end) {
-      return false;
-    }
-    // Binary search.
-    while (first <= last) {
-      const mid = (first + last) >> 1;
-      const functionBodyOffset = this._functionBodyOffsets[mid];
-      if (byteOffset < functionBodyOffset.start) {
-        last = mid - 1;
-      } else if (byteOffset >= functionBodyOffset.end) {
-        first = mid + 1;
-      } else {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  /**
+   * Requests the associated WebAssembly disassembly metadata for this script
+   * if it corresponds to a WebAssembly module.
    *
+   * @return {!Promise<?WasmDisassembly>}
+   */
+  wasmDisassembly() {
+    return this._requestLazyData().then(({wasmDisassembly}) => wasmDisassembly);
+  }
+
+  /**
    * @param {!Location} location
    * @return {!Array.<number>}
    */
