@@ -52,6 +52,29 @@
       "revId": "14b998955f38f47b8ec7e7a2274ed9c1eef311c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ef3e6f7_a3239fde",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-27T04:50:58Z",
+      "side": 1,
+      "message": "We explicitly introduced this function because it took a non-async path. That means we explicitly didn\u0027t want an await here as _scriptsForUISourceCode opens up another tree of call-sites that need asyncification.",
+      "range": {
+        "startLine": 300,
+        "startChar": 32,
+        "endLine": 300,
+        "endChar": 80
+      },
+      "revId": "14b998955f38f47b8ec7e7a2274ed9c1eef311c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
