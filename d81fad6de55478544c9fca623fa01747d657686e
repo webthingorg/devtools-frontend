@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cde9ce10_ab9bc64b",
+        "filename": "front_end/browser_sdk/LogManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T14:21:52Z",
+      "side": 0,
+      "message": "This was the wrong type (`string` but `RemoteObject` expected) and I am not sure this should ever have been here. I am thoroughly confused by this code in any case.",
+      "range": {
+        "startLine": 46,
+        "startChar": 59,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "d81fad6de55478544c9fca623fa01747d657686e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
