@@ -165,7 +165,11 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
   setVisibleWidth(width) {
     this._visibleWidth = width;
     if (this._multilineEditing) {
-      this._multilineEditing.resize();
+      if (this._multilineEditing.checkBrokenEditingState()) {
+        this.setMultilineEditing(null);
+      } else {
+        this._multilineEditing.resize();
+      }
     }
   }
 
@@ -1797,7 +1801,7 @@ export class ShortcutTreeElement extends UI.TreeOutline.TreeElement {
   }
 }
 
-/** @typedef {{cancel: function(), commit: function(), resize: function(), editor:!UI.TextEditor.TextEditor}} */
+/** @typedef {{cancel: function(), commit: function(), resize: function(), editor:!UI.TextEditor.TextEditor, checkBrokenEditingState: function()}} */
 export let MultilineEditorController;
 
 /** @typedef {{node: !SDK.DOMModel.DOMNode, isCut: boolean}} */
