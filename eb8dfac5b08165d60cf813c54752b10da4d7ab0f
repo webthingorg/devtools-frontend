@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53fb0402_2997b1a7",
+        "filename": "test/e2e/emulation/media-query-inspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T11:07:07Z",
+      "side": 1,
+      "message": "Any particular reason to not move this one into `emulation-helpers`? I am fine with keeping it here, but it seems similar to the existing helper in `emulation-helpers` so it might make more sense to keep them co-located.",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "eb8dfac5b08165d60cf813c54752b10da4d7ab0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
