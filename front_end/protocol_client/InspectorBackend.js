@@ -679,6 +679,20 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.DeviceOrientationApi}
+   */
+  deviceOrientationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.EmulationApi}
+   */
+  emulationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.HeapProfilerApi}
    */
   heapProfilerAgent() {
