@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94ff6775_3f8b3f11",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T12:33:54Z",
+      "side": 1,
+      "message": "Nit: use `string[]`",
+      "range": {
+        "startLine": 15,
+        "startChar": 18,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "81725e98d99f5c869a1c9324b720b8b78e01e58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cdc6884_1e03337e",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T12:33:54Z",
+      "side": 1,
+      "message": "Nit: this can be a multiline string:\n\n```\n`\\trecursive\\t@\\tVM11:6\n\\trecursive\\t@\\tVM11:4\n\\trecursive\\t@\\tVM11:4\n\\trecursive\\t@\\tVM11:4\n\\trecursive\\t@\\tVM11:4\n\\tShow 21 more frame`\n```",
+      "range": {
+        "startLine": 68,
+        "startChar": 10,
+        "endLine": 68,
+        "endChar": 38
+      },
+      "revId": "81725e98d99f5c869a1c9324b720b8b78e01e58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6abc80e6_8b4d87e6",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T12:33:54Z",
+      "side": 1,
+      "message": "Nit: Is there a particular reason you use `sendCharacter`, rather than `press` (the latter is used in other tests)",
+      "range": {
+        "startLine": 135,
+        "startChar": 26,
+        "endLine": 135,
+        "endChar": 39
+      },
+      "revId": "81725e98d99f5c869a1c9324b720b8b78e01e58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
