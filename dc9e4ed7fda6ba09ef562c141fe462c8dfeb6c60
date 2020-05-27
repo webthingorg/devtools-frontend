@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "55aef42a_68524ab2",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-27T00:27:19Z",
+      "side": 1,
+      "message": "That\u0027s not possible here because wasShown() is an override of a non-async function",
+      "parentUuid": "64164e3d_156e0aef",
+      "revId": "dc9e4ed7fda6ba09ef562c141fe462c8dfeb6c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dda2535a_c63b0834",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "dc9e4ed7fda6ba09ef562c141fe462c8dfeb6c60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de8f8ffa_f6b0579c",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-27T00:27:19Z",
+      "side": 1,
+      "message": "I was worried it wouldn\u0027t get reparented properly otherwise, but it looks like expand() will take care of that. Fixed",
+      "parentUuid": "dda2535a_c63b0834",
+      "revId": "dc9e4ed7fda6ba09ef562c141fe462c8dfeb6c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
