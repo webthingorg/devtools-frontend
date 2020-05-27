@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "046a8ff6_277f3fea",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-27T06:31:45Z",
+      "side": 1,
+      "message": "nit: `canDock` is always either true or false, so no need to parameterize in the truthy case:\n\n    const url \u003d canDock ? `${frontendUrl}\u0026can_dock\u003dtrue` : frontendUrl;",
+      "revId": "fd15bf30c11565440ba5010622fd6711621cc803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9021b8c6_b7cf5990",
+        "filename": "test/e2e/emulation/media-query-inspector_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-27T06:31:45Z",
+      "side": 1,
+      "message": "readability nit:\n\n    await inspector.evaluate(element \u003d\u003e Boolean(element));",
+      "revId": "fd15bf30c11565440ba5010622fd6711621cc803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77b61a45_aed2393b",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-27T06:31:45Z",
+      "side": 1,
+      "message": "nit: avoid single-letter variable names\n\nmaybe e \u003d\u003e element?",
+      "range": {
+        "startLine": 15,
+        "startChar": 54,
+        "endLine": 15,
+        "endChar": 55
+      },
+      "revId": "fd15bf30c11565440ba5010622fd6711621cc803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
