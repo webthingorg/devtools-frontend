@@ -98,6 +98,30 @@
       "revId": "14b998955f38f47b8ec7e7a2274ed9c1eef311c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abbedd06_479c1c1d",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-27T05:19:54Z",
+      "side": 1,
+      "message": "Ah, I missed `_scriptsForUISourceCode()`, which probably explains the layout test failures.\n\nAfter more discussions yesterday, we probably will solve this problem differently.",
+      "parentUuid": "3ef3e6f7_a3239fde",
+      "range": {
+        "startLine": 300,
+        "startChar": 32,
+        "endLine": 300,
+        "endChar": 80
+      },
+      "revId": "14b998955f38f47b8ec7e7a2274ed9c1eef311c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
