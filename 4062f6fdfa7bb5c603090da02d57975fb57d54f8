@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "93486f3d_15aabcc2",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-27T08:34:12Z",
+      "side": 1,
+      "message": "I changed it in the follow-up CL (since comments were added in the follow up one; so marking this as resolved).",
+      "parentUuid": "1ebe3a59_6e75d264",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "4062f6fdfa7bb5c603090da02d57975fb57d54f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9d0c3eb_addfbf4c",
         "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-27T08:24:16Z",
       "side": 1,
       "message": "If this were extracted into a helper in sources-helpers.ts, it could be shared with the test in your follow-up cl.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 108
+      },
+      "revId": "4062f6fdfa7bb5c603090da02d57975fb57d54f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "316f9805_5179b240",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-27T08:34:12Z",
+      "side": 1,
+      "message": "I have extracted the helper function in the follow-up CL, since the comment was added there (so I won\u0027t make a change here). However, I\u0027d prefer to keep it local to these tests for now, and not to add it to sources-helpers.ts. I don\u0027t think it\u0027s so general that more tests outside of this one will make use of it. WDYT?",
+      "parentUuid": "f9d0c3eb_addfbf4c",
       "range": {
         "startLine": 21,
         "startChar": 4,
