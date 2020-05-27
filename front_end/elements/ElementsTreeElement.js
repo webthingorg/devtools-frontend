@@ -885,8 +885,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         autoHeight: false,
         padBottom: false
       });
-      this._editing =
-          {commit: commit.bind(this), cancel: dispose.bind(this), editor: editor, resize: resize.bind(this)};
+      this._editing = {
+        commit: commit.bind(this),
+        cancel: dispose.bind(this),
+        editor: editor,
+        resize: resize.bind(this),
+        checkBrokenEditingState: checkBrokenEditingState.bind(this)
+      };
       resize.call(this);
 
       editor.widget().show(
@@ -902,6 +907,15 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       editor.widget().element.addEventListener('keydown', keydown.bind(this), true);
 
       this.treeOutline.setMultilineEditing(this._editing);
+    }
+
+    /**
+     * This function is used to check if the node is in a broken editing state.
+     * We are in a broken editing state if the treeOutline is null but _editing is not undefined.
+     * @this {ElementsTreeElement}
+     */
+    function checkBrokenEditingState() {
+      return !(this._editing && this.treeOutline);
     }
 
     /**
