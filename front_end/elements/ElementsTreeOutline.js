@@ -902,7 +902,8 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
       // Select it and expand if necessary. We force tree update so that it processes dom events and is up to date.
       this.runPendingUpdates();
 
-      const newNode = parentNode ? parentNode.children()[index] || parentNode : null;
+      const parentNodeChildren = parentNode && parentNode.children();
+      const newNode = parentNode ? ((parentNodeChildren && index) ? parentNodeChildren[index] : parentNode) : null;
       if (!newNode) {
         return;
       }
