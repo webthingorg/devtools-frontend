@@ -22,6 +22,30 @@
       "revId": "d81fad6de55478544c9fca623fa01747d657686e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263bd9ea_b22ce136",
+        "filename": "front_end/browser_sdk/LogManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T14:25:35Z",
+      "side": 0,
+      "message": "OMG it turns out this breaks the behavior for `console.warn` issued by the browser. Sigh...",
+      "parentUuid": "cde9ce10_ab9bc64b",
+      "range": {
+        "startLine": 46,
+        "startChar": 59,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "d81fad6de55478544c9fca623fa01747d657686e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
