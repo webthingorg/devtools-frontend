@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "853c3ffb_272f8770",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-27T15:39:09Z",
+      "side": 1,
+      "message": "For all calls to waitForSomeRequests: please prefix the request ID with the parameter name in a comment, e.g.,\n\n    await waitForSomeRequests(/* requestId: */ 3, \u0027.last-modified-column\u0027);\n\nOtherwise, rename your function\n\n    await waitForRequestById(3, \u0027.last-modified-column\u0027);\n\nThe name \"wait for some requests\", passing in 3, suggests that you\u0027re waiting for 3 requests.",
+      "revId": "f12bfffc6dfc8617b0b6e7041d2e52fa57ccb86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8798898_e3904025",
+        "filename": "test/e2e/network/network_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-27T15:39:09Z",
+      "side": 1,
+      "message": "A thought: You can probably set \"Preserve log\" and navigate to \"about:blank\" to validate that requests persist as a low-hanging fruit within these tests.",
+      "revId": "f12bfffc6dfc8617b0b6e7041d2e52fa57ccb86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8c2b960_b1ccce18",
+        "filename": "test/e2e/resources/network/requests.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-27T15:39:09Z",
+      "side": 1,
+      "message": "Wow, this is taking me back to the 90s.\n\nIncidentally, does this actually actively load the image? I thought that the browser started optimizing these network requests out by observing that the image wasn\u0027t appended to the DOM.",
+      "revId": "f12bfffc6dfc8617b0b6e7041d2e52fa57ccb86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
