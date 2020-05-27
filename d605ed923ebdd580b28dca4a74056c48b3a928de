@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a13ada9_14ad339f",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-27T14:32:19Z",
+      "side": 1,
+      "message": "nit: do we need the empty object ?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 71,
+        "endLine": 1288,
+        "endChar": 77
+      },
+      "revId": "d605ed923ebdd580b28dca4a74056c48b3a928de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16e61ce2_cb9150f4",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-05-27T14:32:19Z",
+      "side": 1,
+      "message": "typo: Intance \u003d\u003e Instance",
+      "range": {
+        "startLine": 1933,
+        "startChar": 9,
+        "endLine": 1933,
+        "endChar": 33
+      },
+      "revId": "d605ed923ebdd580b28dca4a74056c48b3a928de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
