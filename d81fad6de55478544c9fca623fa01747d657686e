@@ -70,6 +70,30 @@
       "revId": "d81fad6de55478544c9fca623fa01747d657686e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfa523cc_b3c8d689",
+        "filename": "front_end/browser_sdk/LogManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T14:34:06Z",
+      "side": 0,
+      "message": "I was able to add the `|string` and make Closure happy. That\u0027s a win I guess...",
+      "parentUuid": "03e7b511_a1f8a5ab",
+      "range": {
+        "startLine": 46,
+        "startChar": 59,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "d81fad6de55478544c9fca623fa01747d657686e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -22,6 +22,30 @@
       "revId": "e5aaf043014a0da28912a25d8ae2679cc82783f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f24d62da_9d0a2b52",
+        "filename": "front_end/browser_sdk/LogManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-05-27T14:34:06Z",
+      "side": 1,
+      "message": "Previously the model would assign these `Symbol` values to a model to do a special lookup. This would allow you to free up the memory if the model is no longer used. However, these symbol values obviously don\u0027t exist on the type, so TS complains.\n\nThe construct that was introduced in the platform that implements this concept is `WeakMap`. E.g. we want to keep the listeners around while the model is in memory, but as soon as no further references exist we should free up the memory.",
+      "parentUuid": "39ac8874_95370712",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "e5aaf043014a0da28912a25d8ae2679cc82783f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
