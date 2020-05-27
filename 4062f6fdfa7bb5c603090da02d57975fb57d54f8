@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ebe3a59_6e75d264",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-27T08:24:16Z",
+      "side": 1,
+      "message": "This could also be RESUME_BUTTON",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "4062f6fdfa7bb5c603090da02d57975fb57d54f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9d0c3eb_addfbf4c",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-27T08:24:16Z",
+      "side": 1,
+      "message": "If this were extracted into a helper in sources-helpers.ts, it could be shared with the test in your follow-up cl.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 108
+      },
+      "revId": "4062f6fdfa7bb5c603090da02d57975fb57d54f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
