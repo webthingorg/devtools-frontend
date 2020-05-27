@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "524da537_e53ddf06",
+        "filename": "back_end/CXXDWARFSymbols/lib/APIImpl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-27T10:53:26Z",
+      "side": 1,
+      "message": "Optional: My preference is not to have a negated condition when you have an else -- #ifdef, switch the body with the #else body.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 38
+      },
+      "revId": "6798aa36eb30bfb17004682e96c6488914ef6f6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
