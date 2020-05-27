@@ -1,0 +1,6 @@
+import("../../../../third_party/typescript/typescript.gni")
+
+ts_library("helpers") {
+  testonly = true
+  sources = [ "helpers_test.ts" ]
+}
