@@ -16,6 +16,24 @@
       "revId": "8355052cad11d53f6d2d843d81133d8a1c77b0c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "414a12ef_d1c2343f",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-27T23:25:59Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e997f105_2d3b32b4",
+      "revId": "8355052cad11d53f6d2d843d81133d8a1c77b0c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

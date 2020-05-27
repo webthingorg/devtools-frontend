@@ -161,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "52914375_acae290a",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-27T23:25:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08d37090_301fc66d",
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d16159e7_419bc8fb",
         "filename": "front_end/third_party/i18n/i18n.js",
         "patchSetId": 4
@@ -220,6 +238,30 @@
       "side": 1,
       "message": "We don\u0027t run closure type checking on anything in front_end/third_party yet, so you would need to configure it. You can check if it\u0027s working by adding some clearly-wrong typing and running `npm run check-type-closure`.",
       "parentUuid": "3ac1e340_4a32c8a2",
+      "range": {
+        "startLine": 463,
+        "startChar": 11,
+        "endLine": 463,
+        "endChar": 20
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e23f8a5_05d03da4",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-27T23:25:59Z",
+      "side": 1,
+      "message": "Just ran \u0027npm run check-type-closure\u0027 and no errors output for this file even though the types are not available. Do we want to make type checking required for this third_party file?",
+      "parentUuid": "5fe9492a_841b3d1a",
       "range": {
         "startLine": 463,
         "startChar": 11,
@@ -300,6 +342,30 @@
       "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4876097e_46e9b207",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-27T23:25:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75935eca_f752b6c4",
+      "range": {
+        "startLine": 466,
+        "startChar": 9,
+        "endLine": 466,
+        "endChar": 28
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
