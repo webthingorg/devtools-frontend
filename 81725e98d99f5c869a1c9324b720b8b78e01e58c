@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "704bf9da_133e4568",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-05-27T16:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94ff6775_3f8b3f11",
+      "range": {
+        "startLine": 15,
+        "startChar": 18,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "81725e98d99f5c869a1c9324b720b8b78e01e58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cdc6884_1e03337e",
         "filename": "test/e2e/console/console-trim-long-traces_test.ts",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "36fdc1c1_7f75bbe5",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-05-27T16:36:36Z",
+      "side": 1,
+      "message": "multiline strings include the indentation of the code which makes it fail unexpectedly.",
+      "parentUuid": "5cdc6884_1e03337e",
+      "range": {
+        "startLine": 68,
+        "startChar": 10,
+        "endLine": 68,
+        "endChar": 38
+      },
+      "revId": "81725e98d99f5c869a1c9324b720b8b78e01e58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6abc80e6_8b4d87e6",
         "filename": "test/shared/helper.ts",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "81725e98d99f5c869a1c9324b720b8b78e01e58c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3af12fa0_63475515",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-05-27T16:36:36Z",
+      "side": 1,
+      "message": "press seems to only take one button at a time and not large blocks of text.",
+      "parentUuid": "6abc80e6_8b4d87e6",
+      "range": {
+        "startLine": 135,
+        "startChar": 26,
+        "endLine": 135,
+        "endChar": 39
+      },
+      "revId": "81725e98d99f5c869a1c9324b720b8b78e01e58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
