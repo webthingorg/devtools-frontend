@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e63e7f3_912f066c",
+        "filename": "front_end/object_ui/ObjectPopoverHelper.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-27T08:01:41Z",
+      "side": 1,
+      "message": "Can you just pass popover.positionContent? I\u0027m fine either way",
+      "range": {
+        "startLine": 130,
+        "startChar": 75,
+        "endLine": 132,
+        "endChar": 7
+      },
+      "revId": "df115f174e82eb73e763f5d06956c8f2663ba738",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169e6ce6_c837092e",
+        "filename": "front_end/ui/GlassPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-27T08:01:41Z",
+      "side": 1,
+      "message": "You could make this public instead? It\u0027s a bit weird to have a public just redirecting to a private.",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 18
+      },
+      "revId": "df115f174e82eb73e763f5d06956c8f2663ba738",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
