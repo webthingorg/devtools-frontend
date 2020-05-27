@@ -427,10 +427,14 @@ auto GetTempFile(llvm::StringRef model) {
 std::unique_ptr<llvm::MemoryBuffer> VariablePrinter::GenerateCode(
 
     llvm::Module* m) {
-  if (auto runtime_module = LoadRuntimeModule()) {
-    llvm::Linker module_linker(*m);
-    module_linker.linkInModule(std::move(runtime_module));
+  auto runtime_module = LoadRuntimeModule();
+  if (!runtime_module) {
+    llvm::errs() << "Failed to load the runtime library\n";
+    return {};
   }
+  llvm::Linker module_linker(*m);
+  module_linker.linkInModule(std::move(runtime_module));
+
   LLVM_DEBUG(m->dump());
 
   auto obj_file = GetTempFile("wasm_formatter-%%%%%%.o");

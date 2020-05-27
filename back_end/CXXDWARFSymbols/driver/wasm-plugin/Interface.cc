@@ -9,6 +9,7 @@
 #include <emscripten/bind.h>
 #include "Modules.h"
 #include "Util.h"
+#include "symbol-server-config.h"
 
 #include "Plugins/Language/CPlusPlus/CPlusPlusLanguage.h"  // IWYU pragma: keep
 #include "Plugins/ObjectFile/ELF/ObjectFileELF.h"          // IWYU pragma: keep
@@ -262,20 +263,22 @@ class DWARFSymbolsPlugin {
 #ifndef SYMBOL_SERVER_BUILD_FORMATTERS
     return MakeNoFormattersError();
 #else
-    const WasmModule* mod = cache_.FindModule(location.getrawmoduleid());
+    const WasmModule* mod = cache_.FindModule(location.GetRawModuleId());
     if (!mod) {
-      return MakeNotFoundError(location.getrawmoduleid());
+      return MakeNotFoundError(location.GetRawModuleId());
     }
 
     auto format_script = mod->GetVariableFormatScript(
-        name, location.getcodeoffset(), mc->Printer());
+        name, location.GetCodeOffset(), cache_.Printer());
     if (!format_script) {
-      return InternalError(format_script.takeError());
+      return MakeInternalError(format_script.takeError());
     }
 
-    response.set_allocated_value(new protocol::RawModule());
-    *response.mutable_value()->mutable_code() = *format_script;
-    return response;
+    api::RawModule result;
+    result.SetCode({reinterpret_cast<const uint8_t*>(format_script->data()),
+                    reinterpret_cast<const uint8_t*>(format_script->data()) +
+                        format_script->size()});
+    return result;
 #endif
   }
 
@@ -343,6 +346,7 @@ EMSCRIPTEN_BINDINGS(DWARFSymbolsPlugin) {
                 &symbol_server::api::Variable::SetType);
 
   emscripten::register_vector<std::string>("StringArray");
+  emscripten::register_vector<uint8_t>("Binary");
   emscripten::register_vector<symbol_server::api::Variable>("VariableArray");
   emscripten::register_vector<symbol_server::api::SourceLocation>(
       "SourceLocationArray");
