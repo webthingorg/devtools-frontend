@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a056f3f_b209c3b1",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-27T08:56:36Z",
+      "side": 1,
+      "message": "TempFile could probably be merged into the scoped object below.",
+      "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3bfdff4_f3938b40",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-27T08:56:36Z",
+      "side": 1,
+      "message": "This could also be a SmallString.",
+      "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52500c4f_0061a6c2",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-27T08:56:36Z",
+      "side": 1,
+      "message": "Could we set the DeleteDisposition at this point instead of deleting it manually?",
+      "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
