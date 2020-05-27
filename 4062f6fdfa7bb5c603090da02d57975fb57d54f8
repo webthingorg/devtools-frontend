@@ -93,6 +93,30 @@
       "revId": "4062f6fdfa7bb5c603090da02d57975fb57d54f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7566c676_4b966c7f",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-05-27T08:40:38Z",
+      "side": 1,
+      "message": "Oh, just saw that you mentioned it as optional. Ok, will push it as is (helper functions extracted, but local to file. If I happen to need it outside of the file in future tests, I\u0027ll move the helper functions to sources-helpers.ts).",
+      "parentUuid": "316f9805_5179b240",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 108
+      },
+      "revId": "4062f6fdfa7bb5c603090da02d57975fb57d54f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
