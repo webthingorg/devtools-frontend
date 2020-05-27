@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c072b451_002991a2",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-27T17:27:23Z",
+      "side": 1,
+      "message": "nit: Sources",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "12084e2acc4a93f5f685c733a26bce8d40e75f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5c28427_24d2f3bb",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-27T17:27:23Z",
+      "side": 1,
+      "message": "this should be a method in the helper file for search, navigateToSearch() or something along those lines.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 54
+      },
+      "revId": "12084e2acc4a93f5f685c733a26bce8d40e75f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "641b6131_17abc361",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-05-27T17:27:23Z",
+      "side": 1,
+      "message": "should you make sure the input element has focus?\nYou can extract this logic to a helper method as well. The intention is to keep the code inside it(\u0027...\u0027) as only calls to human readable methods.",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 43
+      },
+      "revId": "12084e2acc4a93f5f685c733a26bce8d40e75f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
