@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e5821470_4196b252",
+        "filename": "front_end/object_ui/ObjectPopoverHelper.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-27T09:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e63e7f3_912f066c",
+      "range": {
+        "startLine": 130,
+        "startChar": 75,
+        "endLine": 132,
+        "endChar": 7
+      },
+      "revId": "df115f174e82eb73e763f5d06956c8f2663ba738",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169e6ce6_c837092e",
         "filename": "front_end/ui/GlassPane.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "df115f174e82eb73e763f5d06956c8f2663ba738",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cba62e4e_39758f79",
+        "filename": "front_end/ui/GlassPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-05-27T09:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169e6ce6_c837092e",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 18
+      },
+      "revId": "df115f174e82eb73e763f5d06956c8f2663ba738",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
