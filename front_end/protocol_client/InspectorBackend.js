@@ -658,6 +658,20 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.EmulationApi}
+   */
+  emulationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.DeviceOrientationApi}
+   */
+  deviceOrientationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.DebuggerApi}
    */
   debuggerAgent() {
