@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f2239ef4_bd34aab4",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T09:39:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a93f664_126a6bb8",
+      "range": {
+        "startLine": 48,
+        "startChar": 10,
+        "endLine": 48,
+        "endChar": 30
+      },
+      "revId": "d4906654e3daa3095da262b5f800c6bda807be08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3db42dd6_fdf7a3af",
         "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "d4906654e3daa3095da262b5f800c6bda807be08",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90cfcb9d_7237850b",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T09:39:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3db42dd6_fdf7a3af",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 50
+      },
+      "revId": "d4906654e3daa3095da262b5f800c6bda807be08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
