@@ -6377,6 +6377,17 @@ declare namespace Protocol {
        * Security details for the request.
        */
       securityDetails?: SecurityDetails;
+
+      cacheStorageCacheName?: string;
+      responseTime?: number;
+      serviceWorkerResponseSource?: ServiceWorkerResponseSource;
+    }
+
+    export enum ServiceWorkerResponseSource {
+      CacheStorage = 'cache-storage',
+      HttpCache = 'http-cache',
+      FallbackCode = 'fallback-code',
+      Network = 'network'
     }
 
     /**
