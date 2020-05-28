@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "ebb8c927_18a274b2",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-05-28T20:50:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "377d5523_9e882888",
+      "range": {
+        "startLine": 293,
+        "startChar": 2,
+        "endLine": 293,
+        "endChar": 39
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08d37090_301fc66d",
         "filename": "front_end/third_party/i18n/i18n.js",
         "patchSetId": 4
