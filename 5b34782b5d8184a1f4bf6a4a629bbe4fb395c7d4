@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a71ac0f_2bb55700",
+        "filename": "front_end/har_importer/HARImporter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-28T23:27:16Z",
+      "side": 1,
+      "message": "Question: is this part of the change of updating the pdl?",
+      "range": {
+        "startLine": 241,
+        "startChar": 5,
+        "endLine": 242,
+        "endChar": 35
+      },
+      "revId": "5b34782b5d8184a1f4bf6a4a629bbe4fb395c7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
