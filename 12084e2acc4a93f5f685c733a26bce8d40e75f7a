@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4e1d62d4_7e1f809f",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T12:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c072b451_002991a2",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "12084e2acc4a93f5f685c733a26bce8d40e75f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5c28427_24d2f3bb",
         "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "200af971_8b4c06a1",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T12:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5c28427_24d2f3bb",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 54
+      },
+      "revId": "12084e2acc4a93f5f685c733a26bce8d40e75f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "641b6131_17abc361",
         "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "12084e2acc4a93f5f685c733a26bce8d40e75f7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5e69198_968ae1e3",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T12:42:00Z",
+      "side": 1,
+      "message": "You\u0027re right, I should have kept this test case as simple as possible and move stuff over to a helper.\nActually, while doing this, I realized I had entirely missed the fact that there is already a helper for search in test\\e2e\\helpers\\search-helpers.ts , so I spent time adding what I needed in there in order to simplify my new test a whole lot.\nDoing so, I also simplified another test that was using this helper: test\\e2e\\search\\search-scope_test.ts",
+      "parentUuid": "641b6131_17abc361",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 43
+      },
+      "revId": "12084e2acc4a93f5f685c733a26bce8d40e75f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
