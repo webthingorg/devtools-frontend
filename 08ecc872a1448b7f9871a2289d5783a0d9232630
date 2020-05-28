@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2e7d975_03cf2c4d",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-28T11:59:21Z",
+      "side": 1,
+      "message": "Since this is an async function, the return type should be `!Promise\u003c?DebuggerLanguagePlugin\u003e`",
+      "revId": "08ecc872a1448b7f9871a2289d5783a0d9232630",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f9af709_4d8f189e",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-28T11:59:21Z",
+      "side": 1,
+      "message": "same",
+      "revId": "08ecc872a1448b7f9871a2289d5783a0d9232630",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "130120b6_c3a9e698",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-28T11:59:21Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand why there are three functions that asynchronously get the plugin for a script?",
+      "revId": "08ecc872a1448b7f9871a2289d5783a0d9232630",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
