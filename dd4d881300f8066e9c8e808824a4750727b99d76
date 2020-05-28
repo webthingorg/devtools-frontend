@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1ac253b_ba9a5b4a",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-28T01:51:34Z",
+      "side": 0,
+      "message": "What about just guarding the call to dispatchEvenToListeners with a null check on this.treeoutline? There is similar pattern elsewhere in this file and it will be a strict improvement over the status quo. Unless, of course, we know how the focus() call unbinds the treeoutline and we know in that case we still want to dispatch the event (the wording in the description sounds that we are not sure?)",
+      "range": {
+        "startLine": 1267,
+        "startChar": 3,
+        "endLine": 1269,
+        "endChar": 76
+      },
+      "revId": "dd4d881300f8066e9c8e808824a4750727b99d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b04b6f52_dbc258e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-05-28T01:51:34Z",
+      "side": 1,
+      "message": "If this is the source of problem, maybe we can expand this point a bit, with an explanation. As is, it requires some context for people to justify that this is the fix.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 139
+      },
+      "revId": "34c6cfb1c78a35d9e53c187ccd7a714a26bd52e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
