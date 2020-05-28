@@ -51,6 +51,9 @@
   <message name="IDS_DEVTOOLS_100b560e280fea6e7d5ab12179d3f0e2" desc="Tooltip to explain what malformed response cookies are">
     Cookies that were received from the server in the &apos;set-cookie&apos; header of the response but were malformed
   </message>
+  <message name="IDS_DEVTOOLS_c41dbc1d5527efaf9d9e60991ecf4e0f" desc="Fetch event execution time">
+    Fetch event execution time: <ph name="THIS__REQUEST_FETCHEVENTCOMPLETIONTIME___TIMING_WORKERFETCHSTART">$1s<ex>29.8809999037534</ex></ph> ms
+  </message>
   <message name="IDS_DEVTOOLS_117068a6e55846888cbb60978fe82ca2" desc="Text in Request Timing View of the Network panel">
     Stalled
   </message>
@@ -212,6 +215,9 @@
   </message>
   <message name="IDS_DEVTOOLS_3e0dc7bd31f5ad41b900fef5b7aba791" desc="Title of a setting under the Network category that can be invoked through the Command Menu">
     Don&apos;t group network log items by frame
+  </message>
+  <message name="IDS_DEVTOOLS_3e150c8e936066f2c4e47dad7a07c9d1" desc="Description for treeitem in ServiceWorker Fetch Details">
+    Original Request
   </message>
   <message name="IDS_DEVTOOLS_3ebfafd757759c5e0081920b36450c58" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Firefox — Android Mobile</ph>
@@ -378,6 +384,9 @@
   <message name="IDS_DEVTOOLS_6b41d86d21d49c95f5b106fb2ed95762" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Internet Explorer 10</ph>
   </message>
+  <message name="IDS_DEVTOOLS_5d0fc8284dca5a87af1d80b6715da9cf" desc="Displays how a particular response was fetched">
+    Source of response: <ph name="THIS__REQUEST_RESPONSESOURCE__">$1s<ex>Network fetch</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_6c2a1bf87fb84c91fc7e1120f4e3d0c7" desc="Text in Request Timing View of the Network panel">
     Content Download
   </message>
@@ -413,6 +422,9 @@
   </message>
   <message name="IDS_DEVTOOLS_09df2cca9837c4a7b58817a8e959577a" desc="Text in Request Timing View of the Network panel">
     ServiceWorker respondWith
+  </message>
+  <message name="IDS_DEVTOOLS_bb9fd331bd610fd877425ceff23708a7" desc="Time at which a response was retrieved">
+    Retrieval Time: <ph name="THIS__REQUEST_RESPONSERETRIEVALTIME">$1s<ex>Fri Apr 10 2020 17:20:27 GMT-0700 (Pacific Daylight Time)</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_b23be8e9d2dc9b79c70ec2acd3f174d3" desc="Label for the Server Timing API">
     the Server Timing API
@@ -488,6 +500,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e48c00bc05b642164b5520137b66d011" desc="Text in Network Log View of the Network panel">
     Copy all as Node.js fetch
+  </message>
+  <message name="IDS_DEVTOOLS_f0c5b7ae2d085f65b7b003d43a7d7521" desc="Name of storage cache from which a response was fetched">
+    Cache storage cache name: <ph name="THIS__REQUEST_RESPONSECACHESTORAGECACHENAME">$1s<ex>v1</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_f59329e45eb11a75d709aeb5b9b8943e" desc="Tooltip for expanding network request row setting">
     Show more information in request rows
@@ -1013,6 +1028,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f750833a940ae1ba3cd75b86d520fda3" desc="From cache format in Network Time Calculator of the Network panel">
     <ph name="PH1">$1s<ex>20ms latency</ex></ph> (from cache)
+  </message>
+  <message name="IDS_DEVTOOLS_f7aa0779f4d8e843b2877afa34d559e0" desc="Description for treeitem in ServiceWorker Fetch Details">
+    Response Received
   </message>
   <message name="IDS_DEVTOOLS_f9069c6541beaac49cce4b2542069f02" desc="Text in Request Headers View of the Network panel">
     Referrer Policy
