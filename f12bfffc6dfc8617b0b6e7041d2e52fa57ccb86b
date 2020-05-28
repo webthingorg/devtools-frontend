@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "09d962ec_bb19b2c4",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T08:07:38Z",
+      "side": 1,
+      "message": "`waitForSomeRequests(3)` indeed means waiting for 3 requests to appear in the list. But I guess the parameter name in the function signature (`requestNumber`) is making things quite confusing. I\u0027ll update the namings here and there to make sure it\u0027s clearer.",
+      "parentUuid": "853c3ffb_272f8770",
+      "revId": "f12bfffc6dfc8617b0b6e7041d2e52fa57ccb86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8798898_e3904025",
         "filename": "test/e2e/network/network_test.ts",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0246a74e_44379c32",
+        "filename": "test/e2e/network/network_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T08:07:38Z",
+      "side": 1,
+      "message": "I\u0027ll definitely try. That said, I saw that a couple tryjobs failed with timeouts on this test, so I don\u0027t want to make it even longer. I\u0027ll check and report back.",
+      "parentUuid": "b8798898_e3904025",
+      "revId": "f12bfffc6dfc8617b0b6e7041d2e52fa57ccb86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8c2b960_b1ccce18",
         "filename": "test/e2e/resources/network/requests.html",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "f12bfffc6dfc8617b0b6e7041d2e52fa57ccb86b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66075160_0d52e711",
+        "filename": "test/e2e/resources/network/requests.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-05-28T08:07:38Z",
+      "side": 1,
+      "message": "Yes this does work, but I see what you\u0027re saying. To be on the safe side, I\u0027ll append these to the DOM, or maybe use `fetch` or something else, to make sure this doesn\u0027t regress if these image don\u0027t load anymore in the future.",
+      "parentUuid": "c8c2b960_b1ccce18",
+      "revId": "f12bfffc6dfc8617b0b6e7041d2e52fa57ccb86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
