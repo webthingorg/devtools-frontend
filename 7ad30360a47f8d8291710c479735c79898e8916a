@@ -16,6 +16,24 @@
       "revId": "7ad30360a47f8d8291710c479735c79898e8916a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a547411_2de31201",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-05-28T23:45:26Z",
+      "side": 1,
+      "message": "The call stack, scope, and breakpoints panes appear expanded but have the wrong icon. You can get into this state by collapsing the panes, leaving the sources panel, and then coming back to sources. The panes should stay closed but instead display their widgets",
+      "parentUuid": "55763d4a_fee747f4",
+      "revId": "7ad30360a47f8d8291710c479735c79898e8916a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
