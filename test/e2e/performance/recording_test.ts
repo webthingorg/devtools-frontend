@@ -5,13 +5,12 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {getBrowserAndPages} from '../../shared/helper.js';
-import {getTotalTimeFromSummary, navigateToPerformanceTab, startRecording, stopRecording} from '../helpers/performance-helpers.js';
+import {getTotalTimeFromSummary, navigateToPerformanceTab, openTestPage, startRecording, stopRecording} from '../helpers/performance-helpers.js';
 
 describe('The Performance panel', () => {
   it('can start and stop a new recording', async () => {
-    const {target} = getBrowserAndPages();
-    await navigateToPerformanceTab(target, 'empty');
+    await openTestPage('empty');
+    await navigateToPerformanceTab();
 
     await startRecording();
     await stopRecording();
