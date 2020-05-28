@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 // REQUIRES: formatters
-// RUN: %p/Inputs/lsp-encode %p/Inputs/parameters.json \
+// RUN: python %p/Inputs/lsp-encode %p/Inputs/parameters.json \
 // RUN: | %symbol-server 2>/dev/null \
 // RUN: | FileCheck %s
 

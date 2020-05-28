@@ -9,6 +9,11 @@ include_directories(
   ${LLD_INCLUDE_DIRS}
   )
 
+set(ADDITIONAL_LIBS)
+if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+  list(APPEND ADDITIONAL_LIBS $ENV{VSINSTALLDIR}VC\\Tools\\MSVC\\$ENV{VCToolsVersion}\\lib\\onecore\\$ENV{VSCMD_ARG_TGT_ARCH}\\diaguids.lib)
+endif()
+
 set(SYMBOL_SERVER_TEST_INPUTS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Inputs)
 configure_file(symbol-server-test-config.h.in
                ${CMAKE_CURRENT_BINARY_DIR}/symbol-server-test-config.h @ONLY)
@@ -41,6 +46,7 @@ add_llvm_unittest(SymbolServerTests
 target_link_libraries(SymbolServerTests
   PRIVATE
   DWARFSymbols
+  ${ADDITIONAL_LIBS}
   )
 
 include_what_you_use(SymbolServerTests)

@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 // REQUIRES: formatters
-// RUN: %p/Inputs/lsp-encode %p/Inputs/formatArray.json \
+// RUN: python %p/Inputs/lsp-encode %p/Inputs/formatArray.json \
 // RUN: | %symbol-server 2>/dev/null | node %s | FileCheck %s
 
 // CHECK-NOT: Didn't consume
