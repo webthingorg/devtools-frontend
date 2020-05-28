@@ -16,6 +16,24 @@
       "revId": "a65605a7d3fefa90df46d4e84398a85124196251",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6768bc7_cff6b7a5",
+        "filename": "front_end/sdk/Script.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-28T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24b99b35_65be325d",
+      "revId": "a65605a7d3fefa90df46d4e84398a85124196251",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
