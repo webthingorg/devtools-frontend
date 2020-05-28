@@ -213,7 +213,7 @@ export class DebuggerLanguagePluginManager {
 
     // @type {!Map<!Workspace.UISourceCode.UISourceCode, !Array<[string, !SDK.Script.Script]>>}
     this._uiSourceCodes = new Map();
-    // @type {!Map<string, !DebuggerLanguagePlugin>}
+    // @type {!Map<string, !Promise<?DebuggerLanguagePlugin>>}
     this._pluginForScriptId = new Map();
 
     const target = this._debuggerModel.target();
@@ -244,30 +244,47 @@ export class DebuggerLanguagePluginManager {
 
   /**
    * @param {!SDK.Script.Script} script
-   * @return {boolean}
+   * @return {?DebuggerLanguagePlugin}
    */
-  hasPluginForScript(script) {
-    return this._pluginForScriptId.has(script.scriptId);
+  async _getPendingPluginForScript(script) {
+    if (this._pluginForScriptId.has(script.scriptId)) {
+      return await this._pluginForScriptId.get(script.scriptId);
+    }
+
+    return null;
   }
 
   /**
    * @param {!SDK.Script.Script} script
    * @return {?DebuggerLanguagePlugin}
    */
-  _getPluginForScript(script) {
-    const plugin = this._pluginForScriptId.get(script.scriptId);
-    if (plugin) {
-      return plugin;
-    }
-
+  async _findPlugin(script) {
     for (const plugin of this._plugins) {
       if (plugin.handleScript(script)) {
-        this._pluginForScriptId.set(script.scriptId, plugin);
         return plugin;
       }
     }
 
     return null;
+  }
+
+  /**
+   * @param {!SDK.Script.Script} script
+   * @return {?DebuggerLanguagePlugin}
+   */
+  async _getPluginForScript(script) {
+    if (this._pluginForScriptId.has(script.scriptid)) {
+      return await this._pluginForScriptId.get(script.scriptId);
+    }
+
+    const pluginPromise = this._findPlugin(script);
+    this._pluginForScriptId.set(script.scriptId, pluginPromise);
+    return await pluginPromise.then(plugin => {
+      if (!plugin) {
+        this._pluginForScriptId.delete(script.scriptId);
+      }
+      return plugin;
+    });
   }
 
   /**
@@ -279,7 +296,7 @@ export class DebuggerLanguagePluginManager {
     if (!script) {
       return null;
     }
-    const plugin = this._pluginForScriptId.get(script.scriptId);
+    const plugin = await this._getPendingPluginForScript(script);
     if (!plugin) {
       return null;
     }
@@ -325,7 +342,7 @@ export class DebuggerLanguagePluginManager {
 
     const locationPromises = [];
     for (const [sourceFile, script] of mappedSourceFiles) {
-      const plugin = this._pluginForScriptId.get(script.scriptId);
+      const plugin = await this._getPendingPluginForScript(script);
       if (plugin) {
         locationPromises.push(getLocations(this._debuggerModel, plugin, sourceFile, script));
       }
@@ -373,7 +390,7 @@ export class DebuggerLanguagePluginManager {
    * @return {!Promise<?Array<string>>}
    */
   async _getSourceFiles(script) {
-    const plugin = this._pluginForScriptId.get(script.scriptId);
+    const plugin = await this._getPendingPluginForScript(script);
     if (plugin) {
       const rawModule = await this._getRawModule(script);
       if (!rawModule) {
@@ -525,7 +542,7 @@ export class DebuggerLanguagePluginManager {
     }
     const script = callFrame.script;
     /** @type {?DebuggerLanguagePlugin} */
-    const plugin = this._pluginForScriptId.get(script.scriptId);
+    const plugin = await this._getPendingPluginForScript(script);
     if (!plugin) {
       return null;
     }
