@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55763d4a_fee747f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-28T22:23:06Z",
+      "side": 1,
+      "message": "I\u0027m sorry, maybe I\u0027m daft but I don\u0027t understand what\u0027s wrong looking at this screenshot.",
+      "revId": "7ad30360a47f8d8291710c479735c79898e8916a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
