@@ -274,6 +274,30 @@
     },
     {
       "key": {
+        "uuid": "529eb77c_17b6ee54",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-05-28T12:07:15Z",
+      "side": 1,
+      "message": "I think it\u0027s a good idea to type check this specific third_party file given it\u0027s only in third_party for licence reasons and we actually control the source. Also given the number of local modifications I think it\u0027s good to have the extra safety of the type checking to catch any bugs early.\n\nThat said we don\u0027t need to block on it for this CL, we can think about it later once it\u0027s up and running.",
+      "parentUuid": "2e23f8a5_05d03da4",
+      "range": {
+        "startLine": 463,
+        "startChar": 11,
+        "endLine": 463,
+        "endChar": 20
+      },
+      "revId": "b31990197e3cfe9859185facb6e37391ec8dd9c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3620743_df980537",
         "filename": "front_end/third_party/i18n/i18n.js",
         "patchSetId": 4
