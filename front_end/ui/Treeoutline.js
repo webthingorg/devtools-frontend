@@ -1266,7 +1266,9 @@ export class TreeElement {
 
     this._listItemNode.classList.add('selected');
     ARIAUtils.setSelected(this._listItemNode, true);
-    this.treeOutline.dispatchEventToListeners(Events.ElementSelected, this);
+    if (this.treeOutline) {
+      this.treeOutline.dispatchEventToListeners(Events.ElementSelected, this);
+    }
     if (lastSelected) {
       lastSelected.deselect();
     }
