@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f405249d_52a60296",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-28T16:13:39Z",
+      "side": 1,
+      "message": "Optional: May be worth renaming to _pluginPromiseForScriptId.",
+      "range": {
+        "startLine": 217,
+        "startChar": 9,
+        "endLine": 217,
+        "endChar": 27
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09809bf1_70e2403b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-28T16:13:39Z",
+      "side": 1,
+      "message": "Optional nit: It is more standard to end function names with \"Async\" than to start them with \"await\".",
+      "range": {
+        "startLine": 249,
+        "startChar": 8,
+        "endLine": 249,
+        "endChar": 29
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dee0941_552931f4",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-28T16:13:39Z",
+      "side": 1,
+      "message": "Let\u0027s not mix .then() and await.\n\nconst plugin \u003d await pluginPromise;\nif (!plugin) {\n...",
+      "range": {
+        "startLine": 282,
+        "startChar": 11,
+        "endLine": 282,
+        "endChar": 36
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
