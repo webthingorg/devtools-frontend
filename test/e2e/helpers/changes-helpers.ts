@@ -4,19 +4,15 @@
 
 import {$, $$, getBrowserAndPages, resourcesPath, waitFor, waitForFunction} from '../../shared/helper.js';
 
-import {openCommandMenu} from '../helpers/quick_open-helpers.js';
+import {openCommandMenuAndType} from '../helpers/quick_open-helpers.js';
 
 const PANEL_ROOT_SELECTOR = 'div[aria-label="Changes panel"]';
 
 export async function openChangesPanelAndNavigateTo(testName: string) {
-  const {target, frontend} = getBrowserAndPages();
+  const {target} = getBrowserAndPages();
 
   await target.goto(`${resourcesPath}/changes/${testName}.html`);
-
-  await openCommandMenu();
-  await frontend.keyboard.type('changes');
-  await frontend.keyboard.press('Enter');
-
+  await openCommandMenuAndType('changes');
   await waitFor(PANEL_ROOT_SELECTOR);
 }
 

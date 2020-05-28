@@ -40,6 +40,14 @@ export const openCommandMenu = async () => {
   await waitFor(QUICK_OPEN_SELECTOR);
 };
 
+export const openCommandMenuAndType = async (searchQuery: string) => {
+  const {frontend} = getBrowserAndPages();
+
+  await openCommandMenu();
+  await frontend.keyboard.type(searchQuery);
+  await frontend.keyboard.press('Enter');
+};
+
 export const showSnippetsAutocompletion = async () => {
   const {frontend} = getBrowserAndPages();
 
