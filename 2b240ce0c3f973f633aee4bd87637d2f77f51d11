@@ -46,6 +46,30 @@
       "revId": "2b240ce0c3f973f633aee4bd87637d2f77f51d11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1af747c_f57e7cbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1109754
+      },
+      "writtenOn": "2020-05-28T02:11:47Z",
+      "side": 1,
+      "message": "Any data on the decompressing time increase for these resources?",
+      "parentUuid": "6e0cc147_abe4f105",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "2b240ce0c3f973f633aee4bd87637d2f77f51d11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
