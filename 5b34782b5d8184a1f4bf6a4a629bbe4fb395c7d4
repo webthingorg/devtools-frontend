@@ -22,6 +22,30 @@
       "revId": "5b34782b5d8184a1f4bf6a4a629bbe4fb395c7d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9265f1ca_25c8b68c",
+        "filename": "front_end/har_importer/HARImporter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1334577
+      },
+      "writtenOn": "2020-05-28T23:36:29Z",
+      "side": 1,
+      "message": "So, this is a side effect of updating the pdl. The timing object was updated in browser_protocol.pdl file, and without this, I was getting a type error because assignment in line 251 was failing.",
+      "parentUuid": "9a71ac0f_2bb55700",
+      "range": {
+        "startLine": 241,
+        "startChar": 5,
+        "endLine": 242,
+        "endChar": 35
+      },
+      "revId": "5b34782b5d8184a1f4bf6a4a629bbe4fb395c7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
