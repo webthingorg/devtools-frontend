@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "af9bc7e0_070ce90a",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-05-28T08:44:36Z",
+      "side": 1,
+      "message": "I would like to keep TempFile separated, so that it can be easily replaced with the LLVM llvm::sys::fs::TempFile on non-Windows builds.",
+      "parentUuid": "6a056f3f_b209c3b1",
+      "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3bfdff4_f3938b40",
         "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "42158e1a_6ebf1e58",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-05-28T08:44:36Z",
+      "side": 1,
+      "message": "There is a public \"std::string TmpName\" data member in llvm::sys::fs::TempFile, so I\u0027d have the same data member in TempFileWin.",
+      "parentUuid": "e3bfdff4_f3938b40",
+      "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52500c4f_0061a6c2",
         "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2020-05-27T08:56:36Z",
       "side": 1,
       "message": "Could we set the DeleteDisposition at this point instead of deleting it manually?",
+      "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c549fd8a_fdc69f2b",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-05-28T08:44:36Z",
+      "side": 1,
+      "message": "Cannot call the existing setDeleteDisposition() function declared in llvm\\llvm\\lib\\Support\\Windows\\Path.inc because I cannot include that file.\n\nI could duplicate the code here, it\u0027s the small function below, but the semantics of SetFileInformationByHandle(... FileDispositionInfo) is so convoluted on Windows that I think it\u0027s clearer to directly call DeleteFile. But this can change if you so prefer.\n\n\nstatic std::error_code setDeleteDisposition(HANDLE Handle, bool Delete) {\n  FILE_DISPOSITION_INFO Disposition;\n  Disposition.DeleteFile \u003d Delete;\n  if (!SetFileInformationByHandle(Handle, FileDispositionInfo, \u0026Disposition,\n                                  sizeof(Disposition)))\n    return mapWindowsError(::GetLastError());\n  return std::error_code();\n}",
+      "parentUuid": "52500c4f_0061a6c2",
       "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
