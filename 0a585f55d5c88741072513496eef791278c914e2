@@ -22,6 +22,30 @@
       "revId": "0a585f55d5c88741072513496eef791278c914e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d0fb582_012b1e61",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-05-29T11:12:05Z",
+      "side": 1,
+      "message": "Agreed. I am reluctant to clean up DOMExtension.js. I\u0027d rather focus on porting things to custom elements, solving the problem as a drive-by.",
+      "parentUuid": "6950156f_fe689522",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 17
+      },
+      "revId": "0a585f55d5c88741072513496eef791278c914e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
