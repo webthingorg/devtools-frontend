@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c5a9a8fa_9ceacadb",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-05-29T16:49:15Z",
+      "side": 1,
+      "message": "Nit: I think it still might be worth it to also call if we are in responsive mode for consistency/safety: since we call for both responsive and device modes in the calculate function, could be good to do the same here. Not a blocker though if you are confident it isn\u0027t needed",
+      "parentUuid": "425f50a6_968d43d2",
+      "range": {
+        "startLine": 448,
+        "startChar": 7,
+        "endLine": 448,
+        "endChar": 37
+      },
+      "revId": "45eea933336843a9328484f1fe093d0321857094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da923f3d_904ff567",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 2
