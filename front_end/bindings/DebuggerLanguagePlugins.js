@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Extensions from '../extensions/extensions.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -195,6 +196,53 @@ class SourceScope {
   }
 }
 
+class DebuggerLanguagePluginExtension {
+  constructor(pluginId) {
+    console.error(`new plugin extension: ${pluginId}`);
+    this._pluginId = pluginId;
+    this._requestId = 0;
+  }
+
+  _nextRequestId() {
+    return this._requestId++;
+  }
+
+  async handleScript(scriptId, isWasm, sourceURL, sourceMapURL, debugSymbols) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'handleScript',
+        {scriptId, isWasm, sourceURL, sourceMapURL, debugSymbols});
+  }
+
+  async addRawModule(rawModuleId, symbolsURL, rawModule) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'addRawModule', {rawModuleId, symbolsURL, rawModule});
+  }
+
+  async sourceLocationToRawLocation(sourceLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'sourceLocationToRawLocation', {sourceLocation});
+  }
+
+  async rawLocationToSourceLocation(rawLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'rawLocationToSourceLocation', {rawLocation});
+  }
+
+  async listVariablesInScope(rawLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'listVariablesInScope', {rawLocation});
+  }
+
+  async evaluateVariable(name, location) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'evaluateVariable', {name, location});
+  }
+
+  async getRepresentation(value) {
+    return value;
+  }
+}
+
 /**
  * @unrestricted
  */
@@ -210,6 +258,9 @@ export class DebuggerLanguagePluginManager {
     this._debuggerWorkspaceBinding = debuggerWorkspaceBinding;
     /** @type {!Array<!DebuggerLanguagePlugin>} */
     this._plugins = [];
+    for (const pluginId of self.Extensions.extensionServer.languagePluginExtensions) {
+      this._plugins.push(new DebuggerLanguagePluginExtension(pluginId));
+    }
 
     // @type {!Map<!Workspace.UISourceCode.UISourceCode, !Array<[string, !SDK.Script.Script]>>}
     this._uiSourceCodes = new Map();
@@ -222,12 +273,15 @@ export class DebuggerLanguagePluginManager {
         false /* isServiceProject */);
     Bindings.NetworkProject.setTargetForProject(this._project, target);
 
+
     const runtimeModel = debuggerModel.runtimeModel();
     this._eventHandlers = [
       this._debuggerModel.addEventListener(
           SDK.DebuggerModel.Events.ParsedScriptSource, this._newScriptSourceListener, this),
       runtimeModel.addEventListener(
-          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this)
+          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this),
+      self.Extensions.extensionServer.addEventListener(
+          Extensions.ExtensionServer.Events.LanguagePluginExtensionAdded, this._languagePluginExtensionAdded, this)
     ];
   }
 
@@ -242,6 +296,10 @@ export class DebuggerLanguagePluginManager {
     this._plugins.push(plugin);
   }
 
+  _languagePluginExtensionAdded(event) {
+    this.addPlugin(new DebuggerLanguagePluginExtension(event.data));
+  }
+
   /**
    * @param {!SDK.Script.Script} script
    * @return {boolean}
@@ -254,14 +312,15 @@ export class DebuggerLanguagePluginManager {
    * @param {!SDK.Script.Script} script
    * @return {?DebuggerLanguagePlugin}
    */
-  _getPluginForScript(script) {
+  async _getPluginForScript(script) {
     const plugin = this._pluginForScriptId.get(script.scriptId);
     if (plugin) {
       return plugin;
     }
 
     for (const plugin of this._plugins) {
-      if (plugin.handleScript(script)) {
+      if (await plugin.handleScript(
+              script.scriptId, script.isWasm(), script.sourceURL, script.sourceMapURL, script.debugSymbols)) {
         this._pluginForScriptId.set(script.scriptId, plugin);
         return plugin;
       }
@@ -290,6 +349,8 @@ export class DebuggerLanguagePluginManager {
       // section, so subtract the offset of the code section in the module here.
       codeOffset: rawLocation.columnNumber - script.codeOffset()
     };
+    // console.error(`RawLocation: (${rawLocation.lineNumber}, ${rawLocation.columnNumber}), Code offset: ${
+    //    script.codeOffset()} => ${JSON.stringify(pluginLocation)}`);
     const sourceLocations = await plugin.rawLocationToSourceLocation(pluginLocation);
 
     if (!sourceLocations || sourceLocations.length === 0) {
@@ -367,18 +428,17 @@ export class DebuggerLanguagePluginManager {
     return null;
   }
 
-
   /**
    * @param {!SDK.Script.Script} script
    * @return {!Promise<?Array<string>>}
    */
   async _getSourceFiles(script) {
+    const rawModule = await this._getRawModule(script);
+    if (!rawModule) {
+      return null;
+    }
     const plugin = this._pluginForScriptId.get(script.scriptId);
     if (plugin) {
-      const rawModule = await this._getRawModule(script);
-      if (!rawModule) {
-        return null;
-      }
       const sourceFiles = await plugin.addRawModule(script.scriptId, script.sourceMapURL || '', rawModule);
       return sourceFiles;
     }
@@ -468,7 +528,7 @@ export class DebuggerLanguagePluginManager {
    * @param {!SDK.Script.Script} script
    */
   async _newScriptSource(script) {
-    if (!this._getPluginForScript(script)) {
+    if (!await this._getPluginForScript(script)) {
       return;
     }
 
@@ -611,9 +671,9 @@ export let VariableValue;
 export class DebuggerLanguagePlugin {
   /**
    * @param {!SDK.Script.Script} script
-   * @return {boolean} True if this plugin should handle this script
+   * @return {!Promise<boolean>} True if this plugin should handle this script
    */
-  handleScript(script) {
+  async handleScript(scriptId, isWasm, sourceURL, sourceMapURL, debugSymbols) {
   }
 
   dispose() {
