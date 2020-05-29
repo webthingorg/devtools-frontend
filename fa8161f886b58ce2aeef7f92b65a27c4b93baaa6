@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03d26b62_0f4e03cd",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 6
+      },
+      "lineNbr": 5184,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-29T16:26:26Z",
+      "side": 1,
+      "message": "Why is this added here? Isn\u0027t your change about service workers?",
+      "revId": "fa8161f886b58ce2aeef7f92b65a27c4b93baaa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
