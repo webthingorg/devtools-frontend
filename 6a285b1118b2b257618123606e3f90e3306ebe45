@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e943aa7b_c6bc420b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-29T12:35:22Z",
+      "side": 1,
+      "message": "Renamed!",
+      "parentUuid": "ffe00a32_e62cd4e4",
+      "range": {
+        "startLine": 249,
+        "startChar": 8,
+        "endLine": 249,
+        "endChar": 29
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d62b37_3e98cfd1",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 2
