@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5968dfbc_cdb29992",
+        "filename": "test/e2e/layers/layers_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-05-29T06:05:59Z",
+      "side": 1,
+      "message": "nit: let\u0027s remove the [crbug] reference now that the test is re-enabled (it\u0027s about the test crashing, not about the behavior being tested)",
+      "revId": "31387b631398cd4c4ce300ac91503c92b10efe29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
