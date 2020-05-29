@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ffe00a32_e62cd4e4",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-29T12:13:00Z",
+      "side": 1,
+      "message": "_waitForPluginForScript would be an excellent name. Not an especially strong preference since this isn\u0027t part of the class\u0027s public API.",
+      "parentUuid": "48c899b7_3eec5331",
+      "range": {
+        "startLine": 249,
+        "startChar": 8,
+        "endLine": 249,
+        "endChar": 29
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d62b37_3e98cfd1",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 2
@@ -116,6 +140,30 @@
       "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe80d161_98fde404",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-05-29T12:13:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "64f1293b_84fc0f91",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 29
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
