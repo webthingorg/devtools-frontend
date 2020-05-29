@@ -19,6 +19,7 @@ module.exports = {
 
     return P;
   },
+
   parseInput: function*(input) {
     while (input.length > 0) {
       const {content_length, remaining} = getContentLength(input);
@@ -90,6 +91,12 @@ module.exports = {
           console.log(i + ': 0x' + wasm_memory[i].toString(16));
       }
     }
+  },
+
+  getWasmPlugin: async function() {
+    const Plugin = require('DWARFSymbolsPlugin');
+    await Plugin.runtimeInitializedPromise;
+    return Plugin;
   }
 };
 

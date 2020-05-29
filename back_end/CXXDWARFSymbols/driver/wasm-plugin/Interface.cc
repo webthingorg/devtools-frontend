@@ -9,6 +9,7 @@
 #include <emscripten/bind.h>
 #include "Modules.h"
 #include "Util.h"
+#include "symbol-server-config.h"
 
 #include "Plugins/Language/CPlusPlus/CPlusPlusLanguage.h"  // IWYU pragma: keep
 #include "Plugins/ObjectFile/ELF/ObjectFileELF.h"          // IWYU pragma: keep
@@ -17,6 +18,7 @@
 #include "Plugins/SymbolVendor/wasm/SymbolVendorWasm.h"    // IWYU pragma: keep
 #include "lldb/Host/FileSystem.h"                          // IWYU pragma: keep
 #include "llvm/ADT/StringRef.h"
+#include "llvm/Support/Base64.h"
 #include "llvm/Support/CommandLine.h"
 #include "llvm/Support/raw_ostream.h"
 
@@ -48,14 +50,14 @@ class Error {
 
 class RawModule {
   std::string url_;  // The origin url for the raw module, if it exists
-  std::vector<uint8_t>
+  std::string
       code_;  // The source or bytecode defining the JS script or wasm module
 
  public:
   std::string GetUrl() const { return url_; }
   void SetUrl(std::string value) { url_ = std::move(value); }
-  std::vector<uint8_t> GetCode() const { return code_; }
-  void SetCode(std::vector<uint8_t> value) { code_ = std::move(value); }
+  std::string GetCode() const { return code_; }
+  void SetCode(std::string value) { code_ = std::move(value); }
 };
 
 // Offsets in raw modules
@@ -262,20 +264,21 @@ class DWARFSymbolsPlugin {
 #ifndef SYMBOL_SERVER_BUILD_FORMATTERS
     return MakeNoFormattersError();
 #else
-    const WasmModule* mod = cache_.FindModule(location.getrawmoduleid());
+    const WasmModule* mod = cache_.FindModule(location.GetRawModuleId());
     if (!mod) {
-      return MakeNotFoundError(location.getrawmoduleid());
+      return MakeNotFoundError(location.GetRawModuleId());
     }
 
     auto format_script = mod->GetVariableFormatScript(
-        name, location.getcodeoffset(), mc->Printer());
+        name, location.GetCodeOffset(), cache_.Printer());
     if (!format_script) {
-      return InternalError(format_script.takeError());
+      return MakeInternalError(format_script.takeError());
     }
 
-    response.set_allocated_value(new protocol::RawModule());
-    *response.mutable_value()->mutable_code() = *format_script;
-    return response;
+    api::RawModule result;
+    result.SetCode(llvm::encodeBase64((*format_script)->getBuffer()));
+    llvm::errs() << "Got " << result.GetCode().size() << "B format script\n";
+    return result;
 #endif
   }
 
@@ -284,7 +287,7 @@ class DWARFSymbolsPlugin {
  private:
   symbol_server::ModuleCache cache_;
   DefaultPluginsContext& context_;
-};  // namespace symbol_server
+};
 }  // namespace symbol_server
 
 EMSCRIPTEN_BINDINGS(DWARFSymbolsPlugin) {
