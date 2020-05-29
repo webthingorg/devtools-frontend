@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "48c899b7_3eec5331",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-29T08:58:07Z",
+      "side": 1,
+      "message": "await should be read as \u0027waitFor\u0027 here, this method is a utility to wait for the plugin to be initialized. Does it make sense to rename it?",
+      "parentUuid": "09809bf1_70e2403b",
+      "range": {
+        "startLine": 249,
+        "startChar": 8,
+        "endLine": 249,
+        "endChar": 29
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d62b37_3e98cfd1",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2020-05-28T16:34:09Z",
       "side": 1,
       "message": "Actually I don\u0027t understand what it accomplishes to make this async. Doesn\u0027t it always return a completed promise?",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 29
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64f1293b_84fc0f91",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-29T08:58:07Z",
+      "side": 1,
+      "message": "Yes, as of this patch that\u0027s true, but it will need to be async once we plug in the wasm symbol server. So I figured I can do that bit right now.",
+      "parentUuid": "91d62b37_3e98cfd1",
       "range": {
         "startLine": 261,
         "startChar": 0,
@@ -91,6 +139,30 @@
       "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdf17c07_c149c0d7",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-05-29T08:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dee0941_552931f4",
+      "range": {
+        "startLine": 282,
+        "startChar": 11,
+        "endLine": 282,
+        "endChar": 36
+      },
+      "revId": "6a285b1118b2b257618123606e3f90e3306ebe45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
