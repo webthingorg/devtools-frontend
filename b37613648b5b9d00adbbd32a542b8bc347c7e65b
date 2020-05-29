@@ -22,6 +22,30 @@
       "revId": "b37613648b5b9d00adbbd32a542b8bc347c7e65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bba64755_de080642",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-05-29T09:36:35Z",
+      "side": 1,
+      "message": "Yes, this seems to be synchronous.",
+      "parentUuid": "6bb1321a_1eab50c8",
+      "range": {
+        "startLine": 79,
+        "startChar": 10,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "b37613648b5b9d00adbbd32a542b8bc347c7e65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
