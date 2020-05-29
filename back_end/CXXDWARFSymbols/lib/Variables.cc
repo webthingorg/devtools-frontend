@@ -394,6 +394,7 @@ llvm::Expected<std::unique_ptr<llvm::Module>> VariablePrinter::GenerateModule(
 std::unique_ptr<llvm::Module> VariablePrinter::LoadRuntimeModule() {
   llvm::SMDiagnostic err;
   llvm::SmallString<128> formatter_module_file(SYMBOL_SERVER_TOOL_DIR);
+  llvm::sys::path::append(formatter_module_file, "lib");
   llvm::sys::path::append(formatter_module_file, "formatters.bc");
   auto m = getLazyIRFileModule(formatter_module_file, err, main_context_);
   if (!m) {
@@ -427,10 +428,14 @@ auto GetTempFile(llvm::StringRef model) {
 std::unique_ptr<llvm::MemoryBuffer> VariablePrinter::GenerateCode(
 
     llvm::Module* m) {
-  if (auto runtime_module = LoadRuntimeModule()) {
-    llvm::Linker module_linker(*m);
-    module_linker.linkInModule(std::move(runtime_module));
+  auto runtime_module = LoadRuntimeModule();
+  if (!runtime_module) {
+    llvm::errs() << "Failed to load the runtime library\n";
+    return {};
   }
+  llvm::Linker module_linker(*m);
+  module_linker.linkInModule(std::move(runtime_module));
+
   LLVM_DEBUG(m->dump());
 
   auto obj_file = GetTempFile("wasm_formatter-%%%%%%.o");

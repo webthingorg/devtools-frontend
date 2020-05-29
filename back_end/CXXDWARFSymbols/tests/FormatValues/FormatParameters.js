@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// REQUIRES: formatters
-// RUN: %p/Inputs/lsp-encode %p/Inputs/formatParameters.json \
+// REQUIRES: formatters && !wasm_plugin
+// RUN: %p/Inputs/lsp-encode %p/Inputs/FormatParameters.json \
 // RUN: | %symbol-server 2>/dev/null | node %s | FileCheck %s
 
 // CHECK-NOT: Didn't consume
@@ -17,7 +17,7 @@
 // CHECK: Result at: {{[0-9]+}}
 // CHECK: Result: {"type":"int32_t","name":"a","value":"256"}
 
-tests = require('./tests.js')
+tests = require('../NodeTests.js')
 
 // void __getMemory(uint32_t localt, void* result);
 function proxyGetLocal(local, result) {

@@ -11,3 +11,5 @@ config.test_format = lit.formats.ShTest(
 config.suffixes = ['.js', '.test']
 config.test_source_root = os.path.dirname(__file__)
 config.test_exec_root = os.path.join(config.symbol_server_obj_root, 'tests')
+
+config.excludes = ['NodeTests.js']
