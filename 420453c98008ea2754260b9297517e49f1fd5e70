@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fbdfe381_808eb6a9",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-29T07:02:43Z",
+      "side": 1,
+      "message": "Thank you Closure compiler...",
+      "parentUuid": "44d87d67_4b187fd5",
+      "range": {
+        "startLine": 120,
+        "startChar": 15,
+        "endLine": 120,
+        "endChar": 39
+      },
+      "revId": "420453c98008ea2754260b9297517e49f1fd5e70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1185e4e_ff970df3",
         "filename": "front_end/sources/UISourceCodeFrame.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "420453c98008ea2754260b9297517e49f1fd5e70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0816ee3f_7a86c974",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-05-29T07:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1185e4e_ff970df3",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 5
+      },
+      "revId": "420453c98008ea2754260b9297517e49f1fd5e70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
