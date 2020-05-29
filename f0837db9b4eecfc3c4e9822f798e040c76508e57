@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12108984_1b606c23",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-05-29T18:21:55Z",
+      "side": 1,
+      "message": "This seems to be a problem in that we\u0027re selecting an item that isn\u0027t attached to a tree? \n\nAlso, how did we get here? There\u0027s a check in the first line of this function:\n\n    if (!this.treeOutline || ...) {\n      ...\n      return false;\n    }\n\nSo how does this become null between then and now? I don\u0027t think we\u0027re adequately understanding the root cause.",
+      "revId": "f0837db9b4eecfc3c4e9822f798e040c76508e57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
