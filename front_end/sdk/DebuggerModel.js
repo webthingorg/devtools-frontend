@@ -687,9 +687,9 @@ export class DebuggerModel extends SDKModel {
     this.dispatchEventToListeners(Events.ParsedScriptSource, script);
 
     // @ts-ignore
-    const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().getLanguagePluginManager(this);
-    if (!Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') || !pluginManager ||
-        !pluginManager.hasPluginForScript(script)) {
+    if (!Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') || !debugSymbols ||
+        debugSymbols.type === Protocol.Debugger.DebugSymbolsType.None ||
+        debugSymbols.type === Protocol.Debugger.DebugSymbolsType.SourceMap) {
       const sourceMapId = DebuggerModel._sourceMapId(script.executionContextId, script.sourceURL, script.sourceMapURL);
       if (sourceMapId && !hasSyntaxError) {
         // Consecutive script evaluations in the same execution context with the same sourceURL
