@@ -5,4 +5,7 @@
 config.llvm_build_mode = "@LLVM_BUILD_MODE@"
 config.symbol_server_obj_root = '@PROJECT_BINARY_DIR@'
 
+if "@SYMBOL_SERVER_BUILD_WASM@" != "TRUE":
+    config.unsupported = True
+
 lit_config.load_config(config, '@PROJECT_SOURCE_DIR@/tests/Unittests/lit.cfg.py')

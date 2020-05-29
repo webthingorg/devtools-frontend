@@ -2,11 +2,6 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SYMBOL_SERVER_BINARY_DIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SYMBOL_SERVER_LIBRARY_DIR})
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${SYMBOL_SERVER_LIBRARY_DIR})
-
-set(SYMBOL_SERVER_TOOL_DIR ${CMAKE_CURRENT_BINARY_DIR})
 configure_file(symbol-server-config.h.in
                ${CMAKE_CURRENT_BINARY_DIR}/symbol-server-config.h @ONLY)
 
@@ -67,7 +62,7 @@ target_include_directories(DWARFSymbols PUBLIC
   )
 
 if (SYMBOL_SERVER_BUILD_FORMATTERS)
-  if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  if (SYMBOL_SERVER_BUILD_WASM)
     set(optargs -O1)
   else()
     set(optargs -O3 -DNDEBUG)
@@ -79,15 +74,25 @@ if (SYMBOL_SERVER_BUILD_FORMATTERS)
     -I/usr/include/x86_64-linux-gnu/c++/8
     )
 
+  if (SYMBOL_SERVER_BUILD_WASM)
+      find_program(clang_bin NAMES clang clang++)
+      get_filename_component(clang_dir ${clang_bin} DIRECTORY)
+      set(NATIVE_LLVM "${clang_dir}" CACHE STRING "Native llvm binary dir")
+      set(compiler "${NATIVE_LLVM}/clang")
+  else()
+    set(compiler "$<TARGET_FILE:clang>")
+  endif()
+
   add_custom_target(SymbolServerRuntime
-    COMMAND $<TARGET_FILE:clang>
+    COMMAND ${compiler}
     ${CMAKE_CURRENT_SOURCE_DIR}/runtime/formatters.cc
     -std=c++14 -emit-llvm -c
     --target=wasm32-unknown-unknown-wasm
     ${_optargs}
     ${_formatter_includes}
-    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/runtime/formatters.cc clang
+    DEPENDS ${compiler} ${CMAKE_CURRENT_SOURCE_DIR}/runtime/formatters.cc
     BYPRODUCTS formatters.bc
+    SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/runtime/formatters.cc
     )
   add_dependencies(DWARFSymbols SymbolServerRuntime)
 endif()
