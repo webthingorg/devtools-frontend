@@ -15,7 +15,7 @@ substitutions = {
     "unit_inputs":
         os.path.join(
             os.path.dirname(os.path.abspath(__file__)),
-            "../../../unittests/Inputs")
+            os.path.normpath("../../../unittests/Inputs"))
 }
 
 parser = argparse.ArgumentParser()
@@ -28,7 +28,10 @@ text = [
     if not l.strip().startswith("#")
 ]
 
-inputs = json.loads('\n'.join(text))
+json_text = '\n'.join(text)
+if os.name == 'nt':
+    json_text = json_text.replace("\\", "/")
+inputs = json.loads(json_text)
 
 for I in inputs:
   I["jsonrpc"] = "2.0"

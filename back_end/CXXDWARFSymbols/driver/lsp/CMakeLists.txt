@@ -2,6 +2,11 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+set(ADDITIONAL_LIBS)
+if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+  list(APPEND ADDITIONAL_LIBS $ENV{VSINSTALLDIR}VC\\Tools\\MSVC\\$ENV{VCToolsVersion}\\lib\\onecore\\$ENV{VSCMD_ARG_TGT_ARCH}\\diaguids.lib)
+endif()
+
 add_lldb_tool(DWARFSymbolServer
   JSON.cc
   Main.cc
@@ -10,6 +15,7 @@ add_lldb_tool(DWARFSymbolServer
   LINK_LIBS
   DWARFSymbols
   clangDaemon
+  ${ADDITIONAL_LIBS}
   )
 
 #FIXME Can we use the llvm facilities here?

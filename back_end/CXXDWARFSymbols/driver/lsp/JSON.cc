@@ -397,9 +397,9 @@ llvm::json::Value MissingArgumentError(llvm::StringRef argument) {
   return toJSON(e);
 }
 
-llvm::Expected<llvm::json::Value> CallApiMethod(api::DWARFSymbolsApi *api,
-                                               llvm::StringRef method,
-                                               llvm::json::Value params) {
+llvm::json::Value CallApiMethod(api::DWARFSymbolsApi *api,
+                                llvm::StringRef method,
+                                llvm::json::Value params) {
   llvm::json::Object *obj = params.getAsObject();
     if (method == "addRawModule") {
       auto param_0 = api::GetValue<std::string>(obj, "rawModuleId");
