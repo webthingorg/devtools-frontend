@@ -21,16 +21,17 @@ sys.path.append(scripts_path)
 import devtools_paths
 import test_helpers
 
-CONDUCTOR_DIRECTORY = os.path.join(ROOT_DIRECTORY, 'test', 'conductor')
-E2E_MOCHA_CONFIGURATION_LOCATION = os.path.join(ROOT_DIRECTORY, 'test', 'e2e', '.mocharc.js')
-PERF_MOCHA_CONFIGURATION_LOCATION = os.path.join(ROOT_DIRECTORY, 'test',
-                                                 'perf', '.mocharc.js')
-
 
 def parse_options(cli_args):
     parser = argparse.ArgumentParser(description='Run tests')
     parser.add_argument('--chrome-binary', dest='chrome_binary', help='path to Chromium binary')
     parser.add_argument('--test-suite', dest='test_suite', help='path to test suite')
+    parser.add_argument(
+        '--target',
+        '-t',
+        default='Default',
+        dest='target',
+        help='The name of the Ninja output directory. Defaults to "Default"')
     parser.add_argument('--test-file', dest='test_file', help='an absolute path for the file to test')
     parser.add_argument(
         '--chrome-features',
@@ -50,10 +51,13 @@ def compile_typescript(typescript_targets):
     return False
 
 
-def run_tests(chrome_binary, chrome_features, test_suite, test_suite_list_path, test_file=None):
+def run_tests(chrome_binary,
+              chrome_features,
+              test_suite_path,
+              test_suite,
+              test_file=None):
     env = os.environ.copy()
     env['CHROME_BIN'] = chrome_binary
-    env['TEST_LIST'] = test_suite_list_path
     if chrome_features:
         env['CHROME_FEATURES'] = chrome_features
 
@@ -63,16 +67,10 @@ def run_tests(chrome_binary, chrome_features, test_suite, test_suite_list_path, 
     cwd = devtools_paths.devtools_root_path()
     exec_command = [
         devtools_paths.node_path(),
-        devtools_paths.mocha_path(), '--config'
+        devtools_paths.mocha_path(),
+        '--config',
+        os.path.join(test_suite_path, '.mocharc.js'),
     ]
-    if test_suite == 'e2e':
-        exec_command += [
-            E2E_MOCHA_CONFIGURATION_LOCATION,
-        ]
-    else:
-        exec_command += [
-            PERF_MOCHA_CONFIGURATION_LOCATION,
-        ]
 
     exit_code = test_helpers.popen(exec_command, cwd=cwd, env=env)
     if exit_code != 0:
@@ -121,26 +119,16 @@ def run_test():
         print('Testing file (%s)' % test_file)
 
     cwd = devtools_paths.devtools_root_path()
-    shared_path = os.path.join(cwd, 'test', 'shared')
-    test_suite_path = os.path.join(cwd, 'test', test_suite)
-    typescript_paths = [{
-        'name': 'conductor',
-        'path': CONDUCTOR_DIRECTORY
-    }, {
-        'name': 'shared',
-        'path': shared_path
-    }, {
-        'name': 'suite',
-        'path': test_suite_path
-    }]
+    test_suite_path = os.path.join(cwd, 'out', OPTIONS.target, 'gen', 'test',
+                                   test_suite)
 
     errors_found = False
     try:
-        errors_found = compile_typescript(typescript_paths)
-        if (errors_found):
-            raise Exception('Typescript failed to compile')
-        test_suite_list_path = os.path.join(test_suite_path, 'test-list.js')
-        errors_found = run_tests(chrome_binary, chrome_features, test_suite, test_suite_list_path, test_file=test_file)
+        errors_found = run_tests(chrome_binary,
+                                 chrome_features,
+                                 test_suite_path,
+                                 test_suite,
+                                 test_file=test_file)
     except Exception as err:
         print(err)
 
