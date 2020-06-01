@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f481ff3a_aea26903",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-01T20:22:41Z",
+      "side": 1,
+      "message": "follow up nit: can we also get a before/after image here?",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "5ba12becc4eee0567d63f51464feebc70ea1fe1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de3e2257_2f9bbda0",
         "filename": "front_end/common/Color.js",
         "patchSetId": 2
