@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89df7014_934bfb2a",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1270551
+      },
+      "writtenOn": "2020-06-01T10:06:07Z",
+      "side": 1,
+      "message": "I\u0027d also add a check that it\u0027s a square icon, otherwise it will be ignored.",
+      "range": {
+        "startLine": 250,
+        "startChar": 34,
+        "endLine": 250,
+        "endChar": 88
+      },
+      "revId": "24b1237462ec264930321d048949f8932fa51602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
