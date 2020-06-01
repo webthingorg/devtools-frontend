@@ -28,17 +28,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
+import * as Root from '../root/root.js';
 
 import {DebuggerModel, Location} from './DebuggerModel.js';
 import {RuntimeModel} from './RuntimeModel.js';              // eslint-disable-line no-unused-vars
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
 /**
- * @implements {Protocol.ProfilerDispatcher}
+ * @implements {ProtocolProxyApiWorkaround_ProfilerDispatcher}
  */
 export class CPUProfilerModel extends SDKModel {
   /**
@@ -53,7 +51,7 @@ export class CPUProfilerModel extends SDKModel {
     /** @type {?function(number, string, !Array<!Protocol.Profiler.ScriptCoverage>):void} */
     this._preciseCoverageDeltaUpdateCallback = null;
     target.registerProfilerDispatcher(this);
-    this._profilerAgent.enable();
+    this._profilerAgent.invoke_enable();
     this._debuggerModel = /** @type {!DebuggerModel} */ (target.model(DebuggerModel));
   }
 
@@ -65,6 +63,13 @@ export class CPUProfilerModel extends SDKModel {
   }
 
   /**
+   * @return {!Protocol.UsesObjectNotation}
+   */
+  usesObjectNotation() {
+    return true;
+  }
+
+  /**
    * @return {!DebuggerModel}
    */
   debuggerModel() {
@@ -72,12 +77,9 @@ export class CPUProfilerModel extends SDKModel {
   }
 
   /**
-   * @override
-   * @param {string} id
-   * @param {!Protocol.Debugger.Location} scriptLocation
-   * @param {string=} title
+   * @param {!Protocol.Profiler.ConsoleProfileStartedEvent} event
    */
-  consoleProfileStarted(id, scriptLocation, title) {
+  consoleProfileStarted({id, location: scriptLocation, title}) {
     if (!title) {
       title = Common.UIString.UIString('Profile %d', this._nextAnonymousConsoleProfileNumber++);
       this._anonymousConsoleProfileIdToTitle.set(id, title);
@@ -86,19 +88,16 @@ export class CPUProfilerModel extends SDKModel {
   }
 
   /**
-   * @override
-   * @param {string} id
-   * @param {!Protocol.Debugger.Location} scriptLocation
-   * @param {!Protocol.Profiler.Profile} cpuProfile
-   * @param {string=} title
+   * @param {!Protocol.Profiler.ConsoleProfileFinishedEvent} event
    */
-  consoleProfileFinished(id, scriptLocation, cpuProfile, title) {
+  consoleProfileFinished({id, location: scriptLocation, profile: cpuProfile, title}) {
     if (!title) {
       title = this._anonymousConsoleProfileIdToTitle.get(id);
       this._anonymousConsoleProfileIdToTitle.delete(id);
     }
     // Make sure ProfilesPanel is initialized and CPUProfileType is created.
-    self.runtime.loadModulePromise('profiler').then(() => {
+    const runtime = Root.Runtime.Runtime.instance();
+    runtime.loadModulePromise('profiler').then(() => {
       this._dispatchProfileEvent(Events.ConsoleProfileFinished, id, scriptLocation, title, cpuProfile);
     });
   }
@@ -131,35 +130,36 @@ export class CPUProfilerModel extends SDKModel {
   startRecording() {
     this._isRecording = true;
     const intervalUs = 100;
-    this._profilerAgent.setSamplingInterval(intervalUs);
-    return this._profilerAgent.start();
+    this._profilerAgent.invoke_setSamplingInterval({interval: intervalUs});
+    return this._profilerAgent.invoke_start();
   }
 
   /**
-   * @return {!Promise<?Protocol.Profiler.Profile>}
+   * @return {!Promise<?Protocol.Profiler.StopResponse>}
    */
   stopRecording() {
     this._isRecording = false;
-    return this._profilerAgent.stop();
+    return this._profilerAgent.invoke_stop();
   }
 
   /**
    * @param {boolean} jsCoveragePerBlock - Collect per Block coverage if `true`, per function coverage otherwise.
    * @param {?function(number, string, !Array<!Protocol.Profiler.ScriptCoverage>):void} preciseCoverageDeltaUpdateCallback - Callback for coverage updates initiated from the back-end
-   * @return {!Promise<?>}
+   * @return {!Promise<?Protocol.Profiler.StartPreciseCoverageResponse>}
    */
   startPreciseCoverage(jsCoveragePerBlock, preciseCoverageDeltaUpdateCallback) {
     const callCount = false;
     this._preciseCoverageDeltaUpdateCallback = preciseCoverageDeltaUpdateCallback;
     const allowUpdatesTriggeredByBackend = true;
-    return this._profilerAgent.startPreciseCoverage(callCount, jsCoveragePerBlock, allowUpdatesTriggeredByBackend);
+    return this._profilerAgent.invoke_startPreciseCoverage(
+        {callCount, detailed: jsCoveragePerBlock, allowTriggeredUpdates: allowUpdatesTriggeredByBackend});
   }
 
   /**
    * @return {!Promise<{timestamp:number, coverage:!Array<!Protocol.Profiler.ScriptCoverage>}>}
    */
   async takePreciseCoverage() {
-    const r = await this._profilerAgent.invoke_takePreciseCoverage({});
+    const r = await this._profilerAgent.invoke_takePreciseCoverage();
     const timestamp = (r && r.timestamp) || 0;
     const coverage = (r && r.result) || [];
     return {timestamp, coverage};
@@ -170,16 +170,14 @@ export class CPUProfilerModel extends SDKModel {
    */
   stopPreciseCoverage() {
     this._preciseCoverageDeltaUpdateCallback = null;
-    return this._profilerAgent.stopPreciseCoverage();
+    return this._profilerAgent.invoke_stopPreciseCoverage();
   }
 
   /**
    * @suppress {missingOverride}
-   * @param {number} timestampInSeconds
-   * @param {string} occassion
-   * @param {!Array<!Protocol.Profiler.ScriptCoverage>} coverageData
+   * @param {!Protocol.Profiler.PreciseCoverageDeltaUpdateEvent} event
    */
-  preciseCoverageDeltaUpdate(timestampInSeconds, occassion, coverageData) {
+  preciseCoverageDeltaUpdate({timestamp: timestampInSeconds, occassion, result: coverageData}) {
     if (this._preciseCoverageDeltaUpdateCallback) {
       this._preciseCoverageDeltaUpdateCallback(timestampInSeconds, occassion, coverageData);
     }
@@ -194,5 +192,6 @@ export const Events = {
 
 SDKModel.register(CPUProfilerModel, Capability.JS, true);
 
-/** @typedef {!{id: string, scriptLocation: !DebuggerModel.Location, title: string, cpuProfile: (!Protocol.Profiler.Profile|undefined), cpuProfilerModel: !CPUProfilerModel}} */
+/** @typedef {!{id: string, scriptLocation: !Protocol.Debugger.Location, title: string, cpuProfile: (!Protocol.Profiler.Profile|undefined), cpuProfilerModel: !CPUProfilerModel}} */
+// @ts-ignore typedef
 export let EventData;
