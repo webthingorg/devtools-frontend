@@ -686,6 +686,13 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.ProfilerApi}
+   */
+  profilerAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.LayerTreeApi}
    */
   layerTreeAgent() {
@@ -769,6 +776,13 @@ export class TargetBase {
    * @param {!ProtocolProxyApi.DOMDispatcher} dispatcher
    */
   registerDOMDispatcher(dispatcher) {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @param {!Object} cpuProfilerModel
+   */
+  registerProfilerDispatcher(cpuProfilerModel) {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
