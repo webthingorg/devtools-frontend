@@ -179,6 +179,9 @@ export class MainImpl {
     // Dual-screen
     Root.Runtime.experiments.register('dualScreenSupport', 'Emulation: Support dual screen mode');
 
+    // CSS Grid
+    Root.Runtime.experiments.register('improvedGridOverlay', 'Augment the DOM overlay with CSS grid lines');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
