@@ -111,6 +111,9 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     this._loaded = false;
     this._contentRequested = false;
     this._highlighterType = '';
+
+    /** @type {?Common.WasmDisassembly.WasmDisassembly} */
+    this._wasmDisassembly = null;
   }
 
   /**
@@ -120,7 +123,10 @@ export class SourceFrameImpl extends UI.View.SimpleView {
    * @return {{lineNumber: number, columnNumber: number}}
    */
   editorLocationToUILocation(lineNumber, columnNumber = 0) {
-    if (this._pretty) {
+    if (this._wasmDisassembly) {
+      columnNumber = this._wasmDisassembly.lineNumberToBytecodeOffset(lineNumber);
+      lineNumber = 0;
+    } else if (this._pretty) {
       [lineNumber, columnNumber] = this._prettyToRawLocation(lineNumber, columnNumber);
     }
     return {lineNumber, columnNumber};
@@ -133,7 +139,10 @@ export class SourceFrameImpl extends UI.View.SimpleView {
    * @return {{lineNumber: number, columnNumber: number}}
    */
   uiLocationToEditorLocation(lineNumber, columnNumber = 0) {
-    if (this._pretty) {
+    if (this._wasmDisassembly) {
+      lineNumber = this._wasmDisassembly.bytecodeOffsetToLineNumber(columnNumber);
+      columnNumber = 0;
+    } else if (this._pretty) {
       [lineNumber, columnNumber] = this._rawToPrettyLocation(lineNumber, columnNumber);
     }
     return {lineNumber, columnNumber};
@@ -295,11 +304,57 @@ export class SourceFrameImpl extends UI.View.SimpleView {
       this._progressToolbarItem.element.appendChild(progressIndicator.element);
 
       const {content, error} = (await this._lazyContent());
+      this._rawContent = error || content || '';
 
       progressIndicator.setWorked(1);
       progressIndicator.done();
 
-      this._rawContent = error || content || '';
+      // TODO(bmeurer): This is extremely hacky!
+      if (!error && this._highlighterType === 'text/webassembly') {
+        const worker = new Common.Worker.WorkerWrapper('wasmparser_worker_entrypoint');
+        /** @type {!Promise<!{source: string, offsets: !Array<number>, functionBodyOffsets: ?Array<{start: number, end: number}>}>} */
+        const promise = new Promise((resolve, reject) => {
+          worker.onmessage = ({data}) => resolve(data);
+          worker.onerror = reject;
+        });
+        worker.postMessage({method: 'disassemble', params: {content}});
+
+        const {source, offsets, functionBodyOffsets} = await promise;
+        this._rawContent = source;
+        this._wasmDisassembly = new Common.WasmDisassembly.WasmDisassembly(offsets);
+
+        if (offsets && functionBodyOffsets) {
+          setImmediate(() => {
+            const isBreakableLine = lineNumber => {
+              const bytecodeOffset = offsets[lineNumber];
+              let first = 0;
+              let last = functionBodyOffsets.length - 1;
+              // Quick return if it is outside of code section.
+              if (bytecodeOffset < functionBodyOffsets[first].start ||
+                  bytecodeOffset >= functionBodyOffsets[last].end) {
+                return false;
+              }
+              // Binary search.
+              while (first <= last) {
+                const mid = (first + last) >> 1;
+                const functionBodyOffset = functionBodyOffsets[mid];
+                if (bytecodeOffset < functionBodyOffset.start) {
+                  last = mid - 1;
+                } else if (bytecodeOffset >= functionBodyOffset.end) {
+                  first = mid + 1;
+                } else {
+                  return true;
+                }
+              }
+              return false;
+            };
+            for (let lineNumber = 0; lineNumber < offsets.length; ++lineNumber) {
+              this._textEditor.toggleLineClass(lineNumber, 'cm-non-breakable-line', !isBreakableLine(lineNumber));
+            }
+          });
+        }
+      }
+
       this._formattedContentPromise = null;
       this._formattedMap = null;
       this._prettyToggle.setEnabled(true);
