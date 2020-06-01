@@ -22,6 +22,30 @@
       "revId": "34eef22ca072b7f51395655daa4e8d19ba2a7f8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e7295d5_0b07e572",
+        "filename": "front_end/sdk/CPUProfilerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-01T14:58:05Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "38eacbbc_f9f0c43b",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 24
+      },
+      "revId": "34eef22ca072b7f51395655daa4e8d19ba2a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
