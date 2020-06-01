@@ -271,14 +271,14 @@ export const logFailure = () => {
 
 export const resourcesPath = 'http://localhost:8090/test/e2e/resources';
 
-export const enableExperiment = async (experiment: string) => {
+export const enableExperiment = async (experiment: string, options: {selectedPanel?: {name: string, selector?: string}, canDock?: boolean} = {}) => {
   const {frontend} = getBrowserAndPages();
   await frontend.evaluate(experiment => {
     // @ts-ignore
     globalThis.Root.Runtime.experiments.setEnabled(experiment, true);
   }, experiment);
 
-  await reloadDevTools();
+  await reloadDevTools(options);
 };
 
 export const step = async (description: string, step: Function) => {
