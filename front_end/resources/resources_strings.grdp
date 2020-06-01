@@ -82,6 +82,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_2e9d8504b07d0bdf4887f27c070cbbb6" desc="Text in Application Panel Sidebar of the Application panel">
     autoIncrement
   </message>
+  <message name="IDS_DEVTOOLS_2ff60fa9ee80d7fd8c2685d52f44483f" desc="Text in App Manifest View of the Application panel">
+    Shortcut #<ph name="SHORTCUTINDEX">$1s<ex>1</ex></ph> should include a 96x96 pixels icon
+  </message>
   <message name="IDS_DEVTOOLS_301addf2037879acf2a972b157d2f4a7" desc="Text in Application Panel Sidebar of the Application panel">
     Local Files
   </message>

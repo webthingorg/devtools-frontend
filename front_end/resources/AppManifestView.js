@@ -240,9 +240,20 @@ export class AppManifestView extends UI.Widget.VBox {
       urlField.appendChild(link);
 
       const shortcutIcons = shortcut.icons || [];
+      let hasShorcutIconLargeEnough = false;
       for (const shortcutIcon of shortcutIcons) {
         const shortcutIconErrors = await this._appendIconResourceToSection(url, shortcutIcon, shortcutSection);
-        imageErrors.push(...shortcutIconErrors);
+        if (shortcutIconErrors.length > 0) {
+          imageErrors.push(...shortcutIconErrors);
+        } else {
+          const shortcutIconSize = shortcutIcon.sizes.match(/(\d+)x(\d+)/);
+          if (shortcutIconSize && shortcutIconSize[1] >= 96 && shortcutIconSize[2] >= 96) {
+            hasShorcutIconLargeEnough = true;
+          }
+        }
+      }
+      if (!hasShorcutIconLargeEnough) {
+        imageErrors.push(ls`Shortcut #${shortcutIndex} should include a 96x96 pixels icon`);
       }
       shortcutIndex++;
     }
