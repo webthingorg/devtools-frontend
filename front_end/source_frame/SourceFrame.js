@@ -111,6 +111,39 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     this._loaded = false;
     this._contentRequested = false;
     this._highlighterType = '';
+
+    /** @type {?Array<number>} */
+    this._wasmOffsets = null;
+  }
+
+  /**
+   * @param {number} bytecodeOffset
+   * @return {number}
+   */
+  _wasmBytecodeOffsetToLineNumber(bytecodeOffset) {
+    const wasmOffsets = /** @type {!Array<number>} */ (this._wasmOffsets);
+    let l = 0, r = wasmOffsets.length - 1;
+    while (l <= r) {
+      const m = Math.floor((l + r) / 2);
+      const wasmOffset = wasmOffsets[m];
+      if (wasmOffset < bytecodeOffset) {
+        l = m + 1;
+      } else if (wasmOffset > bytecodeOffset) {
+        r = m - 1;
+      } else {
+        return m;
+      }
+    }
+    return l;
+  }
+
+  /**
+   * @param {number} lineNumber
+   * @return {number}
+   */
+  _lineNumberToWasmBytecodeOffset(lineNumber) {
+    const wasmOffsets = /** @type {!Array<number>} */ (this._wasmOffsets);
+    return wasmOffsets[lineNumber];
   }
 
   /**
@@ -120,7 +153,10 @@ export class SourceFrameImpl extends UI.View.SimpleView {
    * @return {{lineNumber: number, columnNumber: number}}
    */
   editorLocationToUILocation(lineNumber, columnNumber = 0) {
-    if (this._pretty) {
+    if (this._wasmOffsets) {
+      columnNumber = this._lineNumberToWasmBytecodeOffset(lineNumber);
+      lineNumber = 0;
+    } else if (this._pretty) {
       [lineNumber, columnNumber] = this._prettyToRawLocation(lineNumber, columnNumber);
     }
     return {lineNumber, columnNumber};
@@ -133,7 +169,10 @@ export class SourceFrameImpl extends UI.View.SimpleView {
    * @return {{lineNumber: number, columnNumber: number}}
    */
   uiLocationToEditorLocation(lineNumber, columnNumber = 0) {
-    if (this._pretty) {
+    if (this._wasmOffsets) {
+      lineNumber = this._wasmBytecodeOffsetToLineNumber(columnNumber);
+      columnNumber = 0;
+    } else if (this._pretty) {
       [lineNumber, columnNumber] = this._rawToPrettyLocation(lineNumber, columnNumber);
     }
     return {lineNumber, columnNumber};
@@ -295,11 +334,57 @@ export class SourceFrameImpl extends UI.View.SimpleView {
       this._progressToolbarItem.element.appendChild(progressIndicator.element);
 
       const {content, error} = (await this._lazyContent());
+      this._rawContent = error || content || '';
 
       progressIndicator.setWorked(1);
       progressIndicator.done();
 
-      this._rawContent = error || content || '';
+      // TODO(bmeurer): This is extremely hacky!
+      if (!error && this._highlighterType === 'text/webassembly') {
+        const worker = new Common.Worker.WorkerWrapper('wasmparser_worker_entrypoint');
+        /** @type {!Promise<!{source: string, offsets: ?Array<number>, functionBodyOffsets: ?Array<{start: number, end: number}>}>} */
+        const promise = new Promise((resolve, reject) => {
+          worker.onmessage = ({data}) => resolve(data);
+          worker.onerror = reject;
+        });
+        worker.postMessage({method: 'disassemble', params: {content}});
+
+        const {source, offsets, functionBodyOffsets} = await promise;
+        this._rawContent = source;
+        this._wasmOffsets = offsets;
+
+        if (offsets && functionBodyOffsets) {
+          setImmediate(() => {
+            const isBreakableLine = lineNumber => {
+              const bytecodeOffset = offsets[lineNumber];
+              let first = 0;
+              let last = functionBodyOffsets.length - 1;
+              // Quick return if it is outside of code section.
+              if (bytecodeOffset < functionBodyOffsets[first].start ||
+                  bytecodeOffset >= functionBodyOffsets[last].end) {
+                return false;
+              }
+              // Binary search.
+              while (first <= last) {
+                const mid = (first + last) >> 1;
+                const functionBodyOffset = functionBodyOffsets[mid];
+                if (bytecodeOffset < functionBodyOffset.start) {
+                  last = mid - 1;
+                } else if (bytecodeOffset >= functionBodyOffset.end) {
+                  first = mid + 1;
+                } else {
+                  return true;
+                }
+              }
+              return false;
+            };
+            for (let lineNumber = 0; lineNumber < offsets.length; ++lineNumber) {
+              this._textEditor.toggleLineClass(lineNumber, 'cm-non-breakable-line', !isBreakableLine(lineNumber));
+            }
+          });
+        }
+      }
+
       this._formattedContentPromise = null;
       this._formattedMap = null;
       this._prettyToggle.setEnabled(true);
