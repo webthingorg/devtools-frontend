@@ -22,6 +22,29 @@
       "revId": "8a921692f1dd31f12f77f3f4a232a6a5c02150a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf11b419_ae3a0f80",
+        "filename": "front_end/protocol_client/InspectorBackend.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-01T14:51:41Z",
+      "side": 1,
+      "message": "This should be `ProtocolProxyApi.ProfilerDispatcher`",
+      "range": {
+        "startLine": 783,
+        "startChar": 14,
+        "endLine": 783,
+        "endChar": 20
+      },
+      "revId": "8a921692f1dd31f12f77f3f4a232a6a5c02150a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
