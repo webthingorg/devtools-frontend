@@ -4,42 +4,25 @@
 
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
-import {$, $$, getBrowserAndPages, resourcesPath, waitFor} from '../../shared/helper.js';
-import {triggerFindDialog} from '../helpers/search-helpers.js';
+import {getBrowserAndPages, resourcesPath} from '../../shared/helper.js';
+import {doSearchAndWaitForResults, getMatchLinks, triggerFindDialog} from '../helpers/search-helpers.js';
 
 describe('The Search Panel', async () => {
   it('provides results across scopes', async () => {
-    const {target, frontend} = getBrowserAndPages();
-    const SEARCH_QUERY = '[aria-label="Search Query"]';
-    const SEARCH_RESULTS = '.search-results';
-    const SEARCH_FILE_RESULT = '.search-result';
-    const SEARCH_CHILDREN_RESULT = '.search-match-link';
+    const {target} = getBrowserAndPages();
 
     // Load the search page, which has results in the HTML, JS, and CSS.
     await target.goto(`${resourcesPath}/search/search.html`);
 
     // Launch the search panel.
-    await triggerFindDialog(frontend);
-    await waitFor(SEARCH_QUERY);
-    const query = await $(SEARCH_QUERY);
-    const inputElement = query.asElement();
-    if (!inputElement) {
-      assert.fail('Unable to find search input field');
+    await triggerFindDialog();
+
+    // Go ahead and do a search.
+    const fileResults = await doSearchAndWaitForResults('searchTestUniqueString');
+    if (!fileResults) {
+      assert.fail('Unable to find results');
       return;
     }
-
-    // Go ahead and search.
-    await inputElement.focus();
-    await inputElement.type('searchTestUniqueString');
-    await frontend.keyboard.press('Enter');
-
-    // Wait for results.
-    await waitFor(SEARCH_RESULTS);
-    const resultsContainer = await $(SEARCH_RESULTS);
-    await waitFor(SEARCH_FILE_RESULT, resultsContainer);
-
-    // Process the results into something manageable.
-    const fileResults = await $$(SEARCH_FILE_RESULT, resultsContainer);
 
     interface FileSearchResult {
       matchesCount: number;
@@ -68,7 +51,7 @@ describe('The Search Panel', async () => {
     ]);
 
     // Now step through the actual entries of the search result.
-    const entryResults = await $$(SEARCH_CHILDREN_RESULT, resultsContainer);
+    const entryResults = await getMatchLinks();
     const entries = await entryResults.evaluate(result => result.map((value: Element) => {
       const SEARCH_MATCH_LINE_NUMBER = '.search-match-line-number';
       const SEARCH_MATCH_CONTENT = '.search-match-content';

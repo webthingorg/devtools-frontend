@@ -2,11 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as puppeteer from 'puppeteer';
+import {assert} from 'chai';
 
-import {platform} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, platform, waitFor} from '../../shared/helper.js';
 
-export async function triggerFindDialog(frontend: puppeteer.Page) {
+const SEARCH_QUERY = '[aria-label="Search Query"]';
+const SEARCH_RESULTS = '.search-results';
+const SEARCH_FILE_RESULT = '.search-result';
+const SEARCH_CHILDREN_RESULT = '.search-match-link';
+
+export async function triggerFindDialog() {
+  const {frontend} = getBrowserAndPages();
+
   switch (platform) {
     case 'mac':
       await frontend.keyboard.down('Meta');
@@ -30,4 +37,51 @@ export async function triggerFindDialog(frontend: puppeteer.Page) {
       await frontend.keyboard.up('Control');
       await frontend.keyboard.up('Shift');
   }
+
+  await waitFor(SEARCH_QUERY);
+}
+
+export async function getInputElement() {
+  return await $(SEARCH_QUERY);
+}
+
+export async function doSearchAndWaitForResults(text: string) {
+  const query = await getInputElement();
+  const inputElement = query.asElement();
+  if (!inputElement) {
+    assert.fail('Unable to find search input field');
+    return;
+  }
+
+  const {frontend} = getBrowserAndPages();
+
+  await inputElement.focus();
+  await inputElement.type(text);
+  await frontend.keyboard.press('Enter');
+
+  const resultsContainer = await waitFor(SEARCH_RESULTS);
+  await waitFor(SEARCH_FILE_RESULT, resultsContainer);
+  return await $$(SEARCH_FILE_RESULT, resultsContainer);
+}
+
+export async function getMatchLinks() {
+  return await $$(SEARCH_CHILDREN_RESULT, await $(SEARCH_RESULTS));
+}
+
+export async function doSearchAndClickMatchLinkAtIndex(text: string, index: number) {
+  const results = await doSearchAndWaitForResults(text);
+  if (!results) {
+    assert.fail('Unable to find search results');
+    return;
+  }
+
+  const links = await getMatchLinks();
+  const link = [...(await links.getProperties())][index];
+  if (!link || !link[1]) {
+    assert.fail(`Unable to find search result at index ${index}`);
+    return;
+  }
+
+  await click('.search-match-link', {root: link[1]});
+  await waitFor('.panel[aria-label="sources"]');
 }

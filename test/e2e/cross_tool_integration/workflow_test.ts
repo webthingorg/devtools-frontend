@@ -9,6 +9,7 @@ import {navigateToConsoleTab, navigateToIssuesPanelViaInfoBar, waitForConsoleMes
 import {prepareForCrossToolScenario} from '../helpers/cross-tool-helper.js';
 import {clickOnFirstLinkInStylesPanel, navigateToElementsTab} from '../helpers/elements-helpers.js';
 import {navigateToPerformanceSidebarTab, navigateToPerformanceTab, startRecording, stopRecording, waitForSourceLinkAndFollowIt} from '../helpers/performance-helpers.js';
+import {doSearchAndClickMatchLinkAtIndex, triggerFindDialog} from '../helpers/search-helpers.js';
 
 describe('A user can navigate across', async () => {
   beforeEach(async function() {
@@ -47,5 +48,10 @@ describe('A user can navigate across', async () => {
 
     await navigateToPerformanceSidebarTab('Bottom-Up');
     await waitForSourceLinkAndFollowIt();
+  });
+
+  it('Search -> Sources', async () => {
+    await triggerFindDialog();
+    await doSearchAndClickMatchLinkAtIndex('getTime', 0);
   });
 });
