@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de3e2257_2f9bbda0",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-01T20:22:04Z",
+      "side": 1,
+      "message": "Although I think this is the config I sent you, looks like your updates to make it look more similar to the spec means we don\u0027t need the gridBorder and row/column gap colors? if so, we should probably remove for now until we need them",
+      "range": {
+        "startLine": 926,
+        "startChar": 2,
+        "endLine": 931,
+        "endChar": 57
+      },
+      "revId": "5ba12becc4eee0567d63f51464feebc70ea1fe1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
