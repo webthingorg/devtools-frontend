@@ -268,6 +268,30 @@
       "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "183aa698_869f0b71",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1370170
+      },
+      "writtenOn": "2020-06-02T14:14:23Z",
+      "side": 1,
+      "message": "It\u0027s not only external, but also auto-generated; also, `undefined` used by the dependency is actually a better type for noting the absence of value and it is what both JavaScript and TypeScript uses for optional values as well. Unfortunately, Closure Compiler disagrees and uses `null` for `?SomeType` instead.",
+      "parentUuid": "4289f3a1_e813c6c4",
+      "range": {
+        "startLine": 754,
+        "startChar": 26,
+        "endLine": 754,
+        "endChar": 33
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
