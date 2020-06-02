@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e0ce3ee_1cfe8fd6",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-02T11:52:59Z",
+      "side": 1,
+      "message": "Can you explain briefly what the problem is here, how this hack fixes it, and what\u0027s hacky about it?\n\nIt would also be useful if you added and linked a tracking bug here.",
+      "revId": "bb3d192baa621bd7e0c6a0c7e2fce2bc60c44aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
