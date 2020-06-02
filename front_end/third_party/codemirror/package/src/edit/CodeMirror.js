@@ -1,9 +1,9 @@
 import { Display } from "../display/Display.js"
-import { onBlur , onFocus} from "../display/focus.js"
+import { onFocus, onBlur } from "../display/focus.js"
 import { maybeUpdateLineNumberWidth } from "../display/line_numbers.js"
 import { endOperation, operation, startOperation } from "../display/operations.js"
-import { onScrollWheel } from "../display/scroll_events.js"
 import { initScrollbars } from "../display/scrollbars.js"
+import { onScrollWheel } from "../display/scroll_events.js"
 import { setScrollLeft, updateScrollTop } from "../display/scrolling.js"
 import { clipPos, Pos } from "../line/pos.js"
 import { posFromMouse } from "../measurement/position_measurement.js"
@@ -20,8 +20,8 @@ import { clearDragCursor, onDragOver, onDragStart, onDrop } from "./drop_events.
 import { ensureGlobalHandlers } from "./global_events.js"
 import { onKeyDown, onKeyPress, onKeyUp } from "./key_events.js"
 import { clickInGutter, onContextMenu, onMouseDown } from "./mouse_events.js"
-import { defaults, Init , optionHandlers} from "./options.js"
 import { themeChanged } from "./utils.js"
+import { defaults, optionHandlers, Init } from "./options.js"
 
 // A CodeMirror instance represents an editor. This is the object
 // that user code is usually dealing with.

@@ -5,9 +5,9 @@ import { getLine } from "../line/utils_line.js"
 import { makeChange } from "../model/changes.js"
 import { ios, webkit } from "../util/browser.js"
 import { elt } from "../util/dom.js"
-import { splitLinesAuto } from "../util/feature_detection.js"
 import { lst, map } from "../util/misc.js"
 import { signalLater } from "../util/operation_group.js"
+import { splitLinesAuto } from "../util/feature_detection.js"
 
 import { indentLine } from "./indent.js"
 

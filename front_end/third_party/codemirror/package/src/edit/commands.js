@@ -1,3 +1,4 @@
+import { deleteNearSelection } from "./deleteNearSelection.js"
 import { runInOp } from "../display/operations.js"
 import { ensureCursorVisible } from "../display/scrolling.js"
 import { endOfLine } from "../input/movement.js"
@@ -6,10 +7,8 @@ import { visualLine, visualLineEnd } from "../line/spans.js"
 import { getLine, lineNo } from "../line/utils_line.js"
 import { Range } from "../model/selection.js"
 import { selectAll } from "../model/selection_updates.js"
-import { getOrder } from "../util/bidi.js"
 import { countColumn, sel_dontScroll, sel_move, spaceStr } from "../util/misc.js"
-
-import { deleteNearSelection } from "./deleteNearSelection.js"
+import { getOrder } from "../util/bidi.js"
 
 // Commands are parameter-less actions that can be performed on an
 // editor, mostly used for keybindings.

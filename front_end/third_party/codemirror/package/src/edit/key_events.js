@@ -1,12 +1,12 @@
+import { signalLater } from "../util/operation_group.js"
 import { restartBlink } from "../display/selection.js"
 import { isModifierKey, keyName, lookupKey } from "../input/keymap.js"
 import { eventInWidget } from "../measurement/widgets.js"
-import { gecko , ie, ie_version, mac, presto} from "../util/browser.js"
+import { ie, ie_version, mac, presto, gecko } from "../util/browser.js"
 import { activeElt, addClass, rmClass } from "../util/dom.js"
 import { e_preventDefault, off, on, signalDOMEvent } from "../util/event.js"
 import { hasCopyEvent } from "../util/feature_detection.js"
 import { Delayed, Pass } from "../util/misc.js"
-import { signalLater } from "../util/operation_group.js"
 
 import { commands } from "./commands.js"
 
@@ -106,6 +106,7 @@ function handleCharBinding(cm, e, ch) {
 let lastStoppedKey = null
 export function onKeyDown(e) {
   let cm = this
+  if (e.target && e.target != cm.display.input.getField()) return
   cm.curOp.focus = activeElt()
   if (signalDOMEvent(cm, e)) return
   // IE does strange things with escape.
@@ -149,6 +150,7 @@ export function onKeyUp(e) {
 
 export function onKeyPress(e) {
   let cm = this
+  if (e.target && e.target != cm.display.input.getField()) return
   if (eventInWidget(cm.display, e) || signalDOMEvent(cm, e) || e.ctrlKey && !e.altKey || mac && e.metaKey) return
   let keyCode = e.keyCode, charCode = e.charCode
   if (presto && keyCode == lastStoppedKey) {lastStoppedKey = null; e_preventDefault(e); return}

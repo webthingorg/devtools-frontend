@@ -1,23 +1,23 @@
 import { delayBlurEvent, ensureFocus } from "../display/focus.js"
 import { operation } from "../display/operations.js"
 import { visibleLines } from "../display/update_lines.js"
-import { addModifierNames } from "../input/keymap.js"
 import { clipPos, cmp, maxPos, minPos, Pos } from "../line/pos.js"
 import { getLine, lineAtHeight } from "../line/utils_line.js"
 import { posFromMouse } from "../measurement/position_measurement.js"
 import { eventInWidget } from "../measurement/widgets.js"
 import { normalizeSelection, Range, Selection } from "../model/selection.js"
 import { extendRange, extendSelection, replaceOneSelection, setSelection } from "../model/selection_updates.js"
-import { getBidiPartAt , getOrder} from "../util/bidi.js"
-import { captureRightClick, chromeOS, ie, ie_version, mac, webkit } from "../util/browser.js"
+import { captureRightClick, chromeOS, ie, ie_version, mac, webkit, safari } from "../util/browser.js"
+import { getOrder, getBidiPartAt } from "../util/bidi.js"
 import { activeElt } from "../util/dom.js"
 import { e_button, e_defaultPrevented, e_preventDefault, e_target, hasHandler, off, on, signal, signalDOMEvent } from "../util/event.js"
 import { dragAndDrop } from "../util/feature_detection.js"
 import { bind, countColumn, findColumn, sel_mouse } from "../util/misc.js"
+import { addModifierNames } from "../input/keymap.js"
 import { Pass } from "../util/misc.js"
 
-import { commands } from "./commands.js"
 import { dispatchKey } from "./key_events.js"
+import { commands } from "./commands.js"
 
 const DOUBLECLICK_DELAY = 400
 
@@ -158,8 +158,8 @@ function leftButtonStartDrag(cm, event, pos, behavior) {
       if (!behavior.addNew)
         extendSelection(cm.doc, pos, null, null, behavior.extend)
       // Work around unexplainable focus problem in IE9 (#2127) and Chrome (#3081)
-      if (webkit || ie && ie_version == 9)
-        setTimeout(() => {display.wrapper.ownerDocument.body.focus(); display.input.focus()}, 20)
+      if ((webkit && !safari) || ie && ie_version == 9)
+        setTimeout(() => {display.wrapper.ownerDocument.body.focus({preventScroll: true}); display.input.focus()}, 20)
       else
         display.input.focus()
     }

@@ -1,5 +1,5 @@
 import { Pos } from "../line/pos.js"
-import { measureCharPrepared, prepareMeasureForLine, wrappedLineExtentChar } from "../measurement/position_measurement.js"
+import { prepareMeasureForLine, measureCharPrepared, wrappedLineExtentChar } from "../measurement/position_measurement.js"
 import { getBidiPartAt, getOrder } from "../util/bidi.js"
 import { findFirst, lst, skipExtendingChars } from "../util/misc.js"
 
