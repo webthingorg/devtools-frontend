@@ -22,6 +22,30 @@
       "revId": "1ad9766d97f2538d3d7bc2ff7ef42553bde6dc44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b99803_4c3f6dfe",
+        "filename": "front_end/root/Runtime.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-06-02T00:23:37Z",
+      "side": 1,
+      "message": "yup\n\nI went to the last LH roll (https://chromiumdash.appspot.com/commit/933525c2bdcf22d49b5688c04cad7bc30c476b3d) and then got the roll to chromium commit hash.",
+      "parentUuid": "f52e252f_1b2c400d",
+      "range": {
+        "startLine": 6,
+        "startChar": 42,
+        "endLine": 6,
+        "endChar": 82
+      },
+      "revId": "1ad9766d97f2538d3d7bc2ff7ef42553bde6dc44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
