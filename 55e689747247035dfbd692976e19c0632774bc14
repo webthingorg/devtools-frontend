@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81379202_ca74f0da",
+        "filename": "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-02T09:18:31Z",
+      "side": 1,
+      "message": "We are using this function in `FormatterWorker.js`: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/formatter_worker/FormatterWorker.js;l\u003d57;drc\u003d800891e5ad60c9faa0dd6b41c1b2d5bf3ddc8adc?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F So we will need to update it to use the new proper syntax.\n\nNot sure what to change it to, though. I think simply wrapping it in an array and setting `i\u003d\u003d\u003d0` would work for now.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "55e689747247035dfbd692976e19c0632774bc14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
