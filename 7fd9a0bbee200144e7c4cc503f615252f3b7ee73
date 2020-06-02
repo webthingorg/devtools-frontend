@@ -16,6 +16,24 @@
       "revId": "7fd9a0bbee200144e7c4cc503f615252f3b7ee73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f468724f_cab54e13",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-02T14:11:57Z",
+      "side": 1,
+      "message": "Ah, good catch! Chrome supports it:\n\n    CSS.supports(\u0027--\u0027, \u002742\u0027);\n    // -\u003e true\n\n...but your comment made me double-check against the spec, and per https://drafts.csswg.org/css-variables/#custom-property it sounds\nlike this is a bug:\n\n\u003e The \u003ccustom-property-name\u003e production corresponds to this:\n\u003e it’s defined as any \u003cdashed-ident\u003e (a valid identifier that\n\u003e starts with two dashes), except -- itself, which is reserved\n\u003e for future use by CSS.\n\nI\u0027ve added a check in the latest patchset. (I don\u0027t think we should do this for the vendor-prefixed properties because they\u0027re explicitly non-standard, so there\u0027s no point in trying to be strict.)",
+      "parentUuid": "1378bd02_36f58da0",
+      "revId": "7fd9a0bbee200144e7c4cc503f615252f3b7ee73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
