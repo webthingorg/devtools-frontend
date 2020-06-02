@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8bfdfb1_3d041440",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-02T15:42:20Z",
+      "side": 1,
+      "message": "Why isn\u0027t the annotation on contextToTextMap sufficient? Is this just to assert that it isn\u0027t undefined?",
+      "range": {
+        "startLine": 141,
+        "startChar": 15,
+        "endLine": 141,
+        "endChar": 51
+      },
+      "revId": "c92091e24601c4c8aa61e09716e9f297e562e337",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
