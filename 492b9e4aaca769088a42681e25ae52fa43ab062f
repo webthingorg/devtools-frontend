@@ -108,6 +108,75 @@
     },
     {
       "key": {
+        "uuid": "6d9654ff_82568feb",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-02T14:08:45Z",
+      "side": 1,
+      "message": "From reading the code, it seems to me that we are triggering a bug if sources is undefined, do you agree? Based on that I\u0027m not sure if an early return isn\u0027t the better option here.",
+      "range": {
+        "startLine": 482,
+        "startChar": 10,
+        "endLine": 482,
+        "endChar": 51
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ab26832_4e6e7334",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-02T14:08:45Z",
+      "side": 1,
+      "message": "Is this logically intended to be undefined? A source map without any sources would be strange, wouldn\u0027t it?",
+      "range": {
+        "startLine": 485,
+        "startChar": 8,
+        "endLine": 485,
+        "endChar": 18
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ad428a8_0f247b67",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-02T14:08:45Z",
+      "side": 1,
+      "message": "This can be converted into a while loop, then digit can be initialized to TextSourceMap._VLQ_CONTINUATION_MASK and have type number (removing the need for @ts-ignore).",
+      "range": {
+        "startLine": 558,
+        "startChar": 6,
+        "endLine": 558,
+        "endChar": 18
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c306a0cf_0eb51402",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -173,6 +242,29 @@
       "side": 1,
       "message": "No we don\u0027t plan to do so, given that this is the import style for ES modules in DevTools. Yes it is duplicate, but it is what the tools understand and it is consistent throughout the codebase.",
       "parentUuid": "d991e2a5_0c6f77c6",
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4289f3a1_e813c6c4",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-02T14:08:45Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to fix the type of resolve here? I understand it might be difficult because it is an external dependency.",
+      "range": {
+        "startLine": 754,
+        "startChar": 26,
+        "endLine": 754,
+        "endChar": 33
+      },
       "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
