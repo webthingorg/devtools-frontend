@@ -22,6 +22,30 @@
       "revId": "5cf2efd6b3b602e1db009164261f5ad580d68df3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5af52fe5_b2078181",
+        "filename": "test/e2e/performance/recording_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-02T10:18:22Z",
+      "side": 1,
+      "message": "I think consolidating makes more sense here. Because right now, it is not clear that this `openTestPage` is actually *only* for resources in `performance/`. The previous usage made that clearer.",
+      "parentUuid": "cca41498_97d2e5d5",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "5cf2efd6b3b602e1db009164261f5ad580d68df3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
