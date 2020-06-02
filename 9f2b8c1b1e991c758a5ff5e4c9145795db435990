@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "038c25da_359aec5e",
+        "filename": "back_end/CXXDWARFSymbols/tests/CMakeLists.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-02T16:23:49Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this change?",
+      "revId": "9f2b8c1b1e991c758a5ff5e4c9145795db435990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d14c84_0617e986",
+        "filename": "back_end/CXXDWARFSymbols/tests/FormatValues/Inputs/lsp-encode",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-02T16:23:49Z",
+      "side": 1,
+      "message": "Does it make sense to use a proper join here?",
+      "revId": "9f2b8c1b1e991c758a5ff5e4c9145795db435990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81291875_4191ea18",
+        "filename": "back_end/CXXDWARFSymbols/tests/FormatValues/formatArray.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-02T16:23:49Z",
+      "side": 1,
+      "message": "This should be %python probably (also below).",
+      "revId": "9f2b8c1b1e991c758a5ff5e4c9145795db435990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
