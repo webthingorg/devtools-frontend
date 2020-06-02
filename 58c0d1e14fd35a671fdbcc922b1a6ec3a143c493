@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4acb6d74_22780aee",
+        "filename": "front_end/inspector_overlay/resources.grd",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-02T17:31:07Z",
+      "side": 1,
+      "message": "I didn\u0027t catch this in the earlier CL, but is there a specific reason we are using `gzip` here, instead of `brotli`? We can punt this to a follow-up, but mostly curious as to why we use a different version here.",
+      "range": {
+        "startLine": 13,
+        "startChar": 104,
+        "endLine": 13,
+        "endChar": 108
+      },
+      "revId": "58c0d1e14fd35a671fdbcc922b1a6ec3a143c493",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
