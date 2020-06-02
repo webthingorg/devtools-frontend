@@ -33,6 +33,29 @@
       "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf03c5c9_86967028",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-02T12:56:05Z",
+      "side": 1,
+      "message": "love having these tests!",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 5
+      },
+      "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
