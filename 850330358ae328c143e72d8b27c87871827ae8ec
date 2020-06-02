@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e4feffc_6df12954",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-02T07:59:15Z",
+      "side": 1,
+      "message": "This also returns a Promise, since its async",
+      "revId": "850330358ae328c143e72d8b27c87871827ae8ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "459040c1_b15f5555",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-02T07:59:15Z",
+      "side": 1,
+      "message": "Why is this async?",
+      "revId": "850330358ae328c143e72d8b27c87871827ae8ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
