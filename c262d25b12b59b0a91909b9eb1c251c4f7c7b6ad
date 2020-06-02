@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27d07707_b5283304",
+        "filename": "test/e2e/helpers/network-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-02T08:32:38Z",
+      "side": 0,
+      "message": "My bet is that the table is populated asynchronously and even though the rows exist, when they are serialized they\u0027re empty. Probably worth confirming not only that the requests exist but also that they contain something in their innerText.",
+      "revId": "c262d25b12b59b0a91909b9eb1c251c4f7c7b6ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
