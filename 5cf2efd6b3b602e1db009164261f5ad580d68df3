@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cca41498_97d2e5d5",
+        "filename": "test/e2e/performance/recording_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-02T09:47:45Z",
+      "side": 1,
+      "message": "Why did you decide to split this into two openTestPage and navigateToPerformanceTab?\nShould we maybe move openTestPage to the general helpers file instead of having one implementation of it in every subfolder?\n@Tim: WDYT?",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "5cf2efd6b3b602e1db009164261f5ad580d68df3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
