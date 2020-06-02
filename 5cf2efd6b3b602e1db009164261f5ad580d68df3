@@ -46,6 +46,30 @@
       "revId": "5cf2efd6b3b602e1db009164261f5ad580d68df3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9686b34_8ca3bdce",
+        "filename": "test/e2e/performance/recording_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-02T14:09:13Z",
+      "side": 1,
+      "message": "Thanks both. The original reason for doing this was that the new test case introduced in this CL (in workflow_test.ts) did not require navigating to a new page, only switching to the Performance panel. So I separated the 2 things so that I could either do both, or just one.\nBased on your feedback, I\u0027m moving them back together as one function, and will just make the testName parameter optional.\nI think that we should, indeed, do another CL that introduces a couple general helper functions to open pages and navigate to panels. Almost every tests need this, and right now they somewhat duplicate the logic.",
+      "parentUuid": "5af52fe5_b2078181",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "5cf2efd6b3b602e1db009164261f5ad580d68df3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
