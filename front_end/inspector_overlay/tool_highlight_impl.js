@@ -682,12 +682,10 @@ function _drawLayoutGridHighlight(highlight, context) {
     context.strokeStyle = highlight.gridHighlightConfig.cellBorderColor;
 
     context.save();
-    context.clip(columnPath);
     context.stroke(rowPath);
     context.restore();
 
     context.save();
-    context.clip(rowPath);
     context.stroke(columnPath);
     context.restore();
 
@@ -713,35 +711,38 @@ function _drawLayoutGridHighlight(highlight, context) {
     }
   }
 
-  // Row Gaps
-  if (highlight.gridHighlightConfig.rowGapColor) {
-    context.save();
-    context.translate(0.5, 0.5);
-    context.lineWidth = 0;
-    context.fillStyle = highlight.gridHighlightConfig.rowGapColor;
-    const bounds = emptyBounds();
-    const path = buildPath(highlight.rowGaps, bounds);
-    if (highlight.gridHighlightConfig.rowHatchColor) {
-      hatchFillPath(context, path, bounds, 10, highlight.gridHighlightConfig.rowHatchColor, /* flipDirection */ true);
-    }
-    context.fill(path);
-    context.restore();
+  // Draw gaps
+  _drawGridGap(
+      context, highlight.rowGaps, highlight.gridHighlightConfig.rowGapColor,
+      highlight.gridHighlightConfig.rowHatchColor, /* flipDirection */ true);
+  _drawGridGap(
+      context, highlight.columnGaps, highlight.gridHighlightConfig.columnGapColor,
+      highlight.gridHighlightConfig.columnHatchColor);
+}
+
+function _drawGridGap(context, gapCommands, gapColor, hatchColor, flipDirection) {
+  if (!gapColor && !hatchColor) {
+    return;
   }
 
-  // Column Gaps
-  if (highlight.gridHighlightConfig.columnGapColor) {
-    context.save();
-    context.translate(0.5, 0.5);
-    context.lineWidth = 0;
-    context.fillStyle = highlight.gridHighlightConfig.columnGapColor;
-    const bounds = emptyBounds();
-    const path = buildPath(highlight.columnGaps, bounds);
-    if (highlight.gridHighlightConfig.columnHatchColor) {
-      hatchFillPath(context, path, bounds, 10, highlight.gridHighlightConfig.columnHatchColor);
-    }
+  context.save();
+  context.translate(0.5, 0.5);
+  context.lineWidth = 0;
+
+  const bounds = emptyBounds();
+  const path = buildPath(gapCommands, bounds);
+
+  // Fill the gap background if needed.
+  if (gapColor) {
+    context.fillStyle = gapColor;
     context.fill(path);
-    context.restore();
   }
+
+  // And draw the hatch pattern if needed.
+  if (hatchColor) {
+    hatchFillPath(context, path, bounds, /* delta */ 10, hatchColor, flipDirection);
+  }
+  context.restore();
 }
 
 /**
