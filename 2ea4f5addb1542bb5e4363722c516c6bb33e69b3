@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "36b565c1_6f677a5a",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-02T12:58:35Z",
+      "side": 1,
+      "message": "Yes I overlooked this part. Thanks!",
+      "parentUuid": "78b8a506_5235c0bb",
+      "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "454e144f_c02a85b2",
         "filename": "front_end/elements/Adorner.js",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e30f4939_b6b159ca",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-02T12:58:35Z",
+      "side": 1,
+      "message": "Yes. It turns out I still need to do a lot of manual setup when it\u0027s a button, for example, aria-label, and keyboard event listener to optionally stop propagation, plus resetting the style. There\u0027s also some issue about button not being on the DOM before events are added, which requires some hacky ways to solve, so in the end I just went with the old solution.",
+      "parentUuid": "454e144f_c02a85b2",
+      "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8ab71b6_bbf3f3f5",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-02T12:58:35Z",
+      "side": 1,
+      "message": "😊",
+      "parentUuid": "bf03c5c9_86967028",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 5
+      },
+      "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
