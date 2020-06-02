@@ -1,0 +1,37 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+const {assert} = chai;
+
+import {WasmDisassembly} from '../../../../front_end/common/WasmDisassembly.js';
+
+describe('WasmDisassembly', () => {
+  const BYTECODE_OFFSETS = [0, 2, 3, 5, 7, 10, 11, 12, 13, 15, 18, 20, 24, 25, 26, 30, 31, 34, 80, 81, 83, 89, 90];
+
+  it('reports the correct line numbers', () => {
+    const disassembly = new WasmDisassembly(BYTECODE_OFFSETS);
+    assert.strictEqual(disassembly.lineNumbers, BYTECODE_OFFSETS.length);
+  });
+
+  it('maps line numbers to bytecode offsets correctly', () => {
+    const disassembly = new WasmDisassembly(BYTECODE_OFFSETS);
+    for (const [lineNumber, bytecodeOffset] of BYTECODE_OFFSETS.entries()) {
+      assert.strictEqual(disassembly.lineNumberToBytecodeOffset(lineNumber), bytecodeOffset);
+    }
+  });
+
+  it('maps bytecode offsets to line numbers correctly', () => {
+    const disassembly = new WasmDisassembly(BYTECODE_OFFSETS);
+    for (const [lineNumber, bytecodeOffset] of BYTECODE_OFFSETS.entries()) {
+      assert.strictEqual(disassembly.bytecodeOffsetToLineNumber(bytecodeOffset), lineNumber);
+    }
+  });
+
+  it('yields non-breakable line numbers correctly', () => {
+    const BYTECODE_OFFSETS = [0, 10, 23, 32, 35, 37, 39, 40, 75];
+    const FUNCTION_BODY_OFFSETS = [{start: 35, end: 41}];
+    const disassembly = new WasmDisassembly(BYTECODE_OFFSETS);
+    assert.deepEqual([...disassembly.nonBreakableLineNumbers(FUNCTION_BODY_OFFSETS)], [0, 1, 2, 3, 8]);
+  });
+});
