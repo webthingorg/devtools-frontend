@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78b8a506_5235c0bb",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-02T12:22:50Z",
+      "side": 1,
+      "message": "Should it be `this._ariaLabelDefault`?",
+      "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "454e144f_c02a85b2",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-02T12:22:50Z",
+      "side": 1,
+      "message": "Have you checked if it will be possible to render an adorner as a button?",
+      "revId": "2ea4f5addb1542bb5e4363722c516c6bb33e69b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
