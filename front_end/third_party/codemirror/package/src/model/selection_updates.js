@@ -1,9 +1,9 @@
+import { signalLater } from "../util/operation_group.js"
 import { ensureCursorVisible } from "../display/scrolling.js"
 import { clipPos, cmp, Pos } from "../line/pos.js"
 import { getLine } from "../line/utils_line.js"
 import { hasHandler, signal, signalCursorActivity } from "../util/event.js"
 import { lst, sel_dontScroll } from "../util/misc.js"
-import { signalLater } from "../util/operation_group.js"
 
 import { addSelectionToHistory } from "./history.js"
 import { normalizeSelection, Range, Selection, simpleSelection } from "./selection.js"

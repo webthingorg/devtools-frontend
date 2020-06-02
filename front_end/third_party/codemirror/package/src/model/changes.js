@@ -1,7 +1,7 @@
+import { retreatFrontier } from "../line/highlight.js"
 import { startWorker } from "../display/highlight_worker.js"
 import { operation } from "../display/operations.js"
 import { regChange, regLineChange } from "../display/view_tracking.js"
-import { retreatFrontier } from "../line/highlight.js"
 import { clipLine, clipPos, cmp, Pos } from "../line/pos.js"
 import { sawReadOnlySpans } from "../line/saw_special_spans.js"
 import { lineLength, removeReadOnlyRanges, stretchSpansOverChange, visualLine } from "../line/spans.js"

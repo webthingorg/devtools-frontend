@@ -1,14 +1,14 @@
 import { clipPos } from "../line/pos.js"
 import { findMaxLine } from "../line/spans.js"
 import { displayWidth, measureChar, scrollGap } from "../measurement/position_measurement.js"
-import { activeElt } from "../util/dom.js"
 import { signal } from "../util/event.js"
+import { activeElt } from "../util/dom.js"
 import { finishOperation, pushOperation } from "../util/operation_group.js"
 
 import { ensureFocus } from "./focus.js"
 import { measureForScrollbars, updateScrollbars } from "./scrollbars.js"
-import { maybeScrollWindow, scrollPosIntoView, setScrollLeft, setScrollTop } from "./scrolling.js"
 import { restartBlink } from "./selection.js"
+import { maybeScrollWindow, scrollPosIntoView, setScrollLeft, setScrollTop } from "./scrolling.js"
 import { DisplayUpdate, maybeClipScrollbars, postUpdateDisplay, setDocumentHeight, updateDisplayIfNeeded } from "./update_display.js"
 import { updateHeightsInViewport } from "./update_lines.js"
 

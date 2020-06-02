@@ -1,6 +1,7 @@
 import { operation, runInOp } from "../display/operations.js"
 import { prepareSelection } from "../display/selection.js"
 import { regChange } from "../display/view_tracking.js"
+import { applyTextInput, copyableRanges, disableBrowserMagic, handlePaste, hiddenTextarea, lastCopied, setLastCopied } from "./input.js"
 import { cmp, maxPos, minPos, Pos } from "../line/pos.js"
 import { getBetween, getLine, lineNo } from "../line/utils_line.js"
 import { findViewForLine, findViewIndex, mapFromLineView, nodeAndOffsetInLineMap } from "../measurement/position_measurement.js"
@@ -12,8 +13,6 @@ import { android, chrome, gecko, ie_version } from "../util/browser.js"
 import { contains, range, removeChildrenAndAdd, selectInput } from "../util/dom.js"
 import { on, signalDOMEvent } from "../util/event.js"
 import { Delayed, lst, sel_dontScroll } from "../util/misc.js"
-
-import { applyTextInput, copyableRanges, disableBrowserMagic, handlePaste, hiddenTextarea, lastCopied, setLastCopied } from "./input.js"
 
 // CONTENTEDITABLE INPUT STYLE
 
@@ -32,8 +31,16 @@ export default class ContentEditableInput {
     let div = input.div = display.lineDiv
     disableBrowserMagic(div, cm.options.spellcheck, cm.options.autocorrect, cm.options.autocapitalize)
 
+    function belongsToInput(e) {
+      for (let t = e.target; t; t = t.parentNode) {
+        if (t == div) return true
+        if (/\bCodeMirror-(?:line)?widget\b/.test(t.className)) break
+      }
+      return false
+    }
+
     on(div, "paste", e => {
-      if (signalDOMEvent(cm, e) || handlePaste(e, cm)) return
+      if (!belongsToInput(e) || signalDOMEvent(cm, e) || handlePaste(e, cm)) return
       // IE doesn't fire input events, so we schedule a read for the pasted content in this way
       if (ie_version <= 11) setTimeout(operation(cm, () => this.updateFromDOM()), 20)
     })
@@ -58,7 +65,7 @@ export default class ContentEditableInput {
     })
 
     function onCopyCut(e) {
-      if (signalDOMEvent(cm, e)) return
+      if (!belongsToInput(e) || signalDOMEvent(cm, e)) return
       if (cm.somethingSelected()) {
         setLastCopied({lineWise: false, text: cm.getSelections()})
         if (e.type == "cut") cm.replaceSelection("", null, "cut")

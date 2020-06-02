@@ -1,12 +1,12 @@
 // EDITOR CONSTRUCTOR
 
+import { CodeMirror } from "./CodeMirror.js"
+export { CodeMirror } from "./CodeMirror.js"
+
 import { eventMixin } from "../util/event.js"
 import { indexOf } from "../util/misc.js"
 
-import { CodeMirror } from "./CodeMirror.js"
 import { defineOptions } from "./options.js"
-
-export { CodeMirror } from "./CodeMirror.js"
 
 defineOptions(CodeMirror)
 
@@ -66,4 +66,4 @@ import { addLegacyProps } from "./legacy.js"
 
 addLegacyProps(CodeMirror)
 
-CodeMirror.version = "5.53.2"
+CodeMirror.version = "5.54.0"

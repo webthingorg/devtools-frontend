@@ -1,5 +1,6 @@
 import { operation, runInOp } from "../display/operations.js"
 import { prepareSelection } from "../display/selection.js"
+import { applyTextInput, copyableRanges, handlePaste, hiddenTextarea, setLastCopied } from "./input.js"
 import { cursorCoords, posFromMouse } from "../measurement/position_measurement.js"
 import { eventInWidget } from "../measurement/widgets.js"
 import { simpleSelection } from "../model/selection.js"
@@ -9,8 +10,6 @@ import { activeElt, removeChildrenAndAdd, selectInput } from "../util/dom.js"
 import { e_preventDefault, e_stop, off, on, signalDOMEvent } from "../util/event.js"
 import { hasSelection } from "../util/feature_detection.js"
 import { Delayed, sel_dontScroll } from "../util/misc.js"
-
-import { applyTextInput, copyableRanges, handlePaste, hiddenTextarea, setLastCopied } from "./input.js"
 
 // TEXTAREA INPUT STYLE
 

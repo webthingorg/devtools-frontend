@@ -1,6 +1,6 @@
-import { wheelEventPixels } from "../display/scroll_events.js"
 import { scrollbarModel } from "../display/scrollbars.js"
-import { isModifierKey, keyMap, keyName, lookupKey, normalizeKeyMap } from "../input/keymap.js"
+import { wheelEventPixels } from "../display/scroll_events.js"
+import { keyMap, keyName, isModifierKey, lookupKey, normalizeKeyMap } from "../input/keymap.js"
 import { keyNames } from "../input/keynames.js"
 import { Line } from "../line/line_data.js"
 import { cmp, Pos } from "../line/pos.js"
