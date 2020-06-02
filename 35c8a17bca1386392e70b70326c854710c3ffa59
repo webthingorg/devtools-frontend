@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2b8a318_31788936",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-02T10:17:16Z",
+      "side": 1,
+      "message": "I\u0027m prrrretty sure resolve and join handle the / just fine.",
+      "revId": "35c8a17bca1386392e70b70326c854710c3ffa59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
