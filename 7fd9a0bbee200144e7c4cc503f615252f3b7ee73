@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1378bd02_36f58da0",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-02T14:02:46Z",
+      "side": 1,
+      "message": "are all properties starting with `--` valid? I cannot think of an example, maybe, `--` ?",
+      "revId": "7fd9a0bbee200144e7c4cc503f615252f3b7ee73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
