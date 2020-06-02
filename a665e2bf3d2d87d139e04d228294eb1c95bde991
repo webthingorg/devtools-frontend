@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9a60c00_07f1508d",
+        "filename": "third_party/blink/public/public_features.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-06-02T11:13:31Z",
+      "side": 0,
+      "message": "We can probably remove this entire file and the reference to it.",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "a665e2bf3d2d87d139e04d228294eb1c95bde991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
