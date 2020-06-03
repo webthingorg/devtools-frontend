@@ -16,6 +16,24 @@
       "revId": "c262d25b12b59b0a91909b9eb1c251c4f7c7b6ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41658f5_df41891d",
+        "filename": "test/e2e/helpers/network-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-03T09:32:00Z",
+      "side": 0,
+      "message": "Thanks for the advice Paul. While researching this a bit more, I found out something that might be the root cause, and a fix for it.\n\nIn the test that\u0027s failing, I\u0027m first waiting for the requests to appear, and then getting the list of requests.\nThose 2 actions do things differently.\nThe former uses frontend.waitForFunction, which then does a document.querySelectorAll in the frontend.\nThe latter uses $$.\n\nAlthough waitForSomeRequestsToAppear does work, I\u0027m guessing that, because it\u0027s not going through shadow DOM boundaries, it\u0027s passing even when the requests aren\u0027t here yet.\nI will push a new change with a fix where waitForSomeRequeststoAppear just reuses getAllRequestsNames internally.",
+      "parentUuid": "27d07707_b5283304",
+      "revId": "c262d25b12b59b0a91909b9eb1c251c4f7c7b6ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
