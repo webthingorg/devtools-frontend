@@ -558,7 +558,7 @@ CodeMirror.Pos.prototype.ch;
 CodeMirror.cmpPos = function(pos1, pos2) {};
 
 /** @constructor */
-CodeMirror.StringStream = function(line) {
+CodeMirror.StringStream = function(lines, i) {
   this.pos = 0;
   this.start = 0;
 };
