@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26845bf5_f122123b",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-03T12:03:34Z",
+      "side": 1,
+      "message": "Not sure about the name `ColorUtils`. `Color.js` is less re-usable because it combines various color tools which would not be needed by the overlay.",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "726d2940_75da1615",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-03T12:03:34Z",
+      "side": 1,
+      "message": "Later I think it might make sense to use ColorUtils directly instead of wrapping it in a static method?",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfaaae30_0bef8016",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-03T12:03:34Z",
+      "side": 1,
+      "message": "I am not sure what was the reason behind an out parameter `out_blended`. Performance? I\u0027d change it to return the new value. WDYT?",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0a127f2_59752a1b",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-03T12:03:34Z",
+      "side": 1,
+      "message": "This change is for a discussion. Importing a complete Common namespace would not be an option for the overlay. Perhaps a separate namespace can be created though.",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
