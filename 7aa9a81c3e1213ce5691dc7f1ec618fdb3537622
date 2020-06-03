@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d488bcaa_cdac6fcb",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-03T14:05:46Z",
+      "side": 1,
+      "message": "Ooh, a bikeshed! Honestly, either name seems fine to me -- we can always rename later. I would have probably gone for something like `ColorCore`.",
+      "parentUuid": "26845bf5_f122123b",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "726d2940_75da1615",
         "filename": "front_end/common/Color.js",
         "patchSetId": 1
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "cfaaae30_0bef8016",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4605ee19_dde7d97d",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-03T14:05:46Z",
+      "side": 1,
+      "message": "Must\u0027ve been performance/memory usage (not needing a separate array). I agree we don\u0027t really have to worry about it in this case. +1 to making this pure.",
+      "parentUuid": "3f6e3115_50c7b50b",
       "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
