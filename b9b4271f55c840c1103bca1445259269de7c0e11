@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "214cda8a_24181fc9",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-03T13:05:48Z",
+      "side": 1,
+      "message": "If we have to reopen the file by filename just to delete it, is this truly better than deleting the file manually?",
+      "revId": "b9b4271f55c840c1103bca1445259269de7c0e11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
