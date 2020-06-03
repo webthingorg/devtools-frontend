@@ -72,6 +72,23 @@
     },
     {
       "key": {
+        "uuid": "cb6d6482_b90857b0",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-03T15:32:41Z",
+      "side": 1,
+      "message": "nit: Maybe color -\u003e colors? Seems like the old comment was also in the \"singular\" form.",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfaaae30_0bef8016",
         "filename": "front_end/common/ColorUtils.js",
         "patchSetId": 1
@@ -119,6 +136,24 @@
       "side": 1,
       "message": "Must\u0027ve been performance/memory usage (not needing a separate array). I agree we don\u0027t really have to worry about it in this case. +1 to making this pure.",
       "parentUuid": "3f6e3115_50c7b50b",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d51a1218_ce4e5331",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-03T15:32:41Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "4605ee19_dde7d97d",
       "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
