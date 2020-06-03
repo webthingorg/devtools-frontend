@@ -155,6 +155,30 @@
     },
     {
       "key": {
+        "uuid": "6341ee71_d2d79602",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-03T10:52:59Z",
+      "side": 1,
+      "message": "OK fine for me as is, but could you leave a todo here that mentions that we suspect that sources being undefined is a bug?",
+      "parentUuid": "64bc4674_757939d1",
+      "range": {
+        "startLine": 482,
+        "startChar": 10,
+        "endLine": 482,
+        "endChar": 51
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ab26832_4e6e7334",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -202,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "8ae5667d_88ee5980",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-03T10:52:59Z",
+      "side": 1,
+      "message": "Looking at the while loop below, this should probably be rewritten anyway. I\u0027m fine to leave as-is.",
+      "parentUuid": "826ff95a_8614a185",
+      "range": {
+        "startLine": 485,
+        "startChar": 8,
+        "endLine": 485,
+        "endChar": 18
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ad428a8_0f247b67",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -246,6 +294,30 @@
       "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "171dbeaa_900e40ea",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-03T10:52:59Z",
+      "side": 1,
+      "message": "Fine for me. I would find it useful if we documented the things we noticed in a short comment.",
+      "parentUuid": "49fb8a92_65111d9e",
+      "range": {
+        "startLine": 558,
+        "startChar": 6,
+        "endLine": 558,
+        "endChar": 18
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -364,6 +436,30 @@
       "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "032a267d_19b8f12c",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-03T10:52:59Z",
+      "side": 1,
+      "message": "Whether undefined or null is better is debatable. Undefined is the default, null indicated that intentional absence (i.e. undefined could be the result of a missing return statement).\n\nIf it is auto-generated, we can\u0027t do anything about it I guess.",
+      "parentUuid": "183aa698_869f0b71",
+      "range": {
+        "startLine": 754,
+        "startChar": 26,
+        "endLine": 754,
+        "endChar": 33
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
