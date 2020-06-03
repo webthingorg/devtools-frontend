@@ -103,7 +103,7 @@ export class TokenizerFactory {
     const mode = CodeMirror.getMode({indentUnit: 2}, mimeType);
     const state = CodeMirror.startState(mode);
     function tokenize(line, callback) {
-      const stream = new CodeMirror.StringStream(line);
+      const stream = new CodeMirror.StringStream([line], 0);
       while (!stream.eol()) {
         const style = mode.token(stream, state);
         const value = stream.current();

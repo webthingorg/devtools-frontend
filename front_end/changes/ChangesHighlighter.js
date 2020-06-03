@@ -45,7 +45,7 @@ export function ChangesHighlighter(config, parserConfig) {
   function fastForwardSyntaxHighlighter(syntaxState, from, to, lines) {
     let lineNumber = from;
     while (lineNumber < to && lineNumber < lines.length) {
-      const stream = new CodeMirror.StringStream(lines[lineNumber]);
+      const stream = new CodeMirror.StringStream(lines, lineNumber);
       if (stream.eol() && syntaxHighlightMode.blankLine) {
         syntaxHighlightMode.blankLine(syntaxState);
       }
