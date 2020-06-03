@@ -179,6 +179,30 @@
     },
     {
       "key": {
+        "uuid": "07e77f68_fe6ffdbe",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T11:16:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6341ee71_d2d79602",
+      "range": {
+        "startLine": 482,
+        "startChar": 10,
+        "endLine": 482,
+        "endChar": 51
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ab26832_4e6e7334",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -309,6 +333,30 @@
       "side": 1,
       "message": "Fine for me. I would find it useful if we documented the things we noticed in a short comment.",
       "parentUuid": "49fb8a92_65111d9e",
+      "range": {
+        "startLine": 558,
+        "startChar": 6,
+        "endLine": 558,
+        "endChar": 18
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bdca97f_11ca6a18",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T11:16:05Z",
+      "side": 1,
+      "message": "My comment added above was an attempt to do so. I have added a TODO to list we should refactor to a while-loop.",
+      "parentUuid": "171dbeaa_900e40ea",
       "range": {
         "startLine": 558,
         "startChar": 6,
