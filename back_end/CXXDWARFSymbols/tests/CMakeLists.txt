@@ -10,7 +10,9 @@ configure_lit_site_cfg(
   ${CMAKE_CURRENT_SOURCE_DIR}/lit.site.cfg.py.in
   ${CMAKE_CURRENT_BINARY_DIR}/lit.site.cfg.py)
 
+set(LLVM_RUNTIME_OUTPUT_INTDIR ${CMAKE_CURRENT_BINARY_DIR}/../third_party/llvm/llvm/bin)
+
 add_lit_testsuite(check-symbol-server "Running symbol server lit test suite"
-  ${CMAKE_CURRENT_BINARY_DIR}/
+  ${CMAKE_CURRENT_BINARY_DIR}
   DEPENDS DWARFSymbolServer SymbolServerTests FileCheck count not
   )
