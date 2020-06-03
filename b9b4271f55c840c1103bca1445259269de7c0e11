@@ -16,6 +16,24 @@
       "revId": "b9b4271f55c840c1103bca1445259269de7c0e11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bb3fcd9_33687e53",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-06-03T17:05:20Z",
+      "side": 1,
+      "message": "Yes, it\u0027s probably better to just delete the file manually, which seems like we need to do in any case, in discard(). The FileDisposition logic is really a mess, in the LLVM TempFile.\nI re-simplified the logic.",
+      "parentUuid": "214cda8a_24181fc9",
+      "revId": "b9b4271f55c840c1103bca1445259269de7c0e11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
