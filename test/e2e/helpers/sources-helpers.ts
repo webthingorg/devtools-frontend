@@ -9,6 +9,7 @@ import {$, click, getBrowserAndPages, resourcesPath, typeText, waitFor} from '..
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
 export const PAUSE_BUTTON = '[aria-label="Pause script execution"]';
 export const RESUME_BUTTON = '[aria-label="Resume script execution"]';
+export const SOURCES_LINES_SELECTOR = '.CodeMirror-code > div';
 
 export async function doubleClickSourceTreeItem(selector: string) {
   await waitFor(selector);
@@ -97,6 +98,10 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
     return document.querySelectorAll('.cm-breakpoint').length > bpCount &&
         document.querySelectorAll('.cm-breakpoint-unbound').length === 0;
   }, undefined, currentBreakpointCount);
+}
+
+export async function sourceLineNumberSelector(lineNumber: number) {
+  return `div.CodeMirror-code > div:nth-child(${lineNumber}) div.CodeMirror-linenumber.CodeMirror-gutter-elt`;
 }
 
 export async function getBreakpointDecorators(frontend: puppeteer.Page, disabledOnly = false) {
