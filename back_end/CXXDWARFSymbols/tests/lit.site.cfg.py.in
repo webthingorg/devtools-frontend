@@ -8,6 +8,7 @@ from lit.llvm.subst import FindTool, ToolSubst
 config.llvm_build_mode = "@LLVM_BUILD_MODE@"
 config.llvm_tools_dir = "@LLVM_BINARY_DIR@/bin"
 config.symbol_server_obj_root = "@PROJECT_BINARY_DIR@"
+config.lit_tools_dir = "@LLVM_LIT_TOOLS_DIR@"
 
 if "@SYMBOL_SERVER_BUILD_FORMATTERS@" == "ON":
     config.available_features.add('formatters')
