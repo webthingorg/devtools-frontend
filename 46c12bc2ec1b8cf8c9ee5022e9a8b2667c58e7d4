@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "608257f6_e752ba22",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2020-06-03T18:18:50Z",
+      "side": 1,
+      "message": "I\u0027ve updated to `96×96 pixel icon` instead of `96×96-pixel icon` to be consistent with https://web.dev/app-shortcuts",
+      "parentUuid": "95a43219_490eb80a",
+      "range": {
+        "startLine": 256,
+        "startChar": 27,
+        "endLine": 256,
+        "endChar": 90
+      },
+      "revId": "46c12bc2ec1b8cf8c9ee5022e9a8b2667c58e7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51e22465_547d65df",
         "filename": "front_end/resources/AppManifestView.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "46c12bc2ec1b8cf8c9ee5022e9a8b2667c58e7d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6d741d9_a2ad65f3",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2020-06-03T18:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51e22465_547d65df",
+      "range": {
+        "startLine": 435,
+        "startChar": 43,
+        "endLine": 435,
+        "endChar": 47
+      },
+      "revId": "46c12bc2ec1b8cf8c9ee5022e9a8b2667c58e7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
