@@ -158,6 +158,24 @@
       "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0f942c1_31e36eee",
+        "filename": "back_end/CXXDWARFSymbols/lib/Variables.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-06-03T05:08:54Z",
+      "side": 1,
+      "message": "The LLVM code for TempFile is really too convoluted on Windows. We cannot just call SetFileInformationByHandle(...FileDispositionInfo) here because the file should have been created with access flags GENERIC_READ | GENERIC_WRITE | DELETE. (See file third_party\\llvm\\llvm\\lib\\Support\\Windows\\Path.inc). \nTo have \u0027DELETE\u0027 we need to pass Flags\u003d\u003dOF_Delete to llvm::sys::fs::createUniqueFile(), but then the existing code calls setDeleteDisposition() causing the problem we are trying to fix. There is no way to set the \u0027DELETE\u0027 flag avoiding the call to setDeleteDisposition() because a lot of the logic is in static functions in LLVM that cannot be called directly.\nA good workaround is to call createUniqueFile() and then open the file in TempFile::create() with the right flags.\nIn this way here we can call SetFileInformationByHandle and set the file to delete on close.\n\nHowever, this is not sufficient: the file .wasm that we pass to lld::wasm::link() gets renamed by LLVM when the wasm file is written; for example C:\\Users\\\u003cUSER\u003e\\AppData\\Local\\Temp\\wasm_formatter-a8c193.wasm is renamed as C:\\Users\\\u003cUSER\u003e\\AppData\\Local\\Temp\\wasm_formatter-a8c193.wasm.tmp0, keeping the same file handle opened. After the renaming, a new file C:\\Users\\\u003cUSER\u003e\\AppData\\Local\\Temp\\wasm_formatter-a8c193.wasm is created.\nThis means that when we call SetFileInformationByHandle() and then close() here, we are actually deleting the renamed file, and we also need to call ::DeleteFile() to rename the new copy of the file. (I am supposing that after TempFileScope is destroyed we don\u0027t want to keep the wasm file we generated, in fact we want all these temporary files to be removed when running our tests).\nNotice that the original TempFile::discard() does call fs::remove(TmpName) on Linux. It doesn\u0027t do that on Windows, but that would be a problem in our case.\n\nSo, the conclusion is that the LLVM TempFile code on Windows should be used very carefully; this implementation seems to work well in our tests.",
+      "parentUuid": "55d05b02_70a4c9c6",
+      "revId": "1b4b5fccd07f1e20afc40ab88caee74ec57e7b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

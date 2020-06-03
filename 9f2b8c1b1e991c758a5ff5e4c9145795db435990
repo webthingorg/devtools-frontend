@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2ee5db26_45605b2f",
+        "filename": "back_end/CXXDWARFSymbols/tests/CMakeLists.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-06-03T05:08:54Z",
+      "side": 1,
+      "message": "Added a comment to explain it.",
+      "parentUuid": "038c25da_359aec5e",
+      "revId": "9f2b8c1b1e991c758a5ff5e4c9145795db435990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5d14c84_0617e986",
         "filename": "back_end/CXXDWARFSymbols/tests/FormatValues/Inputs/lsp-encode",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1e04049b_4234788f",
+        "filename": "back_end/CXXDWARFSymbols/tests/FormatValues/Inputs/lsp-encode",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-06-03T05:08:54Z",
+      "side": 1,
+      "message": "Done?",
+      "parentUuid": "c5d14c84_0617e986",
+      "revId": "9f2b8c1b1e991c758a5ff5e4c9145795db435990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81291875_4191ea18",
         "filename": "back_end/CXXDWARFSymbols/tests/FormatValues/formatArray.js",
         "patchSetId": 4
@@ -50,6 +86,24 @@
       "revId": "9f2b8c1b1e991c758a5ff5e4c9145795db435990",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfa01471_ea291cde",
+        "filename": "back_end/CXXDWARFSymbols/tests/FormatValues/formatArray.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1318771
+      },
+      "writtenOn": "2020-06-03T05:08:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81291875_4191ea18",
+      "revId": "9f2b8c1b1e991c758a5ff5e4c9145795db435990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
