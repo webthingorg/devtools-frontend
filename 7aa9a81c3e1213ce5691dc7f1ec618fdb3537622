@@ -67,6 +67,23 @@
       "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3cb77a0_3f8de5b4",
+        "filename": "test/unittests/front_end/common/ColorUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-03T12:04:34Z",
+      "side": 1,
+      "message": "took the test from Color_test.ts. I think the source test can be removed once the static method `Color.blendColors` is removed",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
