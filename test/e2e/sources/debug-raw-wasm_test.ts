@@ -6,8 +6,8 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
-import {$, click, getBrowserAndPages, resourcesPath} from '../../shared/helper.js';
-import {addBreakpointForLine, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
+import {$, $$, click, getBrowserAndPages, resourcesPath, step, waitFor} from '../../shared/helper.js';
+import {addBreakpointForLine, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, sourceLineNumberSelector, SOURCES_LINES_SELECTOR, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
 describe('Source Tab', async () => {
   it('shows the correct wasm source on load and reload', async () => {
@@ -39,6 +39,76 @@ describe('Source Tab', async () => {
     const scriptLocation = await retrieveTopCallFrameScriptLocation('main();', target);
     // TODO(chromium:1043047): Switch to bytecode offsets here.
     assert.deepEqual(scriptLocation, 'add.wasm:0x23');
+  });
+
+  it('hits breakpoint upon refresh', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await step('navigate to a page that activates the "main" function and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile(target, 'add.wasm', 'wasm/call-to-add-wasm-with-main.html');
+    });
+
+    await step('add a breakpoint to the fifth line', async () => {
+      await addBreakpointForLine(frontend, 5);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
+    });
+
+    await step('check that the breakpoint is still active', async () => {
+      const codeLineNums = await (await $$(SOURCES_LINES_SELECTOR)).evaluate(elements => {
+        return elements.map((el: HTMLElement) => el.className);
+      });
+      assert.deepInclude(codeLineNums[4], 'cm-breakpoint');
+      assert.notDeepInclude(codeLineNums[4], 'cm-breakpoint-disabled');
+      assert.notDeepInclude(codeLineNums[4], 'cm-breakpoint-unbound');
+    });
+
+    await step('check that the code has paused on the breakpoint', async () => {
+      await waitFor('.paused-status', undefined, 2000);
+    });
+  });
+
+  it('does not hit the breakpoint after it is removed', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await step('navigate to a page that activates the "main" function and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile(target, 'add.wasm', 'wasm/call-to-add-wasm-with-main.html');
+    });
+
+    await step('add a breakpoint to the fifth line', async () => {
+      await waitFor(await sourceLineNumberSelector(5), undefined, 2000);
+      await frontend.click(await sourceLineNumberSelector(5));
+    });
+
+    await step('reload the page', async () => {
+      await target.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
+    });
+
+    await step('check that the breakpoint is still active', async () => {
+      const codeLineNums = await (await $$(SOURCES_LINES_SELECTOR)).evaluate(elements => {
+        return elements.map((el: HTMLElement) => el.className);
+      });
+      assert.deepInclude(codeLineNums[4], 'cm-breakpoint');
+      assert.notDeepInclude(codeLineNums[4], 'cm-breakpoint-disabled');
+      assert.notDeepInclude(codeLineNums[4], 'cm-breakpoint-unbound');
+    });
+
+    await step('remove the breakpoint from the fifth line', async () => {
+      frontend.click(await sourceLineNumberSelector(5));
+    });
+
+    await step('reload the page', async () => {
+      await target.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
+    });
+
+    await step('check that the breakpoint is not active', async () => {
+      const codeLineNums = await (await $$(SOURCES_LINES_SELECTOR)).evaluate(elements => {
+        return elements.map((el: HTMLElement) => el.className);
+      });
+      assert.notDeepInclude(codeLineNums[4], 'cm-breakpoint');
+    });
   });
 
   it('cannot set a breakpoint on non-breakable line in raw wasm', async () => {
