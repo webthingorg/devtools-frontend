@@ -6,7 +6,10 @@ import("../../../third_party/typescript/typescript.gni")
 
 ts_library("emulation") {
   testonly = true
-  sources = [ "media-query-inspector_test.ts" ]
+  sources = [
+    "dual-screen_tests.ts",
+    "media-query-inspector_test.ts",
+  ]
 
   deps = [
     "../../shared",
