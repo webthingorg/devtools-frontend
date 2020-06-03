@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "64bc4674_757939d1",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T10:41:06Z",
+      "side": 1,
+      "message": "I honestly don\u0027t know. We might be, yes, as there is this implicit dependency that the `sources` exist in the map. I was hesitant with an early-return, as we might have other side-effects in this function that we shouldn\u0027t skip.",
+      "parentUuid": "6d9654ff_82568feb",
+      "range": {
+        "startLine": 482,
+        "startChar": 10,
+        "endLine": 482,
+        "endChar": 51
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ab26832_4e6e7334",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -154,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "826ff95a_8614a185",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T10:41:06Z",
+      "side": 1,
+      "message": "It was the closest I could model to the old behavior, without changing functionality (e.g. throwing, returning, etc...) Do you have a preference to a different solution?",
+      "parentUuid": "0ab26832_4e6e7334",
+      "range": {
+        "startLine": 485,
+        "startChar": 8,
+        "endLine": 485,
+        "endChar": 18
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ad428a8_0f247b67",
         "filename": "front_end/sdk/SourceMap.js",
         "patchSetId": 2
@@ -165,6 +213,30 @@
       "writtenOn": "2020-06-02T14:08:45Z",
       "side": 1,
       "message": "This can be converted into a while loop, then digit can be initialized to TextSourceMap._VLQ_CONTINUATION_MASK and have type number (removing the need for @ts-ignore).",
+      "range": {
+        "startLine": 558,
+        "startChar": 6,
+        "endLine": 558,
+        "endChar": 18
+      },
+      "revId": "492b9e4aaca769088a42681e25ae52fa43ab062f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49fb8a92_65111d9e",
+        "filename": "front_end/sdk/SourceMap.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T10:41:06Z",
+      "side": 1,
+      "message": "I have made several attempts at while-loops and all of my attempts failed tests. After spending quite a lot of time on it, I decided to skip them for now. Do you mind if we punt this to a follow-up CL?",
+      "parentUuid": "0ad428a8_0f247b67",
       "range": {
         "startLine": 558,
         "startChar": 6,
