@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "cc9d6998_5fbe65fd",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T12:39:40Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "726d2940_75da1615",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfaaae30_0bef8016",
         "filename": "front_end/common/ColorUtils.js",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2020-06-03T12:03:34Z",
       "side": 1,
       "message": "I am not sure what was the reason behind an out parameter `out_blended`. Performance? I\u0027d change it to return the new value. WDYT?",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f6e3115_50c7b50b",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T12:39:40Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "cfaaae30_0bef8016",
       "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "c34dc02a_66c69624",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T12:39:40Z",
+      "side": 1,
+      "message": "I am okay with this for now, but I do think we should monitor the imports we are adding. The more we import, the more we duplicate. So importing minimally is +1.",
+      "parentUuid": "e0a127f2_59752a1b",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3cb77a0_3f8de5b4",
         "filename": "test/unittests/front_end/common/ColorUtils_test.ts",
         "patchSetId": 1
@@ -84,6 +138,24 @@
       "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3eb1de9_7f9f8ea9",
+        "filename": "test/unittests/front_end/common/ColorUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-03T12:39:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a3cb77a0_3f8de5b4",
+      "revId": "7aa9a81c3e1213ce5691dc7f1ec618fdb3537622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
