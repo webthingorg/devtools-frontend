@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95a43219_490eb80a",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-03T18:05:38Z",
+      "side": 1,
+      "message": "Nit:\n\n        imageErrors.push(ls`Shortcut #${shortcutIndex} should include a 96×96-pixel icon`);",
+      "range": {
+        "startLine": 256,
+        "startChar": 27,
+        "endLine": 256,
+        "endChar": 90
+      },
+      "revId": "46c12bc2ec1b8cf8c9ee5022e9a8b2667c58e7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e22465_547d65df",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-03T18:05:38Z",
+      "side": 1,
+      "message": "maybe size → dimensions? (size could be misinterpreted as file size)",
+      "range": {
+        "startLine": 435,
+        "startChar": 43,
+        "endLine": 435,
+        "endChar": 47
+      },
+      "revId": "46c12bc2ec1b8cf8c9ee5022e9a8b2667c58e7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
