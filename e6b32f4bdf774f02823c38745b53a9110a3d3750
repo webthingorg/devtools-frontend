@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d39ed36_985bbc7e",
+        "filename": "front_end/inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-04T21:32:18Z",
+      "side": 1,
+      "message": "changed the names because --arrow-up actually was a down arrow, and vice versa. This is reflected with a change to the styles defined in tool_highlight.js",
+      "range": {
+        "startLine": 437,
+        "startChar": 59,
+        "endLine": 437,
+        "endChar": 71
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
