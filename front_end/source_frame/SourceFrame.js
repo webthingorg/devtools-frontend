@@ -312,7 +312,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
 
       const progressIndicator = new UI.ProgressIndicator.ProgressIndicator();
       progressIndicator.setTitle(Common.UIString.UIString('Loading…'));
-      progressIndicator.setTotalWork(2);
+      progressIndicator.setTotalWork(100);
       this._progressToolbarItem.element.appendChild(progressIndicator.element);
 
       const {content, error} = (await this._lazyContent());
@@ -326,7 +326,13 @@ export class SourceFrameImpl extends UI.View.SimpleView {
         const worker = new Common.Worker.WorkerWrapper('wasmparser_worker_entrypoint');
         /** @type {!Promise<!{source: string, offsets: !Array<number>, functionBodyOffsets: !Array<{start: number, end: number}>}>} */
         const promise = new Promise((resolve, reject) => {
-          worker.onmessage = ({data}) => resolve(data);
+          worker.onmessage = ({data}) => {
+            if ('event' in data) {
+              progressIndicator.setWorked(data.params.percentage);
+            } else {
+              resolve(data.result);
+            }
+          };
           worker.onerror = reject;
         });
         worker.postMessage({method: 'disassemble', params: {content}});
@@ -336,7 +342,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
         this._wasmDisassembly = new Common.WasmDisassembly.WasmDisassembly(offsets, functionBodyOffsets);
       }
 
-      progressIndicator.setWorked(2);
+      progressIndicator.setWorked(100);
       progressIndicator.done();
 
       this._formattedContentPromise = null;
