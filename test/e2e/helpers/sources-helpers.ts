@@ -2,13 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
-import {$, click, getBrowserAndPages, resourcesPath, typeText, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, resourcesPath, step, typeText, waitFor} from '../../shared/helper.js';
 
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
 export const PAUSE_BUTTON = '[aria-label="Pause script execution"]';
 export const RESUME_BUTTON = '[aria-label="Resume script execution"]';
+export const SOURCES_LINES_SELECTOR = '.CodeMirror-code > div';
+export const PAUSE_INDICATOR_SELECTOR = '.paused-status';
 
 export async function doubleClickSourceTreeItem(selector: string) {
   await waitFor(selector);
@@ -99,6 +102,56 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
   }, undefined, currentBreakpointCount);
 }
 
+export async function sourceLineNumberSelector(lineNumber: number) {
+  return `div.CodeMirror-code > div:nth-child(${lineNumber}) div.CodeMirror-linenumber.CodeMirror-gutter-elt`;
+}
+
+export async function checkBreakpointIsActive(lineNumber: number) {
+  await step(`check that the breakpoint is still active at line ${lineNumber}`, async () => {
+    const codeLineNums = await (await $$(SOURCES_LINES_SELECTOR)).evaluate(elements => {
+      return elements.map((el: HTMLElement) => el.className);
+    });
+    assert.deepInclude(codeLineNums[lineNumber - 1], 'cm-breakpoint');
+    assert.notDeepInclude(codeLineNums[lineNumber - 1], 'cm-breakpoint-disabled');
+    assert.notDeepInclude(codeLineNums[lineNumber - 1], 'cm-breakpoint-unbound');
+  });
+}
+
+export async function checkBreakpointIsNotActive(lineNumber: number) {
+  await step(`check that the breakpoint is not active at line ${lineNumber}`, async () => {
+    const codeLineNums = await (await $$(SOURCES_LINES_SELECTOR)).evaluate(elements => {
+      return elements.map((el: HTMLElement) => el.className);
+    });
+    assert.notDeepInclude(codeLineNums[lineNumber - 1], 'cm-breakpoint');
+  });
+}
+
+export async function checkBreakpointDidNotActivate() {
+  await step('check that the script did not pause', async () => {
+    const breakpointIndicator = await (await $$(PAUSE_INDICATOR_SELECTOR)).evaluate(elements => {
+      return elements.map((el: HTMLElement) => el.className);
+    });
+    assert.deepEqual(breakpointIndicator.length, 0, 'script had been paused');
+  });
+}
+
+export async function testBreakpointAtPage(
+    target: puppeteer.Page, frontend: puppeteer.Page, sourceFile: string, testInput: string, lineNumber: number) {
+  await step('navigate to a page and open the Sources tab', async () => {
+    await openSourceCodeEditorForFile(target, sourceFile, testInput);
+  });
+
+  await step(`add a breakpoint to line No.${lineNumber}`, async () => {
+    await addBreakpointForLine(frontend, lineNumber);
+  });
+
+  await step('reload the page', async () => {
+    await target.reload({waitUntil: ['networkidle2', 'domcontentloaded']});
+  });
+
+  await checkBreakpointIsActive(lineNumber);
+}
+
 export async function getBreakpointDecorators(frontend: puppeteer.Page, disabledOnly = false) {
   const selector = `.cm-breakpoint${disabledOnly ? '-disabled' : ''} .CodeMirror-linenumber`;
   return await frontend.$$eval(selector, nodes => nodes.map(n => parseInt(n.textContent!, 0)));
@@ -122,7 +175,7 @@ export async function retrieveTopCallFrameScriptLocation(script: string, target:
   const scriptEvaluation = target.evaluate(script);
 
   // Wait for the evaluation to be paused and shown in the UI
-  await waitFor('.paused-status');
+  await waitFor(PAUSE_INDICATOR_SELECTOR);
 
   // Retrieve the top level call frame script location name
   const scriptLocation =
