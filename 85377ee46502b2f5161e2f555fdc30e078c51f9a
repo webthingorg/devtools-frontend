@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c047f8a1_00ba6f72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "nit: You are adding them, so I would just write \"This CL adds four E2E..\"",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd757005_769af807",
+        "filename": "test/e2e/resources/sources/wasm/call-to-add-wasm-with-main.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "You can modify call-to-add-wasm.html to directly call main(); this doesn\u0027t break/change the other tests; and then you can reuse the file for your test.",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e190721_1e4ebfca",
+        "filename": "test/e2e/resources/sources/wasm/call-to-add-wasm-with-main.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "main() is enough",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12c35611_a3c68dc8",
+        "filename": "test/e2e/resources/sources/wasm/wasm-with-sourcemap-with-main.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "Optional: Could we change wasm-with-sourcemap.html to use (async () \u003d\u003e {})(), to directly call the body of the go function? Because then it looks a bit cleaner/more clear if we have another call to main().\n\n(Also, here we can modify the original file, this doesn\u0027t affect the other test cases)",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ba47433_12f2b099",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "Comments from without source maps apply here too.",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68545b35_af9cbf98",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "Can we add another check here to see if we have paused at the expected script location (as in line 41)?",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "846b1dc1_82180289",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "How about extracting lines 76 - 96 into a helper function? Then this can be reused in both test cases.\n\nApart from that, I think that \"check that breakpoint is still active\" would also be a good helper function for sources-helpers.ts. Then you can reuse that for the source map test file as well.",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99eac44c_febca5df",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-04T07:56:13Z",
+      "side": 1,
+      "message": "Now that I think of it: can we double check that actually do not pause here? (i.e. check that we do not have .paused-status)",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
