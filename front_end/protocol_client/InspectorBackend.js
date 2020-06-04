@@ -825,8 +825,6 @@ class _AgentPrototype {
   constructor(domain) {
     /** @type {!Object<string, !Array<string>>} */
     this._replyArgs = {};
-    /** @type {!Object<string, boolean>} */
-    this._hasErrorData = {};
     this._domain = domain;
     /** @type {!TargetBase} */
     this._target;
@@ -867,9 +865,6 @@ class _AgentPrototype {
     this['invoke_' + methodName] = invoke;
 
     this._replyArgs[domainAndMethod] = replyArgs;
-    if (hasErrorData) {
-      this._hasErrorData[domainAndMethod] = true;
-    }
   }
 
   /**
