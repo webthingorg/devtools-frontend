@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3db8dd1b_f57d4808",
+        "filename": "test/unittests/front_end/karma.conf.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-04T10:35:48Z",
+      "side": 1,
+      "message": "@Tim I think there has to be a better way to do this - wdyt?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 0
+      },
+      "revId": "c9f7f5996a2b30ed8ba3ded5120d3698c3dcdce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
