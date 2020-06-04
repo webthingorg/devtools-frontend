@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83d4678f_06dd3fb4",
+        "filename": "front_end/browser_debugger/DOMBreakpointsSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-06-04T01:58:51Z",
+      "side": 1,
+      "message": "NVDA is reading out the checked state twice because of this line",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 72
+      },
+      "revId": "1b1ab20c05990ac01a52492ed3804bb3b1dc2bd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
