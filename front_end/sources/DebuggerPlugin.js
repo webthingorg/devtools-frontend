@@ -45,8 +45,6 @@ import {Plugin} from './Plugin.js';
 import {resolveExpression, resolveScopeInObject} from './SourceMapNamesResolver.js';
 import {SourcesPanel} from './SourcesPanel.js';
 
-const breakpointsGutterType = 'CodeMirror-gutter-breakpoints';
-
 export class DebuggerPlugin extends Plugin {
   /**
    * @param {!SourceFrame.SourcesTextEditor.SourcesTextEditor} textEditor
@@ -168,6 +166,7 @@ export class DebuggerPlugin extends Plugin {
       this._prettyPrintInfobar = null;
       this._detectMinified();
     }
+<<<<<<< HEAD   (0c3c38 Allow extensions while inspecting NTP in OTR mode)
 
     // Divs are created in the breakpoint gutter in each line
     // so that the contextMenu event handler can determine which row was clicked on.
@@ -176,6 +175,8 @@ export class DebuggerPlugin extends Plugin {
       const gutterElement = createElementWithClass('div', 'breakpoint-element');
       this._textEditor.setGutterDecoration(i, breakpointsGutterType, gutterElement);
     }
+=======
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
   }
 
   /**
@@ -1662,8 +1663,7 @@ export class DebuggerPlugin extends Plugin {
     }
 
     const eventData = /** @type {!SourceFrame.SourcesTextEditor.GutterClickEventData} */ (event.data);
-    if (eventData.gutterType !== SourceFrame.SourcesTextEditor.lineNumbersGutterType &&
-        eventData.gutterType !== breakpointsGutterType) {
+    if (eventData.gutterType !== SourceFrame.SourcesTextEditor.lineNumbersGutterType) {
       return;
     }
     const editorLineNumber = eventData.lineNumber;
