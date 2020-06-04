@@ -22,6 +22,30 @@
       "revId": "b5709fb480880260678a0f2da6c5ee1ec0904017",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e7be548_4dd490a4",
+        "filename": "front_end/profiler/ProfileView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-04T09:09:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f68de2e3_deca5351",
+      "range": {
+        "startLine": 556,
+        "startChar": 7,
+        "endLine": 557,
+        "endChar": 62
+      },
+      "revId": "b5709fb480880260678a0f2da6c5ee1ec0904017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
