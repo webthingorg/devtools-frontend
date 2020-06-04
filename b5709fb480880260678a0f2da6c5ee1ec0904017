@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f68de2e3_deca5351",
+        "filename": "front_end/profiler/ProfileView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-04T08:39:43Z",
+      "side": 1,
+      "message": "nit: this is a pretty hard line to follow, wonder if it\u0027s worth pulling out parts e.g. `this.profileType().fileExtension()` into a variable?",
+      "range": {
+        "startLine": 556,
+        "startChar": 7,
+        "endLine": 557,
+        "endChar": 62
+      },
+      "revId": "b5709fb480880260678a0f2da6c5ee1ec0904017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
