@@ -540,4 +540,22 @@ describe('StringUtilities', () => {
       assert.strictEqual(StringUtilities.removeURLFragment(input), 'http://www.example.com/foo.html?x=1');
     });
   });
+
+  describe('isCssWhitespace', () => {
+    it('returns true for whitespace-only input', () => {
+      assert.isTrue(StringUtilities.isCssWhitespace(' '));
+      assert.isTrue(StringUtilities.isCssWhitespace('\n'));
+      assert.isTrue(StringUtilities.isCssWhitespace('\t'));
+      assert.isTrue(StringUtilities.isCssWhitespace(' \n\t \n\t'));
+    });
+    it('returns false for input that contains non-CSS-whitespace', () => {
+      assert.isFalse(StringUtilities.isCssWhitespace('\xA0'));
+      assert.isFalse(StringUtilities.isCssWhitespace('\u2028'));
+      assert.isFalse(StringUtilities.isCssWhitespace('\u2029'));
+      assert.isFalse(StringUtilities.isCssWhitespace('_ '));
+      assert.isFalse(StringUtilities.isCssWhitespace('_\n'));
+      assert.isFalse(StringUtilities.isCssWhitespace('_\t'));
+      assert.isFalse(StringUtilities.isCssWhitespace('_ '));
+    });
+  });
 });

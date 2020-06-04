@@ -470,3 +470,12 @@ export const removeURLFragment = inputStr => {
   url.hash = '';
   return url.toString();
 };
+
+/**
+ * @param {string} text
+ * @return {boolean}
+ */
+export const isCssWhitespace = text => {
+  const reWhitespace = /^[\n\t ]+$/;
+  return reWhitespace.test(text);
+};

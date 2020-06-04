@@ -250,7 +250,12 @@ export class CSSProperty {
       }
 
       if (token === '}' || token === ';') {
-        result = result.trimRight() + indentation + propertyText.trim() + ';';
+        // While it's tempting to trim `propertyText` unconditionally,
+        // doing so breaks valid CSS declarations such as `--foo: ;`
+        // which would then produce `--foo:;` which is invalid.
+        // https://crbug.com/1071296
+        result = result.trimRight() + indentation +
+            (Platform.StringUtilities.isCssWhitespace(propertyText) ? propertyText : propertyText.trim()) + ';';
         needsSemi = false;
         insideProperty = false;
         propertyName = '';
