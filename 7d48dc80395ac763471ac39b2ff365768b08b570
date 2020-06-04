@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d8416e9_ef7d35e1",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-04T08:21:56Z",
+      "side": 1,
+      "message": "Having two separate tests is nice, but I feel what\u0027s more important is to have a single E2E that captures the whole journey:\n\n```\n1.) Navigate\n2.) Set breakpoint 1\n3.) Reload\n--- Breakpoint 1 hit ---\n4.) Remove breakpoint 1\n5.) Set breakpoint 2 later\n6.) Reload again\n--- Breakpoint 2 hit ---\n```\n\nThis ensures that we also test the state that is held in the front-end and back-end. I talked to Kim about this in the morning.",
+      "revId": "7d48dc80395ac763471ac39b2ff365768b08b570",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
