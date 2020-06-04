@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "491f057f_f52a6a6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c047f8a1_00ba6f72",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd757005_769af807",
         "filename": "test/e2e/resources/sources/wasm/call-to-add-wasm-with-main.html",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b3824c8_85a76c9f",
+        "filename": "test/e2e/resources/sources/wasm/call-to-add-wasm-with-main.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd757005_769af807",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d7b71e11_278c96a5",
+        "filename": "test/e2e/resources/sources/wasm/call-to-add-wasm-with-main.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e190721_1e4ebfca",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12c35611_a3c68dc8",
         "filename": "test/e2e/resources/sources/wasm/wasm-with-sourcemap-with-main.html",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45a821c6_fd9e4a12",
+        "filename": "test/e2e/resources/sources/wasm/wasm-with-sourcemap-with-main.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12c35611_a3c68dc8",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "5ec338b4_a10440da",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ba47433_12f2b099",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68545b35_af9cbf98",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 3
@@ -101,6 +191,24 @@
       "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79f6f0dd_a61ca367",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68545b35_af9cbf98",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "6383e55e_ec15ad8b",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "846b1dc1_82180289",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99eac44c_febca5df",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 3
@@ -132,6 +258,24 @@
       "writtenOn": "2020-06-04T07:56:13Z",
       "side": 1,
       "message": "Now that I think of it: can we double check that actually do not pause here? (i.e. check that we do not have .paused-status)",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56b4d3ff_3ef66346",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-04T22:50:12Z",
+      "side": 1,
+      "message": "I could not find a reliable way to check that the script did not pause. The best I could do was to return all the elements that have the pause indicator selector and checking that it is of length 0.\nThe problem with this approach is that there is no way to time that check with the appearance of the pause indicator, so even if it succeeds it might be just because the check happened before the indicator appeared.\nIs there an even that we can check for that we know the pause always happens after?",
+      "parentUuid": "99eac44c_febca5df",
       "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
