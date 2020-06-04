@@ -2,15 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as puppeteer from 'puppeteer';
-
-import {$, click, resourcesPath, waitFor} from '../../shared/helper.js';
+import {$, click, goToResource, waitFor} from '../../shared/helper.js';
 
 const RECORD_BUTTON_SELECTOR = '[aria-label="Record"]';
 const STOP_BUTTON_SELECTOR = '[aria-label="Stop"]';
 
-export async function navigateToPerformanceTab(target: puppeteer.Page, testName: string) {
-  await target.goto(`${resourcesPath}/performance/${testName}.html`);
+export async function navigateToPerformanceTab(testName: string) {
+  await goToResource(`performance/${testName}.html`);
 
   // Click on the tab.
   await click('#tab-timeline');
