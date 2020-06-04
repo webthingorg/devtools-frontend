@@ -32,6 +32,8 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import {blendColors} from '../common/ColorUtils.js';
+
 import {createElement} from './common.js';
 
 const lightGridColor = 'rgba(0,0,0,0.2)';
@@ -270,8 +272,12 @@ function contrastRatio(fgRGBA, bgRGBA) {
   // If we have a semi-transparent background color over an unknown
   // background, draw the line for the "worst case" scenario: where
   // the unknown background is the same color as the text.
-  bgRGBA = blendColors(bgRGBA, fgRGBA);
-  const fgLuminance = luminance(blendColors(fgRGBA, bgRGBA));
+  const blendedBgRGBA = [];
+  const blendedFgRGBA = [];
+  blendColors(bgRGBA, fgRGBA, blendedBgRGBA);
+  bgRGBA = blendedBgRGBA;
+  blendColors(fgRGBA, bgRGBA, blendedFgRGBA);
+  const fgLuminance = luminance(blendedFgRGBA);
   const bgLuminance = luminance(bgRGBA);
   const result = (Math.max(fgLuminance, bgLuminance) + 0.05) / (Math.min(fgLuminance, bgLuminance) + 0.05);
   return result.toFixed(2);
@@ -292,20 +298,6 @@ function contrastRatio(fgRGBA, bgRGBA) {
     const b = bSRGB <= 0.03928 ? bSRGB / 12.92 : Math.pow(((bSRGB + 0.055) / 1.055), 2.4);
 
     return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  }
-
-  /**
-    * Combine the two given color according to alpha blending.
-    * @param {!Array<number>} fgRGBA
-    * @param {!Array<number>} bgRGBA
-    * @return {!Array<number>}
-    */
-  function blendColors(fgRGBA, bgRGBA) {
-    const alpha = fgRGBA[3];
-    return [
-      ((1 - alpha) * bgRGBA[0]) + (alpha * fgRGBA[0]), ((1 - alpha) * bgRGBA[1]) + (alpha * fgRGBA[1]),
-      ((1 - alpha) * bgRGBA[2]) + (alpha * fgRGBA[2]), alpha + (bgRGBA[3] * (1 - alpha))
-    ];
   }
 }
 

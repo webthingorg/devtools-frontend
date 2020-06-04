@@ -28,6 +28,7 @@
  */
 
 import * as Platform from '../platform/platform.js';
+import {blendColors} from './ColorUtils.js';
 
 /** @type {?Map<string, string>} */
 let _rgbaToNickname;
@@ -383,12 +384,7 @@ export class Color {
    * @param {!Array<number>} out_blended
    */
   static blendColors(fgRGBA, bgRGBA, out_blended) {
-    const alpha = fgRGBA[3];
-
-    out_blended[0] = ((1 - alpha) * bgRGBA[0]) + (alpha * fgRGBA[0]);
-    out_blended[1] = ((1 - alpha) * bgRGBA[1]) + (alpha * fgRGBA[1]);
-    out_blended[2] = ((1 - alpha) * bgRGBA[2]) + (alpha * fgRGBA[2]);
-    out_blended[3] = alpha + (bgRGBA[3] * (1 - alpha));
+    blendColors(fgRGBA, bgRGBA, out_blended);
   }
 
   /**
