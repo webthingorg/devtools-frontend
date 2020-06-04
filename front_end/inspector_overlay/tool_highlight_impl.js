@@ -33,6 +33,7 @@
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import {createElement} from './common.js';
+import {drawGridNumbers} from './css_grid_label_helpers.js';
 
 const lightGridColor = 'rgba(0,0,0,0.2)';
 const darkGridColor = 'rgba(0,0,0,0.7)';
@@ -522,7 +523,7 @@ function _createMaterialTooltip(parentElement, bounds, contentElement, withArrow
     return;
   }
 
-  tooltipContent.style.setProperty('--arrow', onTop ? 'var(--arrow-up)' : 'var(--arrow-down)');
+  tooltipContent.style.setProperty('--arrow', onTop ? 'var(--arrow-down)' : 'var(--arrow-up)');
   tooltipContent.style.setProperty('--shadow-direction', onTop ? 'var(--shadow-up)' : 'var(--shadow-down)');
   tooltipContent.style.setProperty('--arrow-top', (onTop ? titleHeight : -arrowHalfWidth) + 'px');
   tooltipContent.style.setProperty('--arrow-left', (arrowX - boxX) + 'px');
@@ -655,6 +656,8 @@ function emptyBounds() {
 
 function _drawLayoutGridHighlight(highlight, context) {
   // Draw Grid border
+  const gridBounds = emptyBounds();
+  const gridPath = buildPath(highlight.gridBorder, gridBounds);
   if (highlight.gridHighlightConfig.gridBorderColor) {
     context.save();
     context.translate(0.5, 0.5);
@@ -663,7 +666,7 @@ function _drawLayoutGridHighlight(highlight, context) {
       context.setLineDash([3, 3]);
     }
     context.strokeStyle = highlight.gridHighlightConfig.gridBorderColor;
-    context.stroke(buildPath(highlight.gridBorder, emptyBounds()));
+    context.stroke(gridPath);
     context.restore();
   }
 
@@ -720,6 +723,10 @@ function _drawLayoutGridHighlight(highlight, context) {
   _drawGridGap(
       context, highlight.columnGaps, highlight.gridHighlightConfig.columnGapColor,
       highlight.gridHighlightConfig.columnHatchColor);
+
+  if (highlight.gridHighlightConfig.showPositiveNumbers) {
+    drawGridNumbers(highlight, gridBounds)
+  }
 }
 
 function _drawGridGap(context, gapCommands, gapColor, hatchColor, flipDirection) {
