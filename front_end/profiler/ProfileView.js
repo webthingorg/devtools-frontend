@@ -553,7 +553,8 @@ export class WritableProfileHeader extends ProfileHeader {
   async saveToFile() {
     const fileOutputStream = new Bindings.FileUtils.FileOutputStream();
     this._fileName = this._fileName ||
-        `${this.profileType().typeName()}-${new Date().toISO8601Compact()}${this.profileType().fileExtension()}`;
+        `${this.profileType().typeName()}-${Platform.DateUtilities.toISO8601Compact(new Date())}${
+                         this.profileType().fileExtension()}`;
     const accepted = await fileOutputStream.open(this._fileName);
     if (!accepted || !this._tempFile) {
       return;
