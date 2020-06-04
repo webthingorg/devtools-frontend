@@ -36,6 +36,7 @@
     margin-left: 3px;
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .CodeMirror-gutter-breakpoints {
     width: 10px;
     margin: 0 -4px 0 2px;
@@ -43,6 +44,8 @@
     cursor: default;
 }
 
+=======
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 .CodeMirror .source-frame-eval-expression {
     outline: 0;
     border: 1px solid rgb(163, 41, 34);
@@ -131,11 +134,19 @@
 }
 
 .CodeMirror-linenumber {
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
     color: hsl(0, 0%, 46%);
     padding: 0 3px 0 5px;
     min-width: 22px;
     text-align: right;
     white-space: nowrap;
+=======
+  color: hsl(0deg 0% 46%);
+  padding: 0 3px 0 12px;
+  min-width: 22px;
+  text-align: right;
+  white-space: nowrap;
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 }
 
 .pretty-printed .CodeMirror-linenumber {
@@ -187,6 +198,7 @@
     color: rgba(128, 128, 128, 0.4);
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .breakpoint-element {
     padding-top: 1.5px;
 }
@@ -194,39 +206,80 @@
 .breakpoint-element::before {
     content: "\00AD";
 }
+=======
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 
 .CodeMirror-gutter-background.cm-breakpoint {
     background-color: var(--breakpoint-background-red);
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .cm-breakpoint .breakpoint-element::before {
     content: url(Images/breakpoint.svg);
+=======
+.CodeMirror-gutter-background.cm-breakpoint::before {
+  content: url(Images/breakpoint.svg);
+  position: relative;
+  top: 1px;
+  left: 1px;
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .breakpoints-deactivated .cm-breakpoint .breakpoint-element::before,
 .cm-breakpoint-unbound .breakpoint-element::before,
 .cm-breakpoint-disabled .breakpoint-element::before {
     content: url(Images/breakpoint-disabled.svg);
+=======
+.breakpoints-deactivated .CodeMirror-gutter-background.cm-breakpoint::before,
+.CodeMirror-gutter-background.cm-breakpoint-unbound::before,
+.CodeMirror-gutter-background.cm-breakpoint-disabled::before {
+  content: url(Images/breakpoint-disabled.svg);
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .cm-breakpoint.cm-breakpoint-conditional .breakpoint-element::before {
     content: url(Images/breakpoint-conditional.svg);
+=======
+.CodeMirror-gutter-background.cm-breakpoint.cm-breakpoint-conditional::before {
+  content: url(Images/breakpoint-conditional.svg);
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .cm-breakpoint-disabled.cm-breakpoint-conditional .breakpoint-element::before,
 .cm-breakpoint-unbound.cm-breakpoint-conditional .breakpoint-element::before,
 .breakpoints-deactivated .cm-breakpoint.cm-breakpoint-conditional .breakpoint-element::before {
     content: url(Images/breakpoint-conditional-disabled.svg);
+=======
+.CodeMirror-gutter-background.cm-breakpoint-disabled.cm-breakpoint-conditional::before,
+.CodeMirror-gutter-background.cm-breakpoint-unbound.cm-breakpoint-conditional::before,
+.breakpoints-deactivated .CodeMirror-gutter-background.cm-breakpoint.cm-breakpoint-conditional::before {
+  content: url(Images/breakpoint-conditional-disabled.svg);
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .cm-breakpoint.cm-breakpoint-logpoint .breakpoint-element::before {
     content: url(Images/logpoint.svg);
+=======
+.CodeMirror-gutter-background.cm-breakpoint.cm-breakpoint-logpoint::before {
+  content: url(Images/logpoint.svg);
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 }
 
+<<<<<<< HEAD   (4bddee Allow extensions while inspecting NTP in OTR mode)
 .cm-breakpoint-disabled.cm-breakpoint-logpoint .breakpoint-element::before,
 .cm-breakpoint-unbound.cm-breakpoint-logpoint .breakpoint-element::before,
 .breakpoints-deactivated .cm-breakpoint.cm-breakpoint-logpoint .breakpoint-element::before {
     content: url(Images/logpoint-disabled.svg);
+=======
+.CodeMirror-gutter-background.cm-breakpoint-disabled.cm-breakpoint-logpoint::before,
+.CodeMirror-gutter-background.cm-breakpoint-unbound.cm-breakpoint-logpoint::before,
+.breakpoints-deactivated .CodeMirror-gutter-background.cm-breakpoint.cm-breakpoint-logpoint::before {
+  content: url(Images/logpoint-disabled.svg);
+>>>>>>> CHANGE (12e579 Remove breakpoint gutter)
 }
 
 .cm-inline-breakpoint {
