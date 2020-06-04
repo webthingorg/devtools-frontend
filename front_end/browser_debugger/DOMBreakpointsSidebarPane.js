@@ -85,25 +85,19 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
     element.classList.add('breakpoint-entry');
     element.addEventListener('contextmenu', this._contextMenu.bind(this, item), true);
     UI.ARIAUtils.markAsListitem(element);
-    element.tabIndex = this._list.selectedItem() === item ? 0 : -1;
+    element.tabIndex = -1;
 
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(/* title */ '', item.enabled);
     const checkboxElement = checkboxLabel.checkboxElement;
     checkboxElement.addEventListener('click', this._checkboxClicked.bind(this, item), false);
-    checkboxElement.tabIndex = -1;
+    checkboxElement.tabIndex = this._list.selectedItem() === item ? 0 : -1;
+    element.checkboxElement = checkboxElement;
     UI.ARIAUtils.markAsHidden(checkboxLabel);
     element.appendChild(checkboxLabel);
 
     const labelElement = document.createElement('div');
     labelElement.classList.add('dom-breakpoint');
     element.appendChild(labelElement);
-    element.addEventListener('keydown', event => {
-      if (event.key === ' ') {
-        checkboxElement.click();
-        event.consume(true);
-      }
-    });
-
     const description = createElement('div');
     const breakpointTypeLabel = BreakpointTypeLabels.get(item.type);
     description.textContent = breakpointTypeLabel;
@@ -169,14 +163,14 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
    */
   selectedItemChanged(from, to, fromElement, toElement) {
     if (fromElement) {
-      fromElement.tabIndex = -1;
+      fromElement.checkboxElement.tabIndex = -1;
     }
 
     if (toElement) {
-      this.setDefaultFocusedElement(toElement);
-      toElement.tabIndex = 0;
+      this.setDefaultFocusedElement(toElement.checkboxElement);
+      toElement.checkboxElement.tabIndex = 0;
       if (this.hasFocus()) {
-        toElement.focus();
+        toElement.checkboxElement.focus();
       }
     }
   }
