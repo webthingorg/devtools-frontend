@@ -84,7 +84,8 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
     const element = document.createElement('div');
     element.classList.add('breakpoint-entry');
     element.addEventListener('contextmenu', this._contextMenu.bind(this, item), true);
-    UI.ARIAUtils.markAsListitem(element);
+    UI.ARIAUtils.markAsCheckbox(element);
+    UI.ARIAUtils.setChecked(element, item.enabled);
     element.tabIndex = this._list.selectedItem() === item ? 0 : -1;
 
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(/* title */ '', item.enabled);
