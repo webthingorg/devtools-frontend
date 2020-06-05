@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ccb955c3_02913636",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-06-05T19:09:09Z",
+      "side": 1,
+      "message": "nit: builder",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 16
+      },
+      "revId": "e0e6b02e560523261f7972e29d35a7388bb93357",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff17c3e6_e0adb7e5",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-06-05T19:09:09Z",
+      "side": 1,
+      "message": "Is this builder still very slow? If it is, we have to be careful that it doesn\u0027t eat up our resources.",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 31
+      },
+      "revId": "e0e6b02e560523261f7972e29d35a7388bb93357",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
