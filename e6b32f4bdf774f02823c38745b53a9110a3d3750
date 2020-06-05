@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "b84fdd33_4abcaf8a",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-05T13:15:06Z",
+      "side": 1,
+      "message": "Always starting at 1 is going to fail in certain cases where implicit negative lines are created.\n\nTake this example: a 5x5 grid. It\u0027s row lines are going to be numbered 1 to 6. And on the negative side of things from -6 to -1 (bottom to top).\nNow, add a single item to this grid with the following positioning property: grid-row: -10;\n\nThis will create 4 new row lines towards the top, and will \"push down\" the row line 1.\n\nNow, visually, if there are no grid gaps defined, line 1 still looks like its the first line from the top, but that\u0027s only because it\u0027s at the same offset as the 4 new implicit lines that come before it.\nAdd grid-gap:1em; and you\u0027ll see that the row line 1 shifts downwards by 4em.\n\nIt looks like we have access to LayoutGrid on the backend, maybe that could be used to access the list of GridTrack instances, which seem to hold an Index property.",
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0655f0b_44e76234",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-05T13:15:06Z",
+      "side": 1,
+      "message": "Do you think we could avoid repeating the same logic here as for the columns just above by moving this to a function and calling it twice? once for columns, once for rows. It seems to me that the code is similar enough, and we\u0027d just have to replace words like top, bottom, left, right with logic terms like start and end instead.",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef5cba39_278672c4",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-05T13:15:06Z",
+      "side": 1,
+      "message": "Similarly here, the code in this function is very close to the one in _placeRowLabel. The only difference though is the placement. That might be trickier to deal with if we turned this into a single function that works for both rows and columns.\nI think we might want to give it a shot anyway, and see if the code is understandable.\nI\u0027m just worried that if we don\u0027t, we\u0027ll find ourselves fixing bugs for misplaced column labels one day, and will forget to fix them for rows too.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 1
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57b08b74_038585f6",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 5
@@ -13,6 +76,75 @@
       "writtenOn": "2020-06-05T05:39:18Z",
       "side": 1,
       "message": "FYI it\u0027s now possible to write unit tests for the overlay code whenever it\u0027s useful",
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5a6c16f_72aa744a",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-05T13:15:06Z",
+      "side": 1,
+      "message": "I might be wrong, but it looks to me like the arrow, wherever it is, is always going to hide the corner that you don\u0027t want a radius on. If that is correct, then all arrow types could have a 2px border radius defined in CSS, and these lines could be removed from the JS code.",
+      "range": {
+        "startLine": 215,
+        "startChar": 5,
+        "endLine": 215,
+        "endChar": 39
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b246f718_2c6558e2",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-05T13:15:06Z",
+      "side": 1,
+      "message": "I don\u0027t understand why we sometimes use left/right/top/bottom and other times west/east/north/south. Could you please explain?",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 59
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d1b5398_e973dfea",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-05T13:15:06Z",
+      "side": 1,
+      "message": "I have to admit it took me quite a long time to understand what role these 2 pseudo-elements were playing in the whole thing. The chain of css variables used here is quite clever, but took me a bit of time to understand.\n\nHere\u0027s a proposal to simplify this a little bit: using just one pseudo, not 2. And transforming it in a way that it looks like the arrow we need.\nIn my mind, you could remove the ::after, and only have the ::before. Remove the clip-path and the box-shadow entirely. And transform the arrow like such:\nIf it\u0027s, say, mid left, then transform: rotate(-45deg) should make it look like an arrow that points left. Then all that\u0027s left to do is give it a 1px solid white border, and a background color of #1A73E8 like the label itself.\nIf the arrow is top left for example, then you\u0027d have to transform: skewX(30deg) to make it look like today.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 1
+      },
       "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
