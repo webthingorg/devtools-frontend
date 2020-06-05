@@ -373,9 +373,9 @@ export class ConsoleViewMessage {
   }
 
   /**
-   * @return {!Element}
+   * @return {!Promise<Element>}
    */
-  _buildMessageWithStackTrace() {
+  async _buildMessageWithStackTrace() {
     const toggleElement = document.createElement('div');
     toggleElement.classList.add('console-message-stack-trace-toggle');
     const contentElement = toggleElement.createChild('div', 'console-message-stack-trace-wrapper');
@@ -389,7 +389,7 @@ export class ConsoleViewMessage {
 
     clickableElement.appendChild(messageElement);
     const stackTraceElement = contentElement.createChild('div');
-    const stackTracePreview = Components.JSPresentationUtils.buildStackTracePreviewContents(
+    const stackTracePreview = await Components.JSPresentationUtils.buildStackTracePreviewContents(
         this._message.runtimeModel().target(), this._linkifier, {stackTrace: this._message.stackTrace});
     stackTraceElement.appendChild(stackTracePreview.element);
     for (const linkElement of stackTracePreview.links) {
@@ -1205,9 +1205,9 @@ export class ConsoleViewMessage {
   }
 
   /**
-   * @return {!Element}
+   * @return {!Promise<Element>}
    */
-  contentElement() {
+  async contentElement() {
     if (this._contentElement) {
       return this._contentElement;
     }
@@ -1227,7 +1227,7 @@ export class ConsoleViewMessage {
          this._message.level === SDK.ConsoleModel.MessageLevel.Warning ||
          this._message.type === SDK.ConsoleModel.MessageType.Trace);
     if (this._message.runtimeModel() && shouldIncludeTrace) {
-      formattedMessage = this._buildMessageWithStackTrace();
+      formattedMessage = await this._buildMessageWithStackTrace();
     } else if (this._message.type === SDK.ConsoleModel.MessageType.Table) {
       formattedMessage = this._buildTableMessage();
     } else {
@@ -1436,7 +1436,7 @@ export class ConsoleViewMessage {
   /**
    * @param {?RegExp} regex
    */
-  setSearchRegex(regex) {
+  async setSearchRegex(regex) {
     if (this._searchHiglightNodeChanges && this._searchHiglightNodeChanges.length) {
       UI.UIUtils.revertDomChanges(this._searchHiglightNodeChanges);
     }
@@ -1457,7 +1457,7 @@ export class ConsoleViewMessage {
 
     if (sourceRanges.length) {
       this._searchHighlightNodes =
-          UI.UIUtils.highlightSearchResults(this.contentElement(), sourceRanges, this._searchHiglightNodeChanges);
+          UI.UIUtils.highlightSearchResults(await this.contentElement(), sourceRanges, this._searchHiglightNodeChanges);
     }
   }
 

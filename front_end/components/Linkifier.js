@@ -165,7 +165,7 @@ export class Linkifier {
    * @param {!LinkifyOptions=} options
    * @return {?Element}
    */
-  maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
+  async maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
     const parsedOptions = {className: '', columnNumber: 0, ...options};
     const {columnNumber, className} = parsedOptions;
     let fallbackAnchor = null;
@@ -201,12 +201,11 @@ export class Linkifier {
     info.fallback = fallbackAnchor;
 
     const pool = this._locationPoolByTarget.get(rawLocation.debuggerModel.target());
-    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()
-        .createLiveLocation(rawLocation, this._updateAnchor.bind(this, anchor), pool)
-        .then(liveLocation => {
-          info.liveLocation = liveLocation;
-          this._onLiveLocationUpdate();
-        });
+    const liveLocation = await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createLiveLocation(
+        rawLocation, this._updateAnchor.bind(this, anchor), pool);
+
+    info.liveLocation = liveLocation;
+    this._onLiveLocationUpdate();
 
     const anchors = /** @type {!Array<!Element>} */ (this._anchorsByTarget.get(rawLocation.debuggerModel.target()));
     anchors.push(anchor);
@@ -244,8 +243,8 @@ export class Linkifier {
    * @param {!LinkifyOptions=} options
    * @return {?Element}
    */
-  maybeLinkifyConsoleCallFrame(target, callFrame, options) {
-    return this.maybeLinkifyScriptLocation(
+  async maybeLinkifyConsoleCallFrame(target, callFrame, options) {
+    return await this.maybeLinkifyScriptLocation(
         target, callFrame.scriptId, callFrame.url, callFrame.lineNumber,
         {columnNumber: callFrame.columnNumber, ...options});
   }

@@ -686,8 +686,8 @@ export class NetworkLogViewColumns {
     }
     return {
       box: anchor.boxInWindow(),
-      show: popover => {
-        const content = RequestInitiatorView.createStackTracePreview(
+      show: async popover => {
+        const content = await RequestInitiatorView.createStackTracePreview(
             /** @type {!SDK.NetworkRequest.NetworkRequest} */ (request), this._popupLinkifier, false,
             () => popover.setSizeBehavior(UI.GlassPane.SizeBehavior.MeasureContent));
         popover.contentElement.appendChild(content.element);
