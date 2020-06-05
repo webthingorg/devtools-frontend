@@ -9,6 +9,7 @@ import {PlayerEventsView} from './EventDisplayTable.js';
 import {TriggerHandler} from './MainView.js';  // eslint-disable-line no-unused-vars
 import {PlayerEvent} from './MediaModel.js';   // eslint-disable-line no-unused-vars
 import {PlayerPropertiesView} from './PlayerPropertiesView.js';
+import {PlayerEventsTimeline} from './EventTimelineView.js';
 
 /**
  * @enum {string}
@@ -16,6 +17,7 @@ import {PlayerPropertiesView} from './PlayerPropertiesView.js';
 export const PlayerDetailViewTabs = {
   Events: 'events',
   Properties: 'properties',
+  Timeline: 'timeline'
 };
 
 /**
@@ -28,6 +30,7 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
 
     this._eventView = new PlayerEventsView();
     this._propertyView = new PlayerPropertiesView();
+    this._timelineView = new PlayerEventsTimeline();
 
     this.appendTab(
         PlayerDetailViewTabs.Properties, Common.UIString.UIString('Properties'), this._propertyView,
@@ -36,6 +39,10 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
     this.appendTab(
         PlayerDetailViewTabs.Events, Common.UIString.UIString('Events'), this._eventView,
         Common.UIString.UIString('Player events'));
+
+    this.appendTab(
+        PlayerDetailViewTabs.Timeline, Common.UIString.UIString('Timeline'), this._timelineView,
+        Common.UIString.UIString('Player timeline'));
   }
 
   /**
@@ -66,5 +73,6 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
    */
   onEvent(event) {
     this._eventView.onEvent(event);
+    this._timelineView.onEvent(event);
   }
 }

@@ -17,18 +17,21 @@
     "sdk",
     "ui",
     "data_grid",
-    "source_frame"
+    "source_frame",
+    "perf_ui"
   ],
   "modules": [
     "media.js",
     "media-legacy.js",
+    "EasyFlame.js",
     "EventDisplayTable.js",
     "MainView.js",
     "PlayerDetailView.js",
     "PlayerListView.js",
     "PlayerPropertiesView.js",
     "MediaModel.js",
-    "ChevronTabbedPanel.js"
+    "ChevronTabbedPanel.js",
+    "EventTimelineView.js"
   ],
   "scripts": [],
   "resources": [
