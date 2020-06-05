@@ -34,6 +34,24 @@
       "revId": "f23177a371cc296f8e9d9dfdad2a04c4b1010108",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68b08d3b_dbf73daa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-05T08:14:18Z",
+      "side": 1,
+      "message": "That\u0027s better than nothing I suppose, but it\u0027s still a bit of a hassle, and since we can so easily avoid it, let\u0027s just do that?\n\nYou can run\n\n    git config user.email \u0027fbeaufort@chromium.org\u0027\n\n...in the devtools-frontend repo to change the default email just for that repo.",
+      "parentUuid": "ab6352af_071bc5f8",
+      "revId": "f23177a371cc296f8e9d9dfdad2a04c4b1010108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
