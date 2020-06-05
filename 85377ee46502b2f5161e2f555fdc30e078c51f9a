@@ -279,6 +279,24 @@
       "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21f69e63_7bc996bf",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-05T06:58:44Z",
+      "side": 1,
+      "message": "I see your point! Tim, Paul: is there any event that we could wait for to make sure that we won\u0027t run into a debugger pause afterwards?",
+      "parentUuid": "56b4d3ff_3ef66346",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72f05ac2_60f33021",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-05T06:58:44Z",
+      "side": 1,
+      "message": "nit: testBreakOnPageReload\n\nThis may be too coarse grain for the sources-helpers.ts.\nI think the other functions are really nice to have; for this one I slightly feel that it\u0027s too coarse grain for the general sources-helpers.ts: \n+Tim, Paul: wdyt?",
+      "revId": "136fe9639c67252d363012db1a0712681f2d9fb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
