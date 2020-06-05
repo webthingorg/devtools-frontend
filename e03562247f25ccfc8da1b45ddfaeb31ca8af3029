@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "faff3e56_dfe29e45",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-05T08:56:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbacb124_b737b3d6",
+      "range": {
+        "startLine": 330,
+        "startChar": 12,
+        "endLine": 330,
+        "endChar": 32
+      },
+      "revId": "e03562247f25ccfc8da1b45ddfaeb31ca8af3029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2234305_31c5857f",
         "filename": "front_end/source_frame/SourceFrame.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-04T14:42:09Z",
       "side": 1,
       "message": "For belt and braces, as it were, do you want to setWorked to 100 here, too?",
+      "range": {
+        "startLine": 333,
+        "startChar": 14,
+        "endLine": 333,
+        "endChar": 35
+      },
+      "revId": "e03562247f25ccfc8da1b45ddfaeb31ca8af3029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "375b58d4_fe15e10c",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-05T08:56:09Z",
+      "side": 1,
+      "message": "We have the `setWorked(100);` call below.",
+      "parentUuid": "a2234305_31c5857f",
       "range": {
         "startLine": 333,
         "startChar": 14,
@@ -68,6 +116,30 @@
       "revId": "e03562247f25ccfc8da1b45ddfaeb31ca8af3029",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4aad8cd_5309cc20",
+        "filename": "front_end/wasmparser_worker/WasmParserWorker.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-05T08:56:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75b440ff_b7ed0e8b",
+      "range": {
+        "startLine": 74,
+        "startChar": 75,
+        "endLine": 74,
+        "endChar": 78
+      },
+      "revId": "e03562247f25ccfc8da1b45ddfaeb31ca8af3029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
