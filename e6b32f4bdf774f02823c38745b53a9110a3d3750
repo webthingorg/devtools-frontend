@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "57b08b74_038585f6",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-05T05:39:18Z",
+      "side": 1,
+      "message": "FYI it\u0027s now possible to write unit tests for the overlay code whenever it\u0027s useful",
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d39ed36_985bbc7e",
         "filename": "front_end/inspector_overlay/tool_highlight_impl.js",
         "patchSetId": 5
