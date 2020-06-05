@@ -31,6 +31,7 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import logicalAssignment from '../third_party/acorn-logical-assignment/package/dist/acorn-logical-assignment.mjs';
 import * as Acorn from '../third_party/acorn/package/dist/acorn.mjs';
 
 import {AcornTokenizer, ECMA_VERSION, TokenOrComment} from './AcornTokenizer.js';  // eslint-disable-line no-unused-vars
@@ -61,7 +62,7 @@ export class JavaScriptFormatter {
     this._lastLineNumber = 0;
     this._tokenizer = new AcornTokenizer(this._content);
     const options = {ranges: false, preserveParens: true, allowImportExportEverywhere: true, ecmaVersion: ECMA_VERSION};
-    const ast = Acorn.parse(this._content, options);
+    const ast = Acorn.Parser.extend(logicalAssignment).parse(this._content, options);
     const walker = new ESTreeWalker(this._beforeVisit.bind(this), this._afterVisit.bind(this));
     walker.walk(ast);
   }
