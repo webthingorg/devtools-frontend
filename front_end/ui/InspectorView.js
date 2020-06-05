@@ -64,6 +64,8 @@ export class InspectorView extends VBox {
     this._drawerSplitWidget.enableShowModeSaving();
     this._drawerSplitWidget.show(this.element);
 
+    this._tabDelegate = new InspectorViewTabDelegate();
+
     // Create drawer tabbed pane.
     this._drawerTabbedLocation =
         ViewManager.instance().createTabbedLocation(this._showDrawer.bind(this, false), 'drawer-view', true, true);
@@ -71,9 +73,11 @@ export class InspectorView extends VBox {
     moreTabsButton.setTitle(ls`More Tools`);
     this._drawerTabbedPane = this._drawerTabbedLocation.tabbedPane();
     this._drawerTabbedPane.setMinimumSize(0, 27);
+    this._drawerTabbedPane.element.classList.add('drawer-tabbed-pane');
     const closeDrawerButton = new ToolbarButton(Common.UIString.UIString('Close drawer'), 'largeicon-delete');
     closeDrawerButton.addEventListener(ToolbarButton.Events.Click, this._closeDrawer, this);
     this._drawerTabbedPane.addEventListener(TabbedPaneEvents.TabSelected, this._drawerTabSelected, this);
+    this._drawerTabbedPane.setTabDelegate(this._tabDelegate);
 
     this._drawerSplitWidget.setSidebarWidget(this._drawerTabbedPane);
     this._drawerTabbedPane.rightToolbar().appendToolbarItem(closeDrawerButton);
@@ -85,9 +89,11 @@ export class InspectorView extends VBox {
         'panel', true, true, Root.Runtime.queryParam('panel'));
 
     this._tabbedPane = this._tabbedLocation.tabbedPane();
+    this._tabbedPane.element.classList.add('main-tabbed-pane');
     this._tabbedPane.registerRequiredCSS('ui/inspectorViewTabbedPane.css');
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabSelected, this._tabSelected, this);
     this._tabbedPane.setAccessibleName(Common.UIString.UIString('Panels'));
+    this._tabbedPane.setTabDelegate(this._tabDelegate);
 
     // Store the initial selected panel for use in launch histograms
     Host.userMetrics.setLaunchPanel(this._tabbedPane.selectedTabId);
@@ -396,5 +402,56 @@ export class ActionDelegate {
         return true;
     }
     return false;
+  }
+}
+
+/**
+ * @implements {UI.TabbedPane.TabbedPaneTabDelegate}
+ * @unrestricted
+ */
+export class InspectorViewTabDelegate {
+  /**
+   * @param {!TabbedPane} tabbedPane
+   * @param {!Array.<string>} ids
+   */
+  closeTabs(tabbedPane, ids) {
+    tabbedPane.closeTabs(ids, true);
+  }
+
+  /**
+   * @param {string} tabId
+   */
+  moveToDrawer(tabId) {
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.TabMovedToDrawer);
+    ViewManager.instance().moveView(tabId, 'drawer-view');
+  }
+
+  /**
+   * @param {string} tabId
+   */
+  moveToMainPanel(tabId) {
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.TabMovedToMainPanel);
+    ViewManager.instance().moveView(tabId, 'panel');
+  }
+
+  /**
+   * @override
+   * @param {string} tabId
+   * @param {!UI.ContextMenu.ContextMenu} contextMenu
+   */
+  onContextMenu(tabId, contextMenu) {
+    // Special case for console, we don't show the movable context panel for this two tabs
+    if (tabId === 'console' || tabId === 'console-view') {
+      return;
+    }
+
+    const locationName = ViewManager.instance().locationNameForViewId(tabId);
+    if (locationName === 'drawer-view') {
+      contextMenu.defaultSection().appendItem(
+          Common.UIString.UIString('Move to main panel'), this.moveToMainPanel.bind(this, tabId));
+    } else {
+      contextMenu.defaultSection().appendItem(
+          Common.UIString.UIString('Move to drawer'), this.moveToDrawer.bind(this, tabId));
+    }
   }
 }
