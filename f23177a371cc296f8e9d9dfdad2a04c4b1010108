@@ -16,6 +16,24 @@
       "revId": "f23177a371cc296f8e9d9dfdad2a04c4b1010108",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab6352af_071bc5f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2020-06-05T08:07:36Z",
+      "side": 1,
+      "message": "FWIW I don\u0027t bypass them when running `git cl upload` and always the warning. That\u0027s when I remember I have to add the `No-Presubmit: true` bit.\n\nWould that be OK if I added it just before submitting to the CQ so that we can all read its content. \n\n```\n** Presubmit Warnings **\nbeaufort.francois@gmail.com is not in AUTHORS file. If you are a new contributor, please visit\nhttps://www.chromium.org/developers/contributing-code and read the \"Legal\" section\nIf you are a chromite, verify the contributor signed the CLA.\n\nPresubmit checks took 14.5s to calculate.\n\nThere were presubmit warnings. Are you sure you wish to continue? (y/N): y\n```",
+      "parentUuid": "5c13d8fc_e4eef4d9",
+      "revId": "f23177a371cc296f8e9d9dfdad2a04c4b1010108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
