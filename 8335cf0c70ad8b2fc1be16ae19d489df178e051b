@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c5e1844_d4607d6a",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-05T10:59:46Z",
+      "side": 1,
+      "message": "Some background explanation: Creating a LiveLocation is potentially very expensive. Assuming this \"linkified script location\" is a WebAssembly module, we will do a roundtrip to the Wasm Debugging Server, potentially cause DWARF parsing, etc. until the source mapped location is returned (this was the reason why we asyncified LiveLocations in the first place).\n\nWaiting here for the LiveLocation creation, could potentially freeze up the UI for a long while. Every entry in the stack trace in your example GIF gets its own LiveLocation, and this await here causes them to be processed sequentially, blocking on each single one before starting the next one (assuming we await the {maybeLinkifyScriptLocation} in the callers, which seems to be the case in this CL).\n\nThe {_updateAnchor} updates the link element. Couldn\u0027t we trigger a re-calculation of the frame bounds there? (I know that might also be a messy solution, but better than freezing up the whole UI).",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 66
+      },
+      "revId": "8335cf0c70ad8b2fc1be16ae19d489df178e051b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
