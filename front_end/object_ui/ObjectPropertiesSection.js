@@ -592,6 +592,10 @@ export class RootElement extends UI.TreeOutline.TreeElement {
   }
 }
 
+// Number of initially visible children. Remaining children
+// are shown as soon as requested via the `this._showAllProperties` button.
+export const InitialVisibleChildrenLimit = 20;
+
 /**
  * @unrestricted
  */
@@ -609,6 +613,8 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     /** @type {!Array.<!Object>} */
     this._highlightChanges = [];
     this._linkifier = linkifier;
+    this._maxNumPropertiesToShow = InitialVisibleChildrenLimit;
+    this._userRequestedPropertiesReveal = false;
     this.listItemElement.addEventListener('contextmenu', this._contextMenuFired.bind(this), false);
   }
 
@@ -720,6 +726,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
         continue;
       }
       treeNode.appendChild(treeElement);
+      ++visibleProperties;
     }
 
     ObjectPropertyTreeElement._appendEmptyPlaceholderIfNeeded(treeNode, emptyPlaceholder);
@@ -753,7 +760,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     if (!object) {
       return rootElement;
     }
-    element.classList.add('object-value-calculate-value-button');
+    element.classList.add('object-value-show-more');
     element.title = Common.UIString.UIString('Invoke property getter');
     element.addEventListener('click', onInvokeGetterClick, false);
 
@@ -819,6 +826,31 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
+  /**
+   * @param {!UI.TreeOutline.TreeElement} element
+   * @return boolean
+   */
+  _showAllPropertiesElementSelected(element) {
+    this._userRequestedPropertiesReveal = true;
+    this.removeChild(element);
+    this.children().forEach(x => x.hidden = false);
+    return false;
+  }
+
+  _createShowAllPropertiesButton() {
+    const element = document.createElement('div');
+    element.classList.add('object-value-show-more');
+    element.textContent = Common.UIString.UIString('(…)');    
+    element.title = Common.UIString.UIString(`Show all ${this.childCount()}`);
+    const children = this.children();
+    for (var i = this._maxNumPropertiesToShow; i < this.childCount(); ++i) {
+      children[i].hidden = true;
+    }
+    const showAllPropertiesButton = new UI.TreeOutline.TreeElement(element);
+    showAllPropertiesButton.onselect = this._showAllPropertiesElementSelected.bind(this, showAllPropertiesButton);    
+    this.appendChild(showAllPropertiesButton);
+  }
+
   revertHighlightChanges() {
     UI.UIUtils.revertDomChanges(this._highlightChanges);
     this._highlightChanges = [];
@@ -835,6 +867,9 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     const targetValue = this.property.name !== '__proto__' ? propertyValue : this.property.parentObject;
     await ObjectPropertyTreeElement._populate(
         this, propertyValue, skipProto, this._linkifier, undefined, undefined, undefined, targetValue);
+    if (this.childCount() > this._maxNumPropertiesToShow && !this._userRequestedPropertiesReveal){
+      this._createShowAllPropertiesButton();
+    }
   }
 
   /**
@@ -964,7 +999,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       this._rowContainer =
           UI.Fragment.html`<span class='name-and-value'>${this.nameElement}: ${this.valueElement}</span>`;
     }
-    this.listItemElement.appendChild(this._rowContainer);
+    this.listItemElement.appendChild(this._rowContainer)
   }
 
   _updatePropertyPath() {
