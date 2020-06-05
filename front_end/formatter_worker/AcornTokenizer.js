@@ -4,7 +4,9 @@
 
 import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
+import logicalAssignment from '../third_party/acorn-logical-assignment/package/dist/acorn-logical-assignment.mjs';
 import * as Acorn from '../third_party/acorn/package/dist/acorn.mjs';
+
 
 /**
  * @typedef {(!Acorn.Token|!Acorn.Comment)}
@@ -23,7 +25,8 @@ export class AcornTokenizer {
     this._content = content;
     /** @type {!Array<!Acorn.Comment>} */
     this._comments = [];
-    this._tokenizer = Acorn.tokenizer(this._content, {onComment: this._comments, ecmaVersion: ECMA_VERSION});
+    this._tokenizer = Acorn.Parser.extend(logicalAssignment)
+                          .tokenizer(this._content, {onComment: this._comments, ecmaVersion: ECMA_VERSION});
     const contentLineEndings = Platform.StringUtilities.findLineEndingIndexes(this._content);
     this._textCursor = new TextUtils.TextCursor.TextCursor(contentLineEndings);
     this._tokenLineStart = 0;
