@@ -52,6 +52,24 @@
       "revId": "f23177a371cc296f8e9d9dfdad2a04c4b1010108",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e50db2ca_df9ff414",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2020-06-05T08:23:46Z",
+      "side": 1,
+      "message": "Noted. I\u0027ll do this next CL.",
+      "parentUuid": "68b08d3b_dbf73daa",
+      "revId": "f23177a371cc296f8e9d9dfdad2a04c4b1010108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
