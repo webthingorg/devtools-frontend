@@ -87,6 +87,14 @@ builder_coverage(
   execution_timeout=2 * time.hour,
 )
 
+builder_coverage(
+  covered_oss = ["linux"],
+  buider_factory = try_builder,
+  builder_name_pattern = "devtools_backend_%s_rel",
+  recipe_name="devtools/devtools-backend",
+  execution_timeout=2 * time.hour,
+)
+
 luci.list_view(
   name="tryserver",
   title="Tryserver",
@@ -115,10 +123,10 @@ cq_retry_config=cq.retry_config(
 
 cq_master_builders=[
   'devtools_frontend_linux_blink_light_rel',
-  'devtools_frontend_linux_blink_rel',
   'devtools_frontend_linux_rel',
   'devtools_frontend_mac_rel',
   'devtools_frontend_win64_rel',
+  'devtools_backend_linux_rel',
   'dtf_presubmit_linux',
   'dtf_presubmit_win64',
   'dtf_linux_experiments',
@@ -128,6 +136,7 @@ cq_master_experiment_builders = [
   # Quarantine a builder here
   # This will make them experiment 100%
   'dtf_linux_experiments',
+  'devtools_backend_linux_rel',
 ]
 
 def experiment_builder(builder):
