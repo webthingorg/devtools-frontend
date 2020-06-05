@@ -1,0 +1,226 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb50ccc5_89a89d7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "Remove this line from the description.",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1efc37fc_e0ef291e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "Another thing you should do here is add a link to the design doc.",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9f8afe4_9c463d61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "What does the toggle button do? Perhaps something like \"Added a button to toggle the WebAuthn domain on or off\" would be more appropriate.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 19
+      },
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0fb49d_a1aff587",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "There are a lot of details here that seem to be part of your development workflow (e.g. initial commit, formatting...).\n\nThe commit message should focus on what the patch does instead. Take a look at the commit log [1] for examples.\n\n[1] https://chromium.googlesource.com/chromium/src.git/+log",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37dc877b_e6d1c83c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "Add a line referencing the bug this patch refers to\n\n  Bug: 1034663",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b4a1e5f_0728f03a",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "This file is empty, remove it.",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d61d17dd_72177f70",
+        "filename": "front_end/webauthn/AuthenticatorTable.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "Remove this empty file.",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1204cc0f_924cffc1",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "Is this necessary? You are definitely using `Common`.",
+      "range": {
+        "startLine": 5,
+        "startChar": 48,
+        "endLine": 5,
+        "endChar": 85
+      },
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bda51d7f_1e2abd29",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "Since this isn\u0027t doing anything now, remove the `if` and replace with\n\n  // TODO(crbug.com/1034663): toggle the virtual authenticator environment.",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa83d190_5122b933",
+        "filename": "front_end/webauthn/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e67b1ba_bcf8ffe3",
+        "filename": "front_end/webauthn/webauthn-legacy.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "nit: remove this line.",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d36bc0c_f43eac97",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-05T15:15:55Z",
+      "side": 1,
+      "message": "Is this correct? e.g. what happens if the content on the pane overflows? We might want scrollbars in that case.",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
