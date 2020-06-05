@@ -2637,14 +2637,14 @@ export class TimelineDetailsContentHelper {
    * @param {!Element} parentElement
    * @param {!Protocol.Runtime.StackTrace} stackTrace
    */
-  createChildStackTraceElement(parentElement, stackTrace) {
+  async createChildStackTraceElement(parentElement, stackTrace) {
     if (!this._linkifier || !this._target) {
       return;
     }
     parentElement.classList.add('timeline-details-stack-values');
     const stackTraceElement =
         parentElement.createChild('div', 'timeline-details-view-row-value timeline-details-view-row-stack-trace');
-    const callFrameContents = Components.JSPresentationUtils.buildStackTracePreviewContents(
+    const callFrameContents = await Components.JSPresentationUtils.buildStackTracePreviewContents(
         this._target, this._linkifier, {stackTrace, tabStops: true});
     stackTraceElement.appendChild(callFrameContents.element);
   }

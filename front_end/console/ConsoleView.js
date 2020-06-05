@@ -1176,9 +1176,9 @@ export class ConsoleView extends UI.Widget.VBox {
   /**
    * @param {number} index
    */
-  _searchMessage(index) {
+  async _searchMessage(index) {
     const message = this._visibleViewMessages[index];
-    message.setSearchRegex(this._searchRegex);
+    await message.setSearchRegex(this._searchRegex);
     for (let i = 0; i < message.searchCount(); ++i) {
       this._regexMatchRanges.push({messageIndex: index, matchIndex: i});
     }

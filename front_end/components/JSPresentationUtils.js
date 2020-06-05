@@ -38,9 +38,9 @@ import {Linkifier} from './Linkifier.js';
  * @param {?SDK.Target} target
  * @param {!Linkifier} linkifier
  * @param {!Options=} options
- * @return {{element: !Element, links: !Array<!Element>}}
+ * @return {Promise<{element: !Element, links: !Array<!Element>}>}
  */
-export function buildStackTracePreviewContents(target, linkifier, options = {}) {
+export async function buildStackTracePreviewContents(target, linkifier, options = {}) {
   const {stackTrace, contentUpdated, tabStops} = options;
   const element = document.createElement('span');
   element.classList.add('monospace');
@@ -54,9 +54,9 @@ export function buildStackTracePreviewContents(target, linkifier, options = {}) 
 
   /**
    * @param {!Protocol.Runtime.StackTrace} stackTrace
-   * @return {boolean}
+   * @return {Promise<boolean>}
    */
-  function appendStackTrace(stackTrace) {
+  async function appendStackTrace(stackTrace) {
     let hiddenCallFrames = 0;
     for (const stackFrame of stackTrace.callFrames) {
       totalCallFramesCount++;
@@ -64,7 +64,7 @@ export function buildStackTracePreviewContents(target, linkifier, options = {}) 
       const row = createElement('tr');
       row.createChild('td').textContent = '\n';
       row.createChild('td', 'function-name').textContent = UI.UIUtils.beautifyFunctionName(stackFrame.functionName);
-      const link = linkifier.maybeLinkifyConsoleCallFrame(target, stackFrame, {tabStop: !!tabStops});
+      const link = await linkifier.maybeLinkifyConsoleCallFrame(target, stackFrame, {tabStop: !!tabStops});
       if (link) {
         link.addEventListener('contextmenu', populateContextMenu.bind(null, link));
         const uiLocation = Linkifier.uiLocation(link);
@@ -114,7 +114,7 @@ export function buildStackTracePreviewContents(target, linkifier, options = {}) 
     return {element, links};
   }
 
-  appendStackTrace(stackTrace);
+  await appendStackTrace(stackTrace);
 
   let asyncStackTrace = stackTrace.parent;
   while (asyncStackTrace) {
@@ -128,7 +128,7 @@ export function buildStackTracePreviewContents(target, linkifier, options = {}) 
         UI.UIUtils.asyncStackTraceLabel(asyncStackTrace.description);
     row.createChild('td');
     row.createChild('td');
-    if (appendStackTrace(asyncStackTrace)) {
+    if (await appendStackTrace(asyncStackTrace)) {
       row.classList.add('blackboxed');
     }
     asyncStackTrace = asyncStackTrace.parent;

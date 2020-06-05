@@ -28,16 +28,16 @@ export class RequestInitiatorView extends UI.Widget.VBox {
    * @param {!Components.Linkifier.Linkifier} linkifier
    * @param {boolean=} focusableLink
    * @param {function()=} callback
-   * @return {?{element: !Element, links: !Array<!Element>}}
+   * @return {Promise<{element: !Element, links: !Array<!Element>}>}
    */
-  static createStackTracePreview(request, linkifier, focusableLink, callback) {
+  static async createStackTracePreview(request, linkifier, focusableLink, callback) {
     const initiator = request.initiator();
     if (!initiator || !initiator.stack) {
       return null;
     }
     const networkManager = SDK.NetworkManager.NetworkManager.forRequest(request);
     const target = networkManager ? networkManager.target() : null;
-    const stackTrace = Components.JSPresentationUtils.buildStackTracePreviewContents(
+    const stackTrace = await Components.JSPresentationUtils.buildStackTracePreviewContents(
         target, linkifier, {stackTrace: initiator.stack, contentUpdated: callback, tabStops: focusableLink});
     return stackTrace;
   }
@@ -123,12 +123,12 @@ export class RequestInitiatorView extends UI.Widget.VBox {
   /**
    * @override
    */
-  wasShown() {
+  async wasShown() {
     if (this._hasShown) {
       return;
     }
     let initiatorDataPresent = false;
-    const stackTracePreview = RequestInitiatorView.createStackTracePreview(this._request, this._linkifier, true);
+    const stackTracePreview = await RequestInitiatorView.createStackTracePreview(this._request, this._linkifier, true);
     if (stackTracePreview) {
       initiatorDataPresent = true;
       this._appendExpandableSection(stackTracePreview.element, ls`Request call stack`, true);
