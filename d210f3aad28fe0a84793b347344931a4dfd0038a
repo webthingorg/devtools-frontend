@@ -16,6 +16,24 @@
       "revId": "d210f3aad28fe0a84793b347344931a4dfd0038a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00088f36_0734fdab",
+        "filename": "front_end/settings/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-06-05T22:25:20Z",
+      "side": 1,
+      "message": "Oh woops, you\u0027re right. I actually fixed this locally but forgot to update the CL.",
+      "parentUuid": "224ab908_9f736734",
+      "revId": "d210f3aad28fe0a84793b347344931a4dfd0038a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
