@@ -183,6 +183,11 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
   background-color: rgb(216 0 0) !important;
 }
 
+.toolbar-button.toolbar-state-on.toolbar-toggle-with-green-color .toolbar-glyph,
+.toolbar-button.toolbar-state-off.toolbar-default-with-green-color .toolbar-glyph {
+  background-color: rgb(0 216 0) !important;
+}
+
 :host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-on.toolbar-toggle-with-red-color .toolbar-glyph,
 :host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-glyph {
   background-color: hsl(0deg 100% 65%) !important;
