@@ -31,4 +31,9 @@ describe('JavaScriptFormatter', () => {
     const formattedCode = formatJavaScript('false??true');
     assert.strictEqual(formattedCode, 'false ?? true\n');
   });
+
+  it('formats logical assignment expressions correctly', () => {
+    const formattedCode = formatJavaScript('x||=1;');
+    assert.strictEqual(formattedCode, 'x ||= 1;\n');
+  });
 });
