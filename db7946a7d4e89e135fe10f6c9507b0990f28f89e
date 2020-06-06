@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ca0fdd2_2a045bb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb50ccc5_89a89d7e",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1efc37fc_e0ef291e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a517d2bd_315a2a22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1efc37fc_e0ef291e",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9f8afe4_9c463d61",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -47,6 +83,30 @@
       "writtenOn": "2020-06-05T15:15:55Z",
       "side": 1,
       "message": "What does the toggle button do? Perhaps something like \"Added a button to toggle the WebAuthn domain on or off\" would be more appropriate.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 19
+      },
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b3bb619_113016f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Removed this point completely as it wasn\u0027t significant to the patch. This was a message from a squashed commit in which I added a green toggle to the UI. Please advice on how I should document this (DM\u0027d you for clarification)",
+      "parentUuid": "e9f8afe4_9c463d61",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "e6630008_12b32c47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Removed workflow comments and described purpose of patch instead. Thanks for tip + link to examples. Please LMK thoughts on new commit message.",
+      "parentUuid": "2c0fb49d_a1aff587",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37dc877b_e6d1c83c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -96,6 +180,24 @@
       "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a822a3c0_03beed12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37dc877b_e6d1c83c",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "8b8a06da_66f8eaea",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b4a1e5f_0728f03a",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d61d17dd_72177f70",
         "filename": "front_end/webauthn/AuthenticatorTable.js",
         "patchSetId": 1
@@ -130,6 +250,24 @@
       "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b04edf5_9bea2c80",
+        "filename": "front_end/webauthn/AuthenticatorTable.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61d17dd_72177f70",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -156,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "88df6a43_ecdef328",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1204cc0f_924cffc1",
+      "range": {
+        "startLine": 5,
+        "startChar": 48,
+        "endLine": 5,
+        "endChar": 85
+      },
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bda51d7f_1e2abd29",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -170,6 +332,24 @@
       "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88182d11_26f4ec09",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bda51d7f_1e2abd29",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -190,6 +370,24 @@
     },
     {
       "key": {
+        "uuid": "36fdb225_a01c9dad",
+        "filename": "front_end/webauthn/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa83d190_5122b933",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e67b1ba_bcf8ffe3",
         "filename": "front_end/webauthn/webauthn-legacy.js",
         "patchSetId": 1
@@ -207,6 +405,42 @@
     },
     {
       "key": {
+        "uuid": "81e03004_cfb96559",
+        "filename": "front_end/webauthn/webauthn-legacy.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e67b1ba_bcf8ffe3",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a08f4f8d_1aad7fc2",
+        "filename": "front_end/webauthn/webauthn-legacy.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e67b1ba_bcf8ffe3",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d36bc0c_f43eac97",
         "filename": "front_end/webauthn/webauthnPane.css",
         "patchSetId": 1
@@ -221,6 +455,24 @@
       "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41c3b3bd_f630e0b9",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-06T22:37:30Z",
+      "side": 1,
+      "message": "Addressed by removing. Added it to experiment and forgot to take out. Thanks for the catch",
+      "parentUuid": "6d36bc0c_f43eac97",
+      "revId": "db7946a7d4e89e135fe10f6c9507b0990f28f89e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
