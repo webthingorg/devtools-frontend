@@ -3,6 +3,9 @@
   <message name="IDS_DEVTOOLS_00a2f9d16aa26eb89a776a3d1ed4f9cd" desc="Text in Breakpoint Edit Dialog of the Sources panel">
     Expression to check before pausing, e.g. x &gt; 5
   </message>
+  <message name="IDS_DEVTOOLS_01b4eae597c8d9a611b6836c14b679b1" desc="Text in Java Script Breakpoints Sidebar Pane of the Sources panel">
+    Disable breakpoints in file
+  </message>
   <message name="IDS_DEVTOOLS_01f0097c3b7f0774139005734eacbae4" desc="A context menu item in the Watch Expressions Sidebar Pane of the Sources panel">
     Add property path to watch
   </message>

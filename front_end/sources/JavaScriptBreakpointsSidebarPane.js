@@ -407,6 +407,11 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
     if (breakpoints.some(breakpoint => breakpoint.enabled())) {
       const disableTitle = Common.UIString.UIString('Disable all breakpoints');
       contextMenu.defaultSection().appendItem(disableTitle, this._toggleAllBreakpoints.bind(this, false));
+      if (event.target instanceof Element) {
+        const disableInFileTitle = Common.UIString.UIString('Disable breakpoints in file');
+        contextMenu.defaultSection().appendItem(
+            disableInFileTitle, this._disableAllBreakpointsInFile.bind(this, event.target));
+      }
     }
     const removeAllTitle = Common.UIString.UIString('Remove all breakpoints');
     contextMenu.defaultSection().appendItem(removeAllTitle, this._removeAllBreakpoints.bind(this));
@@ -414,6 +419,22 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
     contextMenu.defaultSection().appendItem(
         removeOtherTitle, this._removeOtherBreakpoints.bind(this, new Set(breakpoints)));
     contextMenu.show();
+  }
+
+  /**
+   * @param {!Element} element
+   */
+  _disableAllBreakpointsInFile(element) {
+    const breakpointLocations = this._getBreakpointLocations();
+    const selectedBreakpointLocations = this._breakpointLocationsForElement(element);
+    breakpointLocations.forEach(breakpointLocation => {
+      const matchesLocation = selectedBreakpointLocations.some(
+          selectedBreakpointLocation =>
+              selectedBreakpointLocation.breakpoint._url === breakpointLocation.breakpoint._url);
+      if (matchesLocation) {
+        breakpointLocation.breakpoint.setEnabled(false);
+      }
+    });
   }
 
   /**
