@@ -54,7 +54,6 @@ export class ElementsPanel extends UI.Panel.Panel {
   constructor() {
     super('elements');
     this.registerRequiredCSS('elements/elementsPanel.css');
-
     this._splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'elementsPanelSplitViewState', 325, 325);
     this._splitWidget.addEventListener(
         UI.SplitWidget.Events.SidebarSizeChanged, this._updateTreeOutlineVisibleWidth.bind(this));
@@ -795,10 +794,8 @@ export class ElementsPanel extends UI.Panel.Panel {
     const position = Common.Settings.Settings.instance().moduleSetting('sidebarPosition').get();
     if (position === 'right' || (position === 'auto' && self.UI.inspectorView.element.offsetWidth > 680)) {
       splitMode = _splitMode.Vertical;
-    } else if (self.UI.inspectorView.element.offsetWidth > 415) {
-      splitMode = _splitMode.Horizontal;
     } else {
-      splitMode = _splitMode.Slim;
+      splitMode = _splitMode.Horizontal;
     }
 
     if (this.sidebarPaneView && splitMode === this._splitMode) {
@@ -810,7 +807,7 @@ export class ElementsPanel extends UI.Panel.Panel {
     let lastSelectedTabId = null;
     if (this.sidebarPaneView) {
       lastSelectedTabId = this.sidebarPaneView.tabbedPane().selectedTabId;
-      this.sidebarPaneView.tabbedPane().detach();
+      this.sidebarPaneView.tabbedPane().detach();  // FIXME
       this._splitWidget.uninstallResizer(this.sidebarPaneView.tabbedPane().headerElement());
     }
 
@@ -861,29 +858,18 @@ export class ElementsPanel extends UI.Panel.Panel {
 
     const stylesView = new UI.View.SimpleView(Common.UIString.UIString('Styles'));
     this.sidebarPaneView.appendView(stylesView);
-    if (splitMode === _splitMode.Horizontal) {
-      // Styles and computed are merged into a single tab.
-      stylesView.element.classList.add('flex-auto');
+    stylesView.element.classList.add('flex-auto');
+    matchedStylePanesWrapper.show(stylesView.element);
 
-      const splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'stylesPaneSplitViewState', 215);
-      splitWidget.show(stylesView.element);
-      splitWidget.setMainWidget(matchedStylePanesWrapper);
-      splitWidget.setSidebarWidget(computedStylePanesWrapper);
-    } else {
-      // Styles and computed are in separate tabs.
-      stylesView.element.classList.add('flex-auto');
-      matchedStylePanesWrapper.show(stylesView.element);
+    const computedView = new UI.View.SimpleView(Common.UIString.UIString('Computed'));
+    computedView.element.classList.add('composite', 'fill');
+    computedStylePanesWrapper.show(computedView.element);
 
-      const computedView = new UI.View.SimpleView(Common.UIString.UIString('Computed'));
-      computedView.element.classList.add('composite', 'fill');
-      computedStylePanesWrapper.show(computedView.element);
-
-      tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, tabSelected, this);
-      this.sidebarPaneView.appendView(computedView);
-    }
+    tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, tabSelected, this);
+    this.sidebarPaneView.appendView(computedView);
     this._stylesViewToReveal = stylesView;
 
-    showMetrics.call(this, this._splitMode === _splitMode.Horizontal);
+    showMetrics.call(this, false);
 
     this.sidebarPaneView.appendApplicableItems('elements-sidebar');
     for (let i = 0; i < extensionSidebarPanes.length; ++i) {
@@ -921,7 +907,6 @@ ElementsPanel._firstInspectElementCompletedForTest = function() {};
 export const _splitMode = {
   Vertical: Symbol('Vertical'),
   Horizontal: Symbol('Horizontal'),
-  Slim: Symbol('Slim'),
 };
 
 /**
