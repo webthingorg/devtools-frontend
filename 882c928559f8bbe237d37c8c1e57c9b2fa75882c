@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8a70b46_12f63ce9",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-08T09:25:25Z",
+      "side": 1,
+      "message": "+ Tim WDYT? This was the limit of my Ninja know-how.",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57d88cfd_25082d37",
+        "filename": "front_end/component_docs/example/basic.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-08T09:25:25Z",
+      "side": 1,
+      "message": "once one actual component has landed with docs, we can lose this example, but in the mean time I think it\u0027s useful to have in.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 7
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
