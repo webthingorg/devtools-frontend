@@ -94,6 +94,9 @@
   <message name="IDS_DEVTOOLS_22af645d1859cb5ca6da0c484f1f37ea" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     new
   </message>
+  <message name="IDS_DEVTOOLS_22c5170c679b5d0232542f02c15bf335" desc="Text used to show that data was retrieved via a Network fetch">
+    Network fetch
+  </message>
   <message name="IDS_DEVTOOLS_23e5a7b7976e412ece233ceaf8257bc2" desc="Text in DOMDebugger Model">
     Clipboard
   </message>
@@ -311,6 +314,9 @@
   <message name="IDS_DEVTOOLS_6f875586a9fb4baa1f025dc50d99aabf" desc="Title for an issue in the issues view">
     Specify a Cross-Origin Embedder Policy to prevent this frame from being blocked
   </message>
+  <message name="IDS_DEVTOOLS_6fcdc090caeade09d0efd6253932b6f5" desc="Source of service worker fetch response">
+    Unspecified
+  </message>
   <message name="IDS_DEVTOOLS_6fdb8f0232e380cf106312e7b880d8d2" desc="Title of a setting under the Console category that can be invoked through the Command Menu">
     Preserve log upon navigation
   </message>
@@ -376,6 +382,12 @@
   </message>
   <message name="IDS_DEVTOOLS_8e6aefb01ad865cdce56f1992b317e4a" desc="Link for SameSiteCookies Issues">
     https://web.dev/samesite-cookies-explained/
+  </message>
+  <message name="IDS_DEVTOOLS_88183b946cc5f0e8c96b2e66e1c74a7e" desc="Text used to show that serviceworker fetch response source is unknown">
+    Unknown
+  </message>
+  <message name="IDS_DEVTOOLS_8e2d01d13a3027ab5e604868c6c2f49f" desc="Text used to show that serviceworker fetch response source is Http cache">
+    From Http cache
   </message>
   <message name="IDS_DEVTOOLS_8eb3dbe83bec0f4c902665a1d49c1f38" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie was blocked due to user preferences.
@@ -564,6 +576,12 @@
   </message>
   <message name="IDS_DEVTOOLS_dcd9c13c4f8ae68ea7ae92edf9191264" desc="Text in Server Timing">
     Deprecated syntax found. Please use: &lt;name&gt;;dur=&lt;duration&gt;;desc=&lt;description&gt;
+  </message>
+  <message name="IDS_DEVTOOLS_de04f7066e574ccce5b163308115dd2c" desc="Text used to show that data was retrieved using ServiceWorker fallback code">
+    Fallback code
+  </message>
+  <message name="IDS_DEVTOOLS_df2cfd002c3343f8b0bc5445eb74ec6d" desc="Text used to show that serviceworker fetch response source is ServiceWorker Cache Storage">
+    Serviceworker cache storage
   </message>
   <message name="IDS_DEVTOOLS_df9f4292c1d025cbada13b25744d34e5" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Do not emulate CSS media type
