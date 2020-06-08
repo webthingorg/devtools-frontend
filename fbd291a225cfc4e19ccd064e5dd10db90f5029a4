@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7a903ff_f4c137d2",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-08T05:16:34Z",
+      "side": 1,
+      "message": "Just to clarify: This causes the {_onLiveLocationUpdate} callback just to be called once after creation. Lets say, we 1) Look at the initiator column, 2) load a source map, then {_onLIveLocationUpdate} wouldn\u0027t be called.\n\nIf we wanna re-calculate on each update, we could change the above lines (and every similar call-site in this file) to:\n\n  const liveLocationUpdate \u003d () \u003d\u003e {\n    this._updateAnchor(anchor);\n    this._onLiveLocationUpdate();\n  };\n  Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()\n        .createStackTraceTopFrameLiveLocation(rawLocations, liveLocationUpdate, pool)\n        .then(liveLocation \u003d\u003e { info.liveLocation \u003d liveLocation; });\n\nThis could happen in a follow-up CL though. I am fine with landing the fix as-is.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 11
+      },
+      "revId": "fbd291a225cfc4e19ccd064e5dd10db90f5029a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
