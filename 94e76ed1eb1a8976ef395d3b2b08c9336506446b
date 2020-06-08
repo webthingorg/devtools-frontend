@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a74700e9_858c3655",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-08T13:58:45Z",
+      "side": 1,
+      "message": "We\u0027re sure this means we can\u0027t get outside the devtoolFrontendFolder, right? It looks like it\u0027s okay because it\u0027s a join not a resolve.",
+      "revId": "94e76ed1eb1a8976ef395d3b2b08c9336506446b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
