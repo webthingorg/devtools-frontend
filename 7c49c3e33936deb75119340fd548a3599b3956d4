@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4742dbe_d5a4dfef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-08T15:04:14Z",
+      "side": 1,
+      "message": "We format descriptions so they are 72 characters wide. Can you add newlines to break up this line?",
+      "revId": "7c49c3e33936deb75119340fd548a3599b3956d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ae9223e_765dcbba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-08T15:04:14Z",
+      "side": 1,
+      "message": "(note that it\u0027s okay for links to go over 72 characters, we don\u0027t break those up)",
+      "revId": "7c49c3e33936deb75119340fd548a3599b3956d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bbad5a6_2cfdb5b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-08T15:04:14Z",
+      "side": 1,
+      "message": "It\u0027s enough to put the bug number here, e.g.\n\n  Bug: 1034663\n\nThis is then read by a bunch of bots that comment on the bug automatically.",
+      "revId": "7c49c3e33936deb75119340fd548a3599b3956d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
