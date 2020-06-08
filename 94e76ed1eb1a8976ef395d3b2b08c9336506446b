@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "21b94e0b_f8cc0c31",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T14:14:46Z",
+      "side": 1,
+      "message": "Nit: add the mention of `--target\u003dRelease` in here as well.",
+      "range": {
+        "startLine": 18,
+        "startChar": 7,
+        "endLine": 18,
+        "endChar": 114
+      },
+      "revId": "94e76ed1eb1a8976ef395d3b2b08c9336506446b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a74700e9_858c3655",
         "filename": "scripts/component_server/server.js",
         "patchSetId": 9
