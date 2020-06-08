@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b8dd5aed_8954ceee",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T15:16:17Z",
+      "side": 1,
+      "message": "Thanks for pointing this out! I was having a hard time trying to understand cases where negative rows/columns actually affected the starting position. I agree that asking for the index and passing to the frontend with some sort of (index -\u003e location) maping is more robust and will better allow for negative row/column numbers. I\u0027ll work on updating this.",
+      "parentUuid": "b84fdd33_4abcaf8a",
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e0655f0b_44e76234",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 5
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "d784cace_9bfc8cd3",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T15:16:17Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll work on updating this as well. Should be easier to combine with more logic done on the backend to map index -\u003e position",
+      "parentUuid": "e0655f0b_44e76234",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef5cba39_278672c4",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 5
@@ -53,6 +95,30 @@
       "writtenOn": "2020-06-05T13:15:06Z",
       "side": 1,
       "message": "Similarly here, the code in this function is very close to the one in _placeRowLabel. The only difference though is the placement. That might be trickier to deal with if we turned this into a single function that works for both rows and columns.\nI think we might want to give it a shot anyway, and see if the code is understandable.\nI\u0027m just worried that if we don\u0027t, we\u0027ll find ourselves fixing bugs for misplaced column labels one day, and will forget to fix them for rows too.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 1
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37f190c2_6a2c974c",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T15:16:17Z",
+      "side": 1,
+      "message": "agreed. I\u0027ll work on this after I update the backend logic",
+      "parentUuid": "ef5cba39_278672c4",
       "range": {
         "startLine": 120,
         "startChar": 0,
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "d94c2dda_0c75682d",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T15:16:17Z",
+      "side": 1,
+      "message": "Good call! I plan on adding unit tests for sure. I\u0027m debating between adding on this CL or in a follow up, but will definitely have them before this moves out of an experiment. Ideally, I\u0027ll add them here",
+      "parentUuid": "57b08b74_038585f6",
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5a6c16f_72aa744a",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 5
@@ -93,6 +177,30 @@
       "writtenOn": "2020-06-05T13:15:06Z",
       "side": 1,
       "message": "I might be wrong, but it looks to me like the arrow, wherever it is, is always going to hide the corner that you don\u0027t want a radius on. If that is correct, then all arrow types could have a 2px border radius defined in CSS, and these lines could be removed from the JS code.",
+      "range": {
+        "startLine": 215,
+        "startChar": 5,
+        "endLine": 215,
+        "endChar": 39
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78a6a01a_fb227a39",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T15:16:17Z",
+      "side": 1,
+      "message": "So, In the current implementation, the arrow doesnt cover the radius completely and it was noticable unless removed. I\u0027ll see if that is still the case if we move to the alternate approach discussed in your other comment (which I agree will simplify things quite a bit)",
+      "parentUuid": "a5a6c16f_72aa744a",
       "range": {
         "startLine": 215,
         "startChar": 5,
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "8a09fdc9_1fa97a14",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T15:16:17Z",
+      "side": 1,
+      "message": "Ahh, this was to address that there are 8 possible locations to place the arrow on the labels in the corners, but only 4 shapes. The cardinal directions referred to where the 90 deg angle of the triangle ended up, and the left/top/bottom/etc referred to where the arrow was placed. This might not be needed in the other implementation you describe, so I\u0027ll remove if possible.",
+      "parentUuid": "b246f718_2c6558e2",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 59
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d1b5398_e973dfea",
         "filename": "front_end/inspector_overlay/tool_highlight.js",
         "patchSetId": 5
@@ -139,6 +271,30 @@
       "writtenOn": "2020-06-05T13:15:06Z",
       "side": 1,
       "message": "I have to admit it took me quite a long time to understand what role these 2 pseudo-elements were playing in the whole thing. The chain of css variables used here is quite clever, but took me a bit of time to understand.\n\nHere\u0027s a proposal to simplify this a little bit: using just one pseudo, not 2. And transforming it in a way that it looks like the arrow we need.\nIn my mind, you could remove the ::after, and only have the ::before. Remove the clip-path and the box-shadow entirely. And transform the arrow like such:\nIf it\u0027s, say, mid left, then transform: rotate(-45deg) should make it look like an arrow that points left. Then all that\u0027s left to do is give it a 1px solid white border, and a background color of #1A73E8 like the label itself.\nIf the arrow is top left for example, then you\u0027d have to transform: skewX(30deg) to make it look like today.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 1
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f0141a0_61dd5722",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T15:16:17Z",
+      "side": 1,
+      "message": "I think this is a great idea to simplify things. The problem I was running into was getting the arrow/label to appear inside a continuous border, without the label border cutting between the label content and the arrow. This was the first approach I came up with that visually works, but it is a bit confusing. If we can get this working without the border issues, I\u0027m all for it. I\u0027ll try and report back here.",
+      "parentUuid": "6d1b5398_e973dfea",
       "range": {
         "startLine": 279,
         "startChar": 0,
