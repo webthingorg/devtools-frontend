@@ -1,0 +1,17 @@
+Name: base64-arraybuffer, a fast, lightweight base64 encoder/decoder.
+Short Name: base64-arraybuffer
+URL: https://github.com/niklasvh/base64-arraybuffer
+Version: 0.3.0
+License: MIT
+License File: LICENSE
+Security Critical: no
+
+Description:
+Encode/decode base64 data into ArrayBuffers.
+
+```bash
+git clone --branch fixes https://github.com/bmeurer/base64-arraybuffer
+(cd base64-arraybuffer && npm install && npm pack)
+tar xzf base64-arraybuffer/base64-arraybuffer-0.3.0.tgz
+rm -rf base64-arraybuffer
+```
