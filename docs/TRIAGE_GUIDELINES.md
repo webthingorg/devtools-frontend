@@ -1,12 +1,12 @@
 # Triage Guidelines
 
 ## Disclaimer
-The most important thing: Please use common sense. The guidelines below are likely not exhaustive and will not cover every case.
+The most important thing: please use common sense. The guidelines below are likely not exhaustive and do not cover every case.
 
 ## What should be triaged?
-[[Query]](https://bugs.chromium.org/p/chromium/issues/list?q=status=untriaged%20component:Platform%3EDevTools)
+[[Query]](https://bugs.chromium.org/p/chromium/issues/list?q=component%3APlatform%3EDevTools%20status%3AUnconfirmed%2CUntriaged)
 
-[All Untriaged DevTools](https://bugs.chromium.org/p/chromium/issues/list?q=status=untriaged%20component:Platform%3EDevTools) issues need to be triaged.
+[All Unconfirmed & Untriaged DevTools issues](https://bugs.chromium.org/p/chromium/issues/list?q=component%3APlatform%3EDevTools%20status%3DUnconfirmed%2CUntriaged) need to be triaged.
 
 ## Who is triaging?
 Right now there is a Google-internal rotation set-up, with people that do weekly shifts.
@@ -28,7 +28,7 @@ Issues in the untriaged queue should receive a meaningful response within a busi
 * P1: This is important. Let’s aim to get this done next
    * Non-critical security fixes will likely be in this category
    * Regression bugs will be likely in this category
-   *Important features that partners are waiting for might be in this category
+   * Important features that partners are waiting for might be in this category
 * P2: We want to do that. The exact time of delivery is not that important though.
    * General feature work will likely be in this category
    * Non-severe bugs
