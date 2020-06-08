@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "00491a50_916e4732",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-08T22:41:00Z",
+      "side": 1,
+      "message": "Updated the backend so that the list of offsets always starts at the first explicit line for rows/columns. This should allow us to start at 1 for the first offset and remain accurate. I\u0027ll work on cleaning up this logic as well",
+      "parentUuid": "b8dd5aed_8954ceee",
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0655f0b_44e76234",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 5
