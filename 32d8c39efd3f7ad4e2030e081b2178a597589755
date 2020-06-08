@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5175c82_9382be80",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-06-08T03:52:07Z",
+      "side": 1,
+      "message": "Could make this public and update the calls, but I think calling a function reads a bit more intentional than updating the instance property on the fly.",
+      "range": {
+        "startLine": 371,
+        "startChar": 9,
+        "endLine": 371,
+        "endChar": 30
+      },
+      "revId": "32d8c39efd3f7ad4e2030e081b2178a597589755",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
