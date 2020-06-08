@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a3ed1ae9_2d70cab1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Nit: add the design-doc link in the commit message. Like so:\n\nDesign Doc: \u003clink\u003e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 82
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8a70b46_12f63ce9",
         "filename": "front_end/BUILD.gn",
         "patchSetId": 7
@@ -18,6 +41,53 @@
         "startChar": 4,
         "endLine": 16,
         "endChar": 21
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc9b6746_50a9462f",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "I think we can remove the comment and always add this. If we are not including the files in the `.pak` (which we aren\u0027t), there is no impact on the actual production build.",
+      "parentUuid": "e8a70b46_12f63ce9",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fa0e98e_f9f1fe5b",
+        "filename": "front_end/component_docs/BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Nit: can be `copy_to_gen` by importing `scripts/build/copy_to_gen.gni`",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
       },
       "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -45,6 +115,191 @@
       "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2db40ec6_4f324485",
+        "filename": "front_end/component_docs/example/basic.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57d88cfd_25082d37",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 7
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7392c09e_546b5ed9",
+        "filename": "scripts/component_server/README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Hm, I am not sure how we can enforce this. Normally, `ts_library` will fail if the `deps` are missing, but in this case we are writing JS I presume.\n\nWe could also split off the implementation into a `.ts` that is included in a `ts_library`.\n\nLet\u0027s figure this out later.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 223
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bf702a1_8d4a1a5e",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "This needs to be configurable like the other scripts. We use the `--target` flag for this. The default can still be \"Default\".",
+      "range": {
+        "startLine": 11,
+        "startChar": 85,
+        "endLine": 11,
+        "endChar": 92
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "256bae4b_1c4bd518",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Add a check that this folder exists. I got the following error when trying to start the server:\n\n$ npm run components-server\n\n\u003e chrome-devtools-frontend@ components-server devtools/devtools-frontend\n\u003e node scripts/component_server/server.js\n\nStarted components server at http://localhost:8090\n\n(node:22969) ExperimentalWarning: The fs.promises API is experimental\n(node:22969) UnhandledPromiseRejectionWarning: Error: ENOENT: no such file or directory, scandir \u0027devtools/devtools-frontend/out/Default/gen/front_end/component_docs\u0027\n(node:22969) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)\n(node:22969) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "896f537d_9060b574",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Nit: you could define a local html tagged template literal, which would enable better highlighting:\n\n(courtesy of Justin Fagnani who shared this snippet with me)\n\n```\n// Nearly no-op template tag to get syntax highlighting and support Arrays.\nconst html \u003d (strings: TemplateStringsArray, ...values: any[]) \u003d\u003e \n    values.reduce((acc, v, i) \u003d\u003e acc + (Array.isArray(v) ? v.join(\u0027\\n\u0027) : String(v)) + strings[i + 1], strings[0]);\n```",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 10
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f54f8e4_1d875a96",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Why is this necessary?",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5187394d_7cc5b25d",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Nit: makes these links, so that I can easily click on them and open 1 demo at a time.",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81964326_1f5f8883",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T10:40:01Z",
+      "side": 1,
+      "message": "Oh boy, I recognize this code. We better use a library for this at some point.",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 5
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
