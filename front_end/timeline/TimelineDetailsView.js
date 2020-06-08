@@ -89,8 +89,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._additionalMetricsToolbar.removeToolbarItems();
     if (model && model.timelineModel()) {
       let message = ls`Total blocking time: Unavailable`;
-      if (model.timelineModel().totalBlockingTime() !== -1) {
-        message = ls`Total blocking time: ${model.timelineModel().totalBlockingTime().toFixed(2)}ms`;
+      if (model.timelineModel().totalBlockingTime().time !== -1) {
+        const estimated = model.timelineModel().totalBlockingTime().estimated ? ` (${ls`estimated`})` : '';
+        message = ls`Total blocking time: ${model.timelineModel().totalBlockingTime().time.toFixed(2)}ms${estimated}`;
       }
 
       const warning = createElement('span');

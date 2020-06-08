@@ -38,6 +38,7 @@ import {TimelineJSProfileProcessor} from './TimelineJSProfile.js';
  */
 export class TimelineModelImpl {
   constructor() {
+    this._estimatedTotalBlockingTime = 0;
     this._reset();
   }
 
@@ -191,10 +192,14 @@ export class TimelineModelImpl {
   }
 
   /**
-   * @return {number}
+   * @return {{time: number, estimated: boolean}}
    */
   totalBlockingTime() {
-    return this._totalBlockingTime;
+    if (this._totalBlockingTime === -1) {
+      return {time: this._estimatedTotalBlockingTime, estimated: true};
+    }
+
+    return {time: this._totalBlockingTime, estimated: false};
   }
 
   /**
@@ -690,6 +695,12 @@ export class TimelineModelImpl {
         // There may be several TTI events, only take the first one.
         if (this.isInteractiveTimeEvent(event) && this._totalBlockingTime === -1) {
           this._totalBlockingTime = event.args['args']['total_blocking_time_ms'];
+        }
+
+        if (isMainThread) {
+          if (event.name === RecordType.Task && event.duration && event.duration > 50) {
+            this._estimatedTotalBlockingTime += event.duration - 50;
+          }
         }
 
         while (eventStack.length && eventStack.peekLast().endTime <= event.startTime) {
@@ -1286,6 +1297,7 @@ export class TimelineModelImpl {
     this._maximumRecordTime = 0;
 
     this._totalBlockingTime = -1;
+    this._estimatedTotalBlockingTime = 0;
   }
 
   /**
