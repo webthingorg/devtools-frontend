@@ -1152,13 +1152,51 @@
                     ]
                 },
                 {
+                    "id": "ViolationType",
+                    "type": "string",
+                    "enum": [
+                        "kInlineViolation",
+                        "kEvalViolation",
+                        "kURLViolation",
+                        "kTrustedTypesSinkViolation",
+                        "kTrustedTypesPolicyViolation"
+                    ]
+                },
+                {
+                    "id": "CSPIssueDetails",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "blockedURL",
+                            "description": "The url not included in allowed sources.",
+                            "optional": true,
+                            "type": "string"
+                        },
+                        {
+                            "name": "violatedDirective",
+                            "description": "Specific directive that is violated, causing the CSP issue.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "violationType",
+                            "$ref": "ViolationType"
+                        },
+                        {
+                            "name": "frame",
+                            "optional": true,
+                            "$ref": "AffectedFrame"
+                        }
+                    ]
+                },
+                {
                     "id": "InspectorIssueCode",
                     "description": "A unique identifier for the type of issue. Each type may use one of the\noptional fields in InspectorIssueDetails to convey more specific\ninformation about the kind of issue.",
                     "type": "string",
                     "enum": [
                         "SameSiteCookieIssue",
                         "MixedContentIssue",
-                        "BlockedByResponseIssue"
+                        "BlockedByResponseIssue",
+                        "CSPIssue"
                     ]
                 },
                 {
@@ -1180,6 +1218,11 @@
                             "name": "blockedByResponseIssueDetails",
                             "optional": true,
                             "$ref": "BlockedByResponseIssueDetails"
+                        },
+                        {
+                            "name": "cspIssueDetails",
+                            "optional": true,
+                            "$ref": "CSPIssueDetails"
                         }
                     ]
                 },

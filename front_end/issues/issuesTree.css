@@ -306,3 +306,20 @@ p {
 .aggregated-issues-count {
   padding-right: 7px;
 }
+
+.affected-resource-directive-info-header {
+  text-align: right;
+}
+
+.affected-resource-directive {
+  font-size: 14px;
+  line-height: 20px;
+  border: 0;
+  border-collapse: collapse;
+}
+
+.affected-resource-directive-info {
+  color: var(--issue-gray);
+  padding: 2px;
+  text-align: right;
+}
