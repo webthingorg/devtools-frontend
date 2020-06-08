@@ -1,0 +1,15 @@
+Name: acorn-logical-assignment, logical assignment support for acorn
+Short Name: acorn-logical-assignment
+URL: https://github.com/bmeurer/acorn-logical-assignment
+Version: 0.1.1
+License: MIT
+License File: LICENSE
+Security Critical: no
+
+Description:
+Logical assignment support for Acorn.
+
+This is a fork of the upstream at https://github.com/acornjs/acorn-logical-assignment and will be maintained until upstream has merged required changes for ESM support.
+
+Local modifications:
+- Add acorn-local-assignment.mjs.d.ts for typechecking.
