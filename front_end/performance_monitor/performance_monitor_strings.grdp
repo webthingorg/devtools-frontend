@@ -42,7 +42,4 @@
   <message name="IDS_DEVTOOLS_c05f6c233521207f6fe311afef550c3c" desc="A tag of Performance Monitor that can be searched in the command menu">
     performance
   </message>
-  <message name="IDS_DEVTOOLS_e99180abf47a8b3a856e0bcb2656990a" desc="Text in Performance Monitor of the Performance monitor tab">
-    Paused
-  </message>
 </grit-part>

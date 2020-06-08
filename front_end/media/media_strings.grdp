@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_03759a0f1c7b810e8996bb20d2176b45" desc="">
+    Pipeline State Change
+  </message>
+  <message name="IDS_DEVTOOLS_3d1f92a565d3b1a61880236e33c49bf3" desc="">
+    Timeline
+  </message>
   <message name="IDS_DEVTOOLS_421b47ffd946ca083b65cd668c6b17e6" desc="Video player">
     video
   </message>
   <message name="IDS_DEVTOOLS_42895832ab7605d00676bebb0521991f" desc="Media property giving the distance of the playback quality from the ideal playback.">
     Video Playback Roughness
+  </message>
+  <message name="IDS_DEVTOOLS_5b999e8e6e64d49616bdf5a24a3d02bf" desc="">
+    Player timeline
   </message>
   <message name="IDS_DEVTOOLS_62933a2951ef01f4eafd9bdf4d3cd2f0" desc="Media player">
     media
@@ -18,8 +27,17 @@
   <message name="IDS_DEVTOOLS_87f9f735a1d36793ceaecd4e47124b63" desc="Button text for viewing events.">
     Events
   </message>
+  <message name="IDS_DEVTOOLS_8bf906833cc7aea8084f552217ed9c1d" desc="">
+    Suspended
+  </message>
   <message name="IDS_DEVTOOLS_9cb334507c95e83a9c863f5014ab317e" desc="Media property giving the media file frame rate">
     Frame Rate
+  </message>
+  <message name="IDS_DEVTOOLS_b5f8c39daab307985431cced5ca90733" desc="">
+    Buffering state changed
+  </message>
+  <message name="IDS_DEVTOOLS_c9dbb2b7c84159b632d71e512eba8428" desc="">
+    Playing
   </message>
   <message name="IDS_DEVTOOLS_cf6523ecab64a91c7a9b3d83b58f9e61" desc="Hover text for the Events button.">
     Player events
@@ -59,6 +77,18 @@
   </message>
   <message name="IDS_DEVTOOLS_b5a4b64b2aa505bd7c11f79b8a9f458d" desc="Media property giving the width x height of the video">
     Resolution
+  </message>
+  <message name="IDS_DEVTOOLS_daf6232397d1a2c74c9c18e7cef888be" desc="">
+    Duration Changed
+  </message>
+  <message name="IDS_DEVTOOLS_dbcb3a46d1b961a3c6d607417ee52079" desc="">
+    Url loaded
+  </message>
+  <message name="IDS_DEVTOOLS_dc169d065aa86a008e8e1676002d8191" desc="">
+    Player Created
+  </message>
+  <message name="IDS_DEVTOOLS_e5c2c5261bbf315f9126c3f5c29a9d50" desc="">
+    Video resolution changed
   </message>
   <message name="IDS_DEVTOOLS_e95c013230e5d1b944fed845b44ded28" desc="Media property giving the title of the frame where the media is embedded">
     Playback Frame Title

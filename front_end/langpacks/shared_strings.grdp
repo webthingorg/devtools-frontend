@@ -610,6 +610,9 @@
   <message name="IDS_DEVTOOLS_e77fef0167598bb39846637ac3915f4e" desc="Text to clear everything">
     Clear All
   </message>
+  <message name="IDS_DEVTOOLS_e99180abf47a8b3a856e0bcb2656990a" desc="Text in Performance Monitor of the Performance monitor tab">
+    Paused
+  </message>
   <message name="IDS_DEVTOOLS_ea4788705e6873b424c65e91c2846b19" desc="Text to cancel something">
     Cancel
   </message>
