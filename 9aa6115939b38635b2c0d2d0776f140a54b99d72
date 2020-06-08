@@ -16,6 +16,24 @@
       "revId": "9aa6115939b38635b2c0d2d0776f140a54b99d72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a76fca_08311995",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-08T09:45:32Z",
+      "side": 1,
+      "message": "We did a little test in our team and no one knew about it. Then I chatted with Peter whether this was a good UX at all and we concluded it isn\u0027t.\n\nWe do have extensive data that the style edits (via keyboard autocompletion) are used a lot, which this sentence was referring to.",
+      "parentUuid": "0e1872ca_f0792e32",
+      "revId": "9aa6115939b38635b2c0d2d0776f140a54b99d72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
