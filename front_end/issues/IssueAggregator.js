@@ -25,6 +25,8 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._representative = null;
     /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
     this._mixedContents = new Map();
+    /** @type {!Set<string>} */
+    this._directives = new Set();
     this._aggregatedIssuesCount = 0;
   }
 
@@ -65,6 +67,23 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    */
   requests() {
     return this._requests.values();
+  }
+
+  /**
+   * @returns {!Iterable<string>}
+   */
+  directives() {
+    return this._directives;
+  }
+
+  /**
+   * @returns {!Iterable<string>}
+   */
+  blockedURLs() {
+    if (this._representative) {
+      return this._representative.blockedURLs();
+    }
+    return [];
   }
 
   /**
@@ -129,6 +148,11 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     for (const mixedContent of issue.mixedContents()) {
       const key = JSON.stringify(mixedContent);
       this._mixedContents.set(key, mixedContent);
+    }
+    for (const directive of issue.directives()) {
+      if (!this._directives.has(directive)) {
+        this._directives.add(directive);
+      }
     }
   }
 }

@@ -193,6 +193,74 @@ class AffectedElementsView extends AffectedResourcesView {
   }
 }
 
+class AffectedDirectivesView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!AggregatedIssue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`directive`, plural: ls`directives`});
+    /** @type {!AggregatedIssue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {!Iterable<string>} directives
+   * @param {!Iterable<string>} urls
+   */
+  _appendAffectedDirectives(directives, urls) {
+    const header = document.createElement('tr');
+
+    const name = document.createElement('td');
+    name.classList.add('affected-resource-header');
+    name.textContent = 'Directive';
+    header.appendChild(name);
+
+    const info = document.createElement('td');
+    info.classList.add('affected-resource-header');
+    info.classList.add('affected-resource-directive-info-header');
+    info.textContent = 'URL';
+    header.appendChild(info);
+
+    this._affectedResources.appendChild(header);
+
+    // console.log('APPEND AFFECTED DIRECTIVES METHODE WAS CALLED');
+
+    let count = 0;
+    for (const directive of directives) {
+      // console.log(directive + ' << HERE\'S THE DIRECTIVE');
+      count++;
+      this.appendAffectedDirective(directive);
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   * @param {!String} directive
+   */
+  appendAffectedDirective(directive) {
+    const element = document.createElement('tr');
+    element.classList.add('affected-resource-directive');
+    const name = document.createElement('td');
+    name.textContent = directive;
+    const info = document.createElement('td');
+    info.classList.add('affected-resource-directive-info');
+    // info.textContent = `${cookie.domain}${cookie.path}`;
+    // console.log('ADDENDING SINGLE DIRECTIVE');
+    element.appendChild(name);
+    element.appendChild(info);
+    this._affectedResources.appendChild(element);
+  }
+
+  /**
+   * @override
+   */
+  update() {
+    this.clear();
+    this._appendAffectedDirectives(this._issue.directives(), this._issue.blockedURLs());
+  }
+}
+
 class AffectedCookiesView extends AffectedResourcesView {
   /**
    * @param {!IssueView} parent
@@ -493,6 +561,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
     this._affectedMixedContentView = new AffectedMixedContentView(this, this._issue);
     this._affectedSourcesView = new AffectedSourcesView(this, this._issue);
+    this._affectedDirectivesView = new AffectedDirectivesView(this, this._issue);
 
     this._aggregatedIssuesCount = null;
   }
@@ -514,6 +583,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedMixedContentView.update();
     this.appendAffectedResource(this._affectedSourcesView);
     this._affectedSourcesView.update();
+    this.appendAffectedResource(this._affectedDirectivesView);
+    this._affectedDirectivesView.update();
     this._createReadMoreLinks();
 
     this.updateAffectedResourceVisibility();
@@ -557,7 +628,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
     const noRequests = !this._affectedRequestsView || this._affectedRequestsView.isEmpty();
     const noMixedContent = !this._affectedMixedContentView || this._affectedMixedContentView.isEmpty();
     const noSources = !this._affectedSourcesView || this._affectedSourcesView.isEmpty();
-    const noResources = noCookies && noElements && noRequests && noMixedContent && noSources;
+    const noDirectives = !this._affectedDirectivesView || this._affectedDirectivesView.isEmpty();
+    const noResources = noCookies && noElements && noRequests && noMixedContent && noSources && noDirectives;
     this._affectedResources.hidden = noResources;
   }
 
@@ -611,6 +683,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedRequestsView.update();
     this._affectedMixedContentView.update();
     this._affectedSourcesView.update();
+    this._affectedDirectivesView.update();
     this.updateAffectedResourceVisibility();
     this._updateAggregatedIssuesCount();
   }
