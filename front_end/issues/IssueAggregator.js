@@ -68,6 +68,26 @@ export class AggregatedIssue extends SDK.Issue.Issue {
   }
 
   /**
+   * @returns {!Iterable<string>}
+   */
+  directives() {
+    if (this._representative) {
+      return this._representative.directives();
+    }
+    return [];
+  }
+
+  /**
+   * @returns {!Iterable<string>}
+   */
+  blockedURLs() {
+    if (this._representative) {
+      return this._representative.blockedURLs();
+    }
+    return [];
+  }
+
+  /**
    * @override
    */
   getDescription() {

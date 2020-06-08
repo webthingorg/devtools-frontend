@@ -195,6 +195,33 @@ function createIssuesForMixedContentIssue(issuesModel, inspectorDetails) {
   return [new MixedContentIssue(mixedContentDetails)];
 }
 
+
+/**
+ * @param {!IssuesModel} issuesModel
+ * @param {!Protocol.Audits.InspectorIssueDetails} inspectorDetails
+ * @return {!Array<!Issue>}
+ */
+function createIssuesForCSPIssue(issuesModel, inspectorDetails) {
+  const cspDetails = inspectorDetails.cspIssueDetails;
+  if (!cspDetails) {
+    console.warn('Content security policy issue without details received.');
+    return [];
+  }
+
+  /** @type {!Array<!Issue>} */
+  const issues = [];
+
+  if (cspDetails.violationType === Protocol.Audits.ViolationType.KURLViolation) {
+    issues.push(new CSPIssue(cspDetails));
+  } else if (cspDetails.violationType === Protocol.Audits.ViolationType.KInlineViolation) {
+    issues.push(new CSPIssue(cspDetails));
+  } else {
+    issues.push(new CSPIssue(cspDetails));
+  }
+  return issues;
+}
+
+
 /**
  * @type {!Map<!Protocol.Audits.InspectorIssueCode, function(!IssuesModel, !Protocol.Audits.InspectorIssueDetails):!Array<!Issue>>}
  */

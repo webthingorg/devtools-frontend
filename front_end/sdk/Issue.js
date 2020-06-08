@@ -135,4 +135,18 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   getCategory() {
     throw new Error('Not implemented');
   }
+
+  /**
+   * @returns {!Iterable<string>}
+   */
+  directives() {
+    return [];
+  }
+
+  /**
+   * @returns {!Iterable<string>}
+   */
+  blockedURLs() {
+    return [];
+  }
 }

@@ -31,6 +31,10 @@
   <message name="IDS_DEVTOOLS_09cdd6a7321c64bae05b8cca859f1461" desc="Title of a setting under the Network category that can be invoked through the Command Menu">
     Enable cache
   </message>
+  <message name="IDS_DEVTOOLS_0c2d9213a0e42e96761b485e364c46f4" desc="Header for a CSP issue of inline violation type">
+    Content Security Policy: use &apos;unsafe-inline&apos; keyword, a hash, or a nonce in content security policy header to
+     enable inline execution and improve the functioning of your site (comes at the risk of inline script injection)
+  </message>
   <message name="IDS_DEVTOOLS_0c94f752d037fd8475e98b0711b543a6" desc="Label for the link for SameSiteCookies Issues">
     SameSite cookies explained
   </message>
@@ -114,8 +118,14 @@
   <message name="IDS_DEVTOOLS_2973958e77629e3a167a1a4c60dd5c5f" desc="Text in Network Manager">
     Slow 3G
   </message>
+  <message name="IDS_DEVTOOLS_2a8ba144b56932e1ca06e1ecb4bb83a6" desc="Link for CSP issues">
+    https://developers.google.com/web/fundamentals/security/csp
+  </message>
   <message name="IDS_DEVTOOLS_2ac1cf0a93713a09d3d4b9f2137d2be1" desc="Resolution for SameSiteCookie issue">
     Specify <ph name="LOCKED_1">|SameSite=None|</ph> and <ph name="LOCKED_1">|Secure|</ph> if the cookie is intended to be set in cross-site contexts. Note that only cookies sent over HTTPS may use the <ph name="LOCKED_1">|Secure|</ph> attribute.
+  </message>
+  <message name="IDS_DEVTOOLS_2b7277fb9669c8ded14e352def59b298" desc="Second part of message for CSP issues of url violation type">
+    Usage of content from not included sources is restricted to strengthen the security of your entire site.
   </message>
   <message name="IDS_DEVTOOLS_2ca5bc4c75fa0bac63906eac6cb0c265" desc="Link for mixed content issues">
     https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content
@@ -155,6 +165,10 @@
   </message>
   <message name="IDS_DEVTOOLS_3f23f0e9da2803d48c2d67aa09f01bf5" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie didn&apos;t specify a &quot;SameSite&quot; attribute and was defaulted to &quot;SameSite=Lax,&quot; and was blocked because it came from a cross-site response which was not the response to a top-level navigation. The Set-Cookie had to have been set with &quot;SameSite=None&quot; to enable cross-site usage.
+  </message>
+  <message name="IDS_DEVTOOLS_4277943b9a70317b33a29217a4b4382b" desc="First part of message for CSP issues of url violation type">
+    Even though some sources are included in the content security policy header, some resources accessed by your site
+         like images, stylesheets or scripts originate from sources not included in content security policy directives.
   </message>
   <message name="IDS_DEVTOOLS_4350ac6a723ad6f3b6e77713a27c2de1" desc="Resolution for a SameSiteCookie issue">
     Specify <ph name="LOCKED_1">|SameSite=None|</ph> and <ph name="LOCKED_1">|Secure|</ph> if the cookie should be sent in cross-site requests. This enables third-party use.
@@ -356,6 +370,14 @@
   <message name="IDS_DEVTOOLS_7e237311e1b03bddac9c200e27482ac8" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie was blocked because its Domain attribute was invalid with regards to the current host url.
   </message>
+  <message name="IDS_DEVTOOLS_7f3ccafaedb26785508dca74f8cf18cc" desc="First part of message for CSP issues of inline violation type">
+    Even though some sources are included in the content security policy header, some resources accessed by your site
+         like stylesheets or scripts have inline location with no respective directive allowing it.
+  </message>
+  <message name="IDS_DEVTOOLS_7ffc2432c498b97457d630205b38f4ef" desc="Header for CSP issues of eval violation type">
+    Content Security Policy: use &apos;unsafe-eval&apos; source in content security policy header to improve the functioning
+     of your site (comes at the risk of evaluating malicious text)
+  </message>
   <message name="IDS_DEVTOOLS_8022a7ceb04a413d242483f01407dfba" desc="Name of a color vision deficiency that can be emulated via the Rendering drawer">
     Protanopia
   </message>
@@ -370,6 +392,9 @@
   </message>
   <message name="IDS_DEVTOOLS_83f2229658949472d34f78e19475fcdd" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Show layer borders
+  </message>
+  <message name="IDS_DEVTOOLS_84eb7c348e0a221e55a5d4adb8bb91e1" desc="Link title for CSP issues">
+    Content Security Policy | Web Fundamentals
   </message>
   <message name="IDS_DEVTOOLS_8e25939ed027992ec3229fb82c8635a9" desc="Title for an issue in the issues view">
     Specify a Cross-Origin Resource Policy to prevent a resource from being blocked
@@ -409,6 +434,10 @@
   </message>
   <message name="IDS_DEVTOOLS_96d008db67fc0b5551a926842bbb6a71" desc="Text in DOMDebugger Model">
     Notification
+  </message>
+  <message name="IDS_DEVTOOLS_976a025f4f255a4e256c0dc1ef596830" desc="Second part of message for CSP issues">
+    Content Security Policy: include all sources of your resources in content security policy header to improve the
+     functioning of your site
   </message>
   <message name="IDS_DEVTOOLS_9829644f81a0154c4ffd9c9c93df7698" desc="Part of a text describing an issue in the issues view">
     Your site tries to access an external resource that only allows same-origin usage.
@@ -454,6 +483,10 @@
   </message>
   <message name="IDS_DEVTOOLS_a720fc15eb9ec85751969e8615ace9e1" desc="Text in Server Timing">
     Duplicate parameter &quot;<ph name="PARAMNAME">$1s<ex>https</ex></ph>&quot; ignored.
+  </message>
+  <message name="IDS_DEVTOOLS_aa7bca8659d55f029d3614ddfa4daa36" desc="First part of message for CSP issues of eval violation type">
+    Even though some script sources are included in the content security policy header, script accessed by your site
+         has string evaluation code with no respective directive allowing it.
   </message>
   <message name="IDS_DEVTOOLS_ac03446edcc539f540a2d85b49ef8e44" desc="Tooltip to explain why a cookie was blocked">
     This cookie was blocked because it had the &quot;SameSite=Strict&quot; attribute and the request was made from a different site. This includes top-level navigation requests initiated by other sites.
@@ -517,6 +550,10 @@
   <message name="IDS_DEVTOOLS_c432f4e5fdec5760a2f06b38f646168e" desc="Text in Console Model">
     Profile &apos;<ph name="DATA_TITLE">$1s<ex>title</ex></ph>&apos; started.
   </message>
+  <message name="IDS_DEVTOOLS_c55ea8391de10c4162dfeb711a99b25f" desc="Second part of message for CSP issues of eval type">
+    Execution of string evaluation code, without directives enabling such, is restricted to strengthen the security of
+         your entire site.
+  </message>
   <message name="IDS_DEVTOOLS_c5d59568835d0760e318829b800ee06d" desc="Text in Debugger Model">
     Catch
   </message>
@@ -556,6 +593,10 @@
   </message>
   <message name="IDS_DEVTOOLS_d5746b506b158b2dfedca3c0868bf51a" desc="Title for SameSiteCookie issue">
     Indicate whether a cookie is intended to be set in a cross-site context by specifying its SameSite attribute
+  </message>
+  <message name="IDS_DEVTOOLS_d81102397d0e4bc268cd8b9bb3524102" desc="Second part of message for CSP issues of inline violation type">
+    Usage of content placed inline, without directives enabling such,  is restricted to strengthen the security of your
+         entire site.
   </message>
   <message name="IDS_DEVTOOLS_d8e859dc455c59c30b396adf797d6005" desc="Description of a SameSiteCookie issue">
     A cookie is being sent from <ph name="ORIGIN">$1s<ex>a secure</ex></ph> context to <ph name="DESTINATION">$2s<ex>an insecure</ex></ph> origin and is specified with |SameSite=Strict| or |SameSite=Lax|.

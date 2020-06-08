@@ -24,6 +24,9 @@
   <message name="IDS_DEVTOOLS_8e2dcfd7e7e24b1ca76c1193f645902b" desc="Singular label for number of affected element resource indication in issue view">
     element
   </message>
+  <message name="IDS_DEVTOOLS_8fe7c9bd9a6f645b80a6db7c2496dc81" desc="Plural label for number of affected directive resource indication in issue view">
+    directives
+  </message>
   <message name="IDS_DEVTOOLS_96ab4e163f4ee03aaa4d1051aa51d204" desc="Label for number of affected resources indication in issue view">
     resource
   </message>
@@ -35,6 +38,9 @@
   </message>
   <message name="IDS_DEVTOOLS_b02478e52979ba9af8bffc41f342f4b6" desc="Header for the section listing affected resources">
     Affected Resources
+  </message>
+  <message name="IDS_DEVTOOLS_e1317e393c4c13c1bba0195dd20eceb8" desc="Singular label for number of affected directive resource indication in issue view">
+    directive
   </message>
   <message name="IDS_DEVTOOLS_ee02b74d0caebce3dabaf3b3e79b6a65" desc="The UI destination when right clicking an item that can be revealed">
     Issues view
