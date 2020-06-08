@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab122e19_5a92452e",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-08T12:26:32Z",
+      "side": 1,
+      "message": "I think it\u0027s more common to use getX and setX methods in the codebase rather than JS getters and setters",
+      "range": {
+        "startLine": 300,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 5
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96c78548_a64f911a",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-08T12:26:32Z",
+      "side": 1,
+      "message": "nit: call this \u0027name\u0027?",
+      "range": {
+        "startLine": 307,
+        "startChar": 36,
+        "endLine": 307,
+        "endChar": 37
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
