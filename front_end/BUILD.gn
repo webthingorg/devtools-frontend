@@ -10,6 +10,10 @@ group("front_end") {
   public_deps = [
     ":front_end_html_entrypoints",
     ":ts_library-verification",
+
+    # TODO: this is only used for the local dev server
+    # we could not do this in production builds?
+    "component_docs",
   ]
 }
 
