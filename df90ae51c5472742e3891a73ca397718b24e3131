@@ -25,6 +25,53 @@
     },
     {
       "key": {
+        "uuid": "57ecf2b1_95473c18",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-08T13:12:38Z",
+      "side": 1,
+      "message": "I found around 250 usages of a getter vs 180 usages of a getX. So I think, leaving it as a getter is fine. WDYT?",
+      "parentUuid": "ab122e19_5a92452e",
+      "range": {
+        "startLine": 300,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 5
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56d2f52e_adabf88f",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-08T13:12:38Z",
+      "side": 1,
+      "message": "The jsDOC says the return value is empty if the response isn\u0027t from the CacheStorage. But in this case, you return a localized string Unknown. WDYT about returning null here and do the localization in the view layer?",
+      "range": {
+        "startLine": 301,
+        "startChar": 16,
+        "endLine": 301,
+        "endChar": 46
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "96c78548_a64f911a",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 7
@@ -41,6 +88,98 @@
         "startChar": 36,
         "endLine": 307,
         "endChar": 37
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e382d54d_c9222a8f",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-08T13:12:38Z",
+      "side": 1,
+      "message": "Same as above wrt to returning unspecified.",
+      "range": {
+        "startLine": 314,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 29
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3fdf74c_8d0a73e5",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-08T13:12:38Z",
+      "side": 1,
+      "message": "Same here wrt. localized strings in the model.",
+      "range": {
+        "startLine": 321,
+        "startChar": 2,
+        "endLine": 321,
+        "endChar": 31
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "000a5a00_acdfaf31",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-08T13:12:38Z",
+      "side": 1,
+      "message": "WDYT about using setters and getters here as they are also used in the surrounding code?",
+      "range": {
+        "startLine": 431,
+        "startChar": 2,
+        "endLine": 431,
+        "endChar": 26
+      },
+      "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48421786_042d0a30",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-08T13:12:38Z",
+      "side": 1,
+      "message": "WDYT about returning null here instead of -1. I think this would make the intention somewhat more obvious.",
+      "range": {
+        "startLine": 432,
+        "startChar": 42,
+        "endLine": 432,
+        "endChar": 44
       },
       "revId": "df90ae51c5472742e3891a73ca397718b24e3131",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
