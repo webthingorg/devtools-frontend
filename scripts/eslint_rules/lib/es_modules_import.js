@@ -22,6 +22,8 @@ const EXEMPTED_THIRD_PARTY_MODULES = new Set([
   path.join(FRONT_END_DIRECTORY, 'third_party', 'acorn'),
   // acorn-loose is exempt as it doesn't expose all its modules from the root file
   path.join(FRONT_END_DIRECTORY, 'third_party', 'acorn-loose'),
+  // base64-arraybuffer is exempt as it doesn't expose all its modules from the root file
+  path.join(FRONT_END_DIRECTORY, 'third_party', 'base64-arraybuffer'),
 ]);
 
 const CROSS_NAMESPACE_MESSAGE =

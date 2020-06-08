@@ -28,11 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @param {string} mimeType
- * @return {function(string, function(string, ?string, number, number):(!Object|undefined))}
- */
-
+import * as Base64 from '../third_party/base64-arraybuffer/package/dist/base64-arraybuffer.mjs';
 import * as WasmDis from '../third_party/wasmparser/package/dist/esm/WasmDis.js';
 import * as WasmParser from '../third_party/wasmparser/package/dist/esm/WasmParser.js';
 
@@ -71,8 +67,7 @@ self.onmessage = async function(event) {
   const DISASSEMBLY_WEIGHT = 69;
   const FINALIZATION_WEIGHT = 100 - (NAME_GENERATOR_WEIGHT + DISASSEMBLY_WEIGHT);
 
-  const response = await fetch(`data:application/wasm;base64,${params.content}`);
-  const buffer = await response.arrayBuffer();
+  const buffer = Base64.decode(params.content);
 
   let parser = new BinaryReaderWithProgress(percentage => {
     this.postMessage({event: 'progress', params: {percentage: percentage * (NAME_GENERATOR_WEIGHT / 100)}});
