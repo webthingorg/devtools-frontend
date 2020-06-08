@@ -786,6 +786,20 @@ export class ToolbarToggle extends ToolbarButton {
   setToggleWithRedColor(toggleWithRedColor) {
     this.element.classList.toggle('toolbar-toggle-with-red-color', toggleWithRedColor);
   }
+
+  /**
+   * @param {boolean} withGreenColor
+   */
+  setDefaultWithGreenColor(withGreenColor) {
+    this.element.classList.toggle('toolbar-default-with-green-color', withGreenColor);
+  }
+
+  /**
+   * @param {boolean} toggleWithGreenColor
+   */
+  setToggleWithGreenColor(toggleWithGreenColor) {
+    this.element.classList.toggle('toolbar-toggle-with-green-color', toggleWithGreenColor);
+  }
 }
 
 
