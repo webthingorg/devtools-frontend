@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e9c7f9f8_8857256d",
+        "filename": "front_end/formatter_worker/AcornTokenizer.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2020-06-08T18:20:19Z",
+      "side": 1,
+      "message": "This is only done once in the constructor, no?",
+      "parentUuid": "0249b0e9_0f9169bb",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "91b4062c0968d84591ef154a53742dbf3eb4a6f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c33a88b_6c377927",
         "filename": "front_end/formatter_worker/JavaScriptFormatter.js",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "91b4062c0968d84591ef154a53742dbf3eb4a6f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e7f8ab0_f80ea91b",
+        "filename": "front_end/formatter_worker/JavaScriptFormatter.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2020-06-08T18:20:19Z",
+      "side": 1,
+      "message": "Good tip, extracted out into a member variable in https://crrev.com/c/2235965/",
+      "parentUuid": "1c33a88b_6c377927",
+      "range": {
+        "startLine": 65,
+        "startChar": 16,
+        "endLine": 65,
+        "endChar": 55
+      },
+      "revId": "91b4062c0968d84591ef154a53742dbf3eb4a6f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
