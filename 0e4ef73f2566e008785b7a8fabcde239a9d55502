@@ -16,6 +16,24 @@
       "revId": "0e4ef73f2566e008785b7a8fabcde239a9d55502",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8efed4fb_e607d155",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-06-08T21:01:21Z",
+      "side": 1,
+      "message": "Thanks! changed to .url()",
+      "parentUuid": "2467b67b_eb549197",
+      "revId": "0e4ef73f2566e008785b7a8fabcde239a9d55502",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
