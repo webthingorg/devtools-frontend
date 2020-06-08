@@ -22,6 +22,30 @@
       "revId": "8335cf0c70ad8b2fc1be16ae19d489df178e051b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2da450b8_b0030fbe",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-06-08T03:25:32Z",
+      "side": 1,
+      "message": "Understood, I didn\u0027t realize LiveLocation creation could potentially be expensive enough for a user to notice the pause. Additionally, I wanted to solve the problem for all Linkifier instances and not just the Network initiator popover. I\u0027ll stage another solution.",
+      "parentUuid": "3c5e1844_d4607d6a",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 66
+      },
+      "revId": "8335cf0c70ad8b2fc1be16ae19d489df178e051b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
