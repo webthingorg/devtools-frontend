@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a88caaff_51900535",
+        "filename": "test/e2e/resources/elements/css-variables.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-08T15:40:06Z",
+      "side": 1,
+      "message": "nit: no indentation here (i.e. -2 spaces for the rest of the doc)",
+      "revId": "36eb9914505a3482b25bbb079ee7d703dddc5a33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
