@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "909abc10_885ff42b",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-08T14:21:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21b94e0b_f8cc0c31",
+      "range": {
+        "startLine": 18,
+        "startChar": 7,
+        "endLine": 18,
+        "endChar": 114
+      },
+      "revId": "94e76ed1eb1a8976ef395d3b2b08c9336506446b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a74700e9_858c3655",
         "filename": "scripts/component_server/server.js",
         "patchSetId": 9
@@ -36,6 +60,24 @@
       "writtenOn": "2020-06-08T13:58:45Z",
       "side": 1,
       "message": "We\u0027re sure this means we can\u0027t get outside the devtoolFrontendFolder, right? It looks like it\u0027s okay because it\u0027s a join not a resolve.",
+      "revId": "94e76ed1eb1a8976ef395d3b2b08c9336506446b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36ad3579_bc1aceb3",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-08T14:21:55Z",
+      "side": 1,
+      "message": "Good catch - I\u0027ve added a check once we join the paths that we\u0027re still within the devtools frontend folder.",
+      "parentUuid": "a74700e9_858c3655",
       "revId": "94e76ed1eb1a8976ef395d3b2b08c9336506446b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
