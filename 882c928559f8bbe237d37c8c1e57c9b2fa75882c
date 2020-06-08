@@ -354,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "885d1f91_c46fd429",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-08T11:09:33Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is worth it; or if instead of this we should just use lit-htmls\u0027s html function here? If we can generate static HTML from it, that is...",
+      "parentUuid": "896f537d_9060b574",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 10
+      },
+      "revId": "882c928559f8bbe237d37c8c1e57c9b2fa75882c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f54f8e4_1d875a96",
         "filename": "scripts/component_server/server.js",
         "patchSetId": 7
