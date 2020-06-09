@@ -16,6 +16,24 @@
       "revId": "136fe9639c67252d363012db1a0712681f2d9fb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b1d837d_c928f381",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-09T09:43:39Z",
+      "side": 1,
+      "message": "Yeah, this function takes too many arguments and is too abstract now. Now you have to know what all these arguments are and how to use them, to be able to use this helper. I would like to focus on readability as much as we can, even if that would introduce a bit of duplication.",
+      "parentUuid": "72f05ac2_60f33021",
+      "revId": "136fe9639c67252d363012db1a0712681f2d9fb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
