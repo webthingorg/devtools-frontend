@@ -15,9 +15,27 @@ body {
   --shadow-up: 5px;
   --shadow-down: -5px;
   --shadow-direction: var(--shadow-up);
-  --arrow-up: polygon(0 0, 100% 0, 50% 100%);
-  --arrow-down: polygon(50% 0, 0 100%, 100% 100%);
-  --arrow: var(--arrow-up);
+  --arrow-down: polygon(0 0, 100% 0, 50% 100%);
+  --arrow-up: polygon(50% 0, 0 100%, 100% 100%);
+  --arrow-full-right: polygon(0 0, 0 100%, 100% 50%);
+  --arrow-full-left: polygon(100% 0, 100% 100%, 0% 50%);
+  --arrow-half-north-east: polygon(0 0, 100% 0, 100% 100%);
+  --arrow-half-south-east: polygon(100% 0, 100% 100%, 0 100%);
+  --arrow-half-south-west: polygon(0 0, 0 100%, 100% 100%);
+  --arrow-half-north-west: polygon(100% 0, 0 100%, 0 0);
+  --arrow-left-top: var(--arrow-half-north-east);
+  --arrow-left-mid: var(--arrow-full-left);
+  --arrow-left-bottom: var(--arrow-half-south-east);
+  --arrow-top-left: var(--arrow-half-south-west);
+  --arrow-top-mid: var(--arrow-up);
+  --arrow-top-right: var(--arrow-half-south-east);
+  --arrow-right-top: var(--arrow-half-north-west);
+  --arrow-right-mid: var(--arrow-full-right);
+  --arrow-right-bottom: var(--arrow-half-south-west);
+  --arrow-bottom-left: var(--arrow-half-north-west);
+  --arrow-bottom-mid: var(--arrow-down);
+  --arrow-bottom-right: var(--arrow-half-north-east);
+  --arrow: var(--arrow-down);
 }
 
 .px {
@@ -230,6 +248,60 @@ body {
   background-image: url('data:image/svg+xml,<svg fill="none" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path d="m9 1.5c-4.14 0-7.5 3.36-7.5 7.5s3.36 7.5 7.5 7.5 7.5-3.36 7.5-7.5-3.36-7.5-7.5-7.5zm0 13.5c-3.3075 0-6-2.6925-6-6s2.6925-6 6-6 6 2.6925 6 6-2.6925 6-6 6zm-1.5-4.35-1.95-1.95-1.05 1.05 3 3 6-6-1.05-1.05z" fill="%230ca40c"/></svg>');
 }
 
+/* Grid row and column labels */
+.grid-label-content {
+    position: absolute;
+    z-index: 10;
+    -webkit-user-select: none;
+}
+
+.grid-label-content {
+    background-color: #1A73E8;
+    padding: 2px;
+    font-family: Menlo;
+    font-size: 10px;
+    min-width: 10px;
+    min-height: 15px;
+    color: #FFFFFF;
+    border: 1px solid white;
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    z-index: 1;
+    background-clip: padding-box;
+    will-change: transform;
+    pointer-events: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-label-content::before {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    background: white;
+    width: var(--arrow-width);
+    height: var(--arrow-height);
+    clip-path: var(--arrow);
+    top: var(--arrow-top);
+    left: var(--arrow-left);
+}
+.grid-label-content::after {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    content: "";
+    background: #1A73E8;
+    width: var(--arrow-width);
+    height: var(--arrow-height);
+    clip-path: var(--arrow);
+    top: var(--arrow-inner-top);
+    left: var(--arrow-inner-left);
+    box-shadow: var(--arrow-inner-shadow);
+}
+
 @media (forced-colors: active) {
   :root, body {
       background-color: transparent;
@@ -278,6 +350,10 @@ window.setPlatform = function(platform) {
   const tooltip = document.createElement('div');
   tooltip.id = 'tooltip-container';
   document.body.append(tooltip);
+
+  const gridLabels = document.createElement('div');
+  gridLabels.id = 'grid-label-container';
+  document.body.append(gridLabels);
 
   setPlatform(platform);
 };
