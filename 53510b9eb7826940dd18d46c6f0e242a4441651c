@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82aa0ad3_a5607260",
+        "filename": "front_end/inspector_overlay/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2020-06-09T23:23:03Z",
+      "side": 1,
+      "message": "please add patrick.brosset@microsoft.com",
+      "revId": "53510b9eb7826940dd18d46c6f0e242a4441651c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
