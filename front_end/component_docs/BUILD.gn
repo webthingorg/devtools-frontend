@@ -5,5 +5,11 @@
 import("../../scripts/build/copy_to_gen.gni")
 
 copy_to_gen("component_docs") {
-  sources = [ "example/basic.html" ]
+  sources = [
+    "elements_breadcrumbs/basic.html",
+    "elements_breadcrumbs/scroll.html",
+    "example/basic.html",
+  ]
+
+  deps = [ "../elements" ]
 }
