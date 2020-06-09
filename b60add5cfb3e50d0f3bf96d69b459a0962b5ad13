@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d85068b_9282dfe5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-09T18:00:17Z",
+      "side": 1,
+      "message": "nit: duplicate e2e, no need to include it if its in the hash.",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b0d8d4e_c0c79e90",
+        "filename": "test/e2e/emulation/dual-screen_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-09T18:00:17Z",
+      "side": 1,
+      "message": "I expect to see asserts in tests, unless the scenario is complex/shared with other tests.\n\nI suggest following the three \"A\"s: Arrange, Act, Assert.\nFor example:\n\nArrange: Open the DevTools\n\nAct: Click the Dual Screen Button\n\nAssert: Pass if the dual screen elements are visible.\n\nTake a look at the other e2e tests as examples, here are the lighthouse ones:\nhttps://chromium.googlesource.com/devtools/devtools-frontend/+/refs/changes/35/2225335/5/test/e2e/lighthouse/generate-report.ts",
+      "range": {
+        "startLine": 14,
+        "startChar": 10,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a848e62a_967a0ede",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-09T18:00:17Z",
+      "side": 1,
+      "message": "nit: rename DUAL_SCREEN_BUTTON_SELECTOR and subsequent variables `button`.\n\nIncluding the notion of SPAN is not needed for this selector and leaks DOM concepts that it is nice to minimize in tests.",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e8cd6b0_615d635d",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-09T18:00:17Z",
+      "side": 1,
+      "message": "nit: rename `assertButtonIsEnabled`\n\nFor what its worth- I try to avoid passing in the expected state into test helpers, the results is some redundant code with the benefit of readability. e.g.\n\n```\nconst assertButtonIsDisabled \u003d (button) \u003d\u003e button.evaluate(e \u003d\u003e assert.isTrue(e.disabled));\n\nconst assertButtonIsEnabled \u003d (button) \u003d\u003e button.evaluate(e \u003d\u003e assert.isFalse(e.disabled));\n```",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 31
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad20389_422df983",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-09T18:00:17Z",
+      "side": 1,
+      "message": "nit rename: `buttonIsDisabledForNonDuleScreen`\n\nfor similar reasons of the other rename suggestions.",
+      "range": {
+        "startLine": 95,
+        "startChar": 13,
+        "endLine": 95,
+        "endChar": 44
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
