@@ -46,6 +46,30 @@
       "revId": "e9686944b15e46d08b3729342a0328267e116c0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b592f59_6e6335c7",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-09T14:21:39Z",
+      "side": 1,
+      "message": "Either that or placing your explanation in there as a comment would help clarify I think :)",
+      "parentUuid": "8bd34034_5aadcfb8",
+      "range": {
+        "startLine": 702,
+        "startChar": 57,
+        "endLine": 703,
+        "endChar": 9
+      },
+      "revId": "e9686944b15e46d08b3729342a0328267e116c0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
