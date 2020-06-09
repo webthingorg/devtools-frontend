@@ -1,12 +1,12 @@
 # Triage Guidelines
 
 ## Disclaimer
-The most important thing: Please use common sense. The guidelines below are likely not exhaustive and will not cover every case.
+The most important thing: please use common sense. The guidelines below are likely not exhaustive and do not cover every case.
 
 ## What should be triaged?
-[[Query]](https://bugs.chromium.org/p/chromium/issues/list?q=status=untriaged%20component:Platform%3EDevTools)
+All `Untriaged` DevTools issues, as well as any `Unconfirmed` issues that also have the `TE-NeedsTriageHelp` label need to be triaged.
 
-[All Untriaged DevTools](https://bugs.chromium.org/p/chromium/issues/list?q=status=untriaged%20component:Platform%3EDevTools) issues need to be triaged.
+[[Query]](https://bugs.chromium.org/p/chromium/issues/list?q=component%3APlatform%3EDevTools%20status%3AUntriaged%20OR%20component%3APlatform%3EDevTools%20status%3AUnconfirmed%20label%3ATE-NeedsTriageHelp)
 
 ## Who is triaging?
 Right now there is a Google-internal rotation set-up, with people that do weekly shifts.
@@ -16,9 +16,9 @@ As Microsoft is in an opposite timezone they have a similar rotation on the same
 * MS rotation: GMT-9
 
 ## What are the SLOs?
-[[Query]](https://bugs.chromium.org/p/chromium/issues/list?sort=id&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified&q=status%3Duntriaged%20component%3APlatform%3EDevTools%20modified-before%3Atoday-7&can=2)
+[[Query]](https://bugs.chromium.org/p/chromium/issues/list?q=component%3APlatform%3EDevTools%20status%3AUntriaged%20modified-before%3Atoday-7%20OR%20component%3APlatform%3EDevTools%20status%3AUnconfirmed%20label%3ATE-NeedsTriageHelp%20modified-before%3Atoday-7)
 
-Issues in the untriaged queue should receive a meaningful response within a business week. This means that the goal is to make the [query mentioned above](https://bugs.chromium.org/p/chromium/issues/list?sort=id&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified&q=status%3Duntriaged%20component%3APlatform%3EDevTools%20modified-before%3Atoday-7&can=2) return zero issues.
+Issues in the untriaged queue should receive a meaningful response within a business week. This means that the goal is to make the query mentioned above return zero issues.
 
 ## How are priorities defined?
 * P0: This needs to be urgently done, fire drill alert!
@@ -28,7 +28,7 @@ Issues in the untriaged queue should receive a meaningful response within a busi
 * P1: This is important. Let’s aim to get this done next
    * Non-critical security fixes will likely be in this category
    * Regression bugs will be likely in this category
-   *Important features that partners are waiting for might be in this category
+   * Important features that partners are waiting for might be in this category
 * P2: We want to do that. The exact time of delivery is not that important though.
    * General feature work will likely be in this category
    * Non-severe bugs
@@ -85,11 +85,11 @@ The combination of the label “M-<milestone>” and “Release-Block-<channel>�
 
 ## Out of scope
 ### Managing the backlog
-[[Query]](https://bugs.chromium.org/p/chromium/issues/list?sort=id&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified&q=Hotlist%3DDevTools-Backlog&can=2)
+[[Query]](https://bugs.chromium.org/p/chromium/issues/list?q=Hotlist%3DDevTools-Backlog)
 
 Managing the backlog is out of scope for the triage rotation. The backlog will be groomed continuously by hablich@ for now. The SLA is that there should be a maximum of 50 issues in there.
 ### Managing the ProductReview queue
-[[Query]](https://bugs.chromium.org/p/chromium/issues/list?sort=id&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified&q=Hotlist%3DDevTools-ProductReview&can=2)
+[[Query]](https://bugs.chromium.org/p/chromium/issues/list?q=Hotlist%3DDevTools-ProductReview)
 
 Issues in ProductReview will continuously be handled by hablich@ to unblock items in there. SLA is max 10 issues.
 ## References
