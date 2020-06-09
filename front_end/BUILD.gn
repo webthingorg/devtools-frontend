@@ -55,6 +55,7 @@ ts_library("ts_library-verification") {
     "host",
     "inspector_overlay",
     "issues",
+    "lit_html",
     "protocol_client",
     "root",
     "sdk",

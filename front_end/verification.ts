@@ -10,3 +10,4 @@ import './protocol_client/protocol_client.js';
 import './root/root.js';
 import './sdk/sdk.js';
 import './workspace/workspace.js';
+import './lit_html/lit_html.js';
