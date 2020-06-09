@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "219c3558_3c8a7a3b",
+        "filename": "docs/langpacks/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-09T19:34:16Z",
+      "side": 1,
+      "message": "Does anyone agree that I should also update the folder name from langpacks to localization? The docs here are not really langpacks specific.",
+      "revId": "a6c312f1986922ad074afbe032b4da2c7c6477eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
