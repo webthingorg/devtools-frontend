@@ -231,6 +231,30 @@
     },
     {
       "key": {
+        "uuid": "c1b0a40c_5618f268",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-09T22:43:09Z",
+      "side": 1,
+      "message": "Resolved with new implementation",
+      "parentUuid": "78a6a01a_fb227a39",
+      "range": {
+        "startLine": 215,
+        "startChar": 5,
+        "endLine": 215,
+        "endChar": 39
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b246f718_2c6558e2",
         "filename": "front_end/inspector_overlay/tool_highlight.js",
         "patchSetId": 5
@@ -322,6 +346,30 @@
       "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "026592c2_ef3ea2fb",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-09T22:43:09Z",
+      "side": 1,
+      "message": "Was able to push a new change that uses this suggested approach, and it greatly simplifies things. Thanks! Still need to clean some things up, but it is much better/readable now.",
+      "parentUuid": "6f0141a0_61dd5722",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 1
+      },
+      "revId": "e6b32f4bdf774f02823c38745b53a9110a3d3750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
