@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ecdabd55_cc1cf148",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-09T18:16:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03e0078f_d96ea04c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "56a307d4343cae471ec120485fcb7532d0a04fee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fb18fdd_0da4f056",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "56a307d4343cae471ec120485fcb7532d0a04fee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "922d7e16_550755b2",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-09T18:16:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb18fdd_0da4f056",
+      "range": {
+        "startLine": 793,
+        "startChar": 2,
+        "endLine": 793,
+        "endChar": 26
+      },
+      "revId": "56a307d4343cae471ec120485fcb7532d0a04fee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
