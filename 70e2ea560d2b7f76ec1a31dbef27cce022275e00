@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db4d52d5_4963b22b",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-09T12:14:45Z",
+      "side": 1,
+      "message": "I would suggest returning the error string from checkUIStrings, rather than setting this global from addUIStringsCheckError. To me it makes it easier to track the data flow through this script. If you think it\u0027s too messy to plumb this in everywhere then I\u0027m OK with that too.\n\nSame with autoFixMessage",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 16
+      },
+      "revId": "70e2ea560d2b7f76ec1a31dbef27cce022275e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d98e1835_c99384c1",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-09T12:14:45Z",
+      "side": 1,
+      "message": "What do you think about using typescript parser rather than regex to find and parse the UIStrings object? (also for removedUnusedEntryFromUIStrings). I think it would make this code more resilient to future changes to the codebase.\n\nIt\u0027s hard to see exactly what assumptions we make about the formatting and syntax of the source code by using regexs.\n\nWe are doing this in check_localized_strings.js already",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 65
+      },
+      "revId": "70e2ea560d2b7f76ec1a31dbef27cce022275e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
