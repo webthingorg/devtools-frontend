@@ -824,6 +824,27 @@ declare namespace Protocol {
       reason: BlockedByResponseReason;
     }
 
+    export enum ViolationType {
+      KInlineViolation = 'kInlineViolation',
+      KEvalViolation = 'kEvalViolation',
+      KURLViolation = 'kURLViolation',
+      KTrustedTypesSinkViolation = 'kTrustedTypesSinkViolation',
+      KTrustedTypesPolicyViolation = 'kTrustedTypesPolicyViolation',
+    }
+
+    export interface CSPIssueDetails {
+      /**
+       * The url not included in allowed sources.
+       */
+      blockedURL?: string;
+      /**
+       * Specific directive that is violated, causing the CSP issue.
+       */
+      violatedDirective: string;
+      violationType: ViolationType;
+      frame?: AffectedFrame;
+    }
+
     /**
      * A unique identifier for the type of issue. Each type may use one of the
      * optional fields in InspectorIssueDetails to convey more specific
@@ -833,6 +854,7 @@ declare namespace Protocol {
       SameSiteCookieIssue = 'SameSiteCookieIssue',
       MixedContentIssue = 'MixedContentIssue',
       BlockedByResponseIssue = 'BlockedByResponseIssue',
+      CSPIssue = 'CSPIssue',
     }
 
     /**
@@ -844,6 +866,7 @@ declare namespace Protocol {
       sameSiteCookieIssueDetails?: SameSiteCookieIssueDetails;
       mixedContentIssueDetails?: MixedContentIssueDetails;
       blockedByResponseIssueDetails?: BlockedByResponseIssueDetails;
+      cspIssueDetails?: CSPIssueDetails;
     }
 
     /**
