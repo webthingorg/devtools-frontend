@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b4cfcd1_5498ab4e",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-06-09T19:32:28Z",
+      "side": 1,
+      "message": "Generally we only handle aria through ARIAUtils, so it\u0027d be best to use the existing functions there",
+      "revId": "16062b8a40d519da3c2caf0abe07b8964bc3b13c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed1518b8_e4a23e78",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-06-09T19:32:28Z",
+      "side": 1,
+      "message": "nit: we should keep a reference to this instead of querying the dom for it",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 0
+      },
+      "revId": "16062b8a40d519da3c2caf0abe07b8964bc3b13c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d88ac9f3_11e4cda2",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-06-09T19:32:28Z",
+      "side": 1,
+      "message": "Is there a reason we can\u0027t use the existing createElementWithClass() here?",
+      "range": {
+        "startLine": 406,
+        "startChar": 3,
+        "endLine": 415,
+        "endChar": 5
+      },
+      "revId": "16062b8a40d519da3c2caf0abe07b8964bc3b13c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79e9cfb1_61e3d8a6",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-06-09T19:32:28Z",
+      "side": 1,
+      "message": "same here, ARIAUtils.setChecked()",
+      "range": {
+        "startLine": 462,
+        "startChar": 50,
+        "endLine": 463,
+        "endChar": 45
+      },
+      "revId": "16062b8a40d519da3c2caf0abe07b8964bc3b13c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
