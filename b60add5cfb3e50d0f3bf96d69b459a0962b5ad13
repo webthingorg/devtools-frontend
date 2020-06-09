@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23db77f8_298b7f72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-09T21:50:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d85068b_9282dfe5",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b0d8d4e_c0c79e90",
         "filename": "test/e2e/emulation/dual-screen_test.ts",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3c464989_e3fa1eae",
+        "filename": "test/e2e/emulation/dual-screen_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-09T21:50:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b0d8d4e_c0c79e90",
+      "range": {
+        "startLine": 14,
+        "startChar": 10,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a848e62a_967a0ede",
         "filename": "test/e2e/helpers/emulation-helpers.ts",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2020-06-09T18:00:17Z",
       "side": 1,
       "message": "nit: rename DUAL_SCREEN_BUTTON_SELECTOR and subsequent variables `button`.\n\nIncluding the notion of SPAN is not needed for this selector and leaks DOM concepts that it is nice to minimize in tests.",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d551f77_04c2a691",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-09T21:50:20Z",
+      "side": 1,
+      "message": "Ah, the spanButton is more or less a misnomer. It really means toggle between single and dual screen modes. Changed these to toggleXX to avoid confusion, except one place it makes sense to say spanned screen, which also is consistent with how we named screen dimensions.",
+      "parentUuid": "a848e62a_967a0ede",
       "range": {
         "startLine": 53,
         "startChar": 6,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "4c01a76c_453c336f",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-09T21:50:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e8cd6b0_615d635d",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 31
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ad20389_422df983",
         "filename": "test/e2e/helpers/emulation-helpers.ts",
         "patchSetId": 5
@@ -114,6 +210,30 @@
       "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac5e56fd_44751b26",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-09T21:50:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ad20389_422df983",
+      "range": {
+        "startLine": 95,
+        "startChar": 13,
+        "endLine": 95,
+        "endChar": 44
+      },
+      "revId": "b60add5cfb3e50d0f3bf96d69b459a0962b5ad13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
