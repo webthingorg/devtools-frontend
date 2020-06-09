@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0404b56d_264ab645",
+        "filename": "front_end/global_typings/global_defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-09T10:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "819df346_5d494238",
+      "range": {
+        "startLine": 6,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 47
+      },
+      "revId": "24aad73f674b2ef534b08f1462ae1cbbc87424d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ad7430e_0a82c1a6",
         "filename": "third_party/typescript/ts_library.py",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "24aad73f674b2ef534b08f1462ae1cbbc87424d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "138cdd8c_05842392",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-09T10:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ad7430e_0a82c1a6",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 34
+      },
+      "revId": "24aad73f674b2ef534b08f1462ae1cbbc87424d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
