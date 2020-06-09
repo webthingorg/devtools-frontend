@@ -1,0 +1,14 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../scripts/build/copy_to_gen.gni")
+
+copy_to_gen("lit_html") {
+  sources = [
+    "directives.js",
+    "lit_html.js",
+  ]
+
+  deps = [ "../third_party/lit-html" ]
+}
