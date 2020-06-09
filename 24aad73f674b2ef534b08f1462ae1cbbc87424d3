@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "819df346_5d494238",
+        "filename": "front_end/global_typings/global_defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-09T09:29:02Z",
+      "side": 1,
+      "message": "Since you are referring to a separate file, you are going to need to add the `resize_observer.d.ts` to the `ts_library.py` as well.",
+      "range": {
+        "startLine": 6,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 47
+      },
+      "revId": "24aad73f674b2ef534b08f1462ae1cbbc87424d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ad7430e_0a82c1a6",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-09T09:29:02Z",
+      "side": 1,
+      "message": "You need to add the file to `typescript.gni` as well.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 34
+      },
+      "revId": "24aad73f674b2ef534b08f1462ae1cbbc87424d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
