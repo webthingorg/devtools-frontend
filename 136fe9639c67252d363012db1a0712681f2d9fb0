@@ -34,6 +34,24 @@
       "revId": "136fe9639c67252d363012db1a0712681f2d9fb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90029e52_1a4f39d8",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-09T12:27:12Z",
+      "side": 1,
+      "message": "Done, I have removed the function and used the steps directly instead",
+      "parentUuid": "5b1d837d_c928f381",
+      "revId": "136fe9639c67252d363012db1a0712681f2d9fb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
