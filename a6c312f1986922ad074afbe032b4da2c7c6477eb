@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "73378ccc_4cc3a1df",
+        "filename": "docs/langpacks/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-10T19:17:07Z",
+      "side": 1,
+      "message": "Renamed \u0027langpacks\u0027 to \u0027localization\u0027",
+      "parentUuid": "b76a0f52_532589e3",
+      "revId": "a6c312f1986922ad074afbe032b4da2c7c6477eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1e80034_9ff6d6c5",
         "filename": "docs/langpacks/README.md",
         "patchSetId": 2
@@ -57,6 +75,30 @@
       "revId": "a6c312f1986922ad074afbe032b4da2c7c6477eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eefd97f_c968b91f",
+        "filename": "docs/langpacks/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-10T19:17:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1e80034_9ff6d6c5",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "a6c312f1986922ad074afbe032b4da2c7c6477eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
