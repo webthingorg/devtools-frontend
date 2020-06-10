@@ -37,6 +37,9 @@
   <message name="IDS_DEVTOOLS_0d66520dddd8718f59f517582fafaebb" desc="Title of a media query that can be emulated via the Rendering drawer">
     prefers-color-scheme: light
   </message>
+  <message name="IDS_DEVTOOLS_0fd52cf90ac342f04bdd6cef3d118140" desc="Title of a setting for CSS Grid tooling">
+    Show dashed cell borders with extended lines
+  </message>
   <message name="IDS_DEVTOOLS_0fe1f9158e2f164da1332501f9e65702" desc="Text in Console Model">
     Navigated to <ph name="EVENT_DATA_URL">$1s<ex>https://example.com</ex></ph>
   </message>
@@ -129,6 +132,9 @@
   <message name="IDS_DEVTOOLS_323d4eb70b252acb4a04eaf9e0882597" desc="Title for a group of cities">
     Geolocation
   </message>
+  <message name="IDS_DEVTOOLS_33de3ab6f979d06b73d883934b1f5bd7" desc="Option for CSS Grid Tooling">
+    Grid Border
+  </message>
   <message name="IDS_DEVTOOLS_35488d3f6572b2c1c70aa85ad10c55e0" desc="Description how an issue can be fixed">
     Resolve this issue by updating the attributes of the cookie:
   </message>
@@ -173,9 +179,18 @@
   <message name="IDS_DEVTOOLS_47ff9951b01a6b094431ff82dc68e266" desc="The kind of resolution for a mixed content issue">
     warned
   </message>
+  <message name="IDS_DEVTOOLS_4a15a3179b04fe0819d13e6bd71ed9d4" desc="Title of an option for a CSS Grid tooling setting">
+    Show solid cell borders with extended lines
+  </message>
   <message name="IDS_DEVTOOLS_5146254b747d45c28b8e8d22bd3373bf" desc="Description for a SameSiteCookie issue">
     In a future version of the browser, cookies marked with <ph name="LOCKED_1">|SameSite=None|</ph> must also be marked with <ph name="LOCKED_1">|Secure|</ph> to allow setting them in a cross-site context.
        This behavior protects user data from being sent over an insecure connection.
+  </message>
+  <message name="IDS_DEVTOOLS_5174d1309f275ba6f275db3af9eb3e18" desc="Title of a section on CSS Grid tooling">
+    Grid
+  </message>
+  <message name="IDS_DEVTOOLS_5288285ec194a4fac22ad4e3e06668f3" desc="Option for CSS Grid Tooling">
+    Shade Column Gaps
   </message>
   <message name="IDS_DEVTOOLS_534a6087ddb75adb6dccea8139b18fd2" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie was blocked because it had the &quot;SameSite=None&quot; attribute but did not have the &quot;Secure&quot; attribute, which is required in order to use &quot;SameSite=None&quot;.
@@ -326,8 +341,20 @@
   <message name="IDS_DEVTOOLS_720bffbd392bad37272a7c1202250bb9" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Emulate deuteranopia
   </message>
+  <message name="IDS_DEVTOOLS_72d9be2cbba32b03bb91cea29fffc327" desc="Option for borders for CSS Grid Tooling">
+    Extended Solid
+  </message>
   <message name="IDS_DEVTOOLS_73329564760013a7824ff9d5d1af91ff" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     installed
+  </message>
+  <message name="IDS_DEVTOOLS_744fa542a31b62c5d2b7fee684ea6b79" desc="Title for an option for borders for CSS Grid Tooling">
+    Show solid grid cell borders
+  </message>
+  <message name="IDS_DEVTOOLS_74e6564ca9ae984404b1def021f7179e" desc="Option for CSS Grid Tooling">
+    Cell Borders
+  </message>
+  <message name="IDS_DEVTOOLS_74ef523de15fb8c513564892762e096b" desc="Title for an option for borders for CSS Grid Tooling">
+    Do not show grid cell borders
   </message>
   <message name="IDS_DEVTOOLS_75101dcdfc88455bcafc9e53e0b06689" desc="Service worker running status displayed in the Service Workers view in the Application panel">
     running
@@ -355,6 +382,9 @@
   </message>
   <message name="IDS_DEVTOOLS_7e237311e1b03bddac9c200e27482ac8" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie was blocked because its Domain attribute was invalid with regards to the current host url.
+  </message>
+  <message name="IDS_DEVTOOLS_7e8216e5b4e0602f386937cab7247656" desc="Option for borders for CSS Grid Tooling">
+    Extended Dashed
   </message>
   <message name="IDS_DEVTOOLS_8022a7ceb04a413d242483f01407dfba" desc="Name of a color vision deficiency that can be emulated via the Rendering drawer">
     Protanopia
@@ -536,6 +566,9 @@
   <message name="IDS_DEVTOOLS_ca4fbb6d710463b20755b9a024d841c1" desc="Error message when failing to load a source map text">
     DevTools failed to load SourceMap: <ph name="ERROR_MESSAGE"><ex>An error occurred</ex>$1s</ph>
   </message>
+  <message name="IDS_DEVTOOLS_ca6ce88b81958d84edfd233468464a5d" desc="Title for an option for borders for CSS Grid tooling">
+    Show dashed grid cell borders
+  </message>
   <message name="IDS_DEVTOOLS_ccab918ce9f085b521a52ac13f653c0b" desc="Tooltip to explain why a cookie was blocked">
     An unknown error was encountered when trying to send this cookie.
   </message>
@@ -577,6 +610,9 @@
   <message name="IDS_DEVTOOLS_e3f19fc256ab121cc63e22eb3a891b1a" desc="Error message when failing to load a script source text via the network">
     Could not parse content for <ph name="SOURCEMAPURL"><ex>https://example.com</ex>$1s</ph>: <ph name="E_MESSAGE"><ex>Unexpected token</ex>$2s</ph>
   </message>
+  <message name="IDS_DEVTOOLS_e41480b6bbfbf7407974a88d3d34f4fa" desc="Option for Borders of CSS Grid tooling">
+    Solid
+  </message>
   <message name="IDS_DEVTOOLS_e485c975c1d6c17d9dfd81128b83f63a" desc="Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel">
     Set innerHTML
   </message>
@@ -594,6 +630,9 @@
   </message>
   <message name="IDS_DEVTOOLS_eb5a5c3103571cb6e64dd186a8780f90" desc="Resolution for a SameSiteCookie issue">
     Resolve this issue by migrating your site entirely to HTTPS. It is also recommended to mark the cookie with the |Secure| attribute if that is not already the case.
+  </message>
+  <message name="IDS_DEVTOOLS_eb656e41b6da91494775ecf47a51da91" desc="Option for Borders of CSS Grid tooling">
+    Dashed
   </message>
   <message name="IDS_DEVTOOLS_eb6ff454fb651bb604121a229e5baec3" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     <ph name="LABEL">$1s<ex>sw.js</ex></ph> #<ph name="VERSION_ID">$2s<ex>117</ex></ph> (<ph name="STATUS">$3s<ex>activated</ex></ph>)
@@ -621,6 +660,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f2a47c6809d88e175dade0ef7b16aa13" desc="Text in DOMDebugger Model">
     Mouse
+  </message>
+  <message name="IDS_DEVTOOLS_f31e83fe011cfd062ea5da8dc13cbff3" desc="Option for CSS Grid Tooling">
+    Shade Row Gaps
   </message>
   <message name="IDS_DEVTOOLS_f43cbd4a1a33a14b459e80598dd28b47" desc="Title for a SameSiteCookie issue">
     Migrate entirely to HTTPS to continue having cookies sent on same-site requests
