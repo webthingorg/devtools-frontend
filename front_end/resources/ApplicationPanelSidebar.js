@@ -49,6 +49,7 @@ import {Database as IndexedDBModelDatabase, DatabaseId, Events as IndexedDBModel
 import {IDBDatabaseView, IDBDataView} from './IndexedDBViews.js';
 import {ServiceWorkerCacheView} from './ServiceWorkerCacheViews.js';
 import {ServiceWorkersView} from './ServiceWorkersView.js';
+import {SidebarFrameTree, SidebarFrameTreeElement} from './SidebarFrameTree.js';
 
 /**
  * @implements {SDK.SDKModel.Observer}
@@ -155,6 +156,11 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
             new BackgroundServiceTreeElement(panel, Protocol.BackgroundService.ServiceName.PushMessaging);
         backgroundServiceTreeElement.appendChild(this.pushMessagingTreeElement);
       }
+    }
+
+    if (Root.Runtime.experiments.isEnabled('frameTree')) {
+      this._framesSection =
+          new SidebarFrameTree(panel, this._addSidebarSection(Common.UIString.UIString('Frame Tree')));
     }
 
     this._resourcesSection = new ResourcesSection(panel, this._addSidebarSection(Common.UIString.UIString('Frames')));
@@ -324,6 +330,9 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   _resetWithFrames() {
+    if (Root.Runtime.experiments.isEnabled('frameTree')) {
+      this._framesSection.reset();
+    }
     this._resourcesSection.reset();
     this._reset();
   }
@@ -695,7 +704,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
       delete this._previousHoveredElement;
     }
 
-    if (element instanceof FrameTreeElement) {
+    if (element instanceof FrameTreeElement || element instanceof SidebarFrameTreeElement) {
       this._previousHoveredElement = element;
       element.hovered = true;
     }
@@ -2161,6 +2170,25 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     const icon = UI.Icon.Icon.create('largeicon-navigator-frame', 'navigator-tree-item');
     icon.classList.add('navigator-frame-tree-item');
     this.setLeadingIcons([icon]);
+
+    this._deferredNode = null;
+    this.setDeferredNode();
+    const parentFrame = ResourcesSection._getParentFrame(this._frame);
+    this._overlayModel = parentFrame ? parentFrame.resourceTreeModel().domModel().overlayModel() : null;
+  }
+
+  async setDeferredNode() {
+    if (!this._frame.parentFrame && !this._frame.crossTargetParentFrame()) {
+      return;
+    }
+    const domModel = this._frame.crossTargetParentFrame() ? this._frame.resourceTreeModel().domModel().parentModel() :
+                                                            this._frame.resourceTreeModel().domModel();
+    const owner = domModel ? await domModel.getFrameOwner(this._frameId) : null;
+    if (owner && owner.backendNodeId) {
+      // this._deferredNode = new SDK.DOMModel.DeferredDOMNode(this._frame._model._target, owner.backendNodeId);
+      this._deferredNode =
+          new SDK.DOMModel.DeferredDOMNode(this._frame.resourceTreeModel().target(), owner.backendNodeId);
+    }
   }
 
   /**
@@ -2192,13 +2220,20 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     return false;
   }
 
+  /**
+   * @param {boolean} hovered
+   */
   set hovered(hovered) {
     if (hovered) {
       this.listItemElement.classList.add('hovered');
-      this._frame.resourceTreeModel().domModel().overlayModel().highlightFrame(this._frameId);
+      if (this._overlayModel && this._deferredNode) {
+        this._overlayModel.highlightInOverlay({deferredNode: this._deferredNode}, 'all', true);
+      }
     } else {
       this.listItemElement.classList.remove('hovered');
-      SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+      if (this._overlayModel) {
+        this._overlayModel.clearHighlight();
+      }
     }
   }
 
@@ -2288,7 +2323,6 @@ export class FrameTreeElement extends BaseStorageTreeElement {
 
   /**
    * @override
-   * @returns {!Promise}
    */
   async onpopulate() {
     this._populated = true;
