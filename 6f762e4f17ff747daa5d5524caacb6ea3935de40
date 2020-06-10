@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f235274_bcc673dc",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-10T06:40:29Z",
+      "side": 1,
+      "message": "What do you think of `for (const [i, offset] of config.positiveColumnLineNumberOffsets.entries())` and `(i+1).toString()` instead of maintaining the i variable separately?",
+      "revId": "6f762e4f17ff747daa5d5524caacb6ea3935de40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
