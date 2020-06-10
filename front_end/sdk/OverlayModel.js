@@ -310,6 +310,70 @@ export class OverlayModel extends SDKModel {
   }
 
   /**
+   * @return {!Protocol.Overlay.GridHighlightConfig}
+   */
+  _buildGridHighlightConfig() {
+    const showGridRowGaps = Common.Settings.Settings.instance().moduleSetting('showGridRowGaps').get();
+    const showGridColumnGaps = Common.Settings.Settings.instance().moduleSetting('showGridColumnGaps').get();
+    const gridBorderSetting = Common.Settings.Settings.instance().moduleSetting('showGridBorder').get();
+    let showGridBorder;
+    let gridBorderDashed;
+    switch (gridBorderSetting) {
+      case 'dashed':
+        showGridBorder = true;
+        gridBorderDashed = true;
+        break;
+      case 'solid':
+        showGridBorder = true;
+        break;
+      default:
+        break;
+    }
+    const gridCellBordersSetting = Common.Settings.Settings.instance().moduleSetting('showGridCellBorders').get();
+    let showGridCellBorders;
+    let cellBorderDashed;
+    let showGridExtensionLines;
+    switch (gridCellBordersSetting) {
+      case 'dashed':
+        showGridCellBorders = true;
+        cellBorderDashed = true;
+        break;
+      case 'solid':
+        showGridCellBorders = true;
+        break;
+      case 'extended-dashed':
+        showGridCellBorders = true;
+        cellBorderDashed = true;
+        showGridExtensionLines = true;
+        break;
+      case 'extended-solid':
+        showGridCellBorders = true;
+        showGridExtensionLines = true;
+        break;
+      default:
+        break;
+    }
+    // Add background to help distinguish rows/columns when cell borders are not outlined
+    const addBackgroundsToGaps = !showGridCellBorders;
+
+    return {
+      rowGapColor: (showGridRowGaps && addBackgroundsToGaps) ?
+          Common.Color.PageHighlight.GridRowGapBackground.toProtocolRGBA() :
+          undefined,
+      rowHatchColor: showGridRowGaps ? Common.Color.PageHighlight.GridRowGapHatch.toProtocolRGBA() : undefined,
+      columnGapColor: (showGridColumnGaps && addBackgroundsToGaps) ?
+          Common.Color.PageHighlight.GridColumnGapBackground.toProtocolRGBA() :
+          undefined,
+      columnHatchColor: showGridColumnGaps ? Common.Color.PageHighlight.GridColumnGapHatch.toProtocolRGBA() : undefined,
+      gridBorderColor: showGridBorder ? Common.Color.PageHighlight.GridBorder.toProtocolRGBA() : undefined,
+      gridBorderDash: gridBorderDashed,
+      cellBorderColor: showGridCellBorders ? Common.Color.PageHighlight.GridCellBorder.toProtocolRGBA() : undefined,
+      cellBorderDash: cellBorderDashed,
+      showGridExtensionLines: showGridExtensionLines
+    };
+  }
+
+  /**
    * @param {string=} mode
    * @param {boolean=} showStyles
    * @return {!Protocol.Overlay.HighlightConfig}
@@ -343,12 +407,7 @@ export class OverlayModel extends SDKModel {
 
     if (mode === 'all') {
       if (this._gridFeaturesExperimentEnabled) {
-        highlightConfig.gridHighlightConfig = {
-          rowHatchColor: Common.Color.PageHighlight.GridRowGapHatch.toProtocolRGBA(),
-          columnHatchColor: Common.Color.PageHighlight.GridColumnGapHatch.toProtocolRGBA(),
-          cellBorderColor: Common.Color.PageHighlight.GridCellBorder.toProtocolRGBA(),
-          cellBorderDash: true
-        };
+        highlightConfig.gridHighlightConfig = this._buildGridHighlightConfig();
       } else {
         // Support for the legacy grid cell highlight.
         highlightConfig.cssGridColor = Common.Color.PageHighlight.CssGrid.toProtocolRGBA();
