@@ -21,6 +21,7 @@ export class DeviceModeToolbar {
    */
   constructor(model, showMediaInspectorSetting, showRulersSetting) {
     this._model = model;
+    this._recordDeviceAction();
     this._showMediaInspectorSetting = showMediaInspectorSetting;
     this._showRulersSetting = showRulersSetting;
 
@@ -82,6 +83,15 @@ export class DeviceModeToolbar {
       rightToolbar.setEnabled(enabled);
       modeToolbar.setEnabled(enabled);
       optionsToolbar.setEnabled(enabled);
+    }
+  }
+
+  _recordDeviceAction() {
+    const device = this._model.device();
+    if (device && device.isDualScreen) {
+      // When we start emulating a device, whether we start a new emulation session, or switch to
+      // a new device, if the device is dual screen, we count this once.
+      Host.userMetrics.dualScreenDeviceEmulated(Host.UserMetrics.DualScreenDeviceEmulated.DualScreenDeviceSelected);
     }
   }
 
@@ -454,6 +464,7 @@ export class DeviceModeToolbar {
       return;
     }
 
+    this._recordDeviceAction();
     const devices = this._allDevices();
     if (devices.indexOf(device) === -1) {
       if (devices.length) {
@@ -482,6 +493,7 @@ export class DeviceModeToolbar {
       return;
     }
 
+    Host.userMetrics.dualScreenDeviceEmulated(Host.UserMetrics.DualScreenDeviceEmulated.SpanButtonClicked);
     const scale = this._autoAdjustScaleSetting.get() ? undefined : this._model.scaleSetting().get();
     const newMode = device.getSpanPartner(this._model.mode());
     if (!newMode) {
