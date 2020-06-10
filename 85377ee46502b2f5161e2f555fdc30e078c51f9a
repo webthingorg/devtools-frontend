@@ -315,6 +315,24 @@
       "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a162cc85_44e19f9d",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-10T03:42:46Z",
+      "side": 1,
+      "message": "Ok, thanks Tim!",
+      "parentUuid": "9a2b35c6_d9c06e7b",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
