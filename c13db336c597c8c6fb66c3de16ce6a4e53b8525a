@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf422f25_6f3ef67c",
+        "filename": "front_end/lit_html/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-10T11:07:37Z",
+      "side": 1,
+      "message": "whilst this makes sense in isolation, what\u0027s not clear to me is when we\u0027d use this rollup_entrypoint. Would we have one for each front_end folder that rollup rollsup? e.g. one for front_end/platform, front_end/sdk, etc?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "c13db336c597c8c6fb66c3de16ce6a4e53b8525a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
