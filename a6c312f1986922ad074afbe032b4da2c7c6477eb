@@ -16,6 +16,47 @@
       "revId": "a6c312f1986922ad074afbe032b4da2c7c6477eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b76a0f52_532589e3",
+        "filename": "docs/langpacks/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-10T04:47:23Z",
+      "side": 1,
+      "message": "+1 for renaming.",
+      "parentUuid": "219c3558_3c8a7a3b",
+      "revId": "a6c312f1986922ad074afbe032b4da2c7c6477eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1e80034_9ff6d6c5",
+        "filename": "docs/langpacks/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-10T04:47:23Z",
+      "side": 1,
+      "message": "typo: descriptions?",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "a6c312f1986922ad074afbe032b4da2c7c6477eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
