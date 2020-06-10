@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20b33c50_b217ca02",
+        "filename": "BUILD.gn",
+        "patchSetId": 7
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-10T14:17:51Z",
+      "side": 1,
+      "message": "these were to enable me to get Ninja building but will be replaced once we have lit-html in front_end and https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2238232 has shipped",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 324,
+        "endChar": 59
+      },
+      "revId": "314161afeb8595b071327b612fbc3fc52cd9f581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5e979c3_333e03c4",
+        "filename": "front_end/component_docs/elements_breadcrumbs/basic.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-10T14:17:51Z",
+      "side": 1,
+      "message": "think I\u0027m going to pull this into some form of helper in the breadcrumbs folder as it\u0027s duplicated across both examples",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 8
+      },
+      "revId": "314161afeb8595b071327b612fbc3fc52cd9f581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
