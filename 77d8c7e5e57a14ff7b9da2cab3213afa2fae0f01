@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ab869d0_675e2e99",
+        "filename": "front_end/inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-10T07:54:00Z",
+      "side": 1,
+      "message": "I found a bug whereby the labels stay visible even after you\u0027ve stopped highlighting a grid container. Say you\u0027re hovering nodes in the Elements tree, and you move from a grid container to a simple block element, the grid lines do disappear, and the rest of the overlay correctly moves from one node to the next, except for the line number labels which remain visible.\nI believe the fix should be here:\n\n  document.getElementById(\u0027grid-label-container\u0027).removeChildren();",
+      "revId": "77d8c7e5e57a14ff7b9da2cab3213afa2fae0f01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
