@@ -293,6 +293,51 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @return {string | undefined}
+   * The cache name of the CacheStorage from where the response is served via
+   * the ServiceWorker.
+   */
+  getResponseCacheStorageCacheName() {
+    return this._responseCacheStorageCacheName;
+  }
+
+  /**
+   * @param {string} x
+   */
+  setResponseCacheStorageCacheName(x) {
+    this._responseCacheStorageCacheName = x;
+  }
+
+  /**
+   * Whether the response is from sw cache, http cache, over the network, or
+   * fallback code.
+   * @return {string | undefined}
+   */
+  serviceWorkerResponseSource() {
+    return this._serviceWorkerResponseSource;
+  }
+
+  /**
+   * @param {!Protocol.Network.ServiceWorkerResponseSource} serviceWorkerResponseSource
+   */
+  setServiceWorkerResponseSource(serviceWorkerResponseSource) {
+    switch (serviceWorkerResponseSource) {
+      case Protocol.Network.ServiceWorkerResponseSource.CacheStorage:
+        this._serviceWorkerResponseSource = ls`Serviceworker cache storage`;
+        break;
+      case Protocol.Network.ServiceWorkerResponseSource.HttpCache:
+        this._serviceWorkerResponseSource = ls`From Http cache`;
+        break;
+      case Protocol.Network.ServiceWorkerResponseSource.Network:
+        this._serviceWorkerResponseSource = ls`Network fetch`;
+        break;
+      default:
+        this._serviceWorkerResponseSource = ls`Fallback code`;
+    }
+  }
+
+
+  /**
    * @param {!Protocol.Network.RequestReferrerPolicy} referrerPolicy
    */
   setReferrerPolicy(referrerPolicy) {
@@ -378,6 +423,22 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
    */
   set responseReceivedTime(x) {
     this._responseReceivedTime = x;
+  }
+
+  /**
+   * @return {?Date}
+   * The time at which the returned response was generated. For cached
+   * responses, this is the last time the cache entry was validated.
+   */
+  getResponseRetrievalTime() {
+    return this._responseRetrievalTime || null;
+  }
+
+  /**
+   * @param {Date} x
+   */
+  setResponseRetrievalTime(x) {
+    this._responseRetrievalTime = x;
   }
 
   /**
