@@ -1329,6 +1329,7 @@ all_devtools_modules = [
   "quick_open/HelpQuickOpen.js",
   "quick_open/QuickOpen.js",
   "resources/StorageItemsView.js",
+  "resources/SidebarFrameTree.js",
   "resources/ServiceWorkersView.js",
   "resources/ServiceWorkerCacheViews.js",
   "resources/ResourcesPanel.js",
