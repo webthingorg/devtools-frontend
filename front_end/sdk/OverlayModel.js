@@ -347,7 +347,9 @@ export class OverlayModel extends SDKModel {
           rowHatchColor: Common.Color.PageHighlight.GridRowGapHatch.toProtocolRGBA(),
           columnHatchColor: Common.Color.PageHighlight.GridColumnGapHatch.toProtocolRGBA(),
           cellBorderColor: Common.Color.PageHighlight.GridCellBorder.toProtocolRGBA(),
-          cellBorderDash: true
+          cellBorderDash: true,
+          showPositiveLineNumbers: false,
+          showNegativeLineNumbers: true
         };
       } else {
         // Support for the legacy grid cell highlight.
