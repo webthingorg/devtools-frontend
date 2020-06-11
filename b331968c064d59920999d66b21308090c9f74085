@@ -72,6 +72,29 @@
     },
     {
       "key": {
+        "uuid": "247f5459_e50d06f9",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T23:04:54Z",
+      "side": 1,
+      "message": "should this be updated to only contain security for now?",
+      "range": {
+        "startLine": 514,
+        "startChar": 3,
+        "endLine": 524,
+        "endChar": 6
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "02b418b2_0f53f235",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 13
