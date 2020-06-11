@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c86baf90_2bbf0a17",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-11T09:57:39Z",
+      "side": 1,
+      "message": "This setting is about the grid container, not grid cells. So this title (and the other 2 below) should read something like \"Do not show a border around the grid container\", \"Show a dashed border around the grid container\", ...",
+      "range": {
+        "startLine": 128,
+        "startChar": 37,
+        "endLine": 128,
+        "endChar": 41
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae8b27e2_772a654b",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-11T09:57:39Z",
+      "side": 1,
+      "message": "I would advise renaming this to Grid Lines.\nNow that we don\u0027t clip cell borders where gaps are anymore, what we used to call cell borders is really what grid lines are now.",
+      "range": {
+        "startLine": 147,
+        "startChar": 16,
+        "endLine": 147,
+        "endChar": 21
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0841655_3824bc13",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-11T09:57:39Z",
+      "side": 1,
+      "message": "So, keeping the same logic, this would be showGridLines",
+      "range": {
+        "startLine": 149,
+        "startChar": 22,
+        "endLine": 149,
+        "endChar": 40
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d82176c_e8f37a0b",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-11T09:57:39Z",
+      "side": 1,
+      "message": "Do not show grid lines, and similar for the other 4 options below.",
+      "range": {
+        "startLine": 154,
+        "startChar": 20,
+        "endLine": 154,
+        "endChar": 49
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0086ef2_ee3c177b",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-11T09:57:39Z",
+      "side": 1,
+      "message": "I don\u0027t know what you think, but I could almost see this as just 1 option only \"Show Gaps\".\nWe could keep it as 2 options if you think there are compelling use cases, but I can\u0027t really think of any, and knowing that we will also be adding options for numbers and names soon, it might be good to keep the total number of options to a minimum.",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 6
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
