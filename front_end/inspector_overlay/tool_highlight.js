@@ -85,7 +85,7 @@ body {
 
 .element-info-header {
   display: flex;
-  align-items: baseline;
+  align-items: start;
 }
 
 .element-info-body {
@@ -169,6 +169,16 @@ body {
   border: 1px solid rgba(128, 128, 128, 0.6);
 }
 
+.element-layout-type {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+.element-layout-type.grid {
+  background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="4" height="4" stroke="%231A73E8"/><rect x="9.5" y="2.5" width="4" height="4" stroke="%231A73E8"/><rect x="9.5" y="9.5" width="4" height="4" stroke="%231A73E8"/><rect x="2.5" y="9.5" width="4" height="4" stroke="%231A73E8"/></svg>');
+}
+
 .element-description {
   flex: 1 1;
   font-weight: bold;
@@ -239,7 +249,7 @@ body {
 .grid-label-content {
     background-color: #1A73E8;
     padding: 2px;
-    font-family: Menlo;
+    font-family: Menlo, monospace;
     font-size: 10px;
     min-width: 10px;
     min-height: 15px;
