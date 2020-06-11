@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2df09d5d_439b41b0",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-11T22:07:00Z",
+      "side": 1,
+      "message": "nit: simply use a constant?",
+      "range": {
+        "startLine": 491,
+        "startChar": 60,
+        "endLine": 491,
+        "endChar": 93
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7749297_64a0f999",
+        "filename": "test/e2e/helpers/security-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-11T22:07:00Z",
+      "side": 1,
+      "message": "Nit: style-wise, feel like it might be better to separate action and assertion, and then make both visible in the test itself. That improves the readability of the test. (This is something I learned and felt reasonable after you reviewed my latest e2e tests). Same is true for methods above.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0079a8d2_6da474d0",
+        "filename": "test/e2e/security/security_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-11T22:07:00Z",
+      "side": 1,
+      "message": "nit: like mentioned in this method, it is not immediately known what we are asserting in the test itself.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 45
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
