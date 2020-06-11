@@ -110,17 +110,22 @@ export async function resetPages() {
 }
 
 export async function reloadDevTools(
-    options: {selectedPanel?: {name: string, selector?: string}, canDock?: boolean} = {}) {
+    options: {selectedPanel?: {name: string, selector?: string}, canDock?: boolean, queryParam?: string} = {}) {
   const {frontend} = getBrowserAndPages();
 
   // For the unspecified case wait for loading, then wait for the elements panel.
-  const {selectedPanel = DEFAULT_TAB, canDock = false} = options;
+  const {selectedPanel = DEFAULT_TAB, canDock = false, queryParam = null} = options;
 
   if (selectedPanel.name !== DEFAULT_TAB.name) {
     await frontend.evaluate(name => {
       // @ts-ignore
       globalThis.localStorage.setItem('panel-selectedTab', `"${name}"`);
     }, selectedPanel.name);
+  }
+
+  if (queryParam) {
+    frontendUrl += `&${queryParam}`;
+    console.log(frontendUrl);
   }
 
   // Reload the DevTools frontend and await the elements panel.
