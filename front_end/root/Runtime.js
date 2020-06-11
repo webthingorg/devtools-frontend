@@ -412,6 +412,25 @@ export class Runtime {
     constructorFunction[instanceSymbol] = instance;
     return instance;
   }
+
+  /**
+   * Computes an absolute remote URL from a
+   * @param {string} relativePath
+   */
+  static computeHostedRemoteUrl(relativePath) {
+    if (!remoteBase) {
+      return relativePath;
+    }
+
+    if (remoteBase.endsWith('/') && relativePath.startsWith('/')) {
+      return remoteBase + relativePath.substr(1);
+    }
+    if (!remoteBase.endsWith('/') && !relativePath.startsWith('/')) {
+      return remoteBase + '/' + relativePath;
+    }
+
+    return remoteBase + relativePath;
+  }
 }
 
 /**

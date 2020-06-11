@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grit-part>
+  <message name="IDS_DEVTOOLS_0aedd3ac3b2c79c032d5c9b5c4a74573" desc="Tooltip for hiding the left sidebar of the Network Console tool">
+    Hide Network Console navigator
+  </message>
+  <message name="IDS_DEVTOOLS_1939350b2504aa60e0f959ae005ef0d8" desc="Title of the Network Console tool">
+    Network Console
+  </message>
+  <message name="IDS_DEVTOOLS_5415bae2d3ccfde35d6761b4eb3f9e3e" desc="Menu option to edit a collection or folder's authorization settings">
+    Edit Collection Authorization settings
+  </message>
+  <message name="IDS_DEVTOOLS_551388036a08752c7fb78efbb27a659a" desc="Heading for Network Console API environments list">
+    Environments
+  </message>
+  <message name="IDS_DEVTOOLS_72d6d7a1885885bb55a565fd1070581a" desc="Tooltip to import a Collection or Environment">
+    Import
+  </message>
+  <message name="IDS_DEVTOOLS_9c2b65c67c72426a310c6cf7b7f55d79" desc="Name of a new request tab">
+    Untitled request
+  </message>
+  <message name="IDS_DEVTOOLS_a13367a8e2a3f3bf4f3409079e3fdf87" desc="Command title to activate a set of environment variables">
+    Activate
+  </message>
+  <message name="IDS_DEVTOOLS_a9fc91939a389c7c73e7a3f3cbf411cd" desc="Heading for Network Console API collections list">
+    Collections
+  </message>
+  <message name="IDS_DEVTOOLS_af738f824ba23de2345cdd34c413fe2f" desc="Tooltip for showing the left sidebar of the Network Console tool">
+    Show Network Console navigator
+  </message>
+  <message name="IDS_DEVTOOLS_b213fa0ac8e2c2a962fc97ad06c1f30f" desc="Name of the context menu item for editing and replaying a network request">
+    Edit and Replay
+  </message>
+  <message name="IDS_DEVTOOLS_f0d7673077096477838952d4c1815630" desc="Name for an auto-generated Environment for an OpenAPI document">
+    <ph name="READER_NAME">$1s<ex>Contoso Weather</ex></ph> (Automatic)
+  </message>
+  <message name="IDS_DEVTOOLS_f211851bd41ac132cca45a3af45095d0" desc="Command title for connecting to an OpenAPI document">
+    Connect to OpenAPI / Swagger API definition
+  </message>
+  <message name="IDS_DEVTOOLS_fc2388121d52ed5db44fadfd3dc25eda" desc="Tip for command palette entry for connecting to an OpenAPI document">
+    Enter the URL of a Swagger or OpenAPI document to load.
+  </message>
+</grit-part>

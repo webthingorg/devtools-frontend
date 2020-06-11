@@ -186,6 +186,9 @@ export class MainImpl {
     // Layout personalization
     Root.Runtime.experiments.register('movableTabs', 'Enable support to move tabs between panels');
 
+    // Network Console
+    Root.Runtime.experiments.register('networkConsole', 'Enable Network Console');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {

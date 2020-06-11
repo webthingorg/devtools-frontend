@@ -235,7 +235,8 @@ export const PanelCodes = {
   'settings-emulation-geolocations': 35,
   'settings-shortcuts': 36,
   'drawer-issues-pane': 37,
-  'settings-keybinds': 38
+  'settings-keybinds': 38,
+  'drawer-network_console': 39,
 };
 
 /** @type {!Object<string, number>} */

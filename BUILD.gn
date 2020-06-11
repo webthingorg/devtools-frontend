@@ -197,6 +197,9 @@ all_devtools_files = [
   "front_end/network/signedExchangeInfoTree.css",
   "front_end/network/signedExchangeInfoView.css",
   "front_end/network/webSocketFrameView.css",
+  "front_end/network_console/module.json",
+  "front_end/network_console/networkConsoleSidebar.css",
+  "front_end/third_party/network-console/dist/global.js",
   "front_end/node_debugger/module.json",
   "front_end/node_main/module.json",
   "front_end/node_main/nodeConnectionsPanel.css",
@@ -516,6 +519,8 @@ devtools_module_entrypoints = [
   "mobile_throttling/mobile_throttling-legacy.js",
   "network/network.js",
   "network/network-legacy.js",
+  "network_console/network_console.js",
+  "network_console/network_console-legacy.js",
   "node_main/node_main.js",
   "node_main/node_main-legacy.js",
   "object_ui/object_ui.js",
@@ -772,6 +777,15 @@ application_templates = [
   "front_end/worker_app.html",
 ]
 
+network_console_frontend_files = [
+  "front_end/third_party/network-console/dist/index.d.ts",
+  "front_end/third_party/network-console/dist/index.html",
+  "front_end/third_party/network-console/dist/network-console-shared.d.ts",
+  "front_end/third_party/network-console/dist/static/js/deps.js",
+  "front_end/third_party/network-console/dist/static/js/main.js",
+  "front_end/third_party/network-console/dist/static/js/runtime.js",
+]
+
 generated_applications_html = [
   "$resources_out_dir/devtools_app.html",
   "$resources_out_dir/inspector.html",
@@ -792,6 +806,13 @@ generated_applications_js = [
   "$resources_out_dir/shell.js",
   "$resources_out_dir/toolbox.js",
   "$resources_out_dir/worker_app.js",
+]
+
+generated_network_console_frontend = [
+  "$resources_out_dir/network_console/build/index.html",
+  "$resources_out_dir/network_console/build/static/js/deps.js",
+  "$resources_out_dir/network_console/build/static/js/main.js",
+  "$resources_out_dir/network_console/build/static/js/runtime.js",
 ]
 
 generated_non_autostart_non_remote_modules = [
@@ -824,6 +845,7 @@ generated_non_autostart_non_remote_modules = [
   "$resources_out_dir/layers/layers_module.js",
   "$resources_out_dir/media/media_module.js",
   "$resources_out_dir/network/network_module.js",
+  "$resources_out_dir/network_console/network_console_module.js",
   "$resources_out_dir/node_debugger/node_debugger_module.js",
   "$resources_out_dir/object_ui/object_ui_module.js",
   "$resources_out_dir/perf_ui/perf_ui_module.js",
@@ -926,6 +948,7 @@ group("devtools_all_files") {
 }
 
 devtools_frontend_resources_deps = [
+  ":build_network_console",
   ":build_release_devtools",
   ":copy_embedder_scripts",
   ":copy_emulated_devices_images",
@@ -1264,6 +1287,17 @@ all_devtools_modules = [
   "network/RequestTimingView.js",
   "network/ResourceWebSocketFrameView.js",
   "network/SignedExchangeInfoView.js",
+  "network_console/attach-to-openapi-quickopen.js",
+  "network_console/collections-pane.js",
+  "network_console/collections-storage.js",
+  "network_console/environments-pane.js",
+  "network_console/network-console-sidebar.js",
+  "network_console/network-console-view.js",
+  "network_console/request-composer.js",
+  "network_console/sdk-request-converter.js",
+  "network_console/sidebar-panel.js",
+  "network_console/tabbed-pane-with-shared-view.js",
+  "third_party/network-console/dist/global.js",
   "node_main/NodeMain.js",
   "node_main/NodeConnectionsPanel.js",
   "object_ui/CustomPreviewComponent.js",
@@ -1663,7 +1697,7 @@ action("generate_devtools_grd") {
       [
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
-      ]
+      ] + generated_network_console_frontend
 
   inputs = grd_files + devtools_image_files
   response_file_contents = rebase_path(grd_files, root_build_dir)
@@ -1729,6 +1763,18 @@ action("build_release_devtools") {
            "--output_path",
            rebase_path(resources_out_dir, root_build_dir),
          ] + build_release_devtools_args
+}
+
+action("build_network_console") {
+  script = "scripts/build/build_network_console.py"
+
+  inputs = network_console_frontend_files
+  outputs = generated_network_console_frontend
+
+  args = [
+    "--output_path",
+    rebase_path(resources_out_dir, root_build_dir),
+  ]
 }
 
 group("devtools_type_check") {

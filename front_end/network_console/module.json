@@ -1,0 +1,66 @@
+{
+    "extensions": [
+        {
+            "type": "view",
+            "location": "drawer-view",
+            "id": "network_console",
+            "title": "Network Console",
+            "persistence": "closeable",
+            "order": 50,
+            "className": "NetworkConsole.NetworkConsoleView",
+            "tags": ""
+        },
+        {
+            "type": "@UI.ContextMenu.Provider",
+            "contextTypes": [
+                "SDK.NetworkRequest"
+            ],
+            "className": "NetworkConsole.NetworkContextMenuProvider"
+        },
+        {
+            "type": "@QuickOpen.FilteredListWidget.Provider",
+            "title": "Connect to OpenAPI / Swagger API definition",
+            "prefix": "//",
+            "className": "NetworkConsole.AttachToOpenAPIQuickOpen"
+        },
+        {
+            "type": "action",
+            "actionId": "network-console.connect-to-openapi",
+            "category": "Network Console",
+            "title": "Connect to OpenAPI / Swagger API definition",
+            "className": "NetworkConsole.ActionDelegate",
+            "contextTypes": [
+                "NetworkConsole.NetworkConsoleView"
+            ]
+        }
+    ],
+    "dependencies": [
+        "common",
+        "platform",
+        "ui",
+        "host",
+        "components",
+        "quick_open"
+    ],
+    "scripts": [
+    ],
+    "modules": [
+        "attach-to-openapi-quickopen.js",
+        "../third_party/network-console/dist/global.js",
+        "collections-pane.js",
+        "collections-storage.js",
+        "environments-pane.js",
+        "network_console.js",
+        "network_console-legacy.js",
+        "network-console-view.js",
+        "network-console-sidebar.js",
+        "request-composer.js",
+        "sidebar-panel.js",
+        "tabbed-pane-with-shared-view.js"
+    ],
+    "resources": [
+        "networkConsoleSidebar.css"
+    ],
+    "experiment": "networkConsole",
+    "skip_compilation": []
+}

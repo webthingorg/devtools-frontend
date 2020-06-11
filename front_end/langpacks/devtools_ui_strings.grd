@@ -45,6 +45,7 @@
       <part file="../media/media_strings.grdp" />
       <part file="../mobile_throttling/mobile_throttling_strings.grdp" />
       <part file="../network/network_strings.grdp" />
+      <part file="../network_console/network_console_strings.grdp" />
       <part file="../node_debugger/node_debugger_strings.grdp" />
       <part file="../node_main/node_main_strings.grdp" />
       <part file="../object_ui/object_ui_strings.grdp" />

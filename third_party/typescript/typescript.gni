@@ -61,6 +61,9 @@ template("ts_library") {
       _devtools_location_prepend + "front_end/generated/protocol.d.ts",
       _devtools_location_prepend +
           "front_end/generated/protocol-proxy-api.d.ts",
+      _devtools_location_prepend + "front_end/third_party/network-console/dist/network-console-shared.d.ts",
+      _devtools_location_prepend +
+          "front_end/third_party/network-console/dist/index.d.ts",
       _devtools_location_prepend + "node_modules/@types/filesystem/index.d.ts",
     ]
 

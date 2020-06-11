@@ -1,0 +1,12 @@
+Name: Edge DevTools Network Console
+Short Name: network_console
+URL: github.com/microsoft/edge-devtools-network-console
+Version: ad316401fff9bfbc02e213faa3e153a8fa2caa3c
+License: MIT
+Security Critical: no
+
+Description:
+Frontend component for Network Console UI.
+
+Local Modifications:
+ESLint might change some of the ordering of imports/exports in .d.ts files.
