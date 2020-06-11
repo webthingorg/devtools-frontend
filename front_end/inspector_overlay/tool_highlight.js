@@ -249,6 +249,9 @@ body {
   .separator {
       border-color: Highlight;
   }
+  .section-name {
+      color: Highlight;
+  }
   .dimensions,
   .element-info-name,
   .element-info-value-color,
