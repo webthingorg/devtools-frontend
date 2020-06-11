@@ -22,6 +22,30 @@
       "revId": "09955d4143991886fe1d1793ac8ad34ba2ab3088",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a07299b2_dc65f65b",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-06-11T19:40:04Z",
+      "side": 1,
+      "message": "networkContent.content is null when there is a failure loading the file.  We get to this point in the code when we have a file that is loaded via the target page and also through the filesystem.  The DevTools tries to link these two files if the two files are in sync at the time of this function.  Linking them basically means that if you change the file in the filesystem tab, it will change in the page tab as well.\n\nWe want to return null here because we do not want to create a link with the file that failed to load.",
+      "parentUuid": "848d2628_4386dc63",
+      "range": {
+        "startLine": 264,
+        "startChar": 12,
+        "endLine": 264,
+        "endChar": 34
+      },
+      "revId": "09955d4143991886fe1d1793ac8ad34ba2ab3088",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
