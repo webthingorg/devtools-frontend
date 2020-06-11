@@ -208,6 +208,7 @@ export class GenericSettingsTab extends SettingsTab {
       '', 'Appearance', 'Sources', 'Elements', 'Network', 'Performance', 'Console', 'Extensions', 'Persistence',
       'Debugger', 'Global'
     ];
+
     /** @type {!Map<string, !Element>} */
     this._nameToSection = new Map();
     for (const sectionName of explicitSectionOrder) {
