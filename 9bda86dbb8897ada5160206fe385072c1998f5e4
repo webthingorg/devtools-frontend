@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48ea729b_dcd9c943",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T15:34:04Z",
+      "side": 1,
+      "message": "Doh, that\u0027s what I get for copy/paste... Good catch",
+      "parentUuid": "c86baf90_2bbf0a17",
+      "range": {
+        "startLine": 128,
+        "startChar": 37,
+        "endLine": 128,
+        "endChar": 41
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae8b27e2_772a654b",
         "filename": "front_end/sdk/module.json",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "441a5bb6_5052493a",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T15:34:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae8b27e2_772a654b",
+      "range": {
+        "startLine": 147,
+        "startChar": 16,
+        "endLine": 147,
+        "endChar": 21
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "19659ece_ed76f9f2",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T15:34:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e0841655_3824bc13",
+      "range": {
+        "startLine": 149,
+        "startChar": 22,
+        "endLine": 149,
+        "endChar": 40
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d82176c_e8f37a0b",
         "filename": "front_end/sdk/module.json",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f54ed23f_885868c0",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T15:34:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d82176c_e8f37a0b",
+      "range": {
+        "startLine": 154,
+        "startChar": 20,
+        "endLine": 154,
+        "endChar": 49
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0086ef2_ee3c177b",
         "filename": "front_end/sdk/module.json",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2020-06-11T09:57:39Z",
       "side": 1,
       "message": "I don\u0027t know what you think, but I could almost see this as just 1 option only \"Show Gaps\".\nWe could keep it as 2 options if you think there are compelling use cases, but I can\u0027t really think of any, and knowing that we will also be adding options for numbers and names soon, it might be good to keep the total number of options to a minimum.",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 6
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "890da402_54b1e3d6",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T15:34:04Z",
+      "side": 1,
+      "message": "I think this is a valid point. I\u0027m curious to hear what others think of independently toggling rows/columns, but I\u0027m good with combining if we don\u0027t have a compelling use case",
+      "parentUuid": "b0086ef2_ee3c177b",
       "range": {
         "startLine": 180,
         "startChar": 1,
