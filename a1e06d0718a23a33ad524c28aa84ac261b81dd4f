@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cf4620c_c7bd3cf4",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-11T17:23:40Z",
+      "side": 1,
+      "message": "nit: Moves these declarations to the top of the file.\n\nwhy?: Even though it is better in JS to keep declarations close to their usage it is still standard practice in this codebase to put constants close to the beginning of the file.\n\nIf we have lots of constants that go unused for awhile then that is a \"code smell\" that we should split out the file into smaller files.",
+      "revId": "a1e06d0718a23a33ad524c28aa84ac261b81dd4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d86a86fc_52ba77a1",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-11T17:23:40Z",
+      "side": 1,
+      "message": "nit: return widthInput.evaluate((e: HTMLInputElement) \u003d\u003e e.value);\n\nwhy?: async functions always return a promise so the code as written unwraps the value then it gets re-wrapped (like on unwanted gift after the holidays).\n\nthe suggested change returns the promise from .evaluate directly.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 15
+      },
+      "revId": "a1e06d0718a23a33ad524c28aa84ac261b81dd4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
