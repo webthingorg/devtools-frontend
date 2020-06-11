@@ -15,3 +15,8 @@ Local Modifications:
 3. In getMessageInstanceIdFn(), us the filename that gets passed in as the first part of the id
 4. Add lookupClosestLocale() to the file and remove the require statement
 5. Add getFormatter(icuMessageIdOrRawString, locale) and rework the _resolveIcuMessageInstanceId call chain
+6. Run buildI18nBundle script from src/scripts/localizationV2/build18nBundle.js which exposes i18n as a module by:
+   6.1 Wrapping the code inside an i18n variable
+   6.2 Changing all instances from: g.18n to i18n
+   6.3 Exporting i18n
+   6.4 Bundle the required dependencies.
