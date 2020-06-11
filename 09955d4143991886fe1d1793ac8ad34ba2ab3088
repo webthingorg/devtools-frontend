@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "848d2628_4386dc63",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-11T18:27:11Z",
+      "side": 1,
+      "message": "what does it mean if networkContent.content is null? Should this affect the value of isValid?",
+      "range": {
+        "startLine": 264,
+        "startChar": 12,
+        "endLine": 264,
+        "endChar": 34
+      },
+      "revId": "09955d4143991886fe1d1793ac8ad34ba2ab3088",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
