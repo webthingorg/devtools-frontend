@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "deeac516_12531465",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-11T20:10:28Z",
+      "side": 1,
+      "message": "nit: maybe we could update the tab sizes below to be consistent with the above 2-space tabs?",
+      "revId": "6087c55d25a8a0b7b4b5bb4fdd2805084d9e8f13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
