@@ -25,6 +25,99 @@
     },
     {
       "key": {
+        "uuid": "ace55bfb_77826b0a",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T23:00:57Z",
+      "side": 1,
+      "message": "I\u0027d prefer to leave this as is to match the rest of the file?",
+      "parentUuid": "2df09d5d_439b41b0",
+      "range": {
+        "startLine": 491,
+        "startChar": 60,
+        "endLine": 491,
+        "endChar": 93
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94ce06c3_d452aa9f",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T23:00:57Z",
+      "side": 1,
+      "message": "I feel like this comment is confusing. Is this to ensure that we have some tabs defaulted to open if we were converting all of them? Can you explain what is happening here?",
+      "range": {
+        "startLine": 512,
+        "startChar": 4,
+        "endLine": 513,
+        "endChar": 56
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b418b2_0f53f235",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T23:00:57Z",
+      "side": 1,
+      "message": "nit: remove the \u003d\u003d\u003d true",
+      "range": {
+        "startLine": 525,
+        "startChar": 46,
+        "endLine": 525,
+        "endChar": 54
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad7dba12_0c80b16c",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T23:00:57Z",
+      "side": 1,
+      "message": "Actually, can you explain what this setting does? it looks like it\u0027s just a flag that we always set and clear?",
+      "range": {
+        "startLine": 529,
+        "startChar": 12,
+        "endLine": 529,
+        "endChar": 49
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7749297_64a0f999",
         "filename": "test/e2e/helpers/security-helpers.ts",
         "patchSetId": 13
