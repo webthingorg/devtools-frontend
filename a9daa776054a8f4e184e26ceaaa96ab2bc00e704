@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7abf02d_14999973",
+        "filename": "BUILD.gn",
+        "patchSetId": 8
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "Is lit necessary here? Can we break this out into another CL?",
+      "range": {
+        "startLine": 313,
+        "startChar": 2,
+        "endLine": 324,
+        "endChar": 59
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a09a8be_c2591182",
+        "filename": "front_end/elements/ElementsBreadcrumbsUtils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "if we were to -- say -- not declare public here, would the formatting be nicer?",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20f83599_3ae69230",
+        "filename": "front_end/elements/ElementsBreadcrumbsUtils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "nit: can be inferred, so this is not needed.",
+      "range": {
+        "startLine": 58,
+        "startChar": 24,
+        "endLine": 58,
+        "endChar": 34
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91c96f57_4c8e43e7",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "nit: typically I would expect private methods to go after public ones",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 9
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "597cd008_b5b423fb",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "Nit: not needed",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2bd13aa_51d15976",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "My preference is to make it clear that the resizeObserver is expected to be there, i.e.\n\nif (!this.resizeObserver) {\n  return;  // or throw if it\u0027s problematic to early return.\n}\n\nthis.resizeObserver.disconnect();\nthis.resizeObserver \u003d undefined;",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8569f633_45f1368b",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "Why is this an arrow function?",
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0f01db_0578c417",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "Where does this magic number come from?",
+      "range": {
+        "startLine": 156,
+        "startChar": 34,
+        "endLine": 156,
+        "endChar": 36
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0378605d_4dd3e7a2",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "Should we locate this function with the other on* methods?",
+      "range": {
+        "startLine": 169,
+        "startChar": 10,
+        "endLine": 169,
+        "endChar": 25
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aeeb753_4c20b56e",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "You can collapse this down with a ternary operator. Then you can also avoid the repetition of the scrollTo.",
+      "range": {
+        "startLine": 179,
+        "startChar": 6,
+        "endLine": 193,
+        "endChar": 7
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a48410ae_700c5101",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "We\u0027re doing the highlight and clear with mousemove and mouseleave. What do we do about touch and keyboard events?",
+      "range": {
+        "startLine": 291,
+        "startChar": 18,
+        "endLine": 292,
+        "endChar": 67
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c547d87_83a9f60a",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "if (!activeCrumb) {\n  return;\n}\n\nactiveCrumb.scrollIntoView();",
+      "range": {
+        "startLine": 321,
+        "startChar": 4,
+        "endLine": 321,
+        "endChar": 22
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4429776_13de6f66",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-11T15:08:27Z",
+      "side": 1,
+      "message": "Wonder if we want to either wrap this in a check (customElements.get) so that there\u0027s no chance of double defining.",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 76
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
