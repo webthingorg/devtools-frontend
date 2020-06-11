@@ -117,6 +117,86 @@
     },
     {
       "type": "setting",
+      "category": "Grid",
+      "title": "Grid Border",
+      "experiment": "cssGridFeatures",
+      "settingName": "showGridBorder",
+      "settingType": "enum",
+      "defaultValue": "none",
+      "options": [
+        {
+          "title": "Do not show grid container border",
+          "text": "None",
+          "value": "none"
+        },
+        {
+          "title": "Show dashed grid container border",
+          "text": "Dashed",
+          "value": "dashed"
+        },
+        {
+          "title": "Show solid grid container border",
+          "text": "Solid",
+          "value": "solid"
+        }
+      ]
+    },
+    {
+      "type": "setting",
+      "category": "Grid",
+      "title": "Grid Lines",
+      "experiment": "cssGridFeatures",
+      "settingName": "showGridLines",
+      "settingType": "enum",
+      "defaultValue": "dashed",
+      "options": [
+        {
+          "title": "Do not show grid lines",
+          "text": "None",
+          "value": "none"
+        },
+        {
+          "title": "Show dashed grid lines",
+          "text": "Dashed",
+          "value": "dashed"
+        },
+        {
+          "title": "Show solid grid lines",
+          "text": "Solid",
+          "value": "solid"
+        },
+        {
+          "title": "Show dashed grid lines extended to the edge of page",
+          "text": "Extended Dashed",
+          "value": "extended-dashed"
+        },
+        {
+          "title": "Show solid grid lines extended to the edge of the page",
+          "text": "Extended Solid",
+          "value": "extended-solid"
+        }
+      ]
+    },
+    {
+      "type": "setting",
+      "category": "Grid",
+      "title": "Shade Row Gaps",
+      "experiment": "cssGridFeatures",
+      "settingName": "showGridRowGaps",
+      "settingType": "boolean",
+      "defaultValue": true
+    },
+    {
+      "type": "setting",
+      "category": "Grid",
+      "title": "Shade Column Gaps",
+      "experiment": "cssGridFeatures",
+      "settingName": "showGridColumnGaps",
+      "settingType": "boolean",
+      "defaultValue": true
+    },
+    {
+      "type": "setting",
       "category": "Rendering",
       "settingName": "showPaintRects",
       "settingType": "boolean",
