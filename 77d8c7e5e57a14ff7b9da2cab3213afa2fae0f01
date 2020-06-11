@@ -16,6 +16,24 @@
       "revId": "77d8c7e5e57a14ff7b9da2cab3213afa2fae0f01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c13e5bb_a29cf887",
+        "filename": "front_end/inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-11T15:45:41Z",
+      "side": 1,
+      "message": "Dang, I totally missed this comment the first time. I\u0027ll get a new cl up",
+      "parentUuid": "0ab869d0_675e2e99",
+      "revId": "77d8c7e5e57a14ff7b9da2cab3213afa2fae0f01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
