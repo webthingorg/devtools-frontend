@@ -43,5 +43,5 @@ def copy_files(options):
 
 if __name__ == '__main__':
     OPTIONS = parse_options(sys.argv[1:])
-    update(OPTIONS)
+    # update(OPTIONS)
     copy_files(OPTIONS)
