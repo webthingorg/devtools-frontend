@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ed3b59b_b36a3e01",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:44:59Z",
+      "side": 1,
+      "message": "Just to confirm, does this field always get assigned integer values? (If not, we should consider initializing it to a double value before changing the value to -1 per https://v8.dev/blog/react-cliff.)",
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d00e4020_51208dac",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:44:59Z",
+      "side": 1,
+      "message": "nit: We\u0027re moving to the modern formatting (https://twitter.com/mathias/status/1253242715304857601) across the codebase. The CSS files have already been updated.\n\n    rgba(100 0 0 / 10%)",
+      "range": {
+        "startLine": 21,
+        "startChar": 20,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81ce9ff4_5b8c6144",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:44:59Z",
+      "side": 1,
+      "message": "Can we reuse the existing font utilities here? +cc Alex",
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47f9ccd0_1a7234b8",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:44:59Z",
+      "side": 1,
+      "message": "Since we just need a timestamp, we can avoid constructing a new Date object:\n\n    this._lastTimestamp \u003d Date.now();",
+      "range": {
+        "startLine": 499,
+        "startChar": 28,
+        "endLine": 499,
+        "endChar": 48
+      },
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fae74762_af735a5d",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:44:59Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 520,
+        "startChar": 31,
+        "endLine": 520,
+        "endChar": 51
+      },
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34beb116_9358159b",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:44:59Z",
+      "side": 1,
+      "message": "Is there a document we can point to explaining these values?",
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
