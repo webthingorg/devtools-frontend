@@ -16,6 +16,24 @@
       "revId": "dd1be3cd29ea27aed73980476c25e8433793d197",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ff3ceca_069f2cb9",
+        "filename": "front_end/media/playerMessagesView.css",
+        "patchSetId": 21
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T23:38:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04b90570_a68a1df0",
+      "revId": "dd1be3cd29ea27aed73980476c25e8433793d197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
