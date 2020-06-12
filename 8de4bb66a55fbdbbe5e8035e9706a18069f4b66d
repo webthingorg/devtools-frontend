@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5e55c346_eb2a0122",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:29:04Z",
+      "side": 1,
+      "message": "I would prefer to not make these kind of changes yet and rather do the minimal to make tabs closeable. The more we are changing in these bits, the more risk we introduce in the system.",
+      "parentUuid": "3aca69dd_79438f41",
+      "revId": "8de4bb66a55fbdbbe5e8035e9706a18069f4b66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4fcdaff_ed9e53c8",
         "filename": "test/conductor/hooks.ts",
         "patchSetId": 14
