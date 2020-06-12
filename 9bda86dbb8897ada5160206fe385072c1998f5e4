@@ -234,6 +234,30 @@
       "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "912e446f_9d258d75",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T16:12:20Z",
+      "side": 1,
+      "message": "Talked offline, I have combined these into a single dropdown. I think while this is an experiment, it makes sense to give devs the ability to test/toggle just rows or just columns, but we can remove if we learn there aren\u0027t any valuable use cases.",
+      "parentUuid": "890da402_54b1e3d6",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 6
+      },
+      "revId": "9bda86dbb8897ada5160206fe385072c1998f5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
