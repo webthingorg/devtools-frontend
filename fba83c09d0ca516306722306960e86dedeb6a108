@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "634f2cf5_8d8eedcc",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T16:05:55Z",
+      "side": 1,
+      "message": "Nit, maybe a comment here about how the offsets are sorted by increasing order/why we need to do some logic to go from the most negative down to the least negative labels?",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 75
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2338b394_45188f45",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T16:05:55Z",
+      "side": 1,
+      "message": "nit: /* isNegative */ true\n\nsame below",
+      "range": {
+        "startLine": 77,
+        "startChar": 108,
+        "endLine": 77,
+        "endChar": 112
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07231995_740cc617",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T16:05:55Z",
+      "side": 1,
+      "message": "maybe we can do a follow up here as well to clean up these strings into an enum?",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ad521cc_f4ca0013",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T16:05:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this accounts for the negative row numbers that could overlap with positive column numbers at the top right corner of a grid? or positive row hitting negative column at the bottom left? maybe consider addressing here or in follow up?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b60c8eb_2f2514b8",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_debug.html",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T16:05:55Z",
+      "side": 1,
+      "message": "nit: maybe we should consider adding a new test page or modifying this one so that it has some implicit grid lines? that way we can test where the positive/negative line offsets don\u0027t perfectly line up?",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 101
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
