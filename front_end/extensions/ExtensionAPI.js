@@ -50,6 +50,7 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     RecordingStopped: 'trace-recording-stopped-',
     ResourceAdded: 'resource-added',
     ResourceContentCommitted: 'resource-content-committed',
+    LanguagePluginRequest: 'language-plugin-request-',
     ViewShown: 'view-shown-',
     ViewHidden: 'view-hidden-'
   };
@@ -80,7 +81,9 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     SetSidebarPage: 'setSidebarPage',
     ShowPanel: 'showPanel',
     Unsubscribe: 'unsubscribe',
-    UpdateButton: 'updateButton'
+    UpdateButton: 'updateButton',
+    SetLanguagePluginResponse: 'setLanguagePluginResponse',
+    RegisterLanguagePluginExtension: 'registerLanguagePluginExtension'
   };
 }
 
@@ -383,6 +386,68 @@ self.injectedExtensionAPI = function(
   class ElementsPanel extends PanelWithSidebarClass {
     constructor() {
       super('elements');
+    }
+  }
+
+  class LanguagePluginExtensionWrapper {
+    constructor(plugin) {
+      this._plugin = plugin;
+    }
+
+    dispatchCall(method, parameters) {
+      switch (method) {
+        case 'handleScript':
+          return this._plugin.handleScript(
+              parameters.scriptId, parameters.isWasm, parameters.sourceURL, parameters.sourceMapURL,
+              parameters.debugSymbols);
+        case 'addRawModule':
+          return this._plugin.addRawModule(parameters.rawModuleId, parameters.symbolsURL, parameters.rawModule);
+        case 'sourceLocationToRawLocation':
+          return this._plugin.sourceLocationToRawLocation(parameters.sourceLocation);
+        case 'rawLocationToSourceLocation':
+          return this._plugin.rawLocationToSourceLocation(parameters.rawLocation);
+        case 'listVariablesInScope':
+          return this._plugin.listVariablesInScope(parameters.rawLocation);
+        case 'evaluateVariable':
+          return this._plugin.evaluateVariable(parameters.name, parameters.location);
+      }
+      throw `Unknown method ${method}`;
+    }
+  }
+
+  class LanguageServicesAPI {
+    constructor() {
+      this._plugins = new Map();
+      this._id = 'languageServices';
+      this._onLanguagePluginRequest = new EventSink(events.LanguagePluginRequest + this._id);
+      this._onLanguagePluginRequest.addListener(this._dispatchPluginRequest.bind(this));
+    }
+
+    registerLanguagePluginExtension(plugin) {
+      if (plugin.id() in this._plugins) {
+        throw `Duplicate plugin id ${plugin.id()}`;
+      }
+      const wrapper = new LanguagePluginExtensionWrapper(plugin);
+      this._plugins[plugin.id()] = wrapper;
+      const request = {command: commands.RegisterLanguagePluginExtension, id: this._id, pluginId: plugin.id()};
+      extensionServer.sendRequest(request);
+    }
+
+    async _dispatchPluginRequest(pluginId, requestId, method, parameters) {
+      const plugin = this._plugins[pluginId];
+      if (!plugin) {
+        throw `Unknown plugin id ${pluginId}`;
+      }
+
+      const response = await plugin.dispatchCall(method, parameters);
+      const request = {
+        command: commands.SetLanguagePluginResponse,
+        id: this._id,
+        pluginId: pluginId,
+        requestId: requestId,
+        response: response
+      };
+      extensionServer.sendRequest(request);
     }
   }
 
@@ -833,6 +898,7 @@ self.injectedExtensionAPI = function(
       }
     }
     chrome.experimental.devtools.inspectedWindow = chrome.devtools.inspectedWindow;
+    chrome.experimental.devtools.languageServices = new LanguageServicesAPI();
   }
 
   if (extensionInfo.exposeWebInspectorNamespace) {
@@ -850,7 +916,8 @@ self.injectedExtensionAPI = function(
  * @return {string}
  */
 self.buildExtensionAPIInjectedScript = function(extensionInfo, inspectedTabId, themeName, keysToForward, testHook) {
-  const argumentsJSON = [extensionInfo, inspectedTabId || null, themeName, keysToForward].map(_ => JSON.stringify(_)).join(',');
+  const argumentsJSON =
+      [extensionInfo, inspectedTabId || null, themeName, keysToForward].map(_ => JSON.stringify(_)).join(',');
   if (!testHook) {
     testHook = () => {};
   }
