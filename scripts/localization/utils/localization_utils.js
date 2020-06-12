@@ -20,7 +20,8 @@ const espreeTypes = {
   MEMBER_EXPR: 'MemberExpression',
   NEW_EXPR: 'NewExpression',
   TAGGED_TEMP_EXPR: 'TaggedTemplateExpression',
-  TEMP_LITERAL: 'TemplateLiteral'
+  TEMP_LITERAL: 'TemplateLiteral',
+  VARIABLE_DECLARATOR: 'VariableDeclarator'
 };
 
 const excludeFiles = ['Tests.js'];
@@ -29,9 +30,8 @@ const excludeDirs = [
   'Images',
   'langpacks',
   'node_modules',
-  'lighthouse/lighthouse',
-  'lighthouse_worker/lighthouse',
-  'front_end/third_party',
+  'lighthouse_worker',
+  'third_party',
 ];
 const cppSpecialCharactersMap = {
   '"': '\\"',
@@ -41,6 +41,7 @@ const cppSpecialCharactersMap = {
 const IDSPrefix = 'IDS_DEVTOOLS_';
 
 const SRC_PATH = path.resolve(__dirname, '..', '..', '..');
+const FRONT_END_PATH = path.resolve(SRC_PATH, 'front_end');
 const GRD_PATH = path.resolve(SRC_PATH, 'front_end', 'langpacks', 'devtools_ui_strings.grd');
 const SHARED_STRINGS_PATH = path.resolve(SRC_PATH, 'front_end', 'langpacks', 'shared_strings.grdp');
 const NODE_MODULES_PATH = path.resolve(SRC_PATH, 'node_modules');
@@ -51,7 +52,15 @@ function getRelativeFilePathFromSrc(filePath) {
   return path.relative(SRC_PATH, filePath);
 }
 
+function getRelativeFilePathFromFrontEnd(filePath) {
+  return path.relative(FRONT_END_PATH, filePath);
+}
+
 function shouldParseDirectory(directoryName) {
+  // use the relative path to check if it should be excluded
+  if (directoryName.includes('devtools-frontend')) {
+    directoryName = getRelativeFilePathFromSrc(directoryName);
+  }
   return !excludeDirs.some(dir => directoryName.includes(dir));
 }
 
@@ -108,6 +117,18 @@ function isNodelsTaggedTemplateExpression(node) {
       node.quasi !== undefined && node.quasi.type !== undefined && node.quasi.type === espreeTypes.TEMP_LITERAL;
 }
 
+function isNodeGetLocalizedStringCall(node) {
+  return isNodeCallOnNestedObject(node, 'Common', 'i18n', 'getLocalizedString');
+}
+
+function isNodeGetFormatLocalizedStringCall(node) {
+  return isNodeCallOnNestedObject(node, 'Common', 'i18n', 'getFormatLocalizedString');
+}
+
+function isNodeDeclaresUIStrings(node) {
+  return (node.type === espreeTypes.VARIABLE_DECLARATOR && node.id && node.id.name === 'UIStrings');
+}
+
 /**
  * Verify callee of objectName.propertyName(), e.g. Common.UIString().
  */
@@ -129,28 +150,43 @@ function verifyIdentifier(node, name) {
   return node !== undefined && node.type === espreeTypes.IDENTIFIER && node.name === name;
 }
 
-function getLocalizationCase(node) {
+
+function getLocalizationCaseAndVersion(node) {
   if (isNodeCommonUIStringCall(node)) {
-    return 'Common.UIString';
+    return ['Common.UIString', 1];
   }
   if (isNodeCommonUIStringFormat(node)) {
-    return 'Common.UIStringFormat';
+    return ['Common.UIStringFormat', 1];
   }
   if (isNodelsTaggedTemplateExpression(node)) {
-    return 'Tagged Template';
+    return ['Tagged Template', 1];
   }
   if (isNodeUIformatLocalized(node)) {
-    return 'UI.formatLocalized';
+    return ['UI.formatLocalized', 1];
   }
   if (isNodePlatformUIStringCall(node) || isNodeUIStringDirectCall(node)) {
-    return 'Platform.UIString';
+    return ['Platform.UIString', 1];
   }
-  return null;
+  if (isNodeGetLocalizedStringCall(node)) {
+    return ['Common.i18n.getLocalizedString', 2];
+  }
+  if (isNodeGetFormatLocalizedStringCall(node)) {
+    return ['Common.i18n.getFormatLocalizedString', 2];
+  }
+  if (isNodeDeclaresUIStrings(node)) {
+    return ['UIStrings', 2];
+  }
+  return [null, null];
 }
 
 function isLocalizationCall(node) {
   return isNodeCommonUIStringCall(node) || isNodelsTaggedTemplateExpression(node) || isNodeUIformatLocalized(node) ||
       isNodePlatformUIStringCall(node) || isNodeUIStringDirectCall(node);
+}
+
+function isLocalizationV2Call(node) {
+  return isNodeDeclaresUIStrings(node) || isNodeGetFormatLocalizedStringCall(node) ||
+      isNodeGetLocalizedStringCall(node);
 }
 
 /**
@@ -373,13 +409,15 @@ module.exports = {
   getChildDirectoriesFromDirectory,
   getFilesFromDirectory,
   getIDSKey,
-  getLocalizationCase,
+  getLocalizationCaseAndVersion,
   getLocationMessage,
+  getRelativeFilePathFromFrontEnd,
   getRelativeFilePathFromSrc,
   getRelativeGrdpPath,
   GRD_PATH,
   IDSPrefix,
   isLocalizationCall,
+  isLocalizationV2Call,
   lineNumberOfIndex,
   modifyStringIntoGRDFormat,
   parseFileContent,
