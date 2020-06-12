@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fb2ad032_ae8f39c3",
+        "filename": "front_end/third_party/acorn-numeric-separator/README.chromium",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1355259
+      },
+      "writtenOn": "2020-06-12T06:42:21Z",
+      "side": 1,
+      "message": "There is neither a 0.3.3 release nor tag, even if the code itself includes changes to point to a unreleased 0.3.3. Instead, specify the specific commit ca1c3d8a2fdd4cf85d305e37a7d93e3a30da3bc7 and mention in the comments that it comes from the `esm` branch.",
+      "range": {
+        "startLine": 4,
+        "startChar": 9,
+        "endLine": 4,
+        "endChar": 14
+      },
+      "revId": "2c2baedbcbb01addbcf52dce69f278a4991d5ef5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ed282ef_5ccc93d0",
         "filename": "front_end/third_party/acorn-numeric-separator/README.chromium",
         "patchSetId": 3
