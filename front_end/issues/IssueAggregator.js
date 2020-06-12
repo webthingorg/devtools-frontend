@@ -25,6 +25,8 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._representative = null;
     /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
     this._mixedContents = new Map();
+    /** @type {!Map<string, !Set<string>>} */
+    this._directiveURLMapping = new Map();
     this._aggregatedIssuesCount = 0;
   }
 
@@ -65,6 +67,36 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    */
   requests() {
     return this._requests.values();
+  }
+
+  /**
+   * @returns {!Iterable<string>}
+   */
+  directives() {
+    return Array.from(this._directiveURLMapping.keys());
+  }
+
+  /**
+   * @returns {!Set<string>[]}
+   */
+  blockedURLs() {
+    return Array.from(this._directiveURLMapping.values());
+  }
+
+  /**
+   * @returns {!string}
+   */
+  violationType() {
+    if (this._representative) {
+      return this._representative.violationType();
+    }
+    return '';
+  }
+  /**
+   * @returns {!Map<string, !Set<string>>}
+   */
+  directiveURLMapping() {
+    return this._directiveURLMapping;
   }
 
   /**
@@ -129,6 +161,13 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     for (const mixedContent of issue.mixedContents()) {
       const key = JSON.stringify(mixedContent);
       this._mixedContents.set(key, mixedContent);
+    }
+    for (const directive of issue.directives()) {
+      if (!this._directiveURLMapping.has(directive)) {
+        this._directiveURLMapping.set(directive, new Set().add(issue.blockedURL()));
+      } else {
+        this._directiveURLMapping.get(directive)?.add(issue.blockedURL());
+      }
     }
   }
 }
