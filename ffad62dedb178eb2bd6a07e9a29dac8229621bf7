@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e7a4b17_1a3f0044",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-12T21:03:16Z",
+      "side": 1,
+      "message": "Using this new setting name has a side effect: Previously open tabs in the drawer will be closed the first time devtools is open. Tabs can of course be re open and this state will be persisted in the new setting.    \n\nTo mitigate this we will read the previous value of the two location specific settings and set that as the value of the new location agnostic setting \u0027closeableTabs\u0027 making use of the updateVersion mechanism in Settings.js",
+      "range": {
+        "startLine": 488,
+        "startChar": 82,
+        "endLine": 488,
+        "endChar": 98
+      },
+      "revId": "ffad62dedb178eb2bd6a07e9a29dac8229621bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
