@@ -67,8 +67,11 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
     this._errors = 0;
     this._violations = 0;
     this._pageLoadSequenceNumber = 0;
+    this._lastMessageTsBeforeReattach = 0;
 
     TargetManager.instance().observeTargets(this);
+    HostModule.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
+        HostModule.InspectorFrontendHostAPI.Events.ReattachMainTarget, this._onMainTargetReattach.bind(this));
   }
 
   /**
@@ -199,6 +202,13 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
     msg._pageLoadSequenceNumber = this._pageLoadSequenceNumber;
     if (msg.source === MessageSource.ConsoleAPI && msg.type === MessageType.Clear) {
       this._clearIfNecessary();
+    }
+
+    // Duplicate message: after portal activation, previous messages will be
+    // re-sent after the runtime agent(s) are reenabled, but those messages are
+    // still in |_messages| as clear() is not called after activation.
+    if (msg.timestamp <= this._lastMessageTsBeforeReattach) {
+      return;
     }
 
     this._messages.push(msg);
@@ -386,6 +396,11 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
     this._warnings = 0;
     this._violations = 0;
     this.dispatchEventToListeners(Events.ConsoleCleared);
+  }
+
+  _onMainTargetReattach() {
+    const timestamps = this._messages.map(m => m.timestamp);
+    this._lastMessageTsBeforeReattach = Math.max(...timestamps);
   }
 
   /**
