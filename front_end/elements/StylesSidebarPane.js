@@ -401,7 +401,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
    */
   _innerResize() {
     const width = this.contentElement.getBoundingClientRect().width + 'px';
-    this.allSections().forEach(section => section.propertiesTreeOutline.element.style.width = width);
+    this.allSections().forEach(section => (section.propertiesTreeOutline.element.style.width = width));
     return Promise.resolve();
   }
 

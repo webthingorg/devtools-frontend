@@ -261,7 +261,7 @@ ElementsTestRunner.nodeWithClass = function(classValue, callback) {
 
 ElementsTestRunner.expandedNodeWithId = function(idValue) {
   let result;
-  ElementsTestRunner.nodeWithId(idValue, node => result = node);
+  ElementsTestRunner.nodeWithId(idValue, node => (result = node));
   return result;
 };
 
@@ -890,7 +890,7 @@ ElementsTestRunner.expandElementsTree = function(callback) {
 ElementsTestRunner.expandAndDump = function() {
   TestRunner.addResult('\nDump tree');
   let callback;
-  const result = new Promise(f => callback = f);
+  const result = new Promise(f => (callback = f));
   ElementsTestRunner.expandElementsTree(() => {
     ElementsTestRunner.dumpElementsTree();
     callback();

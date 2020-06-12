@@ -53,7 +53,7 @@ Root.applicationDescriptor = Root.applicationDescriptor || undefined;
 
 /** @type {Function} */
 let appStartedPromiseCallback;
-Runtime.appStarted = new Promise(fulfil => appStartedPromiseCallback = fulfil);
+Runtime.appStarted = new Promise(fulfil => (appStartedPromiseCallback = fulfil));
 
 /**
  * @param {string} appName

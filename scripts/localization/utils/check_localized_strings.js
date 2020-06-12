@@ -86,7 +86,7 @@ async function validateGrdFile(shouldAutoFix) {
   const fileLines = fileContent.split('\n');
   const newLines = [];
   let errors = '';
-  fileLines.forEach(line => errors += validateGrdLine(line, newLines));
+  fileLines.forEach(line => (errors += validateGrdLine(line, newLines)));
   if (errors !== '' && shouldAutoFix) {
     await writeFileAsync(localizationUtils.GRD_PATH, newLines.join('\n'));
   }
@@ -130,8 +130,9 @@ async function validateGrdpFiles(shouldAutoFix) {
   const renameFilePromises = [];
   const grdpFilesToAddToGrd = [];
   frontendDirsToGrdpFiles.forEach(
-      (grdpFiles, dir) => errors +=
-      validateGrdpFile(dir, grdpFiles, grdFileContent, shouldAutoFix, renameFilePromises, grdpFilesToAddToGrd));
+      (grdpFiles, dir) =>
+          (errors +=
+           validateGrdpFile(dir, grdpFiles, grdFileContent, shouldAutoFix, renameFilePromises, grdpFilesToAddToGrd)));
   if (grdpFilesToAddToGrd.length > 0) {
     await localizationUtils.addChildGRDPFilePathsToGRD(grdpFilesToAddToGrd.sort());
   }
@@ -583,8 +584,9 @@ function getAndReportResourcesToRemove() {
   // third_party/devtools-frontend/front_end/accessibility/accessibility_strings.grdp Line 300: IDS_DEVTOOLS_c9bbad3047af039c14d0e7ec957bb867
   for (const [ids, messages] of keysToRemoveFromGRD) {
     messages.forEach(
-        message => errorStr += `${localizationUtils.getRelativeFilePathFromSrc(message.grdpPath)}${
-            localizationUtils.getLocationMessage(message.location)}: ${ids}\n\n`);
+        message =>
+            (errorStr += `${localizationUtils.getRelativeFilePathFromSrc(message.grdpPath)}${
+                 localizationUtils.getLocationMessage(message.location)}: ${ids}\n\n`));
   }
   return errorStr;
 }
@@ -600,9 +602,10 @@ function getAndReportIDSKeysToModify() {
 
   for (const [expectedIDSKey, messages] of messagesToModify) {
     messages.forEach(
-        message => errorStr += `${localizationUtils.getRelativeFilePathFromSrc(message.grdpPath)}${
-            localizationUtils.getLocationMessage(
-                message.location)}:\n${message.actualIDSKey} --> ${expectedIDSKey}\n\n`);
+        message =>
+            (errorStr += `${localizationUtils.getRelativeFilePathFromSrc(message.grdpPath)}${
+                 localizationUtils.getLocationMessage(
+                     message.location)}:\n${message.actualIDSKey} --> ${expectedIDSKey}\n\n`));
   }
   return errorStr;
 }

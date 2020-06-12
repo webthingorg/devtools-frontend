@@ -131,7 +131,7 @@ SourcesTestRunner.testPrettyPrint = function(mimeType, text, mappingQueries, nex
 
 SourcesTestRunner.testJavascriptOutline = function(text) {
   let fulfill;
-  const promise = new Promise(x => fulfill = x);
+  const promise = new Promise(x => (fulfill = x));
   Formatter.formatterWorkerPool().javaScriptOutline(text, onChunk);
   const items = [];
   return promise;

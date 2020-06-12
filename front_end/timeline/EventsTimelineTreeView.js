@@ -126,7 +126,7 @@ export class EventsTimelineTreeView extends TimelineTreeView {
       sortable: true
     });
     super.populateColumns(columns);
-    columns.filter(c => c.fixedWidth).forEach(c => c.width = '80px');
+    columns.filter(c => c.fixedWidth).forEach(c => (c.width = '80px'));
   }
 
   /**

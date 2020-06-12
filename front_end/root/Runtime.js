@@ -630,7 +630,7 @@ export class Module {
                                    .then(this._loadResources.bind(this))
                                    .then(this._loadModules.bind(this))
                                    .then(this._loadScripts.bind(this))
-                                   .then(() => this._loadedForTest = true);
+                                   .then(() => (this._loadedForTest = true));
 
     return this._pendingLoadPromise;
   }

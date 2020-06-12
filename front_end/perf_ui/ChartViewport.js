@@ -523,7 +523,7 @@ export class ChartViewport extends UI.Widget.VBox {
     this._cancelWindowTimesAnimation = UI.UIUtils.animateFunction(
         this.element.window(), animateWindowTimes.bind(this),
         [{from: this._visibleLeftTime, to: startTime}, {from: this._visibleRightTime, to: endTime}], 100,
-        () => this._cancelWindowTimesAnimation = null);
+        () => (this._cancelWindowTimesAnimation = null));
 
     /**
      * @param {number} startTime

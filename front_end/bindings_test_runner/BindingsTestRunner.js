@@ -82,7 +82,7 @@ BindingsTestRunner.attachFrame = function(frameId, url, evalSourceURL) {
     frame.src = url;
     frame.id = frameId;
     document.body.appendChild(frame);
-    return new Promise(x => frame.onload = x);
+    return new Promise(x => (frame.onload = x));
   }
 };
 
@@ -113,7 +113,7 @@ BindingsTestRunner.navigateFrame = function(frameId, navigateURL, evalSourceURL)
   function navigateFrame(frameId, url) {
     const frame = document.getElementById(frameId);
     frame.src = url;
-    return new Promise(x => frame.onload = x);
+    return new Promise(x => (frame.onload = x));
   }
 };
 
@@ -155,7 +155,7 @@ BindingsTestRunner.detachShadowDOM = function(id, evalSourceURL) {
 
 BindingsTestRunner.waitForStyleSheetRemoved = function(urlSuffix) {
   let fulfill;
-  const promise = new Promise(x => fulfill = x);
+  const promise = new Promise(x => (fulfill = x));
   TestRunner.cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetRemoved, onStyleSheetRemoved);
   return promise;
 
@@ -187,7 +187,7 @@ function onSourceMap(sourceMap) {
 
 BindingsTestRunner.waitForSourceMap = function(sourceMapURLSuffix) {
   let fulfill;
-  const promise = new Promise(x => fulfill = x);
+  const promise = new Promise(x => (fulfill = x));
   sourceMapCallbacks.set(sourceMapURLSuffix, fulfill);
   return promise;
 };
