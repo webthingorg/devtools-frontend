@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e42e8dfb_ad5286c7",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "Are we concerned that the return value of `serviceWorkerResponseSource()` may not be localized?",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb1ee9e_b73c1344",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "Same localization concern here",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb1a6d18_0d32cc18",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "You should assign the result of this to a variable so you don\u0027t need to call the getter twice.",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66d7da00_424a07d4",
+        "filename": "front_end/network/networkPanel.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "This feels like a big risk. I would feel more comfortable if it was overflow-y: auto, I think. Usually horizontal scrolling feels pretty bad.",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42d0936e_cfa22e0d",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "Your return type should be {!Protocol.Network.Request|null}",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b0301a1_d1bfc15f",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "Nit: ServiceWorker should be PascalCased",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "604fa918_e107c5ab",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "Nit: HTTP should be in all caps",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "410b6e11_ef266599",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "Nit: You should still end your `default` case with a break statement.",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3090927_34122636",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "It\u0027s unclear why you\u0027d need getters and setters here if you\u0027re not restricting the value that should be set. Also, I believe your JSDoc comment wouldn\u0027t pass validation here: it should be `{!Date|null}`. `{?Date}` means \"Date or undefined\".",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7442c39e_621c8cc9",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T17:39:46Z",
+      "side": 1,
+      "message": "Because `Date` is a non-primitive, this should be asserted not-null {!Date}",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
