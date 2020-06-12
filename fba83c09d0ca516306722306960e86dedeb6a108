@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "b49defc4_ab8dadfa",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T21:27:57Z",
+      "side": 1,
+      "message": "Yep! works for me",
+      "parentUuid": "a10ea4af_d6f8603b",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b60c8eb_2f2514b8",
         "filename": "front_end/inspector_overlay/tool_highlight_grid_debug.html",
         "patchSetId": 9
