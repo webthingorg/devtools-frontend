@@ -486,6 +486,13 @@ export class _TabbedLocation extends _Location {
 
     // Note: go via self.Common for globally-namespaced singletons.
     this._closeableTabSetting = Common.Settings.Settings.instance().createSetting(location + '-closeableTabs', {});
+    if (location === 'panel') {
+      // Permanent tabs only exist in the main panel, so we check for location === "panel"
+      // as we give tabs the capability to be closed we also need to add them to the setting so they are still open
+      // until the user decide to close them
+      this._setOrUpdateCloseableTabsSetting();
+    }
+
     // Note: go via self.Common for globally-namespaced singletons.
     this._tabOrderSetting = Common.Settings.Settings.instance().createSetting(location + '-tabOrder', {});
     this._tabbedPane.addEventListener(TabbedPaneEvents.TabOrderChanged, this._persistTabOrder, this);
@@ -501,6 +508,15 @@ export class _TabbedLocation extends _Location {
     if (location) {
       this.appendApplicableItems(location);
     }
+  }
+
+  _setOrUpdateCloseableTabsSetting() {
+    // Update the setting value, we respect the closed state decided by the user
+    // and append the new tabs with value of true so they are shown open
+    const defaultOptionsForTabs = {'security': true};
+    const tabs = this._closeableTabSetting.get();
+    const newClosable = Object.assign(defaultOptionsForTabs, tabs);
+    this._closeableTabSetting.set(newClosable);
   }
 
   /**
@@ -695,7 +711,7 @@ export class _TabbedLocation extends _Location {
     const id = /** @type {string} */ (event.data['tabId']);
     const tabs = this._closeableTabSetting.get();
     if (tabs[id]) {
-      delete tabs[id];
+      tabs[id] = false;
       this._closeableTabSetting.set(tabs);
     }
     this._views.get(id).disposeView();
