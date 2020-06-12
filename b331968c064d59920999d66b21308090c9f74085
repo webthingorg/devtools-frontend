@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8565d849_e3cb1d5f",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-12T03:10:47Z",
+      "side": 1,
+      "message": "Responded on your comment below.",
+      "parentUuid": "94ce06c3_d452aa9f",
+      "range": {
+        "startLine": 512,
+        "startChar": 4,
+        "endLine": 513,
+        "endChar": 56
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247f5459_e50d06f9",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 13
@@ -92,6 +116,30 @@
       "revId": "b331968c064d59920999d66b21308090c9f74085",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "967da568_cb0ea2e7",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-12T03:10:47Z",
+      "side": 1,
+      "message": "Replied in your comment below",
+      "parentUuid": "247f5459_e50d06f9",
+      "range": {
+        "startLine": 514,
+        "startChar": 3,
+        "endLine": 524,
+        "endChar": 6
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "4b486698_ff7eee91",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-12T03:10:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "02b418b2_0f53f235",
+      "range": {
+        "startLine": 525,
+        "startChar": 46,
+        "endLine": 525,
+        "endChar": 54
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad7dba12_0c80b16c",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 13
@@ -129,6 +201,30 @@
       "writtenOn": "2020-06-11T23:00:57Z",
       "side": 1,
       "message": "Actually, can you explain what this setting does? it looks like it\u0027s just a flag that we always set and clear?",
+      "range": {
+        "startLine": 529,
+        "startChar": 12,
+        "endLine": 529,
+        "endChar": 49
+      },
+      "revId": "b331968c064d59920999d66b21308090c9f74085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeb3143f_caa162b2",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-12T03:10:47Z",
+      "side": 1,
+      "message": "I reworked the logic for the settings.\nAfter reading your comments I realized this was going to be confusing for a lot of people.\n\nThere is an easier way to incrementally add the default state for each tab as we make them closeable without the need of creating another extra setting for the transition.\nThis was possible by changing the logic of _tabClosed so that it sets the value of the setting key to false instead of deleting the entry.\n\nTake a look and let me know if this makes more sense now.",
+      "parentUuid": "ad7dba12_0c80b16c",
       "range": {
         "startLine": 529,
         "startChar": 12,
