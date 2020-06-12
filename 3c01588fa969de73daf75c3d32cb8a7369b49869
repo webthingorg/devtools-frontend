@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0820be9c_aaf48e61",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e42e8dfb_ad5286c7",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afb1ee9e_b73c1344",
         "filename": "front_end/network/RequestTimingView.js",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "de574df7_6339c92e",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "afb1ee9e_b73c1344",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb1a6d18_0d32cc18",
         "filename": "front_end/network/RequestTimingView.js",
         "patchSetId": 4
@@ -50,6 +86,24 @@
       "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d9f5cb4_f54dd6ad",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb1a6d18_0d32cc18",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "c66bcc4e_1f1f42c9",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Let\u0027s keep the nullable type here.",
+      "parentUuid": "42d0936e_cfa22e0d",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b0301a1_d1bfc15f",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 4
@@ -101,6 +173,24 @@
       "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18b4d763_7645a635",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b0301a1_d1bfc15f",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "1140199d_5d6b602b",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "604fa918_e107c5ab",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "410b6e11_ef266599",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 4
@@ -135,6 +243,24 @@
       "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25365cbe_254ca068",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "410b6e11_ef266599",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +281,24 @@
     },
     {
       "key": {
+        "uuid": "34dbb9bc_fd112b88",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "{?Date} means a nullable type: Date or null. It is kind of confusing as a parameter with ? means possibly undefined.",
+      "parentUuid": "d3090927_34122636",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7442c39e_621c8cc9",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 4
@@ -169,6 +313,24 @@
       "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30021d35_f34f1836",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-12T19:07:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7442c39e_621c8cc9",
+      "revId": "3c01588fa969de73daf75c3d32cb8a7369b49869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
