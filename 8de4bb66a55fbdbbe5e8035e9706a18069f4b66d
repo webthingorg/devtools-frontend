@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35423613_ed1d35fc",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T02:55:29Z",
+      "side": 1,
+      "message": "If the long-term plan is to make all of the tabs closable, it seems to me that \"closable\" should be the default state, and we should instead have a list of not-closable tabs. This will ensure that, supposing we add a new top-level tool, it isn\u0027t just assumed to be not-closable.",
+      "revId": "8de4bb66a55fbdbbe5e8035e9706a18069f4b66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4fcdaff_ed9e53c8",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T02:55:29Z",
+      "side": 1,
+      "message": "This is getting long. Consider promoting to a type alias ahead of the `reloadDevTools` function.",
+      "revId": "8de4bb66a55fbdbbe5e8035e9706a18069f4b66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a01869f_4d14f250",
+        "filename": "test/e2e/helpers/security-helpers.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T02:55:29Z",
+      "side": 1,
+      "message": "I mentioned in the other file: This string is not an ID, it is a selector. Synchronize the API such that the parameter name accepts a selector, or keep it as an ID and change the closePanelTab function to create a selector from an ID.",
+      "revId": "8de4bb66a55fbdbbe5e8035e9706a18069f4b66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5152a0b_c6acc08b",
+        "filename": "test/e2e/helpers/security-helpers.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T02:55:29Z",
+      "side": 1,
+      "message": "Nit: Should be \"Exist\"",
+      "revId": "8de4bb66a55fbdbbe5e8035e9706a18069f4b66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67c8e968_8938345a",
+        "filename": "test/e2e/helpers/security-helpers.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T02:55:29Z",
+      "side": 1,
+      "message": "Nit: should this be \"securityPanelContentIsLoaded\" ?",
+      "revId": "8de4bb66a55fbdbbe5e8035e9706a18069f4b66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd7b7f7_3d383a3d",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T02:55:29Z",
+      "side": 1,
+      "message": "I\u0027m confused about this change -- panelTabId implies that it\u0027s an ID, not a selector, so I wouldn\u0027t expect the omission of the hash here.",
+      "revId": "8de4bb66a55fbdbbe5e8035e9706a18069f4b66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
