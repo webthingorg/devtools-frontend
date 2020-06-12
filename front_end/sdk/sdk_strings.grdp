@@ -94,6 +94,9 @@
   <message name="IDS_DEVTOOLS_22af645d1859cb5ca6da0c484f1f37ea" desc="Service worker version status displayed in the Threads view of the Debugging side pane in the Sources panel">
     new
   </message>
+  <message name="IDS_DEVTOOLS_22c5170c679b5d0232542f02c15bf335" desc="Text used to show that data was retrieved via a Network fetch">
+    Network fetch
+  </message>
   <message name="IDS_DEVTOOLS_23e5a7b7976e412ece233ceaf8257bc2" desc="Text in DOMDebugger Model">
     Clipboard
   </message>
@@ -424,6 +427,9 @@
     Because your site has the Cross-Origin Embedder Policy (COEP) enabled, each resource must specify a suitable Cross-Origin Resource Policy (CORP).
    This behavior prevents a document from loading cross-origin resources which don&apos;t explicitly grant permission to be loaded.
   </message>
+  <message name="IDS_DEVTOOLS_9b5e92790ca7fec879dfd28355a224d1" desc="Text used to show that serviceworker fetch response source is HTTP cache">
+    From HTTP cache
+  </message>
   <message name="IDS_DEVTOOLS_9dd7b9f5cc1c19a830f153c3e8f1ad89" desc="Text in Network Manager">
     Fast 3G
   </message>
@@ -460,6 +466,9 @@
   </message>
   <message name="IDS_DEVTOOLS_ac4aac1ba23d844f4976e9fcd1fd4a61" desc="Text in DOMDebugger Model">
     WebGL Error Fired (<ph name="ERRORNAME">$1s<ex>Snag Error</ex></ph>)
+  </message>
+  <message name="IDS_DEVTOOLS_0d6c76e22c095f0ae6cf53753121adef" desc="Text used to show that serviceworker fetch response source is ServiceWorker Cache Storage">
+    ServiceWorker cache storage
   </message>
   <message name="IDS_DEVTOOLS_ae40945c5cb26d80b9e396ea9e333ee9" desc="Message for the MixedContentIssue issue code">
     Even though the initial HTML page is loaded over a secure HTTPS connection, some resources like images, stylesheets or scripts are being accessed over an insecure HTTP connection. Usage of insecure resources is restricted to strengthen the security of your entire site.
@@ -564,6 +573,9 @@
   </message>
   <message name="IDS_DEVTOOLS_dcd9c13c4f8ae68ea7ae92edf9191264" desc="Text in Server Timing">
     Deprecated syntax found. Please use: &lt;name&gt;;dur=&lt;duration&gt;;desc=&lt;description&gt;
+  </message>
+  <message name="IDS_DEVTOOLS_de04f7066e574ccce5b163308115dd2c" desc="Text used to show that data was retrieved using ServiceWorker fallback code">
+    Fallback code
   </message>
   <message name="IDS_DEVTOOLS_df9f4292c1d025cbada13b25744d34e5" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Do not emulate CSS media type
