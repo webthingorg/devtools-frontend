@@ -16,6 +16,24 @@
       "revId": "6087c55d25a8a0b7b4b5bb4fdd2805084d9e8f13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec88305_13055da4",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-12T07:55:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "deeac516_12531465",
+      "revId": "6087c55d25a8a0b7b4b5bb4fdd2805084d9e8f13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
