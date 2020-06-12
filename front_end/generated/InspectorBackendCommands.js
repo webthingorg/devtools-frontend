@@ -220,10 +220,18 @@ export function registerCommands(inspectorBackend) {
     CorpNotSameOriginAfterDefaultedToSameOriginByCoep: 'CorpNotSameOriginAfterDefaultedToSameOriginByCoep',
     CorpNotSameSite: 'CorpNotSameSite'
   });
+  inspectorBackend.registerEnum('Audits.ViolationType', {
+    KInlineViolation: 'kInlineViolation',
+    KEvalViolation: 'kEvalViolation',
+    KURLViolation: 'kURLViolation',
+    KTrustedTypesSinkViolation: 'kTrustedTypesSinkViolation',
+    KTrustedTypesPolicyViolation: 'kTrustedTypesPolicyViolation'
+  });
   inspectorBackend.registerEnum('Audits.InspectorIssueCode', {
     SameSiteCookieIssue: 'SameSiteCookieIssue',
     MixedContentIssue: 'MixedContentIssue',
-    BlockedByResponseIssue: 'BlockedByResponseIssue'
+    BlockedByResponseIssue: 'BlockedByResponseIssue',
+    CSPIssue: 'CSPIssue'
   });
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerEnum('Audits.GetEncodedResponseRequestEncoding', {Webp: 'webp', Jpeg: 'jpeg', Png: 'png'});
