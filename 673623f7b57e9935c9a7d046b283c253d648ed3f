@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07862723_7891773b",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-12T21:20:08Z",
+      "side": 1,
+      "message": "nit: maybe \"tab location agnostic\" few months from now we might not remember this is about panel/tab locations and not user locations, etc",
+      "range": {
+        "startLine": 977,
+        "startChar": 18,
+        "endLine": 977,
+        "endChar": 27
+      },
+      "revId": "673623f7b57e9935c9a7d046b283c253d648ed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
