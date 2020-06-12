@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3ae15849_e8615101",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-12T21:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "634f2cf5_8d8eedcc",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 75
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2338b394_45188f45",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7513a9_a940db8d",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-12T21:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2338b394_45188f45",
+      "range": {
+        "startLine": 77,
+        "startChar": 108,
+        "endLine": 77,
+        "endChar": 112
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d7359f1a_97590f85",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-12T21:25:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "07231995_740cc617",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ad521cc_f4ca0013",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 9
@@ -91,6 +163,30 @@
       "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a10ea4af_d6f8603b",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-12T21:25:23Z",
+      "side": 1,
+      "message": "Correct, it doesn\u0027t address it. I was planning on doing this as a follow-up, to avoid adding too many changes in this one commit. I hope that\u0027s ok if we do it as a follow-up.",
+      "parentUuid": "9ad521cc_f4ca0013",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "fba83c09d0ca516306722306960e86dedeb6a108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
