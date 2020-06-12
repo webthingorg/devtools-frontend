@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4384b210_0b5854d1",
+        "filename": "front_end/generated/protocol-proxy-api.d.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 3067,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T20:32:14Z",
+      "side": 1,
+      "message": "I think this is actually left over from a previous roll? not sure. I definitely didn\u0027t add this stuff manually, and removing it doesn\u0027t seem to do anything.",
+      "parentUuid": "f2927bad_3ac5452d",
+      "range": {
+        "startLine": 3067,
+        "startChar": 4,
+        "endLine": 3067,
+        "endChar": 114
+      },
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd857859_6c2068f9",
         "filename": "front_end/media/PlayerMessagesView.js",
         "patchSetId": 18
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ece2cb8b_c7b5e4af",
+        "filename": "front_end/media/PlayerMessagesView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T20:32:14Z",
+      "side": 1,
+      "message": "I like it.",
+      "parentUuid": "fd857859_6c2068f9",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 2
+      },
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae6badf8_45819113",
         "filename": "front_end/media/PlayerMessagesView.js",
         "patchSetId": 18
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "ebf2eeea_6296f941",
+        "filename": "front_end/media/PlayerMessagesView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T20:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae6badf8_45819113",
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f700522f_9d86633e",
         "filename": "front_end/media/playerMessagesView.css",
         "patchSetId": 18
@@ -79,6 +145,24 @@
       "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3bdbb4b_f145c6b9",
+        "filename": "front_end/media/playerMessagesView.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T20:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f700522f_9d86633e",
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +186,30 @@
       "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf5a8879_1150d415",
+        "filename": "front_end/media/playerMessagesView.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T20:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf5f8575_5b91d2a2",
+      "range": {
+        "startLine": 52,
+        "startChar": 20,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
