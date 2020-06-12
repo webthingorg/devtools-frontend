@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c65fddf0_18fd5041",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-12T08:02:41Z",
+      "side": 1,
+      "message": "Why do we have an if-cascade with identical bodies here?",
+      "range": {
+        "startLine": 216,
+        "startChar": 3,
+        "endLine": 220,
+        "endChar": 42
+      },
+      "revId": "88f6c7d6ff50e89dadba57e0f0898a74b0501b5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
