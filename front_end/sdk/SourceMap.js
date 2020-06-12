@@ -657,7 +657,10 @@ export class WasmSourceMap {
    * @private
    */
   static _loadBindingsOnce() {
-    return WasmSourceMap._asyncResolver = WasmSourceMap._asyncResolver || WasmSourceMap._loadBindings();
+    if (!WasmSourceMap._asyncResolver) {
+      WasmSourceMap._asyncResolver = WasmSourceMap._loadBindings();
+    }
+    return WasmSourceMap._asyncResolver;
   }
 
   /**

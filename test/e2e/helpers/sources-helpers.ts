@@ -164,7 +164,9 @@ export function waitForAdditionalSourceFiles(frontend: puppeteer.Page, count = 1
 }
 
 export function clearSourceFilesAdded(frontend: puppeteer.Page) {
-  return frontend.evaluate(() => window.__sourceFilesAddedEvents = []);
+  return frontend.evaluate(() => {
+    window.__sourceFilesAddedEvents = [];
+  });
 }
 
 export function retrieveSourceFilesAdded(frontend: puppeteer.Page) {
