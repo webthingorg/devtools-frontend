@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "5fc0b174_a79bc15d",
+        "filename": "front_end/component_docs/BUILD.gn",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Ultra-nit: not necessary.",
+      "range": {
+        "startLine": 5,
+        "startChar": 12,
+        "endLine": 5,
+        "endChar": 14
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "735cc0cf_ba6a9c3d",
+        "filename": "front_end/elements/BUILD.gn",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "This would need to be `../lit-html` right? (I just realized I hadn\u0027t submitted the rollup CL. Doing that now)",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a09a8be_c2591182",
         "filename": "front_end/elements/ElementsBreadcrumbsUtils.ts",
         "patchSetId": 8
@@ -36,6 +82,30 @@
       "writtenOn": "2020-06-11T15:08:27Z",
       "side": 1,
       "message": "if we were to -- say -- not declare public here, would the formatting be nicer?",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a62ad0_efe3b3a9",
+        "filename": "front_end/elements/ElementsBreadcrumbsUtils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "The formatting is off here, because the previous line doesn\u0027t end with a semi-colon.",
+      "parentUuid": "5a09a8be_c2591182",
       "range": {
         "startLine": 44,
         "startChar": 2,
@@ -71,6 +141,29 @@
     },
     {
       "key": {
+        "uuid": "24a48a2f_3f583b05",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Meta-question: Is there a particular reason/distinction as to why this is function is declared here instead of in the Utils file? What is the general guidance for deciding where the function must live?",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91c96f57_4c8e43e7",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 8
@@ -82,6 +175,30 @@
       "writtenOn": "2020-06-11T15:08:27Z",
       "side": 1,
       "message": "nit: typically I would expect private methods to go after public ones",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 9
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1ed6134_63f08727",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "I would have preferred the `render` method to be defined first. Would be good to make a decision on it and write in a style guide of some sort. I don\u0027t have a strong opinion on where it should live.",
+      "parentUuid": "91c96f57_4c8e43e7",
       "range": {
         "startLine": 40,
         "startChar": 2,
@@ -140,6 +257,30 @@
     },
     {
       "key": {
+        "uuid": "60a8b99c_ffc9754d",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "I think we can define the resize observer in the constructor and make it non-optional?",
+      "parentUuid": "b2bd13aa_51d15976",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8569f633_45f1368b",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 8
@@ -157,6 +298,93 @@
     },
     {
       "key": {
+        "uuid": "a343a1a7_dc0e078f",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Sounds like an ESLint rule in the making.",
+      "parentUuid": "8569f633_45f1368b",
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7921ff3_21baf0a1",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Nit: I don\u0027t think it is strictly necessary to wrap this in a `html` tag. Lit should be able to handle the array as-is.",
+      "range": {
+        "startLine": 110,
+        "startChar": 11,
+        "endLine": 110,
+        "endChar": 17
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58c0207c_bd3f5582",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Could you add a bit of documentation as to why this function is necessary? It is not immediately clear, but I think it is related to the arrows being shown or not?",
+      "range": {
+        "startLine": 113,
+        "startChar": 10,
+        "endLine": 113,
+        "endChar": 26
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33452f0a_965b7d32",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "This should be always defined, right?",
+      "range": {
+        "startLine": 114,
+        "startChar": 9,
+        "endLine": 114,
+        "endChar": 20
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2c0f01db_0578c417",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 8
@@ -168,6 +396,30 @@
       "writtenOn": "2020-06-11T15:08:27Z",
       "side": 1,
       "message": "Where does this magic number come from?",
+      "range": {
+        "startLine": 156,
+        "startChar": 34,
+        "endLine": 156,
+        "endChar": 36
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f109e898_12b5e496",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Yeah, let\u0027s define a constant for this with a descriptive name.",
+      "parentUuid": "2c0f01db_0578c417",
       "range": {
         "startLine": 156,
         "startChar": 34,
@@ -226,6 +478,29 @@
     },
     {
       "key": {
+        "uuid": "e7c17856_2d2597bc",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Nit: maybe add a link to the crbug so that we can easily find them once clang-format is fixed (or we have a replacement).",
+      "range": {
+        "startLine": 215,
+        "startChar": 7,
+        "endLine": 215,
+        "endChar": 23
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a48410ae_700c5101",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 8
@@ -237,6 +512,30 @@
       "writtenOn": "2020-06-11T15:08:27Z",
       "side": 1,
       "message": "We\u0027re doing the highlight and clear with mousemove and mouseleave. What do we do about touch and keyboard events?",
+      "range": {
+        "startLine": 291,
+        "startChar": 18,
+        "endLine": 292,
+        "endChar": 67
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5735e07_65aa13ff",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "I guess we could make this focusable, such that you can tab into it?",
+      "parentUuid": "a48410ae_700c5101",
       "range": {
         "startLine": 291,
         "startChar": 18,
@@ -288,6 +587,29 @@
         "startChar": 0,
         "endLine": 327,
         "endChar": 76
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d662d8d8_bbde3945",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:01:53Z",
+      "side": 1,
+      "message": "Could the fixes in this file be extracted into a separate CL?",
+      "range": {
+        "startLine": 28,
+        "startChar": 65,
+        "endLine": 28,
+        "endChar": 66
       },
       "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
