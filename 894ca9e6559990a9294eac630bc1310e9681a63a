@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6ff5fa23_3382dcd0",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T21:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ed3b59b_b36a3e01",
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d00e4020_51208dac",
         "filename": "front_end/media/TickingFlameChart.js",
         "patchSetId": 8
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "baa87625_b00189e2",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T21:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d00e4020_51208dac",
+      "range": {
+        "startLine": 21,
+        "startChar": 20,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81ce9ff4_5b8c6144",
         "filename": "front_end/media/TickingFlameChart.js",
         "patchSetId": 8
@@ -56,6 +98,24 @@
       "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04b6b6c5_94dbfbfc",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T21:33:38Z",
+      "side": 1,
+      "message": "yeah, using the Color class in common shrunk this down to 3 lines",
+      "parentUuid": "81ce9ff4_5b8c6144",
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "1cc89ca4_01d5e0b2",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T21:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47f9ccd0_1a7234b8",
+      "range": {
+        "startLine": 499,
+        "startChar": 28,
+        "endLine": 499,
+        "endChar": 48
+      },
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fae74762_af735a5d",
         "filename": "front_end/media/TickingFlameChart.js",
         "patchSetId": 8
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "b0aaa7a1_75d34e42",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T21:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae74762_af735a5d",
+      "range": {
+        "startLine": 520,
+        "startChar": 31,
+        "endLine": 520,
+        "endChar": 51
+      },
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34beb116_9358159b",
         "filename": "front_end/media/TickingFlameChart.js",
         "patchSetId": 8
@@ -119,6 +227,24 @@
       "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e67d4dd_7a143bf8",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-12T21:33:38Z",
+      "side": 1,
+      "message": "I used to need the logarithms for some other stuff in this method, but I\u0027ve gotten rid of it. I\u0027ve switched away from using these precalculated things entirely.",
+      "parentUuid": "34beb116_9358159b",
+      "revId": "894ca9e6559990a9294eac630bc1310e9681a63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
