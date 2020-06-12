@@ -783,6 +783,30 @@
     },
     {
       "key": {
+        "uuid": "464f2a3f_fc8b2487",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T13:41:40Z",
+      "side": 1,
+      "message": "Yes. We disable it in our test resources and node_modules for example. When we want a specific formatting for assertions or where whitespace is important.",
+      "parentUuid": "4cdccb35_ab89c50b",
+      "range": {
+        "startLine": 215,
+        "startChar": 7,
+        "endLine": 215,
+        "endChar": 23
+      },
+      "revId": "a9daa776054a8f4e184e26ceaaa96ab2bc00e704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a48410ae_700c5101",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 8
