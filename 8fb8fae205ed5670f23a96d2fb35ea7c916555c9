@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0bb7a92_e05dc2a8",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T22:00:56Z",
+      "side": 1,
+      "message": "You can do:\n\n    this._normalizedTimestamp \u003d -1.5;\n    this._normalizedTimestamp \u003d -1;\n\n…if you prefer to keep the other check simpler (\u003d\u003d\u003d -1 instead of \u003d\u003d\u003d -1.5). The important part is that the initial value is a double (if the eventual values that will be assigned to it are doubles too).",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "392319d1_fb277b99",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T22:00:56Z",
+      "side": 1,
+      "message": "typo:\n\n    We want",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
