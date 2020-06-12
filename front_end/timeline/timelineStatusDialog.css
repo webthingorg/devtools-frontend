@@ -46,7 +46,7 @@
 .timeline-status-dialog .stop-button {
   margin-top: 8px;
   height: 100%;
-  align-self: flex-end;
+  align-self: center;
 }
 
 .timeline-status-dialog .stop-button button {
