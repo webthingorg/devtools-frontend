@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2927bad_3ac5452d",
+        "filename": "front_end/generated/protocol-proxy-api.d.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 3067,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-12T10:22:51Z",
+      "side": 1,
+      "message": "This file is auto-generated. You have to update the browser_protocol.pdl in a separate CL and roll the deps. For more info, see https://chromium.googlesource.com/devtools/devtools-frontend/#managing-dependencies",
+      "range": {
+        "startLine": 3067,
+        "startChar": 4,
+        "endLine": 3067,
+        "endChar": 114
+      },
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
