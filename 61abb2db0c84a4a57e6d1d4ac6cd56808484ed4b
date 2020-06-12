@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a892a6b_1c595682",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-12T20:26:22Z",
+      "side": 1,
+      "message": "I don\u0027t think this is our convention for doing this, either. +vidorteg@microsoft.com -- can you PTAL?\n\nI believe the correct way to do this would be something akin to:\n\n    let swResponseSourceString \u003d ls`Unknown`;\n    const responseSource \u003d this._request.serviceWorkerResponseSource();\n    if (responseSource) {\n      swResponseSourceString \u003d getLocalizedResponseSourceForCode(responseSource);\n    }\n\nThe purpose here is to not force the Request object to not provide localization services.",
+      "revId": "61abb2db0c84a4a57e6d1d4ac6cd56808484ed4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
