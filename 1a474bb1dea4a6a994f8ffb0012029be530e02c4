@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bfd1629_aa841777",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-06-12T03:22:40Z",
+      "side": 1,
+      "message": "@Peter - how do you feel about us setting a `min-width` to the DevTools window? Doing so would remove bugs like the one this CL fixes.\n\nI don\u0027t think DevTools is very usable at a width \u003c450px, but this could just be me.",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "1a474bb1dea4a6a994f8ffb0012029be530e02c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
