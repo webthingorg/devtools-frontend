@@ -22,6 +22,86 @@
       "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd857859_6c2068f9",
+        "filename": "front_end/media/PlayerMessagesView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:56:37Z",
+      "side": 1,
+      "message": "I wonder if this is more readable with binary integer literals, i.e.\n\n    const MessageLevelBitfield \u003d {\n      Error: 0b0001,\n      Warning: 0b0010,\n      Info: 0b0100,\n      Debug: 0b1000,\n      // ...\n    };\n\nWDYT?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 2
+      },
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae6badf8_45819113",
+        "filename": "front_end/media/PlayerMessagesView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:56:37Z",
+      "side": 1,
+      "message": "Can we instead define a .hidden class that has `display: none`, and then simply toggle this class on whatever elements that need it? This would let us keep CSS declarations out of JS.",
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f700522f_9d86633e",
+        "filename": "front_end/media/playerMessagesView.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:56:37Z",
+      "side": 1,
+      "message": "nit:\n\n    hsl(45deg 100% 97%)",
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf5f8575_5b91d2a2",
+        "filename": "front_end/media/playerMessagesView.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-12T12:56:37Z",
+      "side": 1,
+      "message": "nit:\n\n    hsl(0deg 100% 97%)\n\nWe\u0027re working on enforcing style linting on presubmit which will make this easier.",
+      "range": {
+        "startLine": 52,
+        "startChar": 20,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "ecc356185f6cf4bf790de14dcab879ed846dc7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
