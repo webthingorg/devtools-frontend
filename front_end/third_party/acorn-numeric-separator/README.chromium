@@ -1,0 +1,30 @@
+Name: acorn-numeric-separator, numeric separator support for Acorn
+Short Name: acorn-numeric-separator
+URL: https://github.com/bmeurer/acorn-numeric-separator
+Version: 5df520a93d71fab688c89dfafef2aeb58bc28284
+License: MIT
+License File: LICENSE
+Security Critical: no
+
+Description:
+Numeric separator support for Acorn.
+
+This is a fork of the upstream at https://github.com/acornjs/acorn-numeric-separator/ and will be maintained until upstream has merged required changes for ESM support.
+
+These instructions can be used while the PR has not yet been merged:
+
+```bash
+git clone https://github.com/bmeurer/acorn-numeric-separator
+cd acorn-numeric-separator
+git checkout esm # this is commit 5df520a93d71fab688c89dfafef2aeb58bc28284
+npm run build
+npm pack
+# cp acorn-numeric-separator-0.3.3.tgz to this directory
+tar xzf acorn-numeric-separator-0.3.3.tgz
+```
+
+When the PR is merged, we can download directly from npm, like so:
+
+```
+wget -qO- https://registry.npmjs.org/acorn-numeric-separator/-/acorn-numeric-separator-0.3.3.tgz | tar xzf -
+```
