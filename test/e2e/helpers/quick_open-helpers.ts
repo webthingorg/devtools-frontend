@@ -4,7 +4,7 @@
 
 import {$, $$, getBrowserAndPages, platform, typeText, waitFor} from '../../shared/helper.js';
 
-const QUICK_OPEN_SELECTOR = '[aria-label="Quick open"]';
+export const QUICK_OPEN_SELECTOR = '[aria-label="Quick open"]';
 
 export const openCommandMenu = async () => {
   const {frontend} = getBrowserAndPages();
