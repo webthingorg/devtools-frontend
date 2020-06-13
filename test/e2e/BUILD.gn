@@ -33,6 +33,7 @@ node_ts_library("tests") {
     "profiler",
     "rendering",
     "search",
+    "shortcuts",
     "snippets",
     "sources",
     "webaudio",
