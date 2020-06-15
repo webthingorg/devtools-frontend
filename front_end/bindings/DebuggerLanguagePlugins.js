@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Extensions from '../extensions/extensions.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -90,7 +91,6 @@ class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
   }
 
   /** Produce a language specific representation of a variable value
-   * @override
    * @param {!VariableValue} value
    * @return {!SDK.RemoteObject.RemoteObject}
    */
@@ -118,7 +118,8 @@ class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
           return null;
         }
 
-        const value = JSON.parse(evaluateResponse.result.value);
+
+        const value = /** @type {!VariableValue} */ (JSON.parse(evaluateResponse.result.value));
         return this._getRepresentation(value);
       } catch (error) {
         if (!(error instanceof DebuggerLanguagePluginError)) {
@@ -259,6 +260,103 @@ class SourceScope {
 }
 
 /**
+ * @implements {DebuggerLanguagePlugin}
+ */
+class DebuggerLanguagePluginExtension {
+  /**
+   * @param {number} pluginId A unique identifier for the plugin
+   * @param {{language: string, symbol_types: !Array<string>}} supportedScriptTypes A
+   *               selector for the type of scripts handled by this plugin.
+   */
+  constructor(pluginId, supportedScriptTypes) {
+    console.error(`new plugin extension: ${pluginId}`);
+    this._pluginId = pluginId;
+    this._supportedScriptTypes = supportedScriptTypes;
+    this._requestId = 0;
+  }
+
+  _nextRequestId() {
+    return this._requestId++;
+  }
+
+  /**
+   * @override
+   * @param {!SDK.Script.Script} script
+   * @return {boolean} True if this plugin should handle this script
+   */
+  handleScript(script) {
+    if (script.scriptLanguage() !== this._supportedScriptTypes.language) {
+      return false;
+    }
+    return !!script.debugSymbols && this._supportedScriptTypes.symbol_types.includes(script.debugSymbols.type);
+  }
+
+  /** Notify the plugin about a new script
+   * @override
+   * @param {string} rawModuleId
+   * @param {string} symbolsURL - URL of a file providing the debug symbols for this module
+   * @param {!RawModule} rawModule
+   * @return {!Promise<!Array<string>>} - An array of absolute or relative URLs for the source files for the raw module
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async addRawModule(rawModuleId, symbolsURL, rawModule) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'addRawModule', {rawModuleId, symbolsURL, rawModule});
+  }
+
+  /** Find locations in raw modules from a location in a source file
+   * @override
+   * @param {!SourceLocation} sourceLocation
+   * @return {!Promise<!Array<!RawLocation>>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async sourceLocationToRawLocation(sourceLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'sourceLocationToRawLocation', {sourceLocation});
+  }
+
+  /** Find locations in source files from a location in a raw module
+   * @override
+   * @param {!RawLocation} rawLocation
+   * @return {!Promise<!Array<!SourceLocation>>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async rawLocationToSourceLocation(rawLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'rawLocationToSourceLocation', {rawLocation});
+  }
+
+  /** List all variables in lexical scope at a given location in a raw module
+   * @override
+   * @param {!RawLocation} rawLocation
+   * @return {!Promise<!Array<!Variable>>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async listVariablesInScope(rawLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'listVariablesInScope', {rawLocation});
+  }
+
+  /** Evaluate the content of a variable in a given lexical scope
+   * @override
+   * @param {string} name
+   * @param {!RawLocation} location
+   * @return {!Promise<?RawModule>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async evaluateVariable(name, location) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'evaluateVariable', {name, location});
+  }
+
+  /**
+   * @override
+   */
+  dispose() {
+  }
+}
+
+/**
  * @unrestricted
  */
 export class DebuggerLanguagePluginManager {
@@ -273,6 +371,9 @@ export class DebuggerLanguagePluginManager {
     this._debuggerWorkspaceBinding = debuggerWorkspaceBinding;
     /** @type {!Array<!DebuggerLanguagePlugin>} */
     this._plugins = [];
+    for (const {pluginId, supportedScriptTypes} of self.Extensions.extensionServer.languagePluginExtensions) {
+      this._plugins.push(new DebuggerLanguagePluginExtension(pluginId, supportedScriptTypes));
+    }
 
     // @type {!Map<!Workspace.UISourceCode.UISourceCode, !Array<[string, !SDK.Script.Script]>>}
     this._uiSourceCodes = new Map();
@@ -285,12 +386,15 @@ export class DebuggerLanguagePluginManager {
         false /* isServiceProject */);
     Bindings.NetworkProject.setTargetForProject(this._project, target);
 
+
     const runtimeModel = debuggerModel.runtimeModel();
     this._eventHandlers = [
       this._debuggerModel.addEventListener(
           SDK.DebuggerModel.Events.ParsedScriptSource, this._newScriptSourceListener, this),
       runtimeModel.addEventListener(
-          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this)
+          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this),
+      self.Extensions.extensionServer.addEventListener(
+          Extensions.ExtensionServer.Events.LanguagePluginExtensionAdded, this._languagePluginExtensionAdded, this)
     ];
   }
 
@@ -303,6 +407,10 @@ export class DebuggerLanguagePluginManager {
    */
   addPlugin(plugin) {
     this._plugins.push(plugin);
+  }
+
+  _languagePluginExtensionAdded(event) {
+    this.addPlugin(new DebuggerLanguagePluginExtension(event.data.pluginId, event.data.supportedScriptTypes));
   }
 
   /**
@@ -661,6 +769,7 @@ export let Variable;
 /** The value of a source language variable
  * @typedef {{
  *            value: (string|!Array<!VariableValue>),
+ *            js_type: string,
  *            type: string,
  *            name: string
  *          }}
