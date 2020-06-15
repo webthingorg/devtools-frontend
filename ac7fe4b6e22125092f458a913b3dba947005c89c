@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fb17f28_8cb017be",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-06-15T23:21:38Z",
+      "side": 1,
+      "message": "you probably brought it over from some panel code, there doesn\u0027t seem to be a need for id here, especially for one that is a constant.",
+      "revId": "ac7fe4b6e22125092f458a913b3dba947005c89c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a88338ec_7824749f",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-06-15T23:21:38Z",
+      "side": 1,
+      "message": "nit: use map?",
+      "revId": "ac7fe4b6e22125092f458a913b3dba947005c89c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1971ae4d_23c3308b",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-06-15T23:21:38Z",
+      "side": 1,
+      "message": "What happens if this throws or otherwise never resolves? Do we end up with a forever pending request on the front-end side? What implications would it have on front-end resilience?",
+      "revId": "ac7fe4b6e22125092f458a913b3dba947005c89c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "829fe577_dfc7439e",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-06-15T23:21:38Z",
+      "side": 1,
+      "message": "Note this would expose the implementation guts of your class to the extension code. We typically try to avoid that to prevent extension from abusing the API. Please see declareInterfaceClass() for how we expose classes to the API.",
+      "revId": "ac7fe4b6e22125092f458a913b3dba947005c89c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
