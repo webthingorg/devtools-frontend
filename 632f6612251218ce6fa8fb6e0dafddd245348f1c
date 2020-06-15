@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "359edc78_0d1e70fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32a4a2a1_b5a80939",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abf18702_28325c00",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 1
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "4befba6d_186050d5",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a862f681_3961036a",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63fbbd87_af0a4f15",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 1
@@ -95,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "39a4fb09_7bb4b54e",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "No, this is supposed to take the interface.",
+      "parentUuid": "63fbbd87_af0a4f15",
+      "range": {
+        "startLine": 354,
+        "startChar": 14,
+        "endLine": 354,
+        "endChar": 36
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "864e28aa_6dff9d54",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 1
@@ -106,6 +166,30 @@
       "writtenOn": "2020-06-15T14:28:08Z",
       "side": 1,
       "message": "Is this still used?",
+      "range": {
+        "startLine": 730,
+        "startChar": 13,
+        "endLine": 730,
+        "endChar": 35
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "129e043e_b69de47a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "Yes, I\u0027d like to keep the door open to other language plugin implementations.",
+      "parentUuid": "864e28aa_6dff9d54",
       "range": {
         "startLine": 730,
         "startChar": 13,
@@ -161,6 +245,30 @@
       "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77810d29_c8f6b94c",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "This class lives in the extension context, it doesn\u0027t have access to that type.",
+      "parentUuid": "59e68529_beb6fd07",
+      "range": {
+        "startLine": 414,
+        "startChar": 6,
+        "endLine": 414,
+        "endChar": 39
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -235,6 +343,24 @@
     },
     {
       "key": {
+        "uuid": "01363efc_96af1940",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83245915_bb0f90ec",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b92c6ab_15839a9c",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 1
@@ -258,6 +384,30 @@
     },
     {
       "key": {
+        "uuid": "e8c1d64c_13349494",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b92c6ab_15839a9c",
+      "range": {
+        "startLine": 176,
+        "startChar": 4,
+        "endLine": 176,
+        "endChar": 33
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dcd7cbc_9500f9f0",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 1
@@ -269,6 +419,30 @@
       "writtenOn": "2020-06-15T14:28:08Z",
       "side": 1,
       "message": "Should this be a DebuggerLanguagePluginError?",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 84
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "650b2688_c06b6a4b",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-15T15:30:07Z",
+      "side": 1,
+      "message": "That would create a circular dependency between extensions and bindings. To do that the error would have to go into SDK. Is that worth it?",
+      "parentUuid": "2dcd7cbc_9500f9f0",
       "range": {
         "startLine": 199,
         "startChar": 6,
