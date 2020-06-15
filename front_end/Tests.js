@@ -772,6 +772,22 @@
         {type: 'rawKeyDown', key: 'F8', windowsVirtualKeyCode: 119, nativeVirtualKeyCode: 119});
   };
 
+  TestSuite.prototype.testKeyWhitelistChanged = function() {
+    this.takeControl();
+
+    this.addSniffer(self.UI.shortcutRegistry, '_registerBindings', () => {
+      self.SDK.targetManager.mainTarget().inputAgent().invoke_dispatchKeyEvent(
+          {type: 'rawKeyDown', key: 'F1', windowsVirtualKeyCode: 112, nativeVirtualKeyCode: 112});
+    });
+    this.addSniffer(self.UI.shortcutRegistry, 'handleKey', key => {
+      this.assertEquals(112, key);
+      this.releaseControl();
+    });
+
+    self.Common.settings.moduleSetting('activeKeybindSet').set('vsCode');
+    this.releaseControl();
+  };
+
   TestSuite.prototype.testDispatchKeyEventDoesNotCrash = function() {
     self.SDK.targetManager.mainTarget().inputAgent().invoke_dispatchKeyEvent(
         {type: 'rawKeyDown', windowsVirtualKeyCode: 0x23, key: 'End'});
