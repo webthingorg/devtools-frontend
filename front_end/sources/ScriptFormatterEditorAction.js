@@ -101,6 +101,9 @@ export class ScriptFormatterEditorAction {
     if (self.Persistence.persistence.binding(uiSourceCode)) {
       return false;
     }
+    if (uiSourceCode.mimeType() === 'application/wasm') {
+      return false;
+    }
     return uiSourceCode.contentType().hasScripts();
   }
 
