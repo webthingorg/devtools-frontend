@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e99b6647_4e7bd180",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-15T16:20:19Z",
+      "side": 1,
+      "message": "Yes, the tab will stay in the panel where the user moved it.\n\nIf it is closed, it will be opened wherever it was closed last time.\nIf it is open, it will be focused.",
+      "parentUuid": "7f2a9bf9_b0f5b221",
+      "range": {
+        "startLine": 572,
+        "startChar": 7,
+        "endLine": 575,
+        "endChar": 30
+      },
+      "revId": "d51d72da4b716ec2e60e5f80554245b4c52ffbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40820763_33d804bb",
         "filename": "test/conductor/hooks.ts",
         "patchSetId": 3
