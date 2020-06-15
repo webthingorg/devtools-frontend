@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "91b42bf8_0ce58c6c",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-15T23:23:23Z",
+      "side": 1,
+      "message": "I believe it is because I take in a Target object as a param to constructor, but don\u0027t use it anywhere else. I get no-unused-vars error without this line, but can\u0027t take out Target from the JSDoc comment (line 9).",
+      "parentUuid": "a4633aef_6e4885b6",
+      "range": {
+        "startLine": 5,
+        "startChar": 61,
+        "endLine": 5,
+        "endChar": 98
+      },
+      "revId": "12f195c38fe5d2be8df10d63e1e60dd876b835e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9dad114d_62ca19b3",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "12f195c38fe5d2be8df10d63e1e60dd876b835e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1c1daeb_48cad600",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-15T23:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dad114d_62ca19b3",
+      "revId": "12f195c38fe5d2be8df10d63e1e60dd876b835e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "7b13b019_c396e674",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-15T23:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "454e0551_f5b40e8b",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 76
+      },
+      "revId": "12f195c38fe5d2be8df10d63e1e60dd876b835e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2764ab5_3e4da17c",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -76,6 +142,24 @@
       "writtenOn": "2020-06-15T14:58:01Z",
       "side": 1,
       "message": "There is a bug here with this code. Suppose there is a single model and then the environment gets enabled. Then, another model is added. The first one is enabled and the second one is not. Now toggling the environment will always leave one enabled and another one disabled, even when closing devtools.\n\nI suggest the following changes:\nReplace `toggleVirtualAuthEnv` by `setVirtualAuthEnvEnabled(boolean)`.\nOn `modelAdded`, call `setVirtualAuthEnvEnabled(this._enabled)`\nOn `dispose` and `modelRemoved`, call `setVirtualAuthEnvEnabled(false)`",
+      "revId": "12f195c38fe5d2be8df10d63e1e60dd876b835e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cfc111d_9969dabd",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-15T23:23:23Z",
+      "side": 1,
+      "message": "Thank you for the catch \u0026 fix. Did all except adding the code to disable the virtual environment to modelRemoved() because modelRemoved() may be called at times when we don\u0027t want the virtual environment disabled.",
+      "parentUuid": "a2764ab5_3e4da17c",
       "revId": "12f195c38fe5d2be8df10d63e1e60dd876b835e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
