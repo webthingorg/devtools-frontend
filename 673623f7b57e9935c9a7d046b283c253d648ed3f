@@ -39,6 +39,24 @@
       "revId": "673623f7b57e9935c9a7d046b283c253d648ed3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f35ec878_cb40386e",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-15T22:07:18Z",
+      "side": 1,
+      "message": "Not on purpose, I must have missed this rename. Thanks for the reminder.",
+      "parentUuid": "a36729d5_c3e1a560",
+      "revId": "673623f7b57e9935c9a7d046b283c253d648ed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
