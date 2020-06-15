@@ -22,6 +22,30 @@
       "revId": "86659b6e38d4babdd3797b8331b986de45be369b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aeb6af6_c5e1b9dc",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-15T15:55:28Z",
+      "side": 0,
+      "message": "It\u0027s more a minification technique and we should not be using it in our source code indeed. Removing it is the correct resolution.",
+      "parentUuid": "166c714f_ae2cea26",
+      "range": {
+        "startLine": 1212,
+        "startChar": 51,
+        "endLine": 1212,
+        "endChar": 56
+      },
+      "revId": "86659b6e38d4babdd3797b8331b986de45be369b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
