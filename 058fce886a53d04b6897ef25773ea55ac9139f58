@@ -57,6 +57,24 @@
       "revId": "058fce886a53d04b6897ef25773ea55ac9139f58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62cd6af2_864cd581",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_debug.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-15T15:44:31Z",
+      "side": 1,
+      "message": "I believe window is available in unit tests as well as document. I don\u0027t think it will be possible to render the overlay in unit tests because there is no real DOM there but a lot of things can be tested, especially, computations. Also, I think it might be possible to author new files in TypeScript.",
+      "parentUuid": "798a7b86_46ef0ea1",
+      "revId": "058fce886a53d04b6897ef25773ea55ac9139f58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
