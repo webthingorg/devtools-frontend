@@ -203,6 +203,9 @@ function analyzeNode(parentNode, node, filePath, errors) {
   if (locVersion === 1) {
     runLocV1APIChecks(locCase, node, parentNode, code, errors, filePath);
   }
+  if (locVersion === 2) {
+    runLocV2APIChecks(locCase, node, parentNode, code, errors, filePath);
+  }
   for (const key of objKeys) {
     // recursively parse all the child nodes
     analyzeNode(node, node[key], filePath, errors);
@@ -264,6 +267,24 @@ function runLocV1APIChecks(locCase, node, parentNode, code, errors, filePath) {
       checkConcatenation(parentNode, node, filePath, errors);
       break;
     }
+  }
+}
+
+function runLocV2APIChecks(node, code, errors, filePath) {
+  const firstArgType = node.arguments[0].type;
+  if (firstArgType !== espreeTypes.LITERAL && firstArgType !== espreeTypes.TEMP_LITERAL &&
+      firstArgType !== espreeTypes.IDENTIFIER && !excludeErrors.includes(code)) {
+    addError(
+        `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+            localizationUtils.getLocationMessage(node.loc)}: first argument to call should be a string: ${code}`,
+        errors);
+  }
+  if (includesConditionalExpression(node.arguments.slice(1))) {
+    addError(
+        `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+            localizationUtils.getLocationMessage(node.loc)}: conditional(s) found in ${
+            code}. Please extract conditional(s) out of the localization call.`,
+        errors);
   }
 }
 
