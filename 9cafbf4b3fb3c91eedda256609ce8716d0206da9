@@ -101,6 +101,98 @@
       "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cac39a5_68762638",
+        "filename": "back_end/CXXDWARFSymbols/tools/bootstrap.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:41:39Z",
+      "side": 1,
+      "message": "Consider defaulting to $GOMA_DIR/gomacc if GOMA_DIR is defined in the environment.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb5d52fe_cec5766c",
+        "filename": "back_end/CXXDWARFSymbols/tools/bootstrap.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:41:39Z",
+      "side": 1,
+      "message": "Consider defaulting to third_party/llvm-build/Release+Asserts/bin/clang(++)",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 17
+      },
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f93174c9_6e8c5ee6",
+        "filename": "back_end/CXXDWARFSymbols/tools/bootstrap.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:41:39Z",
+      "side": 1,
+      "message": "Rename to extra_args?",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a61442e6_7d2d0f8f",
+        "filename": "back_end/CXXDWARFSymbols/tools/bootstrap.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:41:39Z",
+      "side": 1,
+      "message": "command_line \u003d [\u0027cmake\u0027, ...]\nprint(\u0027 \u0027.join(command_line))\nsubprocess.check_call(command_line)",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
