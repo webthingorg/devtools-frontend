@@ -52,6 +52,24 @@
       "revId": "d2ea23f541a374191f8817fb08a3f143b67f02b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b3ef07f_d1c47c97",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 0,
+      "message": "If we\u0027re no longer supporting this we can delete the file and remove it from BUILD.gn as well.",
+      "parentUuid": "6c7d8bf3_4509cad8",
+      "revId": "d2ea23f541a374191f8817fb08a3f143b67f02b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

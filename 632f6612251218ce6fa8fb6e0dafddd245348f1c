@@ -72,6 +72,98 @@
     },
     {
       "key": {
+        "uuid": "63fbbd87_af0a4f15",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 1,
+      "message": "DebuggerLanguagePluginExtension, here and elsewhere.",
+      "range": {
+        "startLine": 354,
+        "startChar": 14,
+        "endLine": 354,
+        "endChar": 36
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "864e28aa_6dff9d54",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 1,
+      "message": "Is this still used?",
+      "range": {
+        "startLine": 730,
+        "startChar": 13,
+        "endLine": 730,
+        "endChar": 35
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "348c61ab_ef9b450d",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 1,
+      "message": "Optional: Maybe what we want to do here is check if plugin has a member named method and, if so, call plugin[method](parameters). This has some nice properties: 1) A plugin developer could implement some methods and not others 2) It\u0027s future proof -- more arguments can be added in the future. I don\u0027t know if other plugin APIs work this way, though.",
+      "range": {
+        "startLine": 403,
+        "startChar": 8,
+        "endLine": 403,
+        "endChar": 28
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59e68529_beb6fd07",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 1,
+      "message": "Should this throw a DebuggerLanguagePluginError?",
+      "range": {
+        "startLine": 414,
+        "startChar": 6,
+        "endLine": 414,
+        "endChar": 39
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e96ca54_e54f1157",
         "filename": "front_end/extensions/ExtensionAPI.js",
         "patchSetId": 1
@@ -119,6 +211,70 @@
       "side": 1,
       "message": "Let\u0027s only filter by language initially. As per previous comment, we can always make things more complex later. Also please rename this then, `targetScript` doesn\u0027t really make it clear that this is a filter. How about `scriptSelector` with type `{language: \u0027WebAssembly\u0027 | \u0027JavaScript\u0027}` initially?",
       "parentUuid": "6b0cee2c_93485a09",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83245915_bb0f90ec",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 1,
+      "message": "This would be worth a doc string and type annotation.",
+      "parentUuid": "6b0cee2c_93485a09",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b92c6ab_15839a9c",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 1,
+      "message": "Change to \u0027languageServices\u0027 to match ExtensionApi.js",
+      "range": {
+        "startLine": 176,
+        "startChar": 4,
+        "endLine": 176,
+        "endChar": 33
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dcd7cbc_9500f9f0",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T14:28:08Z",
+      "side": 1,
+      "message": "Should this be a DebuggerLanguagePluginError?",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 84
+      },
       "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
