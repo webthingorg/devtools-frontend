@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a0f5deb_78939fec",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_debug.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-15T14:45:39Z",
+      "side": 1,
+      "message": "I wonder if a unit test can help testing this? https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/unittests/front_end/inspector_overlay/common_test.ts?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "revId": "058fce886a53d04b6897ef25773ea55ac9139f58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
