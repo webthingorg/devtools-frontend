@@ -9,10 +9,35 @@ set(SYMBOL_SERVER_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 set(SYMBOL_SERVER_BINARY_DIR ${PROJECT_BINARY_DIR}/bin)
 set(SYMBOL_SERVER_LIBRARY_DIR ${PROJECT_BINARY_DIR}/lib)
 
-# Build dependencies.
+file(MAKE_DIRECTORY ${SYMBOL_SERVER_BINARY_DIR} ${SYMBOL_SERVER_LIBRARY_DIR})
+
+# Build LLVM dependencies.
 set(LLVM_TARGETS_TO_BUILD "WebAssembly" CACHE STRING "")
 set(LLVM_ENABLE_PROJECTS "clang;clang-tools-extra;lldb;lld" CACHE STRING "")
 set(LLDB_INCLUDE_TESTS "OFF" CACHE STRING "")
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SYMBOL_SERVER_BINARY_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SYMBOL_SERVER_LIBRARY_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${SYMBOL_SERVER_LIBRARY_DIR})
+
+if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+  set(SYMBOL_SERVER_BUILD_WASM TRUE)
+else()
+  set(SYMBOL_SERVER_BUILD_WASM FALSE)
+endif()
+
+if (SYMBOL_SERVER_BUILD_WASM)
+  set(LLVM_ENABLE_RTTI "ON" CACHE STRING "")
+  set(LLVM_ENABLE_THREADS "OFF" CACHE STRING "")
+  set(SYMBOL_SERVER_TOOL_DIR "/")
+else()
+  set(LLVM_ON_WIN32 0)
+  set(LLVM_ON_UNIX 1)
+  set(SYMBOL_SERVER_TOOL_DIR ${CMAKE_CURRENT_BINARY_DIR})
+  set(LLVM_DEFAULT_EXTERNAL_LIT
+    ${CMAKE_CURRENT_BINARY_DIR}/third_party/llvm/llvm/bin/llvm-lit CACHE STRING "")
+endif()
+
 add_subdirectory(third_party/llvm/llvm)
 set_property(DIRECTORY third_party/llvm/llvm
   PROPERTY EXCLUDE_FROM_ALL TRUE)
@@ -51,6 +76,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SYMBOL_SERVER_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SYMBOL_SERVER_LIBRARY_DIR})
 
 add_subdirectory(lib)
-add_subdirectory(driver/lsp)
-add_subdirectory(unittests)
+if (SYMBOL_SERVER_BUILD_WASM)
+  add_subdirectory(driver/wasm-plugin)
+else()
+  add_subdirectory(driver/lsp)
+  add_subdirectory(unittests)
+endif()
 add_subdirectory(tests)

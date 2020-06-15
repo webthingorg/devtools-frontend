@@ -19,6 +19,7 @@ module.exports = {
 
     return P;
   },
+
   parseInput: function*(input) {
     while (input.length > 0) {
       const {content_length, remaining} = getContentLength(input);
@@ -90,6 +91,21 @@ module.exports = {
           console.log(i + ': 0x' + wasm_memory[i].toString(16));
       }
     }
+  },
+
+  getWasmPlugin: async function() {
+    const fs = require('fs');
+    const path = require('path');
+
+    global.fetch = function(source) {
+      const fs_path = source.replace('%(unit_inputs)s', path.join(path.dirname(__dirname), 'unittests', 'Inputs'));
+      console.log(`Loading module from ${path}`);
+      return {arrayBuffer: () => new Uint8Array(fs.readFileSync(fs_path, null)).buffer};
+    };
+
+    const Plugin = require('DWARFSymbolsPlugin');
+    await Plugin.runtimeInitializedPromise;
+    return Plugin;
   }
 };
 
