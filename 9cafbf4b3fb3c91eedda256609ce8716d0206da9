@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9c658dc_bbb21cbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:38:52Z",
+      "side": 1,
+      "message": "Same nit here: A bit more descriptive would be nice for the reviewer 😄",
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ff5863f_ec70d167",
+        "filename": "back_end/CXXDWARFSymbols/driver/wasm-plugin/Extension/DevToolsPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:38:52Z",
+      "side": 1,
+      "message": "Nit: Let\u0027s use a better name here instead of \u0027SymbolServer\u0027. How about \u0027CXXDWARFSymbols\u0027?",
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fdbc02d_19b3afd8",
+        "filename": "back_end/CXXDWARFSymbols/driver/wasm-plugin/Extension/DevToolsPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:38:52Z",
+      "side": 1,
+      "message": "This probably needs a proper name as well.",
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "562dbb67_c068d7f0",
+        "filename": "back_end/CXXDWARFSymbols/driver/wasm-plugin/Extension/manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:38:52Z",
+      "side": 1,
+      "message": "Nit: 😊",
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31a627a9_fe0f5201",
+        "filename": "back_end/CXXDWARFSymbols/driver/wasm-plugin/Extension/manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:38:52Z",
+      "side": 1,
+      "message": "Let\u0027s remove the DWARF from the name, that\u0027s confusing. How about simply \"WebAssembly C/C++ DevTools Plugin\"?",
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95a98242_bd383cb2",
+        "filename": "back_end/CXXDWARFSymbols/driver/wasm-plugin/Extension/manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:38:52Z",
+      "side": 1,
+      "message": "Can we limit this to \"https://*.wasm\"?",
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
