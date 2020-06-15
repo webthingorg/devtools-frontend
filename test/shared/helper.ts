@@ -309,10 +309,11 @@ export const step = async (description: string, step: Function) => {
   }
 };
 
-export const closePanelTab = async (panelTabId: string) => {
+export const closePanelTab = async (panelTabSelector: string) => {
   // Get close button from tab element
-  const selector = `#${panelTabId} > .tabbed-pane-close-button`;
+  const selector = `${panelTabSelector} > .tabbed-pane-close-button`;
   await click(selector);
+  await waitForNone(selector);
 };
 
 export const closeAllCloseableTabs = async () => {
