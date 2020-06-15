@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02b3185e_e0e8a62c",
+        "filename": "BUILD.gn",
+        "patchSetId": 12
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-15T14:52:16Z",
+      "side": 1,
+      "message": "Nit: probably a wrong merge resolution.",
+      "range": {
+        "startLine": 314,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 41
+      },
+      "revId": "236a97a7bc0f81eeef1e96a02295f7bbd914fd81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
