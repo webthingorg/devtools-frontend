@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a862f681_3961036a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:22:00Z",
+      "side": 1,
+      "message": "Hm, right, the MIME type is currently only available for `UISourceCode`. I guess filtering by just `scriptLanguage` would be a good start. We can always add stricter filtering later if necessary.",
+      "parentUuid": "79fd3d1e_9e1a88bd",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e96ca54_e54f1157",
         "filename": "front_end/extensions/ExtensionAPI.js",
         "patchSetId": 1
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "Essentially a selector for the kind of scripts the extension can provide debug info for. For C++/DWARF targetScript is {language: \u0027WebAssembly\u0027, symbol_types: [\u0027EmbeddedDWARF\u0027, \u0027ExternalDWARF\u0027]})",
       "parentUuid": "2e96ca54_e54f1157",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef5b2986_e95a9050",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:22:00Z",
+      "side": 1,
+      "message": "Let\u0027s only filter by language initially. As per previous comment, we can always make things more complex later. Also please rename this then, `targetScript` doesn\u0027t really make it clear that this is a filter. How about `scriptSelector` with type `{language: \u0027WebAssembly\u0027 | \u0027JavaScript\u0027}` initially?",
+      "parentUuid": "6b0cee2c_93485a09",
       "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
