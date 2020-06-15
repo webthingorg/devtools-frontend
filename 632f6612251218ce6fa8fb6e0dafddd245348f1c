@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32a4a2a1_b5a80939",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:01:21Z",
+      "side": 1,
+      "message": "Nit: The commit message should be a lot more descriptive, but I suppose that\u0027s already on the TODO list :-)",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf18702_28325c00",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:01:21Z",
+      "side": 1,
+      "message": "This seems fairly complex and fairly limited. How about we filter by MIME type initially instead?",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e96ca54_e54f1157",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:01:21Z",
+      "side": 1,
+      "message": "What exactly is this `targetScript`?",
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

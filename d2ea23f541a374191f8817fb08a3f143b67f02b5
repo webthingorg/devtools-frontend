@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97a75659_d8506255",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-15T14:01:21Z",
+      "side": 0,
+      "message": "So we break the external server workflow with this?",
+      "revId": "d2ea23f541a374191f8817fb08a3f143b67f02b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
