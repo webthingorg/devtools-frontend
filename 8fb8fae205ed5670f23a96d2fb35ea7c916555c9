@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "63f17871_33563419",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-15T22:58:42Z",
+      "side": 1,
+      "message": "I think it was an accidental paste. removed.",
+      "parentUuid": "95ba1bfe_af218ea9",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0bb7a92_e05dc2a8",
         "filename": "front_end/media/EventTimelineView.js",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e38f15f3_508ddf46",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-15T22:58:42Z",
+      "side": 1,
+      "message": "I went with a named const variable instead (still -1.5, but at least there aren\u0027t \"magic\" numbers now)",
+      "parentUuid": "c0bb7a92_e05dc2a8",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1329ee8c_a481fd22",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-15T22:58:42Z",
+      "side": 1,
+      "message": "I gave those a shot, but they don\u0027t really do the formatting I need. It\u0027s possible to zoom in to a specific time range, like 401 - 401.5 seconds, for example. using the Number.millisToString helper, each marker bar would get an identically named label, so it wouldn\u0027t be too helpful. using the Number.preciseMillisToString can give labels that overlap.",
+      "parentUuid": "6980c6c9_29c5c53b",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ffe9209_c4459744",
         "filename": "front_end/media/TickingFlameChart.js",
         "patchSetId": 9
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c71105c0_da1e0466",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-15T22:58:42Z",
+      "side": 1,
+      "message": "yes. I assume the typo is why my ctrl-f for remove never found this one before submitting.",
+      "parentUuid": "5ffe9209_c4459744",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "392319d1_fb277b99",
         "filename": "front_end/media/TickingFlameChart.js",
         "patchSetId": 9
@@ -84,6 +156,24 @@
       "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8e94dc6_3c7467e5",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-06-15T22:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "392319d1_fb277b99",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
