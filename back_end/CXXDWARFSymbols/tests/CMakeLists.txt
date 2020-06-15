@@ -10,7 +10,11 @@ configure_lit_site_cfg(
   ${CMAKE_CURRENT_SOURCE_DIR}/lit.site.cfg.py.in
   ${CMAKE_CURRENT_BINARY_DIR}/lit.site.cfg.py)
 
+if (SYMBOL_SERVER_BUILD_WASM)
+  set(lit_deps DWARFSymbolsPlugin)
+else()
+  set(lit_deps DWARFSymbolServer SymbolServerTests FileCheck count not)
+endif()
+
 add_lit_testsuite(check-symbol-server "Running symbol server lit test suite"
-  ${CMAKE_CURRENT_BINARY_DIR}/
-  DEPENDS DWARFSymbolServer SymbolServerTests FileCheck count not
-  )
+  ${CMAKE_CURRENT_BINARY_DIR}/ DEPENDS ${lit_deps})

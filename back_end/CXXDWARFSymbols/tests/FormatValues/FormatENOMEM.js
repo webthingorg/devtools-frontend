@@ -2,15 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// REQUIRES: formatters
-// RUN: %p/Inputs/lsp-encode %p/Inputs/formatString.json \
+// REQUIRES: formatters && !wasm_plugin
+// RUN: %p/Inputs/lsp-encode %p/Inputs/FormatString.json \
 // RUN: | %symbol-server 2>/dev/null | node %s | FileCheck %s
 
 // CHECK-NOT: Didn't consume
 // CHECK: Reading 4 bytes from offset 1028
 // CHECK: Result at: 0
 
-tests = require('./tests.js')
+tests = require('../NodeTests.js')
 
 // void __getMemory(uint32_t offset, uint32_t size, void* result);
 function proxyGetMemory(offset, size, result) {
