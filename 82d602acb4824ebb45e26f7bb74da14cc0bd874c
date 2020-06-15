@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b488fd1_39b23bd5",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T11:18:34Z",
+      "side": 1,
+      "message": "nit: Lets invert the logic to an early return here: if (filesContainV1Calls.size \u003d\u003d\u003d 0) return;\n\nWe could also initialise {fileMigratedError} in the if directly, its not used outside the if.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 37
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "335898ea_f72e8cc1",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T11:18:34Z",
+      "side": 1,
+      "message": "Lets turn it into a \n\n// TODO(crbug.com/941561): Remove once localization V1 is no longer used.\n\nThat will make it easier to find all the remaining cleanup tasks.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 70
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6a95234_e9f419bb",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T11:18:34Z",
+      "side": 1,
+      "message": "wdyt about extracting this into a small helper {findUIStringsNode} that takes a path and the content of that file and returns the TypeScript node for the UIStrings declaration (or null)?\n\nWe can re-use that for the \"unused UIStrings properties\" check as well, and its decently testable.",
+      "range": {
+        "startLine": 574,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 0
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b57f74_87c068a3",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T11:18:34Z",
+      "side": 1,
+      "message": "lets switch these around. the {isInMIgratedDIrectory} is a lot faster to perform, so we potentially skip unnecessary work (parsing and looking for UIStrings).",
+      "range": {
+        "startLine": 594,
+        "startChar": 0,
+        "endLine": 594,
+        "endChar": 66
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ddb09c8_3ad7f70c",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T11:18:34Z",
+      "side": 1,
+      "message": "nit: These could be updated to also use FRONT_END_PATH.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 100
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e6ee261_ecc3358c",
+        "filename": "scripts/localization/utils/tests/localization_utils_test.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T11:18:34Z",
+      "side": 1,
+      "message": "There is an {assert.deepStrictEqual} that should be used here.",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 73,
+        "endChar": 20
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
