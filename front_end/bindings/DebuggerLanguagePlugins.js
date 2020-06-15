@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Extensions from '../extensions/extensions.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -258,6 +259,51 @@ class SourceScope {
   }
 }
 
+class DebuggerLanguagePluginExtension {
+  constructor(pluginId, targetScript) {
+    console.error(`new plugin extension: ${pluginId}`);
+    this._pluginId = pluginId;
+    this._targetScript = targetScript;
+    this._requestId = 0;
+  }
+
+  _nextRequestId() {
+    return this._requestId++;
+  }
+
+  handleScript(script) {
+    if (script.isWasm() !== (this._targetScript.language === 'WebAssembly')) {
+      return false;
+    }
+    return script.debugSymbols && this._targetScript.symbol_types.includes(script.debugSymbols.type);
+  }
+
+  async addRawModule(rawModuleId, symbolsURL, rawModule) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'addRawModule', {rawModuleId, symbolsURL, rawModule});
+  }
+
+  async sourceLocationToRawLocation(sourceLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'sourceLocationToRawLocation', {sourceLocation});
+  }
+
+  async rawLocationToSourceLocation(rawLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'rawLocationToSourceLocation', {rawLocation});
+  }
+
+  async listVariablesInScope(rawLocation) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'listVariablesInScope', {rawLocation});
+  }
+
+  async evaluateVariable(name, location) {
+    return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+        this._pluginId, this._nextRequestId(), 'evaluateVariable', {name, location});
+  }
+}
+
 /**
  * @unrestricted
  */
@@ -273,6 +319,9 @@ export class DebuggerLanguagePluginManager {
     this._debuggerWorkspaceBinding = debuggerWorkspaceBinding;
     /** @type {!Array<!DebuggerLanguagePlugin>} */
     this._plugins = [];
+    for (const {pluginId, targetScript} of self.Extensions.extensionServer.languagePluginExtensions) {
+      this._plugins.push(new DebuggerLanguagePluginExtension(pluginId, targetScript));
+    }
 
     // @type {!Map<!Workspace.UISourceCode.UISourceCode, !Array<[string, !SDK.Script.Script]>>}
     this._uiSourceCodes = new Map();
@@ -285,12 +334,15 @@ export class DebuggerLanguagePluginManager {
         false /* isServiceProject */);
     Bindings.NetworkProject.setTargetForProject(this._project, target);
 
+
     const runtimeModel = debuggerModel.runtimeModel();
     this._eventHandlers = [
       this._debuggerModel.addEventListener(
           SDK.DebuggerModel.Events.ParsedScriptSource, this._newScriptSourceListener, this),
       runtimeModel.addEventListener(
-          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this)
+          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this),
+      self.Extensions.extensionServer.addEventListener(
+          Extensions.ExtensionServer.Events.LanguagePluginExtensionAdded, this._languagePluginExtensionAdded, this)
     ];
   }
 
@@ -303,6 +355,10 @@ export class DebuggerLanguagePluginManager {
    */
   addPlugin(plugin) {
     this._plugins.push(plugin);
+  }
+
+  _languagePluginExtensionAdded(event) {
+    this.addPlugin(new DebuggerLanguagePluginExtension(event.data.pluginId, event.data.targetScript));
   }
 
   /**

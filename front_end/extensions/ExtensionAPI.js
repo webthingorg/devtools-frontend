@@ -50,6 +50,7 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     RecordingStopped: 'trace-recording-stopped-',
     ResourceAdded: 'resource-added',
     ResourceContentCommitted: 'resource-content-committed',
+    LanguagePluginRequest: 'language-plugin-request-',
     ViewShown: 'view-shown-',
     ViewHidden: 'view-hidden-'
   };
@@ -80,7 +81,9 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     SetSidebarPage: 'setSidebarPage',
     ShowPanel: 'showPanel',
     Unsubscribe: 'unsubscribe',
-    UpdateButton: 'updateButton'
+    UpdateButton: 'updateButton',
+    SetLanguagePluginResponse: 'setLanguagePluginResponse',
+    RegisterLanguagePluginExtension: 'registerLanguagePluginExtension'
   };
 }
 
@@ -383,6 +386,62 @@ self.injectedExtensionAPI = function(
   class ElementsPanel extends PanelWithSidebarClass {
     constructor() {
       super('elements');
+    }
+  }
+
+  class LanguageServicesAPI {
+    constructor() {
+      this._id = 'languageServices';
+      this._nextPluginId = 0;
+      this._plugins = {};
+      this._onLanguagePluginRequest = new EventSink(events.LanguagePluginRequest + 'sources');
+      this._onLanguagePluginRequest.addListener(this._dispatchPluginRequest.bind(this));
+    }
+
+    _dispatchCall(plugin, method, parameters) {
+      switch (method) {
+        case 'addRawModule':
+          return plugin.addRawModule(parameters.rawModuleId, parameters.symbolsURL, parameters.rawModule);
+        case 'sourceLocationToRawLocation':
+          return plugin.sourceLocationToRawLocation(parameters.sourceLocation);
+        case 'rawLocationToSourceLocation':
+          return plugin.rawLocationToSourceLocation(parameters.rawLocation);
+        case 'listVariablesInScope':
+          return plugin.listVariablesInScope(parameters.rawLocation);
+        case 'evaluateVariable':
+          return plugin.evaluateVariable(parameters.name, parameters.location);
+      }
+      throw `Unknown method ${method}`;
+    }
+
+    async _dispatchPluginRequest(pluginId, requestId, method, parameters) {
+      const {plugin} = this._plugins[pluginId];
+      if (!plugin) {
+        throw `Unknown plugin id ${pluginId}`;
+      }
+
+      const response = await this._dispatchCall(plugin, method, parameters);
+      const request = {
+        command: commands.SetLanguagePluginResponse,
+        id: this._id,
+        pluginId: pluginId,
+        requestId: requestId,
+        response: response
+      };
+      extensionServer.sendRequest(request);
+    }
+
+    registerLanguagePluginExtension(plugin, targetScript) {
+      const plugin_id = this._nextPluginId++;
+      const wrapper = {plugin, targetScript};
+      this._plugins[plugin_id] = wrapper;
+      const request = {
+        command: commands.RegisterLanguagePluginExtension,
+        id: this._id,
+        pluginId: plugin_id,
+        targetScript: targetScript
+      };
+      extensionServer.sendRequest(request);
     }
   }
 
@@ -824,6 +883,7 @@ self.injectedExtensionAPI = function(
   if (extensionInfo.exposeExperimentalAPIs !== false) {
     chrome.experimental = chrome.experimental || {};
     chrome.experimental.devtools = chrome.experimental.devtools || {};
+    chrome.experimental.devtools.languageServices = new LanguageServicesAPI();
 
     const properties = Object.getOwnPropertyNames(coreAPI);
     for (let i = 0; i < properties.length; ++i) {
