@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98c69f88_6cbae4e2",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T06:40:11Z",
+      "side": 1,
+      "message": "I think this piece of code is complex enough, that it warrants some unit tests. Maybe we could split this up a bit, so the interface becomes something where we take the content of the file and a list of unused string ids. That way we could pass in some mock JavaScript in unit tests :)",
+      "range": {
+        "startLine": 101,
+        "startChar": 15,
+        "endLine": 101,
+        "endChar": 36
+      },
+      "revId": "140157b6e403c9ed7d2b121f98ab9e27c65d5bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e358a074_bca0dcbf",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T06:40:11Z",
+      "side": 1,
+      "message": "AFAICT this function doesn\u0027t use promises or calls anything async. This can be removed.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 5
+      },
+      "revId": "140157b6e403c9ed7d2b121f98ab9e27c65d5bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "319e992d_eea5c821",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T06:40:11Z",
+      "side": 1,
+      "message": "nit: Remove the comment, it doesn\u0027t add any additional information",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 30
+      },
+      "revId": "140157b6e403c9ed7d2b121f98ab9e27c65d5bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e9227a4_3fb54e9f",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T06:40:11Z",
+      "side": 1,
+      "message": "There is a slight bug here. This will cause the recursion only to stop iff we find unused string Ids, otherwise we will iterate the whole AST even if we find the \u0027UIStrings\u0027 declaration.",
+      "range": {
+        "startLine": 139,
+        "startChar": 12,
+        "endLine": 139,
+        "endChar": 38
+      },
+      "revId": "140157b6e403c9ed7d2b121f98ab9e27c65d5bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60fde997_8826b960",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T06:40:11Z",
+      "side": 1,
+      "message": "Similar bug here. The value of {uiStringsNodeFound} is not not checked. Even if one of the siblings is the \u0027UIStrings\u0027 declaration, we check all other siblings (which will probably be all top-level declarations).",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 33
+      },
+      "revId": "140157b6e403c9ed7d2b121f98ab9e27c65d5bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9526db97_fe0a0da8",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T06:40:11Z",
+      "side": 1,
+      "message": "After reading through the code, I suggest we re-write {getTextToRemove} to something like:\n\n function getTextToRemove(filePath, content, unusedUIStringsEntries) {\n   const sourceFile \u003d ts.createSourceFile(filePath, content, ts.ScriptTarget.ESNext, true);\n   const textToRemoveList \u003d [];\n   const unusedStringIds \u003d new Set(...unusedUIStringsEntries.map(entry \u003d\u003e entry.stringId));\n\n   const collectUnusedPropertyTextsFromNode \u003d node \u003d\u003e {\n     // check through the properties to see if the name matches a stringId that should be removed\n     const unusedPropertyTexts \u003d [];\n     for (const property of node.initializer.properties) {\n       if (unusedStringIds.has(property.name.escapedText)) {\n         // get the full text of the entry including descriptions and placeholders\n         unusedPropertyTexts.push(property.getFullText());\n       }\n     }\n     return unusedPropertyTexts;\n   };\n  \n   const findUIStringsNode \u003d function(node) {\n     if (node.kind \u003d\u003d\u003d ts.SyntaxKind.VariableDeclaration \u0026\u0026 node.name.escapedText \u003d\u003d\u003d \u0027UIStrings\u0027) {\n       return collectUnusedPropertyTextsFromNode(node);\n     } else {\n       // \u0027UIStrings\u0027 declaration not found, lets recurse downwards.\n       for (const child of \u003c\u003c node\u0027s children \u003e\u003e ) {\n         const childPropertyTexts \u003d findUIStringsNode(child);\n         if (childPropertyTexts) {\n           // Found the \u0027UIStrings\u0027 declaration, abort the recursion and bubble up the result.\n           return childPropertyTexts;\n         }\n       }\n     }\n     return null;\n   };\n   findUIStringsNode(sourceFile);\n   return textToRemoveList;\n }\n\nOne more side-note: I think a BFS approach might be better, as \u0027UIStrings\u0027 is always a top-level declaration (so its high up in the tree, might just be one of the later siblings, depending on where in the file its put).",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 1
+      },
+      "revId": "140157b6e403c9ed7d2b121f98ab9e27c65d5bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
