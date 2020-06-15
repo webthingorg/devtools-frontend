@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40820763_33d804bb",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-15T14:48:47Z",
+      "side": 1,
+      "message": "Nit: not necessary.",
+      "range": {
+        "startLine": 122,
+        "startChar": 72,
+        "endLine": 122,
+        "endChar": 95
+      },
+      "revId": "d51d72da4b716ec2e60e5f80554245b4c52ffbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b7b33ed_7983c83d",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-15T14:48:47Z",
+      "side": 1,
+      "message": "This should be `\u0026panel\u003d${queryParams.panel}` right?",
+      "range": {
+        "startLine": 132,
+        "startChar": 20,
+        "endLine": 132,
+        "endChar": 41
+      },
+      "revId": "d51d72da4b716ec2e60e5f80554245b4c52ffbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7059bc06_14209593",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-15T14:48:47Z",
+      "side": 1,
+      "message": "I wouldn\u0027t expect this test to be slow. Can we not set a large timeout here, since we are only opening 1 panel?",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 22
+      },
+      "revId": "d51d72da4b716ec2e60e5f80554245b4c52ffbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
