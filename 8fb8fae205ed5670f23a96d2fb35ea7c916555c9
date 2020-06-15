@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "95ba1bfe_af218ea9",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-15T07:08:17Z",
+      "side": 1,
+      "message": "What does this typedef refer to?",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0bb7a92_e05dc2a8",
         "filename": "front_end/media/EventTimelineView.js",
         "patchSetId": 9
@@ -13,6 +30,40 @@
       "writtenOn": "2020-06-12T22:00:56Z",
       "side": 1,
       "message": "You can do:\n\n    this._normalizedTimestamp \u003d -1.5;\n    this._normalizedTimestamp \u003d -1;\n\n…if you prefer to keep the other check simpler (\u003d\u003d\u003d -1 instead of \u003d\u003d\u003d -1.5). The important part is that the initial value is a double (if the eventual values that will be assigned to it are doubles too).",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6980c6c9_29c5c53b",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-15T07:08:17Z",
+      "side": 1,
+      "message": "Would it make sense to re-use some existing formatting helpers? https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/UIUtils.js;l\u003d583;drc\u003dee6e3e91411f30fbef95af0035992bdc857039d8?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ffe9209_c4459744",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-15T07:08:17Z",
+      "side": 1,
+      "message": "Was it meant to say \"Remove these\"?",
       "revId": "8fb8fae205ed5670f23a96d2fb35ea7c916555c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
