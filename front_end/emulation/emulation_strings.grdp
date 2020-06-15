@@ -24,8 +24,14 @@
   <message name="IDS_DEVTOOLS_146bdebb324a64d327b1dde22a07d0bd" desc="Text in Device Mode View of the Device Toolbar">
     Laptop
   </message>
+  <message name="IDS_DEVTOOLS_1d756deec919149f5c6de09b14cfce4e" desc="Text of multi-segment feature toggle button when it is on">
+    Do not use Platform Multi-window-segment support
+  </message>
   <message name="IDS_DEVTOOLS_391e4e3cd855d914f85f3a4e1b9a00ea" desc="Title of the rotate/screen orientation button">
     Screen orientation options
+  </message>
+  <message name="IDS_DEVTOOLS_4d91ccaffefc8829193af212b25bcc5e" desc="Text of the multi-segment feature toggle button when it is off">
+    Use Platform Multi-window-segment support
   </message>
   <message name="IDS_DEVTOOLS_89999eac57e5838aa3adb04ad831f5d3" desc="Text in Sensors View of the Device Toolbar">
     Custom orientation

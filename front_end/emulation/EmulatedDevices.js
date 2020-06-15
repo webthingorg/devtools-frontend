@@ -166,6 +166,24 @@ export class EmulatedDevice {
       }
 
       /**
+       * @param {*} segmentsJson
+       * @return {!Array<UI.Geometry.Rect>}
+       */
+      function parseSegments(segmentsJson) {
+        const result = [];
+        for (let i = 0; i < segmentsJson.length; ++i) {
+          const segment = /** @type{UI.Geometry.Rect} */ {};
+          const segJson = segmentsJson[i];
+          segment.left = parseIntValue(segJson, 'left');
+          segment.top = parseIntValue(segJson, 'top');
+          segment.width = parseIntValue(segJson, 'width');
+          segment.height = parseIntValue(segJson, 'height');
+          result.push(segment);
+        }
+        return /** @type {!Array<UI.Geometry.Rect>} */ (result);
+      }
+
+      /**
        * @param {*} json
        * @return {!Orientation}
        */
@@ -195,6 +213,11 @@ export class EmulatedDevice {
           result.hinge = parseHinge(parseValue(json, 'hinge', 'object', undefined));
         }
 
+        if (json['segments']) {
+          result.segments = parseSegments(parseValue(json, 'segments', 'object', []));
+        } else {
+          result.segments = [{'left': 0, 'top': 0, 'width': result.width, 'height': result.height}];
+        }
         return /** @type {!Orientation} */ (result);
       }
 
@@ -429,6 +452,16 @@ export class EmulatedDevice {
         json['hinge']['outlineColor']['g'] = orientation.hinge.outlineColor.g;
         json['hinge']['outlineColor']['b'] = orientation.hinge.outlineColor.b;
         json['hinge']['outlineColor']['a'] = orientation.hinge.outlineColor.a;
+      }
+    }
+    if (orientation.segments && orientation.segments.length > 1) {
+      json['segments'] = [];
+      for (let i = 0; i < orientation.segments.length; ++i) {
+        json['segments'][i] = {};
+        json['segments'][i]['x'] = orientation.segments[i].left;
+        json['segments'][i]['y'] = orientation.segments[i].top;
+        json['segments'][i]['width'] = orientation.segments[i].width;
+        json['segments'][i]['height'] = orientation.segments[i].height;
       }
     }
     return json;
@@ -668,6 +701,7 @@ export class EmulatedDevicesList extends Common.ObjectWrapper.ObjectWrapper {
     this.dispatchEventToListeners(Events.StandardDevicesUpdated);
   }
 
+
   /**
    * @param {!Set.<!EmulatedDevice>} from
    * @param {!Set.<!EmulatedDevice>} to
@@ -696,5 +730,5 @@ export const Events = {
 /** @typedef {!{title: string, orientation: string, insets: !UI.Geometry.Insets, image: ?string}} */
 export let Mode;
 
-/** @typedef {!{width: number, height: number, outlineInsets: ?UI.Geometry.Insets, outlineImage: ?string, hinge: ?SDK.OverlayModel.Hinge}} */
+/** @typedef {!{width: number, height: number, outlineInsets: ?UI.Geometry.Insets, outlineImage: ?string, hinge: ?SDK.OverlayModel.Hinge, segments: Array<Rect>}} */
 export let Orientation;

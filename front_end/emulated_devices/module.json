@@ -1891,7 +1891,20 @@
                           "b": 38,
                           "a": 1
                       }
-                  }
+                  },
+                  "segments": [
+                    { "left": 0,
+                      "top": 0,
+                      "width" : 540,
+                      "height" : 720
+                    },
+                    {
+                      "left" : 574,
+                      "top" : 0,
+                      "width" : 540,
+                      "height" : 720
+                    }
+                  ]
               },
               "horizontal-spanned": {
                   "width": 720,
@@ -1907,7 +1920,20 @@
                         "b": 38,
                         "a": 1
                       }
-                  }
+                  },
+                  "segments" : [
+                    {"left" : 0,
+                    "top" : 0,
+                    "width" : 720,
+                    "height" : 540
+                    },
+                    {
+                      "left" : 0,
+                      "top" : 574,
+                      "width" : 720,
+                      "height" : 540
+                    }
+                  ]
               }
           },
           "capabilities": [

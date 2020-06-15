@@ -61,6 +61,10 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     this._deviceOutlineSetting = Common.Settings.Settings.instance().moduleSetting('emulation.showDeviceOutline');
     this._deviceOutlineSetting.addChangeListener(this._deviceOutlineSettingChanged, this);
 
+    this._usePlatformMultiSegment =
+        Common.Settings.Settings.instance().moduleSetting('emulation.usePlatformMultiSegment');
+    this._usePlatformMultiSegment.addChangeListener(this._usePlatformMultiSegmentChanged, this);
+
     this._toolbarControlsEnabledSetting = Common.Settings.Settings.instance().createSetting(
         'emulation.toolbarControlsEnabled', true, Common.Settings.SettingStorageType.Session);
 
@@ -389,6 +393,13 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @return {!Common.Settings.Setting}
    */
+  usePlatformMultiSegment() {
+    return this._deviceOutlineSetting;
+  }
+
+  /**
+   * @return {!Common.Settings.Setting}
+   */
   toolbarControlsEnabledSetting() {
     return this._toolbarControlsEnabledSetting;
   }
@@ -469,6 +480,10 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   _deviceOutlineSettingChanged() {
+    this._calculateAndEmulate(false);
+  }
+
+  _usePlatformMultiSegmentChanged() {
     this._calculateAndEmulate(false);
   }
 
