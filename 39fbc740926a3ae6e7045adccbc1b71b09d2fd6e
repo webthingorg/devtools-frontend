@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a0e0ddb_d86c09e7",
+        "filename": "front_end/wasmparser_worker/WasmParserWorker.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T10:39:29Z",
+      "side": 1,
+      "message": "Nit: \"gets\", and end the sentence with a period.",
+      "range": {
+        "startLine": 123,
+        "startChar": 57,
+        "endLine": 123,
+        "endChar": 62
+      },
+      "revId": "39fbc740926a3ae6e7045adccbc1b71b09d2fd6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c62616a_d4314653",
+        "filename": "front_end/wasmparser_worker/WasmParserWorker.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-15T10:39:29Z",
+      "side": 1,
+      "message": "Nit: risk running out of",
+      "range": {
+        "startLine": 124,
+        "startChar": 60,
+        "endLine": 124,
+        "endChar": 78
+      },
+      "revId": "39fbc740926a3ae6e7045adccbc1b71b09d2fd6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
