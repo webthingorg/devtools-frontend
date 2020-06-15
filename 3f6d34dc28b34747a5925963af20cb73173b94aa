@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66b877cd_5b850cb6",
+        "filename": "scripts/localization/check_localizability.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-15T11:28:45Z",
+      "side": 1,
+      "message": "Lets be more defensive here. The last V2 case is only \u0027UIStrings\u0027, which we can list as a \"do nothing\" case, while we should throw an error for anything else (the default case).",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 12
+      },
+      "revId": "3f6d34dc28b34747a5925963af20cb73173b94aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
