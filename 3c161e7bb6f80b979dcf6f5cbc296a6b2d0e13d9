@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bc49ae1_47a53133",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-15T19:26:17Z",
+      "side": 1,
+      "message": "I see most test in this file have a comment with a description, perhaps you should add one too.",
+      "range": {
+        "startLine": 775,
+        "startChar": 22,
+        "endLine": 775,
+        "endChar": 46
+      },
+      "revId": "3c161e7bb6f80b979dcf6f5cbc296a6b2d0e13d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
