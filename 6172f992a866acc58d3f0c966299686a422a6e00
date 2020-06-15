@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "063c7181_61731614",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-15T18:31:09Z",
+      "side": 1,
+      "message": "Nit: This name is odd given the context (feels like it\u0027s referencing an HTML \u003cspan\u003e element) but I suspect you\u0027re really talking about \"spanning screens\". Since it\u0027s already in the chromium.src, I wouldn\u0027t block.",
+      "revId": "6172f992a866acc58d3f0c966299686a422a6e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
