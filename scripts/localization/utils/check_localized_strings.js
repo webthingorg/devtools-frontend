@@ -19,6 +19,7 @@ const espreeTypes = localizationUtils.espreeTypes;
 const espree = localizationUtils.espree;
 const extensionStringKeys = ['category', 'destination', 'title', 'title-mac'];
 const {parseLocalizableStringFromTypeScriptFile} = require('./parse_typescript_files');
+const ts = require('typescript');
 
 // Format of frontendStrings
 // { IDS_md5-hash => {
@@ -100,6 +101,11 @@ const uiStringsMap = new Map();
 
 const devtoolsFrontendPath = path.resolve(__dirname, '..', '..', '..', 'front_end');
 let devtoolsFrontendDirs;
+// During migration process, we will update this when a directory is migrated
+// e.g. const migratedDirsSet = new Set(['settings', 'console']);
+// This will be removed during the cleanup when migration is completed
+const migratedDirsSet = new Set([]);
+const locV1CallsInMigratedFiles = new Set();
 
 /**
  * The following functions validate and update grd/grdp files.
@@ -371,7 +377,13 @@ function parseLocalizableStringFromNode(node, filePath) {
     return;
   }
 
-  const locCase = localizationUtils.getLocalizationCase(node);
+
+  const [locCase, locVersion] = localizationUtils.getLocalizationCaseAndVersion(node);
+  if (locVersion === 1) {
+    // check if the V1 API call is in a directory that are already migrated to V2
+    checkMigratedDirectory(filePath);
+  }
+
   switch (locCase) {
     case 'Common.UIString':
     case 'Platform.UIString':
@@ -539,6 +551,49 @@ function addString(str, code, filePath, location, argumentNodes) {
   }
 
   frontendStrings.set(ids, currentString);
+}
+
+/**
+ * Check if the file is in a directory that has been migrated to V2
+ */
+function isInMigratedDirectory(filePath) {
+  const relativeFilePath = localizationUtils.getRelativeFilePathFromFrontEnd(filePath);
+  const dirName = relativeFilePath.slice(0, relativeFilePath.indexOf('\\'));
+  return migratedDirsSet.has(dirName);
+}
+
+/**
+ * Check if UIStrings presents in the file
+ */
+function hasUIStrings(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const sourceFile = ts.createSourceFile(filePath, content, ts.ScriptTarget.ESNext, true);
+  let uiStringsFound = false;
+
+
+  const findUIStringsNode = function(node) {
+    // find the UIStrings node
+    if (node.kind === ts.SyntaxKind.VariableDeclaration && node.name.escapedText === 'UIStrings') {
+      uiStringsFound = true;
+    }
+    if (!uiStringsFound) {
+      node.forEachChild(child => {
+        findUIStringsNode(child);
+      });
+    }
+  };
+
+  findUIStringsNode(sourceFile);
+  return uiStringsFound;
+}
+
+/**
+ * Add the file path if it's in a migrated directory
+ */
+function checkMigratedDirectory(filePath) {
+  if (hasUIStrings(filePath) || isInMigratedDirectory(filePath)) {
+    locV1CallsInMigratedFiles.add(filePath);
+  }
 }
 
 /**
@@ -721,7 +776,8 @@ function getMessagesToAdd() {
 
   const difference = [];
   for (const [ids, frontendString] of frontendStrings) {
-    if (!IDSkeys.has(ids) || !messageExists(ids, frontendString.grdpPath)) {
+    if (!isInMigratedDirectory(frontendString.filepath) &&
+        (!IDSkeys.has(ids) || !messageExists(ids, frontendString.grdpPath))) {
       difference.push([ids, frontendString]);
     }
   }
@@ -810,4 +866,5 @@ module.exports = {
   validateGrdAndGrdpFiles,
   uiStringsMap,
   localizationCallsMap,
+  locV1CallsInMigratedFiles,
 };

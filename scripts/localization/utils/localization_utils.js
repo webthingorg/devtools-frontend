@@ -41,6 +41,7 @@ const cppSpecialCharactersMap = {
 const IDSPrefix = 'IDS_DEVTOOLS_';
 
 const SRC_PATH = path.resolve(__dirname, '..', '..', '..');
+const FRONT_END_PATH = path.resolve(SRC_PATH, 'front_end');
 const GRD_PATH = path.resolve(SRC_PATH, 'front_end', 'langpacks', 'devtools_ui_strings.grd');
 const SHARED_STRINGS_PATH = path.resolve(SRC_PATH, 'front_end', 'langpacks', 'shared_strings.grdp');
 const NODE_MODULES_PATH = path.resolve(SRC_PATH, 'node_modules');
@@ -49,6 +50,10 @@ const espree = require(path.resolve(NODE_MODULES_PATH, '@typescript-eslint', 'pa
 
 function getRelativeFilePathFromSrc(filePath) {
   return path.relative(SRC_PATH, filePath);
+}
+
+function getRelativeFilePathFromFrontEnd(filePath) {
+  return path.relative(FRONT_END_PATH, filePath);
 }
 
 function shouldParseDirectory(directoryName) {
@@ -145,32 +150,33 @@ function verifyIdentifier(node, name) {
   return node !== undefined && node.type === espreeTypes.IDENTIFIER && node.name === name;
 }
 
-function getLocalizationCase(node) {
+
+function getLocalizationCaseAndVersion(node) {
   if (isNodeCommonUIStringCall(node)) {
-    return 'Common.UIString';
+    return ['Common.UIString', 1];
   }
   if (isNodeCommonUIStringFormat(node)) {
-    return 'Common.UIStringFormat';
+    return ['Common.UIStringFormat', 1];
   }
   if (isNodelsTaggedTemplateExpression(node)) {
-    return 'Tagged Template';
+    return ['Tagged Template', 1];
   }
   if (isNodeUIformatLocalized(node)) {
-    return 'UI.formatLocalized';
+    return ['UI.formatLocalized', 1];
   }
   if (isNodePlatformUIStringCall(node) || isNodeUIStringDirectCall(node)) {
-    return 'Platform.UIString';
+    return ['Platform.UIString', 1];
   }
   if (isNodeGetLocalizedStringCall(node)) {
-    return 'Common.i18n.getLocalizedString';
+    return ['Common.i18n.getLocalizedString', 2];
   }
   if (isNodeGetFormatLocalizedStringCall(node)) {
-    return 'Common.i18n.getFormatLocalizedString';
+    return ['Common.i18n.getFormatLocalizedString', 2];
   }
   if (isNodeDeclaresUIStrings(node)) {
-    return 'UIStrings';
+    return ['UIStrings', 2];
   }
-  return null;
+  return [null, null];
 }
 
 function isLocalizationCall(node) {
@@ -403,8 +409,9 @@ module.exports = {
   getChildDirectoriesFromDirectory,
   getFilesFromDirectory,
   getIDSKey,
-  getLocalizationCase,
+  getLocalizationCaseAndVersion,
   getLocationMessage,
+  getRelativeFilePathFromFrontEnd,
   getRelativeFilePathFromSrc,
   getRelativeGrdpPath,
   GRD_PATH,
