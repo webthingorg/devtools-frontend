@@ -1706,6 +1706,14 @@ export class DOMModel extends SDKModel {
   }
 
   /**
+   * @param {string} frameId
+   * @return {!Promise<?Protocol.DOM.GetFrameOwnerResponse>}
+   */
+  getFrameOwner(frameId) {
+    return this._agent.invoke_getFrameOwner({frameId});
+  }
+
+  /**
    * @param {boolean=} minorChange
    */
   markUndoableState(minorChange) {

@@ -14,6 +14,9 @@ Resources.ApplicationCacheModel = ResourcesModule.ApplicationCacheModel.Applicat
 Resources.ApplicationPanelSidebar = ResourcesModule.ApplicationPanelSidebar.ApplicationPanelSidebar;
 
 /** @constructor */
+Resources.SidebarFrameTree = ResourcesModule.SidebarFrameTree.SidebarFrameTree;
+
+/** @constructor */
 Resources.IndexedDBTreeElement = ResourcesModule.ApplicationPanelSidebar.IndexedDBTreeElement;
 
 /** @constructor */
