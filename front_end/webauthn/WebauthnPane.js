@@ -3,24 +3,63 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+/**
+ * @implements {SDK.SDKModel.SDKModelObserver<!WebAuthnModel>}
+ * @unrestricted
+ */
 export class WebauthnPaneImpl extends UI.Widget.VBox {
   constructor() {
     super(true);
     this.registerRequiredCSS('webauthn/webauthnPane.css');
+    this._enabled = false;
 
-    const topToolbar = new UI.Toolbar.Toolbar('webauthn-toolbar', this.contentElement);
-    this._virtualAuthEnvEnabledSetting =
-        Common.Settings.Settings.instance().createSetting('virtualAuthEnvEnabled', false);
-    this._virtualAuthEnvEnabledSetting.addChangeListener(() => this._toggleVirtualAuthEnv());
-    const enableCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
-        this._virtualAuthEnvEnabledSetting, Common.UIString.UIString('Enable Virtual Authenticator Environment'),
-        Common.UIString.UIString('Enable Virtual Authenticator Environment'));
-    topToolbar.appendToolbarItem(enableCheckbox);
+    const topToolbarContainer = this.contentElement.createChild('div', 'webauthn-toolbar-container');
+    const topToolbar = new UI.Toolbar.Toolbar('webauthn-toolbar', topToolbarContainer);
+    const enableCheckboxTitle = Common.UIString.UIString('Enable Virtual Authenticator Environment');
+    this._enableCheckbox =
+        new UI.Toolbar.ToolbarCheckbox(enableCheckboxTitle, enableCheckboxTitle, this.handleCheckboxToggle.bind(this));
+    topToolbar.appendToolbarItem(this._enableCheckbox);
+
+    SDK.SDKModel.TargetManager.instance().observeModels(SDK.WebAuthnModel.WebAuthnModel, this);
   }
 
-  _toggleVirtualAuthEnv() {
-    // TODO(crbug.com/1034663): toggle the virtual authenticator environment
+  /**
+   * @override
+   */
+  ownerViewDisposed() {
+    this._enableCheckbox.setChecked(false);
+    this._setVirtualAuthEnvEnabled(false);
+  }
+
+  /**
+   * @override
+   * @param {!SDK.WebAuthnModel.WebAuthnModel} webAuthnModel
+   */
+  modelAdded(webAuthnModel) {
+    this._setVirtualAuthEnvEnabled(this._enabled);
+  }
+
+  /**
+   * @override
+   * @param {!SDK.WebAuthnModel.WebAuthnModel} webAuthnModel
+   */
+  modelRemoved(webAuthnModel) {
+  }
+
+  /**
+   * @param {boolean} enable
+   */
+  _setVirtualAuthEnvEnabled(enable) {
+    this._enabled = enable;
+    for (const webAuthnModel of SDK.SDKModel.TargetManager.instance().models(SDK.WebAuthnModel.WebAuthnModel)) {
+      webAuthnModel.setVirtualAuthEnvEnabled(this._enabled);
+    }
+  }
+
+  handleCheckboxToggle() {
+    this._setVirtualAuthEnvEnabled(!this._enabled);
   }
 }
