@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ca92cf3_aaf11fb6",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-16T20:53:30Z",
+      "side": 1,
+      "message": "Note that this change was required for the typescript assertion to work (there\u0027s a design limitation that prevents them from working with arrow functions: https://github.com/microsoft/TypeScript/issues/34523)",
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
