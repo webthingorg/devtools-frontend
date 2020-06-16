@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "6b544b27_13bdc108",
+        "filename": "test/unittests/front_end/inspector_overlay/common_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-16T21:04:18Z",
+      "side": 1,
+      "message": "maybe we could make a helper for accessing window so we only need to do this in one place? or maybe a file specific ts-ignore?",
+      "parentUuid": "eb4a097c_9ce7b967",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 17
+      },
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba4c5da8_397ffbd1",
         "filename": "test/unittests/front_end/inspector_overlay/css_grid_label_helpers_test.ts",
         "patchSetId": 1
