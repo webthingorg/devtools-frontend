@@ -50,6 +50,7 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     RecordingStopped: 'trace-recording-stopped-',
     ResourceAdded: 'resource-added',
     ResourceContentCommitted: 'resource-content-committed',
+    LanguagePluginRequest: 'language-plugin-request',
     ViewShown: 'view-shown-',
     ViewHidden: 'view-hidden-'
   };
@@ -80,7 +81,9 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     SetSidebarPage: 'setSidebarPage',
     ShowPanel: 'showPanel',
     Unsubscribe: 'unsubscribe',
-    UpdateButton: 'updateButton'
+    UpdateButton: 'updateButton',
+    SetLanguagePluginResponse: 'setLanguagePluginResponse',
+    RegisterLanguagePluginExtension: 'registerLanguagePluginExtension'
   };
 }
 
@@ -342,6 +345,66 @@ self.injectedExtensionAPI = function(
     __proto__: ExtensionViewImpl.prototype
   };
 
+  /**
+   * @constructor
+   */
+  function LanguageServicesAPIImpl() {
+    this._nextPluginId = 0;
+    this._plugins = new Map();
+    this._onLanguagePluginRequest = new EventSink(events.LanguagePluginRequest);
+    this._onLanguagePluginRequest.addListener(_dispatchPluginRequest.bind(this));
+
+    function _dispatchPluginRequest(pluginId, requestId, method, parameters) {
+      if (!this._plugins.has(pluginId)) {
+        _respond({error: `Unknown plugin id ${pluginId}`});
+        return;
+      }
+
+      const {plugin} = this._plugins.get(pluginId);
+      _dispatchCall(plugin, method, parameters).then(result => _respond({result})).catch(error => _respond({error}));
+
+      function _respond(response) {
+        const request =
+            {command: commands.SetLanguagePluginResponse, pluginId: pluginId, requestId: requestId, response};
+        extensionServer.sendRequest(request);
+      }
+
+      async function _dispatchCall(plugin, method, parameters) {
+        switch (method) {
+          case 'addRawModule':
+            return await plugin.addRawModule(parameters.rawModuleId, parameters.symbolsURL, parameters.rawModule);
+          case 'sourceLocationToRawLocation':
+            return await plugin.sourceLocationToRawLocation(parameters.sourceLocation);
+          case 'rawLocationToSourceLocation':
+            return await plugin.rawLocationToSourceLocation(parameters.rawLocation);
+          case 'listVariablesInScope':
+            return await plugin.listVariablesInScope(parameters.rawLocation);
+          case 'evaluateVariable':
+            return await plugin.evaluateVariable(parameters.name, parameters.location);
+        }
+        throw `Unknown language plugin method ${method}`;
+      }
+    }
+  }
+
+  LanguageServicesAPIImpl.prototype = {
+    /**
+     * @param {*} plugin The language plugin instance to register.
+     * @param {{language: string, symbol_types: !Array<string>}} supportedScriptTypes Script language and debug symbol types supported by this extension.
+     */
+    registerLanguagePluginExtension: function(plugin, supportedScriptTypes) {
+      const plugin_id = this._nextPluginId++;
+      const wrapper = {plugin, supportedScriptTypes};
+      this._plugins.set(plugin_id, wrapper);
+      const request = {
+        command: commands.RegisterLanguagePluginExtension,
+        pluginId: plugin_id,
+        supportedScriptTypes: supportedScriptTypes
+      };
+      extensionServer.sendRequest(request);
+    }
+  };
+
   function declareInterfaceClass(implConstructor) {
     return function() {
       const impl = {__proto__: implConstructor.prototype};
@@ -367,6 +430,7 @@ self.injectedExtensionAPI = function(
     return typeof lastArgument === 'function' ? lastArgument : undefined;
   }
 
+  const LanguageServicesAPI = declareInterfaceClass(LanguageServicesAPIImpl);
   const Button = declareInterfaceClass(ButtonImpl);
   const EventSink = declareInterfaceClass(EventSinkImpl);
   const ExtensionPanel = declareInterfaceClass(ExtensionPanelImpl);
@@ -824,6 +888,7 @@ self.injectedExtensionAPI = function(
   if (extensionInfo.exposeExperimentalAPIs !== false) {
     chrome.experimental = chrome.experimental || {};
     chrome.experimental.devtools = chrome.experimental.devtools || {};
+    chrome.experimental.devtools.languageServices = new LanguageServicesAPI();
 
     const properties = Object.getOwnPropertyNames(coreAPI);
     for (let i = 0; i < properties.length; ++i) {
@@ -850,7 +915,8 @@ self.injectedExtensionAPI = function(
  * @return {string}
  */
 self.buildExtensionAPIInjectedScript = function(extensionInfo, inspectedTabId, themeName, keysToForward, testHook) {
-  const argumentsJSON = [extensionInfo, inspectedTabId || null, themeName, keysToForward].map(_ => JSON.stringify(_)).join(',');
+  const argumentsJSON =
+      [extensionInfo, inspectedTabId || null, themeName, keysToForward].map(_ => JSON.stringify(_)).join(',');
   if (!testHook) {
     testHook = () => {};
   }
