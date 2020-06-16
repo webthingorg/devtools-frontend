@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fb52f71_6e834517",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-16T16:01:32Z",
+      "side": 1,
+      "message": "Please provide a better decription, e.g. \"Enable frame properties tree in Application panel\".\nThis also tells interested users where to find the frame tree.",
+      "range": {
+        "startLine": 190,
+        "startChar": 52,
+        "endLine": 190,
+        "endChar": 62
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b1512bc_f33f45fb",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-16T16:01:32Z",
+      "side": 1,
+      "message": "Can we initialize this to null if the experiement is disabled, and have all the other code be conditional on this being non-null? In that way we only query the experiment in one place.",
+      "range": {
+        "startLine": 162,
+        "startChar": 11,
+        "endLine": 162,
+        "endChar": 26
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a831b3f6_9149c60a",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-16T16:01:32Z",
+      "side": 1,
+      "message": "Why can\u0027t the frame\u0027s frameId be used here?",
+      "range": {
+        "startLine": 677,
+        "startChar": 2,
+        "endLine": 679,
+        "endChar": 3
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bb1807a_ae568ac3",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-16T16:01:32Z",
+      "side": 1,
+      "message": "Why do we need this? Are tests breaking if we change the one above?",
+      "range": {
+        "startLine": 905,
+        "startChar": 2,
+        "endLine": 905,
+        "endChar": 24
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e6b6299_4de16271",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-16T16:01:32Z",
+      "side": 1,
+      "message": "Is this a reasonable file-name except if this._url is a data URL? If so, does it make sense to always display the file name, and have the name in parentheses?",
+      "range": {
+        "startLine": 906,
+        "startChar": 10,
+        "endLine": 906,
+        "endChar": 19
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e91e56_a5549cd6",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-16T16:01:32Z",
+      "side": 1,
+      "message": "It looks like this can be really long (because it can be programmatically set), so we need to constrain the size of this to some reasonable maximum length.",
+      "range": {
+        "startLine": 908,
+        "startChar": 16,
+        "endLine": 908,
+        "endChar": 21
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
