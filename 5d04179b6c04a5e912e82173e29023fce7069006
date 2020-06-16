@@ -87,6 +87,98 @@
       "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88569d46_6018e516",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-16T08:48:47Z",
+      "side": 1,
+      "message": "nit: an",
+      "range": {
+        "startLine": 8,
+        "startChar": 22,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e07635ba_0fe347ed",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-16T08:48:47Z",
+      "side": 1,
+      "message": "suggest change to: This will generate an unminified or a minified (if --minify is present) i18n-bundle.js\n\n(spacing + nits)",
+      "range": {
+        "startLine": 18,
+        "startChar": 48,
+        "endLine": 18,
+        "endChar": 70
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5c8f1d7_207f0992",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-16T08:48:47Z",
+      "side": 1,
+      "message": "bool?",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e83ffb26_85cb8e64",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-16T08:48:47Z",
+      "side": 1,
+      "message": "Add types for these? Makes it easier to read",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 12
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
