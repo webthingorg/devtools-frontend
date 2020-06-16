@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {setSelectionReplaceHistory} from 'front_end/third_party/codemirror/package/src/model/selection_updates.js';
+
 import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Components from '../components/components.js';
@@ -190,6 +192,75 @@ class AffectedElementsView extends AffectedResourcesView {
   update() {
     this.clear();
     this._appendAffectedElements(this._issue.elements());
+  }
+}
+
+class AffectedDirectivesView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!AggregatedIssue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`directive`, plural: ls`directives`});
+    /** @type {!AggregatedIssue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {Iterable<!Protocol.Audits.CSPIssueDetails>} CSPviolations
+   */
+  _appendAffectedDirectives(CSPviolations) {
+    const header = document.createElement('tr');
+
+    const name = document.createElement('td');
+    name.classList.add('affected-resource-header');
+    name.textContent = 'Directive';
+    header.appendChild(name);
+    const info = document.createElement('td');
+    info.classList.add('affected-resource-header');
+    info.classList.add('affected-resource-directive-info-header');
+    info.textContent = 'URL';
+    header.appendChild(info);
+    this._affectedResources.appendChild(header);
+    let count = 0;
+    for (const CSPviolation of CSPviolations) {
+      count++;
+      this.appendAffectedDirective(CSPviolation);
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   * @param {!Protocol.Audits.CSPIssueDetails} CSPviolation
+   */
+  appendAffectedDirective(CSPviolation) {
+    const url = CSPviolation.blockedURL;
+    if (url) {
+      // for (const url of respectiveURLs) {
+      const element = document.createElement('tr');
+      element.classList.add('affected-resource-directive');
+      const name = document.createElement('td');
+      name.textContent = CSPviolation.violatedDirective;
+      if (CSPviolation.violatedDirective === 'kURLViolation') {
+        const info = document.createElement('td');
+        info.classList.add('affected-resource-directive-info');
+        info.textContent = url;
+        element.appendChild(name);
+        element.appendChild(info);
+      } else {
+        element.appendChild(name);
+      }
+      this._affectedResources.appendChild(element);
+      // }
+    }
+  }
+
+  /**
+   * @override
+   */
+  update() {
+    this.clear();
+    this._appendAffectedDirectives(this._issue.CSPviolations());
   }
 }
 
@@ -382,7 +453,8 @@ class AffectedSourcesView extends AffectedResourcesView {
 const issueTypeToNetworkHeaderMap = new Map([
   [SDK.Issue.IssueCategory.SameSiteCookie, Network.NetworkItemView.Tabs.Cookies],
   [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, Network.NetworkItemView.Tabs.Headers],
-  [SDK.Issue.IssueCategory.MixedContent, Network.NetworkItemView.Tabs.Headers]
+  [SDK.Issue.IssueCategory.MixedContent, Network.NetworkItemView.Tabs.Headers],
+  [SDK.Issue.IssueCategory.ContentSecurityPolicy, Network.NetworkItemView.Tabs.Headers]
 ]);
 
 class AffectedMixedContentView extends AffectedResourcesView {
@@ -488,12 +560,17 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this.childrenListElement.classList.add('body');
 
     this._affectedResources = this._createAffectedResources();
-    /** @type {!Array<!AffectedResourcesView>} */
     this._affectedResourceViews = [
       new AffectedCookiesView(this, this._issue), new AffectedElementsView(this, this._issue),
       new AffectedRequestsView(this, this._issue), new AffectedMixedContentView(this, this._issue),
       new AffectedSourcesView(this, this._issue)
     ];
+    this._affectedCookiesView = new AffectedCookiesView(this, this._issue);
+    this._affectedElementsView = new AffectedElementsView(this, this._issue);
+    this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
+    this._affectedMixedContentView = new AffectedMixedContentView(this, this._issue);
+    this._affectedSourcesView = new AffectedSourcesView(this, this._issue);
+    this._affectedDirectivesView = new AffectedDirectivesView(this, this._issue);
 
     this._aggregatedIssuesCount = null;
   }
@@ -505,10 +582,15 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._appendHeader();
     this._createBody();
     this.appendChild(this._affectedResources);
+
     for (const view of this._affectedResourceViews) {
       this.appendAffectedResource(view);
       view.update();
     }
+
+    this.appendAffectedResource(this._affectedDirectivesView);
+    this._affectedDirectivesView.update();
+
 
     this._createReadMoreLinks();
     this.updateAffectedResourceVisibility();
@@ -547,7 +629,9 @@ class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   updateAffectedResourceVisibility() {
-    const noResources = this._affectedResourceViews.every(view => view.isEmpty());
+    const noDirectives = !this._affectedDirectivesView || this._affectedDirectivesView.isEmpty();
+    const noResources = this._affectedResourceViews.every(view => view.isEmpty()) && noDirectives;
+
     this._affectedResources.hidden = noResources;
   }
 
@@ -598,6 +682,9 @@ class IssueView extends UI.TreeOutline.TreeElement {
 
   update() {
     this._affectedResourceViews.forEach(view => view.update());
+
+    this._affectedDirectivesView.update();
+
     this.updateAffectedResourceVisibility();
     this._updateAggregatedIssuesCount();
   }
