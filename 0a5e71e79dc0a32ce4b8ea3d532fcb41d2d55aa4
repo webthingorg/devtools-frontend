@@ -22,6 +22,30 @@
       "revId": "0a5e71e79dc0a32ce4b8ea3d532fcb41d2d55aa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75a3ec04_c679e8cc",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-06-16T09:06:01Z",
+      "side": 1,
+      "message": "In CI there is not Mac/Win coverage for anything ... I was beginning to wonder myself if I should add it. Maybe I will ask Yang and Benedikt",
+      "parentUuid": "412dbc3e_8e3df1b4",
+      "range": {
+        "startLine": 65,
+        "startChar": 37,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "0a5e71e79dc0a32ce4b8ea3d532fcb41d2d55aa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
