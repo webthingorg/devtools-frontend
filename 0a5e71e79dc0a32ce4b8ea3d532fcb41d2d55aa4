@@ -46,6 +46,30 @@
       "revId": "0a5e71e79dc0a32ce4b8ea3d532fcb41d2d55aa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1e7c1d0_932a72f0",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-06-16T11:21:01Z",
+      "side": 1,
+      "message": "For them to make sense as trybots they should be in CI too.",
+      "parentUuid": "75a3ec04_c679e8cc",
+      "range": {
+        "startLine": 65,
+        "startChar": 37,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "0a5e71e79dc0a32ce4b8ea3d532fcb41d2d55aa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
