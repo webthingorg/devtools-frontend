@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e6520aa_a199e260",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-16T11:52:08Z",
+      "side": 1,
+      "message": "Nit: Can we rename this to `_nextRequestId`? Since it always holds the next request ID.",
+      "revId": "07b280cd6ecbb56b1c1fee5bfd30a8ea1ca5a574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d54be8b9_61a5516c",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-16T11:52:08Z",
+      "side": 1,
+      "message": "Can we reject this promise in case of errors instead of having the `error` field on the object that we resolve it with? That\u0027s less fragile then and we only need to check for error in one place instead of everywhere we call this function.",
+      "revId": "07b280cd6ecbb56b1c1fee5bfd30a8ea1ca5a574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
