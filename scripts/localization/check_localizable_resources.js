@@ -54,16 +54,15 @@ async function getErrors() {
 
   // get localization V2 errors
   const checkUIStringsError = await localizationV2Checks.checkUIStrings();
-  if (checkUIStringsError !== '') {
-    error += checkUIStringsError;
-  }
+  const checkMigratedDirectoryError = localizationV2Checks.checkNoV1CallsInMigratedDir();
+  error += `${checkUIStringsError || ''}${checkMigratedDirectoryError || ''}`;
 
   if (error === '') {
     console.log('DevTools localizable resources checker passed.');
     return;
   }
 
-  error += '\nThe errors are potentially fixable with the `--autofix` option.';
+  error += '\nSome errors are potentially fixable with the `--autofix` option.';
 
   throw new Error(error);
 }
@@ -80,8 +79,10 @@ async function autofix(existingError) {
 
   // autofix V2 errors
   const checkAndFixUIStringsError = await localizationV2Checks.checkUIStrings(true);
+  const checkMigratedDirectoryError = localizationV2Checks.checkNoV1CallsInMigratedDir();
+  const isV2checksPassed = !checkAndFixUIStringsError && !checkMigratedDirectoryError;
 
-  if (isV1checksPassed && checkAndFixUIStringsError === '') {
+  if (isV1checksPassed && isV2checksPassed) {
     console.log('DevTools localizable resources checker passed.');
     return;
   }
@@ -107,8 +108,11 @@ async function autofix(existingError) {
     }
     message += '\nFor more details, see src/docs/localization/grdp_files.md';
   }
-  if (checkAndFixUIStringsError !== '') {
+  if (checkAndFixUIStringsError) {
     message += `\n${checkAndFixUIStringsError}`;
+  }
+  if (checkMigratedDirectoryError) {
+    message += `\n${checkMigratedDirectoryError}`;
   }
   message += '\n';
   message += '\nUse git status to see what has changed.';
