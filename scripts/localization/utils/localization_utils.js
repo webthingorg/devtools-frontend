@@ -20,7 +20,8 @@ const espreeTypes = {
   MEMBER_EXPR: 'MemberExpression',
   NEW_EXPR: 'NewExpression',
   TAGGED_TEMP_EXPR: 'TaggedTemplateExpression',
-  TEMP_LITERAL: 'TemplateLiteral'
+  TEMP_LITERAL: 'TemplateLiteral',
+  VARIABLE_DECLARATOR: 'VariableDeclarator'
 };
 
 const excludeFiles = ['Tests.js'];
@@ -29,9 +30,8 @@ const excludeDirs = [
   'Images',
   'langpacks',
   'node_modules',
-  'lighthouse/lighthouse',
-  'lighthouse_worker/lighthouse',
-  'front_end/third_party',
+  'lighthouse_worker',
+  'third_party',
 ];
 const cppSpecialCharactersMap = {
   '"': '\\"',
@@ -52,6 +52,10 @@ function getRelativeFilePathFromSrc(filePath) {
 }
 
 function shouldParseDirectory(directoryName) {
+  // use the relative path to check if it should be excluded
+  if (directoryName.includes('devtools-frontend')) {
+    directoryName = getRelativeFilePathFromSrc(directoryName);
+  }
   return !excludeDirs.some(dir => directoryName.includes(dir));
 }
 
@@ -108,6 +112,18 @@ function isNodelsTaggedTemplateExpression(node) {
       node.quasi !== undefined && node.quasi.type !== undefined && node.quasi.type === espreeTypes.TEMP_LITERAL;
 }
 
+function isNodeGetLocalizedStringCall(node) {
+  return isNodeCallOnNestedObject(node, 'Common', 'i18n', 'getLocalizedString');
+}
+
+function isNodeGetFormatLocalizedStringCall(node) {
+  return isNodeCallOnNestedObject(node, 'Common', 'i18n', 'getFormatLocalizedString');
+}
+
+function isNodeDeclaresUIStrings(node) {
+  return (node.type === espreeTypes.VARIABLE_DECLARATOR && node.id && node.id.name === 'UIStrings');
+}
+
 /**
  * Verify callee of objectName.propertyName(), e.g. Common.UIString().
  */
@@ -145,12 +161,29 @@ function getLocalizationCase(node) {
   if (isNodePlatformUIStringCall(node) || isNodeUIStringDirectCall(node)) {
     return 'Platform.UIString';
   }
+  if (isNodeGetLocalizedStringCall(node)) {
+    return 'Common.i18n.getLocalizedString';
+  }
+  if (isNodeGetFormatLocalizedStringCall(node)) {
+    return 'Common.i18n.getFormatLocalizedString';
+  }
+  if (isNodeDeclaresUIStrings(node)) {
+    return 'UIStrings';
+  }
   return null;
 }
 
 function isLocalizationCall(node) {
   return isNodeCommonUIStringCall(node) || isNodelsTaggedTemplateExpression(node) || isNodeUIformatLocalized(node) ||
       isNodePlatformUIStringCall(node) || isNodeUIStringDirectCall(node);
+}
+
+/**
+ * A helper function for localization V2 APIs unit tests.
+ */
+function isLocalizationV2Call(node) {
+  return isNodeDeclaresUIStrings(node) || isNodeGetFormatLocalizedStringCall(node) ||
+      isNodeGetLocalizedStringCall(node);
 }
 
 /**
@@ -380,6 +413,7 @@ module.exports = {
   GRD_PATH,
   IDSPrefix,
   isLocalizationCall,
+  isLocalizationV2Call,
   lineNumberOfIndex,
   modifyStringIntoGRDFormat,
   parseFileContent,

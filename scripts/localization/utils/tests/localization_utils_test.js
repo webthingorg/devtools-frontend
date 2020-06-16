@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const {isLocalizationCall, espree, getLocalizationCase} = require('../localization_utils');
+const ts = require('typescript');
+const {isLocalizationCall, espree, getLocalizationCase, isLocalizationV2Call} = require('../localization_utils');
+const {removeUnusedEntries, findUIStringsNode} = require('../../localizationV2Checks');
 const {assert} = require('chai');
 
 const parseCode = code => espree.parse(code, {ecmaVersion: 11, sourceType: 'module', range: true, loc: true});
@@ -44,6 +46,28 @@ describe('isLocalizationCall', () => {
   });
 });
 
+describe('isLocalizationV2Call', () => {
+  it('is true for a call to Common.i18n.getLocalizedString', () => {
+    const ast = parseCode('Common.i18n.getLocalizedString(_str, UIStrings.fakeID)');
+    assert.isTrue(isLocalizationV2Call(ast.body[0].expression));
+  });
+
+  it('is true for a call to Common.i18n.getFormatLocalizedString', () => {
+    const ast = parseCode('Common.i18n.getFormatLocalizedString(_str, UIStrings.fakeID)');
+    assert.isTrue(isLocalizationV2Call(ast.body[0].expression));
+  });
+
+  it('is true for a declaration of UIStrings', () => {
+    const ast = parseCode('const UIStrings = {fakeID: "Hello World"}');
+    assert.isTrue(isLocalizationV2Call(ast.body[0].declarations[0]));
+  });
+
+  it('is false for a tagged template expression', () => {
+    const ast = parseCode('ls`foo`');
+    assert.isFalse(isLocalizationV2Call(ast.body[0].expression));
+  });
+});
+
 describe('getLocalizationCase', () => {
   it('returns correctly for a tagged template', () => {
     const ast = parseCode('ls`foo`');
@@ -73,5 +97,57 @@ describe('getLocalizationCase', () => {
   it('returns Platform.UIString for UIString', () => {
     const ast = parseCode('UIString(\'blahblah %s, 2\')');
     assert.strictEqual(getLocalizationCase(ast.body[0].expression), 'Platform.UIString');
+  });
+  it('returns Common.i18n.getLocalizedString for Common.i18n.getLocalizedString', () => {
+    const ast = parseCode('Common.i18n.getLocalizedString(_str, UIStrings.fakeID)');
+    assert.strictEqual(getLocalizationCase(ast.body[0].expression), 'Common.i18n.getLocalizedString');
+  });
+  it('returns Common.i18n.getFormatLocalizedString for Common.i18n.getFormatLocalizedString', () => {
+    const ast = parseCode('Common.i18n.getFormatLocalizedString(_str, UIStrings.fakeID)');
+    assert.strictEqual(getLocalizationCase(ast.body[0].expression), 'Common.i18n.getFormatLocalizedString');
+  });
+  it('returns UIStrings for UIStrings', () => {
+    const ast = parseCode('const UIStrings = {fakeID: "Hello World"}');
+    assert.strictEqual(getLocalizationCase(ast.body[0].declarations[0]), 'UIStrings');
+  });
+});
+
+describe('removeUnusedEntries', () => {
+  it('returns UIStrings object without unused entries', () => {
+    const fakeFilename = 'fakeFile.js';
+    const fakeContent = `const UIStrings = {
+      /**
+      *@description Entry is being used in content
+      */
+      isBeingUsed: 'is being used',
+      /**
+      *@description Entry is not being used in content
+      */
+      isNotBeingUsed: 'Not being used',
+      };`;
+    const fakeListOfEntriesToRemove = [{
+      stringId: 'isNotBeingUsed',
+      stringValue: 'Not being used',
+    }];
+    const expectedContent = `const UIStrings = {
+      /**
+      *@description Entry is being used in content
+      */
+      isBeingUsed: 'is being used',
+      };`;
+    assert.strictEqual(removeUnusedEntries(fakeFilename, fakeContent, fakeListOfEntriesToRemove), expectedContent);
+  });
+});
+
+describe('findUIStringsNode', () => {
+  it('assert the result is not null if UIStrings exists', () => {
+    const contentWithUIStrings = 'const UIStrings = { hello: "HELLO",};';
+    const sourceFile = ts.createSourceFile('fakeFile.js', contentWithUIStrings, ts.ScriptTarget.ESNext, true);
+    assert(findUIStringsNode(sourceFile) !== null);
+  });
+  it('assert the result is null if UIStrings does not exist', () => {
+    const contentWithoutUIStrings = 'const notUIStrings = "HELLO";';
+    const sourceFile = ts.createSourceFile('fakeFile.js', contentWithoutUIStrings, ts.ScriptTarget.ESNext, true);
+    assert(findUIStringsNode(sourceFile) === null);
   });
 });
