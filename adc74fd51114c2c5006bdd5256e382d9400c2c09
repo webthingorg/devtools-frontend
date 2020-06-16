@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7db28e9_d3c81880",
+        "filename": "test/conductor/mocha_hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-16T09:00:51Z",
+      "side": 1,
+      "message": "You can press other keys, but you also need to press enter to continue.",
+      "range": {
+        "startLine": 20,
+        "startChar": 26,
+        "endLine": 20,
+        "endChar": 32
+      },
+      "revId": "adc74fd51114c2c5006bdd5256e382d9400c2c09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
