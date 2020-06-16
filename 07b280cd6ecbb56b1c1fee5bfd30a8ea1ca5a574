@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "651eff7e_d99aa348",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-06-16T12:08:32Z",
+      "side": 1,
+      "message": "Bikeshed: That will clash with the accessor below though. Any other name that you\u0027d like (either for the field or the accessor)?",
+      "parentUuid": "9e6520aa_a199e260",
+      "revId": "07b280cd6ecbb56b1c1fee5bfd30a8ea1ca5a574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d54be8b9_61a5516c",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 5
