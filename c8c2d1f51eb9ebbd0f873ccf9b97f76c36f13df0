@@ -52,6 +52,24 @@
       "revId": "c8c2d1f51eb9ebbd0f873ccf9b97f76c36f13df0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b4ea3e6_9aedefd6",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-16T15:20:04Z",
+      "side": 1,
+      "message": "More than 300 files would be affected by this rule",
+      "parentUuid": "d90bf301_089606d2",
+      "revId": "c8c2d1f51eb9ebbd0f873ccf9b97f76c36f13df0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
