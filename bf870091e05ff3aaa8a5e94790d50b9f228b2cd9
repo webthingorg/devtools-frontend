@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8a8ba851_59b5e779",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-16T11:43:52Z",
+      "side": 1,
+      "message": "Cool, agreed :)",
+      "parentUuid": "795dcab1_6dd5d943",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 11
+      },
+      "revId": "bf870091e05ff3aaa8a5e94790d50b9f228b2cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7bcf0b9f_8c873580",
         "filename": "test/e2e/sources/sourcemap-without-mappings_test.ts",
         "patchSetId": 2
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "I agree with the general sentiment. However, the e2e test here codifies a user story, and the test makes sure it can be executed. This means this test case protects against breaking this workflow.\n\nI could add an assertion that the breakpoint shows up in the UI, WDYT?",
       "parentUuid": "7bcf0b9f_8c873580",
+      "range": {
+        "startLine": 29,
+        "startChar": 5,
+        "endLine": 30,
+        "endChar": 5
+      },
+      "revId": "bf870091e05ff3aaa8a5e94790d50b9f228b2cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "940405c9_4e2a1fec",
+        "filename": "test/e2e/sources/sourcemap-without-mappings_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-16T11:43:52Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s worth changing - I agree with what you about the test ensuring the user journey works. Happy to leave this be. Thanks!",
+      "parentUuid": "a3155551_d331b757",
       "range": {
         "startLine": 29,
         "startChar": 5,
