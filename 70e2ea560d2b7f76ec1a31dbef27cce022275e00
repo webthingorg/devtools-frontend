@@ -497,6 +497,30 @@
     },
     {
       "key": {
+        "uuid": "c95a36e1_3c23ced6",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:17:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c74ae63_c3c40413",
+      "range": {
+        "startLine": 413,
+        "startChar": 2,
+        "endLine": 413,
+        "endChar": 22
+      },
+      "revId": "70e2ea560d2b7f76ec1a31dbef27cce022275e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a55ea9af_eeb36ffb",
         "filename": "scripts/localization/utils/tests/localization_utils_test.js",
         "patchSetId": 2
