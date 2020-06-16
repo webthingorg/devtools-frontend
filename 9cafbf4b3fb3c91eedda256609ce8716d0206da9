@@ -173,6 +173,29 @@
     },
     {
       "key": {
+        "uuid": "c5f84b4a_2e6847a5",
+        "filename": "back_end/CXXDWARFSymbols/tools/bootstrap.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-16T14:23:21Z",
+      "side": 1,
+      "message": "Feature request: It would be nice to get this error immediately on running the script rather than an hour or so later when it gets to stage 2.\n\nAlso it would be more user friendly to write just the error to stderr and then exit(1). The traceback isn\u0027t necessary.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "9cafbf4b3fb3c91eedda256609ce8716d0206da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a61442e6_7d2d0f8f",
         "filename": "back_end/CXXDWARFSymbols/tools/bootstrap.py",
         "patchSetId": 1
