@@ -10,4 +10,5 @@
       const instance = await WebAssembly.instantiateStreaming(fetch('add.wasm'));
       window.main = instance.instance.exports.add;
   })();
+  main();
 </script>
