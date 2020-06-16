@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "795dcab1_6dd5d943",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-16T11:35:05Z",
+      "side": 1,
+      "message": "I think keeping it separate is fine for now. If we have this pattern a lot, we could consider abstracting away.",
+      "parentUuid": "1936e0b0_ad61abef",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 11
+      },
+      "revId": "bf870091e05ff3aaa8a5e94790d50b9f228b2cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7bcf0b9f_8c873580",
         "filename": "test/e2e/sources/sourcemap-without-mappings_test.ts",
         "patchSetId": 2
