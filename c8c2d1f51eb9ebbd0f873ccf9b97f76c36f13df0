@@ -34,6 +34,24 @@
       "revId": "c8c2d1f51eb9ebbd0f873ccf9b97f76c36f13df0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d90bf301_089606d2",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-16T15:10:26Z",
+      "side": 1,
+      "message": "It\u0027s explicitly enabled for ts files only so I assume there was a reason to keep it disabled for the entire codebase? I will try enabling it in a separate CL",
+      "parentUuid": "e8c3eac3_ded38ec5",
+      "revId": "c8c2d1f51eb9ebbd0f873ccf9b97f76c36f13df0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
