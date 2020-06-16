@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Extensions from '../extensions/extensions.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -90,7 +91,6 @@ class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
   }
 
   /** Produce a language specific representation of a variable value
-   * @override
    * @param {!VariableValue} value
    * @return {!SDK.RemoteObject.RemoteObject}
    */
@@ -118,13 +118,14 @@ class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
           return null;
         }
 
-        const value = JSON.parse(evaluateResponse.result.value);
+
+        const value = /** @type {!VariableValue} */ (JSON.parse(evaluateResponse.result.value));
         return this._getRepresentation(value);
       } catch (error) {
         if (!(error instanceof DebuggerLanguagePluginError)) {
           throw error;
         }
-        console.error('Error in debugger language plugin: ' + error.message + ' (' + error.code + ')');
+        Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message} (${error.code})`);
         return null;
       }
     };
@@ -259,6 +260,120 @@ class SourceScope {
 }
 
 /**
+ * @implements {DebuggerLanguagePlugin}
+ */
+class DebuggerLanguagePluginExtension {
+  /**
+   * @param {number} pluginId A unique identifier for the plugin
+   * @param {{language: string, symbol_types: !Array<string>}} supportedScriptTypes A
+   *               selector for the type of scripts handled by this plugin.
+   */
+  constructor(pluginId, supportedScriptTypes) {
+    this._pluginId = pluginId;
+    this._supportedScriptTypes = supportedScriptTypes;
+    this._requestId = 0;
+  }
+
+  _nextRequestId() {
+    return this._requestId++;
+  }
+
+  /**
+   * @override
+   * @param {!SDK.Script.Script} script
+   * @return {boolean} True if this plugin should handle this script
+   */
+  handleScript(script) {
+    return script.scriptLanguage() === this._supportedScriptTypes.language && !!script.debugSymbols &&
+        this._supportedScriptTypes.symbol_types.includes(script.debugSymbols.type);
+  }
+
+  /** Notify the plugin about a new script
+   * @override
+   * @param {string} rawModuleId
+   * @param {string} symbolsURL - URL of a file providing the debug symbols for this module
+   * @param {!RawModule} rawModule
+   * @return {!Promise<!Array<string>>} - An array of absolute or relative URLs for the source files for the raw module
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async addRawModule(rawModuleId, symbolsURL, rawModule) {
+    try {
+      return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+          this._pluginId, this._nextRequestId(), 'addRawModule', {rawModuleId, symbolsURL, rawModule});
+    } catch (error) {
+      throw new DebuggerLanguagePluginError('EXTENSION_ERROR', error);
+    }
+  }
+
+  /** Find locations in raw modules from a location in a source file
+   * @override
+   * @param {!SourceLocation} sourceLocation
+   * @return {!Promise<!Array<!RawLocation>>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async sourceLocationToRawLocation(sourceLocation) {
+    try {
+      return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+          this._pluginId, this._nextRequestId(), 'sourceLocationToRawLocation', {sourceLocation});
+    } catch (error) {
+      throw new DebuggerLanguagePluginError('EXTENSION_ERROR', error);
+    }
+  }
+
+  /** Find locations in source files from a location in a raw module
+   * @override
+   * @param {!RawLocation} rawLocation
+   * @return {!Promise<!Array<!SourceLocation>>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async rawLocationToSourceLocation(rawLocation) {
+    try {
+      return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+          this._pluginId, this._nextRequestId(), 'rawLocationToSourceLocation', {rawLocation});
+    } catch (error) {
+      throw new DebuggerLanguagePluginError('EXTENSION_ERROR', error);
+    }
+  }
+
+  /** List all variables in lexical scope at a given location in a raw module
+   * @override
+   * @param {!RawLocation} rawLocation
+   * @return {!Promise<!Array<!Variable>>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async listVariablesInScope(rawLocation) {
+    try {
+      return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+          this._pluginId, this._nextRequestId(), 'listVariablesInScope', {rawLocation});
+    } catch (error) {
+      throw new DebuggerLanguagePluginError('EXTENSION_ERROR', error);
+    }
+  }
+
+  /** Evaluate the content of a variable in a given lexical scope
+   * @override
+   * @param {string} name
+   * @param {!RawLocation} location
+   * @return {!Promise<?RawModule>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async evaluateVariable(name, location) {
+    try {
+      return await self.Extensions.extensionServer.sendLanguagePluginRequestAsync(
+          this._pluginId, this._nextRequestId(), 'evaluateVariable', {name, location});
+    } catch (error) {
+      throw new DebuggerLanguagePluginError('EXTENSION_ERROR', error);
+    }
+  }
+
+  /**
+   * @override
+   */
+  dispose() {
+  }
+}
+
+/**
  * @unrestricted
  */
 export class DebuggerLanguagePluginManager {
@@ -273,6 +388,9 @@ export class DebuggerLanguagePluginManager {
     this._debuggerWorkspaceBinding = debuggerWorkspaceBinding;
     /** @type {!Array<!DebuggerLanguagePlugin>} */
     this._plugins = [];
+    for (const {pluginId, supportedScriptTypes} of self.Extensions.extensionServer.languagePluginExtensions) {
+      this._plugins.push(new DebuggerLanguagePluginExtension(pluginId, supportedScriptTypes));
+    }
 
     // @type {!Map<!Workspace.UISourceCode.UISourceCode, !Array<[string, !SDK.Script.Script]>>}
     this._uiSourceCodes = new Map();
@@ -285,12 +403,15 @@ export class DebuggerLanguagePluginManager {
         false /* isServiceProject */);
     Bindings.NetworkProject.setTargetForProject(this._project, target);
 
+
     const runtimeModel = debuggerModel.runtimeModel();
     this._eventHandlers = [
       this._debuggerModel.addEventListener(
           SDK.DebuggerModel.Events.ParsedScriptSource, this._newScriptSourceListener, this),
       runtimeModel.addEventListener(
-          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this)
+          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this),
+      self.Extensions.extensionServer.addEventListener(
+          Extensions.ExtensionServer.Events.LanguagePluginExtensionAdded, this._languagePluginExtensionAdded, this)
     ];
   }
 
@@ -303,6 +424,10 @@ export class DebuggerLanguagePluginManager {
    */
   addPlugin(plugin) {
     this._plugins.push(plugin);
+  }
+
+  _languagePluginExtensionAdded(event) {
+    this.addPlugin(new DebuggerLanguagePluginExtension(event.data.pluginId, event.data.supportedScriptTypes));
   }
 
   /**
@@ -353,25 +478,34 @@ export class DebuggerLanguagePluginManager {
       // section, so subtract the offset of the code section in the module here.
       codeOffset: rawLocation.columnNumber - script.codeOffset()
     };
-    const sourceLocations = await plugin.rawLocationToSourceLocation(pluginLocation);
 
-    if (!sourceLocations || sourceLocations.length === 0) {
+    try {
+      const sourceLocations = await plugin.rawLocationToSourceLocation(pluginLocation);
+
+      if (!sourceLocations || sourceLocations.length === 0) {
+        return null;
+      }
+
+      // TODO(chromium:1044536) Support multiple UI locations.
+      const sourceLocation = sourceLocations[0];
+
+      const sourceFileURL = DebuggerLanguagePluginManager._makeUISourceFileURL(
+          sourceLocation.sourceFile, new URL(script.sourceURL).origin);
+      if (sourceFileURL === null) {
+        return null;
+      }
+      const uiSourceCode = this._project.uiSourceCodeForURL(sourceFileURL.toString());
+      if (!uiSourceCode) {
+        return null;
+      }
+      return uiSourceCode.uiLocation(sourceLocation.lineNumber, sourceLocation.columnNumber);
+    } catch (error) {
+      if (!(error instanceof DebuggerLanguagePluginError)) {
+        throw error;
+      }
+      Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message} (${error.code})`);
       return null;
     }
-
-    // TODO(chromium:1044536) Support multiple UI locations.
-    const sourceLocation = sourceLocations[0];
-
-    const sourceFileURL =
-        DebuggerLanguagePluginManager._makeUISourceFileURL(sourceLocation.sourceFile, new URL(script.sourceURL).origin);
-    if (sourceFileURL === null) {
-      return null;
-    }
-    const uiSourceCode = this._project.uiSourceCodeForURL(sourceFileURL.toString());
-    if (!uiSourceCode) {
-      return null;
-    }
-    return uiSourceCode.uiLocation(sourceLocation.lineNumber, sourceLocation.columnNumber);
   }
 
   /**
@@ -397,7 +531,16 @@ export class DebuggerLanguagePluginManager {
     if (locationPromises.length === 0) {
       return null;
     }
-    return (await Promise.all(locationPromises)).flat();
+
+    try {
+      return (await Promise.all(locationPromises)).flat();
+    } catch (error) {
+      if (!(error instanceof DebuggerLanguagePluginError)) {
+        throw error;
+      }
+      Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message} (${error.code})`);
+      return null;
+    }
 
     /**
      * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
@@ -524,7 +667,9 @@ export class DebuggerLanguagePluginManager {
    */
   _newScriptSourceListener(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
-    this._newScriptSource(script);
+    this._newScriptSource(script).catch(
+        error => Common.Console.Console.instance().warn(
+            ls`Error in debugger language plugin: ${error.message} (${error.code})`));
   }
 
   /**
@@ -599,16 +744,25 @@ export class DebuggerLanguagePluginManager {
       'rawModuleId': script.scriptId,
       'codeOffset': callFrame.location().columnNumber - script.codeOffset()
     };
-    const variables = await plugin.listVariablesInScope(location);
-    if (variables) {
-      for (const variable of variables) {
-        if (!scopes.has(variable.scope)) {
-          scopes.set(variable.scope, new SourceScope(callFrame, variable.scope, plugin, location));
+
+    try {
+      const variables = await plugin.listVariablesInScope(location);
+      if (variables) {
+        for (const variable of variables) {
+          if (!scopes.has(variable.scope)) {
+            scopes.set(variable.scope, new SourceScope(callFrame, variable.scope, plugin, location));
+          }
+          scopes.get(variable.scope).object().variables.push(variable);
         }
-        scopes.get(variable.scope).object().variables.push(variable);
       }
+      return Array.from(scopes.values());
+    } catch (error) {
+      if (!(error instanceof DebuggerLanguagePluginError)) {
+        throw error;
+      }
+      Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message} (${error.code})`);
+      return null;
     }
-    return Array.from(scopes.values());
   }
 }
 
@@ -661,6 +815,7 @@ export let Variable;
 /** The value of a source language variable
  * @typedef {{
  *            value: (string|!Array<!VariableValue>),
+ *            js_type: string,
  *            type: string,
  *            name: string
  *          }}
