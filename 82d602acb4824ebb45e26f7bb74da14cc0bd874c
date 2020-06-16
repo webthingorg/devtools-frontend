@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f88768e9_789d5bb2",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b488fd1_39b23bd5",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 37
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "335898ea_f72e8cc1",
         "filename": "scripts/localization/utils/check_localized_strings.js",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "160d9059_98bf90e3",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "335898ea_f72e8cc1",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 70
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6244726e_7db6bf8a",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:42:42Z",
+      "side": 1,
+      "message": "Addressed this and added tests in the presubmit#1 CL",
+      "parentUuid": "f6a95234_e9f419bb",
+      "range": {
+        "startLine": 574,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 0
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47b57f74_87c068a3",
         "filename": "scripts/localization/utils/check_localized_strings.js",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79e863b3_87184e49",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47b57f74_87c068a3",
+      "range": {
+        "startLine": 594,
+        "startChar": 0,
+        "endLine": 594,
+        "endChar": 66
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3170433f_49dd7608",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ddb09c8_3ad7f70c",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 100
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aca717c_fe1d6973",
         "filename": "scripts/localization/utils/localization_utils.js",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "4ac75c73_87822573",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:42:42Z",
+      "side": 1,
+      "message": "Agreed!",
+      "parentUuid": "5aca717c_fe1d6973",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 34
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e6ee261_ecc3358c",
         "filename": "scripts/localization/utils/tests/localization_utils_test.js",
         "patchSetId": 5
@@ -160,6 +304,30 @@
       "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57532d44_5a043de1",
+        "filename": "scripts/localization/utils/tests/localization_utils_test.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-16T13:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e6ee261_ecc3358c",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 73,
+        "endChar": 20
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
