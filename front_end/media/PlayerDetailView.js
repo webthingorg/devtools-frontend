@@ -8,7 +8,6 @@ import * as UI from '../ui/ui.js';
 import {PlayerEventsView} from './EventDisplayTable.js';
 import {TriggerHandler} from './MainView.js';  // eslint-disable-line no-unused-vars
 import {PlayerEvent} from './MediaModel.js';   // eslint-disable-line no-unused-vars
-import {PlayerMessagesView} from './PlayerMessagesView.js';
 import {PlayerPropertiesView} from './PlayerPropertiesView.js';
 
 /**
@@ -17,7 +16,6 @@ import {PlayerPropertiesView} from './PlayerPropertiesView.js';
 export const PlayerDetailViewTabs = {
   Events: 'events',
   Properties: 'properties',
-  Messages: 'messages'
 };
 
 /**
@@ -30,7 +28,6 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
 
     this._eventView = new PlayerEventsView();
     this._propertyView = new PlayerPropertiesView();
-    this._messageView = new PlayerMessagesView();
 
     this.appendTab(
         PlayerDetailViewTabs.Properties, Common.UIString.UIString('Properties'), this._propertyView,
@@ -39,10 +36,6 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
     this.appendTab(
         PlayerDetailViewTabs.Events, Common.UIString.UIString('Events'), this._eventView,
         Common.UIString.UIString('Player events'));
-
-    this.appendTab(
-        PlayerDetailViewTabs.Messages, Common.UIString.UIString('Messages'), this._messageView,
-        Common.UIString.UIString('Player messages'));
   }
 
   /**
@@ -65,7 +58,6 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane {
    * @param {!Protocol.Media.PlayerMessage} message
    */
   onMessage(message) {
-    this._messageView.addMessage(message);
   }
 
   /**

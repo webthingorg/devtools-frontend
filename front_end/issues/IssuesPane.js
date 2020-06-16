@@ -193,6 +193,75 @@ class AffectedElementsView extends AffectedResourcesView {
   }
 }
 
+class AffectedDirectivesView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!AggregatedIssue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`directive`, plural: ls`directives`});
+    /** @type {!AggregatedIssue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {Iterable<!Protocol.Audits.CSPIssueDetails>} CSPviolations
+   */
+  _appendAffectedDirectives(CSPviolations) {
+    const header = document.createElement('tr');
+
+    const name = document.createElement('td');
+    name.classList.add('affected-resource-header');
+    name.textContent = 'Directive';
+    header.appendChild(name);
+    const info = document.createElement('td');
+    info.classList.add('affected-resource-header');
+    info.classList.add('affected-resource-directive-info-header');
+    info.textContent = 'URL';
+    header.appendChild(info);
+    this._affectedResources.appendChild(header);
+    let count = 0;
+    for (const CSPviolation of CSPviolations) {
+      count++;
+      this.appendAffectedDirective(CSPviolation);
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   * @param {!Protocol.Audits.CSPIssueDetails} CSPviolation
+   */
+  appendAffectedDirective(CSPviolation) {
+    const url = CSPviolation.blockedURL;
+    if (url) {
+      // for (const url of respectiveURLs) {
+      const element = document.createElement('tr');
+      element.classList.add('affected-resource-directive');
+      const name = document.createElement('td');
+      name.textContent = CSPviolation.violatedDirective;
+      if (CSPviolation.violatedDirective === 'kURLViolation') {
+        const info = document.createElement('td');
+        info.classList.add('affected-resource-directive-info');
+        info.textContent = url;
+        element.appendChild(name);
+        element.appendChild(info);
+      } else {
+        element.appendChild(name);
+      }
+      this._affectedResources.appendChild(element);
+      // }
+    }
+  }
+
+  /**
+   * @override
+   */
+  update() {
+    this.clear();
+    this._appendAffectedDirectives(this._issue.CSPviolations());
+  }
+}
+
 class AffectedCookiesView extends AffectedResourcesView {
   /**
    * @param {!IssueView} parent
@@ -382,7 +451,8 @@ class AffectedSourcesView extends AffectedResourcesView {
 const issueTypeToNetworkHeaderMap = new Map([
   [SDK.Issue.IssueCategory.SameSiteCookie, Network.NetworkItemView.Tabs.Cookies],
   [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, Network.NetworkItemView.Tabs.Headers],
-  [SDK.Issue.IssueCategory.MixedContent, Network.NetworkItemView.Tabs.Headers]
+  [SDK.Issue.IssueCategory.MixedContent, Network.NetworkItemView.Tabs.Headers],
+  [SDK.Issue.IssueCategory.ContentSecurityPolicy, Network.NetworkItemView.Tabs.Headers]
 ]);
 
 class AffectedMixedContentView extends AffectedResourcesView {
@@ -493,6 +563,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedRequestsView = new AffectedRequestsView(this, this._issue);
     this._affectedMixedContentView = new AffectedMixedContentView(this, this._issue);
     this._affectedSourcesView = new AffectedSourcesView(this, this._issue);
+    this._affectedDirectivesView = new AffectedDirectivesView(this, this._issue);
 
     this._aggregatedIssuesCount = null;
   }
@@ -514,6 +585,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedMixedContentView.update();
     this.appendAffectedResource(this._affectedSourcesView);
     this._affectedSourcesView.update();
+    this.appendAffectedResource(this._affectedDirectivesView);
+    this._affectedDirectivesView.update();
     this._createReadMoreLinks();
 
     this.updateAffectedResourceVisibility();
@@ -557,7 +630,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
     const noRequests = !this._affectedRequestsView || this._affectedRequestsView.isEmpty();
     const noMixedContent = !this._affectedMixedContentView || this._affectedMixedContentView.isEmpty();
     const noSources = !this._affectedSourcesView || this._affectedSourcesView.isEmpty();
-    const noResources = noCookies && noElements && noRequests && noMixedContent && noSources;
+    const noDirectives = !this._affectedDirectivesView || this._affectedDirectivesView.isEmpty();
+    const noResources = noCookies && noElements && noRequests && noMixedContent && noSources && noDirectives;
     this._affectedResources.hidden = noResources;
   }
 
@@ -611,6 +685,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this._affectedRequestsView.update();
     this._affectedMixedContentView.update();
     this._affectedSourcesView.update();
+    this._affectedDirectivesView.update();
     this.updateAffectedResourceVisibility();
     this._updateAggregatedIssuesCount();
   }

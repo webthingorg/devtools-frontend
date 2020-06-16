@@ -235,34 +235,9 @@ function computeIsLargeFont(contrast) {
   return fontSizePt >= 18;
 }
 
-/**
- * Determine the layout type of the highlighted element based on the config.
- * @param {Object} highlight The highlight config object passed to drawHighlight
- * @return {String|null} The layout type of the object, or null if none was found
- */
-function _getElementLayoutType(highlight) {
-  if (highlight.gridInfo && highlight.gridInfo.length) {
-    return 'grid';
-  }
-
-  return null;
-}
-
-/**
- * Create the DOM node that displays the description of the highlighted element
- * @param {Object} highlight The highlight config object passed to drawHighlight
- * @return {DOMNode}
- */
-function _createElementDescription(highlight) {
-  const {elementInfo, colorFormat} = highlight;
-
+function _createElementDescription(elementInfo, colorFormat) {
   const elementInfoElement = createElement('div', 'element-info');
   const elementInfoHeaderElement = elementInfoElement.createChild('div', 'element-info-header');
-
-  const layoutType = _getElementLayoutType(highlight);
-  if (layoutType) {
-    elementInfoHeaderElement.createChild('div', `element-layout-type ${layoutType}`);
-  }
   const descriptionElement = elementInfoHeaderElement.createChild('div', 'element-description monospace');
   const tagNameElement = descriptionElement.createChild('span', 'material-tag-name');
   tagNameElement.textContent = elementInfo.tagName;
@@ -391,13 +366,10 @@ function _createElementDescription(highlight) {
   return elementInfoElement;
 }
 
-/**
- * @param {Object} highlight The highlight config object passed to drawHighlight
- */
-function _drawElementTitle(highlight, bounds) {
+function _drawElementTitle(elementInfo, bounds, colorFormat) {
   const tooltipContainer = document.getElementById('tooltip-container');
   tooltipContainer.removeChildren();
-  _createMaterialTooltip(tooltipContainer, bounds, _createElementDescription(highlight), true);
+  _createMaterialTooltip(tooltipContainer, bounds, _createElementDescription(elementInfo, colorFormat), true);
 }
 
 function _createMaterialTooltip(parentElement, bounds, contentElement, withArrow) {
@@ -773,7 +745,7 @@ export function drawHighlight(highlight, context) {
     }
 
     if (highlight.elementInfo) {
-      _drawElementTitle(highlight, bounds);
+      _drawElementTitle(highlight.elementInfo, bounds, highlight.colorFormat);
     }
   }
   if (highlight.gridInfo) {

@@ -837,9 +837,6 @@ export const PageHighlight = {
   ShapeMargin: Color.fromRGBA([96, 82, 127, .6]),
   CssGrid: Color.fromRGBA([0x4b, 0, 0x82, 1]),
   GridCellBorder: Color.fromRGBA([147, 52, 230, 1]),
-  GridBorder: Color.fromRGBA([147, 52, 230, 1]),
-  GridRowGapBackground: Color.fromRGBA([147, 52, 230, .3]),
-  GridColumnGapBackground: Color.fromRGBA([147, 52, 230, .3]),
   GridRowGapHatch: Color.fromRGBA([147, 52, 230, .8]),
   GridColumnGapHatch: Color.fromRGBA([147, 52, 230, .8]),
 };
