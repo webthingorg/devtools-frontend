@@ -16,6 +16,75 @@
       "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb4a097c_9ce7b967",
+        "filename": "test/unittests/front_end/inspector_overlay/common_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-16T21:03:16Z",
+      "side": 1,
+      "message": "are these necessary to access window?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 17
+      },
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba4c5da8_397ffbd1",
+        "filename": "test/unittests/front_end/inspector_overlay/css_grid_label_helpers_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-16T21:03:16Z",
+      "side": 1,
+      "message": "consider moving these into an overlay helpers file? I imagine we could need these for other tools in the future. maybe we could pass in a parameter to set up creating label container vs tooltip container vs canvas, etc",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 1
+      },
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "145b583a_f7d0a604",
+        "filename": "test/unittests/front_end/inspector_overlay/css_grid_label_helpers_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-16T21:03:16Z",
+      "side": 1,
+      "message": "does this need to be the same name as above? if so, maybe different comments could help on the separation here?",
+      "range": {
+        "startLine": 128,
+        "startChar": 10,
+        "endLine": 128,
+        "endChar": 25
+      },
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
