@@ -56,12 +56,18 @@ NetworkTestRunner.networkWaterfallColumn = function() {
   return UI.panels.network._networkLogView._columns._waterfallColumn;
 };
 
-NetworkTestRunner.networkRequests = function() {
-  return Array.from(SDK.NetworkLog.instance().requests());
+// Network requests logged are paired. For most test usage, it is
+// sufficient to filter out half of them.
+NetworkTestRunner.networkRequests = function(filtered = false) {
+  const requests = SDK.NetworkLog.instance().requests();
+  if (filtered) {
+    return Array.from(requests.filter((e, i, a) => i % 2 === 0));
+  }
+  return Array.from(requests);
 };
 
-NetworkTestRunner.dumpNetworkRequests = function() {
-  const requests = NetworkTestRunner.networkRequests();
+NetworkTestRunner.dumpNetworkRequests = function(filtered = false) {
+  const requests = NetworkTestRunner.networkRequests(filtered);
 
   requests.sort(function(a, b) {
     return a.url().localeCompare(b.url());
@@ -74,8 +80,9 @@ NetworkTestRunner.dumpNetworkRequests = function() {
   }
 };
 
-NetworkTestRunner.dumpNetworkRequestsWithSignedExchangeInfo = function() {
-  for (const request of SDK.NetworkLog.instance().requests()) {
+NetworkTestRunner.dumpNetworkRequestsWithSignedExchangeInfo = function(filtered = false) {
+  const requests = NetworkTestRunner.networkRequests(filtered);
+  for (const request of requests) {
     TestRunner.addResult(`* ${request.url()}`);
     TestRunner.addResult(`  failed: ${!!request.failed}`);
     TestRunner.addResult(`  statusCode: ${request.statusCode}`);
@@ -103,8 +110,8 @@ NetworkTestRunner.dumpNetworkRequestsWithSignedExchangeInfo = function() {
   }
 };
 
-NetworkTestRunner.findRequestsByURLPattern = function(urlPattern) {
-  return NetworkTestRunner.networkRequests().filter(function(value) {
+NetworkTestRunner.findRequestsByURLPattern = function(urlPattern, filtered = false) {
+  return NetworkTestRunner.networkRequests(filtered).filter(function(value) {
     return urlPattern.test(value.url());
   });
 };
