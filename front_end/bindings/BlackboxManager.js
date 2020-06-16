@@ -188,20 +188,26 @@ export class BlackboxManager {
 
     const mappings = sourceMap.mappings();
     const newRanges = [];
-    let currentBlackboxed = false;
-    if (mappings[0].lineNumber !== 0 || mappings[0].columnNumber !== 0) {
-      newRanges.push({lineNumber: 0, columnNumber: 0});
-      currentBlackboxed = true;
-    }
-    for (const mapping of mappings) {
-      if (mapping.sourceURL && currentBlackboxed !== this.isBlackboxedURL(mapping.sourceURL)) {
-        newRanges.push({lineNumber: mapping.lineNumber, columnNumber: mapping.columnNumber});
-        currentBlackboxed = !currentBlackboxed;
+    if (mappings.length > 0) {
+      let currentBlackboxed = false;
+      if (mappings[0].lineNumber !== 0 || mappings[0].columnNumber !== 0) {
+        newRanges.push({lineNumber: 0, columnNumber: 0});
+        currentBlackboxed = true;
+      }
+      for (const mapping of mappings) {
+        if (mapping.sourceURL && currentBlackboxed !== this.isBlackboxedURL(mapping.sourceURL)) {
+          newRanges.push({lineNumber: mapping.lineNumber, columnNumber: mapping.columnNumber});
+          currentBlackboxed = !currentBlackboxed;
+        }
       }
     }
 
     const oldRanges = script[_blackboxedRanges] || [];
-    if (!isEqual(oldRanges, newRanges) && await script.setBlackboxedRanges(newRanges)) {
+    const hasChanged = !isEqual(oldRanges, newRanges);
+    if (!hasChanged && newRanges.length === 0) {
+      return;
+    }
+    if (hasChanged && await script.setBlackboxedRanges(newRanges)) {
       script[_blackboxedRanges] = newRanges;
     }
     this._debuggerWorkspaceBinding.updateLocations(script);
@@ -324,7 +330,7 @@ export class BlackboxManager {
   async _patternChanged() {
     this._isBlackboxedURLCache.clear();
 
-    /** @type {!Array<!Promise>} */
+    /** @type {!Array<!Promise<*>>} */
     const promises = [];
     for (const debuggerModel of SDK.SDKModel.TargetManager.instance().models(SDK.DebuggerModel.DebuggerModel)) {
       promises.push(this._setBlackboxPatterns(debuggerModel));
