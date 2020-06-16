@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71fc2d6b_84516d37",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-16T13:23:53Z",
+      "side": 1,
+      "message": "nit: trailing comma (is there an eslint rule we can enable for this, so that this gets autofixed in the future?)",
+      "revId": "c8c2d1f51eb9ebbd0f873ccf9b97f76c36f13df0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
