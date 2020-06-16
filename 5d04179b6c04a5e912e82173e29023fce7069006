@@ -46,6 +46,47 @@
       "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02fdc1d4_b8eff3b4",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-16T06:42:53Z",
+      "side": 1,
+      "message": "+1 for a separate bundled file",
+      "parentUuid": "3854cfbb_08141b15",
+      "range": {
+        "startLine": 3,
+        "startChar": 312,
+        "endLine": 3,
+        "endChar": 823
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13309d6f_ec38a78e",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-16T06:42:53Z",
+      "side": 1,
+      "message": "nit: Should it be \"buildi18nBundle.js\" instead of \"build18nBundle.js\"?",
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
