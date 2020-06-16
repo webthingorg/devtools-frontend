@@ -1,7 +1,15 @@
 import("../../third_party/typescript/typescript.gni")
 
 ts_library("elements") {
-  sources = [ "Adorner.js" ]
+  sources = [
+    "Adorner.js",
+    "ElementsBreadcrumbsUtils.ts",
+    "NewElementsBreadcrumbs.ts",
+  ]
 
-  deps = [ "../ui" ]
+  deps = [
+    "../lit_html",
+    "../platform",
+    "../ui",
+  ]
 }
