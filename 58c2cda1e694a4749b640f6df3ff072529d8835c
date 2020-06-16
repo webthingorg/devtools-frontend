@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18fd732c_e6f0163e",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-16T19:33:15Z",
+      "side": 1,
+      "message": "How about inlining this into the `sendLanguagePluginRequestAsync` below? And while we\u0027re at it, rename the latter to just `sendLanguagePluginRequest`?",
+      "revId": "58c2cda1e694a4749b640f6df3ff072529d8835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56b3bb15_6a37f272",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-16T19:33:15Z",
+      "side": 1,
+      "message": "I don\u0027t think this will work as expected, since `0 + 10` is the same as `5 + 5` for example. But trying this on multi-threaded Google Earth, it seems like we anyways need a different mechanism here. Maybe just having a queue of pending requests (or their promises)?",
+      "revId": "58c2cda1e694a4749b640f6df3ff072529d8835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c790319_ad56fa51",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-16T19:33:15Z",
+      "side": 1,
+      "message": "Use `throw new Error(...)` instead of throwing a string.",
+      "revId": "58c2cda1e694a4749b640f6df3ff072529d8835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b24b255_693fa10d",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-16T19:33:15Z",
+      "side": 1,
+      "message": "Use `throw new Error(...)` instead of throwing a string.",
+      "revId": "58c2cda1e694a4749b640f6df3ff072529d8835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
