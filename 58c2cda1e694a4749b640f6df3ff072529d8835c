@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "4d4530a7_843cf0dc",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-06-16T20:06:09Z",
+      "side": 1,
+      "message": "Thinking about it more, we should just manage the requestIds in here, instead of expecting the caller to provide them. We don\u0027t even need to be fancy, just have global _nextRequestId on the instance.",
+      "parentUuid": "56b3bb15_6a37f272",
+      "revId": "58c2cda1e694a4749b640f6df3ff072529d8835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c790319_ad56fa51",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 6
