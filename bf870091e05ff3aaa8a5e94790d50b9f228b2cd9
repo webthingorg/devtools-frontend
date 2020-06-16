@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e0e8780_8dd1ee9a",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-16T10:36:02Z",
+      "side": 1,
+      "message": "do we (or should we?) have a `waitForAndClick` helper that would do both of these in one? WYDT Tim?",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 11
+      },
+      "revId": "bf870091e05ff3aaa8a5e94790d50b9f228b2cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bcf0b9f_8c873580",
+        "filename": "test/e2e/sources/sourcemap-without-mappings_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-16T10:36:02Z",
+      "side": 1,
+      "message": "to check my understanding, this test effectively checks that this code runs without errors?\n\nI generally prefer a test to have an explicit assertion rather than treat the absence of errors as a pass but I understand in this case this could be tricky. But I worry that this relies on the unhandled rejection listener and if that were to be removed this test would never fail, I think?\n\nNot sure if there\u0027s some way to have an explicit assertion in this test?",
+      "range": {
+        "startLine": 29,
+        "startChar": 5,
+        "endLine": 30,
+        "endChar": 5
+      },
+      "revId": "bf870091e05ff3aaa8a5e94790d50b9f228b2cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
