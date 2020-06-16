@@ -16,6 +16,24 @@
       "revId": "c8c2d1f51eb9ebbd0f873ccf9b97f76c36f13df0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8c3eac3_ded38ec5",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1222584
+      },
+      "writtenOn": "2020-06-16T14:49:35Z",
+      "side": 1,
+      "message": "https://eslint.org/docs/rules/comma-dangle",
+      "parentUuid": "71fc2d6b_84516d37",
+      "revId": "c8c2d1f51eb9ebbd0f873ccf9b97f76c36f13df0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
