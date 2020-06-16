@@ -117,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "5aca717c_fe1d6973",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-16T09:30:48Z",
+      "side": 1,
+      "message": "I think returning an object like\n    { case: \u0027Common.UIString\u0027, version: 1 }\n\nWould be more idiomatic than an array?",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 34
+      },
+      "revId": "82d602acb4824ebb45e26f7bb74da14cc0bd874c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6e6ee261_ecc3358c",
         "filename": "scripts/localization/utils/tests/localization_utils_test.js",
         "patchSetId": 5
