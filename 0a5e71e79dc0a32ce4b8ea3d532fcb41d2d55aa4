@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "412dbc3e_8e3df1b4",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-06-16T07:52:55Z",
+      "side": 1,
+      "message": "Do mac and win also have corresponding CI builders?",
+      "range": {
+        "startLine": 65,
+        "startChar": 37,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "0a5e71e79dc0a32ce4b8ea3d532fcb41d2d55aa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
