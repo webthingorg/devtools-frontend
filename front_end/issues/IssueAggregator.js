@@ -25,6 +25,10 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._representative = null;
     /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
     this._mixedContents = new Map();
+    /** @type {!Map<string, !Set<!Protocol.Audits.CSPIssueDetails>>} */
+    this._CSPviolations = new Map();
+    /** @type {!Map<string, !Set<string>>} */
+    this._directiveURLMapping = new Map();
     this._aggregatedIssuesCount = 0;
   }
 
@@ -61,11 +65,53 @@ export class AggregatedIssue extends SDK.Issue.Issue {
 
   /**
    * @override
+   * @returns {!Iterable<!Protocol.Audits.CSPIssueDetails>}
+   */
+  CSPviolations() {
+    const violations = new Set();
+    for (const violation of this._CSPviolations.values()) {
+      violations.add(violation);
+    }
+    return violations;
+  }
+
+  /**
+   * @override
    * @returns {!Iterable<!Protocol.Audits.AffectedRequest>}
    */
   requests() {
     return this._requests.values();
   }
+
+  // /**
+  //  * @returns {!Iterable<string>}
+  //  */
+  // directives() {
+  //   return this._directiveURLMapping.keys();
+  // }
+
+  // /**
+  //  * @returns {!Iterable<Set<string>>}
+  //  */
+  // blockedURLs() {
+  //   return this._directiveURLMapping.values();
+  // }
+
+  // /**
+  //  * @returns {!string}
+  //  */
+  // violationType() {
+  //   if (this._representative) {
+  //     return this._representative.violationType();
+  //   }
+  //   return '';
+  // }
+  // /**
+  //  * @returns {!Map<string, !Set<string>>}
+  //  */
+  // directiveURLMapping() {
+  //   return this._directiveURLMapping;
+  // }
 
   /**
    * @override
@@ -130,6 +176,25 @@ export class AggregatedIssue extends SDK.Issue.Issue {
       const key = JSON.stringify(mixedContent);
       this._mixedContents.set(key, mixedContent);
     }
+    for (const CSPviolation of issue.CSPviolations()) {
+      const key = CSPviolation.violatedDirective;
+      const CSPviolations = this._CSPviolations.get(key);
+      if (!CSPviolations) {
+        const violationsSet = new Set();
+        violationsSet.add(CSPviolation);
+        this._CSPviolations.set(key, violationsSet);
+      } else {
+        CSPviolations.add(CSPviolation);
+      }
+    }
+    // for (const directive of issue.directives()) {
+    //   const URLs = this._directiveURLMapping.get(directive);
+    //   if (!URLs) {
+    //     this._directiveURLMapping.set(directive, new Set().add(issue.blockedURL()));
+    //   } else {
+    //     URLs.add(issue.blockedURL());
+    //   }
+    // }
   }
 }
 
