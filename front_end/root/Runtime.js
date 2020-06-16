@@ -720,7 +720,6 @@ export class Module {
    * @return {string}
    */
   substituteURL(value) {
-    const base = this._remoteBase() || '';
     return value.replace(/@url\(([^\)]*?)\)/g, convertURL.bind(this));
 
     /**
@@ -729,7 +728,7 @@ export class Module {
      * @this {Module}
      */
     function convertURL(match, url) {
-      return base + this._modularizeURL(url);
+      return importScriptPathPrefix + this._modularizeURL(url);
     }
   }
 }
