@@ -14,7 +14,7 @@ const SIMPLE_PAGE_URL = `requests.html?num=${SIMPLE_PAGE_REQUEST_NUMBER}`;
 // Tests are flaky
 describe('The Network Tab', async function() {
   // The tests here tend to take time because they wait for requests to appear in the request panel.
-  this.timeout(5000);
+  this.timeout(10000);
 
   it('displays requests', async () => {
     await navigateToNetworkTab(SIMPLE_PAGE_URL);
