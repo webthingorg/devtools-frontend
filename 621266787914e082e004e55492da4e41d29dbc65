@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7b09a3b_1716ae54",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-16T15:51:09Z",
+      "side": 1,
+      "message": "Are you using `._enabled` anywhere? You can probably remove it.",
+      "revId": "621266787914e082e004e55492da4e41d29dbc65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10a4dccf_4dfec145",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-16T15:51:09Z",
+      "side": 1,
+      "message": "Remove this",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "621266787914e082e004e55492da4e41d29dbc65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
