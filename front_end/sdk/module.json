@@ -537,6 +537,7 @@
     "IssuesModel.js",
     "SameSiteCookieIssue.js",
     "MixedContentIssue.js",
+    "CSPIssue.js",
     "CrossOriginEmbedderPolicyIssue.js",
     "ServerTiming.js",
     "CPUProfileDataModel.js",
