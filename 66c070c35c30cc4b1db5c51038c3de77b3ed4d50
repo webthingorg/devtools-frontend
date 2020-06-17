@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8865108_7032d1c3",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T08:21:18Z",
+      "side": 1,
+      "message": "Wasn\u0027t sure whether to split this up into two separate commands (`npm run check-lint-js` and `npm run check-lint-css`), so I went with the least disruptive change for now (i.e. preserving the existing command). Any opinions?",
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
