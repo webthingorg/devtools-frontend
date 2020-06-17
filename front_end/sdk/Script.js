@@ -134,6 +134,13 @@ export class Script {
   }
 
   /**
+   * @return {string|null}
+   */
+  scriptLanguage() {
+    return this._language;
+  }
+
+  /**
    * @return {?ExecutionContext}
    */
   executionContext() {
