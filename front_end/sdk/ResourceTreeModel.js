@@ -674,6 +674,13 @@ export class ResourceTreeFrame {
   /**
    * @return {string}
    */
+  get globalId() {
+    return this.resourceTreeModel().target().id() + '/' + this._id;
+  }
+
+  /**
+   * @return {string}
+   */
   get name() {
     return this._name || '';
   }
@@ -888,6 +895,23 @@ export class ResourceTreeFrame {
         return subtitle;
       }
       return this._name + ' (' + subtitle + ')';
+    }
+    return Common.UIString.UIString('<iframe>');
+  }
+
+  /**
+   * @return {string}
+   */
+  displayNameAlternative() {
+    const subtitle = new Common.ParsedURL.ParsedURL(this._url).displayName;
+    if (subtitle) {
+      if (!this._name) {
+        return subtitle;
+      }
+      return this._name + ' (' + subtitle + ')';
+    }
+    if (this._name) {
+      return this._name;
     }
     return Common.UIString.UIString('<iframe>');
   }
