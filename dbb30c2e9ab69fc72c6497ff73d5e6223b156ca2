@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69ccdfcc_45d539c2",
+        "filename": ".stylelintrc.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-17T15:15:06Z",
+      "side": 1,
+      "message": "is the semi colon needed here or a typo?",
+      "range": {
+        "startLine": 4,
+        "startChar": 33,
+        "endLine": 4,
+        "endChar": 41
+      },
+      "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
