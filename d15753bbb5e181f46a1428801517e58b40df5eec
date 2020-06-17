@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d43ae5d5_a84710d9",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-17T09:09:20Z",
+      "side": 1,
+      "message": "Was it previously discussed if we can have some kind of css loader so that CSS can be put into a separate file (useful for linting and syntax highlighting)?",
+      "revId": "d15753bbb5e181f46a1428801517e58b40df5eec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df20ef49_933a4776",
         "filename": "front_end/elements/Adorner.js",
         "patchSetId": 2
