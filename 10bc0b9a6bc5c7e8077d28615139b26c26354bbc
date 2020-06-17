@@ -22,6 +22,30 @@
       "revId": "10bc0b9a6bc5c7e8077d28615139b26c26354bbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51363d01_9a239ff1",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-17T16:45:14Z",
+      "side": 1,
+      "message": "Ahhh okay. Will use a good ol fashioned if-statement and reupload\n\nFixed - Thanks Tim!",
+      "parentUuid": "b0a92b26_f6633e59",
+      "range": {
+        "startLine": 27,
+        "startChar": 28,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "10bc0b9a6bc5c7e8077d28615139b26c26354bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
