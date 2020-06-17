@@ -83,6 +83,41 @@
     },
     {
       "key": {
+        "uuid": "d333ec0c_a03069f3",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-17T11:08:37Z",
+      "side": 1,
+      "message": "+1 if neither one of these two tasks take too much time (I suppose not).",
+      "parentUuid": "ac72cd08_e4135fc3",
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcbe6138_3b91f697",
+        "filename": "scripts/test/run_lint_check.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-17T11:08:37Z",
+      "side": 1,
+      "message": "Should we rename this file to something like \"run_lint_check_js.py\"? Or maybe I\u0027m missing something on the bigger picture.",
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9b552599_49c8a457",
         "filename": "scripts/test/run_lint_check_css.py",
         "patchSetId": 5
