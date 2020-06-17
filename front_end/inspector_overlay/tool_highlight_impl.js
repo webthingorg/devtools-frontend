@@ -183,6 +183,7 @@ function _drawAxis(context, rulerAtRight, rulerAtBottom) {
 export function doReset() {
   document.getElementById('tooltip-container').removeChildren();
   document.getElementById('grid-label-container').removeChildren();
+  document.getElementById('source-order-container').removeChildren();
   window._gridPainted = false;
 }
 
@@ -736,6 +737,14 @@ function hatchFillPath(context, path, bounds, delta, color, flipDirection) {
   context.restore();
 }
 
+function _drawSourceOrderLabels(sourceOrder, bounds) {
+  const sourceOrderContainer = document.getElementById('source-order-container');
+  const labelContainer = sourceOrderContainer.createChild('div', 'label-container');
+  labelContainer.textContent = sourceOrder;
+  labelContainer.style.top = (bounds.minY + (bounds.maxY - bounds.minY) / 2) + 'px';
+  labelContainer.style.left = (bounds.minX + (bounds.maxX - bounds.minX) / 2) + 'px';
+}
+
 export function drawHighlight(highlight, context) {
   context = context || window.context;
   context.save();
@@ -763,6 +772,9 @@ export function drawHighlight(highlight, context) {
 
   if (highlight.showRulers) {
     _drawAxis(context, rulerAtRight, rulerAtBottom);
+  }
+  if (highlight.sourceOrder) {
+    _drawSourceOrderLabels(highlight.sourceOrder, bounds);
   }
 
   if (highlight.paths.length) {
