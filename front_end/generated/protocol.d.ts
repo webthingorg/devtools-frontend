@@ -824,6 +824,27 @@ declare namespace Protocol {
       reason: BlockedByResponseReason;
     }
 
+    export enum ViolationType {
+      KInlineViolation = 'kInlineViolation',
+      KEvalViolation = 'kEvalViolation',
+      KURLViolation = 'kURLViolation',
+      KTrustedTypesSinkViolation = 'kTrustedTypesSinkViolation',
+      KTrustedTypesPolicyViolation = 'kTrustedTypesPolicyViolation',
+    }
+
+    export interface ContentSecurityPolicyIssueDetails {
+      /**
+       * The url not included in allowed sources.
+       */
+      blockedURL?: string;
+      /**
+       * Specific directive that is violated, causing the CSP issue.
+       */
+      violatedDirective: string;
+      violationType: ViolationType;
+      frame?: AffectedFrame;
+    }
+
     /**
      * A unique identifier for the type of issue. Each type may use one of the
      * optional fields in InspectorIssueDetails to convey more specific
@@ -833,6 +854,7 @@ declare namespace Protocol {
       SameSiteCookieIssue = 'SameSiteCookieIssue',
       MixedContentIssue = 'MixedContentIssue',
       BlockedByResponseIssue = 'BlockedByResponseIssue',
+      ContentSecurityPolicyIssue = 'ContentSecurityPolicyIssue',
     }
 
     /**
@@ -844,6 +866,7 @@ declare namespace Protocol {
       sameSiteCookieIssueDetails?: SameSiteCookieIssueDetails;
       mixedContentIssueDetails?: MixedContentIssueDetails;
       blockedByResponseIssueDetails?: BlockedByResponseIssueDetails;
+      contentSecurityPolicyIssueDetails?: ContentSecurityPolicyIssueDetails;
     }
 
     /**
@@ -7766,6 +7789,10 @@ declare namespace Protocol {
        */
       showPositiveLineNumbers?: boolean;
       /**
+       * Show Negative line number labels (default: false).
+       */
+      showNegativeLineNumbers?: boolean;
+      /**
        * The grid container border highlight color (default: transparent).
        */
       gridBorderColor?: DOM.RGBA;
@@ -7815,6 +7842,10 @@ declare namespace Protocol {
        * Whether the rulers should be shown (default: false).
        */
       showRulers?: boolean;
+      /**
+       * Whether the a11y info should be shown (default: true).
+       */
+      showAccessibilityInfo?: boolean;
       /**
        * Whether the extension lines from node to the rulers should be shown (default: false).
        */
@@ -7907,9 +7938,13 @@ declare namespace Protocol {
        */
       includeStyle?: boolean;
       /**
-       * The color format to get config with (default: hex)
+       * The color format to get config with (default: hex).
        */
       colorFormat?: ColorFormat;
+      /**
+       * Whether to show accessibility info (default: true).
+       */
+      showAccessibilityInfo?: boolean;
     }
 
     export interface GetHighlightObjectForTestResponse extends ProtocolResponseWithError {
