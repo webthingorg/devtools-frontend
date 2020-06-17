@@ -1,0 +1,18 @@
+{
+  "description": "DevTools plugin for debugging C++/DWARF WebAssembly applications",
+  "manifest_version": 2,
+  "version": "1.0",
+  "name": "C++/DWARF Devtools Plugin",
+  "background": {
+    "scripts": ["DWARFSymbolsPlugin.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "experimental",
+    "https://*/",
+    "file://*/",
+    "http://*/"
+  ],
+  "devtools_page": "DevToolsPlugin.html",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

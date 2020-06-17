@@ -6,17 +6,23 @@ import lit.llvm
 from lit.llvm.subst import FindTool, ToolSubst
 
 config.llvm_build_mode = "@LLVM_BUILD_MODE@"
-config.llvm_tools_dir = "@LLVM_TOOLS_BINARY_DIR@"
+config.llvm_tools_dir = "@NATIVE_LLVM@" or "@LLVM_TOOLS_BINARY_DIR@"
 config.symbol_server_obj_root = "@PROJECT_BINARY_DIR@"
+config.symbol_server_tools_dir = os.path.join(config.symbol_server_obj_root,
+                                              "bin")
 
 if "@SYMBOL_SERVER_BUILD_FORMATTERS@" == "ON":
     config.available_features.add('formatters')
 
+if "@SYMBOL_SERVER_BUILD_WASM@" == "TRUE":
+    config.available_features.add('wasm_plugin')
+    config.environment['NODE_PATH'] = config.symbol_server_tools_dir
+
 lit.llvm.initialize(lit_config, config)
 
 lit.llvm.llvm_config.use_default_substitutions()
-lit.llvm.llvm_config.add_tool_substitutions([
-    ToolSubst("%symbol-server", command=FindTool("DWARFSymbolServer"))
-], [os.path.join(config.llvm_tools_dir),os.path.join(config.symbol_server_obj_root, "bin")])
+lit.llvm.llvm_config.add_tool_substitutions(
+    [ToolSubst("%symbol-server", command=FindTool("DWARFSymbolServer"))],
+    [config.llvm_tools_dir, config.symbol_server_tools_dir])
 
 lit_config.load_config(config, "@PROJECT_SOURCE_DIR@/tests/lit.cfg.py")
