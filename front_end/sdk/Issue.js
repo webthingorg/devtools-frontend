@@ -9,6 +9,7 @@ export const IssueCategory = {
   CrossOriginEmbedderPolicy: Symbol('CrossOriginEmbedderPolicy'),
   MixedContent: Symbol('MixedContent'),
   SameSiteCookie: Symbol('SameSiteCookie'),
+  ContentSecurityPolicy: Symbol('ContentSecurityPolicy'),
   Other: Symbol('Other')
 };
 
@@ -92,6 +93,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    * @returns {!Iterable<!Protocol.Audits.MixedContentIssueDetails>}
    */
   mixedContents() {
+    return [];
+  }
+
+  /**
+   * @returns {!Iterable<!Protocol.Audits.CSPIssueDetails>}
+   */
+  cspViolations() {
     return [];
   }
 
