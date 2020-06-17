@@ -351,6 +351,24 @@
       "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a01ba7e9_a1388266",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-17T20:23:08Z",
+      "side": 1,
+      "message": "Done, we added a step that checks if the entire source code have been displayed. This event seems to always precede the script pausing",
+      "parentUuid": "ba6210a5_cb75e90e",
+      "revId": "85377ee46502b2f5161e2f555fdc30e078c51f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
