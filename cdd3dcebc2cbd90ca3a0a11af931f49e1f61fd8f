@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f7f144f9_a7f740ce",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-17T08:34:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ca92cf3_aaf11fb6",
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb4a097c_9ce7b967",
         "filename": "test/unittests/front_end/inspector_overlay/common_test.ts",
         "patchSetId": 1
@@ -66,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "5b795c27_8545567a",
+        "filename": "test/unittests/front_end/inspector_overlay/common_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-17T08:34:59Z",
+      "side": 1,
+      "message": "These ignore directives aren\u0027t here to access the window object, they\u0027re here because platform, viewportSize and deviceScaleFactor aren\u0027t known properties of the Window object, and so TypeScript complains about this.\nI\u0027ll make sure it does and remove the directives.\n\nSame with canvas.width/height below, I want the test to check them, but since the canvas variable is typed as an HTMLElement, those properties don\u0027t exist. I\u0027ll cast it to an HTMLCanvasElement and that should fix the issue.\n\nThanks for flagging these, I\u0027m not totally comfortable with typescript yet, so this is a good learning exercise for me.",
+      "parentUuid": "6b544b27_13bdc108",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 17
+      },
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba4c5da8_397ffbd1",
         "filename": "test/unittests/front_end/inspector_overlay/css_grid_label_helpers_test.ts",
         "patchSetId": 1
@@ -89,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "c57d314e_4a4382ca",
+        "filename": "test/unittests/front_end/inspector_overlay/css_grid_label_helpers_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-17T08:34:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba4c5da8_397ffbd1",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 1
+      },
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145b583a_f7d0a604",
         "filename": "test/unittests/front_end/inspector_overlay/css_grid_label_helpers_test.ts",
         "patchSetId": 1
@@ -109,6 +175,30 @@
       "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9fc860d_a27b9956",
+        "filename": "test/unittests/front_end/inspector_overlay/css_grid_label_helpers_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-17T08:34:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145b583a_f7d0a604",
+      "range": {
+        "startLine": 128,
+        "startChar": 10,
+        "endLine": 128,
+        "endChar": 25
+      },
+      "revId": "cdd3dcebc2cbd90ca3a0a11af931f49e1f61fd8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
