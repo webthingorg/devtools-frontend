@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e56adb0_42bb53cc",
+        "filename": "scripts/localization/utils/tests/localization_utils_test.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:31:03Z",
+      "side": 1,
+      "message": "nit: Replace it description with:\n it(\u0027returns not null if UIStrings exists\u0027, ...)\n\nand use\n assert.isNotNull(findUIStringsNode(sourceFile));\n\nBoth will result in better error messages :)\n(Also in the second test case)",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "revId": "cdb7dde9a3816f1b6c300250743964ce248f61e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
