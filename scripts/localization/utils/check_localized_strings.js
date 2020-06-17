@@ -101,6 +101,11 @@ const uiStringsMap = new Map();
 
 const devtoolsFrontendPath = path.resolve(__dirname, '..', '..', '..', 'front_end');
 let devtoolsFrontendDirs;
+// During migration process, we will update this when a directory is migrated
+// e.g. const migratedDirsSet = new Set(['settings', 'console']);
+// TODO(crbug.com/941561): Remove once localization V1 is no longer used.
+const migratedDirsSet = new Set([]);
+const locV1CallsInMigratedFiles = new Set();
 
 /**
  * The following functions validate and update grd/grdp files.
@@ -372,7 +377,13 @@ function parseLocalizableStringFromNode(node, filePath) {
     return;
   }
 
-  const locCase = localizationUtils.getLocalizationCase(node);
+
+  const {locCase, locVersion} = localizationUtils.getLocalizationCaseAndVersion(node);
+  if (locVersion === 1) {
+    // check if the V1 API call is in a directory that are already migrated to V2
+    checkMigratedDirectory(filePath);
+  }
+
   switch (locCase) {
     case 'Common.UIString':
     case 'Platform.UIString':
@@ -543,6 +554,24 @@ function addString(str, code, filePath, location, argumentNodes) {
 }
 
 /**
+ * Check if the file is in a directory that has been migrated to V2
+ */
+function isInMigratedDirectory(filePath) {
+  const relativeFilePath = localizationUtils.getRelativeFilePathFromFrontEnd(filePath);
+  const dirName = relativeFilePath.slice(0, relativeFilePath.indexOf('\\'));
+  return migratedDirsSet.has(dirName);
+}
+
+/**
+ * Check if UIStrings presents in the file
+ */
+function hasUIStrings(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const sourceFile = ts.createSourceFile(filePath, content, ts.ScriptTarget.ESNext, true);
+  return (findUIStringsNode(sourceFile) !== null);
+}
+
+/**
  * Take in an AST node and recursively look for UIStrings node, return the UIStrings node if found
  */
 function findUIStringsNode(node) {
@@ -555,6 +584,15 @@ function findUIStringsNode(node) {
     nodesToVisit.push(...currentNode.getChildren());
   }
   return null;
+}
+
+/**
+ * Add the file path if it's in a migrated directory
+ */
+function checkMigratedDirectory(filePath) {
+  if (isInMigratedDirectory(filePath) || hasUIStrings(filePath)) {
+    locV1CallsInMigratedFiles.add(filePath);
+  }
 }
 
 /**
@@ -737,7 +775,8 @@ function getMessagesToAdd() {
 
   const difference = [];
   for (const [ids, frontendString] of frontendStrings) {
-    if (!IDSkeys.has(ids) || !messageExists(ids, frontendString.grdpPath)) {
+    if (!isInMigratedDirectory(frontendString.filepath) &&
+        (!IDSkeys.has(ids) || !messageExists(ids, frontendString.grdpPath))) {
       difference.push([ids, frontendString]);
     }
   }
@@ -815,7 +854,7 @@ function getLongestDescription(messages) {
 }
 
 module.exports = {
-  parseLocalizableResourceMaps,
+  findUIStringsNode,
   getAndReportIDSKeysToModify,
   getAndReportResourcesToAdd,
   getAndReportResourcesToRemove,
@@ -823,8 +862,9 @@ module.exports = {
   getLongestDescription,
   getMessagesToAdd,
   getMessagesToRemove,
-  validateGrdAndGrdpFiles,
-  uiStringsMap,
   localizationCallsMap,
-  findUIStringsNode,
+  locV1CallsInMigratedFiles,
+  parseLocalizableResourceMaps,
+  uiStringsMap,
+  validateGrdAndGrdpFiles,
 };
