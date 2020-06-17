@@ -107,6 +107,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     this._registerHandler(commands.OpenResource, this._onOpenResource.bind(this));
     this._registerHandler(commands.Unsubscribe, this._onUnsubscribe.bind(this));
     this._registerHandler(commands.UpdateButton, this._onUpdateButton.bind(this));
+    this._registerHandler(commands.SetLanguagePluginResponse, this._setLanguagePluginResponse.bind(this));
+    this._registerHandler(commands.RegisterLanguagePluginExtension, this._registerLanguagePluginExtension.bind(this));
     window.addEventListener('message', this._onWindowMessage.bind(this), false);  // Only for main window.
 
     /** @suppress {checkTypes} */
@@ -119,6 +121,10 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.SetInspectedTabId, this._setInspectedTabId, this);
 
+    this._languagePluginRequests = new Map();
+    this._languagePluginPorts = new Map();
+    this._nextLanguagePluginRequestId = 0;
+    this._languagePluginExtensions = [];
     this._initExtensions();
   }
 
@@ -162,6 +168,52 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    */
   notifyButtonClicked(identifier) {
     this._postNotification(Extensions.extensionAPI.Events.ButtonClicked + identifier);
+  }
+
+  sendLanguagePluginRequest(pluginId, method, parameters) {
+    return new Promise((resolve, reject) => {
+      const callback = {resolve, reject};
+      const port = this._languagePluginPorts.get(pluginId);
+      if (!port) {
+        throw new Error(`Unknown plugin id ${pluginId}`);
+      }
+
+      const requestId = this._nextLanguagePluginRequestId++;
+      this._languagePluginRequests.set(requestId, callback);
+      const message = {
+        command: 'notify-' + Extensions.extensionAPI.Events.LanguagePluginRequest,
+        arguments: [pluginId, requestId, method, parameters]
+      };
+      port.postMessage(message);
+    });
+  }
+
+  _registerLanguagePluginExtension(message, port) {
+    const {pluginId, supportedScriptTypes} = message;
+    if (this._languagePluginPorts.has(pluginId)) {
+      throw Error(`Duplicate plugin id ${pluginId}`);
+    }
+    this._languagePluginExtensions.push({pluginId, supportedScriptTypes});
+    this._languagePluginPorts.set(pluginId, port);
+    this.dispatchEventToListeners(Events.LanguagePluginExtensionAdded, {pluginId, supportedScriptTypes});
+  }
+
+  get languagePluginExtensions() {
+    return this._languagePluginExtensions;
+  }
+
+  _setLanguagePluginResponse(message, port) {
+    const callbackId = message.requestId;
+    if (!this._languagePluginRequests.has(callbackId)) {
+      throw Error(`Plugin ${message.pluginId} has no pending request ${message.requestId}`);
+    }
+    const {resolve, reject} = this._languagePluginRequests.get(callbackId);
+    this._languagePluginRequests.delete(callbackId);
+    if (message.response.error) {
+      reject(message.response.error);
+    } else {
+      resolve(message.response);
+    }
   }
 
   _inspectedURLChanged(event) {
@@ -1045,7 +1097,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
 /** @enum {symbol} */
 export const Events = {
   SidebarPaneAdded: Symbol('SidebarPaneAdded'),
-  TraceProviderAdded: Symbol('TraceProviderAdded')
+  TraceProviderAdded: Symbol('TraceProviderAdded'),
+  LanguagePluginExtensionAdded: Symbol('LanguagePluginExtensionAdded')
 };
 
 /**
