@@ -93,6 +93,30 @@
       "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "babbe68e_96daac67",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-17T22:30:27Z",
+      "side": 1,
+      "message": "Looking at the docs, I think something like that would work. I havent had a chance to try this locally. Sorry I haven\u0027t been able to respond super quickly. I\u0027ve been out of office most of the day. I\u0027ve asked Vidal to help take a look, and he said he should be able to look at it by end of our work day, so hopefully we have a solution for you guys when you are back on in the morning.",
+      "parentUuid": "3cdaf6d8_186eb9ec",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 60
+      },
+      "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
