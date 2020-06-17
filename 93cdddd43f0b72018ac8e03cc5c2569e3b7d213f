@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "79cccc60_0bc4008c",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-17T15:31:10Z",
+      "side": 1,
+      "message": "I agree with Simon here that we would like to eventually report different errors depending on the element.\n\nHowever, would it make sense to deduplicate for now (as we don\u0027t report an element link)?.",
+      "parentUuid": "97481492_37ccc47a",
+      "range": {
+        "startLine": 144,
+        "startChar": 6,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "93cdddd43f0b72018ac8e03cc5c2569e3b7d213f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "879da67e_6b946446",
         "filename": "front_end/sdk/CSPIssue.js",
         "patchSetId": 14
