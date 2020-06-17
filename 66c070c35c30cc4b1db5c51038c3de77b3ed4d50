@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "64b3d8c2_3cdcba1b",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:33:33Z",
+      "side": 1,
+      "message": "This is mostly duplicate of the other function. Since it took me a couple of tries to get this logic right, can we extract it into a separate function? The args would be the directories to lint, the filetype, the lint_path and the filetype.",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 58
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fa063c_4e32d375",
+        "filename": "front_end/network/networkTimingTable.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:33:33Z",
+      "side": 1,
+      "message": "Can we separate these changes out in a separate CL? Then we can more cleanly revert this one, in case that is necessary.",
+      "range": {
+        "startLine": 124,
+        "startChar": 21,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8865108_7032d1c3",
         "filename": "package.json",
         "patchSetId": 5
@@ -13,6 +59,70 @@
       "writtenOn": "2020-06-17T08:21:18Z",
       "side": 1,
       "message": "Wasn\u0027t sure whether to split this up into two separate commands (`npm run check-lint-js` and `npm run check-lint-css`), so I went with the least disruptive change for now (i.e. preserving the existing command). Any opinions?",
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac72cd08_e4135fc3",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:33:33Z",
+      "side": 1,
+      "message": "Yeah I like this.",
+      "parentUuid": "f8865108_7032d1c3",
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b552599_49c8a457",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:33:33Z",
+      "side": 1,
+      "message": "I am confused about this TODO. My understanding of the PRESUBMIT is that it does do that: e.g. only send `*.css` files over. In which scenario is that not the case?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 75
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dc1529f_5f52fd5b",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:33:33Z",
+      "side": 1,
+      "message": "This would mean that Microsoft has to wait for a CQ run, before they would be able to inspect the linter rules? I don\u0027t think that is ideal and we should fix that before submitting. Adding Brandon to test that hypothesis and maybe he has ideas on how to fix it.",
+      "range": {
+        "startLine": 43,
+        "startChar": 37,
+        "endLine": 44,
+        "endChar": 27
+      },
       "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
