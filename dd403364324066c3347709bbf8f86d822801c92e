@@ -22,6 +22,30 @@
       "revId": "dd403364324066c3347709bbf8f86d822801c92e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "419b201b_9035a621",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-17T15:06:06Z",
+      "side": 1,
+      "message": "The back-end implementation attaches to a frame (w/e devtools is attached to) and then affects it and all its children. I assume that means `mainTarget` is enough? I don\u0027t understand the point of multiple models here either.",
+      "parentUuid": "855299b8_0ebe94a1",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "dd403364324066c3347709bbf8f86d822801c92e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
