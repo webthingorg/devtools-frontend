@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ca19a137_99796a09",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-17T10:59:04Z",
+      "side": 1,
+      "message": "Yes you are right. Putting the CSS to a separate file is definitely our ultimate goal here. I\u0027m experimenting with some different ideas as to how we load these styles to minimize performance impact, together with how we are currently loading .css files for our widgets (which I don\u0027t quite like). That will be in a follow-up CL.",
+      "parentUuid": "d43ae5d5_a84710d9",
+      "revId": "d15753bbb5e181f46a1428801517e58b40df5eec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df20ef49_933a4776",
         "filename": "front_end/elements/Adorner.js",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-06-17T09:07:40Z",
       "side": 1,
       "message": "should we try using rem/em for new code instead of px?",
+      "revId": "d15753bbb5e181f46a1428801517e58b40df5eec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc12bd8e_e93b9bcc",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-17T10:59:04Z",
+      "side": 1,
+      "message": "I think using rem/em is useful on a high-level, but that would require rethinking our entire UI/style structure (mostly for rem). For \"em\"s, since they are more localized, I think there are already some usage in the old code as well. I would defer this decision to the design side.\n\nThat being said, I do think when the new component system comes in and we have a chance to rearchitecture our components, it would be very useful to try using rem/em, because at that time we can have much more clearly defined component relationships, which means little less possibility of using \"em\" and causing subtle bugs.",
+      "parentUuid": "df20ef49_933a4776",
       "revId": "d15753bbb5e181f46a1428801517e58b40df5eec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
