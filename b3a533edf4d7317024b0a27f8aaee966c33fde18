@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea77969_468cb029",
+        "filename": "docs/workflows.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-06-17T10:10:04Z",
+      "side": 1,
+      "message": "Note that this part is new. We don\u0027t have any short-term plans to remove any of these ways, so I thought it would be a good idea to catalogue them, especially with `npm run start` going away.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 0
+      },
+      "revId": "b3a533edf4d7317024b0a27f8aaee966c33fde18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
