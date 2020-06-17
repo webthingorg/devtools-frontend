@@ -202,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "270a32a5_0934bd2e",
+        "filename": "front_end/sdk/CSPIssue.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-17T14:44:22Z",
+      "side": 1,
+      "message": "Resolved",
+      "parentUuid": "d84225ff_c52c22d1",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fafe4873_52c14930",
         "filename": "front_end/sdk/CSPIssue.js",
         "patchSetId": 13

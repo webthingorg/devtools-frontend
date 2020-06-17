@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a0ccb1c_6b74f3ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-17T14:44:22Z",
+      "side": 1,
+      "message": "Will do!",
+      "parentUuid": "267af778_9cff6d87",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "93cdddd43f0b72018ac8e03cc5c2569e3b7d213f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00ff3495_fd1929ee",
         "filename": "front_end/issues/IssueAggregator.js",
         "patchSetId": 14
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "97481492_37ccc47a",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-17T14:44:22Z",
+      "side": 1,
+      "message": "Simon suggested linking affected resources to elements in the perspective and for the case that lets say the same image source violates img-src several times (the same image is on the web page in different places) we allow duplication now.",
+      "parentUuid": "00ff3495_fd1929ee",
+      "range": {
+        "startLine": 144,
+        "startChar": 6,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "93cdddd43f0b72018ac8e03cc5c2569e3b7d213f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "879da67e_6b946446",
         "filename": "front_end/sdk/CSPIssue.js",
         "patchSetId": 14
@@ -59,6 +107,30 @@
       "writtenOn": "2020-06-17T11:45:46Z",
       "side": 1,
       "message": "We can\u0027t change the anchor above, but we at least can change it the latter part to `Source Allowlist`.",
+      "range": {
+        "startLine": 89,
+        "startChar": 51,
+        "endLine": 89,
+        "endChar": 61
+      },
+      "revId": "93cdddd43f0b72018ac8e03cc5c2569e3b7d213f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10beb097_e8626bab",
+        "filename": "front_end/sdk/CSPIssue.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-17T14:44:22Z",
+      "side": 1,
+      "message": "Peter suggested just using \"Learn more: Content Security Policy\" as the link label. Should it be the same for all violation types in the future, or should I still (as previously wanted) add different labels (here \"Content Security Policy | Source Allowlist\") with anchors to respective parts in the article?\nI\u0027ve left it more specific and with anchors for now",
+      "parentUuid": "879da67e_6b946446",
       "range": {
         "startLine": 89,
         "startChar": 51,
