@@ -287,6 +287,30 @@
       "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cd05b83_10a97dcb",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T11:56:11Z",
+      "side": 1,
+      "message": "Yes I read that, but I don\u0027t think we can allow a longer development cycle for Windows contributors (e.g. Microsoft). The presubmit is supposed to be a quick feedback cycle and we run it on CQ to catch some integration issues (e.g. if a different CL submitted would cause presubmit issues). If Microsoft contributors have to rely on CQ runs to obtain presubmit feedback with regards to styling, that would not be good.\n\nIf on the other hand we make this non-blocking on CQ, then I would be okay with landing this first version. That would allow us some time to figure out what makes the Windows integration fail, but wouldn\u0027t block Windows contributors for creating and submitting CLs.\n\nI think we can do that by running this check on `CheckChangeOnUpload` rather than `CheckChangeOnCommit`. Iirc, the `CheckChangeOnCommit` hook is invoked on CQ, while the `CheckChangeOnUpload` hook is invoked locally.",
+      "parentUuid": "988bb3d2_dba10f53",
+      "range": {
+        "startLine": 43,
+        "startChar": 37,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
