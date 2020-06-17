@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a33165e1_a8c9be9f",
+        "filename": "front_end/network/networkTimingTable.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T11:39:46Z",
+      "side": 1,
+      "message": "Sure: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2249665",
+      "parentUuid": "41fa063c_4e32d375",
+      "range": {
+        "startLine": 124,
+        "startChar": 21,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8865108_7032d1c3",
         "filename": "package.json",
         "patchSetId": 5
@@ -101,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "49ed7f04_6fb6dc27",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T11:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d333ec0c_a03069f3",
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcbe6138_3b91f697",
         "filename": "scripts/test/run_lint_check.py",
         "patchSetId": 5
@@ -115,6 +157,24 @@
       "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "244f9ef8_058854ac",
+        "filename": "scripts/test/run_lint_check.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T11:39:46Z",
+      "side": 1,
+      "message": "Yes, I initially did this, but it turned out that one of our infra scripts has the filename `run_lint_check.py` hardcoded. After talking with Liviu we decided to land this CL first, then land a change that duplicates `run_lint_check.py` as `run_lint_check_js.py` temporarily, then land the infra change, and then remove the old `run_lint_check.py` file. That way infra continues to work without interruption.",
+      "parentUuid": "dcbe6138_3b91f697",
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "d286ca0a_a83bd803",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T11:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b552599_49c8a457",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 75
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dc1529f_5f52fd5b",
         "filename": "scripts/test/run_lint_check_css.py",
         "patchSetId": 5
@@ -152,6 +236,30 @@
       "writtenOn": "2020-06-17T10:33:33Z",
       "side": 1,
       "message": "This would mean that Microsoft has to wait for a CQ run, before they would be able to inspect the linter rules? I don\u0027t think that is ideal and we should fix that before submitting. Adding Brandon to test that hypothesis and maybe he has ideas on how to fix it.",
+      "range": {
+        "startLine": 43,
+        "startChar": 37,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "988bb3d2_dba10f53",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T11:39:46Z",
+      "side": 1,
+      "message": "\u003e This would mean that Microsoft has to wait for a CQ run, before they would be able to inspect the linter rules?\n\nI\u0027m not even sure if this fails on Windows in general, or if it\u0027s somehow specific to our infra/bots. AFAICT running `npx stylelint \"**/*.css\"` in the DevTools root repo should work, even on Windows machines. Would be awesome if someone with a checkout on a Windows machine could verify this.\n\nW.r.t. blocking this CL: did you read my earlier comment? Re-posting here:\n\n```\nThis is working, except on the Windows bots, where linting is effectively skipped for now (see code comments). IMHO this shouldn\u0027t block landing this initial patch, however: once this CL goes in, CSS linting will already be enforced through the other bots, which is strictly better than the status quo of having no linting at all. We can fix the Windows issue separately. WDYT?\n```",
+      "parentUuid": "8dc1529f_5f52fd5b",
       "range": {
         "startLine": 43,
         "startChar": 37,

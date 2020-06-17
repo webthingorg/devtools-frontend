@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e2b0f30_912fedcf",
+        "filename": ".stylelintrc.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T11:39:46Z",
+      "side": 0,
+      "message": "The goal is to gradually work towards enabling and enforcing the full set of stylelint-config-standard rules, which we can start doing one-by-one as soon as this CL lands.",
+      "revId": "38562ddf8ff65fb672db695b19aa65c376e480a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
