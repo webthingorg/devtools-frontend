@@ -22,6 +22,29 @@
       "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b8c6a5e_b9523e3a",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-17T18:59:32Z",
+      "side": 1,
+      "message": "Hey Mathias, looks like the windows specific errors are related to these lines. The stylelint.js expects files/globs to have unix style path names (with \u0027/\u0027), and python/presubmit is returning windows style paths from these lines. I\u0027m working on a fix, and will hopefully be able to comment back soon",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 60
+      },
+      "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
