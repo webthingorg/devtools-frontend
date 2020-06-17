@@ -25,6 +25,8 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._representative = null;
     /** @type {!Map<string, !Protocol.Audits.MixedContentIssueDetails>} */
     this._mixedContents = new Map();
+    /** @type {!Set<!Protocol.Audits.CSPIssueDetails>} */
+    this._cspViolations = new Set();
     this._aggregatedIssuesCount = 0;
   }
 
@@ -57,6 +59,14 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    */
   mixedContents() {
     return this._mixedContents.values();
+  }
+
+  /**
+   * @override
+   * @returns {!Set<!Protocol.Audits.CSPIssueDetails>}
+   */
+  cspViolations() {
+    return this._cspViolations;
   }
 
   /**
@@ -129,6 +139,9 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     for (const mixedContent of issue.mixedContents()) {
       const key = JSON.stringify(mixedContent);
       this._mixedContents.set(key, mixedContent);
+    }
+    for (const cspViolation of issue.cspViolations()) {
+      this._cspViolations.add(cspViolation);
     }
   }
 }
