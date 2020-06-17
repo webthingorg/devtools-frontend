@@ -362,7 +362,6 @@ li.selected:not(.always-parent) + ol.children {
 }
 
 /** Adorner */
-
 .adorner-container {
   display: inline-block;
 }
