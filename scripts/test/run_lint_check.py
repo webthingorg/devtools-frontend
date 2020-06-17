@@ -13,13 +13,13 @@ sys.path.append(scripts_path)
 import devtools_paths
 
 CURRENT_DIRECTORY = path.dirname(path.abspath(__file__))
-ROOT_DIRECTORY = path.join(CURRENT_DIRECTORY, '..', '..')
+ROOT_DIRECTORY = path.normpath(path.join(CURRENT_DIRECTORY, '..', '..'))
 
 
 def main():
     exec_command = [
         devtools_paths.node_path(),
-        path.join(CURRENT_DIRECTORY, 'run_lint_check.js'),
+        path.join(CURRENT_DIRECTORY, 'run_lint_check_js.js'),
     ]
 
     eslint_proc = Popen(exec_command, cwd=ROOT_DIRECTORY)
@@ -27,6 +27,6 @@ def main():
 
     sys.exit(eslint_proc.returncode)
 
-# Run
+
 if __name__ == '__main__':
     main()
