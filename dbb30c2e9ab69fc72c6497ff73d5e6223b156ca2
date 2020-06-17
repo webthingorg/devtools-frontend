@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2eef4ea7_2df4ead7",
+        "filename": ".stylelintrc.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T19:30:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69ccdfcc_45d539c2",
+      "range": {
+        "startLine": 4,
+        "startChar": 33,
+        "endLine": 4,
+        "endChar": 41
+      },
+      "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8c6a5e_b9523e3a",
         "filename": "scripts/test/run_lint_check_css.py",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-17T18:59:32Z",
       "side": 1,
       "message": "Hey Mathias, looks like the windows specific errors are related to these lines. The stylelint.js expects files/globs to have unix style path names (with \u0027/\u0027), and python/presubmit is returning windows style paths from these lines. I\u0027m working on a fix, and will hopefully be able to comment back soon",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 60
+      },
+      "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cdaf6d8_186eb9ec",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-17T19:30:22Z",
+      "side": 1,
+      "message": "That’s super helpful, thanks! Sounds like we could use posixpath.normcase() instead of path.normcase() on line 16? Would that solve the issue?\n\nThanks for testing this, I didn’t have a Windows machine handy!",
+      "parentUuid": "6b8c6a5e_b9523e3a",
       "range": {
         "startLine": 18,
         "startChar": 0,
