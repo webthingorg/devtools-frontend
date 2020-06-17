@@ -8,6 +8,7 @@ ts_library("sdk") {
   sources = [
     "CPUProfileDataModel.js",
     "CPUProfilerModel.js",
+    "CSPIssue.js",
     "CSSMatchedStyles.js",
     "CSSMedia.js",
     "CSSMetadata.js",

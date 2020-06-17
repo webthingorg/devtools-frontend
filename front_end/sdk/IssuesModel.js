@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {CrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
+import {CSPIssue} from './CSPIssue.js';
 import {Issue} from './Issue.js';  // eslint-disable-line no-unused-vars
 import {MixedContentIssue} from './MixedContentIssue.js';
 import {NetworkLog} from './NetworkLog.js';
@@ -195,12 +196,31 @@ function createIssuesForMixedContentIssue(issuesModel, inspectorDetails) {
   return [new MixedContentIssue(mixedContentDetails)];
 }
 
+
+/**
+ * @param {!IssuesModel} issuesModel
+ * @param {!Protocol.Audits.InspectorIssueDetails} inspectorDetails
+ * @return {!Array<!Issue>}
+ */
+function createIssuesForCSPIssue(issuesModel, inspectorDetails) {
+  const cspDetails = inspectorDetails.cspIssueDetails;
+  if (!cspDetails) {
+    console.warn('Content security policy issue without details received.');
+    return [];
+  }
+
+  /** @type {!Array<!Issue>} */
+  return [new CSPIssue(cspDetails)];
+}
+
+
 /**
  * @type {!Map<!Protocol.Audits.InspectorIssueCode, function(!IssuesModel, !Protocol.Audits.InspectorIssueDetails):!Array<!Issue>>}
  */
 const issueCodeHandlers = new Map([
   [Protocol.Audits.InspectorIssueCode.SameSiteCookieIssue, createIssuesForSameSiteCookieIssue],
   [Protocol.Audits.InspectorIssueCode.MixedContentIssue, createIssuesForMixedContentIssue],
+  [Protocol.Audits.InspectorIssueCode.CSPIssue, createIssuesForCSPIssue],
 ]);
 
 /** @enum {symbol} */
