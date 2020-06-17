@@ -347,6 +347,17 @@ body {
   top: 0%;
 }
 
+.label-container {
+  background-color: blue;
+  border: crimson solid 2px;
+  border-radius: 15px;
+  display: block;
+  min-width: 20px;
+  position: absolute;
+  z-index: 10;
+  color: cyan;
+}
+
 @media (forced-colors: active) {
   :root, body {
       background-color: transparent;
@@ -402,6 +413,10 @@ window.setPlatform = function(platform) {
   const gridLabels = document.createElement('div');
   gridLabels.id = 'grid-label-container';
   document.body.append(gridLabels);
+
+  const sourceOrder = document.createElement('div');
+  sourceOrder.id = 'source-order-container';
+  document.body.append(sourceOrder);
 
   setPlatform(platform);
 };
