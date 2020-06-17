@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "beedadc7_22e2a4d4",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-17T15:32:35Z",
+      "side": 1,
+      "message": "You can\u0027t place a type annotation here. The @return type annotation above already asserts the return type. Could you try to just remove L212?",
+      "range": {
+        "startLine": 212,
+        "startChar": 2,
+        "endLine": 212,
+        "endChar": 31
+      },
+      "revId": "f567bb2aacb52e936f8bd8cb7fcab0da0ab44e5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
