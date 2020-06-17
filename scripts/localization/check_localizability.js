@@ -198,8 +198,18 @@ function analyzeNode(parentNode, node, filePath, errors) {
     return;
   }
 
-  const locCase = localizationUtils.getLocalizationCase(node);
+  const {locCase, locVersion} = localizationUtils.getLocalizationCaseAndVersion(node);
   const code = escodegen.generate(node);
+  if (locVersion === 1) {
+    runLocV1APIChecks(locCase, node, parentNode, code, errors, filePath);
+  }
+  for (const key of objKeys) {
+    // recursively parse all the child nodes
+    analyzeNode(node, node[key], filePath, errors);
+  }
+}
+
+function runLocV1APIChecks(locCase, node, parentNode, code, errors, filePath) {
   switch (locCase) {
     case 'Common.UIString':
     case 'UI.formatLocalized': {
@@ -254,11 +264,6 @@ function analyzeNode(parentNode, node, filePath, errors) {
       checkConcatenation(parentNode, node, filePath, errors);
       break;
     }
-  }
-
-  for (const key of objKeys) {
-    // recursively parse all the child nodes
-    analyzeNode(node, node[key], filePath, errors);
   }
 }
 
