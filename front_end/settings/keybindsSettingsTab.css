@@ -83,8 +83,8 @@ h1 {
   border-top: 1px solid rgb(231 231 231);
 }
 
-.keybinds-category-header:hover {
-  background-color: white;
+.keybinds-list-item:not(.keybinds-category-header):hover {
+  background-color: #f5f5f5;
 }
 
 .keybinds-set-select {
@@ -99,8 +99,4 @@ h1 {
 
 .keybinds-set-select select {
   margin-left: 6px;
-}
-
-.list {
-  border: none;
 }
