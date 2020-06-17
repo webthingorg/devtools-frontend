@@ -887,7 +887,7 @@ self.injectedExtensionAPI = function(
   chrome.devtools.panels.themeName = themeName;
 
   // default to expose experimental APIs for now.
-  if (true/*DONOTCHECKIN extensionInfo.exposeExperimentalAPIs !== false*/) {
+  if (true /* DONOTCHECKIN extensionInfo.exposeExperimentalAPIs !== false*/) {
     chrome.experimental = chrome.experimental || {};
     chrome.experimental.devtools = chrome.experimental.devtools || {};
 

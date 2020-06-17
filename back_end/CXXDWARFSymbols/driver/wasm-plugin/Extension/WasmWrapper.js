@@ -23,6 +23,41 @@ function stringify(errorCode) {
   return 'Unknown Error';
 }
 
+function nestNamespaces(variables) {
+  let result = [];
+  let namespaces = new Map();
+
+  function findOrAddNamespace(scope, namespace) {
+    if (!namespaces.has(scope)) {
+      namespaces.set(scope, new Map());
+    }
+    let namespacesForScope = namespaces.get(scope);
+    if (namespacesForScope.has(namespace)) {
+      return namespacesForScope.get(namespace);
+    } else {
+      let namespaceVar = {scope, name: namespace, type: 'namespace', nestedVariables: []};
+      namespacesForScope.set(namespace, namespaceVar);
+      let parentNamespaceEnd = namespace.lastIndexOf('::');
+      if (parentNamespaceEnd > 0) {
+        findOrAddNamespace(scope, namespace.slice(0, parentNamespaceEnd)).nestedVariables.push(namespaceVar);
+      } else {
+        result.push(namespaceVar);
+      }
+      return namespaceVar;
+    }
+  }
+
+  for (let variable of variables) {
+    let namespaceEnd = variable.name.lastIndexOf('::');
+    if (namespaceEnd > 0) {
+      findOrAddNamespace(variable.scope, variable.name.slice(0, namespaceEnd)).nestedVariables.push(variable);
+    } else {
+      result.push(variable);
+    }
+  }
+
+  return result;
+}
 
 async function callMethod(method, parameters) {
   if (!Plugin) {
@@ -127,7 +162,7 @@ async function callMethod(method, parameters) {
           type: variables.value.get(i).type
         });
       }
-      return apiVariables;
+      return nestNamespaces(apiVariables);
     }
     case 'evaluateVariable': {
       const {name, location} = parameters;

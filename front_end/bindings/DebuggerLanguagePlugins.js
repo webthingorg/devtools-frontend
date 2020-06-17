@@ -109,10 +109,35 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
 
     const properties = this.variables.map(
         variable => new SDK.RemoteObject.RemoteObjectProperty(
-            variable.name, new SourceVariable(this._callFrame, variable, this._plugin, this._location),
+            variable.name,
+            this._variableToRemoteObject(
+                variable),  // new SourceVariable(this._callFrame, variable, this._plugin, this._location),
             /* enumerable=*/ false, /* writable=*/ false, /* isOwn=*/ true, /* wasThrown=*/ false));
 
     return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: properties, internalProperties: []});
+  }
+
+  _variableToRemoteObject(variable) {
+    if (variable.nestedVariables && variable.nestedVariables.length) {
+      return new SDK.RemoteObject.LocalJSONObject(this._variableToNestedObject(variable));
+    }
+    return this._variableToSourceVariable(variable);
+  }
+
+  _variableToSourceVariable(variable) {
+    return new SourceVariable(this._callFrame, variable, this._plugin, this._location);
+  }
+
+  _variableToNestedObject(variable) {
+    const result = {};
+    for (const nested of variable.nestedVariables) {
+      if (nested.nestedVariables && nested.nestedVariables.length) {
+        result[nested.name] = this._variableToNestedObject(nested);
+      } else {
+        result[nested.name] = this._variableToSourceVariable(nested);
+      }
+    }
+    return result;
   }
 }
 
@@ -649,6 +674,7 @@ export class DebuggerLanguagePluginManager {
       'rawModuleId': script.scriptId,
       'codeOffset': callFrame.location().columnNumber - script.codeOffset()
     };
+
     const variables = await plugin.listVariablesInScope(location);
     if (variables) {
       for (const variable of variables) {
