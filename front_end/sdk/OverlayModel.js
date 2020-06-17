@@ -354,11 +354,18 @@ export class OverlayModel extends SDKModel {
     // Add background to help distinguish rows/columns when cell borders are not outlined
     const addBackgroundsToGaps = !showGridLines;
     const showGridLineNumbersSetting = Common.Settings.Settings.instance().moduleSetting('showGridLineNumbers').get();
-    // TODO: extend switch case when negitive line number CL lands
     let showPositiveLineNumbers;
+    let showNegativeLineNumbers;
     switch (showGridLineNumbersSetting) {
       case 'positive':
         showPositiveLineNumbers = true;
+        break;
+      case 'negative':
+        showNegativeLineNumbers = true;
+        break;
+      case 'both':
+        showPositiveLineNumbers = true;
+        showNegativeLineNumbers = true;
         break;
       default:
         break;
@@ -395,7 +402,8 @@ export class OverlayModel extends SDKModel {
       cellBorderColor: showGridLines ? Common.Color.PageHighlight.GridCellBorder.toProtocolRGBA() : undefined,
       cellBorderDash: gridLinesDashed,
       showGridExtensionLines: showGridExtensionLines,
-      showPositiveLineNumbers
+      showPositiveLineNumbers,
+      showNegativeLineNumbers
     };
   }
 
