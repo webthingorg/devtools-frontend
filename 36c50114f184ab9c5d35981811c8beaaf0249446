@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca3e7720_f4581f22",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:40:53Z",
+      "side": 0,
+      "message": "We shouldn\u0027t be checking `front_end/third_party` for localization changes. Why was this removed?",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "36c50114f184ab9c5d35981811c8beaaf0249446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

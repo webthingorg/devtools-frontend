@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aac03aaa_8fe9c3ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:40:53Z",
+      "side": 1,
+      "message": "This code structure is based on https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2239739 right? I left a review there that I think we should not make i18n part of common/, so the location might change.",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 45
+      },
+      "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bcfa2c6_16f65d12",
+        "filename": "scripts/localization/check_localizable_resources.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:40:53Z",
+      "side": 1,
+      "message": "Nit: extract the parts that are for V1 into a separate function, so we can remove this comment.",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 22
+      },
+      "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cdde74c_5f1f572e",
+        "filename": "scripts/localization/check_localizable_resources.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:40:53Z",
+      "side": 1,
+      "message": "Nit: same here.",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 22
+      },
+      "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7b55d94_cbbca63e",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-17T10:40:53Z",
+      "side": 1,
+      "message": "Per the above, the location here might change. I would suggest chaining this CL to https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2239739 to make sure they work together.",
+      "range": {
+        "startLine": 393,
+        "startChar": 10,
+        "endLine": 393,
+        "endChar": 40
+      },
+      "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
