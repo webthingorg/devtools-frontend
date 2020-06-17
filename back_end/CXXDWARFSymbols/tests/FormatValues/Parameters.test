@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// REQUIRES: formatters
-// RUN: %p/Inputs/lsp-encode %p/Inputs/parameters.json \
+// REQUIRES: formatters && !wasm_plugin
+// RUN: %p/Inputs/lsp-encode %p/Inputs/Parameters.json \
 // RUN: | %symbol-server 2>/dev/null \
 // RUN: | FileCheck %s
 

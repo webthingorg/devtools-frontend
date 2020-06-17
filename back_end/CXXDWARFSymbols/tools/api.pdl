@@ -95,6 +95,8 @@ domain symbol_server
       string name
       # Type of the variable
       string type
+      # Nested variables for scoping
+      array of Variable nestedVariables
 
   # List all variables in lexical scope at a location in a raw module
   command listVariablesInScope

@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// REQUIRES: formatters
-// RUN: %p/Inputs/lsp-encode %p/Inputs/formatCompound.json \
+// REQUIRES: formatters && !wasm_plugin
+// RUN: %p/Inputs/lsp-encode %p/Inputs/FormatCompound.json \
 // RUN: | %symbol-server 2>/dev/null | node %s | FileCheck %s
 
 // CHECK-NOT: Didn't consume
@@ -12,7 +12,7 @@
 // CHECK: Result at: {{[0-9]+}}
 // CHECK: Result: {"type":"Pair","name":"P","value":[{"type":"int32_t","name":"X","value":"8"},{"type":"int32_t","name":"Y","value":"12"}]}
 
-tests = require('./tests.js')
+tests = require('../NodeTests.js')
 
 // void __getMemory(uint32_t offset, uint32_t size, void* result);
 function proxyGetMemory(offset, size, result) {
