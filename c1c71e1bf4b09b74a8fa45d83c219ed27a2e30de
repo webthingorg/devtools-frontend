@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d60b3c8_f70cf54d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 1,
+      "message": "nit: stray change",
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b241a8_76d2f4ce",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 1,
+      "message": "This should be wrapped in {ls} as we want this to be translated:\n\n name.textContent \u003d ls`Directive`;",
+      "range": {
+        "startLine": 215,
+        "startChar": 23,
+        "endLine": 215,
+        "endChar": 34
+      },
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467e1e44_124669e3",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 1,
+      "message": "This is not needed. The ContentSecurityPolicy issue does not currently link to the Network panel via a {AffectedRequest}, so we don\u0027t need to specify which tab to open when a user clicks the link.",
+      "range": {
+        "startLine": 448,
+        "startChar": 78,
+        "endLine": 449,
+        "endChar": 87
+      },
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "316d4860_cc00425d",
+        "filename": "front_end/sdk/CSPIssue.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 1,
+      "message": "@Sigurd, do you think this is the correct primary key here?",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fafe4873_52c14930",
+        "filename": "front_end/sdk/CSPIssue.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a case where this._issueDetails can be null. The param to the constructor is marked as \"!Protocol.Audits.CSPIssueDetails\", the \u0027!\u0027 signifying that it must not be null.\n\nThe \"if (details)\" can safely be removed.",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a871e0f_52594590",
+        "filename": "front_end/sdk/CSPIssue.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 1,
+      "message": "nit: This is usually formatted as\n\n // TODO(crbug.com/1082628):",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 20
+      },
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6825760a_ecde776c",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 1,
+      "message": "nit: Replace with\n\n return [new CSPIssue(cspDetails))];",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 16
+      },
+      "revId": "c1c71e1bf4b09b74a8fa45d83c219ed27a2e30de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

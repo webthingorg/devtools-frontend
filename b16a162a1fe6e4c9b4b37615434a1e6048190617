@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "053d2f80_f9cccd9c",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-17T06:05:35Z",
+      "side": 0,
+      "message": "nit: Please re-add the type annotation and restore the stray whitespace changes.",
+      "range": {
+        "startLine": 491,
+        "startChar": 4,
+        "endLine": 491,
+        "endChar": 49
+      },
+      "revId": "b16a162a1fe6e4c9b4b37615434a1e6048190617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
