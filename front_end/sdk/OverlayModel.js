@@ -276,6 +276,19 @@ export class OverlayModel extends SDKModel {
   }
 
   /**
+   * @param {!HighlightData} data
+   */
+  highlightSourceOrderInOverlay(data) {
+    if (this._hideHighlightTimeout) {
+      clearTimeout(this._hideHighlightTimeout);
+      this._hideHighlightTimeout = null;
+    }
+    const parentHighlightConfig = this._buildHighlightConfig('parentSourceOrder');
+    const childHighlightConfig = this._buildHighlightConfig('childSourceOrder');
+    this._highlighter.highlightSourceOrderInOverlay(data, parentHighlightConfig, childHighlightConfig);
+  }
+
+  /**
    * @param {number} delay
    */
   _delayedHideHighlight(delay) {
@@ -445,6 +458,15 @@ export class OverlayModel extends SDKModel {
       }
     }
 
+    if (Root.Runtime.experiments.isEnabled('sourceOrderViewer')) {
+      if (mode === 'parentSourceOrder') {
+        highlightConfig.contentColor = Common.Color.PageHighlight.SourceOrderParent.toProtocolRGBA();
+      }
+      if (mode === 'childSourceOrder') {
+        highlightConfig.contentColor = Common.Color.PageHighlight.SourceOrderChild.toProtocolRGBA();
+      }
+    }
+
     // the backend does not support the 'original' format because
     // it currently cannot retrieve the original format using computed styles
     const supportedColorFormats = new Set(['rgb', 'hsl', 'hex']);
@@ -564,6 +586,27 @@ class DefaultHighlighter {
     const objectId = object ? object.objectId : undefined;
     if (nodeId || backendNodeId || objectId) {
       this._model._overlayAgent.highlightNode(config, nodeId, backendNodeId, objectId, selectorList);
+    } else {
+      this._model._overlayAgent.hideHighlight();
+    }
+  }
+
+  /**
+   * @override
+   * @param {!HighlightData} data
+   * @param {!Protocol.Overlay.HighlightConfig} parentConfig
+   * @param {!Protocol.Overlay.HighlightConfig} childConfig
+   */
+  highlightSourceOrderInOverlay(data, parentConfig, childConfig) {
+    const {node, deferredNode, object, selectorList} = data;
+    const nodeId = node ? node.id : undefined;
+    const backendNodeId = deferredNode ? deferredNode.backendNodeId() : undefined;
+    const objectId = object ? object.objectId : undefined;
+    if (nodeId || backendNodeId || objectId) {
+      // This is where the CDP call would be sent to highlight the selected node
+      // but the method is not checked into master yet, so it will throw an error
+      this._model._overlayAgent.highlightSourceOrder(
+          parentConfig, childConfig, nodeId, backendNodeId, objectId, selectorList);
     } else {
       this._model._overlayAgent.hideHighlight();
     }

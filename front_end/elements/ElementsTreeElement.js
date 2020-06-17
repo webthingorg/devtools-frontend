@@ -551,6 +551,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     contextMenu.viewSection().appendItem(Common.UIString.UIString('Focus'), async () => {
       await this._node.focus();
     });
+    if (Root.Runtime.experiments.isEnabled('sourceOrderViewer')) {
+      contextMenu.viewSection().appendItem(Common.UIString.UIString('Show Source Order'), () => {
+        this._node.highlightSourceOrder();
+      });
+    }
   }
 
   /**

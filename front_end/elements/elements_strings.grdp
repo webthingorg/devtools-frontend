@@ -243,6 +243,9 @@
   <message name="IDS_DEVTOOLS_b0351810a5721f657b088608865849dd" desc="Text in Styles Sidebar Pane of the Elements panel">
     via inspector
   </message>
+  <message name="IDS_DEVTOOLS_b5d1eccbc988bb3f8a0c7d1e3bf0b748" desc="Context menu item in Elements panel to highlight source order of the elements children">
+    Show Source Order
+  </message>
   <message name="IDS_DEVTOOLS_b70cdb878a204fecf91c7dd1af312421" desc="Text in Metrics Sidebar Pane of the Elements panel">
     padding
   </message>
