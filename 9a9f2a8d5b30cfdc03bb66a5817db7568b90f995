@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca059de8_4eb2c456",
+        "filename": "front_end/root/Runtime.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-17T08:40:01Z",
+      "side": 1,
+      "message": "why the need for this change? I don\u0027t follow how this relates to the CL",
+      "range": {
+        "startLine": 721,
+        "startChar": 0,
+        "endLine": 733,
+        "endChar": 3
+      },
+      "revId": "9a9f2a8d5b30cfdc03bb66a5817db7568b90f995",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
