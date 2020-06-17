@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6557a201_4719e0c0",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-17T08:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb52f71_6e834517",
+      "range": {
+        "startLine": 190,
+        "startChar": 52,
+        "endLine": 190,
+        "endChar": 62
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b1512bc_f33f45fb",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8147b7af_5a692dbf",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-17T08:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b1512bc_f33f45fb",
+      "range": {
+        "startLine": 162,
+        "startChar": 11,
+        "endLine": 162,
+        "endChar": 26
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "05625d69_29940307",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-17T08:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a831b3f6_9149c60a",
+      "range": {
+        "startLine": 677,
+        "startChar": 2,
+        "endLine": 679,
+        "endChar": 3
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bb1807a_ae568ac3",
         "filename": "front_end/sdk/ResourceTreeModel.js",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2020-06-16T16:01:32Z",
       "side": 1,
       "message": "Why do we need this? Are tests breaking if we change the one above?",
+      "range": {
+        "startLine": 905,
+        "startChar": 2,
+        "endLine": 905,
+        "endChar": 24
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "580b6c91_3fee2ef0",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-17T08:24:47Z",
+      "side": 1,
+      "message": "From a quick check it seems that \u0027displayName()\u0027 is used in 2 unrelated spots. Since I want a different logic I considered creating a separate function a defensive way of doing it which keeps the existing functionality untouched.\nDo you want me to check what the 2 existing call sites do and whether we can make the change everywhere?",
+      "parentUuid": "8bb1807a_ae568ac3",
       "range": {
         "startLine": 905,
         "startChar": 2,
