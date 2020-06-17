@@ -19,13 +19,14 @@ ROOT_DIRECTORY = path.join(CURRENT_DIRECTORY, '..', '..')
 def main():
     exec_command = [
         devtools_paths.node_path(),
-        path.join(CURRENT_DIRECTORY, 'run_lint_check.js'),
+        path.join(CURRENT_DIRECTORY, 'run_lint_check_js.js'),
     ]
 
     eslint_proc = Popen(exec_command, cwd=ROOT_DIRECTORY)
     eslint_proc.communicate()
 
     sys.exit(eslint_proc.returncode)
+
 
 # Run
 if __name__ == '__main__':
