@@ -87,6 +87,24 @@
       "revId": "d15753bbb5e181f46a1428801517e58b40df5eec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d652bd0_430c60c2",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-17T11:35:40Z",
+      "side": 1,
+      "message": "I see. Right now I am not sure if size of the slotted content should be relative to the slot\u0027s font size or they should stay separate. I\u0027ll update it to \"em\" if in the future we do want a more \"centralized\" sizing for adorners, probably we can have a clearer picture after more adorners (with different styles) land.\n\nThis component is \"architecturally\" prepared I would say. By that I mean I designed the scope and abstraction to try to follow the common component design patterns, which I think we will adopt later. But on a more practical level I\u0027m waiting for Jack\u0027s component CL to land to convert this to a true .ts component with a bridge, which will 100% embrace the new system.",
+      "parentUuid": "48194b89_eff379ca",
+      "revId": "d15753bbb5e181f46a1428801517e58b40df5eec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
