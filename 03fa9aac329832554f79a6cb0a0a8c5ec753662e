@@ -22,6 +22,30 @@
       "revId": "03fa9aac329832554f79a6cb0a0a8c5ec753662e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06b3edf7_1297f6ea",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-06-18T22:20:05Z",
+      "side": 1,
+      "message": "Yep - will do 😊, have a separate bug tracking it downstream.",
+      "parentUuid": "4fbaef6b_304c33cf",
+      "range": {
+        "startLine": 244,
+        "startChar": 3,
+        "endLine": 244,
+        "endChar": 31
+      },
+      "revId": "03fa9aac329832554f79a6cb0a0a8c5ec753662e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
