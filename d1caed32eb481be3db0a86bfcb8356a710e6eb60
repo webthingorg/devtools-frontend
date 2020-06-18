@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d78490d_d766a982",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-18T15:14:30Z",
+      "side": 1,
+      "message": "I\u0027ve thought about this. At the moment we are only displaying Resource and directive. Given that, please deduplicated here based on the values of these two fields. Otherwise there will be duplications in the UI that will not be useful to the user. Please leave a TODO that we need to change this when we add more fields that we report to the user.",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
