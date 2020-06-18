@@ -31,6 +31,7 @@
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Host from '../host/host.js';
+import {DefaultShortcutSetting} from './ShortcutRegistry.js';
 
 
 export class KeyboardShortcut {
@@ -52,6 +53,14 @@ export class KeyboardShortcut {
    */
   title() {
     return this.descriptors.map(descriptor => descriptor.name).join(' ');
+  }
+
+  /**
+  * @return {boolean}
+  */
+  isDefault() {
+    return this.type === Type.DefaultShortcut ||
+        (this.type === Type.KeybindSetShortcut && this.keybindSet === DefaultShortcutSetting);
   }
 
   /**
