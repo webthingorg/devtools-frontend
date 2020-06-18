@@ -1125,8 +1125,25 @@ export class TimelineUIUtils {
       case recordTypes.MarkFCP:
       case recordTypes.MarkLoad:
       case recordTypes.MarkDOMContent: {
-        contentHelper.appendTextRow(
-            ls`Timestamp`, Number.preciseMillisToString(event.startTime - model.minimumRecordTime(), 1));
+        let eventTime = event.startTime - model.minimumRecordTime();
+
+        // If there are nav start times the values for these markers
+        // need to be retimed against them.
+        const navStartTimes = model.navStartTimes();
+        if (navStartTimes.length) {
+          // Work backwards from the end to find the correct nav start
+          // event. That is, assuming the nav start times increase temporally,
+          // find the latest possible nav start time which is considered earlier
+          // than the event time.
+          for (let i = navStartTimes.length; i >= 0; i--) {
+            if (event.startTime > navStartTimes[i]) {
+              eventTime = event.startTime - navStartTimes[i];
+              break;
+            }
+          }
+        }
+
+        contentHelper.appendTextRow(ls`Timestamp`, Number.preciseMillisToString(eventTime, 1));
         contentHelper.appendElementRow(ls`Details`, TimelineUIUtils.buildDetailsNodeForPerformanceEvent(event));
         break;
       }
