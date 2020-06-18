@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "028a7e9b_efd8d60a",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-18T08:40:37Z",
+      "side": 1,
+      "message": "I\u0027ve tested this actually and the repetitive issues are filtered out already now. The console messages as well as the protocol monitor has them double, but somewhere in the front-end they are deduplicated.",
+      "parentUuid": "79cccc60_0bc4008c",
+      "range": {
+        "startLine": 144,
+        "startChar": 6,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "93cdddd43f0b72018ac8e03cc5c2569e3b7d213f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "879da67e_6b946446",
         "filename": "front_end/sdk/CSPIssue.js",
         "patchSetId": 14
