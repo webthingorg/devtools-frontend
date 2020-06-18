@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5ac4e989_dae448ad",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-18T12:58:04Z",
+      "side": 1,
+      "message": "Ah, I see. This, however, may change in the future (partly loading and showing sources). In that case, let\u0027s wait at least until the line that we want to break on.",
+      "parentUuid": "3d3c5718_d0260ed1",
+      "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95841f55_5359273e",
         "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
         "patchSetId": 20
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "this scenario have been added in the test case \u0027hits two breakpoints that are set and activated separately\u0027.\nI kept the previous test cases so we can avoid blocking these scenarios in case of a failure.\nI have also added some steps to make sure that it did not pause after removing the first breakpoint.",
       "parentUuid": "95841f55_5359273e",
+      "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acf44d31_6c95bc47",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-18T12:58:04Z",
+      "side": 1,
+      "message": "Ok!",
+      "parentUuid": "7c4def6d_46c6ade8",
       "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
