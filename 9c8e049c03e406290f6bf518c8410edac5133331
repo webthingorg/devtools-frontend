@@ -46,6 +46,30 @@
       "revId": "9c8e049c03e406290f6bf518c8410edac5133331",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c342dd5_60612ca9",
+        "filename": "front_end/browser_sdk/FrameManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-18T08:16:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d7259260_9b26bcd6",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 62
+      },
+      "revId": "9c8e049c03e406290f6bf518c8410edac5133331",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

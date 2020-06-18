@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3b90f73e_17e6c259",
+        "filename": "front_end/browser_sdk/FrameManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-18T08:16:46Z",
+      "side": 1,
+      "message": "Maybe that deserves as comment?\n\nThis also means that the Manager provides a service the RTM doesn\u0027t: It sends frameDetached events if the target goes away (but without respecting tree ordering of the frames).",
+      "parentUuid": "15b508eb_5750ef1d",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 80
+      },
+      "revId": "40ccac8590c2fed9f5ef108dd00c4b00f2048bb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0bebcde8_9c1547b6",
         "filename": "front_end/browser_sdk/browser_sdk.js",
         "patchSetId": 2
