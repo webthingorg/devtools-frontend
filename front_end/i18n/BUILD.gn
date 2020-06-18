@@ -1,0 +1,27 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+template("bundle_i18n_action") {
+  if (defined(invoker.out_dir)) {
+    _out_dir = invoker.out_dir
+  }
+
+  action(target_name) {
+    script = "../../scripts/localizationV2/bundle_i18n_library.py"
+
+    inputs = [ "../third_party/i18n/i18n.js" ]
+
+    # These files should exist after the action is completed.
+    outputs = [ "$_out_dir/i18n-bundle.js" ]
+
+    args = [
+      "--output_path=" + rebase_path(_out_dir),
+      "--i18n_path=" + rebase_path("../third_party/i18n/i18n.js"),
+    ]
+  }
+}
+
+bundle_i18n_action("i18n") {
+  out_dir = "$root_out_dir/resources/inspector/i18n"
+}
