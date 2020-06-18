@@ -335,6 +335,30 @@
       "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba93077_81985090",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-18T05:12:36Z",
+      "side": 1,
+      "message": "The latest version works on Windows, thanks to Vidal. PTAL",
+      "parentUuid": "0cd05b83_10a97dcb",
+      "range": {
+        "startLine": 43,
+        "startChar": 37,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "66c070c35c30cc4b1db5c51038c3de77b3ed4d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
