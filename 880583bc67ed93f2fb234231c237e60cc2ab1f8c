@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "ae305fdb_04e9cdd0",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-18T13:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac4e989_dae448ad",
+      "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95841f55_5359273e",
         "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
         "patchSetId": 20
