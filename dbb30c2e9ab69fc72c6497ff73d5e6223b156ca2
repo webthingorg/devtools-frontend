@@ -141,6 +141,30 @@
       "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a55ae066_fe9dee08",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-18T05:04:55Z",
+      "side": 1,
+      "message": "Awesome, thank you Vidal and Brandon!",
+      "parentUuid": "305400d7_f1f18b7a",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 60
+      },
+      "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
