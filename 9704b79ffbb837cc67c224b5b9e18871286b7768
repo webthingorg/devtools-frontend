@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a54b687d_64554408",
+        "filename": "front_end/i18n/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-18T10:54:49Z",
+      "side": 1,
+      "message": "To make this action run, you need to add a dependency somewhere on it. Probably the best location is to add a dependency on it in `front_end/BUILD.gn`.",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 19
+      },
+      "revId": "9704b79ffbb837cc67c224b5b9e18871286b7768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6646da86_016326e2",
+        "filename": "front_end/third_party/i18n/README.chromium",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-18T10:54:49Z",
+      "side": 1,
+      "message": "This should no longer be necessary, right?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "9704b79ffbb837cc67c224b5b9e18871286b7768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91b60733_36eb37c7",
+        "filename": "front_end/third_party/i18n/locales.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-18T10:54:49Z",
+      "side": 1,
+      "message": "Why do we need to use CommonJS modules here? Can we use ES module exports instead?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "9704b79ffbb837cc67c224b5b9e18871286b7768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7f527fc_f13a4c3a",
+        "filename": "scripts/localizationV2/buildi18nBundle.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-18T10:54:49Z",
+      "side": 1,
+      "message": "Preferably, we do not include bundles that aren\u0027t ESM-compatible. For the first version, I am okay with landing as-is. However, we should longterm move the bundle to ESM, which might need to happen upstream as well.\n\nAlso, can we maybe use Rollup instead?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "9704b79ffbb837cc67c224b5b9e18871286b7768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
