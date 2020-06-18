@@ -1414,6 +1414,7 @@ all_devtools_modules = [
   "sdk/SourceMapManager.js",
   "sdk/TracingManager.js",
   "sdk/TracingModel.js",
+  "sdk/WebAuthnModel.js",
   "sdk/wasm_source_map/pkg/wasm_source_map.js",
   "search/SearchConfig.js",
   "search/SearchResultsPane.js",
