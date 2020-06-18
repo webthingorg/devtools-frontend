@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8eb59e9f_602b6a8d",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-18T09:55:05Z",
+      "side": 1,
+      "message": "Not your code but types here are incomplete, made it hard to figure out what `script` was",
+      "range": {
+        "startLine": 411,
+        "startChar": 5,
+        "endLine": 411,
+        "endChar": 34
+      },
+      "revId": "bd14ff027fc9f17e3d64b92e704a874ebbbabf05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
