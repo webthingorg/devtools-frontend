@@ -22,6 +22,30 @@
       "revId": "9c8e049c03e406290f6bf518c8410edac5133331",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7259260_9b26bcd6",
+        "filename": "front_end/browser_sdk/FrameManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-18T08:02:05Z",
+      "side": 1,
+      "message": "I\u0027m open to changing when to dispatch events and what info to include in them. I think the current approach would work for my use case, but there are other options as well.\nWith the current approach when a frame is being detached, 2 frameAdded events are being generated: one when the frame is added to its parent and then a second one when it\u0027s added to its own target.\nIf adding info about the frame being added to a 2nd target, we should probably also send an event on every frameDetached, not only on the final one.",
+      "parentUuid": "dc658d95_06fb79d5",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 62
+      },
+      "revId": "9c8e049c03e406290f6bf518c8410edac5133331",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
