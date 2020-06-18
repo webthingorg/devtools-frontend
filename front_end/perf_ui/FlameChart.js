@@ -1216,10 +1216,31 @@ export class FlameChart extends UI.Widget.VBox {
     this._drawFlowEvents(context, width, height);
     this._drawMarkers();
     const dividersData = TimelineGrid.calculateGridOffsets(this);
+    const navStartTimes = this._dataProvider.navStartTimes();
+    let navStartTimeIndex = 0;
+
     TimelineGrid.drawCanvasGrid(context, dividersData);
     if (this._rulerEnabled) {
-      TimelineGrid.drawCanvasHeaders(
-          context, dividersData, time => this.formatValue(time, dividersData.precision), 3, HeaderHeight);
+      TimelineGrid.drawCanvasHeaders(context, dividersData, time => {
+        if (navStartTimes.length === 0) {
+          return this.formatValue(time, dividersData.precision);
+        }
+
+        // Track when the time crosses the boundary to the next nav start record,
+        // and when it does, move the nav start array index accordingly.
+        const hasNextNavStartTime = navStartTimes.length > navStartTimeIndex + 1;
+        if (hasNextNavStartTime && time > navStartTimes[navStartTimeIndex + 1]) {
+          navStartTimeIndex++;
+        }
+
+        // Adjust the time by the nearest nav start marker's value.
+        const nearestMarker = navStartTimes[navStartTimeIndex];
+        if (nearestMarker) {
+          time -= nearestMarker - this.zeroTime();
+        }
+
+        return this.formatValue(time, dividersData.precision);
+      }, 3, HeaderHeight);
     }
 
     this._updateElementPosition(this._highlightElement, this._highlightedEntryIndex);
@@ -2306,6 +2327,12 @@ export class FlameChartDataProvider {
    * @return {string}
    */
   textColor(entryIndex) {
+  }
+
+  /**
+   * @return {!Array<number>}
+   */
+  navStartTimes() {
   }
 }
 
