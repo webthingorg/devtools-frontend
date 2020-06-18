@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "bd998031_d9faa4ab",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-18T05:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdc1d4_b8eff3b4",
+      "range": {
+        "startLine": 3,
+        "startChar": 312,
+        "endLine": 3,
+        "endChar": 823
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13309d6f_ec38a78e",
         "filename": "scripts/localizationV2/build18nBundle.js",
         "patchSetId": 4
@@ -87,6 +111,24 @@
       "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "720ff0cd_97fd7758",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-18T05:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13309d6f_ec38a78e",
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -113,6 +155,30 @@
     },
     {
       "key": {
+        "uuid": "87b1425a_93b6ba46",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-18T05:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88569d46_6018e516",
+      "range": {
+        "startLine": 8,
+        "startChar": 22,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e07635ba_0fe347ed",
         "filename": "scripts/localizationV2/build18nBundle.js",
         "patchSetId": 4
@@ -133,6 +199,30 @@
       "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d83ffae_03a100f7",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-18T05:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e07635ba_0fe347ed",
+      "range": {
+        "startLine": 18,
+        "startChar": 48,
+        "endLine": 18,
+        "endChar": 70
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -159,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "28466608_941ab3cf",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-18T05:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5c8f1d7_207f0992",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e83ffb26_85cb8e64",
         "filename": "scripts/localizationV2/build18nBundle.js",
         "patchSetId": 4
@@ -179,6 +293,30 @@
       "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffbea288_59c68f59",
+        "filename": "scripts/localizationV2/build18nBundle.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-18T05:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e83ffb26_85cb8e64",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 12
+      },
+      "revId": "5d04179b6c04a5e912e82173e29023fce7069006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
