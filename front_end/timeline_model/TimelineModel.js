@@ -214,6 +214,29 @@ export class TimelineModelImpl {
   }
 
   /**
+   * @return {!Array<number>}
+   */
+  navStartTimes() {
+    if (!this._tracingModel) {
+      return [];
+    }
+
+    const renderer = this._tracingModel.processByName('Renderer');
+    if (!renderer) {
+      return [];
+    }
+
+    const mainThread = renderer.threadByName('CrRendererMain');
+    if (!mainThread) {
+      return [];
+    }
+
+    return mainThread.events()
+        .filter(e => e.categoriesString === 'blink.user_timing' && e.name === 'navigationStart')
+        .map(e => e.startTime);
+  }
+
+  /**
    * @param {!SDK.TracingModel.TracingModel} tracingModel
    */
   setEvents(tracingModel) {
