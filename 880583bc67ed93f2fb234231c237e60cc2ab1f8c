@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73bfec31_3240f115",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-18T05:26:47Z",
+      "side": 1,
+      "message": "Why are we waiting for line number 2 here? \"all the source code\" should be more than 2 lines, if we can set a breakpoint at line number 5, or maybe I\u0027m misunderstanding something?",
+      "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95841f55_5359273e",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-18T05:26:47Z",
+      "side": 1,
+      "message": "As Benedikt suggested, please merge the test cases into one big one. I.e.:\n- set breakpoint and test if hit (test case 1)\n- remove breakpoint and test if not active (test case 2)\n- add another breakpoint and check if hit (test case 3)",
+      "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6d60f83_e7d327c4",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-18T05:26:47Z",
+      "side": 1,
+      "message": "We want to test if page reloading happens properly. Can we do a reload here instead of navigating? Same for the other test case(s) (but after merging many of them will disappear).",
+      "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5be5d1eb_1303f808",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-06-18T05:26:47Z",
+      "side": 1,
+      "message": "Same comment about merging here.",
+      "revId": "880583bc67ed93f2fb234231c237e60cc2ab1f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
