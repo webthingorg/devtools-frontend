@@ -22,6 +22,30 @@
       "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1800ef4_05af9231",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-18T16:18:17Z",
+      "side": 1,
+      "message": "The deduplication is already happening in the front-end based on the primary key, as I discovered today morning! :)\nSo nothing needs to be added here for that purpose",
+      "parentUuid": "4d78490d_d766a982",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
