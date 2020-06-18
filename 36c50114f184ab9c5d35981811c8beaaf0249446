@@ -22,6 +22,30 @@
       "revId": "36c50114f184ab9c5d35981811c8beaaf0249446",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c693efb_b4c614e4",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-18T05:22:01Z",
+      "side": 0,
+      "message": "There were some issues with the initial exclusion. Sometimes the paths being checked are relative to front_end, sometimes to devtools src. If the path is relative to front_end, then third_party folder wont get excluded with the exclusion being \u0027front_end/third_party\u0027, So I made this exclusion to just be \u0027third_party\u0027, then when the path is relative to front_end, the third_party folder will still be excluded.",
+      "parentUuid": "ca3e7720_f4581f22",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "36c50114f184ab9c5d35981811c8beaaf0249446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "dc8456f2_ae373193",
+        "filename": "scripts/localization/check_localizable_resources.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-18T05:22:01Z",
+      "side": 1,
+      "message": "Addressed this part in another cl since that made some changes around these functions https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2244052/9..10",
+      "parentUuid": "2bcfa2c6_16f65d12",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 22
+      },
+      "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cdde74c_5f1f572e",
         "filename": "scripts/localization/check_localizable_resources.js",
         "patchSetId": 12
@@ -68,6 +92,30 @@
       "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f800ab2d_86de0e6a",
+        "filename": "scripts/localization/check_localizable_resources.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-06-18T05:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cdde74c_5f1f572e",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 22
+      },
+      "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
