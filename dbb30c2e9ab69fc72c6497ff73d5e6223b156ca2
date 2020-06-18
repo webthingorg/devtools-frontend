@@ -117,6 +117,30 @@
       "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "305400d7_f1f18b7a",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-18T04:47:37Z",
+      "side": 1,
+      "message": "So I investigated more and the error as Brandon mentioned is the backslash as stylelint.js only accepts forward slashes. Using posixpath.norm(case|path) will not work as line 15 already has backslashes and you end up with:\n- drive:\\a\\b\\c/**/*\n\nyou cannot use posixpath on the abspath as __file__ already contains backslashes you end up with:\n- drive:\\a\\b\\c//drive:/a/b/c.file.css\n\nSimilar story if you use posixpath.join.\n\nFortunately there is a library that handles these cases: pathlib, so WDYT:\nLine 6: import pathlib\nLine 18: pathlib.PurePath(path.join(FRONT_END_DIRECTORY, \u0027**\u0027, \u0027*.css\u0027))\nLine 26:  return [DEFAULT_GLOB.as_posix]\n\nI tested this on windows and it is working 😊, hope this helps.",
+      "parentUuid": "babbe68e_96daac67",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 60
+      },
+      "revId": "dbb30c2e9ab69fc72c6497ff73d5e6223b156ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
