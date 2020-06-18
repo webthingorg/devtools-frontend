@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fbaef6b_304c33cf",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-06-18T22:18:22Z",
+      "side": 1,
+      "message": "You\u0027ll need to stage a downstream fix for this as well. We recently added an Edge specific Panel Codes dict to account for things not shipping in Chrome (ie 3DView)",
+      "range": {
+        "startLine": 244,
+        "startChar": 3,
+        "endLine": 244,
+        "endChar": 31
+      },
+      "revId": "03fa9aac329832554f79a6cb0a0a8c5ec753662e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
