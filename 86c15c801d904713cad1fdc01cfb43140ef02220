@@ -22,6 +22,30 @@
       "revId": "86c15c801d904713cad1fdc01cfb43140ef02220",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "958d0bc7_1b6736db",
+        "filename": "front_end/network/networkTimingTable.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-06-18T18:54:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ea69479c_7c19f0f9",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 1
+      },
+      "revId": "86c15c801d904713cad1fdc01cfb43140ef02220",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
