@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1763d6fa_f878bec6",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-18T10:28:38Z",
+      "side": 1,
+      "message": "Please create two separate tests and separate the setup logic into functions. That makes it easier to read this test, as the abstraction now reduces the readability. (Readability of tests is usually more important than implementation, to ease the debugging process).",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 12
+      },
+      "revId": "9908f2102a3c30dc3ca9bb9b8922ae3c3a49625d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
