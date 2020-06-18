@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1da19077_b414a156",
+        "filename": "front_end/browser_sdk/FrameManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-18T07:30:53Z",
+      "side": 1,
+      "message": "Does this mean that we don\u0027t get frameDetached events in this case?",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 80
+      },
+      "revId": "40ccac8590c2fed9f5ef108dd00c4b00f2048bb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bebcde8_9c1547b6",
+        "filename": "front_end/browser_sdk/browser_sdk.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-18T07:30:53Z",
+      "side": 1,
+      "message": "Does this approach work for the frame manager as well? The situation is a bit different here than for the issues: Those are not stored anywhere, so the issues manager must be created early. For the frame manager it would also be possible to get the frames currently known from traversing the resource tree model.\n\nIn the end it is a design choice. But could you make sure that this runs indeed before any frame messages are processed?\n\nIf you keep it here please modify the comment to also say something about the FrameManager.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "40ccac8590c2fed9f5ef108dd00c4b00f2048bb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
