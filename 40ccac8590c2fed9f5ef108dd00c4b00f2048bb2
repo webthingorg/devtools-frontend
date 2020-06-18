@@ -141,6 +141,30 @@
       "revId": "40ccac8590c2fed9f5ef108dd00c4b00f2048bb2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b591c3_f75c23bc",
+        "filename": "front_end/browser_sdk/browser_sdk.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-18T15:31:31Z",
+      "side": 1,
+      "message": "From the additional discussion in the team chat, I think we are OK.",
+      "parentUuid": "64502e3e_364208b1",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "40ccac8590c2fed9f5ef108dd00c4b00f2048bb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

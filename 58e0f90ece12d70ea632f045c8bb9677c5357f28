@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d59d5356_731db326",
+        "filename": "test/unittests/front_end/browser_sdk/FrameManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-18T15:31:31Z",
+      "side": 1,
+      "message": "nit: a frame transferring to a different target",
+      "range": {
+        "startLine": 118,
+        "startChar": 14,
+        "endLine": 118,
+        "endChar": 30
+      },
+      "revId": "58e0f90ece12d70ea632f045c8bb9677c5357f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
