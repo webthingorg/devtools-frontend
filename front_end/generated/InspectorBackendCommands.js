@@ -220,10 +220,18 @@ export function registerCommands(inspectorBackend) {
     CorpNotSameOriginAfterDefaultedToSameOriginByCoep: 'CorpNotSameOriginAfterDefaultedToSameOriginByCoep',
     CorpNotSameSite: 'CorpNotSameSite'
   });
+  inspectorBackend.registerEnum('Audits.ViolationType', {
+    KInlineViolation: 'kInlineViolation',
+    KEvalViolation: 'kEvalViolation',
+    KURLViolation: 'kURLViolation',
+    KTrustedTypesSinkViolation: 'kTrustedTypesSinkViolation',
+    KTrustedTypesPolicyViolation: 'kTrustedTypesPolicyViolation'
+  });
   inspectorBackend.registerEnum('Audits.InspectorIssueCode', {
     SameSiteCookieIssue: 'SameSiteCookieIssue',
     MixedContentIssue: 'MixedContentIssue',
-    BlockedByResponseIssue: 'BlockedByResponseIssue'
+    BlockedByResponseIssue: 'BlockedByResponseIssue',
+    ContentSecurityPolicyIssue: 'ContentSecurityPolicyIssue'
   });
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerEnum('Audits.GetEncodedResponseRequestEncoding', {Webp: 'webp', Jpeg: 'jpeg', Png: 'png'});
@@ -1543,7 +1551,8 @@ export function registerCommands(inspectorBackend) {
         {'name': 'nodeId', 'type': 'number', 'optional': false},
         {'name': 'includeDistance', 'type': 'boolean', 'optional': true},
         {'name': 'includeStyle', 'type': 'boolean', 'optional': true},
-        {'name': 'colorFormat', 'type': 'string', 'optional': true}
+        {'name': 'colorFormat', 'type': 'string', 'optional': true},
+        {'name': 'showAccessibilityInfo', 'type': 'boolean', 'optional': true}
       ],
       ['highlight']);
   inspectorBackend.registerCommand('Overlay.hideHighlight', [], []);
