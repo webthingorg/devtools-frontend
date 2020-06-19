@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0db06552_7ef062a1",
+        "filename": "scripts/test/run_lint_check_css.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-06-19T08:15:20Z",
+      "side": 1,
+      "message": "Do we have an umbrella bug for Python 3 work? If so we could put the todo against that.",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "3090d8c4e3940b3cb7e404967f4b536fa057408e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
