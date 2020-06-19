@@ -1504,7 +1504,9 @@ export class InterceptedRequest {
      */
     async function blobToBase64(blob) {
       const reader = new FileReader();
-      const fileContentsLoadedPromise = new Promise(resolve => reader.onloadend = resolve);
+      const fileContentsLoadedPromise = new Promise(resolve => {
+        reader.onloadend = resolve;
+      });
       reader.readAsDataURL(blob);
       await fileContentsLoadedPromise;
       if (reader.error) {
