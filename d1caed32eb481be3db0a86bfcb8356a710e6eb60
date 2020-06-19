@@ -46,6 +46,30 @@
       "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2464ae7d_18ed4624",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-19T07:34:08Z",
+      "side": 1,
+      "message": "That is correct, but that de-duplication does take the frameId into accout, doesn\u0027t it?\n\nThat means that if the same resource is blocked due to the same directive in two different frames, it would appear twice in the list without the deduplication here.",
+      "parentUuid": "a1800ef4_05af9231",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
