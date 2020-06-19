@@ -70,6 +70,30 @@
       "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0b564b6_69b9154d",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-19T09:15:57Z",
+      "side": 1,
+      "message": "Even for iframes no frame seems to be reported from the back-end, because of that in the case you described frame-src directive with the respective link still appears only once in affected resources",
+      "parentUuid": "2464ae7d_18ed4624",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
