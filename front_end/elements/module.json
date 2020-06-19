@@ -328,6 +328,7 @@
     "ImagePreviewPopover.js"
   ],
   "resources": [
+    "adorner.css",
     "breadcrumbs.css",
     "classesPaneWidget.css",
     "computedStyleSidebarPane.css",

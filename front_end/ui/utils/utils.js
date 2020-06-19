@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {adoptStyle} from './adopt-style.js';
 import {appendStyle} from './append-style.js';
 import {createShadowRootWithCoreStyles} from './create-shadow-root-with-core-styles.js';
 import {focusChanged} from './focus-changed.js';
@@ -10,6 +11,7 @@ import {measuredScrollbarWidth} from './measured-scrollbar-width.js';
 import {registerCustomElement} from './register-custom-element.js';
 
 export {
+  adoptStyle,
   appendStyle,
   createShadowRootWithCoreStyles,
   focusChanged,

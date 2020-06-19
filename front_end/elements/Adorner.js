@@ -19,47 +19,7 @@ Object.freeze(AdornerCategories);
 
 const template = document.createElement('template');
 template.innerHTML = `
-  <style>
-    :host {
-      display: inline-flex;
-    }
-
-    :host(.hidden) {
-      display: none;
-    }
-
-    :host(.clickable) {
-      cursor: pointer;
-    }
-
-    :host(:focus) slot {
-      border: var(--adorner-border-focus, 1px solid #1a73e8);
-    }
-
-    :host([aria-pressed=true]) slot {
-      color: var(--adorner-text-color-active, #ffffff);
-      background-color: var(--adorner-background-color-active, #1a73e8);
-    }
-
-    slot {
-      display: inline-block;
-      height: 13px;
-      line-height: 13px;
-      padding: 0 6px;
-      font-size: 8.5px;
-      color: var(--adorner-text-color, #3c4043);
-      background-color: var(--adorner-background-color, #f1f3f4);
-      border: var(--adorner-border, 1px solid #dadce0);
-      border-radius: var(--adorner-border-radius, 10px);
-    }
-
-    :host-context(.-theme-with-dark-background) slot {
-      color: var(--adorner-text-color, #ffffffde);
-      background-color: var(--adorner-background-color, #5db0d726);
-      border: var(--adorner-border, 1px solid #5db0d780);
-    }
-  </style>
-  <slot name="content"></slot>
+<slot name="content"></slot>
 `;
 
 export class Adorner extends HTMLElement {
@@ -89,6 +49,7 @@ export class Adorner extends HTMLElement {
 
     const shadowRoot = this.attachShadow({mode: 'open'});
     shadowRoot.appendChild(template.content.cloneNode(true));
+    UI.Utils.adoptStyle(shadowRoot, 'elements/adorner.css');
 
     this.name = '';
     this.category = AdornerCategories.Default;

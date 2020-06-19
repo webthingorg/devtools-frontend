@@ -67,6 +67,7 @@
     "Geometry.js",
     "XLink.js",
     "XWidget.js",
+    "utils/adopt-style.js",
     "utils/append-style.js",
     "utils/create-shadow-root-with-core-styles.js",
     "utils/focus-changed.js",
