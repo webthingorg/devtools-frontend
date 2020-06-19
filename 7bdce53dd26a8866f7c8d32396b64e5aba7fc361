@@ -16,6 +16,24 @@
       "revId": "7bdce53dd26a8866f7c8d32396b64e5aba7fc361",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04b70cc1_9f00aaa7",
+        "filename": "front_end/timeline/CountersGraph.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-19T12:56:32Z",
+      "side": 1,
+      "message": "Like other `-theme-preserve` styles, it\u0027s not supposed to do anything other than satisfy the check in `_patchProperty` in `UIUtils.js`. I tried to capture what I learned in the commit message. It\u0027s definitely confusing. 😐",
+      "parentUuid": "bf8c300d_76ebfc3e",
+      "revId": "7bdce53dd26a8866f7c8d32396b64e5aba7fc361",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
