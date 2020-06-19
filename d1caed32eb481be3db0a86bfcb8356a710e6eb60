@@ -118,6 +118,30 @@
       "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d35655b7_ecb797ab",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-06-19T14:22:00Z",
+      "side": 1,
+      "message": "It seems to be null in reportViolation method, as we take it from there. But I do not have any idea yet, why null is passed to reportViolation in frame-src violation case. I\u0027ll file a bug for it!\n\nI am not fully aware of all possible cases so I will add the deduplication.",
+      "parentUuid": "d18148a0_ee0ea843",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "d1caed32eb481be3db0a86bfcb8356a710e6eb60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
