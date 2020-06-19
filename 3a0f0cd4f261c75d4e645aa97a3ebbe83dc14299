@@ -16,6 +16,24 @@
       "revId": "3a0f0cd4f261c75d4e645aa97a3ebbe83dc14299",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "241e5459_ebed2b23",
+        "filename": "front_end/animation/animationTimeline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-19T11:21:25Z",
+      "side": 1,
+      "message": "Not in this case, because no !important is present, and the specificity of the later rule is greater.\n\nThis was caught by the lint check that ensures less specific rules go first. https://stylelint.io/user-guide/rules/no-descending-specificity",
+      "parentUuid": "1a9aa246_18353d48",
+      "revId": "3a0f0cd4f261c75d4e645aa97a3ebbe83dc14299",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
