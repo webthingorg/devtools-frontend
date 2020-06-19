@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d5faba3_3d4e5c9e",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-19T14:00:53Z",
+      "side": 1,
+      "message": "I know this isn\u0027t ready for full review yet but just a heads up, you\u0027ve got a typo here 😊",
+      "range": {
+        "startLine": 131,
+        "startChar": 28,
+        "endLine": 131,
+        "endChar": 47
+      },
+      "revId": "a3a9feb0d99fafbe1d01b38455730b7b5f0cd28d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
