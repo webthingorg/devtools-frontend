@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b178811_a2b93e12",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-19T12:25:44Z",
+      "side": 1,
+      "message": "WDYT about moving this into a separate function as it became quite big.",
+      "range": {
+        "startLine": 1224,
+        "startChar": 60,
+        "endLine": 1243,
+        "endChar": 7
+      },
+      "revId": "eda04be451a38dc4b5353e8c37318fb14965cf94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83509b89_c23b27f8",
+        "filename": "front_end/perf_ui/FlameChart.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2335,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-19T12:25:44Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this return an array?",
+      "range": {
+        "startLine": 2335,
+        "startChar": 2,
+        "endLine": 2335,
+        "endChar": 15
+      },
+      "revId": "eda04be451a38dc4b5353e8c37318fb14965cf94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
