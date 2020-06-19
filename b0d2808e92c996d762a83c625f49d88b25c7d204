@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa7d8b76_1e5df867",
+        "filename": "front_end/ui/Infobar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-19T11:15:08Z",
+      "side": 1,
+      "message": "This is incurring technical debt. I\u0027m OK with it for this CL since we want to get it in soon, but please leave a todo, and file a bug: The task in the bug would be to determine whether we need two mechanisms (sprite sheets and svg files), or whether one is enough, and determine whether the warning icon can be moved to the spritesheet.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 30
+      },
+      "revId": "b0d2808e92c996d762a83c625f49d88b25c7d204",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
