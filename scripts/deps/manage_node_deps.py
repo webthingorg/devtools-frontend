@@ -33,6 +33,8 @@ LICENSES = [
 
 # List all DEPS here.
 DEPS = {
+    "@rollup/plugin-commonjs": "13.0.0",
+    "@rollup/plugin-node-resolve": "8.0.1",
     "@types/chai": "4.2.0",
     "@types/filesystem": "0.0.29",
     "@types/mocha": "5.2.7",
@@ -45,6 +47,7 @@ DEPS = {
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-mocha": "6.2.2",
     "eslint-plugin-rulesdir": "0.1.0",
+    "intl-messageformat": "4.4.0",
     "karma": "5.0.1",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "3.1.0",
@@ -53,6 +56,7 @@ DEPS = {
     "karma-mocha": "2.0.1",
     "karma-sourcemap-loader": "0.3.0",
     "license-checker": "25.0.1",
+    "lodash.isequal": "4.5.0",
     "mocha": "7.1.1",
     "puppeteer": "3.0.3",
     "recast": "0.18.2",
