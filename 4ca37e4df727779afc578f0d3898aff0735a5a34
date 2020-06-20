@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "898eec9a_1a16f34c",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-20T01:34:03Z",
+      "side": 0,
+      "message": "This polyfill is not needed for devtools as Intl is already part of the platform, otherwise rollup will bundle the library which is ~1MB",
+      "revId": "4ca37e4df727779afc578f0d3898aff0735a5a34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
