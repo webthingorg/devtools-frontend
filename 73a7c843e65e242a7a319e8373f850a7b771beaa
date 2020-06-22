@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f805fa1_892aa4f8",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-22T09:59:28Z",
+      "side": 1,
+      "message": "Oh I see now. Since this is a front_end package, any dependencies have to be checked into `front_end/third_party` (instead of being managed by `managed_node_deps.py`). These packages therefore require security and third_party approval. (I previously thought they were used in the build system, as you added them as deps to the `manage_node_deps.py`)\n\nWould it be possible to not use these dependencies? That would save us some cycles and additional code we need to audit. If we do really need them, we need separate CLs to add the packages respectively and kick off the necessary processes.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "73a7c843e65e242a7a319e8373f850a7b771beaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98661788_f39bbfe7",
+        "filename": "scripts/localizationV2/buildi18nBundle.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-22T09:59:28Z",
+      "side": 1,
+      "message": "Why are we skipping the compiler? Instead, we should add a `.d.ts` file next to the file we are importing, to define its public API. That should prevent the need for disabling the TypeScript compiler altogether.",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "73a7c843e65e242a7a319e8373f850a7b771beaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
