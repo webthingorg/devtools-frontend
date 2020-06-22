@@ -345,8 +345,13 @@ export class Automapping {
    */
   _createBinding(networkSourceCode) {
     if (networkSourceCode.url().startsWith('file://') || networkSourceCode.url().startsWith('snippet://')) {
-      const decodedUrl = decodeURI(networkSourceCode.url());
-      const fileSourceCode = this._fileSystemUISourceCodes.get(decodedUrl);
+      let fileSourceCode;
+      try {
+        const decodedUrl = decodeURI(networkSourceCode.url());
+        fileSourceCode = this._fileSystemUISourceCodes.get(decodedUrl);
+      } catch (error) {
+        fileSourceCode = null;
+      }
       const status = fileSourceCode ? new AutomappingStatus(networkSourceCode, fileSourceCode, false) : null;
       return Promise.resolve(status);
     }
