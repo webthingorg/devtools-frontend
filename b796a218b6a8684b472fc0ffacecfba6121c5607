@@ -93,6 +93,30 @@
       "revId": "b796a218b6a8684b472fc0ffacecfba6121c5607",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1a10a20_e73b5017",
+        "filename": "test/e2e/resources/console/CSP-blocks-eval.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-22T08:01:46Z",
+      "side": 1,
+      "message": "Ahh, my bad. I just saw the e2e test failure and thought this was related.",
+      "parentUuid": "f1989d68_e4220d87",
+      "range": {
+        "startLine": 7,
+        "startChar": 78,
+        "endLine": 7,
+        "endChar": 84
+      },
+      "revId": "b796a218b6a8684b472fc0ffacecfba6121c5607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
