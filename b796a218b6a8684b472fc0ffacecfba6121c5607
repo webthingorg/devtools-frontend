@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6d14593_9819d26b",
+        "filename": "test/e2e/console/console-eval-blocked-by-CSP_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-22T07:47:49Z",
+      "side": 1,
+      "message": "why is this needed?",
+      "range": {
+        "startLine": 49,
+        "startChar": 22,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "b796a218b6a8684b472fc0ffacecfba6121c5607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5e86fa_dd96f364",
+        "filename": "test/e2e/resources/console/CSP-blocks-eval.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-22T07:47:49Z",
+      "side": 1,
+      "message": "eval?\n\nAFAIU unsafe-inline disallows inline JavaScript (between \u003cscript\u003e tags), which this page doesn\u0027t have.",
+      "range": {
+        "startLine": 7,
+        "startChar": 78,
+        "endLine": 7,
+        "endChar": 84
+      },
+      "revId": "b796a218b6a8684b472fc0ffacecfba6121c5607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
