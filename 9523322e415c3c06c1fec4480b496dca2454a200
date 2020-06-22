@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c808e28_1b6d8202",
+        "filename": "test/e2e/resources/elements/stylesheets-with-various-sources.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-22T09:50:47Z",
+      "side": 1,
+      "message": "Do we also want to add a test to verify the styles are properly applied? If that is too much to include here, we can do it in a follow-up CL.",
+      "range": {
+        "startLine": 13,
+        "startChar": 56,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "9523322e415c3c06c1fec4480b496dca2454a200",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
