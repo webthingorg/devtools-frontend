@@ -75,10 +75,6 @@ function checkNonAutostartNonRemoteModules() {
  * listed in BUILD.gn.
  */
 function checkAllDevToolsFiles() {
-  const allDevToolsFilesPath = path.resolve(__dirname, '..', 'all_devtools_files.gni');
-  const allDevToolsFilesFile = fs.readFileSync(allDevToolsFilesPath, 'utf-8');
-  const allDevToolsFilesLines = allDevToolsFilesFile.split('\n');
-
   return checkGNVariable('all_devtools_files', moduleJSON => {
     const scripts = moduleJSON.scripts || [];
     const resources = moduleJSON.resources || [];
@@ -87,14 +83,10 @@ function checkAllDevToolsFiles() {
       ...scripts,
       ...resources,
     ];
-  }, undefined, allDevToolsFilesLines);
+  });
 }
 
 function checkAllDevToolsModules() {
-  const allDevToolsModulesPath = path.resolve(__dirname, '..', 'all_devtools_modules.gni');
-  const allDevToolsModulesFile = fs.readFileSync(allDevToolsModulesPath, 'utf-8');
-  const allDevToolsModulesLines = allDevToolsModulesFile.split('\n');
-
   return checkGNVariable(
       'all_devtools_modules',
       (moduleJSON, folderName) => {
@@ -105,8 +97,7 @@ function checkAllDevToolsModules() {
       buildGNPath => filename => {
         const relativePath = path.normalize(`${buildGNPath}/${filename}`);
         return `"${relativePath}",`;
-      },
-      allDevToolsModulesLines);
+      });
 }
 
 function checkDevtoolsModuleEntrypoints() {
@@ -123,7 +114,11 @@ function checkDevtoolsModuleEntrypoints() {
       });
 }
 
-function checkGNVariable(gnVariable, obtainFiles, obtainRelativePath, linesToCheck = gnLines) {
+function checkGNVariable(gnVariable, obtainFiles, obtainRelativePath) {
+  const filePath = path.resolve(__dirname, '..', `${gnVariable}.gni`);
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const linesToCheck = fileContent.split('\n');
+
   const errors = [];
   const excludedFiles = ['axe.js', 'formatter_worker/', 'third_party/lighthouse/'].map(path.normalize);
   const lines = selectGNLines(`${gnVariable} = [`, ']', linesToCheck).map(path.normalize);
