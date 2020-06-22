@@ -962,10 +962,12 @@ export class TimelineUIUtils {
           contentHelper.appendTextRow(ls`Produced Cache Size`, producedCacheSize);
         }
         const cacheConsumeOptions = eventData && eventData['cacheConsumeOptions'];
+        const cacheSuccessful = Boolean(cacheConsumeOptions && !eventData['cacheRejected']);
+        contentHelper.appendTextRow(ls`Bytecode Cache Successful`, cacheSuccessful);
         if (cacheConsumeOptions) {
-          contentHelper.appendTextRow(ls`Cache Consume Options`, cacheConsumeOptions);
-          contentHelper.appendTextRow(ls`Consumed Cache Size`, eventData['consumedCacheSize']);
-          contentHelper.appendTextRow(ls`Cache Successful`, !eventData['cacheRejected']);
+          contentHelper.appendTextRow(ls`Bytecode Cache Consume Options`, cacheConsumeOptions);
+          const cacheSize = Platform.NumberUtilities.bytesToString(eventData['consumedCacheSize']);
+          contentHelper.appendTextRow(ls`Consumed Bytecode Cache Size`, cacheSize);
         }
         break;
       }
