@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0c5c4c6_b4db24e6",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-22T12:58:53Z",
+      "side": 1,
+      "message": "FYI the next CL cleans this up.",
+      "range": {
+        "startLine": 90,
+        "startChar": 5,
+        "endLine": 90,
+        "endChar": 37
+      },
+      "revId": "28a86c1c8b4ceab6ab63e1dffe9dd9278a356b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
