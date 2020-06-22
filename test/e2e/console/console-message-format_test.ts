@@ -5,9 +5,18 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
+import {reloadDevTools} from '../../shared/helper.js';
 import {getConsoleMessages, showVerboseMessages} from '../helpers/console-helpers.js';
 
 describe('The Console Tab', async () => {
+  beforeEach(async () => {
+    await reloadDevTools({
+      selectedPanel: {
+        name: 'console',
+        selector: '.console',
+      },
+    });
+  });
   it('shows BigInts formatted', async () => {
     const messages = await getConsoleMessages('big-int');
 
