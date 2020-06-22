@@ -16,6 +16,24 @@
       "revId": "2866c0311102a4e82d22bf93cf1caee344ea6203",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8a9e78d_739b79a3",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-06-22T19:50:13Z",
+      "side": 1,
+      "message": "With the new ListControl list, this icon is read out by screen readers as you navigate through the list.",
+      "parentUuid": "9c012f5d_dd400dda",
+      "revId": "2866c0311102a4e82d22bf93cf1caee344ea6203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
