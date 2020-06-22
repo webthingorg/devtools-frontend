@@ -42,6 +42,8 @@ template("rollup_entrypoint") {
         rebase_path(
             devtools_location_prepend + "node_modules/rollup/dist/bin/rollup",
             root_build_dir),
+        "--plugin",
+        "terser",
         "--config",
         rebase_path(devtools_location_prepend + "front_end/rollup.config.js",
                     root_build_dir),
