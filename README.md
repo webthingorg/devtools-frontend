@@ -13,7 +13,7 @@ The frontend is available on [chromium.googlesource.com](https://chromium.google
 Please be aware that DevTools follows additional [development guidelines](docs/design_guidelines.md).
 
 ### Issue triage
-The issue triage guidelines can be found [here](docs/triage_guildelines.md).
+The issue triage guidelines can be found [here](docs/triage_guidelines.md).
 
 ### Workflows
 Instructions to set up, use, and maintain a DevTools frontend checkout can be found [here](docs/workflows.md).
