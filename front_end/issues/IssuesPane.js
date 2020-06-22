@@ -469,6 +469,78 @@ class AffectedMixedContentView extends AffectedResourcesView {
   }
 }
 
+// I believe we'll need this piece, but unsure.  We affect frames rather than
+// resources directly.
+class AffectedHeavyAdView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`resource`, plural: ls`resources`});
+    /** @type {!SDK.Issue.Issue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {!Iterable<!Protocol.Audits.HeavyAdIssueDetails>} heavyAds
+   */
+  _appendAffectedHeavyAds(heavyAds) {
+    const header = document.createElement('tr');
+
+    const name = document.createElement('td');
+    name.classList.add('affected-resource-header');
+    name.textContent = ls`Name`;
+    header.appendChild(name);
+
+    const info = document.createElement('td');
+    info.classList.add('affected-resource-header');
+    info.textContent = ls`Restriction Status`;
+    header.appendChild(info);
+
+    this._affectedResources.appendChild(header);
+
+    let count = 0;
+    for (const heavyAd of heavyAds) {
+      this.appendAffectedHeavyAd(heavyAd);
+      count++;
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   * @param {!Protocol.Audits.HeavyAdIssueeDetails} heavyAd
+   */
+  appendAffectedHeavyAd(heavyAd) {
+    const element = document.createElement('tr');
+    element.classList.add('affected-resource-heavy-ad');
+    // Need to extract the frame identifier here rather than the URL?
+    const filename = extractShortPath(heavyAd.insecureURL);
+
+    const name = document.createElement('td');
+    name.classList.add('affected-resource-heavy-ad');
+    name.textContent = filename;
+    // Also frame identifier here rather than URL?
+    UI.Tooltip.Tooltip.install(name, heavyAd.insecureURL);
+    element.appendChild(name);
+
+    const status = document.createElement('td');
+    status.classList.add('affected-resource-heavy-ad-info');
+    status.textContent = SDK.HeavyAdIssue.HeavyAdIssue.translateStatus(heavyAd.resolution);
+    element.appendChild(status);
+
+    this._affectedResources.appendChild(element);
+  }
+
+  /**
+   * @override
+   */
+  update() {
+    this.clear();
+    this._appendAffectedHeavyAd(this._issue.heavyAd());
+  }
+}
+
 class IssueView extends UI.TreeOutline.TreeElement {
   /**
    *
