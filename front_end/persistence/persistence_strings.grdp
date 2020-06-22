@@ -33,6 +33,9 @@
   <message name="IDS_DEVTOOLS_486658cc6336ffa59ef2fdff0b977a91" desc="Text in Edit File System View of the Workspace settings in Settings">
     Excluded folders
   </message>
+  <message name="IDS_DEVTOOLS_59dbad055073e0e96efd508999864723" desc="Error message when attempting to create a binding from a malformed URI.">
+    Cannot bind malformed URI: <ph name="NETWORKSOURCECODE_URL__">$1s<ex>file://%E0%A4%A</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_5f6bb21e40e670952b73ca35eafbe35a" desc="Title of a setting under the Persistence category that can be invoked through the Command Menu">
     Disable override network requests
   </message>
