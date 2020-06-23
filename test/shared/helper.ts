@@ -282,13 +282,13 @@ export const enableExperiment = async (
   await reloadDevTools(options);
 };
 
-export const goTo = async (url: string) => {
+export const goTo = async (url: string, options?: puppeteer.DirectNavigationOptions) => {
   const {target} = getBrowserAndPages();
-  await target.goto(url);
+  await target.goto(url, options);
 };
 
-export const goToResource = async (path: string) => {
-  await goTo(`${resourcesPath}/${path}`);
+export const goToResource = async (path: string, options?: puppeteer.DirectNavigationOptions) => {
+  await goTo(`${resourcesPath}/${path}`, options);
 };
 
 export const step = async (description: string, step: Function) => {

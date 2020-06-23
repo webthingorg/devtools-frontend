@@ -596,6 +596,8 @@ export class ConsoleViewMessage {
     }
     element.classList.add('object-value-' + type);
     element.classList.add('source-code');
+    const debug = element.createChild('span');
+    debug.textContent = `\n\n[[DEBUG in Frontend: output: ${output}, includePreview? ${includePreview}]]\n\n`;
     return element;
   }
 
