@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ae10875_1392ce96",
+        "filename": "front_end/console/consoleView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-23T06:53:27Z",
+      "side": 1,
+      "message": "The intention behind this particular lint check is not just the order of rules, but also that related rules are close together.\n\nSo, let\u0027s move this closer to the related rule that is currently at line 465:\n\n    .console-view-object-properties-section:not(.expanded) .info-note\n\nWDYT?",
+      "revId": "e18ad372439ea4d328729d79505826982bceef3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
