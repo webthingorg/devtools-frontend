@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6bb0d7f_1f85e36b",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-23T06:29:25Z",
+      "side": 0,
+      "message": "accidental or intended?",
+      "revId": "b0928d0b13fd06ad487cd8a9aed710fbecc0268b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
