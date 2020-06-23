@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98b49c0d_b8bd9fcc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-23T10:44:05Z",
+      "side": 1,
+      "message": "I didn\u0027t catch this before, but the design doc has not been approved yet. Moreover, it does not list which panels will be closeable and the reasoning for that. I think we should list the panels first and come up with data supporting why these panels should be closeable, before we close more.\n\nI suppose that the security panel CL was already submitted, so I guess we have to keep that in for now. But we probably should have waited for approvals before making the changes.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 96
+      },
+      "revId": "79036da1a7d2629ac7af7a218f70b3962f4fd7e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
