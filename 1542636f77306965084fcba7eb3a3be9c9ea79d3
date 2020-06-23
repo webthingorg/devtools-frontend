@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb7040c7_9c6389f7",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-23T22:13:10Z",
+      "side": 1,
+      "message": "hmmm, it seems like with this change, I don\u0027t see how an adorner that adds a toggle function in the future would be able to update the Default/active aria labels to reflect their name. I.e., how would a grid adorner read \"grid adorner active\" instead of \"adorner active\"?",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 45
+      },
+      "revId": "1542636f77306965084fcba7eb3a3be9c9ea79d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
