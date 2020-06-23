@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f45849f3_9baac37d",
+        "filename": "front_end/third_party/i18n/i18n.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-23T02:57:29Z",
+      "side": 1,
+      "message": "Christy will help me with the reviews, my recommendation is to keep them for now and investigate if they can (or if want to) remove later, once they are approved and checked in I\u0027ll update this CL.",
+      "parentUuid": "3f805fa1_892aa4f8",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "73a7c843e65e242a7a319e8373f850a7b771beaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98661788_f39bbfe7",
         "filename": "scripts/localizationV2/buildi18nBundle.js",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "73a7c843e65e242a7a319e8373f850a7b771beaa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97320016_5cb17db6",
+        "filename": "scripts/localizationV2/buildi18nBundle.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-06-23T02:57:29Z",
+      "side": 1,
+      "message": "yes, actually as the file is not even being used I\u0027ll take it out from here (and add it in the linked CL, to simplify this CL)",
+      "parentUuid": "98661788_f39bbfe7",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "73a7c843e65e242a7a319e8373f850a7b771beaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
