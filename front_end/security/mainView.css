@@ -170,14 +170,14 @@
 }
 
 @media (forced-colors: active) {
+  .security-summary-neutral .lock-icon-neutral {
+    background-color: Highlight;
+  }
+
   .security-summary:not(.security-summary-secure) .lock-icon-secure,
   .security-summary:not(.security-summary-neutral) .lock-icon-neutral,
   .security-summary:not(.security-summary-insecure) .lock-icon-insecure,
   .security-summary:not(.security-summary-insecure-broken) .lock-icon-insecure-broken {
     background-color: canvastext;
-  }
-
-  .security-summary-neutral .lock-icon-neutral {
-    background-color: Highlight;
   }
 }
