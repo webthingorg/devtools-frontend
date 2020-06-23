@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "daec6224_c40b8f73",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-23T12:56:11Z",
+      "side": 1,
+      "message": "It would be possible, but it would make it harder to test, because this cements in that FrameManager is a singleton.\n\nI like designs better that don\u0027t force the singleton nature of a class too violently, but make it clear from the interface that there is single instance that should be used.\n\nIf the instance() repeats itself too often, one can always assign to a variable.\n\nI don\u0027t see the point about accidentally creating a frame manager?",
+      "parentUuid": "c96d563c_2579a8bf",
+      "range": {
+        "startLine": 552,
+        "startChar": 18,
+        "endLine": 552,
+        "endChar": 75
+      },
+      "revId": "eafc6b1033b5dfaa26ce926c3fe92f22e331befa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "478a0d6a_e8049063",
         "filename": "front_end/sdk/sdk_strings.grdp",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "eafc6b1033b5dfaa26ce926c3fe92f22e331befa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1298a75_c8a719a2",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-23T12:56:11Z",
+      "side": 1,
+      "message": "The script generated these. Maybe it is connected to the fact that there is a newline at the start of the string.\n\nIf you want to look into it, feel free to.",
+      "parentUuid": "478a0d6a_e8049063",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 7
+      },
+      "revId": "eafc6b1033b5dfaa26ce926c3fe92f22e331befa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
