@@ -46,6 +46,30 @@
       "revId": "1542636f77306965084fcba7eb3a3be9c9ea79d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c80779d_f0fbf213",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-23T22:21:20Z",
+      "side": 1,
+      "message": "Ah, got it. that makes sense. Thanks for explaining!",
+      "parentUuid": "af923374_0948d589",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 45
+      },
+      "revId": "1542636f77306965084fcba7eb3a3be9c9ea79d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
