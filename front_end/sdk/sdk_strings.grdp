@@ -9,6 +9,9 @@
   <message name="IDS_DEVTOOLS_05dfd3a2f7eebfad702620a4a7e182eb" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie was blocked because it had the &quot;SameSite=Strict&quot; attribute but came from a cross-site response which was not the response to a top-level navigation.
   </message>
+  <message name="IDS_DEVTOOLS_05f32343b9493bf82edb500b6129dd73" desc="Resource limit for Heavy Ads intervention">
+    it uses more than 4 MB of network bandwidth without a user gesture
+  </message>
   <message name="IDS_DEVTOOLS_061500c4235ee4a8d548246d75d6f682" desc="Title for a SameSiteCookie issue">
     Migrate entirely to HTTPS to continue allowing cookies to be set by same-site subresources
   </message>
@@ -132,6 +135,9 @@
   <message name="IDS_DEVTOOLS_301c6a898ab412749bfb0e72381d91d2" desc="Title for the MixedContentIssue issue code">
     Mixed content: load all resources via HTTPS to improve the security of your site
   </message>
+  <message name="IDS_DEVTOOLS_309eeeaaeb178343ac02c56bc667c01c" desc="Text leading up to the Heavy Ads resource limit enumeration">
+    An ad is considered a large ad if one or more of the following apply
+  </message>
   <message name="IDS_DEVTOOLS_323d4eb70b252acb4a04eaf9e0882597" desc="Title for a group of cities">
     Geolocation
   </message>
@@ -158,6 +164,10 @@
   </message>
   <message name="IDS_DEVTOOLS_37b2c194f5aaf6a38e0dc67b90ab3760" desc="Title for an issue in the issues view">
     An <ph name="LOCKED_1">iframe</ph> navigation to a document with a Cross-Origin Opener Policy was blocked
+  </message>
+  <message name="IDS_DEVTOOLS_3a9c8c9d7f895070099c836e3565df60" desc="Context for Heavy Ads issue description">
+    '''
+  Chrome identifies large ads on your site that use too many resources without a user gesture. Large ads have an impact on performance and harm the user’s browsing experience. They increase battery drain, consume mobile data and make your site slow. To improve the user experience, Chrome warns about or blocks large ads.
   </message>
   <message name="IDS_DEVTOOLS_3bd3beb3fb5c78e8e85ad06d749bea78" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Emulate protanopia
@@ -225,9 +235,6 @@
   </message>
   <message name="IDS_DEVTOOLS_5e53467e9b005376370c28e92b42b6f5" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Emulate CSS prefers-reduced-motion: reduce
-  </message>
-  <message name="IDS_DEVTOOLS_61326117ed4a9ddf3f754e71e119e5b3" desc="The kind of resolution for a mixed content issue">
-    blocked
   </message>
   <message name="IDS_DEVTOOLS_6210038187f9fe73d2b999fe9d2d44b3" desc="Phase used to descript the security of a context">
     a secure
@@ -389,6 +396,9 @@
   <message name="IDS_DEVTOOLS_7c2bc755363ab11a1611bfa369654ff8" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Show frames per second (FPS) meter
   </message>
+  <message name="IDS_DEVTOOLS_7d5f3e9d47d8e3814b48e1226cebf651" desc="Resource limit for Heavy Ads intervention">
+    it uses more than 50% of CPU time across 30 seconds without a user gesture
+  </message>
   <message name="IDS_DEVTOOLS_7e12750bdddf4580e83a1d7f14c78193" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie had invalid syntax.
   </message>
@@ -400,6 +410,9 @@
   </message>
   <message name="IDS_DEVTOOLS_8022a7ceb04a413d242483f01407dfba" desc="Name of a color vision deficiency that can be emulated via the Rendering drawer">
     Protanopia
+  </message>
+  <message name="IDS_DEVTOOLS_81568cb587c21540cdccc56ddc985acc" desc="Resource limit for Heavy Ads intervention">
+    it uses more than 60 seconds of CPU time without a user gesture
   </message>
   <message name="IDS_DEVTOOLS_8186f0d9076262cae346db9adabf643e" desc="Description how an issue can be fixed">
     if the resource is served from another location than your website. ⚠️If you set this header, any website can embed this resource.
@@ -577,6 +590,9 @@
   <message name="IDS_DEVTOOLS_c450d5e7a852f5b6151135103ebf09bb" desc="Title for CSS Grid tooling option">
     Show negative grid line numbers
   </message>
+  <message name="IDS_DEVTOOLS_c561fb3e02584dda306acf61d28cc03b" desc="Resolution for Heavy Ads issue description">
+    Stop this from happening by only showing ads that stay within resource limits.
+  </message>
   <message name="IDS_DEVTOOLS_c5d59568835d0760e318829b800ee06d" desc="Text in Debugger Model">
     Catch
   </message>
@@ -604,6 +620,9 @@
   </message>
   <message name="IDS_DEVTOOLS_cdb227ce6e015a5e5570e286ccd8866c" desc="Title of a setting under the Rendering drawer">
     Emulate CSS media feature prefers-reduced-motion
+  </message>
+  <message name="IDS_DEVTOOLS_ce98868a90066f46abb433ee122768c9" desc="Title for a learn more link in Heavy Ads issue description">
+    Handling Heavy Ad Interventions
   </message>
   <message name="IDS_DEVTOOLS_ceb19b7234304452f0c748bac8ba3fb8" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Do not emulate CSS prefers-reduced-motion
@@ -699,6 +718,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f2a47c6809d88e175dade0ef7b16aa13" desc="Text in DOMDebugger Model">
     Mouse
+  </message>
+  <message name="IDS_DEVTOOLS_f3f99fa84a12bc852fc0bd730d460fe4" desc="Title for Heavy Ads issue">
+    An ad on your site is exceeding resource limits
   </message>
   <message name="IDS_DEVTOOLS_f43cbd4a1a33a14b459e80598dd28b47" desc="Title for a SameSiteCookie issue">
     Migrate entirely to HTTPS to continue having cookies sent on same-site requests
