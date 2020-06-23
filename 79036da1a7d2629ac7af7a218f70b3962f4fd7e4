@@ -22,6 +22,30 @@
       "revId": "79036da1a7d2629ac7af7a218f70b3962f4fd7e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa505509_ecea7768",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-06-23T15:37:17Z",
+      "side": 1,
+      "message": "I brought the topic in last sync and everybody sounded on board, I think the doc is just missing the LGTM. Will ping reviewers again.",
+      "parentUuid": "98b49c0d_b8bd9fcc",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 96
+      },
+      "revId": "79036da1a7d2629ac7af7a218f70b3962f4fd7e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
