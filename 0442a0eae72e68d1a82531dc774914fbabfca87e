@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08fa65d8_2bca70e8",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-23T11:51:13Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether the same frame can trigger multiple issues, i.e. if another scripts sets the frame\u0027s source every 2 min to a different URL.",
+      "range": {
+        "startLine": 145,
+        "startChar": 18,
+        "endLine": 145,
+        "endChar": 42
+      },
+      "revId": "0442a0eae72e68d1a82531dc774914fbabfca87e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
