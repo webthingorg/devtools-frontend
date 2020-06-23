@@ -17,7 +17,7 @@ export const STACK_PREVIEW_CONTAINER = '.stack-preview-container';
 
 export async function getConsoleMessages(testName: string, callback?: (page: puppeteer.Page) => Promise<void>) {
   // Have the target load the page.
-  await goToResource(`console/${testName}.html`);
+  await goToResource(`console/${testName}.html`, {waitUntil: ['domcontentloaded']});
 
   return getCurrentConsoleMessages(callback);
 }
