@@ -28,7 +28,7 @@ exports.DevToolsNameGenerator = exports.NameSectionReader = exports.WasmDisassem
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var WasmParser_js_1 = require("./WasmParser.js");
+var WasmParser_1 = require("./WasmParser");
 var NAME_SECTION_NAME = "name";
 var INVALID_NAME_SYMBOLS_REGEX = /[^0-9A-Za-z!#$%&'*+.:<=>?@^_`|~\/\-]/;
 var INVALID_NAME_SYMBOLS_REGEX_GLOBAL = new RegExp(INVALID_NAME_SYMBOLS_REGEX.source, "g");
@@ -516,7 +516,7 @@ var WasmDisassembler = /** @class */ (function () {
         if (type === -64 /* empty_block_type */) {
             return;
         }
-        if (WasmParser_js_1.isTypeIndex(type)) {
+        if (WasmParser_1.isTypeIndex(type)) {
             return this.printFuncType(type);
         }
         this.appendBuffer(" (result ");
@@ -563,7 +563,7 @@ var WasmDisassembler = /** @class */ (function () {
     };
     WasmDisassembler.prototype.printOperator = function (operator) {
         var code = operator.code;
-        this.appendBuffer(WasmParser_js_1.OperatorCodeNames[code]);
+        this.appendBuffer(WasmParser_1.OperatorCodeNames[code]);
         switch (code) {
             case 2 /* block */:
             case 3 /* loop */:
@@ -1084,7 +1084,7 @@ var WasmDisassembler = /** @class */ (function () {
                     }
                     elementSegmentBody_1.elements.forEach(function (funcIndex) {
                         if (elementSegmentBody_1.asElements) {
-                            if (funcIndex == WasmParser_js_1.NULL_FUNCTION_INDEX) {
+                            if (funcIndex == WasmParser_1.NULL_FUNCTION_INDEX) {
                                 _this.appendBuffer(" (ref.null)");
                             }
                             else {
@@ -1315,7 +1315,7 @@ var NameSectionReader = /** @class */ (function () {
                 case 3 /* BEGIN_SECTION */:
                     var sectionInfo = reader.result;
                     if (sectionInfo.id === 0 /* Custom */ &&
-                        WasmParser_js_1.bytesToString(sectionInfo.name) === NAME_SECTION_NAME) {
+                        WasmParser_1.bytesToString(sectionInfo.name) === NAME_SECTION_NAME) {
                         break;
                     }
                     if (sectionInfo.id === 3 /* Function */ ||
@@ -1337,7 +1337,7 @@ var NameSectionReader = /** @class */ (function () {
                     if (nameInfo.type === 1 /* Function */) {
                         var functionNameInfo = nameInfo;
                         functionNameInfo.names.forEach(function (naming) {
-                            _this._functionNames[naming.index] = WasmParser_js_1.bytesToString(naming.name);
+                            _this._functionNames[naming.index] = WasmParser_1.bytesToString(naming.name);
                         });
                         this._hasNames = true;
                     }
@@ -1346,7 +1346,7 @@ var NameSectionReader = /** @class */ (function () {
                         localNameInfo.funcs.forEach(function (localName) {
                             _this._functionLocalNames[localName.index] = [];
                             localName.locals.forEach(function (naming) {
-                                _this._functionLocalNames[localName.index][naming.index] = WasmParser_js_1.bytesToString(naming.name);
+                                _this._functionLocalNames[localName.index][naming.index] = WasmParser_1.bytesToString(naming.name);
                             });
                         });
                         this._hasNames = true;
@@ -1464,7 +1464,7 @@ var DevToolsNameGenerator = /** @class */ (function () {
                 case 3 /* BEGIN_SECTION */:
                     var sectionInfo = reader.result;
                     if (sectionInfo.id === 0 /* Custom */ &&
-                        WasmParser_js_1.bytesToString(sectionInfo.name) === NAME_SECTION_NAME) {
+                        WasmParser_1.bytesToString(sectionInfo.name) === NAME_SECTION_NAME) {
                         break;
                     }
                     switch (sectionInfo.id) {
@@ -1478,7 +1478,7 @@ var DevToolsNameGenerator = /** @class */ (function () {
                     break;
                 case 12 /* IMPORT_SECTION_ENTRY */:
                     var importInfo = reader.result;
-                    var importName = WasmParser_js_1.bytesToString(importInfo.module) + "." + WasmParser_js_1.bytesToString(importInfo.field);
+                    var importName = WasmParser_1.bytesToString(importInfo.module) + "." + WasmParser_1.bytesToString(importInfo.field);
                     switch (importInfo.kind) {
                         case 0 /* Function */:
                             this._setName(this._functionNames, this._functionImportsCount++, importName, false);
@@ -1501,7 +1501,7 @@ var DevToolsNameGenerator = /** @class */ (function () {
                     if (nameInfo.type === 1 /* Function */) {
                         var functionNameInfo = nameInfo;
                         functionNameInfo.names.forEach(function (naming) {
-                            _this._setName(_this._functionNames, naming.index, WasmParser_js_1.bytesToString(naming.name), true);
+                            _this._setName(_this._functionNames, naming.index, WasmParser_1.bytesToString(naming.name), true);
                         });
                     }
                     else if (nameInfo.type === 2 /* Local */) {
@@ -1509,14 +1509,14 @@ var DevToolsNameGenerator = /** @class */ (function () {
                         localNameInfo.funcs.forEach(function (localName) {
                             _this._functionLocalNames[localName.index] = [];
                             localName.locals.forEach(function (naming) {
-                                _this._functionLocalNames[localName.index][naming.index] = WasmParser_js_1.bytesToString(naming.name);
+                                _this._functionLocalNames[localName.index][naming.index] = WasmParser_1.bytesToString(naming.name);
                             });
                         });
                     }
                     break;
                 case 17 /* EXPORT_SECTION_ENTRY */:
                     var exportInfo = reader.result;
-                    var exportName = WasmParser_js_1.bytesToString(exportInfo.field);
+                    var exportName = WasmParser_1.bytesToString(exportInfo.field);
                     switch (exportInfo.kind) {
                         case 0 /* Function */:
                             this._addExportName(this._functionExportNames, exportInfo.index, exportName);
