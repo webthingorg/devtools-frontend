@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ab553ff_f856cb96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-23T10:14:06Z",
+      "side": 1,
+      "message": "The whitespace presubmit warnings are non-blocking and can be ignored for node deps updates. I will update the documentation to further clarify that. Please reenable the presubmit to double-check we aren\u0027t running into any issues.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 48
+      },
+      "revId": "22be2da877a05a806dde9241250db85db0007729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
