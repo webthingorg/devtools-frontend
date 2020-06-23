@@ -306,7 +306,7 @@ export class ConsoleView extends UI.Widget.VBox {
         dismiss: true,
       });
       const issueBar = new UI.Infobar.Infobar(
-          UI.Infobar.Type.Warning,
+          UI.Infobar.Type.Issue,
           ls`Issues detected. The new Issues tab displays information about deprecations, breaking changes and other potential problems.`,
           [issueBarAction]);
       this.element.insertBefore(this._issueBarDiv, this._consoleToolbarContainer.nextSibling);

@@ -22,8 +22,14 @@
     background-color: rgb(253, 242, 192);
 }
 
+<<<<<<< HEAD   (3be98f Elements: Fix bug where first search result does not highlig)
 .infobar-info {
     background-color: rgb(255, 255, 255);
+=======
+.infobar-info,
+.infobar-issue {
+  background-color: rgb(255 255 255);
+>>>>>>> CHANGE (8169a5 [Issues] Change style of 'issues infobar')
 }
 
 .infobar-main-row {
