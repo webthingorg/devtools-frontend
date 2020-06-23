@@ -8,7 +8,7 @@ import {describe, it} from 'mocha';
 import {getConsoleMessages, showVerboseMessages} from '../helpers/console-helpers.js';
 
 describe('The Console Tab', async () => {
-  it('shows BigInts formatted', async () => {
+  it.only('shows BigInts formatted', async () => {
     const messages = await getConsoleMessages('big-int');
 
     assert.deepEqual(messages, [
