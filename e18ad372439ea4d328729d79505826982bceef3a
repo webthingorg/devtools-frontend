@@ -16,6 +16,24 @@
       "revId": "e18ad372439ea4d328729d79505826982bceef3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea3da0e2_02f7a44f",
+        "filename": "front_end/console/consoleView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-23T06:54:32Z",
+      "side": 1,
+      "message": "Or rather, move that rule to this section.",
+      "parentUuid": "9ae10875_1392ce96",
+      "revId": "e18ad372439ea4d328729d79505826982bceef3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
