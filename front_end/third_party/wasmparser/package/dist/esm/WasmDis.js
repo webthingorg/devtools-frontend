@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { bytesToString, isTypeIndex, NULL_FUNCTION_INDEX, OperatorCodeNames, } from "./WasmParser.js";
+import { bytesToString, isTypeIndex, NULL_FUNCTION_INDEX, OperatorCodeNames, } from "./WasmParser";
 
 const NAME_SECTION_NAME = "name";
 const INVALID_NAME_SYMBOLS_REGEX = /[^0-9A-Za-z!#$%&'*+.:<=>?@^_`|~\/\-]/;

@@ -1,4 +1,4 @@
-import { BinaryReader } from "./WasmParser.js";
+import { BinaryReader } from "./WasmParser";
 export interface IExportMetadata {
     getFunctionExportNames(index: number): string[];
     getGlobalExportNames(index: number): string[];
