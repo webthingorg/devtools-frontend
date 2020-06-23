@@ -1941,7 +1941,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         isGridAdornerOn = !isGridAdornerOn;
         if (isGridAdornerOn) {
           // TODO: update API to use persistent overlay in Grid Tooling V2
-          node.highlight();
+          node.highlight('grid');
         } else {
           node.domModel().overlayModel().clearHighlight();
         }

@@ -444,8 +444,8 @@ export class OverlayModel extends SDKModel {
       highlightConfig.shapeMarginColor = Common.Color.PageHighlight.ShapeMargin.toProtocolRGBA();
     }
 
-    if (mode === 'all') {
-      if (this._gridFeaturesExperimentEnabled) {
+    if (mode === 'all' || mode === 'grid') {
+      if (mode === 'grid' && this._gridFeaturesExperimentEnabled) {
         highlightConfig.gridHighlightConfig = this._buildGridHighlightConfig();
       } else {
         // Support for the legacy grid cell highlight.
