@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "910ba3ae_ec2f2f2c",
+        "filename": "front_end/network_test_runner/NetworkTestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-23T18:10:38Z",
+      "side": 1,
+      "message": "Is this statement true for all network tests?\n\nWhat about a test to verify that a network request has it\u0027s \"pair\"?\n\nWhat is the motivation for the efficacy boost, are the results too noisy? What problem does this solve?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 41
+      },
+      "revId": "822091d04a65bee299b9369bdac598b3db8311ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "651150dc_69068e7b",
+        "filename": "front_end/network_test_runner/NetworkTestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-06-23T18:10:38Z",
+      "side": 1,
+      "message": "Follow the principal of inversion of control I recommend passing in a filter function here instead of a boolean if you wanted to keep the function call within the network request \"getter\" helper.\n\nHowever it is cleaner to just return the array and have the caller do the filtering, unless it is universal that the network request should always be filtered in the same way, is that the case here?",
+      "range": {
+        "startLine": 61,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 61
+      },
+      "revId": "822091d04a65bee299b9369bdac598b3db8311ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
