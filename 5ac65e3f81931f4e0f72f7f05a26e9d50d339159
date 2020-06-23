@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08086b92_919145ff",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-23T08:16:35Z",
+      "side": 1,
+      "message": "nit: this sentence doesn\u0027t make sense. \"Uses the same enum as panelShown\" ?",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 76
+      },
+      "revId": "5ac65e3f81931f4e0f72f7f05a26e9d50d339159",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
