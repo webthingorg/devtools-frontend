@@ -482,6 +482,15 @@ export class RemoteObjectImpl extends RemoteObject {
 
   /**
    * @override
+   */
+  toString() {
+    return JSON.stringify(
+        {className: this._className, description: this._description, objectId: this._objectId, preview: this._preview},
+        null, 4);
+  }
+
+  /**
+   * @override
    * @param {boolean} generatePreview
    * @return {!Promise<!GetPropertiesResult>}
    */
