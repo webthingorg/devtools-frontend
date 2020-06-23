@@ -891,6 +891,21 @@ export class ResourceTreeFrame {
     }
     return Common.UIString.UIString('<iframe>');
   }
+
+  /**
+   * @returns {Promise<?DeferredDOMNode>}
+   */
+  getOwnerDOMNode() {
+    return this.resourceTreeModel().domModel().getOwnerNodeForFrame(this.id);
+  }
+
+
+  /**
+   * @returns {Promise<?DeferredDOMNode>}
+   */
+  highlight() {
+    return this.resourceTreeModel().domModel().overlayModel().highlightFrame(this.id);
+  }
 }
 
 /**
