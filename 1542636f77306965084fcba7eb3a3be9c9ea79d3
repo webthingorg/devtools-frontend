@@ -22,6 +22,30 @@
       "revId": "1542636f77306965084fcba7eb3a3be9c9ea79d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af923374_0948d589",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-23T22:19:40Z",
+      "side": 1,
+      "message": "In the future and also currently, adding toggle-ability/interactivity is done via addInteraction() method, which accepts an option object like:\n```\n{\n  isToggle: true,\n  shouldPropagateOnKeydown: false,\n  ariaLabelDefault: ls`Enable grid mode`,\n  ariaLabelActive: ls`Disable grid mode`,\n}\n```\n\nIf the adorner is non-interactive, its ARIA label will be set according to its name when it\u0027s connected to the DOM tree.",
+      "parentUuid": "bb7040c7_9c6389f7",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 45
+      },
+      "revId": "1542636f77306965084fcba7eb3a3be9c9ea79d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
