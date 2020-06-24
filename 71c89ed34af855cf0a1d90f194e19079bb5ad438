@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39017e55_7ce32c03",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-24T13:01:09Z",
+      "side": 1,
+      "message": "In the DevTools UI, Leszek and I decided to use the term \"compilation cache\" instead of \"code cache\" to more clearly distinguish from all the other caches that DevTools already exposes. Let\u0027s use the same phrasing here (and in the blog post)?",
+      "revId": "71c89ed34af855cf0a1d90f194e19079bb5ad438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f889177b_c955b40d",
+        "filename": "front_end/third_party/codemirror/package/AUTHORS",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-24T13:01:09Z",
+      "side": 1,
+      "message": "Please undo this change. This is the authors file for CodeMirror, and CodeMirror is not being rolled in this CL.",
+      "revId": "71c89ed34af855cf0a1d90f194e19079bb5ad438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
