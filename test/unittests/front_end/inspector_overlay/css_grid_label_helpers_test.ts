@@ -5,7 +5,7 @@
 const {assert} = chai;
 
 import {assertNotNull} from '../helpers/DOMHelpers.js';
-import {getGridLabelContainer, initFrameForGridLabels} from '../helpers/InspectorOverlayHelpers.js';
+import {drawGridNumbersAndAssertLabels, getGridLabelContainer, initFrameForGridLabels} from '../helpers/InspectorOverlayHelpers.js';
 import {drawGridNumbers} from '../../../../front_end/inspector_overlay/css_grid_label_helpers.js';
 
 describe('drawGridNumbers label creation', () => {
@@ -219,23 +219,7 @@ describe('drawGridNumbers label placement', () => {
   ];
 
   for (const {description, config, bounds, expectedLabels} of TESTS) {
-    it(description, () => {
-      drawGridNumbers(config, bounds);
-
-      const el = getGridLabelContainer();
-      assertNotNull(el);
-
-      let totalLabelCount = 0;
-      for (const {className, count} of expectedLabels) {
-        const labels = el.querySelectorAll(`.grid-label-content.${className}`);
-        assert.strictEqual(labels.length, count, `Expected ${count} labels to be displayed ${className}`);
-        totalLabelCount += count;
-      }
-
-      assert.strictEqual(
-          el.querySelectorAll('.grid-label-content').length, totalLabelCount,
-          'The right total number of labels were displayed');
-    });
+    it(description, () => drawGridNumbersAndAssertLabels(config, bounds, expectedLabels));
   }
 });
 
@@ -314,25 +298,48 @@ describe('drawGridNumbers inner-grid label placement', () => {
   ];
 
   for (const {description, config, bounds, expectedLabels} of TESTS) {
-    it(description, () => {
-      drawGridNumbers(config, bounds);
-
-      // assert.isFalse(true, JSON.stringify(config));
-      // assert.isFalse(true, JSON.stringify(bounds));
-
-      const el = getGridLabelContainer();
-      assertNotNull(el);
-
-      let totalLabelCount = 0;
-      for (const {className, count} of expectedLabels) {
-        const labels = el.querySelectorAll(`.grid-label-content.${className}`);
-        assert.strictEqual(labels.length, count, `Expected ${count} labels to be displayed ${className}`);
-        totalLabelCount += count;
-      }
-
-      assert.strictEqual(
-          el.querySelectorAll('.grid-label-content').length, totalLabelCount,
-          'The right total number of labels were displayed');
-    });
+    it(description, () => drawGridNumbersAndAssertLabels(config, bounds, expectedLabels));
   }
+});
+
+describe('drawGridNumbers label skipping logic', () => {
+  beforeEach(initFrameForGridLabels);
+
+  it('skips labels on all sides when they are too close to each other', () => {
+    drawGridNumbersAndAssertLabels(
+        {
+          gridHighlightConfig: {
+            showPositiveLineNumbers: true,
+            showNegativeLineNumbers: true,
+          },
+          positiveRowLineNumberOffsets: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+          negativeRowLineNumberOffsets: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+          positiveColumnLineNumberOffsets: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+          negativeColumnLineNumberOffsets: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+        },
+        {
+          minX: 100,
+          maxX: 200,
+          minY: 100,
+          maxY: 200,
+        },
+        [
+          // Expecting every other positive column labels.
+          {className: 'bottom-mid', count: 6},
+          // Expecting every other negative column labels.
+          {className: 'top-mid', count: 6},
+          // Expecting every other positive row labels, except the first and last which are set to avoid
+          // column labels.
+          {className: 'right-mid', count: 4},
+          // Expected the first and last positive row labels.
+          {className: 'right-top', count: 1},
+          {className: 'right-bottom', count: 1},
+          // Expecting every other negative row labels, except the first and last which are set to avoid
+          // column labels.
+          {className: 'left-mid', count: 4},
+          // Expected the first and last negative row labels.
+          {className: 'left-top', count: 1},
+          {className: 'left-bottom', count: 1},
+        ]);
+  });
 });
