@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 /** @type {!Object} */
 const SkipSubTreeObject = {};
 
@@ -49,9 +46,10 @@ export class ESTreeWalker {
    */
   _innerWalk(node, parent) {
     if (!node && parent && this._walkNulls) {
-      const result = /** @type {!Object} */ ({raw: 'null', value: null});
-      result.type = 'Literal';
-      node = /** @type {!ESTree.Node} */ (result);
+      /** @type {!ESTree.SimpleLiteral} */
+      const result = {raw: 'null', value: null, type: 'Literal', parent: null};
+
+      node = result;
     }
 
     if (!node) {
@@ -80,7 +78,10 @@ export class ESTreeWalker {
       this._innerWalk(templateLiteral.quasis[expressionsLength], templateLiteral);
     } else {
       for (let i = 0; i < walkOrder.length; ++i) {
-        const entity = node[walkOrder[i]];
+        // @ts-ignore We are doing type traversal here, but the strings
+        // in _walkOrder are not mapping. Preferably, we would use the
+        // properties as defined in the types, but we can't do that yet.
+        const entity = /** @type {!ESTree.Node} */ (node[walkOrder[i]]);
         if (Array.isArray(entity)) {
           this._walkArray(entity, node);
         } else {
@@ -146,6 +147,7 @@ const _walkOrder = {
   'Literal': [],
   'LogicalExpression': ['left', 'right'],
   'MemberExpression': ['object', 'property'],
+  'MetaProperty': ['meta', 'property'],
   'MethodDefinition': ['key', 'value'],
   'NewExpression': ['callee', 'arguments'],
   'ObjectExpression': ['properties'],
