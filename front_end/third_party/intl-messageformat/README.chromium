@@ -1,0 +1,13 @@
+Name: intl-messageformat
+Short Name: intl-messageformat
+URL: www.npmjs.com/package/intl-messageformat
+Version: 4.4.0
+License: New BSD
+Security Critical: no
+
+Description:
+Formats ICU Message strings with number, date, plural, and select placeholders to create localized messages.
+This package is a dependency for the devTools localization pipeline.
+
+Local Modifications:
+None
