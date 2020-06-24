@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "41af5621_4f6443df",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-24T20:19:21Z",
+      "side": 1,
+      "message": "nit: can we jsdoc the type inside this object since we know what the data will contain?",
+      "range": {
+        "startLine": 94,
+        "startChar": 12,
+        "endLine": 94,
+        "endChar": 43
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63a99e1b_c9cb6895",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-24T20:19:21Z",
+      "side": 1,
+      "message": "seems like this function should be \"private\" to this file. If that\u0027s the case, should we not export?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "225307f6_a8685945",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-24T20:19:21Z",
+      "side": 1,
+      "message": "actually, since we define this here, maybe we can typedef it at the top of the file or something and then the jsdoc can reference the new typedef throughout?",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 16
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15718577_ac206038",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-24T20:19:21Z",
+      "side": 1,
+      "message": "consider typedefing these as well?",
+      "range": {
+        "startLine": 102,
+        "startChar": 16,
+        "endLine": 102,
+        "endChar": 63
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b6d439d6_0c89af88",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 1
