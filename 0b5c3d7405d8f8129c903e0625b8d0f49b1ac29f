@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65658d07_5ba1433e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-24T12:54:29Z",
+      "side": 1,
+      "message": "It was re-run here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2259851\n\nNot sure why these files were left out of that CL.",
+      "revId": "0b5c3d7405d8f8129c903e0625b8d0f49b1ac29f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
