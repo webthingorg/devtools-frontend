@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6d439d6_0c89af88",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-24T20:11:30Z",
+      "side": 1,
+      "message": "Sorry if the diff is a little bit hard to read. Not much changed in fact:\nthe loops remained the same, only they now use the data object rather than the config object. Also there is no need for wrapping those loops in if statements like before. The rest is exactly the same.",
+      "range": {
+        "startLine": 168,
+        "startChar": 1,
+        "endLine": 187,
+        "endChar": 50
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
