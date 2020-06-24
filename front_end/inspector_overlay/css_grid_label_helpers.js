@@ -81,6 +81,78 @@ function* offsetIterator(offsets) {
 }
 
 /**
+ * Take the highlight config and bound objects in, and spits out an object with
+ * the same information, but with 2 key differences:
+ * - the information is organized in a way that makes the rest of the code more
+ *   readable
+ * - all pixel values are rounded to integers in order to safely compare
+ *   offsets (on high-dpi monitors floats are passed by the backend, this means
+ *   checking if an offset is at either edges of the container can't be done).
+ *
+ * @param {Object} config The highlight config object from the backend
+ * @param {Object} bounds The bounds of the grid container
+ * @return The new, normalized, data object
+ */
+export function _normalizeOffsetData(config, bounds) {
+  const width = Math.round(bounds.maxX - bounds.minX);
+  const height = Math.round(bounds.maxY - bounds.minY);
+
+  const data = {
+    rows: {
+      positive: {offsets: [], hasFirst: false, hasLast: false},
+      negative: {offsets: [], hasFirst: false, hasLast: false},
+    },
+    columns: {
+      positive: {offsets: [], hasFirst: false, hasLast: false},
+      negative: {offsets: [], hasFirst: false, hasLast: false},
+    },
+    bounds: {
+      minX: Math.round(bounds.minX),
+      maxX: Math.round(bounds.maxX),
+      minY: Math.round(bounds.minY),
+      maxY: Math.round(bounds.maxY),
+      width,
+      height,
+    }
+  };
+
+  if (config.positiveRowLineNumberOffsets) {
+    data.rows.positive = {
+      offsets: config.positiveRowLineNumberOffsets.map(offset => Math.round(offset)),
+      hasFirst: Math.round(config.positiveRowLineNumberOffsets[0]) === 0,
+      hasLast:
+          Math.round(config.positiveRowLineNumberOffsets[config.positiveRowLineNumberOffsets.length - 1]) === height
+    };
+  }
+  if (config.negativeRowLineNumberOffsets) {
+    data.rows.negative = {
+      offsets: config.negativeRowLineNumberOffsets.map(offset => Math.round(offset)),
+      hasFirst: Math.round(config.negativeRowLineNumberOffsets[0]) === 0,
+      hasLast:
+          Math.round(config.negativeRowLineNumberOffsets[config.negativeRowLineNumberOffsets.length - 1]) === height
+    };
+  }
+  if (config.positiveColumnLineNumberOffsets) {
+    data.columns.positive = {
+      offsets: config.positiveColumnLineNumberOffsets.map(offset => Math.round(offset)),
+      hasFirst: Math.round(config.positiveColumnLineNumberOffsets[0]) === 0,
+      hasLast: Math.round(config.positiveColumnLineNumberOffsets[config.positiveColumnLineNumberOffsets.length - 1]) ===
+          width
+    };
+  }
+  if (config.negativeColumnLineNumberOffsets) {
+    data.columns.negative = {
+      offsets: config.negativeColumnLineNumberOffsets.map(offset => Math.round(offset)),
+      hasFirst: Math.round(config.negativeColumnLineNumberOffsets[0]) === 0,
+      hasLast: Math.round(config.negativeColumnLineNumberOffsets[config.negativeColumnLineNumberOffsets.length - 1]) ===
+          width
+    };
+  }
+
+  return data;
+}
+
+/**
  * Places the grid row and column labels on the overlay.
  * Currently only positive labels are supported.
  *
@@ -88,37 +160,31 @@ function* offsetIterator(offsets) {
  * @param {Object} bounds
  */
 export function drawGridNumbers(config, bounds) {
+  const data = _normalizeOffsetData(config, bounds);
+
   const labelContainer = document.getElementById('grid-label-container');
   labelContainer.removeChildren();
 
-  if (config.gridHighlightConfig.showPositiveLineNumbers && config.positiveColumnLineNumberOffsets) {
-    for (const [i, offset] of offsetIterator(config.positiveColumnLineNumberOffsets)) {
-      const element = _createLabelElement(labelContainer, i + 1);
-      _placePositiveColumnLabel(element, offset, config, bounds);
-    }
+  for (const [i, offset] of offsetIterator(data.columns.positive.offsets)) {
+    const element = _createLabelElement(labelContainer, i + 1);
+    _placePositiveColumnLabel(element, offset, data);
   }
 
-  if (config.gridHighlightConfig.showPositiveLineNumbers && config.positiveRowLineNumberOffsets) {
-    for (const [i, offset] of offsetIterator(config.positiveRowLineNumberOffsets)) {
-      const element = _createLabelElement(labelContainer, i + 1);
-      _placePositiveRowLabel(element, offset, config, bounds);
-    }
+  for (const [i, offset] of offsetIterator(data.rows.positive.offsets)) {
+    const element = _createLabelElement(labelContainer, i + 1);
+    _placePositiveRowLabel(element, offset, data);
   }
 
-  if (config.gridHighlightConfig.showNegativeLineNumbers && config.negativeColumnLineNumberOffsets) {
-    for (const [i, offset] of offsetIterator(config.negativeColumnLineNumberOffsets)) {
-      // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
-      const element = _createLabelElement(labelContainer, config.negativeColumnLineNumberOffsets.length * -1 + i);
-      _placeNegativeColumnLabel(element, offset, config, bounds);
-    }
+  for (const [i, offset] of offsetIterator(data.columns.negative.offsets)) {
+    // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
+    const element = _createLabelElement(labelContainer, data.columns.negative.offsets.length * -1 + i);
+    _placeNegativeColumnLabel(element, offset, data);
   }
 
-  if (config.gridHighlightConfig.showNegativeLineNumbers && config.negativeRowLineNumberOffsets) {
-    for (const [i, offset] of offsetIterator(config.negativeRowLineNumberOffsets)) {
-      // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
-      const element = _createLabelElement(labelContainer, config.negativeRowLineNumberOffsets.length * -1 + i);
-      _placeNegativeRowLabel(element, offset, config, bounds);
-    }
+  for (const [i, offset] of offsetIterator(data.rows.negative.offsets)) {
+    // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
+    const element = _createLabelElement(labelContainer, data.rows.negative.offsets.length * -1 + i);
+    _placeNegativeRowLabel(element, offset, data);
   }
 }
 
@@ -141,17 +207,13 @@ function _createLabelElement(container, textContent) {
  *
  * @param {HTMLElement} element The label DOM element
  * @param {number} offset The corresponding grid line offset
- * @param {Object} config The grid highlight config object
- * @param {object} bounbds The grid bounds
+ * @param {object} data The normalized offset data
  */
-function _placePositiveRowLabel(element, offset, config, bounds) {
-  const x = bounds.minX;
-  const y = bounds.minY + offset;
-  const isAtSharedStartCorner = offset === 0 && config.gridHighlightConfig.showPositiveLineNumbers &&
-      config.positiveColumnLineNumberOffsets && config.positiveColumnLineNumberOffsets[0] === 0;
-  const isAtSharedEndCorner = offset === bounds.maxY - bounds.minY &&
-      config.gridHighlightConfig.showNegativeLineNumbers && config.negativeColumnLineNumberOffsets &&
-      config.negativeColumnLineNumberOffsets[0] === 0;
+function _placePositiveRowLabel(element, offset, data) {
+  const x = data.bounds.minX;
+  const y = data.bounds.minY + offset;
+  const isAtSharedStartCorner = offset === 0 && data.columns.positive.hasFirst;
+  const isAtSharedEndCorner = offset === data.bounds.height && data.columns.negative.hasFirst;
   const isTooCloseToViewportStart = y < gridPageMargin;
   const isTooCloseToViewportEnd = canvasHeight - y < gridPageMargin;
   const flipIn = x < gridPageMargin;
@@ -176,20 +238,13 @@ function _placePositiveRowLabel(element, offset, config, bounds) {
  *
  * @param {HTMLElement} element The label DOM element
  * @param {number} offset The corresponding grid line offset
- * @param {Object} config The grid highlight config object
- * @param {object} bounbds The grid bounds
+ * @param {object} data The normalized offset data
  */
-function _placeNegativeRowLabel(element, offset, config, bounds) {
-  const x = bounds.maxX;
-  const y = bounds.minY + offset;
-  const isAtSharedStartCorner = offset === 0 && config.gridHighlightConfig.showPositiveLineNumbers &&
-      config.positiveColumnLineNumberOffsets &&
-      config.positiveColumnLineNumberOffsets[config.positiveColumnLineNumberOffsets.length - 1] ===
-          bounds.maxX - bounds.minX;
-  const isAtSharedEndCorner = offset === bounds.maxY - bounds.minY &&
-      config.gridHighlightConfig.showNegativeLineNumbers && config.negativeColumnLineNumberOffsets &&
-      config.negativeColumnLineNumberOffsets[config.negativeColumnLineNumberOffsets.length - 1] ===
-          bounds.maxX - bounds.minX;
+function _placeNegativeRowLabel(element, offset, data) {
+  const x = data.bounds.maxX;
+  const y = data.bounds.minY + offset;
+  const isAtSharedStartCorner = offset === 0 && data.columns.positive.hasLast;
+  const isAtSharedEndCorner = offset === data.bounds.height && data.columns.negative.hasLast;
   const isTooCloseToViewportStart = y < gridPageMargin;
   const isTooCloseToViewportEnd = canvasHeight - y < gridPageMargin;
   const flipIn = canvasWidth - x < gridPageMargin;
@@ -214,17 +269,13 @@ function _placeNegativeRowLabel(element, offset, config, bounds) {
  *
  * @param {HTMLElement} element The label DOM element
  * @param {number} offset The corresponding grid line offset
- * @param {Object} config The grid highlight config object
- * @param {object} bounbds The grid bounds
+ * @param {object} data The normalized offset data
  */
-function _placePositiveColumnLabel(element, offset, config, bounds) {
-  const x = bounds.minX + offset;
-  const y = bounds.minY;
-  const isAtSharedStartCorner = offset === 0 && config.gridHighlightConfig.showPositiveLineNumbers &&
-      config.positiveRowLineNumberOffsets && config.positiveRowLineNumberOffsets[0] === 0;
-  const isAtSharedEndCorner = offset === bounds.maxX - bounds.minX &&
-      config.gridHighlightConfig.showNegativeLineNumbers && config.negativeRowLineNumberOffsets &&
-      config.negativeRowLineNumberOffsets[0] === 0;
+function _placePositiveColumnLabel(element, offset, data) {
+  const x = data.bounds.minX + offset;
+  const y = data.bounds.minY;
+  const isAtSharedStartCorner = offset === 0 && data.rows.positive.hasFirst;
+  const isAtSharedEndCorner = offset === data.bounds.width && data.rows.negative.hasFirst;
   const isTooCloseToViewportStart = x < gridPageMargin;
   const isTooCloseToViewportEnd = canvasWidth - x < gridPageMargin;
   const flipIn = y < gridPageMargin;
@@ -249,18 +300,13 @@ function _placePositiveColumnLabel(element, offset, config, bounds) {
  *
  * @param {HTMLElement} element The label DOM element
  * @param {number} offset The corresponding grid line offset
- * @param {Object} config The grid highlight config object
- * @param {object} bounbds The grid bounds
+ * @param {object} data The normalized offset data
  */
-function _placeNegativeColumnLabel(element, offset, config, bounds) {
-  const x = bounds.minX + offset;
-  const y = bounds.maxY;
-  const isAtSharedStartCorner = offset === 0 && config.gridHighlightConfig.showPositiveLineNumbers &&
-      config.positiveRowLineNumberOffsets &&
-      config.positiveRowLineNumberOffsets[config.positiveRowLineNumberOffsets.length - 1] === bounds.maxY - bounds.minY;
-  const isAtSharedEndCorner = offset === bounds.maxX - bounds.minX &&
-      config.gridHighlightConfig.showNegativeLineNumbers && config.negativeRowLineNumberOffsets &&
-      config.negativeRowLineNumberOffsets[config.negativeRowLineNumberOffsets.length - 1] === bounds.maxY - bounds.minY;
+function _placeNegativeColumnLabel(element, offset, data) {
+  const x = data.bounds.minX + offset;
+  const y = data.bounds.maxY;
+  const isAtSharedStartCorner = offset === 0 && data.rows.positive.hasLast;
+  const isAtSharedEndCorner = offset === data.bounds.width && data.rows.negative.hasLast;
   const isTooCloseToViewportStart = x < gridPageMargin;
   const isTooCloseToViewportEnd = canvasWidth - x < gridPageMargin;
   const flipIn = canvasHeight - y < gridPageMargin;
