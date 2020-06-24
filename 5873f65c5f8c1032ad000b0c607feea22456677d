@@ -16,6 +16,24 @@
       "revId": "5873f65c5f8c1032ad000b0c607feea22456677d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5971b26_1e84640a",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-24T16:58:25Z",
+      "side": 1,
+      "message": "I thought that the svg had to be URL-encoded to work correctly (https://css-tricks.com/using-svg/, https://stackoverflow.com/questions/10768451/inline-svg-in-css), but this seems to be mostly a cross-browser topic. I moved to a URL-decoded style. However, using \u0027#\u0027 for color values causes the svg to not be rendered, I therefore kept the encoding of \u0027#\u0027 as \u0027%23\u0027.",
+      "parentUuid": "d9e8a259_4f69ec16",
+      "revId": "5873f65c5f8c1032ad000b0c607feea22456677d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
