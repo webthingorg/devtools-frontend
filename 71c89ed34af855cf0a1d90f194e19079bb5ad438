@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "06efca8f_f53142f0",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-24T13:03:04Z",
+      "side": 1,
+      "message": "Maybe:\n\n    JavaScript compilation cache information in Performance panel Summary tab",
+      "parentUuid": "39017e55_7ce32c03",
+      "revId": "71c89ed34af855cf0a1d90f194e19079bb5ad438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f889177b_c955b40d",
         "filename": "front_end/third_party/codemirror/package/AUTHORS",
         "patchSetId": 1
