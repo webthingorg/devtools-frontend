@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "305323af_7d941a63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-24T05:06:44Z",
+      "side": 1,
+      "message": "Could we have a screenshot how this will look? :)",
+      "revId": "58102eb57fcbff5275872e25dc1933284eefd183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81f1cd32_fd8b6dc6",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-24T05:06:44Z",
+      "side": 1,
+      "message": "q: Why do we freshly retrieve the frame in the {onclick} handler, but use the {frame} loaded during issue creation in the {onmouseenter} handler here?\n\nIIUC either the frame we get stays stable and we can use {frame} in the {onclick} handler as well, or we need to call {getFrame} in the {onmouseenter} handler.",
+      "range": {
+        "startLine": 580,
+        "startChar": 34,
+        "endLine": 580,
+        "endChar": 39
+      },
+      "revId": "58102eb57fcbff5275872e25dc1933284eefd183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bbb1168_f1cabad3",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-24T05:06:44Z",
+      "side": 1,
+      "message": "missing \u0027!\u0027. Strange that closure is not complaining here.",
+      "range": {
+        "startLine": 1286,
+        "startChar": 15,
+        "endLine": 1286,
+        "endChar": 22
+      },
+      "revId": "58102eb57fcbff5275872e25dc1933284eefd183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe24e7c_bcd33835",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-24T05:06:44Z",
+      "side": 1,
+      "message": "nit: Missing \u0027!\u0027",
+      "range": {
+        "startLine": 896,
+        "startChar": 15,
+        "endLine": 896,
+        "endChar": 22
+      },
+      "revId": "58102eb57fcbff5275872e25dc1933284eefd183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c89b40_ca1bea13",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-06-24T05:06:44Z",
+      "side": 1,
+      "message": "nit: Superfluous return",
+      "range": {
+        "startLine": 907,
+        "startChar": 4,
+        "endLine": 907,
+        "endChar": 10
+      },
+      "revId": "58102eb57fcbff5275872e25dc1933284eefd183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
