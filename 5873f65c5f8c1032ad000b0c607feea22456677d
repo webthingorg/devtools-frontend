@@ -34,6 +34,24 @@
       "revId": "5873f65c5f8c1032ad000b0c607feea22456677d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c70d6bf0_b3e2f8f2",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-24T17:05:22Z",
+      "side": 1,
+      "message": "Exactly, other than %23 and some characters we don\u0027t need in this case (e.g. single quotes) there shouldn\u0027t be anything that needs escaping. This is not even required for cross-browser compatibility, by the way. Thanks for making the changes!",
+      "parentUuid": "c5971b26_1e84640a",
+      "revId": "5873f65c5f8c1032ad000b0c607feea22456677d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
