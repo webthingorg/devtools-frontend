@@ -97,8 +97,8 @@ export class Adorner extends HTMLElement {
     this.name = '';
     this.category = AdornerCategories.Default;
     this._isToggle = false;
-    this._ariaLabelDefault = `${this.name} adorner`;
-    this._ariaLabelActive = `${this.name} adorner active`;
+    this._ariaLabelDefault = ls`adorner`;
+    this._ariaLabelActive = ls`adorner active`;
   }
 
   /**
@@ -106,7 +106,7 @@ export class Adorner extends HTMLElement {
    */
   connectedCallback() {
     if (!this.getAttribute('aria-label')) {
-      UI.ARIAUtils.setAccessibleName(this, this._ariaLabelDefault);
+      UI.ARIAUtils.setAccessibleName(this, ls`${this.name} adorner`);
     }
   }
 
