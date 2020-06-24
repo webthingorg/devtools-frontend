@@ -2,7 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../common/common.js';
 import * as UI from '../ui/ui.js';
+
+const ls = Common.ls;
 
 /**
  * @enum {string}
@@ -42,9 +45,9 @@ template.innerHTML = `
     }
 
     slot {
-      display: inline-block;
+      display: inline-flex;
+      box-sizing: border-box;
       height: 13px;
-      line-height: 13px;
       padding: 0 6px;
       font-size: 8.5px;
       color: var(--adorner-text-color, #3c4043);
@@ -57,6 +60,10 @@ template.innerHTML = `
       color: var(--adorner-text-color, #ffffffde);
       background-color: var(--adorner-background-color, #5db0d726);
       border: var(--adorner-border, 1px solid #5db0d780);
+    }
+
+    ::slotted(*) {
+      height: 10px;
     }
   </style>
   <slot name="content"></slot>
@@ -93,8 +100,8 @@ export class Adorner extends HTMLElement {
     this.name = '';
     this.category = AdornerCategories.Default;
     this._isToggle = false;
-    this._ariaLabelDefault = `${this.name} adorner`;
-    this._ariaLabelActive = `${this.name} adorner active`;
+    this._ariaLabelDefault = ls`adorner`;
+    this._ariaLabelActive = ls`adorner active`;
   }
 
   /**
@@ -102,7 +109,7 @@ export class Adorner extends HTMLElement {
    */
   connectedCallback() {
     if (!this.getAttribute('aria-label')) {
-      UI.ARIAUtils.setAccessibleName(this, this._ariaLabelDefault);
+      UI.ARIAUtils.setAccessibleName(this, ls`${this.name} adorner`);
     }
   }
 

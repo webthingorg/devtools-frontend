@@ -700,10 +700,6 @@
 
     function selectTopAutoFill() {
       self.SDK.targetManager.mainTarget().inputAgent().invoke_dispatchKeyEvent(
-          {type: 'rawKeyDown', key: 'Down', windowsVirtualKeyCode: 40, nativeVirtualKeyCode: 40});
-      self.SDK.targetManager.mainTarget().inputAgent().invoke_dispatchKeyEvent(
-          {type: 'keyUp', key: 'Down', windowsVirtualKeyCode: 40, nativeVirtualKeyCode: 40});
-      self.SDK.targetManager.mainTarget().inputAgent().invoke_dispatchKeyEvent(
           {type: 'rawKeyDown', key: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13});
       self.SDK.targetManager.mainTarget().inputAgent().invoke_dispatchKeyEvent(
           {type: 'keyUp', key: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13});
@@ -772,9 +768,9 @@
         {type: 'rawKeyDown', key: 'F8', windowsVirtualKeyCode: 119, nativeVirtualKeyCode: 119});
   };
 
-  // Tests that the key whitelist in the browser is updated when shortcuts
-  // are changed
-  TestSuite.prototype.testKeyWhitelistChanged = function() {
+  // Tests that the keys that are forwarded from the browser update
+  // when their shortcuts change
+  TestSuite.prototype.testForwardedKeysChanged = function() {
     this.takeControl();
 
     this.addSniffer(self.UI.shortcutRegistry, '_registerBindings', () => {
