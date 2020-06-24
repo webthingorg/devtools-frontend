@@ -22,6 +22,30 @@
       "revId": "8acd1a4615dec6ee675b14117a5df6bd2668d664",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0300f3fa_78000607",
+        "filename": "front_end/formatter_worker/JavaScriptFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-24T16:20:02Z",
+      "side": 1,
+      "message": "I did try a typecast first, but sadly that is not possible. I ended up filing a bug at https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1098804 as I found another instance of this problem.",
+      "parentUuid": "38552e73_5649bfb9",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "8acd1a4615dec6ee675b14117a5df6bd2668d664",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
