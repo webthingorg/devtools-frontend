@@ -111,6 +111,24 @@
       "revId": "1542636f77306965084fcba7eb3a3be9c9ea79d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca1f3e9a_6da61531",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-24T07:53:41Z",
+      "side": 1,
+      "message": "Just added, along with the `${this.name} adorner` as well. Thanks for the suggestion :)",
+      "parentUuid": "dc98176a_cda9da79",
+      "revId": "1542636f77306965084fcba7eb3a3be9c9ea79d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
