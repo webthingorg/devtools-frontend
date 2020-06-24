@@ -1,0 +1,13 @@
+Name: lodash.isequal
+Short Name: lodash.isequal
+URL: www.npmjs.com/package/lodash.isequal
+Version: 4.5.0
+License: MIT
+Security Critical: no
+
+Description:
+Performs a deep comparison between two values to determine if they are equivalent.
+This package is a dependency of the DevTools localization pipeline.
+
+Local Modifications:
+None
