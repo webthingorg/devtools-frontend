@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d087baa9_93340c15",
+        "filename": "front_end/third_party/lodash-isequal/README.chromium",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-24T09:36:05Z",
+      "side": 1,
+      "message": "Since this is an NPM package, please follow the structure of the other NPM-package-inclusions:\n\n```bash\nwget -qO- https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz | tar xzf -\n\n```",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 3,
+        "endChar": 41
+      },
+      "revId": "9abbdce9f7f98e97ebf97912a0c73ec2f86f1968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
