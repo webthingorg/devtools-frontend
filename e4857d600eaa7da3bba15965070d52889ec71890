@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "637f9640_5466c3ac",
+        "filename": "front_end/third_party/intl-messageformat/README.chromium",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-24T09:35:14Z",
+      "side": 1,
+      "message": "Since this is an NPM package, please follow the structure of the other NPM-package-inclusions:\n\n```bash\nwget -qO- https://registry.npmjs.org/intl-messageformat/-/ingl-messageformat-4.4.0.tgz | tar xzf -\n```",
+      "range": {
+        "startLine": 3,
+        "startChar": 5,
+        "endLine": 3,
+        "endChar": 45
+      },
+      "revId": "e4857d600eaa7da3bba15965070d52889ec71890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
