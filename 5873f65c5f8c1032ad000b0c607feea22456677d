@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9e8a259_4f69ec16",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-24T10:49:47Z",
+      "side": 1,
+      "message": "Let\u0027s get rid of the excessive escaping here Also, we tend to use single quotes in CSS (and we\u0027ll soon enforce it in the linter), so:\n\n    url(\u0027data:image/svg+xml,\u003csvg height\u003d\"11\" width\u003d\"26\" xmlns\u003d\"http://www.w3.org/2000/svg\"\u003e\u003cpath...\u0027) 1 3 1 1;",
+      "revId": "5873f65c5f8c1032ad000b0c607feea22456677d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
