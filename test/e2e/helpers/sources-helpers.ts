@@ -44,7 +44,7 @@ export async function createNewSnippet(snippetName: string) {
   const {frontend} = await getBrowserAndPages();
 
   await click('[aria-label="New snippet"]');
-  await waitFor('[aria-label^="Script%20snippet"]');
+  await waitFor('[aria-label^="Script snippet"]');
 
   await typeText(snippetName);
 
@@ -276,4 +276,13 @@ export async function clickOnContextMenu(selector: string, label: string) {
   const labelSelector = `[aria-label="${label}"]`;
   await waitFor(labelSelector);
   await click(labelSelector);
+}
+
+export async function typeIntoSourcesAndSave(frontend: puppeteer.Page, text: string) {
+  const pane = await waitFor('.sources');
+  await pane.asElement()!.type(text);
+
+  await frontend.keyboard.down('Control');
+  await frontend.keyboard.press('s');
+  await frontend.keyboard.up('Control');
 }

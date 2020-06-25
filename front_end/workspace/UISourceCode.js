@@ -54,9 +54,10 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
     if (parsedURL) {
       this._origin = parsedURL.securityOrigin();
       this._parentURL = this._origin + parsedURL.folderPathComponents;
-      this._name = parsedURL.lastPathComponent;
       if (parsedURL.queryParams) {
-        this._name += '?' + parsedURL.queryParams;
+        this._name = parsedURL.lastPathComponent + '?' + parsedURL.queryParams;
+      } else {
+        this._name = unescape(parsedURL.lastPathComponent);
       }
     } else {
       this._origin = '';
@@ -203,7 +204,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
    */
   _updateName(name, url, contentType) {
     const oldURL = this._url;
-    this._url = this._url.substring(0, this._url.length - this._name.length) + name;
+    this._url = this._url.substring(0, this._url.lastIndexOf('/') + 1) + escape(name);
     this._name = name;
     if (url) {
       this._url = url;
