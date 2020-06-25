@@ -16,6 +16,24 @@
       "revId": "3ae601fff6df7a126be8a16c2756ddfcf9722ef3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb23723_8e683a5a",
+        "filename": "front_end/bindings/StylesSourceMapping.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-25T08:47:00Z",
+      "side": 1,
+      "message": "There would be a TS error because styleFile might be undefined. I\u0027d leave it as is for this CL and I plan adding a good e2e test for this case and I can rework it then.",
+      "parentUuid": "66cf3757_02366875",
+      "revId": "3ae601fff6df7a126be8a16c2756ddfcf9722ef3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
