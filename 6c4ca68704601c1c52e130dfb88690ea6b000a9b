@@ -22,6 +22,30 @@
       "revId": "6c4ca68704601c1c52e130dfb88690ea6b000a9b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf957963_7c3b2074",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-06-25T16:11:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64bdcafb_d6dc1b8a",
+      "range": {
+        "startLine": 399,
+        "startChar": 8,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "6c4ca68704601c1c52e130dfb88690ea6b000a9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
