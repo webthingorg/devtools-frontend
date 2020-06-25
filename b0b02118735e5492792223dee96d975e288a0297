@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0894060e_bdaeb86d",
+        "filename": "front_end/inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-25T15:17:21Z",
+      "side": 1,
+      "message": "nit: maybe we can do a crbug here so anyone can pick up if they have time",
+      "range": {
+        "startLine": 244,
+        "startChar": 10,
+        "endLine": 244,
+        "endChar": 24
+      },
+      "revId": "b0b02118735e5492792223dee96d975e288a0297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b11c1096_0f3787d0",
+        "filename": "front_end/inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-25T15:17:21Z",
+      "side": 1,
+      "message": "nit: we could consider putting this back to just accepting the elementInfo and colorFormat if we no longer need anything else on the highlight? not a big deal either way",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 47
+      },
+      "revId": "b0b02118735e5492792223dee96d975e288a0297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
