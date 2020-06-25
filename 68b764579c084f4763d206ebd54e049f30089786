@@ -1,0 +1,674 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d588dcb_5c7af1a2",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "nit: rename `_options` to `options`. Then you can do\n\n  const response \u003d await this._agent.invoke_addVirtualAuthenticator({options});",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d63c61c_a10149e3",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ebeaf36_946ebb8d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "These two can probably be condensed into a single map that points to the DOM element, and if necessary, also keeps track of the authenticator options.\n\n  this._authenticators \u003d new Map();\n\nIn fact you may not need this at all. You can add an attribute to the authenticator section called `data-authenticator-id` with value for the authenticator ID and then do\n\n  this._authenticatorsView.querySelector(`[data-authenticator-id\u003d{authenticatorId}`).remove();\n\nwhen you want to remove it.",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3612e9cf_dc389e3c",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "You probably should also clear the maps holding authenticator information here.",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "879d41e6_d2c69f5b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Does this work with `visibility \u003d \u0027hidden\u0027` instead? They have different semantics but I think for this the difference may not matter, and you don\u0027t have to copy the display value here which is a common source of bugs (e.g. if you change the css later but forget to update this line).",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42c145b9_27440037",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "I think for labels we only capitalize the first letter.\n\nYou should definitely take a look at the UXR template [1] (it\u0027s got some useful links as well) and the \"how to write strings\" doc [2].\n \n[1] https://docs.google.com/document/d/1BceT9w6vFn1IbwhR2LdrUToZI99XYk42SMwd76WufEQ\n[2] https://carbon.googleplex.com/chrome-ux/pages/write-strings",
+      "range": {
+        "startLine": 86,
+        "startChar": 60,
+        "endLine": 86,
+        "endChar": 77
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "935a88c8_fdcd5e2b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Is it necessary to keep track of `_newAuthenticatorTitle` as a member variable? Can it be a local instead?",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b65d1a2_18ed103d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "This code mixes up Common.UIString.UIString(\u0027string\u0027) with the ls`string` template form. Perhaps we should stick to one of them.",
+      "range": {
+        "startLine": 100,
+        "startChar": 33,
+        "endLine": 100,
+        "endChar": 58
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f87d33b_a15ce0c4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Maybe\n\n  const options \u003d [\n       {label: Common.UIString.UIString(\u0027usb\u0027), val: Protocol.WebAuthn.AuthenticatorTransport.Usb},\n       {label: Common.UIString.UIString(\u0027nfc\u0027), val: Protocol.WebAuthn.AuthenticatorTransport.Nfc},\n       /* etc */\n  ];\n  options.forEach(option \u003d\u003e this._transportSelect.appendChild(new Option(option.label, option.enum)));\n\nis better?",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 120,
+        "endChar": 54
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "883e1394_ddb58c21",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "ditto, I think for buttons we only capitalize the first letter.",
+      "range": {
+        "startLine": 124,
+        "startChar": 66,
+        "endLine": 124,
+        "endChar": 88
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b48fc8a9_e1974eb0",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "here as well",
+      "range": {
+        "startLine": 133,
+        "startChar": 66,
+        "endLine": 133,
+        "endChar": 92
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8731e36e_0b6518bb",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 145,
+        "startChar": 60,
+        "endLine": 145,
+        "endChar": 77
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "505b4365_e5b3922f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "You probably don\u0027t need this since you aren\u0027t doing anything with `_authenticatorsToOptionsMap` afterwards.",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be6cbf21_9b64c518",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "This sentence is impossible to translate (e.g. in a given language, the noun for \u0027Authenticator\u0027 might go after the authenticatorId). You should use a template string instead. Take a look here [1] for an example.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/bindings/ResourceScriptMapping.js;l\u003d380;drc\u003db358e5fae987967b02dc3819f9076e9b705ae256",
+      "range": {
+        "startLine": 161,
+        "startChar": 18,
+        "endLine": 161,
+        "endChar": 53
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e7a396_6e9a278d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "nit: `.` after comment.",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "beae8059_20aee2c7",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "You can remove the local `title` and fix the i18n issue in one fell swoop:\n\n  titleElement.textContent \u003d ls`Authenticator ${authenticatorId}`",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c23552b_d89f12d7",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Only capitalize the first letter",
+      "range": {
+        "startLine": 184,
+        "startChar": 51,
+        "endLine": 184,
+        "endChar": 73
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b95d2961_803e9369",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 185,
+        "startChar": 51,
+        "endLine": 185,
+        "endChar": 76
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7aaab6d_d88632c9",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Same problem here as in L188. Perhaps it\u0027s best to not translate CTAP2 / U2F.",
+      "range": {
+        "startLine": 187,
+        "startChar": 80,
+        "endLine": 187,
+        "endChar": 96
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd9d3f23_156715b0",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Hmmm this will show up as whatever the `protocol` option is untranslated, which may be confusing. E.g. imagine if \"NFC\" is translated into \"CFN\". A user picks \"CFN\" from the localized menu option from L117, but then when it is added it will show up as \"NFC\".\n\nThere are two options here to consider: either we localize both (by keeping map from transport enum to labels) or we localize neither and stick to the AuthenticatorTransport enum values [1]. I think I prefer the latter considering devtools is geared towards developers.\n\n[1] https://w3c.github.io/webauthn/#enum-transport",
+      "range": {
+        "startLine": 188,
+        "startChar": 81,
+        "endLine": 188,
+        "endChar": 97
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd9465f_fd0b2a74",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Localize these two sentences.",
+      "range": {
+        "startLine": 189,
+        "startChar": 101,
+        "endLine": 189,
+        "endChar": 112
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe13949_5f3d2798",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 190,
+        "startChar": 105,
+        "endLine": 190,
+        "endChar": 117
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faa2eda2_6400dcc4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "nit: semicolon after ), full stop at the end, i.e.\n\n  // TODO(crbug.com/123456): To-Do description goes here.",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f97510c3_66176254",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Is there a theme variable for this instead? Does this work in dark mode?",
+      "range": {
+        "startLine": 53,
+        "startChar": 27,
+        "endLine": 53,
+        "endChar": 44
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6cec675_5443ed47",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 108,
+        "startChar": 9,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09da9c7c_ef622dcc",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "To help you write these descriptions, you can take a look at the strings we use for the rest of webauthn:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:chrome/app/generated_resources.grd;l\u003d10155?q\u003dgenerated_resources.grd\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95e7a97d_ca7793c0",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "nit: `t`.\n\nAlso, this text doesn\u0027t provide much context to a translator unfamiliar with the acronym. Perhaps\n\n  \"Near-field communication, a transport option for virtual authenticators\"\n\nis a better description.",
+      "range": {
+        "startLine": 3,
+        "startChar": 74,
+        "endLine": 3,
+        "endChar": 75
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b92e4cf_866fe799",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Translators may not be familiar with the meaning of \"boolean\". Perhaps \"Label on a checkmark that toggles user verification support on virtual authenticators\" is better.",
+      "range": {
+        "startLine": 6,
+        "startChar": 97,
+        "endLine": 6,
+        "endChar": 104
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83f88695_da82c571",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "Same here, I think it\u0027s better to expand the acronym (in this case, bluetooth low energy)",
+      "range": {
+        "startLine": 12,
+        "startChar": 70,
+        "endLine": 12,
+        "endChar": 73
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7a50a85_5156943b",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 18,
+        "startChar": 93,
+        "endLine": 18,
+        "endChar": 100
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f975e04_7959d901",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "u2f is a protocol, not a transport.",
+      "range": {
+        "startLine": 27,
+        "startChar": 70,
+        "endLine": 27,
+        "endChar": 83
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c6f0a03_c0699989",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-25T18:39:40Z",
+      "side": 1,
+      "message": "This also needs a more thorough description (e.g. it\u0027s not clear if transport here is a verb or a noun, and those may be different words in different languages)\n\nPerhaps something like\n\n  Title for the virtual authenticator transport field, e.g. USB or Bluetooth.",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
