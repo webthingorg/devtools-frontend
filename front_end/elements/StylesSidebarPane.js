@@ -467,7 +467,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
 
     const rule = treeElement.property.ownerStyle.parentRule;
     const selectorList = (rule instanceof SDK.CSSRule.CSSStyleRule) ? rule.selectorText() : undefined;
-    for (const mode of ['padding', 'border', 'margin']) {
+    for (const mode of ['padding', 'border', 'margin', 'grid-gap', 'gap']) {
       if (!treeElement.name.startsWith(mode)) {
         continue;
       }
