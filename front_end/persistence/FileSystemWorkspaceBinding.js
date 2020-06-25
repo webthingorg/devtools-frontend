@@ -255,6 +255,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
    * @return {!Array<string>}
    */
   initialGitFolders() {
+    // TODO: Is this needed as well?
     return this._fileSystem.initialGitFolders().map(folder => this._fileSystemPath + '/' + folder);
   }
 
@@ -365,11 +366,13 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
    */
   rename(uiSourceCode, newName, callback) {
     if (newName === uiSourceCode.name()) {
+      console.error(`Did not rename "${uiSourceCode.name()}" url "${uiSourceCode.url()}"`);
       callback(true, uiSourceCode.name(), uiSourceCode.url(), uiSourceCode.contentType());
       return;
     }
 
     let filePath = this._filePathForUISourceCode(uiSourceCode);
+    console.error(`Renaming "${filePath}" "${newName}"`);
     this._fileSystem.renameFile(filePath, newName, innerCallback.bind(this));
 
     /**
@@ -385,7 +388,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
       console.assert(newName);
       const slash = filePath.lastIndexOf('/');
       const parentPath = filePath.substring(0, slash);
-      filePath = parentPath + '/' + newName;
+      filePath = parentPath + '/' + escape(newName);
       filePath = filePath.substr(1);
       const newURL = this._fileSystemBaseURL + filePath;
       const newContentType = this._fileSystem.contentType(newName);

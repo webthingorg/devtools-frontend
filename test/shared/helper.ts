@@ -331,4 +331,13 @@ export const closeAllCloseableTabs = async () => {
   }
 };
 
+// Noisy! Do not leave this in your test but it may be helpful
+// when debugging.
+export const enableCDPLogging = async () => {
+  const {frontend} = getBrowserAndPages();
+  await frontend.evaluate(() => {
+    globalThis.ProtocolClient.test.dumpProtocol = console.log;
+  });
+};
+
 export {getBrowserAndPages, reloadDevTools};

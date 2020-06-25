@@ -396,6 +396,7 @@ export class Breakpoint {
     if (!this._uiSourceCodes.has(uiSourceCode)) {
       this._uiSourceCodes.add(uiSourceCode);
       if (!this.bound()) {
+        console.error(`Adding ${uiSourceCode.url()} created at ${uiSourceCode.stackTrace}`);
         this._breakpointManager._uiLocationAdded(this, this._defaultUILocation(uiSourceCode));
       }
     }
@@ -465,8 +466,15 @@ export class Breakpoint {
     }
     if (!this.bound()) {
       // This is our first bound location; remove all unbound locations
+      console.error(`Removing ${this._uiSourceCodes.size} UISourceCodes because we are bound to ${
+          uiLocation.uiSourceCode.stackTrace}`);
+      if (this._uiSourceCodes.has(uiLocation.uiSourceCode)) {
+        console.error('Including this one');
+      }
       this._removeAllUnboundLocations();
     }
+    console.error(`Breakpoint resolved to "${uiLocation.uiSourceCode.url()}":${uiLocation.lineNumber}:${
+        uiLocation.columnNumber}`);
     this._uiLocations.add(uiLocation);
     this._breakpointManager._uiLocationAdded(this, uiLocation);
   }

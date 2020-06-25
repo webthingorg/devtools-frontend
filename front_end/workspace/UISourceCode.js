@@ -50,13 +50,18 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {string} */
     this._url = url;
 
+    this.stackTrace = new Error().stack;
+    if (url.startsWith('snip')) {
+      console.error(`Created with URL ${url} at stack trace ${this.stackTrace}`);
+    }
     const parsedURL = Common.ParsedURL.ParsedURL.fromString(url);
     if (parsedURL) {
       this._origin = parsedURL.securityOrigin();
       this._parentURL = this._origin + parsedURL.folderPathComponents;
-      this._name = parsedURL.lastPathComponent;
       if (parsedURL.queryParams) {
-        this._name += '?' + parsedURL.queryParams;
+        this._name = parsedURL.lastPathComponent + '?' + parsedURL.queryParams;
+      } else {
+        this._name = unescape(parsedURL.lastPathComponent);
       }
     } else {
       this._origin = '';
@@ -200,8 +205,10 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Common.ResourceType.ResourceType=} contentType
    */
   _updateName(name, url, contentType) {
+    console.error(`Renaming "${this._url}" to "${url}" "${name}"`);
+    console.trace();
     const oldURL = this._url;
-    this._url = this._url.substring(0, this._url.length - this._name.length) + name;
+    this._url = this._url.substring(0, this._url.lastIndexOf('/') + 1) + escape(name);
     this._name = name;
     if (url) {
       this._url = url;

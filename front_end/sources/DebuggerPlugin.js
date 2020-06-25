@@ -1426,6 +1426,10 @@ export class DebuggerPlugin extends Plugin {
    * @param {!Bindings.BreakpointManager.Breakpoint} breakpoint
    */
   _addBreakpoint(uiLocation, breakpoint) {
+    console.log(
+        `Adding breakpoint for ${uiLocation.uiSourceCode.url()} created at ${uiLocation.uiSourceCode.stackTrace}`);
+    console.log(`In plugin for source code ${this._uiSourceCode.url()} created at ${this._uiSourceCode.stackTrace}`);
+    console.log(`Called from ${new Error().stack}`);
     const editorLocation = this._transformer.uiLocationToEditorLocation(uiLocation.lineNumber, uiLocation.columnNumber);
     const lineDecorations = this._lineBreakpointDecorations(uiLocation.lineNumber);
     let decoration = this._breakpointDecoration(editorLocation.lineNumber, editorLocation.columnNumber);

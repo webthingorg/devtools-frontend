@@ -385,6 +385,7 @@ export class ProjectStore {
    */
   uiSourceCodeForURL(url) {
     const entry = this._uiSourceCodesMap.get(url);
+
     return entry ? entry.uiSourceCode : null;
   }
 
@@ -401,7 +402,9 @@ export class ProjectStore {
    */
   renameUISourceCode(uiSourceCode, newName) {
     const oldPath = uiSourceCode.url();
-    const newPath = uiSourceCode.parentURL() ? uiSourceCode.parentURL() + '/' + newName : newName;
+    // Is this the right place to do this escaping?
+    const newPath = uiSourceCode.parentURL() ? uiSourceCode.parentURL() + '/' + escape(newName) : escape(newName);
+    console.error(`Renaming ${oldPath} to ${newPath}`);
     const value =
         /** @type {!{uiSourceCode: !UISourceCode, index: number}} */ (this._uiSourceCodesMap.get(oldPath));
     this._uiSourceCodesMap.set(newPath, value);
