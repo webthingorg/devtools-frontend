@@ -73,7 +73,7 @@ export class StylesSourceMapping {
     if (!header || !this._acceptsHeader(header)) {
       return null;
     }
-    const styleFile = this._styleFiles.get(header.resourceURL());
+    const styleFile = this._styleFiles.get(header.id);
     if (!styleFile) {
       return null;
     }
@@ -131,11 +131,10 @@ export class StylesSourceMapping {
       return;
     }
 
-    const url = header.resourceURL();
-    let styleFile = this._styleFiles.get(url);
+    let styleFile = this._styleFiles.get(header.id);
     if (!styleFile) {
       styleFile = new StyleFile(this._cssModel, this._project, header);
-      this._styleFiles.set(url, styleFile);
+      this._styleFiles.set(header.id, styleFile);
     } else {
       styleFile.addHeader(header);
     }
@@ -149,11 +148,10 @@ export class StylesSourceMapping {
     if (!this._acceptsHeader(header)) {
       return;
     }
-    const url = header.resourceURL();
-    const styleFile = this._styleFiles.get(url);
+    const styleFile = this._styleFiles.get(header.id);
     if (styleFile._headers.size === 1) {
       styleFile.dispose();
-      this._styleFiles.delete(url);
+      this._styleFiles.delete(header.id);
     } else {
       styleFile.removeHeader(header);
     }
@@ -167,7 +165,7 @@ export class StylesSourceMapping {
     if (!header || !this._acceptsHeader(header)) {
       return;
     }
-    const styleFile = this._styleFiles.get(header.resourceURL());
+    const styleFile = this._styleFiles.get(header.id);
     styleFile._styleSheetChanged(header);
   }
 
