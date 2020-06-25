@@ -188,6 +188,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    */
   showFile(uiSourceCode) {
+    console.error(`Showing UI Source Code "${uiSourceCode.url()}`);
     this._innerShowFile(this._canonicalUISourceCode(uiSourceCode), true);
   }
 
@@ -652,6 +653,17 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
     this._updateFileTitle(uiSourceCode);
     this._updateHistory();
+
+    console.error(`Title changed for ${uiSourceCode.url()}`);
+    // Remove from map under old url if it has changed.
+    for (let [k, v] of this._uriToUISourceCode) {
+      if (v === uiSourceCode && k != v.url()) {
+        this._uriToUISourceCode.delete(k);
+        console.error(`Deleting old url ${k}`);
+      }
+    }
+    // Ensure it is mapped under current url.
+    this._canonicalUISourceCode(uiSourceCode);
   }
 
   /**

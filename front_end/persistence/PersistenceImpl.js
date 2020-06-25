@@ -146,6 +146,7 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!AutomappingStatus} status
    */
   async _onStatusAdded(status) {
+    console.error(`Status for ${status.network.url()} called from ${new Error().stack}`);
     const binding = new PersistenceBinding(status.network, status.fileSystem);
     status[_binding] = binding;
     await this._innerAddBinding(binding);

@@ -408,7 +408,12 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
 
   _onBindingChanged() {
     const binding = self.Persistence.persistence.binding(this._uiSourceCode);
+    console.error(`Binding changed for ${this._uiSourceCode.url()} created at ${this._uiSourceCode.stackTrace}`);
+    if (binding && binding.network) {
+      console.error(`New network binding is ${binding.network.url()} created at ${binding.network.stackTrace}`);
+    }
     if (binding === this._persistenceBinding) {
+      console.error('Unchanged');
       return;
     }
     this._unloadUISourceCode();

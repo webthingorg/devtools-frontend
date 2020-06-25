@@ -103,6 +103,7 @@ class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFileSyste
       callback(false);
       return;
     }
+    console.error(`Renaming "${snippet.name}" to "${newName}"`);
     snippet.name = newName;
     this._snippetsSetting.set(snippets);
     callback(true, newName);
@@ -200,6 +201,10 @@ export async function evaluateScriptSnippet(uiSourceCode) {
   }
 
   const scripts = executionContext.debuggerModel.scriptsForSourceURL(url);
+  if (scripts.length == 0) {
+    console.error(`No scripts for url ${url}`);
+    return;
+  }
   const scriptId = scripts[scripts.length - 1].scriptId;
   SDK.ConsoleModel.ConsoleModel.instance().addMessage(new SDK.ConsoleModel.ConsoleMessage(
       runtimeModel, SDK.ConsoleModel.MessageSource.JS, SDK.ConsoleModel.MessageLevel.Info, '',
