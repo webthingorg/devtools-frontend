@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d07663b0_ff6ebc8b",
+        "filename": "test/webtests/http/tests/devtools/a11y-axe-core/application-panel/clear-storage-a11y-test-expected.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-06-25T21:26:00Z",
+      "side": 1,
+      "message": "I don\u0027t think this is us ... I guess these layout tests still don\u0027t run or block CQ.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 7
+      },
+      "revId": "7a3df0a9904516c22b70a1afa47dcd56d639f91b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
