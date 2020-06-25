@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5136c118_d5eb0741",
+        "filename": "front_end/ui/inspectorCommon.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-25T09:02:42Z",
+      "side": 1,
+      "message": "Re: the hardcoded pixel sizes, please double-check if this still looks good after zooming.",
+      "revId": "230025bebb23a1a845a56dbf93d5b3b758c74340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
