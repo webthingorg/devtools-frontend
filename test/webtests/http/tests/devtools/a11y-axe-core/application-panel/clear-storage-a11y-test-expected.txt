@@ -1,3 +1,6 @@
+CONSOLE MESSAGE: InspectorTest.IndexedDB_callback1
+CONSOLE MESSAGE: InspectorTest.IndexedDB_callback2
+CONSOLE MESSAGE: InspectorTest.IndexedDB_callback3
 Tests accessibility in the Clear Storage view using the axe-core linter.
 Clear storage view is visible: true
 aXe violations: []
