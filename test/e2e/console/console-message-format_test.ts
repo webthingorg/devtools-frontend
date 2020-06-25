@@ -7,7 +7,8 @@ import {describe, it} from 'mocha';
 
 import {getConsoleMessages, showVerboseMessages} from '../helpers/console-helpers.js';
 
-describe('The Console Tab', async () => {
+// Windows bots are failing on this one, but all other bots are happy.
+describe.skip('[crbug.com/1097778]: The Console Tab', async () => {
   it('shows BigInts formatted', async () => {
     const messages = await getConsoleMessages('big-int');
 
