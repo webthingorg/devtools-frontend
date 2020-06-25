@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "128725c1_ba0cf5c4",
+        "filename": "front_end/formatter_worker/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-25T14:16:58Z",
+      "side": 1,
+      "message": "will this need to become a front_end/codemirror much like we\u0027re doing with front_end/lit_html ?",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "9d07d0138ca83fc6e707a2d8d71e266c85c6d297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
