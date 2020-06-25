@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f501dc44_6fe5b4da",
+        "filename": "front_end/sdk/CookieModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-25T11:02:56Z",
+      "side": 1,
+      "message": "nit: this only forwards the call, why not make _deleteAll public?",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "3e00bd96fbdea9f686bdf2f6500e24c15c7617d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7345497_7beeda01",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-25T11:02:56Z",
+      "side": 1,
+      "message": "This is also related to the ToolbarInput class, see comment below. Please rename and think about whether this selector may be too broad (in cases where multiple toolbars are visibile / multiple input fields exist).",
+      "range": {
+        "startLine": 39,
+        "startChar": 22,
+        "endLine": 39,
+        "endChar": 36
+      },
+      "revId": "3e00bd96fbdea9f686bdf2f6500e24c15c7617d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f1e84ac_4938bb64",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-25T11:02:56Z",
+      "side": 1,
+      "message": "To comments: first, this seems to be related to ToolbarInput class (that class uses the toolbar-input-clear-button), not to data grid, so clearToolbarInput would probably be a better name.\n\nSecond, I think the selector is a little bit too broad now that this is a helper function. Do you think it makes sense to restrict it to a particular toolbar?\n\nWhat if there are multiple ToolbarInput fields in a toolbar?",
+      "range": {
+        "startLine": 44,
+        "startChar": 22,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "3e00bd96fbdea9f686bdf2f6500e24c15c7617d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4637e444_4fbe7cf6",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-25T11:02:56Z",
+      "side": 1,
+      "message": "nit: clearAllCookies()? This doesn\u0027t seem to work for all data grids.",
+      "range": {
+        "startLine": 48,
+        "startChar": 22,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "3e00bd96fbdea9f686bdf2f6500e24c15c7617d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
