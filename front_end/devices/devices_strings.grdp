@@ -6,9 +6,6 @@
   <message name="IDS_DEVTOOLS_532c28d5412dd75bf975fb951c740a30" desc="A tag of Remote Devices tool that can be searched in the command menu">
     mobile
   </message>
-  <message name="IDS_DEVTOOLS_62ed973d963913bb55111a7b8116ace1" desc="A tag of Remote Devices tool that can be searched in the command menu">
-    usb
-  </message>
   <message name="IDS_DEVTOOLS_c31b32364ce19ca8fcd150a417ecce58" desc="A tag of Remote Devices tool that can be searched in the command menu">
     <ph name="LOCKED_1">android</ph>
   </message>

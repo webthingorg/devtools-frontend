@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_062993585a465aecb861561818225523" desc="nfc Transport option for virtual authenticator">
+    nfc
+  </message>
+  <message name="IDS_DEVTOOLS_0e2981b1903fed5447676b3985aa5f1b" desc="Supports User Verification boolean option for virtual authenticator">
+    Supports User Verification
+  </message>
   <message name="IDS_DEVTOOLS_0f9d05f79599511a36679baf1c599552" desc="Label for checkbox that enables virtual authenticator environment">
     Enable Virtual Authenticator Environment
   </message>
+  <message name="IDS_DEVTOOLS_4e8a1f3702ea40975a6bd7b06e558498" desc="ble Transport option for virtual authenticator">
+    ble
+  </message>
+  <message name="IDS_DEVTOOLS_50d1af59ea01155a835e5ee90f0860fa" desc="Title for add new authenticator section">
+    New Authenticator
+  </message>
+  <message name="IDS_DEVTOOLS_5829b8d0bfacd3f6b01f05b10294c7c6" desc="Supports Resident Keys boolean option for virtual authenticator">
+    Supports Resident Keys
+  </message>
   <message name="IDS_DEVTOOLS_7981a42fd27d757338f9a99563a24ac8" desc="Title of WebAuthn tool in bottom drawer">
     WebAuthn
+  </message>
+  <message name="IDS_DEVTOOLS_87d1c22c1c71dc04728ba8df158b3cc0" desc="ctap2 Protocol option for virtual authenticator">
+    ctap2
+  </message>
+  <message name="IDS_DEVTOOLS_99db06b0f6fa55d229cf508034a70871" desc="u2f Transport option for virtual authenticator">
+    u2f
+  </message>
+  <message name="IDS_DEVTOOLS_b86316fe8b7db2e6de51d18e97b654f6" desc="Title for button used to add authenticator">
+    Add Authenticator
+  </message>
+  <message name="IDS_DEVTOOLS_d1efad72dc5b17dc66a46767c32fff40" desc="internal Transport option for virtual authenticator">
+    internal
+  </message>
+  <message name="IDS_DEVTOOLS_f5f0c488ed56cf789d19a13ffba8abe3" desc="Title for transport field">
+    Transport
   </message>
 </grit-part>
