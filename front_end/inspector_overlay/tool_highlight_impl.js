@@ -237,11 +237,14 @@ function computeIsLargeFont(contrast) {
 
 /**
  * Determine the layout type of the highlighted element based on the config.
- * @param {Object} highlight The highlight config object passed to drawHighlight
+ * @param {Object} elementInfo The element information, part of the config object passed to drawHighlight
  * @return {String|null} The layout type of the object, or null if none was found
  */
-function _getElementLayoutType(highlight) {
-  if (highlight.gridInfo && highlight.gridInfo.length) {
+function _getElementLayoutType(elementInfo) {
+  // TODO(patrickbrosset): elementInfo.layoutObjectName can be any of the values returned by
+  // LayoutObject.GetName on the backend. For now we only care about grid. In the future, modify this code
+  // to allow other layout object types.
+  if (elementInfo.layoutObjectName && elementInfo.layoutObjectName.endsWith('Grid')) {
     return 'grid';
   }
 
@@ -259,7 +262,7 @@ function _createElementDescription(highlight) {
   const elementInfoElement = createElement('div', 'element-info');
   const elementInfoHeaderElement = elementInfoElement.createChild('div', 'element-info-header');
 
-  const layoutType = _getElementLayoutType(highlight);
+  const layoutType = _getElementLayoutType(elementInfo);
   if (layoutType) {
     elementInfoHeaderElement.createChild('div', `element-layout-type ${layoutType}`);
   }
