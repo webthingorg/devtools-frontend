@@ -17,7 +17,8 @@
     "sdk",
     "ui",
     "data_grid",
-    "source_frame"
+    "source_frame",
+    "perf_ui"
   ],
   "modules": [
     "media.js",
@@ -28,7 +29,10 @@
     "PlayerListView.js",
     "PlayerMessagesView.js",
     "PlayerPropertiesView.js",
-    "MediaModel.js"
+    "MediaModel.js",
+    "EventTimelineView.js",
+    "TickingFlameChart.js",
+    "TickingFlameChartHelpers.js"
   ],
   "scripts": [],
   "resources": [

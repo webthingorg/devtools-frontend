@@ -4,19 +4,19 @@
 
 vars = {
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': '2dc7c7abc04253e340b60fa339151a92519f93d1',
+  'build_revision': '876a780600c9d8fc515ca5635c2fb9eedbb8556e',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
   'buildtools_revision': '1ed99573d57d4b6041261b531cdf876e631cf0bc',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': '35c62742f96d56afa1bb72c7504cf6591265028d',
+  'depot_tools_revision': '87c8b91639837bc8518cdbe4842484633cf60b6e',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
-  'inspector_protocol_revision': 'b7cda08cd6e522df2159413ba5f29d2a953cc1c4',
+  'inspector_protocol_revision': '8c11f011735fedf71002e0f2f29a4a3a9546136e',
 
   'llvm_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/',
-  'llvm_revision': '302e11cd974255eafd80ee4fdf52054a00b3e4be',
+  'llvm_revision': '7edc7f6edbcb5be439886c271a71df43b3f0a8e3',
   'build_symbol_server': False,
 
   'clang_format_url': 'https://chromium.googlesource.com/chromium/llvm-project/cfe/tools/clang-format.git',
@@ -33,11 +33,11 @@ vars = {
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
-  'chromium_linux': '780667',
+  'chromium_linux': '782280',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
-  'chromium_win': '780665',
+  'chromium_win': '782269',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '780660',
+  'chromium_mac': '782263',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
@@ -253,6 +253,13 @@ hooks = [
     # clang not supported on aix
     'condition': 'host_os != "aix" and build_symbol_server',
     'action': ['python', 'devtools-frontend/third_party/clang/scripts/update.py'],
+  },
+  {
+    'name': 'sysroot_x64',
+    'pattern': '.',
+    'condition': 'checkout_linux and checkout_x64',
+    'action': ['python', 'devtools-frontend/build/linux/sysroot_scripts/install-sysroot.py',
+               '--arch=x64'],
   },
 
 ]
