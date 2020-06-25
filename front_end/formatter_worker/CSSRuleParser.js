@@ -25,7 +25,7 @@ export function parseCSS(text) {
 
 /**
  * @param {string} text
- * @param {function(*)} chunkCallback
+ * @param {function(*):void} chunkCallback
  */
 export function _innerParseCSS(text, chunkCallback) {
   const chunkSize = 100000;  // characters per data chunk

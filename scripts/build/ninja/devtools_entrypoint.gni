@@ -1,0 +1,72 @@
+# Copyright 2020 The Chromium Authors.  All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../third_party/typescript/typescript.gni")
+import("./rollup.gni")
+import("./vars.gni")
+
+template("devtools_entrypoint") {
+  assert(defined(invoker.entrypoint),
+         "You must define the 'entrypoint' for a rollup target")
+
+  # Figure out what the relative path is to the front_end folder.
+  # We have to get the full path to the target_gen_dir
+  # and compare that to the full location of the front_end
+  # folder in the gen_dir, to make sure nested packages
+  # resolve to the correct location.
+  _front_end_module_name =
+      string_replace(get_path_info(target_gen_dir, "abspath"),
+                     root_gen_dir + "/" + devtools_location + "front_end/",
+                     "")
+
+  _entrypoint_target_name = "devtools_entrypoint-" + target_name
+  _entrypoint_output_file_name =
+      get_path_info(invoker.entrypoint, "name") + ".js"
+
+  if (is_debug) {
+    ts_library(_entrypoint_target_name) {
+      sources = [ invoker.entrypoint ]
+
+      deps = invoker.deps
+    }
+  } else {
+    _typescript_output_file_name =
+        get_path_info(invoker.entrypoint, "name") + ".prebundle.ts"
+    _copy_target_name = _entrypoint_target_name + "-copy"
+    _typescript_target_name = _entrypoint_target_name + "-typescript"
+
+    copy(_copy_target_name) {
+      sources = [ invoker.entrypoint ]
+
+      outputs = [ "$target_gen_dir/$_typescript_output_file_name" ]
+
+      deps = invoker.deps
+    }
+
+    ts_library(_typescript_target_name) {
+      sources = [ "$target_gen_dir/$_typescript_output_file_name" ]
+
+      rootdir = target_gen_dir
+
+      public_deps = [ ":$_copy_target_name" ]
+    }
+
+    rollup(_entrypoint_target_name) {
+      entrypoint = get_path_info(_typescript_output_file_name, "dir") + "/" +
+                   get_path_info(_typescript_output_file_name, "name") + ".js"
+
+      output_file_location = "$target_gen_dir/$_entrypoint_output_file_name"
+
+      deps = [ ":$_typescript_target_name" ]
+    }
+  }
+
+  copy(target_name) {
+    sources = [ "$target_gen_dir/$_entrypoint_output_file_name" ]
+
+    outputs = [ "$resources_out_dir/$_front_end_module_name/$_entrypoint_output_file_name" ]
+
+    deps = [ ":$_entrypoint_target_name" ]
+  }
+}
