@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83a11e6e_8ba368b8",
+        "filename": "test/e2e/console/console-clear_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-25T14:38:03Z",
+      "side": 1,
+      "message": "nit:\n\n    document.querySelectorAll(\u0027.console-user-command-result\u0027)[0]\n\nis just an elaborate way of saying\n\n    document.querySelector(\u0027.console-user-command-result\u0027)",
+      "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8135c59_2d0732c4",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-25T14:38:03Z",
+      "side": 1,
+      "message": "FYI, most Puppeteer scripts I\u0027ve seen use {} (\"the options object does not have any properties\") instead of an explicit undefined (\"there is no options object\") here, but I don\u0027t actually have an opinion on this either way. Which do you prefer?",
+      "range": {
+        "startLine": 90,
+        "startChar": 5,
+        "endLine": 90,
+        "endChar": 14
+      },
+      "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
