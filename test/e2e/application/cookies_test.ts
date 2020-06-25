@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
 import {$, click, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
-import {doubleClickSourceTreeItem, getDataGridData, navigateToApplicationTab} from '../helpers/application-helpers.js';
+import {clearDataGrid, clearDataGridFilter, doubleClickSourceTreeItem, filterDataGrid, getDataGridData, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
 const COOKIES_SELECTOR = '[aria-label="Cookies"]';
 const DOMAIN_SELECTOR = `${COOKIES_SELECTOR} + ol > [aria-label="http://localhost:8090"]`;
@@ -74,14 +74,49 @@ describe('The Application Tab', async () => {
 
     assert.deepEqual(previewValue1, 'bar');
 
-    // Clear all cookies
-    await waitFor('button[aria-label="Clear All"]');
-    await click('button[aria-label="Clear All"]');
+    await clearDataGrid();
 
     // Make sure that the preview resets
     const previewValueNode2 = await $('.cookie-value');
     const previewValue2 = await previewValueNode2.evaluate(e => e.textContent);
 
     assert.match(previewValue2, /Select a cookie to preview its value/);
+  });
+
+  it('[crbug.com/978059] only clear currently visible cookies', async () => {
+    const {target} = getBrowserAndPages();
+    // This sets a new cookie foo=bar
+    await navigateToApplicationTab(target, 'cookies');
+
+    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
+    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+
+    const dataGridRowValues1 = await getDataGridData('.storage-view table', ['name']);
+    assert.deepEqual(dataGridRowValues1, [
+      {
+        name: 'foo2',
+      },
+      {
+        name: 'foo',
+      },
+      {
+        name: '',
+      },
+    ]);
+
+
+    await filterDataGrid('foo2');
+    await clearDataGrid();
+    await clearDataGridFilter();
+
+    const dataGridRowValues2 = await getDataGridData('.storage-view table', ['name']);
+    assert.deepEqual(dataGridRowValues2, [
+      {
+        name: 'foo',
+      },
+      {
+        name: '',
+      },
+    ]);
   });
 });

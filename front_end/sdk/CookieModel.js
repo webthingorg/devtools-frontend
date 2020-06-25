@@ -61,6 +61,14 @@ export class CookieModel extends SDKModel {
   }
 
   /**
+   * @param {!Array<!Cookie>} cookies
+   * @return {!Promise<void>}
+   */
+  async deleteCookies(cookies) {
+    await this._deleteAll(cookies);
+  }
+
+  /**
    * @param {string=} domain
    * @return {!Promise<void>}
    */
