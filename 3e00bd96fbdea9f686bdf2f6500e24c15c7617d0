@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "2736556e_b54a52bf",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-25T15:53:00Z",
+      "side": 1,
+      "message": "WDYT about this solution?\nI renamed these methods to explicitly mention StorageItems because they are meant to abstract the implementation (https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/resources/StorageItemsView.js;l\u003d8?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20StorageItem)",
+      "parentUuid": "b82ab83a_2543e825",
+      "range": {
+        "startLine": 44,
+        "startChar": 22,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "3e00bd96fbdea9f686bdf2f6500e24c15c7617d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4637e444_4fbe7cf6",
         "filename": "test/e2e/helpers/application-helpers.ts",
         "patchSetId": 1
