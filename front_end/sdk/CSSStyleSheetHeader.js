@@ -86,7 +86,25 @@ export class CSSStyleSheetHeader {
    * @return {string}
    */
   resourceURL() {
+    if (this.isMutable) {
+      return this._mutableResourceUrl();
+    }
     return this.isViaInspector() ? this._viaInspectorResourceURL() : this.sourceURL;
+  }
+
+  /**
+   * @return {string}
+   */
+  _mutableResourceUrl() {
+    const frame = this._cssModel.target().model(ResourceTreeModel).frameForId(this.frameId);
+    console.assert(frame);
+    const parsedURL = new Common.ParsedURL.ParsedURL(frame.url);
+    let fakeURL = 'inspector://' + parsedURL.host + parsedURL.folderPathComponents;
+    if (!fakeURL.endsWith('/')) {
+      fakeURL += '/';
+    }
+    fakeURL += 'stylesheet-source/' + this.id;
+    return fakeURL;
   }
 
   /**
