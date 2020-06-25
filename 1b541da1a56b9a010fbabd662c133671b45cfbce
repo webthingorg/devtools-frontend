@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8402680c_3fa18f1d",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-25T15:23:19Z",
+      "side": 1,
+      "message": "Far enough! seems reasonable to me to get better test coverage",
+      "parentUuid": "f1cde687_370f3f99",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "225307f6_a8685945",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 1
