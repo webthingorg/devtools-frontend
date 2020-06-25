@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d4840a4a_d6959664",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d588dcb_5c7af1a2",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d63c61c_a10149e3",
         "filename": "front_end/sdk/WebAuthnModel.js",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fa0f44f_179c8e12",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d63c61c_a10149e3",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "4cd35ef7_b4222230",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ebeaf36_946ebb8d",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3612e9cf_dc389e3c",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "4c1890a1_eee2310f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "No longer necessary (maps removed).",
+      "parentUuid": "3612e9cf_dc389e3c",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "879d41e6_d2c69f5b",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -90,6 +168,24 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "203011c3_03180e1a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Yes it does - thanks for tip!",
+      "parentUuid": "879d41e6_d2c69f5b",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -133,6 +229,48 @@
     },
     {
       "key": {
+        "uuid": "456b34cc_c20a9de2",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "No, Yes \n\nDone",
+      "parentUuid": "935a88c8_fdcd5e2b",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0214be0f_ca5e270b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42c145b9_27440037",
+      "range": {
+        "startLine": 86,
+        "startChar": 60,
+        "endLine": 86,
+        "endChar": 77
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b65d1a2_18ed103d",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -144,6 +282,30 @@
       "writtenOn": "2020-06-25T18:39:40Z",
       "side": 1,
       "message": "This code mixes up Common.UIString.UIString(\u0027string\u0027) with the ls`string` template form. Perhaps we should stick to one of them.",
+      "range": {
+        "startLine": 100,
+        "startChar": 33,
+        "endLine": 100,
+        "endChar": 58
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "561b6e1d_8c869760",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Didn\u0027t know if there are contextual reasons to choose one over the other. I decided to look at precedent and discovered that options are almost always this format even if ls`string` is used in the same file. (e.g. front_end/network/NetworkConfigView.js)\n\nCan I interpret this comment as implying that they are interchangeable? Happy to make the change if so, and happy to do further research if we\u0027re unsure. (maybe I can find it on Carbon once access request gets settled)",
+      "parentUuid": "5b65d1a2_18ed103d",
       "range": {
         "startLine": 100,
         "startChar": 33,
@@ -179,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "ad795e27_62597be1",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Much cleaner - Thank you!",
+      "parentUuid": "6f87d33b_a15ce0c4",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 120,
+        "endChar": 54
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "883e1394_ddb58c21",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -199,6 +385,30 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "087ecc88_d44e7d8b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "883e1394_ddb58c21",
+      "range": {
+        "startLine": 124,
+        "startChar": 66,
+        "endLine": 124,
+        "endChar": 88
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -225,6 +435,30 @@
     },
     {
       "key": {
+        "uuid": "50254048_bd9bc36b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b48fc8a9_e1974eb0",
+      "range": {
+        "startLine": 133,
+        "startChar": 66,
+        "endLine": 133,
+        "endChar": 92
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8731e36e_0b6518bb",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -248,6 +482,30 @@
     },
     {
       "key": {
+        "uuid": "82caccda_5b1171d4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8731e36e_0b6518bb",
+      "range": {
+        "startLine": 145,
+        "startChar": 60,
+        "endLine": 145,
+        "endChar": 77
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "505b4365_e5b3922f",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -262,6 +520,24 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35fe891b_bddb8823",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "505b4365_e5b3922f",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -288,6 +564,30 @@
     },
     {
       "key": {
+        "uuid": "e1ce1598_cc32dbf4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "MB - habit. Thanks for catch!",
+      "parentUuid": "be6cbf21_9b64c518",
+      "range": {
+        "startLine": 161,
+        "startChar": 18,
+        "endLine": 161,
+        "endChar": 53
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80e7a396_6e9a278d",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -305,6 +605,24 @@
     },
     {
       "key": {
+        "uuid": "5b31d7df_8ce55494",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80e7a396_6e9a278d",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "beae8059_20aee2c7",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -319,6 +637,24 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1b1bb1c_64fe95c5",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Beautiful",
+      "parentUuid": "beae8059_20aee2c7",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -345,6 +681,30 @@
     },
     {
       "key": {
+        "uuid": "772b79d9_c07d0545",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c23552b_d89f12d7",
+      "range": {
+        "startLine": 184,
+        "startChar": 51,
+        "endLine": 184,
+        "endChar": 73
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b95d2961_803e9369",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -365,6 +725,30 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64c84a62_edb162ee",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b95d2961_803e9369",
+      "range": {
+        "startLine": 185,
+        "startChar": 51,
+        "endLine": 185,
+        "endChar": 76
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -391,6 +775,30 @@
     },
     {
       "key": {
+        "uuid": "04bfe694_da3e36e9",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7aaab6d_d88632c9",
+      "range": {
+        "startLine": 187,
+        "startChar": 80,
+        "endLine": 187,
+        "endChar": 96
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd9d3f23_156715b0",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -411,6 +819,30 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dc15ed8_5bcadbd7",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Interesting. Thanks for catch and explanation. Agree with latter option.\n\nDone",
+      "parentUuid": "fd9d3f23_156715b0",
+      "range": {
+        "startLine": 188,
+        "startChar": 81,
+        "endLine": 188,
+        "endChar": 97
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -437,6 +869,30 @@
     },
     {
       "key": {
+        "uuid": "8838931f_9c50752e",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dd9465f_fd0b2a74",
+      "range": {
+        "startLine": 189,
+        "startChar": 101,
+        "endLine": 189,
+        "endChar": 112
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fe13949_5f3d2798",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -460,6 +916,30 @@
     },
     {
       "key": {
+        "uuid": "7ec3c850_a84d8f1f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fe13949_5f3d2798",
+      "range": {
+        "startLine": 190,
+        "startChar": 105,
+        "endLine": 190,
+        "endChar": 117
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faa2eda2_6400dcc4",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -474,6 +954,24 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c6722e4_18603bc7",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faa2eda2_6400dcc4",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -500,6 +998,30 @@
     },
     {
       "key": {
+        "uuid": "c9ed2d28_cc16e725",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Some DevTools code magic takes care of this - applying the dark theme will automatically adjust the styling if I use this color code. Pretty cool - Discovered b/c I was curious as well as to why many elements didn\u0027t use variable colors and wanted to see what would happen if I copied it.",
+      "parentUuid": "f97510c3_66176254",
+      "range": {
+        "startLine": 53,
+        "startChar": 27,
+        "endLine": 53,
+        "endChar": 44
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6cec675_5443ed47",
         "filename": "front_end/webauthn/webauthnPane.css",
         "patchSetId": 2
@@ -520,6 +1042,30 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28473114_d0081d0c",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "a6cec675_5443ed47",
+      "range": {
+        "startLine": 108,
+        "startChar": 9,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -563,6 +1109,48 @@
     },
     {
       "key": {
+        "uuid": "b347684e_f4124a27",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09da9c7c_ef622dcc",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab800403_2244191e",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95e7a97d_ca7793c0",
+      "range": {
+        "startLine": 3,
+        "startChar": 74,
+        "endLine": 3,
+        "endChar": 75
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b92e4cf_866fe799",
         "filename": "front_end/webauthn/webauthn_strings.grdp",
         "patchSetId": 2
@@ -583,6 +1171,30 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eca783a_9ad7fa05",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b92e4cf_866fe799",
+      "range": {
+        "startLine": 6,
+        "startChar": 97,
+        "endLine": 6,
+        "endChar": 104
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -609,6 +1221,30 @@
     },
     {
       "key": {
+        "uuid": "163f0304_0db3a104",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83f88695_da82c571",
+      "range": {
+        "startLine": 12,
+        "startChar": 70,
+        "endLine": 12,
+        "endChar": 73
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7a50a85_5156943b",
         "filename": "front_end/webauthn/webauthn_strings.grdp",
         "patchSetId": 2
@@ -629,6 +1265,30 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcb3d501_a743b8f0",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7a50a85_5156943b",
+      "range": {
+        "startLine": 18,
+        "startChar": 93,
+        "endLine": 18,
+        "endChar": 100
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -655,6 +1315,30 @@
     },
     {
       "key": {
+        "uuid": "3b1afdfe_3c134f4d",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f975e04_7959d901",
+      "range": {
+        "startLine": 27,
+        "startChar": 70,
+        "endLine": 27,
+        "endChar": 83
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c6f0a03_c0699989",
         "filename": "front_end/webauthn/webauthn_strings.grdp",
         "patchSetId": 2
@@ -669,6 +1353,24 @@
       "revId": "68b764579c084f4763d206ebd54e049f30089786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aab0228_41daf24d",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-25T23:35:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c6f0a03_c0699989",
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
