@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce4604ca_573af16f",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-25T15:21:58Z",
+      "side": 1,
+      "message": "nit: maybe we should move/import this into tool_highlight_impl.js since it has Bounds calculations everywhere, and we could just call it Bounds?  This can be follow up work",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 54
+      },
+      "revId": "fd01d03d9b7888cc5c5a1a4b3261b4b46cd56bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34273567_009c41b7",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-25T15:21:58Z",
+      "side": 1,
+      "message": "same comments here about updating with new typedefs",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 17
+      },
+      "revId": "fd01d03d9b7888cc5c5a1a4b3261b4b46cd56bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b482f7c0_5831343b",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-06-25T15:21:58Z",
+      "side": 1,
+      "message": "nit: this can now be GridBounds, same type of comment throughout now that we have additional typedefs",
+      "range": {
+        "startLine": 172,
+        "startChar": 11,
+        "endLine": 172,
+        "endChar": 18
+      },
+      "revId": "fd01d03d9b7888cc5c5a1a4b3261b4b46cd56bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
