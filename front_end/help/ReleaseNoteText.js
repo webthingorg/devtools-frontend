@@ -78,6 +78,12 @@ export const releaseNoteText = [
             'The “Group similar” option now applies to duplicate messages and the “Selected context only” option is now persisted.',
         link: 'https://developers.google.com/web/updates/2020/06/devtools#console-settings',
       },
+      {
+        title: 'New icons for breakpoints, conditional breakpoints, and logpoints',
+        subtitle:
+            'Breakpoints get a refreshed flag design with brighter and friendlier colors. Icons are added to differentiate conditional breakpoints and logpoints.',
+        link: 'https://developers.google.com/web/updates/2020/06/devtools#breakpoints',
+      },
     ],
     link: 'https://developers.google.com/web/updates/2020/06/devtools',
   },
