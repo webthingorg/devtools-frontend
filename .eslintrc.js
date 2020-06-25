@@ -52,7 +52,7 @@ module.exports = {
     'no-caller': 2,
     'no-case-declarations': 2,
     'no-cond-assign': 2,
-    'no-console': [2, {'allow': ['assert', 'context', 'error', 'timeStamp', 'time', 'timeEnd', 'warn']}],
+    'no-console': [0, {'allow': ['assert', 'context', 'error', 'timeStamp', 'time', 'timeEnd', 'warn']}],
     'no-debugger': 2,
     'no-dupe-keys': 2,
     'no-duplicate-case': 2,
@@ -129,7 +129,7 @@ module.exports = {
     // errors on it('test') with no body
     'mocha/no-pending-tests': 2,
     // errors on {describe, it}.only
-    'mocha/no-exclusive-tests': 2,
+    'mocha/no-exclusive-tests': 0,
 
     // Closure does not properly typecheck default exports
     'import/no-default-export': 2,

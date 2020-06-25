@@ -16,10 +16,14 @@ export const CONSOLE_VIEW_SELECTOR = '.console-view';
 export const STACK_PREVIEW_CONTAINER = '.stack-preview-container';
 
 export async function getConsoleMessages(testName: string, callback?: (page: puppeteer.Page) => Promise<void>) {
-  // Have the target load the page.
-  await goToResource(`console/${testName}.html`);
+  await getCurrentConsoleMessages();
 
-  return getCurrentConsoleMessages(callback);
+  // Have the target load the page.
+  await goToResource(`console/${testName}.html`, {waitUntil: ['domcontentloaded']});
+
+  const messages = await getCurrentConsoleMessages(callback);
+  // console.log(`E2E DEBUG: raw console messages: ${messages}`);
+  return messages;
 }
 
 export async function getCurrentConsoleMessages(callback?: (page: puppeteer.Page) => Promise<void>) {
