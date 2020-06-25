@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "7ef505c6_d8e585d6",
+        "filename": "test/e2e/console/console-clear_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-25T15:12:23Z",
+      "side": 1,
+      "message": "is it possible to use the step function to distinguish the actions in this scenario?",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 47
+      },
+      "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aaebf46_25b34461",
+        "filename": "test/e2e/console/console-clear_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-25T15:12:23Z",
+      "side": 1,
+      "message": "can this selector be saves as a constant in the source helpers?",
+      "range": {
+        "startLine": 21,
+        "startChar": 50,
+        "endLine": 21,
+        "endChar": 80
+      },
+      "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0095ba24_b26e68ef",
+        "filename": "test/e2e/console/console-clear_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-25T15:12:23Z",
+      "side": 1,
+      "message": "can this selector be saves as a constant in the source helpers?",
+      "range": {
+        "startLine": 29,
+        "startChar": 39,
+        "endLine": 29,
+        "endChar": 69
+      },
+      "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83a11e6e_8ba368b8",
         "filename": "test/e2e/console/console-clear_test.ts",
         "patchSetId": 1
@@ -13,6 +82,52 @@
       "writtenOn": "2020-06-25T14:38:03Z",
       "side": 1,
       "message": "nit:\n\n    document.querySelectorAll(\u0027.console-user-command-result\u0027)[0]\n\nis just an elaborate way of saying\n\n    document.querySelector(\u0027.console-user-command-result\u0027)",
+      "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "113227ce_a610d2a8",
+        "filename": "test/e2e/console/console-clear_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-25T15:12:23Z",
+      "side": 1,
+      "message": "can this selector be saves as a constant in the source helpers?",
+      "range": {
+        "startLine": 33,
+        "startChar": 39,
+        "endLine": 33,
+        "endChar": 69
+      },
+      "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c3ff347_df95af4b",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-25T15:12:23Z",
+      "side": 1,
+      "message": "question: does this function inputs all the text at once or types it letter by letter? if it is typing could use a function that enters the text all at once instead?",
+      "range": {
+        "startLine": 65,
+        "startChar": 16,
+        "endLine": 65,
+        "endChar": 20
+      },
       "revId": "4cc0e4b12b7fcfbe2904a7486df5905715eb8d65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
