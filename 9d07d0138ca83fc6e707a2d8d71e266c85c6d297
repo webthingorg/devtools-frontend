@@ -22,6 +22,30 @@
       "revId": "9d07d0138ca83fc6e707a2d8d71e266c85c6d297",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f7f4ecc_1afcec05",
+        "filename": "front_end/formatter_worker/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-25T14:19:49Z",
+      "side": 1,
+      "message": "Yeah, our `front_end/cm_headless` and `front_end/cm` folders currently mimic that. But in the longterm, we should clean that up and move to `front_end/codemirror`. Our integration with CodeMirror is iffy at best and is in need of curation 😞",
+      "parentUuid": "128725c1_ba0cf5c4",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "9d07d0138ca83fc6e707a2d8d71e266c85c6d297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
