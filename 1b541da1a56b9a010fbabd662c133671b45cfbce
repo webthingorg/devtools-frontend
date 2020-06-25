@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7af6767_a09b7a55",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-25T12:46:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41af5621_4f6443df",
+      "range": {
+        "startLine": 94,
+        "startChar": 12,
+        "endLine": 94,
+        "endChar": 43
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a99e1b_c9cb6895",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-24T20:19:21Z",
       "side": 1,
       "message": "seems like this function should be \"private\" to this file. If that\u0027s the case, should we not export?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1cde687_370f3f99",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-25T12:46:35Z",
+      "side": 1,
+      "message": "Correct, this function is private to this module, and not used elsewhere, except in the unit test I added. I could just test the logic contained in this function by testing drawGridNumbers instead. But being able to test _normalizeOffsetData directly made it much easier to write thorough tests on various edge cases.\nAnd I\u0027m sold on the \"don\u0027t unit test private functions\" debate. Since there\u0027s a lot of code and functions in this file, I\u0027d rather be able to test them as independent units, even if they\u0027re module-private, and get better coverage.\nLet me know what you think.",
+      "parentUuid": "63a99e1b_c9cb6895",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1d3230e4_19f06159",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-25T12:46:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "225307f6_a8685945",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 16
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15718577_ac206038",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61a39031_e9d33587",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-25T12:46:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15718577_ac206038",
+      "range": {
+        "startLine": 102,
+        "startChar": 16,
+        "endLine": 102,
+        "endChar": 63
+      },
+      "revId": "1b541da1a56b9a010fbabd662c133671b45cfbce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
