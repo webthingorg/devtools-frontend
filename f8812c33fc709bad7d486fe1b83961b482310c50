@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae03c569_99ca75d3",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-25T11:37:18Z",
+      "side": 1,
+      "message": "There\u0027s already an item above for \"new breakpoint icons\". Let\u0027s merge with that one? (Same in the blog post -- no reason to have two sections about the same thing)",
+      "revId": "f8812c33fc709bad7d486fe1b83961b482310c50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
