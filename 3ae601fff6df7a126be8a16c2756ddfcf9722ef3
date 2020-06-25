@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66cf3757_02366875",
+        "filename": "front_end/bindings/StylesSourceMapping.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-25T08:42:15Z",
+      "side": 1,
+      "message": "Since we\u0027re repeating `this._headerFileId(header)` here and below anyway, how about this?\n\n    const headerFileId \u003d this._headerFileId(header);\n    if (this._styleFiles.has(headerFileId)) {\n      const styleFile \u003d this._styleFiles.get(headerFileId);\n      styleFile.addHeader(header);\n    } else {\n      const styleFile \u003d new StyleFile(...);\n      this._styleFiles.set(headerFileId, styleFile);\n    }\n\nWDYT?",
+      "revId": "3ae601fff6df7a126be8a16c2756ddfcf9722ef3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
