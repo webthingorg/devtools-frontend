@@ -186,6 +186,9 @@
   <message name="IDS_DEVTOOLS_3f23f0e9da2803d48c2d67aa09f01bf5" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie didn&apos;t specify a &quot;SameSite&quot; attribute and was defaulted to &quot;SameSite=Lax,&quot; and was blocked because it came from a cross-site response which was not the response to a top-level navigation. The Set-Cookie had to have been set with &quot;SameSite=None&quot; to enable cross-site usage.
   </message>
+  <message name="IDS_DEVTOOLS_d21b412ddbd8a88ff3ddd2e9638b4d58" desc="Error message for aborted source map loads source map">
+    Load aborted due to reload of inspected page
+  </message>
   <message name="IDS_DEVTOOLS_4248ddef2208954d55e94f82b6e32888" desc="Title for CSS Grid tooling option">
     Do not shade grid gaps
   </message>

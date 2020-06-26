@@ -35,7 +35,7 @@ import * as Common from '../common/common.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 
 import {CompilerSourceMappingContentProvider} from './CompilerSourceMappingContentProvider.js';
-import {MultitargetNetworkManager} from './NetworkManager.js';
+import {PageResourceLoader} from './PageResourceLoader.js';
 import {Script} from './Script.js';  // eslint-disable-line no-unused-vars
 import initWasm, {Resolver as WasmResolver} from './wasm_source_map/pkg/wasm_source_map.js';
 
@@ -233,7 +233,8 @@ export class TextSourceMap {
    * @this {TextSourceMap}
    */
   static async load(sourceMapURL, compiledURL, frameId) {
-    const {success, content, errorDescription} = await MultitargetNetworkManager.instance().loadResource(sourceMapURL);
+    const {success, content, errorDescription} =
+        await PageResourceLoader.instance().loadResource(sourceMapURL, frameId);
     if (!content || !success) {
       throw new Error(ls`Could not load content for ${sourceMapURL}: ${errorDescription.message}`);
     }
