@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "672d4ac4_7e9474b6",
+        "filename": "front_end/object_ui/JavaScriptAutocomplete.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:42:30Z",
+      "side": 1,
+      "message": "I assume this is for debugging reasons and should be removed upon landing?",
+      "range": {
+        "startLine": 792,
+        "startChar": 4,
+        "endLine": 792,
+        "endChar": 12
+      },
+      "revId": "eeeeb790f0c7e47eb2d87ee66a1652c918d85756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "396a8605_dd1689e2",
+        "filename": "test/e2e/console/console-autohint_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:42:30Z",
+      "side": 1,
+      "message": "maybe move this to the console-helper.ts file?",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "eeeeb790f0c7e47eb2d87ee66a1652c918d85756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0289b6a_43caf707",
+        "filename": "test/e2e/console/console-autohint_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:42:30Z",
+      "side": 1,
+      "message": "maybe move this to the console-helper.ts file?",
+      "range": {
+        "startLine": 22,
+        "startChar": 17,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "eeeeb790f0c7e47eb2d87ee66a1652c918d85756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8a92638_20186530",
+        "filename": "test/e2e/console/console-autohint_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:42:30Z",
+      "side": 1,
+      "message": "this is good but the name is too generic, change the name to convey what test case this adds and move it to the console-helpers.ts file",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 22
+      },
+      "revId": "eeeeb790f0c7e47eb2d87ee66a1652c918d85756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11b75ea6_7d57b4b9",
+        "filename": "test/e2e/console/console-autohint_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:42:30Z",
+      "side": 1,
+      "message": "remove this before landing",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "eeeeb790f0c7e47eb2d87ee66a1652c918d85756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8d04e2f_23496116",
+        "filename": "test/e2e/console/console-autohint_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:42:30Z",
+      "side": 1,
+      "message": "I am not sure about the significance of this part, maybe @petermarshall can weigh in on it?",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "eeeeb790f0c7e47eb2d87ee66a1652c918d85756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
