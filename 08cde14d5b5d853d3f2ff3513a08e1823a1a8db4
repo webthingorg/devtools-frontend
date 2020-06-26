@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e16eab8_c101dce3",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T08:29:11Z",
+      "side": 1,
+      "message": "too vague, can you mention what action you are testing for?",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 43
+      },
+      "revId": "08cde14d5b5d853d3f2ff3513a08e1823a1a8db4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82098f31_3df17c4f",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T08:29:11Z",
+      "side": 1,
+      "message": "are all these actions considered one test case? can they be broken down to multiple test cases?",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "08cde14d5b5d853d3f2ff3513a08e1823a1a8db4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a52dbaaf_1dbbbc2b",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T08:29:11Z",
+      "side": 1,
+      "message": "can you use the step function to clarify the intention of each of those actions?",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "08cde14d5b5d853d3f2ff3513a08e1823a1a8db4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

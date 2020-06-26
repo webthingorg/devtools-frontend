@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "023ee112_13b0485c",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T08:29:11Z",
+      "side": 1,
+      "message": "this seems to retrieve a lot of info at once, it might be more useful to have a separate function for each value (message, source, etc...).",
+      "range": {
+        "startLine": 59,
+        "startChar": 22,
+        "endLine": 59,
+        "endChar": 50
+      },
+      "revId": "76d9b622251fd11c3550a3b40099daf2aa395cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
