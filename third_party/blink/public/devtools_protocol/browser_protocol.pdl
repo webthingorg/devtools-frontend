@@ -613,6 +613,13 @@ experimental domain Audits
       string violatedDirective
       ContentSecurityPolicyViolationType contentSecurityPolicyViolationType
       optional AffectedFrame frame
+      optional SourceCodeLocation sourceCodeLocation
+
+  type SourceCodeLocation extends object
+    properties
+      string url
+      integer lineNumber
+      integer columnNumber
 
   # A unique identifier for the type of issue. Each type may use one of the
   # optional fields in InspectorIssueDetails to convey more specific
@@ -3542,6 +3549,10 @@ domain Input
       # Whether the event was from the left or right side of the keyboard. 1=Left, 2=Right (default:
       # 0).
       optional integer location
+      # Editing commands to send with the key event (e.g., 'selectAll') (default: []).
+      # These are related to but not equal the command names used in `document.execCommand` and NSStandardKeyBindingResponding.
+      # See https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/editing/commands/editor_command_names.h for valid command names.
+      experimental optional array of string commands
 
   # This method emulates inserting text that doesn't come from a key press,
   # for example an emoji keyboard or an IME.

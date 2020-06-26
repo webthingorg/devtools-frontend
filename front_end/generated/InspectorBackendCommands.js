@@ -1080,7 +1080,8 @@ export function registerCommands(inspectorBackend) {
         {'name': 'autoRepeat', 'type': 'boolean', 'optional': true},
         {'name': 'isKeypad', 'type': 'boolean', 'optional': true},
         {'name': 'isSystemKey', 'type': 'boolean', 'optional': true},
-        {'name': 'location', 'type': 'number', 'optional': true}
+        {'name': 'location', 'type': 'number', 'optional': true},
+        {'name': 'commands', 'type': 'object', 'optional': true}
       ],
       []);
   inspectorBackend.registerCommand('Input.insertText', [{'name': 'text', 'type': 'string', 'optional': false}], []);
