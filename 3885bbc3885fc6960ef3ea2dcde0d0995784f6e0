@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9969447_1ca2c20f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-26T15:32:06Z",
+      "side": 1,
+      "message": "It looks like you kept the maps, maybe removing them was lost in a merge?",
+      "revId": "3885bbc3885fc6960ef3ea2dcde0d0995784f6e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4998cb34_0ecb2fc5",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-26T15:32:06Z",
+      "side": 1,
+      "message": "nit: format for TODOs is\n\n  // TODO(crbug.com/12345): description.\n\nRemove the space between `TODO` and `(crbug`, add `:` after `)`, and add a full stop at the end.",
+      "revId": "3885bbc3885fc6960ef3ea2dcde0d0995784f6e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

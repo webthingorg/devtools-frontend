@@ -318,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "8b85958c_d64ac393",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-06-26T15:32:06Z",
+      "side": 1,
+      "message": "I would still say stick with one of them, only because other parts of the code are doing it doesn\u0027t necessarily mean it makes sense :-)",
+      "parentUuid": "561b6e1d_8c869760",
+      "range": {
+        "startLine": 100,
+        "startChar": 33,
+        "endLine": 100,
+        "endChar": 58
+      },
+      "revId": "68b764579c084f4763d206ebd54e049f30089786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f87d33b_a15ce0c4",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
