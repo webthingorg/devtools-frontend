@@ -5,6 +5,8 @@
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 
+import {Events as FrameManagerEvents, FrameManager} from './FrameManager.js';
+
 /** @type {?IssuesManager} */
 let issuesManagerInstance = null;
 
@@ -25,7 +27,8 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.IssuesModel.IssuesModel, this);
     /** @type {!Map<string, !SDK.Issue.Issue>} */
     this._issues = new Map();
-    this._hasSeenMainFrameNavigated = false;
+    this._hasSeenTopFrameNavigated = false;
+    FrameManager.instance().addEventListener(FrameManagerEvents.TopFrameNavigated, this._onTopFrameNavigated, this);
   }
 
   /**
@@ -49,13 +52,13 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
    * @return {boolean}
    */
   reloadForAccurateInformationRequired() {
-    return !this._hasSeenMainFrameNavigated;
+    return !this._hasSeenTopFrameNavigated;
   }
 
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  _onMainFrameNavigated(event) {
+  _onTopFrameNavigated(event) {
     const mainFrame = /** @type {!SDK.ResourceTreeModel.ResourceTreeFrame} */ (event.data);
     const keptIssues = new Map();
     for (const [key, issue] of this._issues.entries()) {
@@ -64,7 +67,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
       }
     }
     this._issues = keptIssues;
-    this._hasSeenMainFrameNavigated = true;
+    this._hasSeenTopFrameNavigated = true;
     this.dispatchEventToListeners(Events.FullUpdateRequired);
     this.dispatchEventToListeners(Events.IssuesCountUpdated);
   }
@@ -74,14 +77,6 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!SDK.IssuesModel.IssuesModel} issuesModel
    */
   modelAdded(issuesModel) {
-    if (issuesModel.target().id() === 'main') {
-      const resourceTreeModel = /** @type {?SDK.ResourceTreeModel.ResourceTreeModel} */ (
-          issuesModel.target().model(SDK.ResourceTreeModel.ResourceTreeModel));
-      if (resourceTreeModel) {
-        resourceTreeModel.addEventListener(
-            SDK.ResourceTreeModel.Events.MainFrameNavigated, this._onMainFrameNavigated, this);
-      }
-    }
     const listener = issuesModel.addEventListener(SDK.IssuesModel.Events.IssueAdded, this._issueAdded, this);
     this._eventListeners.set(issuesModel, listener);
   }
