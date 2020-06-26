@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efe0ee05_31e2eba8",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-26T12:58:35Z",
+      "side": 0,
+      "message": "Do I understand this correctly, the model at index 0 is always the main target\u0027s model?",
+      "range": {
+        "startLine": 552,
+        "startChar": 77,
+        "endLine": 552,
+        "endChar": 94
+      },
+      "revId": "d6a5f02987283478ffaec6af72a2da59fc552132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
