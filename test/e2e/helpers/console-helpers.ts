@@ -44,8 +44,7 @@ export async function getCurrentConsoleMessages(callback?: (page: puppeteer.Page
 
   // Get the messages from the console.
   return frontend.evaluate(CONSOLE_FIRST_MESSAGES_SELECTOR => {
-    return Array.from(document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR))
-        .map(message => message.textContent);
+    return Array.from(document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR)).map(message => message.textContent);
   }, CONSOLE_FIRST_MESSAGES_SELECTOR);
 }
 
@@ -60,7 +59,8 @@ export async function showVerboseMessages() {
   await click(LOG_LEVELS_VERBOSE_OPTION_SELECTOR);
 }
 
-export async function typeIntoConsole(frontend: puppeteer.Page, message: string) {
+export async function typeIntoConsole(message: string, submit: boolean = true) {
+  const {frontend} = getBrowserAndPages();
   const console = (await waitFor(CONSOLE_PROMPT_SELECTOR)).asElement()!;
   await console.type(message);
 
@@ -70,7 +70,9 @@ export async function typeIntoConsole(frontend: puppeteer.Page, message: string)
   await frontend.waitFor(
       (msg, ln, ac) => ln.textContent === msg && ac.textContent === '', undefined, message, line, autocomplete);
 
-  await console.press('Enter');
+  if (submit) {
+    await console.press('Enter');
+  }
 }
 
 export async function switchToTopExecutionContext(frontend: puppeteer.Page) {

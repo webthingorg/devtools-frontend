@@ -789,6 +789,7 @@ export class JavaScriptAutocompleteConfig {
       }
       tooltip.appendChild(UI.Fragment.html`<div class='source-code'>\u0192(${argumentsElement})</div>`);
     }
+    debugger;
     return tooltip;
   }
 }
