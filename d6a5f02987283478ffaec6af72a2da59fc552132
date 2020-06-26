@@ -22,6 +22,30 @@
       "revId": "d6a5f02987283478ffaec6af72a2da59fc552132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40c4b7c0_36759c4d",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-26T13:18:04Z",
+      "side": 0,
+      "message": "Yes, that is what I gathered from mainTarget() in TargetManager (SDKModel.js:636).",
+      "parentUuid": "efe0ee05_31e2eba8",
+      "range": {
+        "startLine": 552,
+        "startChar": 77,
+        "endLine": 552,
+        "endChar": 94
+      },
+      "revId": "d6a5f02987283478ffaec6af72a2da59fc552132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
