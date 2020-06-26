@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "815fa47d_1c5eea85",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-26T07:18:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7345497_7beeda01",
+      "range": {
+        "startLine": 39,
+        "startChar": 22,
+        "endLine": 39,
+        "endChar": 36
+      },
+      "revId": "3e00bd96fbdea9f686bdf2f6500e24c15c7617d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f1e84ac_4938bb64",
         "filename": "test/e2e/helpers/application-helpers.ts",
         "patchSetId": 1
