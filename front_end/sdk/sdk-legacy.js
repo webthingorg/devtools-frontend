@@ -165,6 +165,9 @@ SDK.NetworkRequest.WebSocketFrameType = SDKModule.NetworkRequest.WebSocketFrameT
 SDK.OverlayModel = SDKModule.OverlayModel.OverlayModel;
 
 /** @constructor */
+SDK.PageResourceLoader = SDKModule.PageResourceLoader.PageResourceLoader;
+
+/** @constructor */
 SDK.PerformanceMetricsModel = SDKModule.PerformanceMetricsModel.PerformanceMetricsModel;
 
 /** @constructor */
