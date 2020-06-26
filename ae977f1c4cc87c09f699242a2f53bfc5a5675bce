@@ -22,6 +22,30 @@
       "revId": "ae977f1c4cc87c09f699242a2f53bfc5a5675bce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45070ce6_b9603018",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-26T15:56:35Z",
+      "side": 1,
+      "message": "We are miles away, unfortunately :(",
+      "parentUuid": "5dd4c53c_04922dbb",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 61
+      },
+      "revId": "ae977f1c4cc87c09f699242a2f53bfc5a5675bce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
