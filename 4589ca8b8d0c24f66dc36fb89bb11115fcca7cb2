@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e907cd5_d4362654",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2020-06-26T10:14:57Z",
+      "side": 1,
+      "message": "Thanks for verifying the fix! I will run CQ dry run to verify it is fixed. Could you revert all the other changes and submit only these changes? Then I will rebase my CL on master to pick up your fix and re-enable the console test. Thanks!",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "4589ca8b8d0c24f66dc36fb89bb11115fcca7cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
