@@ -452,6 +452,8 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerCommand('CSS.startRuleUsageTracking', [], []);
   inspectorBackend.registerCommand('CSS.stopRuleUsageTracking', [], ['ruleUsage']);
   inspectorBackend.registerCommand('CSS.takeCoverageDelta', [], ['coverage', 'timestamp']);
+  inspectorBackend.registerCommand(
+      'CSS.setLocalFontsEnabled', [{'name': 'enabled', 'type': 'boolean', 'optional': false}], []);
 
   // CacheStorage.
   inspectorBackend.registerEnum('CacheStorage.CachedResponseType', {
