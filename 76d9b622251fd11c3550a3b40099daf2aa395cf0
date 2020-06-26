@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8dda0abf_829e0df1",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:21:56Z",
+      "side": 1,
+      "message": "okay, if it works for you then sgtm",
+      "parentUuid": "940467f8_4e5ffa64",
+      "range": {
+        "startLine": 59,
+        "startChar": 22,
+        "endLine": 59,
+        "endChar": 50
+      },
+      "revId": "76d9b622251fd11c3550a3b40099daf2aa395cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6b31e9b_bb83c96e",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2020-06-26T09:21:16Z",
       "side": 1,
       "message": "I think it\u0027s probably better to not extract these to constants for this reason",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 40
+      },
+      "revId": "76d9b622251fd11c3550a3b40099daf2aa395cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eaab29e_00136846",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-26T12:21:56Z",
+      "side": 1,
+      "message": "+1 we should find a better solution to unify the selectors",
+      "parentUuid": "d6b31e9b_bb83c96e",
       "range": {
         "startLine": 74,
         "startChar": 6,
