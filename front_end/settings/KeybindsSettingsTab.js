@@ -28,6 +28,12 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     UI.ARIAUtils.markAsList(this._list.element);
     this.registerRequiredCSS('settings/keybindsSettingsTab.css');
     this.contentElement.appendChild(this._list.element);
+
+    /** @type {?UI.Action.Action} */
+    this._editingItem = null;
+    /** @type {!Map.<UI.KeyboardShortcut.KeyboardShortcut, UI.KeyboardShortcut.Descriptor>} */
+    this._editedShortcuts = new Map();
+
     this.update();
   }
 
@@ -41,6 +47,7 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     itemElement.classList.add('keybinds-list-item');
     UI.ARIAUtils.markAsListitem(itemElement);
     itemElement.tabIndex = item === this._list.selectedItem() ? 0 : -1;
+    const beingEdited = item === this._editingItem;
 
     if (typeof item === 'string') {
       itemElement.classList.add('keybinds-category-header');
@@ -48,26 +55,92 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     } else {
       itemElement.createChild('div', 'keybinds-action-name keybinds-list-text').textContent = item.title();
       const shortcuts = self.UI.shortcutRegistry.shortcutsForAction(item.id());
-      shortcuts.forEach((shortcut, index) => {
-        if (!shortcut.isDefault()) {
+      shortcuts.forEach(createShortcutRow, this);
+      if (shortcuts.length === 0) {
+        if (self.UI.shortcutRegistry.actionHasDefaultShortcut(item.id())) {
           const icon = UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified');
           UI.ARIAUtils.setAccessibleName(icon, ls`Shortcut provided by preset`);
           itemElement.appendChild(icon);
         }
-        const shortcutElement = itemElement.createChild('div', 'keybinds-shortcut keybinds-list-text');
-        const keys = shortcut.descriptors.flatMap(descriptor => descriptor.name.split(' + '));
-        keys.forEach(key => {
-          shortcutElement.createChild('span', 'keybinds-key').textContent = key;
-        });
-      });
-      if (shortcuts.length === 0 && self.UI.shortcutRegistry.actionHasDefaultShortcut(item.id())) {
+        if (!beingEdited) {
+          itemElement.appendChild(this._createEditButton(item));
+        }
+      }
+      if (beingEdited) {
+        itemElement.classList.add('keybinds-editing');
+        const confirmButton = document.createElement('button');
+        confirmButton.classList.add('keybinds-confirm-button');
+        confirmButton.appendChild(UI.Icon.Icon.create('largeicon-checkmark'));
+        itemElement.appendChild(confirmButton);
+        confirmButton.addEventListener('click', () => this._stopEditing(item));
+        const cancelButton = document.createElement('button');
+        cancelButton.classList.add('keybinds-cancel-button');
+        cancelButton.appendChild(UI.Icon.Icon.create('largeicon-delete'));
+        itemElement.appendChild(cancelButton);
+      }
+    }
+    return itemElement;
+
+    /**
+      * @this {!Settings.KeybindsSettingsTab}
+      * @param {!UI.KeyboardShortcut.KeyboardShortcut} shortcut
+      * @param {number} index
+      */
+    function createShortcutRow(shortcut, index) {
+      if (!shortcut.isDefault()) {
         const icon = UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified');
         UI.ARIAUtils.setAccessibleName(icon, ls`Shortcut provided by preset`);
         itemElement.appendChild(icon);
       }
+      const shortcutElement = itemElement.createChild('div', 'keybinds-shortcut keybinds-list-text');
+      const keys = shortcut.descriptors.flatMap(descriptor => descriptor.name.split(' + '));
+      if (beingEdited) {
+        const shortcutInput = shortcutElement.createChild('input');
+        shortcutInput.addEventListener('keydown', event => {
+          if (isEscKey(event)) {
+            shortcutInput.value = '';
+          } else if (event.key === 'Tab') {
+            return;
+          } else {
+            const userKey =
+                UI.KeyboardShortcut.KeyboardShortcut.makeKeyFromEvent(/** @type {!KeyboardEvent} */ (event));
+            const codeAndModifiers = UI.KeyboardShortcut.KeyboardShortcut.keyCodeAndModifiersFromKey(userKey);
+            const userDescriptor = UI.KeyboardShortcut.KeyboardShortcut.makeDescriptor(
+                {code: userKey, name: event.key}, codeAndModifiers.modifiers);
+            shortcutInput.value = userDescriptor.name;
+            this._editedShortcuts.set(shortcut, userDescriptor);
+            if (UI.KeyboardShortcut.KeyboardShortcut.isModifier(codeAndModifiers.keyCode)) {
+              shortcutInput.value = shortcutInput.value.slice(0, shortcutInput.value.lastIndexOf('+'));
+            }
+          }
+          event.consume(true);
+        });
+      } else {
+        keys.forEach(key => {
+          shortcutElement.createChild('span', 'keybinds-key').textContent = key;
+        });
+      }
+      if (beingEdited) {
+        const deleteButton = itemElement.createChild('button');
+        deleteButton.classList.add('keybinds-delete-button');
+        deleteButton.appendChild(UI.Icon.Icon.create('largeicon-trash-bin'));
+        itemElement.appendChild(deleteButton);
+      } else if (index === 0) {
+        itemElement.appendChild(this._createEditButton(item));
+      }
     }
+  }
 
-    return itemElement;
+  /**
+    * @param {!UI.Action.Action} item
+    * @return {!Element}
+    */
+  _createEditButton(item) {
+    const editButton = document.createElement('button');
+    editButton.classList.add('keybinds-edit-button');
+    editButton.appendChild(UI.Icon.Icon.create('largeicon-edit'));
+    editButton.addEventListener('click', () => this._startEditing(item));
+    return editButton;
   }
 
   /**
@@ -117,6 +190,27 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
    */
   updateSelectedItemARIA(fromElement, toElement) {
     return true;
+  }
+
+  /**
+   * @param {!UI.Action.Action} action
+   */
+  _startEditing(action) {
+    if (this._editingItem) {
+      this._stopEditing(this._editingItem);
+    }
+    UI.UIUtils.markBeingEdited(this._list.element, true);
+    this._editingItem = action;
+    this._list.refreshItem(action);
+  }
+
+  /**
+   * @param {!UI.Action.Action} action
+   */
+  _stopEditing(action) {
+    UI.UIUtils.markBeingEdited(this._list.element, false);
+    this._editingItem = null;
+    this._list.refreshItem(action);
   }
 
   /**

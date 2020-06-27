@@ -64,6 +64,31 @@ export class KeyboardShortcut {
   }
 
   /**
+   * @param {!Type} type
+   * @return {!KeyboardShortcut}
+   */
+  changeType(type) {
+    return new KeyboardShortcut(this.descriptor, this.action, type);
+  }
+
+  /**
+   * @param {!KeyboardShortcut.Descriptor} descriptor
+   * @return {!KeyboardShortcut}
+   */
+  changeKeys(descriptor) {
+    return new KeyboardShortcut(descriptor, this.action);
+  }
+
+  /**
+   * @param {!{action: string, descriptor: KeyboardShortcut.Descriptor, type: !Type}} settingObject
+   * @return {!KeyboardShortcut}
+   */
+  static createShortcutFromSettingObject(settingObject) {
+    return new KeyboardShortcut(settingObject.descriptor, settingObject.action, settingObject.type);
+  }
+
+
+  /**
    * Creates a number encoding keyCode in the lower 8 bits and modifiers mask in the higher 8 bits.
    * It is useful for matching pressed keys.
    *

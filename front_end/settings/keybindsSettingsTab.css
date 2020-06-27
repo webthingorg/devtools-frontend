@@ -34,11 +34,10 @@ h1 {
 }
 
 .keybinds-list-item {
-  padding: 0 5px;
   min-height: 30px;
   display: grid;
   grid-auto-rows: 30px;
-  grid-template-columns: 1fr 30px 1fr;
+  grid-template-columns: 1fr 30px 1fr 30px 30px 30px;
   flex: auto 1 1;
 }
 
@@ -48,6 +47,10 @@ h1 {
 
 .keybinds-list-item:not(.keybinds-category-header) {
   padding-left: 20px;
+}
+
+.keybinds-list-item.keybinds-editing {
+  background-color: rgb(0 0 0 / 5%);
 }
 
 .keybinds-action-name {
@@ -62,6 +65,40 @@ h1 {
 
 .keybinds-modified {
   grid-column: 2 / span 1;
+}
+
+.keybinds-confirm-button,
+.keybinds-cancel-button,
+.keybinds-edit-button,
+.keybinds-delete-button {
+  border: none;
+  padding: 0;
+}
+
+.keybinds-confirm-button {
+  grid-row: -1 / span 1;
+  grid-column: -2 / span 1;
+}
+
+.keybinds-cancel-button {
+  grid-row: -1 / span 1;
+  grid-column: -1 / span 1;
+}
+
+.keybinds-edit-button {
+  display: none;
+  grid-row: 1 / span 1;
+  grid-column: 4 / span 1;
+}
+
+.keybinds-delete-button {
+  grid-row: auto;
+  grid-column: -3 / span 1;
+}
+
+.keybinds-list-item:not(.keybinds-editing):hover .keybinds-edit-button,
+.keybinds-list-item:not(.keybinds-editing):focus[data-keyboard-focus="true"] .keybinds-edit-button {
+  display: inline-block;
 }
 
 .keybinds-list-text {
