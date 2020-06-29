@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f4b1a56a_ef0b848b",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T12:53:06Z",
+      "side": 1,
+      "message": "I am okay with warning for now. We can also improve as a follow-up.",
+      "parentUuid": "36d46713_c040a4c0",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "3f2fd7e724d84a4d25732d1ec1888b9ffdcfa5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1f9ff482_6733eb84",
         "filename": "third_party/node/node.py",
         "patchSetId": 2
