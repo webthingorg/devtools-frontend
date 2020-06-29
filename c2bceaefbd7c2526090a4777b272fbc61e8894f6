@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "04cd2aba_0dac073e",
+        "filename": "test/e2e/console/console-last-result_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-29T14:21:48Z",
+      "side": 1,
+      "message": "\u0027exposes the last evaluation using \"$_\"\u0027 might be a better name for this scenario",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbd20519_32de1111",
+        "filename": "test/e2e/console/console-last-result_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-29T14:21:48Z",
+      "side": 1,
+      "message": "you can put this in a step",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b688d59_f8a7c744",
+        "filename": "test/e2e/console/console-last-result_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-29T14:21:48Z",
+      "side": 1,
+      "message": "@petermarshall is it worth separating this to its own scenario?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 7
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4077874_e7f45cad",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 2
@@ -13,6 +82,30 @@
       "writtenOn": "2020-06-29T12:14:10Z",
       "side": 1,
       "message": "We wait for the autocomplete to disappear above, so double-enter shouldn\u0027t be needed AFAIK?",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67f41d95_391c0d69",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-29T14:21:48Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "b4077874_e7f45cad",
       "range": {
         "startLine": 116,
         "startChar": 2,
