@@ -80,6 +80,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     /** @type {?RegExp} */
     this._filterRegex = null;
     this._isActivePropertyHighlighted = false;
+    this._initialUpdateCompleted = false;
 
     this.contentElement.classList.add('styles-pane');
 
@@ -386,8 +387,15 @@ export class StylesSidebarPane extends ElementsSidebarPane {
    * @override
    * @return {!Promise.<?>}
    */
-  doUpdate() {
-    return this._fetchMatchedCascade().then(this._innerRebuildUpdate.bind(this));
+  async doUpdate() {
+    const matchedStyles = await this._fetchMatchedCascade();
+    await this._innerRebuildUpdate(matchedStyles);
+    this._initialUpdateCompleted = true;
+    this.dispatchEventToListeners(Events.InitialUpdateCompleted);
+  }
+
+  initialUpdateCompleted() {
+    return this._initialUpdateCompleted;
   }
 
   /**
@@ -878,6 +886,11 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     }
   }
 }
+
+/** @enum {symbol} */
+export const Events = {
+  InitialUpdateCompleted: Symbol('InitialUpdateCompleted'),
+};
 
 export const _maxLinkLength = 23;
 
