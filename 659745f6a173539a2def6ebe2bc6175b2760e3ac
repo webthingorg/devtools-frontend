@@ -22,6 +22,30 @@
       "revId": "659745f6a173539a2def6ebe2bc6175b2760e3ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10f9c096_7bb922b2",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2020-06-29T10:46:26Z",
+      "side": 1,
+      "message": "Will look into that and send annother CL for the refactor.",
+      "parentUuid": "7537f3bf_e202834c",
+      "range": {
+        "startLine": 634,
+        "startChar": 8,
+        "endLine": 634,
+        "endChar": 109
+      },
+      "revId": "659745f6a173539a2def6ebe2bc6175b2760e3ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
