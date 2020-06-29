@@ -117,6 +117,30 @@
       "revId": "76d9b622251fd11c3550a3b40099daf2aa395cf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13537398_74041242",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-29T06:46:58Z",
+      "side": 1,
+      "message": "Should I solve it in this CL? Are there any other changes that you see are needed for this CL?",
+      "parentUuid": "6eaab29e_00136846",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 40
+      },
+      "revId": "76d9b622251fd11c3550a3b40099daf2aa395cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
