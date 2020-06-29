@@ -81,6 +81,24 @@
       "revId": "52ce52aa7524ee29b5ba01177fbdf30016252f37",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b320a113_2fcee8cf",
+        "filename": "front_end/inspector_overlay/inject-css.rollup.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-29T06:47:41Z",
+      "side": 1,
+      "message": "\u003e If JS code is still valid, it\u0027d accept it though.\n\nIt\u0027s possible to have a source CSS file including a backtick character or a sequence like `${foo}` that results in syntactically valid JavaScript that throws at runtime. More importantly, it\u0027s also possible to construct examples that wouldn\u0027t result in any syntax or runtime errors, but that would silently do The Wrong Thing. That latter case is what I\u0027m concerned about.\n\nIs there any way to avoid that? If not, can we enforce that CSS files don\u0027t include any ` characters or `${...}` sequences somehow?",
+      "parentUuid": "dcb4f64b_60114b8f",
+      "revId": "52ce52aa7524ee29b5ba01177fbdf30016252f37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
