@@ -345,8 +345,7 @@ export class Automapping {
    */
   _createBinding(networkSourceCode) {
     if (networkSourceCode.url().startsWith('file://') || networkSourceCode.url().startsWith('snippet://')) {
-      const decodedUrl = decodeURI(networkSourceCode.url());
-      const fileSourceCode = this._fileSystemUISourceCodes.get(decodedUrl);
+      const fileSourceCode = this._fileSystemUISourceCodes.get(networkSourceCode.url());
       const status = fileSourceCode ? new AutomappingStatus(networkSourceCode, fileSourceCode, false) : null;
       return Promise.resolve(status);
     }
@@ -359,9 +358,8 @@ export class Automapping {
     if (networkPath.endsWith('/')) {
       networkPath += 'index.html';
     }
-    const urlDecodedNetworkPath = decodeURI(networkPath);
     const similarFiles =
-        this._filesIndex.similarFiles(urlDecodedNetworkPath).map(path => this._fileSystemUISourceCodes.get(path));
+        this._filesIndex.similarFiles(networkPath).map(path => this._fileSystemUISourceCodes.get(path));
     if (!similarFiles.length) {
       return Promise.resolve(/** @type {?AutomappingStatus} */ (null));
     }
