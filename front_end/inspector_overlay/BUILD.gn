@@ -51,6 +51,8 @@ action("build_inspector_overlay") {
     rebase_path(".", root_build_dir),
     "--output_path",
     rebase_path(resources_out_dir, root_build_dir),
+    "--rollup_plugin",
+    rebase_path("inject-css.rollup.js", root_build_dir),
   ]
 
   public_deps = [

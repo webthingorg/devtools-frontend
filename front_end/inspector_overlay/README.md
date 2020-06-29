@@ -17,6 +17,7 @@ For example:
 
 - `python -m SimpleHTTPServer 8000`
 - Go to `http://localhost:8000/front_end/inspector_overlay/tool_highlight_debug.html`
+- Run `autoninja -C out/Default` to rebuild.
 
 In this mode, JS modules will be served without bundling.
 
