@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b17028eb_e28574ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001365
+      },
+      "writtenOn": "2020-06-29T17:18:21Z",
+      "side": 1,
+      "message": "It\u0027s worth noting that it has also always displayed other diagnostic information about frame rendering besides just the FPS.",
+      "revId": "7af2d76edc1b97cbf3560738726f7c06ee2efc65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "011a2ccb_4ef52cae",
+        "filename": "front_end/inspector_main/RenderingOptions.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001365
+      },
+      "writtenOn": "2020-06-29T17:18:21Z",
+      "side": 1,
+      "message": "nit: More of a question for dev tools folks, should we be updating the internal naming here or just the UI string?",
+      "range": {
+        "startLine": 54,
+        "startChar": 67,
+        "endLine": 54,
+        "endChar": 77
+      },
+      "revId": "7af2d76edc1b97cbf3560738726f7c06ee2efc65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
