@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3377252_070062e0",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T11:10:39Z",
+      "side": 1,
+      "message": "Let\u0027s keep it for now. We might refactor this later anyways.",
+      "parentUuid": "efae70d8_983e2af5",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 21
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "feddcb49_815f320f",
         "filename": "front_end/formatter_worker/CSSRuleParser.js",
         "patchSetId": 1
@@ -41,6 +65,53 @@
         "startChar": 4,
         "endLine": 25,
         "endChar": 19
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea54573a_fec9645f",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T11:10:39Z",
+      "side": 1,
+      "message": "I think a union would be great, but if it is too much of a hassle let\u0027s shelve it.",
+      "parentUuid": "feddcb49_815f320f",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5858d6fb_00ce69bd",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T11:10:39Z",
+      "side": 1,
+      "message": "Nit: `@type {number}`",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 18
       },
       "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
