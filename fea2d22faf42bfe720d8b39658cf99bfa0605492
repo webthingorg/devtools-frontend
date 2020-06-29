@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7b295da9_75b6853d",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-06-29T14:11:05Z",
+      "side": 1,
+      "message": "The test kept yielding different results with different machines. But in general the behaviour was as expected, this is why I changed it to use a regex expression to make it less brittle.",
+      "parentUuid": "eebbeade_bac5dc6c",
+      "revId": "fea2d22faf42bfe720d8b39658cf99bfa0605492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e3fa45f_a726e75e",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 7
