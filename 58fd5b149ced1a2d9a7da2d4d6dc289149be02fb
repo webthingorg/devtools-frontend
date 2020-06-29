@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "598720b8_b88bfdb2",
+        "filename": "front_end/inspector_overlay/tool_screenshot.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-29T11:39:34Z",
+      "side": 1,
+      "message": "This makes me nervous - one of the things that I like about our codebase is that our use of ES modules has been strictly spec compliant. This approach takes us down a Webpack-esque approach where we overload ES modules to perform a variety of actions based on the given file types. This can be quite magical and hard to work with unless you know where to look.\n\nI\u0027m not so strongly opposed to this as to rule it out, but I think a change like this requires a bit more thought and a design doc of sorts. My 2c right now is that the complexity here is not worth it to avoid having some CSS inline.\n\nAdditionally, further down the road with components we will also have to support CSS in separate files and that may open up a path where we can turn the inspector overlay into a component and solve the problems you\u0027re trying to solve in this CL using the solutions we land on for components. \n\nI would lean towards deferring this until such time where we have components and a strong CSS story such that we can rebuild the overlay as a component (or set of components) and avoid having to introduce a bespoke rollup plugin. WDYT?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "58fd5b149ced1a2d9a7da2d4d6dc289149be02fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
