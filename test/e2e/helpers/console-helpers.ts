@@ -4,7 +4,7 @@
 
 import * as puppeteer from 'puppeteer';
 
-import {click, debuggerStatement, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
+import {$, click, getBrowserAndPages, goToResource, pasteText, waitFor} from '../../shared/helper.js';
 
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
@@ -22,6 +22,28 @@ export async function getConsoleMessages(testName: string, callback?: (page: pup
   return getCurrentConsoleMessages(callback);
 }
 
+export async function deleteConsoleMessagesFilter(frontend: puppeteer.Page) {
+  await waitFor('.console-main-toolbar');
+  const main = await $('.console-main-toolbar');
+  await frontend.evaluate(n => {
+    const deleteButton = n.shadowRoot.querySelector('.search-cancel-button');
+    if (deleteButton) {
+      deleteButton.click();
+    }
+  }, main);
+}
+
+export async function filterConsoleMessages(frontend: puppeteer.Page, filter: string) {
+  await waitFor('.console-main-toolbar');
+  const main = await $('.console-main-toolbar');
+  await frontend.evaluate(n => {
+    const toolbar = n.shadowRoot.querySelector('.toolbar-input-prompt.text-prompt');
+    toolbar.focus();
+  }, main);
+  await pasteText(filter);
+  await frontend.keyboard.press('Enter');
+}
+
 export async function getCurrentConsoleMessages(callback?: (page: puppeteer.Page) => Promise<void>) {
   const {frontend} = getBrowserAndPages();
 
@@ -31,10 +53,8 @@ export async function getCurrentConsoleMessages(callback?: (page: puppeteer.Page
   await waitFor(CONSOLE_MESSAGES_SELECTOR);
 
   if (callback) {
-    await debuggerStatement(frontend);
     await callback(frontend);
   }
-  await debuggerStatement(frontend);
 
   // Ensure all messages are populated.
   await frontend.waitForFunction(CONSOLE_FIRST_MESSAGES_SELECTOR => {
