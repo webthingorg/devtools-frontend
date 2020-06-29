@@ -39,6 +39,48 @@
       "revId": "52ce52aa7524ee29b5ba01177fbdf30016252f37",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e9f0215_553e6d15",
+        "filename": "front_end/inspector_overlay/inject-css.rollup.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-29T06:35:06Z",
+      "side": 1,
+      "message": "Yes, makes sense, thanks!",
+      "parentUuid": "683cc525_9cce9108",
+      "range": {
+        "startLine": 18,
+        "startChar": 31,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "52ce52aa7524ee29b5ba01177fbdf30016252f37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb4f64b_60114b8f",
+        "filename": "front_end/inspector_overlay/inject-css.rollup.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-06-29T06:35:06Z",
+      "side": 1,
+      "message": "It would result in a rollup error if it results in invalid javascript. If JS code is still valid, it\u0027d accept it though.",
+      "parentUuid": "def91167_e0eaea17",
+      "revId": "52ce52aa7524ee29b5ba01177fbdf30016252f37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
