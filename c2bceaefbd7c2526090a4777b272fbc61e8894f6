@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4077874_e7f45cad",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T12:14:10Z",
+      "side": 1,
+      "message": "We wait for the autocomplete to disappear above, so double-enter shouldn\u0027t be needed AFAIK?",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
