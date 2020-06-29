@@ -8,12 +8,19 @@ import {click, debuggerStatement, getBrowserAndPages, goToResource, waitFor} fro
 
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
-export const CONSOLE_FIRST_MESSAGES_SELECTOR = '.console-group-messages .source-code .console-message-text';
+export const CONSOLE_MESSAGE_TEXT_SELECTOR = '.console-message-text';
+export const CONSOLE_FIRST_MESSAGES_SELECTOR = `.console-group-messages .source-code ${CONSOLE_MESSAGE_TEXT_SELECTOR}`;
 export const LOG_LEVELS_SELECTOR = '[aria-label^="Log level: "]';
 export const LOG_LEVELS_VERBOSE_OPTION_SELECTOR = '[aria-label^="Verbose"]';
 export const CONSOLE_PROMPT_SELECTOR = '.console-prompt-editor-container';
 export const CONSOLE_VIEW_SELECTOR = '.console-view';
 export const STACK_PREVIEW_CONTAINER = '.stack-preview-container';
+export const CONSOLE_MESSAGE_WRAPPER_SELECTOR = '.console-group-messages .console-message-wrapper';
+export const DEVTOOLS_LINK_SELECTOR = '.devtools-link';
+export const CONSOLE_MESSAGE_SELECTOR = '.console-message';
+export const CONSOLE_MESSAGE_REPEAT_COUNT_SELECTOR = '.console-message-repeat-count';
+export const HIDDEN_SPAN_SELECTOR = '.hidden > span';
+export const STACK_PREVIEW_CONTAINER_SELECTOR = '.stack-preview-container';
 
 export async function getConsoleMessages(testName: string, callback?: (page: puppeteer.Page) => Promise<void>) {
   // Ensure Console is loaded before the page is loaded to avoid a race condition.
@@ -50,6 +57,46 @@ export async function getCurrentConsoleMessages(callback?: (page: puppeteer.Page
     return Array.from(document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR))
         .map(message => message.textContent);
   }, CONSOLE_FIRST_MESSAGES_SELECTOR);
+}
+
+export async function getStructuredConsoleMessages() {
+  const {frontend} = getBrowserAndPages();
+
+  await navigateToConsoleTab();
+
+  // Get console messages that were logged.
+  await waitFor(CONSOLE_MESSAGES_SELECTOR);
+
+  // Ensure all messages are populated.
+  await frontend.waitForFunction(CONSOLE_FIRST_MESSAGES_SELECTOR => {
+    return Array.from(document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR))
+        .every(message => message.childNodes.length > 0);
+  }, {timeout: 3000}, CONSOLE_FIRST_MESSAGES_SELECTOR);
+
+  return frontend.evaluate(
+      (CONSOLE_MESSAGE_WRAPPER_SELECTOR, CONSOLE_MESSAGE_TEXT_SELECTOR, DEVTOOLS_LINK_SELECTOR,
+       CONSOLE_MESSAGE_SELECTOR, CONSOLE_MESSAGE_REPEAT_COUNT_SELECTOR, HIDDEN_SPAN_SELECTOR,
+       STACK_PREVIEW_CONTAINER_SELECTOR) => {
+        return Array.from(document.querySelectorAll(CONSOLE_MESSAGE_WRAPPER_SELECTOR)).map(wrapper => {
+          const message = wrapper.querySelector(CONSOLE_MESSAGE_TEXT_SELECTOR).textContent;
+          const source = wrapper.querySelector(DEVTOOLS_LINK_SELECTOR).textContent;
+          const consoleMessage = wrapper.querySelector(CONSOLE_MESSAGE_SELECTOR);
+          const repeatCount = wrapper.querySelector(CONSOLE_MESSAGE_REPEAT_COUNT_SELECTOR);
+          const stackPreviewRoot = wrapper.querySelector(HIDDEN_SPAN_SELECTOR);
+          const stackPreview =
+              stackPreviewRoot ? stackPreviewRoot.shadowRoot.querySelector(STACK_PREVIEW_CONTAINER_SELECTOR) : null;
+          return {
+            message,
+            messageClasses: Array.from(consoleMessage.classList).join(' '),
+            repeatCount: repeatCount ? repeatCount.textContent : null,
+            source,
+            stackPreview: stackPreview ? stackPreview.textContent : null,
+            wrapperClasses: Array.from(wrapper.classList).join(' '),
+          };
+        });
+      },
+      CONSOLE_MESSAGE_WRAPPER_SELECTOR, CONSOLE_MESSAGE_TEXT_SELECTOR, DEVTOOLS_LINK_SELECTOR, CONSOLE_MESSAGE_SELECTOR,
+      CONSOLE_MESSAGE_REPEAT_COUNT_SELECTOR, HIDDEN_SPAN_SELECTOR, STACK_PREVIEW_CONTAINER_SELECTOR);
 }
 
 export async function focusConsolePrompt() {
