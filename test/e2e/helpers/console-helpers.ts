@@ -113,6 +113,9 @@ export async function typeIntoConsole(frontend: puppeteer.Page, message: string)
       autocomplete);
 
   await console.press('Enter');
+  // If the first 'enter' only closed the autocomplete, we need another one to actually trigger evaluation.
+  // If the first 'enter' already triggered evaluation, this does not do anything.
+  await console.press('Enter');
 }
 
 export async function typeIntoConsoleAndWaitForResult(frontend: puppeteer.Page, message: string) {
