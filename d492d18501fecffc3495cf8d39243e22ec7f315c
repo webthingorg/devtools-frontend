@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c76e269f_9fdbc48a",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T16:25:18Z",
+      "side": 1,
+      "message": "Sorry, I am not part of localization. Probably better to ask Peter Marshall.",
+      "parentUuid": "873030ec_ff5e3d24",
+      "range": {
+        "startLine": 394,
+        "startChar": 70,
+        "endLine": 394,
+        "endChar": 130
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19194bff_cab3d95e",
         "filename": "front_end/langpacks/shared_strings.grdp",
         "patchSetId": 4
