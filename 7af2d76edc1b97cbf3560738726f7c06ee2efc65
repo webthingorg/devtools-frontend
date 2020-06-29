@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "de3cdae4_02f0c94f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1148154
+      },
+      "writtenOn": "2020-06-29T17:44:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b17028eb_e28574ef",
+      "revId": "7af2d76edc1b97cbf3560738726f7c06ee2efc65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "011a2ccb_4ef52cae",
         "filename": "front_end/inspector_main/RenderingOptions.js",
         "patchSetId": 1
