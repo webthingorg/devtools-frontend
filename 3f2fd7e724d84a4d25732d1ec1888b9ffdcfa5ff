@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "100043e3_d6bae1ca",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T11:31:12Z",
+      "side": 1,
+      "message": "We could be changing `module.json` or `BUILD.gn` files as well. Could we maybe build all files? Or is there a particular reason why that isn\u0027t possible?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 82
+      },
+      "revId": "3f2fd7e724d84a4d25732d1ec1888b9ffdcfa5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7cb8ae4_60c5898f",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T11:31:12Z",
+      "side": 1,
+      "message": "Rather than warning, could we maybe retrigger a build? E.g. sort of a recursive function, where if we changed the files during the build, we trigger yet another build. This would then \"eventually be correct\".",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "3f2fd7e724d84a4d25732d1ec1888b9ffdcfa5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f9ff482_6733eb84",
+        "filename": "third_party/node/node.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-06-29T11:31:12Z",
+      "side": 1,
+      "message": "I would prefer to split these changes out (I have hit the same issue and hadn\u0027t gotten to fixing it). In that CL, I think we would want the following:\n\n1. Allow `--output` as the first argument only (e.g. before the node script arg itself)\n2. If it exists, don\u0027t pipe\n3. If it exists, don\u0027t pass it on as an argument to the actual script (as the script might not accept `--output` as a valid argument). That essentially means `sys.argv[2:]` down below\n4. Move the logic to the main function below, so that we don\u0027t change the behavior for Ninja\n5. Port all NPM scripts to use this `--output`\n\nWDYT?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "3f2fd7e724d84a4d25732d1ec1888b9ffdcfa5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
