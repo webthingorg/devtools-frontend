@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "081236c9_29dd2a02",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-29T11:16:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a3377252_070062e0",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 21
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "feddcb49_815f320f",
         "filename": "front_end/formatter_worker/CSSRuleParser.js",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f3d497c2_8cdc28b3",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-29T11:16:23Z",
+      "side": 1,
+      "message": "I looked at this and I don\u0027t actually understand all the different values that get set on `rule`, so I think we should leave this. I\u0027d end up creating types I don\u0027t properly understand and I think that\u0027s worse than leaving it as any.",
+      "parentUuid": "ea54573a_fec9645f",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5858d6fb_00ce69bd",
         "filename": "front_end/formatter_worker/CSSRuleParser.js",
         "patchSetId": 1
@@ -116,6 +164,30 @@
       "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75d9ace1_5ba01d49",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-29T11:16:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5858d6fb_00ce69bd",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 18
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
