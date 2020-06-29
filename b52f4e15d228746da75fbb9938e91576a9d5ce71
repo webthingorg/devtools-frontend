@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e282d14_a58ad77a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T08:33:43Z",
+      "side": 1,
+      "message": "of course!",
+      "range": {
+        "startLine": 17,
+        "startChar": 20,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff064efc_fd853163",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T08:33:43Z",
+      "side": 1,
+      "message": "I don\u0027t understand this part, can you rephrase?",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2183e9fa_ba80a07e",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T08:33:43Z",
+      "side": 1,
+      "message": "Do we need to worry about in-progress loads when the page is reloaded? i.e. setting _currentlyLoading back to 0? It seems like no, because those are still in-flight and should count towards the limit, even if we ignore their results. And loadResource() will decrement the counter again in the finally block.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5358d172_f6bd7110",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T08:33:43Z",
+      "side": 1,
+      "message": "Is anyone listening to these events at the moment? Or are they there for future use?",
+      "range": {
+        "startLine": 51,
+        "startChar": 9,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1caf7bcc_eb8c1e99",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T08:33:43Z",
+      "side": 1,
+      "message": "Are you going to use this anywhere? It looks like it isn\u0027t used currently",
+      "range": {
+        "startLine": 57,
+        "startChar": 19,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba0a58d_3274e68a",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T08:33:43Z",
+      "side": 1,
+      "message": "We add pending loads into _pageResources before they return from MultitargetNetworkManager.loadResource(), so this includes pending loads as far as I can tell and not just completed loads?",
+      "range": {
+        "startLine": 70,
+        "startChar": 45,
+        "endLine": 70,
+        "endChar": 51
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f7bc818_5cda1314",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-29T08:33:43Z",
+      "side": 1,
+      "message": "Is it possible that _onMainFrameNavigated happened while we were waiting for MultitargetNetworkManager.loadResource()? Do we need to do something different here in that case, or we just return the content/error here and let the caller handle it?",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
