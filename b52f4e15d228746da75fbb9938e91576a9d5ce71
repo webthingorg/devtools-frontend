@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "76ff2006_75b4fce7",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T14:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff064efc_fd853163",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2183e9fa_ba80a07e",
         "filename": "front_end/sdk/PageResourceLoader.js",
         "patchSetId": 6
@@ -59,6 +83,30 @@
       "writtenOn": "2020-06-29T08:33:43Z",
       "side": 1,
       "message": "Do we need to worry about in-progress loads when the page is reloaded? i.e. setting _currentlyLoading back to 0? It seems like no, because those are still in-flight and should count towards the limit, even if we ignore their results. And loadResource() will decrement the counter again in the finally block.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3e6219e_79b3e353",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T14:50:45Z",
+      "side": 1,
+      "message": "Yes, that was the idea. The for loop below will reject the in-flight loads, and the finally block should take care of decrementing the counter.",
+      "parentUuid": "2183e9fa_ba80a07e",
       "range": {
         "startLine": 41,
         "startChar": 2,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c97f8a7d_0ae77c20",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T14:50:45Z",
+      "side": 1,
+      "message": "A follow-up CL will use them.",
+      "parentUuid": "5358d172_f6bd7110",
+      "range": {
+        "startLine": 51,
+        "startChar": 9,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1caf7bcc_eb8c1e99",
         "filename": "front_end/sdk/PageResourceLoader.js",
         "patchSetId": 6
@@ -114,6 +186,30 @@
       "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654f2e0b_71878189",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T14:50:45Z",
+      "side": 1,
+      "message": "This will be used for testing. I\u0027ve included the tests in this CL.",
+      "parentUuid": "1caf7bcc_eb8c1e99",
+      "range": {
+        "startLine": 57,
+        "startChar": 19,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "ce96f525_3a8ba4af",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T14:50:45Z",
+      "side": 1,
+      "message": "Right, I renamed it to totalLoads, it includes the pending ones.",
+      "parentUuid": "1ba0a58d_3274e68a",
+      "range": {
+        "startLine": 70,
+        "startChar": 45,
+        "endLine": 70,
+        "endChar": 51
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f7bc818_5cda1314",
         "filename": "front_end/sdk/PageResourceLoader.js",
         "patchSetId": 6
@@ -151,6 +271,30 @@
       "writtenOn": "2020-06-29T08:33:43Z",
       "side": 1,
       "message": "Is it possible that _onMainFrameNavigated happened while we were waiting for MultitargetNetworkManager.loadResource()? Do we need to do something different here in that case, or we just return the content/error here and let the caller handle it?",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "b52f4e15d228746da75fbb9938e91576a9d5ce71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97bdf62c_a56f1946",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T14:50:45Z",
+      "side": 1,
+      "message": "Yes this can happen. Currently (that is before this CL), we don\u0027t do anything special, and just let the caller handle it. This CL keeps it this way for promises waiting in MultitargetNetworkManager.loadResource. The finally block cleans up the counter.\n\nThis CL also adds the behavior that promises waiting in _acquireLoadSlot are handled as load errors if we see a _onMainFrameNavigated.\n\nI\u0027ve added a timeout to the loadResource call to make sure the queue spot is freed up even if the back-end doesn\u0027t respond.",
+      "parentUuid": "6f7bc818_5cda1314",
       "range": {
         "startLine": 113,
         "startChar": 6,
