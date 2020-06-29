@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d88fea89_1d2ac5bb",
+        "filename": "front_end/persistence/FileSystemWorkspaceBinding.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T08:48:12Z",
+      "side": 1,
+      "message": "Why is this portable?",
+      "range": {
+        "startLine": 386,
+        "startChar": 20,
+        "endLine": 386,
+        "endChar": 46
+      },
+      "revId": "ce34698037a8a9b73182800f7813d901a7d002b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ed4c699_3eff404c",
+        "filename": "front_end/workspace/UISourceCode.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-29T08:48:12Z",
+      "side": 1,
+      "message": "Will this work on windows?",
+      "range": {
+        "startLine": 207,
+        "startChar": 62,
+        "endLine": 207,
+        "endChar": 63
+      },
+      "revId": "ce34698037a8a9b73182800f7813d901a7d002b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
