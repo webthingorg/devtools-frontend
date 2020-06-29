@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "8953b2e0_6b21d2aa",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-29T17:12:00Z",
+      "side": 1,
+      "message": "Do we know _why_ the results were different on different machines? How did they differ? e.g. were the line numbers on machine A double the line number on machine B?",
+      "parentUuid": "7b295da9_75b6853d",
+      "revId": "fea2d22faf42bfe720d8b39658cf99bfa0605492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e3fa45f_a726e75e",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 7
