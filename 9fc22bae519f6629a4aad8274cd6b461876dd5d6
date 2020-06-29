@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf771c52_560bfc4d",
+        "filename": "front_end/third_party/lodash-isequal/LICENSE",
+        "patchSetId": 12
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1267114
+      },
+      "writtenOn": "2020-06-29T08:53:47Z",
+      "side": 1,
+      "message": "These comments do not apply to the code you imported. Please drop them.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 12
+      },
+      "revId": "9fc22bae519f6629a4aad8274cd6b461876dd5d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
