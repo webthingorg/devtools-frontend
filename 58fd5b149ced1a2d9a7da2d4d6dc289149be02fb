@@ -46,6 +46,30 @@
       "revId": "58fd5b149ced1a2d9a7da2d4d6dc289149be02fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bc946ea_b6a8e249",
+        "filename": "front_end/inspector_overlay/tool_screenshot.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-29T12:41:25Z",
+      "side": 1,
+      "message": "I\u0027m not 100% sure on the components solution but it will almost certainly involve CSS in separate files, just yet to get the specifics in place (prioritising shipping a component first).\n\nIs there any reason the overlay could not become a component with its CSS in a separate file? I am not that familiar with how the overlay currently functions so I might be missing constraints that I\u0027m unaware of.\n\nMy worry with the importing CSS files is once we support it for this use case, it\u0027s very easy for someone else to use it in another use case, or extend the Rollup plugin\u0027s behaviour, and before you know it we\u0027ve diverged far from the original intention and we use imports for lots of things.\n\nIf the inspector overlay has different constraints than the rest of devtools, maybe we can come up with a solution for it that doesn\u0027t leak out into the rest of devtools? e.g. support importing behaviour in the overlay but not elsewhere.\n\nHappy to chat on a VC if that\u0027s easier too 😊",
+      "parentUuid": "6c1e47eb_be10ec3b",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "58fd5b149ced1a2d9a7da2d4d6dc289149be02fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
