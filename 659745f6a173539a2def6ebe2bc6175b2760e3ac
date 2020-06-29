@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7537f3bf_e202834c",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-06-29T09:52:07Z",
+      "side": 1,
+      "message": "I wonder whether we should actually refactor the code in handleAction to live in DOMNode. We would then call that from here and from handleAction.",
+      "range": {
+        "startLine": 634,
+        "startChar": 8,
+        "endLine": 634,
+        "endChar": 109
+      },
+      "revId": "659745f6a173539a2def6ebe2bc6175b2760e3ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
