@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "873030ec_ff5e3d24",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-29T14:50:53Z",
+      "side": 1,
+      "message": "Just to add some clarity/context: I didn\u0027t add this description. I think what happened is that I localized a string \"Yes\" that was also used in a different file, so it moved that string from that file\u0027s strings into this shared strings doc. This description was pulled from the other file as far as I understand.",
+      "parentUuid": "81a656b7_97547df5",
+      "range": {
+        "startLine": 394,
+        "startChar": 70,
+        "endLine": 394,
+        "endChar": 130
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19194bff_cab3d95e",
         "filename": "front_end/langpacks/shared_strings.grdp",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "217b842a_55c52948",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-29T14:50:53Z",
+      "side": 1,
+      "message": "Thanks for catch! Fixed",
+      "parentUuid": "2e77ac57_3df280dd",
+      "range": {
+        "startLine": 29,
+        "startChar": 23,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2b84f3b_e2005e07",
         "filename": "front_end/sdk/WebAuthnModel.js",
         "patchSetId": 4
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "ca6b4b5a_2d718ade",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-29T14:50:53Z",
+      "side": 1,
+      "message": "Fixed - didn\u0027t think it was necessary at the time (convo moved offline)",
+      "parentUuid": "d2b84f3b_e2005e07",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 8
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12bd69a6_5fa94032",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 4
@@ -105,6 +177,30 @@
       "writtenOn": "2020-06-29T14:16:35Z",
       "side": 1,
       "message": "Can you add a map to store the mapping from authenticatorId to section in order to use it when for example removing the authenticator?",
+      "range": {
+        "startLine": 149,
+        "startChar": 10,
+        "endLine": 149,
+        "endChar": 17
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6730a7a_3fbc4ef4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-29T14:50:53Z",
+      "side": 1,
+      "message": "Why is this better than querying the DOM?",
+      "parentUuid": "12bd69a6_5fa94032",
       "range": {
         "startLine": 149,
         "startChar": 10,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "5bce4760_591dd5e5",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-29T14:50:53Z",
+      "side": 1,
+      "message": "Is this bad practice? Happy to put the map back in if necessary but would love to understand tradeoffs as a learning experience",
+      "parentUuid": "8472c959_42955ea9",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 43
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0e06f69_b0486bc9",
         "filename": "front_end/webauthn/webauthn_strings.grdp",
         "patchSetId": 4
@@ -160,6 +280,30 @@
       "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f2dde40_55b80be6",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-06-29T14:50:53Z",
+      "side": 1,
+      "message": "Bluetooth folks with all their demands...\n\nFixed! Thanks for heads up",
+      "parentUuid": "f0e06f69_b0486bc9",
+      "range": {
+        "startLine": 24,
+        "startChar": 165,
+        "endLine": 24,
+        "endChar": 174
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
