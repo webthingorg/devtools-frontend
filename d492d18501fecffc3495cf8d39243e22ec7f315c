@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81a656b7_97547df5",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-29T14:16:35Z",
+      "side": 1,
+      "message": "It seems like this label does not fit anymore - not sure how to handle this situation though. \n@Tim - do you have any thoughts?",
+      "range": {
+        "startLine": 394,
+        "startChar": 70,
+        "endLine": 394,
+        "endChar": 130
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19194bff_cab3d95e",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-29T14:16:35Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 523,
+        "startChar": 70,
+        "endLine": 523,
+        "endChar": 135
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e77ac57_3df280dd",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-29T14:16:35Z",
+      "side": 1,
+      "message": "What\u0027s the expected return type here?",
+      "range": {
+        "startLine": 29,
+        "startChar": 23,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2b84f3b_e2005e07",
+        "filename": "front_end/sdk/WebAuthnModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-29T14:16:35Z",
+      "side": 1,
+      "message": "It might be best to add an await here. \nOtherwise people might be awaiting the call to removeAuthenticator but it would return without the promise of this call having resolved. Or is this intentional?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 8
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12bd69a6_5fa94032",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-29T14:16:35Z",
+      "side": 1,
+      "message": "Can you add a map to store the mapping from authenticatorId to section in order to use it when for example removing the authenticator?",
+      "range": {
+        "startLine": 149,
+        "startChar": 10,
+        "endLine": 149,
+        "endChar": 17
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8472c959_42955ea9",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-29T14:16:35Z",
+      "side": 1,
+      "message": "Can you use the map mentioned above here instead of querying the DOM?",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 43
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0e06f69_b0486bc9",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-06-29T14:16:35Z",
+      "side": 1,
+      "message": "Just a nit: The Bluetooth folks write themselves without the capital T",
+      "range": {
+        "startLine": 24,
+        "startChar": 165,
+        "endLine": 24,
+        "endChar": 174
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
