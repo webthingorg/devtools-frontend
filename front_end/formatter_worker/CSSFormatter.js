@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import {FormattedContentBuilder} from './FormattedContentBuilder.js';  // eslint-disable-line no-unused-vars
 import {createTokenizer} from './FormatterWorker.js';
 
@@ -43,6 +40,22 @@ export class CSSFormatter {
    */
   constructor(builder) {
     this._builder = builder;
+
+    /** @type {number} */
+    this._toOffset;
+    /** @type {number} */
+    this._fromOffset;
+    /** @type {!Array.<number>} */
+    this._lineEndings;
+    /** @type {number} */
+    this._lastLine = -1;
+    /** @type {{ eatWhitespace: boolean, seenProperty: boolean, inPropertyValue: boolean, afterClosingBrace: boolean}} */
+    this._state = {
+      eatWhitespace: false,
+      seenProperty: false,
+      inPropertyValue: false,
+      afterClosingBrace: false,
+    };
   }
 
   /**
@@ -55,8 +68,6 @@ export class CSSFormatter {
     this._lineEndings = lineEndings;
     this._fromOffset = fromOffset;
     this._toOffset = toOffset;
-    this._lastLine = -1;
-    this._state = {};
     const tokenize = createTokenizer('text/css');
     const oldEnforce = this._builder.setEnforceSpaceBetweenWords(false);
     tokenize(text.substring(this._fromOffset, this._toOffset), this._tokenCallback.bind(this));
@@ -67,6 +78,7 @@ export class CSSFormatter {
    * @param {string} token
    * @param {?string} type
    * @param {number} startPosition
+   * @returns {undefined}
    */
   _tokenCallback(token, type, startPosition) {
     startPosition += this._fromOffset;
@@ -74,7 +86,7 @@ export class CSSFormatter {
     if (startLine !== this._lastLine) {
       this._state.eatWhitespace = true;
     }
-    if (/^property/.test(type) && !this._state.inPropertyValue) {
+    if (type && /^property/.test(type) && !this._state.inPropertyValue) {
       this._state.seenProperty = true;
     }
     this._lastLine = startLine;
@@ -129,5 +141,7 @@ export class CSSFormatter {
     } else if (token === '}') {
       this._builder.addNewLine();
     }
+
+    return undefined;
   }
 }
