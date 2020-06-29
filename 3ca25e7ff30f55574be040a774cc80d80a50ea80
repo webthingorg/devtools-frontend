@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efae70d8_983e2af5",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-29T10:13:51Z",
+      "side": 1,
+      "message": "I would like to get rid of this; but I\u0027m not sure what we should pass as the origin. We could use `*` but that feels a little insecure. I\u0027m also not sure what the browser falls back to when one isn\u0027t passed (MDN says it\u0027s required).",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 21
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feddcb49_815f320f",
+        "filename": "front_end/formatter_worker/CSSRuleParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-06-29T10:13:51Z",
+      "side": 1,
+      "message": "Rule seems like it can be an object with either one of two sets of properties. I could make this a union type and define those properly, or I could let it be \"an object with any fields\". Not sure if it\u0027s worth the effort to type properly in Closure. Tim WDYT?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "3ca25e7ff30f55574be040a774cc80d80a50ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
