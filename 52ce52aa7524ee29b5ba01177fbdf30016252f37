@@ -99,6 +99,24 @@
       "revId": "52ce52aa7524ee29b5ba01177fbdf30016252f37",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04bc2811_1bf2901c",
+        "filename": "front_end/inspector_overlay/inject-css.rollup.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-29T06:49:41Z",
+      "side": 1,
+      "message": "Given https://v8.dev/features/well-formed-json-stringify + https://v8.dev/features/subsume-json, can\u0027t we just do the following?\n\n    blah.textContent \u003d JSON.stringify(code);",
+      "parentUuid": "b320a113_2fcee8cf",
+      "revId": "52ce52aa7524ee29b5ba01177fbdf30016252f37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
