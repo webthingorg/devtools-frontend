@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62b67d53_c0c6c124",
+        "filename": "front_end/elements/elementsTreeOutline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-30T14:00:57Z",
+      "side": 1,
+      "message": "This is actually intentional: we are selecting adorners by their registered tag name. Background information: since Adorner is a custom element, we register it to have the tag name of `devtools-adorner`.",
+      "revId": "fc74d72108b2d645a5c71680157cf8ee95d05bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
