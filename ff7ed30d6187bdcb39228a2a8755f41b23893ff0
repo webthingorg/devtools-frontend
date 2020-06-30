@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0a43a63_be94b2e2",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-30T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0000ff2_5b77f5f4",
+      "range": {
+        "startLine": 25,
+        "startChar": 28,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "ff7ed30d6187bdcb39228a2a8755f41b23893ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "694e72f2_b8204fe5",
         "filename": "front_end/developer_resources/developerResourcesListView.css",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "ff7ed30d6187bdcb39228a2a8755f41b23893ff0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d44cf0b_9b27971f",
+        "filename": "front_end/developer_resources/developerResourcesListView.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-30T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "694e72f2_b8204fe5",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "ff7ed30d6187bdcb39228a2a8755f41b23893ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0fad31c2_fb934bf9",
+        "filename": "front_end/developer_resources/developerResourcesListView.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-30T13:47:01Z",
+      "side": 1,
+      "message": "Yes, after the extra space is removed.",
+      "parentUuid": "4c5dfb55_b51bd98a",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "ff7ed30d6187bdcb39228a2a8755f41b23893ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c47751e1_8c01f5de",
         "filename": "front_end/developer_resources/developerResourcesView.css",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "8add8266_f7948e87",
+        "filename": "front_end/developer_resources/developerResourcesView.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-30T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c47751e1_8c01f5de",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "ff7ed30d6187bdcb39228a2a8755f41b23893ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84519162_1cdd0569",
         "filename": "front_end/developer_resources/developer_resources-legacy.js",
         "patchSetId": 4
@@ -114,6 +210,30 @@
       "revId": "ff7ed30d6187bdcb39228a2a8755f41b23893ff0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34e4e4e5_e915078e",
+        "filename": "front_end/developer_resources/developer_resources-legacy.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-30T13:47:01Z",
+      "side": 1,
+      "message": "Yes, because DeveloperResourcesView is mentioned in a module.json file.",
+      "parentUuid": "84519162_1cdd0569",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 6
+      },
+      "revId": "ff7ed30d6187bdcb39228a2a8755f41b23893ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
