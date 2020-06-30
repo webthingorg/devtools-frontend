@@ -88,7 +88,8 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
    */
   _appendItem(section, title, settingName) {
     const row = section.appendRow();
-    row.appendChild(UI.SettingsUI.createSettingCheckbox(title, this._settings.get(settingName), true));
+    row.appendChild(
+        UI.SettingsUI.SettingElement.createCheckbox(title, this._settings.get(settingName), true).element());
   }
 
   /**

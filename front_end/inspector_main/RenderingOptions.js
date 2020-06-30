@@ -99,7 +99,7 @@ export class RenderingOptionsView extends UI.Widget.VBox {
   _appendSelect(label, setting) {
     const control = UI.SettingsUI.createControlForSetting(setting, label);
     if (control) {
-      this.contentElement.appendChild(control);
+      this.contentElement.appendChild(control.element());
     }
   }
 }

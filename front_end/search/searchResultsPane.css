@@ -85,14 +85,6 @@ li.search-match:hover {
   background-color: var(--item-hover-color);
 }
 
-li.search-match .highlighted-match {
-  background-color: #f1ea00;
-}
-
-:host-context(.-theme-with-dark-background) li.search-match .highlighted-match {
-  background-color: hsl(133deg 100% 30%) !important;
-}
-
 .tree-outline .devtools-link {
   text-decoration: none;
   display: block;

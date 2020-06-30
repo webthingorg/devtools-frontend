@@ -55,9 +55,11 @@ export class RequestCookiesView extends UI.Widget.Widget {
     titleText.textContent = ls`Request Cookies`;
     titleText.title = ls`Cookies that were sent to the server in the 'cookie' header of the request`;
 
-    const requestCookiesCheckbox = UI.SettingsUI.createSettingCheckbox(
-        ls`show filtered out request cookies`, this._showFilteredOutCookiesSetting,
-        /* omitParagraphElement */ true);
+    const requestCookiesCheckbox = UI.SettingsUI.SettingElement
+                                       .createCheckbox(
+                                           ls`show filtered out request cookies`, this._showFilteredOutCookiesSetting,
+                                           /* omitParagraphElement */ true)
+                                       .element();
     requestCookiesCheckbox.checkboxElement.addEventListener('change', () => {
       this._refreshRequestCookiesView();
     });
