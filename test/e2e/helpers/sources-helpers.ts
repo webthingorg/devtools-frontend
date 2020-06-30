@@ -12,6 +12,9 @@ export const PAUSE_BUTTON = '[aria-label="Pause script execution"]';
 export const RESUME_BUTTON = '[aria-label="Resume script execution"]';
 export const SOURCES_LINES_SELECTOR = '.CodeMirror-code > div';
 export const PAUSE_INDICATOR_SELECTOR = '.paused-status';
+export const CODE_LINE_SELECTOR = '.CodeMirror-code .CodeMirror-linenumber';
+export const SCOPE_INSPECTOR_SELECTOR =
+    'ol.tree-outline.source-code.object-properties-section.hide-selection-when-blurred';
 
 export async function doubleClickSourceTreeItem(selector: string) {
   await waitFor(selector);
@@ -75,18 +78,18 @@ export async function getOpenSources() {
 // We can't use the click helper, as it is not possible to select a particular
 // line number element in CodeMirror.
 export async function addBreakpointForLine(frontend: puppeteer.Page, index: number, expectedFail: boolean = false) {
-  await frontend.waitForFunction(index => {
-    return document.querySelectorAll('.CodeMirror-linenumber').length >= index;
-  }, undefined, index);
-  const breakpointLineNumber = await frontend.evaluate(index => {
-    const element = document.querySelectorAll('.CodeMirror-linenumber')[index];
+  await frontend.waitForFunction((index, CODE_LINE_SELECTOR) => {
+    return document.querySelectorAll(CODE_LINE_SELECTOR).length >= (index - 1);
+  }, undefined, index, CODE_LINE_SELECTOR);
+  const breakpointLineNumber = await frontend.evaluate((index, CODE_LINE_SELECTOR) => {
+    const element = document.querySelectorAll(CODE_LINE_SELECTOR)[index - 1];
 
     const {left, top, width, height} = element.getBoundingClientRect();
     return {
       x: left + width * 0.5,
       y: top + height * 0.5,
     };
-  }, index);
+  }, index, CODE_LINE_SELECTOR);
 
   const currentBreakpointCount = await frontend.$$eval('.cm-breakpoint', nodes => nodes.length);
 
@@ -104,6 +107,10 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
 
 export async function sourceLineNumberSelector(lineNumber: number) {
   return `div.CodeMirror-code > div:nth-child(${lineNumber}) div.CodeMirror-linenumber.CodeMirror-gutter-elt`;
+}
+
+export async function threadSelector(threadNumber: number) {
+  return `div > div > div.thread-item:nth-child(${threadNumber + 1})`;
 }
 
 export async function checkBreakpointIsActive(lineNumber: number) {
