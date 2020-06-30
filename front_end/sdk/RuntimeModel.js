@@ -42,7 +42,6 @@ import {RemoteFunction, RemoteObject,
         RemoteObjectProperty, ScopeRef, ScopeRemoteObject,} from './RemoteObject.js';  // eslint-disable-line no-unused-vars
 import {Capability, SDKModel, Target, Type} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
-
 export class RuntimeModel extends SDKModel {
   /**
    * @param {!Target} target
