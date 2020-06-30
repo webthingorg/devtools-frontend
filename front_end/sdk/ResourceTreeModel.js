@@ -913,6 +913,23 @@ export class ResourceTreeFrame {
   highlight() {
     this.resourceTreeModel().domModel().overlayModel().highlightFrame(this.id);
   }
+
+  /*
+   * @return {string}
+   */
+  displayNameAlternative() {
+    const subtitle = new Common.ParsedURL.ParsedURL(this._url).displayName;
+    if (subtitle) {
+      if (!this._name) {
+        return subtitle;
+      }
+      return this._name + ' (' + subtitle + ')';
+    }
+    if (this._name) {
+      return this._name;
+    }
+    return Common.UIString.UIString('<iframe>');
+  }
 }
 
 /**

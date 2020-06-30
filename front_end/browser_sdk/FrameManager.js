@@ -30,6 +30,9 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
     // Maps targetIds to a set of frameIds.
     /** @type {!Map<string, !Set<string>>} */
     this._framesForTarget = new Map();
+
+    /** @type {!Set<!SDK.ResourceTreeModel.ResourceTreeFrame>} */
+    this._mainFrames = new Set();
   }
 
   /**
@@ -74,7 +77,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
     const frameSet = this._framesForTarget.get(resourceTreeModel.target().id());
     if (frameSet) {
       for (const frameId of frameSet) {
-        this.decreaseOrRemoveFrame(frameId);
+        this._decreaseOrRemoveFrame(frameId);
       }
     }
     this._framesForTarget.delete(resourceTreeModel.target().id());
@@ -91,6 +94,9 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
       this._frames.set(frame.id, {frame, count: frameData.count + 1});
     } else {
       this._frames.set(frame.id, {frame, count: 1});
+      if (frame.isMainFrame()) {
+        this._mainFrames.add(frame);
+      }
     }
 
     // Add the frameId to the the targetId's set of frameIds.
@@ -108,7 +114,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
   _frameDetached(event) {
     const frame = /** @type {!SDK.ResourceTreeModel.ResourceTreeFrame} */ (event.data);
     // Decrease the frame's count or remove it entirely from the map.
-    this.decreaseOrRemoveFrame(frame.id);
+    this._decreaseOrRemoveFrame(frame.id);
 
     // Remove the frameId from the target's set of frameIds.
     const frameSet = this._framesForTarget.get(frame.resourceTreeModel().target().id());
@@ -122,6 +128,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
    */
   _frameNavigated(event) {
     const frame = /** @type {!SDK.ResourceTreeModel.ResourceTreeFrame} */ (event.data);
+    this.dispatchEventToListeners(Events.FrameNavigated, {frame});
     if (frame.isTopFrame()) {
       this.dispatchEventToListeners(Events.TopFrameNavigated, {frame});
     }
@@ -130,10 +137,13 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} frameId
    */
-  decreaseOrRemoveFrame(frameId) {
+  _decreaseOrRemoveFrame(frameId) {
     const frameData = this._frames.get(frameId);
     if (frameData) {
       if (frameData.count === 1) {
+        if (frameData.frame.isMainFrame()) {
+          this._mainFrames.delete(frameData.frame);
+        }
         this._frames.delete(frameId);
         this.dispatchEventToListeners(Events.FrameRemoved, {frameId});
       } else {
@@ -158,6 +168,13 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
     }
     return null;
   }
+
+  /**
+   * @return {!Set<!SDK.ResourceTreeModel.ResourceTreeFrame>}
+   */
+  getMainFrames() {
+    return this._mainFrames;
+  }
 }
 
 /** @enum {symbol} */
@@ -166,6 +183,7 @@ export const Events = {
   // This means that for OOPIFs it is sent twice: once when it's added to a
   // parent frame and a second time when it's added to its own frame.
   FrameAddedToTarget: Symbol('FrameAddedToTarget'),
+  FrameNavigated: Symbol('FrameNavigated'),
   // The FrameRemoved event is only sent when a frame has been detached from
   // all targets.
   FrameRemoved: Symbol('FrameRemoved'),
