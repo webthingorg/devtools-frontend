@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "681152b1_d1889ccc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-30T17:35:29Z",
+      "side": 1,
+      "message": "This feels like the kind of functionality that could be part of the \"Application\" or \"Network\" tabs.",
+      "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa56195a_218f9380",
+        "filename": "front_end/developer_resources/DeveloperResourcesView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-30T17:35:29Z",
+      "side": 1,
+      "message": "Nit: Please add an /* inline comment */ to indicate what the empty string is representing",
+      "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77ba408e_137aa2a6",
+        "filename": "front_end/developer_resources/DeveloperResourcesView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-06-30T17:35:29Z",
+      "side": 1,
+      "message": "Nit: Remove",
+      "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
