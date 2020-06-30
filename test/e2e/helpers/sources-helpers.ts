@@ -15,7 +15,7 @@ export const PAUSE_INDICATOR_SELECTOR = '.paused-status';
 
 export async function doubleClickSourceTreeItem(selector: string) {
   await waitFor(selector);
-  await click(selector, {clickOptions: {clickCount: 2}});
+  await click(selector, {clickOptions: {clickCount: 2}, maxPixelsFromLeft: 40});
 }
 
 export async function openSourcesPanel() {
@@ -44,7 +44,7 @@ export async function createNewSnippet(snippetName: string) {
   const {frontend} = await getBrowserAndPages();
 
   await click('[aria-label="New snippet"]');
-  await waitFor('[aria-label^="Script%20snippet"]');
+  await waitFor('[aria-label^="Script snippet"]');
 
   await typeText(snippetName);
 
@@ -150,6 +150,11 @@ export async function getNonBreakableLines(frontend: puppeteer.Page) {
 export async function getExecutionLine() {
   const activeLine = await waitFor('.cm-execution-line-outline', undefined, 1000);
   return await activeLine.asElement()!.evaluate(n => parseInt(n.textContent!, 10));
+}
+
+export async function getExecutionLineText() {
+  const activeLine = await waitFor('.cm-execution-line pre', undefined, 1000);
+  return await activeLine.asElement()!.evaluate(n => n.textContent);
 }
 
 export async function retrieveTopCallFrameScriptLocation(script: string, target: puppeteer.Page) {
@@ -276,4 +281,13 @@ export async function clickOnContextMenu(selector: string, label: string) {
   const labelSelector = `[aria-label="${label}"]`;
   await waitFor(labelSelector);
   await click(labelSelector);
+}
+
+export async function typeIntoSourcesAndSave(frontend: puppeteer.Page, text: string) {
+  const pane = await waitFor('.sources');
+  await pane.asElement()!.type(text);
+
+  await frontend.keyboard.down('Control');
+  await frontend.keyboard.press('s');
+  await frontend.keyboard.up('Control');
 }
