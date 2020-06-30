@@ -772,7 +772,7 @@ export class SourcesPanel extends UI.Panel.Panel {
 
     const label = Common.UIString.UIString('Pause on caught exceptions');
     const setting = Common.Settings.Settings.instance().moduleSetting('pauseOnCaughtException');
-    debugToolbarDrawer.appendChild(UI.SettingsUI.createSettingCheckbox(label, setting, true));
+    debugToolbarDrawer.appendChild(UI.SettingsUI.SettingElement.createCheckbox(label, setting, true).element());
 
     return debugToolbarDrawer;
   }

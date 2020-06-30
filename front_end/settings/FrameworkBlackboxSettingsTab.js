@@ -21,8 +21,12 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
         ls`Debugger will skip through the scripts and will not stop on exceptions thrown by them.`;
 
     const blackboxContentScripts = this.contentElement.createChild('div', 'blackbox-content-scripts');
-    blackboxContentScripts.appendChild(UI.SettingsUI.createSettingCheckbox(
-        ls`Blackbox content scripts`, Common.Settings.Settings.instance().moduleSetting('skipContentScripts'), true));
+    blackboxContentScripts.appendChild(UI.SettingsUI.SettingElement
+                                           .createCheckbox(
+                                               ls`Blackbox content scripts`,
+                                               Common.Settings.Settings.instance().moduleSetting('skipContentScripts'),
+                                               true)
+                                           .element());
     blackboxContentScripts.title = ls`Blackbox content scripts (extension scripts in the page)`;
 
     this._blackboxLabel = Common.UIString.UIString('Blackbox');
