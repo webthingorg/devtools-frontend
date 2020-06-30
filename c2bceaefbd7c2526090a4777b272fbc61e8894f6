@@ -187,6 +187,30 @@
       "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "045c60f6_9b592608",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-30T09:55:57Z",
+      "side": 1,
+      "message": "\u003e When you type \"$_\" into the console, the autocomplete does not disappear - it stays up until you manually close it.\n\nAh OK I see why that happens. With \u0027Autocomplete from history\u0027 turned off this doesn\u0027t happen. In this test, the 1st time will work fine without this but the 2nd one will fail because it\u0027s in history.\n\nIn that case this LGTM",
+      "parentUuid": "f8f1d9e0_209ac4de",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
