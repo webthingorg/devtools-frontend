@@ -211,6 +211,30 @@
       "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab01708_22f551e8",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-30T10:42:07Z",
+      "side": 1,
+      "message": "TIL that there is a setting for \"Autocomplete from history\".\n\nThis is indeed what is happening, 1st time it works without 2nd \u0027Enter\u0027, 2nd time it doesn\u0027t.",
+      "parentUuid": "045c60f6_9b592608",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
