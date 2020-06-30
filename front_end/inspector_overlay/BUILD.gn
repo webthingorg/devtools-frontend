@@ -11,6 +11,10 @@ action("build_inspector_overlay") {
 
   inputs = [
     "./common.css",
+    "./tool_highlight.css",
+    "./tool_paused.css",
+    "./tool_screenshot.css",
+    "./inject-css.rollup.js",
     "$target_gen_dir/common.js",
     "$target_gen_dir/css_grid_label_helpers.js",
     "$target_gen_dir/tool_highlight_impl.js",
@@ -51,6 +55,8 @@ action("build_inspector_overlay") {
     rebase_path(".", root_build_dir),
     "--output_path",
     rebase_path(resources_out_dir, root_build_dir),
+    "--rollup_plugin",
+    rebase_path("inject-css.rollup.js", root_build_dir),
   ]
 
   public_deps = [
