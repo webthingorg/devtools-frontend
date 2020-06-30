@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "b0fca5a5_0a452268",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-06-30T08:32:53Z",
+      "side": 1,
+      "message": "If the line numbers were doubled it could\u0027ve been a LF vs. CRLF issue, but if that\u0027s not the case it seems bad. Hopefully we can figure this out (it might be a DevTools bug!) and then clean up the tests. Please do file a ticket with repro steps if you have them. Thanks!",
+      "parentUuid": "160b6b15_9f065555",
+      "revId": "fea2d22faf42bfe720d8b39658cf99bfa0605492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e3fa45f_a726e75e",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 7
