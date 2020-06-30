@@ -16,6 +16,24 @@
       "revId": "e2bc93c9fa9f8b59b2ed028af8c2043c29c1e506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df3090ea_c00a5b49",
+        "filename": "test/e2e/resources/elements/adornment.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-06-30T07:53:24Z",
+      "side": 1,
+      "message": "Not right now. We may want to do something different for `grid` vs. `inline-grid`, but now they act the same in regards to adornment.",
+      "parentUuid": "318b3cda_56a1a00b",
+      "revId": "e2bc93c9fa9f8b59b2ed028af8c2043c29c1e506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
