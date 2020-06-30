@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4f1b218_ebc80ad0",
+        "filename": "front_end/inspector_overlay/README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-06-30T09:30:54Z",
+      "side": 1,
+      "message": "nit: It\u0027d be nice to add a few words explaining *why* we do not want this approach to be used in DevTools itself.",
+      "revId": "abb9a2cf0b59b1ea35e552ad6f02f0ab86cb8a76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
