@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cbce2759_9f103409",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-30T07:20:36Z",
+      "side": 1,
+      "message": "There\u0027s some info on this page under the heading \u0027Using message meanings to disambiguate strings\u0027 - https://www.chromium.org/developers/design-documents/ui-localization\n\nIf you want the strings to be translated separately you could try adding a different meaning. I think having different descriptions and meanings should prevent our tooling from collapsing them into one entry in the shared grdp file - if not then we should fix that.",
+      "parentUuid": "c76e269f_9fdbc48a",
+      "range": {
+        "startLine": 394,
+        "startChar": 70,
+        "endLine": 394,
+        "endChar": 130
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19194bff_cab3d95e",
         "filename": "front_end/langpacks/shared_strings.grdp",
         "patchSetId": 4
