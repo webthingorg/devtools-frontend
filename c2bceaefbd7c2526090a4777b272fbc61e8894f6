@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a480dab4_095cbf0c",
+        "filename": "test/e2e/console/console-last-result_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-30T08:11:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04cd2aba_0dac073e",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd20519_32de1111",
         "filename": "test/e2e/console/console-last-result_test.ts",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35a64cbc_88bb3082",
+        "filename": "test/e2e/console/console-last-result_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-30T08:11:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbd20519_32de1111",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +154,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "b4077874_e7f45cad",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "c2bceaefbd7c2526090a4777b272fbc61e8894f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8f1d9e0_209ac4de",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-06-30T08:11:29Z",
+      "side": 1,
+      "message": "When you type \"$_\" into the console, the autocomplete does not disappear - it stays up until you manually close it.\n\nIt seems that the logic to wait for the autocomplete to close does not work as intended: the `!ac` check can cause it to continue before the autocomplete has even appeared. \n\nI believe that there are 3 different scenarios: (no autocomplete), (autocomplete shows up and then automatically closes again) and (autocomplete shows up and stays open). I did not manage to come up with a clever `waitFor()` which handles all 3 cases, but I think that double-Enter does.",
+      "parentUuid": "67f41d95_391c0d69",
       "range": {
         "startLine": 116,
         "startChar": 2,
