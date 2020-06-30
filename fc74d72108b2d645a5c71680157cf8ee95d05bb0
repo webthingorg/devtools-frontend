@@ -16,6 +16,24 @@
       "revId": "fc74d72108b2d645a5c71680157cf8ee95d05bb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da38c27_f9b46ede",
+        "filename": "front_end/elements/elementsTreeOutline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-06-30T14:30:42Z",
+      "side": 1,
+      "message": "Awesome, thanks Changhao!",
+      "parentUuid": "62b67d53_c0c6c124",
+      "revId": "fc74d72108b2d645a5c71680157cf8ee95d05bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
