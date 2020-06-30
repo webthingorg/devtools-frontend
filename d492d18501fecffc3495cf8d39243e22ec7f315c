@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "3e19e5ee_8e1de0a1",
+        "filename": "front_end/langpacks/shared_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-30T07:44:53Z",
+      "side": 1,
+      "message": "I am just writing some docs now on how to do this in our repo - I\u0027ll link them when I have them",
+      "parentUuid": "cbce2759_9f103409",
+      "range": {
+        "startLine": 394,
+        "startChar": 70,
+        "endLine": 394,
+        "endChar": 130
+      },
+      "revId": "d492d18501fecffc3495cf8d39243e22ec7f315c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19194bff_cab3d95e",
         "filename": "front_end/langpacks/shared_strings.grdp",
         "patchSetId": 4
