@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ece0faa8_639021f8",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-06-30T14:55:14Z",
+      "side": 0,
+      "message": "Oh I didn\u0027t realise this CL removed this part too. This is probably causing the current flakes so I\u0027m going to revert it, this won\u0027t work because we can still hit enter twice before the autocomplete appears",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "e7d0d2dc314502571a7bddffe70e78bc990c19fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
