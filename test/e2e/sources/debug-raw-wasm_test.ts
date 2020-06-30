@@ -7,7 +7,7 @@ import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
 import {$, click, getBrowserAndPages, goToResource, step, waitFor} from '../../shared/helper.js';
-import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, sourceLineNumberSelector, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, PAUSE_INDICATOR_SELECTOR, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, SCOPE_INSPECTOR_SELECTOR, sourceLineNumberSelector, threadSelector, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
 describe('Sources Tab', async () => {
   // Disabled to the Chromium binary -> DevTools roller working again.
@@ -117,6 +117,272 @@ describe('Sources Tab', async () => {
     // Line 3 is breakable.
     await addBreakpointForLine(frontend, 3);
     assert.deepEqual(await getBreakpointDecorators(frontend), [0x023]);
+  });
+
+  it('is able to step with state', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await step('navigate to a page and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile('stepping-with-state.wasm', 'wasm/stepping-with-state.html');
+    });
+
+    await step('add a breakpoint to line No.23', async () => {
+      await addBreakpointForLine(frontend, 23);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitFor(await sourceLineNumberSelector(23));
+    });
+
+    await checkBreakpointIsActive(23);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      // TODO(chromium:1043047): Switch to bytecode offsets here.
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x60');
+    });
+
+    await step('step two times through the code', async () => {
+      await frontend.keyboard.press('F9');
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await frontend.keyboard.press('F9');
+    });
+
+    await step('check that the labels in the scope view shows the correct values', async () => {
+      await waitFor(SCOPE_INSPECTOR_SELECTOR);
+      const labels_content = await (await $(SCOPE_INSPECTOR_SELECTOR)).evaluate(element => {
+        return element.innerText;
+      });
+
+      assert.deepEqual(
+          labels_content.split('\n').slice(2, 4), ['Local', '"": 42'], 'lables do not contain the correct contents');
+    });
+
+    await step('remove the breakpoint from the 23rd line', async () => {
+      await frontend.click(await sourceLineNumberSelector(23));
+    });
+
+    await step('add a breakpoint to line No.8', async () => {
+      await addBreakpointForLine(frontend, 8);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitFor(await sourceLineNumberSelector(8));
+    });
+
+    await checkBreakpointIsActive(8);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      // TODO(chromium:1043047): Switch to bytecode offsets here.
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x48');
+    });
+
+    await step('step two times through the code', async () => {
+      await frontend.keyboard.press('F9');
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await frontend.keyboard.press('F9');
+    });
+
+    await step('check that the labels in the scope view shows the correct values', async () => {
+      await waitFor(SCOPE_INSPECTOR_SELECTOR);
+      const labels_content = await (await $(SCOPE_INSPECTOR_SELECTOR)).evaluate(element => {
+        return element.innerText;
+      });
+
+      assert.deepEqual(
+          labels_content.split('\n').slice(2, 4), ['Local', '"": 50'], 'lables do not contain the correct contents');
+    });
+  });
+
+  it('is able to step with state in multi-threaded code', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await step('navigate to a page and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile('stepping-with-state.wasm', 'wasm/stepping-with-state-and-threads.html');
+    });
+
+    await step('check that the main thread is selected', async () => {
+      const threadClassList = await (await $(await threadSelector(1))).evaluate(element => {
+        return element.className.split(' ');
+      });
+      assert.deepInclude(threadClassList, 'selected', 'thread is not active');
+    });
+
+    await step('add a breakpoint to line No.23', async () => {
+      await addBreakpointForLine(frontend, 23);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitFor(await sourceLineNumberSelector(23));
+    });
+
+    await checkBreakpointIsActive(23);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      // TODO(chromium:1043047): Switch to bytecode offsets here.
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x60');
+    });
+
+    await step('step two times through the code', async () => {
+      await frontend.keyboard.press('F9');
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await frontend.keyboard.press('F9');
+    });
+
+    await step('check that the labels in the scope view shows the correct values', async () => {
+      await waitFor(SCOPE_INSPECTOR_SELECTOR);
+      const labels_content = await (await $(SCOPE_INSPECTOR_SELECTOR)).evaluate(element => {
+        return element.innerText;
+      });
+
+      assert.deepEqual(
+          labels_content.split('\n').slice(2, 4), ['Local', '"": 42'], 'lables do not contain the correct contents');
+    });
+
+    await step('remove the breakpoint from the 23rd line', async () => {
+      await frontend.click(await sourceLineNumberSelector(23));
+    });
+
+    await step('add a breakpoint to line No.8', async () => {
+      await addBreakpointForLine(frontend, 8);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitFor(await sourceLineNumberSelector(8));
+    });
+
+    await checkBreakpointIsActive(8);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      // TODO(chromium:1043047): Switch to bytecode offsets here.
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x48');
+    });
+
+    await step('step two times through the code', async () => {
+      await frontend.keyboard.press('F9');
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await frontend.keyboard.press('F9');
+    });
+
+    await step('check that the labels in the scope view shows the correct values', async () => {
+      await waitFor(SCOPE_INSPECTOR_SELECTOR);
+      const labels_content = await (await $(SCOPE_INSPECTOR_SELECTOR)).evaluate(element => {
+        return element.innerText;
+      });
+
+      assert.deepEqual(
+          labels_content.split('\n').slice(2, 4), ['Local', '"": 50'], 'lables do not contain the correct contents');
+    });
+
+    await step('remove the breakpoint from the 8th line', async () => {
+      await frontend.click(await sourceLineNumberSelector(8));
+    });
+
+    await step('resume script execution', async () => {
+      await frontend.keyboard.press('F8');
+    });
+
+    await step('add a breakpoint to line No.30', async () => {
+      await addBreakpointForLine(frontend, 30);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitFor(await sourceLineNumberSelector(30));
+    });
+
+    await checkBreakpointIsActive(30);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      // TODO(chromium:1043047): Switch to bytecode offsets here.
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x6d');
+    });
+
+    await step('step two times through the code', async () => {
+      await frontend.keyboard.press('F9');
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await frontend.keyboard.press('F9');
+    });
+
+    await step('check that the labels in the scope view shows the correct values', async () => {
+      await waitFor(SCOPE_INSPECTOR_SELECTOR);
+      const labels_content = await (await $(SCOPE_INSPECTOR_SELECTOR)).evaluate(element => {
+        return element.innerText;
+      });
+
+      assert.deepEqual(
+          labels_content.split('\n').slice(2, 4), ['Local', '"": 50'], 'lables do not contain the correct contents');
+    });
+
+    await step('remove the breakpoint from the 30th line', async () => {
+      await frontend.click(await sourceLineNumberSelector(30));
+    });
+
+    await step('add a breakpoint to line No.13', async () => {
+      await addBreakpointForLine(frontend, 13);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitFor(await sourceLineNumberSelector(13));
+    });
+
+    await checkBreakpointIsActive(13);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      // TODO(chromium:1043047): Switch to bytecode offsets here.
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x50');
+    });
+
+    await step('check that the worker thread is selected', async () => {
+      const threadClassList = await (await $(await threadSelector(2))).evaluate(element => {
+        return element.className.split(' ');
+      });
+      assert.deepInclude(threadClassList, 'selected', 'thread is not active');
+    });
+
+    await step('step two times through the code', async () => {
+      await frontend.keyboard.press('F9');
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await frontend.keyboard.press('F9');
+    });
+
+    await step('check that the labels in the scope view shows the correct values', async () => {
+      await waitFor(SCOPE_INSPECTOR_SELECTOR);
+      const labels_content = await (await $(SCOPE_INSPECTOR_SELECTOR)).evaluate(element => {
+        return element.innerText;
+      });
+
+      assert.deepEqual(
+          labels_content.split('\n').slice(2, 4), ['Local', '"": 42'], 'lables do not contain the correct contents');
+    });
   });
 });
 
