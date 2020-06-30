@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grit-part>
+  <message name="IDS_DEVTOOLS_b9115fc501f975441a03e2861d1da466" desc="Title for the developer resources tab">
+    Developer Resources
+  </message>
+</grit-part>
