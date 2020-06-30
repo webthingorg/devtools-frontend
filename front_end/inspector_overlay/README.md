@@ -5,9 +5,18 @@ Inspector Overlay provides JS/CSS modules which are responsible for rendering th
 ## How build works
 
 - Overlay modules are built using rollup and copied to $root_gen_dir.
+- CSS file are imported using a custom rollup plugin that transforms CSS into a CSSStyleSheet.
 - `inspector_overlay_resources.grd` file is copied as well and it defines how modules are packaged in a `.pak` file.
 - The Chromium build uses `inspector_overlay_resources.grd` and produces a `.pak` file.
 - `inspector_overlay_agent.cc` extracts the modules and inlines them onto the overlay page.
+
+## Inspector overlay constraints
+
+Inspector overlay resources are packaged into a single JS file, and, therefore, require all resources like CSS
+or images to be bundled into JS files. Unlike DevTools themselves, inspector overlay does not have an ability to
+handle dynamic number of resources because it does not have an embedded server. The backend references a particular
+bundle using a generated static resource ID. Therefore, inspector overlay is using a custom rollup plugin to bundle
+CSS and that approach should not be used in DevTools itself.
 
 ## Local Development
 
@@ -17,6 +26,7 @@ For example:
 
 - `python -m SimpleHTTPServer 8000`
 - Go to `http://localhost:8000/front_end/inspector_overlay/tool_highlight_debug.html`
+- Run `autoninja -C out/Default` to rebuild.
 
 In this mode, JS modules will be served without bundling.
 

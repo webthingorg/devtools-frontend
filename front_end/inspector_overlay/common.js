@@ -16,6 +16,10 @@ window.pageZoomFactor = 1;
 window.scrollX = 0;
 window.scrollY = 0;
 
+export function adoptStyleSheet(styleSheet) {
+  document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet];
+}
+
 export function reset(resetData) {
   window.viewportSize = resetData.viewportSize;
   window.deviceScaleFactor = resetData.deviceScaleFactor;
