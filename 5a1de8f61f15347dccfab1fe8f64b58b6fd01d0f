@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1553c8e3_ace253b4",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T20:20:32Z",
+      "side": 1,
+      "message": "nit: it might be worth storing this into a variable like\n  const url \u003d networkSourceCode.url();\n\nsince we need to access it 5 times in a row.",
+      "range": {
+        "startLine": 347,
+        "startChar": 8,
+        "endLine": 347,
+        "endChar": 31
+      },
+      "revId": "5a1de8f61f15347dccfab1fe8f64b58b6fd01d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee6d06a1_11ca1326",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T20:20:32Z",
+      "side": 1,
+      "message": "I\u0027m not exactly sure when this failure happens (I mean, in terms of user interaction, I get that it happens when the URI is malformed, but when does that happen for the DevTools user is what I\u0027m not clear on).\nThat said, it seems to me that this error message in the console is likely to feel quite cryptic to users. Either they see it, and they see it immediately after having done the action that triggered this error, in which case they have a chance of understanding the problem (but even then I\u0027d probably rephrase the error). Or they don\u0027t have the console open, or it\u0027s already got a lot of logs, and in that case this error is just adding to the noise and likely not to be read at all.\n\nSo, 1 question and 1 suggestion:\n- Do we really want an error message? And if so, is the console the best place for it?\n- If we do, can we find a slightly more user-friendly message. If this is related to the workspace, or local overrides features, maybe those words should appear in the sentence. \n\nHow about: `The attempt to bind ${url} in the workspace failed as this URI is malformed`.",
+      "range": {
+        "startLine": 353,
+        "startChar": 51,
+        "endLine": 353,
+        "endChar": 104
+      },
+      "revId": "5a1de8f61f15347dccfab1fe8f64b58b6fd01d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
