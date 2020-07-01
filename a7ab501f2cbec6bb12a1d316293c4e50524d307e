@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d76e23e2_c27d65c1",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-01T21:53:43Z",
+      "side": 1,
+      "message": "I think we should probably rename these -bundled in case we ever change the means by which they are bundled.",
+      "range": {
+        "startLine": 939,
+        "startChar": 31,
+        "endLine": 939,
+        "endChar": 37
+      },
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62c1dd09_f4ef3dff",
+        "filename": "scripts/build/build_release_applications.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-01T21:53:43Z",
+      "side": 1,
+      "message": "Can you file a bug for this so we track it?",
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "801b4132_ff423825",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-01T21:53:43Z",
+      "side": 1,
+      "message": "This also feels similar to the other short term hack, and so we should probably have the same TODO crbug against it.",
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
