@@ -479,7 +479,6 @@ devtools_module_entrypoints = [
   "extensions/extensions-legacy.js",
   "formatter/formatter.js",
   "formatter/formatter-legacy.js",
-  "formatter_worker/formatter_worker.js",
   "formatter_worker/formatter_worker-legacy.js",
   "har_importer/har_importer.js",
   "har_importer/har_importer-legacy.js",
