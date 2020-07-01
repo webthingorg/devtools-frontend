@@ -175,6 +175,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_6670d47e57b4fe982554519effc771c5" desc="Text in Indexed DBViews of the Application panel">
     Object stores
   </message>
+  <message name="IDS_DEVTOOLS_66921548312c20895e8fb1544d8895d8" desc="Text in Application Panel Sidebar of the Application panel">
+    Frame Tree
+  </message>
   <message name="IDS_DEVTOOLS_673eb027e9c056f57140322807351dd5" desc="Text in Application Panel Sidebar of the Application panel">
     unique
   </message>
