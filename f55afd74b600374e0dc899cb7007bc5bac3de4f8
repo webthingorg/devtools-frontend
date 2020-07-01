@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fb5b9b1c_84bbc1d0",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-01T09:00:55Z",
+      "side": 1,
+      "message": "sorry for that, I have fixed it in this CL https://crrev.com/c/2276261",
+      "parentUuid": "75850938_a662d923",
+      "revId": "f55afd74b600374e0dc899cb7007bc5bac3de4f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4894242d_19231ab5",
         "filename": "test/e2e/console/console-trim-long-traces_test.ts",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "f55afd74b600374e0dc899cb7007bc5bac3de4f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4792a147_0368de67",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-01T09:00:55Z",
+      "side": 1,
+      "message": "\u003e What is the rule for using steps?\n- Every action and assertion should be wrapped with a step\n\n\u003e I think here an assertion message would achieve the same result?\n- Yes, but the step function helps convey the user journey better. My suggestion would be to use the step function to say what we are checking for and use the assertion message if we want to provide more context for the assertion.\n\n\u003e Should all assertions be wrapped in a step?\n- Preferably yes, having a step wrapped around an assertion helps provide the intention of that assertion.",
+      "parentUuid": "4894242d_19231ab5",
+      "revId": "f55afd74b600374e0dc899cb7007bc5bac3de4f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
