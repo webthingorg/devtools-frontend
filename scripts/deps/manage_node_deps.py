@@ -33,6 +33,7 @@ LICENSES = [
 
 # List all DEPS here.
 DEPS = {
+    "@rollup/plugin-commonjs": "13.0.0",
     "@types/chai": "4.2.0",
     "@types/estree": "0.0.45",
     "@types/filesystem": "0.0.29",
@@ -68,7 +69,8 @@ DEPS = {
 
 def exec_command(cmd):
     try:
-        cmd_proc_result = subprocess.check_call(cmd, cwd=devtools_paths.root_path())
+        cmd_proc_result = subprocess.check_call(
+            cmd, cwd=devtools_paths.devtools_root_path(), shell=True)
     except Exception as error:
         print(error)
         return True
@@ -130,8 +132,21 @@ def install_missing_deps():
                 if not dep in existing_deps or not existing_deps[dep]['version'] == version:
                     new_deps.append("%s@%s" % (dep, version))
 
-            # Now install.
             if len(new_deps) > 0:
+                # clear node_modules
+                if sys.platform == "win32":
+                    clear_node = [
+                        'rmdir',
+                        devtools_paths.node_modules_path(), '/q', '/s'
+                    ]
+                else:
+                    clear_node = [
+                        'rm', '-f', '-r',
+                        devtools_paths.node_modules_path()
+                    ]
+                exec_command(clear_node)
+
+                # Now install to sync package.json and package-lock.json
                 cmd = ['npm', 'install', '--save-dev']
                 cmd.extend(new_deps)
                 return exec_command(cmd)
@@ -219,8 +234,9 @@ def run_npm_command(npm_command_args=None):
     if install_missing_deps():
         return True
 
-    # By default, run the CI version of npm, which prevents updates to the versions of modules.
-    if exec_command(['npm', 'ci']):
+    # The CI version reports npm ERR! EEXIST  on Windows,
+    # so use install instead (clean slate is guaranteed from previous step).
+    if exec_command(['npm', 'install']):
         return True
 
     if run_custom_command:
