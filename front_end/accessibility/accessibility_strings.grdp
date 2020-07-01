@@ -33,6 +33,9 @@
   <message name="IDS_DEVTOOLS_15fb40082ce66f64f2025f64cb49c170" desc="Tooltip text that appears when hovering over the 'Active descendant' attribute name under the Computed Properties section in the Accessibility pane of the Elements pane">
     The descendant of this element which is active; i.e. the element to which focus should be delegated.
   </message>
+  <message name="IDS_DEVTOOLS_1851d083179ace3f09bd00b94ab214f3" desc="Checkbox label in Source Order Viewer of the Accessibility panel">
+    Show source order
+  </message>
   <message name="IDS_DEVTOOLS_185551542d4a950d6ed4a90e0875dfde" desc="Text in Accessibility Node View of the Accessibility panel">
     Computed Properties
   </message>
@@ -146,6 +149,9 @@
   </message>
   <message name="IDS_DEVTOOLS_674d8a03d6bb22d48dff01565c2b10a3" desc="Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane">
     Owns
+  </message>
+  <message name="IDS_DEVTOOLS_6c5b089469937421fc668b7bfb3baac3" desc="Text in Source Order Viewer of the Accessibility panel">
+    Source Order Viewer
   </message>
   <message name="IDS_DEVTOOLS_73f3b04d99cdbbfb2045ad2285986d77" desc="Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane">
     Maximum value
@@ -311,6 +317,9 @@
   </message>
   <message name="IDS_DEVTOOLS_d98e6d7300cfa4e03c4ac9cf658449a7" desc="Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane">
     Live region root
+  </message>
+  <message name="IDS_DEVTOOLS_da3515fea3a12a462fa6ee67b8b4deb2" desc="Text in Source Order Viewer of the Accessibility panel">
+    No source order info
   </message>
   <message name="IDS_DEVTOOLS_dd3195ced9c1810388e28ca2b4eb921f" desc="Text in Accessibility Node View of the Accessibility panel">
     Not specified

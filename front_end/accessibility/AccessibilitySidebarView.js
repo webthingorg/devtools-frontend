@@ -10,6 +10,7 @@ import {AccessibilityModel, AccessibilityNode} from './AccessibilityModel.js';  
 import {AXNodeSubPane} from './AccessibilityNodeView.js';
 import {ARIAAttributesPane} from './ARIAAttributesView.js';
 import {AXBreadcrumbsPane} from './AXBreadcrumbsPane.js';
+import {SourceOrderPane} from './SourceOrderView.js';
 
 /**
  * @unrestricted
@@ -27,6 +28,10 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
     this._sidebarPaneStack.showView(this._ariaSubPane);
     this._axNodeSubPane = new AXNodeSubPane();
     this._sidebarPaneStack.showView(this._axNodeSubPane);
+    if (Root.Runtime.experiments.isEnabled('sourceOrderViewer')) {
+      this._sourceOrderSubPane = new SourceOrderPane();
+      this._sidebarPaneStack.showView(this._sourceOrderSubPane);
+    }
     this._sidebarPaneStack.widget().show(this.element);
     self.UI.context.addFlavorChangeListener(SDK.DOMModel.DOMNode, this._pullNode, this);
     this._pullNode();
@@ -90,6 +95,9 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
     this._axNodeSubPane.setNode(node);
     this._ariaSubPane.setNode(node);
     this._breadcrumbsSubPane.setNode(node);
+    if (Root.Runtime.experiments.isEnabled('sourceOrderViewer')) {
+      this._sourceOrderSubPane.setNode(node);
+    }
     if (!node) {
       return Promise.resolve();
     }
