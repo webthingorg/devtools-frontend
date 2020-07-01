@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f5f19a0_104ebdfd",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-01T15:29:37Z",
+      "side": 1,
+      "message": "should be !SDK.PageResourceLoader.PageResource ?",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "962f2b75_c7fd744f",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-01T15:29:37Z",
+      "side": 1,
+      "message": "At this width, the title of the column gets truncated for me so it says \u0027St...\u0027. Can you make it a bit wider by default?",
+      "range": {
+        "startLine": 25,
+        "startChar": 47,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df1693e3_6515de04",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-01T15:29:37Z",
+      "side": 1,
+      "message": "It takes a second to figure out if filterCallback returns true or false for \u0027should filter\u0027 vs. \u0027should display\u0027. Maybe renaming to \u0027shouldBeVisible\u0027 or something would make it clearer",
+      "range": {
+        "startLine": 70,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 30
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ba1cb50_8ff2f219",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-01T15:29:37Z",
+      "side": 1,
+      "message": "What about unit tests for the public api of this class like update, updateFilterAndHighlight and reset? Slightly tricky because the output is the manipulation of _dataGrid nodes.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 3
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
