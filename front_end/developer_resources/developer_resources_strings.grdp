@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grit-part>
+  <message name="IDS_DEVTOOLS_3318aa232f58e07247b8686d20795600" desc="Placeholder for a search field in a toolbar">
+    Enter text to search the URL and Error columns
+  </message>
+  <message name="IDS_DEVTOOLS_b9115fc501f975441a03e2861d1da466" desc="Title for the developer resources tab">
+    Developer Resources
+  </message>
+</grit-part>
