@@ -233,6 +233,30 @@
       "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35f16ec4_fd3e466b",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-01T09:15:16Z",
+      "side": 1,
+      "message": "I\u0027ll handle this in a separate CL https://crbug.com/1101244",
+      "parentUuid": "48e91e56_a5549cd6",
+      "range": {
+        "startLine": 908,
+        "startChar": 16,
+        "endLine": 908,
+        "endChar": 21
+      },
+      "revId": "5120e8f153cbf04cec5c7d1c87f3119b082b6e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
