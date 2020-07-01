@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26a2cf5a_634a9bd7",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-01T17:06:10Z",
+      "side": 1,
+      "message": "Just an FYI there are two changes on the same line.\n- devtools_root_path: is a path fix\n- shell fix: I was getting an error on npm without it, I\u0027m not a python expert but seems to be related to way the OS handles extensions.",
+      "range": {
+        "startLine": 72,
+        "startChar": 58,
+        "endLine": 72,
+        "endChar": 68
+      },
+      "revId": "854d203f7e701942ffae1a986a63db8d09933282",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
