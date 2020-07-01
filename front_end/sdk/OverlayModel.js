@@ -403,7 +403,9 @@ export class OverlayModel extends SDKModel {
       cellBorderDash: gridLinesDashed,
       showGridExtensionLines: showGridExtensionLines,
       showPositiveLineNumbers,
-      showNegativeLineNumbers
+      showNegativeLineNumbers,
+      showAreaNames: true,
+      areaBorderColor: Common.Color.PageHighlight.GridAreaBorder.toProtocolRGBA()
     };
   }
 
