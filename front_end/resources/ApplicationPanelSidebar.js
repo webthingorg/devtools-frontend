@@ -2161,6 +2161,20 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     const icon = UI.Icon.Icon.create('largeicon-navigator-frame', 'navigator-tree-item');
     icon.classList.add('navigator-frame-tree-item');
     this.setLeadingIcons([icon]);
+
+    this._deferredNode = null;
+    this.findDeferredNode();
+    const parentFrame = ResourcesSection._getParentFrame(this._frame);
+    this._overlayModel = parentFrame ? parentFrame.resourceTreeModel().domModel().overlayModel() : null;
+  }
+
+  async findDeferredNode() {
+    if (!this._frame.parentFrame && !this._frame.crossTargetParentFrame()) {
+      return;
+    }
+    const domModel = this._frame.crossTargetParentFrame() ? this._frame.resourceTreeModel().domModel().parentModel() :
+                                                            this._frame.resourceTreeModel().domModel();
+    this._deferredNode = domModel ? await domModel.getOwnerNodeForFrame(this._frame.id) : null;
   }
 
   /**
@@ -2192,13 +2206,20 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     return false;
   }
 
+  /**
+   * @param {boolean} hovered
+   */
   set hovered(hovered) {
     if (hovered) {
       this.listItemElement.classList.add('hovered');
-      this._frame.resourceTreeModel().domModel().overlayModel().highlightFrame(this._frameId);
+      if (this._overlayModel && this._deferredNode) {
+        this._overlayModel.highlightInOverlay({deferredNode: this._deferredNode}, 'all', true);
+      }
     } else {
       this.listItemElement.classList.remove('hovered');
-      SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+      if (this._overlayModel) {
+        this._overlayModel.clearHighlight();
+      }
     }
   }
 
@@ -2288,7 +2309,7 @@ export class FrameTreeElement extends BaseStorageTreeElement {
 
   /**
    * @override
-   * @returns {!Promise}
+   * @return {!Promise<void>}
    */
   async onpopulate() {
     this._populated = true;
