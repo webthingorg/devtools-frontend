@@ -276,6 +276,18 @@ export class OverlayModel extends SDKModel {
   }
 
   /**
+   * @param {!HighlightData} data
+   */
+  highlightSourceOrderInOverlay(data) {
+    if (this._hideHighlightTimeout) {
+      clearTimeout(this._hideHighlightTimeout);
+      this._hideHighlightTimeout = null;
+    }
+    const sourceOrderConfig = {outlineColor: Common.Color.PageHighlight.SourceOrderOutline.toProtocolRGBA()};
+    this._highlighter.highlightSourceOrderInOverlay(data, sourceOrderConfig);
+  }
+
+  /**
    * @param {number} delay
    */
   _delayedHideHighlight(delay) {
@@ -564,6 +576,25 @@ class DefaultHighlighter {
     const objectId = object ? object.objectId : undefined;
     if (nodeId || backendNodeId || objectId) {
       this._model._overlayAgent.highlightNode(config, nodeId, backendNodeId, objectId, selectorList);
+    } else {
+      this._model._overlayAgent.hideHighlight();
+    }
+  }
+
+  /**
+   * @override
+   * @param {!HighlightData} data
+   * @param {!Protocol.Overlay.SourceOrderConfig} sourceOrderConfig
+   */
+  highlightSourceOrderInOverlay(data, sourceOrderConfig) {
+    const {node, deferredNode, object} = data;
+    const nodeId = node ? node.id : undefined;
+    const backendNodeId = deferredNode ? deferredNode.backendNodeId() : undefined;
+    const objectId = object ? object.objectId : undefined;
+    if (nodeId || backendNodeId || objectId) {
+      // This is where the CDP call would be sent to highlight the selected node
+      // but the method is not checked into master yet, so it will throw an error
+      this._model._overlayAgent.highlightSourceOrder(sourceOrderConfig, nodeId, backendNodeId, objectId);
     } else {
       this._model._overlayAgent.hideHighlight();
     }

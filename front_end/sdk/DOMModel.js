@@ -970,6 +970,10 @@ export class DOMNode {
     this._domModel.overlayModel().highlightInOverlayForTwoSeconds({node: this});
   }
 
+  highlightSourceOrder() {
+    this._domModel.overlayModel().highlightSourceOrderInOverlay({node: this});
+  }
+
   /**
    * @param {string=} objectGroup
    * @return {!Promise<?RemoteObject>}
