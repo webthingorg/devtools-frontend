@@ -103,11 +103,25 @@ export class ParsedURL {
   }
 
   /**
+   * @param {string} filename
+   * @return {string}
+   */
+  static _encodeFileURIComponent(filename) {
+    // Don't encode colons in file: or Windows drive letters
+    if (filename.endsWith(':')) {
+      return encodeURIComponent(filename.substr(0, filename.length - 1)) + ':';
+    }
+    return encodeURIComponent(filename);
+  }
+
+  /**
    * @param {string} fileSystemPath
    * @return {string}
    */
   static platformPathToURL(fileSystemPath) {
     fileSystemPath = fileSystemPath.replace(/\\/g, '/');
+    fileSystemPath = fileSystemPath.split('/').map(this._encodeFileURIComponent).join('/');
+    // Undo encoding of
     if (!fileSystemPath.startsWith('file://')) {
       if (fileSystemPath.startsWith('/')) {
         fileSystemPath = 'file://' + fileSystemPath;
@@ -125,6 +139,7 @@ export class ParsedURL {
    */
   static urlToPlatformPath(fileURL, isWindows) {
     console.assert(fileURL.startsWith('file://'), 'This must be a file URL.');
+    fileURL = fileURL.split('/').map(decodeURIComponent).join('/');
     if (isWindows) {
       return fileURL.substr('file:///'.length).replace(/\//g, '\\');
     }
