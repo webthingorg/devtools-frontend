@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8b07eca_dcb85ccf",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T14:00:53Z",
+      "side": 1,
+      "message": "Note that assertNotNull is a convenient way to let typescript know that el cannot be null later.",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 15
+      },
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
