@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09df1b98_9d0b1af2",
+        "filename": "test/e2e/sources/console-filter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T08:33:28Z",
+      "side": 1,
+      "message": "I realized that I don\u0027t need the index anymore (leftover). Updated in the latest patch.",
+      "revId": "bd9bb3e0da9a3147695957563013c26fc790e492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
