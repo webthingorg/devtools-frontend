@@ -5,6 +5,8 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import {AreaBounds, Bounds} from './tool_highlight_impl.js';  // eslint-disable-line no-unused-vars
+
 /**
  * There are 12 different types of arrows for labels.
  *
@@ -54,9 +56,6 @@ const gridLabelDistance = 20;
 /** @typedef {!{contentTop: number, contentLeft: number}} */
 let GridLabelPositions;  // eslint-disable-line no-unused-vars
 
-/** @typedef {!{minX: number, maxX: number, minY: number, maxY: number, width?: number, height?: number}} */
-let Bounds;  // eslint-disable-line no-unused-vars
-
 /** @typedef {!{offsets: number[], hasFirst: boolean, hasLast: boolean}} */
 let OffsetData;  // eslint-disable-line no-unused-vars
 
@@ -67,7 +66,30 @@ let TracksOffsetData;  // eslint-disable-line no-unused-vars
 let GridOffsetNormalizedData;  // eslint-disable-line no-unused-vars
 
 /** @typedef {!{positiveRowLineNumberOffsets?: number[], negativeRowLineNumberOffsets?: number[], positiveColumnLineNumberOffsets?: number[], negativeColumnLineNumberOffsets?: number[]}} */
-let GridOffsetConfig;  // eslint-disable-line no-unused-vars
+let GridHighlightConfig;  // eslint-disable-line no-unused-vars
+
+/**
+ * Places all of the required grid labels on the overlay. This includes row and
+ * column line number labels, and area labels.
+ *
+ * @param {GridHighlightConfig} config The grid highlight configuration.
+ * @param {Bounds} gridBounds The grid container bounds.
+ * @param {AreaBounds[]} areaBounds The list of named grid areas with their bounds.
+ */
+export function drawGridLabels(config, gridBounds, areaBounds) {
+  // Clear out the main label container and create child elements for the various labels.
+  const labelContainer = document.getElementById('grid-label-container');
+  labelContainer.removeChildren();
+
+  const lineNumberContainer = labelContainer.createChild('div', 'line-numbers');
+  const areaNameContainer = labelContainer.createChild('div', 'area-names');
+
+  // Draw line numbers.
+  drawGridNumbers(lineNumberContainer, config, gridBounds);
+
+  // Draw area names.
+  drawGridAreaNames(areaNameContainer, areaBounds);
+}
 
 /**
  * This is a generator function used to iterate over grid line offsets in a way
@@ -104,7 +126,7 @@ function* offsetIterator(offsets) {
  *   offsets (on high-dpi monitors floats are passed by the backend, this means
  *   checking if an offset is at either edges of the container can't be done).
  *
- * @param {GridOffsetConfig} config The highlight config object from the backend
+ * @param {GridHighlightConfig} config The highlight config object from the backend
  * @param {Bounds} bounds The bounds of the grid container
  * @return {GridOffsetNormalizedData} The new, normalized, data object
  */
@@ -169,46 +191,58 @@ export function _normalizeOffsetData(config, bounds) {
 
 /**
  * Places the grid row and column labels on the overlay.
- * Currently only positive labels are supported.
  *
- * @param {GridOffsetConfig} config
+ * @param {Element} container
+ * @param {GridHighlightConfig} config
  * @param {Bounds} bounds
  */
-export function drawGridNumbers(config, bounds) {
+export function drawGridNumbers(container, config, bounds) {
   const data = _normalizeOffsetData(config, bounds);
 
-  const labelContainer = document.getElementById('grid-label-container');
-  labelContainer.removeChildren();
-
   for (const [i, offset] of offsetIterator(data.columns.positive.offsets)) {
-    const element = _createLabelElement(labelContainer, i + 1);
+    const element = _createLabelElement(container, i + 1);
     _placePositiveColumnLabel(element, offset, data);
   }
 
   for (const [i, offset] of offsetIterator(data.rows.positive.offsets)) {
-    const element = _createLabelElement(labelContainer, i + 1);
+    const element = _createLabelElement(container, i + 1);
     _placePositiveRowLabel(element, offset, data);
   }
 
   for (const [i, offset] of offsetIterator(data.columns.negative.offsets)) {
     // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
-    const element = _createLabelElement(labelContainer, data.columns.negative.offsets.length * -1 + i);
+    const element = _createLabelElement(container, data.columns.negative.offsets.length * -1 + i);
     _placeNegativeColumnLabel(element, offset, data);
   }
 
   for (const [i, offset] of offsetIterator(data.rows.negative.offsets)) {
     // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
-    const element = _createLabelElement(labelContainer, data.rows.negative.offsets.length * -1 + i);
+    const element = _createLabelElement(container, data.rows.negative.offsets.length * -1 + i);
     _placeNegativeRowLabel(element, offset, data);
+  }
+}
+
+/**
+ * Places the grid area name labels on the overlay.
+ *
+ * @param {Element} container
+ * @param {AreaBounds[]} areaBounds
+ */
+export function drawGridAreaNames(container, areaBounds) {
+  for (const {name, bounds} of areaBounds) {
+    const element = _createLabelElement(container, name);
+
+    element.style.left = bounds.minX + 'px';
+    element.style.top = bounds.minY + 'px';
   }
 }
 
 /**
  * Create the necessary DOM for a single label element.
  *
- * @param {HTMLElement} container The DOM element where to append the label
+ * @param {Element} container The DOM element where to append the label
  * @param {string} textContent The text to display in the label
- * @return {HTMLElement} The new label element
+ * @return {Element} The new label element
  */
 function _createLabelElement(container, textContent) {
   const wrapper = container.createChild('div');
@@ -220,7 +254,7 @@ function _createLabelElement(container, textContent) {
 /**
  * Determine the position of a positive row label, and place it.
  *
- * @param {HTMLElement} element The label DOM element
+ * @param {Element} element The label DOM element
  * @param {number} offset The corresponding grid line offset
  * @param {GridOffsetNormalizedData} data The normalized offset data
  */
@@ -251,7 +285,7 @@ function _placePositiveRowLabel(element, offset, data) {
 /**
  * Determine the position of a negative row label, and place it.
  *
- * @param {HTMLElement} element The label DOM element
+ * @param {Element} element The label DOM element
  * @param {number} offset The corresponding grid line offset
  * @param {GridOffsetNormalizedData} data The normalized offset data
  */
@@ -282,7 +316,7 @@ function _placeNegativeRowLabel(element, offset, data) {
 /**
  * Determine the position of a positive column label, and place it.
  *
- * @param {HTMLElement} element The label DOM element
+ * @param {Element} element The label DOM element
  * @param {number} offset The corresponding grid line offset
  * @param {GridOffsetNormalizedData} data The normalized offset data
  */
@@ -313,7 +347,7 @@ function _placePositiveColumnLabel(element, offset, data) {
 /**
  * Determine the position of a negative column label, and place it.
  *
- * @param {HTMLElement} element The label DOM element
+ * @param {Element} element The label DOM element
  * @param {number} offset The corresponding grid line offset
  * @param {GridOffsetNormalizedData} data The normalized offset data
  */
@@ -348,7 +382,7 @@ function _placeNegativeColumnLabel(element, offset, data) {
  * relative to the label are taken into account here to calculate the final x
  * and y coordinates of the label DOM element.
  *
- * @param {HTMLElement} element The label element
+ * @param {Element} element The label element
  * @param {string} arrowType One of GridArrowTypes' values
  * @param {number} x Where to place the label on the x axis
  * @param {number} y Where to place the label on the y axis
@@ -367,7 +401,7 @@ function _placeLabel(element, arrowType, x, y) {
  * Forces the width of the provided grid label element to be an even
  * number of pixels to allow centered placement of the arrow
  *
- * @param {HTMLElement} element
+ * @param {Element} element
  * @return {number} The width of the element
  */
 function _getAdjustedLabelWidth(element) {
