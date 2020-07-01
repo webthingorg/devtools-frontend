@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "505faaf0_5ca1e587",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-07-01T10:49:00Z",
+      "side": 1,
+      "message": "I agree. For now it has a similar audience as the Protocol Monitor.",
+      "parentUuid": "7a97be15_cabf9531",
+      "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa56195a_218f9380",
         "filename": "front_end/developer_resources/DeveloperResourcesView.js",
         "patchSetId": 5
