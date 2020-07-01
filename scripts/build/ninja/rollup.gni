@@ -28,6 +28,8 @@ template("rollup_entrypoint") {
                                "deps",
                              ])
 
+      inputs = [ invoker.entrypoint ]
+
       # Figure out what the relative path is to the front_end folder.
       # We have to get the full path to the target_gen_dir
       # and compare that to the full location of the front_end
