@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "9150cac9_f71bd6ec",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-01T14:08:04Z",
+      "side": 1,
+      "message": "does it compile with rollup? I think it\u0027s circular dependency",
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "000b8637_ec494513",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-01T14:08:04Z",
+      "side": 1,
+      "message": "Should it be on by default like the rest of the settings?",
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8b07eca_dcb85ccf",
         "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
         "patchSetId": 5
