@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6ee2621_6386b0c6",
+        "filename": "buckets/ci.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-01T12:58:05Z",
+      "side": 1,
+      "message": "nit: I\u0027m a big fan of short names that reduce the look of boiler plate. \nHow about s/notifiers/on_failure and then:\n\u0027close\u0027 and \u0027notify\u0027?",
+      "range": {
+        "startLine": 20,
+        "startChar": 20,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "73e056af9cf66f7ad5c75bb07965e022b6b09529",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
