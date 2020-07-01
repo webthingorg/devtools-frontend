@@ -1607,6 +1607,8 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerCommand(
       'Overlay.setShowFPSCounter', [{'name': 'show', 'type': 'boolean', 'optional': false}], []);
   inspectorBackend.registerCommand(
+      'Overlay.setShowGridOverlays', [{'name': 'gridNodeHighlightConfigs', 'type': 'object', 'optional': false}], []);
+  inspectorBackend.registerCommand(
       'Overlay.setShowPaintRects', [{'name': 'result', 'type': 'boolean', 'optional': false}], []);
   inspectorBackend.registerCommand(
       'Overlay.setShowLayoutShiftRegions', [{'name': 'result', 'type': 'boolean', 'optional': false}], []);

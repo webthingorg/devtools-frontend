@@ -1830,6 +1830,10 @@ export namespace ProtocolMapping {
      */
     'Overlay.setShowFPSCounter': {paramsType: [Protocol.Overlay.SetShowFPSCounterRequest]; returnType: void;};
     /**
+     * Highlight multiple elements with the CSS Grid overlay.
+     */
+    'Overlay.setShowGridOverlays': {paramsType: [Protocol.Overlay.SetShowGridOverlaysRequest]; returnType: void;};
+    /**
      * Requests that backend shows paint rectangles
      */
     'Overlay.setShowPaintRects': {paramsType: [Protocol.Overlay.SetShowPaintRectsRequest]; returnType: void;};
