@@ -678,6 +678,25 @@ export class NetworkRequestNode extends NetworkNode {
   }
 
   /**
+   * @param {!NetworkNode} a
+   * @param {!Network.NetworkNode} b
+   * @return {number}
+   */
+  static RequestURLComparator(a, b) {
+    const aRequest = a.requestOrFirstKnownChildRequest();
+    const bRequest = b.requestOrFirstKnownChildRequest();
+    if (!aRequest || !bRequest) {
+      return !aRequest ? -1 : 1;
+    }
+    const aURL = aRequest.url();
+    const bURL = bRequest.url();
+    if (aURL === bURL) {
+      return aRequest.indentityCompare(bRequest);
+    }
+    return aURL > bURL ? 1 : -1;
+  }
+
+  /**
    * @param {string} propertyName
    * @param {!NetworkNode} a
    * @param {!Network.NetworkNode} b
