@@ -87,6 +87,10 @@ function checkAllDevToolsFiles() {
 }
 
 function checkAllDevToolsModules() {
+  const allDevToolsModulesPath = path.resolve(__dirname, '..', 'all_devtools_modules.gni');
+  const allDevToolsModulesFile = fs.readFileSync(allDevToolsModulesPath, 'utf-8');
+  const allDevToolsModulesLines = allDevToolsModulesFile.split('\n');
+
   return checkGNVariable(
       'all_devtools_modules',
       (moduleJSON, folderName) => {
@@ -97,7 +101,8 @@ function checkAllDevToolsModules() {
       buildGNPath => filename => {
         const relativePath = path.normalize(`${buildGNPath}/${filename}`);
         return `"${relativePath}",`;
-      });
+      },
+      allDevToolsModulesLines);
 }
 
 function checkDevtoolsModuleEntrypoints() {
@@ -114,10 +119,10 @@ function checkDevtoolsModuleEntrypoints() {
       });
 }
 
-function checkGNVariable(gnVariable, obtainFiles, obtainRelativePath) {
+function checkGNVariable(gnVariable, obtainFiles, obtainRelativePath, linesToCheck = gnLines) {
   const errors = [];
   const excludedFiles = ['axe.js', 'formatter_worker/', 'third_party/lighthouse/'].map(path.normalize);
-  const lines = selectGNLines(`${gnVariable} = [`, ']').map(path.normalize);
+  const lines = selectGNLines(`${gnVariable} = [`, ']', linesToCheck).map(path.normalize);
   if (!lines.length) {
     return [
       `Could not identify ${gnVariable} list in gn file`,
@@ -168,8 +173,8 @@ function checkGNVariable(gnVariable, obtainFiles, obtainRelativePath) {
   return errors;
 }
 
-function selectGNLines(startLine, endLine) {
-  const lines = gnLines.map(line => line.trim());
+function selectGNLines(startLine, endLine, linesToCheck = gnLines) {
+  const lines = linesToCheck.map(line => line.trim());
   const startIndex = lines.indexOf(startLine);
   if (startIndex === -1) {
     return [];
