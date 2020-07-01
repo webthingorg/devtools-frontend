@@ -105,7 +105,8 @@ function checkDevtoolsModuleEntrypoints() {
       'devtools_module_entrypoints',
       (moduleJSON, folderName) => {
         return (moduleJSON.modules || []).filter(fileName => {
-          return fileName === `${folderName}.js` || fileName === `${folderName}-legacy.js`;
+          return (folderName !== 'elements' && fileName === `${folderName}.js`) ||
+              fileName === `${folderName}-legacy.js`;
         });
       },
       buildGNPath => filename => {
