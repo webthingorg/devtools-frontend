@@ -212,7 +212,7 @@ class ReleaseBuilder(object):
                              legacyFileName))))
 
         # Temporary hack, as we use `devtools_entrypoint` for this module now
-        if module_name == 'formatter_worker':
+        if module_name in ['formatter_worker', 'elements']:
             return
 
         js_entrypoint = join(self.application_dir, module_name, module_name + '.js')
