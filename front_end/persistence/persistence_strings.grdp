@@ -57,6 +57,9 @@
   <message name="IDS_DEVTOOLS_cf703cce77386955bfbff86f6ad9be03" desc="Text in Isolated File System Manager of the Workspace settings in Settings">
     Unable to add filesystem: <ph name="ERRORMESSAGE">$1s<ex>folder does not exist</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_cfdaf148d7b105f4b9a29ae6de8ea257" desc="Error message when attempting to create a binding from a malformed URI.">
+    The attempt to bind <ph name="URL">$1s<ex>file://%E0%A4%A</ex></ph> in the workspace failed as this URI is malformed.
+  </message>
   <message name="IDS_DEVTOOLS_da0b472ac86851a3c0b623260d09546c" desc="A title of the 'Persistence' setting category">
     Persistence
   </message>
