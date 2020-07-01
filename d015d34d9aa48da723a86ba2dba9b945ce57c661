@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9613d56e_d3afccbc",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T15:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c902c8db_ea54ff9f",
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4eb9b6e3_4e3cc358",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 5
@@ -57,6 +75,30 @@
       "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f459ee02_689ce208",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T15:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eb9b6e3_4e3cc358",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 71
+      },
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -83,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "59407132_7b70caa6",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T15:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dd80f5b_22ff69f4",
+      "range": {
+        "startLine": 390,
+        "startChar": 10,
+        "endLine": 390,
+        "endChar": 20
+      },
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc914bb7_356c77c4",
         "filename": "front_end/inspector_overlay/tool_highlight_grid_debug.html",
         "patchSetId": 5
@@ -94,6 +160,30 @@
       "writtenOn": "2020-07-01T14:41:22Z",
       "side": 1,
       "message": "nit: perhaps it might be worth breaking all these test cases into separate html files and adding then under a new folder called grid_test_pages (or something like that). But I\u0027m on the fence about that one. It\u0027s the difference between commenting/uncommenting to test vs navigating to a different page to test",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 146,
+        "endChar": 32
+      },
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ea95133_4aab9688",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_debug.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T15:04:16Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m also getting to the point where I want different test pages.\nIt\u0027s been nice to have some common JS code to generate those grids, because that avoided having to repeat a bunch of things. But now, the page is getting pretty busy, and commenting grid entries out isn\u0027t the easiest thing in the world.\nI\u0027ll do a follow-up CL for this one if that\u0027s ok.",
+      "parentUuid": "fc914bb7_356c77c4",
       "range": {
         "startLine": 129,
         "startChar": 7,
@@ -126,6 +216,30 @@
       "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a71f8c14_1f39e102",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T15:04:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "23137bd6_bbd15145",
+      "range": {
+        "startLine": 438,
+        "startChar": 21,
+        "endLine": 438,
+        "endChar": 94
+      },
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -164,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "4c3df89f_d52066e3",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T15:04:16Z",
+      "side": 1,
+      "message": "My original thought was to not have it on by default because of what Brandon said. We know we want it for sure for the persistent grid mode. But we pretty much are certain that it\u0027s too much information for the on-hover mode. Worth noting that it\u0027s easy for line number labels and area labels to overlap, so I would avoid having everything on by default, even in the experiment.\nIt\u0027s relatively rare to be using both line number positioning *and* area positioning at the same time within the same grid, so working on avoiding this overlap now would probably lead to some unnecessary work.\nI\u0027ll ask Peter and Rachel on Slack now anyway.",
+      "parentUuid": "12cfe622_203e2b89",
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8b07eca_dcb85ccf",
         "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
         "patchSetId": 5
@@ -184,6 +316,30 @@
       "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbbe3fea_b464a84d",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-01T15:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8b07eca_dcb85ccf",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 15
+      },
+      "revId": "d015d34d9aa48da723a86ba2dba9b945ce57c661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
