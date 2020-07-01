@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e457754_4f2fe0fa",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-01T22:29:34Z",
+      "side": 1,
+      "message": "just a heads up, I think these are likely going to be refactored into a common helper js file, since they are duplicated here and grid is doing the same thing. No need to change right now, but I\u0027ll let you know if the refactor lands and you can update your import",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 1
+      },
+      "revId": "bd318ed039381db6175d8f4980e29c1d7222916b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28cf375e_9c17315d",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-01T22:29:34Z",
+      "side": 1,
+      "message": "general comment for this function: instead of accessing the styles and modifying through JS, consider just adding a class to signify the \"type\" of label (on top vs in vs under). each of the classes would take care of the different border radius settings so you don\u0027t have to have them all here.\n\nthat way the JS really only calculates the \"type\" of label and the position. Take a look at the css_grid_label_helpers.js file for examples",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 53
+      },
+      "revId": "bd318ed039381db6175d8f4980e29c1d7222916b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "241a159d_2a44bbaf",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-01T22:29:34Z",
+      "side": 1,
+      "message": "what happens when we are near the bottom of the screen and try to put the label under the element?",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 89
+      },
+      "revId": "bd318ed039381db6175d8f4980e29c1d7222916b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
