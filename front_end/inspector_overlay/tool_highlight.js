@@ -436,4 +436,5 @@ window.reset = function(data) {
   doReset(data);
 };
 window.drawHighlight = drawHighlight;
+window.drawGridHighlight = drawGridHighlight;
 window.dispatch = dispatch;
