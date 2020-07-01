@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90c49703_51c8c261",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-01T14:45:30Z",
+      "side": 1,
+      "message": "Maybe I\u0027m misreading this, but doesn\u0027t that make the \u0027slow\u0027 faster than the standard timeout of 5000ms?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 18
+      },
+      "revId": "18e936d6a4f324a5da4f590afcbf58c8a51fabbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
