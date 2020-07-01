@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89948abc_17c4f25d",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 2291,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-01T11:22:38Z",
+      "side": 0,
+      "message": "Why did you remove this? Do we have a policy of not repeating the types on override?",
+      "range": {
+        "startLine": 2291,
+        "startChar": 2,
+        "endLine": 2291,
+        "endChar": 24
+      },
+      "revId": "dd96be658c1b5f15d65a82bf7b838dbc600616b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

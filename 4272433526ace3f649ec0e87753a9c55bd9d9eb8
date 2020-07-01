@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b77500fa_3f26ecaf",
+        "filename": "front_end/browser_sdk/FrameManager.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-01T11:22:38Z",
+      "side": 1,
+      "message": "Do you expect this to be performance critical? I\u0027m OK with the current implementation, but couldn\u0027t you have iterated the values in the map to get the main frames?",
+      "range": {
+        "startLine": 175,
+        "startChar": 2,
+        "endLine": 175,
+        "endChar": 15
+      },
+      "revId": "4272433526ace3f649ec0e87753a9c55bd9d9eb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48c9cde9_197f8714",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 1726,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-01T11:22:38Z",
+      "side": 1,
+      "message": "We already have getOwnerNodeForFrame, can you change that to do what you need? (wrt. parentModel).",
+      "range": {
+        "startLine": 1724,
+        "startChar": 1,
+        "endLine": 1726,
+        "endChar": 3
+      },
+      "revId": "4272433526ace3f649ec0e87753a9c55bd9d9eb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
