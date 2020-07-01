@@ -1,0 +1,446 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "137c9d48_471e6288",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Why do we need the index-1 change?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0988b50b_1c8fc3e2",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e85de7cc_bda640c4",
+        "filename": "test/e2e/resources/sources/wasm/stepping-with-state.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Can we directly use WebAssembly.compileStreaming here, instead of including the main script? This is not your change, but thinking about including the test here, it\u0027s probably better to keep the number of files to a minimum. WDYT?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ad7f40d_f2b9c41c",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "This is a leftover from a previous change (no need to add it here)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20d38f5a_c1b6bcd2",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Can we wait for the pause indicator here too?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "220d030f_2c42fc4e",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "In the can-show-wasm-scopes_test we have the \"getValuesForScope\", which uses the aria label; you could extract that to sources-helpers.ts and use that, then you also do not need to split and slice.",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd814d5_94e062a8",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here (no Todo necessary)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b04c9afb_ec368ec2",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here (waiting on pause)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24b517ce_47959deb",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here (scope values)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66f02216_4d9adba0",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Can we resume here?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0a3b11c_15dbf3a7",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "What does threadClassList return exactly? Do we check here that the other thread has not been selected?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f13ce0d_b8a4968a",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here (Todo)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ff5e35a_db880a66",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here (wait)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9ae9d47_37f58c16",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here(scope)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "575d8223_a6c30613",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (todo)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fec17397_994b4b68",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Can we check here whether we hit the main thread again?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "404d2312_54a2d4c7",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (wait)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80c59d4b_164e8f91",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Same here (scope)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bdf054b_7b96afd9",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (todo)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ed03852_5039dd70",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Can we check here if we have hit the worker thread? As in 364.",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0829f7b4_d93d239f",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (step)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d77e4ef7_a4a262eb",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (scope)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1214511d_a6cc8c54",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (todo)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02548901_db97c4e9",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (wait)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9072c82_261ac8ac",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "same here (scope)",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef88aeb_e70dd95e",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-01T13:58:42Z",
+      "side": 1,
+      "message": "Can we resume here?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
