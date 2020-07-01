@@ -1946,6 +1946,22 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (display === 'grid' || display === 'inline-grid') {
       const gridAdorner = this.adornText('grid', AdornerCategories.Layout);
       gridAdorner.classList.add('grid');
+      let isGridAdornerOn = false;
+      const onClick = /** @type {!EventListener} */ (() => {
+        isGridAdornerOn = !isGridAdornerOn;
+        if (isGridAdornerOn) {
+          // TODO: update API to use persistent overlay in Grid Tooling V2
+          node.domModel().overlayModel().highlightGridInOverlay(node);
+        } else {
+          node.domModel().overlayModel().hideGridInOverlay(node);
+        }
+      });
+      gridAdorner.addInteraction(onClick, {
+        isToggle: true,
+        shouldPropagateOnKeydown: false,
+        ariaLabelDefault: ls`Enable grid mode`,
+        ariaLabelActive: ls`Disable grid mode`,
+      });
       // TODO(changhaohan): enable interactivity once persistent overlay is implemented
     }
   }

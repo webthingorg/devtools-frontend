@@ -5410,6 +5410,11 @@ experimental domain Overlay
       # True for showing the FPS counter
       boolean show
 
+  # Highlight multiple elements with the CSS Grid overlay.
+  command setShowGridOverlays
+    parameters
+      # An array of node identifiers and descriptors for the highlight appearance.
+      array of GridNodeHighlightConfig gridNodeHighlightConfigs
   # Requests that backend shows paint rectangles
   command setShowPaintRects
     parameters
@@ -5439,6 +5444,14 @@ experimental domain Overlay
     parameters
       # Whether to paint size or not.
       boolean show
+
+  # Configurations for Persistent Grid Highlight
+  type GridNodeHighlightConfig extends object
+    properties
+      # A descriptor for the highlight appearance.
+      GridHighlightConfig gridHighlightConfig
+      # Identifier of the node to highlight.
+      DOM.NodeId nodeId
 
   # Add a dual screen device hinge
   command setShowHinge

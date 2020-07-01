@@ -7942,6 +7942,20 @@ declare namespace Protocol {
       None = 'none',
     }
 
+    /**
+     * Configurations for Persistent Grid Highlight
+     */
+    export interface GridNodeHighlightConfig {
+      /**
+       * A descriptor for the highlight appearance.
+       */
+      gridHighlightConfig: GridHighlightConfig;
+      /**
+       * Identifier of the node to highlight.
+       */
+      nodeId: DOM.NodeId;
+    }
+
     export interface GetHighlightObjectForTestRequest {
       /**
        * Id of the node to get highlight object for.
@@ -8090,6 +8104,13 @@ declare namespace Protocol {
        * True for showing the FPS counter
        */
       show: boolean;
+    }
+
+    export interface SetShowGridOverlaysRequest {
+      /**
+       * An array of node identifiers and descriptors for the highlight appearance.
+       */
+      gridNodeHighlightConfigs: GridNodeHighlightConfig[];
     }
 
     export interface SetShowPaintRectsRequest {
