@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7a97be15_cabf9531",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-01T08:08:21Z",
+      "side": 1,
+      "message": "Happy to consider it at some point. For now I think an extra tab is the right choice. We don\u0027t know exactly how useful this will be, and the Network and Application tabs are already pretty crowded.\n\nIf we want to un-experiment this, we can have a discussion of where it should go. WDYT?",
+      "parentUuid": "681152b1_d1889ccc",
+      "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa56195a_218f9380",
         "filename": "front_end/developer_resources/DeveloperResourcesView.js",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "74e3280a_3354aa17",
+        "filename": "front_end/developer_resources/DeveloperResourcesView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-01T08:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa56195a_218f9380",
+      "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77ba408e_137aa2a6",
         "filename": "front_end/developer_resources/DeveloperResourcesView.js",
         "patchSetId": 5
@@ -50,6 +86,24 @@
       "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51c1340e_205737ca",
+        "filename": "front_end/developer_resources/DeveloperResourcesView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-01T08:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77ba408e_137aa2a6",
+      "revId": "e40b99a70c6380e195f984b27242b443eb6502c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
