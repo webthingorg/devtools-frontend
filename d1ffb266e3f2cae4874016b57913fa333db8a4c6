@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8c0219e7_30c0fb05",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-02T09:47:02Z",
+      "side": 1,
+      "message": "Yeah sounds good to me. Seems like a \u0027easy\u0027 target in that its static, but definitely some build considerations there. Thanks!",
+      "parentUuid": "368ac6b4_4cd67612",
+      "range": {
+        "startLine": 685,
+        "startChar": 9,
+        "endLine": 685,
+        "endChar": 29
+      },
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b8e0620_9f29d39d",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 1
