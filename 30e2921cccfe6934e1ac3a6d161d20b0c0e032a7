@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "699df6a5_101b4c74",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-02T08:25:18Z",
+      "side": 1,
+      "message": "Can we use getOwnerDOMNode on ResourceTreeFrame here (and include the cross target frame fix there?)",
+      "range": {
+        "startLine": 2172,
+        "startChar": 0,
+        "endLine": 2177,
+        "endChar": 95
+      },
+      "revId": "30e2921cccfe6934e1ac3a6d161d20b0c0e032a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c1ba18e_62351e72",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2216,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-02T08:25:18Z",
+      "side": 1,
+      "message": "Can we use ResourceTreeFrame.highlight here? (Which possibly needs the cross target parent frame fix?)",
+      "range": {
+        "startLine": 2216,
+        "startChar": 7,
+        "endLine": 2216,
+        "endChar": 95
+      },
+      "revId": "30e2921cccfe6934e1ac3a6d161d20b0c0e032a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
