@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4f469286_035c35a6",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-02T10:43:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfbb4307_53ab12bd",
+      "range": {
+        "startLine": 939,
+        "startChar": 31,
+        "endLine": 939,
+        "endChar": 37
+      },
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5698101f_30dd2c38",
         "filename": "front_end/elements/BUILD.gn",
         "patchSetId": 2
@@ -69,6 +93,30 @@
       "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4e23313_71b3141c",
+        "filename": "front_end/elements/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-02T10:43:38Z",
+      "side": 1,
+      "message": "Yes, but that would have hidden all errors in VS Code. Since these errors have been useful in pointing out issues, I have received numerous CLs that fix issues solely based on the VS Code squiggly lines. Therefore, I think adding `// @ts-nocheck` should only be done if we run TS on it within a short amount of time after introducing the comment.",
+      "parentUuid": "5698101f_30dd2c38",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "4bc84144_afe34616",
+        "filename": "front_end/elements/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-02T10:43:38Z",
+      "side": 1,
+      "message": "Over time the other BUILD.gn files will follow the same pattern, so then it will become more consistent. I will update the slidedeck on the buildsystem once that is finished to make it reflect the new situation.",
+      "parentUuid": "e228f44b_41833b20",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62c1dd09_f4ef3dff",
         "filename": "scripts/build/build_release_applications.py",
         "patchSetId": 2
@@ -112,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "1a2cbae2_ec02bfd7",
+        "filename": "scripts/build/build_release_applications.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-02T10:43:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62c1dd09_f4ef3dff",
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "801b4132_ff423825",
         "filename": "scripts/check_gn.js",
         "patchSetId": 2
@@ -126,6 +216,24 @@
       "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e5e96f_e7fdc913",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-02T10:43:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "801b4132_ff423825",
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
