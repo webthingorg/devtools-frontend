@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55811041_80ae08bf",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-02T10:15:07Z",
+      "side": 1,
+      "message": "We should remain using `npm ci`, as the `package-lock.json` is the source-of-truth. The `npm install` command will update the `package-lock.json` content, which is not what we want. (This is for example useful when we are running other commands such as `npm run install-deps -- audit fix`.\n\nWhat version of NPM are you using? I would have thought that NPM would have fixed this in their implementation.",
+      "range": {
+        "startLine": 239,
+        "startChar": 29,
+        "endLine": 239,
+        "endChar": 36
+      },
+      "revId": "b7cdf7e56d2cccacd09942f06107b3dfec14b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
