@@ -307,6 +307,24 @@
       "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3f8fdca_61675bbe",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-02T12:13:11Z",
+      "side": 1,
+      "message": "You can cache the collator instance and re-use it. .localeCompare implicitly creates a new collator every time it\u0027s used. The same goes for other Intl.* APIs compared to their SomeJSBuiltin.prototype.* alternatives (e.g. toLocaleString).",
+      "parentUuid": "b0df9c78_1a1cea76",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
