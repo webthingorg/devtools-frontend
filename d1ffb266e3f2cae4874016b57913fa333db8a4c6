@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "3060642a_1ded7f26",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-02T07:50:11Z",
+      "side": 1,
+      "message": "can remove this part of the type?",
+      "range": {
+        "startLine": 682,
+        "startChar": 14,
+        "endLine": 682,
+        "endChar": 22
+      },
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27957bcf_f73d39b0",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-02T07:50:11Z",
+      "side": 1,
+      "message": "Is it straightforward to add unit tests for this, including for complex cases like Alex mentions?",
+      "range": {
+        "startLine": 685,
+        "startChar": 9,
+        "endLine": 685,
+        "endChar": 29
+      },
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "852aaee3_c73c4830",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 1
