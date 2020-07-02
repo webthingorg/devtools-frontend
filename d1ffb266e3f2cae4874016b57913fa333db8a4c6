@@ -253,6 +253,24 @@
       "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da920b2_871c7ec6",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-02T11:04:02Z",
+      "side": 1,
+      "message": "Since the DevTools UI is still in English for now, I\u0027m inclined to leave it as \u0027en\u0027 so it\u0027s at least internally consistent. We can tackle it as part of the l10n work. But Peter is the expert here: Peter, WDYT?\n\nBtw, have we confirmed that we actually need non-ASCII-safe comparison? If url() behaves like the native URL constructor, it normalizes, and then this is not a problem.",
+      "parentUuid": "0f1f0362_bcb0873f",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
