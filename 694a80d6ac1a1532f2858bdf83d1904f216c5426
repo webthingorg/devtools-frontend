@@ -22,6 +22,30 @@
       "revId": "694a80d6ac1a1532f2858bdf83d1904f216c5426",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9bf351a_ea86e243",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-02T13:44:31Z",
+      "side": 1,
+      "message": "I believe this issue has appeared quite a few times. AFAIK, unfortunately, python subprocess calls do not properly work on windows when attempting to call executables unless the full path is provided (script.exe, script.bat) or this param is true.",
+      "parentUuid": "a1e85678_1f35201b",
+      "range": {
+        "startLine": 72,
+        "startChar": 58,
+        "endLine": 72,
+        "endChar": 68
+      },
+      "revId": "694a80d6ac1a1532f2858bdf83d1904f216c5426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
