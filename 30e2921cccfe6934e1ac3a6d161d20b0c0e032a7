@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e51a54e7_878dd29d",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-02T15:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "699df6a5_101b4c74",
+      "range": {
+        "startLine": 2172,
+        "startChar": 0,
+        "endLine": 2177,
+        "endChar": 95
+      },
+      "revId": "30e2921cccfe6934e1ac3a6d161d20b0c0e032a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1ba18e_62351e72",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "30e2921cccfe6934e1ac3a6d161d20b0c0e032a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16f7023d_d0a0a468",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2216,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-02T15:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c1ba18e_62351e72",
+      "range": {
+        "startLine": 2216,
+        "startChar": 7,
+        "endLine": 2216,
+        "endChar": 95
+      },
+      "revId": "30e2921cccfe6934e1ac3a6d161d20b0c0e032a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
