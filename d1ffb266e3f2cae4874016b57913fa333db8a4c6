@@ -325,6 +325,24 @@
       "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1563f81b_71e8be9b",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-02T12:16:22Z",
+      "side": 1,
+      "message": "I have verified that `.url()` returns encoded URL. E.g., `http://ko.wikipedia.org/wiki/위키백과:대문` becomes `http://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8C%80%EB%AC%B8` in DevTools.",
+      "parentUuid": "b3f8fdca_61675bbe",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
