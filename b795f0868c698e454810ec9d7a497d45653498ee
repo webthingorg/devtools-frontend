@@ -187,6 +187,30 @@
       "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81310dcf_89cdfe06",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-02T11:55:04Z",
+      "side": 1,
+      "message": "In that case maybe leave a TODO mentioning this code is copied from CoverageListView? This functionality is really nice and I can see it being used in other places too. Eventually it would be a component I guess",
+      "parentUuid": "bb78bd36_4d41d57e",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 3
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
