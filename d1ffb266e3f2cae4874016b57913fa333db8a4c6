@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "852aaee3_c73c4830",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-02T05:53:33Z",
+      "side": 1,
+      "message": "Is it possible that we get non ASCII characters in the URL? `\u0027Österreich\u0027 \u003e \u0027Zealand\u0027` would be incorrectly sorted in this case.",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
