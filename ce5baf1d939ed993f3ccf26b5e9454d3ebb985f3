@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "72b76db6_7d0780df",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-02T01:27:15Z",
+      "side": 1,
+      "message": "After we talked about this today, I think using the DOM.requestChildNodes method would make the most sense, especially if it wont have a large perf overhead",
+      "parentUuid": "9cd2ea05_d40e1455",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 88
+      },
+      "revId": "ce5baf1d939ed993f3ccf26b5e9454d3ebb985f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f8456d8_ce24d991",
         "filename": "front_end/common/Color.js",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "0f3e2111_43e6b397",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-02T01:27:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "358b1b8c_e78cb9b5",
+      "range": {
+        "startLine": 585,
+        "startChar": 4,
+        "endLine": 585,
+        "endChar": 14
+      },
+      "revId": "ce5baf1d939ed993f3ccf26b5e9454d3ebb985f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0cf98a8_31f1914f",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 2
@@ -82,6 +130,30 @@
       "writtenOn": "2020-07-01T22:41:52Z",
       "side": 1,
       "message": "So, rather than add this method onto the highlighter class, I think we should consider adding a separate \"SourceOrderHighlighter\" class and adding it as a member of the overlayModel. I think right now the highlighter really is meant to only handle things that do NodeHighlighting(?). You can take a look at this really rough WIP Cl for a similar thing that grid might do: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2278528\n\nGranted, we might change our minds and put everything back on the highlighter class, depends on how things go 😊",
+      "range": {
+        "startLine": 589,
+        "startChar": 2,
+        "endLine": 595,
+        "endChar": 27
+      },
+      "revId": "ce5baf1d939ed993f3ccf26b5e9454d3ebb985f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f850603_2c6045d3",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-02T01:27:15Z",
+      "side": 1,
+      "message": "I\u0027ll look into this!",
+      "parentUuid": "f0cf98a8_31f1914f",
       "range": {
         "startLine": 589,
         "startChar": 2,
@@ -114,6 +186,30 @@
       "revId": "ce5baf1d939ed993f3ccf26b5e9454d3ebb985f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98e56352_15456123",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-02T01:27:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc208010_a51f217b",
+      "range": {
+        "startLine": 596,
+        "startChar": 7,
+        "endLine": 596,
+        "endChar": 81
+      },
+      "revId": "ce5baf1d939ed993f3ccf26b5e9454d3ebb985f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
