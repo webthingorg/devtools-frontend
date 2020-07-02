@@ -271,6 +271,24 @@
       "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1096e851_bb317d81",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-02T11:43:03Z",
+      "side": 1,
+      "message": "The user\u0027s locale might not match the language the urls themselves are written in so it\u0027s kind of tricky. I think just going with \u0027en\u0027 makes sense in that case.",
+      "parentUuid": "8da920b2_871c7ec6",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
