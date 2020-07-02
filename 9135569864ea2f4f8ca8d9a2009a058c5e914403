@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ab16c48_f485e6f6",
+        "filename": "test/e2e/sources/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-02T10:25:46Z",
+      "side": 1,
+      "message": "Oops, yes of course!",
+      "parentUuid": "61f210a4_8ba770e5",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "9135569864ea2f4f8ca8d9a2009a058c5e914403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c77f7c4f_37abb682",
         "filename": "test/e2e/sources/console-filter_test.ts",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "9135569864ea2f4f8ca8d9a2009a058c5e914403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2b67f33_75e33791",
+        "filename": "test/e2e/sources/console-filter_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-02T10:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c77f7c4f_37abb682",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 83
+      },
+      "revId": "9135569864ea2f4f8ca8d9a2009a058c5e914403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d9f1e957_eec21170",
+        "filename": "test/e2e/sources/console-filter_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-02T10:25:46Z",
+      "side": 1,
+      "message": "As discussed on VC, I have added the name of the filter in the step description.",
+      "parentUuid": "66a0a137_92790818",
+      "range": {
+        "startLine": 144,
+        "startChar": 18,
+        "endLine": 144,
+        "endChar": 31
+      },
+      "revId": "9135569864ea2f4f8ca8d9a2009a058c5e914403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5de80aa0_a858d06e",
         "filename": "test/e2e/sources/console-filter_test.ts",
         "patchSetId": 6
@@ -91,6 +163,30 @@
       "revId": "9135569864ea2f4f8ca8d9a2009a058c5e914403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca679ba1_8d385150",
+        "filename": "test/e2e/sources/console-filter_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-02T10:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5de80aa0_a858d06e",
+      "range": {
+        "startLine": 175,
+        "startChar": 6,
+        "endLine": 175,
+        "endChar": 47
+      },
+      "revId": "9135569864ea2f4f8ca8d9a2009a058c5e914403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
