@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37a9a0e7_ff06ff22",
+        "filename": "front_end/third_party/lit-html/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-02T13:09:52Z",
+      "side": 1,
+      "message": "nit, but I don\u0027t love that the file name doesn\u0027t match up to the name of the thing you invoke. I find that quite a useful guide to know where each thing is coming from. \n\nI don\u0027t think it\u0027s a huge deal, but wanted to mention it. I\u0027ll defer to your judgement on if that\u0027s worth dealing with or not though.",
+      "range": {
+        "startLine": 5,
+        "startChar": 31,
+        "endLine": 5,
+        "endChar": 36
+      },
+      "revId": "46e984850e977399f00b2a5e0986a590d671e597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
