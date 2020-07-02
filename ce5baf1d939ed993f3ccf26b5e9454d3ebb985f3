@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "52939c2c_00e500e8",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-02T01:38:45Z",
+      "side": 1,
+      "message": "That would make sense, goes along with the theme of making sure that this tool and the NodeHighlight stuff only interact when necessary!",
+      "parentUuid": "6f8456d8_ce24d991",
+      "range": {
+        "startLine": 845,
+        "startChar": 1,
+        "endLine": 845,
+        "endChar": 54
+      },
+      "revId": "ce5baf1d939ed993f3ccf26b5e9454d3ebb985f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "358b1b8c_e78cb9b5",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 2
