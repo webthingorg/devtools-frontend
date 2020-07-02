@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e472ab20_6200fa11",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-02T09:08:44Z",
+      "side": 1,
+      "message": "No problem. I also removed all the other extra `Network` ones from other comparators. I don\u0027t know why it\u0027s written like that in the first place. Removing them does not seem to cause any unhappiness from Closure. Thanks for catching this.",
+      "parentUuid": "3060642a_1ded7f26",
+      "range": {
+        "startLine": 682,
+        "startChar": 14,
+        "endLine": 682,
+        "endChar": 22
+      },
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27957bcf_f73d39b0",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "368ac6b4_4cd67612",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-02T09:08:44Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it\u0027s possible, considering that:\n1. it imports something from `bindings`, and I remember files with `bindings` import cannot be unit-tested (I will check with A\u0026T on this);\n2. it inherits from DataGridNode, and that\u0027s not TS-ified.\n\nI think it\u0027s worth some unit tests, and since these comparators are static anyway, I think we can abstract them out to be properly tested. I\u0027ll file a ticket and do them separately because it requires some shuffling of existing chunks of code that\u0027s not part of this problem. WDYT?",
+      "parentUuid": "27957bcf_f73d39b0",
+      "range": {
+        "startLine": 685,
+        "startChar": 9,
+        "endLine": 685,
+        "endChar": 29
+      },
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "852aaee3_c73c4830",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2020-07-02T05:53:33Z",
       "side": 1,
       "message": "Is it possible that we get non ASCII characters in the URL? `\u0027Österreich\u0027 \u003e \u0027Zealand\u0027` would be incorrectly sorted in this case.",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6612666_d3c4f60f",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-02T09:08:44Z",
+      "side": 1,
+      "message": "I changed the comparison to `localeCompare`. Should solve this now. Thanks for catching this!",
+      "parentUuid": "852aaee3_c73c4830",
       "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
