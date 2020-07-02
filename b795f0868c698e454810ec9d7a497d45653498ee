@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3d92816d_98c144f7",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-02T11:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f5f19a0_104ebdfd",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "962f2b75_c7fd744f",
         "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "877871aa_750faca6",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-02T11:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "962f2b75_c7fd744f",
+      "range": {
+        "startLine": 25,
+        "startChar": 47,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "92576064_22477405",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-02T11:49:28Z",
+      "side": 1,
+      "message": "Renamed to isVisibleFilter so it conveys that true means visible.",
+      "parentUuid": "df1693e3_6515de04",
+      "range": {
+        "startLine": 70,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 30
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ba1cb50_8ff2f219",
         "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2020-07-01T15:29:37Z",
       "side": 1,
       "message": "What about unit tests for the public api of this class like update, updateFilterAndHighlight and reset? Slightly tricky because the output is the manipulation of _dataGrid nodes.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 3
+      },
+      "revId": "b795f0868c698e454810ec9d7a497d45653498ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb78bd36_4d41d57e",
+        "filename": "front_end/developer_resources/DeveloperResourcesListView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-02T11:49:28Z",
+      "side": 1,
+      "message": "This code is taken from CoverageListView, so it is not new code.\n\nAdditionally, we want to replace data grid eventually, so I am not sure whether writing unittest for this particular part of the code base is the best time investment at the moment.\n\nWhat do you think?",
+      "parentUuid": "0ba1cb50_8ff2f219",
       "range": {
         "startLine": 88,
         "startChar": 2,
