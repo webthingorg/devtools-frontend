@@ -900,18 +900,28 @@ export class ResourceTreeFrame {
   }
 
   /**
-   * @returns {!Promise<?DeferredDOMNode>}
+   * @returns {?Promise<?DeferredDOMNode>}
    */
   getOwnerDOMNode() {
-    return this.resourceTreeModel().domModel().getOwnerNodeForFrame(this.id);
+    const parentFrame = this.parentFrame || this.crossTargetParentFrame();
+    if (!parentFrame) {
+      return null;
+    }
+    return parentFrame.resourceTreeModel().domModel().getOwnerNodeForFrame(this._id);
   }
 
-
   /**
-   * @returns {void}
+   * @returns {!Promise<void>}
    */
-  highlight() {
-    this.resourceTreeModel().domModel().overlayModel().highlightFrame(this.id);
+  async highlight() {
+    const parentFrame = this.parentFrame || this.crossTargetParentFrame();
+    if (parentFrame) {
+      const domModel = parentFrame.resourceTreeModel().domModel();
+      const deferredNode = await domModel.getOwnerNodeForFrame(this._id);
+      if (deferredNode) {
+        domModel.overlayModel().highlightInOverlay({deferredNode}, 'all', true);
+      }
+    }
   }
 }
 
