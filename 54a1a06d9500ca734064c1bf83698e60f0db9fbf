@@ -87,6 +87,24 @@
     },
     {
       "key": {
+        "uuid": "cd96bca2_a65b381b",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-02T04:42:44Z",
+      "side": 1,
+      "message": "I\u0027m currently writing a test that uses step too. I think this would be a good helper function (step + wait). WDYT?",
+      "parentUuid": "20d38f5a_c1b6bcd2",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "220d030f_2c42fc4e",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
