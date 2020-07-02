@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "874f5fce_5bd9275c",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-02T09:49:08Z",
+      "side": 1,
+      "message": "Let me do that. Good catch!",
+      "parentUuid": "3b8e0620_9f29d39d",
+      "range": {
+        "startLine": 694,
+        "startChar": 22,
+        "endLine": 694,
+        "endChar": 38
+      },
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "852aaee3_c73c4830",
         "filename": "front_end/network/NetworkDataGridNode.js",
         "patchSetId": 1
@@ -190,6 +214,24 @@
       "side": 1,
       "message": "Let\u0027s confirm if `.url()` can return non-ASCII characters (if it\u0027s like the native URL constructor, it might normalize, and then this is not a problem). If it can indeed return such characters, we could use `new Intl.Collator(\u0027en\u0027).compare(aURL, bURL)`.",
       "parentUuid": "852aaee3_c73c4830",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50f52963_967ac420",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-02T09:49:08Z",
+      "side": 1,
+      "message": "`Intl.Collator` does have the benefit of performance. I think I will change localeCompare to that. But do we want to set locale to \"en\", i.e. `new Intl.Collator(\u0027en\u0027)`?",
+      "parentUuid": "0e4f4f1e_8e3036e2",
       "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
