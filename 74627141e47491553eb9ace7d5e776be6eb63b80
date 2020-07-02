@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90b60d3c_bc4ec88e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-02T14:31:16Z",
+      "side": 1,
+      "message": "We recently changed all (?) instances of -theme-preserve with .-theme-preserve so that this shouldn\u0027t be necessary. Do we still need this?",
+      "revId": "74627141e47491553eb9ace7d5e776be6eb63b80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
