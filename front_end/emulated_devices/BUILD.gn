@@ -1,0 +1,123 @@
+import("../../scripts/build/ninja/vars.gni")
+
+group("emulated_devices") {
+  public_deps = [
+    ":copy",
+    ":minify",
+  ]
+}
+
+action("minify") {
+  script = "//third_party/node/node.py"
+
+  inputs = [ rebase_path(devtools_location_prepend +
+                             "scripts/build/image_processing/minify.js",
+                         root_build_dir) ]
+
+  sources = [
+    "google-nexus-5-horizontal-default-1x.png",
+    "google-nexus-5-horizontal-default-2x.png",
+    "google-nexus-5-horizontal-keyboard-1x.png",
+    "google-nexus-5-horizontal-keyboard-2x.png",
+    "google-nexus-5-horizontal-navigation-1x.png",
+    "google-nexus-5-horizontal-navigation-2x.png",
+    "google-nexus-5-vertical-default-1x.png",
+    "google-nexus-5-vertical-default-2x.png",
+    "google-nexus-5-vertical-keyboard-1x.png",
+    "google-nexus-5-vertical-keyboard-2x.png",
+    "google-nexus-5-vertical-navigation-1x.png",
+    "google-nexus-5-vertical-navigation-2x.png",
+    "google-nexus-5x-horizontal-default-1x.png",
+    "google-nexus-5x-horizontal-default-2x.png",
+    "google-nexus-5x-horizontal-keyboard-1x.png",
+    "google-nexus-5x-horizontal-keyboard-2x.png",
+    "google-nexus-5x-horizontal-navigation-1x.png",
+    "google-nexus-5x-horizontal-navigation-2x.png",
+    "google-nexus-5x-vertical-default-1x.png",
+    "google-nexus-5x-vertical-default-2x.png",
+    "google-nexus-5x-vertical-keyboard-1x.png",
+    "google-nexus-5x-vertical-keyboard-2x.png",
+    "google-nexus-5x-vertical-navigation-1x.png",
+    "google-nexus-5x-vertical-navigation-2x.png",
+  ]
+
+  args = [
+           "--output",
+           rebase_path(devtools_location_prepend +
+                           "scripts/build/image_processing/minify.js",
+                       root_build_dir),
+           rebase_path(resources_out_dir + "/emulated_devices", root_build_dir),
+         ] + rebase_path(sources, root_build_dir)
+
+  outputs = [
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-horizontal-default-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-horizontal-default-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-horizontal-keyboard-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-horizontal-keyboard-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-horizontal-navigation-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-horizontal-navigation-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-vertical-default-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-vertical-default-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-vertical-keyboard-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-vertical-keyboard-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-vertical-navigation-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5-vertical-navigation-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-horizontal-default-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-horizontal-default-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-horizontal-keyboard-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-horizontal-keyboard-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-horizontal-navigation-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-horizontal-navigation-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-vertical-default-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-vertical-default-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-vertical-keyboard-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-vertical-keyboard-2x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-vertical-navigation-1x.png",
+    resources_out_dir +
+        "/emulated_devices/google-nexus-5x-vertical-navigation-2x.png",
+  ]
+}
+
+copy("copy") {
+  sources = [
+    "MotoG4-landscape.svg",
+    "MotoG4-portrait.svg",
+    "Nexus5X-landscape.svg",
+    "Nexus5X-portrait.svg",
+    "Nexus6P-landscape.svg",
+    "Nexus6P-portrait.svg",
+    "iPad-landscape.svg",
+    "iPad-portrait.svg",
+    "iPhone5-landscape.svg",
+    "iPhone5-portrait.svg",
+    "iPhone6-landscape.svg",
+    "iPhone6-portrait.svg",
+    "iPhone6Plus-landscape.svg",
+    "iPhone6Plus-portrait.svg",
+  ]
+
+  outputs = [ "$resources_out_dir/emulated_devices/{{source_file_part}}" ]
+}

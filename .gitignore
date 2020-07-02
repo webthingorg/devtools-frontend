@@ -31,6 +31,7 @@ npm-debug.log
 !/third_party/i18n
 !/third_party/pyjson5
 !/third_party/typescript
+!/third_party/squoosh
 
 test/e2e/**/*.js
 !test/e2e/resources/**/*.js

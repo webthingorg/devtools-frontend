@@ -912,11 +912,9 @@ foreach(module, devtools_module_entrypoints) {
   generated_devtools_module_entrypoints += [ "$resources_out_dir/$module" ]
 }
 
-front_end_emulated_devices_images = []
 generated_emulated_device_images = []
 
 foreach(image, devtools_emulated_devices_images) {
-  front_end_emulated_devices_images += [ "front_end/$image" ]
   generated_emulated_device_images += [ "$resources_out_dir/$image" ]
 }
 
@@ -933,7 +931,6 @@ group("devtools_all_files") {
 devtools_frontend_resources_deps = [
   ":build_release_devtools",
   ":copy_embedder_scripts",
-  ":copy_emulated_devices_images",
   ":copy_inspector_images",
   ":copy_lighthouse_locale_files",
   ":copy_wasm_deps",
@@ -982,11 +979,6 @@ copy("copy_embedder_scripts") {
 copy("copy_inspector_images") {
   sources = devtools_image_files
   outputs = [ "$resources_out_dir/Images/{{source_file_part}}" ]
-}
-
-copy("copy_emulated_devices_images") {
-  sources = front_end_emulated_devices_images
-  outputs = [ "$resources_out_dir/emulated_devices/{{source_file_part}}" ]
 }
 
 copy("copy_lighthouse_locale_files") {
