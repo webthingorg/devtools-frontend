@@ -14,3 +14,6 @@ To update this package, run the following command (replace version number with u
 ```bash
 wget -qO- https://registry.npmjs.org/lit-html/-/lit-html-1.1.2.tgz | tar xzf -
 ```
+
+Local Modifications:
+- Add lit-html_types.js for Closure typechecking.
