@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4e7d550_994eb19a",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-02T13:51:14Z",
+      "side": 1,
+      "message": "nit, should we start separating out the highlight colors that are for V2 and leave page highlight for the standard highlighting tools? (I\u0027m fine either way)",
+      "range": {
+        "startLine": 845,
+        "startChar": 1,
+        "endLine": 845,
+        "endChar": 52
+      },
+      "revId": "c35cb0411a577c4ad40114165c293f81fd7abffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "009d056a_9afb8071",
+        "filename": "front_end/inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-02T13:51:14Z",
+      "side": 1,
+      "message": "nit: extra line above",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "c35cb0411a577c4ad40114165c293f81fd7abffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
