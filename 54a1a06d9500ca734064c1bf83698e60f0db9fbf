@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "40a76ce0_8891b769",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "this was done to select the correct position of the line. the selector selects extra elements that are not code lines.",
+      "parentUuid": "137c9d48_471e6288",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0988b50b_1c8fc3e2",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4625a58_5d666f40",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "same as above",
+      "parentUuid": "0988b50b_1c8fc3e2",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,42 @@
     },
     {
       "key": {
+        "uuid": "0edb26b8_5b9b4c3e",
+        "filename": "test/e2e/resources/sources/wasm/stepping-with-state.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85de7cc_bda640c4",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e292c6_06832d95",
+        "filename": "test/e2e/resources/sources/wasm/stepping-with-state.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85de7cc_bda640c4",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ad7f40d_f2b9c41c",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -67,6 +139,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7f22b3d_8e644173",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "0ad7f40d_f2b9c41c",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "ccf09de9_51037c2c",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "sure, done",
+      "parentUuid": "20d38f5a_c1b6bcd2",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "220d030f_2c42fc4e",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -119,6 +227,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "302af6f8_4fe7d17b",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "220d030f_2c42fc4e",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "f51af522_cc7b0379",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cd814d5_94e062a8",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b04c9afb_ec368ec2",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -153,6 +297,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0639bd50_3ec6f665",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b04c9afb_ec368ec2",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -173,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "47960ee2_7ee8d853",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24b517ce_47959deb",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66f02216_4d9adba0",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -184,6 +364,24 @@
       "writtenOn": "2020-07-01T13:58:42Z",
       "side": 1,
       "message": "Can we resume here?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e163f7c3_8b70b064",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "what do you want to assert after resuming? I have checked that the code did not pause afterwards but please let me know if I need to check for anything else",
+      "parentUuid": "66f02216_4d9adba0",
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -207,6 +405,24 @@
     },
     {
       "key": {
+        "uuid": "95bd66d4_c09e9106",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "it returns the classes of the thread, and the assertion makes sure that one of those classes is \u0027selected\u0027 indicating that it is selected.\ninstead of that i will return the selected thread and check its name.",
+      "parentUuid": "e0a3b11c_15dbf3a7",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f13ce0d_b8a4968a",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -221,6 +437,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd7bafae_8568c639",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f13ce0d_b8a4968a",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -241,6 +475,24 @@
     },
     {
       "key": {
+        "uuid": "6853fe18_691aee9c",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ff5e35a_db880a66",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ae9d47_37f58c16",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -255,6 +507,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "250336a4_fe3c560c",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ae9d47_37f58c16",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -275,6 +545,24 @@
     },
     {
       "key": {
+        "uuid": "5141d9a7_513feddd",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "575d8223_a6c30613",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fec17397_994b4b68",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -289,6 +577,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbde3bf4_1969e986",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fec17397_994b4b68",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -309,6 +615,24 @@
     },
     {
       "key": {
+        "uuid": "bdb97658_37416785",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "404d2312_54a2d4c7",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80c59d4b_164e8f91",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -323,6 +647,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af1c9e64_ad60cbc9",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80c59d4b_164e8f91",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -343,6 +685,24 @@
     },
     {
       "key": {
+        "uuid": "6828e74f_1aa04aa3",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bdf054b_7b96afd9",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ed03852_5039dd70",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -357,6 +717,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b304977_920bf838",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ed03852_5039dd70",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -377,6 +755,24 @@
     },
     {
       "key": {
+        "uuid": "becf38ff_a42b099d",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0829f7b4_d93d239f",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d77e4ef7_a4a262eb",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -391,6 +787,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea1813e2_deb00dbe",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d77e4ef7_a4a262eb",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -411,6 +825,24 @@
     },
     {
       "key": {
+        "uuid": "29d1fafc_8c93548d",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1214511d_a6cc8c54",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02548901_db97c4e9",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -425,6 +857,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "875987be_35a4d93a",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02548901_db97c4e9",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -445,6 +895,24 @@
     },
     {
       "key": {
+        "uuid": "f1fa5836_4fce8551",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9072c82_261ac8ac",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aef88aeb_e70dd95e",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 2
@@ -456,6 +924,24 @@
       "writtenOn": "2020-07-01T13:58:42Z",
       "side": 1,
       "message": "Can we resume here?",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6eae9c8_1f4a1d43",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-02T16:04:35Z",
+      "side": 1,
+      "message": "what do you want to assert after resuming? I have checked that the code did not pause afterwards but please let me know if I need to check for anything else",
+      "parentUuid": "aef88aeb_e70dd95e",
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
