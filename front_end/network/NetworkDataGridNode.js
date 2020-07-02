@@ -494,7 +494,7 @@ export class NetworkRequestNode extends NetworkNode {
 
   /**
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static NameComparator(a, b) {
@@ -513,7 +513,7 @@ export class NetworkRequestNode extends NetworkNode {
 
   /**
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static RemoteAddressComparator(a, b) {
@@ -536,7 +536,7 @@ export class NetworkRequestNode extends NetworkNode {
 
   /**
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static SizeComparator(a, b) {
@@ -558,7 +558,7 @@ export class NetworkRequestNode extends NetworkNode {
 
   /**
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static TypeComparator(a, b) {
@@ -582,7 +582,7 @@ export class NetworkRequestNode extends NetworkNode {
 
   /**
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static InitiatorComparator(a, b) {
@@ -602,7 +602,7 @@ export class NetworkRequestNode extends NetworkNode {
 
   /**
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static RequestCookiesCountComparator(a, b) {
@@ -637,7 +637,7 @@ export class NetworkRequestNode extends NetworkNode {
 
   /**
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static PriorityComparator(a, b) {
@@ -660,7 +660,7 @@ export class NetworkRequestNode extends NetworkNode {
   /**
    * @param {string} propertyName
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static RequestPropertyComparator(propertyName, a, b) {
@@ -678,9 +678,25 @@ export class NetworkRequestNode extends NetworkNode {
   }
 
   /**
+   * @param {!NetworkNode} a
+   * @param {!NetworkNode} b
+   * @return {number}
+   */
+  static RequestURLComparator(a, b) {
+    const aRequest = a.requestOrFirstKnownChildRequest();
+    const bRequest = b.requestOrFirstKnownChildRequest();
+    if (!aRequest || !bRequest) {
+      return !aRequest ? -1 : 1;
+    }
+    const aURL = aRequest.url();
+    const bURL = bRequest.url();
+    return aURL.localeCompare(bURL) || aRequest.indentityCompare(bRequest);
+  }
+
+  /**
    * @param {string} propertyName
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static ResponseHeaderStringComparator(propertyName, a, b) {
@@ -698,7 +714,7 @@ export class NetworkRequestNode extends NetworkNode {
   /**
    * @param {string} propertyName
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static ResponseHeaderNumberComparator(propertyName, a, b) {
@@ -723,7 +739,7 @@ export class NetworkRequestNode extends NetworkNode {
   /**
    * @param {string} propertyName
    * @param {!NetworkNode} a
-   * @param {!Network.NetworkNode} b
+   * @param {!NetworkNode} b
    * @return {number}
    */
   static ResponseHeaderDateComparator(propertyName, a, b) {
