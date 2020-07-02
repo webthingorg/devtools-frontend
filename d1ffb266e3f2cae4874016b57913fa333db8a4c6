@@ -361,6 +361,24 @@
       "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cea88d2_aadde4b1",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-02T12:30:03Z",
+      "side": 1,
+      "message": "Sounds good. I also wrote a line of `fetch(\u0027https://österreich.com\u0027)` and it seems like the URL is encoded from the beginning (not in DevTools\u0027 code land as far as I can tell). I\u0027ll revert to the simple logic then. Thanks for checking for me and also thanks Peter and Mathias for suggesting `Intl.Collator`.",
+      "parentUuid": "107adcf8_dd5012b3",
+      "revId": "d1ffb266e3f2cae4874016b57913fa333db8a4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
