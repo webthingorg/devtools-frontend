@@ -13,6 +13,7 @@ import {DatabaseQueryView} from './DatabaseQueryView.js';
 import {DatabaseTableView} from './DatabaseTableView.js';
 import {DOMStorageItemsView} from './DOMStorageItemsView.js';
 import {DOMStorage} from './DOMStorageModel.js';  // eslint-disable-line no-unused-vars
+import {FrameDetailsView} from './SidebarFrameTree.js';
 import {StorageItemsView} from './StorageItemsView.js';
 
 export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
@@ -148,6 +149,13 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
     this._categoryView.setText(categoryName);
     this._categoryView.setLink(categoryLink);
     this.showView(this._categoryView);
+  }
+
+  /**
+   * @param {!SDK.ResourceTreeModel.ResourceTreeFrame} frame
+   */
+  showFrameView(frame) {
+    this.showView(new FrameDetailsView(frame));
   }
 
   /**

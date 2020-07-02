@@ -49,6 +49,7 @@ import {Database as IndexedDBModelDatabase, DatabaseId, Events as IndexedDBModel
 import {IDBDatabaseView, IDBDataView} from './IndexedDBViews.js';
 import {ServiceWorkerCacheView} from './ServiceWorkerCacheViews.js';
 import {ServiceWorkersView} from './ServiceWorkersView.js';
+import {SidebarFrameTree, SidebarFrameTreeElement} from './SidebarFrameTree.js';
 
 /**
  * @implements {SDK.SDKModel.Observer}
@@ -155,6 +156,13 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
             new BackgroundServiceTreeElement(panel, Protocol.BackgroundService.ServiceName.PushMessaging);
         backgroundServiceTreeElement.appendChild(this.pushMessagingTreeElement);
       }
+    }
+
+    if (Root.Runtime.experiments.isEnabled('frameTree')) {
+      this._framesSection =
+          new SidebarFrameTree(panel, this._addSidebarSection(Common.UIString.UIString('Frame Tree')));
+    } else {
+      this._framesSection = null;
     }
 
     this._resourcesSection = new ResourcesSection(panel, this._addSidebarSection(Common.UIString.UIString('Frames')));
@@ -324,6 +332,9 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   _resetWithFrames() {
+    if (this._framesSection) {
+      this._framesSection.reset();
+    }
     this._resourcesSection.reset();
     this._reset();
   }
@@ -695,7 +706,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
       delete this._previousHoveredElement;
     }
 
-    if (element instanceof FrameTreeElement) {
+    if (element instanceof FrameTreeElement || element instanceof SidebarFrameTreeElement) {
       this._previousHoveredElement = element;
       element.hovered = true;
     }
