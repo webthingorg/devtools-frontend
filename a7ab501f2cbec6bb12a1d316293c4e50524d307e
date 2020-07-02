@@ -25,6 +25,76 @@
     },
     {
       "key": {
+        "uuid": "bfbb4307_53ab12bd",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-02T08:37:33Z",
+      "side": 1,
+      "message": "How would we feel about naming the script `bundle` so that this line becomes \"front_end/elements:bundle\" ? This is a minor thought so feel free to ignore.",
+      "parentUuid": "d76e23e2_c27d65c1",
+      "range": {
+        "startLine": 939,
+        "startChar": 31,
+        "endLine": 939,
+        "endChar": 37
+      },
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5698101f_30dd2c38",
+        "filename": "front_end/elements/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-02T08:37:33Z",
+      "side": 1,
+      "message": "just to check my understanding, another way we could have done this would be to make these sources of the ts_library for elements and `//@ts-nocheck` our way to victory?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e228f44b_41833b20",
+        "filename": "front_end/elements/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-02T08:37:33Z",
+      "side": 1,
+      "message": "is it worth a comment explaining why we have this copy? Especially as we have it here but in no other similar BUILD.gn files",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "a7ab501f2cbec6bb12a1d316293c4e50524d307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "62c1dd09_f4ef3dff",
         "filename": "scripts/build/build_release_applications.py",
         "patchSetId": 2
