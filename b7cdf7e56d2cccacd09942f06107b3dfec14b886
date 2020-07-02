@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "30f475e2_2183e378",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-02T18:12:02Z",
+      "side": 1,
+      "message": "adding this in here to force the path, I\u0027ll install the full dependency tree on the linked CL",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "b7cdf7e56d2cccacd09942f06107b3dfec14b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55811041_80ae08bf",
         "filename": "scripts/deps/manage_node_deps.py",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2020-07-02T10:15:07Z",
       "side": 1,
       "message": "We should remain using `npm ci`, as the `package-lock.json` is the source-of-truth. The `npm install` command will update the `package-lock.json` content, which is not what we want. (This is for example useful when we are running other commands such as `npm run install-deps -- audit fix`.\n\nWhat version of NPM are you using? I would have thought that NPM would have fixed this in their implementation.",
+      "range": {
+        "startLine": 239,
+        "startChar": 29,
+        "endLine": 239,
+        "endChar": 36
+      },
+      "revId": "b7cdf7e56d2cccacd09942f06107b3dfec14b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6ad49c9_f2ec26fa",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-02T18:12:02Z",
+      "side": 1,
+      "message": "npm --version \u003d 6.14.5\n\nYes, my intention was to replicate what npm ci was doing, according to the doc:\n\n- \"If dependencies in the package lock do not match those in package.json, npm ci will exit with an error, instead of updating the package lock.\", Match should be guaranteed as we are using package-lock.json to create dependency list in package.json\n- \"If a node_modules is already present, it will be automatically removed before npm ci begins its install.\" - should be equivalent to removing node_modules folder.\n- \"It will never write to package.json or any of the package-locks: installs are essentially frozen.\" - This should also been guaranteed as there is step to remove dependencies from package.json in the manage_node_deps.py script.\n\nSo not sure why they are behaving different.",
+      "parentUuid": "55811041_80ae08bf",
       "range": {
         "startLine": 239,
         "startChar": 29,
