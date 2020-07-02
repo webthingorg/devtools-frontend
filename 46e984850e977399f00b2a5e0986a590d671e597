@@ -22,6 +22,30 @@
       "revId": "46e984850e977399f00b2a5e0986a590d671e597",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e694350_2a95ee43",
+        "filename": "front_end/third_party/lit-html/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-02T16:52:28Z",
+      "side": 1,
+      "message": "Yeah that is fair. The rename was mostly anticipating the `copy_to_resources` and I felt like that didn\u0027t warrant a separate file. Let\u0027s keep this for now and maybe later rename if people find it confusing?",
+      "parentUuid": "37a9a0e7_ff06ff22",
+      "range": {
+        "startLine": 5,
+        "startChar": 31,
+        "endLine": 5,
+        "endChar": 36
+      },
+      "revId": "46e984850e977399f00b2a5e0986a590d671e597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
