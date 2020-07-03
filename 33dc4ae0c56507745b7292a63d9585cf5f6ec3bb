@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "60b9db80_34e2bf1b",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-03T11:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56d2a9ad_b9cc46ae",
+      "range": {
+        "startLine": 1289,
+        "startChar": 4,
+        "endLine": 1289,
+        "endChar": 6
+      },
+      "revId": "33dc4ae0c56507745b7292a63d9585cf5f6ec3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83a5a9aa_55d3ed9c",
         "filename": "front_end/sdk/ResourceTreeModel.js",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "33dc4ae0c56507745b7292a63d9585cf5f6ec3bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d296ae92_9c09551d",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-03T11:29:26Z",
+      "side": 1,
+      "message": "Great, works like a charm!",
+      "parentUuid": "83a5a9aa_55d3ed9c",
+      "range": {
+        "startLine": 924,
+        "startChar": 4,
+        "endLine": 924,
+        "endChar": 5
+      },
+      "revId": "33dc4ae0c56507745b7292a63d9585cf5f6ec3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
