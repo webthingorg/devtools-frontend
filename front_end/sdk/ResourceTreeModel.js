@@ -891,6 +891,40 @@ export class ResourceTreeFrame {
     }
     return Common.UIString.UIString('<iframe>');
   }
+<<<<<<< HEAD   (8dbca5 Re enable memory test)
+=======
+
+  /**
+   * @returns {?Promise<?DeferredDOMNode>}
+   */
+  getOwnerDOMNode() {
+    const parentFrame = this.parentFrame || this.crossTargetParentFrame();
+    if (!parentFrame) {
+      return null;
+    }
+    return parentFrame.resourceTreeModel().domModel().getOwnerNodeForFrame(this._id);
+  }
+
+  /**
+   * @returns {!Promise<void>}
+   */
+  async highlight() {
+    const parentFrame = this.parentFrame || this.crossTargetParentFrame();
+    if (parentFrame) {
+      const domModel = parentFrame.resourceTreeModel().domModel();
+      const deferredNode = await domModel.getOwnerNodeForFrame(this._id);
+      if (deferredNode) {
+        domModel.overlayModel().highlightInOverlay({deferredNode}, 'all', true);
+      }
+    } else {
+      // For the top frame there is no owner node. Highlight the whole document instead.
+      const document = await this.resourceTreeModel().domModel().requestDocument();
+      if (document) {
+        this.resourceTreeModel().domModel().overlayModel().highlightInOverlay({node: document}, 'all', true);
+      }
+    }
+  }
+>>>>>>> CHANGE (e30415 Fix highlighting of frames for frame tree)
 }
 
 /**

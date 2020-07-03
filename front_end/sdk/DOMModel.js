@@ -1282,6 +1282,22 @@ export class DOMModel extends SDKModel {
   }
 
   /**
+<<<<<<< HEAD   (8dbca5 Re enable memory test)
+=======
+   * @param {!Protocol.Page.FrameId} frameId
+   * @returns {!Promise<?DeferredDOMNode>}
+   */
+  async getOwnerNodeForFrame(frameId) {
+    // Returns an error if the frameId does not belong to the current target.
+    const response = await this._agent.invoke_getFrameOwner({frameId});
+    if (response.getError()) {
+      return null;
+    }
+    return new DeferredDOMNode(this.target(), response.backendNodeId);
+  }
+
+  /**
+>>>>>>> CHANGE (e30415 Fix highlighting of frames for frame tree)
    * @return {!Promise<?DOMDocument>}
    */
   async _requestDocument() {
