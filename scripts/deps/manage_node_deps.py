@@ -4,7 +4,9 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 """
-Helper to manage DEPS.
+Helper to manage DEPS. Use this script to update node_modules instead of
+running npm install manually. To upgrade a dependency, change the version
+number in DEPS below and run this script.
 """
 
 import os
@@ -250,6 +252,8 @@ npm_args = None
 if (len(sys.argv[1:]) > 0):
     npm_args = sys.argv[1:]
 
+# Prevent large files from being checked in to git.
+os.environ["PUPPETEER_SKIP_CHROMIUM_DOWNLOAD"] = "true"
 npm_errors_found = run_npm_command(npm_args)
 
 if npm_errors_found:
