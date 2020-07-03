@@ -42,6 +42,7 @@ export async function getTotalTimeFromSummary(): Promise<number> {
 }
 
 export async function navigateToPerformanceSidebarTab(tabName: string) {
+  await waitFor(`[aria-label="${tabName}"]`);
   await click(`[aria-label="${tabName}"]`);
 }
 
