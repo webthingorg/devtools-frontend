@@ -750,6 +750,7 @@ export class NavigatorView extends UI.Widget.VBox {
     this._subfolderNodes.clear();
     this._frameNodes.clear();
     this._rootNode.reset();
+    this._resetWorkspace(Workspace.Workspace.WorkspaceImpl.instance());
   }
 
   /**
