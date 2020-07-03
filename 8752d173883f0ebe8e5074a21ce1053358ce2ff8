@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9978c3a_9b966929",
+        "filename": "test/e2e/resources/sources/wasm/stepping-with-state-and-threads.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Same here, license",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed16709a_1fd4676b",
+        "filename": "test/e2e/resources/sources/wasm/stepping-with-state.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Just noted: we need the license header",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b8fe5d5_5d6cc86f",
+        "filename": "test/e2e/resources/sources/wasm/worker-stepping-with-state-and-threads.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Same here, license",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7941b61_a0a492a4",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "nit: See below: labels \u003d\u003e variables, and typo: shows \u003d\u003e show",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "705f4476_4a3fae5b",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "nit: It\u0027s more intuitive actually to call them variables, and not labels:\n\u0027labels_content\u0027 \u003d\u003e \u0027local_scope_values\u0027, and\n\u0027lables do not contain the correct contents\u0027 \u003d\u003e \u0027local scope does not contain the correct values\u0027",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8834943_9f030e9d",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Same here (variables, show)",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b602bff_4fa93112",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "same here: label \u003d\u003e local scope variables",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8a4d40_79655392",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Same here (variables, show)",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f4e7204_052de5dd",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "same here: label \u003d\u003e local scope variables",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a7c940f_2aa3b444",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Same here (variables, show)",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53227f13_8f36e660",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "same here: label \u003d\u003e local scope variables",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7b0c2e7_2f7b489b",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Error message: \"the worker thread..\"",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e57bdacf_2414ca49",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Same here (variables, show)",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9ca787b_af6b0c9f",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "same here: label \u003d\u003e local scope variables",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb069d2e_d1ced79f",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "same here (error message needs to be updated to worker thread)",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c68448c0_5710707a",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Same here (variables, show)",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f00232a6_d4a796af",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "same here: label \u003d\u003e local scope variables",
+      "revId": "8752d173883f0ebe8e5074a21ce1053358ce2ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

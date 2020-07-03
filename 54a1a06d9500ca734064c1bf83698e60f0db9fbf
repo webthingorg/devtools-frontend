@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "be235ae8_46d73167",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Ah, good catch, thanks! Yeah, makes sense, since the line numbering starts at 1, while the returned array starts counting at 0.",
+      "parentUuid": "40a76ce0_8891b769",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0988b50b_1c8fc3e2",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 2
@@ -385,6 +403,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b84bb730_56bd34ab",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Looks good! Thanks! :)",
+      "parentUuid": "e163f7c3_8b70b064",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -945,6 +981,24 @@
       "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f6c47e8_330aef98",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-03T05:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6eae9c8_1f4a1d43",
+      "revId": "54a1a06d9500ca734064c1bf83698e60f0db9fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
