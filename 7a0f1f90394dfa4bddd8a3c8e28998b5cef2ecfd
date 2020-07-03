@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc893fc8_a877e32d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-03T15:04:40Z",
+      "side": 1,
+      "message": "I think this fix is correct, but I recall that Eric was working on something as well. Eric, can you take a quick peek at this and see if this fixes the issue you were seeing?",
+      "revId": "7a0f1f90394dfa4bddd8a3c8e28998b5cef2ecfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
