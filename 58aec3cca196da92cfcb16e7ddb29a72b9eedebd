@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47a4008d_13ae71d5",
+        "filename": "front_end/resources/serviceWorkersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-03T07:42:21Z",
+      "side": 1,
+      "message": "(non-blocking) Have you considered either merging this with the above rule (.service-worker-version-string), or turning it into a separate class that we then apply to the elements that need these styles?",
+      "revId": "58aec3cca196da92cfcb16e7ddb29a72b9eedebd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
