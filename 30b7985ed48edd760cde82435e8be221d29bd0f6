@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b3c32ff_116cdcbe",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-03T09:52:51Z",
+      "side": 1,
+      "message": "If `mainFrame.url` was an URL instance I’d have suggested using `.protocol \u003d\u003d\u003d \u0027chrome-error:\u0027` instead, but it seems to be a simple string so this is fine.",
+      "revId": "30b7985ed48edd760cde82435e8be221d29bd0f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
