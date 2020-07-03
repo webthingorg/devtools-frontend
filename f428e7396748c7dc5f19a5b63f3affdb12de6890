@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fea5695c_d691006f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-03T15:08:16Z",
+      "side": 1,
+      "message": "This might override the environment it is running in as well. I think that is a very minor issue, but it might be better to update the `exec_command` function to add the variable to the `env`. You can copy the existing environment and append to it: https://stackoverflow.com/questions/2231227/python-subprocess-popen-with-a-modified-environment\n\nGeneral fix with the environment variable is 👌",
+      "revId": "f428e7396748c7dc5f19a5b63f3affdb12de6890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
