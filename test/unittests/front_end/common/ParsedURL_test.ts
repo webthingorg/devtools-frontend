@@ -96,6 +96,8 @@ describe('Parsed URL', () => {
     assert.strictEqual(convertedUrl, 'usr\\lib', 'URL was not converted successfully');
   });
 
+  // TODO: Add tests with special characters here.
+
   it('converts URL with a hash to a URL without a hash', () => {
     const urlTest = 'http://www.example.com#test';
     const convertedUrl = ParsedURL.urlWithoutHash(urlTest);
