@@ -7,10 +7,14 @@ import("../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../third_party/typescript/typescript.gni")
 
 ts_library("elements") {
-  sources = [ "Adorner.js" ]
+  sources = [
+    "Adorner.js",
+    "ElementsBreadcrumbsUtils.ts",
+    "NewElementsBreadcrumbs.ts",
+  ]
 
   deps = [
-    "../lit_html",
+    "../lit_html:bundle",
     "../ui",
   ]
 }
