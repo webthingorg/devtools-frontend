@@ -16,6 +16,24 @@
       "revId": "74627141e47491553eb9ace7d5e776be6eb63b80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3039101b_b93c1eec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-03T05:01:48Z",
+      "side": 1,
+      "message": "For reference, that CL was https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2252017",
+      "parentUuid": "90b60d3c_bc4ec88e",
+      "revId": "74627141e47491553eb9ace7d5e776be6eb63b80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
