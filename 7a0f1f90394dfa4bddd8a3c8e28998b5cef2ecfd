@@ -33,6 +33,24 @@
       "revId": "7a0f1f90394dfa4bddd8a3c8e28998b5cef2ecfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8901b796_d76a086d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-03T16:54:06Z",
+      "side": 1,
+      "message": "Yes, it works with `/` in snippet names. I think the test would not reproduce this bug though because it involves closing and reopening DevTools which the test does not seem to cover.\n\nI will wait for your change to land and rebase + try to write a test case. Another issue that this CL is fixing is the Search tab where you can search for snippets by content.",
+      "parentUuid": "2d2023ec_5731f356",
+      "revId": "7a0f1f90394dfa4bddd8a3c8e28998b5cef2ecfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
