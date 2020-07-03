@@ -42,11 +42,12 @@ export async function getTotalTimeFromSummary(): Promise<number> {
 }
 
 export async function navigateToPerformanceSidebarTab(tabName: string) {
+  await waitFor(`[aria-label="${tabName}"]`);
   await click(`[aria-label="${tabName}"]`);
 }
 
 export async function waitForSourceLinkAndFollowIt() {
   const link = await waitFor('.devtools-link');
   await click(link);
-  await waitFor('.panel[aria-label="sources"]');
+  // await waitFor('.panel[aria-label="sources"]');
 }
