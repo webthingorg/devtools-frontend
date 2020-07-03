@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56d2a9ad_b9cc46ae",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-03T11:04:12Z",
+      "side": 1,
+      "message": "Nit: Start with capital letter and end with a .",
+      "range": {
+        "startLine": 1289,
+        "startChar": 4,
+        "endLine": 1289,
+        "endChar": 6
+      },
+      "revId": "33dc4ae0c56507745b7292a63d9585cf5f6ec3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83a5a9aa_55d3ed9c",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-03T11:04:12Z",
+      "side": 1,
+      "message": "What do you think about highlighting the document for the top level frame?\n\nconst document \u003d await this.resourceTreeModel().domModel().requestDocument();\n      this.resourceTreeModel().domModel().overlayModel().highlightInOverlay({node: document}, \u0027all\u0027, true);",
+      "range": {
+        "startLine": 924,
+        "startChar": 4,
+        "endLine": 924,
+        "endChar": 5
+      },
+      "revId": "33dc4ae0c56507745b7292a63d9585cf5f6ec3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
