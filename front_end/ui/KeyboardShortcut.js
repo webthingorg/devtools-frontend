@@ -64,6 +64,51 @@ export class KeyboardShortcut {
   }
 
   /**
+   * @param {!Type} type
+   * @return {!KeyboardShortcut}
+   */
+  changeType(type) {
+    return new KeyboardShortcut(this.descriptors, this.action, type);
+  }
+
+  /**
+   * @param {!Array.<!Descriptor>} descriptors
+   * @return {!KeyboardShortcut}
+   */
+  changeKeys(descriptors) {
+    return new KeyboardShortcut(descriptors, this.action, this.type);
+  }
+
+  /**
+   * @param {!Array.<!Descriptor>} descriptors
+   * @return {boolean}
+   */
+  descriptorsMatch(descriptors) {
+    if (descriptors.length !== this.descriptors.length) {
+      return false;
+    }
+    return descriptors.every((descriptor, index) => descriptor.key === this.descriptors[index].key);
+  }
+
+  /**
+   * @param {!KeyboardShortcut} shortcut
+   * @return {boolean}
+   */
+  equals(shortcut) {
+    return this.descriptorsMatch(shortcut.descriptors) && this.type === shortcut.type &&
+        this.action === shortcut.action;
+  }
+
+  /**
+   * @param {!{action: string, descriptors: !Array.<!Descriptor>, type: !Type}} settingObject
+   * @return {!KeyboardShortcut}
+   */
+  static createShortcutFromSettingObject(settingObject) {
+    return new KeyboardShortcut(settingObject.descriptors, settingObject.action, settingObject.type);
+  }
+
+
+  /**
    * Creates a number encoding keyCode in the lower 8 bits and modifiers mask in the higher 8 bits.
    * It is useful for matching pressed keys.
    *
@@ -319,13 +364,13 @@ export const Keys = {
   },
 };
 
-/** @enum {symbol} */
+/** @enum {string} */
 export const Type = {
-  UserShortcut: Symbol('UserShortcut'),
-  DefaultShortcut: Symbol('DefaultShortcut'),
-  DisabledDefault: Symbol('DisabledDefault'),
-  UnsetShortcut: Symbol('UnsetShortcut'),
-  KeybindSetShortcut: Symbol('KeybindSetShortcut'),
+  UserShortcut: 'UserShortcut',
+  DefaultShortcut: 'DefaultShortcut',
+  DisabledDefault: 'DisabledDefault',
+  UnsetShortcut: 'UnsetShortcut',
+  KeybindSetShortcut: 'KeybindSetShortcut',
 };
 
 export const KeyBindings = {};
