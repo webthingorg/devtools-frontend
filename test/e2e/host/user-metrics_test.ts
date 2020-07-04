@@ -369,6 +369,24 @@ describe('User Metrics', () => {
       },
     ]);
   });
+
+  it('dispatches capture css overview event', async () => {
+    await enableExperiment('cssOverview');
+    await reloadDevTools();
+
+    const {frontend} = getBrowserAndPages();
+    await openPanelViaMoreTools('cssOverview');
+
+    await beginCatchEvents(frontend);
+    await click('button.primary-button');  // Capture overview
+
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.ActionTaken',
+        value: 41,  // CaptureCssOverviewClicked
+      },
+    ]);
+  });
 });
 
 describe('User Metrics for dual screen emulation', () => {

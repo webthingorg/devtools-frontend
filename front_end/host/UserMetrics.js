@@ -217,7 +217,8 @@ export const Action = {
   SettingsOpenedFromMenu: 37,
   SettingsOpenedFromCommandMenu: 38,
   TabMovedToDrawer: 39,
-  TabMovedToMainPanel: 40
+  TabMovedToMainPanel: 40,
+  CaptureCssOverviewClicked: 41
 };
 
 /** @type {!Object<string, number>} */
