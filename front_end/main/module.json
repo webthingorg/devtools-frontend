@@ -481,6 +481,12 @@
       ]
     },
     {
+      "type": "setting",
+      "settingName": "userShortcuts",
+      "settingType": "array",
+      "defaultValue": []
+    },
+    {
       "type": "@UI.ViewLocationResolver",
       "name": "drawer-view",
       "category": "Drawer",
