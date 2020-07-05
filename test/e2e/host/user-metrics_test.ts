@@ -7,6 +7,7 @@ import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
 import {$, click, enableExperiment, getBrowserAndPages, platform, reloadDevTools, waitFor} from '../../shared/helper.js';
+import {navigateToCssOverviewTab} from '../helpers/css-overview-helpers.js';
 import {clickToggleButton, selectDualScreen, startEmulationWithDualScreenFlag} from '../helpers/emulation-helpers.js';
 import {openPanelViaMoreTools, openSettingsTab} from '../helpers/settings-helpers.js';
 
@@ -366,6 +367,24 @@ describe('User Metrics', () => {
       {
         name: 'DevTools.GridSettingChanged',
         value: 2,  // showGridBorder.solid
+      },
+    ]);
+  });
+
+  it('dispatches an event when the CSS Overview capture button is clicked', async () => {
+    const {frontend} = getBrowserAndPages();
+    await enableExperiment('cssOverview');
+    // enableExperiment reloads the DevTools and removes our listeners
+    await beginCatchEvents(frontend);
+
+    await navigateToCssOverviewTab('default');
+
+    await click('.primary-button');  // Capture overview
+
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.ActionTaken',
+        value: 41,  // CaptureCssOverviewClicked
       },
     ]);
   });
