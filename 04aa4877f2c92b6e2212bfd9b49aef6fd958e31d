@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bd62cc8_c14b2791",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-06T15:29:36Z",
+      "side": 1,
+      "message": "Is this changing \"const char *\" to \"const_char_*\"? The purpose of this is unclear.",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 64
+      },
+      "revId": "04aa4877f2c92b6e2212bfd9b49aef6fd958e31d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
