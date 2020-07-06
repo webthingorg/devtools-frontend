@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "5283c575_3e3974d6",
+        "filename": "front_end/third_party/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-06T11:52:04Z",
+      "side": 1,
+      "message": "Lets leave it, maybe someone keeps an eye on this and I don\u0027t wanna break some workflow without announcing it.",
+      "parentUuid": "e34635c9_31a4d8c9",
+      "range": {
+        "startLine": 16,
+        "startChar": 11,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "0fd8251285278db5eecd499d3d6747e15b80fbfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3417e28d_ecb8df72",
         "filename": "front_end/third_party/README.md",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "0fd8251285278db5eecd499d3d6747e15b80fbfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2681a72_c9219d76",
+        "filename": "front_end/third_party/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-06T11:52:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3417e28d_ecb8df72",
+      "range": {
+        "startLine": 24,
+        "startChar": 16,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "0fd8251285278db5eecd499d3d6747e15b80fbfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
