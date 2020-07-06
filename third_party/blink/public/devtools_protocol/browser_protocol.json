@@ -11512,6 +11512,23 @@
                         "showDistances",
                         "none"
                     ]
+                },
+                {
+                    "id": "GridNodeHighlightConfig",
+                    "description": "Configurations for Persistent Grid Highlight",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "gridHighlightConfig",
+                            "description": "A descriptor for the highlight appearance.",
+                            "$ref": "GridHighlightConfig"
+                        },
+                        {
+                            "name": "nodeId",
+                            "description": "Identifier of the node to highlight.",
+                            "$ref": "DOM.NodeId"
+                        }
+                    ]
                 }
             ],
             "commands": [
@@ -11746,6 +11763,20 @@
                             "name": "show",
                             "description": "True for showing the FPS counter",
                             "type": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "name": "setShowGridOverlays",
+                    "description": "Highlight multiple elements with the CSS Grid overlay.",
+                    "parameters": [
+                        {
+                            "name": "gridNodeHighlightConfigs",
+                            "description": "An array of node identifiers and descriptors for the highlight appearance.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "GridNodeHighlightConfig"
+                            }
                         }
                     ]
                 },

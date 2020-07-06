@@ -176,29 +176,34 @@ export function _normalizeOffsetData(config, bounds) {
  */
 export function drawGridNumbers(config, bounds) {
   const data = _normalizeOffsetData(config, bounds);
-
-  const labelContainer = document.getElementById('grid-label-container');
-  labelContainer.removeChildren();
+  const labelContainerId = config.nodeId ? `grid-${config.nodeId}-labels` : 'grid-0-labels';
+  let labelContainerForNode = document.getElementById(labelContainerId);
+  if (!labelContainerForNode) {
+    const mainLabelLayerContainer = document.getElementById('grid-label-container');
+    labelContainerForNode = mainLabelLayerContainer.createChild('div');
+    labelContainerForNode.id = labelContainerId;
+  }
+  labelContainerForNode.removeChildren();
 
   for (const [i, offset] of offsetIterator(data.columns.positive.offsets)) {
-    const element = _createLabelElement(labelContainer, i + 1);
+    const element = _createLabelElement(labelContainerForNode, i + 1);
     _placePositiveColumnLabel(element, offset, data);
   }
 
   for (const [i, offset] of offsetIterator(data.rows.positive.offsets)) {
-    const element = _createLabelElement(labelContainer, i + 1);
+    const element = _createLabelElement(labelContainerForNode, i + 1);
     _placePositiveRowLabel(element, offset, data);
   }
 
   for (const [i, offset] of offsetIterator(data.columns.negative.offsets)) {
     // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
-    const element = _createLabelElement(labelContainer, data.columns.negative.offsets.length * -1 + i);
+    const element = _createLabelElement(labelContainerForNode, data.columns.negative.offsets.length * -1 + i);
     _placeNegativeColumnLabel(element, offset, data);
   }
 
   for (const [i, offset] of offsetIterator(data.rows.negative.offsets)) {
     // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
-    const element = _createLabelElement(labelContainer, data.rows.negative.offsets.length * -1 + i);
+    const element = _createLabelElement(labelContainerForNode, data.rows.negative.offsets.length * -1 + i);
     _placeNegativeRowLabel(element, offset, data);
   }
 }

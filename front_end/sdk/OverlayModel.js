@@ -77,6 +77,9 @@ export class OverlayModel extends SDKModel {
       this._overlayAgent.enable();
       this._wireAgentToSettings();
     }
+
+    this._gridHighlighter = new DefaultGridHighlighter(this);
+    this._gridModeActive = false;
   }
 
   /**
@@ -256,6 +259,7 @@ export class OverlayModel extends SDKModel {
    * @param {boolean=} showInfo
    */
   highlightInOverlay(data, mode, showInfo) {
+    if(this._gridModeActive){return;}
     if (this._hideHighlightTimeout) {
       clearTimeout(this._hideHighlightTimeout);
       this._hideHighlightTimeout = null;
@@ -267,6 +271,18 @@ export class OverlayModel extends SDKModel {
     this._highlighter.highlightInOverlay(data, highlightConfig);
   }
 
+  highlightGridInOverlay(node) {
+    this._gridHighlighter.highlightGridInOverlay(node, this._buildGridHighlightConfig());
+  }
+
+  hideGridInOverlay(node) {
+    this._gridHighlighter.hideGridHighlight(node);
+  }
+
+  setGridActive(isActive) {
+    this._gridModeActive = isActive;
+  }
+
   /**
    * @param {!HighlightData} data
    */
@@ -274,6 +290,8 @@ export class OverlayModel extends SDKModel {
     this.highlightInOverlay(data);
     this._delayedHideHighlight(2000);
   }
+
+
 
   /**
    * @param {number} delay
@@ -614,6 +632,65 @@ class DefaultHighlighter {
     this._model._overlayAgent.highlightFrame(
         frameId, Common.Color.PageHighlight.Content.toProtocolRGBA(),
         Common.Color.PageHighlight.ContentOutline.toProtocolRGBA());
+  }
+}
+
+export class GridHighlighter {
+  /**
+   * @param {!DOMNode} node
+   * @param {!Protocol.Overlay.GridHighlightConfig} config
+   */
+  highlightGridInOverlay(node, config) {
+  }
+
+   /**
+   * @param {!DOMNode} node
+   */
+  hideGridHighlight(nodeId){
+  }
+}
+
+export class DefaultGridHighlighter {
+
+  /**
+   * @param {!OverlayModel} model
+   */
+  constructor(model) {
+    this._model = model;
+    this._gridHighlights = new Map();
+  }
+
+  /**
+   * @param {!DOMNode} node
+   * @param {!Protocol.Overlay.GridHighlightConfig} config
+   */
+  highlightGridInOverlay(node, config) {
+    this._gridHighlights.set(node, config);
+    if (this._gridHighlights.size) {
+      this._model.setGridActive(true);
+      this._model.setShowViewportSizeOnResize(false);
+    }
+    this._sendHighlightToOverlay();
+  }
+
+   /**
+   * @param {!DOMNode} node
+   */
+  hideGridHighlight(node){
+    this._gridHighlights.delete(node);
+    if (!this._gridHighlights.size) {
+      this._model.setGridActive(false);
+      this._model.setShowViewportSizeOnResize(true);
+    }
+    this._sendHighlightToOverlay();
+  }
+
+  _sendHighlightToOverlay() {
+    let gridNodeHighlightConfigs = [];
+    for(const [key, value] of this._gridHighlights.entries()) {
+      gridNodeHighlightConfigs.push({nodeId: key.id, gridHighlightConfig: value})
+    }
+    this._model._overlayAgent.setShowGridOverlays(gridNodeHighlightConfigs);
   }
 }
 

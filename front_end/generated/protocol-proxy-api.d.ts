@@ -1922,6 +1922,12 @@ declare namespace ProtocolProxyApi {
         Promise<Protocol.ProtocolResponseWithError>;
 
     /**
+     * Highlight multiple elements with the CSS Grid overlay.
+     */
+    invoke_setShowGridOverlays(params: Protocol.Overlay.SetShowGridOverlaysRequest):
+        Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
      * Requests that backend shows paint rectangles
      */
     invoke_setShowPaintRects(params: Protocol.Overlay.SetShowPaintRectsRequest):
