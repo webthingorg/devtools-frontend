@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {$, click, goToResource, waitFor} from '../../shared/helper.js';
+import {$, click, goToResource, timeout, waitFor} from '../../shared/helper.js';
 
 const RECORD_BUTTON_SELECTOR = '[aria-label="Record"]';
 const STOP_BUTTON_SELECTOR = '[aria-label="Stop"]';
@@ -42,10 +42,12 @@ export async function getTotalTimeFromSummary(): Promise<number> {
 }
 
 export async function navigateToPerformanceSidebarTab(tabName: string) {
+  await waitFor(`[aria-label="${tabName}"]`);
   await click(`[aria-label="${tabName}"]`);
 }
 
 export async function waitForSourceLinkAndFollowIt() {
+  await timeout(100);
   const link = await waitFor('.devtools-link');
   await click(link);
   await waitFor('.panel[aria-label="sources"]');
