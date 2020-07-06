@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "382b9bf6_faa4dca2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T11:12:59Z",
+      "side": 1,
+      "message": "This still LGTM, but requires https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2279845 to land first.",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41ec1e61_bcabe3f9",
         "filename": "front_end/component_docs/elements_breadcrumbs/basic.html",
         "patchSetId": 17
