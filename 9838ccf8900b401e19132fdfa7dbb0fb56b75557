@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "b3ed74c7_dd4be509",
+        "filename": "front_end/component_docs/elements_breadcrumbs/basic.html",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-06T14:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41ec1e61_bcabe3f9",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "586e5e7e_0f219bb9",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 17
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "5bc4b1f8_0698b8f3",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-06T14:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "586e5e7e_0f219bb9",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "474a600a_5f9f662b",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 17
@@ -64,6 +100,24 @@
       "writtenOn": "2020-07-06T09:08:53Z",
       "side": 1,
       "message": "Would we be better off doing this in a connectedCallback? It feels like the right place in the lifecycle",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee9a7d07_d20290c0",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-06T14:01:12Z",
+      "side": 1,
+      "message": "As discussed, leaving this here to ensure we do it after render. But will fix the bug where this will bind another observer after every update rather than binding one and then not binding any more.",
+      "parentUuid": "474a600a_5f9f662b",
       "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "6f735a83_132d2910",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-06T14:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "073b3143_cbeefbec",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "899a2859_c8dad1a5",
         "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
         "patchSetId": 17
@@ -101,6 +173,24 @@
       "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "440f28e0_267fd865",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-06T14:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "899a2859_c8dad1a5",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
