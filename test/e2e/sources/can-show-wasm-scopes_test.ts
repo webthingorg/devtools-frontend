@@ -13,7 +13,7 @@ describe('Source Tab', async () => {
     const {frontend} = getBrowserAndPages();
     await openFileInSourcesPanel('wasm/scopes.html');
     await openFileInEditor('scopes.wasm');
-    await addBreakpointForLine(frontend, 16);
+    await addBreakpointForLine(frontend, 15);
   });
 
   async function getScopeNames() {
@@ -33,7 +33,6 @@ describe('Source Tab', async () => {
     const {target} = getBrowserAndPages();
     const scriptEvaluation = target.evaluate('main(42);');
     await waitFor(RESUME_BUTTON);
-
     const scopeNames = await getScopeNames();
     assert.deepEqual(scopeNames, ['Module', 'Local', 'Stack']);
 
