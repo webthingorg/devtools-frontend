@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d661d390_33cff101",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T11:23:56Z",
+      "side": 1,
+      "message": "We don\u0027t ship these types as part of our bundle, so we should not include them.",
+      "range": {
+        "startLine": 1514,
+        "startChar": 41,
+        "endLine": 1514,
+        "endChar": 50
+      },
+      "revId": "6452a60cd0db2078080612ccf242b47efaf3ae24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c1d0b50_f543c0bd",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T11:23:56Z",
+      "side": 1,
+      "message": "I am a bit confused as to why this is necessary. My assumption was that Closure will only typecheck files it knows about. Since this Cl does not add/change any files in the `module.json` files, I would have thought it would not have run at all. Could you confirm that you can remove this change from this CL and Closure is still happy?\n\n(We do need to apply this fix in a follow-up CL where we actually use it, but I would rather keep these separate, such that CL is a \"clean\" check in of the third_party code)",
+      "range": {
+        "startLine": 346,
+        "startChar": 52,
+        "endLine": 346,
+        "endChar": 65
+      },
+      "revId": "6452a60cd0db2078080612ccf242b47efaf3ae24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
