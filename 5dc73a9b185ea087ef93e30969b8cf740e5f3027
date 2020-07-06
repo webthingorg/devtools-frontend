@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bdaefd1_0e3307d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-06T19:43:39Z",
+      "side": 1,
+      "message": "This CL adds inspector overlay support for the new persistent grid mode. I\u0027m still working on E2E tests and should have those soon!",
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
