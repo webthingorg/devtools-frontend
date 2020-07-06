@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c24569ca_29d82ca7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-06T12:06:15Z",
+      "side": 1,
+      "message": "In a different CL I assume?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "76602abf8ef980061d38404eb471a7a6a8e0618a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33efb06f_92431469",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-06T12:06:15Z",
+      "side": 1,
+      "message": "How did this land without TBR? Looks like we\u0027re missing a checker in CQ cfg.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 47
+      },
+      "revId": "76602abf8ef980061d38404eb471a7a6a8e0618a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
