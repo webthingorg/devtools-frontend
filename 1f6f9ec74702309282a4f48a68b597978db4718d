@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e07ed1c7_663e372d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-06T08:38:22Z",
+      "side": 1,
+      "message": "As discussed in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2277595/5/front_end/inspector_overlay/tool_highlight_grid_debug.html#146 I\u0027m breaking all of the grid debug cases in multiple files.\n\nIt does come at the cost of repeating a bit of boilerplate code, but really not that much, and the benefits outweigh this.\n\nIt\u0027s also nice to be able to list all files with a local webserver and just click on the one we want to work on: https://i.imgur.com/fFLn89D.jpg",
+      "revId": "1f6f9ec74702309282a4f48a68b597978db4718d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
