@@ -45,8 +45,7 @@ describe('A user can navigate across', async function() {
     await waitFor('.panel[aria-label="sources"]');
   });
 
-  // Flakes in multiple ways, with timeouts or assertion failures
-  it.skip('[crbug.com/1100337]: Performance -> Sources', async () => {
+  it('Performance -> Sources', async () => {
     await navigateToPerformanceTab();
 
     await startRecording();
