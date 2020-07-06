@@ -6,31 +6,6 @@ import {globalSetup, globalTeardown, resetPages} from './hooks.js';
 
 /* eslint-disable no-console */
 
-before(async function() {
-  // It can take arbitrarly long on bots to boot up a server and
-  // startup DevTools. Since this timeout only applies for this
-  // hook, we can let it arbitrarily take a long time, while still
-  // enforcing tests to run reasonably quick (2 seconds by default).
-  this.timeout(0);
-
-  await globalSetup();
-
-  if (process.env['DEBUG']) {
-    console.log('Running in debug mode.');
-    console.log(' - Press enter to run the test suite.');
-    console.log(' - Press ctrl + c to quit.');
-
-    await new Promise(resolve => {
-      const {stdin} = process;
-
-      stdin.on('data', () => {
-        stdin.pause();
-        resolve();
-      });
-    });
-  }
-});
-
 let hasShutdown = false;
 
 async function shutdown() {
@@ -44,11 +19,37 @@ async function shutdown() {
 process.on('beforeExit', shutdown);
 process.on('SIGINT', shutdown);
 
-after(async () => {
-  await shutdown();
-});
+export const mochaHooks = {
+  async beforeAll() {
+    // It can take arbitrarly long on bots to boot up a server and start
+    // DevTools. Since this timeout only applies for this hook, we can let it
+    // take an arbitrarily long time, while still enforcing that tests run
+    // reasonably quickly (3 seconds by default).
+    // @ts-ignore Mocha provides the mocha 'context' as `this`, which typescript
+    // doesn't know about.
+    this.timeout(0);
 
-beforeEach(async function() {
-  this.timeout(3000);
-  await resetPages();
-});
+    await globalSetup();
+
+    if (process.env['DEBUG']) {
+      console.log('Running in debug mode.');
+      console.log(' - Press enter to run the test suite.');
+      console.log(' - Press ctrl + c to quit.');
+
+      await new Promise(resolve => {
+        const {stdin} = process;
+
+        stdin.on('data', () => {
+          stdin.pause();
+          resolve();
+        });
+      });
+    }
+  },
+  async afterAll() {
+    await shutdown();
+  },
+  async beforeEach() {
+    await resetPages();
+  },
+};
