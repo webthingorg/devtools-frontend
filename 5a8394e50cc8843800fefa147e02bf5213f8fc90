@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e399500_65e2514f",
+        "filename": "test/unittests/front_end/sdk/CookieParser_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-06T09:14:16Z",
+      "side": 1,
+      "message": "WDYT about using toISOString here for easier comparison and less code?",
+      "range": {
+        "startLine": 64,
+        "startChar": 37,
+        "endLine": 64,
+        "endChar": 52
+      },
+      "revId": "5a8394e50cc8843800fefa147e02bf5213f8fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
