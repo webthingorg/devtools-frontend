@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "884bb4b4_a8f62eae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-06T17:30:17Z",
+      "side": 1,
+      "message": "Consider this \"approved with suggestions\".",
+      "revId": "fb234c8d78ff95acf393c3d52cc2d2c87c5e1d14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bd494b1_aaad8b1f",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-06T17:30:17Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer ${url} here to be surrounded by quotes yielding\n\n    ls`The attempt to bind \"${url}\" in the workspace failed as this URI is malformed.`\n\nBut this isn\u0027t a change I\u0027d block on.",
+      "revId": "fb234c8d78ff95acf393c3d52cc2d2c87c5e1d14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
