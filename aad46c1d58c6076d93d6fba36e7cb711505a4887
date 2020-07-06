@@ -39,6 +39,30 @@
       "revId": "aad46c1d58c6076d93d6fba36e7cb711505a4887",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7a17fb2_6b68869a",
+        "filename": "test/conductor/mocha_hooks.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-06T14:32:40Z",
+      "side": 1,
+      "message": "Yes! This worked really well thanks for the suggestion. Turns out we can type `this` per function and I can just use Mocha.Suite",
+      "parentUuid": "6b963b0e_2e394013",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "aad46c1d58c6076d93d6fba36e7cb711505a4887",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
