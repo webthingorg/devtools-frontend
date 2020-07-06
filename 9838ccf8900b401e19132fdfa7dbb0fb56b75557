@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41ec1e61_bcabe3f9",
+        "filename": "front_end/component_docs/elements_breadcrumbs/basic.html",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-06T09:08:53Z",
+      "side": 1,
+      "message": "Please add a license.",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "586e5e7e_0f219bb9",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-06T09:08:53Z",
+      "side": 1,
+      "message": "ultra-nit: please remove blank line",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "474a600a_5f9f662b",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-06T09:08:53Z",
+      "side": 1,
+      "message": "Would we be better off doing this in a connectedCallback? It feels like the right place in the lifecycle",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "073b3143_cbeefbec",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-06T09:08:53Z",
+      "side": 1,
+      "message": "nit: It\u0027s not binding so much as enabling",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "899a2859_c8dad1a5",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-06T09:08:53Z",
+      "side": 1,
+      "message": "Might be worth moving all public methods to the top so it\u0027s clearer?",
+      "revId": "9838ccf8900b401e19132fdfa7dbb0fb56b75557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
