@@ -94,6 +94,30 @@
       "revId": "694a80d6ac1a1532f2858bdf83d1904f216c5426",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b50198_e4f6f45b",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T17:32:28Z",
+      "side": 1,
+      "message": "We are in the process of making our scripts compatible with Python 3. If we can find a solution that is compatible with that, please go ahead. No need to block on it. I do however strongly urge us to not use `shell\u003dTrue`. If we can find a solution that allows us to not that, that would be my preference.",
+      "parentUuid": "2d92add2_d482b4ef",
+      "range": {
+        "startLine": 72,
+        "startChar": 58,
+        "endLine": 72,
+        "endChar": 68
+      },
+      "revId": "694a80d6ac1a1532f2858bdf83d1904f216c5426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
