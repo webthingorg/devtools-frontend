@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a055a73_384a6aa1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T11:19:52Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "0fd8251285278db5eecd499d3d6747e15b80fbfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e34635c9_31a4d8c9",
         "filename": "front_end/third_party/README.md",
         "patchSetId": 1
@@ -18,6 +35,29 @@
         "startChar": 11,
         "endLine": 16,
         "endChar": 33
+      },
+      "revId": "0fd8251285278db5eecd499d3d6747e15b80fbfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3417e28d_ecb8df72",
+        "filename": "front_end/third_party/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T11:19:52Z",
+      "side": 1,
+      "message": "Nit: maybe we should also clarify this further that this usually includes written approval. The approvers might not have +1 access and therefore give the approval either in an email reply or as a comment on the CL.",
+      "range": {
+        "startLine": 24,
+        "startChar": 16,
+        "endLine": 24,
+        "endChar": 24
       },
       "revId": "0fd8251285278db5eecd499d3d6747e15b80fbfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
