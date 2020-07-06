@@ -16,6 +16,23 @@
       "revId": "0c01edd4a2b8fa7ec0a4ae8701f250c58c244075",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a81d1816_6342cc3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T15:19:18Z",
+      "side": 1,
+      "message": "Thanks for tackling this! Can we split out the changes made to the helpers and general infrastructure? They can be submitted as-is, while you are working on this feature, as I think they are good changes 😊",
+      "revId": "0c01edd4a2b8fa7ec0a4ae8701f250c58c244075",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
