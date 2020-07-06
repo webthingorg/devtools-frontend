@@ -70,6 +70,30 @@
       "revId": "694a80d6ac1a1532f2858bdf83d1904f216c5426",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d92add2_d482b4ef",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-06T17:26:33Z",
+      "side": 1,
+      "message": "We took a look and there are multiple cases in which we use this pattern in DevTools build scripts (I count 5 just in DevTools, and another 5 in Blink web_tests). Do we definitely need to block on that?",
+      "parentUuid": "676449b4_40018cdf",
+      "range": {
+        "startLine": 72,
+        "startChar": 58,
+        "endLine": 72,
+        "endChar": 68
+      },
+      "revId": "694a80d6ac1a1532f2858bdf83d1904f216c5426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
