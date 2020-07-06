@@ -65,7 +65,7 @@ let TracksOffsetData;  // eslint-disable-line no-unused-vars
 /** @typedef {!{rows: TracksOffsetData, columns: TracksOffsetData, bounds: Bounds}} */
 let GridOffsetNormalizedData;  // eslint-disable-line no-unused-vars
 
-/** @typedef {!{positiveRowLineNumberOffsets?: number[], negativeRowLineNumberOffsets?: number[], positiveColumnLineNumberOffsets?: number[], negativeColumnLineNumberOffsets?: number[]}} */
+/** @typedef {!{nodeId?: number, positiveRowLineNumberOffsets?: number[], negativeRowLineNumberOffsets?: number[], positiveColumnLineNumberOffsets?: number[], negativeColumnLineNumberOffsets?: number[]}} */
 let GridHighlightConfig;  // eslint-disable-line no-unused-vars
 
 /**
@@ -77,12 +77,19 @@ let GridHighlightConfig;  // eslint-disable-line no-unused-vars
  * @param {AreaBounds[]} areaBounds The list of named grid areas with their bounds.
  */
 export function drawGridLabels(config, gridBounds, areaBounds) {
-  // Clear out the main label container and create child elements for the various labels.
-  const labelContainer = /* @type {HTMLElement} */ document.getElementById('grid-label-container');
-  labelContainer.removeChildren();
+  // Clear out the label container for the current grid node
+  // and create child elements for the various labels.
+  const labelContainerId = config.nodeId ? `grid-${config.nodeId}-labels` : 'grid-0-labels';
+  let labelContainerForNode = document.getElementById(labelContainerId);
+  if (!labelContainerForNode) {
+    const mainLabelLayerContainer = document.getElementById('grid-label-container');
+    labelContainerForNode = mainLabelLayerContainer.createChild('div');
+    labelContainerForNode.id = labelContainerId;
+  }
+  labelContainerForNode.removeChildren();
 
-  const lineNumberContainer = labelContainer.createChild('div', 'line-numbers');
-  const areaNameContainer = labelContainer.createChild('div', 'area-names');
+  const lineNumberContainer = labelContainerForNode.createChild('div', 'line-numbers');
+  const areaNameContainer = labelContainerForNode.createChild('div', 'area-names');
 
   // Draw line numbers.
   drawGridNumbers(lineNumberContainer, config, gridBounds);
