@@ -10,6 +10,8 @@ const remoteDebuggingPort = parseInt(process.env.REMOTE_DEBUGGING_PORT, 10) || 9
 const serverPort = parseInt(process.env.PORT, 10) || 8090;
 const devtoolsFolder = path.resolve(path.join(__dirname, '..', '..'));
 
+console.log('creating hosted mode server on port: ' + serverPort);
+
 http.createServer(requestHandler).listen(serverPort);
 console.log(`Started hosted mode server at http://localhost:${serverPort}\n`);
 console.log('For info on using the hosted mode server, see our contributing docs:');

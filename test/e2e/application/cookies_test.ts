@@ -5,13 +5,18 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
+import {getHostedModeServerPort} from '../../conductor/puppeteer-state.js';
 import {$, click, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
 import {doubleClickSourceTreeItem, getDataGridData, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
 const COOKIES_SELECTOR = '[aria-label="Cookies"]';
-const DOMAIN_SELECTOR = `${COOKIES_SELECTOR} + ol > [aria-label="http://localhost:8090"]`;
+let domainSelector: string;
 
 describe('The Application Tab', async () => {
+  before(async () => {
+    domainSelector = `${COOKIES_SELECTOR} + ol > [aria-label="http://localhost:${getHostedModeServerPort()}"]`;
+  });
+
   afterEach(async () => {
     const {target} = getBrowserAndPages();
     await target.deleteCookie({name: 'foo'});
@@ -25,7 +30,7 @@ describe('The Application Tab', async () => {
     await goToResource('network/unreachable.rawresponse');
 
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await doubleClickSourceTreeItem(domainSelector);
 
     const dataGridRowValues = await getDataGridData('.storage-view table', ['name', 'value']);
     assert.deepEqual(dataGridRowValues, [
@@ -46,7 +51,7 @@ describe('The Application Tab', async () => {
     await navigateToApplicationTab(target, 'cookies');
 
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await doubleClickSourceTreeItem(domainSelector);
 
     await waitFor('.cookies-table .data-grid-data-grid-node');
     await click('.cookies-table .data-grid-data-grid-node');
@@ -63,7 +68,7 @@ describe('The Application Tab', async () => {
     await navigateToApplicationTab(target, 'cookies');
 
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await doubleClickSourceTreeItem(domainSelector);
 
     await waitFor('.cookies-table .data-grid-data-grid-node');
     await click('.cookies-table .data-grid-data-grid-node');

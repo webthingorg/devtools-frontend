@@ -8,7 +8,7 @@ import {ChildProcessWithoutNullStreams, spawn} from 'child_process';
 import * as path from 'path';
 import * as puppeteer from 'puppeteer';
 
-import {getBrowserAndPages, setBrowserAndPages} from './puppeteer-state.js';
+import {clearPuppeteerState, getBrowserAndPages, getHostedModeServerPort, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
 
 const HOSTED_MODE_SERVER_PATH = path.join(__dirname, '..', '..', 'scripts', 'hosted_mode', 'server.js');
 const EMPTY_PAGE = 'data:text/html,';
@@ -22,7 +22,7 @@ const {execPath} = process;
 const width = 1280;
 const height = 720;
 
-const envPort = 9222;
+let envPort = 9222;
 const headless = !process.env['DEBUG'];
 const envSlowMo = process.env['STRESS'] ? 50 : undefined;
 const envThrottleRate = process.env['STRESS'] ? 3 : 1;
@@ -43,6 +43,7 @@ function handleHostedModeError(error: Error) {
 const envChromeBinary = process.env['CHROME_BIN'];
 
 async function loadTargetPageAndDevToolsFrontend() {
+  envPort = 9222 + Math.floor(Math.random() * 100);
   const launchArgs = [`--remote-debugging-port=${envPort}`];
   const opts: puppeteer.LaunchOptions = {
     headless,
@@ -84,7 +85,8 @@ async function loadTargetPageAndDevToolsFrontend() {
 
   // Connect to the DevTools frontend.
   const frontend = await browser.newPage();
-  frontendUrl = `http://localhost:8090/front_end/devtools_app.html?ws=localhost:${envPort}/devtools/page/${id}`;
+  frontendUrl = `http://localhost:${getHostedModeServerPort()}/front_end/devtools_app.html?ws=localhost:${
+      envPort}/devtools/page/${id}`;
   await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
   frontend.on('error', error => {
@@ -158,11 +160,17 @@ export async function reloadDevTools(options: ReloadDevToolsOptions = {}) {
 }
 
 export async function globalSetup() {
-  console.log('Spawning hosted mode server');
+  // TODO send REMOTE_DEBUGGING_PORT too.
+  const port = 8090 + Math.floor(Math.random() * 100);
+  const env = Object.create(process.env);
+  env.PORT = port;
+  setHostedModeServerPort(port);
 
-  hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd});
+  console.log(`Spawning hosted mode server, port=${port}`);
+  hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd, env});
   hostedModeServer.on('error', handleHostedModeError);
   hostedModeServer.stderr.on('data', handleHostedModeError);
+  // hostedModeServer.stdout.pipe(process.stdout);
 
   await loadTargetPageAndDevToolsFrontend();
 }
@@ -175,6 +183,8 @@ export async function globalTeardown() {
   // for the very last test that runs.
   await browser.close();
 
-  console.log('Stopping hosted mode server');
+  console.log(`Stopping hosted mode server, port=${getHostedModeServerPort()}`);
   hostedModeServer.kill();
+
+  clearPuppeteerState();
 }

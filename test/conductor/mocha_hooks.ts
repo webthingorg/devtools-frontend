@@ -6,18 +6,19 @@ import {globalSetup, globalTeardown, resetPages} from './hooks.js';
 
 /* eslint-disable no-console */
 
-let hasShutdown = false;
+// let hasShutdown = false;
 
 async function shutdown() {
-  if (hasShutdown) {
-    return;
-  }
-  hasShutdown = true;
+  // if (hasShutdown) {
+  //   return;
+  // }
+  // hasShutdown = true;
   await globalTeardown();
 }
 
-process.on('beforeExit', shutdown);
-process.on('SIGINT', shutdown);
+// TODO fix sigint as we should propagate it to child processes.
+// process.on('beforeExit', shutdown);
+// process.on('SIGINT', shutdown);
 
 export const mochaHooks = {
   async beforeAll(this: Mocha.Suite) {

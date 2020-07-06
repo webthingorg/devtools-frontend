@@ -4,15 +4,26 @@
 
 import * as puppeteer from 'puppeteer';
 
-let target: puppeteer.Page;
-let frontend: puppeteer.Page;
-let browser: puppeteer.Browser;
+let target: puppeteer.Page|null;
+let frontend: puppeteer.Page|null;
+let browser: puppeteer.Browser|null;
+
+// Set when we launch the hosted mode server. It will be different for each
+// sub-process runner when running in parallel.
+let hostedModeServerPort: number|null;
 
 export interface BrowserAndPages {
   target: puppeteer.Page;
   frontend: puppeteer.Page;
   browser: puppeteer.Browser;
 }
+
+export const clearPuppeteerState = () => {
+  target = null;
+  frontend = null;
+  browser = null;
+  hostedModeServerPort = null;
+};
 
 export const setBrowserAndPages = (newValues: BrowserAndPages) => {
   if (target || frontend || browser) {
@@ -40,4 +51,18 @@ export const getBrowserAndPages = (): BrowserAndPages => {
     frontend,
     browser,
   };
+};
+
+export const setHostedModeServerPort = (port: number) => {
+  hostedModeServerPort = port;
+};
+
+export const getHostedModeServerPort = () => {
+  if (!hostedModeServerPort) {
+    throw new Error(
+        'Unable to locate hosted mode server port. Was it stored first?' +
+        '\nYou might be calling this function at module instantiation time, instead of ' +
+        'at runtime when the port is available.');
+  }
+  return hostedModeServerPort;
 };

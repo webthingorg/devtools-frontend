@@ -5,14 +5,18 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
+import {getHostedModeServerPort} from '../../conductor/puppeteer-state.js';
 import {getBrowserAndPages, step} from '../../shared/helper.js';
-
 import {doubleClickSourceTreeItem, getDataGridData, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
 const SESSION_STORAGE_SELECTOR = '[aria-label="Session Storage"]';
-const DOMAIN_SELECTOR = `${SESSION_STORAGE_SELECTOR} + ol > [aria-label="http://localhost:8090"]`;
+let domainSelector: string;
 
 describe('The Application Tab', async () => {
+  before(async () => {
+    domainSelector = `${SESSION_STORAGE_SELECTOR} + ol > [aria-label="http://localhost:${getHostedModeServerPort()}"]`;
+  });
+
   it('shows Session Storage keys and values', async () => {
     const {target} = getBrowserAndPages();
 
@@ -22,7 +26,7 @@ describe('The Application Tab', async () => {
 
     await step('open the domain storage', async () => {
       await doubleClickSourceTreeItem(SESSION_STORAGE_SELECTOR);
-      await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+      await doubleClickSourceTreeItem(domainSelector);
     });
 
     await step('check that storage data values are correct', async () => {
