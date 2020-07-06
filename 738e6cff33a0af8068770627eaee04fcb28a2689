@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0ef92e8_a6630199",
+        "filename": "front_end/formatter_worker/JavaScriptOutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T11:18:19Z",
+      "side": 1,
+      "message": "Not sure if this causes the failures, but I think this needs to be `\u0027static\u0027 in node \u0026\u0026 node.static`, because `static` could be `false` as well.",
+      "range": {
+        "startLine": 67,
+        "startChar": 10,
+        "endLine": 67,
+        "endChar": 26
+      },
+      "revId": "738e6cff33a0af8068770627eaee04fcb28a2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5e8b2d6_3222b0d0",
+        "filename": "front_end/third_party/acorn-loose/package/dist/acorn-loose.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-06T11:18:19Z",
+      "side": 1,
+      "message": "We are going to need to upstream this, but I am okay with keeping this in our copy for now.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "738e6cff33a0af8068770627eaee04fcb28a2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
