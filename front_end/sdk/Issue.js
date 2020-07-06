@@ -10,6 +10,7 @@ export const IssueCategory = {
   MixedContent: Symbol('MixedContent'),
   SameSiteCookie: Symbol('SameSiteCookie'),
   HeavyAd: Symbol('HeavyAd'),
+  IntensiveWakeUpThrottling: Symbol('IntensiveWakeUpThrottling'),
   Other: Symbol('Other')
 };
 

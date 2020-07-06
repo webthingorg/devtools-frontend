@@ -606,6 +606,7 @@
     "EmulationModel.js",
     "HARLog.js",
     "HeavyAdIssue.js",
+    "IntensiveWakeUpThrottlingIssue.js",
     "LayerTreeBase.js",
     "LogModel.js",
     "ServiceWorkerManager.js",

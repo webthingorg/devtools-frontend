@@ -211,12 +211,27 @@ function createIssuesForHeavyAdIssue(issuesModel, inspectorDetails) {
 }
 
 /**
+ * @param {!IssuesModel} issuesModel
+ * @param {!Protocol.Audits.InspectorIssueDetails} inspectorDetails
+ * @return {!Array<!Issue>}
+ */
+function createIssuesForIntensiveWakeUpThrottingIssue(issuesModel, inspectorDetails) {
+  const intensiveWakeUpThrottlingIssueDetails = inspectorDetails.intensiveWakeUpThrottlingIssueDetails;
+  if (!intensiveWakeUpThrottlingIssueDetails) {
+    console.warn('Intensive Wake Up Throttling issue without details received.');
+    return [];
+  }
+  return [new IntensiveWakeUpThrottlingIssue(intensiveWakeUpThrottlingIssueDetails)];
+}
+
+/**
  * @type {!Map<!Protocol.Audits.InspectorIssueCode, function(!IssuesModel, !Protocol.Audits.InspectorIssueDetails):!Array<!Issue>>}
  */
 const issueCodeHandlers = new Map([
   [Protocol.Audits.InspectorIssueCode.SameSiteCookieIssue, createIssuesForSameSiteCookieIssue],
   [Protocol.Audits.InspectorIssueCode.MixedContentIssue, createIssuesForMixedContentIssue],
   [Protocol.Audits.InspectorIssueCode.HeavyAdIssue, createIssuesForHeavyAdIssue],
+  [Protocol.Audits.InspectorIssueCode.IntensiveWakeUpThrottlingIssue, createIssuesForIntensiveWakeUpThrottingIssue],
 ]);
 
 /** @enum {symbol} */

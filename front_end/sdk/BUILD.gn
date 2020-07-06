@@ -33,6 +33,7 @@ ts_library("sdk") {
     "HARLog.js",
     "HeapProfilerModel.js",
     "HeavyAdIssue.js",
+    "IntensiveWakeUpThrottlingIssue.js",
     "IsolateManager.js",
     "Issue.js",
     "IssuesModel.js",

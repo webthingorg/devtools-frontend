@@ -195,6 +195,12 @@
   <message name="IDS_DEVTOOLS_3f23f0e9da2803d48c2d67aa09f01bf5" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie didn&apos;t specify a &quot;SameSite&quot; attribute and was defaulted to &quot;SameSite=Lax,&quot; and was blocked because it came from a cross-site response which was not the response to a top-level navigation. The Set-Cookie had to have been set with &quot;SameSite=None&quot; to enable cross-site usage.
   </message>
+  <message name="IDS_DEVTOOLS_54ff7d8f1f578a3a1c3ae170e47270f6" desc="Description of the Intensive Wake Up Throttling intervention">
+    Chrome throttles wake ups due to excessive use of timers when your page hasn&apos;t been visible for at least 5 minutes.
+  </message>
+  <message name="IDS_DEVTOOLS_73c3ef3e46ebeab69453689536e50050" desc="Title for a learn more link in Intensive Wake Up Throttling issue description">
+    Handling Intensive Wake Up Throttling
+  </message>
   <message name="IDS_DEVTOOLS_9485d0acccd869b51a96f2b35fd0b620" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Do not emulate CSS prefers-reduced-data
   </message>
@@ -697,6 +703,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e8e741c8bebb2da4dc93e5f9c1cecd8c" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Emulate CSS prefers-color-scheme: light
+  </message>
+  <message name="IDS_DEVTOOLS_ea5c0e5b7c30e7e315cca03c5cb5ed15" desc="Title of the Intensive Wake Up Throttling issue">
+    Your site has excessive wake ups in the background.
   </message>
   <message name="IDS_DEVTOOLS_ea9de21c426731035828b2e46709391c" desc="Title for an external link to more information in the issues view">
     Same-Site and Same-Origin

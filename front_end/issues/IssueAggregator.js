@@ -27,6 +27,8 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._mixedContents = new Map();
     /** @type {!Map<string, !Protocol.Audits.HeavyAdIssueDetails>} */
     this._heavyAdIssueDetails = new Map();
+    /** @type {!Map<string, !Protocol.Audits.IntensiveWakeUpThrottlingIssueDetails>} */
+    this._intensiveWakeUpThrottlingIssueDetails = new Map();
     this._aggregatedIssuesCount = 0;
   }
 
@@ -59,6 +61,14 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    */
   heavyAds() {
     return this._heavyAdIssueDetails.values();
+  }
+
+  /**
+   * @override
+   * @returns {!Iterable<!Protocol.Audits.IntensiveWakeUpThrottlingIssueDetails>}
+   */
+  intensiveWakeUpThrottlings() {
+    return this._intensiveWakeUpThrottlingIssueDetails.values();
   }
 
   /**
@@ -143,6 +153,10 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     for (const heavyAds of issue.heavyAds()) {
       const key = JSON.stringify(heavyAds);
       this._heavyAdIssueDetails.set(key, heavyAds);
+    }
+    for (const intensiveWakeUpThrottling of issue.intensiveWakeUpThrottlings()) {
+      const key = JSON.stringify(intensiveWakeUpThrottling);
+      this._intensiveWakeUpThrottlingIssueDetails.set(key, intensiveWakeUpThrottling);
     }
   }
 }
