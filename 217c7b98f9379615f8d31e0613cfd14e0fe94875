@@ -234,6 +234,30 @@
       "revId": "217c7b98f9379615f8d31e0613cfd14e0fe94875",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bad6228a_6eb0e08e",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-06T08:31:05Z",
+      "side": 1,
+      "message": "Just had the same question. :-)\n\nBut I think Philip\u0027s argument makes sense here.",
+      "parentUuid": "1844325e_5d648bcb",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 27
+      },
+      "revId": "217c7b98f9379615f8d31e0613cfd14e0fe94875",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
