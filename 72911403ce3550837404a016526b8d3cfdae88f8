@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b2f8d55c_b4a1bac5",
+        "filename": "front_end/i18n/BUILD.gn",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-06T17:09:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab9376cf_83040ba9",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 19
+      },
+      "revId": "72911403ce3550837404a016526b8d3cfdae88f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "023c7cae_6319c5bc",
         "filename": "scripts/deps/manage_node_deps.py",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "72911403ce3550837404a016526b8d3cfdae88f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eb11ea0_2ae7a6e7",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-06T17:09:48Z",
+      "side": 1,
+      "message": "The dependency was checked in in here:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2279833",
+      "parentUuid": "023c7cae_6319c5bc",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "72911403ce3550837404a016526b8d3cfdae88f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f31884cc_14684cb1",
+        "filename": "scripts/localizationV2/buildi18nBundle.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-06T17:09:48Z",
+      "side": 1,
+      "message": "you are right, I got mislead by the require statement, also as you mention commonjs is still required for the ES imports.",
+      "parentUuid": "e84430b6_e8c5b347",
+      "range": {
+        "startLine": 74,
+        "startChar": 14,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "72911403ce3550837404a016526b8d3cfdae88f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a677d5e_258b322f",
         "filename": "scripts/localizationV2/bundle_i18n_library.py",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2020-06-30T14:50:46Z",
       "side": 1,
       "message": "FYI: `//third_party/node/node.py` is now an action script on its own. Therefore, instead of having this custom Python script, you could opt to use `node.py` instead. However, since this script already works, I am okay with keeping it as-is. We can clean it up later if we deem it necessary, but I don\u0027t see a necessity for it at this moment in time.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 63
+      },
+      "revId": "72911403ce3550837404a016526b8d3cfdae88f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "187f7544_b657e21a",
+        "filename": "scripts/localizationV2/bundle_i18n_library.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-06T17:09:48Z",
+      "side": 1,
+      "message": "thanks for the heads up Tim, I created a ported version but will add it on the integration CL to save us an extra review 😊",
+      "parentUuid": "3a677d5e_258b322f",
       "range": {
         "startLine": 15,
         "startChar": 0,
