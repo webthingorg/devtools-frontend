@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0c9d3b6_306de446",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-06T10:03:02Z",
+      "side": 1,
+      "message": "Do you want to use:\nCq-Exclude-Trybots: luci.devtools-frontend.try:devtools_frontend_mac_rel",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "1275edb83f3f1be6db6884124b0b695d3950c498",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
