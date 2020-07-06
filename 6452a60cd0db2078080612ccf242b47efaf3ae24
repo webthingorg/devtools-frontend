@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2bebad1d_2d551c97",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-06T11:59:59Z",
+      "side": 1,
+      "message": "Good catch. This was a typo and should actually be \"marked.esm.js\".\n\nSimilar to \"run_type_check.py\", I will omit this line from the CL and include it in the thin wrapper module CL.",
+      "parentUuid": "d661d390_33cff101",
+      "range": {
+        "startLine": 1514,
+        "startChar": 41,
+        "endLine": 1514,
+        "endChar": 50
+      },
+      "revId": "6452a60cd0db2078080612ccf242b47efaf3ae24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c1d0b50_f543c0bd",
         "filename": "scripts/test/run_type_check.py",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "6452a60cd0db2078080612ccf242b47efaf3ae24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aa53170_821cd0a0",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-06T11:59:59Z",
+      "side": 1,
+      "message": "Yes. This is indeed not strictly necessary for this CL.\n\nI included it since we also add the \"marked.esm_types.js\" file (as its part of third_party code), which seems standalone otherwise.\n\nReverted the change to this file and will include it in the wrapper module.",
+      "parentUuid": "6c1d0b50_f543c0bd",
+      "range": {
+        "startLine": 346,
+        "startChar": 52,
+        "endLine": 346,
+        "endChar": 65
+      },
+      "revId": "6452a60cd0db2078080612ccf242b47efaf3ae24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
