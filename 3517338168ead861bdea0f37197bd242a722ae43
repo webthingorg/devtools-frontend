@@ -39,6 +39,30 @@
       "revId": "3517338168ead861bdea0f37197bd242a722ae43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3104e3dd_227e0162",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-07T15:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb7b2ba_813daae7",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "3517338168ead861bdea0f37197bd242a722ae43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
