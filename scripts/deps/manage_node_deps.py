@@ -47,6 +47,7 @@ DEPS = {
     "escodegen": "1.12.0",
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-jsdoc": "28.6.1",
     "eslint-plugin-mocha": "6.2.2",
     "eslint-plugin-rulesdir": "0.1.0",
     "karma": "5.0.1",
