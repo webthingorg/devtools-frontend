@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8443a45b_7df23d93",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-07T07:49:07Z",
+      "side": 1,
+      "message": "I suggested to use a dedicated MessageChannel to get rid of the SetLanguagePluginResponse, which seemed a bit weird, and also avoid another layer of dispatching: It felt odd to treat method responses as events and route them via EventSinkImpl.\n\nDo you feel strongly about this?",
+      "parentUuid": "2098fce2_0c6ba2d1",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "771af2c8_cc81d245",
         "filename": "front_end/extensions/ExtensionAPI.js",
         "patchSetId": 11
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "4223f284_4be85f82",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-07T07:49:07Z",
+      "side": 1,
+      "message": "Good point. `console.error` looks like the better option here, since we\u0027ll not gonna catch this error in a meaningful way.",
+      "parentUuid": "db03436c_60525bb6",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a283df11_acb48e6f",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 11
@@ -98,6 +134,24 @@
       "writtenOn": "2020-07-07T00:19:52Z",
       "side": 1,
       "message": "is this intentional and related?",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "671c2ff3_79d568d3",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-07T07:49:07Z",
+      "side": 1,
+      "message": "This is intentional, to avoid falling back to the prototype before the extension get\u0027s a chance to register itself.",
+      "parentUuid": "81932575_bb3a1aba",
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
