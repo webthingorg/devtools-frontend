@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d19414ea_983594fc",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-07T09:57:34Z",
+      "side": 1,
+      "message": "Not if I want to distinguish info logs from error logs.",
+      "parentUuid": "195d0b2d_6404bc44",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "19a4bb330d4bcff783e0ffcd2c69c05bd15c90c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58c638fd_3d50d7ba",
         "filename": "test/conductor/hooks.ts",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-07T09:28:23Z",
       "side": 1,
       "message": "Seems like we need a nicer way of doing this in Puppeteer. Do you mind filing an upstream bug for this? Ideally we could include `msg.location()` as-is in the string template below, but that is a nice-to-have.",
+      "range": {
+        "startLine": 113,
+        "startChar": 12,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "19a4bb330d4bcff783e0ffcd2c69c05bd15c90c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231ad734_f28ab193",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-07T09:57:34Z",
+      "side": 1,
+      "message": "This could easily be changed back to msg.location() if you prefer, I just found that output to be annoyingly verbose. I could also change this to remove the \"http://localhost:8090/\" but leave the rest of the path.",
+      "parentUuid": "58c638fd_3d50d7ba",
       "range": {
         "startLine": 113,
         "startChar": 12,
@@ -68,6 +116,30 @@
       "revId": "19a4bb330d4bcff783e0ffcd2c69c05bd15c90c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59da6b12_13d4506b",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-07T09:57:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ddafbcd_5271e37a",
+      "range": {
+        "startLine": 62,
+        "startChar": 75,
+        "endLine": 62,
+        "endChar": 92
+      },
+      "revId": "19a4bb330d4bcff783e0ffcd2c69c05bd15c90c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
