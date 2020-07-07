@@ -1169,10 +1169,10 @@ export class HeapSnapshotProfileType extends ProfileType {
    * @return {?Element}
    */
   customContent() {
-    const checkboxSetting = UI.SettingsUI.createSettingCheckbox(
+    const checkboxSetting = UI.SettingsUI.SettingElement.createCheckbox(
         ls
         `Treat global objects as roots (recommended, unchecking this exposes internal nodes and introduces excessive detail, but might help debugging cycles in retaining paths)`,
-        this._treatGlobalObjectsAsRoots, true);
+        this._treatGlobalObjectsAsRoots, true).element();
         this._customContent = /** @type {!UI.UIUtils.CheckboxLabel} */ (checkboxSetting);
         const showOptionToNotTreatGlobalObjectsAsRoots =
             Root.Runtime.experiments.isEnabled('showOptionToNotTreatGlobalObjectsAsRoots');
@@ -1389,8 +1389,11 @@ export class TrackingHeapSnapshotProfileType extends HeapSnapshotProfileType {
    * @return {?Element}
    */
   customContent() {
-    const checkboxSetting = UI.SettingsUI.createSettingCheckbox(
-        ls`Record allocation stacks (extra performance overhead)`, this._recordAllocationStacksSetting, true);
+    const checkboxSetting =
+        UI.SettingsUI.SettingElement
+            .createCheckbox(
+                ls`Record allocation stacks (extra performance overhead)`, this._recordAllocationStacksSetting, true)
+            .element();
     this._customContent = /** @type {!UI.UIUtils.CheckboxLabel} */ (checkboxSetting);
     return checkboxSetting;
   }
