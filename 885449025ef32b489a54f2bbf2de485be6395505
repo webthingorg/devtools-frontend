@@ -34,6 +34,24 @@
       "revId": "885449025ef32b489a54f2bbf2de485be6395505",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "840a0fa8_ee1f0cce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T09:17:37Z",
+      "side": 1,
+      "message": "METADATA is a google-internal format. The Chromium format is README.chromium. For more information, see https://chromium.googlesource.com/chromium/src/+/master/docs/adding_to_third_party.md#Add-a-README_chromium",
+      "parentUuid": "89e98264_5272760f",
+      "revId": "885449025ef32b489a54f2bbf2de485be6395505",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
