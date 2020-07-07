@@ -22,6 +22,23 @@
       "revId": "1a474bb1dea4a6a994f8ffb0012029be530e02c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f551555_133f828b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-07T05:52:22Z",
+      "side": 1,
+      "message": "\u003e Patch Set 2:\n\u003e \n\u003e \u003e Patch Set 2:\n\u003e \u003e \n\u003e \u003e I\u0027d suggest we make the profiling box responsive: https://imgur.com/a/zv24VCx\n\u003e \u003e \n\u003e \u003e This way it can be fully visible, without a horizontal scrollbar, down to 175px. The button would stay right aligned, which makes sense for buttons.\n\u003e \u003e \n\u003e \u003e What do you think?\n\u003e \n\u003e Thanks for the mock-up. We can\u0027t use the `width` media feature for responsiveness, so I\u0027ll need to change the layout of the modal box or rely on some js to set the correct sizes. I\u0027ll take a stab at this tomorrow.\n\nI was pulled away from this to work on something more pressing. Today I revisited this patch and I was able to make the profiling box responsive for the dock left and right cases. The narrowest DevTools can be while docked is 475px.\n\nWhen undocked, DevTools can be as narrow as 124px: https://imgur.com/a/37B4ZE9. Like you mentioned previously, we might not need to fix this case.",
+      "revId": "1a474bb1dea4a6a994f8ffb0012029be530e02c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
