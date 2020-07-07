@@ -157,12 +157,6 @@ template("ts_library") {
   }
 }
 
-set_defaults("ts_library") {
-  # Build output should be private and directories should export all relevant
-  # components in a group
-  visibility = [ "*" ]
-}
-
 template("node_ts_library") {
   ts_library(target_name) {
     module = "commonjs"

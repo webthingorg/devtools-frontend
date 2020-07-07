@@ -85,5 +85,5 @@ devtools_entrypoint("bundle") {
 
   is_legacy_javascript_entrypoint = [ "crbug.com/1011811" ]
 
-  deps = [ ":sdk" ]
+  public_deps = [ ":sdk" ]
 }
