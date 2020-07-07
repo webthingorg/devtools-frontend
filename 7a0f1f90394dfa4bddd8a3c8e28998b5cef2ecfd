@@ -51,6 +51,24 @@
       "revId": "7a0f1f90394dfa4bddd8a3c8e28998b5cef2ecfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11ec70ca_9c9928c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-07T07:23:33Z",
+      "side": 1,
+      "message": "You don\u0027t need to wait for my change. My change is a lot more involved and may still take a while to get through review.",
+      "parentUuid": "8901b796_d76a086d",
+      "revId": "7a0f1f90394dfa4bddd8a3c8e28998b5cef2ecfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
