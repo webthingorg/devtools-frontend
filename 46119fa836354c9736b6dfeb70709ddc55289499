@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "f00e989f_5ef20b09",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T15:58:18Z",
+      "side": 1,
+      "message": "Actually, I think it\u0027s worth keeping around although we aren\u0027t using it yet. The id is supposed to be a descriptive name for the plugin that could be used in error or status messages.",
+      "parentUuid": "02b5ed87_bd2f185b",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db03436c_60525bb6",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 11
@@ -160,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "e33b1f13_444ede44",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4223f284_4be85f82",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a283df11_acb48e6f",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 11
@@ -174,6 +210,24 @@
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5745764_55ab1bcf",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a283df11_acb48e6f",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
