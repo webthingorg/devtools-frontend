@@ -50,6 +50,61 @@ const kAllowedOrigins = [
   'chrome://new-tab-page',
 ].map(url => (new URL(url)).origin);
 
+export class LanguageExtensionEndpoint {
+  /**
+   * @param {!ExtensionServer} extensionServer
+   * @param {string} extensionId
+   * @param {{language: string, symbol_types: !Array<string>}} supportedScriptTypes
+   * @param {MessagePort} port
+   */
+  constructor(extensionServer, extensionId, supportedScriptTypes, port) {
+    this._extensionServer = extensionServer;
+    this._extensionId = extensionId;
+    this._supportedScriptTypes = supportedScriptTypes;
+    this._port = port;
+    this._port.onmessage = this._onResponse.bind(this);
+    this._nextRequestId = 0;
+    this._pendingRequests = new Map();
+  }
+
+  /**
+   * @param {string} method
+   * @param {any} parameters
+   * @return {!Promise<any>}
+   */
+  sendRequest(method, parameters) {
+    return new Promise((resolve, reject) => {
+      const requestId = this._nextRequestId++;
+      this._pendingRequests.set(requestId, {resolve, reject});
+      this._port.postMessage({requestId, method, parameters});
+    });
+  }
+
+  _onResponse({data: {requestId, result, error}}) {
+    if (!this._pendingRequests.has(requestId)) {
+      console.error(`No pending request ${requestId}`);
+      return;
+    }
+    const {resolve, reject} = this._pendingRequests.get(requestId);
+    this._pendingRequests.delete(requestId);
+    if (error) {
+      reject(new Error(error.message));
+    } else {
+      resolve(result);
+    }
+  }
+
+  /**
+   * @param {string} language
+   * @param {string} symbolsType
+   * @return {boolean}
+   */
+  supportsScript(language, symbolsType) {
+    return language === this._supportedScriptTypes.language &&
+        this._supportedScriptTypes.symbol_types.includes(symbolsType);
+  }
+}
+
 /**
  * @unrestricted
  */
@@ -107,6 +162,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     this._registerHandler(commands.OpenResource, this._onOpenResource.bind(this));
     this._registerHandler(commands.Unsubscribe, this._onUnsubscribe.bind(this));
     this._registerHandler(commands.UpdateButton, this._onUpdateButton.bind(this));
+    this._registerHandler(commands.RegisterLanguageExtensionPlugin, this._registerLanguageExtensionEndpoint.bind(this));
     window.addEventListener('message', this._onWindowMessage.bind(this), false);  // Only for main window.
 
     /** @suppress {checkTypes} */
@@ -119,6 +175,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.SetInspectedTabId, this._setInspectedTabId, this);
 
+    this._languageExtensionRequests = new Map();
+    /** @type {!Array<!LanguageExtensionEndpoint>} */
+    this._languageExtensionEndpoints = [];
     this._initExtensions();
   }
 
@@ -162,6 +221,20 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    */
   notifyButtonClicked(identifier) {
     this._postNotification(Extensions.extensionAPI.Events.ButtonClicked + identifier);
+  }
+
+  _registerLanguageExtensionEndpoint(message, shared_port) {
+    const {port, supportedScriptTypes: {language, symbol_types}} = message;
+    if (!Array.isArray(symbol_types)) {
+      symbol_types = [];
+    }
+    const extension = new LanguageExtensionEndpoint(this, {language, symbol_types}, port);
+    this._languageExtensionEndpoints.push(extension);
+    this.dispatchEventToListeners(Events.LanguageExtensionEndpointAdded, extension);
+  }
+
+  get languageExtensionEndpoints() {
+    return this._languageExtensionEndpoints;
   }
 
   _inspectedURLChanged(event) {
