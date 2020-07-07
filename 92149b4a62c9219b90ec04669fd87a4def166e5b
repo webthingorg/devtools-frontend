@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b229ebc_128bdd7c",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T16:20:36Z",
+      "side": 1,
+      "message": "Ultra-nit: maybe `chromeInspectorPort`? DebugPort might throw people off, as my initial reaction was \"oh the port that I have to use when I am debugging e2e-tests\", until I realized it is the port we listen to waiting for DevTools to attach to a target.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "92149b4a62c9219b90ec04669fd87a4def166e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
