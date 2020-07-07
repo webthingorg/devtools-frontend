@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b37b5a82_51f24d5f",
+        "filename": "front_end/formatter_worker/IdentityFormatter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T09:02:38Z",
+      "side": 1,
+      "message": "This was a copy-paste error. I removed the comment.",
+      "parentUuid": "ecaf29c3_88a9346d",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 108
+      },
+      "revId": "4220b56575a236b310505e0f1b5bd637d1771266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d721f617_3f2a5073",
         "filename": "front_end/formatter_worker/IdentityFormatter.ts",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-07T08:42:10Z",
       "side": 1,
       "message": "do we need the `this.builder \u003d builder` or does TS do that for us automatically?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 57
+      },
+      "revId": "4220b56575a236b310505e0f1b5bd637d1771266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "725be585_5bfe838f",
+        "filename": "front_end/formatter_worker/IdentityFormatter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T09:02:38Z",
+      "side": 1,
+      "message": "A property defined as a field in the constructor automatically desugars to a field declaration: https://kendaleiv.com/typescript-constructor-assignment-public-and-private-keywords/",
+      "parentUuid": "d721f617_3f2a5073",
       "range": {
         "startLine": 8,
         "startChar": 0,

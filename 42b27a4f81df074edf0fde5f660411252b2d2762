@@ -22,6 +22,30 @@
       "revId": "42b27a4f81df074edf0fde5f660411252b2d2762",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88149e0e_8299d9f5",
+        "filename": "front_end/formatter_worker/formatter_worker.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T09:02:38Z",
+      "side": 0,
+      "message": "This particular symbol has not been used in the `module.json` nor in the layout tests. Therefore, we can remove it from the legacy file. Since it is an internal implementation detail, we don\u0027t need to export it from the entrypoint either.",
+      "parentUuid": "4ac80401_50ccba43",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 60
+      },
+      "revId": "42b27a4f81df074edf0fde5f660411252b2d2762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
