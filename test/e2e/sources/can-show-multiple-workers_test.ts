@@ -8,8 +8,8 @@ import {describe, it} from 'mocha';
 import {click, goToResource, waitFor} from '../../shared/helper.js';
 import {createSelectorsForWorkerFile, expandFileTree, NestedFileSelector} from '../helpers/sources-helpers.js';
 
-const WORKER1_SELECTORS = createSelectorsForFile('worker1.js');
-const WORKER2_SELECTORS = createSelectorsForFile('worker2.js');
+let worker1Selectors: NestedFileSelector;
+let worker2Selectors: NestedFileSelector;
 
 function createSelectorsForFile(fileName: string) {
   return createSelectorsForWorkerFile(fileName, 'test/e2e/resources/sources', fileName);
@@ -25,6 +25,11 @@ describe('The Sources Tab', async function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
   this.timeout(10000);
 
+  before(() => {
+    worker1Selectors = createSelectorsForFile('worker1.js');
+    worker2Selectors = createSelectorsForFile('worker2.js');
+  });
+
   it('can show multiple dedicated workers with different scripts', async () => {
     // Have the target load the page.
     await goToResource('sources/different-workers.html');
@@ -35,10 +40,10 @@ describe('The Sources Tab', async function() {
     // Wait for the navigation panel to show up
     await waitFor('.navigator-file-tree-item');
 
-    const worker1FileName = await openNestedWorkerFile(WORKER1_SELECTORS);
+    const worker1FileName = await openNestedWorkerFile(worker1Selectors);
     assert.strictEqual(worker1FileName, 'worker1.js');
 
-    const worker2FileName = await openNestedWorkerFile(WORKER2_SELECTORS);
+    const worker2FileName = await openNestedWorkerFile(worker2Selectors);
     assert.strictEqual(worker2FileName, 'worker2.js');
   });
 });
