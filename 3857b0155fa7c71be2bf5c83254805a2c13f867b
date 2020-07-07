@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eb55a3c_3c13dcde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-07T05:25:26Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "3857b0155fa7c71be2bf5c83254805a2c13f867b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "492c2d28_17f82108",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-07T05:25:26Z",
+      "side": 1,
+      "message": "nit: Similar to the call to linkifyScriptLocation, you could either add an inline comment here:\n\nnew Linkifier(/* maxLengthForDisplayedURLs */ 40)\n\nor even introduce a const variable:\n\nconst maxLengthForDisplayedURLs \u003d 40; // Same as console messages.\nnew Linkifier(maxLengthForDisplayedURLs);",
+      "range": {
+        "startLine": 248,
+        "startChar": 61,
+        "endLine": 248,
+        "endChar": 63
+      },
+      "revId": "3857b0155fa7c71be2bf5c83254805a2c13f867b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
