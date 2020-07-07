@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80f7ad7d_b25a5604",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-07T14:16:04Z",
+      "side": 1,
+      "message": "As you know my personal preference would be more explicit return annotations ;) But this LGTM.\n\nVery exciting to be reviewing actual TypeScript!",
+      "revId": "d9e798513da283b41ea3dd9473ee6e4b7b36a30c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
