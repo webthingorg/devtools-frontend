@@ -10,11 +10,21 @@ const remoteDebuggingPort = parseInt(process.env.REMOTE_DEBUGGING_PORT, 10) || 9
 const serverPort = parseInt(process.env.PORT, 10) || 8090;
 const devtoolsFolder = path.resolve(path.join(__dirname, '..', '..'));
 
-http.createServer(requestHandler).listen(serverPort);
-console.log(`Started hosted mode server at http://localhost:${serverPort}\n`);
-console.log('For info on using the hosted mode server, see our contributing docs:');
-console.log('https://bit.ly/devtools-contribution-guide');
-console.log('Tip: Look for the \'Development server options\' section\n');
+console.log('creating hosted mode server on port: ' + serverPort);
+
+http.createServer(requestHandler).once('error', (e) => {
+  if (e.code === 'EADDRINUSE') {
+    console.error(`Hosted mode server: port ${serverPort} was in use`);
+    process.send('portinuse');
+    process.exit(1);
+  }
+}).once('listening', () => {
+  process.send('listening');
+  console.log(`Started hosted mode server at http://localhost:${serverPort}\n`);
+  console.log('For info on using the hosted mode server, see our contributing docs:');
+  console.log('https://bit.ly/devtools-contribution-guide');
+  console.log('Tip: Look for the \'Development server options\' section\n');
+}).listen(serverPort);
 
 function requestHandler(request, response) {
   const filePath = parseURL(request.url).pathname;

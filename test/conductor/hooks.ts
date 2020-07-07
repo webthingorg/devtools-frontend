@@ -4,11 +4,12 @@
 
 /* eslint-disable no-console */
 
-import {ChildProcessWithoutNullStreams, spawn} from 'child_process';
+import {ChildProcess, spawn} from 'child_process';
+import * as Net from 'net';
 import * as path from 'path';
 import * as puppeteer from 'puppeteer';
 
-import {getBrowserAndPages, setBrowserAndPages} from './puppeteer-state.js';
+import {clearPuppeteerState, getBrowserAndPages, getHostedModeServerPort, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
 
 const HOSTED_MODE_SERVER_PATH = path.join(__dirname, '..', '..', 'scripts', 'hosted_mode', 'server.js');
 const EMPTY_PAGE = 'data:text/html,';
@@ -22,12 +23,21 @@ const {execPath} = process;
 const width = 1280;
 const height = 720;
 
-const envPort = 9222;
+const hostedModeServerPortBase = 8090;
+const chromeDebuggingPortBase = 9222;
+let portOffset: number;
+// The following two ports have the invariant that they are equal to their base
+// port above + portOffset, once set.
+let envPort: number;
+// We store this here because it doesn't change inbetween runs, even though we
+// set/unset it globally in puppeteer-state.
+let hostedModeServerPort: number;
 const headless = !process.env['DEBUG'];
 const envSlowMo = process.env['STRESS'] ? 50 : undefined;
 const envThrottleRate = process.env['STRESS'] ? 3 : 1;
+let unhandledRejectionSet = false;
 
-let hostedModeServer: ChildProcessWithoutNullStreams;
+let hostedModeServer: ChildProcess;
 let browser: puppeteer.Browser;
 let frontendUrl: string;
 
@@ -43,6 +53,11 @@ function handleHostedModeError(error: Error) {
 const envChromeBinary = process.env['CHROME_BIN'];
 
 async function loadTargetPageAndDevToolsFrontend() {
+  if (!envPort) {
+    envPort = chromeDebuggingPortBase + portOffset;
+    // TODO: Change back
+    // envPort = chromeDebuggingPortBase + Math.floor(Math.random() * 100);
+  }
   const launchArgs = [`--remote-debugging-port=${envPort}`];
   const opts: puppeteer.LaunchOptions = {
     headless,
@@ -84,7 +99,8 @@ async function loadTargetPageAndDevToolsFrontend() {
 
   // Connect to the DevTools frontend.
   const frontend = await browser.newPage();
-  frontendUrl = `http://localhost:8090/front_end/devtools_app.html?ws=localhost:${envPort}/devtools/page/${id}`;
+  frontendUrl = `http://localhost:${hostedModeServerPort}/front_end/devtools_app.html?ws=localhost:${
+      envPort}/devtools/page/${id}`;
   await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
   frontend.on('error', error => {
@@ -95,9 +111,12 @@ async function loadTargetPageAndDevToolsFrontend() {
     throw new Error(`Page error in Frontend: ${error}`);
   });
 
-  process.on('unhandledRejection', error => {
-    throw new Error(`Unhandled rejection in Frontend: ${error}`);
-  });
+  if (!unhandledRejectionSet) {
+    process.on('unhandledRejection', error => {
+      throw new Error(`Unhandled rejection in Frontend: ${error}`);
+    });
+    unhandledRejectionSet = true;
+  }
 
   setBrowserAndPages({target: srcPage, frontend, browser});
 }
@@ -157,12 +176,56 @@ export async function reloadDevTools(options: ReloadDevToolsOptions = {}) {
   }
 }
 
-export async function globalSetup() {
-  console.log('Spawning hosted mode server');
+async function portIsFree(port: number) {
+  return new Promise<boolean>((resolve, reject) => {
+    const tester: Net.Server = Net.createServer()
+         // @ts-ignore
+         .once('error', err => {console.log(err); return err.code == 'EADDRINUSE' ? resolve(false) : reject(err)})
+         .once('listening', () => { console.log('running server'); tester.once('close', () => resolve(true)).close(); })
+         .listen(port);
+  });
+}
 
-  hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd});
-  hostedModeServer.on('error', handleHostedModeError);
-  hostedModeServer.stderr.on('data', handleHostedModeError);
+export async function globalSetup() {
+  // TODO send REMOTE_DEBUGGING_PORT too.
+  if (!hostedModeServerPort) {
+    portOffset = Math.floor(Math.random() * 250);
+    hostedModeServerPort = hostedModeServerPortBase + portOffset;
+  }
+
+  // TODO: check if port is in use. This won't help much with racing against
+  // other parallel test runners, but it will avoid picking ports that are
+  // currently in-use by other programs. Also check and set the chrome port
+  // in that case.
+  console.log(`Spawning hosted mode server, port=${hostedModeServerPort}`);
+
+  let started: Promise<boolean>;
+  do {
+    started = new Promise((resolve, reject) => {
+      // Copy the current env and append the port.
+      const env = Object.create(process.env);
+      env.PORT = hostedModeServerPort;
+      hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd, env, stdio: [null, null, null, 'ipc']});
+      // hostedModeServer.stdout.pipe(process.stdout);
+      // hostedModeServer.stderr.pipe(process.stderr);
+      hostedModeServer.on('message', (message) => {
+        if (message === 'portinuse') {
+          console.log(`Could not open hosted mode server on port ${hostedModeServerPort}`);
+          portOffset++;
+          hostedModeServerPort++; // TODO: infinite loop
+          resolve(false);
+        } else if (message === 'listening') {
+          console.log(`Started hosted mode server OK on port ${hostedModeServerPort}`);
+          resolve(true);
+        } else {
+          throw new Error('Unknown message from hosted mode server:' + message);
+        }
+      });
+    });
+  } while (!await started);
+  setHostedModeServerPort(hostedModeServerPort);
+
+  if (hostedModeServer.stderr) hostedModeServer.stderr.on('data', handleHostedModeError);
 
   await loadTargetPageAndDevToolsFrontend();
 }
@@ -175,6 +238,8 @@ export async function globalTeardown() {
   // for the very last test that runs.
   await browser.close();
 
-  console.log('Stopping hosted mode server');
+  console.log(`Stopping hosted mode server, port=${hostedModeServerPort}`);
   hostedModeServer.kill();
+
+  clearPuppeteerState();
 }

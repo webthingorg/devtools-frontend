@@ -44,6 +44,13 @@ if (process.env['TEST_FILE']) {
   testFiles = absoluteTestFile;
 }
 
+// testFiles = [
+//   path.join(__dirname, 'console/console-repl-mode_test.js'),
+//   path.join(__dirname, 'console/console-clear_test.js'),
+//   path.join(__dirname, 'console/console-eval-global_test.js'),
+//   path.join(__dirname, 'console/console-autocomplete_test.js'),
+// ];
+
 // When we are debugging, we don't want to timeout any test. This allows to inspect the state
 // of the application at the moment of the timeout. Here, 0 denotes "indefinite timeout".
 const timeout = process.env['DEBUG'] ? 0 : 5 * 1000;
@@ -51,9 +58,14 @@ const timeout = process.env['DEBUG'] ? 0 : 5 * 1000;
 // Our e2e tests are almost always slower than the default 75ms.
 const slow = 1000;
 
+// const parallel = true;
+// const jobs = 16;
+
 module.exports = {
   require: path.join(__dirname, '..', 'conductor', 'mocha_hooks.js'),
   spec: testFiles,
   slow,
   timeout,
+  // parallel,
+  // jobs,
 }
