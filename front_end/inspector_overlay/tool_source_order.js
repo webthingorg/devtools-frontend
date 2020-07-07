@@ -1,0 +1,97 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// @ts-nocheck
+// TODO(crbug.com/1011811): Enable TypeScript compiler checks
+
+import {dispatch, reset, setPlatform} from './common.js';
+import {doReset, drawSourceOrder} from './tool_source_order_impl.js';
+
+const style = `
+.label-container {
+    display: block;
+    min-width: 20px;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-family: Segoe UI;
+    font-size: 12px;
+    padding: 2px;
+}
+
+.top-corner {
+    border-bottom-right-radius: 4px;
+}
+
+.bottom-corner {
+    border-top-right-radius: 4px;
+}
+
+.above-element {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.below-element {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.above-element-wider {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.below-element-wider {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.bottom-corner-wider {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.bottom-corner-taller {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.bottom-corner-wider-taller {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+`;
+
+window.setPlatform = function(platform) {
+  const styleTag = document.createElement('style');
+  styleTag.innerHTML = style;
+  document.head.append(styleTag);
+
+  document.body.classList.add('fill');
+
+  const canvas = document.createElement('canvas');
+  canvas.id = 'canvas';
+  canvas.classList.add('fill');
+  document.body.append(canvas);
+
+  const sourceOrder = document.createElement('div');
+  sourceOrder.id = 'source-order-container';
+  document.body.append(sourceOrder);
+
+  setPlatform(platform);
+};
+
+window.reset = function(data) {
+  reset(data);
+  doReset(data);
+};
+
+window.drawSourceOrder = drawSourceOrder;
+window.dispatch = dispatch;
