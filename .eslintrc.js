@@ -14,6 +14,7 @@ module.exports = {
     'mocha',
     'rulesdir',
     'import',
+    'jsdoc',
   ],
 
   'parserOptions': {'ecmaVersion': 9, 'sourceType': 'module'},
@@ -139,6 +140,34 @@ module.exports = {
     'rulesdir/check_license_header': 2,
     'rulesdir/check_test_definitions': 2,
     'rulesdir/avoid_assert_equal': 2,
+
+    'jsdoc/no-undefined-types': [
+      0, {
+        'definedTypes': [
+          // Generated protocol definitions
+          'Protocol',
+          'ProtocolProxyApi',
+          // third_party types
+          'CodeMirror',
+          'LightHouse',
+          'ReportRenderer',
+          'ESTree',
+          // Closure externs types
+          'ArrayLike',
+          'ITemplateArray',
+          'Adb',
+          'Iterable',
+          'CSSMatrix',
+          'Iterator',
+          'InspectorFrontendHostAPI',
+          // FileSystem types
+          'FileEntry',
+          'DirectoryEntry',
+          'FileSystem',
+          'FileError',
+        ],
+      }
+    ],
   },
   'overrides': [{
     'files': ['*.ts'],
