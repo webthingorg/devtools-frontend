@@ -3,9 +3,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// @ts-nocheck
+// TODO(crbug.com/1011811): Enable TypeScript compiler checks once 'marked' works with TypeScript.
+
 import {ls} from '../platform/platform.js';
 
 import {Issue, IssueCategory, IssueDescription, IssueKind} from './Issue.js';  // eslint-disable-line no-unused-vars
+import * as Marked from '../marked/marked.js';
 
 export class SameSiteCookieIssue extends Issue {
   /**
@@ -313,6 +317,42 @@ function sameSiteWarnCrossDowngradeSet(isSecure) {
     issueKind: IssueKind.BreakingChange,
     links: schemefulSameSiteArticles,
   };
+}
+
+// TODO(crbug.com/1099162): Move this method and the |IssueDescription| type to the |issues| module, once
+//                          all descriptions are converted to Markdown.
+/**
+ * @param {string} markdownFile
+ * @return {!IssueDescription}
+ */
+function createIssueDescriptionFromMarkdown(markdownFile) {
+  const rawText = self.Runtime.cachedResources[markdownFile];
+  if (!rawText) {
+    throw new Error(markdownFile + ' not preloaded. Check module.json');
+  }
+
+  // const markdownAst = Marked.Marked.lexer(rawText);
+  /** @type {!Array<*>} */
+  const markdownAst = [];
+  const title = findTitleFromMarkdownAst(markdownAst);
+  if (!title) {
+    throw new Error('Markdown issue descriptions must start with a heading');
+  }
+  return { title, message: () => document.createElement('div'), issueKind: IssueKind.BreakingChange, links: []};
+}
+
+// TODO(crbug.com/1099162): Move this method to the |issues| module, once
+//                          all descriptions are converted to Markdown.
+/**
+ * @param {!Array<*>} markdownAst
+ * @return {?string}
+ */
+function findTitleFromMarkdownAst(markdownAst) {
+  if (markdownAst.length === 0 || markdownAst[0].type !== 'heading' || markdownAst[0].depth !== 1) {
+    return null;
+  }
+
+  return markdownAst[0].text;
 }
 
 /** @type {!Map<string, !IssueDescription>} */

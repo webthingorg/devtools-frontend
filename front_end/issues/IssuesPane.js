@@ -11,6 +11,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {AggregatedIssue, Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';  // eslint-disable-line no-unused-vars
+import {MarkdownView} from './MarkdownView.js';
 
 /**
  * @param {string} path
@@ -765,6 +766,16 @@ class IssueView extends UI.TreeOutline.TreeElement {
     messageElement.selectable = false;
     const message = this._description.message();
     messageElement.listItemElement.appendChild(message);
+    
+    messageElement.listItemElement.appendChild(document.createElement('hr'));
+    
+    const markdownView = /** @type {!MarkdownView} */ (document.createElement('devtools-markdown-view'));
+    const rawText = self.Runtime.cachedResources['issues/descriptions/same-site-none-insecure-error-set.md'];
+    if (!rawText) {
+      throw Error('Markdown source not found!');
+    }
+    markdownView.setMarkdown(rawText);
+    messageElement.listItemElement.appendChild(markdownView);
     this.appendChild(messageElement);
   }
 

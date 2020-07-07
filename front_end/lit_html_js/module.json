@@ -1,0 +1,31 @@
+{
+  "modules": [
+    "lit_html_js.js",
+    "../third_party/lit-html/package/directives/class-map.js",
+    "../third_party/lit-html/package/lib/default-template-processor.js",
+    "../third_party/lit-html/package/lib/directive.js",
+    "../third_party/lit-html/package/lib/dom.js",
+    "../third_party/lit-html/package/lib/part.js",
+    "../third_party/lit-html/package/lib/parts.js",
+    "../third_party/lit-html/package/lib/render.js",
+    "../third_party/lit-html/package/lib/template-factory.js",
+    "../third_party/lit-html/package/lib/template-instance.js",
+    "../third_party/lit-html/package/lib/template-result.js",
+    "../third_party/lit-html/package/lib/template.js",
+    "../third_party/lit-html/package/lit-html.js"
+  ],
+  "skip_compilation": [
+    "../third_party/lit-html/package/directives/class-map.js",
+    "../third_party/lit-html/package/lib/default-template-processor.js",
+    "../third_party/lit-html/package/lib/directive.js",
+    "../third_party/lit-html/package/lib/dom.js",
+    "../third_party/lit-html/package/lib/part.js",
+    "../third_party/lit-html/package/lib/parts.js",
+    "../third_party/lit-html/package/lib/render.js",
+    "../third_party/lit-html/package/lib/template-factory.js",
+    "../third_party/lit-html/package/lib/template-instance.js",
+    "../third_party/lit-html/package/lib/template-result.js",
+    "../third_party/lit-html/package/lib/template.js",
+    "../third_party/lit-html/package/lit-html.js"
+  ]
+}

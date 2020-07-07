@@ -72,6 +72,7 @@ ts_library("sdk") {
     "../common",
     "../generated",
     "../host",
+    "../marked:bundle",
     "../platform",
     "../protocol_client",
     "../text_utils",

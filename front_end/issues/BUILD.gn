@@ -10,6 +10,8 @@ ts_library("issues") {
   deps = [
     "../browser_sdk",
     "../common",
+    "../lit_html",
+    "../marked",
     "../sdk",
   ]
 }

@@ -26,8 +26,10 @@
     "host",
     "components",
     "sdk",
+    "marked",
     "network",
-    "browser_sdk"
+    "browser_sdk",
+    "lit_html_js"
   ],
   "scripts": [],
   "modules": [
@@ -35,9 +37,11 @@
     "issues-legacy.js",
     "IssuesPane.js",
     "IssueRevealer.js",
-    "IssueAggregator.js"
+    "IssueAggregator.js",
+    "MarkdownView.js"
   ],
   "resources": [
+    "descriptions/same-site-none-insecure-error-set.md",
     "issuesPane.css",
     "issuesTree.css"
   ]
