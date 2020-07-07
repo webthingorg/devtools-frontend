@@ -428,6 +428,31 @@ export class TabbedPane extends VBox {
 
   /**
    * @param {string} id
+   * @param {number} number
+   */
+  setTabBadge(id, number) {
+    const tab = this._tabsById.get(id);
+    if (!tab) {
+      return;
+    }
+    tab.setBadge(number);
+    this._updateTabElements();
+  }
+
+  /**
+   * @param {string} id
+   */
+  hideTabBadge(id) {
+    const tab = this._tabsById.get(id);
+    if (!tab) {
+      return;
+    }
+    tab.hideBadge();
+    this._updateTabElements();
+  }
+
+  /**
+   * @param {string} id
    * @param {boolean} enabled
    */
   setTabEnabled(id, enabled) {
@@ -1214,6 +1239,29 @@ export class TabbedPaneTab {
    */
   setDelegate(delegate) {
     this._delegate = delegate;
+  }
+
+  /**
+   * @param {number} number
+   * @suppress {checkTypes}
+   */
+  setBadge(number) {
+    if (!this._titleElement) {
+      return;
+    }
+
+    if (!this._badgeElement) {
+      this._badgeElement = document.createElement('span', {is: 'dt-small-bubble'});
+      this._titleElement.insertAdjacentElement('afterend', this._badgeElement);
+    }
+    this._badgeElement.classList.remove('hidden');
+    this._badgeElement.textContent = number.toString();
+  }
+
+  hideBadge() {
+    if (this._badgeElement) {
+      this._badgeElement.classList.add('hidden');
+    }
   }
 
   /**

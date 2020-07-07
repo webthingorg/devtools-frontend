@@ -540,7 +540,7 @@ export class SensorsView extends UI.Widget.VBox {
         Common.Settings.Settings.instance().moduleSetting('emulation.touch'), ls`Forces touch instead of click`);
 
     if (control) {
-      container.appendChild(control);
+      container.appendChild(control.element());
     }
   }
 
@@ -551,7 +551,7 @@ export class SensorsView extends UI.Widget.VBox {
         ls`Forces selected idle state emulation`);
 
     if (control) {
-      container.appendChild(control);
+      container.appendChild(control.element());
     }
   }
 }

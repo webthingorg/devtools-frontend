@@ -5,9 +5,9 @@
  */
 
 div {
-  display: inline-block;
+  display: inline-flex;
   height: 14px;
-  vertical-align: middle;
+  align-items: center;
   white-space: nowrap;
   padding: 1px 4px;
   text-align: left;
