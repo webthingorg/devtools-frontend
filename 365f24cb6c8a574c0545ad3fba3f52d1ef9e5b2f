@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1645366_0c02942f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-07T10:56:04Z",
+      "side": 1,
+      "message": "Hmm, from reading the code I think the intention is for the hover styles to \"win\" -- that is, the even/odd elements are styled differently, but they should all get the same hover style when hovered. It seems this CL would change that?\n\nWe could add !important to the rule in :hover, with a TODO for tmathmeyer@ to add more weight to the selectors.",
+      "revId": "365f24cb6c8a574c0545ad3fba3f52d1ef9e5b2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
