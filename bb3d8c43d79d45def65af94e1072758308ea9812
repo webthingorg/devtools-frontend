@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9981277_f8f51296",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "Few more comments around label calculations. I like the class based styles alot though!",
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e05a9d2e_036fb960",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "nit: maybe move this to top and add TODO to refactor after the other refactor changes land",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 47
+      },
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "497525cd_808a26b3",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "lets add jsdoc for this function to label the params and a brief description of the function",
+      "range": {
+        "startLine": 130,
+        "startChar": 13,
+        "endLine": 130,
+        "endChar": 22
+      },
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f70b9d11_83e5dcc2",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "nit: remove from here and just return contentLeft: bounds.minX below",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 34
+      },
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bf3b788_6c5dec95",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "nit: can just return here and don\u0027t need the else block below",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 14
+      },
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b646b015_7d7e5cb7",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "hmm, looks like we have created an O(N^2) algorithm here. I wonder if we can improve performance if we only compare against previously placed labels instead of all other children?\n\nyou might be able to use the existing logic in buildpath as an example, where Bounds gets updated with miniumX for Y, and minimumY for X, etc. We can then expand this new \"bounds\" object whenever we place a label?",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 50
+      },
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe80231_57dcbcaf",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "can we resuse tallerThanElement here? maybe not, it is slightly different",
+      "range": {
+        "startLine": 183,
+        "startChar": 8,
+        "endLine": 183,
+        "endChar": 33
+      },
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "894278ee_656dde1e",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:42:32Z",
+      "side": 1,
+      "message": "I believe there is logic in common.js to set canvas specific height on the window on window.viewportsize? see the css label logic or the tool_highlight_impl tooltip logic for examples",
+      "range": {
+        "startLine": 189,
+        "startChar": 43,
+        "endLine": 189,
+        "endChar": 61
+      },
+      "revId": "bb3d8c43d79d45def65af94e1072758308ea9812",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
