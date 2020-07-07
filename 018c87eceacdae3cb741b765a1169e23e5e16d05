@@ -56,6 +56,30 @@
       "revId": "018c87eceacdae3cb741b765a1169e23e5e16d05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55546449_e8a905cc",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-07T13:15:00Z",
+      "side": 1,
+      "message": "Good catch, thanks!",
+      "parentUuid": "26f8a848_75972949",
+      "range": {
+        "startLine": 583,
+        "startChar": 18,
+        "endLine": 583,
+        "endChar": 25
+      },
+      "revId": "018c87eceacdae3cb741b765a1169e23e5e16d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
