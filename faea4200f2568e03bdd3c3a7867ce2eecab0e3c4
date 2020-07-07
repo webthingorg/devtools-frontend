@@ -22,6 +22,30 @@
       "revId": "faea4200f2568e03bdd3c3a7867ce2eecab0e3c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38e3da36_eab0eba3",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T13:05:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33d11162_d660c055",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 87,
+        "endChar": 5
+      },
+      "revId": "faea4200f2568e03bdd3c3a7867ce2eecab0e3c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
