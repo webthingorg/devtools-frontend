@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ac80401_50ccba43",
+        "filename": "front_end/formatter_worker/formatter_worker.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-07T08:42:10Z",
+      "side": 0,
+      "message": "why have we lost this import? Doesn\u0027t this mean that anywhere referring to `FormatterWorker.IdentityFormatter` is broken now?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 60
+      },
+      "revId": "42b27a4f81df074edf0fde5f660411252b2d2762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
