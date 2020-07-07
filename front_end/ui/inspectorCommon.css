@@ -143,6 +143,14 @@ iframe.widget {
   color: #333;
 }
 
+.highlighted-match {
+  background-color: #f1ea00;
+}
+
+:host-context(.-theme-with-dark-background) .highlighted-match {
+  background-color: hsl(133deg 100% 30%) !important;
+}
+
 .link {
   cursor: pointer;
   text-decoration: underline;
