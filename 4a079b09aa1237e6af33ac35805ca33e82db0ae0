@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df22c1d6_0bee442f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:55:05Z",
+      "side": 1,
+      "message": "Couple more comments for review. Gif looks really good!",
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a67899d_74fa7f72",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:55:05Z",
+      "side": 1,
+      "message": "what are we ts-ignoring here?",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca7e5eb4_09f0feac",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:55:05Z",
+      "side": 1,
+      "message": "nit: add returns boolean jsdoc",
+      "range": {
+        "startLine": 341,
+        "startChar": 6,
+        "endLine": 341,
+        "endChar": 11
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f616e572_73a28a93",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:55:05Z",
+      "side": 1,
+      "message": "I think you might need to also disable the resizing tool here with the setShowViewportSizeOnResize method if you want the highlighting to persist during page resize/reflow. that might be useful to devs who have reflow affect source order. But, right now the tool will be cleared every time the page resizes",
+      "range": {
+        "startLine": 698,
+        "startChar": 4,
+        "endLine": 698,
+        "endChar": 43
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
