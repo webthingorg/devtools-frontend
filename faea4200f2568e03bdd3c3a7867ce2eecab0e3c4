@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33d11162_d660c055",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-07T12:28:13Z",
+      "side": 1,
+      "message": "I tried to figure out how to output the actual name of the interface here rather than `Foo.Person` but all the `getText()` methods that I tried didn\u0027t work :( I\u0027m sure I\u0027m missing something but in the end I decided to just leave it.",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 87,
+        "endChar": 5
+      },
+      "revId": "faea4200f2568e03bdd3c3a7867ce2eecab0e3c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
