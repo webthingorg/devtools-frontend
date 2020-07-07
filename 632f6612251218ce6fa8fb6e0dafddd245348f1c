@@ -155,6 +155,30 @@
     },
     {
       "key": {
+        "uuid": "d9d4e16f_5aafc4ab",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T14:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39a4fb09_7bb4b54e",
+      "range": {
+        "startLine": 354,
+        "startChar": 14,
+        "endLine": 354,
+        "endChar": 36
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "864e28aa_6dff9d54",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 1
@@ -199,6 +223,30 @@
       "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d49f0c3_11f43210",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T14:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "129e043e_b69de47a",
+      "range": {
+        "startLine": 730,
+        "startChar": 13,
+        "endLine": 730,
+        "endChar": 35
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -452,6 +500,30 @@
       "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22c36a55_585185fa",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T14:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "650b2688_c06b6a4b",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 84
+      },
+      "revId": "632f6612251218ce6fa8fb6e0dafddd245348f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

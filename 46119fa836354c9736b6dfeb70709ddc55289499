@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "21c81f8f_a312c282",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T14:53:05Z",
+      "side": 1,
+      "message": "The constant\u0027s aren\u0027t used in ExtensionServer currently, only in DebuggerLanguagePlugin, but your point still applies there, I think. WDYT about adding the constants defineCommonExtensionSymbols and exposing them to DebuggerLanguagePlugins here as a readonly property?",
+      "parentUuid": "771af2c8_cc81d245",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6e37cfdd_e406b2c6",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 11
@@ -83,6 +101,24 @@
       "writtenOn": "2020-07-07T00:19:52Z",
       "side": 1,
       "message": "How is this used?",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b5ed87_bd2f185b",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T14:53:05Z",
+      "side": 1,
+      "message": "It\u0027s not, can be removed.",
+      "parentUuid": "6e37cfdd_e406b2c6",
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
