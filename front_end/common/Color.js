@@ -845,6 +845,10 @@ export const PageHighlight = {
   GridAreaBorder: Color.fromRGBA([26, 115, 232, 1]),
 };
 
+export const SourceOrderHighlight = {
+  SourceOrderOutline: Color.fromRGBA([0, 120, 212, 1]),
+};
+
 export class Generator {
   /**
    * @param {!{min: number, max: number, count: (number|undefined)}|number=} hueSpace
