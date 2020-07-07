@@ -29,6 +29,8 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._heavyAdIssueDetails = new Map();
     /** @type {!Set<!Protocol.Audits.ContentSecurityPolicyIssueDetails>} */
     this._cspViolations = new Set();
+    /** @type {!Map<string, !Protocol.Audits.IntensiveWakeUpThrottlingIssueDetails>} */
+    this._intensiveWakeUpThrottlingIssueDetails = new Map();
     this._aggregatedIssuesCount = 0;
   }
 
@@ -61,6 +63,14 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    */
   heavyAds() {
     return this._heavyAdIssueDetails.values();
+  }
+
+  /**
+   * @override
+   * @returns {!Iterable<!Protocol.Audits.IntensiveWakeUpThrottlingIssueDetails>}
+   */
+  intensiveWakeUpThrottlings() {
+    return this._intensiveWakeUpThrottlingIssueDetails.values();
   }
 
   /**
@@ -156,6 +166,10 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     }
     for (const cspViolation of issue.cspViolations()) {
       this._cspViolations.add(cspViolation);
+    }
+    for (const intensiveWakeUpThrottling of issue.intensiveWakeUpThrottlings()) {
+      const key = JSON.stringify(intensiveWakeUpThrottling);
+      this._intensiveWakeUpThrottlingIssueDetails.set(key, intensiveWakeUpThrottling);
     }
   }
 }

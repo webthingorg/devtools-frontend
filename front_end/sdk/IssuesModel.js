@@ -5,6 +5,7 @@
 import {ContentSecurityPolicyIssue} from './ContentSecurityPolicyIssue.js';
 import {CrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
 import {HeavyAdIssue} from './HeavyAdIssue.js';
+import {IntensiveWakeUpThrottlingIssue} from './IntensiveWakeUpThrottlingIssue.js';
 import {Issue} from './Issue.js';  // eslint-disable-line no-unused-vars
 import {MixedContentIssue} from './MixedContentIssue.js';
 import {NetworkLog} from './NetworkLog.js';
@@ -229,6 +230,20 @@ function createIssuesForHeavyAdIssue(issuesModel, inspectorDetails) {
 }
 
 /**
+ * @param {!IssuesModel} issuesModel
+ * @param {!Protocol.Audits.InspectorIssueDetails} inspectorDetails
+ * @return {!Array<!Issue>}
+ */
+function createIssuesForIntensiveWakeUpThrottingIssue(issuesModel, inspectorDetails) {
+  const intensiveWakeUpThrottlingIssueDetails = inspectorDetails.intensiveWakeUpThrottlingIssueDetails;
+  if (!intensiveWakeUpThrottlingIssueDetails) {
+    console.warn('Intensive Wake Up Throttling issue without details received.');
+    return [];
+  }
+  return [new IntensiveWakeUpThrottlingIssue(intensiveWakeUpThrottlingIssueDetails)];
+}
+
+/**
  * @type {!Map<!Protocol.Audits.InspectorIssueCode, function(!IssuesModel, !Protocol.Audits.InspectorIssueDetails):!Array<!Issue>>}
  */
 const issueCodeHandlers = new Map([
@@ -236,6 +251,7 @@ const issueCodeHandlers = new Map([
   [Protocol.Audits.InspectorIssueCode.MixedContentIssue, createIssuesForMixedContentIssue],
   [Protocol.Audits.InspectorIssueCode.HeavyAdIssue, createIssuesForHeavyAdIssue],
   [Protocol.Audits.InspectorIssueCode.ContentSecurityPolicyIssue, createIssuesForContentSecurityPolicyIssue],
+  [Protocol.Audits.InspectorIssueCode.IntensiveWakeUpThrottlingIssue, createIssuesForIntensiveWakeUpThrottingIssue],
 ]);
 
 /** @enum {symbol} */

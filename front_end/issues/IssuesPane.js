@@ -660,6 +660,49 @@ class AffectedHeavyAdView extends AffectedResourcesView {
   }
 }
 
+class AffectedIntensiveWakeUpThrottlingView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`resource`, plural: ls`resources`});
+    /** @type {!SDK.Issue.Issue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {!Iterable<!Protocol.Audits.IntensiveWakeUpThrottlingIssueDetails>} intensiveWakeUpThrottlings
+   */
+  _appendAffectedIntensiveWakeUpThrottling(intensiveWakeUpThrottlings) {
+    /* const header = document.createElement('tr');
+
+    const reason = document.createElement('td');
+    reason.classList.add('affected-resource-header');
+    reason.textContent = ls`Limit exceeded`;
+    header.appendChild(reason);
+
+    const resolution = document.createElement('td');
+    resolution.classList.add('affected-resource-header');
+    resolution.textContent = ls`Resolution Status`;
+    header.appendChild(resolution);
+
+    const frame = document.createElement('td');
+    frame.classList.add('affected-resource-header');
+    frame.textContent = ls`Frame URL`;
+    header.appendChild(frame);
+
+    this._affectedResources.appendChild(header);
+*/
+    let count = 0;
+    for (const intensiveWakeUpThrottling of intensiveWakeUpThrottlings) {
+      this._appendAffectedIntensiveWakeUpThrottling(intensiveWakeUpThrottling);
+      count++;
+    }
+    this.updateAffectedResourceCount(count);
+  }
+}
+
 class IssueView extends UI.TreeOutline.TreeElement {
   /**
    *
@@ -684,7 +727,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
       new AffectedCookiesView(this, this._issue), new AffectedElementsView(this, this._issue),
       new AffectedRequestsView(this, this._issue), new AffectedMixedContentView(this, this._issue),
       new AffectedSourcesView(this, this._issue), new AffectedHeavyAdView(this, this._issue),
-      new AffectedDirectivesView(this, this._issue)
+      new AffectedDirectivesView(this, this._issue), new AffectedIntensiveWakeUpThrottlingView(this, this._issue)
     ];
 
     this._aggregatedIssuesCount = null;
