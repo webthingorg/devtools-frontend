@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "195d0b2d_6404bc44",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T09:28:23Z",
+      "side": 1,
+      "message": "Nit: this can be an `enum` instead.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "19a4bb330d4bcff783e0ffcd2c69c05bd15c90c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58c638fd_3d50d7ba",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T09:28:23Z",
+      "side": 1,
+      "message": "Seems like we need a nicer way of doing this in Puppeteer. Do you mind filing an upstream bug for this? Ideally we could include `msg.location()` as-is in the string template below, but that is a nice-to-have.",
+      "range": {
+        "startLine": 113,
+        "startChar": 12,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "19a4bb330d4bcff783e0ffcd2c69c05bd15c90c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ddafbcd_5271e37a",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T09:28:23Z",
+      "side": 1,
+      "message": "I am confused as to what this option does. Could you add some documentation as to in which scenario this is necessary?",
+      "range": {
+        "startLine": 62,
+        "startChar": 75,
+        "endLine": 62,
+        "endChar": 92
+      },
+      "revId": "19a4bb330d4bcff783e0ffcd2c69c05bd15c90c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
