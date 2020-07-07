@@ -16,6 +16,23 @@
       "revId": "5e309dd75a80afebb3fa13b3046aa24ac498a3af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e594ba02_d72619bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-07T08:05:53Z",
+      "side": 1,
+      "message": "Oh yeah, this one indeed looks a little more interesting... Thanks! LGTM\n\nCC Alex as FYI since this affects the colorpicker",
+      "revId": "5e309dd75a80afebb3fa13b3046aa24ac498a3af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
