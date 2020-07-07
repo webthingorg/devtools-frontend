@@ -299,6 +299,11 @@ export class ContainerWidget extends VBox {
   _wasShownForTest() {
     // This method is sniffed in tests.
   }
+
+  async widget() {
+    await this._materialize();
+    return this._view[widgetSymbol];
+  }
 }
 
 /**

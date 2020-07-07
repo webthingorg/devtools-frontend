@@ -17,7 +17,7 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     const keybindsSetSetting = self.Common.settings.moduleSetting('activeKeybindSet');
     keybindsSetSetting.addChangeListener(this.update, this);
     const keybindsSetSelect =
-        UI.SettingsUI.createControlForSetting(keybindsSetSetting, ls`Match shortcuts from preset`);
+        UI.SettingsUI.createControlForSetting(keybindsSetSetting, ls`Match shortcuts from preset`).element();
     keybindsSetSelect.classList.add('keybinds-set-select');
     this.contentElement.appendChild(keybindsSetSelect);
 

@@ -168,6 +168,10 @@
   visibility: visible;
 }
 
+.tabbed-pane-header-tab span[is="dt-small-bubble"] {
+  padding-left: 6px;
+}
+
 .tabbed-pane-header-tabs-drop-down-container {
   float: left;
   opacity: 80%;
