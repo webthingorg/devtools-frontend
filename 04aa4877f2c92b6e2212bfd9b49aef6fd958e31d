@@ -22,6 +22,30 @@
       "revId": "04aa4877f2c92b6e2212bfd9b49aef6fd958e31d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdea6f84_7666b4bf",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1384348
+      },
+      "writtenOn": "2020-07-07T09:50:28Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct. Technically it\u0027s probably not necessary to also substitute []. Do you think it makes sense to remove that? Keeping it would mean multiple types can be mapped to the same class name, i.e., \"foo[ ]\" \u003d\u003d \"foo []\". I\u0027m not sure if that\u0027s really problematic though.",
+      "parentUuid": "2bd62cc8_c14b2791",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 64
+      },
+      "revId": "04aa4877f2c92b6e2212bfd9b49aef6fd958e31d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
