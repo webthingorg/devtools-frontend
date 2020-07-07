@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa490864_c9f0a9ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-07T13:00:24Z",
+      "side": 1,
+      "message": "PTAL this is the final version for the heavy ads issue strings.",
+      "revId": "018c87eceacdae3cb741b765a1169e23e5e16d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
