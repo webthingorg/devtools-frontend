@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8b51e4f_b51f56e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "Initial CL for adding Settings Search as an experiment, with support for the Preferences and Experiments tabs. PTAL",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "591ba93e_050b0018",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "The LinkHandlerSetting UI class is a custom Preferences setting with a Select input element. By extending the SettingSelectElement class, it can inherit the applyFilter method for free.",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bef8be3_0b3fbb35",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "These runtime type checks likely aren\u0027t necessary, but they are safer by ensuring .widget() and .applyFilter() are available methods.",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ab4c40_d54c415d",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "UI for \"no results\" is WIP. Thoughts on how it should behave?",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5ccc0ee_cb396c70",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "This SettingUI class is moved up from the bottom of the file. The settingElement() method is replaced with element() to be in line with other classes and the applyFilter method is new.",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1942e2a0_e19894d5",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "The new SettingElement class provides an implementation of applyFilter for generic Settings controls that include a label, such as checkbox controls. The label text is used for filtering.",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71621f88_bff26e86",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "The SettingSelectElement class targets a subset of SettingElement controls that use a select input. SettingSelectElements have both labels and select inputs, which are both filterable.",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f892da1_1b636277",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-07T23:21:47Z",
+      "side": 1,
+      "message": "This helper method allows clients to access the contained widget while ensuring it is materialized. By default, tabbed panes lazy load each tab and only call _materialize() once the user opens them. For Settings Search to function, all tabs must be materialized first, otherwise there is no content to search.",
+      "revId": "702d98a10a14b6d36aa19fd46e1b0da270a5fbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
