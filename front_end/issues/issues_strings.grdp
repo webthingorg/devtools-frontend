@@ -33,9 +33,6 @@
   <message name="IDS_DEVTOOLS_6a7f245843454cf4f28ad7c5e2572aa2" desc="Plural label for number of affected element resource indication in issue view">
     elements
   </message>
-  <message name="IDS_DEVTOOLS_7b83d3f08fa392b79e3f553b585971cd" desc="The kind of resolution for a Heavy Ads issue">
-    warning
-  </message>
   <message name="IDS_DEVTOOLS_8e2dcfd7e7e24b1ca76c1193f645902b" desc="Singular label for number of affected element resource indication in issue view">
     element
   </message>
@@ -56,6 +53,9 @@
   </message>
   <message name="IDS_DEVTOOLS_b02478e52979ba9af8bffc41f342f4b6" desc="Header for the section listing affected resources">
     Affected Resources
+  </message>
+  <message name="IDS_DEVTOOLS_b07286ebbb5bc7aa91cc3eaa8bc19711" desc="The kind of resolution for a Heavy Ads issue">
+    removed
   </message>
   <message name="IDS_DEVTOOLS_ba514415c6a7f5b7aa2b54d0914a122d" desc="Title for a column in an Heavy Ads issue view">
     Resolution Status
