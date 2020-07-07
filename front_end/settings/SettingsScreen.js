@@ -34,6 +34,7 @@
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
+import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
 /**
@@ -63,6 +64,21 @@ export class SettingsScreen extends UI.Widget.VBox {
     tabbedPane.setShrinkableTabs(false);
     tabbedPane.makeVerticalTabLayout();
 
+    /** @type {!Element|null} */
+    this.settingsSearchInput = null;
+    if (Root.Runtime.experiments.isEnabled('settingsSearch')) {
+      const settingsSearchElement = createElement('div');
+      const settingsSearchRoot =
+          UI.Utils.createShadowRootWithCoreStyles(settingsSearchElement, 'settings/settingsScreen.css');
+
+      this.settingsSearchInput = UI.UIUtils.createInput('settings-search-input');
+      this.settingsSearchInput.addEventListener('input', this._onSearchInput.bind(this));
+      this.settingsSearchInput.placeholder = 'Search';
+      settingsSearchRoot.appendChild(this.settingsSearchInput);
+
+      tabbedPane.leftToolbar().element.insertAdjacentElement('afterend', settingsSearchElement);
+    }
+
     if (!Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
       const shortcutsView = new UI.View.SimpleView(ls`Shortcuts`);
       self.UI.shortcutsScreen.createShortcutsTabView().show(shortcutsView.element);
@@ -91,6 +107,12 @@ export class SettingsScreen extends UI.Widget.VBox {
     dialog.setOutsideClickCallback(() => {});
     dialog.setPointerEventsBehavior(UI.GlassPane.PointerEventsBehavior.PierceGlassPane);
     dialog.setOutsideTabIndexBehavior(UI.Dialog.OutsideTabIndexBehavior.PreserveMainViewTabIndex);
+
+    if (settingsScreen.settingsSearchInput) {
+      dialog.setEscapeKeyCallback(settingsScreen._onEscapeKeyPressed.bind(settingsScreen));
+      dialog.addEventListener('hidden', settingsScreen._clearSearch.bind(settingsScreen));
+    }
+
     settingsScreen.show(dialog.contentElement);
     dialog.show();
 
@@ -98,17 +120,21 @@ export class SettingsScreen extends UI.Widget.VBox {
   }
 
   /**
-   * @param {{name: (string|undefined), focusTabHeader: (boolean|undefined)}=} options
+   * @param {{name: (string|undefined), focusSearchBox: (boolean|undefined)}=} options
    */
   static async _showSettingsScreen(options = {}) {
-    const {name, focusTabHeader} = options;
+    const {name, focusSearchBox} = options;
     const settingsScreen = SettingsScreen._revealSettingsScreen();
 
     settingsScreen._selectTab(name || 'preferences');
     const tabbedPane = settingsScreen._tabbedLocation.tabbedPane();
     await tabbedPane.waitForTabElementUpdate();
-    if (focusTabHeader) {
-      tabbedPane.focusSelectedTabHeader();
+    if (focusSearchBox) {
+      if (settingsScreen.settingsSearchInput) {
+        settingsScreen.settingsSearchInput.focus();
+      } else {
+        tabbedPane.focusSelectedTabHeader();
+      }
     } else {
       tabbedPane.focus();
     }
@@ -160,6 +186,80 @@ export class SettingsScreen extends UI.Widget.VBox {
 
     Host.userMetrics.settingsPanelShown(tabId);
   }
+
+  _clearSearch() {
+    if (!this.settingsSearchInput) {
+      return;
+    }
+
+    this.settingsSearchInput.value = '';
+    this._search('');
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onSearchInput(event) {
+    if (!this.settingsSearchInput) {
+      return;
+    }
+
+    this._search(this.settingsSearchInput.value);
+  }
+
+  /**
+   * @param {string} query
+   */
+  _search(query) {
+    if (!this.settingsSearchInput) {
+      return;
+    }
+
+    const filter = query.trim().toLocaleLowerCase();
+    const tabbedPane = this._tabbedLocation.tabbedPane();
+    const tabIds = tabbedPane.tabIds();
+    for (const id of tabIds) {
+      const view = tabbedPane.tabView(id);
+      if (!(view instanceof UI.ViewManager.ContainerWidget)) {
+        continue;
+      }
+
+      view.widget().then(tabView => {
+        if (!(tabView instanceof SettingsTab)) {
+          return;
+        }
+
+        const filterMatches = tabView.applyFilter(filter);
+        if (filter && filterMatches > 0) {
+          tabbedPane.setTabBadge(id, filterMatches);
+        } else {
+          tabbedPane.hideTabBadge(id);
+        }
+      });
+    }
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onEscapeKeyPressed(event) {
+    const searchInput = this.settingsSearchInput;
+    if (!searchInput) {
+      return;
+    }
+
+    const document = event.target && event.target.ownerDocument;
+    if (document.deepActiveElement() !== searchInput) {
+      return;
+    }
+
+    if (!searchInput.value) {
+      return;
+    }
+
+    this._clearSearch();
+    event.consume(true);
+  }
 }
 
 /**
@@ -180,6 +280,10 @@ class SettingsTab extends UI.Widget.VBox {
     header.createChild('h1').createTextChild(name);
     this.containerElement = this.element.createChild('div', 'settings-container-wrapper')
                                 .createChild('div', 'settings-tab settings-content settings-container');
+
+    this._noResultsElement = this.element.createChild('div', 'settings-search-preferences-no-results');
+    this._noResultsElement.textContent = ls`No search results found for this tab.`;
+    this._noResultsElement.classList.add('hidden');
   }
 
   /**
@@ -197,6 +301,14 @@ class SettingsTab extends UI.Widget.VBox {
     }
     return block;
   }
+
+  /**
+   * @param {string} filter
+   * @return {number}
+   */
+  applyFilter(filter) {
+    return 0;
+  }
 }
 
 /**
@@ -204,7 +316,7 @@ class SettingsTab extends UI.Widget.VBox {
  */
 export class GenericSettingsTab extends SettingsTab {
   constructor() {
-    super(Common.UIString.UIString('Preferences'), 'preferences-tab-content');
+    super(ls`Preferences`, 'preferences-tab-content');
 
     /** @const */
     const explicitSectionOrder = [
@@ -214,14 +326,19 @@ export class GenericSettingsTab extends SettingsTab {
 
     /** @type {!Map<string, !Element>} */
     this._nameToSection = new Map();
+    /** @type {!Map<!Element, !Array<!UI.SettingsUI.SettingUI>>} */
+    this._sectionToControls = new Map();
+    /** @type {!Map<!Element, !Array<!Object>>} */
+    this._sectionToChanges = new Map();
+
     for (const sectionName of explicitSectionOrder) {
       this._createSectionElement(sectionName);
     }
     self.runtime.extensions('setting').forEach(this._addSetting.bind(this));
-    self.runtime.extensions(UI.SettingsUI.SettingUI).forEach(this._addSettingUI.bind(this));
+    self.runtime.extensions(UI.SettingsUI.SettingUI).forEach(this._addSettingCustomUI.bind(this));
 
-    this._appendSection().appendChild(
-        UI.UIUtils.createTextButton(Common.UIString.UIString('Restore defaults and reload'), restoreAndReload));
+    this._reloadButton = UI.UIUtils.createTextButton(ls`Restore defaults and reload`, restoreAndReload);
+    this._appendSection().appendChild(this._reloadButton);
 
     function restoreAndReload() {
       Common.Settings.Settings.instance().clearAll();
@@ -245,6 +362,18 @@ export class GenericSettingsTab extends SettingsTab {
   }
 
   /**
+   * @param {!Element} sectionElement
+   * @param {!UI.SettingsUI.SettingUI} settingControl
+   */
+  _mapSectionToControl(sectionElement, settingControl) {
+    if (!this._sectionToControls.get(sectionElement)) {
+      this._sectionToControls.set(sectionElement, []);
+    }
+
+    this._sectionToControls.get(sectionElement).push(settingControl);
+  }
+
+  /**
    * @param {!Root.Runtime.Extension} extension
    */
   _addSetting(extension) {
@@ -258,14 +387,15 @@ export class GenericSettingsTab extends SettingsTab {
     const setting = Common.Settings.Settings.instance().moduleSetting(extension.descriptor()['settingName']);
     const settingControl = UI.SettingsUI.createControlForSetting(setting);
     if (settingControl) {
-      sectionElement.appendChild(settingControl);
+      this._mapSectionToControl(sectionElement, settingControl);
+      sectionElement.appendChild(settingControl.element());
     }
   }
 
   /**
    * @param {!Root.Runtime.Extension} extension
    */
-  _addSettingUI(extension) {
+  _addSettingCustomUI(extension) {
     const descriptor = extension.descriptor();
     const sectionName = descriptor['category'] || '';
     extension.instance().then(appendCustomSetting.bind(this));
@@ -276,12 +406,13 @@ export class GenericSettingsTab extends SettingsTab {
      */
     function appendCustomSetting(object) {
       const settingUI = /** @type {!UI.SettingsUI.SettingUI} */ (object);
-      const element = settingUI.settingElement();
+      const element = settingUI.element();
       if (element) {
         let sectionElement = this._sectionElement(sectionName);
         if (!sectionElement) {
           sectionElement = this._createSectionElement(sectionName);
         }
+        this._mapSectionToControl(sectionElement, settingUI);
         sectionElement.appendChild(element);
       }
     }
@@ -295,6 +426,7 @@ export class GenericSettingsTab extends SettingsTab {
     const uiSectionName = sectionName && Common.UIString.UIString(sectionName);
     const sectionElement = this._appendSection(uiSectionName);
     this._nameToSection.set(sectionName, sectionElement);
+    this._sectionToChanges.set(sectionElement, []);
     return sectionElement;
   }
 
@@ -305,6 +437,76 @@ export class GenericSettingsTab extends SettingsTab {
   _sectionElement(sectionName) {
     return this._nameToSection.get(sectionName) || null;
   }
+
+  /**
+   * @override
+   * @param {string} filter
+   * @return {number}
+   */
+  applyFilter(filter) {
+    let allMatches = 0;
+
+    this._noResultsElement.classList.add('hidden');
+    this._reloadButton.classList.remove('hidden', 'settings-search-match-outline');
+    if (filter) {
+      if (this._reloadButton.textContent.toLocaleLowerCase().includes(filter)) {
+        allMatches++;
+        this._reloadButton.classList.add('settings-search-match-outline');
+      } else {
+        this._reloadButton.classList.add('hidden');
+      }
+    }
+
+    for (const [sectionName, sectionElement] of this._nameToSection) {
+      const element = /** @type {!Element} */ (sectionElement);
+      UI.UIUtils.revertDomChanges(this._sectionToChanges.get(element));
+      this._sectionToChanges.set(element, []);
+      element.classList.remove('hidden');
+
+      const sectionControls = this._sectionToControls.get(element);
+      if (!sectionControls) {
+        continue;
+      }
+
+      let sectionMatches = 0;
+      let sectionNameMatch = false;
+
+      if (filter) {
+        const sectionNameIndex = sectionName.toLocaleLowerCase().indexOf(filter);
+        if (sectionNameIndex !== -1) {
+          sectionNameMatch = true;
+          sectionMatches++;
+          UI.UIUtils.highlightRangesWithStyleClass(
+              /** @type {!Element} */ (element.firstChild),
+              [new TextUtils.TextRange.SourceRange(sectionNameIndex, filter.length)], 'highlighted-match',
+              this._sectionToChanges.get(element));
+        }
+      }
+
+      for (const settingControl of sectionControls) {
+        const showControl = settingControl.applyFilter(filter);
+        if (showControl) {
+          sectionMatches++;
+
+        } else if (sectionNameMatch) {
+          // If the section header name is a search result,
+          // always show all the contents of the section
+          settingControl.applyFilter('');
+        }
+      }
+
+      if (sectionMatches === 0) {
+        sectionElement.classList.add('hidden');
+      }
+
+      allMatches += sectionMatches;
+    }
+
+    if (filter && allMatches === 0) {
+      this._noResultsElement.classList.remove('hidden');
+    }
+    return allMatches;
+  }
 }
 
 /**
@@ -314,24 +516,37 @@ export class ExperimentsSettingsTab extends SettingsTab {
   constructor() {
     super(Common.UIString.UIString('Experiments'), 'experiments-tab-content');
 
+    /** @type {!Map<!Element, !Array<!Object>>} */
+    this._experimentToDomChanges = new Map();
+
     const experiments = Root.Runtime.experiments.allConfigurableExperiments().sort();
     const unstableExperiments = experiments.filter(e => e.unstable);
     const stableExperiments = experiments.filter(e => !e.unstable);
+
     if (stableExperiments.length) {
-      const experimentsSection = this._appendSection();
+      this._experimentsSection = this._appendSection();
       const warningMessage = Common.UIString.UIString('These experiments could be dangerous and may require restart.');
-      experimentsSection.appendChild(this._createExperimentsWarningSubsection(warningMessage));
+      this._experimentsSection.appendChild(this._createExperimentsWarningSubsection(warningMessage));
+
+      this._experimentsList = this._experimentsSection.createChild('div');
       for (const experiment of stableExperiments) {
-        experimentsSection.appendChild(this._createExperimentCheckbox(experiment));
+        const experimentCheckbox = this._createExperimentCheckbox(experiment);
+        this._experimentsList.appendChild(experimentCheckbox);
+        this._experimentToDomChanges.set(experimentCheckbox, []);
       }
     }
+
     if (unstableExperiments.length) {
-      const experimentsSection = this._appendSection();
+      this._unstableSection = this._appendSection();
       const warningMessage =
           Common.UIString.UIString('These experiments are particularly unstable. Enable at your own risk.');
-      experimentsSection.appendChild(this._createExperimentsWarningSubsection(warningMessage));
+      this._unstableSection.appendChild(this._createExperimentsWarningSubsection(warningMessage));
+
+      this._unstableList = this._unstableSection.createChild('div');
       for (const experiment of unstableExperiments) {
-        experimentsSection.appendChild(this._createExperimentCheckbox(experiment));
+        const experimentCheckbox = this._createExperimentCheckbox(experiment);
+        this._unstableList.appendChild(experimentCheckbox);
+        this._experimentToDomChanges.set(experimentCheckbox, []);
       }
     }
   }
@@ -367,6 +582,72 @@ export class ExperimentsSettingsTab extends SettingsTab {
     p.appendChild(label);
     return p;
   }
+
+  /**
+   * @override
+   * @param {string} filter
+   * @return {number}
+   */
+  applyFilter(filter) {
+    let allMatches = 0;
+    this._noResultsElement.classList.add('hidden');
+
+    if (this._experimentsSection && this._experimentsList) {
+      this._experimentsSection.classList.remove('hidden');
+      const experimentsCount = this._applyFilterToList(this._experimentsList, filter);
+      if (experimentsCount === 0) {
+        this._experimentsSection.classList.add('hidden');
+      }
+
+      allMatches += experimentsCount;
+    }
+
+    if (this._unstableSection && this._unstableList) {
+      this._unstableSection.classList.remove('hidden');
+      const unstableCount = this._applyFilterToList(this._unstableList, filter);
+
+      if (unstableCount === 0) {
+        this._unstableSection.classList.add('hidden');
+      }
+
+      allMatches += unstableCount;
+    }
+
+    if (allMatches === 0) {
+      this._noResultsElement.classList.remove('hidden');
+    }
+    return allMatches;
+  }
+
+  /**
+   * @param {!Element} experimentList
+   * @param {string} filter
+   * @return {number}
+   */
+  _applyFilterToList(experimentList, filter) {
+    let allMatches = 0;
+
+    for (const element of experimentList.children) {
+      UI.UIUtils.revertDomChanges(this._experimentToDomChanges.get(element));
+      this._experimentToDomChanges.set(element, []);
+      element.classList.remove('hidden');
+
+      const labelTextElement = element.children[0].textElement;
+      const filterIndex = labelTextElement.textContent.toLocaleLowerCase().indexOf(filter);
+      if (filterIndex === -1) {
+        element.classList.add('hidden');
+        continue;
+      }
+
+      UI.UIUtils.highlightRangesWithStyleClass(
+          labelTextElement, [new TextUtils.TextRange.SourceRange(filterIndex, filter.length)], 'highlighted-match',
+          this._experimentToDomChanges.get(element));
+
+      allMatches += 1;
+    }
+
+    return allMatches;
+  }
 }
 
 /**
@@ -384,16 +665,16 @@ export class ActionDelegate {
     let screen;
     switch (actionId) {
       case 'settings.show':
-        SettingsScreen._showSettingsScreen({focusTabHeader: true});
+        SettingsScreen._showSettingsScreen({focusSearchBox: true});
         return true;
       case 'settings.documentation':
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
             UI.UIUtils.addReferrerToURL('https://developers.google.com/web/tools/chrome-devtools/'));
         return true;
       case 'settings.shortcuts':
-        screen = {name: ls`Shortcuts`, focusTabHeader: true};
+        screen = {name: ls`Shortcuts`, focusSearchBox: true};
         if (Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
-          screen = {name: 'keybinds', focusTabHeader: true};
+          screen = {name: 'keybinds', focusSearchBox: true};
         }
         SettingsScreen._showSettingsScreen(screen);
         return true;
