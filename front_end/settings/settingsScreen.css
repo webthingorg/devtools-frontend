@@ -198,3 +198,23 @@ fieldset {
   display: block;
   color: #888;
 }
+
+.settings-search-input {
+  margin: 15px;
+}
+
+.settings-search-preferences-no-results {
+  padding-top: 9px;
+}
+
+label {
+  white-space: pre-wrap;
+}
+
+.settings-search-match-outline:not(:focus) {
+  box-shadow: 0 0 0 3px #f1ea00;
+}
+
+:host-context(.-theme-with-dark-background) .settings-search-match-outline:not(:focus) {
+  box-shadow: 0 0 0 3px hsl(133deg 100% 30%) !important;
+}
