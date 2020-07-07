@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d81171_4822e96f",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-07T12:27:25Z",
+      "side": 1,
+      "message": "Disabling this lint check for ~100 lines feels bad :(",
+      "revId": "99c086422213b3e3dbfc354086dc854a47a107a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f78a1ea9_042d1510",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-07T12:27:25Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to be hoisted out of the media query? It just needs to go before the previous rule (which includes `.network-log-grid.data-grid.small .header-container .network-waterfall-header`).",
+      "revId": "99c086422213b3e3dbfc354086dc854a47a107a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
