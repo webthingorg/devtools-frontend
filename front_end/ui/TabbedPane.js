@@ -428,6 +428,22 @@ export class TabbedPane extends VBox {
 
   /**
    * @param {string} id
+   * @param {number} number
+   */
+  setTabBubble(id, number) {
+    const tab = this._tabsById.get(id);
+    tab.setBubble(number);
+    this._updateTabElements();
+  }
+
+  hideTabBubble(id) {
+    const tab = this._tabsById.get(id);
+    tab.hideBubble();
+    this._updateTabElements();
+  }
+
+  /**
+   * @param {string} id
    * @param {boolean} enabled
    */
   setTabEnabled(id, enabled) {
@@ -1201,6 +1217,21 @@ export class TabbedPaneTab {
    */
   setDelegate(delegate) {
     this._delegate = delegate;
+  }
+
+  setBubble(number) {
+    if (!this._bubbleElement) {
+      this._bubbleElement = document.createElement('span', {is: 'dt-small-bubble'});
+      this._titleElement.insertAdjacentElement('afterend', this._bubbleElement);
+    }
+    this._bubbleElement.classList.remove('hidden');
+    this._bubbleElement.textContent = number;
+  }
+
+  hideBubble() {
+    if (this._bubbleElement) {
+      this._bubbleElement.classList.add('hidden');
+    }
   }
 
   /**

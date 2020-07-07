@@ -770,25 +770,29 @@ export class LinkContextMenuProvider {
  * @implements {UI.SettingsUI.SettingUI}
  * @unrestricted
  */
-export class LinkHandlerSettingUI {
+export class LinkHandlerSettingUI extends UI.SettingsUI.SettingSelectElement {
   constructor() {
-    this._element = document.createElement('select');
-    this._element.classList.add('chrome-select');
-    this._element.addEventListener('change', this._onChange.bind(this), false);
+    const selectElement = document.createElement('select');
+    selectElement.classList.add('chrome-select');
+
+    const {element, label} = UI.SettingsUI.createCustomSetting(ls`Link handling:`, selectElement);
+    super(element, label, selectElement);
+
+    this._selectElement.addEventListener('change', this._onChange.bind(this), false);
     this._update();
   }
 
   _update() {
-    this._element.removeChildren();
+    this._selectElement.removeChildren();
     const names = [..._linkHandlers.keys()];
     names.unshift(Common.UIString.UIString('auto'));
     for (const name of names) {
       const option = createElement('option');
       option.textContent = name;
       option.selected = name === Linkifier._linkHandlerSetting().get();
-      this._element.appendChild(option);
+      this._selectElement.appendChild(option);
     }
-    this._element.disabled = names.length <= 1;
+    this._selectElement.disabled = names.length <= 1;
   }
 
   /**
@@ -797,14 +801,6 @@ export class LinkHandlerSettingUI {
   _onChange(event) {
     const value = event.target.value;
     Linkifier._linkHandlerSetting().set(value);
-  }
-
-  /**
-   * @override
-   * @return {?Element}
-   */
-  settingElement() {
-    return UI.SettingsUI.createCustomSetting(Common.UIString.UIString('Link handling:'), this._element);
   }
 }
 
