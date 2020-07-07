@@ -175,14 +175,21 @@ export async function reloadDevTools(options: ReloadDevToolsOptions = {}) {
   }
 }
 
-export async function globalSetup() {
+function startHostedModeServer() {
   console.log(`Spawning hosted mode server on port ${hostedModeServerPort}`);
 
-  hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd});
+  // Copy the current env and append the ports.
+  const env = Object.create(process.env);
+  env.PORT = hostedModeServerPort;
+  env.REMOTE_DEBUGGING_PORT = envPort;
+  hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd, env});
   hostedModeServer.on('error', handleHostedModeError);
   hostedModeServer.stderr.on('data', handleHostedModeError);
   setHostedModeServerPort(hostedModeServerPort);
+}
 
+export async function globalSetup() {
+  startHostedModeServer();
   await loadTargetPageAndDevToolsFrontend();
 }
 
