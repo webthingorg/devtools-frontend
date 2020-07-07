@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e81856f6_ff26f0b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T14:17:26Z",
+      "side": 1,
+      "message": "Nice cleanup 😊",
+      "revId": "3517338168ead861bdea0f37197bd242a722ae43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb7b2ba_813daae7",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-07T14:17:26Z",
+      "side": 1,
+      "message": "Ultra-nit: technically these are still constants. It\u0027s just that they are less constant than they were before. I liked the capitalization before, to denote that they are treated as constant, so could we maybe keep the capitalization?",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "3517338168ead861bdea0f37197bd242a722ae43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
