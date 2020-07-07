@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "082988c5_a01ab38c",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-07T08:01:03Z",
+      "side": 1,
+      "message": "Another aspect here is that the MessageChannel gives us point-to-point communication with a single plugin, which an extension might register more than one of. Implementing the traffic EventSinkImpl would force us to implement multiplexing on the event channel to not leak/broadcast every query to every extension and plugin.",
+      "parentUuid": "8443a45b_7df23d93",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "771af2c8_cc81d245",
         "filename": "front_end/extensions/ExtensionAPI.js",
         "patchSetId": 11
