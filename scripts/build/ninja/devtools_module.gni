@@ -14,6 +14,8 @@ template("devtools_module") {
     sources = invoker.sources
     deps = invoker.deps
 
+    visibility = [ ":*" ]
+
     # To make sure that this target can be depended upon by other TypeScript targets,
     # we have to name it the `target_name`. However, we can't name this `ts_library` the
     # `target_name`, as the buildgraph requires the `copy_to_resources` to happen *after*
@@ -27,10 +29,13 @@ template("devtools_module") {
           filter_include(get_target_outputs(_typescript_target_dep), [ "*.js" ])
 
       deps = [ _typescript_target_dep ]
+
+      visibility = [ ":*" ]
     }
   } else {
     group(target_name) {
       deps = [ _typescript_target_dep ]
+      visibility = [ ":*" ]
     }
   }
 }

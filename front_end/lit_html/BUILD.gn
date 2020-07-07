@@ -14,5 +14,5 @@ ts_library("lit_html") {
 devtools_entrypoint("bundle") {
   entrypoint = "lit_html.ts"
 
-  deps = [ ":lit_html" ]
+  public_deps = [ ":lit_html" ]
 }

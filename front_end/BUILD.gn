@@ -51,13 +51,13 @@ ts_library("ts_library-verification") {
     "browser_sdk",
     "color_picker",
     "common",
-    "formatter_worker",
+    "formatter_worker:bundle",
     "host",
     "inspector_overlay",
     "issues",
     "protocol_client",
     "root",
-    "sdk",
+    "sdk:bundle",
     "workspace",
   ]
 }

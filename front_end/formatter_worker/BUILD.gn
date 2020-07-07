@@ -35,5 +35,5 @@ devtools_module("formatter_worker") {
 devtools_entrypoint("bundle") {
   entrypoint = "formatter_worker.ts"
 
-  deps = [ ":formatter_worker" ]
+  public_deps = [ ":formatter_worker" ]
 }
