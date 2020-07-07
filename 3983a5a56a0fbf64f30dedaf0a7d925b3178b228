@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "366cae35_c20858c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1436067
+      },
+      "writtenOn": "2020-07-07T15:07:01Z",
+      "side": 1,
+      "message": "looks like first style was override by the second in this commit: https://chromium-review.googlesource.com/c/1385426",
+      "revId": "3983a5a56a0fbf64f30dedaf0a7d925b3178b228",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
