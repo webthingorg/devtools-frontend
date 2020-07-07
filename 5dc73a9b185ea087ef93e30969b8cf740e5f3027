@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "eb81f523_d3b2cd16",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e5f48d3_e7cddcdf",
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0012cabf_04de479f",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 7
@@ -73,6 +91,30 @@
       "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3207aa6_f917dba4",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:03:24Z",
+      "side": 1,
+      "message": "AFAIK, we are guarenteed to have a nodeId \u003e0; but I am going to make this change just in case that ever changes",
+      "parentUuid": "0012cabf_04de479f",
+      "range": {
+        "startLine": 82,
+        "startChar": 82,
+        "endLine": 82,
+        "endChar": 83
+      },
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -99,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "1a3411a3_bbfdac62",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21c7a0b8_f1c139ec",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7382f18_38e35d89",
         "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
         "patchSetId": 7
@@ -119,6 +185,30 @@
       "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1650a38d_d932b549",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-07T16:03:24Z",
+      "side": 1,
+      "message": "While I think this might make sense for grid, the tool_highlight_impl.js is still fairly large, and I\u0027d rather leave it as is. For consistency, I\u0027m going to the grid_impl as well, and we can follow up later if we want to remove some of the files in the future.",
+      "parentUuid": "d7382f18_38e35d89",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 1
+      },
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
