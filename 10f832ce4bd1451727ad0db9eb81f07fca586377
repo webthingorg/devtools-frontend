@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "139b1a33_913081be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "I did a quick review of the code. Note that this is the first time I look at this part of the code, so this is mostly a learning exercise for me.\nI did play with the feature too, and noted a couple things which might need to be fixed either in follow-ups or here:\n\n* I can\u0027t set a shortcut to Esc. When I press it, it closes the settings panel instead. If this shortcut is reserved and can\u0027t be assigned, then perhaps some special warning should be displayed.\n\n* After clicking on the edit icon (the pencil), I was expected the input field to be focused automatically, but it wasn\u0027t for me. I first need to click in the field to start setting a new shortcut.\n\n* When I click inside the input field for the first time, it doesn\u0027t work. The cursor appears in the field, blinks just once, and then disappears, and I can\u0027t set a shortcut then. I need to click a second time inside the field. When I do, I can see the cursor in the field, blinking as usual, indicating that the field has focused, and I can then set the shortcut I want. \nSo I believe there\u0027s a bug here. But beyond the need to focus twice, I would advise having a special style applied to the field when focused, so it\u0027s more easily visible to users that keys are being recorded.",
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae4dd11_043e3cfe",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "Does this need to now be KeybindsItem|string ?",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "460616ee_4201f3b2",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "These 2 ifs should be grouped into 1 since there\u0027s no else.",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 75
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc0a6667_ed36e4e7",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "It feels a little weird to me that this function appears after the return statement of the method.\nHow about moving it to the top of the method? Or make it a method on the class instead (which would make sense since it needs access to the `this` instance)?",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 49
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1c5ee62_f845d5e7",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "As someone new to this code, I\u0027d love a little comment block that explains what this class is responsible for.",
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428eb156_86e1e89a",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "This exact same code appears in the KeybindsSettingsTab class in createElementForItem. In fact, the _createShortcutRow foreach callback also has some common code in the 2 places.\nMaybe there\u0027s a way we could extract this logic in a helper function outside of both classes and use it from both places.",
+      "range": {
+        "startLine": 259,
+        "startChar": 4,
+        "endLine": 264,
+        "endChar": 5
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a06bc3b8_d060da70",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "If you need to keep commented-out code, the please add a comment explaining why. Otherwise, it\u0027s probably better to delete it.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 1
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ba6edf3_980c3459",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "Can you explain the reasoning behind instantiating a new object here instead of doing something like:\n\n  this.type \u003d\u003d\u003d type;\n  return this;",
+      "range": {
+        "startLine": 71,
+        "startChar": 11,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d92f3e1_630d9bc3",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T08:02:41Z",
+      "side": 1,
+      "message": "nit: commented out code here, likely needs to be removed.",
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
