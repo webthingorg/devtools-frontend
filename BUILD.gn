@@ -1631,7 +1631,6 @@ all_typescript_modules = [
   "formatter_worker/CSSFormatter.js",
   "formatter_worker/CSSRuleParser.js",
   "formatter_worker/ESTreeWalker.js",
-  "formatter_worker/FormattedContentBuilder.js",
   "formatter_worker/FormatterWorker.js",
   "formatter_worker/HTMLFormatter.js",
   "formatter_worker/JavaScriptFormatter.js",
