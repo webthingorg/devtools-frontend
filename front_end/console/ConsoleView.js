@@ -574,8 +574,9 @@ export class ConsoleView extends UI.Widget.VBox {
   /**
    * @param {!SDK.ConsoleModel.ConsoleMessage} message
    */
-  _addConsoleMessage(message) {
+  async _addConsoleMessage(message) {
     const viewMessage = this._createViewMessage(message);
+    await viewMessage.createMessageElement();
     message[this._viewMessageSymbol] = viewMessage;
     if (message.type === SDK.ConsoleModel.MessageType.Command || message.type === SDK.ConsoleModel.MessageType.Result) {
       const lastMessage = this._consoleMessages.peekLast();
@@ -1518,31 +1519,29 @@ export class ConsoleViewFilter {
 export class ConsoleCommand extends ConsoleViewMessage {
   /**
    * @override
-   * @return {!Element}
+   * @return {!Promise<!Element>}
    */
-  contentElement() {
-    if (!this._contentElement) {
-      this._contentElement = document.createElement('div');
-      this._contentElement.classList.add('console-user-command');
-      const icon = UI.Icon.Icon.create('smallicon-user-command', 'command-result-icon');
-      this._contentElement.appendChild(icon);
+  async createContentElement() {
+    this._contentElement = document.createElement('div');
+    this._contentElement.classList.add('console-user-command');
+    const icon = UI.Icon.Icon.create('smallicon-user-command', 'command-result-icon');
+    this._contentElement.appendChild(icon);
 
-      this._contentElement.message = this;
+    this._contentElement.message = this;
 
-      this._formattedCommand = document.createElement('span');
-      this._formattedCommand.classList.add('source-code');
-      this._formattedCommand.textContent = Platform.StringUtilities.replaceControlCharacters(this.text);
-      this._contentElement.appendChild(this._formattedCommand);
+    this._formattedCommand = document.createElement('span');
+    this._formattedCommand.classList.add('source-code');
+    this._formattedCommand.textContent = Platform.StringUtilities.replaceControlCharacters(this.text);
+    this._contentElement.appendChild(this._formattedCommand);
 
-      if (this._formattedCommand.textContent.length < MaxLengthToIgnoreHighlighter) {
-        const javascriptSyntaxHighlighter = new UI.SyntaxHighlighter.SyntaxHighlighter('text/javascript', true);
-        javascriptSyntaxHighlighter.syntaxHighlightNode(this._formattedCommand).then(this._updateSearch.bind(this));
-      } else {
-        this._updateSearch();
-      }
-
-      this.updateTimestamp();
+    if (this._formattedCommand.textContent.length < MaxLengthToIgnoreHighlighter) {
+      const javascriptSyntaxHighlighter = new UI.SyntaxHighlighter.SyntaxHighlighter('text/javascript', true);
+      javascriptSyntaxHighlighter.syntaxHighlightNode(this._formattedCommand).then(this._updateSearch.bind(this));
+    } else {
+      this._updateSearch();
     }
+
+    this.updateTimestamp();
     return this._contentElement;
   }
 
@@ -1557,10 +1556,10 @@ export class ConsoleCommand extends ConsoleViewMessage {
 class ConsoleCommandResult extends ConsoleViewMessage {
   /**
    * @override
-   * @return {!Element}
+   * @return {!Promise<!Element>}
    */
-  contentElement() {
-    const element = super.contentElement();
+  async createContentElement() {
+    const element = await super.createContentElement();
     if (!element.classList.contains('console-user-command-result')) {
       element.classList.add('console-user-command-result');
       if (this.consoleMessage().level === SDK.ConsoleModel.MessageLevel.Info) {

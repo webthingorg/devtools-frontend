@@ -135,9 +135,9 @@ export class ConsoleViewMessage {
   }
 
   /**
-   * @return {!Element}
+   * @return {!Promise<!Element>}
    */
-  _buildTableMessage() {
+  async _buildTableMessage() {
     const formattedMessage = document.createElement('span');
     formattedMessage.classList.add('source-code');
     this._anchorElement = this._buildMessageAnchor();
@@ -147,11 +147,11 @@ export class ConsoleViewMessage {
 
     const table = this._message.parameters && this._message.parameters.length ? this._message.parameters[0] : null;
     if (!table) {
-      return this._buildMessage();
+      return await this._buildMessage();
     }
     const actualTable = this._parameterToRemoteObject(table);
     if (!actualTable || !actualTable.preview) {
-      return this._buildMessage();
+      return await this._buildMessage();
     }
 
     const rawValueColumnSymbol = Symbol('rawValueColumn');
@@ -222,15 +222,15 @@ export class ConsoleViewMessage {
   }
 
   /**
-   * @return {!Element}
+   * @return {!Promise<!Element>}
    */
-  _buildMessage() {
+  async _buildMessage() {
     let messageElement;
     let messageText = this._message.messageText;
     if (this._message.source === SDK.ConsoleModel.MessageSource.ConsoleAPI) {
       switch (this._message.type) {
         case SDK.ConsoleModel.MessageType.Trace:
-          messageElement = this._format(this._message.parameters || ['console.trace']);
+          messageElement = await this._format(this._message.parameters || ['console.trace']);
           break;
         case SDK.ConsoleModel.MessageType.Clear:
           messageElement = document.createElement('span');
@@ -247,12 +247,12 @@ export class ConsoleViewMessage {
         case SDK.ConsoleModel.MessageType.Dir: {
           const obj = this._message.parameters ? this._message.parameters[0] : undefined;
           const args = ['%O', obj];
-          messageElement = this._format(args);
+          messageElement = await this._format(args);
           break;
         }
         case SDK.ConsoleModel.MessageType.Profile:
         case SDK.ConsoleModel.MessageType.ProfileEnd:
-          messageElement = this._format([messageText]);
+          messageElement = await this._format([messageText]);
           break;
         case SDK.ConsoleModel.MessageType.Assert:
           this._messagePrefix = ls`Assertion failed: `;
@@ -263,12 +263,12 @@ export class ConsoleViewMessage {
             messageElement = this._tryFormatAsError(/** @type {string} */ (this._message.parameters[0].value));
           }
           const args = this._message.parameters || [messageText];
-          messageElement = messageElement || this._format(args);
+          messageElement = messageElement || await this._format(args);
         }
       }
     } else {
       if (this._message.source === SDK.ConsoleModel.MessageSource.Network) {
-        messageElement = this._formatAsNetworkRequest() || this._format([messageText]);
+        messageElement = this._formatAsNetworkRequest() || await this._format([messageText]);
       } else {
         const messageInParameters =
             this._message.parameters && messageText === /** @type {string} */ (this._message.parameters[0]);
@@ -283,7 +283,7 @@ export class ConsoleViewMessage {
         if (messageInParameters) {
           args[0] = messageText;
         }
-        messageElement = this._format(args);
+        messageElement = await this._format(args);
       }
     }
     messageElement.classList.add('console-message-text');
@@ -373,14 +373,14 @@ export class ConsoleViewMessage {
   }
 
   /**
-   * @return {!Element}
+   * @return {!Promise<!Element>}
    */
-  _buildMessageWithStackTrace() {
+  async _buildMessageWithStackTrace() {
     const toggleElement = document.createElement('div');
     toggleElement.classList.add('console-message-stack-trace-toggle');
     const contentElement = toggleElement.createChild('div', 'console-message-stack-trace-wrapper');
 
-    const messageElement = this._buildMessage();
+    const messageElement = await this._buildMessage();
     const icon = UI.Icon.Icon.create('smallicon-triangle-right', 'console-message-expand-icon');
     const clickableElement = contentElement.createChild('div');
     clickableElement.appendChild(icon);
@@ -486,9 +486,9 @@ export class ConsoleViewMessage {
 
   /**
    * @param {!Array.<!SDK.RemoteObject.RemoteObject|string>} rawParameters
-   * @return {!Element}
+   * @return {!Promise<!Element>}
    */
-  _format(rawParameters) {
+  async _format(rawParameters) {
     // This node is used like a Builder. Values are continually appended onto it.
     const formattedResult = createElement('span');
     if (this._messagePrefix) {
@@ -1208,10 +1208,16 @@ export class ConsoleViewMessage {
    * @return {!Element}
    */
   contentElement() {
-    if (this._contentElement) {
-      return this._contentElement;
+    if (!this._contentElement) {
+      throw new Error('No content element');
     }
+    return this._contentElement;
+  }
 
+  /**
+   * @return {!Promise<!Element>}
+   */
+  async createContentElement() {
     const contentElement = document.createElement('div');
     contentElement.classList.add('console-message');
     if (this._messageLevelIcon) {
@@ -1227,34 +1233,36 @@ export class ConsoleViewMessage {
          this._message.level === SDK.ConsoleModel.MessageLevel.Warning ||
          this._message.type === SDK.ConsoleModel.MessageType.Trace);
     if (this._message.runtimeModel() && shouldIncludeTrace) {
-      formattedMessage = this._buildMessageWithStackTrace();
+      formattedMessage = await this._buildMessageWithStackTrace();
     } else if (this._message.type === SDK.ConsoleModel.MessageType.Table) {
-      formattedMessage = this._buildTableMessage();
+      formattedMessage = await this._buildTableMessage();
     } else {
-      formattedMessage = this._buildMessage();
+      formattedMessage = await this._buildMessage();
     }
     contentElement.appendChild(formattedMessage);
 
     this.updateTimestamp();
-    return this._contentElement;
+    return contentElement;
   }
 
   /**
    * @return {!Element}
    */
   toMessageElement() {
-    if (this._element) {
-      return this._element;
+    if (!this._element) {
+      throw new Error('no message element');
     }
-
-    this._element = createElement('div');
-    this._element.tabIndex = -1;
-    this._element.addEventListener('keydown', this._onKeyDown.bind(this));
-    this.updateMessageElement();
     return this._element;
   }
 
-  updateMessageElement() {
+  async createMessageElement() {
+    this._element = createElement('div');
+    this._element.tabIndex = -1;
+    this._element.addEventListener('keydown', this._onKeyDown.bind(this));
+    await this.updateMessageElement();
+  }
+
+  async updateMessageElement() {
     if (!this._element) {
       return;
     }
@@ -1301,7 +1309,7 @@ export class ConsoleViewMessage {
       this._element.classList.add('console-warning-level');
     }
 
-    this._element.appendChild(this.contentElement());
+    this._element.appendChild(await this.createContentElement());
     if (this._repeatCount > 1) {
       this._showRepeatCountElement();
     }
