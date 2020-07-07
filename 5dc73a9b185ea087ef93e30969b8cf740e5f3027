@@ -16,6 +16,109 @@
       "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b3496d_cbd4770d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T10:13:27Z",
+      "side": 1,
+      "message": "Thanks Brandon. This is exciting!\nNot giving +1 for now as you said you were going to work on tests, and I also have a comment about the CSS code which I think needs to be addressed.",
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e5f48d3_e7cddcdf",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T10:13:27Z",
+      "side": 1,
+      "message": "nit: Can you maybe add another sentence in this comment to explain that we manage labels per node, so that we can draw multiple overlays at the same time.",
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0012cabf_04de479f",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T10:13:27Z",
+      "side": 1,
+      "message": "Are we guaranteed to never have a nodeId equal to 0? If so, this is fine, but just to be safe, we could just have this be grid-labels",
+      "range": {
+        "startLine": 82,
+        "startChar": 82,
+        "endLine": 82,
+        "endChar": 83
+      },
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c7a0b8_f1c139ec",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T10:13:27Z",
+      "side": 1,
+      "message": "This string also exists in tool_highlight.js and contains quite a lot of complex CSS code that I\u0027d rather us not repeat.\nCould you also move this to a const in highlight_grid_common.js?\nIdeally we\u0027d have this entire thing in a real stylesheet file, but I know Alex is working on this, so in the meantime, moving this to a common file seems best.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7382f18_38e35d89",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-07T10:13:27Z",
+      "side": 1,
+      "message": "Just a thought, nothing to do here: with the tool* and tool*impl files being really small now, thanks to moving things to common files, I wonder if having 2 files even makes sense anymore. Separating this in a main file and another one for implementation details doesn\u0027t really feel worth it.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 1
+      },
+      "revId": "5dc73a9b185ea087ef93e30969b8cf740e5f3027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
