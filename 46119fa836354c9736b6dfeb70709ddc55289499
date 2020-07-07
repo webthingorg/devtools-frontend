@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2098fce2_0c6ba2d1",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-07T00:19:52Z",
+      "side": 1,
+      "message": "Is there particular motivation for using another channel? I\u0027d really like to treat the channels/ports as low-level IPC and encapsulate them in ExtensionServerClient / ExtensionServer, just in case we may one day move to a different transport. We have some higher-level notions for this, like EventSinkImpl (that would also let the server do something when a listener is added) or ExtensionServerClient.registerHandler(), can you use one of these?",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "771af2c8_cc81d245",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-07T00:19:52Z",
+      "side": 1,
+      "message": "Since these are constants shared between ExtensionServer and ExtensionAPI, let\u0027s have some symbols for them in defineCommonExtensionSymbols()",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e37cfdd_e406b2c6",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-07T00:19:52Z",
+      "side": 1,
+      "message": "How is this used?",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db03436c_60525bb6",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-07T00:19:52Z",
+      "side": 1,
+      "message": "This one could probably be just { console.error(...); return; }\n\nWe used to limit exception use in the front-end to a couple of cases:\n- we throw when hard invariants are violated (pretty much in cases when you would CHECK() in the C++ code)\n- we catch when the underlying DOM APIs throw and we expect to pass through some potentially invalid input.\nBenedikt, is this still the policy?",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a283df11_acb48e6f",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-07T00:19:52Z",
+      "side": 1,
+      "message": "you probably want some type validation on data coming form the client (in particular, supportedScriptTypes here, since you assume symbol_types exists and is an array later on)",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81932575_bb3a1aba",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-07T00:19:52Z",
+      "side": 1,
+      "message": "is this intentional and related?",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
