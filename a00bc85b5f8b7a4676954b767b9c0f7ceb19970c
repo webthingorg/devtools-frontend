@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d1a7c0a_6a9d45a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-08T11:10:52Z",
+      "side": 1,
+      "message": "Nice! Thanks for adding the comments too, that\u0027s much clearer. 👍",
+      "revId": "a00bc85b5f8b7a4676954b767b9c0f7ceb19970c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
