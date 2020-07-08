@@ -39,6 +39,30 @@
       "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b483055_77a55371",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-08T15:30:33Z",
+      "side": 1,
+      "message": "If I remember correctly, we made it so that large labels would not overlap, and I think 17px is going to be below that large-label threshold. So we should be fine. But I\u0027ll verify before landing, if Peter is ok with the approach.",
+      "parentUuid": "dd0a74ea_4232ff6d",
+      "range": {
+        "startLine": 254,
+        "startChar": 13,
+        "endLine": 254,
+        "endChar": 18
+      },
+      "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
