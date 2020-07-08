@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "39ed7651_37d202f3",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-08T15:28:44Z",
+      "side": 1,
+      "message": "Ahh, makes sense. If we already early return, then we can type cast this._node() as a Node. for example: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/components/Linkifier.js;drc\u003d387cfd3b092572f5a4366c1db142d107800809b6;l\u003d757?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "parentUuid": "1026ac70_149199fc",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca7e5eb4_09f0feac",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 5
@@ -148,6 +172,30 @@
       "side": 1,
       "message": "It\u0027s the next line :^)",
       "parentUuid": "f616e572_73a28a93",
+      "range": {
+        "startLine": 698,
+        "startChar": 4,
+        "endLine": 698,
+        "endChar": 43
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18b08455_8d107290",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-08T15:28:44Z",
+      "side": 1,
+      "message": "Lol. oops",
+      "parentUuid": "111d81e7_7f204e84",
       "range": {
         "startLine": 698,
         "startChar": 4,
