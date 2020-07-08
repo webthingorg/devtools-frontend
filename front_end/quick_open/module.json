@@ -86,7 +86,8 @@
     "FilteredListWidget.js",
     "QuickOpen.js",
     "CommandMenu.js",
-    "HelpQuickOpen.js"
+    "HelpQuickOpen.js",
+    "QuickPick.js"
   ],
   "resources": [
     "filteredListWidget.css"
