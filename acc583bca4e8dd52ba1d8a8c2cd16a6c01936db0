@@ -16,6 +16,23 @@
       "revId": "acc583bca4e8dd52ba1d8a8c2cd16a6c01936db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d126a66d_8524104a",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-08T09:33:23Z",
+      "side": 1,
+      "message": "The license added two times? it might be fine, I am not sure",
+      "revId": "acc583bca4e8dd52ba1d8a8c2cd16a6c01936db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
