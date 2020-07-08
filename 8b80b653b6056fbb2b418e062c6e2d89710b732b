@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7fb1c5eb_8318bffa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-08T14:34:44Z",
+      "side": 1,
+      "message": "Jan suggested port 0, I was like, that is 1 million times better",
+      "parentUuid": "0bc5c3db_da48e156",
+      "revId": "8b80b653b6056fbb2b418e062c6e2d89710b732b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2875be8b_dd6255ce",
         "filename": "scripts/hosted_mode/server.js",
         "patchSetId": 11
@@ -30,6 +48,30 @@
       "writtenOn": "2020-07-08T14:26:39Z",
       "side": 1,
       "message": "Do we maybe want to stop supporting this server if you did not specify a PORT? I am not sure which workflows use it, so we can keep this for now. But it is probably a good idea to remove this as soon as we can.",
+      "range": {
+        "startLine": 11,
+        "startChar": 50,
+        "endLine": 11,
+        "endChar": 54
+      },
+      "revId": "8b80b653b6056fbb2b418e062c6e2d89710b732b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfc2716_5f78453a",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-08T14:34:44Z",
+      "side": 1,
+      "message": "Yeah I don\u0027t know what relies on this right now, but we can come back to it",
+      "parentUuid": "2875be8b_dd6255ce",
       "range": {
         "startLine": 11,
         "startChar": 50,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "f0aaaf90_651355db",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-08T14:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7e8eeaa_edfe19ad",
+      "range": {
+        "startLine": 188,
+        "startChar": 110,
+        "endLine": 188,
+        "endChar": 113
+      },
+      "revId": "8b80b653b6056fbb2b418e062c6e2d89710b732b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d1a7c9e_35e0b52c",
         "filename": "test/conductor/hooks.ts",
         "patchSetId": 11
@@ -85,6 +151,30 @@
       "revId": "8b80b653b6056fbb2b418e062c6e2d89710b732b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9e88c49_6d578688",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-08T14:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d1a7c9e_35e0b52c",
+      "range": {
+        "startLine": 212,
+        "startChar": 2,
+        "endLine": 212,
+        "endChar": 48
+      },
+      "revId": "8b80b653b6056fbb2b418e062c6e2d89710b732b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
