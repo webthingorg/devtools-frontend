@@ -8,7 +8,7 @@ import {ChildProcess, spawn} from 'child_process';
 import * as path from 'path';
 import * as puppeteer from 'puppeteer';
 
-import {getBrowserAndPages, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
+import {getBrowserAndPages, getHostedModeServerPort, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
 
 const HOSTED_MODE_SERVER_PATH = path.join(__dirname, '..', '..', 'scripts', 'hosted_mode', 'server.js');
 const EMPTY_PAGE = 'data:text/html,';
@@ -23,7 +23,8 @@ const width = 1280;
 const height = 720;
 
 const chromeDebugPort = 9222;
-const hostedModeServerPort = 8090;
+const hostedModeServerPortBase = 8100;
+const portRange = 250;
 const headless = !process.env['DEBUG'];
 const envSlowMo = process.env['STRESS'] ? 50 : undefined;
 const envThrottleRate = process.env['STRESS'] ? 3 : 1;
@@ -47,7 +48,7 @@ interface DevToolsTarget {
 
 const envChromeBinary = process.env['CHROME_BIN'];
 
-async function loadTargetPageAndDevToolsFrontend() {
+async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
   const launchArgs = [`--remote-debugging-port=${chromeDebugPort}`];
   const opts: puppeteer.LaunchOptions = {
     headless,
@@ -171,7 +172,17 @@ export async function reloadDevTools(options: ReloadDevToolsOptions = {}) {
   }
 }
 
-function startHostedModeServer(serverPort: number, chromePort: number): Promise<string> {
+enum ServerStartStatus {
+  STARTED,
+  PORT_IN_USE,
+  ERROR,
+}
+
+interface ServerStartResult {
+  status: ServerStartStatus, message: string,
+}
+
+function startHostedModeServer(serverPort: number, chromePort: number): Promise<ServerStartResult> {
   console.log(`Spawning hosted mode server on port ${serverPort}`);
 
   function handleHostedModeError(error: Error) {
@@ -182,15 +193,18 @@ function startHostedModeServer(serverPort: number, chromePort: number): Promise<
   const env = Object.create(process.env);
   env.PORT = serverPort;
   env.REMOTE_DEBUGGING_PORT = chromePort;
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd, env, stdio: ['pipe', 'pipe', 'pipe', 'ipc']});
     hostedModeServer.on('message', message => {
       if (message === 'PORT_IN_USE') {
-        reject(`Could not start hosted mode server on port ${serverPort}`);
+        resolve({
+          status: ServerStartStatus.PORT_IN_USE,
+          message: `Could not start hosted mode server on port ${serverPort}`,
+        });
       } else if (message === 'READY') {
-        resolve(`Started hosted mode server OK on port ${serverPort}`);
+        resolve({status: ServerStartStatus.STARTED, message: 'Started OK on port ${serverPort}'});
       } else {
-        reject('Unknown message from hosted mode server:' + message);
+        resolve({status: ServerStartStatus.ERROR, message: 'Unknown message from hosted mode server:' + message});
       }
     });
     hostedModeServer.on('error', handleHostedModeError);
@@ -200,14 +214,80 @@ function startHostedModeServer(serverPort: number, chromePort: number): Promise<
   });
 }
 
-export async function globalSetup() {
-  try {
-    await startHostedModeServer(hostedModeServerPort, chromeDebugPort);
-    setHostedModeServerPort(hostedModeServerPort);
-  } catch (message) {
-    throw new Error(message);
+class PortGenerator {
+  private portBase: number;
+  private portRange: number;
+  private tried: Set<number> = new Set();
+
+  constructor(portBase: number, portRange: number) {
+    this.portBase = portBase;
+    this.portRange = portRange;
   }
-  await loadTargetPageAndDevToolsFrontend();
+
+  private randomInRange() {
+    return Math.floor(Math.random() * this.portRange);
+  }
+
+  private firstNonTried() {
+    for (let port = this.portBase; port < this.portBase + this.portRange; port++) {
+      if (!this.tried.has(port)) {
+        return port;
+      }
+    }
+    return 0;
+  }
+
+  /**
+   * The port returned by next will be in the range [portBase, portBase +
+   * portRange) and will never be the same as a previously returned value. If no
+   * more ports are available, return 0.
+   */
+  next(): number {
+    let candidate;
+    if (this.tried.size < this.portRange / 2) {
+      do {
+        candidate = this.portBase + this.randomInRange();
+      } while (this.tried.has(candidate));
+    } else {
+      // Avoid the case where we are trying to random a needle in a haystack and
+      // just linear probe.
+      candidate = this.firstNonTried();
+    }
+    if (candidate) {
+      this.tried.add(candidate);
+    }
+    return candidate;
+  }
+}
+
+// Try to start the hosted mode server on a port within [portBase, portBase +
+// portRange). Throws after trying to unsuccessfully start the server
+// |retries| times.
+async function startHostedModeServerWithRetries(retries: number, portBase: number, portRange: number): Promise<number> {
+  const portGenerator = new PortGenerator(portBase, portRange);
+  let tries = 0;
+  do {
+    const port = portGenerator.next();
+    if (!port) {
+      throw new Error('Could not get a port for the hosted mode server');
+    }
+    tries++;
+    const result = await startHostedModeServer(port, chromeDebugPort);
+    if (result.status === ServerStartStatus.STARTED) {
+      return port;
+    }
+    if (result.status === ServerStartStatus.ERROR) {
+      throw new Error(result.message);
+    }
+    // Retry on PORT_IN_USE.
+  } while (tries < retries);
+  throw new Error(`Could not start hosted mode server, exhausted ${retries} retries`);
+}
+
+export async function globalSetup() {
+  const port = await startHostedModeServerWithRetries(20, hostedModeServerPortBase, portRange);
+  setHostedModeServerPort(port);
+  await loadTargetPageAndDevToolsFrontend(port);
 }
 
 export async function globalTeardown() {
@@ -218,6 +298,6 @@ export async function globalTeardown() {
   // for the very last test that runs.
   await browser.close();
 
-  console.log(`Stopping hosted mode server on port ${hostedModeServerPort}`);
+  console.log(`Stopping hosted mode server on port ${getHostedModeServerPort()}`);
   hostedModeServer.kill();
 }
