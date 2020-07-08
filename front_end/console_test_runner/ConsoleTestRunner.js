@@ -197,12 +197,15 @@ ConsoleTestRunner.evaluateInConsole = function(code, callback, dontForceMainCont
 
   const consoleView = Console.ConsoleView.instance();
   consoleView._prompt._appendCommand(code, true);
-  ConsoleTestRunner.addConsoleViewSniffer(function(commandResult) {
-    const element = commandResult.toMessageElement();
-    // Only call the callback once the live location within the
-    // message element is resolved initially.
-    TestRunner.waitForPendingLiveLocationUpdates().then(() => {
-      callback(element.deepTextContent());
+  ConsoleTestRunner.addConsoleViewSniffer(function() {
+    // skip the first message inserted by consoleView._prompt._appendCommand(code, true)
+    ConsoleTestRunner.addConsoleViewSniffer(function(commandResult) {
+      const element = commandResult.toMessageElement();
+      // Only call the callback once the live location within the
+      // message element is resolved initially.
+      TestRunner.waitForPendingLiveLocationUpdates().then(() => {
+        callback(element.deepTextContent());
+      });
     });
   });
 };
