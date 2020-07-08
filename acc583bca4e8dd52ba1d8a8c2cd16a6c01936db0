@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "24f00be4_be8c43a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-08T15:08:33Z",
+      "side": 1,
+      "message": "Mathias, could you please review? Especially with regards to duplicated licenses in some files.",
+      "revId": "acc583bca4e8dd52ba1d8a8c2cd16a6c01936db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d126a66d_8524104a",
         "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
         "patchSetId": 9
