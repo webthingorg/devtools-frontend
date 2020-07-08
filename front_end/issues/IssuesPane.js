@@ -22,13 +22,38 @@ const extractShortPath = path => {
   return (/[^/]+$/.exec(path) || /[^/]+\/$/.exec(path) || [''])[0];
 };
 
-class AffectedResourcesView extends UI.TreeOutline.TreeElement {
+class OrderedTreeElement extends UI.TreeOutline.TreeElement {
+  /**
+   * Order key will be used to order elements in the tree. The comparator is applied recursively.
+   * @param {string} orderKey
+   */
+  constructor(orderKey) {
+    super();
+    this._orderKey = orderKey;
+  }
+
+  orderKey() {
+    return this._orderKey;
+  }
+
+  /**
+   * @param {!OrderedTreeElement} a
+   * @param {!OrderedTreeElement} b
+   * @returns {number}
+   */
+  static compare(a, b) {
+    return a.orderKey().localeCompare(b.orderKey());
+  }
+}
+
+class AffectedResourcesView extends OrderedTreeElement {
   /**
    * @param {!IssueView} parent
    * @param {!{singular:string, plural:string}} resourceName - Singular and plural of the affected resource name.
+   * @param {string} orderKey
    */
-  constructor(parent, resourceName) {
-    super();
+  constructor(parent, resourceName, orderKey) {
+    super(orderKey);
     this.toggleOnClick = true;
     /** @type {!IssueView} */
     this._parent = parent;
@@ -58,7 +83,7 @@ class AffectedResourcesView extends UI.TreeOutline.TreeElement {
    * @returns {!Element}
    */
   createAffectedResources() {
-    const body = new UI.TreeOutline.TreeElement();
+    const body = new OrderedTreeElement('2-affected-resources');
     const affectedResources = document.createElement('table');
     affectedResources.classList.add('affected-resource-list');
     body.listItemElement.appendChild(affectedResources);
@@ -151,7 +176,7 @@ class AffectedElementsView extends AffectedResourcesView {
    * @param {!SDK.Issue.Issue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`element`, plural: ls`elements`});
+    super(parent, {singular: ls`element`, plural: ls`elements`}, 'elements');
     /** @type {!SDK.Issue.Issue} */
     this._issue = issue;
   }
@@ -199,7 +224,7 @@ class AffectedDirectivesView extends AffectedResourcesView {
    * @param {!AggregatedIssue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`directive`, plural: ls`directives`});
+    super(parent, {singular: ls`directive`, plural: ls`directives`}, 'directives');
     /** @type {!AggregatedIssue} */
     this._issue = issue;
   }
@@ -261,7 +286,7 @@ class AffectedCookiesView extends AffectedResourcesView {
    * @param {!AggregatedIssue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`cookie`, plural: ls`cookies`});
+    super(parent, {singular: ls`cookie`, plural: ls`cookies`}, 'cookies');
     /** @type {!AggregatedIssue} */
     this._issue = issue;
   }
@@ -346,7 +371,7 @@ class AffectedRequestsView extends AffectedResourcesView {
    * @param {!SDK.Issue.Issue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`request`, plural: ls`requests`});
+    super(parent, {singular: ls`request`, plural: ls`requests`}, 'requests');
     /** @type {!SDK.Issue.Issue} */
     this._issue = issue;
   }
@@ -397,7 +422,7 @@ class AffectedSourcesView extends AffectedResourcesView {
    * @param {!SDK.Issue.Issue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`source`, plural: ls`sources`});
+    super(parent, {singular: ls`source`, plural: ls`sources`}, 'sources');
     /** @type {!SDK.Issue.Issue} */
     this._issue = issue;
   }
@@ -453,7 +478,7 @@ class AffectedMixedContentView extends AffectedResourcesView {
    * @param {!SDK.Issue.Issue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`resource`, plural: ls`resources`});
+    super(parent, {singular: ls`resource`, plural: ls`resources`}, 'mixed-content');
     /** @type {!SDK.Issue.Issue} */
     this._issue = issue;
   }
@@ -537,7 +562,7 @@ class AffectedHeavyAdView extends AffectedResourcesView {
    * @param {!SDK.Issue.Issue} issue
    */
   constructor(parent, issue) {
-    super(parent, {singular: ls`resource`, plural: ls`resources`});
+    super(parent, {singular: ls`resource`, plural: ls`resources`}, 'heavy-ads');
     /** @type {!SDK.Issue.Issue} */
     this._issue = issue;
   }
@@ -660,7 +685,7 @@ class AffectedHeavyAdView extends AffectedResourcesView {
   }
 }
 
-class IssueView extends UI.TreeOutline.TreeElement {
+class IssueView extends OrderedTreeElement {
   /**
    *
    * @param {!IssuesPaneImpl} parent
@@ -668,7 +693,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
    * @param {!SDK.Issue.IssueDescription} description
    */
   constructor(parent, issue, description) {
-    super();
+    super(description.title);  // Order issues by title.
     this._parent = parent;
     this._issue = issue;
     /** @type {!SDK.Issue.IssueDescription} */
@@ -732,6 +757,13 @@ class IssueView extends UI.TreeOutline.TreeElement {
     this.listItemElement.appendChild(header);
   }
 
+  /**
+   * @returns {string}
+   */
+  getIssueTitle() {
+    return this._description.title;
+  }
+
   _updateAggregatedIssuesCount() {
     if (this._aggregatedIssuesCount) {
       this._aggregatedIssuesCount.textContent = `${this._issue.getAggregatedIssuesCount()}`;
@@ -744,11 +776,10 @@ class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   /**
-   *
-   * @returns {!UI.TreeOutline.TreeElement}
+   * @returns {!OrderedTreeElement}
    */
   _createAffectedResources() {
-    const wrapper = new UI.TreeOutline.TreeElement();
+    const wrapper = new OrderedTreeElement('20-affected-resources');
     wrapper.setCollapsible(false);
     wrapper.setExpandable(true);
     wrapper.expand();
@@ -760,7 +791,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   _createBody() {
-    const messageElement = new UI.TreeOutline.TreeElement();
+    const messageElement = new OrderedTreeElement('10-body');
     messageElement.setCollapsible(false);
     messageElement.selectable = false;
     const message = this._description.message();
@@ -772,7 +803,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     if (this._description.links.length === 0) {
       return;
     }
-    const linkWrapper = new UI.TreeOutline.TreeElement();
+    const linkWrapper = new OrderedTreeElement('30-links');
     linkWrapper.setCollapsible(false);
     linkWrapper.listItemElement.classList.add('link-wrapper');
 
@@ -821,6 +852,13 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this._issuesTree = new UI.TreeOutline.TreeOutlineInShadow();
     this._issuesTree.registerRequiredCSS('issues/issuesTree.css');
     this._issuesTree.setShowSelectionOnKeyboardFocus(true);
+    this._issuesTree.setComparator((a, b) => {
+      if (a instanceof OrderedTreeElement && b instanceof OrderedTreeElement) {
+        return OrderedTreeElement.compare(a, b);
+      }
+      console.error('This should never be reached.');
+      return -1;
+    });
     this._issuesTree.contentElement.classList.add('issues');
     this.contentElement.appendChild(this._issuesTree.element);
 
