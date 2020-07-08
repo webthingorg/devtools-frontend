@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b02428_1f107aa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-07-08T21:12:31Z",
+      "side": 1,
+      "message": "Hey Paul, any updates on merging this?",
+      "revId": "33d1dbeccaa9920da1f16fcad31188f900a8454e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
