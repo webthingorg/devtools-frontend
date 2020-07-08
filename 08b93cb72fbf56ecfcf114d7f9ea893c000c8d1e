@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4cae214_4595d7c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-08T17:31:50Z",
+      "side": 1,
+      "message": "Let\u0027s add some tests, we definitely need some for an extension API.\nUnless you already have some front-end e2e infrastructure for extension tests, a good starting point would be third_party/blink/web_tests/http/tests/devtools/extensions/ (please also make sure the new API is captured by extension-api.js).\nWhatever is challenging to cover with a layout test, can be tested in a browser-based tests in\nchrome/browser/devtools/devtools_sanity_browsertest.cc",
+      "revId": "08b93cb72fbf56ecfcf114d7f9ea893c000c8d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
