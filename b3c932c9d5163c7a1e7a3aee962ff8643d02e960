@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ef4ceb2_c2a33ea1",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-08T10:42:17Z",
+      "side": 0,
+      "message": "Just moved this down to near the callsite",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 30
+      },
+      "revId": "b3c932c9d5163c7a1e7a3aee962ff8643d02e960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
