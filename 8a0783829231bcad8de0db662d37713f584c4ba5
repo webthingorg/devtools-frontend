@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bbf6366c_94712d4f",
+        "filename": "scripts/build/ninja/copy.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-08T14:28:02Z",
+      "side": 1,
+      "message": "Sadly GN does not have a concept of helpers 😞",
+      "parentUuid": "ba5446f8_179efd49",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "8a0783829231bcad8de0db662d37713f584c4ba5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94e6010d_061bc4c9",
         "filename": "scripts/build/ninja/copy.gni",
         "patchSetId": 1
