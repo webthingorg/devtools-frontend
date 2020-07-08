@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "1026ac70_149199fc",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-08T02:33:29Z",
+      "side": 1,
+      "message": "It puts a red squiggly under this._node.children() because this._node could be null. I\u0027m not sure how to get around it, because I already return earlier if this._node is null",
+      "parentUuid": "9a67899d_74fa7f72",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca7e5eb4_09f0feac",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 5
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "815c14da_d6ed5e14",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-08T02:33:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca7e5eb4_09f0feac",
+      "range": {
+        "startLine": 341,
+        "startChar": 6,
+        "endLine": 341,
+        "endChar": 11
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f616e572_73a28a93",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 5
@@ -85,6 +133,30 @@
       "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "111d81e7_7f204e84",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-08T02:33:29Z",
+      "side": 1,
+      "message": "It\u0027s the next line :^)",
+      "parentUuid": "f616e572_73a28a93",
+      "range": {
+        "startLine": 698,
+        "startChar": 4,
+        "endLine": 698,
+        "endChar": 43
+      },
+      "revId": "4a079b09aa1237e6af33ac35805ca33e82db0ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
