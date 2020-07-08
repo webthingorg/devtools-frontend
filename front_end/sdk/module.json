@@ -2,6 +2,7 @@
   "dependencies": [
     "common",
     "host",
+    "marked",
     "platform",
     "protocol_client",
     "text_utils"
