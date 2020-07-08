@@ -16,6 +16,23 @@
       "revId": "4651d21894589d96a4b431add46100abaacd491d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fffde300_5566e8a6",
+        "filename": "front_end/text_editor/cmdevtools.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-08T11:11:15Z",
+      "side": 1,
+      "message": "Didn\u0027t realize we could do that. I\u0027ll redo my inspectorCommon one because I think in certain cases disabling this makes more sense.",
+      "revId": "4651d21894589d96a4b431add46100abaacd491d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
