@@ -16,6 +16,24 @@
       "revId": "a00bc85b5f8b7a4676954b767b9c0f7ceb19970c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7adce9a_c8bfb240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-08T11:12:40Z",
+      "side": 1,
+      "message": "Do you think it\u0027s worth it to redo the shuffling for descending specificity issues here, considering it addes some lines of code?",
+      "parentUuid": "2d1a7c0a_6a9d45a4",
+      "revId": "a00bc85b5f8b7a4676954b767b9c0f7ceb19970c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
