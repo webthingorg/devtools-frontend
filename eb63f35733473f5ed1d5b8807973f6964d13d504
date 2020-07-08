@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f1560df_b0a2a19a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-08T09:55:54Z",
+      "side": 1,
+      "message": "As discussed in an email, here is what it looks like with a 17px min-width",
+      "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
