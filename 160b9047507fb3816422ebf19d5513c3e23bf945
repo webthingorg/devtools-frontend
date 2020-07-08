@@ -39,6 +39,30 @@
       "revId": "160b9047507fb3816422ebf19d5513c3e23bf945",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2077114_b0238ffd",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-08T08:42:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28172ea3_97ba3d75",
+      "range": {
+        "startLine": 115,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 19
+      },
+      "revId": "160b9047507fb3816422ebf19d5513c3e23bf945",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
