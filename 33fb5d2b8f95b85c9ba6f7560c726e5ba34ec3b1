@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fc87fd0_de39b07e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-08T14:18:27Z",
+      "side": 1,
+      "message": "Some high-level comments. Once you\u0027ve addressed them + rebase I\u0027ll take another look.",
+      "revId": "33fb5d2b8f95b85c9ba6f7560c726e5ba34ec3b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e40f663_08235826",
+        "filename": "front_end/resources/SidebarFrameTree.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-08T14:18:27Z",
+      "side": 1,
+      "message": "How about making this a method on ResourceTreeFrame?\nIf I understand correctly, this could be implemented as `this.parentFrame || this.crossTargetParentFrame()` there?",
+      "range": {
+        "startLine": 34,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "33fb5d2b8f95b85c9ba6f7560c726e5ba34ec3b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0545d521_9a78d85a",
+        "filename": "front_end/resources/SidebarFrameTree.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-08T14:18:27Z",
+      "side": 1,
+      "message": "Is this user-facing? If not, might the frame id be a better key?",
+      "range": {
+        "startLine": 139,
+        "startChar": 11,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "33fb5d2b8f95b85c9ba6f7560c726e5ba34ec3b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24a09afc_36909bb6",
+        "filename": "front_end/resources/SidebarFrameTree.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-08T14:18:27Z",
+      "side": 1,
+      "message": "take a look how setComparator works:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Treeoutline.js;l\u003d172?q\u003dsetComparator\u0026ss\u003dchromium\u0026originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "range": {
+        "startLine": 192,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 28
+      },
+      "revId": "33fb5d2b8f95b85c9ba6f7560c726e5ba34ec3b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5126e4_932b2242",
+        "filename": "front_end/resources/SidebarFrameTree.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-08T14:18:27Z",
+      "side": 1,
+      "message": "Could you make sure this looks all right for very long names?",
+      "range": {
+        "startLine": 231,
+        "startChar": 3,
+        "endLine": 231,
+        "endChar": 50
+      },
+      "revId": "33fb5d2b8f95b85c9ba6f7560c726e5ba34ec3b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
