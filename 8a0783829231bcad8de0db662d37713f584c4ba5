@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba5446f8_179efd49",
+        "filename": "scripts/build/ninja/copy.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-08T13:16:30Z",
+      "side": 1,
+      "message": "we have this code twice - should we pull it out into a helper function?",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "8a0783829231bcad8de0db662d37713f584c4ba5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94e6010d_061bc4c9",
+        "filename": "scripts/build/ninja/copy.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-08T13:16:30Z",
+      "side": 1,
+      "message": "probably want a comment to explain this and why we use source_target_relative but not sure I\u0027m confident enough to explain it!",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 78
+      },
+      "revId": "8a0783829231bcad8de0db662d37713f584c4ba5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baabb249_778abbfc",
+        "filename": "scripts/build/ninja/devtools_module.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-08T13:16:30Z",
+      "side": 1,
+      "message": "extra underscore needs tidying",
+      "range": {
+        "startLine": 19,
+        "startChar": 60,
+        "endLine": 19,
+        "endChar": 64
+      },
+      "revId": "8a0783829231bcad8de0db662d37713f584c4ba5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
