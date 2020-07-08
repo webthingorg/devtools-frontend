@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4129d795_d474e180",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-08T08:39:52Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "160b9047507fb3816422ebf19d5513c3e23bf945",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28172ea3_97ba3d75",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-08T08:39:52Z",
+      "side": 1,
+      "message": "Should we initialize this with \u0027\u003cunknown\u003e\u0027 rather than just \u0027undefined\u0027? (Or whatever we use if we don\u0027t know the source name)",
+      "range": {
+        "startLine": 115,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 19
+      },
+      "revId": "160b9047507fb3816422ebf19d5513c3e23bf945",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
