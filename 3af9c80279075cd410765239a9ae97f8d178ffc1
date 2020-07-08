@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15b750c6_96505952",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-08T14:24:08Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "3af9c80279075cd410765239a9ae97f8d178ffc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4d2ed33_29974acb",
+        "filename": "front_end/sdk/sdk.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-08T14:24:08Z",
+      "side": 1,
+      "message": "I think we already reasoned about whether this is early enough last time, and came to the conclusion that for browser sdk it was early enough.\n\nIs the reasoning here that since browser sdk requires SDK, this will also be early enough?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 37
+      },
+      "revId": "3af9c80279075cd410765239a9ae97f8d178ffc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
