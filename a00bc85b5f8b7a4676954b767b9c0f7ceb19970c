@@ -34,6 +34,24 @@
       "revId": "a00bc85b5f8b7a4676954b767b9c0f7ceb19970c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b7f5b4_fcfcd0a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-08T11:17:49Z",
+      "side": 1,
+      "message": "Ah, sure, feel free to disable specific stylelint rules for some part of the file in cases where you think it makes sense.",
+      "parentUuid": "e7adce9a_c8bfb240",
+      "revId": "a00bc85b5f8b7a4676954b767b9c0f7ceb19970c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
