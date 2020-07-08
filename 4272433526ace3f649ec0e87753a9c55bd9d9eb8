@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ddf989b6_b49393af",
+        "filename": "front_end/browser_sdk/FrameManager.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-08T14:35:29Z",
+      "side": 1,
+      "message": "Switching to just iterating over frames.",
+      "parentUuid": "b77500fa_3f26ecaf",
+      "range": {
+        "startLine": 175,
+        "startChar": 2,
+        "endLine": 175,
+        "endChar": 15
+      },
+      "revId": "4272433526ace3f649ec0e87753a9c55bd9d9eb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48c9cde9_197f8714",
         "filename": "front_end/sdk/DOMModel.js",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "4272433526ace3f649ec0e87753a9c55bd9d9eb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e2535a3_241550c2",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 1726,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-08T14:35:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48c9cde9_197f8714",
+      "range": {
+        "startLine": 1724,
+        "startChar": 1,
+        "endLine": 1726,
+        "endChar": 3
+      },
+      "revId": "4272433526ace3f649ec0e87753a9c55bd9d9eb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

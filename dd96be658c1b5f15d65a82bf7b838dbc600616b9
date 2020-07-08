@@ -22,6 +22,30 @@
       "revId": "dd96be658c1b5f15d65a82bf7b838dbc600616b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a18f326_60368e1d",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 2291,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-08T14:35:29Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "89948abc_17c4f25d",
+      "range": {
+        "startLine": 2291,
+        "startChar": 2,
+        "endLine": 2291,
+        "endChar": 24
+      },
+      "revId": "dd96be658c1b5f15d65a82bf7b838dbc600616b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
