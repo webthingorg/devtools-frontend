@@ -16,6 +16,23 @@
       "revId": "aa3170f3141551d50cb8143a2ea523fe2a19781c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82efaf0e_3de814e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-08T15:52:51Z",
+      "side": 1,
+      "message": "since I am OOO until Wednesday, could you PTAL Wolfgang?",
+      "revId": "aa3170f3141551d50cb8143a2ea523fe2a19781c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
