@@ -33,6 +33,24 @@
       "revId": "acc583bca4e8dd52ba1d8a8c2cd16a6c01936db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0579f0ea_d6f63741",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-08T15:06:07Z",
+      "side": 1,
+      "message": "Good question. It is a new file, but some of the logic is left over from when we copied the old files from src with this license. Since one of the points in the license was to keep the above notice, I left the old Google one, this is the same as the tool_highlight_impl.js file, so I\u0027m thinking we are ok?",
+      "parentUuid": "d126a66d_8524104a",
+      "revId": "acc583bca4e8dd52ba1d8a8c2cd16a6c01936db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
