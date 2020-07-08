@@ -16,6 +16,29 @@
       "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd0a74ea_4232ff6d",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-08T14:49:37Z",
+      "side": 1,
+      "message": "do we also need to adjust the label skipping logic to account for this new min width?",
+      "range": {
+        "startLine": 254,
+        "startChar": 13,
+        "endLine": 254,
+        "endChar": 18
+      },
+      "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
