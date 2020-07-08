@@ -126,6 +126,14 @@
   background: #fbfbfb;
 }
 
+.quickpick-description {
+  flex: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgb(155 155 155);
+  padding-left: 15px;
+}
+
 @media (forced-colors: active) {
   .filtered-list-widget {
     forced-color-adjust: none;
@@ -133,7 +141,7 @@
   }
 
   .filtered-list-widget-item .filtered-list-widget-title,
-  .filtered-list-widget-item .filtered-list-widget-subtitle {
+  .filtered-list-widget-item .filtered-list-widget-subtitle, .quickpick-description {
     color: ButtonText;
   }
 
