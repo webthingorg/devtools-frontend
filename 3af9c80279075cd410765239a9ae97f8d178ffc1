@@ -39,6 +39,30 @@
       "revId": "3af9c80279075cd410765239a9ae97f8d178ffc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d1b05e2_b4c0014b",
+        "filename": "front_end/sdk/sdk.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-08T15:25:36Z",
+      "side": 1,
+      "message": "Exactly.\n\n`RuntimeInstantiator.startApplication()` parses the json files listing the modules to load and then awaits the modules being loaded.\n\nOnly later `InspectorMainImpl.run()` is being executed which calls `createTarget()` to set up the connection to the backend.\n\nTherefore at the time the connection to the backend is established, the event listeners (for frame events in this case) are already in place.",
+      "parentUuid": "b4d2ed33_29974acb",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 37
+      },
+      "revId": "3af9c80279075cd410765239a9ae97f8d178ffc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
