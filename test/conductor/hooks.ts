@@ -4,7 +4,7 @@
 
 /* eslint-disable no-console */
 
-import {ChildProcessWithoutNullStreams, spawn} from 'child_process';
+import {ChildProcess, spawn} from 'child_process';
 import * as path from 'path';
 import * as puppeteer from 'puppeteer';
 
@@ -36,17 +36,13 @@ const logLevels = {
   assert: 'E',
 };
 
-let hostedModeServer: ChildProcessWithoutNullStreams;
+let hostedModeServer: ChildProcess;
 let browser: puppeteer.Browser;
 let frontendUrl: string;
 
 interface DevToolsTarget {
   url: string;
   id: string;
-}
-
-function handleHostedModeError(error: Error) {
-  throw new Error(`Hosted mode server: ${error}`);
 }
 
 const envChromeBinary = process.env['CHROME_BIN'];
@@ -175,21 +171,42 @@ export async function reloadDevTools(options: ReloadDevToolsOptions = {}) {
   }
 }
 
-function startHostedModeServer() {
-  console.log(`Spawning hosted mode server on port ${hostedModeServerPort}`);
+function startHostedModeServer(serverPort: number, chromePort: number): Promise<string> {
+  console.log(`Spawning hosted mode server on port ${serverPort}`);
+
+  function handleHostedModeError(error: Error) {
+    throw new Error(`Hosted mode server: ${error}`);
+  }
 
   // Copy the current env and append the ports.
   const env = Object.create(process.env);
-  env.PORT = hostedModeServerPort;
-  env.REMOTE_DEBUGGING_PORT = chromeDebugPort;
-  hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd, env});
-  hostedModeServer.on('error', handleHostedModeError);
-  hostedModeServer.stderr.on('data', handleHostedModeError);
-  setHostedModeServerPort(hostedModeServerPort);
+  env.PORT = serverPort;
+  env.REMOTE_DEBUGGING_PORT = chromePort;
+  return new Promise((resolve, reject) => {
+    hostedModeServer = spawn(execPath, [HOSTED_MODE_SERVER_PATH], {cwd, env, stdio: ['pipe', 'pipe', 'pipe', 'ipc']});
+    hostedModeServer.on('message', message => {
+      if (message === 'PORT_IN_USE') {
+        reject(`Could not start hosted mode server on port ${serverPort}`);
+      } else if (message === 'READY') {
+        resolve(`Started hosted mode server OK on port ${serverPort}`);
+      } else {
+        reject('Unknown message from hosted mode server:' + message);
+      }
+    });
+    hostedModeServer.on('error', handleHostedModeError);
+    if (hostedModeServer.stderr) {
+      hostedModeServer.stderr.on('data', handleHostedModeError);
+    }
+  });
 }
 
 export async function globalSetup() {
-  startHostedModeServer();
+  try {
+    await startHostedModeServer(hostedModeServerPort, chromeDebugPort);
+    setHostedModeServerPort(hostedModeServerPort);
+  } catch (message) {
+    throw new Error(message);
+  }
   await loadTargetPageAndDevToolsFrontend();
 }
 
