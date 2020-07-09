@@ -28,9 +28,9 @@ export class ContentSecurityPolicyIssue extends Issue {
    * @return {string}
    */
   primaryKey() {
-    return JSON.stringify(
-        this._issueDetails,
-        ['blockedURL', 'contentSecurityPolicyViolationType', 'violatedDirective', 'sourceCodeLocation']);
+    return JSON.stringify(this._issueDetails, [
+      'blockedURL', 'contentSecurityPolicyViolationType', 'violatedDirective', 'sourceCodeLocation', 'violatingNodeId'
+    ]);
   }
 
   /**
