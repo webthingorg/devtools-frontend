@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "47985d22_d4abe67e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T21:41:07Z",
+      "side": 1,
+      "message": "took me a second to parse this 😊 Correct me if I\u0027m wrong, but this means that we show the info bar when\n1) an experiment changes\n2) the theme setting changes\n3) the os theme changes and we have system prefered on",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83c0ffc5_2fb1f1f9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -34,6 +57,46 @@
       "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7a1a80e_1b45cd1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T21:41:07Z",
+      "side": 1,
+      "message": "Lgtm % nit.\n\nMaybe as a follow up, we can investigate how to make this more obvious on the setting page itself (the text next to theme setting is a good start). It just feels a little odd with the infobar popping up behind the setting pane and I don\u0027t see it until I close settings. But, since it is a glasspane, I don\u0027t have a better solution than this right now.",
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e16e9ff_2c4e855e",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T21:41:07Z",
+      "side": 1,
+      "message": "I don\u0027t think this element is declared anywhere else but this function. Can we add to the constructor like in SourcesTextEditor.js\n\nI also find it odd these container divs are never cleared/hidden in any of the use cases I can find in the tools. Is that expected?",
+      "range": {
+        "startLine": 428,
+        "startChar": 14,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
