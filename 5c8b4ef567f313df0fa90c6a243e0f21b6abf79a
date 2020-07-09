@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ea710c6_e434697e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-09T19:49:02Z",
+      "side": 1,
+      "message": "Thanks @Mike -- good catch. I\u0027ve updated this CL such that the same \"reload required\" option is detected in Settings Commands, and presents the same Infobar that is shown as when a Settings Select presents it.",
+      "revId": "5c8b4ef567f313df0fa90c6a243e0f21b6abf79a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
