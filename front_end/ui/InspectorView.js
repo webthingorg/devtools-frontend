@@ -40,6 +40,7 @@ import {ContextMenu} from './ContextMenu.js';                                   
 import {Dialog} from './Dialog.js';
 import {GlassPane} from './GlassPane.js';
 import {Icon} from './Icon.js';  // eslint-disable-line no-unused-vars
+import {Infobar, Type as InfobarType} from './Infobar.js';
 import {KeyboardShortcut} from './KeyboardShortcut.js';
 import {Panel} from './Panel.js';  // eslint-disable-line no-unused-vars
 import {SplitWidget} from './SplitWidget.js';
@@ -394,6 +395,42 @@ export class InspectorView extends VBox {
     if (this._ownerSplitWidget) {
       this._ownerSplitWidget.setSidebarMinimized(false);
     }
+  }
+
+  /**
+   * @param {string} message
+   */
+  displayReloadRequiredWarning(message) {
+    if (!this._reloadRequiredInfobar) {
+      const infobar = new Infobar(InfobarType.Info, message, [
+        {
+          text: ls`Reload DevTools`,
+          highlight: true,
+          delegate: () => {
+            Host.InspectorFrontendHost.InspectorFrontendHostInstance.reattach(() => window.location.reload());
+          },
+          dismiss: false
+        },
+      ]);
+      infobar.setParentView(this);
+      this._attachReloadRequiredInfobar(infobar);
+      this._reloadRequiredInfobar = infobar;
+      infobar.setCloseCallback(() => {
+        delete this._reloadRequiredInfobar;
+      });
+    }
+  }
+
+  /**
+   * @param {!Infobar} infobar
+   */
+  _attachReloadRequiredInfobar(infobar) {
+    if (!this._infoBarDiv) {
+      this._infoBarDiv = document.createElement('div');
+      this._infoBarDiv.classList.add('flex-none');
+      this.contentElement.insertBefore(this._infoBarDiv, this.contentElement.firstChild);
+    }
+    this._infoBarDiv.appendChild(infobar.element);
   }
 }
 
