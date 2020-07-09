@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c430c96_1b869bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T07:14:59Z",
+      "side": 1,
+      "message": "LGTM, nice work! Left some comments with minor nits.\n\nRe: the double license, the current approach seems like the way to go 👍 This way, we inherit the \"Copyright (C) 2012 Google Inc\" from the original file in the back-end and add the 2020 Chromium header for the new changes.",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01b28349_0c3f5cf4",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T07:14:59Z",
+      "side": 1,
+      "message": "nit: add new line",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e22917a_575caaf8",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T07:14:59Z",
+      "side": 1,
+      "message": "Prefer textContent over innerHTML. (It may not matter in this case but it\u0027s good practice in general)",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfdf1b5b_59d2b056",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T07:14:59Z",
+      "side": 1,
+      "message": "nit: add new line",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c648c4_ec3ce2f3",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T07:14:59Z",
+      "side": 1,
+      "message": "These interpolations technically need to be wrapped in CSS.escape(). We can get away without it in this particular case since nodeId is always an integer number (right?). If we don\u0027t add CSS.escape() (which seems fine in this case) please add a comment explaining why we don\u0027t need it here.",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7928aa8_b5d7d9eb",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T07:14:59Z",
+      "side": 1,
+      "message": "Same here w.r.t. CSS.escape",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2940a85c_fe2e29fa",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T07:14:59Z",
+      "side": 1,
+      "message": "Same here w.r.t. CSS.escape (what if className contains, say, a dot? can that happen?)",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
