@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4005d955_3b4fe2a5",
+        "filename": "front_end/emulation/sensors.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T15:48:04Z",
+      "side": 1,
+      "message": "Did you mean .sensors-view?",
+      "revId": "5942ee2a53404e2a7e43e2a573d0edc71fa253b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a982e28d_533481e2",
         "filename": "front_end/emulation/sensors.css",
         "patchSetId": 4
@@ -13,6 +30,30 @@
       "writtenOn": "2020-07-09T14:10:31Z",
       "side": 1,
       "message": "+Mathias WDYT here?",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 59
+      },
+      "revId": "5942ee2a53404e2a7e43e2a573d0edc71fa253b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "212e7006_b8f2339a",
+        "filename": "front_end/emulation/sensors.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-09T15:48:04Z",
+      "side": 1,
+      "message": "Hmm, the `.sensors-view...` selector above does have higher precedence, so if we ever add a max-width in there it would override this one (even though it comes later in the source file). IMHO it\u0027s simpler to listen to stylelint in this case.",
+      "parentUuid": "a982e28d_533481e2",
       "range": {
         "startLine": 270,
         "startChar": 0,
