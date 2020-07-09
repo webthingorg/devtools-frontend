@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3eb42a0d_e2bdd8ac",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T19:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01b28349_0c3f5cf4",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e22917a_575caaf8",
         "filename": "front_end/inspector_overlay/tool_highlight.js",
         "patchSetId": 11
@@ -50,6 +68,24 @@
       "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2e01f73_2989f852",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T19:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e22917a_575caaf8",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "d1e6125e_2911461f",
+        "filename": "front_end/inspector_overlay/tool_highlight_grid_impl.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T19:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfdf1b5b_59d2b056",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21c648c4_ec3ce2f3",
         "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
         "patchSetId": 11
@@ -84,6 +138,24 @@
       "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d53b328_8594054b",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T19:29:06Z",
+      "side": 1,
+      "message": "Although that is true for now, I could imagine if we ever wanted to switch the id, we might accidentally forget. I\u0027ve gone ahead and updated to use CSS.escape throughout",
+      "parentUuid": "21c648c4_ec3ce2f3",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "87bc3a0b_da98c720",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T19:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7928aa8_b5d7d9eb",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2940a85c_fe2e29fa",
         "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
         "patchSetId": 11
@@ -118,6 +208,24 @@
       "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "152c984b_f6534a7e",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-09T19:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2940a85c_fe2e29fa",
+      "revId": "47dc201850fb2ca44607c6214c5f2c90d0488cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
