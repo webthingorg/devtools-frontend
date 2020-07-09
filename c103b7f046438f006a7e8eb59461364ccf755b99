@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9d5d556_041cec34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-09T12:16:48Z",
+      "side": 1,
+      "message": "Since hooks can now run multiple times, or only once, can we add comments to the various hooks/function and state how often they are running? That makes a bit clearer what the invariants are and whether you need to clear state or not.\n\nAlso, given our infra problems this week, I propose submitting this next week at the earliest.\n\nLastly, I will need to test this locally. Do you have any suggestions on what scenarios to test?",
+      "revId": "c103b7f046438f006a7e8eb59461364ccf755b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55024088_a12fb4d6",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-09T12:16:48Z",
+      "side": 1,
+      "message": "Iirc you did some experiments as to what the optimal number of tasks are vs computation resources. With using the number of `testFiles`, we are essentially unbounded, as we are growing ad infinitum.\n\nShould we maybe limit to like 16 for now? That should at least give us a bit more determinism in terms of computational performance. Hopefully that also improves the amount of overhead.",
+      "range": {
+        "startLine": 55,
+        "startChar": 22,
+        "endLine": 55,
+        "endChar": 38
+      },
+      "revId": "c103b7f046438f006a7e8eb59461364ccf755b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
