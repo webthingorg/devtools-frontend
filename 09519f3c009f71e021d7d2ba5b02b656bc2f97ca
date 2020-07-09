@@ -22,6 +22,30 @@
       "revId": "09519f3c009f71e021d7d2ba5b02b656bc2f97ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8735f6c6_7f44ac8e",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-09T12:08:08Z",
+      "side": 0,
+      "message": "Yeah it isn\u0027t actually necessary, just a detail I thought I\u0027d add while I\u0027m there. Now we don\u0027t know the port anymore when we start the server so we have to leave it out. Just forget I ever mentioned it xD",
+      "parentUuid": "528e19d9_7a6c1e52",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 27
+      },
+      "revId": "09519f3c009f71e021d7d2ba5b02b656bc2f97ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
