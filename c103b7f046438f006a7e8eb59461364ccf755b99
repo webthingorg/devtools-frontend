@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "14d0433c_7d889c1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-09T14:33:25Z",
+      "side": 1,
+      "message": "I added comments, changed the name of the functions and put a big explanation in mocha_hooks explaining how parallel mode works, which makes the code easier to digest IMO.\n\nThis doesn\u0027t do any parallel work yet as we are limited to 1 job, so I think it\u0027s safe to land?\n\nFor local testing, just crank up the jobs limit in .mocharc.js. We should check the interaction with other flags e.g. debug, stress.",
+      "parentUuid": "f9d5d556_041cec34",
+      "revId": "c103b7f046438f006a7e8eb59461364ccf755b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55024088_a12fb4d6",
         "filename": "test/e2e/.mocharc.js",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2020-07-09T12:16:48Z",
       "side": 1,
       "message": "Iirc you did some experiments as to what the optimal number of tasks are vs computation resources. With using the number of `testFiles`, we are essentially unbounded, as we are growing ad infinitum.\n\nShould we maybe limit to like 16 for now? That should at least give us a bit more determinism in terms of computational performance. Hopefully that also improves the amount of overhead.",
+      "range": {
+        "startLine": 55,
+        "startChar": 22,
+        "endLine": 55,
+        "endChar": 38
+      },
+      "revId": "c103b7f046438f006a7e8eb59461364ccf755b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5f0d295_ace889e9",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-09T14:33:25Z",
+      "side": 1,
+      "message": "This is using min so we don\u0027t exceed the limit number on the right. Up to that point we\u0027ll launch 1 runner per test.\n\nI would suggest starting at 2, then slowing ramping up. I saw that at 16, a memory snapshot test started failing, and at 32 tests started failing with timeouts. That was on my linux desktop, not sure how that will compare to bots hence the slow approach.\n\nRight now this is still just jobs\u003d1 as a max so should not change bot load or time.",
+      "parentUuid": "55024088_a12fb4d6",
       "range": {
         "startLine": 55,
         "startChar": 22,
