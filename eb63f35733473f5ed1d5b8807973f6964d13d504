@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "f4f6ca59_355d51ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-09T15:33:29Z",
+      "side": 1,
+      "message": "Discussed on slack with Peter. We tested this on a variety of sites and agreed on the 17px width.",
+      "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd0a74ea_4232ff6d",
         "filename": "front_end/inspector_overlay/tool_highlight.js",
         "patchSetId": 1
