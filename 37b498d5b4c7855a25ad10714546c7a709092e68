@@ -16,6 +16,23 @@
       "revId": "37b498d5b4c7855a25ad10714546c7a709092e68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0817af23_d621e606",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-09T10:05:06Z",
+      "side": 1,
+      "message": "Nit: the explanation should probably be in the JSDoc for the _presentationOrderCompare function, not for the typeWeight() function",
+      "revId": "37b498d5b4c7855a25ad10714546c7a709092e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
