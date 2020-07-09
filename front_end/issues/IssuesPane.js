@@ -242,6 +242,15 @@ class AffectedDirectivesView extends AffectedResourcesView {
       info.textContent = url;
       element.appendChild(info);
       element.appendChild(name);
+      const sourceCodeLocation = cspViolation.sourceCodeLocation;
+      if (sourceCodeLocation) {
+        const maxLengthForDisplayedURLs = 40;  // Same as console messages.
+        const linkifier = new Components.Linkifier.Linkifier(maxLengthForDisplayedURLs);
+        const sourceAnchor = linkifier.linkifyScriptLocation(
+            /* target */ null,
+            /* scriptId */ null, sourceCodeLocation.url, sourceCodeLocation.lineNumber);
+        element.appendChild(sourceAnchor);
+      }
       this._affectedResources.appendChild(element);
     }
   }
