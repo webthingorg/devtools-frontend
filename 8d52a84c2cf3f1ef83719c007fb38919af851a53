@@ -16,6 +16,29 @@
       "revId": "8d52a84c2cf3f1ef83719c007fb38919af851a53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a01be06e_7e645de8",
+        "filename": "front_end/elements_test_runner/ElementsTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-09T07:38:19Z",
+      "side": 1,
+      "message": "Or you could just inline everything like this (but this is up to you):\n\n  const nodeIds \u003d await Promise.all(idValues.map(id \u003d\u003e ElementsTestRunner.nodeWithIdPromise(id)));",
+      "range": {
+        "startLine": 1211,
+        "startChar": 2,
+        "endLine": 1215,
+        "endChar": 3
+      },
+      "revId": "8d52a84c2cf3f1ef83719c007fb38919af851a53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
