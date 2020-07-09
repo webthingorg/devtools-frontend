@@ -8,7 +8,7 @@ import {ChildProcess, spawn} from 'child_process';
 import * as path from 'path';
 import * as puppeteer from 'puppeteer';
 
-import {getBrowserAndPages, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
+import {clearPuppeteerState, getBrowserAndPages, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
 
 const HOSTED_MODE_SERVER_PATH = path.join(__dirname, '..', '..', 'scripts', 'hosted_mode', 'server.js');
 const EMPTY_PAGE = 'data:text/html,';
@@ -21,6 +21,7 @@ const cwd = path.join(__dirname, '..', '..');
 const {execPath} = process;
 const width = 1280;
 const height = 720;
+let unhandledRejectionSet = false;
 
 const headless = !process.env['DEBUG'];
 const envSlowMo = process.env['STRESS'] ? 50 : undefined;
@@ -115,9 +116,12 @@ async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
     throw new Error(`Page error in Frontend: ${error}`);
   });
 
-  process.on('unhandledRejection', error => {
-    throw new Error(`Unhandled rejection in Frontend: ${error}`);
-  });
+  if (!unhandledRejectionSet) {
+    process.on('unhandledRejection', error => {
+      throw new Error(`Unhandled rejection in Frontend: ${error}`);
+    });
+    unhandledRejectionSet = true;
+  }
 
   frontend.on('console', msg => {
     const logLevel = logLevels[msg.type() as keyof typeof logLevels] as string;
@@ -218,7 +222,8 @@ function startHostedModeServer(): Promise<number> {
   });
 }
 
-export async function globalSetup() {
+// Can be run multiple times in the same process.
+export async function preFileSetup() {
   try {
     const port = await startHostedModeServer();
     console.log(`Started hosted mode server on port ${port}`);
@@ -229,7 +234,8 @@ export async function globalSetup() {
   }
 }
 
-export async function globalTeardown() {
+// Can be run multiple times in the same process.
+export async function postFileTeardown() {
   // We need to kill the browser before we stop the hosted mode server.
   // That's because the browser could continue to make network requests,
   // even after we would have closed the server. If we did so, the requests
@@ -239,4 +245,5 @@ export async function globalTeardown() {
 
   console.log('Stopping hosted mode server');
   hostedModeServer.kill();
+  clearPuppeteerState();
 }
