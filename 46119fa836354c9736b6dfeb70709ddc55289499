@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "68fb212c_80370705",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-09T03:42:51Z",
+      "side": 1,
+      "message": "Well, the point-to-point communication could have been achieved through having event types include the plugin id, in the same fashion we do for views (e.g. ExtensionServer.notifyViewHidden). Anyway, I guess this is not critical at this point, since this is not exposed to the API and we can refactor it later. I can live with the message port as well.",
+      "parentUuid": "082988c5_a01ab38c",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "771af2c8_cc81d245",
         "filename": "front_end/extensions/ExtensionAPI.js",
         "patchSetId": 11
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "The constant\u0027s aren\u0027t used in ExtensionServer currently, only in DebuggerLanguagePlugin, but your point still applies there, I think. WDYT about adding the constants defineCommonExtensionSymbols and exposing them to DebuggerLanguagePlugins here as a readonly property?",
       "parentUuid": "771af2c8_cc81d245",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb541ad1_98ea8306",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-09T03:42:51Z",
+      "side": 1,
+      "message": "Either this, or just offering a few methods in extension server that DebuggerLanguagePlugin would call (other proxies such as one for panels/view do that).",
+      "parentUuid": "21c81f8f_a312c282",
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -137,6 +173,24 @@
       "side": 1,
       "message": "Actually, I think it\u0027s worth keeping around although we aren\u0027t using it yet. The id is supposed to be a descriptive name for the plugin that could be used in error or status messages.",
       "parentUuid": "02b5ed87_bd2f185b",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d631bb55_103416a4",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-09T03:42:51Z",
+      "side": 1,
+      "message": "Let\u0027s call it pluginName then, extensionId means a different thing in too many places already (i.e. the unique extension identifier used in manifest, CWS etc).",
+      "parentUuid": "f00e989f_5ef20b09",
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -263,6 +317,24 @@
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0373eb9_dd374d04",
+        "filename": "front_end/sdk/SourceMapManager.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-09T03:42:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "671c2ff3_79d568d3",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
