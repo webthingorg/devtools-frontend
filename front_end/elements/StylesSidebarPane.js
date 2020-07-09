@@ -36,6 +36,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
+import {FontSwatchPopoverIcon} from './ColorSwatchPopoverIcon.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
@@ -1056,6 +1057,8 @@ export class StylePropertiesSection {
     const closeBrace = this._innerElement.createChild('div', 'sidebar-pane-closing-brace');
     closeBrace.textContent = '}';
 
+    this._createFontEditorMenu(closeBrace);
+
     this._selectorElement.addEventListener('click', this._handleSelectorClick.bind(this), false);
     this.element.addEventListener('mousedown', this._handleEmptySpaceMouseDown.bind(this), false);
     this.element.addEventListener('click', this._handleEmptySpaceClick.bind(this), false);
@@ -1091,10 +1094,22 @@ export class StylePropertiesSection {
       this.element.classList.add('read-only');
       this.propertiesTreeOutline.element.classList.add('read-only');
     }
-
+    /** @type {?FontSwatchPopoverIcon} */
+    this._fontPopoverIcon = null;
     this._hoverableSelectorsMode = false;
     this._markSelectorMatches();
     this.onpopulate();
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+
+  registerFontProperty(treeElement) {
+    if (!this._fontPopoverIcon) {
+      this._fontPopoverIcon = new FontSwatchPopoverIcon(this._parentPane.swatchPopoverHelper(), this);
+    }
+    this._fontPopoverIcon.registerFontProperty(treeElement);
   }
 
   /**
@@ -1262,6 +1277,26 @@ export class StylePropertiesSection {
     if (!this._selectedSinceMouseDown && this.element.getComponentSelection().toString()) {
       this._selectedSinceMouseDown = true;
     }
+  }
+
+  /**
+   * @param {!Element} container
+   */
+  _createFontEditorMenu(container) {
+    if (!this.editable) {
+      return;
+    }
+
+    const sectionToolbar = new UI.Toolbar.Toolbar('sidebar-pane-section-toolbar', container);
+
+    const menuButton = new UI.Toolbar.ToolbarButton('', 'largeicon-menu');
+    menuButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, event => {
+      this._fontEditorButtonClicked();
+    });
+    sectionToolbar.appendToolbarItem(menuButton);
+  }
+
+  _fontEditorButtonClicked() {
   }
 
   /**
@@ -2591,6 +2626,8 @@ export class StylesSidebarPropertyRenderer {
     this._colorHandler = null;
     /** @type {?function(string):!Node} */
     this._bezierHandler = null;
+    /** @type {?function(string):!Node} */
+    this._fontHandler = null;
     /** @type {?function(string, string):!Node} */
     this._shadowHandler = null;
     /** @type {?function(string, string):!Node} */
@@ -2611,6 +2648,13 @@ export class StylesSidebarPropertyRenderer {
    */
   setBezierHandler(handler) {
     this._bezierHandler = handler;
+  }
+
+  /**
+   * @param {function(string):!Node} handler
+   */
+  setFontHandler(handler) {
+    this._fontHandler = handler;
   }
 
   /**
@@ -2683,6 +2727,10 @@ export class StylesSidebarPropertyRenderer {
     if (this._colorHandler && metadata.isColorAwareProperty(this._propertyName)) {
       regexes.push(Common.Color.Regex);
       processors.push(this._colorHandler);
+    }
+    if (this._fontHandler && metadata.isFontAwareProperty(this._propertyName)) {
+      regexes.push(SDK.CSSMetadata.FontRegex);
+      processors.push(this._fontHandler);
     }
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this._propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {

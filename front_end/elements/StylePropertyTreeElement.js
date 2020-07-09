@@ -43,6 +43,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this._expandedDueToFilter = false;
     this.valueElement = null;
     this.nameElement = null;
+    /** @type {?HTMLSpanElement} */
+    this.swatch = null;
     this._expandElement = null;
     this._originalPropertyText = '';
     this._hasBeenEditedIncrementally = false;
@@ -140,17 +142,17 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     if (!this._editable()) {
-      const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
-      swatch.setColor(color);
-      return swatch;
+      this.swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
+      this.swatch.setColor(color);
+      return this.swatch;
     }
 
-    const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
-    swatch.setColor(color);
-    swatch.setFormat(Common.Settings.detectColorFormat(swatch.color()));
-    this._addColorContrastInfo(swatch);
+    this.swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
+    this.swatch.setColor(color);
+    this.swatch.setFormat(Common.Settings.detectColorFormat(this.swatch.color()));
+    this._addColorContrastInfo(this.swatch);
 
-    return swatch;
+    return this.swatch;
   }
 
   /**
@@ -170,18 +172,18 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       return node;
     }
     if (!this._editable()) {
-      const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
-      swatch.setText(text, computedValue);
-      swatch.setColor(color);
-      return swatch;
+      this.swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
+      this.swatch.setText(text, computedValue);
+      this.swatch.setColor(color);
+      return this.swatch;
     }
 
-    const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
-    swatch.setColor(color);
-    swatch.setFormat(Common.Settings.detectColorFormat(swatch.color()));
-    swatch.setText(text, computedValue);
-    this._addColorContrastInfo(swatch);
-    return swatch;
+    this.swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
+    this.swatch.setColor(color);
+    this.swatch.setFormat(Common.Settings.detectColorFormat(this.swatch.color()));
+    this.swatch.setText(text, computedValue);
+    this._addColorContrastInfo(this.swatch);
+    return this.swatch;
   }
 
   /**
@@ -215,10 +217,21 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       return createTextNode(text);
     }
     const swatchPopoverHelper = this._parentPane.swatchPopoverHelper();
-    const swatch = InlineEditor.ColorSwatch.BezierSwatch.create();
-    swatch.setBezierText(text);
-    new BezierPopoverIcon(this, swatchPopoverHelper, swatch);
-    return swatch;
+    this.swatch = InlineEditor.ColorSwatch.BezierSwatch.create();
+    this.swatch.setBezierText(text);
+    new BezierPopoverIcon(this, swatchPopoverHelper, this.swatch);
+    return this.swatch;
+  }
+
+  /**
+   * @param {string} text
+   * @return {!Node}
+   */
+  _processFont(text) {
+    this.swatch = InlineEditor.ColorSwatch.FontSwatch.create();
+    this.swatch.setFontText(text);
+    this.section().registerFontProperty(this);
+    return this.swatch;
   }
 
   /**
@@ -467,6 +480,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       propertyRenderer.setVarHandler(this._processVar.bind(this));
       propertyRenderer.setColorHandler(this._processColor.bind(this));
       propertyRenderer.setBezierHandler(this._processBezier.bind(this));
+      propertyRenderer.setFontHandler(this._processFont.bind(this));
       propertyRenderer.setShadowHandler(this._processShadow.bind(this));
       propertyRenderer.setGridHandler(this._processGrid.bind(this));
     }
