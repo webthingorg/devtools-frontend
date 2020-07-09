@@ -605,6 +605,12 @@ experimental domain Audits
       kTrustedTypesSinkViolation
       kTrustedTypesPolicyViolation
 
+  type SourceCodeLocation extends object
+    properties
+      string url
+      integer lineNumber
+      integer columnNumber
+
   type ContentSecurityPolicyIssueDetails extends object
     properties
       # The url not included in allowed sources.
@@ -614,12 +620,7 @@ experimental domain Audits
       ContentSecurityPolicyViolationType contentSecurityPolicyViolationType
       optional AffectedFrame frameAncestor
       optional SourceCodeLocation sourceCodeLocation
-
-  type SourceCodeLocation extends object
-    properties
-      string url
-      integer lineNumber
-      integer columnNumber
+      optional integer violatingNodeId
 
   # A unique identifier for the type of issue. Each type may use one of the
   # optional fields in InspectorIssueDetails to convey more specific
@@ -5251,6 +5252,8 @@ experimental domain Overlay
       optional boolean showPositiveLineNumbers
       # Show Negative line number labels (default: false).
       optional boolean showNegativeLineNumbers
+      # Show area name labels (default: false).
+      optional boolean showAreaNames
       # The grid container border highlight color (default: transparent).
       optional DOM.RGBA gridBorderColor
       # The cell border color (default: transparent).
@@ -5267,6 +5270,8 @@ experimental domain Overlay
       optional DOM.RGBA columnGapColor
       # The column gap hatching fill color (default: transparent).
       optional DOM.RGBA columnHatchColor
+      # The named grid areas border color (Default: transparent).
+      optional DOM.RGBA areaBorderColor
 
   # Configuration data for the highlighting of page elements.
   type HighlightConfig extends object
@@ -7961,6 +7966,13 @@ experimental domain WebAuthn
     parameters
       AuthenticatorId authenticatorId
       boolean isUserVerified
+
+  # Sets whether tests of user presence will succeed immediately (if true) or fail to resolve (if false) for an authenticator.
+  # The default is true.
+  command setAutomaticPresenceSimulation
+    parameters
+      AuthenticatorId authenticatorId
+      boolean enabled
 
 # This domain allows detailed inspection of media elements
 experimental domain Media

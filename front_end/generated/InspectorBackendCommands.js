@@ -2318,6 +2318,13 @@ export function registerCommands(inspectorBackend) {
         {'name': 'isUserVerified', 'type': 'boolean', 'optional': false}
       ],
       []);
+  inspectorBackend.registerCommand(
+      'WebAuthn.setAutomaticPresenceSimulation',
+      [
+        {'name': 'authenticatorId', 'type': 'string', 'optional': false},
+        {'name': 'enabled', 'type': 'boolean', 'optional': false}
+      ],
+      []);
 
   // Media.
   inspectorBackend.registerEnum(

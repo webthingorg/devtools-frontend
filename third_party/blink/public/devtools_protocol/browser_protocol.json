@@ -1201,6 +1201,24 @@
                     ]
                 },
                 {
+                    "id": "SourceCodeLocation",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "url",
+                            "type": "string"
+                        },
+                        {
+                            "name": "lineNumber",
+                            "type": "integer"
+                        },
+                        {
+                            "name": "columnNumber",
+                            "type": "integer"
+                        }
+                    ]
+                },
+                {
                     "id": "ContentSecurityPolicyIssueDetails",
                     "type": "object",
                     "properties": [
@@ -1228,23 +1246,10 @@
                             "name": "sourceCodeLocation",
                             "optional": true,
                             "$ref": "SourceCodeLocation"
-                        }
-                    ]
-                },
-                {
-                    "id": "SourceCodeLocation",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "url",
-                            "type": "string"
                         },
                         {
-                            "name": "lineNumber",
-                            "type": "integer"
-                        },
-                        {
-                            "name": "columnNumber",
+                            "name": "violatingNodeId",
+                            "optional": true,
                             "type": "integer"
                         }
                     ]
@@ -11389,6 +11394,12 @@
                             "type": "boolean"
                         },
                         {
+                            "name": "showAreaNames",
+                            "description": "Show area name labels (default: false).",
+                            "optional": true,
+                            "type": "boolean"
+                        },
+                        {
                             "name": "gridBorderColor",
                             "description": "The grid container border highlight color (default: transparent).",
                             "optional": true,
@@ -11433,6 +11444,12 @@
                         {
                             "name": "columnHatchColor",
                             "description": "The column gap hatching fill color (default: transparent).",
+                            "optional": true,
+                            "$ref": "DOM.RGBA"
+                        },
+                        {
+                            "name": "areaBorderColor",
+                            "description": "The named grid areas border color (Default: transparent).",
                             "optional": true,
                             "$ref": "DOM.RGBA"
                         }
@@ -17249,6 +17266,20 @@
                         },
                         {
                             "name": "isUserVerified",
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "name": "setAutomaticPresenceSimulation",
+                    "description": "Sets whether tests of user presence will succeed immediately (if true) or fail to resolve (if false) for an authenticator.\nThe default is true.",
+                    "parameters": [
+                        {
+                            "name": "authenticatorId",
+                            "$ref": "AuthenticatorId"
+                        },
+                        {
+                            "name": "enabled",
                             "type": "boolean"
                         }
                     ]
