@@ -85,6 +85,7 @@ function paragraphedMessage(paragraphs, fixesList) {
       inlineFixesList.append(listItem);
     }
   }
+
   return message;
 }
 

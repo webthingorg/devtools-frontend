@@ -858,6 +858,12 @@ declare namespace Protocol {
       KTrustedTypesPolicyViolation = 'kTrustedTypesPolicyViolation',
     }
 
+    export interface SourceCodeLocation {
+      url: string;
+      lineNumber: integer;
+      columnNumber: integer;
+    }
+
     export interface ContentSecurityPolicyIssueDetails {
       /**
        * The url not included in allowed sources.
@@ -870,12 +876,7 @@ declare namespace Protocol {
       contentSecurityPolicyViolationType: ContentSecurityPolicyViolationType;
       frameAncestor?: AffectedFrame;
       sourceCodeLocation?: SourceCodeLocation;
-    }
-
-    export interface SourceCodeLocation {
-      url: string;
-      lineNumber: integer;
-      columnNumber: integer;
+      violatingNodeId?: integer;
     }
 
     /**
@@ -7841,6 +7842,10 @@ declare namespace Protocol {
        */
       showNegativeLineNumbers?: boolean;
       /**
+       * Show area name labels (default: false).
+       */
+      showAreaNames?: boolean;
+      /**
        * The grid container border highlight color (default: transparent).
        */
       gridBorderColor?: DOM.RGBA;
@@ -7872,6 +7877,10 @@ declare namespace Protocol {
        * The column gap hatching fill color (default: transparent).
        */
       columnHatchColor?: DOM.RGBA;
+      /**
+       * The named grid areas border color (Default: transparent).
+       */
+      areaBorderColor?: DOM.RGBA;
     }
 
     /**
@@ -11685,6 +11694,11 @@ declare namespace Protocol {
     export interface SetUserVerifiedRequest {
       authenticatorId: AuthenticatorId;
       isUserVerified: boolean;
+    }
+
+    export interface SetAutomaticPresenceSimulationRequest {
+      authenticatorId: AuthenticatorId;
+      enabled: boolean;
     }
   }
 
