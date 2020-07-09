@@ -4,19 +4,26 @@
 
 import * as puppeteer from 'puppeteer';
 
-let target: puppeteer.Page;
-let frontend: puppeteer.Page;
-let browser: puppeteer.Browser;
+let target: puppeteer.Page|null;
+let frontend: puppeteer.Page|null;
+let browser: puppeteer.Browser|null;
 
 // Set when we launch the hosted mode server. It will be different for each
 // sub-process runner when running in parallel.
-let hostedModeServerPort: number;
+let hostedModeServerPort: number|null;
 
 export interface BrowserAndPages {
   target: puppeteer.Page;
   frontend: puppeteer.Page;
   browser: puppeteer.Browser;
 }
+
+export const clearPuppeteerState = () => {
+  target = null;
+  frontend = null;
+  browser = null;
+  hostedModeServerPort = null;
+};
 
 export const setBrowserAndPages = (newValues: BrowserAndPages) => {
   if (target || frontend || browser) {
