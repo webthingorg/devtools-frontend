@@ -39,6 +39,23 @@
       "revId": "1a474bb1dea4a6a994f8ffb0012029be530e02c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8337947_3bddde9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-09T10:21:09Z",
+      "side": 1,
+      "message": "Silly question, perhaps, but would going to `vw` and setting min and max widths allow us to have a responsive dialog here, but without moving the button?",
+      "revId": "1a474bb1dea4a6a994f8ffb0012029be530e02c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
