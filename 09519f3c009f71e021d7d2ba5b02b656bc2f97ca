@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "528e19d9_7a6c1e52",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-09T12:00:15Z",
+      "side": 0,
+      "message": "I am a bit confused as to why we removed this. Is it simply unnecessary? Why did we need it in the first place?",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 27
+      },
+      "revId": "09519f3c009f71e021d7d2ba5b02b656bc2f97ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
