@@ -6,17 +6,11 @@ import {globalSetup, globalTeardown, resetPages} from './hooks.js';
 
 /* eslint-disable no-console */
 
-let hasShutdown = false;
-
 async function shutdown() {
-  if (hasShutdown) {
-    return;
-  }
-  hasShutdown = true;
   await globalTeardown();
 }
 
-process.on('beforeExit', shutdown);
+// process.on('beforeExit', shutdown);
 process.on('SIGINT', shutdown);
 
 export const mochaHooks = {
