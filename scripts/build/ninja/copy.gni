@@ -10,6 +10,7 @@ template("copy_to_gen") {
                              "sources",
                              "visibility",
                              "deps",
+                             "public_deps",
                            ])
     outputs = [ "{{source_gen_dir}}/{{source_file_part}}" ]
   }
@@ -22,6 +23,7 @@ template("copy_to_resources") {
                              "sources",
                              "visibility",
                              "deps",
+                             "public_deps",
                            ])
 
     # Figure out what the relative path is to the front_end folder.

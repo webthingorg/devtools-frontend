@@ -44,7 +44,7 @@ template("devtools_entrypoint") {
 
         outputs = [ _entrypoint_gen_file_location ]
 
-        deps = invoker.deps
+        public_deps = invoker.deps
       }
     }
   } else {
@@ -97,7 +97,7 @@ template("devtools_entrypoint") {
 
         outputs = [ _copy_output_file_name ]
 
-        deps = invoker.deps
+        public_deps = invoker.deps
       }
 
       ts_library(_prebundle_target_name) {
@@ -116,7 +116,7 @@ template("devtools_entrypoint") {
 
         outputs = [ _prebundle_output_file_name ]
 
-        deps = invoker.deps
+        public_deps = invoker.deps
       }
     }
 
@@ -134,7 +134,7 @@ template("devtools_entrypoint") {
       # is the same. So Ninja will detect that no output has changed for
       # "_typescript_target_name" and bail out. This would then *also* skip
       # the Rollup action.
-      deps = [ ":$_prebundle_target_name" ] + invoker.deps
+      public_deps = [ ":$_prebundle_target_name" ] + invoker.deps
     }
 
     if (_is_typescript_file) {
@@ -210,6 +210,6 @@ template("devtools_entrypoint") {
   copy_to_resources(target_name) {
     sources = [ _entrypoint_gen_file_location ]
 
-    deps = [ ":$_entrypoint_target_name" ]
+    public_deps = [ ":$_entrypoint_target_name" ]
   }
 }
