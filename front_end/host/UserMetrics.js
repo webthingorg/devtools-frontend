@@ -403,5 +403,6 @@ export const GridSettings = {
   'showGridGaps.column-gaps': 14,
   'showGridGaps.both': 15,
   'showGridAreas.false': 16,
-  'showGridAreas.true': 17
+  'showGridAreas.true': 17,
+  'showGridLineNames': 18
 };

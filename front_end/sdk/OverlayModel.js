@@ -220,7 +220,18 @@ export class OverlayModel extends SDKModel {
     if (!setting) {
       return;
     }
-    Host.userMetrics.gridSettingChanged(`${setting.name}.${setting.get()}`);
+    const name = setting.name;
+    const value = setting.get();
+    let metricName = `${name}.${value}`;
+
+    // The option to display grid line names was added to the showGridLineNumbers setting after the corresponding
+    // histogram was created. So this particular option has its own name that isn't <name>.<value>, so we change
+    // it here.
+    if (name === 'showGridLineNumbers' && value === 'names') {
+      metricName = 'showGridLineNames';
+    }
+
+    Host.userMetrics.gridSettingChanged(metricName);
   }
 
   /**
@@ -392,6 +403,7 @@ export class OverlayModel extends SDKModel {
     const addBackgroundsToGaps = !showGridLines;
     let showPositiveLineNumbers = false;
     let showNegativeLineNumbers = false;
+    let showLineNames = false;
     switch (this._showGridLineNumbersSetting.get()) {
       case 'positive':
         showPositiveLineNumbers = true;
@@ -402,6 +414,9 @@ export class OverlayModel extends SDKModel {
       case 'both':
         showPositiveLineNumbers = true;
         showNegativeLineNumbers = true;
+        break;
+      case 'names':
+        showLineNames = true;
         break;
       default:
         break;
@@ -439,6 +454,7 @@ export class OverlayModel extends SDKModel {
       showGridExtensionLines,
       showPositiveLineNumbers,
       showNegativeLineNumbers,
+      showLineNames,
       showAreaNames: this._showGridAreasSetting.get(),
       areaBorderColor: Common.Color.PageHighlight.GridAreaBorder.toProtocolRGBA()
     };
