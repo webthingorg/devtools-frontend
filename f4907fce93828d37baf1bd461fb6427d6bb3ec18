@@ -16,6 +16,69 @@
       "revId": "f4907fce93828d37baf1bd461fb6427d6bb3ec18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f25967dd_57c87b70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T14:14:59Z",
+      "side": 1,
+      "message": "Technically looking good, let\u0027s iterate on this.",
+      "revId": "f4907fce93828d37baf1bd461fb6427d6bb3ec18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd1f0355_f0581f2b",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T14:14:59Z",
+      "side": 1,
+      "message": "What are the callers of this?",
+      "range": {
+        "startLine": 503,
+        "startChar": 8,
+        "endLine": 503,
+        "endChar": 20
+      },
+      "revId": "f4907fce93828d37baf1bd461fb6427d6bb3ec18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4944ed0_5bf8299d",
+        "filename": "front_end/resources/sidebarFrameTree.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T14:14:59Z",
+      "side": 1,
+      "message": "nit: 2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 18
+      },
+      "revId": "f4907fce93828d37baf1bd461fb6427d6bb3ec18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

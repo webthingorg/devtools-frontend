@@ -228,6 +228,30 @@
       "revId": "33fb5d2b8f95b85c9ba6f7560c726e5ba34ec3b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbd583b2_129172b1",
+        "filename": "front_end/resources/SidebarFrameTree.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T14:14:59Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "adda6ab8_0e29bd45",
+      "range": {
+        "startLine": 231,
+        "startChar": 3,
+        "endLine": 231,
+        "endChar": 50
+      },
+      "revId": "33fb5d2b8f95b85c9ba6f7560c726e5ba34ec3b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
