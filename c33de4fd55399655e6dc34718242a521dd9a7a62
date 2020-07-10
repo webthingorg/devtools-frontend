@@ -22,6 +22,30 @@
       "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56ba1910_67228e06",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-10T14:32:39Z",
+      "side": 0,
+      "message": "I found that `:all_devtools_files` itself was using `deps`, so I changed that to `public_deps` as well. Not sure if that would fix it though, CQ is running atm.",
+      "parentUuid": "df4d9a6f_60047eeb",
+      "range": {
+        "startLine": 945,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 89
+      },
+      "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
