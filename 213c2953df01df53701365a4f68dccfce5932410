@@ -16,6 +16,24 @@
       "revId": "213c2953df01df53701365a4f68dccfce5932410",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfc77183_5af40aed",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-10T15:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "339cc622_35c74f11",
+      "revId": "213c2953df01df53701365a4f68dccfce5932410",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
