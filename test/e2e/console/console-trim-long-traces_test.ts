@@ -46,14 +46,56 @@ describe('The Console Tab', async () => {
       });
     });
 
-    // match was used here because line numbers differ from one machine to another
     await step('check that the first log is not truncated', async () => {
-      assert.match(messages[0], /([\t]recursive[\t]@[\t]VM\d+:\d+[\n]){10}([\t]\(anonymous\)[\t]@[\t]VM\d+:\d+){1}/);
+      assert.strictEqual(
+          messages[0],
+          '\trecursive\t@\tVM11:6\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\t(anonymous)\t@\tVM11:9');
     });
 
-    // match was used here because line numbers differ from one machine to another
     await step('check that the second log is truncated', async () => {
-      assert.match(messages[1], /([\t]recursive[\t]@[\t]VM\d+:\d+[\n]){30}([\t]Show 21 more frames){1}/);
+      assert.strictEqual(
+          messages[1],
+          '\trecursive\t@\tVM11:6\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\trecursive\t@\tVM11:4\n' +
+              '\tShow 21 more frames');
     });
   });
 });
