@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "eea8967e_46f5d450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T14:23:17Z",
+      "side": 1,
+      "message": "OK we can\u0027t do that because this breaks the Resource revealer, which is hooked up in other places.",
+      "revId": "f4907fce93828d37baf1bd461fb6427d6bb3ec18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd1f0355_f0581f2b",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 5
