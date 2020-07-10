@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99163d31_c76f03f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-10T18:21:07Z",
+      "side": 1,
+      "message": "nit: lets add links to the other CLs this is dependent on, and add the crbug tracking this",
+      "range": {
+        "startLine": 20,
+        "startChar": 31,
+        "endLine": 21,
+        "endChar": 37
+      },
+      "revId": "da00e8d7132888d12d1b84a4e3463e2bdc65a7c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7fcd1fa_85155dfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-10T18:21:07Z",
+      "side": 1,
+      "message": "lgtm with a few nits, and if the merge conflict gets fixed up.",
+      "revId": "da00e8d7132888d12d1b84a4e3463e2bdc65a7c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d9e81e8_b577a024",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-10T18:21:07Z",
+      "side": 1,
+      "message": "nit, lets add a comment here about why we are doing this",
+      "range": {
+        "startLine": 300,
+        "startChar": 11,
+        "endLine": 300,
+        "endChar": 38
+      },
+      "revId": "da00e8d7132888d12d1b84a4e3463e2bdc65a7c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
