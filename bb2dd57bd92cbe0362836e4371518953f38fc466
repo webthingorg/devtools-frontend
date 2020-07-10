@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b77b53a_ff4d31d3",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T08:19:08Z",
+      "side": 0,
+      "message": "I wonder: Why does it get the main frame here? What if in the parent target there is a nested iframe that contains |frame|?",
+      "range": {
+        "startLine": 2048,
+        "startChar": 4,
+        "endLine": 2048,
+        "endChar": 81
+      },
+      "revId": "bb2dd57bd92cbe0362836e4371518953f38fc466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
