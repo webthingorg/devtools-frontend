@@ -63,6 +63,30 @@
       "revId": "8d52a84c2cf3f1ef83719c007fb38919af851a53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d73a1ca6_c04ee5aa",
+        "filename": "front_end/elements_test_runner/ElementsTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-10T07:58:44Z",
+      "side": 1,
+      "message": "That\u0027s very very odd. The one-liner I provided should return the same nodeIds array as in the code you wrote. And anyway, even if they differ, that shouldn\u0027t even matter as what we\u0027re stringifying is the result of getGridHighlightObjectsForTest.\nAnyway, this isn\u0027t worth spending more time over. So feel free to check this in as is. Thanks for trying.",
+      "parentUuid": "6db0cefe_f182bc31",
+      "range": {
+        "startLine": 1211,
+        "startChar": 2,
+        "endLine": 1215,
+        "endChar": 3
+      },
+      "revId": "8d52a84c2cf3f1ef83719c007fb38919af851a53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
