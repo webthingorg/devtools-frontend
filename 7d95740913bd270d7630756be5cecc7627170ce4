@@ -51,6 +51,41 @@
       "revId": "7d95740913bd270d7630756be5cecc7627170ce4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f6975e0_aedf3c5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-07-10T22:50:57Z",
+      "side": 1,
+      "message": "Could you elaborate on what you mean by \u0027internal\u0027?  \n\nFrom interpreting the callstack and the related code, the failure appears to be triggered when a node is removed and a pseudoNode is selected as a result (https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Treeoutline.js;l\u003d668?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F).\n\nI\u0027m willing to bet that other nodes besides pseudoType nodes have a null parentNode when passed into setAsInspectedNode, but pseudoTypes are the only node type that actually references and expects a non-null value from its parentNode.  If a pseudoType node\u0027s parent is null, it means that the pseudoType node is already removed from the DOM tree, so it should be treated as inspecting a null node.\n\nThe exact repro case is difficult to find in some Elements related failures due to the many different modification entry points and moving parts.  When a node is removed in the Elements panel, it is first unbound/removed in the DOMModel (where .parentNode could be set to null) and then an event is sent to the ElementsPanel which then asynchronously updates the DOM Tree view.  Interactions with a removed node in-between these two updates could cause issues like this one.  However, the Elements panel is still resilient due to consistent polling and synchronizing updates.  In cases like these where we reach an unexpected state in the middle of a larger operation, it should be safe to do a no-op and expect that we will reach a stable synchronized state at the end of the operation.",
+      "parentUuid": "5506be41_c3b7a647",
+      "revId": "7d95740913bd270d7630756be5cecc7627170ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f770f9_c3d179c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-07-10T22:50:57Z",
+      "side": 1,
+      "message": "Commenting my thoughts on this failure.  Let me know what you think.",
+      "revId": "7d95740913bd270d7630756be5cecc7627170ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
