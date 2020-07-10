@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9625ff7_07755fc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T07:52:04Z",
+      "side": 1,
+      "message": "LGTM (rubber-stamp), but please only land after the corresponding chromium CL has landed.",
+      "revId": "32d18f5159ee7cf8a1dc0a97b347129f92ebfe88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
