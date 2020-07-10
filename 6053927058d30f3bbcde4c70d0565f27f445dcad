@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508e6365_a2b60e9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-10T13:10:26Z",
+      "side": 1,
+      "message": "Nice cleanup of the duplication! I have always wondered how we could have cleaned that up, but didn\u0027t know of `use_relative_paths` that would solve it. Where is that documented?",
+      "revId": "6053927058d30f3bbcde4c70d0565f27f445dcad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
