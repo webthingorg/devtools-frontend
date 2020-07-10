@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "e14359cf_3ec10b3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T09:01:42Z",
+      "side": 1,
+      "message": "On further thought here, we should add a timeout to the code, e.g. 500ms, and if it fires put something like a spinner to indicate that we\u0027re definitely doing something.",
+      "revId": "ae18c80c036206d9bf085bca44cf8644c64c41b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4cd4ce5_51870877",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 2
