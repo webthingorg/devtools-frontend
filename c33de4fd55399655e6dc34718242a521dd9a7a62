@@ -70,6 +70,30 @@
       "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aff3bf7_b50ad3fb",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2020-07-10T20:14:52Z",
+      "side": 0,
+      "message": "I don\u0027t know enough about how the devtools build is set up, and without spending a bunch of time on it here (which I can do, but haven\u0027t done yet), I\u0027m not sure what you\u0027re asking me.\n\nThat said, my best guess from a cursory skimming of this is that you\u0027re confusing `deps` with `data_deps`.\n\n`deps` only applies to things needed at compile time. If A has a deps entry for B, then B will be compiled before A. It has no effect at runtime.\n\nIf you need files to be shipped along at runtime, you need to specify them in `data_deps`. If A has a `data_deps` on B, then B will be compiled before A is done (though it may be compiled in parallel w/ A), and then A\u0027s isolate will include B\u0027s output files. If B depends on C, and A needs C\u0027s files as well, then declare C as a data_deps of B.\n\nThis can mean that you need to declare B as *both* a deps and a data_deps of A. This is somewhat common with group() targets in particular.\n\nHopefully this is enough of a clue to help you figure out what\u0027s going on. If it isn\u0027t -- or if you already knew this -- let me know, and I\u0027ll stare at it more closely.",
+      "parentUuid": "c9b23bb4_c4611d7b",
+      "range": {
+        "startLine": 945,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 89
+      },
+      "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
