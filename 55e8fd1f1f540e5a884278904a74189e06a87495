@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9814096f_3f9423df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-10T08:09:58Z",
+      "side": 1,
+      "message": "Relanding Almothana\u0027s CL, checking if we still get the problem on the mac bot, since we cannot reproduce the problem on cq. I added both of you as TBR.",
+      "revId": "55e8fd1f1f540e5a884278904a74189e06a87495",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
