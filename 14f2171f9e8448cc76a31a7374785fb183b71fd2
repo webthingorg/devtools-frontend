@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c10a3184_2c8ace8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-10T10:30:51Z",
+      "side": 1,
+      "message": "CL is ready. I added an extended timeout so that they don\u0027t time out on the mac bot anymore. The change that I added is between patchset 8-10. Since I only made a small change and the original change is from Almothana, it would be great if you could be the author on this.\n\n@Almothana, I already added my +1. If you could edit the commit CL and submit, then you should be the author.",
+      "revId": "14f2171f9e8448cc76a31a7374785fb183b71fd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
