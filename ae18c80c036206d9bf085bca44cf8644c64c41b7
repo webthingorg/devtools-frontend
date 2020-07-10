@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4cd4ce5_51870877",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-10T08:06:48Z",
+      "side": 1,
+      "message": "Should it be sent only if _initialUpdateCompleted is changed from false to true? I assume doUpdate may be called multiple times and only the first invocation is initial.",
+      "revId": "ae18c80c036206d9bf085bca44cf8644c64c41b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
