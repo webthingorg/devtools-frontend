@@ -246,6 +246,26 @@ class AffectedDirectivesView extends AffectedResourcesView {
   }
 
   /**
+   * @param {!Element} header
+   */
+  _appendStatusColumnTitle(header) {
+    const status = document.createElement('td');
+    status.classList.add('affected-resource-header');
+    status.textContent = ls`Status`;
+    header.appendChild(status);
+  }
+
+  /**
+   * @param {!Element} element
+   */
+  _appendBlockedStatus(element) {
+    const status = document.createElement('td');
+    status.classList.add('affected-resource-blocked-status');
+    status.textContent = 'blocked';
+    element.appendChild(status);
+  }
+
+  /**
    * @param {!Set<!Protocol.Audits.ContentSecurityPolicyIssueDetails>} cspViolations
    */
   _appendAffectedDirectives(cspViolations) {
@@ -256,11 +276,14 @@ class AffectedDirectivesView extends AffectedResourcesView {
       if (firstCSPViolation.violatingNodeId) {
         this._appendDirectiveColumnTitle(header);
         this._appendNodeColumnTitle(header);
+        this._appendSourceCodeColumnTitle(header);
+        this._appendStatusColumnTitle(header);
       } else {
         this._appendURLColumnTitle(header);
+        this._appendStatusColumnTitle(header);
         this._appendDirectiveColumnTitle(header);
+        this._appendSourceCodeColumnTitle(header);
       }
-      this._appendSourceCodeColumnTitle(header);
     }
     this._affectedResources.appendChild(header);
     let count = 0;
@@ -285,6 +308,7 @@ class AffectedDirectivesView extends AffectedResourcesView {
       info.classList.add('affected-resource-directive-info');
       info.textContent = url;
       element.appendChild(info);
+      this._appendBlockedStatus(element);
     }
     element.appendChild(name);
 
@@ -323,6 +347,10 @@ class AffectedDirectivesView extends AffectedResourcesView {
           /* scriptId */ null, sourceCodeLocation.url, sourceCodeLocation.lineNumber);
       sourceCodeLink.appendChild(sourceAnchor);
       element.appendChild(sourceCodeLink);
+    }
+
+    if (nodeId) {
+      this._appendBlockedStatus(element);
     }
 
     this._affectedResources.appendChild(element);
