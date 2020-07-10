@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df4d9a6f_60047eeb",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-10T13:58:41Z",
+      "side": 0,
+      "message": "Hello Dirk,\n\nThis week, DevTools hit some build issues on Chromium `is_debug` post-commit bots. More specifically, `linux_chromium_dbg_ng` was failing, because it could not find files: https://ci.chromium.org/p/chromium/builders/ci/Linux%20Tests%20%28dbg%29%281%29/90122\n\nWe eventually triaged it to the problem that several files were not sent to the swarming bots. The fix was adding `front_end/formatter_worker/` as an explicit root dependency in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2287522\n\nHowever, with upcoming migrations in DevTools, we don\u0027t want to list every single target in the root BUILD.gn. Ideally, we only add `front_end` in our root deps, where `front_end` depends on `front_end/formatter_worker`.\n\nThis CL was an attempt to do so, but as you can see the `blink_light_rel` is failing. We have seen that error before and this was the fix: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2209101 Once again, the swarming bots were not able to find a \"dependency of a dependency\" and requires it to be a top-level dependency.\n\nIn my investigation on how this all works, I discovered https://source.chromium.org/chromium/chromium/src/+/master:BUILD.gn;l\u003d51-63;drc\u003dab6407594b6c44ea730fbfb51a3d64d25a869d54?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F which mentions https://bugs.chromium.org/p/chromium/issues/detail?id\u003d503241 which seems very similar. However, sadly I don\u0027t understand how and why that would fix the issue, nor do I understand how we can apply it to DevTools.\n\nCould you help us out with specifying `data_deps` such that it will recursively look for relevant output files, rather than us having to specify every dependency in the root BUILD.gn?\n\nThanks in advance.",
+      "range": {
+        "startLine": 945,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 89
+      },
+      "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
