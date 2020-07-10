@@ -1766,6 +1766,10 @@ export namespace ProtocolMapping {
      */
     'Network.setExtraHTTPHeaders': {paramsType: [Protocol.Network.SetExtraHTTPHeadersRequest]; returnType: void;};
     /**
+     * Specifies whether to sned a debug header to all outgoing requests.
+     */
+    'Network.setDebugHeaderEnabled': {paramsType: [Protocol.Network.SetDebugHeaderEnabledRequest]; returnType: void;};
+    /**
      * Sets the requests to intercept that match the provided patterns and optionally resource types.
      * Deprecated, please use Fetch.enable instead.
      */

@@ -598,6 +598,10 @@ export class DebuggerModel extends SDKModel {
    */
   async _pausedScript(
       callFrames, reason, auxData, breakpointIds, asyncStackTrace, asyncStackTraceId, asyncCallStackTraceId) {
+    console.log('--------------->');
+    console.log(asyncStackTraceId);
+    console.log(asyncStackTrace);
+    console.log('<================');
     if (asyncCallStackTraceId) {
       // Note: this is only to support old backends. Newer ones do not send asyncCallStackTraceId.
       _scheduledPauseOnAsyncCall = asyncCallStackTraceId;

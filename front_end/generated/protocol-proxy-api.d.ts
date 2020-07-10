@@ -1735,6 +1735,12 @@ declare namespace ProtocolProxyApi {
         Promise<Protocol.ProtocolResponseWithError>;
 
     /**
+     * Specifies whether to sned a debug header to all outgoing requests.
+     */
+    invoke_setDebugHeaderEnabled(params: Protocol.Network.SetDebugHeaderEnabledRequest):
+        Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
      * Sets the requests to intercept that match the provided patterns and optionally resource types.
      * Deprecated, please use Fetch.enable instead.
      */

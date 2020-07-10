@@ -7325,6 +7325,13 @@ declare namespace Protocol {
       headers: Headers;
     }
 
+    export interface SetDebugHeaderEnabledRequest {
+      /**
+       * Whether to send a debug header.
+       */
+      enabled: boolean;
+    }
+
     export interface SetRequestInterceptionRequest {
       /**
        * Requests matching any of these patterns will be forwarded and wait for the corresponding
