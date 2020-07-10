@@ -929,7 +929,7 @@ group("devtools_all_files") {
     # This enables us to test bots with whitespace changes.
     "scripts/whitespaces.txt",
   ]
-  deps = [ ":devtools_frontend_resources_data" ]
+  public_deps = [ ":devtools_frontend_resources_data" ]
 }
 
 devtools_frontend_resources_deps = [
@@ -941,15 +941,6 @@ devtools_frontend_resources_deps = [
   ":copy_wasm_deps",
   ":devtools_extension_api",
   "front_end",
-
-  # Required for layout tests, which depend on the existence of `integration_test_runner.html`
-  # If we don't add this dependency explicitly, the swarming bots don't pick up the file.
-  "front_end:front_end_html_entrypoints",
-  "front_end/elements:bundle",
-  "front_end/formatter_worker",
-  "front_end/formatter_worker:bundle",
-  "front_end/sdk",
-  "front_end/sdk:bundle",
 ]
 
 if (is_debug) {
