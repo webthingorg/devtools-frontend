@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "317b8eba_5ecaca2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T07:53:04Z",
+      "side": 1,
+      "message": "LGTM. Waiting on Mathias for the submit 😊",
+      "revId": "2628bb8e7980867034242c03be370159f6a41e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
