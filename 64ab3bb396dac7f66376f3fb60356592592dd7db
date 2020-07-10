@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "844dd469_64850e00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-10T16:16:11Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct.",
+      "parentUuid": "47985d22_d4abe67e",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83c0ffc5_2fb1f1f9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -94,6 +118,41 @@
       "writtenOn": "2020-07-09T21:41:07Z",
       "side": 1,
       "message": "Lgtm % nit.\n\nMaybe as a follow up, we can investigate how to make this more obvious on the setting page itself (the text next to theme setting is a good start). It just feels a little odd with the infobar popping up behind the setting pane and I don\u0027t see it until I close settings. But, since it is a glasspane, I don\u0027t have a better solution than this right now.",
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "157265c0_2691eecc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-10T16:16:11Z",
+      "side": 1,
+      "message": "Yes, problem 1 is that Settings is in a GlassPane. I think that could probably be overcome, but even if it was, it also doesn\u0027t handle the problem for changing the setting via the Command Palette, or if the OS-chosen theme is changed. Having the Infobar appear in the main DevTools window makes sense to handle all that I think.",
+      "parentUuid": "a7a1a80e_1b45cd1e",
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18be322_c71770be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-10T16:16:11Z",
+      "side": 1,
+      "message": "+Yang at Mike\u0027s suggestion due to the history of the functionality.",
       "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
