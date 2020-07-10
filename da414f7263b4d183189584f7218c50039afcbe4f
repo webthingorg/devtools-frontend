@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "87ed3344_64320150",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-10T09:06:34Z",
+      "side": 1,
+      "message": "Ok, that\u0027s probably clearer, but the result in the whole conditional should be exactly the same.",
+      "parentUuid": "8c0f29f6_679b59f3",
+      "range": {
+        "startLine": 262,
+        "startChar": 58,
+        "endLine": 262,
+        "endChar": 69
+      },
+      "revId": "da414f7263b4d183189584f7218c50039afcbe4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2d7ed47_2d77bdb6",
         "filename": "front_end/sdk/ResourceTreeModel.js",
         "patchSetId": 2
@@ -62,6 +86,30 @@
       "revId": "da414f7263b4d183189584f7218c50039afcbe4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d438ab_edba1f91",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-10T09:06:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2d7ed47_2d77bdb6",
+      "range": {
+        "startLine": 716,
+        "startChar": 2,
+        "endLine": 716,
+        "endChar": 5
+      },
+      "revId": "da414f7263b4d183189584f7218c50039afcbe4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

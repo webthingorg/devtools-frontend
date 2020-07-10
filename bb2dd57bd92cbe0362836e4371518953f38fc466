@@ -22,6 +22,30 @@
       "revId": "bb2dd57bd92cbe0362836e4371518953f38fc466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d02fde_cf354044",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-10T09:06:34Z",
+      "side": 0,
+      "message": "Great catch, I believe this is/was a bug.\n\nYou mean a scenario like this, right?\n\nFrame1 -\u003e Frame2 -\u003e OOPIF Frame3\n(\u0027-\u003e\u0027 meaning parent-child relationship)\n\n_getParentFrame(Frame3) would (incorrectly) return Frame1 instead of Frame2.",
+      "parentUuid": "7b77b53a_ff4d31d3",
+      "range": {
+        "startLine": 2048,
+        "startChar": 4,
+        "endLine": 2048,
+        "endChar": 81
+      },
+      "revId": "bb2dd57bd92cbe0362836e4371518953f38fc466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
