@@ -16,6 +16,47 @@
       "revId": "85660711bb58e0c436b45f2a5387c386adf3d6ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e652f64a_132ba037",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-07-10T21:34:12Z",
+      "side": 1,
+      "message": "lgtm with a nit.",
+      "parentUuid": "93ec4411_9a9c134d",
+      "revId": "85660711bb58e0c436b45f2a5387c386adf3d6ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7adeb6a9_32006848",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-07-10T21:34:12Z",
+      "side": 1,
+      "message": "nit: extra \"if\"?",
+      "range": {
+        "startLine": 304,
+        "startChar": 19,
+        "endLine": 304,
+        "endChar": 79
+      },
+      "revId": "85660711bb58e0c436b45f2a5387c386adf3d6ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
