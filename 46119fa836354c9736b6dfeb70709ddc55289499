@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "77fceaf7_8d71c3bc",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-10T12:47:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68fb212c_80370705",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "771af2c8_cc81d245",
         "filename": "front_end/extensions/ExtensionAPI.js",
         "patchSetId": 11
@@ -123,6 +141,24 @@
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "092f2e82_6953f1f4",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-10T12:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb541ad1_98ea8306",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -194,6 +230,24 @@
       "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb23db58_fbf623e5",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-10T12:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d631bb55_103416a4",
+      "revId": "46119fa836354c9736b6dfeb70709ddc55289499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {

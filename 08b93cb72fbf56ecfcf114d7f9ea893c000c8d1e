@@ -33,6 +33,24 @@
       "revId": "08b93cb72fbf56ecfcf114d7f9ea893c000c8d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a3e8ce_980e8ff3",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-10T12:47:18Z",
+      "side": 1,
+      "message": "I added handlers for the error where they were missing.",
+      "parentUuid": "9a805ba4_7bc62685",
+      "revId": "08b93cb72fbf56ecfcf114d7f9ea893c000c8d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
