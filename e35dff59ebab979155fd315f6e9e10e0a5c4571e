@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4cf22e3_d1e8dbee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-07-10T23:12:24Z",
+      "side": 1,
+      "message": "lgtm.",
+      "revId": "e35dff59ebab979155fd315f6e9e10e0a5c4571e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16686472_d8f7ffdb",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-07-10T23:12:24Z",
+      "side": 1,
+      "message": "nit: maybe add an explanatory comment here.",
+      "range": {
+        "startLine": 326,
+        "startChar": 4,
+        "endLine": 326,
+        "endChar": 78
+      },
+      "revId": "e35dff59ebab979155fd315f6e9e10e0a5c4571e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
