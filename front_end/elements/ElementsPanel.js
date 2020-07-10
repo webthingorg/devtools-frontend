@@ -335,7 +335,7 @@ export class ElementsPanel extends UI.Panel.Panel {
 
     self.UI.context.setFlavor(SDK.DOMModel.DOMNode, selectedNode);
 
-    if (!selectedNode) {
+    if (!selectedNode || (selectedNode.pseudoType() && !selectedNode.parentNode)) {
       return;
     }
     selectedNode.setAsInspectedNode();
