@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "339cc622_35c74f11",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-10T08:14:57Z",
+      "side": 1,
+      "message": "We could have a helper that normalizes the strings in `messages` to make comparison easier.\n\nFor each string, it would check if it contains /VM\\d+:/, and replace that the VM ID with some hardcoded number, e.g. `VM42:`. In our expectation strings, we would then use this number. This would make the test deterministic.\n\nA more extreme helper would be one that accepts both (messages, expectedMessages) params, and then normalizes all strings before comparing them. The simpler solution above seems slightly more elegant though.",
+      "revId": "213c2953df01df53701365a4f68dccfce5932410",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
