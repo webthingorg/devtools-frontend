@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "036b2093_fb3064c0",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-10T08:17:17Z",
+      "side": 1,
+      "message": "It looks like a few of the recent changes to this CSS didn\u0027t survive in the move of CSS from one file to the other.\nI didn\u0027t spot this at review, just assumed things got copied over, but I think merging with my work on grid area labels must have caused this.\nI\u0027ll try to post a CL to correct this soon.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 29
+      },
+      "revId": "7ceb501def4151c8c3dd5617923daea169c33be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
