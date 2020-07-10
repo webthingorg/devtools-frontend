@@ -80,6 +80,30 @@
       "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29dc989a_e7b1e902",
+        "filename": "front_end/inspector_overlay/tool_highlight.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-10T13:23:10Z",
+      "side": 1,
+      "message": "Tested on various test cases, I don\u0027t think we need to change the threshold for label skipping.",
+      "parentUuid": "9b483055_77a55371",
+      "range": {
+        "startLine": 254,
+        "startChar": 13,
+        "endLine": 254,
+        "endChar": 18
+      },
+      "revId": "eb63f35733473f5ed1d5b8807973f6964d13d504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
