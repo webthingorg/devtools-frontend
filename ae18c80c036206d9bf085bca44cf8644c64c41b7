@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f22c230_86771765",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-10T08:57:50Z",
+      "side": 1,
+      "message": "LGTM, but PTAL Alex\u0027s suggestion before landing",
+      "revId": "ae18c80c036206d9bf085bca44cf8644c64c41b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4cd4ce5_51870877",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 2
