@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "787387fc_bea0b207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-10T18:51:55Z",
+      "side": 1,
+      "message": "Hello, this CL includes the UI for toggling the source order view of an element from the accessibility panel and getting data about that node to a CDP call.",
+      "revId": "f6de383e9df2dc8ad4c02c3681d9636020876967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
