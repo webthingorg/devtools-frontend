@@ -188,6 +188,9 @@ export class MainImpl {
     // Layout personalization
     Root.Runtime.experiments.register('movableTabs', 'Enable support to move tabs between panels');
 
+    // Frame Tree in Application panel
+    Root.Runtime.experiments.register('frameTree', 'Enable legacy frames/resources section in Application panel');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {

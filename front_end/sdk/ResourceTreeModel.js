@@ -895,6 +895,7 @@ export class ResourceTreeFrame {
 
   /**
    * @return {string}
+   * TODO(crbug.com/1101244): find better naming scheme (this._name can be very long,...)
    */
   displayName() {
     if (this.isTopFrame()) {

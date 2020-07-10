@@ -95,6 +95,7 @@
     "DOMStorageModel.js",
     "DOMStorageItemsView.js",
     "DatabaseQueryView.js",
+    "SidebarFrameTree.js",
     "DatabaseTableView.js",
     "IndexedDBModel.js",
     "IndexedDBViews.js",
@@ -112,6 +113,7 @@
     "resourcesSidebar.css",
     "serviceWorkerCacheViews.css",
     "serviceWorkersView.css",
+    "sidebarFrameTree.css",
     "cookieItemsView.css"
   ]
 }
