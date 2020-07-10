@@ -33,6 +33,24 @@
       "revId": "7d95740913bd270d7630756be5cecc7627170ce4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5506be41_c3b7a647",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-07-10T19:32:31Z",
+      "side": 1,
+      "message": "This is internal. Correct? Is there a user action can lead this to happen?",
+      "parentUuid": "b90c7fdf_ade95261",
+      "revId": "7d95740913bd270d7630756be5cecc7627170ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
