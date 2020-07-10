@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d270acf2_7fe062dc",
+        "filename": "front_end/emulation/sensors.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-10T08:41:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4005d955_3b4fe2a5",
+      "revId": "5942ee2a53404e2a7e43e2a573d0edc71fa253b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a982e28d_533481e2",
         "filename": "front_end/emulation/sensors.css",
         "patchSetId": 4
@@ -54,6 +72,30 @@
       "side": 1,
       "message": "Hmm, the `.sensors-view...` selector above does have higher precedence, so if we ever add a max-width in there it would override this one (even though it comes later in the source file). IMHO it\u0027s simpler to listen to stylelint in this case.",
       "parentUuid": "a982e28d_533481e2",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 59
+      },
+      "revId": "5942ee2a53404e2a7e43e2a573d0edc71fa253b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b0e7232_66647fce",
+        "filename": "front_end/emulation/sensors.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-10T08:41:16Z",
+      "side": 1,
+      "message": "Ack. I\u0027m not sure I agree but happy to defer to stylelint if that\u0027s what we\u0027re going for. We should keep an eye out for it forcing us to pick rules that as a team we think are net negative. I think most of the examples of this rule make sense - the others I fixed in this CL I agreed with - but let\u0027s keep an eye on it :)",
+      "parentUuid": "212e7006_b8f2339a",
       "range": {
         "startLine": 270,
         "startChar": 0,
