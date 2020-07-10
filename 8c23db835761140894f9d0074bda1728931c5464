@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b9f4edb_f6954887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T07:56:26Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8c23db835761140894f9d0074bda1728931c5464",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "206bf7cb_46b78a1d",
+        "filename": "scripts/build/ninja/devtools_module.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T07:56:26Z",
+      "side": 1,
+      "message": "Can you add a comment here and below explaining why we set the visibility like this?",
+      "revId": "8c23db835761140894f9d0074bda1728931c5464",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

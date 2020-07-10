@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91930994_d3fe302f",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T07:56:26Z",
+      "side": 0,
+      "message": "I take it you\u0027re removing this in favor of doing it in line?",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 28
+      },
+      "revId": "ce350c17987b39c0fcfd0012c4fa0d4eece23364",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
