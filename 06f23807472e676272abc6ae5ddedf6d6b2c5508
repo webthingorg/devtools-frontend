@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8c066b0_8f6dcfc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-10T16:25:02Z",
+      "side": 1,
+      "message": "LGTM, thanks!\n\nI\u0027ve left some comments with follow-up ideas that might make this even nicer, but these are non-blocking.",
+      "revId": "06f23807472e676272abc6ae5ddedf6d6b2c5508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07ed2473_a66d819d",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-10T16:25:02Z",
+      "side": 1,
+      "message": "Is textContent nicer here? Could we .trim() so that the expectations below are simpler? (The whitespace is not really relevant to the test)",
+      "revId": "06f23807472e676272abc6ae5ddedf6d6b2c5508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32734db2_397238fb",
+        "filename": "test/e2e/console/console-trim-long-traces_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-10T16:25:02Z",
+      "side": 1,
+      "message": "Instead of all the trailing +, we could do something like this (to make the test expectations more readable):\n\n    const expectedLog \u003d [\n      \u0027\\trecursive\\t@\\tVM11:6\u0027,\n      \u0027\\trecursive\\t@\\tVM11:4\u0027,\n      \u0027\\trecursive\\t@\\tVM11:4\u0027,\n    ].join(\u0027\\n\u0027);\n\nOr:\n\n    const expectedLog \u003d dedent`\n      \\trecursive\\t@\\tVM11:6\n      \\trecursive\\t@\\tVM11:4\n      \\trecursive\\t@\\tVM11:4\n    `;\n\nOr, if you decide to apply the .trim() suggestion I made above:\n\n    const expectedLog \u003d dedent`\n      recursive\\t@\\tVM11:6\n      recursive\\t@\\tVM11:4\n      recursive\\t@\\tVM11:4\n    `;\n\n`dedent` would be a tag function that strips indentation on each line, similar to https://gist.github.com/zenparsing/5dffde82d9acef19e43c.",
+      "revId": "06f23807472e676272abc6ae5ddedf6d6b2c5508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
