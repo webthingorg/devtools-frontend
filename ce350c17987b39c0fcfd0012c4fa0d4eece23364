@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53896034_34ff16f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T08:06:41Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ce350c17987b39c0fcfd0012c4fa0d4eece23364",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5000cc85_e7f85c4a",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T08:06:41Z",
+      "side": 1,
+      "message": "Drive-by remark that I\u0027m still a little concerned about the number of changes necessary around the build system to ensure we don\u0027t have a misstep somewhere. We need to document it / a plan to remove the complexity here.",
+      "revId": "ce350c17987b39c0fcfd0012c4fa0d4eece23364",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
