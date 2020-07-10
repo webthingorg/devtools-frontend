@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ef8c8fd8_27ab0860",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-10T23:02:14Z",
+      "side": 1,
+      "message": "Yeah not sure what the story is. Looked through other CLs it looks like similar things happen (unrelated files being modified). Will await Jan/Tim thoughts",
+      "parentUuid": "f1a13335_b98f29df",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f1600fce_167dba8a",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -50,6 +68,24 @@
       "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e1f4af1_416985e3",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-10T23:02:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1600fce_167dba8a",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "2aff13c9_aad610b6",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-10T23:02:14Z",
+      "side": 1,
+      "message": "Keyboard selection for radio buttons triggers click ironically enough. Given that, I think click is better since I don\u0027t have to handle the deselection of the previously selected radio button.",
+      "parentUuid": "977e2be6_36064260",
+      "range": {
+        "startLine": 167,
+        "startChar": 47,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305825a5_709150f0",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -87,6 +147,24 @@
       "writtenOn": "2020-07-10T20:10:15Z",
       "side": 1,
       "message": "The call that toggles `setAutomaticPresenceSimulation` on for this authenticator will be redundant since it\u0027s already created with `automaticPresenceSimulation \u003d true`. Could you maybe just call `setAutomaticPresenceSimulation` on the previously active authenticator?",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4ce8e5d_13c0c2a4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-10T23:02:14Z",
+      "side": 1,
+      "message": "Was internally debating this as well. Specifically, whether it\u0027s better to repeat writing code or repeat running code in this scenario. The current way avoids rewriting the same code at the cost of running a line unnecessarily, whereas this suggestion makes the opposite tradeoff. \n\nI\u0027m going to do a tiny refactor and create a `_clearActiveAuth` function to try and achieve best of both worlds. Thoughts?",
+      "parentUuid": "305825a5_709150f0",
       "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -107,6 +185,24 @@
       "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169e33aa_19fed788",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-10T23:02:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bfd98be_d90cd130",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -133,6 +229,30 @@
     },
     {
       "key": {
+        "uuid": "653f03f1_fb031cfc",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-10T23:02:14Z",
+      "side": 1,
+      "message": "Changed for different reason - convo moved offline",
+      "parentUuid": "f9954ceb_6f2550c6",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 26
+      },
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c9f64a9_ffa09531",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -144,6 +264,24 @@
       "writtenOn": "2020-07-10T20:10:15Z",
       "side": 1,
       "message": "I\u0027m a bit worried about updating the UI before the request has actually resolved. I don\u0027t know what the SOP is for the devtools front-end, but I would suggest waiting for the request to come back to update the UI. This way you guarantee that what you\u0027re showing on the screen really is what\u0027s going on in the back-end.\n\nSomething like\n\n  this._model.setAutomaticPresenceSimulation(this._activeAuthId, false).then(() \u003d\u003e {\n    // toggle option\n  });\n\nThis could in theory introduce noticeable latency if the back-end lags but I think it\u0027s better.",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edfa739f_55079f4f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-10T23:02:14Z",
+      "side": 1,
+      "message": "Thanks for the catch! Currently the UI being updated triggers the event, so afaik I couldn\u0027t wait for the promise to resolve to change the radio button selection.\n\nTwo potential solutions I can think of:\n\n1. Throw an error (i.e. rejected promise) from the async setAutomaticPresenceSimulation function. Handle the rejected promise in the _setActiveAuthenticator function, then clear the active authenticator and deselect the radio button if an error is caught. e.g.\n\n this._model.setAutomaticPresenceSimulation(this._activeAuthId, false).catch(() \u003d\u003e {\n  // clear active authenticator\n  // deselect all radio buttons\n });\n\n\n2. Replace the radio button with a \"Set As Active Authenticator\" button and have a boolean field \"Is Active\" for each authenticator. This way, setting an active authenticator and seeing whether an authenticator is active are decoupled. Would have to add more logic to ensure that only one is selected but that won\u0027t be difficult.\n\n\nIMO, option 2 is less hacky and more maintainable, but the radio buttons of option 1 make it very clear that the user can only have one active authenticator. Overall I prefer option 2 - thoughts?",
+      "parentUuid": "4c9f64a9_ffa09531",
       "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
