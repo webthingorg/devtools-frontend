@@ -16,6 +16,137 @@
       "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1a13335_b98f29df",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-10T20:10:15Z",
+      "side": 1,
+      "message": "This and a bunch of other changes seem unrelated to the patch? Perhaps updating the CDP should be made in another patch (devtools people will know better).",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1600fce_167dba8a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-10T20:10:15Z",
+      "side": 1,
+      "message": "Use `null` to signify an empty value instead.",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "977e2be6_36064260",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-10T20:10:15Z",
+      "side": 1,
+      "message": "Does this work for keyboard selection of the radio button? You might want to use `change` instead if it doesn\u0027t.",
+      "range": {
+        "startLine": 167,
+        "startChar": 47,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "305825a5_709150f0",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-10T20:10:15Z",
+      "side": 1,
+      "message": "The call that toggles `setAutomaticPresenceSimulation` on for this authenticator will be redundant since it\u0027s already created with `automaticPresenceSimulation \u003d true`. Could you maybe just call `setAutomaticPresenceSimulation` on the previously active authenticator?",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bfd98be_d90cd130",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-10T20:10:15Z",
+      "side": 1,
+      "message": "nit: remove this line.",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9954ceb_6f2550c6",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-10T20:10:15Z",
+      "side": 1,
+      "message": "`\u0027\u0027` evaluates to truthy so if there is no authenticator selected, the next line will attempt to find an authenticator named `\u0027\u0027` and fail. If you use `null` instead you fix this problem.",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 26
+      },
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c9f64a9_ffa09531",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-10T20:10:15Z",
+      "side": 1,
+      "message": "I\u0027m a bit worried about updating the UI before the request has actually resolved. I don\u0027t know what the SOP is for the devtools front-end, but I would suggest waiting for the request to come back to update the UI. This way you guarantee that what you\u0027re showing on the screen really is what\u0027s going on in the back-end.\n\nSomething like\n\n  this._model.setAutomaticPresenceSimulation(this._activeAuthId, false).then(() \u003d\u003e {\n    // toggle option\n  });\n\nThis could in theory introduce noticeable latency if the back-end lags but I think it\u0027s better.",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
