@@ -120,6 +120,29 @@
       "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05820fac_32b8ff1d",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-10T04:34:21Z",
+      "side": 1,
+      "message": "ls`${\u0027*\u0027}Requires reload` That way the string does not requires context on *",
+      "range": {
+        "startLine": 94,
+        "startChar": 35,
+        "endLine": 94,
+        "endChar": 36
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
