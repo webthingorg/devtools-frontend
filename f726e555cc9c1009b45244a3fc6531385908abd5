@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "989c7027_6287079e",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-10T18:47:57Z",
+      "side": 1,
+      "message": "Do you mind breaking out actually enabling the new setting from the inpsector_overlay implementation? I think it will help us avoid the case of turning on the setting before backend support is ready?",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 214,
+        "endChar": 7
+      },
+      "revId": "f726e555cc9c1009b45244a3fc6531385908abd5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
