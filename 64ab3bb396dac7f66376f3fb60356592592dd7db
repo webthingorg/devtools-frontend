@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "99a095fd_51813728",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-07-10T02:25:32Z",
+      "side": 1,
+      "message": "should the infobar appear above settings when you change something in the settings? \n\nI get a reload required, and then no way of reloading until i dismiss the settings dialog.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 7
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47985d22_d4abe67e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
