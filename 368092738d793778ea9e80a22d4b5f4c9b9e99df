@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41e1fe94_b499ed34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-10T14:00:32Z",
+      "side": 1,
+      "message": "LGTM with respect to the gni changes, but I would value understanding the situation a little more clearly overall with respect to deps.",
+      "revId": "368092738d793778ea9e80a22d4b5f4c9b9e99df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
