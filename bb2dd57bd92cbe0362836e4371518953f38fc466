@@ -46,6 +46,30 @@
       "revId": "bb2dd57bd92cbe0362836e4371518953f38fc466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21fe37b1_f01cc7ff",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-10T11:23:01Z",
+      "side": 0,
+      "message": "Exactly, maybe one thought in the original implementation was to group things by target (rather than to reflect the frame nesting).",
+      "parentUuid": "39d02fde_cf354044",
+      "range": {
+        "startLine": 2048,
+        "startChar": 4,
+        "endLine": 2048,
+        "endChar": 81
+      },
+      "revId": "bb2dd57bd92cbe0362836e4371518953f38fc466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
