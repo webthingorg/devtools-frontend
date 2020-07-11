@@ -51,6 +51,9 @@
   <message name="IDS_DEVTOOLS_2a5a5a712c2bfb6c506cb669b8d81709" desc="Title of an action in the console tool to clear">
     Clear console history
   </message>
+  <message name="IDS_DEVTOOLS_1e18022ccfd2227948a5e8523c29123b" desc="Title of an action in the console tool to clear the current line from history">
+    Clear line in history
+  </message>
   <message name="IDS_DEVTOOLS_2b76cfdf5b790de0a27ba7fc58a919c8" desc="Accessible name in Console View Message of the Console panel">
     Warning <ph name="ACCESSIBLENAME">$1s<ex>Repeat 4</ex></ph>
   </message>
