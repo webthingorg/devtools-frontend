@@ -87,6 +87,24 @@
       "revId": "6644057314437f33ad880a9dca0d637683486310",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba5774af_6e5fc923",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-07-12T16:18:02Z",
+      "side": 1,
+      "message": "Maybe you are better served with snippets? https://developers.google.com/web/tools/chrome-devtools/javascript/snippets\n\nYou can use CTRL+O (or Command+O on Mac) and ! together with the name of the snippet name to execute it.\n\nLet\u0027s wait for Peter to weigh in from a UX perspective.",
+      "parentUuid": "34a25f19_a15663c0",
+      "revId": "6644057314437f33ad880a9dca0d637683486310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
