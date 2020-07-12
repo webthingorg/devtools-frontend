@@ -51,6 +51,24 @@
       "revId": "6644057314437f33ad880a9dca0d637683486310",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70a6a6e8_d869b3a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-07-12T15:59:47Z",
+      "side": 1,
+      "message": "Console history is more of a convenience feature. I wouldn\u0027t expect people to actively maintain it.\n\nI wonder whether a toggle to enable/disable history would be easier to discover and more useful.",
+      "parentUuid": "0beddeb2_a4d734b4",
+      "revId": "6644057314437f33ad880a9dca0d637683486310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
