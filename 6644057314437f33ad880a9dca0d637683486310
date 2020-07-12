@@ -33,6 +33,24 @@
       "revId": "6644057314437f33ad880a9dca0d637683486310",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0beddeb2_a4d734b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1427242
+      },
+      "writtenOn": "2020-07-12T15:43:13Z",
+      "side": 1,
+      "message": "It\u0027s not strictly necessary, but it\u0027s really nice to have.  Sometimes a user might need to run a one-off command that then gets in their history and the only way to remove it is to clear all history.  The other issue is if you accidentally type something sensitive and want to clear it without clearing all history.",
+      "parentUuid": "a3cdc274_5014d692",
+      "revId": "6644057314437f33ad880a9dca0d637683486310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
