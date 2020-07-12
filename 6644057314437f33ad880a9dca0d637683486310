@@ -105,6 +105,24 @@
       "revId": "6644057314437f33ad880a9dca0d637683486310",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98a772e2_c9d97e0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1427242
+      },
+      "writtenOn": "2020-07-12T16:22:28Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ll wait for Peter. I just thought others might like this feature too, but if not, Snippets look like they could be useful.",
+      "parentUuid": "ba5774af_6e5fc923",
+      "revId": "6644057314437f33ad880a9dca0d637683486310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
