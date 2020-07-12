@@ -69,6 +69,24 @@
       "revId": "6644057314437f33ad880a9dca0d637683486310",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34a25f19_a15663c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1427242
+      },
+      "writtenOn": "2020-07-12T16:08:30Z",
+      "side": 1,
+      "message": "For me, I have a handful of command in history that I run often.  Every once in while I have a one-off command I\u0027d like to run, but don\u0027t because I don\u0027t want it in history.  This change would let me do that.\n\nI could switch this to an Enable/Disable History toggle if you\u0027d prefer.  It would solve this use case, but wouldn\u0027t solve the issue if you had something in there that you wanted to remove.  I\u0027d like to solve that one too, but understand if you don\u0027t want it.\n\nAlternatively, would it be better if I keep what I have, but move it out of that context menu and have a different way to clear it?  Maybe have an X or \"Clear History\" link show up at the end of the line to clear it.",
+      "parentUuid": "70a6a6e8_d869b3a6",
+      "revId": "6644057314437f33ad880a9dca0d637683486310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
