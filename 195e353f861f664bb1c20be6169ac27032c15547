@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc7ae59a_b499f35e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-13T22:29:17Z",
+      "side": 1,
+      "message": "When you have a chance, please download this patch and play with it, and let me know if you have UX thoughts (I\u0027m sure you\u0027ll have a lot 😊). Thanks!",
+      "revId": "195e353f861f664bb1c20be6169ac27032c15547",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
