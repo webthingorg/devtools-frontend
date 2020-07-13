@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "2ba563c4_c7da50d3",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc62929d_40f5c1a3",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb07c833_4c0f9191",
         "filename": "front_end/elements/StylePropertyTreeElement.js",
         "patchSetId": 1
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "10bab49f_b307d9b5",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb07c833_4c0f9191",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19722c3c_e895e835",
         "filename": "front_end/sdk/CSSPropertyParser.js",
         "patchSetId": 1
@@ -81,6 +117,24 @@
       "writtenOn": "2020-07-13T09:30:25Z",
       "side": 1,
       "message": "1. Does this attempt to match the spec? If so, let\u0027s link to the relevant part of the spec.\n2. Should single quotes be included? (It should if this is a \u003cstring\u003e CSS token)",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11e1ec38_1afb3969",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "I mentioned that parsing assumes valid values and references the spec. Also, covered the single quotes case.",
+      "parentUuid": "19722c3c_e895e835",
       "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "9fde3d0a_c66430a9",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ceb9c0a_9d52e3cc",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8547410_fd7f51c7",
         "filename": "front_end/sdk/CSSPropertyParser.js",
         "patchSetId": 1
@@ -118,6 +190,24 @@
       "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18ef2a91_2f29e35f",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8547410_fd7f51c7",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +228,24 @@
     },
     {
       "key": {
+        "uuid": "88a08f90_bdecf3d6",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dec33a06_3d31e67c",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "975c0414_383e9c77",
         "filename": "test/unittests/front_end/sdk/CSSPropertyParser_test.ts",
         "patchSetId": 1
@@ -155,6 +263,24 @@
     },
     {
       "key": {
+        "uuid": "7af4ac5a_3a214abe",
+        "filename": "test/unittests/front_end/sdk/CSSPropertyParser_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "975c0414_383e9c77",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d76e6447_2287db23",
         "filename": "test/unittests/front_end/sdk/CSSPropertyParser_test.ts",
         "patchSetId": 1
@@ -169,6 +295,24 @@
       "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f79ad962_e7d65452",
+        "filename": "test/unittests/front_end/sdk/CSSPropertyParser_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T13:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76e6447_2287db23",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
