@@ -56,6 +56,9 @@ QuickOpen.QuickOpen._history = QuickOpenModule.QuickOpen.history;
 
 QuickOpen.QuickPick = QuickOpenModule.QuickPick.QuickPick;
 
+QuickOpen.QuickPickDemoDelegate = QuickOpenModule.QuickPick.QuickPickDemoDelegate;
+QuickOpen.QuickInputDemoDelegate = QuickOpenModule.QuickInput.QuickInputDemoDelegate;
+
 /**
  * @constructor
  */
