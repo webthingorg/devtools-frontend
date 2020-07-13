@@ -199,6 +199,30 @@
     },
     {
       "key": {
+        "uuid": "c8b5c3df_b1cd9dc3",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-13T10:16:41Z",
+      "side": 1,
+      "message": "I also looked around and didn\u0027t find any place where `this._infoBarDiv` is taken care of. I suppose the reason is that it as a container can just stay alive during the entire lifecycle of this widget, and will get recycled once this widget is gone. The meaningful view logic happens within its children infobars, so I think for now it\u0027s OK.\n\n+1 on declaring it in the constructor, so that we can have a more specific type.",
+      "parentUuid": "1e16e9ff_2c4e855e",
+      "range": {
+        "startLine": 428,
+        "startChar": 14,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "05820fac_32b8ff1d",
         "filename": "front_end/ui/SettingsUI.js",
         "patchSetId": 5
