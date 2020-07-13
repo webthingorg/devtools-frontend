@@ -439,6 +439,7 @@ export class OverlayModel extends SDKModel {
       showGridExtensionLines,
       showPositiveLineNumbers,
       showNegativeLineNumbers,
+      showLineNames: false,
       showAreaNames: /** @type {boolean} */ (this._showGridAreasSetting.get()),
       areaBorderColor: Common.Color.PageHighlight.GridAreaBorder.toProtocolRGBA()
     };
