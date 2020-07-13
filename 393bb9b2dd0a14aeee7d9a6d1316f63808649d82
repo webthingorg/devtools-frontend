@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "dc854123_d1b7822d",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-13T09:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e2a4e27_a45dfc70",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f419a905_e8d1aa0e",
         "filename": "front_end/sdk/sdk_strings.grdp",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e981647b_de9777fe",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-13T09:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f419a905_e8d1aa0e",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "cec248d1_57d9f2d1",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-13T09:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6804bc01_6fd658e8",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c2f4389_f6cad87b",
         "filename": "front_end/sdk/sdk_strings.grdp",
         "patchSetId": 1
@@ -101,6 +155,24 @@
       "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f96eb6b_c67a81aa",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-13T09:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c2f4389_f6cad87b",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
