@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "9b68c21b_30bfdc76",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T21:49:54Z",
+      "side": 1,
+      "message": "In which param? Below? That\u0027s not the one that it affects. See this file, line 31.",
+      "parentUuid": "836fe17d_c6e7c4dc",
+      "range": {
+        "startLine": 119,
+        "startChar": 64,
+        "endLine": 119,
+        "endChar": 82
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e31be914_031f8a81",
         "filename": "front_end/quick_open/QuickInput.js",
         "patchSetId": 8
@@ -62,6 +86,30 @@
       "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eddbc3d9_585f665d",
+        "filename": "front_end/quick_open/QuickInput.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T21:49:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e31be914_031f8a81",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "a86c4804_d5897d70",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T21:49:54Z",
+      "side": 1,
+      "message": "There does appear to be a race condition the first time a generic FilteredListWidget is instantiated, that it sets up the active descendent relationship before the element is added to the DOM. QuickOpen doesn\u0027t suffer from it because it\u0027s aggressively loaded, but for QuickPick, this seems to happen more often. From a runtime perspective, `console.assert` doesn\u0027t cause an error, but it\u0027s annoying while debugging.\n\nI could just remove it, but I\u0027d prefer not to.",
+      "parentUuid": "b7b6638a_3272b6ac",
+      "range": {
+        "startLine": 581,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 111
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b8899c_64e828c3",
         "filename": "front_end/ui/GlassPane.js",
         "patchSetId": 8
@@ -108,6 +180,30 @@
       "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb88f17_bf1fb97d",
+        "filename": "front_end/ui/GlassPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T21:49:54Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "e5b8899c_64e828c3",
+      "range": {
+        "startLine": 16,
+        "startChar": 13,
+        "endLine": 16,
+        "endChar": 65
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -154,6 +250,54 @@
       "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c4f6c06_29fd99b5",
+        "filename": "front_end/ui/TextPrompt.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T21:49:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ad405b35_d81880b9",
+      "range": {
+        "startLine": 207,
+        "startChar": 22,
+        "endLine": 207,
+        "endChar": 105
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36ffbd32_42402c22",
+        "filename": "front_end/ui/TextPrompt.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T21:49:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "07cf5b62_739e6300",
+      "range": {
+        "startLine": 207,
+        "startChar": 71,
+        "endLine": 207,
+        "endChar": 96
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
