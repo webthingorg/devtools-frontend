@@ -533,6 +533,12 @@ export class InspectorFrontendHostStub {
   setAddExtensionCallback(callback) {
     // Extensions are not supported in hosted mode.
   }
+
+  /**
+   * @override
+   */
+  reattachMainTargetComplete() {
+  }
 }
 
 /**
