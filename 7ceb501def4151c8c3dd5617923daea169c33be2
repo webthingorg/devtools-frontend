@@ -22,6 +22,30 @@
       "revId": "7ceb501def4151c8c3dd5617923daea169c33be2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38df8534_739f86a3",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T17:37:33Z",
+      "side": 1,
+      "message": "Thanks for catching and fixing this!",
+      "parentUuid": "036b2093_fb3064c0",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 29
+      },
+      "revId": "7ceb501def4151c8c3dd5617923daea169c33be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
