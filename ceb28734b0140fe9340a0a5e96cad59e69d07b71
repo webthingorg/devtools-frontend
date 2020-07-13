@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1de2748_7138637d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-13T18:00:12Z",
+      "side": 1,
+      "message": "Uploaded a patch that required a CDP update. Was instructed to commit PDL changes separately in this format. PTAL ",
+      "revId": "ceb28734b0140fe9340a0a5e96cad59e69d07b71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
