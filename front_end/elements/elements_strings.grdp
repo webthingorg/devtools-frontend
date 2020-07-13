@@ -168,6 +168,9 @@
   <message name="IDS_DEVTOOLS_6f3cab519fe7e8f3b7834cf882f9dfe6" desc="Text in Classes Pane Widget of the Elements panel">
     Element Classes
   </message>
+  <message name="IDS_DEVTOOLS_715b176b66d7fcc696935dd46b536806" desc="The warning text shown in Elements panel when font-variation-settings don't match allowed values">
+    Setting &quot;<ph name="ELEMENTSETTING_TAG">$1s<ex>wdth</ex></ph>&quot; <ph name="ELEMENTSETTING_VALUE">$2s<ex>100</ex></ph> is outside of supported range [<ph name="FONTSETTING_MINVALUE">$3s<ex>10</ex></ph>, <ph name="FONTSETTING_MAXVALUE">$4s<ex>20</ex></ph>] for font-family &quot;<ph name="FONT_GETFONTFAMILY__">$5s<ex>Arial</ex></ph>&quot;.
+  </message>
   <message name="IDS_DEVTOOLS_7490f30ff46ab588405acd7109915139" desc="Hint element title in Elements Tree Element of the Elements panel">
     Use <ph name="ELEMENTS_HINT">$1s<ex>$$0</ex></ph> in the console to refer to this element.
   </message>
