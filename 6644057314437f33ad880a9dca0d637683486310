@@ -123,6 +123,24 @@
       "revId": "6644057314437f33ad880a9dca0d637683486310",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26404884_29908382",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T16:15:27Z",
+      "side": 1,
+      "message": "I generally agree with Yang on this, that I\u0027m not inclined to add one-off changes of behavior. I\u0027ll say I sometimes run into the MRU list doesn\u0027t always behave the way I expect, but I also believe that\u0027s related to expectations from Windows vs Unix terminals.\n\nI do think that Snippets will probably get you where you want to go.",
+      "parentUuid": "98a772e2_c9d97e0a",
+      "revId": "6644057314437f33ad880a9dca0d637683486310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
