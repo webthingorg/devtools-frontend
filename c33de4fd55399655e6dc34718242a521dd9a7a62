@@ -118,6 +118,30 @@
       "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0848d715_398b4bf0",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-13T11:28:08Z",
+      "side": 0,
+      "message": "And only now I was able to better search the GN reference and I have found this section that basically explains it as well: https://gn.googlesource.com/gn/+/master/docs/reference.md#actions-and-copies",
+      "parentUuid": "44423e75_4b2e7750",
+      "range": {
+        "startLine": 945,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 89
+      },
+      "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
