@@ -65,6 +65,52 @@
     },
     {
       "key": {
+        "uuid": "b7b6638a_3272b6ac",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T21:26:32Z",
+      "side": 1,
+      "message": "Just wondering: what made this part required? I see this pop up quite a bit when debugging now. Is there a race condition?",
+      "range": {
+        "startLine": 581,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 111
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b8899c_64e828c3",
+        "filename": "front_end/ui/GlassPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T21:26:32Z",
+      "side": 1,
+      "message": "this only gives glasspane access to the eventlistener helpers, correct? it shouldn\u0027t affect any other existing glasspanes?",
+      "range": {
+        "startLine": 16,
+        "startChar": 13,
+        "endLine": 16,
+        "endChar": 65
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07cf5b62_739e6300",
         "filename": "front_end/ui/TextPrompt.js",
         "patchSetId": 8
@@ -81,6 +127,29 @@
         "startChar": 71,
         "endLine": 207,
         "endChar": 96
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad405b35_d81880b9",
+        "filename": "front_end/ui/TextPrompt.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T21:26:32Z",
+      "side": 1,
+      "message": "nit: I personally find this a bit challenging to read as a default arg, and it looks like we do some logic with it in line 211? WDYT about moving this logic in the function next to that line?",
+      "range": {
+        "startLine": 207,
+        "startChar": 22,
+        "endLine": 207,
+        "endChar": 105
       },
       "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",

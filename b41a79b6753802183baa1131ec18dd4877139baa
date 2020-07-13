@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfe4dec1_2bf30036",
+        "filename": "front_end/quick_open/QuickInput.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T21:26:32Z",
+      "side": 1,
+      "message": "nit: year",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "b41a79b6753802183baa1131ec18dd4877139baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fe5f8b2_bf242769",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T21:26:32Z",
+      "side": 1,
+      "message": "nit: year",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "b41a79b6753802183baa1131ec18dd4877139baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
