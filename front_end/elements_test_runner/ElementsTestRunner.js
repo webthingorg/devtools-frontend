@@ -1207,6 +1207,14 @@ ElementsTestRunner.dumpInspectorHighlightJSON = function(idValue, callback) {
   }
 };
 
+ElementsTestRunner.dumpInspectorGridHighlightsJSON = async function(idValues, callback) {
+  const nodeIds = await Promise.all(idValues.map(id => ElementsTestRunner.nodeWithIdPromise(id)));
+
+  const result = await TestRunner.OverlayAgent.getGridHighlightObjectsForTest(nodeIds);
+  TestRunner.addResult(JSON.stringify(result, null, 2));
+  callback();
+};
+
 ElementsTestRunner.dumpInspectorDistanceJSON = function(idValue, callback) {
   ElementsTestRunner.nodeWithId(idValue, nodeResolved);
 
