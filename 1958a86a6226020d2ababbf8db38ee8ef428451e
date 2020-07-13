@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "571466f8_d987336f",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-13T16:50:34Z",
+      "side": 1,
+      "message": "(marking as resolved since Tim replied)",
+      "parentUuid": "ef8c8fd8_27ab0860",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1600fce_167dba8a",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -171,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "a96bc15e_1170c7f1",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-13T16:50:34Z",
+      "side": 1,
+      "message": "Looks good!",
+      "parentUuid": "d4ce8e5d_13c0c2a4",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bfd98be_d90cd130",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -282,6 +318,24 @@
       "side": 1,
       "message": "Thanks for the catch! Currently the UI being updated triggers the event, so afaik I couldn\u0027t wait for the promise to resolve to change the radio button selection.\n\nTwo potential solutions I can think of:\n\n1. Throw an error (i.e. rejected promise) from the async setAutomaticPresenceSimulation function. Handle the rejected promise in the _setActiveAuthenticator function, then clear the active authenticator and deselect the radio button if an error is caught. e.g.\n\n this._model.setAutomaticPresenceSimulation(this._activeAuthId, false).catch(() \u003d\u003e {\n  // clear active authenticator\n  // deselect all radio buttons\n });\n\n\n2. Replace the radio button with a \"Set As Active Authenticator\" button and have a boolean field \"Is Active\" for each authenticator. This way, setting an active authenticator and seeing whether an authenticator is active are decoupled. Would have to add more logic to ensure that only one is selected but that won\u0027t be difficult.\n\n\nIMO, option 2 is less hacky and more maintainable, but the radio buttons of option 1 make it very clear that the user can only have one active authenticator. Overall I prefer option 2 - thoughts?",
       "parentUuid": "4c9f64a9_ffa09531",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab7bb8a1_fc5163ef",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-13T16:50:34Z",
+      "side": 1,
+      "message": "We went over this offline, probably the best solution is to do something like\n\n   this._model.setAutomaticPresenceSimulation(this._activeAuthId, false).then(() \u003d\u003e {\n    // go over the radio buttons making sure the proper one is selected.\n  }).catch(e \u003d\u003e {\n    // deselect the radio button\n  });\n\nGoing over this over my head (again...) if you find a nicer solution even if it involves updating the UX, feel free to implement it.",
+      "parentUuid": "edfa739f_55079f4f",
       "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
