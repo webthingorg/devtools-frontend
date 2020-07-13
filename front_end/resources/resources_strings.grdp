@@ -333,6 +333,9 @@ as used by Chrome
   <message name="IDS_DEVTOOLS_ae262bf758227f7e319ba799a861681a" desc="Text in Clear Storage View of the Application panel">
     Local and session storage
   </message>
+  <message name="IDS_DEVTOOLS_b14122ba18c22f6d061a36594cabb25f" desc="Label in Frame Details view whether frame is Out-of-Process iframe">
+    Is OOPIF
+  </message>
   <message name="IDS_DEVTOOLS_b275ec0eb3bbc2f5ab8988fe15b47817" desc="Text in App Manifest View of the Application panel">
     Errors and warnings
   </message>
