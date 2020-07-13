@@ -160,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "a41999a2_5d9959da",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T21:56:03Z",
+      "side": 1,
+      "message": "You are right, I can repro this on the current QuickPick. I like the warning better.",
+      "parentUuid": "a86c4804_d5897d70",
+      "range": {
+        "startLine": 581,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 111
+      },
+      "revId": "d3313c93c51595f214f5358d79066e37b1d516cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b8899c_64e828c3",
         "filename": "front_end/ui/GlassPane.js",
         "patchSetId": 8
