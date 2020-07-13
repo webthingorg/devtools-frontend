@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "bc62929d_40f5c1a3",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-13T10:00:21Z",
+      "side": 1,
+      "message": "Maybe this check can happen earlier, i.e. after line 537, where `cssModel` is initialized?",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb07c833_4c0f9191",
         "filename": "front_end/elements/StylePropertyTreeElement.js",
         "patchSetId": 1
