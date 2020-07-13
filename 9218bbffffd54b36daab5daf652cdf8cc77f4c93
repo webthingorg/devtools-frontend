@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8dbb484_70131c1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T14:01:14Z",
+      "side": 1,
+      "message": "Nice! Lovely to see unit tests, too.",
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00754740_30d84347",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T14:01:14Z",
+      "side": 1,
+      "message": "Does resetFontFaces need to happen _after_ resetStyleSheets? If it can be done in parallel, we should do that.",
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69656902_eb481c1a",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T14:01:14Z",
+      "side": 1,
+      "message": "[\\x20-\\x7E]",
+      "range": {
+        "startLine": 8,
+        "startChar": 19,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1921cee4_a2b48274",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T14:01:14Z",
+      "side": 1,
+      "message": "\\.",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e72e2380_938001c3",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T14:01:14Z",
+      "side": 1,
+      "message": "When linking to specs, always point to the latest draft, since that what Chrome aims to implement: https://drafts.csswg.org/css-fonts-4/#font-variation-settings-def",
+      "range": {
+        "startLine": 15,
+        "startChar": 41,
+        "endLine": 15,
+        "endChar": 103
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec885b3f_c7bf65f8",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T14:01:14Z",
+      "side": 1,
+      "message": "When linking to specs, always point to the latest draft, since that what Chrome aims to implement: https://drafts.csswg.org/css-fonts-4/#font-family-prop",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 43,
+        "endChar": 2
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
