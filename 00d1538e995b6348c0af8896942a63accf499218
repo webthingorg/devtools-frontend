@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc42251e_117e3ddc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-13T19:49:54Z",
+      "side": 1,
+      "message": "Works great. Left some comments. There\u0027s a very subtle bug with how highlighting words in a span can cause surrounding whitespace to disappear, see: https://i.imgur.com/YpshllZ.png\n\nThis can be fixed in CSS with white-space: pre-wrap or similar.",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0159b3e_ad89007c",
+        "filename": "front_end/quick_open/QuickInput.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-13T19:49:54Z",
+      "side": 1,
+      "message": "I\u0027m not sure the Promise.race is the correct pattern here. As canceledPromise is reassigned asynchronously on line 33, there\u0027s a potential race condition between whether Promise.race is awaiting the canceledPromise instance on line 22 or on line 33.\n\nInstead I think Promise.race should be replaced by chaining .catch and .then, and have the cancel functionality be a call to reject of the fulfilledPromise. The .then case can distinguish between undefined (which would be returned by the catch handler) and a proper value (which would be returned by the resolve call, skipping the catch handler).\n\nIt should be safe to call reject or resolve after one of them has already been called (i.e. if the dialog is hidden after input is provided complete). See: https://stackoverflow.com/questions/20328073/is-it-safe-to-resolve-a-promise-multiple-times",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86809b58_b842a3fa",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-13T19:49:54Z",
+      "side": 1,
+      "message": "See related QuickInput comment.",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "280ac9e3_1d9cd5ec",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-13T19:49:54Z",
+      "side": 1,
+      "message": "Nit: should toLocaleLowerCase be used here?",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b866ad24_7125eaea",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-13T19:49:54Z",
+      "side": 1,
+      "message": "It looks like part of the scoring formulas were copied out from the CommandMenu code. Maybe they should be spun off into a reusable helper function?",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
