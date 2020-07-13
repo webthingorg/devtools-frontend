@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "877cc16f_e8ebba64",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T14:07:37Z",
+      "side": 1,
+      "message": "I changed the fn to be async for better readability.",
+      "parentUuid": "00754740_30d84347",
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69656902_eb481c1a",
         "filename": "front_end/sdk/CSSPropertyParser.js",
         "patchSetId": 4
@@ -56,6 +74,30 @@
       "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39adb604_b7368634",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T14:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69656902_eb481c1a",
+      "range": {
+        "startLine": 8,
+        "startChar": 19,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "9c78ee55_a9ae9b48",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T14:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1921cee4_a2b48274",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e72e2380_938001c3",
         "filename": "front_end/sdk/CSSPropertyParser.js",
         "patchSetId": 4
@@ -105,6 +171,30 @@
     },
     {
       "key": {
+        "uuid": "612001b3_1a0e4013",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T14:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e72e2380_938001c3",
+      "range": {
+        "startLine": 15,
+        "startChar": 41,
+        "endLine": 15,
+        "endChar": 103
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec885b3f_c7bf65f8",
         "filename": "front_end/sdk/CSSPropertyParser.js",
         "patchSetId": 4
@@ -125,6 +215,30 @@
       "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bd72d00_02a99545",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T14:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec885b3f_c7bf65f8",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 43,
+        "endChar": 2
+      },
+      "revId": "9218bbffffd54b36daab5daf652cdf8cc77f4c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
