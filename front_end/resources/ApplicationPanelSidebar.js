@@ -2169,7 +2169,7 @@ export class FrameTreeElement extends BaseStorageTreeElement {
    */
   onselect(selectedByUser) {
     super.onselect(selectedByUser);
-    this._section._panel.showCategoryView(this.titleAsText(), null);
+    this._section._panel.showFrameView(this._frame);
 
     this.listItemElement.classList.remove('hovered');
     SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
