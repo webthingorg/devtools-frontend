@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2c24c20e_3e6c3394",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T20:35:32Z",
+      "side": 1,
+      "message": "Added, thanks.",
+      "parentUuid": "cc42251e_117e3ddc",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0159b3e_ad89007c",
         "filename": "front_end/quick_open/QuickInput.js",
         "patchSetId": 7
@@ -33,6 +51,24 @@
       "revId": "00d1538e995b6348c0af8896942a63accf499218",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d50913_bcf8ab73",
+        "filename": "front_end/quick_open/QuickInput.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T20:35:32Z",
+      "side": 1,
+      "message": "The Promise constructor is synchronous (see: http://www.ecma-international.org/ecma-262/6.0/#sec-promise-constructor, step 9). This design decision was done to accommodate third-party implementations of Promise-like objects prior to the standardization of the Promise behavior in ES2015.\n\nConsequently, this is safe as-written because `canceledPromise` will unconditionally be overwritten in the Promise Executor callback. \n\nBut, even if that wasn\u0027t the case (and even if someone later comes in and refactors the Executor function to be `async`, which would allow for the turn of the crank in all cases), the code is written here to be safe. If I had written:\n\n    let canceledPromise \u003d Promise.resolve();\n\nthis would introduce the race condition that you mentioned, and in fact this operation would always fail. But note that `canceledPromise` is initialized _to a Promise that will never be resolved_. This defensively prevents the race condition that you identified.",
+      "parentUuid": "b0159b3e_ad89007c",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2eba9e55_6002d260",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T20:35:32Z",
+      "side": 1,
+      "message": "Same pattern here as above.",
+      "parentUuid": "86809b58_b842a3fa",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "280ac9e3_1d9cd5ec",
         "filename": "front_end/quick_open/QuickPick.js",
         "patchSetId": 7
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "2c16c026_a8487755",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T20:35:32Z",
+      "side": 1,
+      "message": "Maybe, but it\u0027s only used in one other location, loading modules. I am loathe to make this change when we don\u0027t even use it for Find...",
+      "parentUuid": "280ac9e3_1d9cd5ec",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b866ad24_7125eaea",
         "filename": "front_end/quick_open/QuickPick.js",
         "patchSetId": 7
@@ -84,6 +156,42 @@
       "revId": "00d1538e995b6348c0af8896942a63accf499218",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60c45c57_2c4edf2d",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T20:35:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b866ad24_7125eaea",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c96fbf9_87cab9fb",
+        "filename": "front_end/quick_open/QuickPick.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T20:35:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b866ad24_7125eaea",
+      "revId": "00d1538e995b6348c0af8896942a63accf499218",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
