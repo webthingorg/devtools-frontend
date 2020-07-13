@@ -85,3 +85,37 @@ class QuickInputProvider extends Provider {
  * }}
  */
 export let QuickInputOptions;
+
+/**
+ * @implements {UI.ActionDelegate.ActionDelegate}
+ * @unrestricted
+ */
+export class QuickInputDemoDelegate {
+  /**
+   * @override
+   * @param {!UI.Context.Context} context
+   * @param {string} actionId
+   * @return {boolean}
+   */
+  handleAction(context, actionId) {
+    this._runDemo();
+    return true;
+  }
+
+  async _runDemo() {
+    const text = await QuickInput.show({prompt: 'Please enter some information.'});
+    if (text) {
+      const text2 = await QuickInput.show({
+        prompt: 'Please enter some additional information.',
+        placeHolder: 'That was great! We need more info though.',
+      });
+      if (text2) {
+        await QuickInput.show({
+          prompt: 'Are you sure that\'s what you meant?',
+          value: text2,
+          valueSelection: [text2.length / 2, text2.length],
+        });
+      }
+    }
+  }
+}
