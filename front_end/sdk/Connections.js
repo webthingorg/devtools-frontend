@@ -350,7 +350,7 @@ export async function initMainConnection(createMainTarget, websocketConnectionLo
   await createMainTarget();
   Host.InspectorFrontendHost.InspectorFrontendHostInstance.connectionReady();
   Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
-      Host.InspectorFrontendHostAPI.Events.ReattachMainTarget, () => {
+      Host.InspectorFrontendHostAPI.Events.ReattachMainTarget, async () => {
         const target = TargetManager.instance().mainTarget();
         if (target) {
           const router = target.router();
@@ -358,7 +358,8 @@ export async function initMainConnection(createMainTarget, websocketConnectionLo
             router.connection().disconnect();
           }
         }
-        createMainTarget();
+        await createMainTarget();
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.reattachMainTargetComplete();
       });
   return Promise.resolve();
 }

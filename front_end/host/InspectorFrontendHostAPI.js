@@ -366,6 +366,9 @@ export class InspectorFrontendHostAPI {
    */
   setAddExtensionCallback(callback) {
   }
+
+  reattachMainTargetComplete() {
+  }
 }
 
 /** @typedef
