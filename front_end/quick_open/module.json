@@ -70,6 +70,20 @@
       ]
     },
     {
+      "type": "action",
+      "actionId": "quickPick.showDemo",
+      "category": "Global",
+      "title": "Show Demo QuickPick",
+      "className": "QuickOpen.QuickPickDemoDelegate"
+    },
+    {
+      "type": "action",
+      "actionId": "quickInput.showDemo",
+      "category": "Global",
+      "title": "Show Demo QuickInput",
+      "className": "QuickOpen.QuickInputDemoDelegate"
+    },
+    {
       "type": "context-menu-item",
       "location": "mainMenu/default",
       "actionId": "quickOpen.show"

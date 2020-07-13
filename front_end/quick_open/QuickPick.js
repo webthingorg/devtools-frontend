@@ -180,3 +180,53 @@ class QuickPickProvider extends Provider {
     this._resolve(undefined);
   }
 }
+
+/**
+ * @implements {UI.ActionDelegate.ActionDelegate}
+ * @unrestricted
+ */
+export class QuickPickDemoDelegate {
+  /**
+   * @override
+   * @param {!UI.Context.Context} context
+   * @param {string} actionId
+   * @return {boolean}
+   */
+  handleAction(context, actionId) {
+    this._runDemo();
+    return true;
+  }
+
+  async _runDemo() {
+    const demoMenu1 = [
+      {
+        label: 'Item 1',
+      },
+      {
+        label: 'Item 2',
+      },
+      {
+        label: 'Item 3',
+      }
+    ];
+    const queryOne = await QuickPick.show(demoMenu1, {placeHolder: 'Choose from these options:'});
+    if (!queryOne) {
+      return;
+    }
+
+    const demoMenu2 = [
+      {
+        label: 'Another item 1',
+        description: 'Some details about item 1',
+        detail: 'This item 1 is really interesting',
+      },
+      {
+        label: 'Option 2',
+        description: 'Some information about option 2',
+        detail: 'Option 2 is really about options and information',
+      }
+    ];
+    await QuickPick.show(
+        demoMenu2, {placeHolder: 'Choose from these choices:', matchOnDescription: true, matchOnDetail: true});
+  }
+}
