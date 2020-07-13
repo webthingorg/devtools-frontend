@@ -150,6 +150,9 @@ export class ThreadsSidebarPane extends UI.Widget.VBox {
    * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
    */
   modelRemoved(debuggerModel) {
+    if (this._selectedModel === debuggerModel) {
+      this._selectedModel = null;
+    }
     this._items.remove(this._items.indexOf(debuggerModel));
   }
 

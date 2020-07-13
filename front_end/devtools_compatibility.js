@@ -844,6 +844,13 @@
       DevToolsAPI.setAddExtensionCallback(callback);
     }
 
+    /**
+     * @override
+     */
+    reattachMainTargetComplete() {
+      DevToolsAPI.sendMessageToEmbedder('reattachMainTargetComplete', [], null);
+    }
+
     // Backward-compatible methods below this line --------------------------------------------
 
     /**

@@ -358,7 +358,9 @@ export async function initMainConnection(createMainTarget, websocketConnectionLo
             router.connection().disconnect();
           }
         }
-        createMainTarget();
+        createMainTarget().then(() => {
+          Host.InspectorFrontendHost.InspectorFrontendHostInstance.reattachMainTargetComplete();
+        });
       });
   return Promise.resolve();
 }
