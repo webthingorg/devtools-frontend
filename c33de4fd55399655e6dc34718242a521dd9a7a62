@@ -142,6 +142,30 @@
       "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "250106a7_0dfb9a82",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2020-07-13T17:40:55Z",
+      "side": 0,
+      "message": "Great. Glad it helped, and let me know if you have other questions.",
+      "parentUuid": "0848d715_398b4bf0",
+      "range": {
+        "startLine": 945,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 89
+      },
+      "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
