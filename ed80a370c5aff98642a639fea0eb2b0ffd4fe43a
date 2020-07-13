@@ -141,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "af6a61a0_47a51c59",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T14:12:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11e1ec38_1afb3969",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ceb9c0a_9d52e3cc",
         "filename": "front_end/sdk/CSSPropertyParser.js",
         "patchSetId": 1
