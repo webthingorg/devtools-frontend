@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa9904c4_40c54506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T15:34:49Z",
+      "side": 1,
+      "message": "lgtm with a couple of nits",
+      "revId": "d8bc42e863076eaac17f856c74de30ae4e20f30a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb00d5df_aae8ece6",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T15:34:49Z",
+      "side": 1,
+      "message": "nit: below, you make a point that we cannot draw names and numbers together. should we make that more clear by calling only one of these functions here?",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 55
+      },
+      "revId": "d8bc42e863076eaac17f856c74de30ae4e20f30a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3668a5d1_2c7706d9",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-13T15:34:49Z",
+      "side": 1,
+      "message": "nit: I think this is moved to: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2293246   ?",
+      "range": {
+        "startLine": 442,
+        "startChar": 6,
+        "endLine": 442,
+        "endChar": 27
+      },
+      "revId": "d8bc42e863076eaac17f856c74de30ae4e20f30a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
