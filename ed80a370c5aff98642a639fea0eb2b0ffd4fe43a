@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a55f86be_7147167a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-13T09:15:17Z",
+      "side": 1,
+      "message": "PTAL! it\u0027s still largely work in progress: for example, I think the parsing is not complete yet and the warning messages are not final. Should we have more strict parsing for the CSS properties? Currently, it assumes that CSS properties are valid (it\u0027s checked by the caller if a property is parsed ok) and simply extracts required values. ",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
