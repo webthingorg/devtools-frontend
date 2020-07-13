@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16cf9a0f_3eab4f51",
+        "filename": "front_end/formatter_worker/FormatterWorker.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-13T17:03:10Z",
+      "side": 1,
+      "message": "We need to update CodeMirror, as it changes the StringStream definition. However, we don\u0027t appear to be using the latest version yet.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 51
+      },
+      "revId": "e3038eb0ccba7215903925df6c1dc0bb7d6ee9ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71809962_e55e3004",
+        "filename": "front_end/formatter_worker/FormatterWorker.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-13T17:03:10Z",
+      "side": 1,
+      "message": "I am going to try to report this upstream.",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 102
+      },
+      "revId": "e3038eb0ccba7215903925df6c1dc0bb7d6ee9ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b193ced5_ca8066ac",
+        "filename": "tsconfig.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-13T17:03:10Z",
+      "side": 1,
+      "message": "I don\u0027t understand why, but VS Code is very happy when you include both. However, actually compiling it with TSC makes it upset.",
+      "range": {
+        "startLine": 6,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "e3038eb0ccba7215903925df6c1dc0bb7d6ee9ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
