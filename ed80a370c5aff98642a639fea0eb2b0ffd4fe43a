@@ -16,6 +16,142 @@
       "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c82e03f2_d9bce709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "Exciting! Left some comments, PTAL.",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb07c833_4c0f9191",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "Suggestion: \"setting\" -\u003e \"value for setting\", and let\u0027s use curly quotes per go/punctuation-standards while we\u0027re at it:\n\n    Value for setting “foo” is outside the supported range for font-family “Bar”.",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19722c3c_e895e835",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "1. Does this attempt to match the spec? If so, let\u0027s link to the relevant part of the spec.\n2. Should single quotes be included? (It should if this is a \u003cstring\u003e CSS token)",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ceb9c0a_9d52e3cc",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "Have you considered just using for-of? It might be more readable and it would avoid the double iteration (spread + map).\n\n    const result \u003d [];\n    for (const value of ...) {\n      ...\n      result.push(...);\n    }\n    return result;",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8547410_fd7f51c7",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "Same questions for this regexp",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dec33a06_3d31e67c",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "Same here. We could do spread+map+filter in one iteration and it might even be more readable. WDYT?",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "975c0414_383e9c77",
+        "filename": "test/unittests/front_end/sdk/CSSPropertyParser_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "Side note: I actually prefer to hardcode the assert.deepEqual for each test, instead of adding expectations to an array and looping. The former tends to be easier to debug. If you decide to change this, you could do\n\n    const parseFontVariationSettings \u003d SDK.CSSPropertyParser.parseFontVariationSettings;\n\n...to avoid having to repeat those parts. WDYT?",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d76e6447_2287db23",
+        "filename": "test/unittests/front_end/sdk/CSSPropertyParser_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-13T09:30:25Z",
+      "side": 1,
+      "message": "Same comment here",
+      "revId": "ed80a370c5aff98642a639fea0eb2b0ffd4fe43a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
