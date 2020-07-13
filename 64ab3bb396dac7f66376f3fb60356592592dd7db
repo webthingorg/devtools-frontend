@@ -223,6 +223,30 @@
     },
     {
       "key": {
+        "uuid": "a38eb00f_60dfc97f",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T16:03:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c8b5c3df_b1cd9dc3",
+      "range": {
+        "startLine": 428,
+        "startChar": 14,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05820fac_32b8ff1d",
         "filename": "front_end/ui/SettingsUI.js",
         "patchSetId": 5
@@ -243,6 +267,30 @@
       "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "614b867e_c4863a69",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T16:03:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "05820fac_32b8ff1d",
+      "range": {
+        "startLine": 94,
+        "startChar": 35,
+        "endLine": 94,
+        "endChar": 36
+      },
+      "revId": "64ab3bb396dac7f66376f3fb60356592592dd7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
