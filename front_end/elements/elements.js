@@ -29,6 +29,7 @@ import './ElementsTreeElementHighlighter.js';
 import * as Adorner from './Adorner.js';
 import * as ClassesPaneWidget from './ClassesPaneWidget.js';
 import * as ColorSwatchPopoverIcon from './ColorSwatchPopoverIcon.js';
+import * as ComputedStyleGroupLists from './ComputedStyleGroupLists.js';
 import * as ComputedStyleModel from './ComputedStyleModel.js';
 import * as ComputedStyleWidget from './ComputedStyleWidget.js';
 import * as DOMLinkifier from './DOMLinkifier.js';
@@ -55,6 +56,7 @@ export {
   Adorner,
   ClassesPaneWidget,
   ColorSwatchPopoverIcon,
+  ComputedStyleGroupLists,
   ComputedStyleModel,
   ComputedStyleWidget,
   DOMLinkifier,
