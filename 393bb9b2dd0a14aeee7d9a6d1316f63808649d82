@@ -16,6 +16,91 @@
       "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "650b3efb_8f711809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-13T09:18:58Z",
+      "side": 1,
+      "message": "The grdp files seem to contain artefacts from merging.",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e2a4e27_a45dfc70",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-13T09:18:58Z",
+      "side": 1,
+      "message": "looks like leftovers from merging",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f419a905_e8d1aa0e",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-13T09:18:58Z",
+      "side": 1,
+      "message": "same",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6804bc01_6fd658e8",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-13T09:18:58Z",
+      "side": 1,
+      "message": "same",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c2f4389_f6cad87b",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-13T09:18:58Z",
+      "side": 1,
+      "message": "same",
+      "revId": "393bb9b2dd0a14aeee7d9a6d1316f63808649d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
