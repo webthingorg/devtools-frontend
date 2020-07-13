@@ -94,6 +94,30 @@
       "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44423e75_4b2e7750",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-13T11:10:37Z",
+      "side": 0,
+      "message": "No I didn\u0027t know that and your explanation is great, thanks! I was able to create https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2292282 with this new knowledge and it indeed passes CQ. We are going to take another good look at our targets in DevTools to make sure they are both `deps` and `data_deps` compatible.\n\nOne side-question: does `copy` automatically fix the `data` outputs? Cause we are seeing cases where `copy` magically worked (but we were unaware of it working), but some other templates we define in devtools (which don\u0027t have the `data` set correctly) would break. My current assumption is that `copy` does indeed fix `data` correctly, which explains the difference we are observing. And that in turn means that if we fix our higher-level templates to do the same, we fundamentally fix the issues we encountered.",
+      "parentUuid": "0aff3bf7_b50ad3fb",
+      "range": {
+        "startLine": 945,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 89
+      },
+      "revId": "c33de4fd55399655e6dc34718242a521dd9a7a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
