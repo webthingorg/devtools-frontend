@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8104c049_04393525",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T18:51:18Z",
+      "side": 1,
+      "message": "Works well enough. PTAL at my comments below.",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8165f200_612a95c0",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T18:51:18Z",
+      "side": 1,
+      "message": "When does `this._selectElement` get assigned here?",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9553b9e3_7f39573c",
+        "filename": "front_end/profiler/HeapSnapshotView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T18:51:18Z",
+      "side": 1,
+      "message": "As I read more of these changes, I like them less. `Element` has a particular meaning in web parlance; I\u0027m sort of uncomfortable overloading the \"thing that represents an HTML node\" with whatever a SettingElement is.",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1247fcd3_d840f39e",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T18:51:18Z",
+      "side": 1,
+      "message": "This input should handle \u003cEsc\u003e keypress. If the content length of the input is \u003e 0, then it should clear the input and stop propagation; if the content length equals 0, it should allow it to carry on.\n\nCompare this to what happens when you\u0027re in Search in the Sources panel. First thing that happens when you press \u003cesc\u003e is that it cancels Search; subsequent \u003cEsc\u003e toggles the Drawer. You don\u0027t want \u003cEsc\u003e to dismiss the entire dialog if you\u0027re in the middle of a search operation, you just want it to cancel the search.",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41e70327_3d73d6c7",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-13T18:51:18Z",
+      "side": 1,
+      "message": "Naming: I wouldn\u0027t know what a \"bubble\" is, as it doesn\u0027t describe its purpose.\n\nI believe this is conventionally called a \"Badge\".",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
