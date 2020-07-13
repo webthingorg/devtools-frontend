@@ -16,6 +16,29 @@
       "revId": "bbaaf2460835fd9ddb8862782dbe4f5c43c48de3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c03b421_9142ede7",
+        "filename": "front_end/resources/ResourcesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-13T13:51:52Z",
+      "side": 1,
+      "message": "Do we need this? It seems we could get away with calling showView and creating the FrameDetailsView at the only call site?\n\nIf you are foreseeing this to be useful in the future, please let me know.",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 0
+      },
+      "revId": "bbaaf2460835fd9ddb8862782dbe4f5c43c48de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
