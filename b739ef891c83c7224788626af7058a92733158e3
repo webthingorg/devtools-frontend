@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "834c1360_3061d4a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-14T11:19:41Z",
+      "side": 1,
+      "message": "LGTM - wonder if it\u0027s worth having some docs or a comment in the devtools_third_party explaining what this is and why we use it / copy to both places?  \n\nI know you were going to document these though so if you\u0027re planning to put the docs elsewhere then let\u0027s not duplicate them in code comments here.",
+      "revId": "b739ef891c83c7224788626af7058a92733158e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
