@@ -33,6 +33,9 @@ describe('The Debugger Language Plugins', async () => {
           return script.isWasm() && script.codeOffset() > 0;
         }
 
+        async removeRawModule(rawModuleId: any) {
+        }
+
         async addRawModule(rawModuleId: any, symbols: any, rawModule: any) {
           return [];
         }
@@ -78,7 +81,8 @@ describe('The Debugger Language Plugins', async () => {
       class SingleFilePlugin extends globalThis.MockLanguagePluginBase {
         async addRawModule(
             rawModuleId: any, symbols: any, rawModule: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
-          return ['source_file.c'];
+          const fileUrl = new URL('/source_file.c', rawModule.url);
+          return [fileUrl.href];
         }
       }
 
@@ -102,14 +106,23 @@ describe('The Debugger Language Plugins', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluate(() => {
       class LocationMappingPlugin extends globalThis.MockLanguagePluginBase {
+        constructor() {
+          super();
+          this._modules = new Map();
+        }
+
         async addRawModule(
             rawModuleId: any, symbols: any, rawModule: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
-          return ['test/e2e/resources/sources/wasm/unreachable.ll'];
+          this._modules.set(rawModuleId, rawModule.url);
+          const fileUrl = new URL('unreachable.ll', rawModule.url);
+          return [fileUrl.href];
         }
 
         /* async */ rawLocationToSourceLocation(rawLocation: any) {
           if (rawLocation.codeOffset === 6) {
-            return [{sourceFile: 'test/e2e/resources/sources/wasm/unreachable.ll', lineNumber: 4, columnNumber: 2}];
+            const moduleUrl = this._modules.get(rawLocation.rawModuleId);
+            const sourceFile = new URL('unreachable.ll', moduleUrl);
+            return [{sourceFileURL: sourceFile.href, lineNumber: 5, columnNumber: 2}];
           }
           return null;
         }
@@ -125,7 +138,7 @@ describe('The Debugger Language Plugins', async () => {
 
     const scriptLocation =
         await (await $('.call-frame-location')).evaluate((location: HTMLElement) => location.textContent);
-    assert.deepEqual(scriptLocation, 'unreachable.ll:5');
+    assert.deepEqual(scriptLocation, 'unreachable.ll:6');
   });
 
   // Resolve the location for a breakpoint.
@@ -138,12 +151,12 @@ describe('The Debugger Language Plugins', async () => {
         async addRawModule(
             rawModuleId: any, symbols: any, rawModule: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
           this.sourceLocation = {
-            sourceFile: 'test/e2e/resources/sources/wasm/global_variable.ll',
+            sourceFileURL: new URL('global_variable.ll', rawModule.url).href,
             lineNumber: 8,
             columnNumber: 0,
           };
           this.rawLocation = {rawModuleId: rawModuleId, codeOffset: 25};
-          return [this.sourceLocation.sourceFile];
+          return [this.sourceLocation.sourceFileURL];
         }
 
         /* async */ rawLocationToSourceLocation(rawLocation: any) {
@@ -155,7 +168,7 @@ describe('The Debugger Language Plugins', async () => {
         }
 
         /* async */ sourceLocationToRawLocation(sourceLocation: any) {
-          if (sourceLocation.sourceFile === this.sourceLocation.sourceFile &&
+          if (sourceLocation.sourceFileURL === this.sourceLocation.sourceFileURL &&
               sourceLocation.lineNumber === this.sourceLocation.lineNumber) {
             return [this.rawLocation];
           }
