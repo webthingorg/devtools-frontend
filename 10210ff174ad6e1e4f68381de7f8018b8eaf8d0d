@@ -16,6 +16,23 @@
       "revId": "10210ff174ad6e1e4f68381de7f8018b8eaf8d0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f38f6be_65e28fea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-14T11:21:17Z",
+      "side": 1,
+      "message": "Still LGTM! Love the spinner. Does the CSS Overview still have a spinner as well? If so, we could look at sharing the styles in the future.",
+      "revId": "10210ff174ad6e1e4f68381de7f8018b8eaf8d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7060889_4de09359",
+        "filename": "front_end/ui/inspectorCommon.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-14T11:21:17Z",
+      "side": 1,
+      "message": "I know we still have a bunch of @-webkit-keyframes in the codebase, but let\u0027s use @keyframes for new code. (We should fix the other cases using https://stylelint.io/user-guide/rules/property-no-vendor-prefix at some point, but that\u0027s a separate task.)",
+      "revId": "cf92d1a1c3ab75b24aa8b4fb2bddf03397aff332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
