@@ -1652,6 +1652,13 @@
     }
   };
 
+  TestSuite.prototype.testNavigatorLanguage = function() {
+    this.takeControl();
+    const failedMessage = `window.navigator.language output is ${window.navigator.language}`;
+    this.assertTrue(window.navigator.language === 'zh-TW', failedMessage);
+
+    this.releaseControl();
+  };
 
   window.uiTests = new TestSuite(window.domAutomationController);
 })(window);
