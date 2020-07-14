@@ -16,6 +16,24 @@
       "revId": "d1c2fc913f2e28fd35992e177c83f3a3094476f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9460e8b3_ee3f65c3",
+        "filename": "front_end/third_party/codemirror/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-14T13:10:46Z",
+      "side": 0,
+      "message": "We use the `lib/codemirror.js` file, which is based on the `src/` files. But we don\u0027t actually use the `src/` files ourselves. So we can remove them from here.",
+      "parentUuid": "019410d9_fa8aef85",
+      "revId": "d1c2fc913f2e28fd35992e177c83f3a3094476f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

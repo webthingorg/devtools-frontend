@@ -22,6 +22,30 @@
       "revId": "cee7afdd6ad577fa6b44edd92c0bf1a5e65bb372",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0891db6_60363518",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-14T13:10:46Z",
+      "side": 1,
+      "message": "Yeah. They are problematic, because folder A includes files from folder B. That is wrong and we shouldn\u0027t be doing it, but it is necessary right now to make Closure happy 😞",
+      "parentUuid": "ff7dcf67_e262ee1d",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 112
+      },
+      "revId": "cee7afdd6ad577fa6b44edd92c0bf1a5e65bb372",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
