@@ -11,6 +11,7 @@ ts_library("elements") {
     "Adorner.js",
     "ElementsBreadcrumbsUtils.ts",
     "NewElementsBreadcrumbs.ts",
+    "NewElementsBreadcrumbs_bridge.js",
   ]
 
   deps = [
@@ -30,7 +31,6 @@ copy_to_gen("elements-copy") {
     "DOMLinkifier.js",
     "DOMPath.js",
     "ElementStatePaneWidget.js",
-    "ElementsBreadcrumbs.js",
     "ElementsPanel.js",
     "ElementsSidebarPane.js",
     "ElementsTreeElement.js",
