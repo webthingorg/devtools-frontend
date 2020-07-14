@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f73fb0f7_9193ba32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-14T14:48:00Z",
+      "side": 1,
+      "message": "Removing myself for the time being, just because I\u0027m pruning my Gerrit list a bit 😊\n\nPlease do add me back in if and when things change.",
+      "revId": "e7dbbbf425bf47db0192d8658f72836c3f65d428",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
