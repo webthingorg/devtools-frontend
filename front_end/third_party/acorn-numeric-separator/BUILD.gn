@@ -2,9 +2,9 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-import("../../../scripts/build/ninja/copy.gni")
+import("../devtools_third_party.gni")
 
-copy_to_gen("acorn-numeric-separator") {
+devtools_third_party("acorn-numeric-separator") {
   sources = [
     "acorn-numeric-separator-tsconfig.json",
     "package/dist/acorn-numeric-separator.mjs",
