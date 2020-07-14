@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "752e8229_9dbfe673",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-14T17:08:28Z",
+      "side": 1,
+      "message": "The change in sources-helpers needs to be extracted out and properly verified, as it causes e2e-test failures.",
+      "revId": "14477a38808d194388f9dfd27dfffeb196823d5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
