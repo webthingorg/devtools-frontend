@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "019410d9_fa8aef85",
+        "filename": "front_end/third_party/codemirror/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-14T13:06:57Z",
+      "side": 0,
+      "message": "how come we don\u0027t need all these `package/src` files now?",
+      "revId": "d1c2fc913f2e28fd35992e177c83f3a3094476f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
