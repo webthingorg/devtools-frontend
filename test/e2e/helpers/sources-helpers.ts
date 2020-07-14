@@ -143,13 +143,13 @@ export async function checkBreakpointDidNotActivate() {
 
 export async function getBreakpointDecorators(frontend: puppeteer.Page, disabledOnly = false) {
   const selector = `.cm-breakpoint${disabledOnly ? '-disabled' : ''} .CodeMirror-linenumber`;
-  return await frontend.$$eval(selector, nodes => nodes.map(n => parseInt(n.textContent!, 0)));
+  return await frontend.$$eval(selector, nodes => nodes.map(n => parseInt(n.textContent!, 10)));
 }
 
 export async function getNonBreakableLines(frontend: puppeteer.Page) {
   const selector = '.cm-non-breakable-line .CodeMirror-linenumber';
   await waitFor(selector, undefined, 1000);
-  return await frontend.$$eval(selector, nodes => nodes.map(n => parseInt(n.textContent!, 0)));
+  return await frontend.$$eval(selector, nodes => nodes.map(n => parseInt(n.textContent!, 10)));
 }
 
 export async function getExecutionLine() {
