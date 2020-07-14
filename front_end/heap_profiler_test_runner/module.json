@@ -5,7 +5,8 @@
     "profiler",
     "data_grid"
   ],
-  "scripts": [
+  "modules": [
+    "heap_profiler_test_runner.js",
     "HeapProfilerTestRunner.js"
   ],
   "skip_compilation": [

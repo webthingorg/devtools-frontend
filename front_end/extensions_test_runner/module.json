@@ -3,7 +3,8 @@
     "test_runner",
     "extensions"
   ],
-  "scripts": [
+  "modules": [
+    "extensions_test_runner.js",
     "ExtensionsNetworkTestRunner.js",
     "ExtensionsTestRunner.js"
   ],

@@ -5,7 +5,8 @@
     "elements",
     "components"
   ],
-  "scripts": [
+  "modules": [
+    "layers_test_runner.js",
     "LayersTestRunner.js"
   ],
   "skip_compilation": [

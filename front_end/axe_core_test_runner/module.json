@@ -2,7 +2,8 @@
   "dependencies": [
     "test_runner"
   ],
-  "scripts": [
+  "modules": [
+    "axe_core_test_runner.js",
     "../../third_party/axe-core/axe.js",
     "AxeCoreTestRunner.js"
   ],

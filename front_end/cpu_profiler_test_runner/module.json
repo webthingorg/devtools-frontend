@@ -3,7 +3,8 @@
     "profiler",
     "test_runner"
   ],
-  "scripts": [
+  "modules": [
+    "cpu_profiler_test_runner.js",
     "ProfilerTestRunner.js"
   ],
   "skip_compilation": [

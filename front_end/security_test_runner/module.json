@@ -3,7 +3,8 @@
     "test_runner",
     "security"
   ],
-  "scripts": [
+  "modules": [
+    "security_test_runner.js",
     "SecurityTestRunner.js"
   ],
   "skip_compilation": [

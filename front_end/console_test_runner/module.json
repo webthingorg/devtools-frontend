@@ -4,7 +4,8 @@
     "console",
     "console_counters"
   ],
-  "scripts": [
+  "modules": [
+    "console_test_runner.js",
     "ConsoleTestRunner.js"
   ]
 }

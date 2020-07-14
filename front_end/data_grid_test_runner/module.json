@@ -3,7 +3,8 @@
     "test_runner",
     "data_grid"
   ],
-  "scripts": [
+  "modules": [
+    "data_grid_test_runner.js",
     "DataGridTestRunner.js"
   ],
   "skip_compilation": [
