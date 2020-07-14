@@ -357,6 +357,24 @@
       "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "398a46bd_e425099d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-14T16:20:35Z",
+      "side": 1,
+      "message": "After considering, I think the radio button method is best because:\n1. Have found a decently clean way to solve the issue Nina brought up while keeping radio buttons\n2. Currently, authenticator names are long and therefore we\u0027d need a very wide select box. Even after implementing the ability to modify names into something more user-friendly, we wouldn\u0027t want to constrain the name length too heavily. \n3. Radio buttons more clearly align with our one-and-only-one constraint (IMO)",
+      "parentUuid": "c05215b5_57c2b7b1",
+      "revId": "1958a86a6226020d2ababbf8db38ee8ef428451e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

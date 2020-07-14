@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fe096b50_dfe26541",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-14T16:20:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77e5f950_0753cdd9",
+      "range": {
+        "startLine": 18,
+        "startChar": 70,
+        "endLine": 18,
+        "endChar": 76
+      },
+      "revId": "f8a0d12f624a25ff83d0ee7f9ca6efbd816e0c8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dec09b0f_0a40a336",
         "filename": "front_end/webauthn/webauthn_strings.grdp",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "f8a0d12f624a25ff83d0ee7f9ca6efbd816e0c8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07885fc4_b4c38ced",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-14T16:20:35Z",
+      "side": 1,
+      "message": "Great idea. Will add user-friendly names and the ability to customize them in a separate patch.",
+      "parentUuid": "dec09b0f_0a40a336",
+      "range": {
+        "startLine": 19,
+        "startChar": 56,
+        "endLine": 19,
+        "endChar": 92
+      },
+      "revId": "f8a0d12f624a25ff83d0ee7f9ca6efbd816e0c8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

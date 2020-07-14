@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f06f84f_2260edd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-14T16:20:35Z",
+      "side": 1,
+      "message": "TY Nina and Jan",
+      "revId": "c295d29baab5dff27abaa4a380b0197679a85d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
