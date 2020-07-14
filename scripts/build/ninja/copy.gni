@@ -38,6 +38,8 @@ template("copy_sources_to_resources") {
       "$resources_out_dir/$_front_end_module_name/{{source_target_relative}}",
     ]
   }
+
+  visibility = [ "./*" ]
 }
 
 template("copy_gen_to_resources") {
@@ -69,4 +71,6 @@ template("copy_gen_to_resources") {
     public_deps = [ ":$_copy_action_name" ]
     data_deps = [ ":$_copy_action_name" ]
   }
+
+  visibility = [ "./*" ]
 }
