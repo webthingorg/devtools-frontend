@@ -68,45 +68,37 @@ function checkAllDevToolsFiles() {
   });
 }
 
-const EXCLUDED_FOLDERS = ['elements', 'sdk', 'generated'];
-const EXCLUDED_FILE_NAMES = [
-  // This file is pre-generated and copied outside of a regular `devtools_entrypoint`.
-  'wasm_source_map/pkg/wasm_source_map.js',
-  // Included as part of `elements`
-  '../generated/SupportedCSSProperties.js',
-];
-const allDevToolsModulesPath = path.resolve(__dirname, '..', 'all_devtools_modules.gni');
-const allDevToolsModulesFile = fs.readFileSync(allDevToolsModulesPath, 'utf-8');
-const allDevToolsModulesLines = allDevToolsModulesFile.split('\n');
-
 function checkAllDevToolsModules() {
   return checkGNVariable(
       'all_devtools_modules',
       (moduleJSON, folderName) => {
-        if (EXCLUDED_FOLDERS.includes(folderName) || moduleJSON.skip_rollup) {
+        if (moduleJSON.skip_rollup) {
           return [];
         }
         return (moduleJSON.modules || []).filter(fileName => {
+          // This file is included in the modules array of protocol_client
+          // for the legacy Closure Compiler step. We already generate this
+          // file in the `devtools_module` definition in `generated/` and
+          // thus have to include it in `all_typescript_modules` instead of
+          // `all_devtools_modules`.
+          if (fileName.endsWith('InspectorBackendCommands.js')) {
+            return false;
+          }
           return fileName !== `${folderName}.js` && fileName !== `${folderName}-legacy.js`;
         });
       },
       buildGNPath => filename => {
         const relativePath = path.normalize(`${buildGNPath}/${filename}`);
         return `"${relativePath}",`;
-      },
-      allDevToolsModulesLines);
+      });
 }
 
 function checkAllTypescriptModules() {
   return checkGNVariable(
       'all_typescript_modules',
       (moduleJSON, folderName) => {
-        // Elements has both TypeScript and JavaScript, so it is a bit special.
-        if (folderName === 'elements' || !EXCLUDED_FOLDERS.includes(folderName)) {
-          return [];
-        }
         return (moduleJSON.modules || []).filter(fileName => {
-          if (EXCLUDED_FILE_NAMES.includes(fileName)) {
+          if (!moduleJSON.skip_rollup) {
             return false;
           }
           return fileName !== `${folderName}.js` && fileName !== `${folderName}-legacy.js`;
@@ -125,9 +117,7 @@ function checkDevtoolsModuleEntrypoints() {
         return (moduleJSON.modules || []).filter(fileName => {
           // TODO(crbug.com/1101738): Remove the exemption and change the variable to
           // `generated_typescript_entrypoints` instead.
-          return (!(EXCLUDED_FOLDERS.includes(folderName) || moduleJSON.skip_rollup) &&
-                  fileName === `${folderName}.js`) ||
-              fileName === `${folderName}-legacy.js`;
+          return !moduleJSON.skip_rollup && (fileName === `${folderName}.js` || fileName === `${folderName}-legacy.js`);
         });
       },
       buildGNPath => filename => {
@@ -142,7 +132,7 @@ function checkGeneratedTypescriptEntrypoints() {
         return (moduleJSON.modules || []).filter(fileName => {
           // TODO(crbug.com/1101738): Remove the exemption and change the variable to
           // `generated_typescript_entrypoints` instead.
-          return (EXCLUDED_FOLDERS.includes(folderName) && fileName === `${folderName}.js`);
+          return (moduleJSON.skip_rollup && fileName === `${folderName}.js`);
         });
       },
       buildGNPath => filename => {

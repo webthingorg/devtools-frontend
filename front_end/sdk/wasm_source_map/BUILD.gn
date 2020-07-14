@@ -4,10 +4,25 @@
 
 import("../../../scripts/build/ninja/copy.gni")
 
-copy_to_gen("wasm_source_map") {
+copy_to_gen("wasm_source_map-gen") {
   sources = [
     "pkg/wasm_source_map.d.ts",
     "pkg/wasm_source_map.js",
     "wasm_source_map-tsconfig.json",
+  ]
+}
+
+copy_sources_to_resources("wasm_source_map-resources") {
+  sources = [
+    "pkg/wasm_source_map.d.ts",
+    "pkg/wasm_source_map.js",
+    "wasm_source_map-tsconfig.json",
+  ]
+}
+
+group("wasm_source_map") {
+  public_deps = [
+    ":wasm_source_map-gen",
+    ":wasm_source_map-resources",
   ]
 }

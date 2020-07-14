@@ -49,7 +49,7 @@ template("devtools_entrypoint") {
 
         outputs = [ _entrypoint_gen_file_location ]
 
-        deps = invoker.deps
+        public_deps = invoker.deps
       }
     }
   } else {

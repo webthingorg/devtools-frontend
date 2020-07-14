@@ -4,11 +4,27 @@
 
 import("../../../scripts/build/ninja/copy.gni")
 
-copy_to_gen("acorn-logical-assignment") {
+copy_to_gen("acorn-logical-assignment-gen") {
   sources = [
     "acorn-logical-assignment-tsconfig.json",
     "package/dist/acorn-logical-assignment.mjs",
     "package/dist/acorn-logical-assignment.mjs.d.ts",
     "package/dist/acorn-logical-assignment.mjs.map",
+  ]
+}
+
+copy_sources_to_resources("acorn-logical-assignment-resources") {
+  sources = [
+    "acorn-logical-assignment-tsconfig.json",
+    "package/dist/acorn-logical-assignment.mjs",
+    "package/dist/acorn-logical-assignment.mjs.d.ts",
+    "package/dist/acorn-logical-assignment.mjs.map",
+  ]
+}
+
+group("acorn-logical-assignment") {
+  public_deps = [
+    ":acorn-logical-assignment-gen",
+    ":acorn-logical-assignment-resources",
   ]
 }

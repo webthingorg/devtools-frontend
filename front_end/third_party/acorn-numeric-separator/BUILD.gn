@@ -4,11 +4,27 @@
 
 import("../../../scripts/build/ninja/copy.gni")
 
-copy_to_gen("acorn-numeric-separator") {
+copy_to_gen("acorn-numeric-separator-gen") {
   sources = [
     "acorn-numeric-separator-tsconfig.json",
     "package/dist/acorn-numeric-separator.mjs",
     "package/dist/acorn-numeric-separator.mjs.d.ts",
     "package/dist/acorn-numeric-separator.mjs.map",
+  ]
+}
+
+copy_sources_to_resources("acorn-numeric-separator-resources") {
+  sources = [
+    "acorn-numeric-separator-tsconfig.json",
+    "package/dist/acorn-numeric-separator.mjs",
+    "package/dist/acorn-numeric-separator.mjs.d.ts",
+    "package/dist/acorn-numeric-separator.mjs.map",
+  ]
+}
+
+group("acorn-numeric-separator") {
+  public_deps = [
+    ":acorn-numeric-separator-gen",
+    ":acorn-numeric-separator-resources",
   ]
 }

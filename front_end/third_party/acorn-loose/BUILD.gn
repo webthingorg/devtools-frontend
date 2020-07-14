@@ -4,12 +4,29 @@
 
 import("../../../scripts/build/ninja/copy.gni")
 
-copy_to_gen("acorn-loose") {
+copy_to_gen("acorn-loose-gen") {
   sources = [
     "acorn-loose-tsconfig.json",
     "package/dist/acorn-loose.d.ts",
     "package/dist/acorn-loose.js",
     "package/dist/acorn-loose.js.map",
     "package/dist/acorn-loose.mjs",
+  ]
+}
+
+copy_sources_to_resources("acorn-loose-resources") {
+  sources = [
+    "acorn-loose-tsconfig.json",
+    "package/dist/acorn-loose.d.ts",
+    "package/dist/acorn-loose.js",
+    "package/dist/acorn-loose.js.map",
+    "package/dist/acorn-loose.mjs",
+  ]
+}
+
+group("acorn-loose") {
+  public_deps = [
+    ":acorn-loose-gen",
+    ":acorn-loose-resources",
   ]
 }

@@ -4,7 +4,7 @@
 
 import("../../../scripts/build/ninja/copy.gni")
 
-copy_to_gen("acorn") {
+copy_to_gen("acorn-gen") {
   sources = [
     "acorn-tsconfig.json",
     "package/dist/acorn.d.ts",
@@ -12,5 +12,23 @@ copy_to_gen("acorn") {
     "package/dist/acorn.mjs",
     "package/dist/acorn.mjs.d.ts",
     "package/dist/acorn.mjs.map",
+  ]
+}
+
+copy_sources_to_resources("acorn-resources") {
+  sources = [
+    "acorn-tsconfig.json",
+    "package/dist/acorn.d.ts",
+    "package/dist/acorn.js",
+    "package/dist/acorn.mjs",
+    "package/dist/acorn.mjs.d.ts",
+    "package/dist/acorn.mjs.map",
+  ]
+}
+
+group("acorn") {
+  public_deps = [
+    ":acorn-gen",
+    ":acorn-resources",
   ]
 }
