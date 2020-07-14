@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b18a9add_348a5c33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-14T18:01:52Z",
+      "side": 1,
+      "message": "lgtm, although you could as well go without a specific method in this case -- having some test logic in front-end is useful in cases where it actually involves some DevTools front-end code, as if the front-end code gets changed, you want to adapt the test in the same CL, without touching downstream test logic. However, since this particular case doesn\u0027t really involve anything front-end specific, doing something like\n\ncontent::ExecuteScriptAndExtractBool(main_web_contents(), \"...\")\n\nwould get you going without blocking on the front-end roll.",
+      "revId": "f1cfe039b02990d24d7491dccf016579f2e37d1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1d01d72_0e7a819f",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-14T18:01:52Z",
+      "side": 1,
+      "message": "you shouldn\u0027t need the takeControl/releaseControl pair as long as your actions are synchronous.",
+      "revId": "f1cfe039b02990d24d7491dccf016579f2e37d1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
