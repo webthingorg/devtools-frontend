@@ -33,6 +33,24 @@
       "revId": "10210ff174ad6e1e4f68381de7f8018b8eaf8d0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a8a3668_7f351b6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-14T11:46:48Z",
+      "side": 1,
+      "message": "IIRC the CSS Overview uses some text like `\u003ch1\u003eProcessing page\u003c/h1\u003e` for this. It certainly can use a spinner as well. I\u0027ll file an issue for this.",
+      "parentUuid": "1f38f6be_65e28fea",
+      "revId": "10210ff174ad6e1e4f68381de7f8018b8eaf8d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
