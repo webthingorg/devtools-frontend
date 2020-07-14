@@ -6,7 +6,7 @@
     "bindings",
     "persistence"
   ],
-  "scripts": [
+  "modules": [
     "BindingsTestRunner.js",
     "IsolatedFilesystemTestRunner.js",
     "AutomappingTestRunner.js",

@@ -5,7 +5,7 @@
     "event_listeners",
     "animation"
   ],
-  "scripts": [
+  "modules": [
     "ElementsTestRunner.js",
     "EditDOMTestRunner.js",
     "SetOuterHTMLTestRunner.js",
