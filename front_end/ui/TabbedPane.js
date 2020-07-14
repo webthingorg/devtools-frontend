@@ -71,6 +71,7 @@ export class TabbedPane extends VBox {
     this._tabsById = new Map();
     this._currentTabLocked = false;
     this._autoSelectFirstItemOnShow = true;
+    this._tabMaxLength = -1;
 
     this._triggerDropDownTimeout = null;
     this._dropDownButton = this._createDropDownButton();
@@ -166,6 +167,35 @@ export class TabbedPane extends VBox {
   }
 
   /**
+   * Gets the max length of tab titles. If -1 is returned, the length is not clamped.
+   * @return {number}
+   */
+  tabMaxLength() {
+    return this._tabMaxLength;
+  }
+
+  /**
+   * Sets the maximum length of a tab as rendered. Set to -1 to not clamp the length.
+   * @param {number} maxLength
+   */
+  setTabMaxLength(maxLength) {
+    if (maxLength < -1 || maxLength === 0) {
+      throw new RangeError('maxLength must be -1, or greater than 0.');
+    }
+    this._tabMaxLength = maxLength;
+    this._resetTabLengths();
+  }
+
+  _resetTabLengths() {
+    const tabs = this._tabs.slice();
+    const maxLength = this._tabMaxLength;
+    tabs.forEach(tab => {
+      tab.setMaxTitleLength(maxLength);
+    });
+    this._updateTabElements();
+  }
+
+  /**
    * @override
    */
   focus() {
@@ -223,6 +253,7 @@ export class TabbedPane extends VBox {
     isCloseable = typeof isCloseable === 'boolean' ? isCloseable : this._closeableTabs;
     const tab = new TabbedPaneTab(this, id, tabTitle, isCloseable, view, tabTooltip);
     tab.setDelegate(this._delegate);
+    tab.setMaxTitleLength(this._tabMaxLength);
     console.assert(!this._tabsById.has(id), `Tabbed pane already contains a tab with id '${id}'`);
     this._tabsById.set(id, tab);
     if (index !== undefined) {
@@ -1075,6 +1106,7 @@ export class TabbedPaneTab {
     this._tabElement;
     /** @type {?Element} */
     this._iconContainer = null;
+    this._maxTitleLength = -1;
   }
 
   /**
@@ -1100,7 +1132,31 @@ export class TabbedPaneTab {
     }
     this._title = title;
     if (this._titleElement) {
-      this._titleElement.textContent = title;
+      this._titleElement.textContent = this._maxTitleLength === -1 ? title : title.trimMiddle(this._maxTitleLength);
+    }
+    delete this._measuredWidth;
+  }
+
+  /**
+   * Gets the max title length to be rendered. If -1, the length is not clamped.
+   * @return {number}
+   */
+  maxTitleLength() {
+    return this._maxTitleLength;
+  }
+
+  /**
+   * Sets the max title length to be rendered. If -1, the length is not clamped.
+   * @param {number} maxLength
+   */
+  setMaxTitleLength(maxLength) {
+    if (maxLength < -1 || maxLength === 0) {
+      throw new RangeError('maxLength must be -1 or greater than 0.');
+    }
+    this._maxTitleLength = maxLength;
+    if (this._titleElement) {
+      this._titleElement.textContent =
+          this._maxTitleLength === -1 ? this._title : this._title.trimMiddle(this._maxTitleLength);
     }
     delete this._measuredWidth;
   }
@@ -1238,7 +1294,7 @@ export class TabbedPaneTab {
     ARIAUtils.setAccessibleName(tabElement, this.title);
 
     const titleElement = tabElement.createChild('span', 'tabbed-pane-header-tab-title');
-    titleElement.textContent = this.title;
+    titleElement.textContent = this._maxTitleLength === -1 ? this._title : this._title.trimMiddle(this._maxTitleLength);
     titleElement.title = this.tooltip || '';
     this._createIconElement(tabElement, titleElement, measuring);
     if (!measuring) {
