@@ -365,6 +365,18 @@ export class ConsoleView extends UI.Widget.VBox {
     this._prompt.history().setHistoryData([]);
   }
 
+  _clearLineFromHistory() {
+    const text = this._prompt.text();
+    if (text !== '') {
+      const historyData = this._prompt.history().historyData().filter(function(historyItem) {
+        return historyItem !== text;
+      });
+      this._consoleHistorySetting.set(historyData);
+      this._prompt.history().setHistoryData(historyData);
+      this._prompt.setText('');
+    }
+  }
+
   _consoleHistoryAutocompleteChanged() {
     this._prompt.setAddCompletionsFromHistory(this._consoleHistoryAutocompleteSetting.get());
   }
@@ -1026,6 +1038,9 @@ export class ConsoleView extends UI.Widget.VBox {
     this._shortcuts = {};
     this._shortcuts[UI.KeyboardShortcut.KeyboardShortcut.makeKey('u', UI.KeyboardShortcut.Modifiers.Ctrl)] =
         this._clearPromptBackwards.bind(this);
+    this._shortcuts[UI.KeyboardShortcut.KeyboardShortcut.makeKey(
+        UI.KeyboardShortcut.Keys.Delete.code, UI.KeyboardShortcut.Modifiers.Shift)] =
+        this._clearLineFromHistory.bind(this);
   }
 
   _clearPromptBackwards() {
