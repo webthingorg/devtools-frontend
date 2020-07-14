@@ -16,6 +16,24 @@
       "revId": "cf92d1a1c3ab75b24aa8b4fb2bddf03397aff332",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a73a6a4b_8b4bb148",
+        "filename": "front_end/ui/inspectorCommon.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-14T11:47:12Z",
+      "side": 1,
+      "message": "Makes sense! I fixed the `animation` one but forgot this one. In the future I\u0027ll fix them along the way.",
+      "parentUuid": "a7060889_4de09359",
+      "revId": "cf92d1a1c3ab75b24aa8b4fb2bddf03397aff332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
