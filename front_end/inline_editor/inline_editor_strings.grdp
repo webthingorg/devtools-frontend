@@ -3,8 +3,20 @@
   <message name="IDS_DEVTOOLS_180bc3b1c5619aaef40e803f49921012" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Spread
   </message>
+  <message name="IDS_DEVTOOLS_1ef0054faf96b87acdea23847bf263e8" desc="Line height slider label for Font Editor">
+    Line Height
+  </message>
   <message name="IDS_DEVTOOLS_2134e3ae0c489ce87a007a082d6a9a29" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     X offset
+  </message>
+  <message name="IDS_DEVTOOLS_3287f59c07d8b39b68056d34904bcfbe" desc="Remove later, placeholder name">
+    Fallback 2
+  </message>
+  <message name="IDS_DEVTOOLS_3bbc9ce8c0f166711965faf99c665016" desc="Label for Font Selector in Font Editor">
+    Font Selector
+  </message>
+  <message name="IDS_DEVTOOLS_45f0d4fa9a30e9c5571dbaa9ad1be931" desc="Font size slider label for Font Editor">
+    Font Size
   </message>
   <message name="IDS_DEVTOOLS_575ed851c8964c290e73055ffdc085a6" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Y offset
@@ -12,13 +24,28 @@
   <message name="IDS_DEVTOOLS_5e9fb94d2ec46e6f829196c229e2b194" desc="Outset button text content in CSSShadow Editor of the inline editor in the Styles tab">
     Outset
   </message>
+  <message name="IDS_DEVTOOLS_6184141f3ad2584cff257e2bfbbb8d0b" desc="Font weight slider label for Font Editor">
+    Font Weight
+  </message>
+  <message name="IDS_DEVTOOLS_627b24abf27e2d03d38537f84e81cb2e" desc="Label for letter-spacing labels">
+    Spacing
+  </message>
+  <message name="IDS_DEVTOOLS_873709207ad56d0b7bb9949ae36c75b0" desc="Section header for CSS property inputs">
+    CSS Properties
+  </message>
   <message name="IDS_DEVTOOLS_8b52de510bc5497ac43abfe566be48ab" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Blur
+  </message>
+  <message name="IDS_DEVTOOLS_94ef0521fe49b2a79908de6b6ffccd50" desc="Remove later, placeholder name">
+    Fallback 1
   </message>
   <message name="IDS_DEVTOOLS_b56d315e49178ba86341ff3b4e337c6b" desc="Inset button text content in CSSShadow Editor of the inline editor in the Styles tab">
     Inset
   </message>
   <message name="IDS_DEVTOOLS_d65b5983f317c42c6f6dff5678e628ca" desc="Icon element title in Color Swatch of the inline editor in the Styles tab">
     Shift-click to change color format
+  </message>
+  <message name="IDS_DEVTOOLS_e5771a362d88a71a657bfcd21ca54b3f" desc="Font Editor units text box label">
+    Units
   </message>
 </grit-part>
