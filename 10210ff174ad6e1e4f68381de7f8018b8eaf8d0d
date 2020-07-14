@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa1a865f_61144219",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-14T10:58:44Z",
+      "side": 1,
+      "message": "Updated screencast to include the loading spinner and addressed Alex\u0027s comment. PTAL again.",
+      "revId": "10210ff174ad6e1e4f68381de7f8018b8eaf8d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
