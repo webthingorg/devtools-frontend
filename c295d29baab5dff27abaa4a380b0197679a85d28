@@ -16,6 +16,40 @@
       "revId": "c295d29baab5dff27abaa4a380b0197679a85d28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ff929c6_aa2a6d58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-14T17:40:52Z",
+      "side": 1,
+      "message": "lgtm. Did you mean to remove Tim from the reviewers list?",
+      "revId": "c295d29baab5dff27abaa4a380b0197679a85d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1696033a_cbdc8384",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-14T17:40:52Z",
+      "side": 1,
+      "message": "nit:\n  authenticator.querySelector(\u0027input.dt-radio-button\u0027).checked \u003d\n    authenticator.getAttribute(\u0027data-authenticator-id\u0027) \u003d\u003d\u003d this._activeAuthId;",
+      "revId": "c295d29baab5dff27abaa4a380b0197679a85d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
