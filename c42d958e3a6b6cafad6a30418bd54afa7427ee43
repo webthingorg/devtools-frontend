@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0b8b9ccd_05ca25a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-14T13:03:16Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "c42d958e3a6b6cafad6a30418bd54afa7427ee43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11607fd1_9f8a80d4",
         "filename": "scripts/check_gn.js",
         "patchSetId": 1
