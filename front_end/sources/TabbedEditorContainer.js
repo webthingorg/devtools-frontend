@@ -75,6 +75,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     this._tabbedPane.setPlaceholderElement(placeholderElement, focusedPlaceholderElement);
     this._tabbedPane.setTabDelegate(new EditorContainerTabDelegate(this));
 
+    this._tabbedPane.tabMaxLength = 30;
     this._tabbedPane.setCloseableTabs(true);
     this._tabbedPane.setAllowTabReorder(true, true);
 
@@ -310,8 +311,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
    * @return {string}
    */
   _titleForFile(uiSourceCode) {
-    const maxDisplayNameLength = 30;
-    let title = uiSourceCode.displayName(true).trimMiddle(maxDisplayNameLength);
+    let title = uiSourceCode.displayName(true);
     if (uiSourceCode.isDirty()) {
       title += '*';
     }
