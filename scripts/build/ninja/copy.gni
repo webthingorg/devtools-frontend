@@ -22,6 +22,7 @@ template("copy_sources_to_resources") {
                              "sources",
                              "visibility",
                              "deps",
+                             "public_deps",
                            ])
 
     # Figure out what the relative path is to the front_end folder.
@@ -48,6 +49,7 @@ template("copy_gen_to_resources") {
                              "sources",
                              "visibility",
                              "deps",
+                             "public_deps",
                            ])
 
     # Figure out what the relative path is to the front_end folder.
