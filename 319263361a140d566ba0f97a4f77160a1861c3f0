@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "776ba796_fe4280fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-14T19:55:47Z",
+      "side": 1,
+      "message": "lgtm with nits",
+      "revId": "319263361a140d566ba0f97a4f77160a1861c3f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e867af70_26f3237a",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-14T19:55:47Z",
+      "side": 1,
+      "message": "nit: maybe say \"max length of all tabs\" or similar. makes it clear we aren\u0027t finding the longest title in the list of tabs",
+      "range": {
+        "startLine": 170,
+        "startChar": 26,
+        "endLine": 170,
+        "endChar": 33
+      },
+      "revId": "319263361a140d566ba0f97a4f77160a1861c3f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15491d0c_2b775aa8",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-14T19:55:47Z",
+      "side": 1,
+      "message": "nit: I think the guidance is still to avoid adding new getters/setters in Devtools: https://github.com/ChromeDevTools/devtools-frontend/wiki/DevTools-Style-Guide#not-allowed",
+      "range": {
+        "startLine": 173,
+        "startChar": 3,
+        "endLine": 173,
+        "endChar": 10
+      },
+      "revId": "319263361a140d566ba0f97a4f77160a1861c3f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "271a7603_518f1c46",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-14T19:55:47Z",
+      "side": 1,
+      "message": "nit: same thing about getters/setters here, although I do see that is the current style of the file, so idk what the best thing to do would be 😊",
+      "range": {
+        "startLine": 1141,
+        "startChar": 2,
+        "endLine": 1141,
+        "endChar": 22
+      },
+      "revId": "319263361a140d566ba0f97a4f77160a1861c3f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
