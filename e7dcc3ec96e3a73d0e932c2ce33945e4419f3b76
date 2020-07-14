@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdbaa468_215fae7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-14T17:03:49Z",
+      "side": 1,
+      "message": "This appears to break Karma, but it didn\u0027t properly cause CQ to fail.",
+      "revId": "e7dcc3ec96e3a73d0e932c2ce33945e4419f3b76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
