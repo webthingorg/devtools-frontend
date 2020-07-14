@@ -6,7 +6,7 @@
     "sources",
     "sources_test_runner"
   ],
-  "scripts": [
+  "modules": [
     "AppcacheTestRunner.js",
     "CacheStorageTestRunner.js",
     "IndexedDBTestRunner.js",

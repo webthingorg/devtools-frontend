@@ -3,7 +3,7 @@
     "sdk",
     "test_runner"
   ],
-  "scripts": [
+  "modules": [
     "PageMockTestRunner.js"
   ],
   "skip_compilation": [

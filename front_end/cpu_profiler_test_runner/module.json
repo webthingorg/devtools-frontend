@@ -3,7 +3,7 @@
     "profiler",
     "test_runner"
   ],
-  "scripts": [
+  "modules": [
     "ProfilerTestRunner.js"
   ],
   "skip_compilation": [
