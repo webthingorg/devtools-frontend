@@ -353,22 +353,46 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _treeElementAdded(event) {
+    // On tree item selection its itemURL and those of its parents are persisted.
+    // On reload/navigation we check here whether the whole array of itemURLs
+    // matches the persisted ones. If yes, elements are expanded and the item is
+    // selected.
+    // There are some edge cases where this does not work (e.g. multiple frames
+    // with the same URL), but worst case is some items are expanded
+    // unnecessarily or no item is selected automatically.
     const selection = this._panel.lastSelectedItemPath();
     if (!selection.length) {
       return;
     }
     const element = event.data;
-    const index = selection.indexOf(element.itemURL);
-    if (index < 0) {
+    const elementPath = [element.itemURL];
+    for (let parent = element.parent; parent && parent.itemURL; parent = parent.parent) {
+      elementPath.push(parent.itemURL);
+    }
+    if (!this._comparePathArrays(selection, elementPath)) {
       return;
     }
+
     for (let parent = element.parent; parent; parent = parent.parent) {
       parent.expand();
     }
-    if (index > 0) {
-      element.expand();
-    }
     element.select();
+  }
+
+  /**
+   * @param {!Array<string>} arr1
+   * @param {!Array<string>} arr2
+   */
+  _comparePathArrays(arr1, arr2) {
+    if (!arr1 || !arr2 || !arr1.length || !arr2.length || arr1.length !== arr2.length) {
+      return false;
+    }
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   _reset() {
