@@ -171,4 +171,5 @@ generated_typescript_entrypoints = [
   "$resources_out_dir/formatter_worker/formatter_worker.js",
   "$resources_out_dir/elements/elements.js",
   "$resources_out_dir/sdk/sdk.js",
+  "$resources_out_dir/i18n/i18n.js",
 ]
