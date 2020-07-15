@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f1d33521_c465c231",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-15T11:53:29Z",
+      "side": 1,
+      "message": "Ok. Even if we would iterate on the column order, I would do it in a follow up anyway.",
+      "parentUuid": "f6dd104c_86b9516d",
+      "revId": "cf7492e6631dc4173605231cdbb60cb434bee6e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5aa8679_df788cdd",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 2
