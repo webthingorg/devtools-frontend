@@ -59,6 +59,53 @@
     },
     {
       "key": {
+        "uuid": "a0e48152_8e9989eb",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T15:50:04Z",
+      "side": 1,
+      "message": ", e.g. front_end/common\u0027s entrypoint _must_ be common.js",
+      "range": {
+        "startLine": 13,
+        "startChar": 84,
+        "endLine": 13,
+        "endChar": 90
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cddfdfb3_9be95b4d",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T15:50:04Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "b7ca7411_97396947",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2f98358_31bdb746",
         "filename": "scripts/build/ninja/README.md",
         "patchSetId": 1
@@ -75,6 +122,29 @@
         "startChar": 0,
         "endLine": 15,
         "endChar": 115
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d5f36f7_97ec2070",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T15:50:04Z",
+      "side": 1,
+      "message": "the* public API. However, it is not clear to me what this means in reality.",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 96
       },
       "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -121,6 +191,29 @@
         "startChar": 5,
         "endLine": 56,
         "endChar": 20
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c38caab5_a6b31819",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T15:50:04Z",
+      "side": 1,
+      "message": "I\u0027m not sure I know what this means. Does that mean that you if your entrypoint is .js you can\u0027t have any .ts files in the module?",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 138
       },
       "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
