@@ -117,6 +117,10 @@ interface HighlightConfig {
   positiveColumnLineNumberOffsets?: number[];
   negativeColumnLineNumberOffsets?: number[];
   layerId?: number;
+  columnGap?: number;
+  rowGap?: number;
+  rowTrackSizes?: number[];
+  columnTrackSizes?: number[];
 }
 
 interface ExpectedLayerLabel {
