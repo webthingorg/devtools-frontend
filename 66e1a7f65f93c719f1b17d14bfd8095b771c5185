@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "608022d5_9cfffdc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-15T13:24:33Z",
+      "side": 1,
+      "message": "Thanks Alex. This looks great. Looking forward to playing around with these.\nI left a couple comments below.\nAlso for info, this will conflict with the work I\u0027m doing on grid line names https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2292205 so one of us will need to resolve conflicts, depending on who lands first.",
+      "revId": "66e1a7f65f93c719f1b17d14bfd8095b771c5185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8496584b_8c0221b1",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-15T13:24:33Z",
+      "side": 1,
+      "message": "The variable names left and right make sense if you\u0027re thinking of columns, but for rows, they should be named top and bottom. And in fact, once we start supporting different writing modes, even left/right won\u0027t make sense. Could you use start and end instead? They\u0027re more logical.",
+      "range": {
+        "startLine": 252,
+        "startChar": 6,
+        "endLine": 252,
+        "endChar": 11
+      },
+      "revId": "66e1a7f65f93c719f1b17d14bfd8095b771c5185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac3fbcfe_8559ff56",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-15T13:24:33Z",
+      "side": 1,
+      "message": "You\u0027re hard-coding bottomMid here and rightMid below, which means that the labels won\u0027t be visible when the grid is flush with the top and/or left side of the viewport.\nIt would be better to use _placePositiveColumnLabel and _placePositiveRowLabel as these know how to flip labels on the inside of the grid when they\u0027re too close to the edge of the viewport.\nYou\u0027ll need to either modify the functions a bit to test if hasFirst/hasLast are present, or instead make the normalizeData function also construct these booleans for the trackSizes entries.\nLet me know if you need any help understanding what this part of the code does. Happy to help.",
+      "range": {
+        "startLine": 260,
+        "startChar": 52,
+        "endLine": 260,
+        "endChar": 61
+      },
+      "revId": "66e1a7f65f93c719f1b17d14bfd8095b771c5185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
