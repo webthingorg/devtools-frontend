@@ -46,6 +46,30 @@
       "revId": "a0848f49afebcb16d085f9668997e5b86c185610",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c49fc36_d6dc2b4b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-15T11:14:17Z",
+      "side": 1,
+      "message": "No I meant whether it should get its own\n\n const info \u003d document.createElement(\u0027td\u0027);\n\nand whether there should be a corresponding \u003cth\u003e element that provides a proper header.",
+      "parentUuid": "c57db9cb_ff723b00",
+      "range": {
+        "startLine": 245,
+        "startChar": 5,
+        "endLine": 253,
+        "endChar": 7
+      },
+      "revId": "a0848f49afebcb16d085f9668997e5b86c185610",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
