@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a00104e1_4a5efe0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-15T06:10:41Z",
+      "side": 1,
+      "message": "lgtm (rubberstamping protocol update)",
+      "revId": "685969c925185b840e05803b849f4b1e19c5f714",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9174efbd_22ab30cd",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-15T06:10:41Z",
+      "side": 1,
+      "message": "Leaked over from another CL? I don\u0027t think {grdp} changes should be part of straight up protocol updates.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 103
+      },
+      "revId": "685969c925185b840e05803b849f4b1e19c5f714",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
