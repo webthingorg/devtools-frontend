@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31359bd2_996a637d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-15T22:13:36Z",
+      "side": 1,
+      "message": "Thanks for creating this Tim, it is really helpful. One suggestion would be to elaborate a little more on some implementation details or/and known limitations so that it is easier to understand the full picture. e.g skip_rollup is used in several files to workaround some of limitations of the current implementation but it can also alter the expected output on some of them (build_release_application.py), knowing this can save some hours of debugging. Maybe this README is not the best place to address this suggestions, but I see value on documenting it somewhere.",
+      "revId": "30ca906f959a43cd4eb13a76f38a374f2bc79633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "894d2353_4931873f",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-15T22:13:36Z",
+      "side": 1,
+      "message": "It took me sometime to understand how devtools_entrypoint and devtools_module are tied together behind the scenes. I suggest adding some comments on this topic.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 31
+      },
+      "revId": "30ca906f959a43cd4eb13a76f38a374f2bc79633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35c5d94c_80c2215b",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-15T22:13:36Z",
+      "side": 1,
+      "message": "Something that is not clear to me is if this two templates can only work together or if they can interact with other existing templates.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 31
+      },
+      "revId": "30ca906f959a43cd4eb13a76f38a374f2bc79633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
