@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cf182c1_37433313",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T08:22:44Z",
+      "side": 1,
+      "message": "the legacy SDK DOMNode type has `id: number|undefined` but I\u0027ve not been able to find a single case where the node doesn\u0027t have an `id`.",
+      "range": {
+        "startLine": 55,
+        "startChar": 3,
+        "endLine": 55,
+        "endChar": 40
+      },
+      "revId": "712fa6d41ec09c470be33aa112c3888ccaa6af8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1662fd9b_0fd3a5a2",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T08:22:44Z",
+      "side": 1,
+      "message": "I think this is OK? (I will remove the TODO before landing)",
+      "range": {
+        "startLine": 276,
+        "startChar": 3,
+        "endLine": 278,
+        "endChar": 11
+      },
+      "revId": "712fa6d41ec09c470be33aa112c3888ccaa6af8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
