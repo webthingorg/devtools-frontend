@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4be434a_89df8586",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T14:23:24Z",
+      "side": 1,
+      "message": "LGTM with a few nits",
+      "revId": "4c85917c7a1d4c06a55e4fabcd7aed1f37246da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a7ce687_5c0d9753",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T14:23:24Z",
+      "side": 1,
+      "message": "This should be in the function comments then, presumably?",
+      "range": {
+        "startLine": 708,
+        "startChar": 3,
+        "endLine": 713,
+        "endChar": 0
+      },
+      "revId": "4c85917c7a1d4c06a55e4fabcd7aed1f37246da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03d0d4ad_0607e62c",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T14:23:24Z",
+      "side": 1,
+      "message": "So we\u0027re caching breadcrumb nodes?",
+      "range": {
+        "startLine": 729,
+        "startChar": 4,
+        "endLine": 732,
+        "endChar": 7
+      },
+      "revId": "4c85917c7a1d4c06a55e4fabcd7aed1f37246da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36f3cd73_b34d240d",
+        "filename": "front_end/elements/NewElementsBreadcrumbs.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T14:23:24Z",
+      "side": 1,
+      "message": "Can you confirm that this is correct before landing?",
+      "range": {
+        "startLine": 276,
+        "startChar": 8,
+        "endLine": 278,
+        "endChar": 11
+      },
+      "revId": "4c85917c7a1d4c06a55e4fabcd7aed1f37246da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
