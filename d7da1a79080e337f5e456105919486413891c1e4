@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ee30a19_0cabb118",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-15T09:27:34Z",
+      "side": 1,
+      "message": "LGTM, thanks! I assume the layout tests that you needed to update give us some test coverage. Some e2e tests would be nice in the future as well.",
+      "revId": "d7da1a79080e337f5e456105919486413891c1e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
