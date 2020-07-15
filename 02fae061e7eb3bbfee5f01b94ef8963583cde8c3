@@ -16,6 +16,40 @@
       "revId": "02fae061e7eb3bbfee5f01b94ef8963583cde8c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5263bcf6_4af86449",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-15T10:02:50Z",
+      "side": 1,
+      "message": "LGTM but please wait for others to take a look",
+      "revId": "02fae061e7eb3bbfee5f01b94ef8963583cde8c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90699701_3a8b6cbf",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-15T10:02:50Z",
+      "side": 1,
+      "message": "nit: drop the space here, so that the displayed values are valid CSS",
+      "revId": "02fae061e7eb3bbfee5f01b94ef8963583cde8c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
