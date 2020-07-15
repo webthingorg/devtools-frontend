@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "6a509400_ffc37990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-15T13:39:24Z",
+      "side": 1,
+      "message": "LGTM % Patrick\u0027s comments :)",
+      "revId": "66e1a7f65f93c719f1b17d14bfd8095b771c5185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8496584b_8c0221b1",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 5
