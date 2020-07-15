@@ -1,0 +1,33 @@
+<!--
+Copyright 2020 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug</title>
+  <link rel="stylesheet" type="text/css" href="../common.css">
+  <script type="module" src="../tool_highlight.js"></script>
+</head>
+<body>
+  <script type="module">
+    const viewportWidth = document.documentElement.clientWidth;
+    const viewportHeight = document.documentElement.clientHeight;
+
+    const info = {"paths":[{"path":["M",40,40,"L",697,40,"L",697,184,"L",40,184,"Z"],"fillColor":"rgba(111, 168, 220, 0.658823529411765)","name":"content"},{"path":["M",40,40,"L",697,40,"L",697,184,"L",40,184,"Z"],"fillColor":"rgba(147, 196, 125, 0.549019607843137)","name":"padding"},{"path":["M",40,40,"L",697,40,"L",697,184,"L",40,184,"Z"],"fillColor":"rgba(255, 229, 153, 0.658823529411765)","name":"border"},{"path":["M",40,40,"L",697,40,"L",697,184,"L",40,184,"Z"],"fillColor":"rgba(246, 178, 107, 0.658823529411765)","name":"margin"}],"showRulers":false,"showExtensionLines":false,"showAccessibilityInfo":true,"colorFormat":"hex","elementInfo":{"tagName":"div","idValue":"","className":".wrapper","nodeWidth":"657","nodeHeight":"144","isKeyboardFocusable":false,"accessibleName":"","accessibleRole":"generic","layoutObjectName":"LayoutGrid","style":{"color":"#444444FF","font-family":"\"Times New Roman\"","font-size":"16px","line-height":"normal","padding":"0px","margin":"0px","background-color":"#FFFFFFFF"},"showAccessibilityInfo":true},"gridInfo":[{"columnTrackSizes":[100,100,100],"rowTrackSizes":[67,67],"rowGap":10,"columnGap":10,"rows":["M",40,40,"L",360,40,"M",360,107,"L",40,107,"M",40,117,"L",360,117,"M",360,184,"L",40,184],"rowGaps":["M",40,107,"L",360,107,"L",360,117,"L",40,117,"Z"],"columns":["M",40,40,"L",40,184,"M",140,184,"L",140,40,"M",150,40,"L",150,184,"M",250,184,"L",250,40,"M",260,40,"L",260,184,"M",360,184,"L",360,40],"columnGaps":["M",140,40,"L",150,40,"L",150,184,"L",140,184,"Z","M",250,40,"L",260,40,"L",260,184,"L",250,184,"Z"],"positiveRowLineNumberOffsets":[0,72,144],"positiveColumnLineNumberOffsets":[0,105,215,320],"negativeRowLineNumberOffsets":[0],"negativeColumnLineNumberOffsets":[0,105,215,320],"gridBorder":["M",40,40,"L",360,40,"L",360,184,"L",40,184,"Z"],"gridHighlightConfig":{"gridBorderDash":false,"cellBorderDash":true,"showGridExtensionLines":false,"showPositiveLineNumbers":true,"showNegativeLineNumbers":true,"showAreaNames":false,"showTrackSizes":true,"cellBorderColor":"#9334e6","rowHatchColor":"rgba(147, 52, 230, 0.8)","columnHatchColor":"rgba(147, 52, 230, 0.8)","areaBorderColor":"#1a73e8"},"isPrimaryGrid":true}]};
+
+    setPlatform("mac");
+
+    window.viewportSize = {
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight
+    };
+    reset(window);
+
+    drawHighlight(info);
+  </script>
+</body>
+</html>
