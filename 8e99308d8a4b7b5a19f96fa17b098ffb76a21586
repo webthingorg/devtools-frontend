@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc63021f_e5244251",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-15T20:47:13Z",
+      "side": 1,
+      "message": "My mistake, I looked at the wrong release branch. I\u0027ll be putting up a new CL with this fix as well",
+      "revId": "8e99308d8a4b7b5a19f96fa17b098ffb76a21586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
