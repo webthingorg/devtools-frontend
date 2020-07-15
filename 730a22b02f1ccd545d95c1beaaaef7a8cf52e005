@@ -22,6 +22,30 @@
       "revId": "730a22b02f1ccd545d95c1beaaaef7a8cf52e005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69dc1e1b_18b30472",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T09:22:41Z",
+      "side": 1,
+      "message": "Yeah we probably should clean this up. The problem is that we specify a `typeRoots` currently and then not explicitly include these declaration files. Instead, we should add them explicitly as `files` and keep the `typeRoots` empty.",
+      "parentUuid": "ad99fd22_cdd2747d",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 73
+      },
+      "revId": "730a22b02f1ccd545d95c1beaaaef7a8cf52e005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
