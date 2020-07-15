@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa3e6f3_f7c95a85",
+        "filename": "front_end/platform/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T12:00:33Z",
+      "side": 1,
+      "message": "Ultra-nit: we can remove empty deps array. I will make sure `devtools_module` errors on that.",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "de1f151401d1dff490b862be224add88b03e7600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
