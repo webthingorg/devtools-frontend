@@ -65,7 +65,7 @@ let TracksOffsetData;  // eslint-disable-line no-unused-vars
 /** @typedef {!{rows: TracksOffsetData, columns: TracksOffsetData, bounds: Bounds}} */
 let GridOffsetNormalizedData;  // eslint-disable-line no-unused-vars
 
-/** @typedef {!{positiveRowLineNumberOffsets?: number[], negativeRowLineNumberOffsets?: number[], positiveColumnLineNumberOffsets?: number[], negativeColumnLineNumberOffsets?: number[]}} */
+/** @typedef {!{columnGap?: number, rowGap?: number, columnTrackSizes?: number[], rowTrackSizes?: number[], positiveRowLineNumberOffsets?: number[], negativeRowLineNumberOffsets?: number[], positiveColumnLineNumberOffsets?: number[], negativeColumnLineNumberOffsets?: number[]}} */
 let GridHighlightConfig;  // eslint-disable-line no-unused-vars
 
 /**
@@ -92,12 +92,20 @@ export function drawGridLabels(config, gridBounds, areaBounds) {
   // Add the containers for the line and area to the node's layer
   const lineNumberContainer = labelContainerForNode.createChild('div', 'line-numbers');
   const areaNameContainer = labelContainerForNode.createChild('div', 'area-names');
+  const trackSizesContainer = labelContainerForNode.createChild('div', 'track-sizes');
 
   // Draw line numbers.
   drawGridNumbers(lineNumberContainer, config, gridBounds);
 
   // Draw area names.
   drawGridAreaNames(areaNameContainer, areaBounds);
+
+  if (config.gridHighlightConfig.showTrackSizes) {
+    // Draw column sizes.
+    drawGridTrackSizes(trackSizesContainer, config.columnGap, config.columnTrackSizes, gridBounds, 'column');
+    // Draw row sizes.
+    drawGridTrackSizes(trackSizesContainer, config.rowGap, config.rowTrackSizes, gridBounds, 'row');
+  }
 }
 
 /**
@@ -228,6 +236,32 @@ export function drawGridNumbers(container, config, bounds) {
     // Negative offsets are sorted such that the first offset corresponds to the line closest to start edge of the grid.
     const element = _createLabelElement(container, data.rows.negative.offsets.length * -1 + i);
     _placeNegativeRowLabel(element, offset, data);
+  }
+}
+
+/**
+ * Places the grid column size labels on the overlay.
+ *
+ * @param {HTMLElement} container
+ * @param {number} trackGap
+ * @param {!Array<number>} trackSizes
+ * @param {Bounds} gridBounds
+ * @param {string} direction
+ */
+export function drawGridTrackSizes(container, trackGap, trackSizes, bounds, direction) {
+  let left = 0;
+  for (const [i, width] of trackSizes.entries()) {
+    if (i > 0) {
+      left += trackGap;
+    }
+    const right = left + width;
+    const element = _createLabelElement(container, Math.round(width) + 'px');
+    if (direction === 'column') {
+      _placeLineNumberLabel(element, GridArrowTypes.bottomMid, bounds.minX + (left + right) / 2, bounds.minY);
+    } else {
+      _placeLineNumberLabel(element, GridArrowTypes.rightMid, bounds.minX, bounds.minY + (left + right) / 2);
+    }
+    left = right;
   }
 }
 
