@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bec224_93acafd1",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 2179,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-15T08:00:25Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we update the FrameDetailsView here?",
+      "range": {
+        "startLine": 2179,
+        "startChar": 2,
+        "endLine": 2179,
+        "endChar": 16
+      },
+      "revId": "4d423e9bafd9a672083953d8ac45fae762f99c6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9efe8ffe_e7b5770e",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 2195,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-15T08:00:25Z",
+      "side": 1,
+      "message": "Could you comment why this isn\u0027t always working?",
+      "range": {
+        "startLine": 2195,
+        "startChar": 6,
+        "endLine": 2195,
+        "endChar": 13
+      },
+      "revId": "4d423e9bafd9a672083953d8ac45fae762f99c6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
