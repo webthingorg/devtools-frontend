@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {$, click, enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
+import {$, click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, waitFor} from '../../shared/helper.js';
 import {addBreakpointForLine, listenForSourceFilesAdded, openFileInEditor, openFileInSourcesPanel, openSourcesPanel, PAUSE_ON_EXCEPTION_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
 // TODO: Remove once Chromium updates its version of Node.js to 12+.
@@ -17,6 +17,10 @@ declare global {
   }
 }
 
+declare function RegisterExtension(
+    extensionAPI: {languageServices: any}, pluginImpl: any, name: string,
+    supportedScriptTypes: {language: string, symbol_types: string[]}): void;
+
 // This testcase reaches into DevTools internals to install the mock plugin. At this point, there is no sensible
 // alternative, since using a real plugin would require spinning up an external service. Installing the plugin in this
 // way is not the correct level to test things, but there is no first class feature to controlling or installing custom
@@ -26,64 +30,37 @@ describe('The Debugger Language Plugins', async () => {
     await enableExperiment('wasmDWARFDebugging');
 
     const {frontend} = getBrowserAndPages();
-    await frontend.evaluate(() => {
-      /* eslint-disable @typescript-eslint/no-unused-vars */
-      globalThis.MockLanguagePluginBase = class {
-        handleScript(script: any) {
-          return script.isWasm() && script.codeOffset() > 0;
-        }
-
-        async addRawModule(rawModuleId: any, symbols: any, rawModule: any) {
-          return [];
-        }
-
-        /* async */ sourceLocationToRawLocation(sourceLocation: any) {
-          return null;
-        }
-
-        /* async */ rawLocationToSourceLocation(rawLocation: any) {
-          return null;
-        }
-
-        async listVariablesInScope(rawLocation: any) {
-          return null;
-        }
-
-        async evaluateVariable(name: any, location: any) {
-          return null;
-        }
-
-        dispose() {
-        }
+    await frontend.evaluate(resourcePath => {
+      globalThis.installExtensionPlugin = function(registerPluginCallback: any) {
+        const extensionServer = globalThis.Extensions.extensionServer;
+        /** @type {!{startPage: string, name: string, exposeExperimentalAPIs: boolean}} */
+        const extensionInfo = {
+          startPage: `${resourcePath}/sources/language_extensions.html`,
+          name: 'TestExtension',
+          exposeExperimentalAPIs: true,
+        };
+        extensionServer._extensionAPITestHook = registerPluginCallback;
+        extensionServer._addExtension(extensionInfo);
       };
-      /* eslint-enable @typescript-eslint/no-unused-vars */
-
-      globalThis.installMockPlugin = function(plugin: any) {
-        const bindings = globalThis.Bindings.debuggerWorkspaceBinding;
-        const models = bindings._debuggerModelToData.keys();
-        for (const debuggerModel of models) {
-          const pluginManager = bindings.getLanguagePluginManager(debuggerModel);
-          pluginManager.clearPlugins();
-          pluginManager.addPlugin(plugin);
-        }
-      };
-    });
+    }, getResourcesPath());
   });
 
   // Load a simple wasm file and verify that the source file shows up in the file tree.
   it('can show C filenames after loading the module', async () => {
     const {target, frontend} = getBrowserAndPages();
-    await frontend.evaluate(() => {
+    await frontend.evaluate(() => globalThis.installExtensionPlugin((extensionServerClient: any, extensionAPI: any) => {
       // A simple plugin that resolves to a single source file
-      class SingleFilePlugin extends globalThis.MockLanguagePluginBase {
+      class SingleFilePlugin {
         async addRawModule(
             rawModuleId: any, symbols: any, rawModule: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
-          return ['source_file.c'];
+          const fileUrl = new URL('/source_file.c', rawModule.url);
+          return [fileUrl.href];
         }
       }
 
-      globalThis.installMockPlugin(new SingleFilePlugin());
-    });
+      RegisterExtension(
+          extensionAPI, new SingleFilePlugin(), 'Single File', {language: 'WebAssembly', symbol_types: ['None']});
+    }));
 
     await openFileInSourcesPanel('wasm/global_variable.html');
     await listenForSourceFilesAdded(frontend);
@@ -100,23 +77,34 @@ describe('The Debugger Language Plugins', async () => {
   // Disabled to the Chromium binary -> DevTools roller working again.
   it('use correct code offsets to interpret raw locations', async () => {
     const {frontend} = getBrowserAndPages();
-    await frontend.evaluate(() => {
-      class LocationMappingPlugin extends globalThis.MockLanguagePluginBase {
-        async addRawModule(
-            rawModuleId: any, symbols: any, rawModule: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
-          return ['test/e2e/resources/sources/wasm/unreachable.ll'];
+    await frontend.evaluate(() => globalThis.installExtensionPlugin((extensionServerClient: any, extensionAPI: any) => {
+      class LocationMappingPlugin {
+        _modules: Map<string, string>;
+        constructor() {
+          this._modules = new Map();
         }
 
-        /* async */ rawLocationToSourceLocation(rawLocation: any) {
+        async addRawModule(
+            rawModuleId: any, symbols: any, rawModule: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
+          this._modules.set(rawModuleId.url, rawModule.url);
+          const fileUrl = new URL('unreachable.ll', rawModule.url);
+          return [fileUrl.href];
+        }
+
+        async rawLocationToSourceLocation(rawLocation: any) {
           if (rawLocation.codeOffset === 6) {
-            return [{sourceFile: 'test/e2e/resources/sources/wasm/unreachable.ll', lineNumber: 4, columnNumber: 2}];
+            const moduleUrl = this._modules.get(rawLocation.rawModuleId);
+            const sourceFile = new URL('unreachable.ll', moduleUrl);
+            return [{sourceFileURL: sourceFile.href, lineNumber: 5, columnNumber: 2}];
           }
           return null;
         }
       }
 
-      globalThis.installMockPlugin(new LocationMappingPlugin());
-    });
+      RegisterExtension(
+          extensionAPI, new LocationMappingPlugin(), 'Location Mapping',
+          {language: 'WebAssembly', symbol_types: ['None']});
+    }));
 
     await openSourcesPanel();
     await click(PAUSE_ON_EXCEPTION_BUTTON);
@@ -125,28 +113,30 @@ describe('The Debugger Language Plugins', async () => {
 
     const scriptLocation =
         await (await $('.call-frame-location')).evaluate((location: HTMLElement) => location.textContent);
-    assert.deepEqual(scriptLocation, 'unreachable.ll:5');
+    assert.deepEqual(scriptLocation, 'unreachable.ll:6');
   });
 
   // Resolve the location for a breakpoint.
   it('resolve locations for breakpoints correctly', async () => {
     const {target, frontend} = getBrowserAndPages();
-    await frontend.evaluate(() => {
+    await frontend.evaluate(() => globalThis.installExtensionPlugin((extensionServerClient: any, extensionAPI: any) => {
       // This plugin will emulate a source mapping with a single file and a single corresponding source line and byte
       // code offset pair.
-      class LocationMappingPlugin extends globalThis.MockLanguagePluginBase {
+      class LocationMappingPlugin {
+        sourceLocation: any;
+        rawLocation: any;
         async addRawModule(
             rawModuleId: any, symbols: any, rawModule: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
           this.sourceLocation = {
-            sourceFile: 'test/e2e/resources/sources/wasm/global_variable.ll',
+            sourceFileURL: new URL('global_variable.ll', rawModule.url).href,
             lineNumber: 8,
             columnNumber: 0,
           };
-          this.rawLocation = {rawModuleId: rawModuleId, codeOffset: 25};
-          return [this.sourceLocation.sourceFile];
+          this.rawLocation = {rawModuleId: rawModuleId.url, codeOffset: 25};
+          return [this.sourceLocation.sourceFileURL];
         }
 
-        /* async */ rawLocationToSourceLocation(rawLocation: any) {
+        async rawLocationToSourceLocation(rawLocation: any) {
           if (rawLocation.rawModuleId === this.rawLocation.rawModuleId &&
               rawLocation.codeOffset === this.rawLocation.codeOffset) {
             return [this.sourceLocation];
@@ -154,8 +144,8 @@ describe('The Debugger Language Plugins', async () => {
           return null;
         }
 
-        /* async */ sourceLocationToRawLocation(sourceLocation: any) {
-          if (sourceLocation.sourceFile === this.sourceLocation.sourceFile &&
+        async sourceLocationToRawLocation(sourceLocation: any) {
+          if (sourceLocation.sourceFileURL === this.sourceLocation.sourceFileURL &&
               sourceLocation.lineNumber === this.sourceLocation.lineNumber) {
             return [this.rawLocation];
           }
@@ -163,8 +153,10 @@ describe('The Debugger Language Plugins', async () => {
         }
       }
 
-      globalThis.installMockPlugin(new LocationMappingPlugin());
-    });
+      RegisterExtension(
+          extensionAPI, new LocationMappingPlugin(), 'Location Mapping',
+          {language: 'WebAssembly', symbol_types: ['None']});
+    }));
 
     await openFileInSourcesPanel('wasm/global_variable.html');
     await target.evaluate('go();');

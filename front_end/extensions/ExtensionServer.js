@@ -50,6 +50,112 @@ const kAllowedOrigins = [
   'chrome://new-tab-page',
 ].map(url => (new URL(url)).origin);
 
+export class LanguageExtensionEndpoint {
+  /**
+   * @param {!ExtensionServer} extensionServer
+   * @param {string} pluginName
+   * @param {!{language: string, symbol_types: !Array<string>}} supportedScriptTypes
+   * @param {!MessagePort} port
+   */
+  constructor(extensionServer, pluginName, supportedScriptTypes, port) {
+    this._commands = Extensions.extensionAPI.LanguageExtensionPluginCommands;
+    this._extensionServer = extensionServer;
+    this._pluginName = pluginName;
+    this._supportedScriptTypes = supportedScriptTypes;
+    this._port = port;
+    this._port.onmessage = this._onResponse.bind(this);
+    this._nextRequestId = 0;
+    this._pendingRequests = new Map();
+  }
+
+  /**
+   * @param {string} method
+   * @param {*} parameters
+   * @return {!Promise<*>}
+   */
+  _sendRequest(method, parameters) {
+    return new Promise((resolve, reject) => {
+      const requestId = this._nextRequestId++;
+      this._pendingRequests.set(requestId, {resolve, reject});
+      this._port.postMessage({requestId, method, parameters});
+    });
+  }
+
+  _onResponse({data: {requestId, result, error}}) {
+    if (!this._pendingRequests.has(requestId)) {
+      console.error(`No pending request ${requestId}`);
+      return;
+    }
+    const {resolve, reject} = this._pendingRequests.get(requestId);
+    this._pendingRequests.delete(requestId);
+    if (error) {
+      reject(new Error(error.message));
+    } else {
+      resolve(result);
+    }
+  }
+
+  /**
+   * @param {string} language
+   * @param {string} symbolsType
+   * @return {boolean}
+   */
+  supportsScript(language, symbolsType) {
+    return language === this._supportedScriptTypes.language &&
+        this._supportedScriptTypes.symbol_types.includes(symbolsType);
+  }
+
+  /**
+   * Notify the plugin about a new script
+   * @param {*} parameters
+   * @return !Promise<*>
+   */
+  callAddRawModule(parameters) {
+    return this._sendRequest(this._commands.AddRawModule, parameters);
+  }
+
+  /**
+   * Notifies the plugin that a script is removed.
+   * @param {*} parameters
+   * @return !Promise<*>
+   */
+  callRemoveRawModule(parameters) {
+    return this._sendRequest(this._commands.RemoveRawModule, parameters);
+  }
+
+  /** Find locations in raw modules from a location in a source file
+   * @param {*} parameters
+   * @return !Promise<*>
+   */
+  callSourceLocationToRawLocation(parameters) {
+    return this._sendRequest(this._commands.SourceLocationToRawLocation, parameters);
+  }
+
+  /** Find locations in source files from a location in a raw module
+   * @param {*} parameters
+   * @return !Promise<*>
+  */
+  callRawLocationToSourceLocation(parameters) {
+    return this._sendRequest(this._commands.RawLocationToSourceLocation, parameters);
+  }
+
+  /** List all variables in lexical scope at a given location in a raw module
+   * @param {*} parameters
+   * @return !Promise<*>
+   */
+  callListVariablesInScope(parameters) {
+    return this._sendRequest(this._commands.ListVariablesInScope, parameters);
+  }
+
+  /** Evaluate the content of a variable in a given lexical scope
+   * @param {*} parameters
+   * @return !Promise<*>
+   */
+  callEvaluateVariable(parameters) {
+    return this._sendRequest(this._commands.EvaluateVariable, parameters);
+  }
+}
+
 /**
  * @unrestricted
  */
@@ -107,6 +213,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     this._registerHandler(commands.OpenResource, this._onOpenResource.bind(this));
     this._registerHandler(commands.Unsubscribe, this._onUnsubscribe.bind(this));
     this._registerHandler(commands.UpdateButton, this._onUpdateButton.bind(this));
+    this._registerHandler(commands.RegisterLanguageExtensionPlugin, this._registerLanguageExtensionEndpoint.bind(this));
     window.addEventListener('message', this._onWindowMessage.bind(this), false);  // Only for main window.
 
     /** @suppress {checkTypes} */
@@ -119,6 +226,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.SetInspectedTabId, this._setInspectedTabId, this);
 
+    this._languageExtensionRequests = new Map();
+    /** @type {!Array<!LanguageExtensionEndpoint>} */
+    this._languageExtensionEndpoints = [];
     this._initExtensions();
   }
 
@@ -162,6 +272,20 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    */
   notifyButtonClicked(identifier) {
     this._postNotification(Extensions.extensionAPI.Events.ButtonClicked + identifier);
+  }
+
+  _registerLanguageExtensionEndpoint(message, shared_port) {
+    const {pluginName, port, supportedScriptTypes: {language, symbol_types}} = message;
+    const symbol_types_array = /** @type !Array<string> */
+        (Array.isArray(symbol_types) && symbol_types.every(e => typeof e === 'string') ? symbol_types : []);
+    const extension =
+        new LanguageExtensionEndpoint(this, pluginName, {language, symbol_types: symbol_types_array}, port);
+    this._languageExtensionEndpoints.push(extension);
+    this.dispatchEventToListeners(Events.LanguageExtensionEndpointAdded, extension);
+  }
+
+  get languageExtensionEndpoints() {
+    return this._languageExtensionEndpoints;
   }
 
   _inspectedURLChanged(event) {
@@ -755,9 +879,10 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     try {
       const startPageURL = new URL(/** @type {string} */ (startPage));
       const extensionOrigin = startPageURL.origin;
+      let injectedAPI;
       if (!this._registeredExtensions.get(extensionOrigin)) {
         // See ExtensionAPI.js for details.
-        const injectedAPI = self.buildExtensionAPIInjectedScript(
+        injectedAPI = self.buildExtensionAPIInjectedScript(
             /** @type {!{startPage: string, name: string, exposeExperimentalAPIs: boolean}} */ (extensionInfo),
             this._inspectedTabId, self.UI.themeSupport.themeName(), self.UI.shortcutRegistry.globalShortcutKeys(),
             self.Extensions.extensionServer['_extensionAPITestHook']);
@@ -768,6 +893,11 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
       }
       const iframe = createElement('iframe');
       iframe.src = startPage;
+      if (Host.InspectorFrontendHost.InspectorFrontendHostInstance.isHostedMode()) {
+        iframe.onload = e => {
+          e.target.contentWindow.eval(`${injectedAPI}()`);
+        };
+      }
       iframe.style.display = 'none';
       document.body.appendChild(iframe);  // Only for main window.
     } catch (e) {
@@ -1045,7 +1175,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
 /** @enum {symbol} */
 export const Events = {
   SidebarPaneAdded: Symbol('SidebarPaneAdded'),
-  TraceProviderAdded: Symbol('TraceProviderAdded')
+  TraceProviderAdded: Symbol('TraceProviderAdded'),
+  LanguageExtensionEndpointAdded: Symbol('LanguageExtensionEndpointAdded')
 };
 
 /**
