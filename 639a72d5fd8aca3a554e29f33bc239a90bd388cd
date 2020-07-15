@@ -106,6 +106,54 @@
     },
     {
       "key": {
+        "uuid": "3db3ce7f_c376e908",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7ca7411_97396947",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b724e96c_b41be154",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0e48152_8e9989eb",
+      "range": {
+        "startLine": 13,
+        "startChar": 84,
+        "endLine": 13,
+        "endChar": 90
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2f98358_31bdb746",
         "filename": "scripts/build/ninja/README.md",
         "patchSetId": 1
@@ -126,6 +174,30 @@
       "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19308e42_a79ec30a",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2f98358_31bdb746",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 115
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -152,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "26994893_e396f576",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d5f36f7_97ec2070",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 96
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b10532b8_236d30de",
         "filename": "scripts/build/ninja/README.md",
         "patchSetId": 1
@@ -172,6 +268,30 @@
       "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d795570_ea633a2d",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b10532b8_236d30de",
+      "range": {
+        "startLine": 42,
+        "startChar": 21,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -198,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "ddc8c6c0_1fbe1f3e",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "212bf3e6_c6be09fa",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c38caab5_a6b31819",
         "filename": "scripts/build/ninja/README.md",
         "patchSetId": 1
@@ -218,6 +362,30 @@
       "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fa1d0aa_25fa250a",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Exactly. I added some clarification.",
+      "parentUuid": "c38caab5_a6b31819",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 138
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -244,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "67ce30e6_96b08e23",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "807245ba_e0077d01",
+      "range": {
+        "startLine": 92,
+        "startChar": 88,
+        "endLine": 92,
+        "endChar": 119
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88728b22_152c49ea",
         "filename": "scripts/build/ninja/README.md",
         "patchSetId": 1
@@ -264,6 +456,30 @@
       "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d46c94bf_ed9cac3a",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-15T15:56:53Z",
+      "side": 1,
+      "message": "This will only be valid during the migration, so I think that is not strictly necessary. In the end, we only remain with `all_devtools_modules` and `devtools_module_entrypoints` so hopefully that makes it ultra-clear.",
+      "parentUuid": "88728b22_152c49ea",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 15
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
