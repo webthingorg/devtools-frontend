@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db16da7c_a2a8f2cc",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-15T16:24:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "410a52b6_069ec638",
+      "range": {
+        "startLine": 257,
+        "startChar": 24,
+        "endLine": 257,
+        "endChar": 29
+      },
+      "revId": "05a590e3f59a33f28d7bbe9ccfaa15744195dda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30a1b5f5_c8b3e0eb",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9b21d5b5_22ae5947",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-15T16:24:35Z",
+      "side": 1,
+      "message": "Good point, I have made the presence of rows or columns optional",
+      "parentUuid": "30a1b5f5_c8b3e0eb",
+      "range": {
+        "startLine": 261,
+        "startChar": 6,
+        "endLine": 261,
+        "endChar": 14
+      },
+      "revId": "05a590e3f59a33f28d7bbe9ccfaa15744195dda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f26bc103_0091ac0e",
         "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
         "patchSetId": 6
@@ -68,6 +116,30 @@
       "revId": "05a590e3f59a33f28d7bbe9ccfaa15744195dda3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0cd93eb_b0374d25",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-15T16:24:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f26bc103_0091ac0e",
+      "range": {
+        "startLine": 79,
+        "startChar": 34,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "05a590e3f59a33f28d7bbe9ccfaa15744195dda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
