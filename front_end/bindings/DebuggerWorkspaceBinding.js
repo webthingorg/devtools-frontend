@@ -463,15 +463,30 @@ class ModelData {
 
   /**
    * @param {!SDK.DebuggerModel.DebuggerPausedDetails} debuggerPausedDetails
-   * @return {boolean}
+   * @return {!Promise<boolean>}
    */
-  _beforePaused(debuggerPausedDetails) {
+  async _beforePaused(debuggerPausedDetails) {
     const callFrame = debuggerPausedDetails.callFrames[0];
     if (callFrame.script.sourceMapURL !== SDK.SourceMap.WasmSourceMap.FAKE_URL &&
         !Root.Runtime.experiments.isEnabled('emptySourceMapAutoStepping')) {
       return true;
     }
-    return !!this._compilerMapping.mapsToSourceCode(callFrame.location());
+    const callLocation = callFrame.location();
+    if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
+      const uiLocation = await this._pluginManager.rawLocationToUILocation(callLocation);
+      if (uiLocation) {
+        const locations = await this._pluginManager.uiLocationToRawLocations(
+            uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber);
+        if (locations &&
+            !locations.find(
+                location => location.lineNumber === callLocation.lineNumber &&
+                    location.columnNumber === callLocation.columnNumber)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    return this._compilerMapping.mapsToSourceCode(callLocation);
   }
 
   _dispose() {
