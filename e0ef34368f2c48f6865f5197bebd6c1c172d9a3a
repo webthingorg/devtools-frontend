@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "a95b8ff4_8e41e316",
+        "filename": "all_devtools_modules.gni",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T13:08:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaa199c6_73357510",
+      "range": {
+        "startLine": 533,
+        "startChar": 12,
+        "endLine": 533,
+        "endChar": 41
+      },
+      "revId": "e0ef34368f2c48f6865f5197bebd6c1c172d9a3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1458ba90_d0d4f619",
         "filename": "front_end/elements/ElementsPanel.js",
         "patchSetId": 5
