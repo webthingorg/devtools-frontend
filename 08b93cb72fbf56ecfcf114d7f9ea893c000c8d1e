@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "46283728_c058d209",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-15T13:11:46Z",
+      "side": 1,
+      "message": "I modified the existing end-to-end test to talk to DevToolsthrough the extension API. To do that, I had to change how the api is injected into the extension frame, please take a look if what I did makes sense!\n\nI\u0027ll also update the extension-api.js test in blink (otherwise that\u0027ll actually fail now).",
+      "parentUuid": "b4cae214_4595d7c8",
+      "revId": "08b93cb72fbf56ecfcf114d7f9ea893c000c8d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a805ba4_7bc62685",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 13
