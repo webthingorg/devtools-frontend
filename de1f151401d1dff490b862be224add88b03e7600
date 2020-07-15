@@ -22,6 +22,30 @@
       "revId": "de1f151401d1dff490b862be224add88b03e7600",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80b4f5aa_035dd634",
+        "filename": "front_end/platform/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T12:35:10Z",
+      "side": 1,
+      "message": "It error\u0027d on me when I didn\u0027t have it. I\u0027ll leave it in for now, and we can remove later.",
+      "parentUuid": "1aa3e6f3_f7c95a85",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "de1f151401d1dff490b862be224add88b03e7600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
