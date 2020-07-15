@@ -2259,6 +2259,10 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     const resourceTreeElement = new FrameResourceTreeElement(this._section._panel, resource);
     categoryElement.appendChild(resourceTreeElement, FrameTreeElement._presentationOrderCompare);
     this._treeElementForResource[resource.url] = resourceTreeElement;
+
+    if (this._view) {
+      this._view.update();
+    }
   }
 
   /**
