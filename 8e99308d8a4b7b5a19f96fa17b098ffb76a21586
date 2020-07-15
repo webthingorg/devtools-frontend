@@ -16,6 +16,23 @@
       "revId": "8e99308d8a4b7b5a19f96fa17b098ffb76a21586",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7e753ba_3f40d866",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-15T20:49:26Z",
+      "side": 1,
+      "message": "Restored the fix, looks like it is in fact needed here:\nhttps://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/chromium/4147/front_end/elements/ElementsPanel.js#589",
+      "revId": "8e99308d8a4b7b5a19f96fa17b098ffb76a21586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
