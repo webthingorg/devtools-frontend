@@ -16,6 +16,23 @@
       "revId": "65ea56a9fb1b0af05a44048e5fc60a47301654f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bd7f49f_0349a170",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-15T09:48:08Z",
+      "side": 1,
+      "message": "No, the template runs \"in place\" AFAICT, which means visibility can only be managed at the target level rather than the template level. Aside from magic vars to try and indicate that one ought not to use said templates, I think we have to accept that this isn\u0027t going to work out.",
+      "revId": "65ea56a9fb1b0af05a44048e5fc60a47301654f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
