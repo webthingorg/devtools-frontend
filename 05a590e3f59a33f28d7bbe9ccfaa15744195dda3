@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "410a52b6_069ec638",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-15T15:15:08Z",
+      "side": 1,
+      "message": "Sorry, one more variable name to make a bit more logical: breadth instead of width.",
+      "range": {
+        "startLine": 257,
+        "startChar": 24,
+        "endLine": 257,
+        "endChar": 29
+      },
+      "revId": "05a590e3f59a33f28d7bbe9ccfaa15744195dda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30a1b5f5_c8b3e0eb",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-15T15:15:08Z",
+      "side": 1,
+      "message": "hm, there seems to be one level of nested object missing here. The data consumed by _placePositiveColumnLabel (and others) is like:\n\n  { bounds, columns: { positive: { hasFirst, hasLast, ... } } }\n\nOr \n\n  { bounds, rows: { positive: { hasFirst, hasLast, ... } } }\n\nSo you\u0027ll need to either add this, or perhaps change these _place* functions to handle cases where the data does not contain hasFirst/hasLast or even the rows/columns object containers at all. This would make this drawGridTrackSizes function simpler.",
+      "range": {
+        "startLine": 261,
+        "startChar": 6,
+        "endLine": 261,
+        "endChar": 14
+      },
+      "revId": "05a590e3f59a33f28d7bbe9ccfaa15744195dda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f26bc103_0091ac0e",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-15T15:15:08Z",
+      "side": 1,
+      "message": "typo: TRACK",
+      "range": {
+        "startLine": 79,
+        "startChar": 34,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "05a590e3f59a33f28d7bbe9ccfaa15744195dda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
