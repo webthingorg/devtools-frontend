@@ -73,7 +73,7 @@ export class DebuggerModel extends SDKModel {
     this._debuggerId = null;
     /** @type {number} */
     this._skipAllPausesTimeout = 0;
-    /** @type {(function(!DebuggerPausedDetails):boolean)|null} */
+    /** @type {(function(!DebuggerPausedDetails):!Promise<boolean>)|null} */
     this._beforePausedCallback = null;
 
     /** @type {!Common.ObjectWrapper.ObjectWrapper} */
@@ -556,14 +556,14 @@ export class DebuggerModel extends SDKModel {
 
   /**
    * @param {?DebuggerPausedDetails} debuggerPausedDetails
-   * @return {boolean}
+   * @return {!Promise<boolean>}
    */
-  _setDebuggerPausedDetails(debuggerPausedDetails) {
+  async _setDebuggerPausedDetails(debuggerPausedDetails) {
     this._isPausing = false;
     this._debuggerPausedDetails = debuggerPausedDetails;
     if (this._debuggerPausedDetails) {
       if (this._beforePausedCallback) {
-        if (!this._beforePausedCallback.call(null, this._debuggerPausedDetails)) {
+        if (!(await this._beforePausedCallback.call(null, this._debuggerPausedDetails))) {
           return false;
         }
       }
@@ -571,9 +571,7 @@ export class DebuggerModel extends SDKModel {
       // step-over marker.
       this._autoStepOver = false;
       this.dispatchEventToListeners(Events.DebuggerPaused, this);
-    }
-    if (debuggerPausedDetails) {
-      this.setSelectedCallFrame(debuggerPausedDetails.callFrames[0]);
+      this.setSelectedCallFrame(this._debuggerPausedDetails.callFrames[0]);
     } else {
       this.setSelectedCallFrame(null);
     }
@@ -581,7 +579,7 @@ export class DebuggerModel extends SDKModel {
   }
 
   /**
-   * @param {?function(!DebuggerPausedDetails):boolean} callback
+   * @param {?function(!DebuggerPausedDetails):!Promise<boolean>} callback
    */
   setBeforePausedCallback(callback) {
     this._beforePausedCallback = callback;
@@ -629,7 +627,7 @@ export class DebuggerModel extends SDKModel {
       }
     }
 
-    if (!this._setDebuggerPausedDetails(pausedDetails)) {
+    if (!(await this._setDebuggerPausedDetails(pausedDetails))) {
       if (this._autoStepOver) {
         this._agent.invoke_stepOver();
       } else {
