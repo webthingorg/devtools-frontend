@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "f6dd104c_86b9516d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-15T11:01:01Z",
+      "side": 1,
+      "message": "I\u0027ve sticked to the order in Peter\u0027s message proposal, but I could of course change it without any problem",
+      "parentUuid": "2fd581b6_d28bb1ee",
+      "revId": "cf7492e6631dc4173605231cdbb60cb434bee6e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5aa8679_df788cdd",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 2
@@ -47,6 +65,30 @@
       "writtenOn": "2020-07-15T06:18:56Z",
       "side": 1,
       "message": "nit: I think we still should translate this.",
+      "range": {
+        "startLine": 264,
+        "startChar": 25,
+        "endLine": 264,
+        "endChar": 34
+      },
+      "revId": "cf7492e6631dc4173605231cdbb60cb434bee6e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2d35b9a_f74e480b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-15T11:01:01Z",
+      "side": 1,
+      "message": "What do you mean?",
+      "parentUuid": "c5aa8679_df788cdd",
       "range": {
         "startLine": 264,
         "startChar": 25,
