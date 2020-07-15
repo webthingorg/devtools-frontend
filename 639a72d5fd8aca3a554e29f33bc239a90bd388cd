@@ -16,6 +16,138 @@
       "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddaa0345_d73e7204",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T15:45:18Z",
+      "side": 1,
+      "message": "Lots of minor comments but LGTM !",
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ca7411_97396947",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T15:45:18Z",
+      "side": 1,
+      "message": "this is a nit, and maybe it\u0027s just me, but I wonder if \"Rule:\" or \"Convention\" is clearer than \"invariant\" ?",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2f98358_31bdb746",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T15:45:18Z",
+      "side": 1,
+      "message": "is it worth being super explicit about what a module is here? e.g. `front_end/common` is considered a module, with `front_end/common/common.js` considered the entrypoint?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 115
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b10532b8_236d30de",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T15:45:18Z",
+      "side": 1,
+      "message": "worth explaining this naming convention?",
+      "range": {
+        "startLine": 42,
+        "startChar": 21,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "212bf3e6_c6be09fa",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T15:45:18Z",
+      "side": 1,
+      "message": "for clarity: \"typescriptified\" here means \"it is a .js file that TypeScript typechecks successfully\" ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88728b22_152c49ea",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-15T15:45:18Z",
+      "side": 1,
+      "message": "for this (and for \"module implementation files\") it\u0027d be nice to show an example for your dummy \"my_module\", so that if I\u0027m adding a module each step in this doc has an example I can copy/paste as my starting point",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 15
+      },
+      "revId": "639a72d5fd8aca3a554e29f33bc239a90bd388cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
