@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d20c364_efd6d660",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-16T01:49:33Z",
+      "side": 1,
+      "message": "Hello, this CL includes the implementation of how the source order should be drawn on the overlay canvas, and some tests to make sure everything works. Ptal, thanks!",
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
