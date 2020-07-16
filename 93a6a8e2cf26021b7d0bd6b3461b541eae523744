@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dbac927_bde1dc9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T14:25:10Z",
+      "side": 1,
+      "message": "LGTM\n\nI\u0027m still torn between CSS.escape vs. quoting everything. E.g. CSS.escape(\u0027456 Berea Street\u0027) produces `\\34 56\\ Berea\\ Street` which might not be what you expect for autocompletion.",
+      "revId": "93a6a8e2cf26021b7d0bd6b3461b541eae523744",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed310b7c_c4c23102",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T14:25:10Z",
+      "side": 1,
+      "message": "Let\u0027s merge this with the .map() above, to avoid double iteration. If we want to keep the actions per line down to a minimum, we could do\n\n    const fontFaces \u003d ...;\n    const escapedFontFamilies \u003d ....map(font \u003d\u003e CSS.escape(font.getFontFamily()));\n    this._cssCompletions.unshift(...escapedFontFamilies);",
+      "revId": "93a6a8e2cf26021b7d0bd6b3461b541eae523744",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
