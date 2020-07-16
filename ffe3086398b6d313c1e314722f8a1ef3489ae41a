@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc0a9bf9_6f9ce29a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T06:31:44Z",
+      "side": 1,
+      "message": "so extensions depend on components, components depend on bindings and bindings depend on extensions, is that right? Can we avoid the cycle -- e.g. have DebuggerLanguageExtensionPlugin implemented in extensions/?",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39fe35b8_e62e16e6",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T06:31:44Z",
+      "side": 1,
+      "message": "you\u0027re accessing a field that is meant to be private to module here. Let\u0027s have some wrapper method on the debugger model for this.",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57941381_02a3c550",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T06:31:44Z",
+      "side": 1,
+      "message": "nit: you only need the try-catch block around the plugin call, don\u0027t you?",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6008aacf_9e054974",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T06:31:44Z",
+      "side": 1,
+      "message": "here and below: these parameters essentially define your API exposed to the extensions, it\u0027s unfortunate to have them not listed explicitly anywhere under extensions/, this may mean someone may accidentally change them without realizing they change the public interface. Let\u0027s have them explicit (or maybe you can just merge this class with DebuggerLanguageExtensionPlugin?)",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5dffd98_b885d6e8",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T06:31:44Z",
+      "side": 1,
+      "message": "Hmm.. This looks quite surprising. Why do we need it and how is this supposed to work with OOPIF? Besides, if you\u0027re injecting the API upon onload, it\u0027s already too late for most extensions.",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
