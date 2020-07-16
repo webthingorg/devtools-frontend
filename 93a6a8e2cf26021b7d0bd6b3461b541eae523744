@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "03f10df2_5d746d24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-16T14:27:47Z",
+      "side": 1,
+      "message": "Hm, I am not sure either... it looks not so nice with CSS.escape https://i.imgur.com/MFnaMj5.png",
+      "parentUuid": "5dbac927_bde1dc9d",
+      "revId": "93a6a8e2cf26021b7d0bd6b3461b541eae523744",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed310b7c_c4c23102",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 3
