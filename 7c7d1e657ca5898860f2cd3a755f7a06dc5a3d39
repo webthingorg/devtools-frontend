@@ -16,6 +16,23 @@
       "revId": "7c7d1e657ca5898860f2cd3a755f7a06dc5a3d39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9683e15e_3536ac39",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2354,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T13:40:50Z",
+      "side": 1,
+      "message": "readability: `includes()`",
+      "revId": "7c7d1e657ca5898860f2cd3a755f7a06dc5a3d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
