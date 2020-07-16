@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6a56a2e_8b504fa5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-16T08:38:23Z",
+      "side": 1,
+      "message": "PTAL; this is step 0 for the grouping and the performance work.",
+      "revId": "4bf8e04e844ecf6e4ff886b957fb320a5ffcc5c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
