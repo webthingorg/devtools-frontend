@@ -434,8 +434,10 @@ export class OverlayModel extends SDKModel {
       columnHatchColor: showGridColumnGaps ? Common.Color.PageHighlight.GridColumnGapHatch.toProtocolRGBA() : undefined,
       gridBorderColor: showGridBorder ? Common.Color.PageHighlight.GridBorder.toProtocolRGBA() : undefined,
       gridBorderDash: gridBorderDashed,
-      cellBorderColor: showGridLines ? Common.Color.PageHighlight.GridCellBorder.toProtocolRGBA() : undefined,
-      cellBorderDash: gridLinesDashed,
+      rowLineColor: showGridLines ? Common.Color.PageHighlight.GridRowLine.toProtocolRGBA() : undefined,
+      columnLineColor: showGridLines ? Common.Color.PageHighlight.GridColumnLine.toProtocolRGBA() : undefined,
+      rowLineDash: gridLinesDashed,
+      columnLineDash: gridLinesDashed,
       showGridExtensionLines,
       showPositiveLineNumbers,
       showNegativeLineNumbers,
@@ -516,6 +518,18 @@ export class OverlayModel extends SDKModel {
         showAreaNames: true,
         areaBorderColor: Common.Color.PageHighlight.GridAreaBorder.toProtocolRGBA()
       };
+    }
+
+    if (mode === 'grid-template-columns' && this._gridFeaturesExperimentEnabled) {
+      highlightConfig.contentColor = Common.Color.PageHighlight.Content.toProtocolRGBA();
+      highlightConfig.gridHighlightConfig = {
+        columnLineColor: Common.Color.PageHighlight.GridColumnLine.toProtocolRGBA()
+      };
+    }
+
+    if (mode === 'grid-template-rows' && this._gridFeaturesExperimentEnabled) {
+      highlightConfig.contentColor = Common.Color.PageHighlight.Content.toProtocolRGBA();
+      highlightConfig.gridHighlightConfig = {rowLineColor: Common.Color.PageHighlight.GridRowLine.toProtocolRGBA()};
     }
 
     // the backend does not support the 'original' format because
