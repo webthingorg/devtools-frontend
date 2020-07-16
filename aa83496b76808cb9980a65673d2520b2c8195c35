@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07bc220e_b2011719",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-16T09:00:58Z",
+      "side": 1,
+      "message": "I like the idea of the JS being checked in upstream such that roll_deps handles it - I think that\u0027s the cleanest way to do it. Anything else feels more error prone.\n\nAgree that third_party then makes sense as a destination because the linting, etc, won\u0027t run on there. \n\n",
+      "revId": "aa83496b76808cb9980a65673d2520b2c8195c35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
