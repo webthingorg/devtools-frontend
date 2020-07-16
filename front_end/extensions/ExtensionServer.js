@@ -51,6 +51,164 @@ const kAllowedOrigins = [
 ].map(url => (new URL(url)).origin);
 
 /**
+ * @implements {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePlugin}
+ */
+export class LanguageExtensionEndpoint {
+  /**
+   * @param {!ExtensionServer} extensionServer
+   * @param {string} pluginName
+   * @param {!{language: string, symbol_types: !Array<string>}} supportedScriptTypes
+   * @param {!MessagePort} port
+   */
+  constructor(extensionServer, pluginName, supportedScriptTypes, port) {
+    this._commands = Extensions.extensionAPI.LanguageExtensionPluginCommands;
+    this._extensionServer = extensionServer;
+    this._pluginName = pluginName;
+    this._supportedScriptTypes = supportedScriptTypes;
+    this._port = port;
+    this._port.onmessage = this._onResponse.bind(this);
+    this._nextRequestId = 0;
+    this._pendingRequests = new Map();
+  }
+
+  /**
+   * @param {string} method
+   * @param {*} parameters
+   * @return {!Promise<*>}
+   */
+  _sendRequest(method, parameters) {
+    return new Promise((resolve, reject) => {
+      const requestId = this._nextRequestId++;
+      this._pendingRequests.set(requestId, {resolve, reject});
+      this._port.postMessage({requestId, method, parameters});
+    });
+  }
+
+  _onResponse({data: {requestId, result, error}}) {
+    if (!this._pendingRequests.has(requestId)) {
+      console.error(`No pending request ${requestId}`);
+      return;
+    }
+    const {resolve, reject} = this._pendingRequests.get(requestId);
+    this._pendingRequests.delete(requestId);
+    if (error) {
+      reject(new Error(error.message));
+    } else {
+      resolve(result);
+    }
+  }
+
+  /**
+   * @override
+   * @param {!SDK.Script.Script} script
+   * @return {boolean} True if this plugin should handle this script
+   */
+  handleScript(script) {
+    const language = script.scriptLanguage();
+    return !!language && !!script.debugSymbols && language === this._supportedScriptTypes.language &&
+        this._supportedScriptTypes.symbol_types.includes(script.debugSymbols.type);
+  }
+
+  /** Notify the plugin about a new script
+   * @override
+   * @param {string} rawModuleId
+   * @param {string} symbolsURL - URL of a file providing the debug symbols for this module
+   * @param {!Bindings.DebuggerLanguagePlugins.RawModule} rawModule
+   * @return {!Promise<!Array<string>>} - An array of URLs for the source files for the raw module
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+  */
+  addRawModule(rawModuleId, symbolsURL, rawModule) {
+    try {
+      return /** @type {!Promise<!Array<string>>} */ (
+          this._sendRequest(this._commands.AddRawModule, {rawModuleId, symbolsURL, rawModule}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /**
+   * Notifies the plugin that a script is removed.
+   * @param {string} rawModuleId
+   * @return {!Promise<undefined>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+   */
+  removeRawModule(rawModuleId) {
+    try {
+      return /** @type {!Promise<undefined>} */ (this._sendRequest(this._commands.RemoveRawModule, {rawModuleId}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /** Find locations in raw modules from a location in a source file
+   * @override
+   * @param {!Bindings.DebuggerLanguagePlugins.SourceLocation} sourceLocation
+   * @return {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.RawLocationRange>>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+  */
+  sourceLocationToRawLocation(sourceLocation) {
+    try {
+      return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.RawLocationRange>>} */ (
+          this._sendRequest(this._commands.SourceLocationToRawLocation, {sourceLocation}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /** Find locations in source files from a location in a raw module
+   * @override
+   * @param {!Bindings.DebuggerLanguagePlugins.RawLocation} rawLocation
+   * @return {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.SourceLocation>>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+  */
+  rawLocationToSourceLocation(rawLocation) {
+    try {
+      return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.SourceLocation>>} */ (
+          this._sendRequest(this._commands.RawLocationToSourceLocation, {rawLocation}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /** List all variables in lexical scope at a given location in a raw module
+   * @override
+   * @param {!Bindings.DebuggerLanguagePlugins.RawLocation} rawLocation
+   * @return {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.Variable>>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+  */
+  listVariablesInScope(rawLocation) {
+    try {
+      return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.Variable>>} */ (
+          this._sendRequest(this._commands.ListVariablesInScope, {rawLocation}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /** Evaluate the content of a variable in a given lexical scope
+   * @override
+   * @param {string} name
+   * @param {!Bindings.DebuggerLanguagePlugins.RawLocation} location
+   * @return {!Promise<?Bindings.DebuggerLanguagePlugins.RawModule>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+  */
+  evaluateVariable(name, location) {
+    try {
+      return /** @type {!Promise<?Bindings.DebuggerLanguagePlugins.RawModule>}*/ (
+          this._sendRequest(this._commands.EvaluateVariable, {name, location}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /**
+   * @override
+   */
+  dispose() {
+  }
+}
+
+/**
  * @unrestricted
  */
 export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
@@ -107,6 +265,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     this._registerHandler(commands.OpenResource, this._onOpenResource.bind(this));
     this._registerHandler(commands.Unsubscribe, this._onUnsubscribe.bind(this));
     this._registerHandler(commands.UpdateButton, this._onUpdateButton.bind(this));
+    this._registerHandler(commands.RegisterLanguageExtensionPlugin, this._registerLanguageExtensionEndpoint.bind(this));
     window.addEventListener('message', this._onWindowMessage.bind(this), false);  // Only for main window.
 
     /** @suppress {checkTypes} */
@@ -119,6 +278,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.SetInspectedTabId, this._setInspectedTabId, this);
 
+    this._languageExtensionRequests = new Map();
+    /** @type {!Array<!LanguageExtensionEndpoint>} */
+    this._languageExtensionEndpoints = [];
     this._initExtensions();
   }
 
@@ -162,6 +324,20 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    */
   notifyButtonClicked(identifier) {
     this._postNotification(Extensions.extensionAPI.Events.ButtonClicked + identifier);
+  }
+
+  _registerLanguageExtensionEndpoint(message, shared_port) {
+    const {pluginName, port, supportedScriptTypes: {language, symbol_types}} = message;
+    const symbol_types_array = /** @type !Array<string> */
+        (Array.isArray(symbol_types) && symbol_types.every(e => typeof e === 'string') ? symbol_types : []);
+    const extension =
+        new LanguageExtensionEndpoint(this, pluginName, {language, symbol_types: symbol_types_array}, port);
+    this._languageExtensionEndpoints.push(extension);
+    this.dispatchEventToListeners(Events.LanguageExtensionEndpointAdded, extension);
+  }
+
+  get languageExtensionEndpoints() {
+    return this._languageExtensionEndpoints;
   }
 
   _inspectedURLChanged(event) {
@@ -755,9 +931,10 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     try {
       const startPageURL = new URL(/** @type {string} */ (startPage));
       const extensionOrigin = startPageURL.origin;
+      let injectedAPI;
       if (!this._registeredExtensions.get(extensionOrigin)) {
         // See ExtensionAPI.js for details.
-        const injectedAPI = self.buildExtensionAPIInjectedScript(
+        injectedAPI = self.buildExtensionAPIInjectedScript(
             /** @type {!{startPage: string, name: string, exposeExperimentalAPIs: boolean}} */ (extensionInfo),
             this._inspectedTabId, self.UI.themeSupport.themeName(), self.UI.shortcutRegistry.globalShortcutKeys(),
             self.Extensions.extensionServer['_extensionAPITestHook']);
@@ -768,6 +945,11 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
       }
       const iframe = createElement('iframe');
       iframe.src = startPage;
+      if (Host.InspectorFrontendHost.InspectorFrontendHostInstance.isHostedMode()) {
+        iframe.onload = e => {
+          e.target.contentWindow.eval(`${injectedAPI}()`);
+        };
+      }
       iframe.style.display = 'none';
       document.body.appendChild(iframe);  // Only for main window.
     } catch (e) {
@@ -1045,7 +1227,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
 /** @enum {symbol} */
 export const Events = {
   SidebarPaneAdded: Symbol('SidebarPaneAdded'),
-  TraceProviderAdded: Symbol('TraceProviderAdded')
+  TraceProviderAdded: Symbol('TraceProviderAdded'),
+  LanguageExtensionEndpointAdded: Symbol('LanguageExtensionEndpointAdded')
 };
 
 /**
