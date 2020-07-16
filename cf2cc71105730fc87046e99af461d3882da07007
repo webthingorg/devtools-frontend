@@ -16,6 +16,24 @@
       "revId": "cf2cc71105730fc87046e99af461d3882da07007",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100c99f5_2e963b7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-07-16T06:57:21Z",
+      "side": 1,
+      "message": "Same as the first one. Waiting on this CL to complete first https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2239739\nso we can make sure things match up. :)",
+      "parentUuid": "c0624279_039d57e9",
+      "revId": "cf2cc71105730fc87046e99af461d3882da07007",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
