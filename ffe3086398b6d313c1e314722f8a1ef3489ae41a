@@ -209,6 +209,24 @@
       "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c3d4217_b3101ec2",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "Thanks for the explanation, I think it\u0027s ok for tests, but can we make it more explicit that this is a test only? I\u0027m not familiar with the the e2e test support, but perhaps we have some kind of flag defined that this runs under tests?",
+      "parentUuid": "2d7d8039_52b62c03",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

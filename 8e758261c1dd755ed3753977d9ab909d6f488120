@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46f616b9_f44cd317",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "lgtm!",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33a3f565_3ab9f233",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "I wonder if it\u0027s possible to reverse this dependency as well.",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a941aa51_a97ec982",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "ditto.",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afae3f6b_7ed77c15",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "nit: so the lambda in the second argument gets executed immediately? Can this be unrolled for better readability? I.e. consider extracting a named method and/or running some of the logic before L521.",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec334ce2_c02c6f9c",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "nit: we often put this as \nfor (const variable of variables || [])\nto reduce nesting level.",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bfe476d_a1a4ff43",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "should this be after L616?",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9cc7a3c_07bae809",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2020-07-16T19:39:10Z",
+      "side": 1,
+      "message": "This probably deserves a file of its own.",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
