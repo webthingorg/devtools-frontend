@@ -16,6 +16,24 @@
       "revId": "a2b49662c0d2d979912de5e924144315685112e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7da198be_f5ab4f1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-16T13:12:35Z",
+      "side": 1,
+      "message": "I don\u0027t think we do - I think just the sourcemap is enough. @Tim is that right?",
+      "parentUuid": "06495c9d_420b8796",
+      "revId": "a2b49662c0d2d979912de5e924144315685112e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
