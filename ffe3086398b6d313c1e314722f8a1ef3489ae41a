@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "db84e9c4_5228b893",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-16T10:42:53Z",
+      "side": 1,
+      "message": "Addressed the nits and moved the plugin implementation into ExtensionServer.js",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc0a9bf9_6f9ce29a",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 17
@@ -16,6 +33,24 @@
       "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc40d4a1_41cf8c88",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-16T10:42:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0a9bf9_6f9ce29a",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -36,6 +71,42 @@
     },
     {
       "key": {
+        "uuid": "0833b1d9_56e611d7",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-16T10:42:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39fe35b8_e62e16e6",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2997e9bd_5f76a397",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-16T10:42:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39fe35b8_e62e16e6",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57941381_02a3c550",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 17
@@ -50,6 +121,24 @@
       "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "714d3fa8_6c4b9fe9",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-16T10:42:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57941381_02a3c550",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "9efd5b1f_d24f7c92",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-16T10:42:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6008aacf_9e054974",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5dffd98_b885d6e8",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 17
@@ -81,6 +188,24 @@
       "writtenOn": "2020-07-16T06:31:44Z",
       "side": 1,
       "message": "Hmm.. This looks quite surprising. Why do we need it and how is this supposed to work with OOPIF? Besides, if you\u0027re injecting the API upon onload, it\u0027s already too late for most extensions.",
+      "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d7d8039_52b62c03",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-16T10:42:53Z",
+      "side": 1,
+      "message": "What I was trying to do here is to inject the script via onload only within the context of our e2e tests, which run devtools in hosted mode. I\u0027m aware that hosted mode is not the optimal check, but I don\u0027t think we have anything better. Please correct me if I\u0027m wrong here!\n\nFWIW, I believe that in hosted mode proper extensions aren\u0027t reported to devtools, which is why the injection doesn\u0027t happen outside of testing.",
+      "parentUuid": "d5dffd98_b885d6e8",
       "revId": "ffe3086398b6d313c1e314722f8a1ef3489ae41a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
