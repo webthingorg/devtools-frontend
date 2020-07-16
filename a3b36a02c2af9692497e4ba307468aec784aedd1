@@ -16,6 +16,23 @@
       "revId": "a3b36a02c2af9692497e4ba307468aec784aedd1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2672f0c_7b77493c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-16T10:01:07Z",
+      "side": 1,
+      "message": "Added the fix which Tim has verified for me (I cannot remote desktop atm to test myself).\n\nWe have an outstanding crbug around check_gn not catching these which is quite high on our infra list to fix: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1105861\u0026q\u003dcheck_gn\u0026can\u003d2",
+      "revId": "a3b36a02c2af9692497e4ba307468aec784aedd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
