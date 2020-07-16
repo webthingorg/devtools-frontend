@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "30a2ed7e_203691c1",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-16T12:26:29Z",
+      "side": 1,
+      "message": "The `devtools_entrypoint` uses a normal `deps` in GN land, so I don\u0027t think we need to explicitly include it here?",
+      "parentUuid": "894d2353_4931873f",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 31
+      },
+      "revId": "30ca906f959a43cd4eb13a76f38a374f2bc79633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35c5d94c_80c2215b",
         "filename": "scripts/build/ninja/README.md",
         "patchSetId": 2
@@ -62,6 +86,30 @@
       "revId": "30ca906f959a43cd4eb13a76f38a374f2bc79633",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15fcb043_abb1b546",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-16T12:26:29Z",
+      "side": 1,
+      "message": "I am not sure what you mean. I would like to submit this now, but feel free to send a follow-up CL with your proposed updates to the documentation.",
+      "parentUuid": "35c5d94c_80c2215b",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 31
+      },
+      "revId": "30ca906f959a43cd4eb13a76f38a374f2bc79633",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
