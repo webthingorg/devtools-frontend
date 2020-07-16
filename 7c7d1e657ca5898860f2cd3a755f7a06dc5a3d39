@@ -51,6 +51,24 @@
       "revId": "7c7d1e657ca5898860f2cd3a755f7a06dc5a3d39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "382f33c9_d8e7ebee",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2354,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T13:47:42Z",
+      "side": 1,
+      "message": "I feel personally attacked :D",
+      "parentUuid": "fb44f396_2d492f90",
+      "revId": "7c7d1e657ca5898860f2cd3a755f7a06dc5a3d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
