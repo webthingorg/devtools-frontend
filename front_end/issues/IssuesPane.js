@@ -209,11 +209,17 @@ class AffectedDirectivesView extends AffectedResourcesView {
    */
   _appendAffectedDirectives(cspViolations) {
     const header = document.createElement('tr');
-    const info = document.createElement('td');
-    info.classList.add('affected-resource-header');
-    info.classList.add('affected-resource-directive-info-header');
-    info.textContent = ls`Resource`;
-    header.appendChild(info);
+    if (cspViolations.size > 0) {
+      const violationIterator = cspViolations.values();
+      const firstCSPViolation = violationIterator.next().value;
+      if (firstCSPViolation.blockedURL) {
+        const info = document.createElement('td');
+        info.classList.add('affected-resource-header');
+        info.classList.add('affected-resource-directive-info-header');
+        info.textContent = ls`Resource`;
+        header.appendChild(info);
+      }
+    }
     const name = document.createElement('td');
     name.classList.add('affected-resource-header');
     name.textContent = ls`Directive`;
@@ -236,15 +242,16 @@ class AffectedDirectivesView extends AffectedResourcesView {
    */
   appendAffectedDirective(cspViolation) {
     const url = cspViolation.blockedURL;
-    if (url) {
       const element = document.createElement('tr');
       element.classList.add('affected-resource-directive');
       const name = document.createElement('td');
       name.textContent = cspViolation.violatedDirective;
-      const info = document.createElement('td');
-      info.classList.add('affected-resource-directive-info');
-      info.textContent = url;
-      element.appendChild(info);
+      if (url) {
+        const info = document.createElement('td');
+        info.classList.add('affected-resource-directive-info');
+        info.textContent = url;
+        element.appendChild(info);
+      }
       element.appendChild(name);
       const sourceCodeLocation = cspViolation.sourceCodeLocation;
       if (sourceCodeLocation) {
@@ -258,7 +265,6 @@ class AffectedDirectivesView extends AffectedResourcesView {
         element.appendChild(sourceLocation);
       }
       this._affectedResources.appendChild(element);
-    }
   }
 
   /**
