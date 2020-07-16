@@ -197,26 +197,20 @@ export function drawLayoutGridHighlight(highlight, context) {
     context.restore();
   }
 
-  // Draw Cell Border
-  if (highlight.gridHighlightConfig.cellBorderColor) {
+  // Draw grid lines
+  if (highlight.gridHighlightConfig.rowLineColor) {
     const rowBounds = emptyBounds();
-    const columnBounds = emptyBounds();
     const rowPath = buildPath(highlight.rows, rowBounds);
-    const columnPath = buildPath(highlight.columns, columnBounds);
     context.save();
     context.translate(0.5, 0.5);
-    if (highlight.gridHighlightConfig.cellBorderDash) {
+    if (highlight.gridHighlightConfig.rowLineDash) {
       context.setLineDash([3, 3]);
     }
     context.lineWidth = 0;
-    context.strokeStyle = highlight.gridHighlightConfig.cellBorderColor;
+    context.strokeStyle = highlight.gridHighlightConfig.rowLineColor;
 
     context.save();
     context.stroke(rowPath);
-    context.restore();
-
-    context.save();
-    context.stroke(columnPath);
     context.restore();
 
     context.restore();
@@ -225,19 +219,40 @@ export function drawLayoutGridHighlight(highlight, context) {
       // Extend row gap lines left/up.
       drawRulers(
           context, rowBounds, /* rulerAtRight */ false, /* rulerAtBottom */ false,
-          highlight.gridHighlightConfig.cellBorderColor, highlight.gridHighlightConfig.cellBorderDash);
+          highlight.gridHighlightConfig.rowLineColor, highlight.gridHighlightConfig.rowLineDash);
       // Extend row gap right/down.
       drawRulers(
           context, rowBounds, /* rulerAtRight */ true, /* rulerAtBottom */ true,
-          highlight.gridHighlightConfig.cellBorderColor, highlight.gridHighlightConfig.cellBorderDash);
+          highlight.gridHighlightConfig.rowLineColor, highlight.gridHighlightConfig.rowLineDash);
+    }
+  }
+
+  if (highlight.gridHighlightConfig.columnLineColor) {
+    const columnBounds = emptyBounds();
+    const columnPath = buildPath(highlight.columns, columnBounds);
+    context.save();
+    context.translate(0.5, 0.5);
+    if (highlight.gridHighlightConfig.columnLineDash) {
+      context.setLineDash([3, 3]);
+    }
+    context.lineWidth = 0;
+    context.strokeStyle = highlight.gridHighlightConfig.columnLineColor;
+
+    context.save();
+    context.stroke(columnPath);
+    context.restore();
+
+    context.restore();
+
+    if (highlight.gridHighlightConfig.showGridExtensionLines) {
       // Extend column lines left/up.
       drawRulers(
           context, columnBounds, /* rulerAtRight */ false, /* rulerAtBottom */ false,
-          highlight.gridHighlightConfig.cellBorderColor, highlight.gridHighlightConfig.cellBorderDash);
+          highlight.gridHighlightConfig.columnLineColor, highlight.gridHighlightConfig.columnLineDash);
       // Extend column right/down.
       drawRulers(
           context, columnBounds, /* rulerAtRight */ true, /* rulerAtBottom */ true,
-          highlight.gridHighlightConfig.cellBorderColor, highlight.gridHighlightConfig.cellBorderDash);
+          highlight.gridHighlightConfig.columnLineColor, highlight.gridHighlightConfig.columnLineDash);
     }
   }
 
