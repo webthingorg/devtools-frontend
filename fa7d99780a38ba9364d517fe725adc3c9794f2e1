@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75953057_0c470004",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-16T22:14:53Z",
+      "side": 1,
+      "message": "Couple of comments about moving some of the logic to the backend for consistency with other label calculations. Let me know what you think!",
+      "revId": "fa7d99780a38ba9364d517fe725adc3c9794f2e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2a336e9_4c5187e1",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-16T22:14:53Z",
+      "side": 1,
+      "message": "left a comment in the backend CL about moving this calculation to the backend.",
+      "range": {
+        "startLine": 252,
+        "startChar": 2,
+        "endLine": 254,
+        "endChar": 16
+      },
+      "revId": "fa7d99780a38ba9364d517fe725adc3c9794f2e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90988307_ea4c49a9",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-16T22:14:53Z",
+      "side": 1,
+      "message": "Wdyt about splitting out adding the setting into a separate CL? at the moment, if this lands first we might add settings that don\u0027t do anything until the backend support exists. May not be necessary if we land backend support first",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 6
+      },
+      "revId": "fa7d99780a38ba9364d517fe725adc3c9794f2e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
