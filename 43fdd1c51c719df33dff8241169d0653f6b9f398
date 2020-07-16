@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "b672a4c8_637148ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-07-16T06:56:18Z",
+      "side": 1,
+      "message": "Waiting on this CL to complete first https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2239739\nso we can make sure things match up.",
+      "parentUuid": "8e7df671_164c473b",
+      "revId": "43fdd1c51c719df33dff8241169d0653f6b9f398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bcfa2c6_16f65d12",
         "filename": "scripts/localization/check_localizable_resources.js",
         "patchSetId": 12
