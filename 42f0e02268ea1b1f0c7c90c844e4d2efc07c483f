@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa874af1_8f6aeb5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T09:37:14Z",
+      "side": 1,
+      "message": "Yes, great catch, I think I fixed it! The problem is that showView doesn\u0027t trigger an update if the view is already showing.",
+      "parentUuid": "bbd5452d_39073984",
+      "revId": "42f0e02268ea1b1f0c7c90c844e4d2efc07c483f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4b04f4d_d820e858",
         "filename": "front_end/resources/FrameDetailsView.js",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "42f0e02268ea1b1f0c7c90c844e4d2efc07c483f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c074ac8_ea5d8046",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T09:37:14Z",
+      "side": 1,
+      "message": "We can get away with one handler that just reads the current value from the field. Note that moving this down to doUpdate() would add new listeners to this._ownerElementFieldValue on each update.\n\nThe other listeners below are not a problem, because they are added to child elements of this._urlFieldValue, which are cleared on every update (L42).",
+      "parentUuid": "c4b04f4d_d820e858",
+      "revId": "42f0e02268ea1b1f0c7c90c844e4d2efc07c483f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
