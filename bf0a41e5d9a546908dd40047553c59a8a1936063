@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "d9d8c0a9_9d5ecbd8",
+        "filename": "scripts/component_bridges/client_variations_proto.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T06:35:46Z",
+      "side": 1,
+      "message": "Since it\u0027s generated code, I think we should just put it in third_party. My other comment elaborates on this.",
+      "parentUuid": "ded2c2ca_6a5ce460",
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e304304a_39eae297",
         "filename": "scripts/component_bridges/client_variations_proto.js",
         "patchSetId": 1
@@ -59,6 +77,30 @@
     },
     {
       "key": {
+        "uuid": "04a35ee7_e8f628b8",
+        "filename": "scripts/component_bridges/client_variations_proto.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T06:35:46Z",
+      "side": 1,
+      "message": "This is fine 👍\n\nIn an ideal world we\u0027d do\n\n    export function parseClientVariations(data) {\n      // parse() logic inlined here\n    }\n\n...but I guess that this is just the output JSCompiler produces for exports?",
+      "parentUuid": "e304304a_39eae297",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0cfd0a7_8b5db295",
         "filename": "test/unittests/scripts/component_bridges/client_variations_proto_test.js",
         "patchSetId": 1
@@ -70,6 +112,24 @@
       "writtenOn": "2020-07-16T00:45:07Z",
       "side": 1,
       "message": "I have not run these tests, because I couldn\u0027t figure out how to do so. The docs that I found give a single command, \"npm run auto-unittest\". However, (a) the scripts directory doesn\u0027t seem to be hooked up, and (b) it\u0027s not really clear what tests are being run, nor how to tweak the command to run a specific test. Are there more detailed docs somewhere, or is this just tribal knowledge?\n\n(To re-iterate: I realize that this code probably belongs in a different location, and probably that location is \"easier\" to run tests for. Still, most of what I wrote above applies for tests in the front_end directory as well.)\n\nWhile on the topic of docs: I did not find any docs that explained how to install NPM, including in the Googler onboarding docs. I ended up figuring out *a* way to do so, but the docs really are hard to follow as a new developer in this codebase. Not sure whether anyone is particularly maintaining them?",
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a955ca27_34a384f7",
+        "filename": "test/unittests/scripts/component_bridges/client_variations_proto_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T06:35:46Z",
+      "side": 1,
+      "message": "Looping in Jan, who has been collecting feedback on our docs in order to improve them.\n\nI do think this is not the right directory for this file though. There\u0027s a few options here, but I think it might be easiest to put the generated JS somewhere in `src/third_party/blink/` (along with instructions on where to copy it from).\n\nIf we could tweak https://chromium-review.googlesource.com/c/chromium/src/+/2301121 and check in the generated JS upstream, then we could even have `roll_deps.py` handle it. Does that seem reasonable to you?\n\nAlso looping in Jack who likely has thoughts on this from the Testing \u0026 Architecture side. Jack, PTAL.",
+      "parentUuid": "a0cfd0a7_8b5db295",
       "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
