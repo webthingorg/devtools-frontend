@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8627a5b7_c12d7c21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-16T13:01:51Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think this CL needs {DISABLE_THIRD_PARTY_CHECK} after rebasing on top of master.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 70
+      },
+      "revId": "850577050474e0e946eef53584b900aeeaad53f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1e5a5e_fcd9331f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-16T13:01:51Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "850577050474e0e946eef53584b900aeeaad53f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28b8c2e0_61eb543f",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-16T13:01:51Z",
+      "side": 1,
+      "message": "This should be locked. (\"HTML\" as well, here and below):\n\n\u003cph name\u003d\"LOCKED_1\"\u003e\u0026lt;meta\u0026gt;\u003c/ph\u003e",
+      "range": {
+        "startLine": 124,
+        "startChar": 20,
+        "endLine": 124,
+        "endChar": 32
+      },
+      "revId": "850577050474e0e946eef53584b900aeeaad53f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c31acb0a_5369e779",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-16T13:01:51Z",
+      "side": 1,
+      "message": "This should be locked.",
+      "range": {
+        "startLine": 757,
+        "startChar": 49,
+        "endLine": 757,
+        "endChar": 66
+      },
+      "revId": "850577050474e0e946eef53584b900aeeaad53f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
