@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a0d96dc_0d0704df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T09:46:12Z",
+      "side": 1,
+      "message": "Could you update the screenshot?",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "fa5d0542a45fa8d704544aa6e70e3c640bf7c63b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77b74891_d4c17810",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T09:46:12Z",
+      "side": 1,
+      "message": "What do we want to say here? The proposal doesn\u0027t have a good description either. I\u0027m ok with source code as a working title, but please update the proposal and ping Peter to take a look. Other options would be simply `Source` or `Location`. The point is that we should find a consistent language (which is why Peter should look at it).",
+      "range": {
+        "startLine": 224,
+        "startChar": 36,
+        "endLine": 224,
+        "endChar": 47
+      },
+      "revId": "fa5d0542a45fa8d704544aa6e70e3c640bf7c63b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
