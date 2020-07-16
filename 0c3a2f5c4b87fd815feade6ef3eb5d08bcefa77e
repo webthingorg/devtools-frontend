@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ec7e292_50a56dd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-16T08:15:07Z",
+      "side": 1,
+      "message": "LGTM % nit in the comment",
+      "revId": "0c3a2f5c4b87fd815feade6ef3eb5d08bcefa77e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e79ab01_37db8db2",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-16T08:15:07Z",
+      "side": 1,
+      "message": "Could you reuse _setActiveAuthenticator to change the active authenticator instead of doing it here implicitly?",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 41
+      },
+      "revId": "0c3a2f5c4b87fd815feade6ef3eb5d08bcefa77e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
