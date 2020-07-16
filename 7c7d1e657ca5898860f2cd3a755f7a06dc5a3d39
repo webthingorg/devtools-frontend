@@ -33,6 +33,24 @@
       "revId": "7c7d1e657ca5898860f2cd3a755f7a06dc5a3d39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb44f396_2d492f90",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2354,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-16T13:46:47Z",
+      "side": 1,
+      "message": "Who keeps coming up with all this new APIs? :D",
+      "parentUuid": "9683e15e_3536ac39",
+      "revId": "7c7d1e657ca5898860f2cd3a755f7a06dc5a3d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
