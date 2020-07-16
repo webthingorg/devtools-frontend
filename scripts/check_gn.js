@@ -71,8 +71,10 @@ function checkAllDevToolsFiles() {
 const EXCLUDED_FILE_NAMES = [
   // This file is pre-generated and copied outside of a regular `devtools_entrypoint`.
   'wasm_source_map/pkg/wasm_source_map.js',
-  // Included as part of `elements`
+  // TODO: ignore generated until the import locations are using devtools_{module,entrypoint,pre_built}
   '../generated/SupportedCSSProperties.js',
+  '../generated/ARIAProperties.js',
+  '../generated/InspectorBackendCommands.js',
 ];
 
 function checkAllDevToolsModules() {
@@ -83,7 +85,8 @@ function checkAllDevToolsModules() {
           return [];
         }
         return (moduleJSON.modules || []).filter(fileName => {
-          if (fileName.startsWith('../third_party/codemirror') || fileName.startsWith('../third_party/acorn')) {
+          if (EXCLUDED_FILE_NAMES.includes(fileName) || fileName.startsWith('../third_party/codemirror') ||
+              fileName.startsWith('../third_party/acorn')) {
             return false;
           }
           return fileName !== `${folderName}.js` && fileName !== `${folderName}-legacy.js`;
