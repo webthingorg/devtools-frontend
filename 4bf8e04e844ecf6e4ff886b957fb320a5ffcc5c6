@@ -68,6 +68,24 @@
       "revId": "4bf8e04e844ecf6e4ff886b957fb320a5ffcc5c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ffc7926_4d00a66c",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-16T09:16:22Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e4049fb4_17a295a5",
+      "revId": "4bf8e04e844ecf6e4ff886b957fb320a5ffcc5c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
