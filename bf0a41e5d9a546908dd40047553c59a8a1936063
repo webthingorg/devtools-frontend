@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87e8fec7_92c61a99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-16T00:45:07Z",
+      "side": 1,
+      "message": "Where would y\u0027all like me to place this code? I assume that the \"scripts\" directory is not appropriate; I just picked a random place, as I wasn\u0027t sure where it belonged.",
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ded2c2ca_6a5ce460",
+        "filename": "scripts/component_bridges/client_variations_proto.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-16T00:45:07Z",
+      "side": 1,
+      "message": "The linter really does not like the generated code. Is there a way to opt this code out of linting/formatting?",
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e304304a_39eae297",
+        "filename": "scripts/component_bridges/client_variations_proto.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-16T00:45:07Z",
+      "side": 1,
+      "message": "Is there a terser way to write this? I don\u0027t typically work with ES6 modules.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0cfd0a7_8b5db295",
+        "filename": "test/unittests/scripts/component_bridges/client_variations_proto_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-16T00:45:07Z",
+      "side": 1,
+      "message": "I have not run these tests, because I couldn\u0027t figure out how to do so. The docs that I found give a single command, \"npm run auto-unittest\". However, (a) the scripts directory doesn\u0027t seem to be hooked up, and (b) it\u0027s not really clear what tests are being run, nor how to tweak the command to run a specific test. Are there more detailed docs somewhere, or is this just tribal knowledge?\n\n(To re-iterate: I realize that this code probably belongs in a different location, and probably that location is \"easier\" to run tests for. Still, most of what I wrote above applies for tests in the front_end directory as well.)\n\nWhile on the topic of docs: I did not find any docs that explained how to install NPM, including in the Googler onboarding docs. I ended up figuring out *a* way to do so, but the docs really are hard to follow as a new developer in this codebase. Not sure whether anyone is particularly maintaining them?",
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
