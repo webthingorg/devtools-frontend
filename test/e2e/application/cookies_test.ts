@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
 import {$, click, getBrowserAndPages, getHostedModeServerPort, goToResource, waitFor} from '../../shared/helper.js';
-import {doubleClickSourceTreeItem, getDataGridData, navigateToApplicationTab} from '../helpers/application-helpers.js';
+import {clearStorageItems, clearStorageItemsFilter, doubleClickSourceTreeItem, filterStorageItems, getStorageItemsData, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
 const COOKIES_SELECTOR = '[aria-label="Cookies"]';
 let DOMAIN_SELECTOR: string;
@@ -31,7 +31,7 @@ describe('The Application Tab', async () => {
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);
     await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
 
-    const dataGridRowValues = await getDataGridData('.storage-view table', ['name', 'value']);
+    const dataGridRowValues = await getStorageItemsData(['name', 'value']);
     assert.deepEqual(dataGridRowValues, [
       {
         name: 'foo',
@@ -78,14 +78,49 @@ describe('The Application Tab', async () => {
 
     assert.deepEqual(previewValue1, 'bar');
 
-    // Clear all cookies
-    await waitFor('button[aria-label="Clear All"]');
-    await click('button[aria-label="Clear All"]');
+    await clearStorageItems();
 
     // Make sure that the preview resets
     const previewValueNode2 = await $('.cookie-value');
     const previewValue2 = await previewValueNode2.evaluate(e => e.textContent);
 
     assert.match(previewValue2, /Select a cookie to preview its value/);
+  });
+
+  it('[crbug.com/978059] only clear currently visible cookies', async () => {
+    const {target} = getBrowserAndPages();
+    // This sets a new cookie foo=bar
+    await navigateToApplicationTab(target, 'cookies');
+
+    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
+    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+
+    const dataGridRowValues1 = await getStorageItemsData(['name']);
+    assert.deepEqual(dataGridRowValues1, [
+      {
+        name: 'foo2',
+      },
+      {
+        name: 'foo',
+      },
+      {
+        name: '',
+      },
+    ]);
+
+
+    await filterStorageItems('foo2');
+    await clearStorageItems();
+    await clearStorageItemsFilter();
+
+    const dataGridRowValues2 = await getStorageItemsData(['name']);
+    assert.deepEqual(dataGridRowValues2, [
+      {
+        name: 'foo',
+      },
+      {
+        name: '',
+      },
+    ]);
   });
 });
