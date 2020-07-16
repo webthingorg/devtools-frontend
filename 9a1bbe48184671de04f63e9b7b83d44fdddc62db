@@ -16,6 +16,41 @@
       "revId": "9a1bbe48184671de04f63e9b7b83d44fdddc62db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4251e7ef_e70a5cf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T08:39:18Z",
+      "side": 1,
+      "message": "I agree, having known page-specific font families show up first seems ideal. Let\u0027s move to the start of the list.",
+      "parentUuid": "2b34c1d4_e68e47c7",
+      "revId": "9a1bbe48184671de04f63e9b7b83d44fdddc62db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c183215_3914b04c",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2371,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-16T08:39:18Z",
+      "side": 1,
+      "message": "Readability: there\u0027s a lot going on, all in one line. Let\u0027s split it up a bit:\n\n     const fontFamilies \u003d node.domModel().cssModel().fontFaces().map(font \u003d\u003e font.getFontFamily());\n     this._cssCompletions.push(...fontFamilies);",
+      "revId": "9a1bbe48184671de04f63e9b7b83d44fdddc62db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
