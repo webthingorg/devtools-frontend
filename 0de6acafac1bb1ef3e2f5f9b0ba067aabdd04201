@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfc002be_286b1d3e",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T09:11:55Z",
+      "side": 1,
+      "message": "Are the these still the right selectors?",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 46
+      },
+      "revId": "0de6acafac1bb1ef3e2f5f9b0ba067aabdd04201",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
