@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06495c9d_420b8796",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T13:06:25Z",
+      "side": 1,
+      "message": "To you also want to copy the .ts files that the source maps are referencing?",
+      "revId": "a2b49662c0d2d979912de5e924144315685112e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
