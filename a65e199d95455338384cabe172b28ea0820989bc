@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "017dd817_176869ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-16T12:46:37Z",
+      "side": 1,
+      "message": "More changes to ParsedURL.js and NetworkPersistenceManager.js",
+      "revId": "a65e199d95455338384cabe172b28ea0820989bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

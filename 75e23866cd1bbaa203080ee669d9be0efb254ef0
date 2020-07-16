@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4179476a_cc420fb5",
+        "filename": "front_end/persistence/IsolatedFileSystem.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-16T12:46:37Z",
+      "side": 1,
+      "message": "Yes. Paths in the FileSystem API use \u0027/\u0027 regardless of platform.",
+      "parentUuid": "ef0faee8_641c8c26",
+      "range": {
+        "startLine": 476,
+        "startChar": 4,
+        "endLine": 476,
+        "endChar": 50
+      },
+      "revId": "75e23866cd1bbaa203080ee669d9be0efb254ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5493124_9c010225",
         "filename": "front_end/persistence/IsolatedFileSystem.js",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-10T10:17:06Z",
       "side": 1,
       "message": "Can\u0027t we pass the directory name as well? Or even pass the full path as a 4th parameter as well. Then we wouldn\u0027t have to do indexOf surgery on the path in the callers?",
+      "range": {
+        "startLine": 532,
+        "startChar": 6,
+        "endLine": 532,
+        "endChar": 33
+      },
+      "revId": "75e23866cd1bbaa203080ee669d9be0efb254ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c32e0664_ffb489e2",
+        "filename": "front_end/persistence/IsolatedFileSystem.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-16T12:46:37Z",
+      "side": 1,
+      "message": "If we change the callback a number of callsites and overrides will need to be changed.",
+      "parentUuid": "a5493124_9c010225",
       "range": {
         "startLine": 532,
         "startChar": 6,
@@ -68,6 +116,30 @@
       "revId": "75e23866cd1bbaa203080ee669d9be0efb254ef0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2def6d42_9958431d",
+        "filename": "front_end/workspace/UISourceCode.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-16T12:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e08303ce_dc693257",
+      "range": {
+        "startLine": 148,
+        "startChar": 3,
+        "endLine": 155,
+        "endChar": 7
+      },
+      "revId": "75e23866cd1bbaa203080ee669d9be0efb254ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
