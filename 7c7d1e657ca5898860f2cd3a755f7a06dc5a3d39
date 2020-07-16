@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55ae6e0d_d8e6762d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-16T13:39:41Z",
+      "side": 1,
+      "message": "I have moved font families to the front of the list and made other changes. Also I have enclosed font families with spaces in double quotes so that the value is valid when selected from the autocomplete. PTAL again",
+      "revId": "7c7d1e657ca5898860f2cd3a755f7a06dc5a3d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

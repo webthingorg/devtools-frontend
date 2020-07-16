@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "dc259fcc_03858451",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-16T13:39:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76f2290f_1d05ccfa",
+      "revId": "9a1bbe48184671de04f63e9b7b83d44fdddc62db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c183215_3914b04c",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 1
@@ -87,6 +105,24 @@
       "revId": "9a1bbe48184671de04f63e9b7b83d44fdddc62db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8886c49c_d2919ac0",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2371,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-16T13:39:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b76c45f_99ba2c7d",
+      "revId": "9a1bbe48184671de04f63e9b7b83d44fdddc62db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
