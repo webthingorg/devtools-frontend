@@ -16,6 +16,236 @@
       "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09bd8edf_c9bec4bc",
+        "filename": "front_end/inspector_overlay/tool_source_order.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "Do we need to worry about interactions with other overlay tools? I\u0027m not saying we need to do it in this CL at all, but generally wondering if it\u0027s possible for this overlay to be displayed at the same time as other overlays (such as the grid one, knowing that both source order viewer and grid are going to be persistent, it seems possible).\nIf so, I think we might ned to make these classnames more specific, to avoid collisions. So perhaps rename this class to .source-order-label-container",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a70b3e9a_8c241269",
+        "filename": "front_end/inspector_overlay/tool_source_order.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "Can you explain why 10 is required here? Are there other elements that compete with this one on the z-stack? If so, then please add a comment above this line that explains why it needs to be 10. If not, then perhaps removing the z-index might work, or at least setting it to 1.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 16
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4daca6f7_57377faa",
+        "filename": "front_end/inspector_overlay/tool_source_order.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "This value is repeating throughout. A useful thing would be to define it as a variable in .label-container, like: --border-radius: 4px;\n\nAnd then use it everywhere you need with var(--border-radius)",
+      "range": {
+        "startLine": 28,
+        "startChar": 32,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ba0b544_8f67675a",
+        "filename": "front_end/inspector_overlay/tool_source_order.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "I\u0027m not entirely sure what these bottom, above, wider, taller, etc. terms really mean in this context. I think a comment and ascii-art style drawing would help a lot. See the top of devtools-frontend\\front_end\\inspector_overlay\\css_grid_label_helpers.js for some inspiration.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a88612b0_f62afed3",
+        "filename": "front_end/inspector_overlay/tool_source_order_debug.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "We now have a dedicated folder for debug pages. So this new page should move to /front_end/inspector_overlay/debug/tool_source_order.html",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70388f3_4689b2ae",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "Is this early bail out here to avoid taking un-positioned labels into account?\nIf so, please add a comment to explain this.\nAlso, this may be a rare case, but it could happen that a label *is* positioned, but has a top and left set to 0, because that\u0027s where it was positioned.\nYou could maybe instead check if the element\u0027s style.top and style.left are defined.",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 5
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eddbbcf_f1ef6fb8",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "The if condition here is a bit long, which makes it hard to read. And it seems like we only use the left and right overlaps together. So you could make another const like:\n\n  const sideOverlaps \u003d leftOverlaps || rightOverlaps;\n\nand use this in the if instead:\n\n  if ((topOverlaps \u0026\u0026 sideOverlaps) || (bottomOverlaps \u0026\u0026 sideOverlaps)) { ... }",
+      "range": {
+        "startLine": 116,
+        "startChar": 25,
+        "endLine": 116,
+        "endChar": 54
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fb347cc_d10bcf40",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "We\u0027re only drawing 1 label here, so this function name should be singular.",
+      "range": {
+        "startLine": 146,
+        "startChar": 9,
+        "endLine": 146,
+        "endChar": 31
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95a6ce25_fce7d0c2",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "I guess this could be simplified to:\n\n  highlight.sourceOrder || 0;",
+      "range": {
+        "startLine": 183,
+        "startChar": 22,
+        "endLine": 183,
+        "endChar": 72
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaa72947_2060a7b5",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-16T10:48:40Z",
+      "side": 1,
+      "message": "Maybe I\u0027m misunderstanding here, but I was under the impression that we were only drawing one path per element (whichever was the largest of content, padding and border).\nIf so, do we need to use a for loop?",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 29
+      },
+      "revId": "412b8242c26f6b42320c1f70f34e9101a6180eae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
