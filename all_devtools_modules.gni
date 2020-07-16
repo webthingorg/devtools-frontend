@@ -144,6 +144,7 @@ all_devtools_modules = [
   "inline_editor/ColorSwatch.js",
   "inline_editor/CSSShadowEditor.js",
   "inline_editor/CSSShadowModel.js",
+  "inline_editor/FontEditor.js",
   "inline_editor/SwatchPopoverHelper.js",
   "input/InputModel.js",
   "input/InputTimeline.js",
