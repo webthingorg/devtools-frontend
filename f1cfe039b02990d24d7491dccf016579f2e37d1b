@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "472dc026_094778a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-07-16T13:06:17Z",
+      "side": 1,
+      "message": "Good call! I\u0027ll abandon this frontend CL and just update the backend one.",
+      "parentUuid": "b18a9add_348a5c33",
+      "revId": "f1cfe039b02990d24d7491dccf016579f2e37d1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1d01d72_0e7a819f",
         "filename": "front_end/Tests.js",
         "patchSetId": 4
