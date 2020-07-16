@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbd5452d_39073984",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-16T09:09:27Z",
+      "side": 1,
+      "message": "As discussed, there is a bug where a (OOPIF?) child frame\u0027s details are not updated when refreshing a page while the top frame is selected. Could it be that an update needs to be triggered on frame navigation?",
+      "revId": "42f0e02268ea1b1f0c7c90c844e4d2efc07c483f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4b04f4d_d820e858",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-16T09:09:27Z",
+      "side": 1,
+      "message": "What is the reasoning for not doing this in doUpdate() similar to \"URL\" and \"Origin\"?",
+      "revId": "42f0e02268ea1b1f0c7c90c844e4d2efc07c483f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
