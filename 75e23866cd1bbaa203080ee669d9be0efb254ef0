@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6c1ae750_e6fcc4b3",
+        "filename": "front_end/persistence/IsolatedFileSystem.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T14:11:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4179476a_cc420fb5",
+      "range": {
+        "startLine": 476,
+        "startChar": 4,
+        "endLine": 476,
+        "endChar": 50
+      },
+      "revId": "75e23866cd1bbaa203080ee669d9be0efb254ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5493124_9c010225",
         "filename": "front_end/persistence/IsolatedFileSystem.js",
         "patchSetId": 12
@@ -93,6 +117,30 @@
       "revId": "75e23866cd1bbaa203080ee669d9be0efb254ef0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbb33e5d_be57eb10",
+        "filename": "front_end/persistence/IsolatedFileSystem.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-16T14:11:26Z",
+      "side": 1,
+      "message": "Would it make things simpler? If so, this could be a separate CL (prework for this CL).",
+      "parentUuid": "c32e0664_ffb489e2",
+      "range": {
+        "startLine": 532,
+        "startChar": 6,
+        "endLine": 532,
+        "endChar": 33
+      },
+      "revId": "75e23866cd1bbaa203080ee669d9be0efb254ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
