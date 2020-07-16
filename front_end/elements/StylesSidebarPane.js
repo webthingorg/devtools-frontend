@@ -2358,14 +2358,18 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
     this._isColorAware = SDK.CSSMetadata.cssMetadata().isColorAwareProperty(treeElement.property.name);
     /** @type {!Array<string>} */
     this._cssCompletions = [];
+    const node = treeElement.node();
     if (isEditingName) {
       this._cssCompletions = SDK.CSSMetadata.cssMetadata().allProperties();
-      if (!treeElement.node().isSVGNode()) {
+      if (node && !node.isSVGNode()) {
         this._cssCompletions =
             this._cssCompletions.filter(property => !SDK.CSSMetadata.cssMetadata().isSVGProperty(property));
       }
     } else {
-      this._cssCompletions = SDK.CSSMetadata.cssMetadata().propertyValues(treeElement.nameElement.textContent);
+      this._cssCompletions = SDK.CSSMetadata.cssMetadata().propertyValues(treeElement.property.name);
+      if (node && SDK.CSSMetadata.cssMetadata().isFontFamilyProperty(treeElement.property.name)) {
+        this._cssCompletions.push(...node.domModel().cssModel().fontFaces().map(font => font.getFontFamily()));
+      }
     }
 
     this._treeElement = treeElement;
