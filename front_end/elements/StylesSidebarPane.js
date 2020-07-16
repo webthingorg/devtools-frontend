@@ -2346,14 +2346,6 @@ export class KeyframePropertiesSection extends StylePropertiesSection {
   }
 }
 
-/**
- * @param {string} fontFamily
- * @return {string}
- */
-function encloseFontFamilyInQuotesIfNeeded(fontFamily) {
-  return fontFamily.includes(' ') ? `"${fontFamily}"` : fontFamily;
-}
-
 export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
   /**
    * @param {!StylePropertyTreeElement} treeElement
@@ -2377,7 +2369,7 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
       this._cssCompletions = cssMetadata.propertyValues(treeElement.property.name);
       if (node && cssMetadata.isFontFamilyProperty(treeElement.property.name)) {
         const fontFamilies = node.domModel().cssModel().fontFaces().map(font => font.getFontFamily());
-        this._cssCompletions.unshift(...fontFamilies.map(encloseFontFamilyInQuotesIfNeeded));
+        this._cssCompletions.unshift(...fontFamilies.map(family => `"${family}"`));
       }
     }
 
