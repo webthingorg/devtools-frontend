@@ -16,6 +16,23 @@
       "revId": "6b2c1ee7c53ed4b93f96492d81d430e21e461543",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da9e5cf8_7f142702",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-16T15:51:05Z",
+      "side": 1,
+      "message": "The bug does not seem to be fixed yet for me.\n\nReproduce via:\n- navigate to https://www.mixedcontentexamples.com/Test/SecureIFRAME with DevTools Application Panel open\n- check details for inner frame (FrameSource.html)\n- click on top frame\n- refresh page\n- click back on inner frame\n- content is missing\n",
+      "revId": "6b2c1ee7c53ed4b93f96492d81d430e21e461543",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
