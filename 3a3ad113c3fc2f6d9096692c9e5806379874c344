@@ -33,6 +33,23 @@
       "revId": "3a3ad113c3fc2f6d9096692c9e5806379874c344",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c2bcba7_27fda0fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-17T11:45:41Z",
+      "side": 1,
+      "message": "Another thought is that do we want to highlight these HeavyAd adorners visually?",
+      "revId": "3a3ad113c3fc2f6d9096692c9e5806379874c344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
