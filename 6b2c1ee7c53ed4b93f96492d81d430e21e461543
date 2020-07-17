@@ -33,6 +33,24 @@
       "revId": "6b2c1ee7c53ed4b93f96492d81d430e21e461543",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b46211cc_79b86dc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-17T10:49:49Z",
+      "side": 1,
+      "message": "Sorry, I can\u0027t reproduce locally. Are you using any special build parameters?",
+      "parentUuid": "da9e5cf8_7f142702",
+      "revId": "6b2c1ee7c53ed4b93f96492d81d430e21e461543",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
