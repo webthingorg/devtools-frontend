@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e654f96c_40ce94b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T20:30:30Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll wait for the backend to land first.",
+      "parentUuid": "a108ae30_a2dcf21a",
+      "revId": "e8db32ac3d696a60ffe081b78c63f3d4666dd003",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a64f491_6e50f1ae",
         "filename": "front_end/inspector_overlay/debug/tool_highlight_grid.html",
         "patchSetId": 5
@@ -66,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "e55ad435_3ddd82d3",
+        "filename": "front_end/inspector_overlay/debug/tool_highlight_grid.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T20:30:30Z",
+      "side": 1,
+      "message": "Right, I couldn\u0027t find it. Nevertheless, this made me realize that we did have a bunch of debug files out of the debug folder still. So I\u0027m taking the opportunity to move them now.",
+      "parentUuid": "2530ceee_3bdb974e",
+      "range": {
+        "startLine": 33,
+        "startChar": 19,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "e8db32ac3d696a60ffe081b78c63f3d4666dd003",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06bf5ecf_f0af54e3",
         "filename": "front_end/inspector_overlay/highlight_grid_common.js",
         "patchSetId": 5
@@ -77,6 +119,30 @@
       "writtenOn": "2020-07-17T15:36:58Z",
       "side": 1,
       "message": "nit: not sure if it\u0027s worth it, but maybe a helper function could reduce this duplication between row and column border drawing. we could just pass in the row/column paths and it would be generic enough to handle both",
+      "range": {
+        "startLine": 201,
+        "startChar": 3,
+        "endLine": 227,
+        "endChar": 5
+      },
+      "revId": "e8db32ac3d696a60ffe081b78c63f3d4666dd003",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca6ad89_5f2e58b9",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T20:30:30Z",
+      "side": 1,
+      "message": "Totally worth it, thanks for the suggestion. I\u0027ll do it.",
+      "parentUuid": "06bf5ecf_f0af54e3",
       "range": {
         "startLine": 201,
         "startChar": 3,
