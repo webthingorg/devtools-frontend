@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dff6d36_56ab1635",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-17T09:56:30Z",
+      "side": 1,
+      "message": "I updated the cl - can you check if it still LGTY?\n",
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
