@@ -51,6 +51,24 @@
       "revId": "6b2c1ee7c53ed4b93f96492d81d430e21e461543",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be669b65_d5d92fcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-17T14:34:39Z",
+      "side": 1,
+      "message": "Summarising our offline discussion: there was indeed a bug resulting in missing updates when creating a FrameDetailsView. It\u0027s solved by explicitly calling update() in the FrameDetailsView\u0027s constructor.",
+      "parentUuid": "b46211cc_79b86dc6",
+      "revId": "6b2c1ee7c53ed4b93f96492d81d430e21e461543",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
