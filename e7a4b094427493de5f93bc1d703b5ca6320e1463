@@ -16,6 +16,29 @@
       "revId": "e7a4b094427493de5f93bc1d703b5ca6320e1463",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3490f52c_b3a24f0d",
+        "filename": "front_end/host/InspectorFrontendHostAPI.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-17T08:59:15Z",
+      "side": 1,
+      "message": "the comment above says there are 3 definitions for this, are there any other places in the frontend that need updating?",
+      "range": {
+        "startLine": 412,
+        "startChar": 5,
+        "endLine": 412,
+        "endChar": 23
+      },
+      "revId": "e7a4b094427493de5f93bc1d703b5ca6320e1463",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
