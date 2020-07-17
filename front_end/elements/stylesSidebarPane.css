@@ -225,7 +225,6 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  visibility: hidden;
   background-color: rgb(255 255 255 / 90%);
   z-index: 0;
 }
