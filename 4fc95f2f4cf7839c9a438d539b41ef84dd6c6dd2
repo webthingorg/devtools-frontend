@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73aa5a90_5dc2b962",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-17T13:05:07Z",
+      "side": 1,
+      "message": "I found a way to make the extension API testable without hacking the extension registration mechanism. By putting a tag on the extension iframe instead, I\u0027m able to find that in the e2e test and do the injection from there.\n\nBenedikt: PTAL, quite a lot has changed since last time.\nPaul: Please check if what I\u0027m doing in the e2e test makes sense!",
+      "revId": "4fc95f2f4cf7839c9a438d539b41ef84dd6c6dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "f8c573c8_f5ecc509",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-17T13:05:07Z",
+      "side": 1,
+      "message": "Not without punching through lot\u0027s of layers of abstraction. No entity between here and the extension server knows both, and there is no reporting channel for new plugin managers so that the extension server could talk to them directly.",
+      "parentUuid": "33a3f565_3ab9f233",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a941aa51_a97ec982",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 18
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "073c1c94_341308dd",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-17T13:05:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afae3f6b_7ed77c15",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec334ce2_c02c6f9c",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 18
@@ -84,6 +120,24 @@
       "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5220b4a7_7f2219b9",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-17T13:05:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec334ce2_c02c6f9c",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "f6c4a992_c9cf4a1b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-17T13:05:07Z",
+      "side": 1,
+      "message": "If there is an entry in the map it\u0027s never undefined.",
+      "parentUuid": "9bfe476d_a1a4ff43",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9cc7a3c_07bae809",
         "filename": "front_end/extensions/ExtensionServer.js",
         "patchSetId": 18
@@ -118,6 +190,24 @@
       "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a962151_4c6ff8b8",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-17T13:05:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9cc7a3c_07bae809",
+      "revId": "8e758261c1dd755ed3753977d9ab909d6f488120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
