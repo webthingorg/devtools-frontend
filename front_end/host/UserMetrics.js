@@ -148,6 +148,28 @@ export class UserMetrics {
   }
 
   /**
+   * @param {!string} issueExpandedType
+   */
+  issuesPanelIssueExpanded(issueExpandedType) {
+    const size = Object.keys(IssueExpanded).length + 1;
+    const issueExpanded = IssueExpanded[issueExpandedType];
+
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.IssuesPanelIssueExpanded, issueExpanded, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.IssuesPanelIssueExpanded, {value: issueExpanded});
+  }
+
+  /**
+   * @param {!IssueResourceOpened} issueResourceOpened
+   */
+  issuesPanelResourceOpened(issueResourceOpened) {
+    const size = Object.keys(IssueResourceOpened).length + 1;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.IssuesPanelResourceOpened, issueResourceOpened, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.IssuesPanelIssueExpanded, {value: issueResourceOpened});
+  }
+
+  /**
    * @param {!DualScreenDeviceEmulated} emulationAction
    */
   dualScreenDeviceEmulated(emulationAction) {
@@ -404,4 +426,25 @@ export const GridSettings = {
   'showGridGaps.both': 15,
   'showGridAreas.false': 16,
   'showGridAreas.true': 17
+};
+
+/** @type {!Object<string, number>} */
+export const IssueExpanded = {
+  SameSiteCookieIssue: 0,
+  MixedContentIssue: 1,
+  BlockedByResponseIssue: 2,
+  HeavyAdIssue: 3,
+  kInlineViolation: 4,
+  kEvalViolation: 5,
+  kURLViolation: 6,
+  kTrustedTypesSinkViolation: 7,
+  kTrustedTypesPolicyViolation: 8
+};
+
+/** @enum {number} */
+export const IssueResourceOpened = {
+  Cookie: 0,
+  Element: 1,
+  Request: 2,
+  Source: 3
 };
