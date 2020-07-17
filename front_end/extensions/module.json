@@ -12,6 +12,7 @@
     "ExtensionTraceProvider.js",
     "ExtensionServer.js",
     "ExtensionPanel.js",
-    "ExtensionView.js"
+    "ExtensionView.js",
+    "LanguageExtensionEndpoint.js"
   ]
 }
