@@ -46,6 +46,30 @@
       "revId": "444fec08b63dd241277e74baa7d31981f57e593b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50443bd5_57db5463",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-17T08:52:16Z",
+      "side": 1,
+      "message": "OK SGTM. I\u0027ve included some changes in the back-end CL that will make source maps load so it should be possible if you decide to do it in the future.",
+      "parentUuid": "7e155313_07f442dd",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 48
+      },
+      "revId": "444fec08b63dd241277e74baa7d31981f57e593b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
