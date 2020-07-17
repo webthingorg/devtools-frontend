@@ -39,6 +39,30 @@
       "revId": "234349f144bd57df1fbfd7f94299b9148334e852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b4c6a5f_a04be0c4",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-17T12:33:28Z",
+      "side": 1,
+      "message": "I think this is the current location. I suspect that after Simon asked you to move it up, you might have forgotten to update the back-end CL?",
+      "parentUuid": "3ba05b5a_8f857a6c",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 612,
+        "endChar": 26
+      },
+      "revId": "234349f144bd57df1fbfd7f94299b9148334e852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
