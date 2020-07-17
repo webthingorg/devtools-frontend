@@ -22,6 +22,30 @@
       "revId": "fb322ebb7454e2d79945e00796e32f833aff11b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb4d276b_99b0f775",
+        "filename": "front_end/formatter_worker_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-17T11:57:30Z",
+      "side": 1,
+      "message": "Yes, that\u0027s possible, because `formatter_worker` only relies on JavaScript files, which the static imports already perform the loading for.",
+      "parentUuid": "d0c7a965_ee86637e",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "fb322ebb7454e2d79945e00796e32f833aff11b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
