@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ac212ce_a8723122",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-17T15:09:14Z",
+      "side": 1,
+      "message": "Lgtm! I think I agree with Patrick on not using the rotation angle until we have a UX discussion, and then applying the change consistently?\n\nI think we might need to rework some of the backend calculations to handle rotations for line numbers/names, etc (we just calculate 1 coordinate instead of 2), and I really like how it is done with this change. Hopefully we can base it off this",
+      "revId": "08babdb1ef90de89999c1b22819daa2cc98b848c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
