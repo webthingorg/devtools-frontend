@@ -27,6 +27,7 @@ export class StorageItemsView extends UI.Widget.VBox {
         this._addButton(Common.UIString.UIString('Clear All'), 'largeicon-clear', this.deleteAllItems);
     this._deleteSelectedButton =
         this._addButton(Common.UIString.UIString('Delete Selected'), 'largeicon-delete', this.deleteSelectedItem);
+    this._deleteAllButton.element.setAttribute('test-id', 'storage-items-delete-all');
 
     const toolbarItems =
         [this._refreshButton, this._filterItem, toolbarSeparator, this._deleteAllButton, this._deleteSelectedButton];
@@ -35,6 +36,12 @@ export class StorageItemsView extends UI.Widget.VBox {
     }
   }
 
+  /**
+   * @param {string} title
+   */
+  setDeleteAllTitle(title) {
+    this._deleteAllButton.setTitle(title);
+  }
 
   /**
    * @param {!UI.Toolbar.ToolbarItem} item
