@@ -63,6 +63,30 @@
       "revId": "0c3a2f5c4b87fd815feade6ef3eb5d08bcefa77e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed06309b_555f586a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-17T09:52:29Z",
+      "side": 1,
+      "message": "All right, maybe you can add a comment in _setActiveAuthenticator mentioning that adding a new one will automatically activate that one.",
+      "parentUuid": "3661b131_c8a96fd7",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 41
+      },
+      "revId": "0c3a2f5c4b87fd815feade6ef3eb5d08bcefa77e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
