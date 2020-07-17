@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecb9d1c5_c1d15ebd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T16:26:17Z",
+      "side": 1,
+      "message": "Peter, let me know what you think of the before/after shots here. I\u0027ll ask review later if you agree with the change.",
+      "revId": "843f795c436b50f86ec5b10fa847a827af9410a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
