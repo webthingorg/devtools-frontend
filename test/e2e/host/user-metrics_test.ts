@@ -37,7 +37,7 @@ declare global {
     __issuesPanelOpenedFrom: (evt: Event) => void;
     __keybindSetSettingChanged: (evt: Event) => void;
     __dualScreenDeviceEmulated: (evt: Event) => void;
-    __gridSettingChanged: (evt: Event) => void;
+    __cssGridSettingChanged: (evt: Event) => void;
     Host: {UserMetrics: UserMetrics; userMetrics: {actionTaken(name: number): void;}};
     UI: {inspectorView: {_showDrawer(show: boolean): void; showView(name: string): void;}};
   }
@@ -80,9 +80,9 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.__caughtEvents.push({name: 'DevTools.DualScreenDeviceEmulated', value: customEvt.detail.value});
     };
 
-    window.__gridSettingChanged = (evt: Event) => {
+    window.__cssGridSettingChanged = (evt: Event) => {
       const customEvt = evt as CustomEvent;
-      window.__caughtEvents.push({name: 'DevTools.GridSettingChanged', value: customEvt.detail.value});
+      window.__caughtEvents.push({name: 'DevTools.CSSGridSettingChanged', value: customEvt.detail.value});
     };
 
     window.__caughtEvents = [];
@@ -94,7 +94,7 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.addEventListener('DevTools.IssuesPanelOpenedFrom', window.__issuesPanelOpenedFrom);
       window.addEventListener('DevTools.KeybindSetSettingChanged', window.__keybindSetSettingChanged);
       window.addEventListener('DevTools.DualScreenDeviceEmulated', window.__dualScreenDeviceEmulated);
-      window.addEventListener('DevTools.GridSettingChanged', window.__gridSettingChanged);
+      window.addEventListener('DevTools.CSSGridSettingChanged', window.__cssGridSettingChanged);
     };
 
     window.__endCatchEvents = () => {
@@ -105,7 +105,7 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.removeEventListener('DevTools.IssuesPanelOpenedFrom', window.__issuesPanelOpenedFrom);
       window.removeEventListener('DevTools.KeybindSetSettingChanged', window.__keybindSetSettingChanged);
       window.removeEventListener('DevTools.DualScreenDeviceEmulated', window.__dualScreenDeviceEmulated);
-      window.removeEventListener('DevTools.GridSettingChanged', window.__gridSettingChanged);
+      window.removeEventListener('DevTools.CSSGridSettingChanged', window.__cssGridSettingChanged);
     };
 
     window.__beginCatchEvents();
@@ -354,6 +354,7 @@ describe('User Metrics', () => {
 
     const gridBorderSelect = await $('[aria-label="Grid"] p select') as puppeteer.ElementHandle<HTMLSelectElement>;
     gridBorderSelect.select('solid');
+    gridBorderSelect.select('none');
 
     await assertCapturedEvents([
       {
@@ -365,8 +366,12 @@ describe('User Metrics', () => {
         value: 29,  // settings-preferences
       },
       {
-        name: 'DevTools.GridSettingChanged',
+        name: 'DevTools.CSSGridSettingChanged',
         value: 2,  // showGridBorder.solid
+      },
+      {
+        name: 'DevTools.CSSGridSettingChanged',
+        value: 0,  // showGridBorder.none
       },
     ]);
   });

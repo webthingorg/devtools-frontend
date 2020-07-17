@@ -160,14 +160,15 @@ export class UserMetrics {
   /**
    * @param {string} gridSettingId
    */
-  gridSettingChanged(gridSettingId) {
-    const size = Object.keys(GridSettings).length + 1;
-    const gridSetting = GridSettings[gridSettingId];
-    if (!gridSetting) {
+  cssGridSettingChanged(gridSettingId) {
+    const size = Object.keys(CSSGridSettings).length + 1;
+    const gridSetting = CSSGridSettings[gridSettingId];
+    if (gridSetting === undefined) {
       return;
     }
-    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.GridSettingChanged, gridSetting, size);
-    Common.EventTarget.fireEvent(EnumeratedHistogram.GridSettingChanged, {value: gridSetting});
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.CSSGridSettingChanged, gridSetting, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.CSSGridSettingChanged, {value: gridSetting});
   }
 }
 
@@ -385,7 +386,7 @@ export const DualScreenDeviceEmulated = {
 };
 
 /** @type {!Object<string, number>} */
-export const GridSettings = {
+export const CSSGridSettings = {
   'showGridBorder.none': 0,
   'showGridBorder.dashed': 1,
   'showGridBorder.solid': 2,
