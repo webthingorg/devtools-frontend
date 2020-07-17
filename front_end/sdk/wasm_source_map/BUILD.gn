@@ -11,4 +11,6 @@ devtools_pre_built("wasm_source_map") {
     "pkg/wasm_source_map_bg.wasm",
     "wasm_source_map-tsconfig.json",
   ]
+
+  visibility = [ "../*" ]
 }

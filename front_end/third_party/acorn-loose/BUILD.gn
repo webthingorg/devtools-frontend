@@ -12,4 +12,6 @@ devtools_pre_built("acorn-loose") {
     "package/dist/acorn-loose.js.map",
     "package/dist/acorn-loose.mjs",
   ]
+
+  visibility = [ "../../formatter_worker/*" ]
 }

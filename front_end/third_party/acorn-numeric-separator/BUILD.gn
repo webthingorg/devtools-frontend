@@ -11,4 +11,6 @@ devtools_pre_built("acorn-numeric-separator") {
     "package/dist/acorn-numeric-separator.mjs.d.ts",
     "package/dist/acorn-numeric-separator.mjs.map",
   ]
+
+  visibility = [ "../acorn/*" ]
 }

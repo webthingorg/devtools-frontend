@@ -16,5 +16,11 @@ template("devtools_pre_built") {
     sources = invoker.sources
 
     public_deps = [ _copy_target_dep ]
+
+    visibility = invoker.visibility + [ ":*" ]
   }
+}
+
+set_defaults("devtools_pre_built") {
+  visibility = []
 }

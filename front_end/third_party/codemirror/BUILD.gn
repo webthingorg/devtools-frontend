@@ -39,4 +39,10 @@ devtools_pre_built("codemirror") {
     "package/mode/xml/xml.d.ts",
     "package/mode/xml/xml.js",
   ]
+
+  visibility = [
+    "../../cm_headless/*",
+    "../../codemirror/*",
+    "../../formatter_worker/*",
+  ]
 }

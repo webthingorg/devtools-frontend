@@ -11,4 +11,6 @@ devtools_pre_built("acorn-logical-assignment") {
     "package/dist/acorn-logical-assignment.mjs.d.ts",
     "package/dist/acorn-logical-assignment.mjs.map",
   ]
+
+  visibility = [ "../acorn/*" ]
 }
