@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "71030757_d147007c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-17T11:46:41Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f244385_2698ae74",
         "filename": "front_end/marked/BUILD.gn",
         "patchSetId": 3
@@ -59,6 +76,30 @@
     },
     {
       "key": {
+        "uuid": "b3f53176_7d510015",
+        "filename": "front_end/marked/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-17T11:46:41Z",
+      "side": 1,
+      "message": "This is currently used from the {issues} module, which is a mixed bag (only partially TypeScript-ified. I hope I can clean this up once we moved the whole {issues} module over to web components / TypeScript land.",
+      "parentUuid": "0f244385_2698ae74",
+      "range": {
+        "startLine": 8,
+        "startChar": 16,
+        "endLine": 8,
+        "endChar": 25
+      },
+      "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48f4388e_fd055b80",
         "filename": "front_end/marked/BUILD.gn",
         "patchSetId": 3
@@ -79,6 +120,30 @@
       "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcab3da_1adf69b5",
+        "filename": "front_end/marked/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-17T11:46:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48f4388e_fd055b80",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
