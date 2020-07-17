@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4de80db_f9136f67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T20:33:36Z",
+      "side": 1,
+      "message": "Ready for another round of review if you want to take another look.",
+      "revId": "09c4422b819c4e4afa3aabe0809b50fa1ac10c24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e44178ef_784681d4",
+        "filename": "front_end/inspector_overlay/highlight_common.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T20:33:36Z",
+      "side": 1,
+      "message": "Refactored so we can draw extended lines only for rows or only for columns.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "09c4422b819c4e4afa3aabe0809b50fa1ac10c24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c205460e_458e6996",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T20:33:36Z",
+      "side": 1,
+      "message": "I\u0027m on the fence about this. I don\u0027t particularly like constructing property names like this, but it makes the function signature a lot simpler.",
+      "range": {
+        "startLine": 220,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 69
+      },
+      "revId": "09c4422b819c4e4afa3aabe0809b50fa1ac10c24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
