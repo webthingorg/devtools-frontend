@@ -211,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "685d16e5_bcf80a7c",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T20:36:01Z",
+      "side": 1,
+      "message": "Sounds good! Also it\u0027s worth noting that we usually use much more powerful machines than our average users. So what feels like 1 sec for you might feel very laggy to somebody else. So I think we should shoot for something that feels instant to you. \nThat said, don\u0027t worry too much about this at this stage, we can do this later if there is indeed a known perf problem.",
+      "parentUuid": "4c5a4137_f5279e90",
+      "range": {
+        "startLine": 133,
+        "startChar": 17,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "ab50a5c00d27e398c5ec01ecf8f0f8929288dda1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0fb2a314_f503a982",
         "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
         "patchSetId": 9
