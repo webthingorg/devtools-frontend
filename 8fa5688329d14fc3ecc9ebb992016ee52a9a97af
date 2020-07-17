@@ -16,6 +16,69 @@
       "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb45eb4f_ccff1a49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-17T09:25:48Z",
+      "side": 1,
+      "message": "LGTM. +Jack FYI",
+      "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f244385_2698ae74",
+        "filename": "front_end/marked/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-17T09:25:48Z",
+      "side": 1,
+      "message": "If your intention is to only use marked in TypeScript land, this could be a `.ts` file as well.",
+      "range": {
+        "startLine": 8,
+        "startChar": 16,
+        "endLine": 8,
+        "endChar": 25
+      },
+      "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48f4388e_fd055b80",
+        "filename": "front_end/marked/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-17T09:25:48Z",
+      "side": 1,
+      "message": "If the above is true, then you can remove this line.",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "8fa5688329d14fc3ecc9ebb992016ee52a9a97af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
