@@ -12,4 +12,10 @@ devtools_module("generated") {
   ]
 
   deps = []
+
+  visibility = [
+    "../protocol_client",
+    "../sdk:sdk-typescript",
+    "../accessibility:devtools_entrypoint-bundle",
+  ]
 }
