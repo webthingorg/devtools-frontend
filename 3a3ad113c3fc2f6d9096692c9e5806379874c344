@@ -16,6 +16,23 @@
       "revId": "3a3ad113c3fc2f6d9096692c9e5806379874c344",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65272a9d_97f79951",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-17T11:44:22Z",
+      "side": 1,
+      "message": "Awesome! Another type of adorner. Just a quick thought: do you think it\u0027s worthwhile or possible to add HeavyAd adorner to e2e tests? I\u0027m not sure myself because it might be hard to create a page that consistently violates the Heavy Ad rule?",
+      "revId": "3a3ad113c3fc2f6d9096692c9e5806379874c344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
