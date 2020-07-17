@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e39a759_b7581976",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-17T11:44:38Z",
+      "side": 1,
+      "message": "PTAL, not sure if the check for \u0027.html\u0027 is strictly needed in {build_release_applications.py}.",
+      "revId": "21b473f27f6bc4eb7eca58eee4f6915ee2a4653f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
