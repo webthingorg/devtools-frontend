@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e8d1cf4_95ab7fec",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T08:16:41Z",
+      "side": 0,
+      "message": "I think removing this might lead to unexpected results. The reason we\u0027re getting the content of the pane is so that we know when it changes.\nHere\u0027s the way things work:\n\n1. get the content of the computed pane\n2. select a new element in the tree\n3. poll the computed pane until its content is different from the one we originally got\n\nThis is why we need to get it everytime before changing the selected node.\n\nOnce the H1 node was selected, the content changed (this is how the `await waitForComputedPaneChange(content);` on line 30 passes). That\u0027s why we need to reset the value of the `content` variable, so we can know when it changes again when H2 gets selected. Otherwise line 41 will always pass without actually waiting for the change.",
+      "revId": "832dab01db1d5995b096e83e209653e7487e962e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

@@ -36,6 +36,63 @@
     },
     {
       "key": {
+        "uuid": "ef261d6e_d404ec3e",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T08:16:41Z",
+      "side": 1,
+      "message": "This comment should stay before this line:\n\n  await focusElementsTree();\n\nCan you please move it back there?",
+      "revId": "5f962d166f090c9b05acbcfc489468c864a3b600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5f66749_4a2ab5ec",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T08:16:41Z",
+      "side": 1,
+      "message": "Same thing here, we expect the content of the computed panel to change twice: once after pressing the Down arrow, and then again after clicking the show-all button.\nSo we should get the content twice, each time before these actions, and then call `waitForComputedPaneChange` twice, each time after these actions.",
+      "revId": "5f962d166f090c9b05acbcfc489468c864a3b600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d730e668_5eab546f",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-07-17T08:16:41Z",
+      "side": 1,
+      "message": "I think the intent with these e2e tests is to keep them as short and human-readable as possible. I\u0027ve learned in the past that these kinds of lower-level selection of elements and clicking, etc. are better placed in helper files, so that we can keep the tests themselves super high-level. The tests are supposed to read like a series of steps a user would take.\nSee this README: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/README.md\n\nSo, one thing you could do here is create a function in elements-helpers.js like\n\n  async function toggleShowAllComputedProperties() {\n    const initialContent \u003d await getContentOfComputedPane();\n    \n    const computedPanel \u003d await $(COMPUTED_STYLES_PANEL_SELECTOR);\n    const showAllButton \u003d await $(COMPUTED_STYLES_SHOW_ALL_SELECTOR, computedPanel);\n    await click(showAllButton);\n\n    await waitForComputedPaneChange(initialContent);\n  }",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 31
+      },
+      "revId": "5f962d166f090c9b05acbcfc489468c864a3b600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d098a9f9_d519f8e5",
         "filename": "test/e2e/elements/computed-pane-properties_test.ts",
         "patchSetId": 2
