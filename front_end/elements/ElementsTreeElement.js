@@ -84,6 +84,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         // we will refactor this logic when we have more style-related adorners
         this._updateStyleAdorners();
       }
+      if (node.isAdFrameNode()) {
+        this.adornText('HeavyAd', AdornerCategories.Security);
+      }
     }
 
     /**
