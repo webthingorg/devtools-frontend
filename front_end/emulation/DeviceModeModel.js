@@ -7,7 +7,7 @@ import * as Host from '../host/host.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {EmulatedDevice, Horizontal, Mode, Orientation} from './EmulatedDevices.js';  // eslint-disable-line no-unused-vars
+import {EmulatedDevice, Horizontal, HorizontalSpanned, Mode, Orientation, VerticalSpanned} from './EmulatedDevices.js';  // eslint-disable-line no-unused-vars
 
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.EmulationModel.EmulationModel>}
@@ -60,6 +60,10 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
 
     this._deviceOutlineSetting = Common.Settings.Settings.instance().moduleSetting('emulation.showDeviceOutline');
     this._deviceOutlineSetting.addChangeListener(this._deviceOutlineSettingChanged, this);
+
+    this._usePlatformMultiSegment =
+        Common.Settings.Settings.instance().moduleSetting('emulation.usePlatformMultiSegment');
+    this._usePlatformMultiSegment.addChangeListener(this._usePlatformMultiSegmentChanged, this);
 
     this._toolbarControlsEnabledSetting = Common.Settings.Settings.instance().createSetting(
         'emulation.toolbarControlsEnabled', true, Common.Settings.SettingStorageType.Session);
@@ -389,6 +393,13 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @return {!Common.Settings.Setting}
    */
+  usePlatformMultiSegment() {
+    return this._deviceOutlineSetting;
+  }
+
+  /**
+   * @return {!Common.Settings.Setting}
+   */
   toolbarControlsEnabledSetting() {
     return this._toolbarControlsEnabledSetting;
   }
@@ -469,6 +480,10 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   _deviceOutlineSettingChanged() {
+    this._calculateAndEmulate(false);
+  }
+
+  _usePlatformMultiSegmentChanged() {
     this._calculateAndEmulate(false);
   }
 
@@ -708,7 +723,8 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         screenHeight: screenSize.height,
         positionX: positionX,
         positionY: positionY,
-        dontSetVisibleSize: true
+        dontSetVisibleSize: true,
+        displayFeature: this._getDisplayFeture()
       };
       if (screenOrientation) {
         metrics.screenOrientation = {type: screenOrientation, angle: screenOrientationAngle};
@@ -812,6 +828,57 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     overlayModel.showHingeForDualScreen(false);
+  }
+
+  /**
+   * @return {!Protocol.Emulation.DisplayFeatureOrientation}
+   */
+  _getDisplayFeatureOrientation() {
+    if (this._mode) {
+      switch (this._mode.orientation) {
+        case VerticalSpanned:
+          return Protocol.Emulation.DisplayFeatureOrientation.Vertical;
+        case HorizontalSpanned:
+          return Protocol.Emulation.DisplayFeatureOrientation.Horizontal;
+      }
+    }
+    return Protocol.Emulation.DisplayFeatureOrientation.Horizontal;
+  }
+
+  _getDisplayFeature() {
+    const getOffset = function(hinge, orientation) {
+      if (orientation) {
+        switch (orientation) {
+          case VerticalSpanned:
+            return hinge.x;
+          case HorizontalSpanned:
+            return hinge.y;
+        }
+      }
+      return 0;
+    };
+
+    const getMaskLength = function(hinge, orientation) {
+      if (orientation) {
+        switch (orientation) {
+          case VerticalSpanned:
+            return hinge.width;
+          case HorizontalSpanned:
+            return hinge.height;
+        }
+      }
+      return 0;
+    };
+
+    const orientation = (this._device && this._mode) ? this._device.orientationByName(this._mode.orientation) : null;
+    if (this._experimentDualScreenSupport && orientation && orientation.hinge) {
+      return {
+        orientation: this._getDisplayFeatureOrientation(),
+        offset: getOffset(orientation.hinge, this._mode.orientation),
+        mask_length: getMaskLength(orientation.hinge, this._mode.orientation)
+      };
+    }
+    return null;
   }
 }
 

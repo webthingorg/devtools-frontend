@@ -33,6 +33,7 @@ export class DeviceModeToolbar {
     this._deviceOutlineSetting = this._model.deviceOutlineSetting();
     this._showDeviceScaleFactorSetting =
         Common.Settings.Settings.instance().createSetting('emulation.showDeviceScaleFactor', false);
+    this._usePlatformMultiSegmentSetting = this._model.usePlatformMultiSegment();
     this._showDeviceScaleFactorSetting.addChangeListener(this._updateDeviceScaleFactorVisibility, this);
 
     this._showUserAgentTypeSetting =
@@ -225,6 +226,10 @@ export class DeviceModeToolbar {
       this._spanButton = new UI.Toolbar.ToolbarButton('', 'largeicon-dual-screen');
       this._spanButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._spanClicked, this);
       toolbar.appendToolbarItem(this._spanButton);
+
+      this._experimentalButton = new UI.Toolbar.ToolbarButton('', 'largeicon-experimental-api');
+      this._experimentalButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._experimentalClicked, this);
+      toolbar.appendToolbarItem(this._experimentalButton);
     }
   }
 
@@ -487,6 +492,13 @@ export class DeviceModeToolbar {
 
   _updateUserAgentTypeVisibility() {
     this._uaItem.setVisible(this._showUserAgentTypeSetting.get());
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _experimentalClicked(event) {
+    this._usePlatformMultiSegmentSetting.set(!this._usePlatformMultiSegmentSetting.get());
   }
 
   /**
