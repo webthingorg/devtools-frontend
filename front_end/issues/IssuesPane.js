@@ -6,6 +6,7 @@ import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Components from '../components/components.js';
 import * as Elements from '../elements/elements.js';
+import * as Host from '../host/host.js';
 import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -156,6 +157,10 @@ class AffectedElementsView extends AffectedResourcesView {
     this._issue = issue;
   }
 
+  _sendTelmetry() {
+    Host.userMetrics.issuesPanelResourceOpened(Host.UserMetrics.IssueResourceOpened.Element);
+  }
+
   /**
    * @param {!Iterable<!SDK.Issue.AffectedElement>} affectedElements
    */
@@ -176,6 +181,12 @@ class AffectedElementsView extends AffectedResourcesView {
     const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(mainTarget, backendNodeId);
     const anchorElement = await Common.Linkifier.Linkifier.linkify(deferredDOMNode);
     anchorElement.textContent = nodeName;
+    anchorElement.addEventListener('click', this._sendTelmetry);
+    anchorElement.addEventListener('keydown', event => {
+      if (isEnterKey(event)) {
+        this._sendTelmetry();
+      }
+    });
     const cellElement = document.createElement('td');
     cellElement.classList.add('affected-resource-element', 'devtools-link');
     cellElement.appendChild(anchorElement);
@@ -319,6 +330,7 @@ class AffectedCookiesView extends AffectedResourcesView {
     const name = document.createElement('td');
     if (hasAssociatedRequest) {
       name.appendChild(UI.UIUtils.createTextButton(cookie.name, () => {
+        Host.userMetrics.issuesPanelResourceOpened(Host.UserMetrics.IssueResourceOpened.Cookie);
         Network.NetworkPanel.NetworkPanel.revealAndFilter([
           {
             filterType: 'cookie-domain',
@@ -389,6 +401,7 @@ class AffectedRequestsView extends AffectedResourcesView {
     const nameElement = document.createElement('td');
     const tab = issueTypeToNetworkHeaderMap.get(this._issue.getCategory()) || Network.NetworkItemView.Tabs.Headers;
     nameElement.appendChild(UI.UIUtils.createTextButton(nameText, () => {
+      Host.userMetrics.issuesPanelResourceOpened(Host.UserMetrics.IssueResourceOpened.Request);
       Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, tab);
     }, 'link-style devtools-link'));
     const element = document.createElement('tr');
@@ -438,6 +451,11 @@ class AffectedSourcesView extends AffectedResourcesView {
     //                         to support source maps and formatted scripts.
     const linkifierURLOptions =
         /** @type {!Components.Linkifier.LinkifyURLOptions} */ ({columnNumber, lineNumber, tabStop: true});
+    // An element created with linkifyURL can subscribe to the events
+    // 'click' neither 'keydown' if that key is the 'Enter' key.
+    // Also, this element has a context menu, so we should be able to
+    // track when the user use the context menu too.
+    // TODO: Add some mechanism to be able to add telemetry to this element.
     const anchorElement = Components.Linkifier.Linkifier.linkifyURL(url, linkifierURLOptions);
     cellElement.appendChild(anchorElement);
     const rowElement = document.createElement('tr');
@@ -520,6 +538,7 @@ class AffectedMixedContentView extends AffectedResourcesView {
       const request = maybeRequest;  // re-assignment to make type checker happy
       const tab = issueTypeToNetworkHeaderMap.get(this._issue.getCategory()) || Network.NetworkItemView.Tabs.Headers;
       name.appendChild(UI.UIUtils.createTextButton(filename, () => {
+        Host.userMetrics.issuesPanelResourceOpened(Host.UserMetrics.IssueResourceOpened.Request);
         Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, tab);
       }, 'link-style devtools-link'));
     } else {
@@ -643,6 +662,7 @@ class AffectedHeavyAdView extends AffectedResourcesView {
     frameUrl.classList.add('affected-resource-heavy-ad-info-frame');
     const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
     icon.onclick = async () => {
+      Host.userMetrics.issuesPanelResourceOpened(Host.UserMetrics.IssueResourceOpened.Element);
       const frame = SDK.FrameManager.FrameManager.instance().getFrame(frameId);
       if (frame) {
         const deferedNode = await frame.getOwnerDeferredDOMNode();
@@ -729,10 +749,33 @@ class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   /**
+   * @override
+   */
+  onexpand() {
+    this._sendTelemetry();
+  }
+
+  /**
    * @param {!UI.TreeOutline.TreeElement} resource
    */
   appendAffectedResource(resource) {
     this._affectedResources.appendChild(resource);
+  }
+
+  _sendTelemetry() {
+    /*
+     * The issue.code() doesn't follow any pattern for all the issue types.
+     * i.e.
+     * - A SameSiteCookieIssue will return something like:
+     *     SameSiteCookieIssue::<reason>::<operation>
+     *
+     * - A CSP issue will return the Violation Type.
+     *
+     * - A HeavyAdIssue will return HeavyAdIssue.
+     */
+    const issueType = this._issue.code().split('::')[0];
+
+    Host.userMetrics.issuesPanelIssueExpanded(issueType);
   }
 
   _appendHeader() {
@@ -800,6 +843,8 @@ class IssueView extends UI.TreeOutline.TreeElement {
 
     const linkList = linkWrapper.listItemElement.createChild('ul', 'link-list');
     for (const description of this._description.links) {
+      // TODO: Allow x-link elements to subscribe to the events 'click' and 'keydown' if the key
+      //       is the 'Enter' key, or add some mechanism that allows to add telemetry to this element.
       const link = UI.XLink.XLink.create(description.link, ls`Learn more: ${description.linkTitle}`, 'link');
       const linkIcon = UI.Icon.Icon.create('largeicon-link', 'link-icon');
       link.prepend(linkIcon);
