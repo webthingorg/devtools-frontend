@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "42efca85_07ed6207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-17T17:29:46Z",
+      "side": 1,
+      "message": "Just a few things about what I\u0027ll be updating today, in addition to the typos/other small stuff Patrick mentioned",
+      "revId": "ab50a5c00d27e398c5ec01ecf8f0f8929288dda1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b647efd_7fc9eb7d",
         "filename": "front_end/inspector_overlay/tool_source_order.js",
         "patchSetId": 9
@@ -82,6 +99,24 @@
     },
     {
       "key": {
+        "uuid": "b03d596d_740239d8",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-17T17:29:46Z",
+      "side": 1,
+      "message": "It\u0027s because placing the label in the bottom corner is sort of a last-resort case: only if the label is wider/taller than the element, there is another label that overlaps with where the label would be if it was placed above the element, and if the label would overlap with the bottom of the window if placed below the element. I\u0027ll summarize this in the documentation and add more ACII art examples.",
+      "parentUuid": "e4f8c7f7_49fb5406",
+      "revId": "ab50a5c00d27e398c5ec01ecf8f0f8929288dda1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25ba58b2_a24b8255",
         "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
         "patchSetId": 9
@@ -105,6 +140,30 @@
     },
     {
       "key": {
+        "uuid": "f10d7f14_e7793f27",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-17T17:29:46Z",
+      "side": 1,
+      "message": "Ok, makes sense! I\u0027ll update this.",
+      "parentUuid": "25ba58b2_a24b8255",
+      "range": {
+        "startLine": 124,
+        "startChar": 73,
+        "endLine": 124,
+        "endChar": 77
+      },
+      "revId": "ab50a5c00d27e398c5ec01ecf8f0f8929288dda1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a500c4ac_1493babb",
         "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
         "patchSetId": 9
@@ -116,6 +175,30 @@
       "writtenOn": "2020-07-17T08:57:24Z",
       "side": 1,
       "message": "Is the 1000 threshold in place to avoid doing this? If so, I agree this is a good idea, as this access to getBoundingClientRect forces a synchronous reflow of the page, which is costly.\nDid you run some tests with different thresholds, to see when the overlay starts becoming slow?\nI know the CSS grid overlay, when the grid is huge, takes a long time to appear. So it\u0027d be good to fine tune the threshold to make sure the source order viewer is always fast.\nThis can be done later!",
+      "range": {
+        "startLine": 133,
+        "startChar": 17,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "ab50a5c00d27e398c5ec01ecf8f0f8929288dda1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c5a4137_f5279e90",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-17T17:29:46Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what it\u0027s for. I did test out a few different thresholds, and it takes about a second to draw everything with a threshold of 1000. I think I will fine tune it some more to see if there\u0027s a better one.",
+      "parentUuid": "a500c4ac_1493babb",
       "range": {
         "startLine": 133,
         "startChar": 17,
