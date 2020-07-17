@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0c7a965_ee86637e",
+        "filename": "front_end/formatter_worker_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-17T11:55:53Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem functionally equivalent, because the startWorker ensures that the app has already booted, whereas this posts a message straight away. Is the loading taken care of by the static imports?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "fb322ebb7454e2d79945e00796e32f833aff11b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
