@@ -306,6 +306,7 @@
     "ColorSwatchPopoverIcon.js",
     "ComputedStyleModel.js",
     "Adorner.js",
+    "ComputedStyleGroupLists.js",
     "DOMLinkifier.js",
     "DOMPath.js",
     "ElementsSidebarPane.js",

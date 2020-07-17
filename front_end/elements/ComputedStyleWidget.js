@@ -33,9 +33,11 @@ import * as InlineEditor from '../inline_editor/inline_editor.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+import {ComputedStyleGroupLists} from './ComputedStyleGroupLists.js';  // eslint-disable-line no-unused-vars
 import {ComputedStyle, ComputedStyleModel, Events} from './ComputedStyleModel.js';  // eslint-disable-line no-unused-vars
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {PlatformFontsWidget} from './PlatformFontsWidget.js';
+import {categorizePropertyName} from './PropertyNameCategories.js';
 import {StylePropertiesSection, StylesSidebarPane, StylesSidebarPropertyRenderer} from './StylesSidebarPane.js';
 
 /**
@@ -169,6 +171,8 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
         Common.Settings.Settings.instance().createSetting('showInheritedComputedStyleProperties', false);
     this._showInheritedComputedStylePropertiesSetting.addChangeListener(
         this._showInheritedComputedStyleChanged.bind(this));
+    this._groupComputedStylesSetting = Common.Settings.Settings.instance().createSetting('groupComputedStyles', false);
+    this._groupComputedStylesSetting.addChangeListener(this.update.bind(this));
 
     const hbox = this.contentElement.createChild('div', 'hbox styles-sidebar-pane-toolbar');
     const filterContainerElement = hbox.createChild('div', 'styles-sidebar-pane-filter-box');
@@ -182,6 +186,8 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     const toolbar = new UI.Toolbar.Toolbar('styles-pane-toolbar', hbox);
     toolbar.appendToolbarItem(new UI.Toolbar.ToolbarSettingCheckbox(
         this._showInheritedComputedStylePropertiesSetting, undefined, Common.UIString.UIString('Show all')));
+    toolbar.appendToolbarItem(new UI.Toolbar.ToolbarSettingCheckbox(
+        this._groupComputedStylesSetting, undefined, Common.UIString.UIString('Group')));
 
     this._noMatchesElement = this.contentElement.createChild('div', 'gray-info-message');
     this._noMatchesElement.textContent = ls`No matching property`;
@@ -193,6 +199,9 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     this._propertiesOutline.registerRequiredCSS('elements/computedStyleWidgetTree.css');
     this._propertiesOutline.element.classList.add('monospace', 'computed-properties');
     this.contentElement.appendChild(this._propertiesOutline.element);
+
+    this._groupLists = /** @type {!ComputedStyleGroupLists} */ (
+        this.contentElement.createChild('devtools-computed-style-group-lists'));
 
     this._linkifier = new Components.Linkifier.Linkifier(_maxLinkLength);
 
@@ -236,7 +245,12 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
   async doUpdate() {
     const promises = [this._computedStyleModel.fetchComputedStyle(), this._fetchMatchedCascade()];
     const [nodeStyles, matchedStyles] = await Promise.all(promises);
-    this._innerRebuildUpdate(nodeStyles, matchedStyles);
+    const shouldGroupComputedStyles = this._groupComputedStylesSetting.get();
+    if (shouldGroupComputedStyles) {
+      this._rebuildGroupLists(nodeStyles, matchedStyles);
+    } else {
+      this._rebuildAlphabeticalList(nodeStyles, matchedStyles);
+    }
   }
 
   /**
@@ -264,8 +278,9 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
    * @param {?ComputedStyle} nodeStyle
    * @param {?SDK.CSSMatchedStyles.CSSMatchedStyles} matchedStyles
    */
-  _innerRebuildUpdate(nodeStyle, matchedStyles) {
+  _rebuildAlphabeticalList(nodeStyle, matchedStyles) {
     /** @type {!Set<string>} */
+    // Remember what properties are expanded to retain the expansion after rebuild
     const expandedProperties = new Set();
     for (const treeElement of this._propertiesOutline.rootElement().children()) {
       if (!treeElement.expanded) {
@@ -274,6 +289,7 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       const propertyName = treeElement[_propertySymbol].name;
       expandedProperties.add(propertyName);
     }
+
     const hadFocus = this._propertiesOutline.element.hasFocus();
     this._imagePreviewPopover.hide();
     this._propertiesOutline.removeChildren();
@@ -327,7 +343,7 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
         treeElement.listItemElement.addEventListener(
             'contextmenu', this._handleContextMenuEvent.bind(this, matchedStyles, activeProperty));
         const gotoSourceElement = UI.Icon.Icon.create('mediumicon-arrow-in-circle', 'goto-source-icon');
-        gotoSourceElement.addEventListener('click', navigateToSource.bind(this, activeProperty));
+        gotoSourceElement.addEventListener('click', navigateToSource.bind(null, activeProperty));
         propertyValueElement.appendChild(gotoSourceElement);
         if (expandedProperties.has(propertyName)) {
           treeElement.expand();
@@ -335,7 +351,9 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       }
     }
 
+    this._groupLists.classList.add('hidden');
     this._updateFilter(this._filterRegex);
+    this._propertiesOutline.element.classList.remove('hidden');
 
     /**
      * @param {string} a
@@ -366,6 +384,84 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       }
       event.consume();
     }
+  }
+
+  /**
+   * @param {?ComputedStyle} nodeStyle
+   * @param {?SDK.CSSMatchedStyles.CSSMatchedStyles} matchedStyles
+   */
+  _rebuildGroupLists(nodeStyle, matchedStyles) {
+    // TODO: get what properties are expanded previously
+    const expandedProperties = new Set();
+
+    this._imagePreviewPopover.hide();
+    this._propertiesOutline.removeChildren();
+    this._linkifier.reset();
+    const cssModel = this._computedStyleModel.cssModel();
+    if (!nodeStyle || !matchedStyles || !cssModel) {
+      this._noMatchesElement.classList.remove('hidden');
+      return;
+    }
+
+    const propertyTraces = this._computePropertyTraces(matchedStyles);
+    const inheritedProperties = this._computeInheritedProperties(matchedStyles);
+    const showInherited = this._showInheritedComputedStylePropertiesSetting.get();
+    this._groupLists.clearGroupLists();
+
+    // TODO: sort the entries here or presort in the constant map
+    for (const [propertyName, propertyValue] of nodeStyle.computedStyle.entries()) {
+      const canonicalName = SDK.CSSMetadata.cssMetadata().canonicalPropertyName(propertyName);
+      const isInherited = !inheritedProperties.has(canonicalName);
+      if (!showInherited && isInherited && !_alwaysShownComputedProperties.has(propertyName)) {
+        continue;
+      }
+      if (!showInherited && propertyName.startsWith('--')) {
+        continue;
+      }
+      if (propertyName !== canonicalName && propertyValue === nodeStyle.computedStyle.get(canonicalName)) {
+        continue;
+      }
+
+      const categories = categorizePropertyName(propertyName);
+
+      const {propertyElement, propertyValueElement} =
+          createPropertyElement(nodeStyle.node, propertyName, propertyValue, isInherited);
+      // TODO: set selected based on focus status
+
+      const trace = propertyTraces.get(propertyName);
+      const traceElements = [];
+      if (trace) {
+        let activeProperty = null;
+        for (const property of trace) {
+          const isPropertyOverloaded =
+              matchedStyles.propertyState(property) === SDK.CSSMatchedStyles.PropertyState.Overloaded;
+          if (!isPropertyOverloaded) {
+            activeProperty = property;
+          }
+          const traceElement =
+              createTraceElement(nodeStyle.node, property, isPropertyOverloaded, matchedStyles, this._linkifier);
+          traceElement.addEventListener(
+              'contextmenu', this._handleContextMenuEvent.bind(this, matchedStyles, property));
+          traceElements.push(traceElement);
+        }
+        const gotoSourceElement = UI.Icon.Icon.create('mediumicon-arrow-in-circle', 'goto-source-icon');
+        gotoSourceElement.addEventListener(
+            'click', navigateToSource.bind(null, /** @type {!SDK.CSSProperty.CSSProperty} */ (activeProperty)));
+        propertyValueElement.appendChild(gotoSourceElement);
+      }
+
+      for (const category of categories) {
+        this._groupLists.addPropertyToGroup(
+            category, propertyElement, traceElements, expandedProperties.has(propertyName));
+      }
+    }
+
+    this._propertiesOutline.element.classList.add('hidden');
+    // TODO: either create a new filter or abstract this out
+    // since applying filter really shouldn't be tied to internal
+    this._updateFilter(this._filterRegex);
+    this._groupLists.render();
+    this._groupLists.classList.remove('hidden');
   }
 
   /**

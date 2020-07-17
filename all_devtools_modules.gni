@@ -520,6 +520,8 @@ all_typescript_modules = [
   "elements/ComputedStyleModel.js",
   "elements/ComputedStyleWidget.js",
   "elements/Adorner.js",
+  "elements/ComputedStyleGroupLists.js",
+  "elements/PropertyNameCategories.js",
   "elements/DOMLinkifier.js",
   "elements/DOMPath.js",
   "elements/NewElementsBreadcrumbs.js",
