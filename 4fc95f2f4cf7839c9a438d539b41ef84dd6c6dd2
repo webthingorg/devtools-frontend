@@ -33,6 +33,92 @@
       "revId": "4fc95f2f4cf7839c9a438d539b41ef84dd6c6dd2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59f7e0e6_1a41a5a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-17T15:08:03Z",
+      "side": 1,
+      "message": "Happy that we didn\u0027t have to patch the extension side of things. In general, though, I would like to avoid use of `any` if at all possible.",
+      "revId": "4fc95f2f4cf7839c9a438d539b41ef84dd6c6dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3e2da05_1ac76188",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-17T15:08:03Z",
+      "side": 1,
+      "message": "nit: devtoolsExtension would be more JS-like here.",
+      "range": {
+        "startLine": 789,
+        "startChar": 21,
+        "endLine": 789,
+        "endChar": 39
+      },
+      "revId": "4fc95f2f4cf7839c9a438d539b41ef84dd6c6dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67e1d56f_982fdd34",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-17T15:08:03Z",
+      "side": 1,
+      "message": "Is there any way we can define some interfaces instead of using `any`? It\u0027s not a disaster if not, but we\u0027re circumventing TS when we use `any`.",
+      "range": {
+        "startLine": 21,
+        "startChar": 37,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "4fc95f2f4cf7839c9a438d539b41ef84dd6c6dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "735cbfa4_ea329fd3",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-17T15:08:03Z",
+      "side": 1,
+      "message": "Same with these `any`s; if we can go a little more detailed I think it would help.",
+      "range": {
+        "startLine": 72,
+        "startChar": 92,
+        "endLine": 72,
+        "endChar": 95
+      },
+      "revId": "4fc95f2f4cf7839c9a438d539b41ef84dd6c6dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
