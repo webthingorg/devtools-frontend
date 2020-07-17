@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "2530ceee_3bdb974e",
+        "filename": "front_end/inspector_overlay/debug/tool_highlight_grid.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-17T17:09:22Z",
+      "side": 1,
+      "message": "oops. looks like I might not have added it like I thought. I\u0027ll follow up to get that back in another CL",
+      "parentUuid": "3a64f491_6e50f1ae",
+      "range": {
+        "startLine": 33,
+        "startChar": 19,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "e8db32ac3d696a60ffe081b78c63f3d4666dd003",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06bf5ecf_f0af54e3",
         "filename": "front_end/inspector_overlay/highlight_grid_common.js",
         "patchSetId": 5
