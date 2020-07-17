@@ -113,6 +113,30 @@
       "revId": "5f962d166f090c9b05acbcfc489468c864a3b600",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03a683f_2bbdba63",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-17T08:20:25Z",
+      "side": 1,
+      "message": "I\u0027m guessing the original intent was to assert both the existence and the correct value separately, so that the error messages can be more clear. I\u0027ve updated the assertions to be more readable.",
+      "parentUuid": "d098a9f9_d519f8e5",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 85
+      },
+      "revId": "5f962d166f090c9b05acbcfc489468c864a3b600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
