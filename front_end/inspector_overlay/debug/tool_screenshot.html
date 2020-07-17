@@ -9,15 +9,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Debug</title>
-  <link rel="stylesheet" type="text/css" href="common.css">
-  <script type="module" src="tool_paused.js"></script>
+  <link rel="stylesheet" type="text/css" href="../common.css">
+  <script type="module" src="../tool_screenshot.js"></script>
 </head>
 <body>
   <script type="module">
     function test() {
         setPlatform("mac");
         reset(window);
-        drawPausedInDebuggerMessage("test text");
     }
     test();
   </script>
