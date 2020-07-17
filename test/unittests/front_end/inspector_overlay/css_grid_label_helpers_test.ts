@@ -4,8 +4,8 @@
 
 const {assert} = chai;
 
-import {drawGridAreaNamesAndAssertLabels, drawGridNumbersAndAssertLabels, drawMultipleGridNumbersAndAssertLabels, getGridLineNumberLabelContainer, initFrameForGridLabels, initFrameForMultipleGridLabels} from '../helpers/InspectorOverlayHelpers.js';
-import {drawGridNumbers, _normalizeOffsetData} from '../../../../front_end/inspector_overlay/css_grid_label_helpers.js';
+import {drawGridAreaNamesAndAssertLabels, drawGridNumbersAndAssertLabels, drawMultipleGridNumbersAndAssertLabels, getGridLineNumberLabelContainer, getGridTrackSizesLabelContainer, initFrameForGridLabels, initFrameForMultipleGridLabels} from '../helpers/InspectorOverlayHelpers.js';
+import {drawGridNumbers, drawGridTrackSizes, _normalizeOffsetData} from '../../../../front_end/inspector_overlay/css_grid_label_helpers.js';
 
 describe('drawGridNumbers label creation', () => {
   beforeEach(initFrameForGridLabels);
@@ -508,4 +508,40 @@ describe('drawMultipleGridLabels', () => {
     ];
     drawMultipleGridNumbersAndAssertLabels(configs, bounds, expectedLayers);
   });
+});
+
+describe('drawGridTrackSizes label creation', () => {
+  beforeEach(initFrameForGridLabels);
+
+  const bounds = {
+    minX: 100,
+    minY: 100,
+    maxX: 200,
+    maxY: 200,
+  };
+
+  const TESTS = [
+    {
+      description: 'can display track sizes',
+      config: {
+        gridHighlightConfig: {
+          showTrackSizes: true,
+        },
+        columnTrackSizes: [{computedSize: 10, offset: 10}, {computedSize: 20, offset: 20}],
+        rowTrackSizes: [{computedSize: 10, offset: 10}, {computedSize: 20, offset: 20}],
+      },
+      bounds,
+      expectedLabels: ['10px', '20px', '10px', '20px'],
+    },
+  ];
+
+  for (const {description, config, bounds, expectedLabels} of TESTS) {
+    it(description, () => {
+      const el = getGridTrackSizesLabelContainer();
+      drawGridTrackSizes(el, config.rowTrackSizes, bounds, 'row');
+      drawGridTrackSizes(el, config.columnTrackSizes, bounds, 'column');
+      assert.strictEqual(el.children.length, expectedLabels.length, 'The right number of labels got created');
+      assert.strictEqual(el.textContent, expectedLabels.join(''), 'The labels text is correct');
+    });
+  }
 });
