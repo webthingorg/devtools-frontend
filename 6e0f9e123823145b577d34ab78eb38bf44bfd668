@@ -33,6 +33,24 @@
       "revId": "6e0f9e123823145b577d34ab78eb38bf44bfd668",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "301bb679_eaeb020a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-07-17T09:17:04Z",
+      "side": 1,
+      "message": "You probably should add an OWNERS file in `front_end/webauthn` to make yourself and Jan owners.",
+      "parentUuid": "b3fde799_5855ecba",
+      "revId": "6e0f9e123823145b577d34ab78eb38bf44bfd668",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
