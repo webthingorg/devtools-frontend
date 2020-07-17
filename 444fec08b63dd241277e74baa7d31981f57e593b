@@ -22,6 +22,30 @@
       "revId": "444fec08b63dd241277e74baa7d31981f57e593b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e155313_07f442dd",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-17T08:24:17Z",
+      "side": 1,
+      "message": "It\u0027s harder to do with the various constraints Ninja/GN puts on us; we tried for about half hour but couldn\u0027t figure out how to do it. We wanted to filter for TS files to copy over but then if that filter returns an empty list GN errors and there\u0027s easy no way to conditionally do something based on if a list is empty. This turned out to be far simpler so we decided it was a fair trade off.",
+      "parentUuid": "e7677f05_eb9ae274",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 48
+      },
+      "revId": "444fec08b63dd241277e74baa7d31981f57e593b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
