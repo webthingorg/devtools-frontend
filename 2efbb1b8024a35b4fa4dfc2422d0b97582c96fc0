@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a145e201_6f67bc46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1104195
+      },
+      "writtenOn": "2020-07-18T10:04:52Z",
+      "side": 1,
+      "message": "I believe the breakage is only due to mask and appearance that are not supported without the -webkit- prefix. Why revert the entire change list instead of just reverting those? Prefixes are bad...",
+      "revId": "2efbb1b8024a35b4fa4dfc2422d0b97582c96fc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
