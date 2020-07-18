@@ -16,6 +16,24 @@
       "revId": "2efbb1b8024a35b4fa4dfc2422d0b97582c96fc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee6ea47c_46562bd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-18T12:39:54Z",
+      "side": 1,
+      "message": "We operate on a “revert first, ask questions later” principle. Don’t worry, the CL has already relanded with the proper fixes (I had simply forgotten to upload them here before merging :facepalm:).",
+      "parentUuid": "a145e201_6f67bc46",
+      "revId": "2efbb1b8024a35b4fa4dfc2422d0b97582c96fc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
