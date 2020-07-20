@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71fd8c57_4b33f633",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T12:49:13Z",
+      "side": 1,
+      "message": "The render code is looking very nice and concise.\n\nI wonder whether most of the BUILD.gn cleanup in this CL could be split off?",
+      "revId": "4db6288a6f71b100427becce74173d549204c020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9266fa2b_c243bd73",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T12:49:13Z",
+      "side": 1,
+      "message": "Should this generate an error so we can detect this situation in tests (also e2e tests)?",
+      "range": {
+        "startLine": 106,
+        "startChar": 38,
+        "endLine": 106,
+        "endChar": 44
+      },
+      "revId": "4db6288a6f71b100427becce74173d549204c020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
