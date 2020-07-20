@@ -1,0 +1,52 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../scripts/build/ninja/devtools_module.gni")
+import("../../scripts/build/ninja/devtools_pre_built.gni")
+
+devtools_module("timeline") {
+  sources = [
+    "CLSLinkifier.js",
+    "CountersGraph.js",
+    "EventsTimelineTreeView.js",
+    "ExtensionTracingSession.js",
+    "PerformanceModel.js",
+    "TimelineController.js",
+    "TimelineDetailsView.js",
+    "TimelineEventOverview.js",
+    "TimelineFilters.js",
+    "TimelineFlameChartDataProvider.js",
+    "TimelineFlameChartNetworkDataProvider.js",
+    "TimelineFlameChartView.js",
+    "TimelineHistoryManager.js",
+    "TimelineLayersView.js",
+    "TimelineLoader.js",
+    "TimelinePaintProfilerView.js",
+    "TimelinePanel.js",
+    "TimelineTreeView.js",
+    "TimelineUIUtils.js",
+    "UIDevtoolsController.js",
+    "UIDevtoolsUtils.js",
+  ]
+
+  deps = [
+    "../components",
+    "../coverage",
+    "../data_grid",
+    "../extensions",
+    "../layer_viewer",
+    "../mobile_throttling",
+    "../perf_ui",
+    "../profiler",
+    "../timeline_model",
+  ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "timeline.js"
+  is_legacy_javascript_entrypoint = [ "crbug.com/1011811" ]
+
+  deps = [ ":timeline" ]
+}
