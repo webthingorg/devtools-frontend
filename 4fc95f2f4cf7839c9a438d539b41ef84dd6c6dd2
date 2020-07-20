@@ -93,6 +93,30 @@
     },
     {
       "key": {
+        "uuid": "c186ec4f_bfb8c870",
+        "filename": "front_end/extensions/ExtensionServer.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-20T08:42:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3e2da05_1ac76188",
+      "range": {
+        "startLine": 789,
+        "startChar": 21,
+        "endLine": 789,
+        "endChar": 39
+      },
+      "revId": "4fc95f2f4cf7839c9a438d539b41ef84dd6c6dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67e1d56f_982fdd34",
         "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
         "patchSetId": 19
