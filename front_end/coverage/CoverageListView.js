@@ -5,12 +5,122 @@
 import * as Common from '../common/common.js';
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as Formatter from '../formatter/formatter.js';
+import * as i18n from '../i18n/i18n.js';
 import {ls} from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {CoverageType, URLCoverageInfo} from './CoverageModel.js';  // eslint-disable-line no-unused-vars
+
+export const UIStrings = {
+  /**
+  *@description Text that appears on a button for the css resource type filter.
+  */
+  css: 'CSS',
+  /**
+  *@description Text in Coverage List View of the Coverage tab
+  */
+  jsPerFunction: 'JS (per function)',
+  /**
+  *@description Text in Coverage List View of the Coverage tab
+  */
+  jsPerBlock: 'JS (per block)',
+  /**
+  *@description Text for web URLs
+  */
+  url: 'URL',
+  /**
+  *@description Text that refers to some types
+  */
+  type: 'Type',
+  /**
+  *@description Text in Coverage List View of the Coverage tab
+  */
+  totalBytes: 'Total Bytes',
+  /**
+  *@description Text in Coverage List View of the Coverage tab
+  */
+  unusedBytes: 'Unused Bytes',
+  /**
+  *@description Text in the Coverage List View of the Coverage Tab
+  */
+  usageVisualization: 'Usage Visualization',
+  /**
+  *@description Data grid name for Coverage data grids
+  */
+  codeCoverage: 'Code Coverage',
+  /**
+  *@description Cell title in Coverage List View of the Coverage tab
+  */
+  jsCoverageWithPerFunction:
+      'JS coverage with per function granularity: Once a function was executed, the whole function is marked as covered.',
+  /**
+  *@description Cell title in Coverage List View of the Coverage tab
+  */
+  jsCoverageWithPerBlock:
+      'JS coverage with per block granularity: Once a block of JavaScript was executed, that block is marked as covered.',
+  /**
+  *@description Accessible text for a file size of 1 byte
+  */
+  Byte: '1 byte',
+  /**
+  *@description Accessible text for the value in bytes in memory allocation or coverage view.
+  *@example {12345} THIS__COVERAGEINFO_SIZE_______
+  */
+  sBytes: '{THIS__COVERAGEINFO_SIZE_______} bytes',
+  /**
+  *@description Message in Coverage View of the Coverage tab
+  *@example {12.34} THIS__PERCENTAGESTRING_THIS__COVERAGEINFO_UNUSEDPERCENTAGE___
+  */
+  percentPlaceholder: '{THIS__PERCENTAGESTRING_THIS__COVERAGEINFO_UNUSEDPERCENTAGE___} %',
+  /**
+  *@description Accessible text for the amout of unused code in a file
+  *@example {20 %} UNUSEDPERCENTFORMATTED
+  */
+  ByteS: '1 byte, {UNUSEDPERCENTFORMATTED}',
+  /**
+  *@description Accessible text for the unused bytes column in the coverage tool that describes the total unused bytes and percentage of the file unused.
+  *@example {100000} UNUSEDSIZE
+  *@example {88%} UNUSEDPERCENTFORMATED
+  */
+  sBytesS: '{UNUSEDSIZE} bytes, {UNUSEDPERCENTFORMATED}',
+  /**
+  *@description Tooltip text for the bar in the coverage list view of the coverage tool that illustrates the relation between used and unused bytes.
+  *@example {1000} THIS__COVERAGEINFO_UNUSEDSIZE__
+  *@example {12.34} UNUSEDPERCENT
+  */
+  sBytesSBelongToFunctionsThatHave:
+      '{THIS__COVERAGEINFO_UNUSEDSIZE__} bytes ({UNUSEDPERCENT} %) belong to functions that have not (yet) been executed.',
+  /**
+  *@description Tooltip text for the bar in the coverage list view of the coverage tool that illustrates the relation between used and unused bytes.
+  *@example {1000} THIS__COVERAGEINFO_UNUSEDSIZE__
+  *@example {12.34} UNUSEDPERCENT
+  */
+  sBytesSBelongToBlocksOf:
+      '{THIS__COVERAGEINFO_UNUSEDSIZE__} bytes ({UNUSEDPERCENT} %) belong to blocks of JavaScript that have not (yet) been executed.',
+  /**
+  *@description Message in Coverage View of the Coverage tab
+  *@example {1000} THIS__COVERAGEINFO_USEDSIZE__
+  *@example {12.34} USEDPERCENT
+  */
+  sBytesSBelongToFunctionsThatHaveExecuted:
+      '{THIS__COVERAGEINFO_USEDSIZE__} bytes ({USEDPERCENT} %) belong to functions that have executed at least once.',
+  /**
+  *@description Message in Coverage View of the Coverage tab
+  *@example {1000} THIS__COVERAGEINFO_USEDSIZE__
+  *@example {12.34} USEDPERCENT
+  */
+  sBytesSBelongToBlocksOfJavascript:
+      '{THIS__COVERAGEINFO_USEDSIZE__} bytes ({USEDPERCENT} %) belong to blocks of JavaScript that have executed at least once.',
+  /**
+  *@description Accessible text for the visualization column of coverage tool. Contains percentage of unused bytes to used bytes.
+  *@example {12.3} UNUSEDPERCENT
+  *@example {12.3} USEDPERCENT
+  */
+  sOfFileUnusedSOfFileUsed: '{UNUSEDPERCENT} % of file unused, {USEDPERCENT} % of file used',
+};
+const str_ = i18n.i18n.registerUIStrings('coverage/CoverageListView.js', UIStrings);
 
 /**
  * @param {!CoverageType} type
@@ -42,10 +152,23 @@ export class CoverageListView extends UI.Widget.VBox {
     this._highlightRegExp = null;
     this.registerRequiredCSS('coverage/coverageListView.css');
     const columns = [
-      {id: 'url', title: ls`URL`, width: '250px', fixedWidth: false, sortable: true},
-      {id: 'type', title: ls`Type`, width: '45px', fixedWidth: true, sortable: true}, {
+      {
+        id: 'url',
+        title: i18n.i18n.getLocalizedString(str_, UIStrings.url),
+        width: '250px',
+        fixedWidth: false,
+        sortable: true
+      },
+      {
+        id: 'type',
+        title: i18n.i18n.getLocalizedString(str_, UIStrings.type),
+        width: '45px',
+        fixedWidth: true,
+        sortable: true
+      },
+      {
         id: 'size',
-        title: ls`Total Bytes`,
+        title: i18n.i18n.getLocalizedString(str_, UIStrings.totalBytes),
         width: '60px',
         fixedWidth: true,
         sortable: true,
@@ -53,16 +176,23 @@ export class CoverageListView extends UI.Widget.VBox {
       },
       {
         id: 'unusedSize',
-        title: ls`Unused Bytes`,
+        title: i18n.i18n.getLocalizedString(str_, UIStrings.unusedBytes),
         width: '100px',
         fixedWidth: true,
         sortable: true,
         align: DataGrid.DataGrid.Align.Right,
         sort: DataGrid.DataGrid.Order.Descending
       },
-      {id: 'bars', title: ls`Usage Visualization`, width: '250px', fixedWidth: false, sortable: true}
+      {
+        id: 'bars',
+        title: i18n.i18n.getLocalizedString(str_, UIStrings.usageVisualization),
+        width: '250px',
+        fixedWidth: false,
+        sortable: true
+      }
     ];
-    this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({displayName: ls`Code Coverage`, columns});
+    this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid(
+        {displayName: i18n.i18n.getLocalizedString(str_, UIStrings.codeCoverage), columns});
     this._dataGrid.setResizeMethod(DataGrid.DataGrid.ResizeMethod.Last);
     this._dataGrid.element.classList.add('flex-auto');
     this._dataGrid.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
@@ -262,19 +392,18 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode {
       case 'type': {
         cell.textContent = coverageTypeToString(this._coverageInfo.type());
         if (this._coverageInfo.type() & CoverageType.JavaScriptPerFunction) {
-          cell.title = ls
-          `JS coverage with per function granularity: Once a function was executed, the whole function is marked as covered.`;
+          cell.title = i18n.i18n.getLocalizedString(str_, UIStrings.jsCoverageWithPerFunction);
         } else if (this._coverageInfo.type() & CoverageType.JavaScript) {
-          cell.title = ls
-          `JS coverage with per block granularity: Once a block of JavaScript was executed, that block is marked as covered.`;
+          cell.title = i18n.i18n.getLocalizedString(str_, UIStrings.jsCoverageWithPerBlock);
         }
         break;
       }
       case 'size': {
         const sizeSpan = cell.createChild('span');
         sizeSpan.textContent = Number.withThousandsSeparator(this._coverageInfo.size() || 0);
-        const sizeAccessibleName =
-            (this._coverageInfo.size() === 1) ? ls`1 byte` : ls`${this._coverageInfo.size() || 0} bytes`;
+        const sizeAccessibleName = (this._coverageInfo.size() === 1) ?
+            i18n.i18n.getLocalizedString(str_, UIStrings.Byte) :
+            i18n.i18n.getLocalizedString(str_, UIStrings.sBytes, {PH1: this._coverageInfo.size() || 0});
         this.setCellAccessibleName(sizeAccessibleName, cell, columnId);
         break;
       }
@@ -283,10 +412,12 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode {
         const unusedSizeSpan = cell.createChild('span');
         const unusedPercentsSpan = cell.createChild('span', 'percent-value');
         unusedSizeSpan.textContent = Number.withThousandsSeparator(unusedSize);
-        const unusedPercentFormatted = ls`${this._percentageString(this._coverageInfo.unusedPercentage())} %`;
+        const unusedPercentFormatted = i18n.i18n.getLocalizedString(
+            str_, UIStrings.percentPlaceholder, {PH1: this._percentageString(this._coverageInfo.unusedPercentage())});
         unusedPercentsSpan.textContent = unusedPercentFormatted;
-        const unusedAccessibleName = (unusedSize === 1) ? ls`1 byte, ${unusedPercentFormatted}` :
-                                                          ls`${unusedSize} bytes, ${unusedPercentFormatted}`;
+        const unusedAccessibleName = (unusedSize === 1) ?
+            i18n.i18n.getLocalizedString(str_, UIStrings.ByteS, {PH1: unusedPercentFormatted}) :
+            i18n.i18n.getLocalizedString(str_, UIStrings.sBytesS, {PH1: unusedSize, PH2: unusedPercentFormatted});
         this.setCellAccessibleName(unusedAccessibleName, cell, columnId);
         break;
       }
@@ -298,26 +429,28 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode {
           const unusedSizeBar = barContainer.createChild('div', 'bar bar-unused-size');
           unusedSizeBar.style.width = ((this._coverageInfo.unusedSize() / this._maxSize) * 100 || 0) + '%';
           if (this._coverageInfo.type() & CoverageType.JavaScriptPerFunction) {
-            unusedSizeBar.title = ls`${this._coverageInfo.unusedSize()} bytes (${
-                unusedPercent} %) belong to functions that have not (yet) been executed.`;
+            unusedSizeBar.title = i18n.i18n.getLocalizedString(
+                str_, UIStrings.sBytesSBelongToFunctionsThatHave, {PH1: this._coverageInfo.unusedSize()});
           } else if (this._coverageInfo.type() & CoverageType.JavaScript) {
-            unusedSizeBar.title = ls`${this._coverageInfo.unusedSize()} bytes (${
-                unusedPercent} %) belong to blocks of JavaScript that have not (yet) been executed.`;
+            unusedSizeBar.title = i18n.i18n.getLocalizedString(
+                str_, UIStrings.sBytesSBelongToBlocksOf, {PH1: this._coverageInfo.unusedSize()});
           }
         }
         if (this._coverageInfo.usedSize() > 0) {
           const usedSizeBar = barContainer.createChild('div', 'bar bar-used-size');
           usedSizeBar.style.width = ((this._coverageInfo.usedSize() / this._maxSize) * 100 || 0) + '%';
           if (this._coverageInfo.type() & CoverageType.JavaScriptPerFunction) {
-            usedSizeBar.title = ls`${this._coverageInfo.usedSize()} bytes (${
-                usedPercent} %) belong to functions that have executed at least once.`;
+            usedSizeBar.title = i18n.i18n.getLocalizedString(
+                str_, UIStrings.sBytesSBelongToFunctionsThatHaveExecuted, {PH1: this._coverageInfo.usedSize()});
           } else if (this._coverageInfo.type() & CoverageType.JavaScript) {
-            usedSizeBar.title = ls`${this._coverageInfo.usedSize()} bytes (${
-                usedPercent} %) belong to blocks of JavaScript that have executed at least once.`;
+            usedSizeBar.title = i18n.i18n.getLocalizedString(
+                str_, UIStrings.sBytesSBelongToBlocksOfJavascript, {PH1: this._coverageInfo.usedSize()});
           }
         }
         this.setCellAccessibleName(
-            ls`${unusedPercent} % of file unused, ${usedPercent} % of file used`, cell, columnId);
+            i18n.i18n.getLocalizedString(
+                str_, UIStrings.sOfFileUnusedSOfFileUsed, {PH1: unusedPercent, PH2: usedPercent}),
+            cell, columnId);
       }
     }
     return cell;

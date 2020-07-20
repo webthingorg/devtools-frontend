@@ -127,9 +127,6 @@
   <message name="IDS_DEVTOOLS_31fde7b05ac8952dacf4af8a704074ec" desc="Text for previewing items">
     Preview
   </message>
-  <message name="IDS_DEVTOOLS_340641a167ad6da1bcb4016357f4695d" desc="Title for a type of source files">
-    Content scripts
-  </message>
   <message name="IDS_DEVTOOLS_36917e785bd31d786ab9dd7790a9a4c2" desc="Text for a heap profile type">
     JS Heap
   </message>
@@ -280,9 +277,6 @@
   <message name="IDS_DEVTOOLS_65b4c7424dd695c30efa73da8396c90c" desc="Title of the Profiler tool">
     Profiler
   </message>
-  <message name="IDS_DEVTOOLS_686155af75a60a0f6e9d80c1f7edd3e9" desc="Text in Timeline Tree View of the Performance panel">
-    JavaScript
-  </message>
   <message name="IDS_DEVTOOLS_689202409e48743b914713f96d93947c" desc="Text for the value of something">
     Value
   </message>
@@ -343,9 +337,6 @@
   <message name="IDS_DEVTOOLS_81aa2078d1eceede831b2976dbf32e62" desc="Text to clear everything">
     Clear all
   </message>
-  <message name="IDS_DEVTOOLS_832e506a71f4a57ed15ecbcd771f9247" desc="Text in Coverage List View of the Coverage tab">
-    Total Bytes
-  </message>
   <message name="IDS_DEVTOOLS_84d0c431d1472a0609d69b39dcb3a287" desc="Text for the index of something">
     (index)
   </message>
@@ -384,9 +375,6 @@
   </message>
   <message name="IDS_DEVTOOLS_90589c47f06eb971d548591f23c285af" desc="Text in Network Throttling Selector of the Network panel">
     Custom
-  </message>
-  <message name="IDS_DEVTOOLS_9066c4d254b4c8ab67e107a1b59e925d" desc="Accessible text for a file size of 1 byte">
-    1 byte
   </message>
   <message name="IDS_DEVTOOLS_90da6f38945a1c7e7ba11e3adcbe6919" desc="Text for pausing the debugger on exceptions">
     Pause on exceptions
