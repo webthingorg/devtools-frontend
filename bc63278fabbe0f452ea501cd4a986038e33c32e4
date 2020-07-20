@@ -33,6 +33,24 @@
       "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27d35e70_e73ea3af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-20T14:14:48Z",
+      "side": 1,
+      "message": "My initial approach was to use recursion, but without constructing `elementPath` beforehand. Instead I wanted to recurse to the root node and then expand elements on the way back up. But for this to work it would require to recursive function to return (a) value(s) to be used in the next outer iteration.\n\nI looked into doing it the way you suggested:\n\n  _expandLastRecursive(selection, elementPath) {\n    if (!selection.length || !elementPath.length) return;\n    const element \u003d elementPath.pop();\n    if (element.itemURL \u003d\u003d\u003d selection.pop()) {\n      if (!element.expanded) {\n        if (elementPath.length \u003e 0) {\n          element.expand();\n        }\n        element.select();\n      }\n      this._expandLastRecursive(selection, elementPath);\n    }\n  }\n\nFor me, the iterative approach using indices is easier to follow. What do you think?",
+      "parentUuid": "372cbf64_20100b93",
+      "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
