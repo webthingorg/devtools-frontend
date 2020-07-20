@@ -205,6 +205,47 @@ class AffectedDirectivesView extends AffectedResourcesView {
   }
 
   /**
+   * @param {!Element} header
+   */
+  _appendDirectiveColumnTitle(header) {
+    const name = document.createElement('td');
+    name.classList.add('affected-resource-header');
+    name.textContent = ls`Directive`;
+    header.appendChild(name);
+  }
+
+  /**
+   * @param {!Element} header
+   */
+  _appendURLColumnTitle(header) {
+    const info = document.createElement('td');
+    info.classList.add('affected-resource-header');
+    info.classList.add('affected-resource-directive-info-header');
+    info.textContent = ls`Resource`;
+    header.appendChild(info);
+  }
+
+  /**
+   * @param {!Element} header
+   */
+  _appendNodeColumnTitle(header) {
+    const affectedNode = document.createElement('td');
+    affectedNode.classList.add('affected-resource-header');
+    affectedNode.textContent = ls`Node`;
+    header.appendChild(affectedNode);
+  }
+
+  /**
+   * @param {!Element} header
+   */
+  _appendSourceCodeColumnTitle(header) {
+    const sourceCodeLink = document.createElement('td');
+    sourceCodeLink.classList.add('affected-resource-header');
+    sourceCodeLink.textContent = ls`Source code`;
+    header.appendChild(sourceCodeLink);
+  }
+
+  /**
    * @param {!Set<!Protocol.Audits.ContentSecurityPolicyIssueDetails>} cspViolations
    */
   _appendAffectedDirectives(cspViolations) {
@@ -212,22 +253,15 @@ class AffectedDirectivesView extends AffectedResourcesView {
     if (cspViolations.size > 0) {
       const violationIterator = cspViolations.values();
       const firstCSPViolation = violationIterator.next().value;
-      if (firstCSPViolation.blockedURL) {
-        const info = document.createElement('td');
-        info.classList.add('affected-resource-header');
-        info.classList.add('affected-resource-directive-info-header');
-        info.textContent = ls`Resource`;
-        header.appendChild(info);
+      if (firstCSPViolation.violatingNodeId) {
+        this._appendDirectiveColumnTitle(header);
+        this._appendNodeColumnTitle(header);
+      } else {
+        this._appendURLColumnTitle(header);
+        this._appendDirectiveColumnTitle(header);
       }
+      this._appendSourceCodeColumnTitle(header);
     }
-    const name = document.createElement('td');
-    name.classList.add('affected-resource-header');
-    name.textContent = ls`Directive`;
-    header.appendChild(name);
-    const sourceCodeLink = document.createElement('td');
-    sourceCodeLink.classList.add('affected-resource-header');
-    sourceCodeLink.textContent = ls`Source code`;
-    header.appendChild(sourceCodeLink);
     this._affectedResources.appendChild(header);
     let count = 0;
     for (const cspViolation of cspViolations) {
@@ -240,7 +274,7 @@ class AffectedDirectivesView extends AffectedResourcesView {
   /**
    * @param {!Protocol.Audits.ContentSecurityPolicyIssueDetails} cspViolation
    */
-  appendAffectedDirective(cspViolation) {
+  async appendAffectedDirective(cspViolation) {
     const url = cspViolation.blockedURL;
     const element = document.createElement('tr');
     element.classList.add('affected-resource-directive');
@@ -253,6 +287,31 @@ class AffectedDirectivesView extends AffectedResourcesView {
       element.appendChild(info);
     }
     element.appendChild(name);
+
+    const nodeId = cspViolation.violatingNodeId;
+    if (nodeId) {
+      const violatingNode = document.createElement('td');
+      violatingNode.classList.add('affected-resource-csp-info-node');
+      const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
+
+      const target = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
+      icon.onclick = async () => {
+        const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
+        Common.Revealer.reveal(deferredDOMNode);
+      };
+
+      UI.Tooltip.Tooltip.install(icon, ls`Click to reveal the violating DOM node in the Elements panel`);
+      violatingNode.appendChild(icon);
+
+      violatingNode.onmouseenter = () => {
+        const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
+        if (deferredDOMNode) {
+          deferredDOMNode.highlight();
+        }
+      };
+      violatingNode.onmouseleave = () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+      element.appendChild(violatingNode);
+    }
     const sourceCodeLocation = cspViolation.sourceCodeLocation;
     if (sourceCodeLocation) {
       const maxLengthForDisplayedURLs = 40;  // Same as console messages.
