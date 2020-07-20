@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8130fa16_ea8b0267",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-20T15:52:36Z",
+      "side": 1,
+      "message": "This change lgtm, I do have a question about what happens if the row/column background color is also specified using rowGapColor? (you can test this by setting grid lines to none, but row/column gaps on)",
+      "revId": "21b5e542fd150c4c1f8d6e7352ed15e126202f27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
