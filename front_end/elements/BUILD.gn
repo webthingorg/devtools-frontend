@@ -10,14 +10,17 @@ import("../../third_party/typescript/typescript.gni")
 devtools_module("elements") {
   sources = [
     "Adorner.js",
+    "ComputedStyleGroupLists.js",
     "ElementsBreadcrumbsUtils.ts",
     "NewElementsBreadcrumbs.ts",
     "NewElementsBreadcrumbs_bridge.js",
+    "PropertyNameCategories.js",
   ]
 
   deps = [
     "../common:bundle",
     "../platform:bundle",
+    "../sdk:bundle",
     "../third_party/lit-html:bundle",
     "../ui",
   ]

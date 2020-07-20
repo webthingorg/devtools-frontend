@@ -97,7 +97,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
     this._setupWhitespaceHighlight();
 
     /** @type {?Element} */
-    this._infoBarDiv = null;
+    // this._infoBarDiv = null;
   }
 
   /**

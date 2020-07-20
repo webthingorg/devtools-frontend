@@ -28,6 +28,7 @@ import './ElementsTreeElementHighlighter.js';
 import * as Adorner from './Adorner.js';
 import * as ClassesPaneWidget from './ClassesPaneWidget.js';
 import * as ColorSwatchPopoverIcon from './ColorSwatchPopoverIcon.js';
+import * as ComputedStyleGroupLists from './ComputedStyleGroupLists.js';
 import * as ComputedStyleModel from './ComputedStyleModel.js';
 import * as ComputedStyleWidget from './ComputedStyleWidget.js';
 import * as DOMLinkifier from './DOMLinkifier.js';
@@ -45,6 +46,7 @@ import * as MetricsSidebarPane from './MetricsSidebarPane.js';
 import * as NodeStackTraceWidget from './NodeStackTraceWidget.js';
 import * as PlatformFontsWidget from './PlatformFontsWidget.js';
 import * as PropertiesWidget from './PropertiesWidget.js';
+import * as PropertyNameCategories from './PropertyNameCategories.js';
 import * as StylePropertyHighlighter from './StylePropertyHighlighter.js';
 import * as StylePropertyTreeElement from './StylePropertyTreeElement.js';
 import * as StylesSidebarPane from './StylesSidebarPane.js';
@@ -53,6 +55,7 @@ export {
   Adorner,
   ClassesPaneWidget,
   ColorSwatchPopoverIcon,
+  ComputedStyleGroupLists,
   ComputedStyleModel,
   ComputedStyleWidget,
   DOMLinkifier,
@@ -70,6 +73,7 @@ export {
   NodeStackTraceWidget,
   PlatformFontsWidget,
   PropertiesWidget,
+  PropertyNameCategories,
   StylePropertyHighlighter,
   StylePropertyTreeElement,
   StylesSidebarPane,
