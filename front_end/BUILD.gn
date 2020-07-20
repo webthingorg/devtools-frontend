@@ -72,7 +72,7 @@ ts_library("ts_library-verification") {
     "inspector_overlay",
     "issues",
     "protocol_client",
-    "root",
+    "root:bundle",
     "sdk:bundle",
     "workspace",
   ]
