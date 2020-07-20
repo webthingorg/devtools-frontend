@@ -63,6 +63,30 @@
       "revId": "4db6288a6f71b100427becce74173d549204c020",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0b62222_3a15b033",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T12:56:44Z",
+      "side": 1,
+      "message": "So are you saying we won\u0027t need it here, because the presubmit will catch it? Will all markdown come from files? At least from the interface provided here it doesn\u0027t seem to be enforced.\n\nIn any case, I think having the check would be a good idea.",
+      "parentUuid": "9c82aace_9e36cfd9",
+      "range": {
+        "startLine": 106,
+        "startChar": 38,
+        "endLine": 106,
+        "endChar": 44
+      },
+      "revId": "4db6288a6f71b100427becce74173d549204c020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
