@@ -109,6 +109,30 @@
       "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe05f57c_446bb002",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-20T14:50:18Z",
+      "side": 1,
+      "message": "Exactly, we are expanding all elements up to the previously selected and persisted element, but not this element itself. This is how the previous implementation handled it and I was confused about this at first too. But I think it makes sense and is consistent since clicking on/selecting an element does not expand it either. And there could be situations where the selected element has a lot of children potentially adding visual noise.",
+      "parentUuid": "64b2543f_0f3320d4",
+      "range": {
+        "startLine": 375,
+        "startChar": 11,
+        "endLine": 375,
+        "endChar": 18
+      },
+      "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
