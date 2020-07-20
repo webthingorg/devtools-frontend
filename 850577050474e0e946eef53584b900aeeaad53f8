@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba7da6f4_b9a38c12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-20T12:46:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8627a5b7_c12d7c21",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 70
+      },
+      "revId": "850577050474e0e946eef53584b900aeeaad53f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc1e5a5e_fcd9331f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -82,6 +106,30 @@
     },
     {
       "key": {
+        "uuid": "83f593e1_ac970917",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-20T12:46:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28b8c2e0_61eb543f",
+      "range": {
+        "startLine": 124,
+        "startChar": 20,
+        "endLine": 124,
+        "endChar": 32
+      },
+      "revId": "850577050474e0e946eef53584b900aeeaad53f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c31acb0a_5369e779",
         "filename": "front_end/sdk/sdk_strings.grdp",
         "patchSetId": 5
@@ -102,6 +150,30 @@
       "revId": "850577050474e0e946eef53584b900aeeaad53f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f46cdc8_2d88e9f1",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-20T12:46:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c31acb0a_5369e779",
+      "range": {
+        "startLine": 757,
+        "startChar": 49,
+        "endLine": 757,
+        "endChar": 66
+      },
+      "revId": "850577050474e0e946eef53584b900aeeaad53f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
