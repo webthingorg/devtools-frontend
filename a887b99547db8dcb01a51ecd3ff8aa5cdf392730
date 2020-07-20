@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a16a7968_892febce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T08:21:51Z",
+      "side": 1,
+      "message": "PTAL, see the screenshot for details. This would be a natural place to surface a detailed reason for tagging a frame as an ad.\n",
+      "revId": "a887b99547db8dcb01a51ecd3ff8aa5cdf392730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
