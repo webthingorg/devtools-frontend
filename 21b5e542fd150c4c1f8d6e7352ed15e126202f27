@@ -56,6 +56,30 @@
       "revId": "21b5e542fd150c4c1f8d6e7352ed15e126202f27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e06b3230_83fc153b",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-20T15:55:58Z",
+      "side": 1,
+      "message": "**things \u003d\u003d\u003d background color path",
+      "parentUuid": "b82e4274_d1ff2904",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 23
+      },
+      "revId": "21b5e542fd150c4c1f8d6e7352ed15e126202f27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
