@@ -34,6 +34,24 @@
       "revId": "592cf75ae48fbbf55d5b5966b3186e3444fd618b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af9e9586_fa237504",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1270397
+      },
+      "writtenOn": "2020-07-20T12:55:56Z",
+      "side": 1,
+      "message": "Confirmation is fine then.  I\u0027d agree we shouldn\u0027t show this field when the frame isn\u0027t identified as an ad, and just wanted to make sure that I was reading the behavior correctly.",
+      "parentUuid": "7bae8321_1f6ff276",
+      "revId": "592cf75ae48fbbf55d5b5966b3186e3444fd618b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
