@@ -9,6 +9,7 @@ group("front_end") {
   public_deps = [
     ":front_end_html_entrypoints",
     ":ts_library-verification",
+    "bindings:bundle",
     "common:bundle",
     "component_docs",
     "elements:bundle",
@@ -62,7 +63,7 @@ ts_library("ts_library-verification") {
   sources = [ "verification.ts" ]
 
   deps = [
-    "bindings",
+    "bindings:bundle",
     "browser_sdk",
     "color_picker",
     "common:bundle",
