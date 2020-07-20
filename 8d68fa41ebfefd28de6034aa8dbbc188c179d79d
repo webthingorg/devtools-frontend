@@ -16,6 +16,52 @@
       "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b92050d_7a893b8f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T15:17:27Z",
+      "side": 1,
+      "message": "What is this accomplishing? It looks like it is trying to only show the first column if there is a blocked URL available on the first issue.\n\nCouldn\u0027t you do this check in a better way by asking this._issue for its type? (I assume you want to only show the blockedURL for the kind of issues that actually carry the blockedURL information).",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 41
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac5c9081_5ad1978b",
+        "filename": "front_end/sdk/ContentSecurityPolicyIssue.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T15:17:27Z",
+      "side": 1,
+      "message": "To make this work properly, you need to have different issue codes for the two violations. I suggest you modify createIssuesForContentSecurityPolicyIssue to distinguish based on the ContentSecurityPolicyViolationType and create derived issue codes.\n\nAs a cleanup, you could move createIssuesForContentSecurityPolicyIssue as a static method to ContentSecurityPolicyIssue (and refactor it as createIssuesFromIssueDescription(issueDetails), for example). You can then distinguish based on ContentSecurityPolicyViolationType in the details which code you want. For example, you could create the issue codes as [Protocol.Audits.InspectorIssueCode.ContentSecurityPolicyIssue, issueDetails.contentSecurityPolicyViolationType].join(\"::\")",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
