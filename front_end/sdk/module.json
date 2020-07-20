@@ -246,7 +246,6 @@
       "experiment": "cssGridFeatures",
       "settingName": "showGridAreas",
       "settingType": "boolean",
-      "storageType": "session",
       "options": [
         {
           "value": true,

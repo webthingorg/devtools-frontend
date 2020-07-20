@@ -69,9 +69,7 @@ export class OverlayModel extends SDKModel {
     this._showGridGapsSetting = null;
     /** @type {?Common.Settings.Setting<*>} */
     this._showGridAreasSetting = null;
-    if (this._gridFeaturesExperimentEnabled) {
-      this._registerGridSettingsTelemetry();
-    }
+
     this._hideHighlightTimeout = null;
     this._defaultHighlighter = new DefaultHighlighter(this);
     this._highlighter = this._defaultHighlighter;
@@ -90,6 +88,15 @@ export class OverlayModel extends SDKModel {
     if (!target.suspended()) {
       this._overlayAgent.enable();
       this._wireAgentToSettings();
+    }
+
+    if (this._gridFeaturesExperimentEnabled) {
+      this._showGridBorderSetting = Common.Settings.Settings.instance().moduleSetting('showGridBorder');
+      this._showGridLinesSetting = Common.Settings.Settings.instance().moduleSetting('showGridLines');
+      this._showGridLineNumbersSetting = Common.Settings.Settings.instance().moduleSetting('showGridLineNumbers');
+      this._showGridGapsSetting = Common.Settings.Settings.instance().moduleSetting('showGridGaps');
+      this._showGridAreasSetting = Common.Settings.Settings.instance().moduleSetting('showGridAreas');
+      this._logCurentGridSettings();
     }
   }
 
@@ -130,6 +137,31 @@ export class OverlayModel extends SDKModel {
     for (const overlayModel of TargetManager.instance().models(OverlayModel)) {
       overlayModel.clearHighlight();
     }
+  }
+
+  // Used to ensure grid settings telemetry is only registered once
+  static gridTelemetryLogged = false;
+
+  _logCurentGridSettings() {
+    if (OverlayModel.gridTelemetryLogged) {
+      return;
+    }
+    this._recordGridSetting(this._showGridBorderSetting);
+    this._recordGridSetting(this._showGridLinesSetting);
+    this._recordGridSetting(this._showGridLineNumbersSetting);
+    this._recordGridSetting(this._showGridGapsSetting);
+    this._recordGridSetting(this._showGridAreasSetting);
+    OverlayModel.gridTelemetryLogged = true;
+  }
+
+  /**
+   * @param {?Common.Settings.Setting<*>} setting
+   */
+  _recordGridSetting(setting) {
+    if (!setting) {
+      return;
+    }
+    Host.userMetrics.cssGridSettings(`${setting.name}.${setting.get()}`);
   }
 
   /**
@@ -196,31 +228,6 @@ export class OverlayModel extends SDKModel {
       this._updatePausedInDebuggerMessage();
     }
     return this._overlayAgent.setShowViewportSizeOnResize(this._showViewportSizeOnResize);
-  }
-
-  _registerGridSettingsTelemetry() {
-    this._showGridBorderSetting = Common.Settings.Settings.instance().moduleSetting('showGridBorder');
-    this._showGridLinesSetting = Common.Settings.Settings.instance().moduleSetting('showGridLines');
-    this._showGridLineNumbersSetting = Common.Settings.Settings.instance().moduleSetting('showGridLineNumbers');
-    this._showGridGapsSetting = Common.Settings.Settings.instance().moduleSetting('showGridGaps');
-    this._showGridAreasSetting = Common.Settings.Settings.instance().moduleSetting('showGridAreas');
-
-    this._showGridBorderSetting.addChangeListener(() => this._recordGridSettingChange(this._showGridBorderSetting));
-    this._showGridLinesSetting.addChangeListener(() => this._recordGridSettingChange(this._showGridLinesSetting));
-    this._showGridLineNumbersSetting.addChangeListener(
-        () => this._recordGridSettingChange(this._showGridLineNumbersSetting));
-    this._showGridGapsSetting.addChangeListener(() => this._recordGridSettingChange(this._showGridGapsSetting));
-    this._showGridAreasSetting.addChangeListener(() => this._recordGridSettingChange(this._showGridAreasSetting));
-  }
-
-  /**
-   * @param {?Common.Settings.Setting<*>} setting
-   */
-  _recordGridSettingChange(setting) {
-    if (!setting) {
-      return;
-    }
-    Host.userMetrics.gridSettingChanged(`${setting.name}.${setting.get()}`);
   }
 
   /**
