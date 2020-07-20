@@ -51,6 +51,64 @@
       "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4c4fddc_ad18e298",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T14:30:09Z",
+      "side": 1,
+      "message": "OK, this doesn\u0027t seem any better to read, thanks for considering!",
+      "parentUuid": "27d35e70_e73ea3af",
+      "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba42fd98_180ec86c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T14:30:09Z",
+      "side": 1,
+      "message": "LGTM % question, thanks!",
+      "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b2543f_0f3320d4",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T14:30:09Z",
+      "side": 1,
+      "message": "What is this accomplishing? If we haven\u0027t arrived at the element we are looking for, we keep expanding (but we are not expanding the element we want to select?)\n\nI wonder if we can unconditionally expand the element.",
+      "range": {
+        "startLine": 375,
+        "startChar": 11,
+        "endLine": 375,
+        "endChar": 18
+      },
+      "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
