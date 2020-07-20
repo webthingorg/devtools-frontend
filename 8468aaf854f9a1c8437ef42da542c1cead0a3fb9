@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c7ad420_3360d528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-20T21:00:06Z",
+      "side": 1,
+      "message": "Hi All, this CL replaces the grid settings changed telemetry point with a new event that fires on devtools launch, logging the current grid settings. This will allow us to better understand what developers are consistently using for CSS grid per session, while filtering out the noise of trying out several options quickly before picking a configuration.\n\nThis also replaces the settings changed event because it was registered and firing multiple times per setting change, making it unusable to track how often users were actually changing settings.\n\nNote: this CL is currently failing a localization script, and I don\u0027t know why. I\u0027m currently investigating.\n\nI\u0027ve left some comments around a few points: I\u0027ve updated all grid settings to be persistent instead of session settings, and removed the user-metric test, as I cannot get it to consistently validate the launch scenario.",
+      "revId": "8468aaf854f9a1c8437ef42da542c1cead0a3fb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

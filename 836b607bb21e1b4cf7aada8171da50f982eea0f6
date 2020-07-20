@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adacbd20_b7ea6c0b",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-20T21:00:06Z",
+      "side": 1,
+      "message": "I updated these to be persistent to be consistent with other grid settings. lmk what you guys think.",
+      "range": {
+        "startLine": 243,
+        "startChar": 5,
+        "endLine": 268,
+        "endChar": 18
+      },
+      "revId": "836b607bb21e1b4cf7aada8171da50f982eea0f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a6706e_01346a9b",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-20T21:00:06Z",
+      "side": 1,
+      "message": "I\u0027ve removed this test for now, as I can\u0027t find support for recording events that fire on launch of devtools. I keep having issues getting the listeners added before the devtools emits the histogram events.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 3
+      },
+      "revId": "836b607bb21e1b4cf7aada8171da50f982eea0f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
