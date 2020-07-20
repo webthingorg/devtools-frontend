@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37ac81b4_cc2662e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1270397
+      },
+      "writtenOn": "2020-07-20T12:46:06Z",
+      "side": 1,
+      "message": "This generally looks good, but a couple comments/requests:\n1) I think this relates to the previous CL on the bug, https://chromium-review.googlesource.com/c/chromium/src/+/2289850, it probably makes sense to reference that here, as that CL has the testing for the content of this CL fundamentally (and also maybe expand the CL description a bit?)\n2) I double-checked your code, and it looks as if the field isn\u0027t displayed at all if it\u0027s a non-ad frame, is that correct?  If so, can you provide screenshots of that use case as well?",
+      "revId": "592cf75ae48fbbf55d5b5966b3186e3444fd618b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
