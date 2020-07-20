@@ -14,6 +14,7 @@ group("front_end") {
     "elements:bundle",
     "formatter_worker:bundle",
     "i18n:bundle_i18n",
+    "issues:bundle",
     "sdk:bundle",
     "third_party/lighthouse",
   ]
@@ -68,7 +69,6 @@ ts_library("ts_library-verification") {
     "common:bundle",
     "host",
     "inspector_overlay",
-    "issues",
     "protocol_client",
     "root",
     "sdk:bundle",
