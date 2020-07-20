@@ -67,7 +67,7 @@
 
 .authenticator-section-title {
   line-height: 24px;
-  width: 330px;
+  width: 260px;
   font-weight: bold;
   display: inline-block;
 }
@@ -112,5 +112,30 @@
 .active-button-container {
   display: inline-block;
   min-width: 28px;
-  margin-left: 5px;
+}
+
+.edit-name-toolbar {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.authenticator-name-field {
+  border: none;
+  font-weight: bold;
+  width: 220px;
+}
+
+.saved {
+  animation: save-flash 0.2s;
+}
+
+@keyframes save-flash {
+  from { opacity: 0%; }
+  to { opacity: 100%; }
+}
+
+.authenticator-name-field-edit {
+  border: none;
+  border-bottom: 2px solid grey;
+  width: 220px;
 }

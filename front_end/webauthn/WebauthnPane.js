@@ -155,7 +155,6 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
 
     const headerElement = section.createChild('div', 'authenticator-section-header');
     const titleElement = headerElement.createChild('div', 'authenticator-section-title');
-    titleElement.textContent = ls`Authenticator ${authenticatorId}`;
     UI.ARIAUtils.markAsHeading(titleElement, 2);
 
     const removeButton = headerElement.createChild('button', 'remove-authenticator-button');
@@ -168,25 +167,96 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     activeLabel.radioElement.addEventListener('click', this._setActiveAuthenticator.bind(this, authenticatorId));
     activeButtonContainer.appendChild(activeLabel);
     activeLabel.radioElement.checked = true;
-    activeLabel.radioElement.title = ls`Set authenticator ${authenticatorId} as the active authenticator`;
-    this._activeAuthId = authenticatorId;  // Newly added authenticator is automatically set as active.
+    this._activeAuthId = authenticatorId;
+
+    const toolbar = new UI.Toolbar.Toolbar('edit-name-toolbar', titleElement);
+    const editName = new UI.Toolbar.ToolbarButton(ls`Edit name`, 'largeicon-edit');
+    const saveName = new UI.Toolbar.ToolbarButton(ls`Save name`, 'largeicon-checkmark');
+
+    const nameField = titleElement.createChild('input', 'authenticator-name-field');
+    nameField.setAttribute('readOnly', 'true');
+    const userFriendlyName = authenticatorId.slice(-5);  // User friendly name defaults to last 5 chars of UUID.
+    nameField.value = ls`Authenticator ${userFriendlyName}`;
+    activeLabel.radioElement.title = ls`Set ${nameField.value} as the active authenticator`;
+
+    saveName.setVisible(false);
+    editName.addEventListener(
+        UI.Toolbar.ToolbarButton.Events.Click,
+        this._handleEditNameButton.bind(this, nameField, editName, saveName, activeLabel));
+    saveName.addEventListener(
+        UI.Toolbar.ToolbarButton.Events.Click,
+        this._handleSaveNameButton.bind(this, nameField, editName, saveName, activeLabel));
+
+    toolbar.appendToolbarItem(editName);
+    toolbar.appendToolbarItem(saveName);
 
     const sectionFields = section.createChild('div', 'authenticator-fields');
+    const uuidField = sectionFields.createChild('div', 'authenticator-field');
     const protocolField = sectionFields.createChild('div', 'authenticator-field');
     const transportField = sectionFields.createChild('div', 'authenticator-field');
     const srkField = sectionFields.createChild('div', 'authenticator-field');
     const suvField = sectionFields.createChild('div', 'authenticator-field');
 
+    uuidField.appendChild(UI.UIUtils.createLabel(ls`UUID`, 'authenticator-option-label'));
     protocolField.appendChild(UI.UIUtils.createLabel(ls`Protocol`, 'authenticator-option-label'));
     transportField.appendChild(UI.UIUtils.createLabel(ls`Transport`, 'authenticator-option-label'));
     srkField.appendChild(UI.UIUtils.createLabel(ls`Supports resident keys`, 'authenticator-option-label'));
     suvField.appendChild(UI.UIUtils.createLabel(ls`Supports user verification`, 'authenticator-option-label'));
 
+    uuidField.createChild('div', 'authenticator-field-value').textContent = authenticatorId;
     protocolField.createChild('div', 'authenticator-field-value').textContent = options.protocol;
     transportField.createChild('div', 'authenticator-field-value').textContent = options.transport;
     srkField.createChild('div', 'authenticator-field-value').textContent = options.hasResidentKey ? ls`Yes` : ls`No`;
     suvField.createChild('div', 'authenticator-field-value').textContent =
         options.hasUserVerification ? ls`Yes` : ls`No`;
+  }
+
+  /**
+   * @param {!HTMLElement} nameField
+   * @param {!UI.Toolbar.ToolbarItem} editName
+   * @param {!UI.Toolbar.ToolbarItem} saveName
+   * @param {!Element} activeLabel
+   */
+  _handleEditNameButton(nameField, editName, saveName, activeLabel) {
+    nameField.removeAttribute('readonly');
+    nameField.classList.remove('authenticator-name-field');
+    nameField.classList.remove('saved');
+    nameField.classList.add('authenticator-name-field-edit');
+    nameField.focus();
+    saveName.setVisible(true);
+    editName.setVisible(false);
+
+    nameField.addEventListener(
+        'focusout', () => this._handleSaveNameButton(nameField, editName, saveName, activeLabel));
+    nameField.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        this._handleSaveNameButton(nameField, editName, saveName, activeLabel);
+      }
+    });
+  }
+
+  /**
+   * @param {!HTMLElement} nameField
+   * @param {!UI.Toolbar.ToolbarItem} editName
+   * @param {!UI.Toolbar.ToolbarItem} saveName
+   * @param {!Element} activeLabel
+   */
+  _handleSaveNameButton(nameField, editName, saveName, activeLabel) {
+    nameField.setAttribute('readonly', 'true');
+    nameField.classList.add('authenticator-name-field');
+    nameField.classList.remove('authenticator-name-field-edit');
+    nameField.classList.add('saved');
+    editName.setVisible(true);
+    saveName.setVisible(false);
+    activeLabel.radioElement.title = ls`Set ${nameField.value} as the active authenticator`;
+
+    nameField.removeEventListener(
+        'focusout', () => this._handleSaveNameButton(nameField, editName, saveName, activeLabel));
+    nameField.removeEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        this._handleSaveNameButton(nameField, editName, saveName, activeLabel);
+      }
+    });
   }
 
   /**
