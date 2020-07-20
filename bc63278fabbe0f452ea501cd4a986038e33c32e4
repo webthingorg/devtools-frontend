@@ -133,6 +133,30 @@
       "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28617f6c_66f0d2a4",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T15:05:42Z",
+      "side": 1,
+      "message": "SGTM, thanks!",
+      "parentUuid": "fe05f57c_446bb002",
+      "range": {
+        "startLine": 375,
+        "startChar": 11,
+        "endLine": 375,
+        "endChar": 18
+      },
+      "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
