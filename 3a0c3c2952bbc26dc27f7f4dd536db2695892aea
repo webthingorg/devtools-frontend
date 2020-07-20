@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66a992c3_efc9fbfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-20T12:10:06Z",
+      "side": 1,
+      "message": "@Jack, please review all things web component\n@Paul, could you please take a look at the BUILD.gn/infrastructure changes.\n\nPlease keep in mind that this CL is very much WIP and I expect to iterate on it a bit.",
+      "revId": "3a0c3c2952bbc26dc27f7f4dd536db2695892aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "620ec9fa_476b3e1c",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-20T12:10:06Z",
+      "side": 1,
+      "message": "These feel very brittle. If we add CSS classes or other attributes they would show up here. Any better ideas without rendering the resulting template?",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 72
+      },
+      "revId": "3a0c3c2952bbc26dc27f7f4dd536db2695892aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
