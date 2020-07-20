@@ -39,6 +39,30 @@
       "revId": "4db6288a6f71b100427becce74173d549204c020",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c82aace_9e36cfd9",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-20T12:54:20Z",
+      "side": 1,
+      "message": "This case is rather common, since `marked` produces tokens of type \"space\" that only contain two newline characters in between paragraphs. We could filter out (i.e. empty render) the \"space\" tokens but produce an error for all the others?\n\nI was actually planning on adding a presubmit test that will also check issue descriptions for invalid markdown.",
+      "parentUuid": "9266fa2b_c243bd73",
+      "range": {
+        "startLine": 106,
+        "startChar": 38,
+        "endLine": 106,
+        "endChar": 44
+      },
+      "revId": "4db6288a6f71b100427becce74173d549204c020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
