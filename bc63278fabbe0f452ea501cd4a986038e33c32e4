@@ -16,6 +16,23 @@
       "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "372cbf64_20100b93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-20T12:42:12Z",
+      "side": 1,
+      "message": "I think this is already much better, thanks! Do you think the code would become easier to read if you formulated it recursively and used array.pop() (you need to clone the selection then)? That would do away with the indices.",
+      "revId": "bc63278fabbe0f452ea501cd4a986038e33c32e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
