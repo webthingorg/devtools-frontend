@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "d48f9eb0_f8474f03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-20T22:39:54Z",
+      "side": 1,
+      "message": "Thanks for the review notes! I\u0027ll work on the feedback.",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8165f200_612a95c0",
         "filename": "front_end/components/Linkifier.js",
         "patchSetId": 5
@@ -30,6 +47,24 @@
       "writtenOn": "2020-07-13T18:51:18Z",
       "side": 1,
       "message": "When does `this._selectElement` get assigned here?",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5789ddda_a6d3ea8e",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-20T22:39:54Z",
+      "side": 1,
+      "message": "this._selectElement is assigned by the parent constructor. I can add a getter method so referencing the field makes more sense.",
+      "parentUuid": "8165f200_612a95c0",
       "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "2a82b467_df449c6d",
+        "filename": "front_end/profiler/HeapSnapshotView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-20T22:39:54Z",
+      "side": 1,
+      "message": "Good point, I\u0027ll change the wording.",
+      "parentUuid": "9553b9e3_7f39573c",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1247fcd3_d840f39e",
         "filename": "front_end/settings/SettingsScreen.js",
         "patchSetId": 5
@@ -70,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "e6b94cd5_87fcb331",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-20T22:39:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1247fcd3_d840f39e",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41e70327_3d73d6c7",
         "filename": "front_end/ui/TabbedPane.js",
         "patchSetId": 5
@@ -84,6 +155,24 @@
       "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "604bf76b_d8e5602d",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-07-20T22:39:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "41e70327_3d73d6c7",
+      "revId": "284c4679d7a557fae5cb7b00277b8dbbea4dfde7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
