@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bcb5dc0_e42fd08f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-20T07:23:00Z",
+      "side": 1,
+      "message": "Not sure about this one overall. devtools_module lives alongside devtools_entrypoint, but devtools_pre_built doesn\u0027t always come with a corresponding entrypoint IIRC. It feels like we\u0027re potentially being too restrictive here.",
+      "revId": "2b29877f36c62874980fdfe9606fee5487a61d56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
