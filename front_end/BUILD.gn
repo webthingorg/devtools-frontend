@@ -20,6 +20,7 @@ group("front_end") {
     "i18n:bundle_i18n",
     "issues:bundle",
     "sdk:bundle",
+    "text_editor:bundle",
     "third_party/lighthouse",
   ]
 
