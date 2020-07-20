@@ -209,20 +209,26 @@ class AffectedDirectivesView extends AffectedResourcesView {
    */
   _appendAffectedDirectives(cspViolations) {
     const header = document.createElement('tr');
-    const info = document.createElement('td');
-    info.classList.add('affected-resource-header');
-    info.classList.add('affected-resource-directive-info-header');
-    info.textContent = ls`Resource`;
-    header.appendChild(info);
+    if (cspViolations.size > 0) {
+      const violationIterator = cspViolations.values();
+      const firstCSPViolation = violationIterator.next().value;
+      if (firstCSPViolation.blockedURL) {
+        const info = document.createElement('td');
+        info.classList.add('affected-resource-header');
+        info.classList.add('affected-resource-directive-info-header');
+        info.textContent = ls`Resource`;
+        header.appendChild(info);
+      }
+    }
     const name = document.createElement('td');
     name.classList.add('affected-resource-header');
     name.textContent = ls`Directive`;
     header.appendChild(name);
-    this._affectedResources.appendChild(header);
     const sourceCodeLink = document.createElement('td');
     sourceCodeLink.classList.add('affected-resource-header');
     sourceCodeLink.textContent = ls`Source code`;
     header.appendChild(sourceCodeLink);
+    this._affectedResources.appendChild(header);
     let count = 0;
     for (const cspViolation of cspViolations) {
       count++;
@@ -236,29 +242,29 @@ class AffectedDirectivesView extends AffectedResourcesView {
    */
   appendAffectedDirective(cspViolation) {
     const url = cspViolation.blockedURL;
+    const element = document.createElement('tr');
+    element.classList.add('affected-resource-directive');
+    const name = document.createElement('td');
+    name.textContent = cspViolation.violatedDirective;
     if (url) {
-      const element = document.createElement('tr');
-      element.classList.add('affected-resource-directive');
-      const name = document.createElement('td');
-      name.textContent = cspViolation.violatedDirective;
       const info = document.createElement('td');
       info.classList.add('affected-resource-directive-info');
       info.textContent = url;
       element.appendChild(info);
-      element.appendChild(name);
-      const sourceCodeLocation = cspViolation.sourceCodeLocation;
-      if (sourceCodeLocation) {
-        const maxLengthForDisplayedURLs = 40;  // Same as console messages.
-        const linkifier = new Components.Linkifier.Linkifier(maxLengthForDisplayedURLs);
-        const sourceAnchor = linkifier.linkifyScriptLocation(
-            /* target */ null,
-            /* scriptId */ null, sourceCodeLocation.url, sourceCodeLocation.lineNumber);
-        const sourceLocation = document.createElement('td');
-        sourceLocation.appendChild(sourceAnchor);
-        element.appendChild(sourceLocation);
-      }
-      this._affectedResources.appendChild(element);
     }
+    element.appendChild(name);
+    const sourceCodeLocation = cspViolation.sourceCodeLocation;
+    if (sourceCodeLocation) {
+      const maxLengthForDisplayedURLs = 40;  // Same as console messages.
+      const linkifier = new Components.Linkifier.Linkifier(maxLengthForDisplayedURLs);
+      const sourceAnchor = linkifier.linkifyScriptLocation(
+          /* target */ null,
+          /* scriptId */ null, sourceCodeLocation.url, sourceCodeLocation.lineNumber);
+      const sourceLocation = document.createElement('td');
+      sourceLocation.appendChild(sourceAnchor);
+      element.appendChild(sourceLocation);
+    }
+    this._affectedResources.appendChild(element);
   }
 
   /**
