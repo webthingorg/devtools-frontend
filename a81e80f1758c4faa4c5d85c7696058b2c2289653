@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5962db5c_4f9f0233",
+        "filename": "front_end/root/root.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-20T13:12:36Z",
+      "side": 1,
+      "message": "+Paul this is another case (like Simon mentioned) where I think your code has been output into the `front_end` directory - so something relating to your CL is outputting into the wrong place. Maybe we can use this to hunt down the bug we have in the build system somewhere...",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "a81e80f1758c4faa4c5d85c7696058b2c2289653",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
