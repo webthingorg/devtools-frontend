@@ -3024,6 +3024,35 @@
                     ]
                 },
                 {
+                    "name": "trackComputedStyleUpdates",
+                    "description": "Starts tracking the given computed styles for updates.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "propertiesToTrack",
+                            "type": "array",
+                            "items": {
+                                "$ref": "CSSComputedStyleProperty"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "pollComputedStyleUpdates",
+                    "description": "Polls the next batch of computed style updates.",
+                    "experimental": true,
+                    "returns": [
+                        {
+                            "name": "nodeIds",
+                            "description": "The list of node Ids that have their tracked computed styles updated",
+                            "type": "array",
+                            "items": {
+                                "$ref": "DOM.NodeId"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "setEffectivePropertyValueForNode",
                     "description": "Find a rule with the given active property for the given node and set the new value for this\nproperty",
                     "parameters": [
@@ -11464,6 +11493,12 @@
                         {
                             "name": "showAreaNames",
                             "description": "Show area name labels (default: false).",
+                            "optional": true,
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "showLineNames",
+                            "description": "Show line name labels (default: false).",
                             "optional": true,
                             "type": "boolean"
                         },

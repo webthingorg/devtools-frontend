@@ -2102,6 +2102,17 @@ declare namespace Protocol {
       text: string;
     }
 
+    export interface TrackComputedStyleUpdatesRequest {
+      propertiesToTrack: CSSComputedStyleProperty[];
+    }
+
+    export interface PollComputedStyleUpdatesResponse extends ProtocolResponseWithError {
+      /**
+       * The list of node Ids that have their tracked computed styles updated
+       */
+      nodeIds: DOM.NodeId[];
+    }
+
     export interface SetEffectivePropertyValueForNodeRequest {
       /**
        * The element id for which to set property.
@@ -7903,6 +7914,10 @@ declare namespace Protocol {
        * Show area name labels (default: false).
        */
       showAreaNames?: boolean;
+      /**
+       * Show line name labels (default: false).
+       */
+      showLineNames?: boolean;
       /**
        * The grid container border highlight color (default: transparent).
        */

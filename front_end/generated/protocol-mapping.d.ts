@@ -870,6 +870,14 @@ export namespace ProtocolMapping {
     'CSS.getStyleSheetText':
         {paramsType: [Protocol.CSS.GetStyleSheetTextRequest]; returnType: Protocol.CSS.GetStyleSheetTextResponse;};
     /**
+     * Starts tracking the given computed styles for updates.
+     */
+    'CSS.trackComputedStyleUpdates': {paramsType: [Protocol.CSS.TrackComputedStyleUpdatesRequest]; returnType: void;};
+    /**
+     * Polls the next batch of computed style updates.
+     */
+    'CSS.pollComputedStyleUpdates': {paramsType: []; returnType: Protocol.CSS.PollComputedStyleUpdatesResponse;};
+    /**
      * Find a rule with the given active property for the given node and set the new value for this
      * property
      */

@@ -518,6 +518,20 @@ export class CSSModel extends SDKModel {
     }
   }
 
+  /**
+   * @param {!Array<CSSComputedStyleProperty} computedStylesToTrack
+   */
+  async trackComputedStyleUpdates(computedStylesToTrack) {
+    return this._agent.trackComputedStyleUpdates(computedStylesToTrack);
+  }
+
+  /**
+   * @return {!Promise<!Array<CSSComputedStyleProperty>}
+   */
+  async pollComputedStyleUpdates() {
+    return await this._agent.pollComputedStyleUpdates();
+  }
+
   mediaQueryResultChanged() {
     this.dispatchEventToListeners(Events.MediaQueryResultChanged);
   }

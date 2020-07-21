@@ -112,6 +112,17 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     this._showHTMLCommentsSetting = Common.Settings.Settings.instance().moduleSetting('showHTMLComments');
     this._showHTMLCommentsSetting.addChangeListener(this._onShowHTMLCommentsChange.bind(this));
     this.useLightSelectionColor();
+
+    this._trackComputedStyles([
+      {
+        name: 'display',
+        value: 'grid',
+      },
+      {
+        name: 'position',
+        value: 'absolute',
+      }
+    ]);
   }
 
   /**
@@ -1555,6 +1566,33 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     if (treeElement) {
       treeElement.updateDecorations();
     }
+  }
+
+  async _trackStyleUpdates() {
+    if (!this._rootDOMNode) {
+      return;
+    }
+    await this._rootDOMNode.domModel().cssModel().trackComputedStyleUpdates([
+      {
+        name: 'display',
+        value: 'grid',
+      },
+      {
+        name: 'position',
+        value: 'absolute',
+      }
+    ]);
+    this._pollStyleUpdates();
+  }
+
+  async _pollStyleUpdates() {
+    if (!this._rootDOMNode) {
+      return;
+    }
+    await this._rootDOMNode.domModel().cssModel().pollComputedStyleUpdates();
+    // do something with updates
+    // can add a property _isTracking to turn off polling when not needed
+    this._pollStyleUpdates();
   }
 }
 

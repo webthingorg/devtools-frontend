@@ -1427,6 +1427,17 @@ experimental domain CSS
       # The stylesheet text.
       string text
 
+  # Starts tracking the given computed styles for updates.
+  experimental command trackComputedStyleUpdates
+    parameters
+      array of CSSComputedStyleProperty propertiesToTrack
+
+  # Polls the next batch of computed style updates.
+  experimental command pollComputedStyleUpdates
+    returns
+      # The list of node Ids that have their tracked computed styles updated
+      array of DOM.NodeId nodeIds
+
   # Find a rule with the given active property for the given node and set the new value for this
   # property
   command setEffectivePropertyValueForNode
@@ -5287,6 +5298,8 @@ experimental domain Overlay
       optional boolean showNegativeLineNumbers
       # Show area name labels (default: false).
       optional boolean showAreaNames
+      # Show line name labels (default: false).
+      optional boolean showLineNames
       # The grid container border highlight color (default: transparent).
       optional DOM.RGBA gridBorderColor
       # The cell border color (default: transparent).

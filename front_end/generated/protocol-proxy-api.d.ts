@@ -457,6 +457,17 @@ declare namespace ProtocolProxyApi {
         Promise<Protocol.CSS.GetStyleSheetTextResponse>;
 
     /**
+     * Starts tracking the given computed styles for updates.
+     */
+    invoke_trackComputedStyleUpdates(params: Protocol.CSS.TrackComputedStyleUpdatesRequest):
+        Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
+     * Polls the next batch of computed style updates.
+     */
+    invoke_pollComputedStyleUpdates(): Promise<Protocol.CSS.PollComputedStyleUpdatesResponse>;
+
+    /**
      * Find a rule with the given active property for the given node and set the new value for this
      * property
      */
