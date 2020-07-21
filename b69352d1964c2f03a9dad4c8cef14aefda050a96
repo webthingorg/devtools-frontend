@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb87d918_4f878ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-21T13:26:19Z",
+      "side": 1,
+      "message": "LGTM with one nit / thought that you can take or leave.",
+      "revId": "b69352d1964c2f03a9dad4c8cef14aefda050a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "404234df_bb9da0fc",
+        "filename": "test/unittests/front_end/ui/ListModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-21T13:26:19Z",
+      "side": 1,
+      "message": "why the bang here? Is it because this is undefined at first? In which case can\u0027t we do it as an optional type? \n\nCould extract it to an interface, define `let eventData: MyInterface | null \u003d null` ?\n\nHappy to leave this if you like, but my understanding was that we are trying to avoid the use of `!` as much as possible.",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "b69352d1964c2f03a9dad4c8cef14aefda050a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
