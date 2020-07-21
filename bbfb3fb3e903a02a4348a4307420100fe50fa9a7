@@ -85,6 +85,24 @@
       "revId": "bbfb3fb3e903a02a4348a4307420100fe50fa9a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a2431c9_076c7ac0",
+        "filename": "front_end/elements/ComputedStyleGroupLists.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-21T08:11:23Z",
+      "side": 1,
+      "message": "I thought about removing this, but for whatever reason the style did not look right after removing this. I\u0027ll add a TODO here and update the styles.",
+      "parentUuid": "a70cfb54_341f24ee",
+      "revId": "bbfb3fb3e903a02a4348a4307420100fe50fa9a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
