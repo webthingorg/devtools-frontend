@@ -3,14 +3,32 @@
   <message name="IDS_DEVTOOLS_180bc3b1c5619aaef40e803f49921012" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Spread
   </message>
+  <message name="IDS_DEVTOOLS_1ef0054faf96b87acdea23847bf263e8" desc="Line height slider label for Font Editor">
+    Line Height
+  </message>
   <message name="IDS_DEVTOOLS_2134e3ae0c489ce87a007a082d6a9a29" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     X offset
+  </message>
+  <message name="IDS_DEVTOOLS_45f0d4fa9a30e9c5571dbaa9ad1be931" desc="Font size slider label for Font Editor">
+    Font Size
   </message>
   <message name="IDS_DEVTOOLS_575ed851c8964c290e73055ffdc085a6" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Y offset
   </message>
   <message name="IDS_DEVTOOLS_5e9fb94d2ec46e6f829196c229e2b194" desc="Outset button text content in CSSShadow Editor of the inline editor in the Styles tab">
     Outset
+  </message>
+  <message name="IDS_DEVTOOLS_6184141f3ad2584cff257e2bfbbb8d0b" desc="Font weight slider label for Font Editor">
+    Font Weight
+  </message>
+  <message name="IDS_DEVTOOLS_627b24abf27e2d03d38537f84e81cb2e" desc="Label for letter-spacing labels">
+    Spacing
+  </message>
+  <message name="IDS_DEVTOOLS_873709207ad56d0b7bb9949ae36c75b0" desc="Section header for CSS property inputs">
+    CSS Properties
+  </message>
+  <message name="IDS_DEVTOOLS_882277bdf25efaeb8295e842ebcb3d11" desc="Font editor label for fallback font selector">
+    Fallback
   </message>
   <message name="IDS_DEVTOOLS_8b52de510bc5497ac43abfe566be48ab" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Blur
@@ -20,5 +38,11 @@
   </message>
   <message name="IDS_DEVTOOLS_d65b5983f317c42c6f6dff5678e628ca" desc="Icon element title in Color Swatch of the inline editor in the Styles tab">
     Shift-click to change color format
+  </message>
+  <message name="IDS_DEVTOOLS_db40a5d4b654151bf70f2e25e73263dc" desc="Font editor label for font family selector">
+    Font Family
+  </message>
+  <message name="IDS_DEVTOOLS_e5771a362d88a71a657bfcd21ca54b3f" desc="Font Editor units text box label">
+    Units
   </message>
 </grit-part>

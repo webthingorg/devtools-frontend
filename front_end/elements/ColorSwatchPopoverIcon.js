@@ -5,7 +5,9 @@
 import * as Bindings from '../bindings/bindings.js';
 import * as ColorPicker from '../color_picker/color_picker.js';
 import * as Common from '../common/common.js';
+import * as CssOverviewModule from '../css_overview/css_overview.js';
 import * as InlineEditor from '../inline_editor/inline_editor.js';
+import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';  // eslint-disable-line no-unused-vars
@@ -151,14 +153,6 @@ export class ColorSwatchPopoverIcon {
   }
 
   /**
-   * @param {!StylePropertyTreeElement} treeElement
-   * @return {?ColorSwatchPopoverIcon}
-   */
-  static forTreeElement(treeElement) {
-    return treeElement[ColorSwatchPopoverIcon._treeElementSymbol] || null;
-  }
-
-  /**
    * @param {!ColorPicker.ContrastInfo.ContrastInfo} contrastInfo
    */
   setContrastInfo(contrastInfo) {
@@ -281,14 +275,6 @@ export class ShadowSwatchPopoverHelper {
   }
 
   /**
-   * @param {!StylePropertyTreeElement} treeElement
-   * @return {?ShadowSwatchPopoverHelper}
-   */
-  static forTreeElement(treeElement) {
-    return treeElement[ShadowSwatchPopoverHelper._treeElementSymbol] || null;
-  }
-
-  /**
    * @param {!Event} event
    */
   _iconClick(event) {
@@ -355,3 +341,244 @@ export class ShadowSwatchPopoverHelper {
 }
 
 ShadowSwatchPopoverHelper._treeElementSymbol = Symbol('ShadowSwatchPopoverHelper._treeElementSymbol');
+
+/**
+ * @unrestricted
+ */
+export class FontSwatchPopoverIcon {
+  /**
+   * @param {!InlineEditor.SwatchPopoverHelper} swatchPopoverHelper
+   * @param {!Object} section
+   */
+  constructor(swatchPopoverHelper, section) {
+    /** @type {!Map<string, !StylePropertyTreeElement>} */
+    this._propertyMap = new Map();
+    this._originalMap = new Map();
+    this._swatchPopoverHelper = swatchPopoverHelper;
+    this._section = section;
+
+    this._boundFontValueChanged = this._fontValueChanged.bind(this);
+    this._boundFontUnitChanged = this._fontUnitChanged.bind(this);
+    this._boundOnScroll = this._onScroll.bind(this);
+    this._boundResized = this._fontEditorResized.bind(this);
+
+    const [model] = SDK.SDKModel.TargetManager.instance().models(CssOverviewModule.CSSOverviewModel.CSSOverviewModel);
+    this._model = model;
+  }
+
+  async _fontValueChanged(event) {
+    const {propertyName, value} = event.data;
+    const treeElement = this._propertyMap.get(propertyName);
+    if (treeElement && treeElement.property.parsedOk) {
+      let elementRemoved = false;
+      treeElement.valueElement.textContent = value;
+      treeElement.property.value = value;
+      let styleText;
+      const propertyName = treeElement.property.name;
+      if (value.length) {
+        styleText = treeElement.renderedPropertyText();
+      } else {
+        styleText = '';
+        elementRemoved = true;
+        this._fixIndex(treeElement.property.index);
+      }
+      this._propertyMap.set(propertyName, treeElement);
+      await treeElement.applyStyleText(styleText, true);
+      if (elementRemoved) {
+        this._propertyMap.delete(propertyName);
+        this._section.onpopulate();
+      }
+    } else if (value.length) {
+      const newProperty = this._section.addNewBlankProperty();
+      if (newProperty) {
+        newProperty.property.name = propertyName;
+        newProperty.property.value = value;
+        newProperty.updateTitle();
+        await newProperty.applyStyleText(newProperty.renderedPropertyText(), true);
+        this._propertyMap.set(newProperty.property.name, newProperty);
+      }
+    }
+  }
+
+  async _fontUnitChanged(event) {
+    const {propertyName, newUnit, prevUnit} = event.data;
+    const treeElement = this._propertyMap.get(propertyName);
+    if (treeElement && treeElement.property.parsedOk) {
+      const valueRegex = /([0-9]+)(.*)/
+      const match = treeElement.property.value.match(valueRegex);
+      const numValue = match[1];
+      const conversionMultiplier = await this._getNumConversionMultiplier(newUnit, prevUnit);
+      const newValue = numValue * conversionMultiplier
+      treeElement.valueElement.textContent = newValue + newUnit;
+      treeElement.property.value = newValue + newUnit;
+      const styleText = treeElement.renderedPropertyText();
+      await treeElement.applyStyleText(styleText, true);
+    }
+  }
+
+  async _getNumConversionMultiplier(newUnit, prevUnit) {
+    const htmlNode = this._findHtmlNode();
+
+    if (prevUnit === 'px') {
+      if (newUnit === 'em') {
+        return 1 / fontSizeValue;
+      }
+      if (newUnit === 'rem') {
+        return 1 / this._rootFontSize;
+      }
+      if (newUnit === '%') {
+        return 1 / fontSizeValue * 100;
+      }
+    } else if (prevUnit === 'em') {
+      if (newUnit === 'px') {
+        return 1 * fontSizeValue;
+      }
+      if (newUnit === 'rem') {
+        return 1 * fontSizeValue / this._rootFontSize;
+      }
+      if (newUnit === '%') {
+        return 1 * 100;
+      }
+    }
+    if (prevUnit === 'rem') {
+      if (newUnit === 'px') {
+        return 1 * this._rootFontSize;
+      }
+      if (newUnit === 'em') {
+        return 1 * this._rootFontSize / fontSizeValue;
+      }
+      if (newUnit === '%') {
+        return 1 * this._rootFontSize / fontSizeValue * 100;
+      }
+    }
+    return -1;
+  }
+
+  /**
+     * @param {!Common.EventTarget.EventTargetEvent} event
+     */
+  _fontEditorResized(event) {
+    this._swatchPopoverHelper.reposition();
+  }
+
+  async _removeAddedProperties() {
+    for (const property of this._propertyMap.keys()) {
+      if (!this._originalMap.has(property)) {
+        const treeElement = this._propertyMap.get(property);
+        const propertyName = treeElement.property.name;
+        treeElement.swatch.setFontText('');
+        await treeElement.applyStyleText('', true);
+        this._propertyMap.delete(propertyName);
+        this._section.onpopulate();
+      }
+    }
+  }
+
+  _fixIndex(removedIndex) {
+    for (const treeElement of this._propertyMap.values()) {
+      if (treeElement.property.index > removedIndex) {
+        treeElement.property.index -= 1;
+      }
+    }
+  }
+
+  _storeOriginalValue(fontProperty) {
+    if (fontProperty[1].property.value.length) {
+      this._originalMap.set(
+        fontProperty[0], {value: fontProperty[1].property.value, isOverloaded: fontProperty[1].overloaded()});
+    } else {
+      this._propertyMap.delete(fontProperty[0]);
+    }
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  registerFontProperty(treeElement) {
+    this._parentPane = treeElement.parentPane();
+    if (!this._propertyMap.has(treeElement.property.name) || !treeElement.overloaded()) {
+      this._propertyMap.set(treeElement.property.name, treeElement);
+    }
+    treeElement[FontSwatchPopoverIcon._treeElementSymbol] = this;
+  }
+
+  /**
+   * @param {!Event} event
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  _iconClick(event, treeElement) {
+    event.consume(true);
+    this.showPopover(treeElement);
+  }
+
+  _findHtmlNode() {
+    let node = self.UI.context.flavor(SDK.DOMModel.DOMNode);
+    while(node.nodeName() !== 'HTML') {
+      if (node.parentNode) {
+        node = node.parentNode
+      } else {
+        break;
+      }
+    }
+    return node;
+  }
+
+  /**
+   * @param {!Element} iconElement
+   */
+  async showPopover(iconElement, parentPane) {
+    if (this._swatchPopoverHelper.isShowing()) {
+      this._swatchPopoverHelper.hide(true);
+      return;
+    }
+    this._originalMap.clear();
+    for (const fontProperty of this._propertyMap) {
+      this._storeOriginalValue(fontProperty);
+    }
+    const {fontInfo} = await Promise.resolve(this._model.getNodeStyleStats());
+
+    const computedFontArray = Array.from(fontInfo.keys());
+    // const fontConversionInfo = {parentFontSize, rootFontSize};
+    this._fontEditor = new InlineEditor.FontEditor.FontEditor(this._originalMap, computedFontArray);
+    this._fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontValueChanged, this._boundFontValueChanged);
+    this._fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontUnitChanged, this._boundFontUnitChanged);
+    this._fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontEditorResized, this._boundResized);
+    this._swatchPopoverHelper.show(this._fontEditor, iconElement, this._onPopoverHidden.bind(this));
+    this._scrollerElement = iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this._scrollerElement) {
+      this._scrollerElement.addEventListener('scroll', this._boundOnScroll, false);
+    }
+
+    parentPane.setEditingStyle(true);
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onScroll(event) {
+    this._swatchPopoverHelper.reposition();
+  }
+
+  clear() {
+    this._propertyMap.clear();
+  }
+
+  /**
+   * @param {boolean} commitEdit
+   */
+  _onPopoverHidden(commitEdit) {
+    if (this._scrollerElement) {
+      this._scrollerElement.removeEventListener('scroll', this._boundOnScroll, false);
+    }
+    this._section.onpopulate();
+    this._fontEditor.removeEventListener(InlineEditor.FontEditor.Events.FontValueChanged, this._boundFontValueChanged);
+    delete this._fontEditor;
+
+    // const propertyText = commitEdit ? this._treeElement.renderedPropertyText() : this._originalPropertyText;
+    // this._treeElement.applyStyleText(propertyText, true);
+    this._section._parentPane.setEditingStyle(false);
+    // delete this._originalPropertyText;
+  }
+}
+
+FontSwatchPopoverIcon._treeElementSymbol = Symbol('FontSwatchPopoverIcon._treeElementSymbol');
