@@ -39,6 +39,30 @@
       "revId": "e7a4b094427493de5f93bc1d703b5ca6320e1463",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783cb0f3_dddf8b5c",
+        "filename": "front_end/host/InspectorFrontendHostAPI.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-07-21T19:27:18Z",
+      "side": 1,
+      "message": "You are correct, added the missing definitions.",
+      "parentUuid": "3490f52c_b3a24f0d",
+      "range": {
+        "startLine": 412,
+        "startChar": 5,
+        "endLine": 412,
+        "endChar": 23
+      },
+      "revId": "e7a4b094427493de5f93bc1d703b5ca6320e1463",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
