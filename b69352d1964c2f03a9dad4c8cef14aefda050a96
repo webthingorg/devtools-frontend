@@ -39,6 +39,30 @@
       "revId": "b69352d1964c2f03a9dad4c8cef14aefda050a96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fd2d24b_15b80386",
+        "filename": "test/unittests/front_end/ui/ListModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T14:27:42Z",
+      "side": 1,
+      "message": "I do normally, but I\u0027m making an exception here for legacy code.",
+      "parentUuid": "404234df_bb9da0fc",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "b69352d1964c2f03a9dad4c8cef14aefda050a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
