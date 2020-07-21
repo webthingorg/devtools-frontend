@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "a88c3615_f8b71234",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-21T21:38:40Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f6f152e_795c2fd4",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-21T21:38:40Z",
+      "side": 1,
+      "message": "Could this also be written in string template as:\n`const formattedComputed \u003d `${size.endsWith(\u0027.00\u0027) ? size.slice(0, -3) : size}px`;",
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf690f52_fd486b9c",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 3
