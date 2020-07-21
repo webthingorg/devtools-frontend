@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9caebcc_dba0e353",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-21T07:03:18Z",
+      "side": 1,
+      "message": "Looks awesome, thanks!",
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5beae4b_1c8dda5c",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-21T07:03:18Z",
+      "side": 1,
+      "message": "If you store the three phrases in a variable each, and use a plain JavaScript template literal to create markdownString, then you can re-use the phrase variables below for the assertions.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 105
+      },
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
