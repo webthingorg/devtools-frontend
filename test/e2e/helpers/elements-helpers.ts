@@ -26,7 +26,7 @@ export const assertContentOfSelectedElementsNode = async (expectedTextContent: s
  */
 export const getContentOfSelectedNode = async () => {
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
-  return await selectedNode.evaluate(node => node.textContent);
+  return await selectedNode.evaluate(node => node.textContent || '');
 };
 
 export const waitForSelectedNodeChange = async (initialValue: string, maxTotalTimeout = 1000) => {
@@ -50,7 +50,7 @@ export const waitForSelectedNodeChange = async (initialValue: string, maxTotalTi
 
 export const assertSelectedElementsNodeTextIncludes = async (expectedTextContent: string) => {
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
-  const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
+  const selectedTextContent = await selectedNode.evaluate(node => node.textContent || '');
   assert.include(selectedTextContent, expectedTextContent);
 };
 
@@ -87,7 +87,7 @@ export const waitForElementsComputedSection = async () => {
 export const getContentOfComputedPane = async () => {
   const pane = await $('.computed-properties');
   const tree = await $('.tree-outline', pane);
-  return await tree.evaluate(node => node.textContent);
+  return await tree.evaluate(node => node.textContent || '');
 };
 
 export const waitForComputedPaneChange = async (initialValue: string) => {
@@ -99,19 +99,16 @@ export const waitForComputedPaneChange = async (initialValue: string) => {
 
 export const getAllPropertiesFromComputedPane = async () => {
   const properties = await $$(COMPUTED_PROPERTY_SELECTOR);
-  return properties.evaluate((nodes: Element[]) => {
-    return nodes
-        .map(node => {
-          const name = node.querySelector('.property-name');
-          const value = node.querySelector('.property-value');
+  return (await Promise.all(properties.map(async elem => await elem.evaluate(node => {
+           const name = node.querySelector('.property-name');
+           const value = node.querySelector('.property-value');
 
-          return (!name || !value) ? null : {
-            name: name.textContent ? name.textContent.trim().replace(/:$/, '') : '',
-            value: value.textContent ? value.textContent.trim().replace(/;$/, '') : '',
-          };
-        })
-        .filter(prop => !!prop);
-  });
+           return (!name || !value) ? null : {
+             name: name.textContent ? name.textContent.trim().replace(/:$/, '') : '',
+             value: value.textContent ? value.textContent.trim().replace(/;$/, '') : '',
+           };
+         }))))
+      .filter(prop => !!prop);
 };
 
 export const expandSelectedNodeRecursively = async () => {
@@ -182,8 +179,8 @@ export const getDisplayedStyleRules = async () => {
   const allRuleSelectors = await $$(CSS_STYLE_RULE_SELECTOR);
 
   const rules = [];
-
-  for (const ruleSelector of (await allRuleSelectors.getProperties()).values()) {
+  // TODO figure out what to do instead of map here:
+  for (const ruleSelector of allRuleSelectors) {
     const propertyNames = await getDisplayedCSSPropertyNames(ruleSelector);
     const selectorText = await ruleSelector.evaluate((node: Element) => {
       const attribute = node.getAttribute('aria-label') || '';
@@ -197,13 +194,16 @@ export const getDisplayedStyleRules = async () => {
 };
 
 export const getDisplayedCSSPropertyNames = async (propertiesSection: puppeteer.JSHandle<any>) => {
-  const listNodesContent = (nodes: Element[]) => {
-    const rawContent = nodes.map(node => node.textContent);
-    const filteredContent = rawContent.filter(content => !!content);
-    return filteredContent;
-  };
+  // const listNodesContent = (nodes: Element[]) => {
+  //   const rawContent = nodes.map(node => node.textContent);
+  //   const filteredContent = rawContent.filter(content => !!content);
+  //   return filteredContent;
+  // };
   const cssPropertyNames = await $$(CSS_PROPERTY_NAME_SELECTOR, propertiesSection);
-  const propertyNamesText = await cssPropertyNames.evaluate(listNodesContent);
+  const propertyNamesText = (await Promise.all(cssPropertyNames.map(
+                                 async node => await node.evaluate(n => n.textContent),
+                                 )))
+                                .filter(c => !!c);
   return propertyNamesText;
 };
 
@@ -213,24 +213,25 @@ export const getStyleRule = async (selector: string) => {
 
 export const getCSSPropertySwatchStyle = async (ruleSection: puppeteer.JSHandle<any>) => {
   const swatches = await $$(CSS_PROPERTY_SWATCH_SELECTOR, ruleSection);
-  return await swatches.evaluate(async (nodes: Element[]) => {
-    return nodes.length && nodes[0].getAttribute('style');
-  });
+  const style = await swatches[0].evaluate(node => node.getAttribute('style'));
+  return (swatches.length, style);
 };
 
 export const getStyleSectionSubtitles = async () => {
   const subtitles = await $$(SECTION_SUBTITLE_SELECTOR);
-  return await subtitles.evaluate(async (nodes: Element[]) => {
-    return nodes.map(node => node.textContent);
-  });
+  return Promise.all(subtitles.map(async node => await node.evaluate(n => n.textContent)));
 };
 
 export const getCSSPropertyInRule = async (ruleSection: puppeteer.JSHandle<any>, name: string) => {
   const propertyNames = await $$(CSS_PROPERTY_NAME_SELECTOR, ruleSection);
-  return await propertyNames.evaluateHandle(async (nodes: Element[], name) => {
-    const propertyName = nodes.find(node => node.textContent === name);
-    return propertyName && propertyName.parentNode;
-  }, name);
+  for (const node of propertyNames) {
+    const parent =
+        await node.evaluateHandle((node, name) => (name === node.textContent) ? node.parentNode : undefined, name);
+    if (parent) {
+      return parent;
+    }
+  }
+  return undefined;
 };
 
 export const focusCSSPropertyValue = async (selector: string, propertyName: string) => {
@@ -251,16 +252,14 @@ export async function editCSSProperty(selector: string, propertyName: string, ne
 export const getBreadcrumbsTextContent = async () => {
   const crumbs = await $$('span.crumb');
 
-  const crumbsAsText: string[] = await crumbs.evaluate((nodes: HTMLElement[]) => {
-    return nodes.map((node: HTMLElement) => node.textContent || '');
-  });
-
+  const crumbsAsText: string[] =
+      await Promise.all(crumbs.map(async node => await node.evaluate(node => node.textContent || '')));
   return crumbsAsText;
 };
 
 export const getSelectedBreadcrumbTextContent = async () => {
   const selectedCrumb = await $('span.crumb.selected');
-  const text = selectedCrumb.evaluate((node: HTMLElement) => node.textContent || '');
+  const text = selectedCrumb.evaluate(node => node.textContent || '');
   return text;
 };
 

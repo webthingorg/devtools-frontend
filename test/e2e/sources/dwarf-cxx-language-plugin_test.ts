@@ -46,8 +46,7 @@ describe('The CXX DWARF Language Plugin', async () => {
     await waitFor('.paused-status');
 
     const scriptLocation = await waitForFunction(async () => {
-      const scriptLocation =
-          await (await $('.call-frame-location')).evaluate((location: HTMLElement) => location.textContent);
+      const scriptLocation = await (await $('.call-frame-location')).evaluate(location => location.textContent);
       if (scriptLocation && scriptLocation.startsWith('unreachable_with_dwarf.ll')) {
         return scriptLocation;
       }

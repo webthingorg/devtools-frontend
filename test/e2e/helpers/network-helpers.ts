@@ -30,9 +30,7 @@ export async function waitForSomeRequestsToAppear(numberOfRequests: number) {
 
 export async function getAllRequestNames() {
   const requests = await $$(REQUEST_LIST_SELECTOR + ' .name-column');
-  return await requests.evaluate((nodes: Element[]) => {
-    return nodes.map(request => request.childNodes[1].textContent);
-  });
+  return await Promise.all(requests.map(request => request.evaluate(r => r.childNodes[1].textContent)));
 }
 
 export async function getSelectedRequestName() {
@@ -44,10 +42,11 @@ export async function getSelectedRequestName() {
 
 export async function selectRequestByName(name: string) {
   const requests = await $$(REQUEST_LIST_SELECTOR + ' .name-column');
-  const request = await requests.evaluateHandle((nodes: Element[], name: string) => {
-    return nodes.find(node => node.childNodes[1].textContent === name);
-  }, name);
-  await click(request);
+  const request = await requests.find(
+      async request => await request.evaluate((node, name) => node.childNodes[1].textContent === name, name));
+  if (requests) {
+    await click(request as any);
+  }
 }
 
 export async function waitForSelectedRequestChange(initialRequestName: string|null) {
