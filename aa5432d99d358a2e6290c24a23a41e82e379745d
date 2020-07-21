@@ -56,6 +56,30 @@
       "revId": "aa5432d99d358a2e6290c24a23a41e82e379745d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f56204c9_7e1ce3c5",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-21T12:02:57Z",
+      "side": 1,
+      "message": "I tried that. Unfortunately I still get tons of TypeScript errors even with @ts-nocheck. I assume its that TypeScript follows the imports, but we can\u0027t declare all the modules yet. Can we do this in a follow-up once all dependencies have proper TypeScript BUILD.gn files?",
+      "parentUuid": "4fd9424f_0f7388be",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "aa5432d99d358a2e6290c24a23a41e82e379745d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
