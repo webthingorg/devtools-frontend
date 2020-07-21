@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27e89c7b_8520ab73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-21T15:55:41Z",
+      "side": 1,
+      "message": "lgtm % nit and question",
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf690f52_fd486b9c",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-21T15:55:41Z",
+      "side": 1,
+      "message": "just making sure I\u0027m reading this correctly, this will result in something like \u00271em·16px\u0027  ?",
+      "range": {
+        "startLine": 259,
+        "startChar": 53,
+        "endLine": 259,
+        "endChar": 113
+      },
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3344ad2_77a0cd61",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-21T15:55:41Z",
+      "side": 1,
+      "message": "nit: I\u0027d expect this to be y \u003c gridPageMargin; like it is in _placePositiveColumnLabel Is there any reason the height of the label would end up expanding past the min height?",
+      "range": {
+        "startLine": 263,
+        "startChar": 44,
+        "endLine": 263,
+        "endChar": 76
+      },
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
