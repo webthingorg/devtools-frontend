@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03ec2d41_91c46ee4",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T14:33:55Z",
+      "side": 1,
+      "message": "It\u0027s best to update puppeteer as a separate CL really. That way we can roll it back if we need to.",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3ccdedb_afa25542",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T14:33:55Z",
+      "side": 1,
+      "message": "Just check on this one. There\u0027s possibly a reason for the former code, typically around things being async but not appearing so, so it\u0027s possible that it\u0027s waiting a bit longer to be sure the element is available.",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0df1a7e_be7ad1ad",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T14:33:55Z",
+      "side": 1,
+      "message": "I know you didn\u0027t write this, but since you\u0027re here could you break this down into multiple lines? The readability of multiple awaits is low for me.",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04cdc3c8_9422589e",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T14:33:55Z",
+      "side": 1,
+      "message": "This feels very similar to the above. Can we combine them?",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
