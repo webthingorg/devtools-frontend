@@ -123,17 +123,16 @@
 }
 
 .service-workers-this-origin,
-.service-worker-filter,
-.service-workers-other-origin {
+.service-worker-filter {
   min-width: 400px;
 }
 
-.service-worker-has-current .service-workers-other-origin {
+.service-worker-has-current {
   margin-top: 16px;
   border-top: 1px solid rgb(230 230 230);
 }
 
-.service-worker-list-empty .service-workers-other-origin {
+.service-worker-list-empty {
   display: none;
 }
 
