@@ -148,6 +148,30 @@
     },
     {
       "key": {
+        "uuid": "6cfc541b_ce94fdec",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-21T12:17:40Z",
+      "side": 1,
+      "message": "No. If we type it as an Object we also need to type all the fields. I try to get @types/marked to work and then rebase with proper types in this CL.",
+      "parentUuid": "b01b048c_136f26dc",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5beae4b_1c8dda5c",
         "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
         "patchSetId": 5
