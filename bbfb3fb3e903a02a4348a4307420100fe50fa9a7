@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f0b80f3_66421055",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-21T08:05:13Z",
+      "side": 1,
+      "message": "Tip: you can enforce this by setting Code-Review to -1.",
+      "revId": "bbfb3fb3e903a02a4348a4307420100fe50fa9a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a5ea380_79964094",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -16,6 +33,40 @@
       "revId": "bbfb3fb3e903a02a4348a4307420100fe50fa9a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b63db019_d9255f9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-21T08:05:13Z",
+      "side": 1,
+      "message": "Looking good so far, Changhao!",
+      "revId": "bbfb3fb3e903a02a4348a4307420100fe50fa9a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a70cfb54_341f24ee",
+        "filename": "front_end/elements/ComputedStyleGroupLists.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-21T08:05:13Z",
+      "side": 1,
+      "message": "Tip: we don\u0027t need the excessive zero-padding here\n\n    content: \u0027\\A0\\A0\u0027;",
+      "revId": "bbfb3fb3e903a02a4348a4307420100fe50fa9a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
