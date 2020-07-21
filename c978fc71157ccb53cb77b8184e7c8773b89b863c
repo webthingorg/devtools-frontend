@@ -19,6 +19,46 @@
     },
     {
       "key": {
+        "uuid": "4976f4f8_594e887a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-21T08:53:33Z",
+      "side": 1,
+      "message": "This looks great! One thought about defining types but otherwise LGTM",
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e9bfe3e_53f6137d",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-21T08:53:33Z",
+      "side": 1,
+      "message": "I still think we should consider defining a type here. I know tokens can be of many different shapes but you could define these as:\n\n```\ntype Token \u003d ListItemToken | ListToken | ...\n```\n\nWhere each union is an interface.\n\nNot sure on the effort vs reward of doing this; but it feels a bit of a shame to give up nearly all type safety. WDYT?",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5beae4b_1c8dda5c",
         "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
         "patchSetId": 5
