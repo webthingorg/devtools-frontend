@@ -99,9 +99,6 @@
   <message name="IDS_DEVTOOLS_1db54c6dc79d68e305c9426783416c81" desc="Title for CSP issue of URL violation type">
     Some resources are blocked because their origin is not included in your site&apos;s content security policy header
   </message>
-  <message name="IDS_DEVTOOLS_1e20b296e8d4ce166160272060b60448" desc="Part of an explenatory text describing an issue in the issues view">
-    To solve this, add the following to the embedded frame’s HTML response header:
-  </message>
   <message name="IDS_DEVTOOLS_1e65dc2342666204fc336875c1fc7f90" desc="Option for CSS Grid Tooling">
     Grid Lines
   </message>
@@ -189,9 +186,6 @@
   <message name="IDS_DEVTOOLS_378803262ee085f9f247171a28618827" desc="A link to more information in the issues view">
     https://web.dev/same-site-same-origin/
   </message>
-  <message name="IDS_DEVTOOLS_37b2c194f5aaf6a38e0dc67b90ab3760" desc="Title for an issue in the issues view">
-    An <ph name="LOCKED_1">iframe</ph> navigation to a document with a Cross-Origin Opener Policy was blocked
-  </message>
   <message name="IDS_DEVTOOLS_3b51284293e8d99f06fd180c78dab5b9" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Emulate CSS prefers-reduced-data: reduce
   </message>
@@ -203,9 +197,6 @@
   </message>
   <message name="IDS_DEVTOOLS_3cbd091fd9522762ed01c1b305a8beda" desc="Tooltip to explain why a cookie was blocked">
     This cookie didn&apos;t specify a &quot;SameSite&quot; attribute when it was stored and was defaulted to &quot;SameSite=Lax,&quot; and was blocked because the request was made from a different site and was not initiated by a top-level navigation. The cookie had to have been set with &quot;SameSite=None&quot; to enable cross-site usage.
-  </message>
-  <message name="IDS_DEVTOOLS_3d504c272eab842eee1c2a347a87674b" desc="Part of a text describing an issue">
-    To solve this, add the following to the resource’s HTML response header:
   </message>
   <message name="IDS_DEVTOOLS_3eaa82b024fbceb16cf97d55ef72301e" desc="Title for CSS Grid tooling option">
     Show positive grid line numbers
@@ -286,10 +277,6 @@
   </message>
   <message name="IDS_DEVTOOLS_6210038187f9fe73d2b999fe9d2d44b3" desc="Phase used to descript the security of a context">
     a secure
-  </message>
-  <message name="IDS_DEVTOOLS_658f254bbf18be3fb45877de2eb0547d" desc="Part of a text describing an issue in the issues view">
-    Your site tries to access an external resource that only allows same-site usage.
-  This behavior prevents a document from loading any non-same-site resources which don&apos;t explicitly grant permission to be loaded.
   </message>
   <message name="IDS_DEVTOOLS_6793fd007147c0f5ad833ed1ceb89a2e" desc="Tooltip to explain why a cookie was blocked">
     This cookie was blocked because it had the &quot;Secure&quot; attribute and the connection was not secure.
@@ -399,9 +386,6 @@
   <message name="IDS_DEVTOOLS_6ea5359e01a41842884943125518289b" desc="Text in DOMDebugger Model">
     Canvas
   </message>
-  <message name="IDS_DEVTOOLS_6f875586a9fb4baa1f025dc50d99aabf" desc="Title for an issue in the issues view">
-    Specify a Cross-Origin Embedder Policy to prevent this frame from being blocked
-  </message>
   <message name="IDS_DEVTOOLS_6fdb8f0232e380cf106312e7b880d8d2" desc="Title of a setting under the Console category that can be invoked through the Command Menu">
     Preserve log upon navigation
   </message>
@@ -426,14 +410,8 @@
   <message name="IDS_DEVTOOLS_75101dcdfc88455bcafc9e53e0b06689" desc="Service worker running status displayed in the Service Workers view in the Application panel">
     running
   </message>
-  <message name="IDS_DEVTOOLS_7565c99d85e9dceea0b0a3c538ab7239" desc="Part of a text describing an issue in the issues view.">
-    if the resource and your site are served from the same site.
-  </message>
   <message name="IDS_DEVTOOLS_75ce94bc789367b63d0fc1c8daa996df" desc="Error message for when a CSS file can't be loaded">
     Could not find the original style sheet.
-  </message>
-  <message name="IDS_DEVTOOLS_75de1c4537bc13ba7dbb940295c2403e" desc="Part of a text describing an issue in the issues view">
-    To solve this, add the following to the resource’s response header:
   </message>
   <message name="IDS_DEVTOOLS_794f64c7f20487f6e13679201deeab3d" desc="Text in DOMDebugger Model">
     Picture-in-Picture
@@ -459,9 +437,6 @@
   <message name="IDS_DEVTOOLS_8043d799c881c2bd1c4381682eadb11b" desc="Label for the link for CSP issues of URL violation type">
     Content Security Policy | Source Allowlists
   </message>
-  <message name="IDS_DEVTOOLS_8186f0d9076262cae346db9adabf643e" desc="Description how an issue can be fixed">
-    if the resource is served from another location than your website. ⚠️If you set this header, any website can embed this resource.
-  </message>
   <message name="IDS_DEVTOOLS_81961fe251f4d1cb4df131561dedf319" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Hide layer borders
   </message>
@@ -476,9 +451,6 @@
   </message>
   <message name="IDS_DEVTOOLS_86e24d9693633d3889e8eb2adaeb2bc2" desc="Title for CSS Grid tooling option">
     Show dashed grid container border
-  </message>
-  <message name="IDS_DEVTOOLS_8e25939ed027992ec3229fb82c8635a9" desc="Title for an issue in the issues view">
-    Specify a Cross-Origin Resource Policy to prevent a resource from being blocked
   </message>
   <message name="IDS_DEVTOOLS_8e6aefb01ad865cdce56f1992b317e4a" desc="Link for SameSiteCookies Issues">
     https://web.dev/samesite-cookies-explained/
@@ -503,10 +475,6 @@
   <message name="IDS_DEVTOOLS_930c85a96d7227c515891c4f86a17c30" desc="Title of a setting under the Debugger category that can be invoked through the Command Menu">
     Disable JavaScript
   </message>
-  <message name="IDS_DEVTOOLS_93719ccb3d91b79c94f45b3effff45a6" desc="Description for an issue in the issues view">
-    A document with a Cross-Origin Opener Policy (COOP) was blocked from loading in an iframe, because the iframe specifies a sandbox attribute.
-  This protects COOP-enabled documents from inheriting properties from its opener.
-  </message>
   <message name="IDS_DEVTOOLS_93dee6366d66361f36985cf5c88346aa" desc="Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel">
     Create AudioContext
   </message>
@@ -516,19 +484,11 @@
   <message name="IDS_DEVTOOLS_96d008db67fc0b5551a926842bbb6a71" desc="Text in DOMDebugger Model">
     Notification
   </message>
-  <message name="IDS_DEVTOOLS_9829644f81a0154c4ffd9c9c93df7698" desc="Part of a text describing an issue in the issues view">
-    Your site tries to access an external resource that only allows same-origin usage.
-  This behavior prevents a document from loading any non-same-origin resources which don&apos;t explicitly grant permission to be loaded.
-  </message>
   <message name="IDS_DEVTOOLS_982c177a1c47f2180a62c1a16858a734" desc="Name of a color vision deficiency that can be emulated via the Rendering drawer">
     Deuteranopia
   </message>
   <message name="IDS_DEVTOOLS_9850063efe194af1c63d2aa61ef94c62" desc="Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel">
     Create canvas context
-  </message>
-  <message name="IDS_DEVTOOLS_98564a5f5fc6b68f2a9b4bbf0a79f63a" desc="Part of a text describing an issue in the issues view">
-    Because your site has the Cross-Origin Embedder Policy (COEP) enabled, each resource must specify a suitable Cross-Origin Resource Policy (CORP).
-   This behavior prevents a document from loading cross-origin resources which don&apos;t explicitly grant permission to be loaded.
   </message>
   <message name="IDS_DEVTOOLS_9dd7b9f5cc1c19a830f153c3e8f1ad89" desc="Text in Network Manager">
     Fast 3G
@@ -541,9 +501,6 @@
   </message>
   <message name="IDS_DEVTOOLS_a1595abbb4c3a326636dd178757cd6c1" desc="Text in DOMDebugger Model">
     Control
-  </message>
-  <message name="IDS_DEVTOOLS_a29ae5ccb7b13d3a9ddbb9171213e9cc" desc="Part of a text describing an issue in the issues view">
-    ⚠️If you set this header, any website can embed this resource.
   </message>
   <message name="IDS_DEVTOOLS_a2b7a2f1bb0d832325c673c5bc858576" desc="Tooltip to explain why a cookie was blocked">
     This cookie was blocked because its path was not an exact match for or a superdirectory of the request url&apos;s path.
@@ -650,10 +607,6 @@
   <message name="IDS_DEVTOOLS_c64d5c0d5233c7d6e85a41c6dd3c3a3f" desc="Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel">
     Resume AudioContext
   </message>
-  <message name="IDS_DEVTOOLS_c8248dd944c695896afa7366b88ca168" desc="Part of a text describing an issue in the issues view">
-    Because your site has the Cross-Origin Embedder Policy (COEP) enabled, each embedded iframe must also specify this policy.
-  This behavior protects private data from being exposed to untrusted third party sites.
-  </message>
   <message name="IDS_DEVTOOLS_c8683b5a684a2b3eb62e5f87a85243ab" desc="Title for CSS Grid tooling option">
     Shade row gaps
   </message>
@@ -737,9 +690,6 @@
   </message>
   <message name="IDS_DEVTOOLS_e69d85cd1acdf030f0cede48b61d7720" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Hide scroll performance bottlenecks
-  </message>
-  <message name="IDS_DEVTOOLS_e7c7efe6752cbf2c7519913a1636deaa" desc="Title text of an issue in the issues view">
-    Specify a more permissive Cross-Origin Resource Policy to prevent a resource from being blocked
   </message>
   <message name="IDS_DEVTOOLS_e8e741c8bebb2da4dc93e5f9c1cecd8c" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Emulate CSS prefers-color-scheme: light
