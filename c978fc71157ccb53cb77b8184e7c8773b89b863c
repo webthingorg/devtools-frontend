@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "f05a34ef_60b1d3f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-21T09:07:50Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e9bfe3e_53f6137d",
         "filename": "front_end/issues/MarkdownView.ts",
         "patchSetId": 5
@@ -47,6 +64,30 @@
       "writtenOn": "2020-07-21T08:53:33Z",
       "side": 1,
       "message": "I still think we should consider defining a type here. I know tokens can be of many different shapes but you could define these as:\n\n```\ntype Token \u003d ListItemToken | ListToken | ...\n```\n\nWhere each union is an interface.\n\nNot sure on the effort vs reward of doing this; but it feels a bit of a shame to give up nearly all type safety. WDYT?",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eccb7977_407ed8b8",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-21T09:07:50Z",
+      "side": 1,
+      "message": "I am a bit torn on this point. The only advantage we would get is readability, not really type-checking (I think). Why?\n\n* Marked doesn\u0027t have .d.ts files. We currently provide hand-written ones in //front_end/third_party/marked that simply default to `any`. We would have to scour the marked source code to get the nullability etc. right of all the structures.\n* We can\u0027t use \"instanceof\" since these are normal JS objects. I suspect we would have to check for the \"type\" field, then cast to a union variant. At which point we would rely on the same (probably faulty) assumptions as we currently do, in that we expect AST nodes of some types to have certain fields with a guessed nullability.\n\nGiven that the code utilizing the AST is only a few 10s of LoC, I suggest we punt the decision whether to typify to a follow up CL. Ideally we would \"just\" upstream a patch to \"marked\" that adds proper type information we could then utilize. Wdyt?",
+      "parentUuid": "6e9bfe3e_53f6137d",
       "range": {
         "startLine": 15,
         "startChar": 26,
