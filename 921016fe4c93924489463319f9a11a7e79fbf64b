@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "769a53ea_2e72fa05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T15:45:21Z",
+      "side": 1,
+      "message": "Grand. Take it or leave it, I just wonder whether we might want to explicitly tag the colours with a media query. Don\u0027t mind either way.",
+      "revId": "921016fe4c93924489463319f9a11a7e79fbf64b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8331c736_38cbbda1",
         "filename": "front_end/elements/metricsSidebarPane.css",
         "patchSetId": 4
