@@ -22,6 +22,30 @@
       "revId": "c355ab4d45f4e8b95d25e9b3515e205b3f28893b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fba9ff3d_274b12e9",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-07-21T21:53:54Z",
+      "side": 1,
+      "message": "Ah, actually change the \"undefined\" to \"false\" in call to parseValue would guarantee the result to be defined.",
+      "parentUuid": "613d96d3_0ac96777",
+      "range": {
+        "startLine": 237,
+        "startChar": 6,
+        "endLine": 237,
+        "endChar": 48
+      },
+      "revId": "c355ab4d45f4e8b95d25e9b3515e205b3f28893b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
