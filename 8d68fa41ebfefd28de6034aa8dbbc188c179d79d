@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "0a49b53a_5e4350bf",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-21T11:32:51Z",
+      "side": 1,
+      "message": "Sure, I could check for the violation type, I\u0027ve did it the way I did because it seemed to me that you suggested avoiding checking for it in some of the earlier CLs\n\nI am checking for blocked urls, because URL violations always seem to be having a blocked url, that\u0027s why it makes sense to check for the first one, I though",
+      "parentUuid": "5b92050d_7a893b8f",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 41
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11136756_99bd32ae",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 7
@@ -62,6 +86,30 @@
       "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eca30004_324d9ff7",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-21T11:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11136756_99bd32ae",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 254,
+        "endChar": 5
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "bdffe88f_9bd8f688",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-21T11:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbcedf79_5f2e2dbd",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 263,
+        "endChar": 58
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac5c9081_5ad1978b",
         "filename": "front_end/sdk/ContentSecurityPolicyIssue.js",
         "patchSetId": 7
@@ -108,6 +180,30 @@
       "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14aa9d59_1bbe64ce",
+        "filename": "front_end/sdk/ContentSecurityPolicyIssue.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-21T11:32:51Z",
+      "side": 1,
+      "message": "Changed code to the suggested one",
+      "parentUuid": "ac5c9081_5ad1978b",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
