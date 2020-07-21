@@ -16,6 +16,46 @@
       "revId": "aa5432d99d358a2e6290c24a23a41e82e379745d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc902bac_34a00034",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T11:54:39Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "aa5432d99d358a2e6290c24a23a41e82e379745d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fd9424f_0f7388be",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T11:54:39Z",
+      "side": 1,
+      "message": "Can we move these to the module? Even if we mark them with a @ts-nocheck, I\u0027d like to use devtools_pre_built mostly for third party / pre-built code.",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "aa5432d99d358a2e6290c24a23a41e82e379745d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
