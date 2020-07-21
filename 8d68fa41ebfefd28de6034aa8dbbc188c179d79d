@@ -42,6 +42,52 @@
     },
     {
       "key": {
+        "uuid": "11136756_99bd32ae",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-21T10:57:41Z",
+      "side": 1,
+      "message": "Please clean up the order of things here: Create an append should be in one piece.",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 254,
+        "endChar": 5
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbcedf79_5f2e2dbd",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-21T10:57:41Z",
+      "side": 1,
+      "message": "Please always add the empty td to keep the table consistent.",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 263,
+        "endChar": 58
+      },
+      "revId": "8d68fa41ebfefd28de6034aa8dbbc188c179d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac5c9081_5ad1978b",
         "filename": "front_end/sdk/ContentSecurityPolicyIssue.js",
         "patchSetId": 7
