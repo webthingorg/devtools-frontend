@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "401a923c_b1647e2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-21T06:08:05Z",
+      "side": 1,
+      "message": "I\u0027m not sure how but my previous PR got deleted and replaced by this (posted details on the slack channel). Anyway, this should be in the right shape and addresses Tim\u0027s last comments (Typescriptify the module following guidance in:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2300113\n\nPTAL.",
+      "revId": "07977485094cde039958a832921490345c10e347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
