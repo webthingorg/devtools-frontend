@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "e5e4cfb2_b5569c0e",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-21T14:35:50Z",
+      "side": 1,
+      "message": "I think you\u0027d need to await somewhere till all callbacks has been processed.",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7de9b1bd_9f1b8fce",
         "filename": "front_end/elements/ComputedStyleWidget.js",
         "patchSetId": 3
