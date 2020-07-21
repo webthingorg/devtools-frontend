@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e1c6ee7_21c9f755",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-21T10:43:16Z",
+      "side": 1,
+      "message": "We got reverted back to last Friday recently, so let\u0027s hold off landing this CL until we are rolling again.",
+      "revId": "ab2e0e423e885176243ae616dd5ce4dd2a3ec9cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
