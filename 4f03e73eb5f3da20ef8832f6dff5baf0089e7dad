@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8299100b_0e0c9586",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-21T13:54:43Z",
+      "side": 1,
+      "message": "Do you still have the traces? Would be nice to add https://chromedevtools.github.io/timeline-viewer/ links for before/after.",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52b95167_36eadd07",
         "filename": "front_end/elements/ComputedStyleWidget.js",
         "patchSetId": 3
@@ -13,6 +30,23 @@
       "writtenOn": "2020-07-21T13:52:58Z",
       "side": 1,
       "message": "can we discard the old manager before creating a new one here? instead of doing it in a separate method",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7de9b1bd_9f1b8fce",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-21T13:54:43Z",
+      "side": 1,
+      "message": "Isn\u0027t this `isEven`?",
       "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
