@@ -31,7 +31,7 @@ export class ContentSecurityPolicyIssue extends Issue {
   primaryKey() {
     return JSON.stringify(this._issueDetails, [
       'blockedURL', 'contentSecurityPolicyViolationType', 'violatedDirective', 'sourceCodeLocation', 'url',
-      'lineNumber', 'columnNumber'
+      'lineNumber', 'columnNumber', 'violatingNodeId'
     ]);
   }
 
