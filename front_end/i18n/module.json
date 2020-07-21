@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    "platform"
+  ],
+  "skip_rollup": true,
+  "modules": [
+    "i18n.js"
+  ],
+  "scripts":[]
+}
