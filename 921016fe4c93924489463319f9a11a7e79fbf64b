@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8331c736_38cbbda1",
+        "filename": "front_end/elements/metricsSidebarPane.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-21T15:35:32Z",
+      "side": 1,
+      "message": "Silly question, but this doesn\u0027t seem to be in a dark mode media query. So does it affect the normal theme as well?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "921016fe4c93924489463319f9a11a7e79fbf64b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
