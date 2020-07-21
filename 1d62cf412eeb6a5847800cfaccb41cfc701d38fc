@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "20395f5c_4f503725",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-21T05:46:48Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "1d62cf412eeb6a5847800cfaccb41cfc701d38fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b380b689_1dd824eb",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -70,6 +87,24 @@
       "writtenOn": "2020-07-20T21:55:54Z",
       "side": 1,
       "message": "Optional: consider moving all the logic of visibility \u0026 style changes to a common parent element (the toolbar), and then toggling a single class on it (say `editing-name`).\n\nBasically something like this for the css:\n\n  .edit-name-toolbar .name-field {\n    border: none;\n  }\n  .edit-name-toolbar .save-name-button {\n    visibility: hidden;\n  }\n\n  .edit-name-toolbar.editing-name .name-field {\n    border: something-else;\n    /* style specific to editing the name */\n  }\n  .edit-name-toolbar.editing-name .save-name-button {\n    visibility: visible;\n  }\n\nThen you should be able to\n  toolbar.classList.{add|remove}(\u0027editing-name\u0027);",
+      "revId": "1d62cf412eeb6a5847800cfaccb41cfc701d38fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2958fede_80b8cd9c",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-21T05:46:48Z",
+      "side": 1,
+      "message": "+1 on this",
+      "parentUuid": "18f5e317_6738a80f",
       "revId": "1d62cf412eeb6a5847800cfaccb41cfc701d38fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -133,6 +168,24 @@
       "writtenOn": "2020-07-20T21:55:54Z",
       "side": 1,
       "message": "I don\u0027t think this works, the lambdas here and on L230 will evaluate to two different functions. You need to grab a reference to the function first, like\n\n  let handleFocusout \u003d () \u003d\u003e ...;\n  element.addEventListener(\"focusout\", handleFocusout);\n  ...\n  element.removeEventListener(\"focusout\", handleFocusout);\n\nThat said, do you have to do this? If the input is readonly can it get a focusout or a keydown? Perhaps it\u0027s enough to add the event listeners when you create the buttons and never remove them.",
+      "revId": "1d62cf412eeb6a5847800cfaccb41cfc701d38fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0fa75c3_5e557dde",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-21T05:46:48Z",
+      "side": 1,
+      "message": "I think it would be best to have private class methods to handle the events and then to use .bind on them:\n\n```\nnameField.addEventListener(\u0027focusout\u0027, this._handleNameFieldFocusOut.bind(this, nameField, editName, saveName, activeLabel));\n```\n\nAnd then just check in _handleNameFieldFocusOut if you are still in edit mode or not.",
+      "parentUuid": "c1957fe9_dd824913",
       "revId": "1d62cf412eeb6a5847800cfaccb41cfc701d38fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
