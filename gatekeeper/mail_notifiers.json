@@ -22,9 +22,7 @@
         "blamelist, i.e. only addresses in tree_notify are emailed"
       ],
       "forgive_all": "true",
-      "tree_notify": [
-        "devtools-waterfall-sheriff-onduty@grotations.appspotmail.com"
-      ],
+      "tree_notify": [],
       "closing_optional": [
         "*"
       ],

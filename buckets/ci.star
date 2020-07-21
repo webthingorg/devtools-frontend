@@ -77,7 +77,8 @@ builder(
     schedule="0 3,12 * * *",
     recipe_name="v8/auto_roll_v8_deps",
     dimensions=dimensions.default_ubuntu,
-    execution_timeout=2 * time.hour
+    execution_timeout=2 * time.hour,
+    notifies=['devtools notifier'],
 )
 
 builder(
