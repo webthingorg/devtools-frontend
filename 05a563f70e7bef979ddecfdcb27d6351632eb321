@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e08c154_34262650",
+        "filename": "front_end/emulation/EmulatedDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-21T19:41:10Z",
+      "side": 1,
+      "message": "wdyt about \n`result.isDualScreen \u003d json[\u0027dual-screen\u0027] ? /** @type {boolean} */ (parseValue(json, \u0027dual-screen\u0027, \u0027boolean\u0027, false)): false;`\n\nthat way result.isDualScreen can\u0027t be undefined below",
+      "range": {
+        "startLine": 238,
+        "startChar": 6,
+        "endLine": 241,
+        "endChar": 0
+      },
+      "revId": "05a563f70e7bef979ddecfdcb27d6351632eb321",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
