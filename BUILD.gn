@@ -268,6 +268,7 @@ devtools_applications = [
 
 devtools_frontend_resources_deps = [
   ":build_release_devtools",
+  ":copy_devtools_locale_files",
   ":copy_emulated_devices_images",
   ":devtools_extension_api",
   "front_end",
@@ -301,6 +302,11 @@ copy("copy_emulated_devices_images") {
   outputs = [ "$resources_out_dir/emulated_devices/{{source_file_part}}" ]
 }
 
+copy("copy_devtools_locale_files") {
+  sources = devtools_locale_files
+  outputs = [ "$resources_out_dir/i18n/locales/{{source_file_part}}" ]
+}
+
 if (is_debug) {
   action("copy_devtools_modules") {
     script = "scripts/build/copy_devtools_modules.py"
@@ -332,7 +338,7 @@ action("generate_devtools_grd") {
       generated_applications_html + generated_applications_js +
       generated_non_autostart_non_remote_modules + devtools_embedder_scripts +
       generated_worker_bundles + generated_typescript_entrypoints +
-      generated_typescript_modules +
+      generated_typescript_modules + devtools_locale_files +
       [
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",

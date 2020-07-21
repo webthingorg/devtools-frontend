@@ -15,7 +15,7 @@ group("front_end") {
     "component_docs",
     "elements:bundle",
     "formatter_worker:bundle",
-    "i18n:bundle_i18n",
+    "i18n:bundle",
     "sdk:bundle",
     "third_party/lighthouse",
   ]

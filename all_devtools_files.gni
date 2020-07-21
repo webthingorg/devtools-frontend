@@ -139,6 +139,7 @@ all_devtools_files = [
   "front_end/help/module.json",
   "front_end/help/releaseNote.css",
   "front_end/host/module.json",
+  "front_end/i18n/module.json",
   "front_end/inline_editor/bezierEditor.css",
   "front_end/inline_editor/bezierSwatch.css",
   "front_end/inline_editor/colorSwatch.css",
@@ -435,3 +436,7 @@ foreach(locale, lighthouse_locale_files) {
   generated_lighthouse_locale_files +=
       [ "$resources_out_dir/third_party/lighthouse/$locale" ]
 }
+
+devtools_locale_files = [ "front_end/i18n/locales/en-US.json" ]
+
+all_devtools_files += devtools_locale_files
