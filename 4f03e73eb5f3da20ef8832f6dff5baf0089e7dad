@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52b95167_36eadd07",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-21T13:52:58Z",
+      "side": 1,
+      "message": "can we discard the old manager before creating a new one here? instead of doing it in a separate method",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
