@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9be9f74c_c39cb07b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-21T22:14:32Z",
+      "side": 1,
+      "message": "nit: change to Emulation or similar. no need to add devtools in the devtools repo",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "d66aaffeb6f74b4b0204a5d6a44c8fe70c0db8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f03d39d_0276725b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-21T22:14:32Z",
+      "side": 1,
+      "message": "Tested a few different variations locally. this appears to fix the bug",
+      "revId": "d66aaffeb6f74b4b0204a5d6a44c8fe70c0db8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
