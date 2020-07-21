@@ -87,6 +87,30 @@
       "revId": "4db6288a6f71b100427becce74173d549204c020",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d170003_dd2b5f45",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-21T05:58:24Z",
+      "side": 1,
+      "message": "Throwing on unsupported token types now (also added a test).",
+      "parentUuid": "c0b62222_3a15b033",
+      "range": {
+        "startLine": 106,
+        "startChar": 38,
+        "endLine": 106,
+        "endChar": 44
+      },
+      "revId": "4db6288a6f71b100427becce74173d549204c020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eae153ba_dae14518",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-21T05:58:24Z",
+      "side": 1,
+      "message": "I split the BUILD.gn changes into a separate CL for easier review.",
+      "revId": "fdb4c349d699ddb66c6817ebd9fe8021d9af0c15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
