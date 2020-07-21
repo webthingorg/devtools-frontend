@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "de237f0f_781e47f0",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-21T13:43:50Z",
+      "side": 1,
+      "message": "Done in https://crrev.com/c/2290632",
+      "parentUuid": "b0fca5a5_0a452268",
+      "revId": "fea2d22faf42bfe720d8b39658cf99bfa0605492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e3fa45f_a726e75e",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 7
