@@ -15,4 +15,4 @@ wget -qO- https://registry.npmjs.org/marked/-/marked-1.1.0.tgz | tar xzf -
 
 Local Modifications:
 - Add marked.esm_types.js for Closure typechecking.
-- Add marked.esm.d.ts for TypeScript typechecking.
+- Copied marked.d.ts over from node_modules/@types/marked/index.d.ts.
