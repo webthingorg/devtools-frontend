@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d294bf9_cd91cadf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419539
+      },
+      "writtenOn": "2020-07-22T06:08:36Z",
+      "side": 1,
+      "message": "Hi Benedikt and Peter,\n\nI\u0027ve been trying to implement some of the UI changes for DevTools like we discussed. I have removed the \"other origins\" collapsable tree section, but I\u0027m having one issue: I wasn\u0027t quite able to figure out how to add the link the chrome://serviceworker-internals page (I\u0027ve added a TODO comment in the code about that as well) so I would really appreciate some help for that.\n\nThank you!",
+      "revId": "98f04c56ff97b46c718f2f831badd6b501461178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
