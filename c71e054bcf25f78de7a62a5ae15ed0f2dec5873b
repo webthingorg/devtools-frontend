@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "b6364c1c_8c71ba05",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-22T20:41:21Z",
+      "side": 1,
+      "message": "I think Johan\u0027s intuition is on the right track here. I remember the original purpose of the extra `const isOpen \u003d await inspector.evaluate(element \u003d\u003e Boolean(element));` is to check if `$(MEDIA_QUERY_INSPECTOR_SELECTOR)` exists in the DOM. If now `$` returns `ElementHandle | null` then I think we could remove this. And of course double-check by running it several times :P because maybe my memory failed me.",
+      "parentUuid": "aeffc6c6_e24525d8",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0df1a7e_be7ad1ad",
         "filename": "test/e2e/sources/dwarf-cxx-language-plugin_test.ts",
         "patchSetId": 1
