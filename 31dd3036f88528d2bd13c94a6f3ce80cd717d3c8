@@ -16,6 +16,24 @@
       "revId": "31dd3036f88528d2bd13c94a6f3ce80cd717d3c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d8f4088_f883707f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-22T11:50:34Z",
+      "side": 1,
+      "message": "I think to test this we need to generate an evaluator module. Is there any support for that being JavaScript or will we need Wasm?",
+      "parentUuid": "37c7aa23_7b12d179",
+      "revId": "31dd3036f88528d2bd13c94a6f3ce80cd717d3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
