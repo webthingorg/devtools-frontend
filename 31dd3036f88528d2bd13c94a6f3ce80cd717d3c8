@@ -34,6 +34,24 @@
       "revId": "31dd3036f88528d2bd13c94a6f3ce80cd717d3c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a7e56f3_576d6c41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-22T11:53:16Z",
+      "side": 1,
+      "message": "The namespace grouping can be tested without evaluator support. Then we only get the variable names and types, but not their value.",
+      "parentUuid": "7d8f4088_f883707f",
+      "revId": "31dd3036f88528d2bd13c94a6f3ce80cd717d3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
