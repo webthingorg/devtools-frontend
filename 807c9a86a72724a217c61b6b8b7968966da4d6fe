@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "985b936d_12bb23cd",
+        "filename": "front_end/root/root.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-22T09:12:55Z",
+      "side": 1,
+      "message": "don\u0027t think you want these here. This is the bug we fixed via not symlinking...hoping it hasn\u0027t come back!",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "807c9a86a72724a217c61b6b8b7968966da4d6fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
