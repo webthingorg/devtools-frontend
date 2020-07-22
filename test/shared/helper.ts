@@ -29,36 +29,78 @@ switch (os.platform()) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const globalThis: any = global;
 
-/**
- * Because querySelector is unable to go through shadow roots, we take the opportunity
- * to collect all elements from everywhere in the page, optionally starting at a given
- * root node. This means that when we attempt to locate elements for the purposes of
- * interactions, we can use this flattened list rather than attempting querySelector
- * dances.
- */
-const collectAllElementsFromPage = async (root?: puppeteer.JSHandle) => {
-  const {frontend} = getBrowserAndPages();
-  await frontend.evaluate(root => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const container = (self as any);
-    container.__elements = [];
-    const collect = (root: HTMLElement|ShadowRoot) => {
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
-      do {
-        const currentNode = walker.currentNode as HTMLElement;
-        if (currentNode.shadowRoot) {
-          collect(currentNode.shadowRoot);
-        }
-        // We're only interested in actual elements that we can later use for selector
-        // matching, so skip shadow roots.
-        if (!(currentNode instanceof ShadowRoot)) {
-          container.__elements.push(currentNode);
-        }
-      } while (walker.nextNode());
-    };
-    collect(root || document.documentElement);
-  }, root || '');
-};
+
+// copied from Puppeteer.QueryHandler.ts
+export interface QueryHandler {
+  queryOne?: (element: Element|Document, selector: string) => Element | null;
+  queryAll?: (element: Element|Document, selector: string) => Element[] | NodeListOf<Element>;
+}
+
+function querySelectorShadowOne(
+    element: Element|Document|ShadowRoot,
+    selector: string,
+    ): Element|null {
+  let found: Element|null = null;
+  const search = (root: Element|Document|ShadowRoot) => {
+    const iter = document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_ELEMENT,
+    );
+    do {
+      const currentNode = iter.currentNode as HTMLElement;
+      if (currentNode.shadowRoot) {
+        search(currentNode.shadowRoot);
+      }
+      if (currentNode instanceof ShadowRoot) {
+        continue;
+      }
+      if (!found && currentNode.matches(selector)) {
+        found = currentNode;
+      }
+    } while (!found && iter.nextNode());
+  };
+  if (element instanceof Document) {
+    element = element.documentElement;
+  }
+  search(element);
+  return found;
+}
+
+function querySelectorShadowAll(
+    element: Element|Document,
+    selector: string,
+    ): Element[] {
+  const result: Element[] = [];
+  const collect = (root: Element|Document|ShadowRoot) => {
+    const iter = document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_ELEMENT,
+    );
+    do {
+      const currentNode = iter.currentNode as HTMLElement;
+      if (currentNode.shadowRoot) {
+        collect(currentNode.shadowRoot);
+      }
+      if (currentNode instanceof ShadowRoot) {
+        continue;
+      }
+      if (currentNode.matches(selector)) {
+        result.push(currentNode);
+      }
+    } while (iter.nextNode());
+  };
+  if (element instanceof Document) {
+    element = element.documentElement;
+  }
+  collect(element);
+  return result;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(puppeteer as any).__experimental_registerCustomQueryHandler('pierceShadow', {
+  queryOne: querySelectorShadowOne,
+  queryAll: querySelectorShadowAll,
+});
 
 /**
  * Returns an {x, y} position within the element identified by the selector within the root.
@@ -196,16 +238,9 @@ export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
-  await collectAllElementsFromPage(root);
-  try {
-    const element = await frontend.evaluateHandle(selector => {
-      const elements: Element[] = globalThis.__elements;
-      return elements.find(element => element.matches(selector));
-    }, selector);
-    return element;
-  } catch (error) {
-    throw new Error(`Unable to find element for selector "${selector}": ${error.stack}`);
-  }
+  const rootElement = root ? root as puppeteer.ElementHandle : frontend;
+  const element = await rootElement.$('pierceShadow/' + selector);
+  return element as puppeteer.ElementHandle<Element>;
 };
 
 // Get multiple element handles, across Shadow DOM boundaries.
@@ -214,13 +249,77 @@ export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
-  await collectAllElementsFromPage(root);
-  const elements = await frontend.evaluateHandle(selector => {
-    const elements: Element[] = globalThis.__elements;
-    return elements.filter(element => element.matches(selector));
-  }, selector);
+  const rootElement = root ? root.asElement() || frontend : frontend;
+  const elements = await rootElement.$$('pierceShadow/' + selector);
   return elements;
 };
+
+function querySelectorShadowTextOne(
+    element: Element|Document|ShadowRoot,
+    text: string,
+    ): Element|null {
+  let found: Element|null = null;
+  const search = (root: Element|Document|ShadowRoot) => {
+    const iter = document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_ELEMENT,
+    );
+    do {
+      const currentNode = iter.currentNode as HTMLElement;
+      if (currentNode.shadowRoot) {
+        search(currentNode.shadowRoot);
+      }
+      if (currentNode instanceof ShadowRoot) {
+        continue;
+      }
+      if (!found && currentNode.textContent === text) {
+        found = currentNode;
+      }
+    } while (!found && iter.nextNode());
+  };
+  if (element instanceof Document) {
+    element = element.documentElement;
+  }
+  search(element);
+  return found;
+}
+
+function querySelectorShadowTextAll(
+    element: Element|Document,
+    selector: string,
+    ): Element[] {
+  const result: Element[] = [];
+  const collect = (root: Element|Document|ShadowRoot) => {
+    const iter = document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_ELEMENT,
+    );
+    do {
+      const currentNode = iter.currentNode as HTMLElement;
+      if (currentNode.shadowRoot) {
+        collect(currentNode.shadowRoot);
+      }
+      if (currentNode instanceof ShadowRoot) {
+        continue;
+      }
+      if (currentNode.textContent === selector) {
+        result.push(currentNode);
+      }
+    } while (iter.nextNode());
+  };
+  if (element instanceof Document) {
+    element = element.documentElement;
+  }
+  collect(element);
+  return result;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(puppeteer as any).__experimental_registerCustomQueryHandler('pierceShadowText', {
+  queryOne: querySelectorShadowTextOne,
+  queryAll: querySelectorShadowTextAll,
+});
+
 
 /**
  * Search for an element based on its textContent.
@@ -233,34 +332,23 @@ export const $textContent = async (textContent: string, root?: puppeteer.JSHandl
   if (!frontend) {
     throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
   }
-  await collectAllElementsFromPage(root);
-  try {
-    const element = await frontend.evaluateHandle((textContent: string) => {
-      const elements: Element[] = globalThis.__elements;
-      return elements.find(element => ('textContent' in element && element.textContent === textContent));
-    }, textContent);
-    return element;
-  } catch (error) {
-    throw new Error(`Unable to find element with textContent "${textContent}": ${error.stack}`);
-  }
+  const rootElement = root ? root as puppeteer.ElementHandle : frontend;
+  const element = await rootElement.$('pierceShadowText/' + textContent);
+  return element as puppeteer.ElementHandle<Element>;
 };
 
 export const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
 export const waitFor = async (selector: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
   return waitForFunction(async () => {
-    const element = await $(selector, root);
-    if (element.asElement()) {
-      return element;
-    }
-    return undefined;
+    return await $(selector, root);
   }, `Unable to find element with selector ${selector}`, maxTotalTimeout);
 };
 
 export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
   return waitForFunction(async () => {
     const elements = await $$(selector, root);
-    if (elements.evaluate(list => list.length === 0)) {
+    if (elements.length === 0) {
       return true;
     }
     return false;
@@ -270,11 +358,7 @@ export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, m
 export const waitForElementWithTextContent =
     (textContent: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
       return waitForFunction(async () => {
-        const element = await $textContent(textContent, root);
-        if (element.asElement()) {
-          return element;
-        }
-        return undefined;
+        return await $textContent(textContent, root);
       }, `No element with content ${textContent} exists`, maxTotalTimeout);
     };
 
@@ -380,9 +464,9 @@ export const closeAllCloseableTabs = async () => {
   const allCloseButtons = await $$(selector);
 
   // Get all panel ids
-  const panelTabIds = await allCloseButtons.evaluate((buttons: HTMLElement[]) => {
-    return buttons.map(button => button.parentElement ? button.parentElement.id : '');
-  });
+  const panelTabIds = await Promise.all(allCloseButtons.map(button => {
+    return button.evaluate(button => button.parentElement ? button.parentElement.id : '');
+  }));
 
   // Close each tab
   for (const tabId of panelTabIds) {

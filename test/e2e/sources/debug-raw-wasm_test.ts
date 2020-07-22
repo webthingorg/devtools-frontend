@@ -156,7 +156,7 @@ describe('Sources Tab', async function() {
     await step('check that the variables in the scope view show the correct values', async () => {
       await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
       const local_scope_values = await (await $(SCOPE_LOCAL_VALUES_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
 
       assert.strictEqual(local_scope_values, '"": 42', 'local scope does not contain the correct values');
@@ -193,7 +193,7 @@ describe('Sources Tab', async function() {
     await step('check that the variables in the scope view show the correct values', async () => {
       await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
       const local_scope_values = await (await $(SCOPE_LOCAL_VALUES_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
 
       assert.strictEqual(local_scope_values, '"": 50', 'lables do not contain the correct contents');
@@ -216,7 +216,7 @@ describe('Sources Tab', async function() {
 
     await step('check that the main thread is selected', async () => {
       const selectedThreadName = await (await $(SELECTED_THREAD_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
       assert.strictEqual(selectedThreadName, 'Main', 'the Main thread is not active');
     });
@@ -248,7 +248,7 @@ describe('Sources Tab', async function() {
     await step('check that the variables in the scope view show the correct values', async () => {
       await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
       const local_scope_values = await (await $(SCOPE_LOCAL_VALUES_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
 
       assert.strictEqual(local_scope_values, '"": 42', 'lables do not contain the correct contents');
@@ -279,7 +279,7 @@ describe('Sources Tab', async function() {
 
     await step('check that the main thread is selected', async () => {
       const selectedThreadName = await (await $(SELECTED_THREAD_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
       assert.strictEqual(selectedThreadName, 'Main', 'the Main thread is not active');
     });
@@ -292,7 +292,7 @@ describe('Sources Tab', async function() {
     await step('check that the variables in the scope view show the correct values', async () => {
       await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
       const local_scope_values = await (await $(SCOPE_LOCAL_VALUES_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
 
       assert.strictEqual(local_scope_values, '"": 50', 'lables do not contain the correct contents');
@@ -330,7 +330,7 @@ describe('Sources Tab', async function() {
 
     await step('check that the worker thread is selected', async () => {
       const selectedThreadName = await (await $(SELECTED_THREAD_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
       assert.strictEqual(
           selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
@@ -344,7 +344,7 @@ describe('Sources Tab', async function() {
     await step('check that the variables in the scope view show the correct values', async () => {
       await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
       const local_scope_values = await (await $(SCOPE_LOCAL_VALUES_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
 
       assert.strictEqual(local_scope_values, '"": 42', 'lables do not contain the correct contents');
@@ -375,7 +375,7 @@ describe('Sources Tab', async function() {
 
     await step('check that the worker thread is selected', async () => {
       const selectedThreadName = await (await $(SELECTED_THREAD_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
       assert.strictEqual(
           selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
@@ -389,7 +389,7 @@ describe('Sources Tab', async function() {
     await step('check that the variables in the scope view show the correct values', async () => {
       await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
       const local_scope_values = await (await $(SCOPE_LOCAL_VALUES_SELECTOR)).evaluate(element => {
-        return element.innerText;
+        return (element as HTMLElement).innerText;
       });
 
       assert.strictEqual(local_scope_values, '"": 42', 'lables do not contain the correct contents');
