@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f15aabc1_034f452a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-07-22T16:04:51Z",
+      "side": 1,
+      "message": "How does this impact the Console? Obviously it can only be shown in either the Drawer or the main Panel at once, but previously I didn\u0027t need to move it.\n\nI would surmise that the reason for the `drawer-` prepend would be to disambiguate the Console in this manner.",
+      "revId": "7783ccb022cd1a3c88750a10c8a57753391a2b22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
