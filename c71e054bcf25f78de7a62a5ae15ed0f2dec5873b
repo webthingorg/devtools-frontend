@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24b37e57_db7c4bf0",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-22T18:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03ec2d41_91c46ee4",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3ccdedb_afa25542",
         "filename": "test/e2e/helpers/emulation-helpers.ts",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2020-07-21T14:33:55Z",
       "side": 1,
       "message": "Just check on this one. There\u0027s possibly a reason for the former code, typically around things being async but not appearing so, so it\u0027s possible that it\u0027s waiting a bit longer to be sure the element is available.",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeffc6c6_e24525d8",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-22T18:28:28Z",
+      "side": 1,
+      "message": "Interesting! My intuition was that before `$` would always returned a JSHandle to the result, so even if nothing was found you would still get a handle to `undefined`. I assumed this was the only way to check if something was found.\nNow `$` will return an ElementHandle if something is found and null otherwise",
+      "parentUuid": "e3ccdedb_afa25542",
       "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "b1be4200_5e0c2752",
+        "filename": "test/e2e/sources/dwarf-cxx-language-plugin_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-22T18:28:28Z",
+      "side": 1,
+      "message": "This file has been deleted on master (and therefore not part of this cl after rebasing) but I\u0027ll go through other occurrences of this",
+      "parentUuid": "a0df1a7e_be7ad1ad",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04cdc3c8_9422589e",
         "filename": "test/shared/helper.ts",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2020-07-21T14:33:55Z",
       "side": 1,
       "message": "This feels very similar to the above. Can we combine them?",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "416d613a_6e732150",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-22T18:28:28Z",
+      "side": 1,
+      "message": "I\u0027m not sure there is a good way of combining them. If we factor out the traversal logic then we would have to use reflection to inject the concrete matching strategies",
+      "parentUuid": "04cdc3c8_9422589e",
       "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
