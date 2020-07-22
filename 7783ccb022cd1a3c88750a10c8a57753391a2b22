@@ -16,6 +16,24 @@
       "revId": "7783ccb022cd1a3c88750a10c8a57753391a2b22",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45ddde7e_7be75ae8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-07-22T20:13:18Z",
+      "side": 1,
+      "message": "They already have different ids. The console shown in the main view by default and the console shown in the drawer by default have ids`console` and `console-view` with values 8 and 10 in the enum.",
+      "parentUuid": "f15aabc1_034f452a",
+      "revId": "7783ccb022cd1a3c88750a10c8a57753391a2b22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

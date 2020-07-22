@@ -16,6 +16,24 @@
       "revId": "bf6e84f91568acf4ef75429bdc6ea5ec29517982",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fddf419_6bc49b89",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-07-22T20:13:18Z",
+      "side": 0,
+      "message": "As I explain in the CL description I don\u0027t think that we have to, since all we send is the numeric value",
+      "parentUuid": "7ddfc2b9_203e9a94",
+      "revId": "bf6e84f91568acf4ef75429bdc6ea5ec29517982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
