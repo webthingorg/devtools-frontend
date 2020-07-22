@@ -198,8 +198,21 @@ function analyzeNode(parentNode, node, filePath, errors) {
     return;
   }
 
-  const locCase = localizationUtils.getLocalizationCase(node);
+  const {locCase, locVersion} = localizationUtils.getLocalizationCaseAndVersion(node);
   const code = escodegen.generate(node);
+  if (locVersion === 1) {
+    runLocV1APIChecks(locCase, node, parentNode, code, errors, filePath);
+  }
+  if (locVersion === 2) {
+    runLocV2APIChecks(locCase, node, errors, filePath);
+  }
+  for (const key of objKeys) {
+    // recursively parse all the child nodes
+    analyzeNode(node, node[key], filePath, errors);
+  }
+}
+
+function runLocV1APIChecks(locCase, node, parentNode, code, errors, filePath) {
   switch (locCase) {
     case 'Common.UIString':
     case 'UI.formatLocalized': {
@@ -255,10 +268,46 @@ function analyzeNode(parentNode, node, filePath, errors) {
       break;
     }
   }
+}
 
-  for (const key of objKeys) {
-    // recursively parse all the child nodes
-    analyzeNode(node, node[key], filePath, errors);
+function runLocV2APIChecks(locCase, node, errors, filePath) {
+  switch (locCase) {
+    case 'Common.i18n.getLocalizedString':
+    case 'Common.i18n.getFormatLocalizedString': {
+      // For example,
+      // node: Common.i18n.getLocalizedString(str_, UIStrings.url)
+      // firstArg : str_
+      // secondArg : UIStrings.url
+      const firstArg = node.arguments[0];
+      if (firstArg.type !== espreeTypes.IDENTIFIER || firstArg.name !== 'str_') {
+        addError(
+            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+                localizationUtils.getLocationMessage(node.loc)}: first argument should be 'str_'`,
+            errors);
+      }
+      const secondArg = node.arguments[1];
+      const isCallingUIStringsObject = (secondArg.object && secondArg.object.name === 'UIStrings');
+      const isPropertyAnIdentifier = (secondArg.property && secondArg.property.type === espreeTypes.IDENTIFIER);
+      if (secondArg.type !== espreeTypes.MEMBER_EXPR || !isCallingUIStringsObject || !isPropertyAnIdentifier) {
+        addError(
+            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+                localizationUtils.getLocationMessage(
+                    node.loc)}: second argument should reference an identifier in UIStrings object`,
+            errors);
+      }
+      break;
+    }
+    case 'UIStrings': {
+      break;
+    }
+    default: {
+      addError(
+          `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+              localizationUtils.getLocationMessage(
+                  node.loc)}: Localization API error detected. Please report the problem.`,
+          errors);
+      break;
+    }
   }
 }
 
