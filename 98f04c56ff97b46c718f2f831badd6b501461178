@@ -16,6 +16,40 @@
       "revId": "98f04c56ff97b46c718f2f831badd6b501461178",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a5f4aff_4e94713b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-22T06:55:49Z",
+      "side": 1,
+      "message": "High-level LGTM from my side, I think we can also do the footnote link to the internals page in a follow up CL (especially since we should have a UMA counter as well that tells us how often developers click on that link, plus a baseline to which we can compare that number).\n\nPaul, Peter (Marshall), please take a look as well.\n\nPaul in particular: Can you provide guidance how to best do the internals page link?",
+      "revId": "98f04c56ff97b46c718f2f831badd6b501461178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "892abab2_e4fc927d",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-22T06:55:49Z",
+      "side": 1,
+      "message": "Paul, can you provide some guidance here?",
+      "revId": "98f04c56ff97b46c718f2f831badd6b501461178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
