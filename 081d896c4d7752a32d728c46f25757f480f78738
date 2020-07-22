@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4d22c31_b5aae90d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-22T06:11:36Z",
+      "side": 1,
+      "message": "Landing as-is for now, otherwise the usage of web components in this module is blocked. I left a TODO that we should move the files to the devtools_module once all dependencies of {issues} are TypeScript-ified themselves.",
+      "revId": "081d896c4d7752a32d728c46f25757f480f78738",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
