@@ -101,6 +101,30 @@
     },
     {
       "key": {
+        "uuid": "ac383e32_9a0963be",
+        "filename": "scripts/component_bridges/client_variations_proto.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-22T03:07:17Z",
+      "side": 1,
+      "message": "JSCompiler does not produce any code for exports; this part is hand-written",
+      "parentUuid": "04a35ee7_e8f628b8",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0cfd0a7_8b5db295",
         "filename": "test/unittests/scripts/component_bridges/client_variations_proto_test.js",
         "patchSetId": 1
@@ -130,6 +154,24 @@
       "side": 1,
       "message": "Looping in Jan, who has been collecting feedback on our docs in order to improve them.\n\nI do think this is not the right directory for this file though. There\u0027s a few options here, but I think it might be easiest to put the generated JS somewhere in `src/third_party/blink/` (along with instructions on where to copy it from).\n\nIf we could tweak https://chromium-review.googlesource.com/c/chromium/src/+/2301121 and check in the generated JS upstream, then we could even have `roll_deps.py` handle it. Does that seem reasonable to you?\n\nAlso looping in Jack who likely has thoughts on this from the Testing \u0026 Architecture side. Jack, PTAL.",
       "parentUuid": "a0cfd0a7_8b5db295",
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8601b448_cd479f53",
+        "filename": "test/unittests/scripts/component_bridges/client_variations_proto_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-22T03:07:17Z",
+      "side": 1,
+      "message": "Thanks for the feedback! I\u0027ve updated https://chromium-review.googlesource.com/c/chromium/src/+/2301121 to include the generated file, though I\u0027m not sure that it makes sense to check the generated file into the Chromium source tree. We can discuss that idea further on that CL.\n\nAssuming we can land this in Chromium, I think that would result in the generated file being landed in devtools-frontend/src/third_party/components/variations/proto/devtools/client_variations_parser.js. Am I understanding correctly how roll_deps.py works? Does that sound like an appropriate place for this file to end up?\n\nOr, where in third_party do we want this file to land? I am not familiar with how the devtools frontend codebase is organized, so would appreciate a really concrete suggestion here.\n\nAlso: Where should I put tests for this functionality, if it is pulled into third_party? Is there an example I can follow?\n\n--\n\nSorry for what probably feel like really basic questions. Cross-repo dependencies are a bit tricky.",
+      "parentUuid": "a955ca27_34a384f7",
       "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
