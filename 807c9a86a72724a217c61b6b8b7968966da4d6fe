@@ -22,6 +22,30 @@
       "revId": "807c9a86a72724a217c61b6b8b7968966da4d6fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "593e7a10_7303be59",
+        "filename": "front_end/root/root.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-22T09:21:41Z",
+      "side": 1,
+      "message": "I just forgot to revert these. Removed.",
+      "parentUuid": "985b936d_12bb23cd",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "807c9a86a72724a217c61b6b8b7968966da4d6fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
