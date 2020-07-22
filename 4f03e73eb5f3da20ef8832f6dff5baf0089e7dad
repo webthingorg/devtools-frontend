@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ce224165_9be02a7e",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-22T08:21:21Z",
+      "side": 1,
+      "message": "I had the same idea, but putting the discard and the create together in `_innerRebuildUpdate` is problematic because this widget is a throttled widget, meaning that it\u0027s `doUpdate`, which is the caller of `_innerRebuildUpdate`, is only called when the main thread is not busy. In this case it will wait for all the scheduled callbacks to be executed before re-updating, and it will mean we have to wait all the appending to be done even when they are not useful anymore.\n\nFor the purpose of code co-location, I\u0027ve put the creation to `update` as well, together with the discarding. I think that\u0027s the best we could do, before we refactor this away from throttled widget.",
+      "parentUuid": "52b95167_36eadd07",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5e4cfb2_b5569c0e",
         "filename": "front_end/elements/ComputedStyleWidget.js",
         "patchSetId": 3
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "a2c6de47_38e57347",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-22T08:21:21Z",
+      "side": 1,
+      "message": "Added. Thanks!",
+      "parentUuid": "e5e4cfb2_b5569c0e",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7de9b1bd_9f1b8fce",
         "filename": "front_end/elements/ComputedStyleWidget.js",
         "patchSetId": 3
@@ -64,6 +100,24 @@
       "writtenOn": "2020-07-21T13:54:43Z",
       "side": 1,
       "message": "Isn\u0027t this `isEven`?",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9807cced_379e9539",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-22T08:21:21Z",
+      "side": 1,
+      "message": "Yes, and honestly I\u0027m not sure why it was written in this opposite way. I\u0027ve updated this together with the styles.",
+      "parentUuid": "7de9b1bd_9f1b8fce",
       "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
