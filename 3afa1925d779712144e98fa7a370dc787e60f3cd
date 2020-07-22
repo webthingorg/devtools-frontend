@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47832f8c_35c295a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-22T02:47:18Z",
+      "side": 1,
+      "message": "Hi everyone, I\u0027m getting a closure error which is giving me a hard time, does anyone has experience with closure that can help figuring what the issue is? The code seems to be working as expected though.\n\nhttps://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8874112913343878544/+/steps/Type_Check_with_Closure/0/stdout?format\u003draw",
+      "revId": "3afa1925d779712144e98fa7a370dc787e60f3cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
