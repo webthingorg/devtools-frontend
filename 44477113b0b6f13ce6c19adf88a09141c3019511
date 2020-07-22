@@ -16,6 +16,23 @@
       "revId": "44477113b0b6f13ce6c19adf88a09141c3019511",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd3e6d55_a961e7df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-22T08:26:34Z",
+      "side": 1,
+      "message": "LGTM!\n\nFor next steps, I think we\u0027d want to:\n\n1. Land the Chromium CL\n2. Land the devtools-frontend CL (this one)\n3. Patch roll_deps.py to handle this new file (doing this as a follow-up CL seems fine)\n4. Add the new functionality to the DevTools UI\n\nIlya, do you want to wrap up #1 and #2? I can then tackle #3 and #4. WDYT?",
+      "revId": "44477113b0b6f13ce6c19adf88a09141c3019511",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
