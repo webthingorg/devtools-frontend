@@ -37,7 +37,7 @@ export async function stopRecording() {
 
 export async function getTotalTimeFromSummary(): Promise<number> {
   const pieChartTotal = await $('.pie-chart-total');
-  const totalText = await pieChartTotal.evaluate(node => node.textContent);
+  const totalText = await pieChartTotal.evaluate(node => node.textContent || '');
   return parseInt(totalText, 10);
 }
 

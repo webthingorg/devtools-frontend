@@ -27,8 +27,8 @@ describe('Adornment in the Elements Tab', async () => {
     await prepareElementsTab();
 
     const inactiveGridAdorners = await $$(INACTIVE_GRID_ADORNER_SELECTOR);
-    const getNodesContent = (nodes: HTMLElement[]) => nodes.map((node: HTMLElement) => node.textContent);
-    const inactiveContent = await inactiveGridAdorners.evaluate(getNodesContent);
+    const inactiveContent =
+        await Promise.all(inactiveGridAdorners.map(node => (node.evaluate(node => node.textContent))));
     assert.deepEqual(
         inactiveContent,
         [
