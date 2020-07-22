@@ -16,6 +16,23 @@
       "revId": "ec85f7f24558a5e753f0af2f69ea7eb9996ace56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a5a2f8_dbe55be7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-22T10:13:12Z",
+      "side": 1,
+      "message": "I\u0027m 50/50 on this; I quite like the explictness of having to declare the deps, even if there are none.\n\nAdding Paul for another opinion. I don\u0027t feel strongly enough either way here so don\u0027t let me block if you all think this is better :)",
+      "revId": "ec85f7f24558a5e753f0af2f69ea7eb9996ace56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
