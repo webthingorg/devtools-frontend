@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "49bb92a8_1bd8e043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-22T09:04:24Z",
+      "side": 1,
+      "message": "I think I\u0027m going to leave this because the way it\u0027s done currently is quite confusing; I\u0027d like to try to rebuild this as a component soon and rework it :)",
+      "parentUuid": "769a53ea_2e72fa05",
+      "revId": "921016fe4c93924489463319f9a11a7e79fbf64b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8331c736_38cbbda1",
         "filename": "front_end/elements/metricsSidebarPane.css",
         "patchSetId": 4
