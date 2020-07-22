@@ -175,6 +175,24 @@
       "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "188f58d1_c9e93f1b",
+        "filename": "test/unittests/scripts/component_bridges/client_variations_proto_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-22T05:58:49Z",
+      "side": 1,
+      "message": "These are NOT basic questions, don\u0027t worry! I don\u0027t think there\u0027s precedent for importing a generated JS file from Chromium, so we\u0027re all just figuring this out together.\n\nThe file would need to go in devtools-frontend/front_end/third_party instead of devtools-frontend/src/third_party (which we don\u0027t ship). devtools-frontend/src/front_end/third_party/README.md has some more details. (I think we can skip the security review since this is Chromium code and not an actual \"third-party\" dependency.)\n\nFrom there we can directly import it in unit tests. szuend@ mentioned we might have to add a ts_library or a devtools_pre_built entry to the relevant BUILD file, so the unittest can DEPS it.\n\nSince you asked for a concrete unit test location, I\u0027d suggest placing it in third_party/devtools-frontend/src/test/unittests/front_end/common/ClientVariations_test.ts.",
+      "parentUuid": "8601b448_cd479f53",
+      "revId": "bf0a41e5d9a546908dd40047553c59a8a1936063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
