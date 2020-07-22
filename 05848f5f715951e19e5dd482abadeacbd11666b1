@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e355c360_6f33d65c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-22T08:59:21Z",
+      "side": 1,
+      "message": "LGTM - I\u0027m a bit wary of the `node_modules/.bin` changes, don\u0027t see how adding `@types/marked` would change those.\n\nMaybe they are just old and left over from a previous change?",
+      "revId": "05848f5f715951e19e5dd482abadeacbd11666b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
