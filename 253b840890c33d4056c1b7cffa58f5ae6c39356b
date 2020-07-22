@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "4c934d21_11937c90",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-22T07:39:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f6f152e_795c2fd4",
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf690f52_fd486b9c",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 3
@@ -76,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "a88775e6_bbede016",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-22T07:39:44Z",
+      "side": 1,
+      "message": "Yes, it looks like this https://i.imgur.com/EZky6gD.png",
+      "parentUuid": "cf690f52_fd486b9c",
+      "range": {
+        "startLine": 259,
+        "startChar": 53,
+        "endLine": 259,
+        "endChar": 113
+      },
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3344ad2_77a0cd61",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 3
@@ -96,6 +138,30 @@
       "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd370989_df0c5627",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-22T07:39:44Z",
+      "side": 1,
+      "message": "I think currently the height of the label is fixed. So we can use y \u003c gridPageMargin",
+      "parentUuid": "e3344ad2_77a0cd61",
+      "range": {
+        "startLine": 263,
+        "startChar": 44,
+        "endLine": 263,
+        "endChar": 76
+      },
+      "revId": "253b840890c33d4056c1b7cffa58f5ae6c39356b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
