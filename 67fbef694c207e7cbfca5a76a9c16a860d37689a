@@ -22,6 +22,30 @@
       "revId": "67fbef694c207e7cbfca5a76a9c16a860d37689a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ea47389_ab4a400c",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-07-22T20:02:22Z",
+      "side": 0,
+      "message": "Yes, my bad! Thanks for catch",
+      "parentUuid": "cd82c051_8c8c387e",
+      "range": {
+        "startLine": 172,
+        "startChar": 43,
+        "endLine": 172,
+        "endChar": 103
+      },
+      "revId": "67fbef694c207e7cbfca5a76a9c16a860d37689a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
