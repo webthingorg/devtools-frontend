@@ -11,6 +11,7 @@ group("front_end") {
     ":ts_library-verification",
     "accessibility:bundle",
     "bindings:bundle",
+    "browser_sdk:bundle",
     "common:bundle",
     "component_docs",
     "elements:bundle",
@@ -65,7 +66,7 @@ ts_library("ts_library-verification") {
 
   deps = [
     "bindings:bundle",
-    "browser_sdk",
+    "browser_sdk:bundle",
     "color_picker",
     "common:bundle",
     "host:bundle",
