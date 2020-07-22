@@ -16,6 +16,40 @@
       "revId": "b2159f5fe93b4fe6703a7053409df56f4801682d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e66a58_17ca3c51",
+        "filename": "node_modules/devtools-protocol/.github/ISSUE_TEMPLATE/stop--file-a-report-or-feature-request-on-crbug-com.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-22T06:03:20Z",
+      "side": 1,
+      "message": "FWIW, I\u0027ve made sure this won\u0027t be included in future rolls here: https://github.com/ChromeDevTools/devtools-protocol/pull/221",
+      "revId": "b2159f5fe93b4fe6703a7053409df56f4801682d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77f8c9ef_c0c661ae",
+        "filename": "node_modules/devtools-protocol/changelog.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-22T06:03:20Z",
+      "side": 1,
+      "message": "I\u0027ve also made sure this trailing whitespace won\u0027t be here for future rolls: https://github.com/ChromeDevTools/devtools-protocol/pull/222",
+      "revId": "b2159f5fe93b4fe6703a7053409df56f4801682d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
