@@ -40,6 +40,7 @@ DEPS = {
     "@types/codemirror": "0.0.97",
     "@types/estree": "0.0.45",
     "@types/filesystem": "0.0.29",
+    "@types/marked": "1.1.0",
     "@types/mocha": "5.2.7",
     "@types/puppeteer": "2.0.0",
     "@typescript-eslint/parser": "3.6.1",
