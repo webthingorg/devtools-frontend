@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13fb536d_4b239488",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-22T14:00:04Z",
+      "side": 1,
+      "message": "Agreed with Benedikt we can do this in a follow-up",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f89885e_6dff4265",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-22T14:00:04Z",
+      "side": 1,
+      "message": "I\u0027m not super familiar with this code but it looks like most of this function is for dealing with the \u0027other origins\u0027 service workers which are stored in this._sections. It looks like we can rip out a lot more of this code now that we only show the same-origin service workers?",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd0a3d8_602e7be4",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-22T14:00:04Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need this now as _getReportViewForOrigin always returns something?",
+      "range": {
+        "startLine": 241,
+        "startChar": 6,
+        "endLine": 243,
+        "endChar": 7
+      },
+      "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
