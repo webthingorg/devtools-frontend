@@ -142,6 +142,31 @@ class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
   }
 }
 
+class NamespaceObject extends SDK.RemoteObject.LocalJSONObject {
+  /**
+   * @param {*} value
+   */
+  constructor(value) {
+    super(value);
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  get description() {
+    return this.type;
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  get type() {
+    return 'namespace';
+  }
+}
+
 class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
@@ -169,10 +194,35 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
       return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: [], internalProperties: []});
     }
 
-    const properties = this.variables.map(
-        variable => new SDK.RemoteObject.RemoteObjectProperty(
-            variable.name, new SourceVariable(this._callFrame, variable, this._plugin, this._location),
-            /* enumerable=*/ false, /* writable=*/ false, /* isOwn=*/ true, /* wasThrown=*/ false));
+    const properties = [];
+    const namespaces = {};
+
+    function makeProperty(name, obj) {
+      return new SDK.RemoteObject.RemoteObjectProperty(
+          name, obj,
+          /* enumerable=*/ false, /* writable=*/ false, /* isOwn=*/ true, /* wasThrown=*/ false);
+    }
+
+    for (const variable of this.variables) {
+      const sourceVar = new SourceVariable(this._callFrame, variable, this._plugin, this._location);
+      if (variable.nestedName && variable.nestedName.length > 1) {
+        let parent = namespaces;
+        for (let index = 0; index < variable.nestedName.length - 1; index++) {
+          if (!parent[variable.nestedName[index]]) {
+            parent[variable.nestedName[index]] = new NamespaceObject({});
+          }
+          parent = parent[variable.nestedName[index]].value;
+        }
+        const name = variable.nestedName[variable.nestedName.length - 1];
+        parent[name] = sourceVar;
+      } else {
+        properties.push(makeProperty(variable.name, sourceVar));
+      }
+    }
+
+    for (const namespace in namespaces) {
+      properties.push(makeProperty(namespace, namespaces[namespace]));
+    }
 
     return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: properties, internalProperties: []});
   }
@@ -604,10 +654,6 @@ export class DebuggerLanguagePluginManager {
     try {
       const variables = await plugin.listVariablesInScope(location);
       for (const variable of variables || []) {
-        // TODO(bmeurer): Exclude globals for now. Make this faster to make it usable.
-        if (variable.scope === 'GLOBAL') {
-          continue;
-        }
         if (!scopes.has(variable.scope)) {
           scopes.set(variable.scope, new SourceScope(callFrame, variable.scope, plugin, location));
         }
@@ -701,9 +747,10 @@ export let SourceLocation;
 
 /** A source language variable
  * @typedef {{
- *            scope:string,
- *            name:string,
- *            type:string
+ *            scope: string,
+ *            name: string,
+ *            type: string,
+ *            nestedName: ?Array<string>
  *          }}
  */
 export let Variable;
