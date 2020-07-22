@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2619ab76_c52e10c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-22T10:47:46Z",
+      "side": 1,
+      "message": "Added. Thanks for suggesting!",
+      "parentUuid": "8299100b_0e0c9586",
+      "revId": "4f03e73eb5f3da20ef8832f6dff5baf0089e7dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52b95167_36eadd07",
         "filename": "front_end/elements/ComputedStyleWidget.js",
         "patchSetId": 3
