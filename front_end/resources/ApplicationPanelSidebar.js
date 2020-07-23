@@ -2026,6 +2026,8 @@ export class ResourcesSection {
     this._treeElement = treeElement;
     /** @type {!Map<string, !FrameTreeElement>} */
     this._treeElementForFrameId = new Map();
+    /** @type {!Map<string, !FrameTreeElement>} */
+    this._treeElementForTargetId = new Map();
 
     const frameManager = SDK.FrameManager.FrameManager.instance();
     frameManager.addEventListener(
@@ -2036,6 +2038,12 @@ export class ResourcesSection {
         SDK.FrameManager.Events.FrameNavigated, event => this._frameNavigated(event.data.frame), this);
     frameManager.addEventListener(
         SDK.FrameManager.Events.ResourceAdded, event => this._resourceAdded(event.data.resource), this);
+    frameManager.addEventListener(
+        SDK.FrameManager.Events.WindowOpened, event => this._windowOpened(event.data.targetInfo), this);
+    frameManager.addEventListener(
+        SDK.FrameManager.Events.WindowDestroyed, event => this._windowDestroyed(event.data.targetId), this);
+    frameManager.addEventListener(
+        SDK.FrameManager.Events.WindowChanged, event => this._windowChanged(event.data.targetInfo), this);
 
     for (const frame of frameManager.getAllFrames()) {
       if (!this._treeElementForFrameId.get(frame.id)) {
@@ -2156,6 +2164,42 @@ export class ResourcesSection {
     frameTreeElement.appendResource(resource);
   }
 
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  _windowOpened(targetInfo) {
+    if (targetInfo.openerId) {
+      const frameTreeElement = this._treeElementForFrameId.get(targetInfo.openerId);
+      if (frameTreeElement) {
+        this._treeElementForTargetId.set(targetInfo.targetId, frameTreeElement);
+        frameTreeElement.windowOpened(targetInfo);
+      }
+    }
+  }
+
+  /**
+   * @param {string} targetId
+   */
+  _windowDestroyed(targetId) {
+    const frameTreeElement = this._treeElementForTargetId.get(targetId);
+    if (frameTreeElement) {
+      frameTreeElement.windowDestroyed(targetId);
+      this._treeElementForTargetId.delete(targetId);
+    }
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  _windowChanged(targetInfo) {
+    if (targetInfo.openerId) {
+      const frameTreeElement = this._treeElementForFrameId.get(targetInfo.openerId);
+      if (frameTreeElement) {
+        frameTreeElement.windowChanged(targetInfo);
+      }
+    }
+  }
+
   reset() {
     this._treeElement.removeChildren();
     this._treeElementForFrameId.clear();
@@ -2174,6 +2218,7 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     this._frameId = frame.id;
     this._categoryElements = {};
     this._treeElementForResource = {};
+    this._treeElementForWindow = {};
     this.setExpandable(true);
     this.frameNavigated(frame);
     /** @type {?FrameDetailsView} */
@@ -2275,6 +2320,49 @@ export class FrameTreeElement extends BaseStorageTreeElement {
 
     if (this._view) {
       this._view.update();
+    }
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  windowOpened(targetInfo) {
+    const categoryKey = 'OpenedWindows';
+    let categoryElement = this._categoryElements[categoryKey];
+    if (!categoryElement) {
+      categoryElement = new StorageCategoryTreeElement(this._section._panel, ls`Opened Windows`, categoryKey);
+      this._categoryElements[categoryKey] = categoryElement;
+      this.appendChild(categoryElement, FrameTreeElement._presentationOrderCompare);
+    }
+    const windowTreeElement =
+        new BaseStorageTreeElement(this._section._panel, targetInfo.title || ls`Window without title`, false);
+    categoryElement.appendChild(windowTreeElement, FrameTreeElement._presentationOrderCompare);
+    this._treeElementForWindow[targetInfo.targetId] = windowTreeElement;
+
+    // if (this._view) {
+    //   this._view.update();
+    // }
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  windowChanged(targetInfo) {
+    const windowTreeElement = this._treeElementForWindow[targetInfo.targetId];
+    if (windowTreeElement && windowTreeElement.title !== targetInfo.title) {
+      windowTreeElement.title = targetInfo.title;
+    }
+    // TODO: re-sort?
+  }
+
+  /**
+   * @param {string} targetId
+   */
+  windowDestroyed(targetId) {
+    const windowTreeElement = this._treeElementForWindow[targetId];
+    if (windowTreeElement) {
+      windowTreeElement.title += ' (' + ls`closed` +
+          ')';
     }
   }
 
