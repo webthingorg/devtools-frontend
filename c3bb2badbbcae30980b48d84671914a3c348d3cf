@@ -39,6 +39,30 @@
       "revId": "c3bb2badbbcae30980b48d84671914a3c348d3cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce41461d_2cdffa0d",
+        "filename": "scripts/build/cross_reference_ninja_and_tsc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-23T13:11:13Z",
+      "side": 1,
+      "message": "Not a clue. If I lose either of those args it complains about ResizeObserver.",
+      "parentUuid": "38e87357_a858d6b6",
+      "range": {
+        "startLine": 120,
+        "startChar": 11,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "c3bb2badbbcae30980b48d84671914a3c348d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
