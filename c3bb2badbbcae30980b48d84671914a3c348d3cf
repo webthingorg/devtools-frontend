@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85c20c6d_56f7a115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-23T13:06:06Z",
+      "side": 1,
+      "message": "LGTM with one question.",
+      "revId": "c3bb2badbbcae30980b48d84671914a3c348d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e87357_a858d6b6",
+        "filename": "scripts/build/cross_reference_ninja_and_tsc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-23T13:06:06Z",
+      "side": 1,
+      "message": "why do you need to explicitly list resize_observer even though you\u0027ve passed the folder in as `typeRoots`?",
+      "range": {
+        "startLine": 120,
+        "startChar": 11,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "c3bb2badbbcae30980b48d84671914a3c348d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
