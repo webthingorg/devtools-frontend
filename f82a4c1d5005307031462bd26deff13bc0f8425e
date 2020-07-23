@@ -22,6 +22,30 @@
       "revId": "f82a4c1d5005307031462bd26deff13bc0f8425e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67ac242_d9099803",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-07-23T09:28:48Z",
+      "side": 1,
+      "message": "We have unittests for this. Not sure why, I guess it makes Windows paths look more like Unix paths to have them start with \u0027/\u0027.",
+      "parentUuid": "a5c4edc2_700ba106",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 172,
+        "endChar": 68
+      },
+      "revId": "f82a4c1d5005307031462bd26deff13bc0f8425e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
