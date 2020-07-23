@@ -191,7 +191,11 @@
     "source_frame",
     "ui"
   ],
+  "skip_compilation": [
+    "../third_party/chromium/client-variations/ClientVariationsParser.js"
+  ],
   "modules": [
+    "../third_party/chromium/client-variations/ClientVariationsParser.js",
     "network.js",
     "network-legacy.js",
     "BinaryResourceView.js",
