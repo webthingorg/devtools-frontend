@@ -16,6 +16,29 @@
       "revId": "d420b9e719a32c80fac3ca76cab3c87b24002786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10e93514_488171bc",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-23T07:19:07Z",
+      "side": 1,
+      "message": "Why do we need this? Can we avoid it?\n\nIn a perfect (future?) world where we\u0027d use Puppeteer\u0027s built-in `page.$`, we wouldn\u0027t need the `|| \u0027\u0027`, since `previewValueNode2` would be `null` if the element wasn\u0027t found, and so `previewValueNode2.evaluate()` would already throw, causing the test to fail.",
+      "range": {
+        "startLine": 87,
+        "startChar": 77,
+        "endLine": 87,
+        "endChar": 83
+      },
+      "revId": "d420b9e719a32c80fac3ca76cab3c87b24002786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

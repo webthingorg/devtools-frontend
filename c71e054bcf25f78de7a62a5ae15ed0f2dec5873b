@@ -169,6 +169,24 @@
       "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50f5fba0_5c193479",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-23T07:19:07Z",
+      "side": 1,
+      "message": "I can think of a few ways to combine them but they all result in code that is harder to follow and maintain compared to accepting the minimal amount of duplication. This trickiness is mostly because we cannot close over any variables (or re-use smaller helper functions) since these functions need to be serializable (since they\u0027ll be evaluated in the document\u0027s realm, not the Node.js realm). We could hack it with eval-style string concatenation but that sounds nasty.\n\nMy gut feeling is that the cost-benefit ratio of combining isn\u0027t worth it in this particular case. WDYT?",
+      "parentUuid": "416d613a_6e732150",
+      "revId": "c71e054bcf25f78de7a62a5ae15ed0f2dec5873b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
