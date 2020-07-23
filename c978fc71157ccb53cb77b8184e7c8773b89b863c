@@ -172,6 +172,30 @@
     },
     {
       "key": {
+        "uuid": "698a5113_bb656eb5",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-23T06:15:32Z",
+      "side": 1,
+      "message": "Given that the @types/marked are wrong and *correctly* typing the AST nodes is not feasible to include in this CL, I say we punt this :)",
+      "parentUuid": "6cfc541b_ce94fdec",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5beae4b_1c8dda5c",
         "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
         "patchSetId": 5
@@ -192,6 +216,30 @@
       "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f48e9067_5a378aed",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-23T06:15:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5beae4b_1c8dda5c",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 105
+      },
+      "revId": "c978fc71157ccb53cb77b8184e7c8773b89b863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
