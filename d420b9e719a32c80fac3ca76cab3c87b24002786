@@ -63,6 +63,30 @@
       "revId": "d420b9e719a32c80fac3ca76cab3c87b24002786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43bd0d73_f163f123",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-23T08:27:02Z",
+      "side": 1,
+      "message": "Hmm, `textContent` is only `null` for `document.textContent` or `doctype.textContent`, I doubt we care about those cases in our e2e tests, so we effectively always get strings. Is there some way to tell TypeScript that \"this node is definitely not a document node or a doctype node\"? Paul might know. If not, let\u0027s do `as string` instead.",
+      "parentUuid": "a8a10b7f_fac72c5c",
+      "range": {
+        "startLine": 87,
+        "startChar": 77,
+        "endLine": 87,
+        "endChar": 83
+      },
+      "revId": "d420b9e719a32c80fac3ca76cab3c87b24002786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
