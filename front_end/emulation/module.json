@@ -121,6 +121,24 @@
       "tags": "device"
     },
     {
+      "type": "setting",
+      "category": "Mobile",
+      "settingName": "emulation.usePlatformMultiSegment",
+      "settingType": "boolean",
+      "defaultValue": false,
+      "options": [
+        {
+          "value": true,
+          "title": "Use Platform Multi-window-segment support"
+        },
+        {
+          "value": false,
+          "title": "Do not use Platform Multi-window-segment support"
+        }
+      ],
+      "tags": "device"
+    },
+    {
       "type": "view",
       "location": "settings-view",
       "id": "devices",
