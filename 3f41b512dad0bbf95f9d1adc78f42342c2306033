@@ -36,6 +36,41 @@
     },
     {
       "key": {
+        "uuid": "c9cbed30_5017c088",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-07-23T16:30:02Z",
+      "side": 1,
+      "message": "Hi Sigurd, you can find the design doc here: https://docs.google.com/document/d/1XfVyiQAe9sT9hj0EigQ2skmJP4gCrrnUJVLd-qpFk7A",
+      "parentUuid": "1e438760_893e5758",
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce1f6e48_5b0da3e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-07-23T16:30:02Z",
+      "side": 1,
+      "message": "Thanks for the review!",
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d80620d3_712a7444",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 8
@@ -47,6 +82,30 @@
       "writtenOn": "2020-07-23T07:14:32Z",
       "side": 1,
       "message": "I wonder whether it would be more interesting to know from which type of issue the request were clicked (this will only tell us that a request link was followed).",
+      "range": {
+        "startLine": 543,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 97
+      },
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b155dd2a_d2290483",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-07-23T16:30:02Z",
+      "side": 1,
+      "message": "That sounds good, I will take a look.",
+      "parentUuid": "d80620d3_712a7444",
       "range": {
         "startLine": 543,
         "startChar": 8,
@@ -82,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "b9921cec_a15e7772",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-07-23T16:30:02Z",
+      "side": 1,
+      "message": "It was a leftover from a previous version. I will move the code inside onexpand",
+      "parentUuid": "cbdefd68_75943b56",
+      "range": {
+        "startLine": 767,
+        "startChar": 2,
+        "endLine": 767,
+        "endChar": 16
+      },
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "161f381e_8eee44d5",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 8
@@ -93,6 +176,30 @@
       "writtenOn": "2020-07-23T07:14:32Z",
       "side": 1,
       "message": "Can you use IssueCategory for this purpose? (I\u0027d be OK with that even if you have to add new items to the enum there).\n\nRelying on the issue code is brittle for the reasons you gave in the comment.",
+      "range": {
+        "startLine": 768,
+        "startChar": 3,
+        "endLine": 778,
+        "endChar": 56
+      },
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6861cb39_ec67216b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-07-23T16:30:02Z",
+      "side": 1,
+      "message": "That sounds good to me.",
+      "parentUuid": "161f381e_8eee44d5",
       "range": {
         "startLine": 768,
         "startChar": 3,
