@@ -9,5 +9,6 @@ devtools_pre_built("chromium") {
     "chromium-tsconfig.json",
     "client-variations/ClientVariationsParser.d.ts",
     "client-variations/ClientVariationsParser.js",
+    "client-variations/ClientVariationsParser_types.js",
   ]
 }
