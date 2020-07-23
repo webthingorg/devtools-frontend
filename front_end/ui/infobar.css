@@ -25,6 +25,7 @@
 .infobar-info,
 .infobar-issue {
   background-color: rgb(255 255 255);
+  font-family: sans-serif;
 }
 
 .infobar-main-row {
