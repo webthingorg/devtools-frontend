@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "136d3d3a_33735756",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-23T09:32:40Z",
+      "side": 1,
+      "message": "OK, let\u0027s give it a try.\n\nCould you please include the design rational in the description? IIUC you are always encoding paths, but names are never stored in an encoded format? This way, if we missed something, we at least document how we intended things to work.",
+      "revId": "f82a4c1d5005307031462bd26deff13bc0f8425e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5c4edc2_700ba106",
         "filename": "front_end/common/ParsedURL.js",
         "patchSetId": 17
@@ -46,6 +63,30 @@
       "revId": "f82a4c1d5005307031462bd26deff13bc0f8425e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8675bacf_069e0ac9",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-23T09:32:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f67ac242_d9099803",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 172,
+        "endChar": 68
+      },
+      "revId": "f82a4c1d5005307031462bd26deff13bc0f8425e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
