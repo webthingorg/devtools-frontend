@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9121c7fd_9a445dd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-23T15:36:50Z",
+      "side": 1,
+      "message": "Since this is just a temporary bandaid I am fine with the approach of faking a ConsoleViewPortElement. How sure can we be that we are not missing anything else that might still need to be adapted (similar to the _visibleViewMessages.length patches)?",
+      "revId": "b801a7914626aaadc4f8489caaf4299edf456a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666c1854_734fe24c",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-23T15:36:50Z",
+      "side": 1,
+      "message": "nit: remove line?",
+      "revId": "b801a7914626aaadc4f8489caaf4299edf456a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee282b83_cbb2b71f",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-23T15:36:50Z",
+      "side": 1,
+      "message": "Why do we need focusLastChildOrSelf()?",
+      "revId": "b801a7914626aaadc4f8489caaf4299edf456a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
