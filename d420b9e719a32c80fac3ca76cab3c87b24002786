@@ -39,6 +39,30 @@
       "revId": "d420b9e719a32c80fac3ca76cab3c87b24002786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8a10b7f_fac72c5c",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-23T08:07:26Z",
+      "side": 1,
+      "message": "I think this is actually somewhat unrelated. `.evaluate` takes  an `Element -\u003e A` function and the declared type for `.textContent` on an `Element` is `string | null`. We can alternatively do `as string` and let the `assert.match` throw on the next line?\n\n(but you are right that the current `$` implementation does `as ElementHandle\u003c..\u003e` so we avoid a lot of null checks. We can remove that and instead sprinkle `!` around)\n\nWDYT?",
+      "parentUuid": "10e93514_488171bc",
+      "range": {
+        "startLine": 87,
+        "startChar": 77,
+        "endLine": 87,
+        "endChar": 83
+      },
+      "revId": "d420b9e719a32c80fac3ca76cab3c87b24002786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
