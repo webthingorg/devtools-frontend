@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a574469_3ae2b007",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-23T19:33:53Z",
+      "side": 1,
+      "message": "lgtm with a few nits. Nice work!",
+      "revId": "13b0df7f13acb72e5172f46bcdf28e06bb60e03d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "258915a1_a8ac1951",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-23T19:33:53Z",
+      "side": 1,
+      "message": "nit: maybe something like \"left aligned on the elements edge\" or similar",
+      "range": {
+        "startLine": 46,
+        "startChar": 64,
+        "endLine": 46,
+        "endChar": 75
+      },
+      "revId": "13b0df7f13acb72e5172f46bcdf28e06bb60e03d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcea2ccb_15276201",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-23T19:33:53Z",
+      "side": 1,
+      "message": "nit: should this be _drawPath to indicate this is private to this file?",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 17
+      },
+      "revId": "13b0df7f13acb72e5172f46bcdf28e06bb60e03d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
