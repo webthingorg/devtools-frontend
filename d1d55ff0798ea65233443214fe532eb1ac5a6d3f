@@ -16,6 +16,75 @@
       "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e021ddf_00f00cef",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-23T09:30:41Z",
+      "side": 1,
+      "message": "Could you add a comment that this will only delete currently shown items?",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 241,
+        "endChar": 5
+      },
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bc0f4e1_1a33aef5",
+        "filename": "front_end/resources/StorageItemsView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-23T09:30:41Z",
+      "side": 1,
+      "message": "We\u0027ve never done this before. Is it necessary? Would it be an alternative to set the id of the button instead of an invalid attribute?",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 86
+      },
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "656b4ecf_334ba3b7",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-23T09:30:41Z",
+      "side": 1,
+      "message": "same comment as above: can we use the button\u0027s id attribute instead?",
+      "range": {
+        "startLine": 53,
+        "startChar": 18,
+        "endLine": 53,
+        "endChar": 25
+      },
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
