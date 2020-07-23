@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d722fff_d4f6c148",
+        "filename": "test/unittests/scripts/component_bridges/generate_closure_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-23T15:10:02Z",
+      "side": 1,
+      "message": "one side note: now we parse interfaces to look at their members, we hit a bug in this test because we would try to parse this and get confused because `Pet` is a class, not an interface. I think it should be an acceptable limitation that classes cannot be used as it\u0027s hard to generate an interface for them in the _bridge.js file.",
+      "range": {
+        "startLine": 562,
+        "startChar": 6,
+        "endLine": 562,
+        "endChar": 22
+      },
+      "revId": "f52d42e9dd404dc8c190f96db7a73fadda985143",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
