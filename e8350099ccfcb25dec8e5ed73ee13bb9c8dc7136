@@ -16,6 +16,24 @@
       "revId": "e8350099ccfcb25dec8e5ed73ee13bb9c8dc7136",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ce06a48_706edf77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-24T06:59:47Z",
+      "side": 1,
+      "message": "The CL updating roll_deps is here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2316074 It\u0027s blocked on the upstream reland (https://chromium-review.googlesource.com/c/chromium/src/+/2316448).",
+      "parentUuid": "aa4ff820_bd9f3aa7",
+      "revId": "e8350099ccfcb25dec8e5ed73ee13bb9c8dc7136",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
