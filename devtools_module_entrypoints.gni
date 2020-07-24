@@ -120,7 +120,6 @@ devtools_module_entrypoints = [
   "test_runner/test_runner.js",
   "text_editor/text_editor.js",
   "text_editor/text_editor-legacy.js",
-  "text_utils/text_utils.js",
   "text_utils/text_utils-legacy.js",
   "timeline/timeline.js",
   "timeline/timeline-legacy.js",
@@ -170,6 +169,7 @@ generated_typescript_entrypoints = [
   "$resources_out_dir/marked/marked.js",
   "$resources_out_dir/root/root.js",
   "$resources_out_dir/sdk/sdk.js",
+  "$resources_out_dir/text_utils/text_utils.js",
   "$resources_out_dir/platform/platform.js",
   "$resources_out_dir/workspace/workspace.js",
 ]
