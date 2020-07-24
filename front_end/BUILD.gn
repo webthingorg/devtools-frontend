@@ -29,6 +29,8 @@ group("front_end") {
     "third_party/lighthouse",
     "timeline_model:bundle",
     "workspace:bundle",
+    "workspace_diff:bundle",
+    "workspace_diff:bundle",
   ]
 
   data_deps = [
