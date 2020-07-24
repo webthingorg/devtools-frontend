@@ -2102,6 +2102,17 @@ declare namespace Protocol {
       text: string;
     }
 
+    export interface TrackComputedStyleUpdatesRequest {
+      propertiesToTrack: CSSComputedStyleProperty[];
+    }
+
+    export interface TakeComputedStyleUpdatesResponse extends ProtocolResponseWithError {
+      /**
+       * The list of node Ids that have their tracked computed styles updated
+       */
+      nodeIds: DOM.NodeId[];
+    }
+
     export interface SetEffectivePropertyValueForNodeRequest {
       /**
        * The element id for which to set property.
@@ -6282,6 +6293,13 @@ declare namespace Protocol {
       VeryHigh = 'VeryHigh',
     }
 
+    /**
+     * Post data entry for HTTP request
+     */
+    export interface PostDataEntry {
+      bytes?: binary;
+    }
+
     export enum RequestReferrerPolicy {
       UnsafeUrl = 'unsafe-url',
       NoReferrerWhenDowngrade = 'no-referrer-when-downgrade',
@@ -6321,6 +6339,10 @@ declare namespace Protocol {
        * True when the request has POST data. Note that postData might still be omitted when this flag is true when the data is too long.
        */
       hasPostData?: boolean;
+      /**
+       * Request body elements. This will be converted from base64 to binary
+       */
+      postDataEntries?: PostDataEntry[];
       /**
        * The mixed content type of the request.
        */
@@ -7903,6 +7925,14 @@ declare namespace Protocol {
        * Show area name labels (default: false).
        */
       showAreaNames?: boolean;
+      /**
+       * Show line name labels (default: false).
+       */
+      showLineNames?: boolean;
+      /**
+       * Show track size labels (default: false).
+       */
+      showTrackSizes?: boolean;
       /**
        * The grid container border highlight color (default: transparent).
        */
@@ -11304,7 +11334,7 @@ declare namespace Protocol {
       /**
        * If set, overrides the post data in the request.
        */
-      postData?: string;
+      postData?: binary;
       /**
        * If set, overrides the request headers.
        */
