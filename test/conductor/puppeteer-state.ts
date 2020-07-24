@@ -4,6 +4,8 @@
 
 import * as puppeteer from 'puppeteer';
 
+import {querySelectorShadowAll, querySelectorShadowOne, querySelectorShadowTextAll, querySelectorShadowTextOne} from './custom-query-handlers.js';
+
 let target: puppeteer.Page;
 let frontend: puppeteer.Page;
 let browser: puppeteer.Browser;
@@ -61,4 +63,17 @@ export const getHostedModeServerPort = () => {
         'at runtime when the port is available.');
   }
   return hostedModeServerPort;
+};
+
+export const registerHandlers = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (puppeteer as any).__experimental_registerCustomQueryHandler('pierceShadow', {
+    queryOne: querySelectorShadowOne,
+    queryAll: querySelectorShadowAll,
+  });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (puppeteer as any).__experimental_registerCustomQueryHandler('pierceShadowText', {
+    queryOne: querySelectorShadowTextOne,
+    queryAll: querySelectorShadowTextAll,
+  });
 };
