@@ -16,6 +16,92 @@
       "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2681cc7_ebfd199f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-24T08:48:56Z",
+      "side": 1,
+      "message": "lgtm % nits, please wait for sigurds review though as well.",
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8098cef7_1c74e374",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-24T08:48:56Z",
+      "side": 1,
+      "message": "bike-shedding: Should we name this \"Element\" instead of \"Node? Sigurd wdyt?",
+      "range": {
+        "startLine": 234,
+        "startChar": 34,
+        "endLine": 234,
+        "endChar": 38
+      },
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b456fbd_eec0e80e",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-24T08:48:56Z",
+      "side": 1,
+      "message": "This method doesn\u0027t use `await` anywhere, so the `async` can be removed.",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 273,
+        "endChar": 7
+      },
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bc50148_ce185bd3",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-24T08:48:56Z",
+      "side": 1,
+      "message": "Same here, even to reveal is `async`, we are not `await`ing the result anyway, so there is no need to make the onclick handler `async`.",
+      "range": {
+        "startLine": 295,
+        "startChar": 23,
+        "endLine": 295,
+        "endChar": 28
+      },
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
