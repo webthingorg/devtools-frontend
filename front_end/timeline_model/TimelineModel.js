@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// @ts-nocheck crbug.com/1011811
+
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 

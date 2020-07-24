@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// @ts-nocheck crbug.com/1011811
+
 import * as SDK from '../sdk/sdk.js';
 import * as Common from '../common/common.js';
 
