@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3062e24f_6f2ed68a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-24T21:57:16Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "a9cf156f679ab1dc5b1b137ece7b8727c521fe2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97143724_8b600aa4",
+        "filename": "front_end/third_party/chromium/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-24T21:57:16Z",
+      "side": 1,
+      "message": "Does this also periodically get run automatically? If so, I\u0027d suggest mentioning that in this readme file. If not, then do we have a plan for remembering to run this if an update is needed?",
+      "revId": "a9cf156f679ab1dc5b1b137ece7b8727c521fe2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
