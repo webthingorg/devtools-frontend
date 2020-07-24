@@ -235,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "ed3d53fa_b0d4e084",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-07-24T19:28:01Z",
+      "side": 1,
+      "message": "Olivia, will you keep this functionality and address calling `getBoundingClientRect` if you find a perf issue?",
+      "parentUuid": "685d16e5_bcf80a7c",
+      "range": {
+        "startLine": 133,
+        "startChar": 17,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "ab50a5c00d27e398c5ec01ecf8f0f8929288dda1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0fb2a314_f503a982",
         "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
         "patchSetId": 9

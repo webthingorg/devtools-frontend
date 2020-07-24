@@ -16,6 +16,29 @@
       "revId": "dc95e6eea13965d64b48f95a73bb70f58fc562b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97cfba69_7cb1e478",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-07-24T19:28:01Z",
+      "side": 1,
+      "message": "Why do we need to add the second 2012 copyright?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "dc95e6eea13965d64b48f95a73bb70f58fc562b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
