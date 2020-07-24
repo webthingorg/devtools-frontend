@@ -52,6 +52,24 @@
       "revId": "9d0eb4f029bb845af762765b34706c06131cb73a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7af90e0d_fc91354a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2020-07-24T21:32:04Z",
+      "side": 1,
+      "message": "Sg, uploaded https://crrev.com/c/2318339, and filed https://crbug.com/1109347 to tracking CodeMirror upgrade.",
+      "parentUuid": "11b0aff8_70e40603",
+      "revId": "9d0eb4f029bb845af762765b34706c06131cb73a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
