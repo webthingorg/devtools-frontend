@@ -39,6 +39,30 @@
       "revId": "dc95e6eea13965d64b48f95a73bb70f58fc562b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57c15361_5725228a",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-24T19:30:18Z",
+      "side": 1,
+      "message": "Unfortunately, some of this logic was copied over from the original highlight overlay js in chromium.src, which mandates that this 2012 copyright follows it around.",
+      "parentUuid": "97cfba69_7cb1e478",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "dc95e6eea13965d64b48f95a73bb70f58fc562b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
