@@ -5,26 +5,22 @@
 import("../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../scripts/build/ninja/devtools_module.gni")
 
-devtools_module("color_picker") {
+devtools_module("timeline_model") {
   sources = [
-    "ContrastDetails.js",
-    "ContrastInfo.js",
-    "ContrastOverlay.js",
-    "Spectrum.js",
+    "TimelineFrameModel.js",
+    "TimelineIRModel.js",
+    "TimelineJSProfile.js",
+    "TimelineModel.js",
+    "TimelineModelFilter.js",
+    "TimelineProfileTree.js",
+    "TracingLayerTree.js",
   ]
 
-  deps = [
-    "../common:bundle",
-    "../host:bundle",
-    "../platform:bundle",
-    "../sdk:bundle",
-    "../ui",
-  ]
+  deps = [ "../sdk:bundle" ]
 }
 
 devtools_entrypoint("bundle") {
-  entrypoint = "color_picker.js"
+  entrypoint = "timeline_model.js"
   is_legacy_javascript_entrypoint = [ "crbug.com/1011811" ]
-
-  deps = [ ":color_picker" ]
+  deps = [ ":timeline_model" ]
 }
