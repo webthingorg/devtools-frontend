@@ -33,6 +33,29 @@
       "revId": "beacf0bf3cfdd98f5a9ad7da251566f433ea96f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660e2141_8a94acb9",
+        "filename": "front_end/timeline_model/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-24T13:00:21Z",
+      "side": 1,
+      "message": "We need a dep on common. SDK already deps it, but I prefer being super clear though, since there are TS imports to common.",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "beacf0bf3cfdd98f5a9ad7da251566f433ea96f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
