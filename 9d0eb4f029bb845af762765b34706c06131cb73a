@@ -34,6 +34,24 @@
       "revId": "9d0eb4f029bb845af762765b34706c06131cb73a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b0aff8_70e40603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-24T05:48:57Z",
+      "side": 1,
+      "message": "All right, let\u0027s not waste too much time on this. I\u0027d propose to just roll the wast mode changes necessary and file a bug for Tim to roll CodeMirror update eventually.",
+      "parentUuid": "857d13cc_8def1b0d",
+      "revId": "9d0eb4f029bb845af762765b34706c06131cb73a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
