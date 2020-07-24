@@ -314,7 +314,6 @@ export class ConsoleView extends UI.Widget.VBox {
       issueBar.setCloseCallback(() => {
         this._hasInteractedWithInfoBar = true;
       });
-      this.element.insertBefore(this._issueBarDiv, this._consoleToolbarContainer.nextSibling);
       this._issueBarDiv.appendChild(issueBar.element);
       issueBar.setParentView(this);
       this.doResize();
