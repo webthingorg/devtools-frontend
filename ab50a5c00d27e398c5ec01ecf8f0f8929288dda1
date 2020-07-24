@@ -259,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "2defa8e1_7c7b50e0",
+        "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-07-24T23:35:22Z",
+      "side": 1,
+      "message": "There\u0027s a few things we could do if there\u0027s a perf issue (that I can think of off the top of my head):\n- Decrease the threshold for checking whether labels overlap (right now if there are \u003e300 labels already placed, it won\u0027t check if the labels overlap and just put them in their default position, skipping this for loop)\n- Store the bounding rectangle of each label right after it\u0027s placed, so that we don\u0027t have to call getBoundingClientRect() each time we want to check if a new label is going to overlap with it",
+      "parentUuid": "ed3d53fa_b0d4e084",
+      "range": {
+        "startLine": 133,
+        "startChar": 17,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "ab50a5c00d27e398c5ec01ecf8f0f8929288dda1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0fb2a314_f503a982",
         "filename": "front_end/inspector_overlay/tool_source_order_impl.js",
         "patchSetId": 9
