@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2dedd01_edc2a351",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-24T13:26:46Z",
+      "side": 0,
+      "message": "this code is dead code - we populate the `interfacesToConvert` but then never do anything with it. I think this was left over from a previous refactor.",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 328,
+        "endChar": 5
+      },
+      "revId": "677ce84c09eea9fcfa31dfb5efb7acb7c8f77f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
