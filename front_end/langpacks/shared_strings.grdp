@@ -301,6 +301,9 @@
   <message name="IDS_DEVTOOLS_6bb61b1a929f2a0186f2671cd8258bd9" desc="Text to show something is not optimized">
     Not optimized: <ph name="REASON">$1s<ex>Optimized too many times</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_6c3a6944a808a7c0bbb6788dbec54a9f" desc="Title of the 'Node' tool in the Network Navigator View, which is part of the Sources tool">
+    Node
+  </message>
   <message name="IDS_DEVTOOLS_6f6cb72d544962fa333e2e34ce64f719" desc="Text for the size of something">
     Size
   </message>
