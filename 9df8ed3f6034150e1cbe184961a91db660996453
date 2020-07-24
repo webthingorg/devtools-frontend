@@ -16,6 +16,40 @@
       "revId": "9df8ed3f6034150e1cbe184961a91db660996453",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8bb3228_c2a58d5a",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-24T09:04:59Z",
+      "side": 1,
+      "message": "The text now renders with 11pt instead of 12pt as before. On purpose?\n\nIt looks like previously the exact font was defined platform-specific in inspectorStyle.css whereas now it\u0027s only the more generic `sans-serif`.",
+      "revId": "9df8ed3f6034150e1cbe184961a91db660996453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edf9ff3f_ddc9c2d1",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-24T09:04:59Z",
+      "side": 1,
+      "message": "Great that the button now does not move to the 2nd line on smaller screens.",
+      "revId": "9df8ed3f6034150e1cbe184961a91db660996453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
