@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f21331e_e700832d",
+        "filename": "devtools_module_entrypoints.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-24T08:27:19Z",
+      "side": 0,
+      "message": "this -legacy has to stay here",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "2f7079da66a6cf2b363b2044b73629a806d90db7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93f85df5_60b28b94",
+        "filename": "front_end/timeline_model/timeline_model-legacy.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-24T08:27:19Z",
+      "side": 0,
+      "message": "this file has to stay for legacy/closure reasons",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 79
+      },
+      "revId": "2f7079da66a6cf2b363b2044b73629a806d90db7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
