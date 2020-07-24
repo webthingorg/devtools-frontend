@@ -116,7 +116,6 @@ devtools_module_entrypoints = [
   "settings/settings-legacy.js",
   "snippets/snippets.js",
   "snippets/snippets-legacy.js",
-  "source_frame/source_frame.js",
   "source_frame/source_frame-legacy.js",
   "sources/sources.js",
   "sources/sources-legacy.js",
@@ -171,5 +170,8 @@ generated_typescript_entrypoints = [
   "$resources_out_dir/marked/marked.js",
   "$resources_out_dir/root/root.js",
   "$resources_out_dir/sdk/sdk.js",
+  "$resources_out_dir/source_frame/source_frame.js",
+  "$resources_out_dir/timeline/timeline.js",
+  "$resources_out_dir/timeline_model/timeline_model.js",
   "$resources_out_dir/platform/platform.js",
 ]
