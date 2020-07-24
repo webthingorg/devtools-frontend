@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2e504be_aa6340ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-24T13:02:34Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "32aa741d031f20a2cc3bd628282677d7ddd4a811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d04e83d9_d419976d",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/interface.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-24T13:02:34Z",
+      "side": 1,
+      "message": "Sure 😄",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "32aa741d031f20a2cc3bd628282677d7ddd4a811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
