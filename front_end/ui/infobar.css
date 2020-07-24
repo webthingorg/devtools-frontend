@@ -27,11 +27,19 @@
   background-color: rgb(255 255 255);
 }
 
+.infobar.infobar-issue {
+  font-family: sans-serif;
+}
+
 .infobar-main-row {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   min-height: 25px;
+}
+
+.infobar.infobar-issue .infobar-main-row {
+  flex-direction: row;
 }
 
 .infobar-info-container {
@@ -44,6 +52,10 @@
 .infobar-info-message {
   display: flex;
   margin: 5px 0;
+}
+
+.infobar.infobar-issue .infobar-info-message {
+  flex: 1 0;
 }
 
 .infobar-info-text {
