@@ -16,6 +16,23 @@
       "revId": "1032c66c2b72d2e80fdf3b4e48e381dab62fd75b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6a451c6_91178fdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-24T08:09:06Z",
+      "side": 1,
+      "message": "Still lgtm (assuming the browser_protocol.pdl change landed in the backend)",
+      "revId": "1032c66c2b72d2e80fdf3b4e48e381dab62fd75b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
