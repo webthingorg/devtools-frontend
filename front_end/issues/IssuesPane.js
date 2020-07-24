@@ -266,6 +266,16 @@ class AffectedDirectivesView extends AffectedResourcesView {
   }
 
   /**
+   * @param {!Element} element
+   * @param {!string} directive
+   */
+  _appendViolatedDirective(element, directive) {
+    const violatedDirective = document.createElement('td');
+    violatedDirective.textContent = directive;
+    element.appendChild(violatedDirective);
+  }
+
+  /**
    * @param {!Set<!Protocol.Audits.ContentSecurityPolicyIssueDetails>} cspViolations
    */
   _appendAffectedDirectives(cspViolations) {
@@ -275,11 +285,15 @@ class AffectedDirectivesView extends AffectedResourcesView {
       this._appendNodeColumnTitle(header);
       this._appendSourceCodeColumnTitle(header);
       this._appendStatusColumnTitle(header);
-    } else {
+    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
       this._appendURLColumnTitle(header);
       this._appendStatusColumnTitle(header);
       this._appendDirectiveColumnTitle(header);
       this._appendSourceCodeColumnTitle(header);
+    } else {
+      this._appendSourceCodeColumnTitle(header);
+      this._appendDirectiveColumnTitle(header);
+      this._appendStatusColumnTitle(header);
     }
     this._affectedResources.appendChild(header);
     let count = 0;
@@ -304,10 +318,9 @@ class AffectedDirectivesView extends AffectedResourcesView {
       element.appendChild(info);
       this._appendBlockedStatus(element);
     }
-    const name = document.createElement('td');
-    name.textContent = cspViolation.violatedDirective;
-    element.appendChild(name);
-
+    if (this._issue.code() !== SDK.ContentSecurityPolicyIssue.evalViolationCode) {
+      this._appendViolatedDirective(element, cspViolation.violatedDirective);
+    }
     if (this._issue.code() === SDK.ContentSecurityPolicyIssue.inlineViolationCode) {
       const violatingNode = document.createElement('td');
       violatingNode.classList.add('affected-resource-csp-info-node');
@@ -345,8 +358,10 @@ class AffectedDirectivesView extends AffectedResourcesView {
       sourceLocation.appendChild(sourceAnchor);
       element.appendChild(sourceLocation);
     }
-
-    if (this._issue.code() === SDK.ContentSecurityPolicyIssue.inlineViolationCode) {
+    if (this._issue.code() === SDK.ContentSecurityPolicyIssue.evalViolationCode) {
+      this._appendViolatedDirective(element, cspViolation.violatedDirective);
+    }
+    if (this._issue.code() !== SDK.ContentSecurityPolicyIssue.urlViolationCode) {
       this._appendBlockedStatus(element);
     }
 
