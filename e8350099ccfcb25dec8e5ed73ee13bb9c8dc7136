@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa4ff820_bd9f3aa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-07-24T01:02:37Z",
+      "side": 1,
+      "message": "Thanks for the fast-follow here, Mathias. Looks great!\n\nAre you up for also picking up the remaining work to automate rolling deps? Or did you want me or someone else to take a look at that?",
+      "revId": "e8350099ccfcb25dec8e5ed73ee13bb9c8dc7136",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
