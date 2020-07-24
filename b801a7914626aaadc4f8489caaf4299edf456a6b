@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "9cf7163c_8ec7d15f",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-24T08:04:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "666c1854_734fe24c",
+      "revId": "b801a7914626aaadc4f8489caaf4299edf456a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee282b83_cbb2b71f",
         "filename": "front_end/console/ConsoleView.js",
         "patchSetId": 5
@@ -50,6 +68,24 @@
       "revId": "b801a7914626aaadc4f8489caaf4299edf456a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54ebc610_e7a59300",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-24T08:04:11Z",
+      "side": 1,
+      "message": "It is called in ConsoleViewport L241, and should be included in ConsoleViewportElement (but for tech debt reasons isn\u0027t).",
+      "parentUuid": "ee282b83_cbb2b71f",
+      "revId": "b801a7914626aaadc4f8489caaf4299edf456a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
