@@ -24,6 +24,7 @@ group("front_end") {
     "formatter_worker:bundle",
     "i18n:bundle_i18n",
     "issues:bundle",
+    "perf_ui:bundle",
     "sdk:bundle",
     "search:bundle",
     "third_party/lighthouse",

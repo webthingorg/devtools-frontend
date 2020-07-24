@@ -84,7 +84,6 @@ devtools_module_entrypoints = [
   "object_ui/object_ui-legacy.js",
   "performance_monitor/performance_monitor.js",
   "performance_monitor/performance_monitor-legacy.js",
-  "perf_ui/perf_ui.js",
   "perf_ui/perf_ui-legacy.js",
   "persistence/persistence.js",
   "persistence/persistence-legacy.js",
@@ -172,4 +171,5 @@ generated_typescript_entrypoints = [
   "$resources_out_dir/timeline_model/timeline_model.js",
   "$resources_out_dir/platform/platform.js",
   "$resources_out_dir/workspace/workspace.js",
+  "$resources_out_dir/perf_ui/perf_ui.js",
 ]
