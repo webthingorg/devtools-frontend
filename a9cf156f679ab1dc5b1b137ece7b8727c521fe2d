@@ -33,6 +33,24 @@
       "revId": "a9cf156f679ab1dc5b1b137ece7b8727c521fe2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bcd169c_e34ed869",
+        "filename": "front_end/third_party/chromium/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-25T08:02:04Z",
+      "side": 1,
+      "message": "It’s not automated, but in practice we need a roll frequently enough anyway (including whenever we make an upstream change to the Chrome DevTools Protocol, which happens at least once per milestone) so this is not really a problem IMHO.",
+      "parentUuid": "97143724_8b600aa4",
+      "revId": "a9cf156f679ab1dc5b1b137ece7b8727c521fe2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
