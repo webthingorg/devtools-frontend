@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a13a47f2_a5be07e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-26T11:55:35Z",
+      "side": 1,
+      "message": "The CL is now split in two and tweaked slightly. PTAL :)",
+      "revId": "66d90bb8efbb873182a085697d42fee68e519d86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
