@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c08b7d2e_070092e8",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-26T12:14:13Z",
+      "side": 1,
+      "message": "I have not yet figured out whether or not we can get rid of these assertions.",
+      "revId": "aea26caf6caba07047aee63e9413bdf868915fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc9fbe6e_c94796e6",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-26T12:14:13Z",
+      "side": 1,
+      "message": "Now that `$` throws when no element is found, we have to do this sort of thing here. I\u0027m not sure I prefer this to letting `$` return null. I feel like we are now using exceptions for not-exceptional behavior. WDYT?",
+      "revId": "aea26caf6caba07047aee63e9413bdf868915fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
