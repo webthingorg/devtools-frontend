@@ -250,7 +250,7 @@ export class NetworkLogView extends UI.Widget.VBox {
       return false;
     }
 
-    return regex.test(request.path() + '/' + request.name());
+    return regex.test(request.url());
   }
 
   /**
