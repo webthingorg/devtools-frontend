@@ -47,8 +47,9 @@ def run_tests(chrome_binary,
               test_file=None):
     env = os.environ.copy()
     env['CHROME_BIN'] = chrome_binary
+    #--enable-features=HeavyAdIntervention --disable-features=HeavyAdPrivacyMitigations
     if chrome_features:
-        env['CHROME_FEATURES'] = chrome_features
+        env['CHROME_FEATURES'] = 'HeavyAdIntervention'
 
     if test_file is not None:
         env['TEST_FILE'] = test_file
@@ -101,7 +102,10 @@ def run_test():
     test_suite = OPTIONS.test_suite
     test_file = OPTIONS.test_file
 
-    print('Using Chromium binary ({}{})\n'.format(chrome_binary, ' ' + chrome_features if chrome_features else ''))
+    print('Using Chromium binary ({}{})\n'.format(
+        chrome_binary,
+        '--enable-features=HeavyAdIntervention --disable-features=HeavyAdPrivacyMitigations'
+    ))
     print('Using Test Suite (%s)\n' % test_suite)
     print('Using target (%s)\n' % OPTIONS.target)
 
