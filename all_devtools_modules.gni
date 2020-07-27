@@ -82,7 +82,6 @@ all_devtools_modules = [
   "input/InputTimeline.js",
   "inspector_main/InspectorMain.js",
   "inspector_main/RenderingOptions.js",
-  "js_main/JsMain.js",
   "layer_viewer/LayerDetailsView.js",
   "layer_viewer/Layers3DView.js",
   "layer_viewer/LayerTreeOutline.js",
@@ -668,6 +667,7 @@ all_typescript_modules = [
   "heap_snapshot_model/HeapSnapshotModel.js",
   "javascript_metadata/JavaScriptMetadata.js",
   "javascript_metadata/NativeFunctions.js",
+  "js_main/JsMain.js",
 ]
 
 foreach(module, all_typescript_modules) {
