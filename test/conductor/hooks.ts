@@ -63,6 +63,9 @@ function launchChrome() {
     launchArgs.push(`--window-size=${width},${height}`);
   }
 
+  launchArgs.push('--enable-features=AdTagging,HeavyAdIntervention,HeavyAdInterventionWarning');
+  launchArgs.push('--disable-features=HeavyAdPrivacyMitigations');
+
   opts.args = launchArgs;
   return puppeteer.launch(opts);
 }

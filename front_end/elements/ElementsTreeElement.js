@@ -87,6 +87,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       }
       if (node.isAdFrameNode()) {
         this.adornText('HeavyAd', AdornerCategories.Security);
+        console.log('adorner added');
+      } else if (node.isIframe()) {
+        console.log('not an ad frame');
       }
     }
 
