@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcc61cc9_4caa4bcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-27T03:50:35Z",
+      "side": 1,
+      "message": "These are the strings the URL detection script found. PTAL",
+      "revId": "6f303f4c3c12bcaabff378883a79b239cfb2482d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
