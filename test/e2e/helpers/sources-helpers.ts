@@ -107,8 +107,16 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
   }, undefined, currentBreakpointCount);
 }
 
+export async function sourceLineSelector(lineNumber: number) {
+  return `div.CodeMirror-code > div:nth-child(${lineNumber})`;
+}
+
 export async function sourceLineNumberSelector(lineNumber: number) {
-  return `div.CodeMirror-code > div:nth-child(${lineNumber}) div.CodeMirror-linenumber.CodeMirror-gutter-elt`;
+  return await sourceLineSelector(9) + ' div.CodeMirror-linenumber.CodeMirror-gutter-elt';
+}
+
+export async function sourceLineTextSelector(lineNumber: number) {
+  return await sourceLineSelector(9) + ' pre.CodeMirror-line';
 }
 
 export async function checkBreakpointIsActive(lineNumber: number) {
@@ -270,6 +278,12 @@ export async function expandFileTree(selectors: NestedFileSelector) {
   await expandSourceTreeItem(selectors.domainSelector);
   await expandSourceTreeItem(selectors.folderSelector);
   return await waitFor(selectors.fileSelector, undefined, 1000);
+}
+
+export async function resumeScriptExecution() {
+  const {frontend} = getBrowserAndPages();
+  await frontend.keyboard.press('F8');
+  await waitFor(PAUSE_INDICATOR_SELECTOR);
 }
 
 export async function stepThroughTheCode() {

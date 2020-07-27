@@ -60,7 +60,7 @@ describe('Source Tab', async () => {
       assert.deepEqual(stackScopeValues, []);
     });
 
-    await step('step one time', async () => {
+    await step('resume script execution', async () => {
       await frontend.keyboard.press('F9');
       await waitFor(PAUSE_INDICATOR_SELECTOR);
     });
