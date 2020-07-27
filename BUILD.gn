@@ -327,18 +327,17 @@ action("generate_devtools_grd") {
 
   deps = [ ":devtools_frontend_resources" ]
 
-  grd_files =
-      generated_devtools_module_entrypoints + output_devtools_modules +
-      generated_applications_html + generated_applications_js +
-      generated_non_autostart_non_remote_modules + devtools_embedder_scripts +
-      generated_worker_bundles + generated_typescript_entrypoints +
-      generated_typescript_modules +
-      [
-        "$resources_out_dir/devtools_extension_api.js",
-        "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
-        "$resources_out_dir/formatter_worker_entrypoint.js",
-        "$resources_out_dir/third_party/acorn/package/dist/acorn.mjs",
-      ]
+  grd_files = generated_devtools_module_entrypoints + output_devtools_modules +
+              generated_applications_html + generated_applications_js +
+              generated_non_autostart_non_remote_modules +
+              devtools_embedder_scripts + generated_worker_bundles +
+              generated_typescript_entrypoints + generated_typescript_modules + [
+                "$resources_out_dir/devtools_extension_api.js",
+                "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
+                "$resources_out_dir/formatter_worker_entrypoint.js",
+                "$resources_out_dir/third_party/acorn/package/dist/acorn.mjs",
+                "$resources_out_dir/third_party/chromium/client-variations/ClientVariationsParser.js",
+              ]
 
   inputs = grd_files + front_end_image_files
   response_file_contents = rebase_path(grd_files, root_build_dir)
