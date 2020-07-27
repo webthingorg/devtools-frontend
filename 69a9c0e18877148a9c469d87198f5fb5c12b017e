@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a41e04f_ecc9df82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-27T13:53:21Z",
+      "side": 1,
+      "message": "TBRing earlier reviewers (no action necessary).\n\nAdding Paul as new reviewer for the build changes.",
+      "revId": "69a9c0e18877148a9c469d87198f5fb5c12b017e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
