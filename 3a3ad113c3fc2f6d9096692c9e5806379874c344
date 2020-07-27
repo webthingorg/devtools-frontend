@@ -68,6 +68,24 @@
       "revId": "3a3ad113c3fc2f6d9096692c9e5806379874c344",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98a4c8af_7c5dc050",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-27T15:41:40Z",
+      "side": 1,
+      "message": "I did some investigation, and our testing infrastructure cannot reliably support tests for this feature. See the follow up CL for a summary.",
+      "parentUuid": "2de75616_8e8d06b8",
+      "revId": "3a3ad113c3fc2f6d9096692c9e5806379874c344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
