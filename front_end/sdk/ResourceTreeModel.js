@@ -623,6 +623,7 @@ export class ResourceTreeFrame {
       this._securityOrigin = payload.securityOrigin;
       this._mimeType = payload.mimeType;
       this._unreachableUrl = payload.unreachableUrl || '';
+      console.log(payload.adFrameType);
       this._adFrameType = payload.adFrameType || Protocol.Page.AdFrameType.None;
     }
 
@@ -648,6 +649,7 @@ export class ResourceTreeFrame {
    * @param {!Protocol.Page.Frame} framePayload
    */
   _navigate(framePayload) {
+    console.log(framePayload.adFrameType);
     this._loaderId = framePayload.loaderId;
     this._name = framePayload.name;
     this._url = framePayload.url;
