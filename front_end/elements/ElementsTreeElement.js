@@ -1937,11 +1937,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
   async _updateStyleAdorners() {
     const node = this.node();
-    if (node.nodeType() === Node.COMMENT_NODE) {
+    const nodeId = node.id;
+    if (node.nodeType() === Node.COMMENT_NODE || nodeId === undefined) {
       return;
     }
 
-    const styles = await node.domModel().cssModel().computedStylePromise(node.id);
+    const styles = await node.domModel().cssModel().computedStylePromise(nodeId);
     if (!styles) {
       return;
     }
@@ -1950,7 +1951,26 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (display === 'grid' || display === 'inline-grid') {
       const gridAdorner = this.adornText('grid', AdornerCategories.Layout);
       gridAdorner.classList.add('grid');
-      // TODO(changhaohan): enable interactivity once persistent overlay is implemented
+      let isGridAdornerOn = false;
+      const onClick = /** @type {!EventListener} */ (() => {
+        isGridAdornerOn = !isGridAdornerOn;
+        if (isGridAdornerOn) {
+          node.domModel().overlayModel().highlightGridInPersistentOverlay(nodeId);
+        } else {
+          node.domModel().overlayModel().hideGridInPersistentOverlay(nodeId);
+        }
+      });
+      gridAdorner.addInteraction(onClick, {
+        isToggle: true,
+        shouldPropagateOnKeydown: false,
+        ariaLabelDefault: ls`Enable grid mode`,
+        ariaLabelActive: ls`Disable grid mode`,
+      });
+
+      node.domModel().overlayModel().addEventListener(SDK.OverlayModel.Events.PersistentGridOverlayCleared, () => {
+        isGridAdornerOn = false;
+        gridAdorner.toggle(false /* force-toggle off */);
+      });
     }
   }
 }
