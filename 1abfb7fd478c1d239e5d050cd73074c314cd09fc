@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d722b00_ba15cc21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-07-27T15:16:33Z",
+      "side": 1,
+      "message": "Removing folks on vacation and adding Peter as reviewer.",
+      "revId": "1abfb7fd478c1d239e5d050cd73074c314cd09fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
