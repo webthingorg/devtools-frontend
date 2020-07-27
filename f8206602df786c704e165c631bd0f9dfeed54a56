@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "8cb380f2_007b4c6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-27T21:06:24Z",
+      "side": 1,
+      "message": "Nice script, LGTM minus a small nit: could you add a couple of examples on the:\ndocs\\localization\\adding_strings.md file?\n\ne.g how to add: \n\"For more information visit: http://www.---.com\"\n\n",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a58a08f_f55617e5",
         "filename": "scripts/localization/check_localizability.js",
         "patchSetId": 3
@@ -30,6 +47,24 @@
       "writtenOn": "2020-07-27T03:49:30Z",
       "side": 1,
       "message": "Does Closure run against these script files? I noticed none of the functions here are have type annotations.",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fef881a8_c32c104f",
+        "filename": "scripts/localization/check_localizability.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-27T21:06:24Z",
+      "side": 1,
+      "message": "I think the scripts folder is skipped from most verifications.",
+      "parentUuid": "4a58a08f_f55617e5",
       "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
