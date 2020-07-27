@@ -1950,7 +1950,21 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (display === 'grid' || display === 'inline-grid') {
       const gridAdorner = this.adornText('grid', AdornerCategories.Layout);
       gridAdorner.classList.add('grid');
-      // TODO(changhaohan): enable interactivity once persistent overlay is implemented
+      let isGridAdornerOn = false;
+      const onClick = /** @type {!EventListener} */ (() => {
+        isGridAdornerOn = !isGridAdornerOn;
+        if (isGridAdornerOn) {
+          node.domModel().overlayModel().highlightGridInPersistentOverlay(node);
+        } else {
+          node.domModel().overlayModel().hideGridInPersistentOverlay(node);
+        }
+      });
+      gridAdorner.addInteraction(onClick, {
+        isToggle: true,
+        shouldPropagateOnKeydown: false,
+        ariaLabelDefault: ls`Enable grid mode`,
+        ariaLabelActive: ls`Disable grid mode`,
+      });
     }
   }
 }
