@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffdc6ba8_7ea92645",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-27T08:56:00Z",
+      "side": 1,
+      "message": "this will be done in a follow up CL today.",
+      "range": {
+        "startLine": 279,
+        "startChar": 6,
+        "endLine": 282,
+        "endChar": 9
+      },
+      "revId": "f24db11dae0bdec9e32cc66f2e83d84c1d57d4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
