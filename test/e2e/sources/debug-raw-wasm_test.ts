@@ -7,7 +7,7 @@ import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
 import {$, click, getBrowserAndPages, goToResource, step, waitFor} from '../../shared/helper.js';
-import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, SCOPE_LOCAL_VALUES_SELECTOR, SELECTED_THREAD_SELECTOR, sourceLineNumberSelector, stepThroughTheCode, TURNED_OFF_PAUSE_BUTTON_SELECTOR, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, RESUME_BUTTON, resumeScriptExecution, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, SCOPE_LOCAL_VALUES_SELECTOR, SELECTED_THREAD_SELECTOR, sourceLineNumberSelector, TURNED_OFF_PAUSE_BUTTON_SELECTOR, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
 describe('Sources Tab', async function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
@@ -148,9 +148,9 @@ describe('Sources Tab', async function() {
       assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x60');
     });
 
-    await step('step two times through the code', async () => {
-      await stepThroughTheCode();
-      await stepThroughTheCode();
+    await step('resume script execution two times', async () => {
+      await resumeScriptExecution();
+      await resumeScriptExecution();
     });
 
     await step('check that the variables in the scope view show the correct values', async () => {
@@ -185,9 +185,9 @@ describe('Sources Tab', async function() {
       assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x48');
     });
 
-    await step('step two times through the code', async () => {
-      await stepThroughTheCode();
-      await stepThroughTheCode();
+    await step('resume script execution two times', async () => {
+      await resumeScriptExecution();
+      await resumeScriptExecution();
     });
 
     await step('check that the variables in the scope view show the correct values', async () => {
@@ -240,9 +240,9 @@ describe('Sources Tab', async function() {
       assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x60');
     });
 
-    await step('step two times through the code', async () => {
-      await stepThroughTheCode();
-      await stepThroughTheCode();
+    await step('resume script execution two times', async () => {
+      await resumeScriptExecution();
+      await resumeScriptExecution();
     });
 
     await step('check that the variables in the scope view show the correct values', async () => {
@@ -284,9 +284,9 @@ describe('Sources Tab', async function() {
       assert.strictEqual(selectedThreadName, 'Main', 'the Main thread is not active');
     });
 
-    await step('step two times through the code', async () => {
-      await stepThroughTheCode();
-      await stepThroughTheCode();
+    await step('resume script execution two times', async () => {
+      await resumeScriptExecution();
+      await resumeScriptExecution();
     });
 
     await step('check that the variables in the scope view show the correct values', async () => {
@@ -336,9 +336,9 @@ describe('Sources Tab', async function() {
           selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
     });
 
-    await step('step two times through the code', async () => {
-      await stepThroughTheCode();
-      await stepThroughTheCode();
+    await step('resume script execution two times', async () => {
+      await resumeScriptExecution();
+      await resumeScriptExecution();
     });
 
     await step('check that the variables in the scope view show the correct values', async () => {
@@ -381,9 +381,9 @@ describe('Sources Tab', async function() {
           selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
     });
 
-    await step('step two times through the code', async () => {
-      await stepThroughTheCode();
-      await stepThroughTheCode();
+    await step('resume script execution two times', async () => {
+      await resumeScriptExecution();
+      await resumeScriptExecution();
     });
 
     await step('check that the variables in the scope view show the correct values', async () => {
