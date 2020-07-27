@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "124065e7_3336a84e",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-27T13:23:01Z",
+      "side": 1,
+      "message": "Seems to be related to this: https://github.com/microsoft/TypeScript/issues/10315",
+      "parentUuid": "c08b7d2e_070092e8",
+      "revId": "aea26caf6caba07047aee63e9413bdf868915fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc9fbe6e_c94796e6",
         "filename": "test/e2e/helpers/emulation-helpers.ts",
         "patchSetId": 2
