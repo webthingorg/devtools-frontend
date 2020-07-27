@@ -53,6 +53,42 @@
     },
     {
       "key": {
+        "uuid": "24615657_2a3f19da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-27T22:16:14Z",
+      "side": 1,
+      "message": "You can still add a string like the one you mentioned. The only thing this gates on are URL-only strings (i.e. ls`https://www.---.com`). I don\u0027t think there needs to be any additional documentation.",
+      "parentUuid": "8cb380f2_007b4c6b",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "050a3c1b_75f92057",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-27T22:16:14Z",
+      "side": 1,
+      "message": "Chicken and egg problem: create script to detect offending strings, but you need to checkin the offending strings before you can checkin the script. I\u0027m going to figure out how to break the relationship chain and manually handle the submissions.",
+      "parentUuid": "a43d448b_5160e2c8",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a58a08f_f55617e5",
         "filename": "scripts/localization/check_localizability.js",
         "patchSetId": 3
@@ -85,6 +121,24 @@
       "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fdf30d6_10e795b3",
+        "filename": "scripts/localization/check_localizability.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-27T22:16:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fef881a8_c32c104f",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
