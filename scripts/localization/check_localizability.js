@@ -97,6 +97,19 @@ function includesGritPlaceholders(cookedValue) {
   return regexPattern.test(cookedValue);
 }
 
+function isURL(string) {
+  const realString = string.substr(3, string.length - 4);
+  /**
+   * Matches strings like:
+   *   - https://web.dev
+   *   - https://web.dev/page
+   *   - https://web.dev/page?referrer=devtools_frontend&otherParam=param
+   */
+  const regexPattern =
+      /^(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g;
+  return regexPattern.test(realString);
+}
+
 function addError(error, errors) {
   if (!errors.includes(error)) {
     errors.push(error);
@@ -246,6 +259,15 @@ function analyzeNode(parentNode, node, filePath, errors) {
                 code}. Please extract placeholders(s) out of the localization call.`,
             errors);
       }
+
+      if (isURL(code)) {
+        addError(
+            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+                localizationUtils.getLocationMessage(node.loc)}: localized URL-only string found in ${
+                code}. Please extract the URL out of the localization call.`,
+            errors);
+      }
+
       break;
     }
 
