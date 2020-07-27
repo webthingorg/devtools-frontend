@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d719891e_1fff8a2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-27T14:27:44Z",
+      "side": 1,
+      "message": "Screenshot?",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39782ded_1a7b484f",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-27T14:27:44Z",
+      "side": 1,
+      "message": "How about naming this something like `forceOnState` instead? `forceOnState: true` seems clearer than `forcedState: true` (the state is forced, but what is the state?). WDYT?",
+      "range": {
+        "startLine": 119,
+        "startChar": 9,
+        "endLine": 119,
+        "endChar": 20
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169e841e_eac0d2e6",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-27T14:27:44Z",
+      "side": 1,
+      "message": "nit: ARIA",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66f6104a_f463aa27",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-27T14:27:44Z",
+      "side": 1,
+      "message": "here too",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c170aafe_bf23986e",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-27T14:27:44Z",
+      "side": 1,
+      "message": "This sounds like a TODO. Can we make it into one, ideally pointing to a tracking bug?",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
