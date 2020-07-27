@@ -7,7 +7,7 @@ import * as Host from '../host/host.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {EmulatedDevice, Horizontal, Mode, Orientation} from './EmulatedDevices.js';  // eslint-disable-line no-unused-vars
+import {EmulatedDevice, Horizontal, HorizontalSpanned, Mode, Vertical, VerticalSpanned} from './EmulatedDevices.js';  // eslint-disable-line no-unused-vars
 
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.EmulationModel.EmulationModel>}
@@ -26,6 +26,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     this._appliedDeviceScaleFactor = window.devicePixelRatio;
     this._appliedUserAgentType = UA.Desktop;
     this._experimentDualScreenSupport = Root.Runtime.experiments.isEnabled('dualScreenSupport');
+    this._webPlatformExperimentalFeaturesEnabled = !!eval('window.getWindowSegments');
 
     this._scaleSetting = Common.Settings.Settings.instance().createSetting('emulation.deviceScale', 1);
     // We've used to allow zero before.
@@ -61,6 +62,9 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     this._deviceOutlineSetting = Common.Settings.Settings.instance().moduleSetting('emulation.showDeviceOutline');
     this._deviceOutlineSetting.addChangeListener(this._deviceOutlineSettingChanged, this);
 
+    this._usePlatformMultiSegment =
+        Common.Settings.Settings.instance().moduleSetting('emulation.usePlatformMultiSegment');
+    this._usePlatformMultiSegment.addChangeListener(this._usePlatformMultiSegmentChanged, this);
     this._toolbarControlsEnabledSetting = Common.Settings.Settings.instance().createSetting(
         'emulation.toolbarControlsEnabled', true, Common.Settings.SettingStorageType.Session);
 
@@ -164,8 +168,9 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
    * @param {?EmulatedDevice} device
    * @param {?Mode} mode
    * @param {number=} scale
+   * @param {boolean=} forceMetricsOverride
    */
-  emulate(type, device, mode, scale) {
+  emulate(type, device, mode, scale, forceMetricsOverride = false) {
     const resetPageScaleFactor = this._type !== type || this._device !== device || this._mode !== mode;
     this._type = type;
 
@@ -188,7 +193,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     if (type !== Type.None) {
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.DeviceModeEnabled);
     }
-    this._calculateAndEmulate(resetPageScaleFactor);
+    this._calculateAndEmulate(resetPageScaleFactor, forceMetricsOverride);
   }
 
   /**
@@ -389,6 +394,13 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @return {!Common.Settings.Setting}
    */
+  usePlatformMultiSegment() {
+    return this._usePlatformMultiSegment;
+  }
+
+  /**
+   * @return {!Common.Settings.Setting}
+   */
   toolbarControlsEnabledSetting() {
     return this._toolbarControlsEnabledSetting;
   }
@@ -472,6 +484,19 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     this._calculateAndEmulate(false);
   }
 
+  _usePlatformMultiSegmentChanged() {
+  }
+
+  reloadPage() {
+    const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
+    if (mainTarget) {
+      const resourceModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      if (resourceModel) {
+        resourceModel.reloadPage();
+      }
+    }
+  }
+
   /**
    * @return {number}
    */
@@ -512,9 +537,28 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {boolean} resetPageScaleFactor
+   * @return {!Protocol.Emulation.ScreenOrientationType}
    */
-  _calculateAndEmulate(resetPageScaleFactor) {
+  _getScreenOrientationType() {
+    console.assert(this._mode, 'Can only get display feature orientation when current mode is set.');
+    switch (this._mode.orientation) {
+      case VerticalSpanned:
+      case Vertical:
+        return Protocol.Emulation.ScreenOrientationType.PortraitPrimary;
+      case HorizontalSpanned:
+        return Protocol.Emulation.ScreenOrientationType.PortraitPrimary;
+      case Horizontal:
+        return Protocol.Emulation.ScreenOrientationType.LandscapePrimary;
+      default:
+        return Protocol.Emulation.ScreenOrientationType.LandscapePrimary;
+    }
+  }
+
+  /**
+   * @param {boolean} resetPageScaleFactor
+   * @param {boolean=} forceMetricsOverride
+   */
+  _calculateAndEmulate(resetPageScaleFactor, forceMetricsOverride = false) {
     if (!this._emulationModel) {
       this._onModelAvailable = this._calculateAndEmulate.bind(this, resetPageScaleFactor);
     }
@@ -535,10 +579,8 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
       }
       this._applyDeviceMetrics(
           new UI.Geometry.Size(orientation.width, orientation.height), insets, outline, this._scaleSetting.get(),
-          this._device.deviceScaleFactor, mobile,
-          this._mode.orientation === Horizontal ? Protocol.Emulation.ScreenOrientationType.LandscapePrimary :
-                                                  Protocol.Emulation.ScreenOrientationType.PortraitPrimary,
-          resetPageScaleFactor);
+          this._device.deviceScaleFactor, mobile, this._getScreenOrientationType(), resetPageScaleFactor,
+          forceMetricsOverride || this._webPlatformExperimentalFeaturesEnabled || this._experimentDualScreenSupport);
       this._applyUserAgent(this._device.userAgent, this._device.userAgentMetadata);
       this._applyTouch(this._device.touch(), mobile);
     } else if (this._type === Type.None) {
@@ -641,16 +683,11 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
    * @param {boolean} mobile
    * @param {?Protocol.Emulation.ScreenOrientationType} screenOrientation
    * @param {boolean} resetPageScaleFactor
+   * @param {boolean=} forceMetricsOverride
    */
   _applyDeviceMetrics(
-      screenSize,
-      insets,
-      outline,
-      scale,
-      deviceScaleFactor,
-      mobile,
-      screenOrientation,
-      resetPageScaleFactor) {
+      screenSize, insets, outline, scale, deviceScaleFactor, mobile, screenOrientation, resetPageScaleFactor,
+      forceMetricsOverride = false) {
     screenSize.width = Math.max(1, Math.floor(screenSize.width));
     screenSize.height = Math.max(1, Math.floor(screenSize.height));
 
@@ -676,18 +713,20 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         Math.min(pageWidth * scale, this._availableSize.width - this._screenRect.left - positionX * scale),
         Math.min(pageHeight * scale, this._availableSize.height - this._screenRect.top - positionY * scale));
     this._scale = scale;
-
-    if (scale === 1 && this._availableSize.width >= screenSize.width &&
-        this._availableSize.height >= screenSize.height) {
-      // When we have enough space, no page size override is required. This will speed things up and remove lag.
-      pageWidth = 0;
-      pageHeight = 0;
-    }
-    if (this._visiblePageRect.width === pageWidth * scale && this._visiblePageRect.height === pageHeight * scale &&
-        Number.isInteger(pageWidth * scale) && Number.isInteger(pageHeight * scale)) {
-      // When we only have to apply scale, do not resize the page. This will speed things up and remove lag.
-      pageWidth = 0;
-      pageHeight = 0;
+    if (!forceMetricsOverride) {
+      // When sending displayFeature, we cannot use the optimization below due to backend restrictions.
+      if (scale === 1 && this._availableSize.width >= screenSize.width &&
+          this._availableSize.height >= screenSize.height) {
+        // When we have enough space, no page size override is required. This will speed things up and remove lag.
+        pageWidth = 0;
+        pageHeight = 0;
+      }
+      if (this._visiblePageRect.width === pageWidth * scale && this._visiblePageRect.height === pageHeight * scale &&
+          Number.isInteger(pageWidth * scale) && Number.isInteger(pageHeight * scale)) {
+        // When we only have to apply scale, do not resize the page. This will speed things up and remove lag.
+        pageWidth = 0;
+        pageHeight = 0;
+      }
     }
 
     if (!this._emulationModel) {
@@ -697,7 +736,8 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     if (resetPageScaleFactor) {
       this._emulationModel.resetPageScaleFactor();
     }
-    if (pageWidth || pageHeight || mobile || deviceScaleFactor || scale !== 1 || screenOrientation) {
+    if (pageWidth || pageHeight || mobile || deviceScaleFactor || scale !== 1 || screenOrientation ||
+        forceMetricsOverride) {
       const metrics = {
         width: pageWidth,
         height: pageHeight,
@@ -708,8 +748,12 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         screenHeight: screenSize.height,
         positionX: positionX,
         positionY: positionY,
-        dontSetVisibleSize: true
+        dontSetVisibleSize: false
       };
+      const displayFeature = this._getDisplayFeature();
+      if (displayFeature) {
+        metrics.displayFeature = displayFeature;
+      }
       if (screenOrientation) {
         metrics.screenOrientation = {type: screenOrientation, angle: screenOrientationAngle};
       }
@@ -724,6 +768,21 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     if (overlayModel) {
       overlayModel.showHingeForDualScreen(false);
     }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  webPlatformExperimentalFeaturesEnabled() {
+    return this._webPlatformExperimentalFeaturesEnabled;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  shouldReportDisplayFeature() {
+    return this._webPlatformExperimentalFeaturesEnabled && this._usePlatformMultiSegment.get() &&
+        this._experimentDualScreenSupport;
   }
 
   /**
@@ -757,8 +816,12 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         width: Math.floor(metrics.contentWidth),
         height: Math.floor(contentHeight),
         deviceScaleFactor: this._appliedDeviceScaleFactor,
-        mobile: this._isMobile(),
+        mobile: this._isMobile()
       };
+      const displayFeature = this._getDisplayFeature();
+      if (displayFeature) {
+        deviceMetrics.displayFeature = displayFeature;
+      }
 
       clip = {x: 0, y: 0, width: deviceMetrics.width, height: deviceMetrics.height, scale: 1};
 
@@ -779,6 +842,10 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         const orientation = this._device.orientationByName(this._mode.orientation);
         deviceMetrics.width = orientation.width;
         deviceMetrics.height = orientation.height;
+        const displayFeature = this._getDisplayFeature();
+        if (displayFeature) {
+          deviceMetrics.displayFeature = displayFeature;
+        }
       } else {
         deviceMetrics.width = 0;
         deviceMetrics.height = 0;
@@ -812,6 +879,68 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     overlayModel.showHingeForDualScreen(false);
+  }
+
+  /**
+   * @return {!Protocol.Emulation.DisplayFeatureOrientation}
+   */
+  _getDisplayFeatureOrientation() {
+    console.assert(this._mode, 'Can only get display feature orientation when current mode is set.');
+    switch (this._mode.orientation) {
+      case VerticalSpanned:
+      case Vertical:
+        return Protocol.Emulation.DisplayFeatureOrientation.Vertical;
+      case HorizontalSpanned:
+      case Horizontal:
+        return Protocol.Emulation.DisplayFeatureOrientation.Horizontal;
+      default:
+        return Protocol.Emulation.DisplayFeatureOrientation.Horizontal;
+    }
+  }
+
+  /**
+   * @return {?Protocol.Emulation.DisplayFeature}
+   */
+  _getDisplayFeature() {
+    const getOffset = function(hinge, orientation) {
+      switch (orientation) {
+        case VerticalSpanned:
+          return hinge.x;
+        case HorizontalSpanned:
+          return hinge.y;
+      }
+      return 0;
+    };
+
+    const getMaskLength = function(hinge, orientation) {
+      switch (orientation) {
+        case VerticalSpanned:
+          return hinge.width;
+        case HorizontalSpanned:
+          return hinge.height;
+      }
+      return 0;
+    };
+
+    if (!this.shouldReportDisplayFeature()) {
+      return null;
+    }
+
+    if (!this._device || !this._mode ||
+        (this._mode.orientation !== VerticalSpanned && this._mode.orientation !== HorizontalSpanned)) {
+      return null;
+    }
+
+    const orientation = this._device.orientationByName(this._mode.orientation);
+    if (!orientation || !orientation.hinge) {
+      return null;
+    }
+
+    return {
+      orientation: this._getDisplayFeatureOrientation(),
+      offset: getOffset(orientation.hinge, this._mode.orientation),
+      maskLength: getMaskLength(orientation.hinge, this._mode.orientation)
+    };
   }
 }
 
