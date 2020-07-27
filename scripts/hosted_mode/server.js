@@ -39,7 +39,7 @@ function requestHandler(request, response) {
     return;
   }
 
-  const replacedName = filePath.replace('front_end', '../resources/inspector');
+  const replacedName = filePath.replace('front_end', 'front_end');
 
   const absoluteFilePath = path.join(devtoolsFolder, replacedName);
   if (!path.resolve(absoluteFilePath).startsWith(path.join(devtoolsFolder, '..'))) {
