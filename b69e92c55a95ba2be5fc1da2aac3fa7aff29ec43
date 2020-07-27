@@ -39,6 +39,30 @@
       "revId": "b69e92c55a95ba2be5fc1da2aac3fa7aff29ec43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d92e363_659342dc",
+        "filename": "test/conductor/puppeteer-state.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-27T18:10:58Z",
+      "side": 1,
+      "message": "Ah, yes that\u0027s a good idea. I have added the full type declaration for the experimental api. This also forces the query handlers to be well-typed",
+      "parentUuid": "3ba5fac7_a87f2192",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 20
+      },
+      "revId": "b69e92c55a95ba2be5fc1da2aac3fa7aff29ec43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
