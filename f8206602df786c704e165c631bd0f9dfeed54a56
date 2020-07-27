@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "df57e56d_fab4cd07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-07-27T23:27:58Z",
+      "side": 1,
+      "message": "got it, the review says URL-only, so you are right 😊",
+      "parentUuid": "24615657_2a3f19da",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a58a08f_f55617e5",
         "filename": "scripts/localization/check_localizability.js",
         "patchSetId": 3
