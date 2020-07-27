@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "ddc3604a_5df6d68c",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-27T10:35:23Z",
+      "side": 1,
+      "message": "Renamed to \u0027Element\u0027",
+      "parentUuid": "8098cef7_1c74e374",
+      "range": {
+        "startLine": 234,
+        "startChar": 34,
+        "endLine": 234,
+        "endChar": 38
+      },
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b456fbd_eec0e80e",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 7
@@ -82,6 +106,30 @@
     },
     {
       "key": {
+        "uuid": "fca5af40_db596460",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-27T10:35:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b456fbd_eec0e80e",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 273,
+        "endChar": 7
+      },
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc50148_ce185bd3",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 7
@@ -102,6 +150,30 @@
       "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebfb5913_e174845b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-27T10:35:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc50148_ce185bd3",
+      "range": {
+        "startLine": 295,
+        "startChar": 23,
+        "endLine": 295,
+        "endChar": 28
+      },
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
