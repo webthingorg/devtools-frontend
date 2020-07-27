@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "5ca3481f_2a569d85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Will address all the comments in the incoming CL. Thanks for reviewing :)",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39782ded_1a7b484f",
         "filename": "front_end/elements/Adorner.js",
         "patchSetId": 3
@@ -47,6 +64,30 @@
       "writtenOn": "2020-07-27T14:27:44Z",
       "side": 1,
       "message": "How about naming this something like `forceOnState` instead? `forceOnState: true` seems clearer than `forcedState: true` (the state is forced, but what is the state?). WDYT?",
+      "range": {
+        "startLine": 119,
+        "startChar": 9,
+        "endLine": 119,
+        "endChar": 20
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7949405_5704fe5a",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Sounds good. I\u0027ll address this together with Brandon\u0027s comment.",
+      "parentUuid": "39782ded_1a7b484f",
       "range": {
         "startLine": 119,
         "startChar": 9,
@@ -82,6 +123,30 @@
     },
     {
       "key": {
+        "uuid": "8229b42b_0d0addb1",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "This makes sense. Originally adorners are stateless, but now that they are interactive and can be toggled, I think it\u0027s fair to build an \"active/inactive\" state into adorners.",
+      "parentUuid": "e4d480a0_54ccc793",
+      "range": {
+        "startLine": 1954,
+        "startChar": 6,
+        "endLine": 1954,
+        "endChar": 34
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "169e841e_eac0d2e6",
         "filename": "front_end/elements/elements_strings.grdp",
         "patchSetId": 3
@@ -99,6 +164,24 @@
     },
     {
       "key": {
+        "uuid": "53262821_8693ab33",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "169e841e_eac0d2e6",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66f6104a_f463aa27",
         "filename": "front_end/elements/elements_strings.grdp",
         "patchSetId": 3
@@ -113,6 +196,24 @@
       "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d1345a5_82d5e106",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Ack, thanks!",
+      "parentUuid": "66f6104a_f463aa27",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -162,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "67e2a81d_37cd3967",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Thanks! Will add this.",
+      "parentUuid": "81ebdd12_58b9a14d",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 287,
+        "endChar": 28
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab24f4d4_a1c51fb1",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 3
@@ -173,6 +298,30 @@
       "writtenOn": "2020-07-27T15:17:29Z",
       "side": 1,
       "message": "looks like the tests caught this, but you\u0027ll need to check if _persistentGridHighlighter is defined here, as it\u0027s only initialized if the experiment is active.",
+      "range": {
+        "startLine": 319,
+        "startChar": 4,
+        "endLine": 319,
+        "endChar": 35
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ace73eaf_261fb63e",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Yes, good catch. I\u0027ll add it.",
+      "parentUuid": "ab24f4d4_a1c51fb1",
       "range": {
         "startLine": 319,
         "startChar": 4,
@@ -220,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "c1f6abd2_42754875",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Will add. Thanks for the suggestion as well as the bug link!",
+      "parentUuid": "814a0b17_8a5e55c1",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65cb70c1_d192533e",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 3
@@ -243,6 +410,30 @@
     },
     {
       "key": {
+        "uuid": "bbb064eb_004b11b6",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Ack :)",
+      "parentUuid": "65cb70c1_d192533e",
+      "range": {
+        "startLine": 769,
+        "startChar": 4,
+        "endLine": 769,
+        "endChar": 48
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9a11834_520f3637",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 3
@@ -254,6 +445,30 @@
       "writtenOn": "2020-07-27T15:17:29Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 783,
+        "startChar": 4,
+        "endLine": 783,
+        "endChar": 48
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19e0ce3f_f74b344c",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-27T15:58:20Z",
+      "side": 1,
+      "message": "Ack :)",
+      "parentUuid": "a9a11834_520f3637",
       "range": {
         "startLine": 783,
         "startChar": 4,
