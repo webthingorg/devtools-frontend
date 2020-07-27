@@ -118,7 +118,6 @@ devtools_module_entrypoints = [
   "timeline/timeline.js",
   "timeline/timeline-legacy.js",
   "timeline_model/timeline_model-legacy.js",
-  "toolbox_bootstrap/toolbox_bootstrap.js",
   "ui/ui.js",
   "ui/ui-legacy.js",
   "wasmparser_worker/wasmparser_worker.js",
@@ -172,4 +171,5 @@ generated_typescript_entrypoints = [
   "$resources_out_dir/heap_snapshot_model/heap_snapshot_model.js",
   "$resources_out_dir/javascript_metadata/javascript_metadata.js",
   "$resources_out_dir/js_main/js_main.js",
+  "$resources_out_dir/toolbox_bootstrap/toolbox_bootstrap.js",
 ]
