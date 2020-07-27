@@ -12,7 +12,7 @@ action("bundle_i18n") {
   outputs = [ "$out_dir/i18n-bundle.js" ]
 
   args = [
-    "--output_path=" + rebase_path(out_dir),
     "--i18n_path=" + rebase_path("../third_party/i18n/i18n.js"),
+    "--output_path=" + rebase_path(out_dir),
   ]
 }
