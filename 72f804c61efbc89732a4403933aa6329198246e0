@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8bca6ba_fa410e94",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-27T14:48:10Z",
+      "side": 1,
+      "message": "to be removed?",
+      "revId": "72f804c61efbc89732a4403933aa6329198246e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
