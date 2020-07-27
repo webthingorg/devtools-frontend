@@ -32,6 +32,7 @@ group("front_end") {
     "search:bundle",
     "third_party/lighthouse",
     "timeline_model:bundle",
+    "toolbox_bootstrap:bundle",
     "worker_service:bundle",
     "workspace:bundle",
     "workspace_diff:bundle",
