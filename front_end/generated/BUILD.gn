@@ -14,8 +14,8 @@ devtools_module("generated") {
   deps = []
 
   visibility = [
+    "../accessibility:*",
     "../protocol_client",
     "../sdk:sdk-typescript",
-    "../accessibility:*",
   ]
 }
