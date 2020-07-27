@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e11f45ab_d3c24819",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-07-27T10:13:03Z",
+      "side": 1,
+      "message": "Hi, sorry it was not that clear to me who to add as reviewer, hope this is a better choice - Thanks!",
+      "revId": "33b95f48b28ee797b86a7fc5215cb62e4102c83b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
