@@ -16,6 +16,41 @@
       "revId": "157e23863e39683c2774aa374983883afa347a1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3779fc8c_25405703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-27T15:35:34Z",
+      "side": 1,
+      "message": "PTAL, this adds an adorner in the elements panel",
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c675c807_a4504d5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-27T15:35:34Z",
+      "side": 1,
+      "message": "I\u0027m not sure I get your question. Are you saying the information won\u0027t be terribly useful because it is out of control of the developer? We were considering this adorner to be helpful in cases a developer wants to debug why a frame was (mistakenly) tagged as an ad.",
+      "parentUuid": "9be47a15_d18e19a5",
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
