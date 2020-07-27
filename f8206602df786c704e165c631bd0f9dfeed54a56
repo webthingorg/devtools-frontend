@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2db5d3bd_ae11cce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-27T03:49:30Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a58a08f_f55617e5",
+        "filename": "scripts/localization/check_localizability.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-27T03:49:30Z",
+      "side": 1,
+      "message": "Does Closure run against these script files? I noticed none of the functions here are have type annotations.",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb9bbcb5_204f5554",
+        "filename": "scripts/localization/check_localizability.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-07-27T03:49:30Z",
+      "side": 1,
+      "message": "It might make sense for `addError` to accept an object literal so we can format the error output better. Right now it\u0027s difficult to read.",
+      "revId": "f8206602df786c704e165c631bd0f9dfeed54a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
