@@ -101,7 +101,7 @@ describe('Adorner', () => {
         adorner.getAttribute('aria-pressed'), 'false',
         'toggle adorner didn\'t have correct initial aria-pressed value');
 
-    adorner.toggle();
+    adorner.toggle(undefined);
     assert.strictEqual(
         adorner.getAttribute('aria-pressed'), 'true', 'toggle adorner didn\'t have correct active aria-pressed value');
   });

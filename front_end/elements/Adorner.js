@@ -113,11 +113,14 @@ export class Adorner extends HTMLElement {
     }
   }
 
-  toggle() {
+  /**
+   * @param {boolean|undefined} forcedState pass `true` to force-toggle on, `false` to force-toggle off
+   */
+  toggle(forcedState) {
     if (!this._isToggle) {
       return;
     }
-    const shouldBePressed = this.getAttribute('aria-pressed') === 'false';
+    const shouldBePressed = forcedState === undefined ? this.getAttribute('aria-pressed') === 'false' : forcedState;
     UI.ARIAUtils.setPressed(this, shouldBePressed);
     UI.ARIAUtils.setAccessibleName(this, shouldBePressed ? this._ariaLabelActive : this._ariaLabelDefault);
   }
@@ -150,7 +153,9 @@ export class Adorner extends HTMLElement {
 
     if (isToggle) {
       UI.ARIAUtils.setPressed(this, false);
-      this.addEventListener('click', this.toggle);
+      this.addEventListener('click', () => {
+        this.toggle(undefined);
+      });
       if (ariaLabelActive) {
         this._ariaLabelActive = ariaLabelActive;
       }
