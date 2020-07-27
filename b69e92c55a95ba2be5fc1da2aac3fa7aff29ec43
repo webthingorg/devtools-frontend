@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94a918bc_b3299cc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-27T15:11:09Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "b69e92c55a95ba2be5fc1da2aac3fa7aff29ec43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ba5fac7_a87f2192",
+        "filename": "test/conductor/puppeteer-state.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-27T15:11:09Z",
+      "side": 1,
+      "message": "Can you type this like so:\n\n(puppeteer as typeof puppeteer \u0026 {__experimental_registerCustomQueryHandler(name: string, args: {}): void})\n\nOr perhaps define an ExperimentalPuppeteer interface at the top which is typeof puppeteer \u0026 { experimental here } then you can puppeteer as ExperimentalPuppeteer here instead.\n\nI\u0027m really trying to avoid `any`.",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 20
+      },
+      "revId": "b69e92c55a95ba2be5fc1da2aac3fa7aff29ec43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
