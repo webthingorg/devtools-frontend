@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "8df7c1c2_1682626b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "Overall it looks pretty good! couple of comments 😊",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39782ded_1a7b484f",
         "filename": "front_end/elements/Adorner.js",
         "patchSetId": 3
@@ -35,6 +52,29 @@
         "startChar": 9,
         "endLine": 119,
         "endChar": 20
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4d480a0_54ccc793",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "wdyt about moving this to a more generic \"isActive\" property of the Adorner? I imagine that we may have other adorners in the future that will have to manage an active/inactive state, and it might be better to encapsulate that in the Adorner.js file. That way, this becomes something like isGridAdornerOn \u003d gridAdorner.isActive();\n\nIt might also make it more clear what property toggle(forceActiveState) is trying to modify?",
+      "range": {
+        "startLine": 1954,
+        "startChar": 6,
+        "endLine": 1954,
+        "endChar": 34
       },
       "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -76,6 +116,75 @@
     },
     {
       "key": {
+        "uuid": "63ff092f_0edc16ef",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "thanks for catching this!",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 25
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81ebdd12_58b9a14d",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "jsdoc?",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 287,
+        "endChar": 28
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab24f4d4_a1c51fb1",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "looks like the tests caught this, but you\u0027ll need to check if _persistentGridHighlighter is defined here, as it\u0027s only initialized if the experiment is active.",
+      "range": {
+        "startLine": 319,
+        "startChar": 4,
+        "endLine": 319,
+        "endChar": 35
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c170aafe_bf23986e",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 3
@@ -87,6 +196,70 @@
       "writtenOn": "2020-07-27T14:27:44Z",
       "side": 1,
       "message": "This sounds like a TODO. Can we make it into one, ideally pointing to a tracking bug?",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "814a0b17_8a5e55c1",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "tracking bug: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1109224",
+      "parentUuid": "c170aafe_bf23986e",
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65cb70c1_d192533e",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think this buys anything, wdyt about just using this._gridHighlights in this function",
+      "range": {
+        "startLine": 769,
+        "startChar": 4,
+        "endLine": 769,
+        "endChar": 48
+      },
+      "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9a11834_520f3637",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-27T15:17:29Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 783,
+        "startChar": 4,
+        "endLine": 783,
+        "endChar": 48
+      },
       "revId": "510a0a63bb53447fc972db7f48f7471fb861cd46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
