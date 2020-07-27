@@ -51,6 +51,24 @@
       "revId": "aea26caf6caba07047aee63e9413bdf868915fde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0218cbe_9701e490",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-27T13:03:51Z",
+      "side": 1,
+      "message": "Puppeteer\u0027s built-in APIs return `null` instead of throwing. In practice this means there\u0027d still be an exception, just at a later point (when you\u0027re trying to do `elementHandle.evaluate(fn)` where `elementHandle` is `null`). IMHO we should make our helpers match Puppeteer\u0027s as closely as possible.",
+      "parentUuid": "978c986f_bc13bdc5",
+      "revId": "aea26caf6caba07047aee63e9413bdf868915fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
