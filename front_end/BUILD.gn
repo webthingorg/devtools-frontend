@@ -26,6 +26,7 @@ group("front_end") {
     "issues:bundle",
     "sdk:bundle",
     "search:bundle",
+    "text_editor:bundle",
     "third_party/lighthouse",
     "timeline_model:bundle",
     "workspace:bundle",
