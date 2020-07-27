@@ -8,7 +8,8 @@ import {describe, it} from 'mocha';
 import {$, click, goToResource, waitFor} from '../../shared/helper.js';
 
 describe('The Console Tab', async () => {
-  it('shows infobar with button linking to issues tab', async () => {
+  // Flaky test
+  it.skip('[crbug.com/1110102]: shows infobar with button linking to issues tab', async () => {
     // navigate to page which causes a SameSiteCookieIssue
     await goToResource('console/cookie-issue.html');
     await click('#tab-console');
