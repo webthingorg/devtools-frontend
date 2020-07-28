@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8cd94d0_9da1b1e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-28T13:55:01Z",
+      "side": 1,
+      "message": "LGTM % build failures :)",
+      "revId": "a12e6b031de43fad1ed35fbebfc9b5623cbbad12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5f84c65_840dc727",
+        "filename": "front_end/toolbox_bootstrap/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-28T13:55:01Z",
+      "side": 1,
+      "message": "I think we can just get rid of this as there are no sources or deps here. That\u0027s probably what\u0027s failing the build.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "a12e6b031de43fad1ed35fbebfc9b5623cbbad12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
