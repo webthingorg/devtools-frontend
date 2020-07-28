@@ -73,6 +73,30 @@
       "revId": "1abfb7fd478c1d239e5d050cd73074c314cd09fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3eb6b30_c60e5c1c",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-07-28T17:16:44Z",
+      "side": 1,
+      "message": "Yes, since we still have those 2 different panels. We can remove that entry if we decide to just keep one panel in the future.",
+      "parentUuid": "f3ad22c6_58b265b4",
+      "range": {
+        "startLine": 227,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 21
+      },
+      "revId": "1abfb7fd478c1d239e5d050cd73074c314cd09fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
