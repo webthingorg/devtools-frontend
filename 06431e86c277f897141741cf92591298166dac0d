@@ -16,6 +16,172 @@
       "revId": "06431e86c277f897141741cf92591298166dac0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "174ab56f_9683bb52",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "This needs escaping. If you use `spawnSync` you can pass the parameters separately and then Node.js handles this for you.\n\nhttps://nodejs.org/api/child_process.html#child_process_child_process_spawnsync_command_args_options",
+      "range": {
+        "startLine": 14,
+        "startChar": 44,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cdf6257_dca9c247",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "This is a local alias. Let\u0027s use the full command here so it works on other workstations too :)",
+      "range": {
+        "startLine": 15,
+        "startChar": 28,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f08cc47f_56229ac2",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "needs escaping",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 15,
+        "endChar": 52
+      },
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43190b21_e710d6cc",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "endsWith(\u0027.js\u0027)?",
+      "range": {
+        "startLine": 20,
+        "startChar": 75,
+        "endLine": 20,
+        "endChar": 92
+      },
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b593231_8b986868",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "style: you can make this start at the next line so it looks better, and then just add `.trimStart()` immediately after the literal",
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c164c54_08d0184b",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "needs a trailing LF:\n\n    + \u0027\\n\u0027",
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57a4effc_9a238137",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "could also be a simple string instead of a regexp if you prefer:\n\n    .split(\u0027\\n\u0027)",
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4712de8_b13aab47",
+        "filename": "scripts/migration/devtools_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T15:21:13Z",
+      "side": 1,
+      "message": "This technically needs escaping, since it could contain RegExp special chars like `.`. If that cannot happen, we can leave it as is, but then let\u0027s add a comment",
+      "range": {
+        "startLine": 72,
+        "startChar": 33,
+        "endLine": 72,
+        "endChar": 37
+      },
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
