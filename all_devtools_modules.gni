@@ -44,7 +44,6 @@ all_devtools_modules = [
   "css_overview/CSSOverviewUnusedDeclarations.js",
   "developer_resources/DeveloperResourcesListView.js",
   "developer_resources/DeveloperResourcesView.js",
-  "devices/DevicesView.js",
   "emulation/AdvancedApp.js",
   "emulation/DeviceModeModel.js",
   "emulation/DeviceModeToolbar.js",
@@ -668,6 +667,7 @@ all_typescript_modules = [
   "timeline_model/TimelineModelFilter.js",
   "timeline_model/TimelineProfileTree.js",
   "timeline_model/TracingLayerTree.js",
+  "devices/DevicesView.js",
 ]
 
 foreach(module, all_typescript_modules) {
