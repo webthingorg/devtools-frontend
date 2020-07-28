@@ -68,6 +68,52 @@
       "revId": "157e23863e39683c2774aa374983883afa347a1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17db87fc_93af8770",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1270397
+      },
+      "writtenOn": "2020-07-28T15:07:55Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this addition?",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 26
+      },
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb26dc63_43324c1b",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1270397
+      },
+      "writtenOn": "2020-07-28T15:07:55Z",
+      "side": 1,
+      "message": "\"isAdFrameNode()\" should just identify whether or not a frame is an ad, correct?  It doesn\u0027t identify whether the frame is a HeavyAd, so I don\u0027t understand this particular piece.",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
