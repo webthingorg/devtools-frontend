@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19c4cd41_44919b08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-28T08:52:35Z",
+      "side": 1,
+      "message": "LGTM!\nTest failure was a flake that Sigurd has fixed now",
+      "revId": "a6aaa595266011e3fecf11d36f3898303c6af9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

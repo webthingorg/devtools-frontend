@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a55c1324_c2db5ee1",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-28T08:52:35Z",
+      "side": 1,
+      "message": "Sounds good, thanks for looking into it",
+      "parentUuid": "58eac9d9_40c77bd7",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bd0a3d8_602e7be4",
         "filename": "front_end/resources/ServiceWorkersView.js",
         "patchSetId": 7
