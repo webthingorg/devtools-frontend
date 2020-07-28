@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b01a4c7_b87c323a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-28T16:05:46Z",
+      "side": 1,
+      "message": "Looks like this CL might take care of it for you: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2323630",
+      "revId": "26f9054b18812de59a7893b608ad8b4d60b25bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
