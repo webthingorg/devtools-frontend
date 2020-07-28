@@ -33,6 +33,7 @@ group("front_end") {
     "js_main:bundle",
     "performance_monitor:bundle",
     "protocol_client:bundle",
+    "quick_open:bundle",
     "sdk:bundle",
     "search:bundle",
     "services:bundle",
