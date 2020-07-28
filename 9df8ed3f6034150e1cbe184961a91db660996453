@@ -50,6 +50,24 @@
       "revId": "9df8ed3f6034150e1cbe184961a91db660996453",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7912b4e7_84197e9a",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-28T08:10:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "edf9ff3f_ddc9c2d1",
+      "revId": "9df8ed3f6034150e1cbe184961a91db660996453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
