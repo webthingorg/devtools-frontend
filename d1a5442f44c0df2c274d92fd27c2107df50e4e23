@@ -16,6 +16,46 @@
       "revId": "d1a5442f44c0df2c274d92fd27c2107df50e4e23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c447371_4de39e42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-28T13:57:01Z",
+      "side": 1,
+      "message": "LGTM pending decision on the `:profiler` dep ",
+      "revId": "d1a5442f44c0df2c274d92fd27c2107df50e4e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7648933b_ae53e9cc",
+        "filename": "front_end/perf_ui/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-28T13:57:01Z",
+      "side": 1,
+      "message": "don\u0027t think this has been migrated yet so will either have to drop the :bundle or migrate it + rebase.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "d1a5442f44c0df2c274d92fd27c2107df50e4e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
