@@ -56,6 +56,30 @@
       "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f8807e_587e7340",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-28T09:15:49Z",
+      "side": 1,
+      "message": "Yes, issues are aggregated step-by-step, so that at some point issue count equals 1, despite later n more issues are aggregated with it. Once resources are expanded, they stay that way even when more issues are added, that\u0027s why collapse is needed.",
+      "parentUuid": "7f0232c8_6ed2c193",
+      "range": {
+        "startLine": 771,
+        "startChar": 6,
+        "endLine": 771,
+        "endChar": 52
+      },
+      "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
