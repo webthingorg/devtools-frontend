@@ -32,6 +32,10 @@ export class SensorsView extends UI.Widget.VBox {
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
     this._appendTouchControl();
+
+    this.contentElement.createChild('div').classList.add('panel-section-separator');
+
+    this._appendIdleEmulator();
   }
 
   /**
@@ -551,6 +555,53 @@ export class SensorsView extends UI.Widget.VBox {
       SDK.FrameManager.FrameManager.instance()
           .once(SDK.FrameManager.Events.TopFrameNavigated)
           .then(() => reloadWarning.classList.add('hidden'));
+    }
+  }
+
+  _appendIdleEmulator() {
+    const groupElement = this.contentElement.createChild('div', 'sensors-group');
+    const title = UI.UIUtils.createLabel(ls`Idle state`, 'sensors-group-title');
+    groupElement.appendChild(title);
+    const fieldsElement = groupElement.createChild('div', 'sensors-group-fields');
+
+    const select = fieldsElement.createChild('select', 'chrome-select');
+    UI.ARIAUtils.bindLabelToControl(title, select);
+    select.appendChild(new Option(Common.UIString.UIString('No overrides'), 'auto'));
+
+    // TODO sadym: check translations
+
+    select.appendChild(
+        new Option(Common.UIString.UIString('User active, screen is unlocked'), 'active:true,unlocked:true'));
+    select.appendChild(
+        new Option(Common.UIString.UIString('User idle, screen is unlocked'), 'active:false,unlocked:true'));
+    select.appendChild(
+        new Option(Common.UIString.UIString('User active, screen is locked'), 'active:true,unlocked:false'));
+    select.appendChild(
+        new Option(Common.UIString.UIString('User idle, screen is locked'), 'active:false,unlocked:false'));
+
+    select.addEventListener('change', applyIdleOverride, false);
+
+    async function applyIdleOverride() {
+      // console.log('Idle Selector changed, new value: ', select.value);
+
+      for (const emulationModel of SDK.SDKModel.TargetManager.instance().models(SDK.EmulationModel.EmulationModel)) {
+        switch (select.value) {
+          case 'active:true,unlocked:true':
+            await emulationModel.setIdleOverride(true, true);
+            break;
+          case 'active:true,unlocked:false':
+            await emulationModel.setIdleOverride(true, false);
+            break;
+          case 'active:false,unlocked:true':
+            await emulationModel.setIdleOverride(false, true);
+            break;
+          case 'active:false,unlocked:false':
+            await emulationModel.setIdleOverride(false, false);
+            break;
+          default:
+            await emulationModel.clearIdleOverride();
+        }
+      }
     }
   }
 }
