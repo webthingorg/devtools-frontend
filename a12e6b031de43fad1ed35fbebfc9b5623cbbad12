@@ -39,6 +39,30 @@
       "revId": "a12e6b031de43fad1ed35fbebfc9b5623cbbad12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d24550e5_09fe42dd",
+        "filename": "front_end/toolbox_bootstrap/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-28T14:56:53Z",
+      "side": 1,
+      "message": "Unfortunately it doesn\u0027t compile when I remove it. So I added an empty js file for now.",
+      "parentUuid": "b5f84c65_840dc727",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "a12e6b031de43fad1ed35fbebfc9b5623cbbad12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
