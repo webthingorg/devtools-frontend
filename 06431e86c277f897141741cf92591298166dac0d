@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02099d3d_6a70bfe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-28T15:08:51Z",
+      "side": 1,
+      "message": "PTAL, thanks!\nThis is the very hacky script I use to do the entrypoints migrations.",
+      "revId": "06431e86c277f897141741cf92591298166dac0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
