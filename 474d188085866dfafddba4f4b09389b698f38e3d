@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e2215ac5_76fd786b",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1419539
+      },
+      "writtenOn": "2020-07-28T02:07:01Z",
+      "side": 1,
+      "message": "Okay, I will leave it as a TODO here then, and remove the rest of the commented code.",
+      "parentUuid": "13fb536d_4b239488",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f89885e_6dff4265",
         "filename": "front_end/resources/ServiceWorkersView.js",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-22T14:00:04Z",
       "side": 1,
       "message": "I\u0027m not super familiar with this code but it looks like most of this function is for dealing with the \u0027other origins\u0027 service workers which are stored in this._sections. It looks like we can rip out a lot more of this code now that we only show the same-origin service workers?",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58eac9d9_40c77bd7",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1419539
+      },
+      "writtenOn": "2020-07-28T02:07:01Z",
+      "side": 1,
+      "message": "As far as I understand, I think we need to keep most of this code to ensure that the registrations are updated and sorted properly before being shown on the UI even if they are only for the \"current origin\". I tried removing some of the movedSections and timestamp code to see what happens for example, and that just resulted in no registrations being shown at all even when it existed for the origin. Please correct me if I\u0027m wrong.",
+      "parentUuid": "9f89885e_6dff4265",
       "range": {
         "startLine": 150,
         "startChar": 2,
@@ -68,6 +116,30 @@
       "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25244d48_cbcae56c",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1419539
+      },
+      "writtenOn": "2020-07-28T02:07:01Z",
+      "side": 1,
+      "message": "Yeah, you\u0027re right, I\u0027ve removed it now.",
+      "parentUuid": "2bd0a3d8_602e7be4",
+      "range": {
+        "startLine": 241,
+        "startChar": 6,
+        "endLine": 243,
+        "endChar": 7
+      },
+      "revId": "474d188085866dfafddba4f4b09389b698f38e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
