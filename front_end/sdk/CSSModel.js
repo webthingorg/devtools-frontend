@@ -400,6 +400,7 @@ export class CSSModel extends SDKModel {
    */
   async inlineStylesPromise(nodeId) {
     const response = await this._agent.invoke_getInlineStylesForNode({nodeId});
+    this.dispatchEventToListeners(Events.ComputedStyleUpdated);
 
     if (response[ProtocolClient.InspectorBackend.ProtocolError] || !response.inlineStyle) {
       return null;
@@ -781,6 +782,7 @@ export class CSSModel extends SDKModel {
 
 /** @enum {symbol} */
 export const Events = {
+  ComputedStyleUpdated: Symbol('ComputedStyleUpdated'),
   FontsUpdated: Symbol('FontsUpdated'),
   MediaQueryResultChanged: Symbol('MediaQueryResultChanged'),
   ModelWasEnabled: Symbol('ModelWasEnabled'),
