@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "337b1f61_070c29b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T12:14:59Z",
+      "side": 1,
+      "message": "Suggestion for the commit message header: \n\"Add e2e test for wasm inlining scenario\"\n\n(More context on the guide on writing commit messages here:\nhttps://chris.beams.io/posts/git-commit/,\nlinked to from https://chromium.googlesource.com/chromiumos/docs/+/master/contributing.md#Commit-messages\n)\n\n\nIt would probably be good to mention in the\ncommit message later that we are dealing with\nsource maps.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b1a71d2_66e7cb97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T12:14:59Z",
+      "side": 1,
+      "message": "I guess this is a leftover :).",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "682aae58_22c58aed",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -13,6 +47,23 @@
       "writtenOn": "2020-07-28T07:11:45Z",
       "side": 1,
       "message": "Hi Almothana!\n\nThanks for all the help! Below are my comments :).",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4d3ec6_b8e5b1db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T12:14:59Z",
+      "side": 1,
+      "message": "Hi Almothana, thought more about our naming discussion and left a comment on that. I\nalso added two more minor comments on things that I didn\u0027t see before :). ",
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
@@ -47,6 +98,24 @@
       "writtenOn": "2020-07-28T07:11:45Z",
       "side": 1,
       "message": "I assume this sourceLineSelector should take number as parameter?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba85fc81_678e6c80",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T12:14:59Z",
+      "side": 1,
+      "message": "After our VC, and thinking about it: I\u0027d be fine with the three namings\nsourceLineNumberSelector/sourceLineTextSelector/sourceLineSelector. A suggestion would be to use sourceLineCodeSelector instead if sourceLineTextSelector, but that\u0027s up to you. Whatever you think is better :).",
+      "parentUuid": "3eaefd08_ee6dbf6f",
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -268,6 +337,23 @@
       "writtenOn": "2020-07-28T07:11:45Z",
       "side": 1,
       "message": "Same here.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fcc2e7e_cc431b3f",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T12:14:59Z",
+      "side": 1,
+      "message": "Can we rename this test to: \"can-step-in-inlined-code-with-sourcemaps_test.ts\"?",
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
