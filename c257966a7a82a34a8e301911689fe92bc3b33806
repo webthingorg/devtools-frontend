@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f74de707_d0b0028a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-28T09:39:47Z",
+      "side": 1,
+      "message": "Good point, thanks!",
+      "parentUuid": "d9764001_70df8f97",
+      "revId": "c257966a7a82a34a8e301911689fe92bc3b33806",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f09aecd6_c1f31952",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
