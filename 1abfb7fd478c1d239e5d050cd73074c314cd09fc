@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "768005b7_8563a4bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-28T13:10:53Z",
+      "side": 1,
+      "message": "LGTM! Discussed with Stefan and given the enum values we send don\u0027t change this is fine by us",
+      "revId": "1abfb7fd478c1d239e5d050cd73074c314cd09fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3ad22c6_58b265b4",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 4
