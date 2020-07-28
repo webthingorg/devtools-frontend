@@ -16,6 +16,40 @@
       "revId": "60cd8099ab814da80f8f966be7e856682ba559a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6941e717_572116eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T06:35:11Z",
+      "side": 1,
+      "message": "WDYT about the idea to rename the relevant list names adding the `_sources` suffix, so that presubmit + `gn format` takes care of enforcing the ordering without the need for a custom script?",
+      "revId": "60cd8099ab814da80f8f966be7e856682ba559a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8548499c_54175002",
+        "filename": "scripts/ensure_ordering_of_devtools_modules.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T06:35:11Z",
+      "side": 1,
+      "message": "If `name` contains a special RegExp character, this needs to be escaped. (It could be that this never occurs for the names in our BUILD.gn files though.)",
+      "revId": "60cd8099ab814da80f8f966be7e856682ba559a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
