@@ -5,24 +5,24 @@
 import("../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../scripts/build/ninja/devtools_module.gni")
 
-devtools_module("screencast") {
+devtools_module("settings") {
   sources = [
-    "InputModel.js",
-    "ScreencastApp.js",
-    "ScreencastView.js",
+    "FrameworkBlackboxSettingsTab.js",
+    "KeybindsSettingsTab.js",
+    "SettingsScreen.js",
   ]
 
   deps = [
     "../common:bundle",
+    "../components:bundle",
     "../host:bundle",
-    "../sdk:bundle",
     "../ui:bundle",
   ]
 }
 
 devtools_entrypoint("bundle") {
-  entrypoint = "screencast.js"
+  entrypoint = "settings.js"
   is_legacy_javascript_entrypoint = [ "crbug.com/1011811" ]
 
-  deps = [ ":screencast" ]
+  deps = [ ":settings" ]
 }
