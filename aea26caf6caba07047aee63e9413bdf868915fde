@@ -87,6 +87,24 @@
       "revId": "aea26caf6caba07047aee63e9413bdf868915fde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c8273d5_a2e0b412",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-28T14:54:20Z",
+      "side": 1,
+      "message": "I think we could use:\n\n// Confirm the element is not there.\nassert.throws(async() \u003d\u003e await $(MEDIA_QUERY_INSPECTOR_SELECTOR));\n\nthen continue on with the rest of the test.",
+      "parentUuid": "d0218cbe_9701e490",
+      "revId": "aea26caf6caba07047aee63e9413bdf868915fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
