@@ -1,0 +1,361 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "682aae58_22c58aed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Hi Almothana!\n\nThanks for all the help! Below are my comments :).",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1e331df_781c1228",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "How about making this a constant, like the \u0027TURNED_ON_PAUSE_BUTTON_SELECTOR\u0027 above? Then we only have the two functions for line number selecting and code/text selecting. Having these three functions that are named similar can be confusing.\n\nEdit: if we remove the usage of sourceLineTextSelector these changes will not be necessary anymore, have a look in the test.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eaefd08_ee6dbf6f",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "I assume this sourceLineSelector should take number as parameter?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c43b1243_3ef6266b",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Same here (parameter).\n\nEdit: if we remove the usage of sourceLineTextSelector these changes will not be necessary anymore, have a look in the test.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a5ad404_dd48aee7",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Resuming does not necessarily mean that we\u0027ll hit the pause indicator, so I would not add this helper function. I think just using \u0027await click(RESUME_BUTTON);\u0027 is actually enough and we do not need the extra function. I see now that we\u0027ve used F8 \u0026 RESUME_BUTTON in various places now, can we use the RESUME_BUTTON in this CL? I\u0027m more inclined to use RESUME_BUTTON now, since it already existed before and the button should always exist in the UI.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8928c9c1_65c38568",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/inlining-sourcemaps.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Same here with license",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae146121_f01cc43e",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/inlining-sourcemaps.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Can we remove the trailing whitespace? But I guess the files need to be reformatted anyway (presubmit will let you know).",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16303917_d90667a2",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/inlining.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Can we add the license here?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "726a7362_83052a44",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "This is a step, we don\u0027t resume here?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08f12512_d294da88",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "nit: This is not your code, but now that I see this: can we use stepThroughTheCode() here?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7d6ba15_89a7f7f1",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Why do we change this from stepping to resuming two times? We want to step, not resume?\n\nDid you run the test like this; and does it pass? If yes, something is wrong, since stepping and resuming is not the same.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25c826f5_ca323bc0",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Same here: why resumeScriptExecution?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a80baea9_098306ff",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "440f5500_33d692ab",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38399133_22792832",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22937d5a_9bd2162d",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd07117c_22b18ec0",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Stepping 36 times is not so robust, and we want to make sure that the line that is active next definitely is the one that we expect it to step towards to (i.e. int dsq \u003d square(x)), and not something else. Can we do something like: step one time, check if the line has changed, and if not continue? If the line has changed, check that it is the expected one.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "597b5ccf_c5e85531",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Formatting looks weird here, but I guess if you run the presubmit it will tell you.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7904a925_2b5706f4",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "Up until now we have checked if we are at the correct position by looking at the top frame (i.e. using \u0027retrieveTopCallFrameScriptLocation\u0027). Maybe we can just do that instead of checking the text content to keep it similar to the other tests? WDYT?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8e8c3ea_cd8a1e03",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "\u0027CodeMirror-activeline-background\u0027 seems to show up if we have \u0027CodeMirror-activeline\u0027.\nSo maybe if we use the test content of the selector \u0027.CodeMirror-activeline .CodeMirror-linenumber\u0027, we can just check if it equals to the line number? This seems more clean to me, wdyt?\n\nAnd maybe we can extract this as a helper function?",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b5e3beb_4a4c3e6d",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-28T07:11:45Z",
+      "side": 1,
+      "message": "We are missing the stepping here that ensures that we go into the square function, through it, and out of it, and are back at line 9. This means: line 8, 9, 4, 5, 9.",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
