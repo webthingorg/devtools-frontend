@@ -69,6 +69,24 @@
       "revId": "ae005603feca1cd3f60dbae4a38fb7816dbb600c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ea96053_2bb901f0",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-28T12:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25369766_4ffcb6fc",
+      "revId": "ae005603feca1cd3f60dbae4a38fb7816dbb600c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
