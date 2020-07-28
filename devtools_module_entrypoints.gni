@@ -155,6 +155,7 @@ generated_typescript_entrypoint_sources = [
   "$resources_out_dir/har_importer/har_importer.js",
   "$resources_out_dir/heap_snapshot_model/heap_snapshot_model.js",
   "$resources_out_dir/host/host.js",
+  "$resources_out_dir/i18n/i18n.js",
   "$resources_out_dir/issues/issues.js",
   "$resources_out_dir/javascript_metadata/javascript_metadata.js",
   "$resources_out_dir/js_main/js_main.js",
