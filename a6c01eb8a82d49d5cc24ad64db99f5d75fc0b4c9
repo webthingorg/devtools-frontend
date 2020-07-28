@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fa8035f2_db93bc9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-28T10:52:49Z",
+      "side": 1,
+      "message": "That\u0027s not the most recent patch, bug is there from the 3rd one.",
+      "parentUuid": "fa50b5a2_6f90793b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1863afc3_a0289b6b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -118,6 +142,30 @@
       "side": 1,
       "message": "Is it possible that the content was expanded to begin with (in case the rebuild is triggered by a refresh of the view)? Should we keep it expanded in such cases?",
       "parentUuid": "b0f8807e_587e7340",
+      "range": {
+        "startLine": 771,
+        "startChar": 6,
+        "endLine": 771,
+        "endChar": 52
+      },
+      "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4ecb756_69960f4d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-07-28T10:52:49Z",
+      "side": 1,
+      "message": "It wasn\u0027t expanded before I added the recursive expansion. I am not fully sure what you mean, maybe we could talk about it during the daily",
+      "parentUuid": "d72feada_c09d3865",
       "range": {
         "startLine": 771,
         "startChar": 6,
