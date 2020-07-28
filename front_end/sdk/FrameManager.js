@@ -4,9 +4,10 @@
 
 import * as Common from '../common/common.js';
 
+import {ChildTargetManager, Events as ChildTargetManagerEvents} from './ChildTargetManager.js';
 import {Resource} from './Resource.js';  // eslint-disable-line no-unused-vars
 import {Events as ResourceTreeModelEvents, ResourceTreeFrame, ResourceTreeModel} from './ResourceTreeModel.js';  // eslint-disable-line no-unused-vars
-import {SDKModelObserver, TargetManager} from './SDKModel.js';  // eslint-disable-line no-unused-vars
+import {Observer, SDKModelObserver, Target, TargetManager} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
 /** @type {?FrameManager} */
 let frameManagerInstance = null;
@@ -16,6 +17,7 @@ let frameManagerInstance = null;
  * ResourceTreeModel-instances (one per target), so that frames can be found by id
  * without needing to know their target.
  * @implements {SDKModelObserver<!ResourceTreeModel>}
+ * @implements {Observer}
  */
 export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
   constructor() {
@@ -23,6 +25,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {!WeakMap<!ResourceTreeModel, !Array<!Common.EventTarget.EventDescriptor>>} */
     this._eventListeners = new WeakMap();
     TargetManager.instance().observeModels(ResourceTreeModel, this);
+    TargetManager.instance().observeTargets(this);
 
     // Maps frameIds to frames and a count of how many ResourceTreeModels contain this frame.
     // (OOPIFs are first attached to a new target and then detached from their old target,
@@ -33,6 +36,45 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
     // Maps targetIds to a set of frameIds.
     /** @type {!Map<string, !Set<string>>} */
     this._framesForTarget = new Map();
+
+    /** @type {?Array<!Common.EventTarget.EventDescriptor>} */
+    this._registeredListeners = null;
+  }
+
+  /**
+   * @override
+   * @param {!Target} target
+   */
+  targetAdded(target) {
+    /** @type {?ChildTargetManager} */
+    const childTargetManager = target.model(ChildTargetManager);
+    if (!childTargetManager) {
+      return;
+    }
+    this._registeredListeners = [
+      childTargetManager.addEventListener(
+          ChildTargetManagerEvents.TargetCreated,
+          event => this._targetCreated(/** @type {!Protocol.Target.TargetInfo} */ (event.data))),
+      childTargetManager.addEventListener(
+          ChildTargetManagerEvents.TargetInfoChanged,
+          event => this._targetInfoChanged(/** @type {!Protocol.Target.TargetInfo} */ (event.data))),
+      childTargetManager.addEventListener(
+          ChildTargetManagerEvents.TargetDestroyed, event => this._targetDestroyed(/** @type {string} */ (event.data))),
+    ];
+  }
+
+  /**
+   * @override
+   * @param {!Target} target
+   */
+  targetRemoved(target) {
+    const childTargetManager = target.model(ChildTargetManager);
+    if (!childTargetManager) {
+      return;
+    }
+    if (this._registeredListeners) {
+      Common.EventTarget.EventTarget.removeEventListeners(this._registeredListeners);
+    }
   }
 
   /**
@@ -142,6 +184,33 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  _targetCreated(targetInfo) {
+    if (!targetInfo.openerId || targetInfo.url.startsWith('devtools://')) {
+      return;
+    }
+    this.dispatchEventToListeners(Events.WindowOpened, {targetInfo});
+  }
+
+  /**
+   * @param {string} targetId
+   */
+  _targetDestroyed(targetId) {
+    this.dispatchEventToListeners(Events.WindowDestroyed, {targetId});
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  _targetInfoChanged(targetInfo) {
+    if (!targetInfo.openerId || targetInfo.url.startsWith('devtools://')) {
+      return;
+    }
+    this.dispatchEventToListeners(Events.WindowChanged, {targetInfo});
+  }
+
+  /**
    * @param {string} frameId
    */
   _decreaseOrRemoveFrame(frameId) {
@@ -193,4 +262,7 @@ export const Events = {
   FrameRemoved: Symbol('FrameRemoved'),
   ResourceAdded: Symbol('ResourceAdded'),
   TopFrameNavigated: Symbol('TopFrameNavigated'),
+  WindowChanged: Symbol('WindowChanged'),
+  WindowDestroyed: Symbol('WindowDestroyed'),
+  WindowOpened: Symbol('WindowOpened'),
 };

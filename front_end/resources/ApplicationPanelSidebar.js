@@ -45,7 +45,7 @@ import {Database as DatabaseModelDatabase, DatabaseModel, Events as DatabaseMode
 import {DatabaseQueryView, Events as DatabaseQueryViewEvents} from './DatabaseQueryView.js';
 import {DatabaseTableView} from './DatabaseTableView.js';
 import {DOMStorage, DOMStorageModel, Events as DOMStorageModelEvents} from './DOMStorageModel.js';  // eslint-disable-line no-unused-vars
-import {FrameDetailsView} from './FrameDetailsView.js';
+import {FrameDetailsView, OpenedWindowDetailsView} from './FrameDetailsView.js';
 import {Database as IndexedDBModelDatabase, DatabaseId, Events as IndexedDBModelEvents, Index, IndexedDBModel, ObjectStore} from './IndexedDBModel.js';  // eslint-disable-line no-unused-vars
 import {IDBDatabaseView, IDBDataView} from './IndexedDBViews.js';
 import {ServiceWorkerCacheView} from './ServiceWorkerCacheViews.js';
@@ -2026,6 +2026,8 @@ export class ResourcesSection {
     this._treeElement = treeElement;
     /** @type {!Map<string, !FrameTreeElement>} */
     this._treeElementForFrameId = new Map();
+    /** @type {!Map<string, !FrameTreeElement>} */
+    this._treeElementForTargetId = new Map();
 
     const frameManager = SDK.FrameManager.FrameManager.instance();
     frameManager.addEventListener(
@@ -2036,6 +2038,12 @@ export class ResourcesSection {
         SDK.FrameManager.Events.FrameNavigated, event => this._frameNavigated(event.data.frame), this);
     frameManager.addEventListener(
         SDK.FrameManager.Events.ResourceAdded, event => this._resourceAdded(event.data.resource), this);
+    frameManager.addEventListener(
+        SDK.FrameManager.Events.WindowOpened, event => this._windowOpened(event.data.targetInfo), this);
+    frameManager.addEventListener(
+        SDK.FrameManager.Events.WindowDestroyed, event => this._windowDestroyed(event.data.targetId), this);
+    frameManager.addEventListener(
+        SDK.FrameManager.Events.WindowChanged, event => this._windowChanged(event.data.targetInfo), this);
 
     for (const frame of frameManager.getAllFrames()) {
       if (!this._treeElementForFrameId.get(frame.id)) {
@@ -2156,6 +2164,42 @@ export class ResourcesSection {
     frameTreeElement.appendResource(resource);
   }
 
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  _windowOpened(targetInfo) {
+    if (targetInfo.openerId) {
+      const frameTreeElement = this._treeElementForFrameId.get(targetInfo.openerId);
+      if (frameTreeElement) {
+        this._treeElementForTargetId.set(targetInfo.targetId, frameTreeElement);
+        frameTreeElement.windowOpened(targetInfo);
+      }
+    }
+  }
+
+  /**
+   * @param {string} targetId
+   */
+  _windowDestroyed(targetId) {
+    const frameTreeElement = this._treeElementForTargetId.get(targetId);
+    if (frameTreeElement) {
+      frameTreeElement.windowDestroyed(targetId);
+      this._treeElementForTargetId.delete(targetId);
+    }
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  _windowChanged(targetInfo) {
+    if (targetInfo.openerId) {
+      const frameTreeElement = this._treeElementForFrameId.get(targetInfo.openerId);
+      if (frameTreeElement) {
+        frameTreeElement.windowChanged(targetInfo);
+      }
+    }
+  }
+
   reset() {
     this._treeElement.removeChildren();
     this._treeElementForFrameId.clear();
@@ -2174,6 +2218,7 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     this._frameId = frame.id;
     this._categoryElements = {};
     this._treeElementForResource = {};
+    this._treeElementForWindow = {};
     this.setExpandable(true);
     this.frameNavigated(frame);
     /** @type {?FrameDetailsView} */
@@ -2275,6 +2320,46 @@ export class FrameTreeElement extends BaseStorageTreeElement {
 
     if (this._view) {
       this._view.update();
+    }
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  windowOpened(targetInfo) {
+    const categoryKey = 'OpenedWindows';
+    let categoryElement = this._categoryElements[categoryKey];
+    if (!categoryElement) {
+      categoryElement = new StorageCategoryTreeElement(this._section._panel, ls`Opened Windows`, categoryKey);
+      this._categoryElements[categoryKey] = categoryElement;
+      this.appendChild(categoryElement, FrameTreeElement._presentationOrderCompare);
+    }
+    const windowTreeElement = new FrameWindowTreeElement(this._section._panel, targetInfo);
+    categoryElement.appendChild(windowTreeElement);
+    this._treeElementForWindow[targetInfo.targetId] = windowTreeElement;
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  windowChanged(targetInfo) {
+    const windowTreeElement = this._treeElementForWindow[targetInfo.targetId];
+    if (!windowTreeElement) {
+      return;
+    }
+    if (windowTreeElement.title !== targetInfo.title) {
+      windowTreeElement.title = targetInfo.title;
+    }
+    windowTreeElement.update(targetInfo);
+  }
+
+  /**
+   * @param {string} targetId
+   */
+  windowDestroyed(targetId) {
+    const windowTreeElement = this._treeElementForWindow[targetId];
+    if (windowTreeElement) {
+      windowTreeElement.windowClosed();
     }
   }
 
@@ -2428,6 +2513,55 @@ export class FrameResourceTreeElement extends BaseStorageTreeElement {
       return;
     }
     view.revealPosition(line, column, true);
+  }
+}
+
+class FrameWindowTreeElement extends BaseStorageTreeElement {
+  /**
+   * @param {!UI.Panel.PanelWithSidebar} storagePanel
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  constructor(storagePanel, targetInfo) {
+    super(storagePanel, targetInfo.title || ls`Window without title`, false);
+    this._targetInfo = targetInfo;
+    this._isWindowClosed = false;
+    this._view = null;
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  update(targetInfo) {
+    this._targetInfo = targetInfo;
+    if (this._view) {
+      this._view.setTargetInfo(targetInfo);
+      this._view.update();
+    }
+  }
+
+  windowClosed() {
+    this.listItemElement.classList.add('window-closed');
+    this._isWindowClosed = true;
+    if (this._view) {
+      this._view.setIsWindowClosed(true);
+      this._view.update();
+    }
+  }
+
+  /**
+   * @override
+   * @param {boolean=} selectedByUser
+   * @return {boolean}
+   */
+  onselect(selectedByUser) {
+    super.onselect(selectedByUser);
+    if (!this._view) {
+      this._view = new OpenedWindowDetailsView(this._targetInfo, this._isWindowClosed);
+    } else {
+      this._view.update();
+    }
+    this.showView(this._view);
+    return false;
   }
 }
 
