@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6806566e_1d811591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-28T14:51:27Z",
+      "side": 1,
+      "message": "sorry I\u0027m a little late getting back to this one. thanks for responding to the comments! lgtm",
+      "revId": "b0f1ce1630cb3636e9c835316882d1af55a4dd9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
