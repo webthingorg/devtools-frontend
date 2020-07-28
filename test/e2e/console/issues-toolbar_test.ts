@@ -9,7 +9,8 @@ import {goToResource, waitFor} from '../../shared/helper.js';
 import {navigateToConsoleTab} from '../helpers/console-helpers.js';
 
 describe('The Console Tab', async () => {
-  it('shows infobar with button linking to issues tab', async () => {
+  // Disabled due to flakiness (see crbug.com/1110351)
+  it.skip('[crbug.com/1110351] shows infobar with button linking to issues tab', async () => {
     // navigate to page which causes a SameSiteCookieIssue
     await goToResource('console/cookie-issue.html');
     await navigateToConsoleTab();
