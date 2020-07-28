@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fa50b5a2_6f90793b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-28T10:28:34Z",
+      "side": 1,
+      "message": "Bug: chromium:1072335",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1863afc3_a0289b6b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -80,6 +103,30 @@
       "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72feada_c09d3865",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-28T10:28:34Z",
+      "side": 1,
+      "message": "Is it possible that the content was expanded to begin with (in case the rebuild is triggered by a refresh of the view)? Should we keep it expanded in such cases?",
+      "parentUuid": "b0f8807e_587e7340",
+      "range": {
+        "startLine": 771,
+        "startChar": 6,
+        "endLine": 771,
+        "endChar": 52
+      },
+      "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
