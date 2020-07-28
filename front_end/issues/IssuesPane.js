@@ -765,6 +765,11 @@ class IssueView extends UI.TreeOutline.TreeElement {
   updateAffectedResourceVisibility() {
     const noResources = this._affectedResourceViews.every(view => view.isEmpty());
     this._affectedResources.hidden = noResources;
+    if (this._issue.getAggregatedIssuesCount() === 1) {
+      this._affectedResources.expandRecursively();
+    } else {
+      this._affectedResources.collapseRecursively();
+    }
   }
 
   /**
