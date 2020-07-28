@@ -343,7 +343,8 @@ def prepare_closure_frontend_compile(temp_devtools_path, descriptors, namespace_
             if os.path.basename(generated_file) in [
                     'wasm_source_map.js', 'acorn.mjs', 'acorn-loose.mjs',
                     'acorn-logical-assignment.mjs',
-                    'acorn-numeric-separator.mjs', 'marked.esm.js'
+                    'acorn-numeric-separator.mjs', 'marked.esm.js',
+                    "i18n-bundle.js"
             ]:
                 with open(
                         generated_file.replace('.js', '_types.js').replace(
@@ -415,6 +416,7 @@ def main():
     print 'Compiling devtools_compatibility.js...'
 
     closure_compiler_command = java_exec + ['-jar', CLOSURE_COMPILER_JAR] + common_closure_args
+    print common_closure_args
 
     devtools_js_compile_command = closure_compiler_command + [
         '--externs',
@@ -438,9 +440,9 @@ def main():
     errors_found |= has_errors(frontend_compile_out)
 
     os.remove(protocol_externs_file)
-    os.remove(namespace_externs_path)
-    os.remove(compiler_args_file_path)
-    shutil.rmtree(temp_devtools_path, True)
+    #os.remove(namespace_externs_path)
+    #os.remove(compiler_args_file_path)
+    #    shutil.rmtree(temp_devtools_path, True)
 
     if errors_found:
         print 'ERRORS DETECTED'
