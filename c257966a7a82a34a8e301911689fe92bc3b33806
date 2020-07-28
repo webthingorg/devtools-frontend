@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f09aecd6_c1f31952",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-28T09:09:04Z",
+      "side": 1,
+      "message": "Thanks, Jan! LGTM from my side (as someone who has felt the pain of messing up rebases due to the lack of sorting) 👍\n\nBut this is really Paul and Jack\u0027s area of expertise, so please wait for their LGTM before landing.",
+      "revId": "c257966a7a82a34a8e301911689fe92bc3b33806",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
