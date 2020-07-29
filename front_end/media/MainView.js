@@ -61,6 +61,102 @@ export class TriggerDispatcher {
 }
 
 /**
+ * @implements TriggerHandler
+ */
+class PlayerDataCollection {
+  constructor() {
+    // Map<Protocol.Media.PlayerProperty>
+    this._properties = {};
+
+    this._messages = [];
+    this._events = [];
+    this._errors = [];
+  }
+
+  /** @param {!Protocol.Media.PlayerProperty} property */
+  onProperty(property) {
+    this._properties[property.name] = property.value;
+  }
+
+  /** @param {!Protocol.Media.PlayerError} error */
+  onError(error) {
+    this._errors.push(error);
+  }
+
+  /** @param {!Protocol.Media.PlayerMessage} message */
+  onMessage(message) {
+    this._messages.push(message);
+  }
+
+  /** @param {!PlayerEvent} event */
+  onEvent(event) {
+    this._events.push(event);
+  }
+
+  export() {
+    return {'properties': this._properties, 'messages': this._messages, 'events': this._events, 'errors': this._errors};
+  }
+}
+
+/**
+ * @implements TriggerDispatcher
+ */
+class PlayerDataDownloadManager {
+  constructor() {
+    // Map<string, PlayerDataCollection>
+    this._playerDataCollection = new Map();
+  }
+
+  addPlayer(playerID) {
+    this._playerDataCollection[playerID] = new PlayerDataCollection();
+  }
+
+  /**
+   * @override
+   * @param {string} playerID
+   * @param {!Protocol.Media.PlayerProperty} property
+   */
+  onProperty(playerID, property) {
+    this._playerDataCollection[playerID].onProperty(property);
+  }
+
+  /**
+   * @override
+   * @param {string} playerID
+   * @param {!Protocol.Media.PlayerError} error
+   */
+  onError(playerID, error) {
+    this._playerDataCollection[playerID].onError(error);
+  }
+
+  /**
+   * @override
+   * @param {string} playerID
+   * @param {!Protocol.Media.PlayerMessage} message
+   */
+  onMessage(playerID, message) {
+    this._playerDataCollection[playerID].onMessage(message);
+  }
+
+  /**
+   * @override
+   * @param {string} playerID
+   * @param {!PlayerEvent} event
+   */
+  onEvent(playerID, event) {
+    this._playerDataCollection[playerID].onEvent(event);
+  }
+
+  exportPlayerData(playerID) {
+    return this._playerDataCollection[playerID].export();
+  }
+
+  deletePlayer(playerID) {
+    delete this._playerDataCollection[playerID];
+  }
+}
+
+/**
  * @implements {SDK.SDKModel.SDKModelObserver<!Media.MediaModel>}
  * @implements TriggerDispatcher
  */
@@ -74,6 +170,8 @@ export class MainView extends UI.Panel.PanelWithSidebar {
 
     // Map<string>
     this._deletedPlayers = new Set();
+
+    this._downloadStore = new PlayerDataDownloadManager();
 
     this._sidebar = new PlayerListView(this);
     this._sidebar.show(this.panelSidebarElement());
@@ -158,6 +256,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
   _onPlayerCreated(playerID) {
     this._sidebar.addMediaElementItem(playerID);
     this._detailPanels.set(playerID, new PlayerDetailView());
+    this._downloadStore.addPlayer(playerID);
   }
 
   /**
@@ -214,6 +313,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
       return;
     }
     this._sidebar.onProperty(playerID, property);
+    this._downloadStore.onProperty(playerID, property);
     this._detailPanels.get(playerID).onProperty(property);
   }
 
@@ -227,6 +327,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
       return;
     }
     this._sidebar.onError(playerID, error);
+    this._downloadStore.onError(playerID, error);
     this._detailPanels.get(playerID).onError(error);
   }
 
@@ -240,6 +341,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
       return;
     }
     this._sidebar.onMessage(playerID, message);
+    this._downloadStore.onMessage(playerID, message);
     this._detailPanels.get(playerID).onMessage(message);
   }
 
@@ -253,6 +355,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
       return;
     }
     this._sidebar.onEvent(playerID, event);
+    this._downloadStore.onEvent(playerID, event);
     this._detailPanels.get(playerID).onEvent(event);
   }
 
@@ -274,5 +377,12 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     this._deletedPlayers.add(playerID);
     this._detailPanels.delete(playerID);
     this._sidebar.deletePlayer(playerID);
+    this._downloadStore.deletePlayer(playerID);
+  }
+
+  exportPlayerData(playerID) {
+    const dump = this._downloadStore.exportPlayerData(playerID);
+    const uriContent = 'data:application/octet-stream,' + encodeURIComponent(JSON.stringify(dump, 2));
+    window.open(uriContent, 'player_data.json');
   }
 }
