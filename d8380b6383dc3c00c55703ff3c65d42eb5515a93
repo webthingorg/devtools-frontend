@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df78551d_b4ac011c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-29T13:07:30Z",
+      "side": 1,
+      "message": "Sorry Paul, I didn\u0027t see your comments before submitting.\nI\u0027ll address them in a follow up cl.",
+      "revId": "d8380b6383dc3c00c55703ff3c65d42eb5515a93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
