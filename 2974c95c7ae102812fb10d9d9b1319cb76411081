@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "f772b830_514d3d54",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-29T14:14:43Z",
+      "side": 1,
+      "message": "Perhaps, to generate the option values we could use JSON.stringify with actual values and JSON.parse to extract them to avoid having a switch.",
+      "parentUuid": "1ba6b9ff_d53971d0",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c56fcf4_52dd02b4",
         "filename": "front_end/emulation/SensorsView.js",
         "patchSetId": 2
