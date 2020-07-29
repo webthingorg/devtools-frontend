@@ -16,6 +16,23 @@
       "revId": "086fcec714bf34a67af5afb433312199b570e4da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12198ee9_b6557127",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-29T10:15:34Z",
+      "side": 1,
+      "message": "Wonder if this needs a rebase for text_editor (I think that\u0027s already been migrated). In any case, LGTM.",
+      "revId": "086fcec714bf34a67af5afb433312199b570e4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
