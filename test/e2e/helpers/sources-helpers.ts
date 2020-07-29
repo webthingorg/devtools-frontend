@@ -7,6 +7,7 @@ import * as puppeteer from 'puppeteer';
 
 import {$, $$, click, getBrowserAndPages, getHostedModeServerPort, goToResource, pressKey, step, typeText, waitFor} from '../../shared/helper.js';
 
+export const ACTIVE_LINE = '.CodeMirror-activeline .CodeMirror-linenumber';
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
 export const PAUSE_BUTTON = '[aria-label="Pause script execution"]';
 export const RESUME_BUTTON = '[aria-label="Resume script execution"]';
@@ -107,8 +108,25 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
   }, undefined, currentBreakpointCount);
 }
 
+export async function sourceLineSelector(lineNumber: number) {
+  return `div.CodeMirror-code > div:nth-child(${lineNumber})`;
+}
+
 export async function sourceLineNumberSelector(lineNumber: number) {
-  return `div.CodeMirror-code > div:nth-child(${lineNumber}) div.CodeMirror-linenumber.CodeMirror-gutter-elt`;
+  return await sourceLineSelector(lineNumber) + ' div.CodeMirror-linenumber.CodeMirror-gutter-elt';
+}
+
+export async function sourceLineCodeSelector(lineNumber: number) {
+  return await sourceLineSelector(lineNumber) + ' pre.CodeMirror-line';
+}
+
+export async function checkLineIsHighlighted(lineNumber: number) {
+  await waitFor(PAUSE_INDICATOR_SELECTOR);
+  const activeLineNumber = await (await $('.CodeMirror-activeline .CodeMirror-linenumber')).evaluate(element => {
+    return element.innerText;
+  });
+  assert.strictEqual(
+      +activeLineNumber, lineNumber, `line No.${activeLineNumber} is active instead of line No.${lineNumber}`);
 }
 
 export async function checkBreakpointIsActive(lineNumber: number) {
