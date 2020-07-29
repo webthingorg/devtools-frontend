@@ -66,6 +66,11 @@ export class EmulationModel extends SDKModel {
       this._mediaConfiguration.set('prefers-reduced-data', mediaFeaturePrefersReducedDataSetting.get());
       this._updateCssMedia();
     });
+
+    if (Root.Runtime.experiments.isEnabled('ForcedColors')) {
+      this._setupForcedColorsEmulation();
+    }
+
     this._updateCssMedia();
 
     const visionDeficiencySetting = Common.Settings.Settings.instance().moduleSetting('emulatedVisionDeficiency');
@@ -237,6 +242,18 @@ export class EmulationModel extends SDKModel {
     this._updateTouch();
   }
 
+  _setupForcedColorsEmulation() {
+    const mediaFeatureForcedColorsSetting =
+        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureForcedColors');
+
+    this._mediaConfiguration.set('forced-colors', mediaFeatureForcedColorsSetting.get());
+
+    mediaFeaturePrefersReducedMotionSetting.addChangeListener(() => {
+      this._mediaConfiguration.set('forced-colors', mediaFeatureForcedColorsSetting.get());
+      this._updateCssMedia();
+    });
+  }
+
   _updateTouch() {
     let configuration = {
       enabled: this._touchEnabled,
@@ -287,6 +304,14 @@ export class EmulationModel extends SDKModel {
         value: this._mediaConfiguration.get('prefers-reduced-data'),
       },
     ];
+
+    if (Root.Runtime.experiments.isEnabled('ForcedColors')) {
+      features.push({
+        name: 'forced-colors',
+        value: this._mediaConfiguration.get('forced-colors'),
+      });
+    }
+
     this._emulateCSSMedia(type, features);
   }
 }
