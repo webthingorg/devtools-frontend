@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffe310a4_801c3689",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-29T20:37:48Z",
+      "side": 1,
+      "message": "You could also link the CDP CL in this frontend\u0027s CL description as well, so that it\u0027s easier to cross-reference.",
+      "revId": "b83724341ef43da1460bd2e227361adcaa525a2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
