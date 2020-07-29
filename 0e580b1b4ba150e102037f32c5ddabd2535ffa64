@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40dd3b15_5cec9591",
+        "filename": "front_end/screencast/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-29T10:19:59Z",
+      "side": 0,
+      "message": "I think this needs to stay in?",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "0e580b1b4ba150e102037f32c5ddabd2535ffa64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34a0a8d2_9bcd3340",
+        "filename": "front_end/settings/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-29T10:19:59Z",
+      "side": 0,
+      "message": "The code imports from SDK so we should leave this dep in",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "0e580b1b4ba150e102037f32c5ddabd2535ffa64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
