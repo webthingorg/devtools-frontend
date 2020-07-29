@@ -16,6 +16,23 @@
       "revId": "c4a4263fec36a6001222a06f0f53a4eca8db5006",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb743851_5d02fd31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-29T13:25:29Z",
+      "side": 1,
+      "message": "The top frame cannot be deleted, correct?\n\nThen this LGTM.",
+      "revId": "c4a4263fec36a6001222a06f0f53a4eca8db5006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
