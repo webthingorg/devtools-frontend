@@ -32,6 +32,16 @@ export let IssueDescription;  // eslint-disable-line no-unused-vars
 
 /**
  * @typedef {{
+ *             file: string,
+ *             issueKind: !IssueKind,
+ *             links: !Array<!{link: string, linkTitle: string}>
+ *          }}
+ */
+// @ts-ignore typedef
+export let MarkdownIssueDescription;  // eslint-disable-line no-unused-vars
+
+/**
+ * @typedef {{
   *            backendNodeId: number,
   *            nodeName: string
   *          }}
@@ -139,7 +149,7 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {?IssueDescription}
+   * @return {?(!IssueDescription|!MarkdownIssueDescription)}
    */
   getDescription() {
     throw new Error('Not implemented');
@@ -152,3 +162,15 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
     throw new Error('Not implemented');
   }
 }
+
+/**
+ * @param {string} filename
+ * @return {string}
+ */
+export const markdownFile = filename => {
+  const rawMarkdown = self.Runtime.cachedResources[filename];
+  if (!rawMarkdown) {
+    throw new Error(`File ${filename} not found. Declare it as a resource in the module.json file`);
+  }
+  return rawMarkdown;
+};
