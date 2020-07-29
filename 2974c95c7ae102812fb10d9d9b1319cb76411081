@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de5056db_ca0cb7f9",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-29T14:00:16Z",
+      "side": 1,
+      "message": "it\u0027s better to use `ls` like a few lines above. It\u0027s equivalent to Common.UIString.UIString which is deprecated.",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bbd5c61_58f1016b",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-29T14:00:16Z",
+      "side": 1,
+      "message": "console.log to be removed.",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
