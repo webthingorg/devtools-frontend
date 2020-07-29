@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cb38a22_c499c9b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-29T12:43:14Z",
+      "side": 1,
+      "message": "PTAL. This is the needed glue to connect the Markdown component itself with the issues tab.\nSee https://crrev.com/c/2308536 how this would look like for COEP issues.",
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
