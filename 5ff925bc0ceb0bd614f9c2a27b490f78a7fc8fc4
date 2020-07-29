@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2d9c7b02_8c80687e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "337b1f61_070c29b7",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b1a71d2_66e7cb97",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fdbdadf_7fe544d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b1a71d2_66e7cb97",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "03f7d9e0_707935d7",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Ack, ended up renaming the functions instead",
+      "parentUuid": "b1e331df_781c1228",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3eaefd08_ee6dbf6f",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 1
@@ -122,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "fccd46d2_65c32fec",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "yes, sorry for the mistake\nDone",
+      "parentUuid": "3eaefd08_ee6dbf6f",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c43b1243_3ef6266b",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 1
@@ -136,6 +208,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca38a847_5836016b",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "yes, sorry for the mistake\nDone",
+      "parentUuid": "c43b1243_3ef6266b",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -156,6 +246,24 @@
     },
     {
       "key": {
+        "uuid": "a99e7233_1ed0afd9",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a5ad404_dd48aee7",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8928c9c1_65c38568",
         "filename": "test/e2e/resources/sources/wasm/emscripten/inlining-sourcemaps.html",
         "patchSetId": 1
@@ -170,6 +278,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da2ddfc2_d5bc5630",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/inlining-sourcemaps.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8928c9c1_65c38568",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -190,6 +316,24 @@
     },
     {
       "key": {
+        "uuid": "b8bc0e00_4b70b2bf",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/inlining-sourcemaps.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae146121_f01cc43e",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16303917_d90667a2",
         "filename": "test/e2e/resources/sources/wasm/emscripten/inlining.c",
         "patchSetId": 1
@@ -204,6 +348,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb8d9653_7c186593",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/inlining.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16303917_d90667a2",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -224,6 +386,24 @@
     },
     {
       "key": {
+        "uuid": "22382f74_f7d3abca",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "726a7362_83052a44",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f12512_d294da88",
         "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
         "patchSetId": 1
@@ -238,6 +418,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1b90f39_ad44fb28",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f12512_d294da88",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -258,6 +456,24 @@
     },
     {
       "key": {
+        "uuid": "bffa5dce_1b9d98ef",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7d6ba15_89a7f7f1",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25c826f5_ca323bc0",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 1
@@ -272,6 +488,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dda1957c_7fc8066c",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25c826f5_ca323bc0",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -292,6 +526,24 @@
     },
     {
       "key": {
+        "uuid": "83872005_42f354c4",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a80baea9_098306ff",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "440f5500_33d692ab",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 1
@@ -306,6 +558,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca26f86e_b5b2267c",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "440f5500_33d692ab",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -326,6 +596,24 @@
     },
     {
       "key": {
+        "uuid": "8d6d9a06_019b0191",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38399133_22792832",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22937d5a_9bd2162d",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 1
@@ -340,6 +628,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10978a06_0dfd9039",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22937d5a_9bd2162d",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -360,6 +666,24 @@
     },
     {
       "key": {
+        "uuid": "721145bf_cfe97c5f",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fcc2e7e_cc431b3f",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd07117c_22b18ec0",
         "filename": "test/e2e/sources/inlining_test.ts",
         "patchSetId": 1
@@ -374,6 +698,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54ee9b65_8849f205",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done, added a comment that it is supposed to be one step after issue crbug.com/1105765 is solved",
+      "parentUuid": "fd07117c_22b18ec0",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -394,6 +736,24 @@
     },
     {
       "key": {
+        "uuid": "49dd0da8_5ed4823a",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Ack, nothing to do with the subject",
+      "parentUuid": "597b5ccf_c5e85531",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7904a925_2b5706f4",
         "filename": "test/e2e/sources/inlining_test.ts",
         "patchSetId": 1
@@ -408,6 +768,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "315b3b3f_cee997c0",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Ack, this checks that we paused on a certain place on the line",
+      "parentUuid": "7904a925_2b5706f4",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -428,6 +806,24 @@
     },
     {
       "key": {
+        "uuid": "4c87baeb_5e524d4d",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done, created a function to check for which line is active using the selector described in the comment",
+      "parentUuid": "b8e8c3ea_cd8a1e03",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b5e3beb_4a4c3e6d",
         "filename": "test/e2e/sources/inlining_test.ts",
         "patchSetId": 1
@@ -442,6 +838,24 @@
       "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a77f8e_f5351452",
+        "filename": "test/e2e/sources/inlining_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-29T09:44:21Z",
+      "side": 1,
+      "message": "Done, created several loops that step AND check the line is active after every step",
+      "parentUuid": "1b5e3beb_4a4c3e6d",
+      "revId": "5ff925bc0ceb0bd614f9c2a27b490f78a7fc8fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
