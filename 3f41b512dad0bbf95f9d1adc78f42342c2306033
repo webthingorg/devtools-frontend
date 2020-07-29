@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "258d41ff_43e8b446",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-07-29T00:13:02Z",
+      "side": 1,
+      "message": "Ideally these metrics help us answer the question \"Which issues are useful for developers?\".",
+      "parentUuid": "c9cbed30_5017c088",
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d80620d3_712a7444",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 8
