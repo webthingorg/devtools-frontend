@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2275de41_1d2ecf22",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-29T15:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37385773_1224e93b",
+      "range": {
+        "startLine": 569,
+        "startChar": 60,
+        "endLine": 569,
+        "endChar": 72
+      },
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de5056db_ca0cb7f9",
         "filename": "front_end/emulation/SensorsView.js",
         "patchSetId": 2
@@ -59,6 +83,42 @@
     },
     {
       "key": {
+        "uuid": "840f988c_82a37685",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-29T15:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de5056db_ca0cb7f9",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59a0723_eebf69d4",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-29T15:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35cf42eb_9d493180",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bbd5c61_58f1016b",
         "filename": "front_end/emulation/SensorsView.js",
         "patchSetId": 2
@@ -73,6 +133,24 @@
       "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd710477_12f78551",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-29T15:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbd5c61_58f1016b",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "68f81684_e6e9b47e",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-29T15:53:28Z",
+      "side": 1,
+      "message": "In patchset 3 I tried another approach. What do you think of it?",
+      "parentUuid": "f772b830_514d3d54",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c56fcf4_52dd02b4",
         "filename": "front_end/emulation/SensorsView.js",
         "patchSetId": 2
@@ -143,6 +239,24 @@
       "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93233a1e_ac952336",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-29T15:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6922cd8f_23f17e82",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
