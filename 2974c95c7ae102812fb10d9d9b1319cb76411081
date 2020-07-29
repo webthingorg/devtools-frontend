@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "37385773_1224e93b",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-29T14:43:36Z",
+      "side": 1,
+      "message": "For other overrides we tend to use `No emulation` in the UI. Maybe we can do the same here for consistency?",
+      "range": {
+        "startLine": 569,
+        "startChar": 60,
+        "endLine": 569,
+        "endChar": 72
+      },
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de5056db_ca0cb7f9",
         "filename": "front_end/emulation/SensorsView.js",
         "patchSetId": 2
@@ -13,6 +36,23 @@
       "writtenOn": "2020-07-29T14:00:16Z",
       "side": 1,
       "message": "it\u0027s better to use `ls` like a few lines above. It\u0027s equivalent to Common.UIString.UIString which is deprecated.",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35cf42eb_9d493180",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-29T14:43:36Z",
+      "side": 1,
+      "message": "Let\u0027s use internally consistent phrasing, so either:\n\n    User active, screen unlocked\n\nor\n\n    User is active, screen is unlocked\n\nSame for the other strings below",
       "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -82,6 +122,24 @@
       "writtenOn": "2020-07-29T14:04:08Z",
       "side": 1,
       "message": "Another thought is: would it be better to `Promise.all` these awaits? I know there won\u0027t be many emulationModels so maybe it\u0027s not significantly better.",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6922cd8f_23f17e82",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-29T14:43:36Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "9c56fcf4_52dd02b4",
       "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
