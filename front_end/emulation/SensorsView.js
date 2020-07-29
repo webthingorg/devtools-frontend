@@ -32,6 +32,10 @@ export class SensorsView extends UI.Widget.VBox {
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
     this._appendTouchControl();
+
+    this.contentElement.createChild('div').classList.add('panel-section-separator');
+
+    this._appendIdleEmulator();
   }
 
   /**
@@ -551,6 +555,79 @@ export class SensorsView extends UI.Widget.VBox {
       SDK.FrameManager.FrameManager.instance()
           .once(SDK.FrameManager.Events.TopFrameNavigated)
           .then(() => reloadWarning.classList.add('hidden'));
+    }
+  }
+
+  _appendIdleEmulator() {
+    const groupElement = this.contentElement.createChild('div', 'sensors-group');
+    const title = UI.UIUtils.createLabel(ls`Idle state`, 'sensors-group-title');
+    groupElement.appendChild(title);
+    const fieldsElement = groupElement.createChild('div', 'sensors-group-fields');
+
+    const select = fieldsElement.createChild('select', 'chrome-select');
+    UI.ARIAUtils.bindLabelToControl(title, select);
+
+    const idleOverrideOptions = {
+      'noEmulation': {
+        title: ls`No emulation`,
+        key: 'noEmulation',
+        action: async () => {
+          await _clearIdleOverride();
+        }
+      },
+      'active:true,unlocked:true': {
+        title: ls`User active, screen unlocked`,
+        action: async () => {
+          await _setIdleOverride(true, true);
+        }
+      },
+      'active:false,unlocked:true': {
+        title: ls`User idle, screen unlocked`,
+        action: async () => {
+          await _setIdleOverride(false, true);
+        }
+      },
+      'active:true,unlocked:false': {
+        title: ls`User active, screen locked`,
+        action: async () => {
+          await _setIdleOverride(true, false);
+        }
+      },
+      'active:false,unlocked:false': {
+        title: ls`User idle, screen locked`,
+        action: async () => {
+          await _setIdleOverride(false, false);
+        }
+      }
+    };
+
+    for (const key in idleOverrideOptions) {
+      select.appendChild(new Option(idleOverrideOptions[key].title, key));
+    }
+
+    select.addEventListener('change', _applyIdleOverride, false);
+
+    async function _clearIdleOverride() {
+      await Promise.all(
+          SDK.SDKModel.TargetManager.instance().models(SDK.EmulationModel.EmulationModel).map(async emulation => {
+            await emulation.clearIdleOverride();
+          }));
+    }
+
+    async function _setIdleOverride(isUserActive, isScreenUnlocked) {
+      await Promise.all(
+          SDK.SDKModel.TargetManager.instance().models(SDK.EmulationModel.EmulationModel).map(async emulation => {
+            await emulation.setIdleOverride(isUserActive, isScreenUnlocked);
+          }));
+    }
+
+    async function _applyIdleOverride() {
+      const selectedKey = select.value;
+
+      // Get selected option of default `NoEmulation` is not found.
+      const selectedOption = idleOverrideOptions[selectedKey] || idleOverrideOptions['noEmulation'];
+
+      await selectedOption.action();
     }
   }
 }
