@@ -67,6 +67,24 @@
       "revId": "33b95f48b28ee797b86a7fc5215cb62e4102c83b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27d6a2df_4693abd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-07-29T15:05:50Z",
+      "side": 1,
+      "message": "Thanks, good points.\n\nPreviously filtering for \"https://www.foo\" would not return any hits, and this looks like a common search pattern, especially when considering copy\u0026paste operations.",
+      "parentUuid": "1095dd97_a8dc36b9",
+      "revId": "33b95f48b28ee797b86a7fc5215cb62e4102c83b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
