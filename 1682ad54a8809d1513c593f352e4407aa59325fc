@@ -16,6 +16,115 @@
       "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80b8fd_783dece6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-29T14:13:42Z",
+      "side": 1,
+      "message": "Some comments, thanks!\n\nI think we can move towards getting rid of description-related code from SDK already in this CL.",
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8832cae1_9287644f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-29T14:13:42Z",
+      "side": 1,
+      "message": "alternative: introduce a function getDescription(issue) (preferably in its own file) and maintain a map from issue.code to markdown there. Query that map first, if it doesn\u0027t have the code, fall back to issue.getDescription(). For bonus points, console.assert that issue.getDescription() returns null if there is a markdown file.\n\nThen clean up the code here to move the let description inside the conditional and only call getDescription(issue).",
+      "range": {
+        "startLine": 922,
+        "startChar": 4,
+        "endLine": 922,
+        "endChar": 45
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "351b3b75_9328b150",
+        "filename": "front_end/issues/MarkdownDescription.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-29T14:13:42Z",
+      "side": 1,
+      "message": "Should this file be called MarkdownIssueDescription.js?",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 46
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4a790f8_a9738066",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-29T14:13:42Z",
+      "side": 1,
+      "message": "If you follow my suggestion above, you don\u0027t have to modify SDK at all.",
+      "range": {
+        "startLine": 41,
+        "startChar": 11,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e9a18a6_511a0d14",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-29T14:13:42Z",
+      "side": 1,
+      "message": "nit: Markdown file ...",
+      "range": {
+        "startLine": 173,
+        "startChar": 21,
+        "endLine": 173,
+        "endChar": 25
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
