@@ -33,6 +33,40 @@
       "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba6b9ff_d53971d0",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-29T14:04:08Z",
+      "side": 1,
+      "message": "Could we maybe do this switch-case outside the loop and store the results intermediately to something like: `isActive` and `isUnlocked`?",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c56fcf4_52dd02b4",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-29T14:04:08Z",
+      "side": 1,
+      "message": "Another thought is: would it be better to `Promise.all` these awaits? I know there won\u0027t be many emulationModels so maybe it\u0027s not significantly better.",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
