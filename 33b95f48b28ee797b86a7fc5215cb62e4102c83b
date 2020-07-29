@@ -50,6 +50,23 @@
       "revId": "33b95f48b28ee797b86a7fc5215cb62e4102c83b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1095dd97_a8dc36b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-29T14:51:04Z",
+      "side": 1,
+      "message": "This will alter behavior slightly (wrt. what /^foo/ does now), but I think it can be useful this way.\n\nNote that searching for http and https will always match most URLs after this change. So including the protocol seems to be less useful (one can add a scheme:http if one wants to filter for http requests only).\n\nWe already have a domain: selector to filter for a particular domain.\n\nWhat is the particular goal of this change? Do we expect this to make things easier for new users?\n\nI\u0027m not aware of particular advantages of the old approach, but we could introduce a path: selector that essentially preserved the old behavior, and we could exclude the scheme (as http and https will have a lot of hits otherwise). \n\nWould this also accomplish what we want?\n",
+      "revId": "33b95f48b28ee797b86a7fc5215cb62e4102c83b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
