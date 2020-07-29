@@ -5,13 +5,9 @@
 import("../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../scripts/build/ninja/devtools_module.gni")
 
-devtools_module("toolbox_bootstrap") {
-  deps = []
-}
-
 devtools_entrypoint("bundle") {
   entrypoint = "toolbox_bootstrap.js"
   is_legacy_javascript_entrypoint = [ "crbug.com/1011811" ]
 
-  deps = [ ":toolbox_bootstrap" ]
+  deps = []
 }
