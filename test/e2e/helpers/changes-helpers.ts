@@ -22,7 +22,7 @@ export async function openChangesPanelAndNavigateTo(testName: string) {
 
 export async function getChangesList() {
   const root = await $(PANEL_ROOT_SELECTOR);
-  const items = await $$('.tree-element-title', root);
+  const items = await $$('.tree-element-title', root!);
 
   return Promise.all(items.map(node => {
     return node.evaluate(node => node.textContent as string);

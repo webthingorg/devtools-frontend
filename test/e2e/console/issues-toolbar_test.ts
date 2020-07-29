@@ -15,7 +15,7 @@ describe('The Console Tab', async () => {
     await waitFor('.console-view');
 
     const infobarButton = await $('.infobar .infobar-button');
-    const infobarButtonText = await infobarButton.evaluate(node => node.textContent);
+    const infobarButtonText = await infobarButton!.evaluate(node => node.textContent);
     assert.strictEqual(infobarButtonText, 'Go to Issues');
   });
 });

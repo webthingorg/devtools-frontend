@@ -60,7 +60,7 @@ export const getFirstNodeForEventListener = async (listenerTypeSelector: string)
 
   const listenerNodesSelector = `${listenerTypeSelector} + ol>li`;
   const firstListenerNode = await $(listenerNodesSelector);
-  const firstListenerText = await firstListenerNode.evaluate(node => {
+  const firstListenerText = await firstListenerNode!.evaluate(node => {
     return node.textContent || '';
   });
 

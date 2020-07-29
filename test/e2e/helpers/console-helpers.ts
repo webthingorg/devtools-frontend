@@ -126,7 +126,7 @@ export async function showVerboseMessages() {
 }
 
 export async function typeIntoConsole(frontend: puppeteer.Page, message: string) {
-  const console = (await waitFor(CONSOLE_PROMPT_SELECTOR)).asElement()!;
+  const console = (await waitFor(CONSOLE_PROMPT_SELECTOR))!.asElement()!;
   await console.type(message);
 
   // Wait for autocomplete text to catch up.
@@ -174,7 +174,7 @@ export async function unifyLogVM(actualLog: string, expectedLog: string) {
 }
 
 export async function switchToTopExecutionContext(frontend: puppeteer.Page) {
-  const dropdown = (await waitFor('[aria-label^="JavaScript context:"]')).asElement()!;
+  const dropdown = (await waitFor('[aria-label^="JavaScript context:"]'))!.asElement()!;
   // Use keyboard to open drop down, select first item.
   await dropdown.press('Space');
   await frontend.keyboard.press('Home');
@@ -191,7 +191,7 @@ export async function navigateToConsoleTab() {
 
 export async function waitForConsoleMessageAndClickOnLink() {
   const console_message = await waitFor('div.console-group-messages span.source-code');
-  await click('span.devtools-link', {root: console_message});
+  await click('span.devtools-link', {root: console_message || undefined});
 }
 
 export async function navigateToIssuesPanelViaInfoBar() {

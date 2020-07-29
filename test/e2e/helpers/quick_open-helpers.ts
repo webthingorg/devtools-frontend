@@ -50,7 +50,8 @@ export const showSnippetsAutocompletion = async () => {
 };
 
 export async function getAvailableSnippets() {
-  const snippetsDOMElements = await $$('.filtered-list-widget-item', await $(QUICK_OPEN_SELECTOR));
+  const quickOpenElement = await $(QUICK_OPEN_SELECTOR);
+  const snippetsDOMElements = await $$('.filtered-list-widget-item', quickOpenElement!);
   const snippets = await Promise.all(snippetsDOMElements.map(elem => elem.evaluate(elem => elem.textContent)));
   return snippets;
 }

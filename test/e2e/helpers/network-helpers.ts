@@ -35,7 +35,7 @@ export async function getAllRequestNames() {
 
 export async function getSelectedRequestName() {
   const request = await $(REQUEST_LIST_SELECTOR + ' tr.selected .name-column');
-  return await request.evaluate((node: Element) => {
+  return await request!.evaluate((node: Element) => {
     return node && node.childNodes[1].textContent;
   });
 }

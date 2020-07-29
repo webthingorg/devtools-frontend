@@ -19,7 +19,7 @@ const SECTION_SUBTITLE_SELECTOR = '.styles-section-subtitle';
 
 export const assertContentOfSelectedElementsNode = async (expectedTextContent: string) => {
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
-  const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
+  const selectedTextContent = await selectedNode!.evaluate(node => node.textContent);
   assert.strictEqual(selectedTextContent, expectedTextContent);
 };
 
@@ -28,7 +28,7 @@ export const assertContentOfSelectedElementsNode = async (expectedTextContent: s
  */
 export const getContentOfSelectedNode = async () => {
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
-  return await selectedNode.evaluate(node => node.textContent as string);
+  return await selectedNode!.evaluate(node => node.textContent as string);
 };
 
 export const waitForSelectedNodeChange = async (initialValue: string, maxTotalTimeout = 1000) => {
@@ -52,14 +52,14 @@ export const waitForSelectedNodeChange = async (initialValue: string, maxTotalTi
 
 export const assertSelectedElementsNodeTextIncludes = async (expectedTextContent: string) => {
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
-  const selectedTextContent = await selectedNode.evaluate(node => node.textContent as string);
+  const selectedTextContent = await selectedNode!.evaluate(node => node.textContent as string);
   assert.include(selectedTextContent, expectedTextContent);
 };
 
 export const waitForSelectedTreeElementSelectorWithTextcontent = async (expectedTextContent: string) => {
   await waitForFunction(async () => {
     const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
-    const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
+    const selectedTextContent = await selectedNode!.evaluate(node => node.textContent);
     return selectedTextContent === expectedTextContent;
   }, 'Did not find a select elements tree element with textcontent');
 };
@@ -87,9 +87,9 @@ export const waitForElementsComputedSection = async () => {
 };
 
 export const getContentOfComputedPane = async () => {
-  const pane = await $('.computed-properties');
+  const pane = await waitFor('.computed-properties');
   const tree = await $('.tree-outline', pane);
-  return await tree.evaluate(node => node.textContent as string);
+  return await tree!.evaluate(node => node.textContent as string);
 };
 
 export const waitForComputedPaneChange = async (initialValue: string) => {
@@ -118,7 +118,7 @@ export const expandSelectedNodeRecursively = async () => {
 
   // Find the selected node, right click.
   const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
-  await click(selectedNode, {clickOptions: {button: 'right'}});
+  await click(selectedNode!, {clickOptions: {button: 'right'}});
 
   // Wait for the 'expand recursively' option, and click it.
   await waitFor(EXPAND_RECURSIVELY);
@@ -153,8 +153,8 @@ export const toggleShowAllComputedProperties = async () => {
   const initialContent = await getContentOfComputedPane();
 
   const computedPanel = await $(COMPUTED_STYLES_PANEL_SELECTOR);
-  const showAllButton = await $(COMPUTED_STYLES_SHOW_ALL_SELECTOR, computedPanel);
-  await click(showAllButton);
+  const showAllButton = await $(COMPUTED_STYLES_SHOW_ALL_SELECTOR, computedPanel!);
+  await click(showAllButton!);
   await waitForComputedPaneChange(initialContent);
 };
 
@@ -251,7 +251,7 @@ export const getCSSPropertyInRule = async (ruleSection: puppeteer.JSHandle<any>,
 export const focusCSSPropertyValue = async (selector: string, propertyName: string) => {
   await waitForStyleRule(selector);
   const rule = await getStyleRule(selector);
-  const property = await getCSSPropertyInRule(rule, propertyName);
+  const property = await getCSSPropertyInRule(rule!, propertyName);
   await click('.value', {root: property});
 };
 
@@ -273,7 +273,7 @@ export const getBreadcrumbsTextContent = async () => {
 
 export const getSelectedBreadcrumbTextContent = async () => {
   const selectedCrumb = await $('li.crumb.selected > a');
-  const text = selectedCrumb.evaluate(node => node.textContent as string);
+  const text = selectedCrumb!.evaluate(node => node.textContent as string);
   return text;
 };
 
@@ -285,5 +285,5 @@ export const navigateToElementsTab = async () => {
 
 export const clickOnFirstLinkInStylesPanel = async () => {
   const stylesPane = await waitFor('div.styles-pane');
-  await click('div.styles-section-subtitle span.devtools-link', {root: stylesPane});
+  await click('div.styles-section-subtitle span.devtools-link', {root: stylesPane || undefined});
 };

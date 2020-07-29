@@ -20,26 +20,25 @@ export const reloadDockableFrontEnd = async () => {
 
 export const openDeviceToolbar = async () => {
   const deviceToolbarToggler = await waitFor(DEVICE_TOOLBAR_TOGGLER_SELECTOR);
-  const togglerARIAPressed = await deviceToolbarToggler.evaluate(element => element.getAttribute('aria-pressed'));
+  const togglerARIAPressed = await deviceToolbarToggler!.evaluate(element => element.getAttribute('aria-pressed'));
   const isOpen = togglerARIAPressed === 'true';
   if (isOpen) {
     return;
   }
-  await click(deviceToolbarToggler);
+  await click(deviceToolbarToggler!);
   await waitFor(DEVICE_TOOLBAR_SELECTOR);
 };
 
 export const showMediaQueryInspector = async () => {
-  try {
-    await $(MEDIA_QUERY_INSPECTOR_SELECTOR);
+  const inspector = await $(MEDIA_QUERY_INSPECTOR_SELECTOR);
+  if (inspector) {
     return;
-  } catch (error) {
-    await click(DEVICE_TOOLBAR_OPTIONS_SELECTOR);
-    const {frontend} = getBrowserAndPages();
-    await frontend.keyboard.press('ArrowDown');
-    await frontend.keyboard.press('Enter');
-    await waitFor(MEDIA_QUERY_INSPECTOR_SELECTOR);
   }
+  await click(DEVICE_TOOLBAR_OPTIONS_SELECTOR);
+  const {frontend} = getBrowserAndPages();
+  await frontend.keyboard.press('ArrowDown');
+  await frontend.keyboard.press('Enter');
+  await waitFor(MEDIA_QUERY_INSPECTOR_SELECTOR);
 };
 
 export const startEmulationWithDualScreenFlag = async () => {
@@ -57,8 +56,8 @@ export const getButtonDisabled = async (spanButton: puppeteer.JSHandle<HTMLButto
 
 const clickDevicesDropDown = async () => {
   const toolbar = await $(DEVICE_TOOLBAR_SELECTOR);
-  const button = await $(DEVICE_LIST_DROPDOWN_SELECTOR, toolbar);
-  await click(button);
+  const button = await $(DEVICE_LIST_DROPDOWN_SELECTOR, toolbar!);
+  await click(button!);
 };
 
 export const selectToggleButton = async () => {
@@ -71,7 +70,7 @@ export const selectToggleButton = async () => {
 export const selectDualScreen = async () => {
   await clickDevicesDropDown();
   const duo = await $(SURFACE_DUO_MENU_ITEM_SELECTOR);
-  await click(duo);
+  await click(duo!);
 };
 
 export const clickToggleButton = async () => {
@@ -83,7 +82,7 @@ export const clickToggleButton = async () => {
 export const getWidthOfDevice = async () => {
   // Read the width of spanned duo to make sure spanning works.
   const widthInput = await $(SCREEN_DIM_INPUT_SELECTOR);
-  return widthInput.evaluate(e => (e as HTMLInputElement).value);
+  return widthInput!.evaluate(e => (e as HTMLInputElement).value);
 };
 
 const IPAD_MENU_ITEM_SELECTOR = '[aria-label*="iPad"]';
@@ -92,5 +91,5 @@ const IPAD_MENU_ITEM_SELECTOR = '[aria-label*="iPad"]';
 export const selectNonDualScreenDevice = async () => {
   await clickDevicesDropDown();
   const nonDual = await $(IPAD_MENU_ITEM_SELECTOR);
-  await click(nonDual);
+  await click(nonDual!);
 };

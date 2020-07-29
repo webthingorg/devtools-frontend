@@ -141,7 +141,7 @@ describe('The Debugger Language Plugins', async () => {
     await waitFor('.paused-status');
 
     const callFrameLoc = await $('.call-frame-location');
-    const scriptLocation = await callFrameLoc.evaluate(location => location.textContent);
+    const scriptLocation = await callFrameLoc!.evaluate(location => location.textContent);
     assert.deepEqual(scriptLocation, 'unreachable.ll:6');
   });
 

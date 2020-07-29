@@ -9,5 +9,5 @@ export const LAYERS_TAB_SELECTOR = '#tab-layers';
 export async function getCurrentUrl() {
   await waitFor('[aria-label="layers"]');
   const element = await $('[aria-label="layers"]');
-  return element.evaluate(e => e.getAttribute('test-current-url'));
+  return element!.evaluate(e => e.getAttribute('test-current-url'));
 }

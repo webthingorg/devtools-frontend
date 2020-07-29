@@ -67,7 +67,7 @@ describe('The Styles pane', async () => {
     await assertContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
 
     const propertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(PROPERTIES_TO_INSPECT_SELECTOR));
-    const swatchStyle = await getCSSPropertySwatchStyle(propertiesSection);
+    const swatchStyle = await getCSSPropertySwatchStyle(propertiesSection!);
     assert.deepEqual(swatchStyle, 'background-color: black;', 'The swatch has incorrect style');
   });
 
@@ -86,7 +86,7 @@ describe('The Styles pane', async () => {
 
     const propertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(PROPERTIES_TO_DELETE_SELECTOR));
     {
-      const displayedNames = await getDisplayedCSSPropertyNames(propertiesSection);
+      const displayedNames = await getDisplayedCSSPropertyNames(propertiesSection!);
       assert.deepEqual(
           displayedNames,
           [
@@ -97,11 +97,11 @@ describe('The Styles pane', async () => {
     }
 
     // select second property's name and delete
-    await deletePropertyByBackspace(SECOND_PROPERTY_NAME_SELECTOR, propertiesSection);
+    await deletePropertyByBackspace(SECOND_PROPERTY_NAME_SELECTOR, propertiesSection!);
 
     // verify the second CSS property entry has been removed
     {
-      const displayedNames = await getDisplayedCSSPropertyNames(propertiesSection);
+      const displayedNames = await getDisplayedCSSPropertyNames(propertiesSection!);
       assert.deepEqual(
           displayedNames,
           [
@@ -111,11 +111,11 @@ describe('The Styles pane', async () => {
     }
 
     // select first property's name and delete
-    await deletePropertyByBackspace(FIRST_PROPERTY_NAME_SELECTOR, propertiesSection);
+    await deletePropertyByBackspace(FIRST_PROPERTY_NAME_SELECTOR, propertiesSection!);
 
     // verify the first CSS property entry has been removed
     {
-      const displayedValues = await getDisplayedCSSPropertyNames(propertiesSection);
+      const displayedValues = await getDisplayedCSSPropertyNames(propertiesSection!);
       assert.deepEqual(displayedValues, [], 'incorrectly displayed style after removing first property\'s name');
     }
   });
@@ -166,7 +166,7 @@ describe('The Styles pane', async () => {
     const rule1PropertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(RULE1_SELECTOR));
     const rule2PropertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(RULE2_SELECTOR));
     {
-      const displayedNames = await getDisplayedCSSPropertyNames(rule1PropertiesSection);
+      const displayedNames = await getDisplayedCSSPropertyNames(rule1PropertiesSection!);
       assert.deepEqual(
           displayedNames,
           [
@@ -175,7 +175,7 @@ describe('The Styles pane', async () => {
           'incorrectly displayed style after initialization');
     }
     {
-      const displayedNames = await getDisplayedCSSPropertyNames(rule2PropertiesSection);
+      const displayedNames = await getDisplayedCSSPropertyNames(rule2PropertiesSection!);
       assert.deepEqual(
           displayedNames,
           [
@@ -186,11 +186,11 @@ describe('The Styles pane', async () => {
     }
 
     // Select the first property's name of .rule2 (background-color) and delete.
-    await deletePropertyByBackspace(FIRST_PROPERTY_NAME_SELECTOR, rule2PropertiesSection);
+    await deletePropertyByBackspace(FIRST_PROPERTY_NAME_SELECTOR, rule2PropertiesSection!);
 
     // Verify that .rule1 has background-color.
     {
-      const displayedNames = await getDisplayedCSSPropertyNames(rule1PropertiesSection);
+      const displayedNames = await getDisplayedCSSPropertyNames(rule1PropertiesSection!);
       assert.deepEqual(
           displayedNames,
           [
@@ -201,7 +201,7 @@ describe('The Styles pane', async () => {
 
     // Verify that .rule2 has background-color removed and only color remains.
     {
-      const displayedNames = await getDisplayedCSSPropertyNames(rule2PropertiesSection);
+      const displayedNames = await getDisplayedCSSPropertyNames(rule2PropertiesSection!);
       assert.deepEqual(
           displayedNames,
           [

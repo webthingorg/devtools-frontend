@@ -35,7 +35,7 @@ describe('A user can navigate across', async function() {
     await click('li.issue.parent');
 
     // Expand the affected resources
-    await click('li.parent', {root: await waitFor('ol.affected-resources')});
+    await click('li.parent', {root: await waitFor('ol.affected-resources') || undefined});
   });
 
   it('Elements -> Sources', async () => {
