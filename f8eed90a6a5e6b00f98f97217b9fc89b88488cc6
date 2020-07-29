@@ -16,6 +16,24 @@
       "revId": "f8eed90a6a5e6b00f98f97217b9fc89b88488cc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba369830_458b4b79",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-29T17:07:22Z",
+      "side": 1,
+      "message": "Indeed, keyed on `key`, so that we don\u0027t have to iterate over the array just to find the corresponding object. O(n) -\u003e O(1)\n\nBut I have to say I liked the previous `switch`-based approach better. This version just adds more indirection. WDYT?",
+      "parentUuid": "397e8579_d9d97dce",
+      "revId": "f8eed90a6a5e6b00f98f97217b9fc89b88488cc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
