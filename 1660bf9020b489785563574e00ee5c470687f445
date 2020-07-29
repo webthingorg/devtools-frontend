@@ -16,6 +16,24 @@
       "revId": "1660bf9020b489785563574e00ee5c470687f445",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f2ea911_f5bb045c",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-07-29T08:52:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d04ca27c_aa0f147e",
+      "revId": "1660bf9020b489785563574e00ee5c470687f445",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
