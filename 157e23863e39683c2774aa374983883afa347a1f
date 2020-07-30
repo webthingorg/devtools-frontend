@@ -162,6 +162,30 @@
       "revId": "157e23863e39683c2774aa374983883afa347a1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dce6a1a1_e875aa01",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2020-07-30T17:02:15Z",
+      "side": 1,
+      "message": "I think both could be very useful. \"HeavyAd\" for identifying offending frames in the elements panel, and \"Ad\" for debugging whether Chrome is labeling specific content as an ad (which helps tell sites what is subject to the intervention.\n\nWe should tag things that did not have the intervention fire with \"Heavy\" in any case.",
+      "parentUuid": "0bceee4b_88c57f33",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
