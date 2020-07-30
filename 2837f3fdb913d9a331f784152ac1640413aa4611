@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0209b94_cca4e9fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-30T06:31:57Z",
+      "side": 1,
+      "message": "Thanks for all the changes, Almothana!\nI just have two minor comments, after them LGTM!",
+      "revId": "2837f3fdb913d9a331f784152ac1640413aa4611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59d3a843_c6eacaaa",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-30T06:31:57Z",
+      "side": 1,
+      "message": "Hm, what does the + do? Maybe some notation that I\u0027m not familiar with?",
+      "revId": "2837f3fdb913d9a331f784152ac1640413aa4611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f0d7843_e81e525b",
+        "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-07-30T06:31:57Z",
+      "side": 1,
+      "message": "Thanks for changing this! :)",
+      "revId": "2837f3fdb913d9a331f784152ac1640413aa4611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
