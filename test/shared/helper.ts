@@ -4,7 +4,6 @@
 
 import {AssertionError} from 'chai';
 import * as os from 'os';
-import {performance} from 'perf_hooks';
 import * as puppeteer from 'puppeteer';
 
 import {reloadDevTools} from '../conductor/hooks.js';
@@ -23,6 +22,99 @@ switch (os.platform()) {
   default:
     platform = 'linux';
     break;
+}
+
+export class AsyncTrace {
+  _test: Mocha.Test|null;
+
+  constructor() {
+    this._test = null;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static _timeoutHook(done: Mocha.Done|undefined, err?: any) {
+    function* joinStacks() {
+      const scopes = AsyncScope.scopes;
+      if (scopes.size === 0) {
+        return;
+      }
+      for (const scope of scopes.values()) {
+        const stack = scope.stack;
+        if (stack) {
+          yield `${stack.join('\n')}\n`;
+        }
+      }
+    }
+
+    const stacks = Array.from(joinStacks());
+    if (stacks.length > 0) {
+      console.error(`Pending async operations during failure:\n${stacks.join('\n\n')}`);
+    }
+    if (done) {
+      return done(err);
+    }
+  }
+
+  static it(name: string, timeout: number, callback: Mocha.Func|Mocha.AsyncFunc) {
+    const trace = new AsyncTrace();
+    const test = it(name, async function(done: Mocha.Done) {
+      const test = trace._test;
+      if (test) {
+        const originalDone = test.callback;
+        test.callback = AsyncTrace._timeoutHook.bind(undefined, originalDone);
+        test.timeout(timeout);
+      }
+
+      return callback.bind(this)(done);
+    });
+    trace._test = test;
+  }
+}
+
+export class AsyncScope {
+  static scopes: Set<AsyncScope> = new Set();
+  _asyncStack: string[][];
+
+  constructor() {
+    this._asyncStack = [];
+  }
+
+  get stack() {
+    if (this._asyncStack.length === 0) {
+      return null;
+    }
+    return this._asyncStack[this._asyncStack.length - 1];
+  }
+
+  push() {
+    const stack = new Error().stack;
+    if (!stack) {
+      throw new Error('Could not get stack trace');
+    }
+
+
+    if (this._asyncStack.length === 0) {
+      AsyncScope.scopes.add(this);
+    }
+    const filteredStack = stack.split('\n').filter(value => !(value === 'Error' || ~value.indexOf('AsyncScope')));
+    this._asyncStack.push(filteredStack);
+  }
+
+  pop() {
+    if (this._asyncStack.length === 0) {
+      AsyncScope.scopes.delete(this);
+    }
+  }
+
+  exec<T>(callable: () => T) {
+    this.push();
+    try {
+      const result = callable();
+      return result;
+    } finally {
+      this.pop();
+    }
+  }
 }
 
 // TODO: Remove once Chromium updates its version of Node.js to 12+.
@@ -247,53 +339,51 @@ export const $textContent = async (textContent: string, root?: puppeteer.JSHandl
 
 export const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
-export const waitFor = async (selector: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
-  return waitForFunction(async () => {
-    const element = await $(selector, root);
-    if (element.asElement()) {
-      return element;
-    }
-    return undefined;
-  }, `Unable to find element with selector ${selector}`, maxTotalTimeout);
+export const waitFor = async (selector: string, root?: puppeteer.JSHandle, asyncScope?: AsyncScope) => {
+  asyncScope = asyncScope || new AsyncScope();
+  return await asyncScope.exec(() => waitForFunction(async () => {
+                                 const element = await $(selector, root);
+                                 if (element.asElement()) {
+                                   return element;
+                                 }
+                                 return undefined;
+                               }, asyncScope));
 };
 
-export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
-  return waitForFunction(async () => {
-    const elements = await $$(selector, root);
-    if (elements.evaluate(list => list.length === 0)) {
-      return true;
-    }
-    return false;
-  }, `At least one element with selector ${selector} still exists`, maxTotalTimeout);
+export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, asyncScope?: AsyncScope) => {
+  asyncScope = asyncScope || new AsyncScope();
+  return await asyncScope.exec(() => waitForFunction(async () => {
+                                 const elements = await $$(selector, root);
+                                 if (elements.evaluate(list => list.length === 0)) {
+                                   return true;
+                                 }
+                                 return false;
+                               }, asyncScope));
 };
 
 export const waitForElementWithTextContent =
-    (textContent: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
-      return waitForFunction(async () => {
-        const element = await $textContent(textContent, root);
-        if (element.asElement()) {
-          return element;
-        }
-        return undefined;
-      }, `No element with content ${textContent} exists`, maxTotalTimeout);
+    (textContent: string, root?: puppeteer.JSHandle, asyncScope?: AsyncScope) => {
+      asyncScope = asyncScope || new AsyncScope();
+      return asyncScope.exec(() => waitForFunction(async () => {
+                               const element = await $textContent(textContent, root);
+                               if (element.asElement()) {
+                                 return element;
+                               }
+                               return undefined;
+                             }, asyncScope));
     };
 
-export const waitForFunction =
-    async<T>(fn: () => Promise<T|undefined>, errorMessage: string, maxTotalTimeout = 3000): Promise<T> => {
-  if (maxTotalTimeout === 0) {
-    maxTotalTimeout = Number.POSITIVE_INFINITY;
-  }
-
-  const start = performance.now();
-  do {
-    await timeout(100);
-    const result = await fn();
-    if (result) {
-      return result;
+export const waitForFunction = async<T>(fn: () => Promise<T|undefined>, asyncScope?: AsyncScope): Promise<T> => {
+  asyncScope = asyncScope || new AsyncScope();
+  return await asyncScope.exec(async () => {
+    while (true) {
+      await timeout(100);
+      const result = await fn();
+      if (result) {
+        return result;
+      }
     }
-  } while (performance.now() - start < maxTotalTimeout);
-
-  throw new Error(errorMessage);
+  });
 };
 
 export const debuggerStatement = (frontend: puppeteer.Page) => {
