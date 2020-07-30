@@ -229,7 +229,54 @@
       "settings": [
         "emulation.locations"
       ]
-    }
+    },
+    {
+      "type": "setting",
+      "title": "Touch",
+      "reloadRequired": true,
+      "settingName": "emulation.touch",
+      "settingType": "enum",
+      "defaultValue": "none",
+      "options": [
+        {
+          "text": "Device-based",
+          "value": "none"
+        },
+        {
+          "text": "Force enabled",
+          "value": "force"
+        }
+      ]
+    },
+    {
+      "type": "setting",
+      "title": "Emulate Idle Detector state",
+      "settingName": "emulation.idleDetection",
+      "settingType": "enum",
+      "defaultValue": "none",
+      "options": [
+        {
+          "text": "No emulation",
+          "value": "none"
+        },
+        {
+          "text": "User active, screen unlocked",
+          "value": "{\"isUserActive\":true,\"isScreenUnlocked\":true}"
+        },
+        {
+          "text": "User active, screen locked",
+          "value": "{\"isUserActive\":true,\"isScreenUnlocked\":false}"
+        },
+        {
+          "text": "User idle, screen unlocked",
+          "value": "{\"isUserActive\":false,\"isScreenUnlocked\":true}"
+        },
+        {
+          "text": "User idle, screen locked",
+          "value": "{\"isUserActive\":false,\"isScreenUnlocked\":false}"
+        }
+      ]
+    }   
   ],
   "dependencies": [
     "bindings",

@@ -792,9 +792,6 @@
   <message name="IDS_DEVTOOLS_ee0846ee1be3e5b8861db3956ae9981e" desc="Tooltip to explain why a cookie was blocked">
     This Set-Cookie was blocked because it used the &quot;__Secure-&quot; or &quot;__Host-&quot; prefix in its name and broke the additional rules applied to cookies with these prefixes as defined in https://tools.ietf.org/html/draft-west-cookie-prefixes-05.
   </message>
-  <message name="IDS_DEVTOOLS_efa547f7d0b9924fdc7b301838c99fad" desc="A drop-down menu option to do not emulate css media type">
-    No emulation
-  </message>
   <message name="IDS_DEVTOOLS_efb4777327e6f704fb1519c1882f93ec" desc="Text in DOMDebugger Model">
     Timer
   </message>
