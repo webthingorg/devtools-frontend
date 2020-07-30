@@ -229,7 +229,40 @@
       "settings": [
         "emulation.locations"
       ]
-    }
+    },
+    {
+      "type": "setting",
+      "settingName": "emulation.idleDetection",
+      "settingType": "plainEnum",
+      "defaultValue": "none",
+      "options": [
+        {
+          "title": "Do not emulate Idle Detection state",
+          "text": "No emulation",
+          "value": "none"
+        },
+        {
+          "title": "Emulate Idle Detection: User active, screen unlocked",
+          "text": "User active, screen unlocked",
+          "value": "{\"isUserActive\":true,\"isScreenUnlocked\":true}"
+        },
+        {
+          "title": "Emulate Idle Detection: User active, screen locked",
+          "text": "User active, screen locked",
+          "value": "{\"isUserActive\":true,\"isScreenUnlocked\":false}"
+        },
+        {
+          "title": "Emulate Idle Detection: User idle, screen unlocked",
+          "text": "User idle, screen unlocked",
+          "value": "{\"isUserActive\":false,\"isScreenUnlocked\":true}"
+        },
+        {
+          "title": "Emulate Idle Detection: User idle, screen locked",
+          "text": "User idle, screen locked",
+          "value": "{\"isUserActive\":false,\"isScreenUnlocked\":false}"
+        }
+      ]
+    }   
   ],
   "dependencies": [
     "bindings",

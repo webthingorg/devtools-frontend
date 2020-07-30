@@ -33,6 +33,19 @@ export class EmulationModel extends SDKModel {
       this._emulationAgent.setScriptExecutionDisabled(true);
     }
 
+    const emulationSetting = Common.Settings.Settings.instance().moduleSetting('emulation.idleDetection');
+    emulationSetting.addChangeListener(async () => {
+      const settingValue = emulationSetting.get();
+      if(settingValue === 'none') {
+        await this.clearIdleOverride();
+        return;
+      }
+
+      const emulationParams = JSON.parse(settingValue);
+      await this.setIdleOverride(emulationParams);
+    });
+
+
     const mediaTypeSetting = Common.Settings.Settings.instance().moduleSetting('emulatedCSSMedia');
     const mediaFeaturePrefersColorSchemeSetting =
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersColorScheme');
@@ -188,6 +201,18 @@ export class EmulationModel extends SDKModel {
     } else {
       this._deviceOrientationAgent.clearDeviceOrientationOverride();
     }
+  }
+
+  /**
+   * @param {name: bool, value: bool} emulationParams
+   */
+  async setIdleOverride(emulationParams) {
+    // emulationParams: {isUserActive: bool, isScreenUnlocked: bool}
+    await this._emulationAgent.invoke_setIdleOverride(emulationParams);
+  }
+
+  async clearIdleOverride() {
+    await this._emulationAgent.invoke_clearIdleOverride();
   }
 
   /**

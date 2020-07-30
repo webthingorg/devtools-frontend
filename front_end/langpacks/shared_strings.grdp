@@ -685,6 +685,9 @@
   <message name="IDS_DEVTOOLS_ef95393ad48336d7c3543625354a3d56" desc="Text to highlight the rendering frames for ads">
     Highlight ad frames
   </message>
+  <message name="IDS_DEVTOOLS_efa547f7d0b9924fdc7b301838c99fad" desc="A drop-down menu option to do not emulate css media type">
+    No emulation
+  </message>
   <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
     Touch
   </message>

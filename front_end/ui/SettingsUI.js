@@ -73,20 +73,16 @@ export const createSettingCheckbox = function(name, setting, omitParagraphElemen
 const createSettingSelect = function(name, options, requiresReload, setting, subtitle) {
   const settingSelectElement = createElement('p');
   const label = settingSelectElement.createChild('label');
-  const select = settingSelectElement.createChild('select', 'chrome-select');
+
+  const select = createPlainSettingSelect(options, setting, _onSelectChanged);
+  settingSelectElement.appendChild(select)
+
   label.textContent = name;
   if (subtitle) {
     settingSelectElement.classList.add('chrome-select-label');
     label.createChild('p').textContent = subtitle;
   }
   ARIAUtils.bindLabelToControl(label, select);
-
-  for (let i = 0; i < options.length; ++i) {
-    // The "raw" flag indicates text is non-i18n-izable.
-    const option = options[i];
-    const optionName = option.raw ? option.text : Common.UIString.UIString(option.text);
-    select.add(new Option(optionName, option.value));
-  }
 
   let reloadWarning = /** @type {?Element} */ (null);
   if (requiresReload) {
@@ -95,10 +91,38 @@ const createSettingSelect = function(name, options, requiresReload, setting, sub
     ARIAUtils.markAsAlert(reloadWarning);
   }
 
+  return settingSelectElement;
+
+  function _onSelectChanged() {
+    if (reloadWarning) {
+      reloadWarning.classList.remove('hidden');
+      self.UI.InspectorView.instance().displayReloadRequiredWarning(
+          ls`One or more settings have changed which requires a reload to take effect.`);
+    }
+  }
+}
+
+/**
+ * @param {!Array<!{text: string, value: *, raw: (boolean|undefined)}>} options
+ * @param {!Common.Settings.Setting<*>} setting
+ * @return {!Element}
+ */
+const createPlainSettingSelect = function(options, setting, _onSelectChanged) {
+  const select = createElement('select');
+  select.classList.add('chrome-select')
+
+  for (let i = 0; i < options.length; ++i) {
+    // The "raw" flag indicates text is non-i18n-izable.
+    const option = options[i];
+    const optionName = option.raw ? option.text : Common.UIString.UIString(option.text);
+    select.add(new Option(optionName, option.value));
+  }
+
   setting.addChangeListener(settingChanged);
   settingChanged();
   select.addEventListener('change', selectChanged, false);
-  return settingSelectElement;
+
+  return select;
 
   function settingChanged() {
     const newValue = setting.get();
@@ -112,11 +136,8 @@ const createSettingSelect = function(name, options, requiresReload, setting, sub
   function selectChanged() {
     // Don't use event.target.value to avoid conversion of the value to string.
     setting.set(options[select.selectedIndex].value);
-    if (reloadWarning) {
-      reloadWarning.classList.remove('hidden');
-      self.UI.InspectorView.instance().displayReloadRequiredWarning(
-          ls`One or more settings have changed which requires a reload to take effect.`);
-    }
+    if(_onSelectChanged)
+      _onSelectChanged();
   }
 };
 
@@ -173,6 +194,12 @@ export const createControlForSetting = function(setting, subtitle) {
     case 'enum':
       if (Array.isArray(descriptor['options'])) {
         return createSettingSelect(uiTitle, descriptor['options'], descriptor['reloadRequired'], setting, subtitle);
+      }
+      console.error('Enum setting defined without options');
+      return null;
+    case 'plainEnum':
+      if (Array.isArray(descriptor['options'])) {
+        return createPlainSettingSelect(descriptor['options'], setting);
       }
       console.error('Enum setting defined without options');
       return null;
