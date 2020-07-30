@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0dc208e7_ce9d3d0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T13:56:19Z",
+      "side": 1,
+      "message": "please use links instead of just the numbers",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e029f139_d45c1ab7",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 10
@@ -16,6 +33,74 @@
       "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a912e9f_053c1b42",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T13:56:19Z",
+      "side": 1,
+      "message": "nit: space before (\n\nI think `git cl format --js` would take care of it. Does presubmit not complain about this?",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5251ae21_64c7678e",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T13:56:19Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "189c3690_dd9aeff1",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T13:56:19Z",
+      "side": 1,
+      "message": "This is not accessible: the label is not tied to the \u003cselect\u003e, so for example you cannot click it to focus the \u003cselect\u003e. This will be automatically fixed if we instead just use the existing `createSettingSelect` (see my comment below).",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9c357ec_64391f11",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T13:56:19Z",
+      "side": 1,
+      "message": "Introducing a new setting type for this feels like the wrong solution. It\u0027s still an enum. Let\u0027s undo these changes and instead make sure this enum gets a `title` and `reloadRequired` properties in module.json.\n\nWe should instead change the way the Touch UI is rendered, by aligning it with what createSettingSelect produces.",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
