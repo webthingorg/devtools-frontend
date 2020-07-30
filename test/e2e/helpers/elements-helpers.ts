@@ -5,7 +5,7 @@ import {assert} from 'chai';
 import {performance} from 'perf_hooks';
 import * as puppeteer from 'puppeteer';
 
-import {$, $$, click, getBrowserAndPages, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
 const CSS_PROPERTY_NAME_SELECTOR = '.webkit-css-property';
@@ -18,7 +18,7 @@ const ELEMENTS_PANEL_SELECTOR = '.panel[aria-label="elements"]';
 const SECTION_SUBTITLE_SELECTOR = '.styles-section-subtitle';
 
 export const assertContentOfSelectedElementsNode = async (expectedTextContent: string) => {
-  const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+  const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
   const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
   assert.strictEqual(selectedTextContent, expectedTextContent);
 };
@@ -27,7 +27,7 @@ export const assertContentOfSelectedElementsNode = async (expectedTextContent: s
  * Gets the text content of the currently selected element.
  */
 export const getContentOfSelectedNode = async () => {
-  const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+  const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
   return await selectedNode.evaluate(node => node.textContent as string);
 };
 
@@ -51,14 +51,14 @@ export const waitForSelectedNodeChange = async (initialValue: string, maxTotalTi
 };
 
 export const assertSelectedElementsNodeTextIncludes = async (expectedTextContent: string) => {
-  const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+  const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
   const selectedTextContent = await selectedNode.evaluate(node => node.textContent as string);
   assert.include(selectedTextContent, expectedTextContent);
 };
 
 export const waitForSelectedTreeElementSelectorWithTextcontent = async (expectedTextContent: string) => {
   await waitForFunction(async () => {
-    const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+    const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
     const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
     return selectedTextContent === expectedTextContent;
   }, 'Did not find a select elements tree element with textcontent');
@@ -87,8 +87,8 @@ export const waitForElementsComputedSection = async () => {
 };
 
 export const getContentOfComputedPane = async () => {
-  const pane = await $('.computed-properties');
-  const tree = await $('.tree-outline', pane);
+  const pane = await waitFor('.computed-properties');
+  const tree = await waitFor('.tree-outline', pane);
   return await tree.evaluate(node => node.textContent as string);
 };
 
@@ -117,7 +117,7 @@ export const expandSelectedNodeRecursively = async () => {
   const EXPAND_RECURSIVELY = '[aria-label="Expand recursively"]';
 
   // Find the selected node, right click.
-  const selectedNode = await $(SELECTED_TREE_ELEMENT_SELECTOR);
+  const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
   await click(selectedNode, {clickOptions: {button: 'right'}});
 
   // Wait for the 'expand recursively' option, and click it.
@@ -152,8 +152,8 @@ export const getComputedStylesForDomNode = async (elementSelector: string, style
 export const toggleShowAllComputedProperties = async () => {
   const initialContent = await getContentOfComputedPane();
 
-  const computedPanel = await $(COMPUTED_STYLES_PANEL_SELECTOR);
-  const showAllButton = await $(COMPUTED_STYLES_SHOW_ALL_SELECTOR, computedPanel);
+  const computedPanel = await waitFor(COMPUTED_STYLES_PANEL_SELECTOR);
+  const showAllButton = await waitFor(COMPUTED_STYLES_SHOW_ALL_SELECTOR, computedPanel);
   await click(showAllButton);
   await waitForComputedPaneChange(initialContent);
 };
@@ -210,8 +210,8 @@ export const getDisplayedCSSPropertyNames = async (propertiesSection: puppeteer.
   return propertyNamesText;
 };
 
-export const getStyleRule = async (selector: string) => {
-  return await $(`[aria-label="${selector}, css selector"]`);
+export const getStyleRule = (selector: string) => {
+  return waitFor(`[aria-label="${selector}, css selector"]`);
 };
 
 export const getCSSPropertySwatchStyle = async (ruleSection: puppeteer.ElementHandle<Element>) => {
@@ -261,7 +261,7 @@ export const getBreadcrumbsTextContent = async () => {
 };
 
 export const getSelectedBreadcrumbTextContent = async () => {
-  const selectedCrumb = await $('li.crumb.selected > a');
+  const selectedCrumb = await waitFor('li.crumb.selected > a');
   const text = selectedCrumb.evaluate(node => node.textContent as string);
   return text;
 };
@@ -274,5 +274,5 @@ export const navigateToElementsTab = async () => {
 
 export const clickOnFirstLinkInStylesPanel = async () => {
   const stylesPane = await waitFor('div.styles-pane');
-  await click('div.styles-section-subtitle span.devtools-link', {root: stylesPane});
+  await click('div.styles-section-subtitle span.devtools-link', {root: stylesPane || undefined});
 };
