@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2890d452_201bca91",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-30T20:55:46Z",
+      "side": 1,
+      "message": "All the .asElement() call are unnecessary now.",
+      "revId": "6b5e7d8723ec6906d85fc70bf3112b931883bf7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
