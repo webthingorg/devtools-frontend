@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86a09062_f8e8a491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-30T13:40:43Z",
+      "side": 1,
+      "message": "Very cool! I tried it out locally by using AsyncTrace.it in sources/navigation_test and changing the waitFor() to wait for some non-existent selector.\n\nI end up with a stack like this which is hard to interpret. I think it\u0027s due to the pop() function not clearing stacks that are finished\n\nPending async operations during failure:\n    at Object.exports.waitForFunction (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:340:29)\n    at /Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:48\n    at Object.exports.waitFor (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:29)\n    at openSourcesPanel (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:28:23)\n    at runMicrotasks (\u003canonymous\u003e)\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async openFileInSourcesPanel (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:33:5)\n    at async Object.openSourceCodeEditorForFile (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:59:5)\n    at async Context.\u003canonymous\u003e (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/sources/navigation_test.js:13:13)\n\n\n    at Object.exports.waitForFunction (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:340:29)\n    at /Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:48\n    at Object.exports.waitFor (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:29)\n    at doubleClickSourceTreeItem (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:20:23)\n    at openFileInEditor (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:53:11)\n    at Object.openSourceCodeEditorForFile (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:60:11)\n    at runMicrotasks (\u003canonymous\u003e)\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async Context.\u003canonymous\u003e (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/sources/navigation_test.js:13:13)\n\n\n    at Object.exports.waitForFunction (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:340:29)\n    at /Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:48\n    at Object.exports.waitFor (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:29)\n    at openFileInEditor (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:55:23)\n    at runMicrotasks (\u003canonymous\u003e)\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async Object.openSourceCodeEditorForFile (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:60:5)\n    at async Context.\u003canonymous\u003e (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/sources/navigation_test.js:13:13)\n\n\n    at Object.exports.waitForFunction (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:340:29)\n    at /Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:48\n    at Object.exports.waitFor (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:29)\n    at Object.clickOnContextMenu (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/helpers/sources-helpers.js:251:23)\n    at runMicrotasks (\u003canonymous\u003e)\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)\n    at async Context.\u003canonymous\u003e (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/sources/navigation_test.js:14:13)\n\n\n    at Object.exports.waitForFunction (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:340:29)\n    at /Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:48\n    at Object.exports.waitFor (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/shared/helper.js:310:29)\n    at Context.\u003canonymous\u003e (/Users/petermarshall/devtools/devtools-frontend/out/Default/gen/test/e2e/sources/navigation_test.js:15:47)\n    at runMicrotasks (\u003canonymous\u003e)\n    at processTicksAndRejections (internal/process/task_queues.js:94:5)",
+      "revId": "7e2a76851f4f281ebfb218ff0779be4772fd9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0001764c_c7044b0e",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-30T13:40:43Z",
+      "side": 1,
+      "message": "In TS I think we generally use private vars/methods and don\u0027t use the _ prefix convention",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "7e2a76851f4f281ebfb218ff0779be4772fd9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b143448f_9887423c",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-30T13:40:43Z",
+      "side": 1,
+      "message": "You can set this at the definition above to avoid needing a constructor",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "7e2a76851f4f281ebfb218ff0779be4772fd9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039d979c_e4e4bdf5",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-30T13:40:43Z",
+      "side": 1,
+      "message": "nit: extra blank line can go",
+      "revId": "7e2a76851f4f281ebfb218ff0779be4772fd9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aded4a59_aa30721c",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-30T13:40:43Z",
+      "side": 1,
+      "message": "I think this is causing problems - I think we want to always delete the stack once callable() has completed below?",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "7e2a76851f4f281ebfb218ff0779be4772fd9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d8fa841_b39bf192",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-30T13:40:43Z",
+      "side": 1,
+      "message": "Can you change this to be non-optional and have a default value of new AsyncScope()? Same for below",
+      "range": {
+        "startLine": 342,
+        "startChar": 75,
+        "endLine": 342,
+        "endChar": 98
+      },
+      "revId": "7e2a76851f4f281ebfb218ff0779be4772fd9486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
