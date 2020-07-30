@@ -16,6 +16,23 @@
       "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2671e0a0_79da3293",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-30T06:04:53Z",
+      "side": 1,
+      "message": "The overall structure and how i18n is integrated in to the module system looks good to me.\n\nI defer to Paul how the individual locale files should be bundled and in which gni/gn file to put that logic, so please wait for Pauls (or Tims) +1 as well :)\n\nThanks for slogging through here! Wrangling the build system can be frustrating at the moment, but this will be better in the future!",
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
