@@ -881,6 +881,7 @@ export class HeapSnapshot {
     this._nodeSelfSizeOffset = meta.node_fields.indexOf('self_size');
     this._nodeEdgeCountOffset = meta.node_fields.indexOf('edge_count');
     this._nodeTraceNodeIdOffset = meta.node_fields.indexOf('trace_node_id');
+    this._nodeEmbedderDataOffset = meta.node_fields.indexOf('embedder_data');
     this._nodeFieldCount = meta.node_fields.length;
 
     this._nodeTypes = meta.node_types[this._nodeTypeOffset];
@@ -931,6 +932,8 @@ export class HeapSnapshot {
     this._buildEdgeIndexes();
     this._progress.updateStatus(ls`Building retainers…`);
     this._buildRetainers();
+    this._progress.updateStatus(ls`Propagating DOM state…`);
+    this._propagateDOMState();
     this._progress.updateStatus(ls`Calculating node flags…`);
     this.calculateFlags();
     this._progress.updateStatus(ls`Calculating distances…`);
@@ -1883,6 +1886,151 @@ export class HeapSnapshot {
       dominatedRefIndex += (--dominatedNodes[dominatedRefIndex]);
       dominatedNodes[dominatedRefIndex] = nodeOrdinal * nodeFieldCount;
     }
+  }
+
+  /**
+   * Iterates strongly reachable children of the node represented by
+   * nodeOrdinal and invokes callback for each child.
+   *
+   * @param {!number} nodeOrdinal
+   * @param {iterateChildrenCallback} callback
+   */
+  _iterateStronglyReachableChildren(nodeOrdinal, callback) {
+    const beginEdgeIndex = this._firstEdgeIndexes[nodeOrdinal];
+    const endEdgeIndex = this._firstEdgeIndexes[nodeOrdinal + 1];
+    for (let edgeIndex = beginEdgeIndex; edgeIndex < endEdgeIndex; edgeIndex += this._edgeFieldsCount) {
+      const childNodeIndex = this.containmentEdges[edgeIndex + this._edgeToNodeOffset];
+      const childNodeOrdinal = childNodeIndex / this.nodeFieldCount;
+      const type = this.containmentEdges[edgeIndex + this._edgeTypeOffset];
+      if (type === this._edgeHiddenType || type === this._edgeInvisibleType || type === this._edgeInternalType ||
+          type === this._edgeWeakType) {
+        continue;
+      }
+      callback(childNodeOrdinal);
+    }
+  }
+
+  /**
+   * @callback iterateChildrenCallback
+   * @param {number} nodeOrdinal
+   */
+
+  /**
+    * The phase propagates whether a node is attached or detached through the
+    * graph and adjusts the low-level representation of nodes.
+    *
+    * State propagation:
+    * 1. Any object reachable from an attached object is itself attached.
+    * 2. Any object reachable from a detached object that is not already
+    *    attached is considered detached.
+    *
+    * Representation:
+    * - Name of any detached node is changed from "<Name>"" to
+    *   "Detached <Name>".
+    */
+  _propagateDOMState() {
+    console.time('propagateDOMState');
+
+    if (this._nodeEmbedderDataOffset === undefined) {
+      return;
+    }
+
+    // Heap nodes have a DOM state that is either:
+    // 0: Unknown.
+    // 1: Attached.
+    // 2: Detached.
+    /** @type {!number} */
+    const kAttachedState = 1;
+    /** @type {!number} */
+    const kDetachedState = 2;
+
+    const visited = new Uint8Array(this.nodeCount);
+    /** @type {!Array<number>} */
+    const attached = [];
+    /** @type {!Array<number>} */
+    const detached = [];
+
+    /** @type {!Map<number, number>} */
+    const string_index_cache = new Map();
+
+    /**
+     * @param {!HeapSnapshot} snapshot
+     * @param {!number} nodeIndex
+     * @param {!number} offset
+     */
+    const addDetachedPrefixToStringField = function(snapshot, nodeIndex, offset) {
+      const oldFieldIndex = snapshot.nodes[nodeIndex + offset];
+      let newFieldIndex = string_index_cache.get(oldFieldIndex);
+      if (newFieldIndex === undefined) {
+        const newFieldValue = 'Detached ' + snapshot.strings[oldFieldIndex];
+        snapshot.strings.push(newFieldValue);
+        newFieldIndex = snapshot.strings.length - 1;
+        string_index_cache.set(oldFieldIndex, newFieldIndex);
+      }
+      snapshot.nodes[nodeIndex + offset] = newFieldIndex;
+    };
+
+    /**
+     * Processes a node represented by nodeOrdinal:
+     * - Changes its name based on newState.
+     * - Puts it onto working sets for attached or detached nodes.
+     *
+     * @param {!HeapSnapshot} snapshot
+     * @param {!number} nodeOrdinal
+     * @param {!number} newState
+     */
+    const processNode = function(snapshot, nodeOrdinal, newState) {
+      if (visited[nodeOrdinal]) {
+        return;
+      }
+
+      const nodeIndex = nodeOrdinal * snapshot._nodeFieldCount;
+
+      snapshot.nodes[nodeIndex + snapshot._nodeEmbedderDataOffset];
+
+      if (newState === kAttachedState) {
+        attached.push(nodeOrdinal);
+      } else if (newState === kDetachedState) {
+        // Detached state: Rewire node name.
+        addDetachedPrefixToStringField(snapshot, nodeIndex, snapshot._nodeNameOffset);
+        detached.push(nodeOrdinal);
+      }
+
+      visited[nodeOrdinal] = 1;
+    };
+
+    for (let nodeOrdinal = 0; nodeOrdinal < this.nodeCount; ++nodeOrdinal) {
+      processNode(this, nodeOrdinal, this.nodes[nodeOrdinal * this._nodeFieldCount + this._nodeEmbedderDataOffset]);
+    }
+
+    /**
+     * @param {!HeapSnapshot} snapshot
+     * @param {!number} parentNodeOrdinal
+     * @param {!number} newState
+     */
+    const propagateState = function(snapshot, parentNodeOrdinal, newState) {
+      snapshot._iterateStronglyReachableChildren(
+          parentNodeOrdinal, nodeOrdinal => processNode(snapshot, nodeOrdinal, newState));
+    };
+
+    // 1. If the parent is attached, then the child is also attached.
+    while (attached.length !== 0) {
+      const nodeOrdinal = attached.pop();
+      const nodeState = this.nodes[nodeOrdinal * this._nodeFieldCount + this._nodeEmbedderDataOffset];
+      propagateState(this, nodeOrdinal, nodeState);
+    }
+    // 2. If the parent is not attached, then the child inherits the parent's state.
+    while (detached.length !== 0) {
+      const nodeOrdinal = detached.pop();
+      const nodeState = this.nodes[nodeOrdinal * this._nodeFieldCount + this._nodeEmbedderDataOffset];
+      // Ignore if the node has been found through propagating forward attached state.
+      if (nodeState === kAttachedState) {
+        continue;
+      }
+      propagateState(this, nodeOrdinal, nodeState);
+    }
+
+    console.timeEnd('propagateDOMState');
   }
 
   _buildSamples() {
