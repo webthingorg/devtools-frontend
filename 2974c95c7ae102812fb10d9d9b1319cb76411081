@@ -225,6 +225,24 @@
     },
     {
       "key": {
+        "uuid": "acb8a7ef_f2240216",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T05:57:54Z",
+      "side": 1,
+      "message": "How about this?\n\n1. Make the signature of `_setIdleOverride` match that of `invoke_setIdleOverride`, i.e. `{isUserActive, isScreenUnlocked}`.\n2. Replace the keys as follows: e.g. `active:true,unlocked:true` becomes `{\"isUserActive\":true,\"isScreenUnlocked\":true}`.\n3. Now you can pass `JSON.parse(key)` as an argument to `_setIdleOverride`. (This was Alex\u0027s earlier suggestion.)\n\nBut, going further, we don\u0027t even need to have the list of options + values in JS. We can do what other tools in this panel do, and list the options in module.json instead. See https://chromium-review.googlesource.com/c/chromium/src/+/1832206/6/third_party/blink/renderer/devtools/front_end/sdk/module.json for an example (and see the rest of the CL to see how the values are pulled out).\n\nCombined with the above, this approach seems most consistent with the rest of the code in this panel, and simplest as well (since there is no map or switch/case at all).",
+      "parentUuid": "8bbe65a8_7a08845f",
+      "revId": "2974c95c7ae102812fb10d9d9b1319cb76411081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c56fcf4_52dd02b4",
         "filename": "front_end/emulation/SensorsView.js",
         "patchSetId": 2

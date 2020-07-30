@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fea9ccee_55388b5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T05:57:54Z",
+      "side": 1,
+      "message": "Please add a line like the following to your commit descriptions for changes like these:\n\n    Screenshot: https://i.imgur.com/LJHFIp9.png\n\n(of course with a different screenshot)",
+      "revId": "c1e23af4f5b87fd31e878003162dec7944a785f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c13e0e3d_de8bdbda",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T05:57:54Z",
+      "side": 1,
+      "message": "This should be a actual `Map`, not an object",
+      "revId": "c1e23af4f5b87fd31e878003162dec7944a785f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e464b71_ed2443ad",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T05:57:54Z",
+      "side": 1,
+      "message": "Now that `key` moved to be the actual key in the map, do we still need this line?",
+      "revId": "c1e23af4f5b87fd31e878003162dec7944a785f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
