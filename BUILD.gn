@@ -241,7 +241,6 @@ generated_test_modules = [
 ]
 
 all_worker_entrypoints = [
-  "front_end/heap_snapshot_worker_entrypoint.js",
   "front_end/wasmparser_worker_entrypoint.js",
 ]
 
@@ -338,6 +337,7 @@ action("generate_devtools_grd") {
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
         "$resources_out_dir/formatter_worker_entrypoint.js",
+        "$resources_out_dir/heap_snapshot_worker_entrypoint.js",
         "$resources_out_dir/third_party/acorn/package/dist/acorn.mjs",
       ]
 

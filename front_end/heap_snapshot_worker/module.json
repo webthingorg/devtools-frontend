@@ -12,5 +12,6 @@
     "heap_snapshot_model",
     "platform",
     "common"
-  ]
+  ],
+  "skip_rollup": true
 }
