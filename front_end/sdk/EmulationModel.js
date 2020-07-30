@@ -190,6 +190,14 @@ export class EmulationModel extends SDKModel {
     }
   }
 
+  async setIdleOverride(isUserActive, isScreenUnlocked) {
+    await this._emulationAgent.invoke_setIdleOverride({isUserActive: isUserActive, isScreenUnlocked: isScreenUnlocked});
+  }
+
+  async clearIdleOverride() {
+    await this._emulationAgent.invoke_clearIdleOverride();
+  }
+
   /**
    * @param {string} type
    * @param {!Array<{name: string, value: string}>} features
