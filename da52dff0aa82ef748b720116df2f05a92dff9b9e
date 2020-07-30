@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2c2f7ef_6178559c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-30T07:54:58Z",
+      "side": 1,
+      "message": "If I understand correctly, then this CL will only work if newly added files are also included in this new expectations list. Not adding new files to the grd_files_(debug|releases)_sources could cause the issue from occurring again?\n\nDo we have any way to automatically enforce that new JS files must be added to that list? Otherwise I don\u0027t really see the advantage of having this check (and the duplication).",
+      "revId": "da52dff0aa82ef748b720116df2f05a92dff9b9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
