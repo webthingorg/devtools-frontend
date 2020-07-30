@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76533a04_abbf1e73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-30T09:35:49Z",
+      "side": 1,
+      "message": "@Benedikt Meurer how can we handle the licensing in generated emscripten binaries?",
+      "revId": "b82abfb6015e34a1ec875f4ae0edac84b32a725b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
