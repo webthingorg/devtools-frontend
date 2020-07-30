@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
 import {click, getBrowserAndPages, step, waitFor} from '../../shared/helper.js';
-import {addBreakpointForLine, getScopeNames, getValuesForScope, openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, RESUME_BUTTON, sourceLineNumberSelector} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, getScopeNames, getValuesForScope, openSourceCodeEditorForFile, RESUME_BUTTON, sourceLineNumberSelector, stepThroughTheCode} from '../helpers/sources-helpers.js';
 
 describe('Source Tab', async () => {
   it('shows and updates the module, local, and stack scope while pausing', async () => {
@@ -61,8 +61,7 @@ describe('Source Tab', async () => {
     });
 
     await step('step one time', async () => {
-      await frontend.keyboard.press('F9');
-      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await stepThroughTheCode();
     });
 
     await step('check that the module scope content is as before', async () => {
