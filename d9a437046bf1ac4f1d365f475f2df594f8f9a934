@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "525ac491_c5cd4f13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-30T07:24:44Z",
+      "side": 1,
+      "message": "PTAL, thanks!\nI had to remove profiler from the deps even though it\u0027s referenced in one of the files.\nBut module.json also doesn\u0027t list it as a dependency. Not sure how to handle the situation best.",
+      "revId": "d9a437046bf1ac4f1d365f475f2df594f8f9a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
