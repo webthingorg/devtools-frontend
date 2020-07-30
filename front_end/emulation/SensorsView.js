@@ -32,6 +32,10 @@ export class SensorsView extends UI.Widget.VBox {
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
     this._appendTouchControl();
+
+    this.contentElement.createChild('div').classList.add('panel-section-separator');
+
+    this._appendIdleEmulator();
   }
 
   /**
@@ -551,6 +555,16 @@ export class SensorsView extends UI.Widget.VBox {
       SDK.FrameManager.FrameManager.instance()
           .once(SDK.FrameManager.Events.TopFrameNavigated)
           .then(() => reloadWarning.classList.add('hidden'));
+    }
+  }
+
+  _appendIdleEmulator() {
+    const control = UI.SettingsUI.createControlForSetting(
+        Common.Settings.Settings.instance().moduleSetting('emulation.idleDetection'), 
+        ls`Forces selected idle state emulation`);
+
+    if (control) {
+      this.contentElement.appendChild(control);
     }
   }
 }
