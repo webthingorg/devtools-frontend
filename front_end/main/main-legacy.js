@@ -7,6 +7,8 @@ import * as MainModule from './main.js';
 self.Main = self.Main || {};
 Main = Main || {};
 
+Main.sendOverProtocol = MainModule.MainImpl.sendOverProtocol;
+
 /**
  * @constructor
  */
