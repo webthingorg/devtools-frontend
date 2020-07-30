@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6800abc_c206e65c",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-07-30T14:21:35Z",
+      "side": 0,
+      "message": "We can remove these checks since this is done in `getBrowserAndPages()`",
+      "revId": "fb3eb0728d1dde441b8b718d11a6627a78a6ab9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
