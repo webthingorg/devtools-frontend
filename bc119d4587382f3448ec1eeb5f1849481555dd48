@@ -39,6 +39,30 @@
       "revId": "bc119d4587382f3448ec1eeb5f1849481555dd48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0adbc75_eb0e9171",
+        "filename": "test/e2e/snippets/context-menu_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "There is a lint check requiring a comment there",
+      "parentUuid": "5f99494a_d9091ffb",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "bc119d4587382f3448ec1eeb5f1849481555dd48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
