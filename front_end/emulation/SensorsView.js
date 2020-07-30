@@ -32,6 +32,10 @@ export class SensorsView extends UI.Widget.VBox {
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
     this._appendTouchControl();
+
+    this.contentElement.createChild('div').classList.add('panel-section-separator');
+
+    this._appendIdleEmulator();
   }
 
   /**
@@ -528,29 +532,22 @@ export class SensorsView extends UI.Widget.VBox {
   }
 
   _appendTouchControl() {
-    const groupElement = this.contentElement.createChild('div', 'sensors-group');
-    const title = UI.UIUtils.createLabel(ls`Touch`, 'sensors-group-title');
-    groupElement.appendChild(title);
-    const fieldsElement = groupElement.createChild('div', 'sensors-group-fields');
+    const control = UI.SettingsUI.createControlForSetting(
+      Common.Settings.Settings.instance().moduleSetting('emulation.touch'),
+      ls`Forces touch instead of click`);
 
-    const select = fieldsElement.createChild('select', 'chrome-select');
-    UI.ARIAUtils.bindLabelToControl(title, select);
-    select.appendChild(new Option(Common.UIString.UIString('Device-based'), 'auto'));
-    select.appendChild(new Option(Common.UIString.UIString('Force enabled'), 'enabled'));
-    select.addEventListener('change', applyTouch, false);
+    if (control) {
+      this.contentElement.appendChild(control);
+    }
+  }
 
-    const reloadWarning = groupElement.createChild('div', 'reload-warning hidden');
-    reloadWarning.textContent = Common.UIString.UIString('*Requires reload');
-    UI.ARIAUtils.markAsAlert(reloadWarning);
+  _appendIdleEmulator() {
+    const control = UI.SettingsUI.createControlForSetting(
+        Common.Settings.Settings.instance().moduleSetting('emulation.idleDetection'),
+        ls`Forces selected idle state emulation`);
 
-    function applyTouch() {
-      for (const emulationModel of SDK.SDKModel.TargetManager.instance().models(SDK.EmulationModel.EmulationModel)) {
-        emulationModel.overrideEmulateTouch(select.value === 'enabled');
-      }
-      reloadWarning.classList.remove('hidden');
-      SDK.FrameManager.FrameManager.instance()
-          .once(SDK.FrameManager.Events.TopFrameNavigated)
-          .then(() => reloadWarning.classList.add('hidden'));
+    if (control) {
+      this.contentElement.appendChild(control);
     }
   }
 }
