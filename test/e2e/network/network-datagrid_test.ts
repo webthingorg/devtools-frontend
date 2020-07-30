@@ -16,7 +16,7 @@ describe('The Network Tab', async () => {
     await click('[aria-label="Disable cache"] + label');
 
     const checkbox = await $('[aria-label="Disable cache"]');
-    const checked = await checkbox.evaluate(box => (box as HTMLInputElement).checked);
+    const checked = await checkbox!.evaluate(box => (box as HTMLInputElement).checked);
 
     assert.strictEqual(checked, true, 'The disable cache checkbox should be checked');
   });
@@ -64,7 +64,7 @@ describe('The Network Tab', async () => {
     await waitFor('.CodeMirror-code');
 
     const codeMirrorEditor = await $('.CodeMirror-code');
-    const htmlRawResponse = await codeMirrorEditor.evaluate(editor => editor.textContent);
+    const htmlRawResponse = await codeMirrorEditor!.evaluate(editor => editor.textContent);
 
     assert.strictEqual(
         htmlRawResponse,

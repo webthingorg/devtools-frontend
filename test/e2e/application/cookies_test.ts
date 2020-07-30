@@ -56,7 +56,7 @@ describe('The Application Tab', async () => {
     await click('.cookies-table .data-grid-data-grid-node');
 
     const previewValueNode = await $('.cookie-value');
-    const previewValue = await previewValueNode.evaluate(e => e.textContent);
+    const previewValue = await previewValueNode!.evaluate(e => e.textContent);
 
     assert.deepEqual(previewValue, 'bar');
   });
@@ -74,7 +74,7 @@ describe('The Application Tab', async () => {
 
     // Select a cookie first
     const previewValueNode1 = await $('.cookie-value');
-    const previewValue1 = await previewValueNode1.evaluate(e => e.textContent);
+    const previewValue1 = await previewValueNode1!.evaluate(e => e.textContent);
 
     assert.deepEqual(previewValue1, 'bar');
 
@@ -84,8 +84,8 @@ describe('The Application Tab', async () => {
 
     // Make sure that the preview resets
     const previewValueNode2 = await $('.cookie-value');
-    const previewValue2 = await previewValueNode2.evaluate(e => e.textContent as string);
+    const previewValue2 = await previewValueNode2!.evaluate(e => e.textContent as string);
 
-    assert.match(previewValue2, /Select a cookie to preview its value/);
+    assert.match(previewValue2!, /Select a cookie to preview its value/);
   });
 });

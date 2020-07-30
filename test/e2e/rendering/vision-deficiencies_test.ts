@@ -13,7 +13,7 @@ describe('Rendering pane', () => {
     await openPanelViaMoreTools('Rendering');
 
     const option = await $('option[value="achromatopsia"]');
-    const actual = await option.evaluate(node => {
+    const actual = await option!.evaluate(node => {
       const select = node.closest('select');
       return select ? select.textContent : '';
     });

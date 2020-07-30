@@ -37,7 +37,7 @@ export async function stopRecording() {
 
 export async function getTotalTimeFromSummary(): Promise<number> {
   const pieChartTotal = await $('.pie-chart-total');
-  const totalText = await pieChartTotal.evaluate(node => node.textContent as string);
+  const totalText = await pieChartTotal!.evaluate(node => node.textContent as string);
   return parseInt(totalText, 10);
 }
 
@@ -47,6 +47,6 @@ export async function navigateToPerformanceSidebarTab(tabName: string) {
 
 export async function waitForSourceLinkAndFollowIt() {
   const link = await waitFor('.devtools-link');
-  await click(link);
+  await click(link!);
   await waitFor('.panel[aria-label="sources"]');
 }

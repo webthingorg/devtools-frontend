@@ -23,7 +23,7 @@ describe('The Application Tab', async () => {
     await waitFor(DATABASES_SELECTOR);
     const databaseList = await $(DATABASES_SELECTOR);
 
-    const databaseNames = await databaseList.evaluate((list: Element) => {
+    const databaseNames = await databaseList!.evaluate((list: Element) => {
       return Array.from(list.querySelectorAll('li')).map(node => node.textContent);
     });
     assert.deepEqual(databaseNames, ['InspectorDatabaseTest', 'InspectorDatabaseTest2']);

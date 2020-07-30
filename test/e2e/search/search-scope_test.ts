@@ -21,11 +21,9 @@ describe('The Search Panel', async () => {
     // Launch the search panel.
     await triggerFindDialog(frontend);
     await waitFor(SEARCH_QUERY);
-    const query = await $(SEARCH_QUERY);
-    const inputElement = query.asElement();
+    const inputElement = await $(SEARCH_QUERY);
     if (!inputElement) {
       assert.fail('Unable to find search input field');
-      return;
     }
 
     // Go ahead and search.
@@ -36,10 +34,10 @@ describe('The Search Panel', async () => {
     // Wait for results.
     await waitFor(SEARCH_RESULTS);
     const resultsContainer = await $(SEARCH_RESULTS);
-    await waitFor(SEARCH_FILE_RESULT, resultsContainer);
+    await waitFor(SEARCH_FILE_RESULT, resultsContainer!);
 
     // Process the results into something manageable.
-    const fileResults = await $$(SEARCH_FILE_RESULT, resultsContainer);
+    const fileResults = await $$(SEARCH_FILE_RESULT, resultsContainer!);
 
     interface FileSearchResult {
       matchesCount: number;

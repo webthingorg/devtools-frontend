@@ -38,7 +38,7 @@ export async function openFileInSourcesPanel(testInput: string) {
 }
 
 export async function openSnippetsSubPane() {
-  await click('[aria-label="More tabs"]', {root: await $('.navigator-tabbed-pane')});
+  await click('[aria-label="More tabs"]', {root: await $('.navigator-tabbed-pane') || undefined});
   await waitFor('[aria-label="Snippets"]');
 
   await click('[aria-label="Snippets"]');
@@ -71,9 +71,9 @@ export async function openSourceCodeEditorForFile(sourceFile: string, testInput:
 
 export async function getOpenSources() {
   const sourceTabPane = await waitFor('#sources-panel-sources-view .tabbed-pane');
-  const sourceTabs = (await $('.tabbed-pane-header-tabs', sourceTabPane));
+  const sourceTabs = await $('.tabbed-pane-header-tabs', sourceTabPane!);
   const openSources =
-      await sourceTabs.$$eval('.tabbed-pane-header-tab', nodes => nodes.map(n => n.getAttribute('aria-label')));
+      await sourceTabs!.$$eval('.tabbed-pane-header-tab', nodes => nodes.map(n => n.getAttribute('aria-label')));
   return openSources;
 }
 
@@ -157,12 +157,12 @@ export async function getNonBreakableLines(frontend: puppeteer.Page) {
 
 export async function getExecutionLine() {
   const activeLine = await waitFor('.cm-execution-line-outline', undefined, 1000);
-  return await activeLine.asElement()!.evaluate(n => parseInt(n.textContent!, 10));
+  return await activeLine!.asElement()!.evaluate(n => parseInt(n.textContent!, 10));
 }
 
 export async function getExecutionLineText() {
   const activeLine = await waitFor('.cm-execution-line pre', undefined, 1000);
-  return await activeLine.asElement()!.evaluate(n => n.textContent);
+  return await activeLine!.asElement()!.evaluate(n => n.textContent);
 }
 
 export async function retrieveTopCallFrameScriptLocation(script: string, target: puppeteer.Page) {
@@ -176,7 +176,7 @@ export async function retrieveTopCallFrameScriptLocation(script: string, target:
 
   // Retrieve the top level call frame script location name
   const locationHandle = await $('.call-frame-location');
-  const scriptLocation = await locationHandle.evaluate(location => location.textContent);
+  const scriptLocation = await locationHandle!.evaluate(location => location.textContent);
 
   // Resume the evaluation
   await click(RESUME_BUTTON);
@@ -195,7 +195,7 @@ export async function retrieveTopCallFrameWithoutResuming() {
 
   // Retrieve the top level call frame script location name
   const locationHandle = await $('.call-frame-location');
-  const scriptLocation = await locationHandle.evaluate(location => location.textContent);
+  const scriptLocation = await locationHandle!.evaluate(location => location.textContent);
 
   return scriptLocation;
 }
@@ -260,7 +260,7 @@ export function createSelectorsForWorkerFile(
 
 async function expandSourceTreeItem(selector: string) {
   const sourceTreeItem = await waitFor(selector, undefined, 1000);
-  const isExpanded = await sourceTreeItem.asElement()!.evaluate(element => {
+  const isExpanded = await sourceTreeItem!.asElement()!.evaluate(element => {
     return element.getAttribute('aria-expanded') === 'true';
   });
   if (!isExpanded) {
@@ -289,7 +289,7 @@ export async function openNestedWorkerFile(selectors: NestedFileSelector) {
 export async function clickOnContextMenu(selector: string, label: string) {
   // Find the selected node, right click.
   const selectedNode = await $(selector);
-  await click(selectedNode, {clickOptions: {button: 'right'}});
+  await click(selectedNode!, {clickOptions: {button: 'right'}});
 
   // Wait for the context menu option, and click it.
   const labelSelector = `[aria-label="${label}"]`;
@@ -299,7 +299,7 @@ export async function clickOnContextMenu(selector: string, label: string) {
 
 export async function typeIntoSourcesAndSave(text: string) {
   const pane = await waitFor('.sources');
-  await pane.asElement()!.type(text);
+  await pane!.asElement()!.type(text);
 
   await pressKey('s', {control: true});
 }

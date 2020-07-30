@@ -24,12 +24,12 @@ describe('Watch Expression Pane', async () => {
 
     // Retrieve watch element and ensure that it is expanded
     const element = await waitFor('.object-properties-section-root-element');
-    const initialExpandCheck = await element.evaluate(e => e.classList.contains('expanded'));
+    const initialExpandCheck = await element!.evaluate(e => e.classList.contains('expanded'));
     assert.strictEqual(initialExpandCheck, true);
 
     // Begin editing and check that element is now collapsed.
     await frontend.keyboard.press('Enter');
-    const editingExpandCheck = await element.evaluate(e => e.classList.contains('expanded'));
+    const editingExpandCheck = await element!.evaluate(e => e.classList.contains('expanded'));
     assert.strictEqual(editingExpandCheck, false);
   });
 });
