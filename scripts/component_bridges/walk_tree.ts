@@ -365,7 +365,8 @@ export const walkTree = (startNode: ts.SourceFile, resolvedFilePath: string): Wa
   }));
 
   const missingInterfaces = Array.from(state.interfaceNamesToConvert).filter(name => {
-    return foundInterfaceNames.has(name) === false;
+    // Object is a TS interface that's built-in so we don't want to look for that as a missing one
+    return foundInterfaceNames.has(name) === false && name !== 'Object';
   });
 
   /* now look at all the imports and see if we have the name of the missing interface
@@ -395,6 +396,11 @@ export const walkTree = (startNode: ts.SourceFile, resolvedFilePath: string): Wa
       state.foundInterfaces.add(foundInterface);
     });
   });
+
+  // Some components may (rarely) use the TypeScript Object type
+  // But that's defined by TypeScript, not us, and maps directly to Closure's Object
+  // So we don't need to generate any typedefs for the `Object` type.
+  state.interfaceNamesToConvert.delete('Object');
 
   return state;
 };
