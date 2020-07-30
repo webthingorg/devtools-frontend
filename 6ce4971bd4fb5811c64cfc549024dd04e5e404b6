@@ -16,6 +16,24 @@
       "revId": "6ce4971bd4fb5811c64cfc549024dd04e5e404b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18556d8e_1138ef95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1426855
+      },
+      "writtenOn": "2020-07-30T21:46:23Z",
+      "side": 1,
+      "message": "OK with me since the rotation bug is a known issue regardless of the extended dashed lines being there.",
+      "parentUuid": "1f05e59e_7304bc05",
+      "revId": "6ce4971bd4fb5811c64cfc549024dd04e5e404b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
