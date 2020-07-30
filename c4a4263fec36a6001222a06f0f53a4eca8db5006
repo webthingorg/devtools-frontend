@@ -33,6 +33,24 @@
       "revId": "c4a4263fec36a6001222a06f0f53a4eca8db5006",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f337db3d_792b38b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-07-30T08:34:20Z",
+      "side": 1,
+      "message": "Good catch. I don\u0027t know if the top frame can really be deleted. It usually corresponds to a \u0027FrameTreeNode\u0027 on the backend side, for which the \"root\" node never gets deleted.\n\nI wanted to add a call to the \u0027resetTopFrame\u0027 method everywhere where \"_frames\" is modified, but forgot to search for \u0027delete\u0027. I added a call there as well, just to be safe.\n\nI\u0027ll follow up with a CL that factors this out into a small helper class, so the set of frames can\u0027t be modified without automatically updating the top frame. That should guard us against future changes a bit better.",
+      "parentUuid": "eb743851_5d02fd31",
+      "revId": "c4a4263fec36a6001222a06f0f53a4eca8db5006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
