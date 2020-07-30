@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2edfd86e_ec3673d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T09:53:08Z",
+      "side": 1,
+      "message": "Please add the following to the commit message:\n\n- an imgur screenshot showing the context menu\n- an example of the exported data",
+      "revId": "d0b2c77486d8249b8e5f4139e2d28bd086574b18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "844016d6_a5af5f5e",
+        "filename": "front_end/media/MainView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T09:53:08Z",
+      "side": 1,
+      "message": "The `2` in  `JSON.stringify(dump, 2)` does not have any effect. I think you either meant `JSON.stringify(dump, null, 2)` (i.e. use two-space indents) or just `JSON.stringify(dump)`.",
+      "range": {
+        "startLine": 396,
+        "startChar": 77,
+        "endLine": 396,
+        "endChar": 100
+      },
+      "revId": "d0b2c77486d8249b8e5f4139e2d28bd086574b18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cef48d07_55f496c3",
+        "filename": "front_end/media/MainView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-30T09:53:08Z",
+      "side": 1,
+      "message": "Just a thought, but instead of window.open, I wonder if we could use `\u003ca download\u003e` here.",
+      "revId": "d0b2c77486d8249b8e5f4139e2d28bd086574b18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
