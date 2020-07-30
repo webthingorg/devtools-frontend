@@ -86,6 +86,30 @@
       "revId": "2adc20931d1d5d7ed90cc5b932952c54cf7ca2d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1ae1ea2_32951fff",
+        "filename": "front_end/inspector_overlay/debug/tool_highlight_grid_sizes.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-30T15:21:56Z",
+      "side": 1,
+      "message": "that makes sense. most of these we would need to re-figure out the alt axis positions anyway, which might take a bit of time, or run it through the gethighlightjson CDP command. I\u0027m good with doing a follow up",
+      "parentUuid": "2e1a8938_b789e202",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "2adc20931d1d5d7ed90cc5b932952c54cf7ca2d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
