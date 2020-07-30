@@ -9,7 +9,7 @@ import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpe
 
 describe('The Console Tab', async function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
-  this.timeout(10000);
+  this.timeout(20000);
 
   it('allows re-declaration of let variables', async () => {
     const {frontend} = getBrowserAndPages();
