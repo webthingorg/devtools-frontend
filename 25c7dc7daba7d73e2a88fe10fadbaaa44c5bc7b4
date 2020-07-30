@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e029f139_d45c1ab7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-30T12:57:48Z",
+      "side": 1,
+      "message": "Experiment with SettingsUI.\n`enum` wraps select to extra \u003cp\u003e which makes the Idle element look different from the others on the page.",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
