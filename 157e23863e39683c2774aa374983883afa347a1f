@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "7bc81e1c_0b00f2e6",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-30T07:22:18Z",
+      "side": 1,
+      "message": "We are in the process of adding types to our code-base, and this is something I noticed during development.",
+      "parentUuid": "17db87fc_93af8770",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 26
+      },
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb26dc63_43324c1b",
         "filename": "front_end/elements/ElementsTreeElement.js",
         "patchSetId": 3
@@ -105,6 +129,30 @@
       "writtenOn": "2020-07-28T15:07:55Z",
       "side": 1,
       "message": "\"isAdFrameNode()\" should just identify whether or not a frame is an ad, correct?  It doesn\u0027t identify whether the frame is a HeavyAd, so I don\u0027t understand this particular piece.",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bceee4b_88c57f33",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-30T07:22:18Z",
+      "side": 1,
+      "message": "Yes, correct, HeavyAd here only means \"identified as an ad frame\".\n\nDo we want to identify all frames that are classified as ad frames, or do we only want to point out frames for which an actual intervention happened?",
+      "parentUuid": "cb26dc63_43324c1b",
       "range": {
         "startLine": 89,
         "startChar": 24,
