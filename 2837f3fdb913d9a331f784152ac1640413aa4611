@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "f0887ea2_49620dc5",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-07-30T08:22:35Z",
+      "side": 1,
+      "message": "because the \u0027activeLineNumber\u0027 is a string and we are using strictEqual, we need to convert it a number (or at least unify the types of the two variables).\nThe unary operator (+) does that in this case.",
+      "parentUuid": "59d3a843_c6eacaaa",
+      "revId": "2837f3fdb913d9a331f784152ac1640413aa4611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0d7843_e81e525b",
         "filename": "test/e2e/sources/can-show-wasm-scopes_test.ts",
         "patchSetId": 5
