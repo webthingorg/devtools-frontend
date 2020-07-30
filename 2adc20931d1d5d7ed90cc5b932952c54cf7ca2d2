@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c30803f_72c69f5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-30T15:15:26Z",
+      "side": 1,
+      "message": "lgtm with a nit and a question about the other debug.html files",
+      "revId": "2adc20931d1d5d7ed90cc5b932952c54cf7ca2d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54424003_cb63a866",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-30T15:15:26Z",
+      "side": 1,
+      "message": "nit: maybe \u0027axis\u0027 is more clear?",
+      "range": {
+        "startLine": 145,
+        "startChar": 38,
+        "endLine": 145,
+        "endChar": 43
+      },
+      "revId": "2adc20931d1d5d7ed90cc5b932952c54cf7ca2d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8ebfb14_63e6dc59",
+        "filename": "front_end/inspector_overlay/debug/tool_highlight_grid_sizes.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-30T15:15:26Z",
+      "side": 1,
+      "message": "nit: what is the plan for the other grid related debug files that stil have offsets: tool_highlight_explicit_grid.html, tool_highlight_fullpage_grid.html, tool_highlight_grid.html, etc?\n\nShould we also fix up here since they will be invalid? or do a follow up change?",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "2adc20931d1d5d7ed90cc5b932952c54cf7ca2d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
