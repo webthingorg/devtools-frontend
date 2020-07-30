@@ -5,7 +5,7 @@
 import("../../../third_party/typescript/typescript.gni")
 
 node_ts_library("sensors") {
-  sources = [ "location_test.ts" ]
+  sources = [ "location_test.ts", "idle_test.ts" ]
 
   deps = [
     "../../shared",
