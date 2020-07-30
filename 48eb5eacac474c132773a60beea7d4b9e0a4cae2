@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9570e4e_d52e3c41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-30T20:52:36Z",
+      "side": 1,
+      "message": "Hi All, small CL to always apply a purple background to default grid highlighting based on user feedback. I\u0027m open to changes to the color, so please let me know what you all think!",
+      "revId": "48eb5eacac474c132773a60beea7d4b9e0a4cae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
