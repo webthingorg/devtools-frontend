@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f05e59e_7304bc05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-07-30T19:45:57Z",
+      "side": 1,
+      "message": "@Mathias, Rachel, Peter lmk if you all have any reservations about landing this even with the rotation bug. otherwise I\u0027ll submit in the morning.",
+      "revId": "6ce4971bd4fb5811c64cfc549024dd04e5e404b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
