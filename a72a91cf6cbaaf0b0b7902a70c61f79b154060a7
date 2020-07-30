@@ -16,6 +16,46 @@
       "revId": "a72a91cf6cbaaf0b0b7902a70c61f79b154060a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ad4cbb4_6fde104e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-30T13:39:48Z",
+      "side": 1,
+      "message": "One thought about the structure but everything else is looking great!",
+      "revId": "a72a91cf6cbaaf0b0b7902a70c61f79b154060a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a4e3fae_174abe5d",
+        "filename": "devtools_module_entrypoints.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-30T13:39:48Z",
+      "side": 1,
+      "message": "I wonder if `graph_visualizer` should be a top level entry point, e.g. not nested within `web_audio`? \n\nI don\u0027t mind either way but I wonder if it will make it easier if all our entrypoints are in the same structure at the same level. It wouldn\u0027t surprise me if that assumption is baked into some of our tooling.\n\n+Paul WDYT?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 70
+      },
+      "revId": "a72a91cf6cbaaf0b0b7902a70c61f79b154060a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
