@@ -16,6 +16,23 @@
       "revId": "b82abfb6015e34a1ec875f4ae0edac84b32a725b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "781b5b8f_afef6303",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-07-30T12:06:20Z",
+      "side": 1,
+      "message": "I think the license of generated files should be fine. hablich@ can you check?",
+      "revId": "b82abfb6015e34a1ec875f4ae0edac84b32a725b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
