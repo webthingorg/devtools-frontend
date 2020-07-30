@@ -101,6 +101,24 @@
       "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6fc37d8_408d38e7",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-30T18:45:59Z",
+      "side": 1,
+      "message": "good point. I would rather move `Touch` settings to `module.json`",
+      "parentUuid": "c9c357ec_64391f11",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
