@@ -5,26 +5,34 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
-/**
- * @param {!Object} data
- */
-export function drawDistances(data) {
-  const info = data['distanceInfo'];
-  if (!info) {
-    return;
+import {Overlay} from './common.js';
+
+export class DistancesOverlay extends Overlay {
+  drawDistances(data) {
+    const info = data.distanceInfo;
+    if (!info) {
+      return;
+    }
+    const rect = quadToRect(getVisualQuad(info));
+    const context = this.context;
+    context.save();
+    context.strokeStyle = '#ccc';
+    for (const box of info.boxes) {
+      context.strokeRect(box[0], box[1], box[2], box[3]);
+    }
+    context.strokeStyle = '#f00';
+    context.lineWidth = 1;
+    context.rect(rect.x - 0.5, rect.y - 0.5, rect.w + 1, rect.h + 1);
+    context.stroke();
+    context.restore();
   }
-  const rect = quadToRect(getVisualQuad(info));
-  const context = window.context;
-  context.save();
-  context.strokeStyle = '#ccc';
-  for (const box of info['boxes']) {
-    context.strokeRect(box[0], box[1], box[2], box[3]);
+
+  setPlatform(platform) {
+    super.setPlatform(platform);
+    this.document.body.classList.add('fill');
+    this.document.body.innerHTML = '<canvas id="canvas" class="fill" />';
+    this.setCanvas(this.document.getElementById('canvas'));
   }
-  context.strokeStyle = '#f00';
-  context.lineWidth = 1;
-  context.rect(rect.x - 0.5, rect.y - 0.5, rect.w + 1, rect.h + 1);
-  context.stroke();
-  context.restore();
 }
 
 /**
