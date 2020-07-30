@@ -11,7 +11,7 @@ const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
 const CSS_PROPERTY_NAME_SELECTOR = '.webkit-css-property';
 const CSS_PROPERTY_SWATCH_SELECTOR = '.color-swatch-inner';
 const CSS_STYLE_RULE_SELECTOR = '[aria-label*="css selector"]';
-const COMPUTED_PROPERTY_SELECTOR = '.computed-style-property';
+export const COMPUTED_PROPERTY_SELECTOR = '.computed-style-property';
 const COMPUTED_STYLES_PANEL_SELECTOR = '[aria-label="Computed panel"]';
 const COMPUTED_STYLES_SHOW_ALL_SELECTOR = '[aria-label="Show all"]';
 const ELEMENTS_PANEL_SELECTOR = '.panel[aria-label="elements"]';
@@ -114,6 +114,13 @@ export const getAllPropertiesFromComputedPane = async () => {
         })
         .filter(prop => !!prop);
   });
+};
+
+export const getTracesFromComputedStyle = async (selector: string) => {
+  const computedStyleProperty = await $(selector);
+  await click(computedStyleProperty);
+  const propertyTraces = await $$('.expanded .property-trace');
+  return propertyTraces.evaluate((nodes: Element[]) => nodes.map(node => node.textContent));
 };
 
 export const expandSelectedNodeRecursively = async () => {
