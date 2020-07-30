@@ -16,6 +16,24 @@
       "revId": "da52dff0aa82ef748b720116df2f05a92dff9b9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68d0b947_5ccad5db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-07-30T08:10:13Z",
+      "side": 1,
+      "message": "If the inputs don\u0027t match the expected it will also fail there, i.e. if you add a file to something like devtools_entrypoint (or module.json), it will make the list of files in the input of the GRD action. It will then throw as there\u0027s a file in the list that wasn\u0027t in the expected list.\n\nThe only variant I can think of that wouldn\u0027t be covered is if you had a JS/TS file that you didn\u0027t add to any devtools_* action or module.json, and which you also didn\u0027t add to the expectations. That would sit inert in the codebase. Theoretically you could import it and TS wouldn\u0027t be unhappy with that at author time, but it would fail in enough other ways that I don\u0027t anticipate it being in an issue.",
+      "parentUuid": "f2c2f7ef_6178559c",
+      "revId": "da52dff0aa82ef748b720116df2f05a92dff9b9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
