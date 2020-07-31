@@ -54,6 +54,7 @@ group("front_end") {
     "screencast:bundle",
     "sdk:bundle",
     "search:bundle",
+    "security:bundle",
     "services:bundle",
     "settings:bundle",
     "source_frame:bundle",
