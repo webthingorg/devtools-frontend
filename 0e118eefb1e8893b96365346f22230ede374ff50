@@ -16,6 +16,23 @@
       "revId": "0e118eefb1e8893b96365346f22230ede374ff50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d1c614a_ade8ae9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-31T11:11:21Z",
+      "side": 1,
+      "message": "Overall looks good.\n\nI would have expected _windowOpened on the TargetManager, because it is really about a new target (are only targets of type \u0027page\u0027 relevant?). What is the reasoning to put it on the frame manager?",
+      "revId": "0e118eefb1e8893b96365346f22230ede374ff50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
