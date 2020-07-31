@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "af3ca66f_df0f0704",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-07-31T21:46:00Z",
+      "side": 1,
+      "message": "its somewhat of an artifact of trying to keep supporting the chrome://media-internals page. I\u0027d like to get rid of it shortly, but it requires trying to synchronize changes between devtools and blink, which is always a pain.",
+      "parentUuid": "6eee6aec_9d6ac59b",
+      "revId": "90404db5e4c454a8de3cfa3925fd8f7424dfcbf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "505cbfff_a9754c65",
         "filename": "front_end/media/MainView.js",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a848dd9a_a1605948",
+        "filename": "front_end/media/MainView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-07-31T21:46:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "505cbfff_a9754c65",
+      "revId": "90404db5e4c454a8de3cfa3925fd8f7424dfcbf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "256c25cb_94879e37",
         "filename": "front_end/media/MainView.js",
         "patchSetId": 5
@@ -50,6 +86,24 @@
       "revId": "90404db5e4c454a8de3cfa3925fd8f7424dfcbf1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6999fc99_f3ce9be8",
+        "filename": "front_end/media/MainView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-07-31T21:46:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "256c25cb_94879e37",
+      "revId": "90404db5e4c454a8de3cfa3925fd8f7424dfcbf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
