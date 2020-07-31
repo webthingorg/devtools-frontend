@@ -16,6 +16,115 @@
       "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61f34cf_aa7ff189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002405
+      },
+      "writtenOn": "2020-07-31T14:34:52Z",
+      "side": 1,
+      "message": "looking good",
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fda92239_cb9c3273",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1930,
+      "author": {
+        "id": 1002405
+      },
+      "writtenOn": "2020-07-31T14:34:52Z",
+      "side": 1,
+      "message": "Should this be before console.time?",
+      "range": {
+        "startLine": 1928,
+        "startChar": 4,
+        "endLine": 1930,
+        "endChar": 5
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45b58eed_a4dff09d",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1002405
+      },
+      "writtenOn": "2020-07-31T14:34:52Z",
+      "side": 1,
+      "message": "stringFieldOffset?",
+      "range": {
+        "startLine": 1959,
+        "startChar": 73,
+        "endLine": 1959,
+        "endChar": 79
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09ea228d_ecc67b0f",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1002405
+      },
+      "writtenOn": "2020-07-31T14:34:52Z",
+      "side": 1,
+      "message": "\"Field\" is not descriptive. How about oldStringIndex and newStringIndex?",
+      "range": {
+        "startLine": 1960,
+        "startChar": 12,
+        "endLine": 1960,
+        "endChar": 25
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24ed47b0_0ae385dc",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1002405
+      },
+      "writtenOn": "2020-07-31T14:34:52Z",
+      "side": 1,
+      "message": "We should also check the current state of the node and bail out if it is already attached or detached.",
+      "range": {
+        "startLine": 1981,
+        "startChar": 6,
+        "endLine": 1981,
+        "endChar": 61
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
