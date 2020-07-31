@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c73a1fc_46e3cd61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-31T10:53:59Z",
+      "side": 1,
+      "message": "So the idea is that as long as the clobber file is checked in, we don\u0027t have incremental builds, right? Since the bots have a lifetime of a day, this could be removed after a day.\n\nThe chromium landmines work a bit differently. They have a text file checked in and write the contents to disk into another untracked file if it doesn\u0027t exist yet. If it exists, they compare the contents and only clobber on difference. Like that you get one clobber action per checkout and new line you add to that file. After it\u0027s clobbered once it continues with the incremental build. This was often needed when e.g. updates to some thirdparty components were made that broke the incremental build (e.g. ICU when it was on GYP).\n\nWould a single clobber solve your build problems or do you need a regular clobber until resolved? If we need to regularly clobber, we could also change the recipe for now and call `gn clean` or similar... and at some point revert that.",
+      "revId": "0c3dff708e2872ae149d7b7cebcbb0ef12f2c97a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c722e8ca_810e63e4",
+        "filename": "scripts/build/clobber_out.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-31T10:53:59Z",
+      "side": 1,
+      "message": "Note the original purpose of build_overrides is to override settings on the Chromium side. E.g. gn looks there for some files and Chromium or devtools-frontend have different versions of such files.\n\nI don\u0027t really care where the clobber file is placed, but here might be confusing. Any other new location would do fine.",
+      "range": {
+        "startLine": 5,
+        "startChar": 24,
+        "endLine": 5,
+        "endChar": 39
+      },
+      "revId": "0c3dff708e2872ae149d7b7cebcbb0ef12f2c97a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c601967_41a3a0a2",
+        "filename": "scripts/build/clobber_out.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-31T10:53:59Z",
+      "side": 1,
+      "message": "I prefer to use a construct that is guaranteed to point to the correct folder, like:\nTHIS_DIR \u003d os.path.dirname(os.path.abspath(__file__))\nBASE_PATH \u003d os.path.normpath(os.path.join(THIS_DIR, \u0027..\u0027, \u0027..\u0027))",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "0c3dff708e2872ae149d7b7cebcbb0ef12f2c97a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b0083dd_5dfd88eb",
+        "filename": "scripts/build/clobber_out.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-31T10:53:59Z",
+      "side": 1,
+      "message": "Is this windows-safe? I\u0027ve seen some places in infra that check the platform and on windows call os.unlink.",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 13
+      },
+      "revId": "0c3dff708e2872ae149d7b7cebcbb0ef12f2c97a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
