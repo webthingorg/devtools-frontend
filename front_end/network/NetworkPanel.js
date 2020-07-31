@@ -55,6 +55,8 @@ export class NetworkPanel extends UI.Panel.Panel {
     super('network');
     this.registerRequiredCSS('network/networkPanel.css');
 
+    self.runtime.registerCommand('NetworkPanel.revealAndFilter', NetworkPanel.revealAndFilter);
+
     this._networkLogShowOverviewSetting =
         Common.Settings.Settings.instance().createSetting('networkLogShowOverview', true);
     this._networkLogLargeRowsSetting = Common.Settings.Settings.instance().createSetting('networkLogLargeRows', false);
@@ -935,3 +937,7 @@ export class SearchNetworkView extends Search.SearchView.SearchView {
     return new NetworkSearchScope();
   }
 }
+
+self.runtime.registerCommandNamespaceInitializer('NetworkPanel', () => {
+  self.runtime.sharedInstance(NetworkPanel);
+});

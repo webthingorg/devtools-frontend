@@ -45,6 +45,10 @@ export class Runtime {
     this._cachedTypeClasses = {};
     /** @type {!Object<string, !ModuleDescriptor>} */
     this._descriptorsMap = {};
+    /** @type {!Map<string, function(*):void>} */
+    this._commandHandlers = new Map();
+    /** @type {!Map<string, function(void):void>} */
+    this._commandNamespaceInitializers = new Map();
 
     for (let i = 0; i < descriptors.length; ++i) {
       this._registerModule(descriptors[i]);
@@ -411,6 +415,42 @@ export class Runtime {
     // @ts-ignore Usage of symbols
     constructorFunction[instanceSymbol] = instance;
     return instance;
+  }
+
+  /**
+   * @param {string} name
+   * @param {function(void):void} initializer
+   */
+  registerCommandNamespaceInitializer(name, initializer) {
+    this._commandNamespaceInitializers.set(name, initializer);
+  }
+
+  /**
+   * @param {string} command
+   * @param {*} args
+   */
+  execute(command, args) {
+    const namespace = command.split('.')[0];
+    const namespaceInitializer = this._commandNamespaceInitializers.get(namespace);
+    if (namespaceInitializer) {
+      this._commandNamespaceInitializers.delete(namespace);
+      namespaceInitializer();
+    }
+
+    const handler = this._commandHandlers.get(command);
+    if (!handler) {
+      return;
+    }
+
+    handler(args);
+  }
+
+  /**
+   * @param {string} command
+   * @param {function(*):void} cb
+   */
+  registerCommand(command, cb) {
+    this._commandHandlers.set(command, cb);
   }
 }
 
