@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0163ace7_0226bbed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-31T08:41:06Z",
+      "side": 1,
+      "message": "This introduces a lot of histogram keys, did you investigate how to best represent this in the chromium back-end?",
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

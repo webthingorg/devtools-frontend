@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7cb0f9b7_bc516351",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-31T08:41:06Z",
+      "side": 1,
+      "message": "That is a great question! However, what does it tell you that an issue is opened often? It could just be the case that the issue is unfixable (-\u003e not useful) and Developers keep opening the issue because it appears repeatedly.\n\n\nI agree that the relation between issues opened and resources clicked could yield interesting information.",
+      "parentUuid": "258d41ff_43e8b446",
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d80620d3_712a7444",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 8
