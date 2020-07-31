@@ -34,6 +34,24 @@
       "revId": "0f286fd11067a505669ba718e32b43af2084ff29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d16ab25_d5de42a1",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T12:56:41Z",
+      "side": 1,
+      "message": "`npm run check` helped me a lot. Thanks!",
+      "parentUuid": "fa75517d_69d61554",
+      "revId": "0f286fd11067a505669ba718e32b43af2084ff29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
