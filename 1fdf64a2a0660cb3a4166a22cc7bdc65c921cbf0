@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ee12d909_e10af810",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-31T10:06:49Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "c7ecf6a6_dcb1320b",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 82
+      },
+      "revId": "1fdf64a2a0660cb3a4166a22cc7bdc65c921cbf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5286a49b_2bf0c9c4",
         "filename": "test/shared/helper.ts",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "While i\u0027m at it, how about I remove AsyncTrace completely? Then tests choose async scope reporting by importing it either from mocha or from the helper. How about also turning it() into a type to support it.only and it.skip?",
       "parentUuid": "5286a49b_2bf0c9c4",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "1fdf64a2a0660cb3a4166a22cc7bdc65c921cbf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56e52794_b85604c7",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-31T10:06:49Z",
+      "side": 1,
+      "message": "SGTM. WDYT about moving it to another file/es module. Then you could even write unit tests if you wanna go nuts. Not generally required for test helpers though",
+      "parentUuid": "fb7d7763_3b5749bd",
       "range": {
         "startLine": 57,
         "startChar": 6,
@@ -140,6 +188,30 @@
       "revId": "1fdf64a2a0660cb3a4166a22cc7bdc65c921cbf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce937d5d_faa19163",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-31T10:06:49Z",
+      "side": 1,
+      "message": "👍",
+      "parentUuid": "48f083b8_a2154216",
+      "range": {
+        "startLine": 75,
+        "startChar": 9,
+        "endLine": 75,
+        "endChar": 15
+      },
+      "revId": "1fdf64a2a0660cb3a4166a22cc7bdc65c921cbf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
