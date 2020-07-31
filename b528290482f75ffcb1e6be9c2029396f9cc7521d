@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4442b29c_bd09d60a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-07-31T12:19:41Z",
+      "side": 1,
+      "message": "ptal, I manually checked that the change works on our corner cases once the V8 and Blink changes are also in place.\n\nAutomatic tests are hopefully re-enabled soon, see http://crbug.com/1110817\n\n(I did not use Cranken-script assuming that we can inline and optimize closures if needed these days.)",
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

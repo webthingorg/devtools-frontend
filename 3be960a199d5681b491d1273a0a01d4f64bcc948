@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "726cbe3c_1bb4c39d",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2803,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-07-31T12:19:41Z",
+      "side": 1,
+      "message": "This phase dealing with detached nodes can be merged with the other one once things are moved over.",
+      "range": {
+        "startLine": 2803,
+        "startChar": 2,
+        "endLine": 2803,
+        "endChar": 27
+      },
+      "revId": "3be960a199d5681b491d1273a0a01d4f64bcc948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
