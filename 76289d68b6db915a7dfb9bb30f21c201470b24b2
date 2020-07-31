@@ -16,6 +16,24 @@
       "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bfda6fc_be29f23d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-07-31T19:08:02Z",
+      "side": 1,
+      "message": "We can reduce the complexity of the metrics to just resources clicked with an enum of the issue type and drop the resource type all together.\n\nThe histogram enum would be something like:\n```\n\u003cenum name\u003d\"DevToolsIssuesPanelResourceOpened\"\u003e\n  \u003cint value\u003d\"0\" label\u003d\"CrossOriginEmbedderPolicy\"/\u003e\n  \u003cint value\u003d\"1\" label\u003d\"MixedContent\"/\u003e\n  \u003cint value\u003d\"2\" label\u003d\"SameSiteCookie\"/\u003e\n  \u003cint value\u003d\"3\" label\u003d\"HeavyAd\"/\u003e\n  \u003cint value\u003d\"4\" label\u003d\"ContentSecurityPolicy\"/\u003e\n  \u003cint value\u003d\"5\" label\u003d\"Other\"/\u003e\n\u003c/enum\u003e\n```\n\nThis should still help us answer the question \"Which issues are useful to developers?\".\n\nSigurd@, does that address the number of histogram keys concern or did I misunderstand?",
+      "parentUuid": "0163ace7_0226bbed",
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

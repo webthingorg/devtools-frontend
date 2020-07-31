@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "2c21ba12_317c13a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-07-31T19:08:02Z",
+      "side": 1,
+      "message": "Good point and I agree that a clicked resources is a stronger signal that the issue was useful.\n\nI will purpose a different set of metrics collected in my other comment.",
+      "parentUuid": "7cb0f9b7_bc516351",
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d80620d3_712a7444",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 8
