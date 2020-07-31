@@ -16,6 +16,29 @@
       "revId": "dd7c7e757338434f3359fe8b28d9f848596bbb42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d825e26e_f38fbe80",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-07-31T11:53:22Z",
+      "side": 1,
+      "message": "This function (and the one below) could be components, if Kateryna wants to work on this next.",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 18
+      },
+      "revId": "dd7c7e757338434f3359fe8b28d9f848596bbb42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
