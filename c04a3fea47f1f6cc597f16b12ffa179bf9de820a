@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35759f2f_bbfb5394",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-07-31T12:52:44Z",
+      "side": 1,
+      "message": "From a design perspective I\u0027d favor to mention every entity only once in the configs. E.g. something like:\n\nbuilder(name, cq\u003dTrue/False)\n\nThese cross-references and separate list with names of things are similar to the old design.\n\nFine for now, we could make a refactoring in a separate CL.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 34
+      },
+      "revId": "c04a3fea47f1f6cc597f16b12ffa179bf9de820a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
