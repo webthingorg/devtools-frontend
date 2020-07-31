@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "834411b5_03b25fd4",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-31T06:09:14Z",
+      "side": 1,
+      "message": "Can this helper work with any |selector|? Or it\u0027s going to be always COMPUTED_PROPERTY_SELECTOR ?",
+      "revId": "1ca77759ea32432080251370d245ab0b0180a7d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
