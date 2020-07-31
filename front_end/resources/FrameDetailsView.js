@@ -82,3 +82,82 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     }
   }
 }
+
+export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget {
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   * @param {boolean} isWindowClosed
+   */
+  constructor(targetInfo, isWindowClosed) {
+    super();
+    this._targetInfo = targetInfo;
+    this._isWindowClosed = isWindowClosed;
+    this._reportView = new UI.ReportView.ReportView(this.buildTitle());
+    this._reportView.registerRequiredCSS('resources/frameDetailsReportView.css');
+    this._reportView.show(this.contentElement);
+
+    this._documentSection = this._reportView.appendSection(ls`Document`);
+    this._URLFieldValue = this._documentSection.appendField(ls`URL`);
+
+    this._securitySection = this._reportView.appendSection(ls`Security`);
+    this._hasDOMAccessValue = this._securitySection.appendField(ls`Access to opener`);
+
+    this._effectiveOpenerFrame =
+        SDK.FrameManager.FrameManager.instance().getFrame(this._targetInfo.effectiveOpenerId || '');
+    if (this._effectiveOpenerFrame) {
+      this._openerElementFieldValue = this._securitySection.appendField(ls`Opener Element`);
+      this._openerElementFieldValue.classList.add('devtools-link');
+      this._openerElementFieldValue.title = ls`Click to reveal in Elements panel`;
+      /** @type {?SDK.DOMModel.DOMNode} */
+      this._openerDomNode = null;
+      this._openerElementFieldValue.addEventListener('click', () => {
+        if (this._openerDomNode) {
+          Common.Revealer.reveal(this._openerDomNode);
+        }
+      });
+    }
+
+    this.update();
+  }
+
+  /**
+   * @override
+   * @return {!Promise<?>}
+   */
+  async doUpdate() {
+    this._reportView.setTitle(this.buildTitle());
+    this._URLFieldValue.textContent = this._targetInfo.url;
+    this._hasDOMAccessValue.textContent = this._targetInfo.effectiveOpenerId ? ls`Yes` : ls`No`;
+    if (this._effectiveOpenerFrame) {
+      this._openerDomNode = await this._effectiveOpenerFrame.getOwnerDOMNodeOrDocument();
+      if (this._openerDomNode) {
+        this._openerElementFieldValue.textContent = `<${this._openerDomNode.nodeName().toLocaleLowerCase()}>`;
+      }
+    }
+  }
+
+  /**
+   * @return {string}
+   */
+  buildTitle() {
+    let title = this._targetInfo.title || ls`Window without title`;
+    if (this._isWindowClosed) {
+      title += ` (${ls`closed`})`;
+    }
+    return title;
+  }
+
+  /**
+   * @param {boolean} isWindowClosed
+   */
+  setIsWindowClosed(isWindowClosed) {
+    this._isWindowClosed = isWindowClosed;
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  setTargetInfo(targetInfo) {
+    this._targetInfo = targetInfo;
+  }
+}
