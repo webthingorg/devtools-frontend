@@ -16,6 +16,24 @@
       "revId": "0f286fd11067a505669ba718e32b43af2084ff29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa75517d_69d61554",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-31T09:19:28Z",
+      "side": 1,
+      "message": "You also run `npm run check` to see problems with linting/types/etc.",
+      "parentUuid": "6b9ad94e_973009d4",
+      "revId": "0f286fd11067a505669ba718e32b43af2084ff29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
