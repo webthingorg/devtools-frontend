@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "733cb01c_df610ccb",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1930,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-07-31T18:41:47Z",
+      "side": 1,
+      "message": "Done (doesn\u0027t matter too much but feels indeed better)",
+      "parentUuid": "fda92239_cb9c3273",
+      "range": {
+        "startLine": 1928,
+        "startChar": 4,
+        "endLine": 1930,
+        "endChar": 5
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45b58eed_a4dff09d",
         "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
         "patchSetId": 10
@@ -79,6 +103,30 @@
       "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e47fba10_3d7e589f",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-07-31T18:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45b58eed_a4dff09d",
+      "range": {
+        "startLine": 1959,
+        "startChar": 73,
+        "endLine": 1959,
+        "endChar": 79
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "b3abf184_fc481b4e",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-07-31T18:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09ea228d_ecc67b0f",
+      "range": {
+        "startLine": 1960,
+        "startChar": 12,
+        "endLine": 1960,
+        "endChar": 25
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24ed47b0_0ae385dc",
         "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
         "patchSetId": 10
@@ -116,6 +188,30 @@
       "writtenOn": "2020-07-31T14:34:52Z",
       "side": 1,
       "message": "We should also check the current state of the node and bail out if it is already attached or detached.",
+      "range": {
+        "startLine": 1981,
+        "startChar": 6,
+        "endLine": 1981,
+        "endChar": 61
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "387513cb_faf0e07d",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-07-31T18:41:47Z",
+      "side": 1,
+      "message": "We reuse the snapshot-internal embedder_data field to signal attached or detached. That means, that the initial nodes are actually attached or detached but still need to go through processing to get the detached prefix. (line 2001 calls processNode).\n\nIIUC, we\u0027d have to duplicate some code to avoid that.\n\nDespite the initial setup round:  newState \u003d\u003d Attached \u0026\u0026 oldState \u003d\u003d Attached \u003d\u003e visited[nodeOrdinal], so we do actually have a bailout. (Same for Detached.)",
+      "parentUuid": "24ed47b0_0ae385dc",
       "range": {
         "startLine": 1981,
         "startChar": 6,
