@@ -822,7 +822,8 @@ declare namespace Protocol {
      */
     export interface BlockedByResponseIssueDetails {
       request: AffectedRequest;
-      frame?: AffectedFrame;
+      parentFrame?: AffectedFrame;
+      blockedFrame?: AffectedFrame;
       reason: BlockedByResponseReason;
     }
 
