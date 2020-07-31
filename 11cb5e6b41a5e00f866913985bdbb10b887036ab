@@ -16,6 +16,309 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0204fce4_a43ffeff",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "Can you use `innerText` here instead? We don\u0027t want to render `field` as HTML.",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d96f8a_ff5f2662",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "Replace this by\n\n  columns[0].classList.add(\u0027id-cell\u0027);\n\nafter the forEach",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 7
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58e26a6f_be0032c9",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "nit: looks like this and L242 are missing a space on their indentation?",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "923cefa8_ee44cca6",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "nit: return early here.\n\n  if (!credentialTableBody) {\n    return;\n  }",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98a7bb8d_1d9b0f97",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "nit: 1000 should be in a constant.",
+      "range": {
+        "startLine": 253,
+        "startChar": 74,
+        "endLine": 253,
+        "endChar": 78
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80eec8ab_6eb416d6",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "Please file a bug for adding an event to the back-end so we can avoid polling every second and add a TODO referencing it here.",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b56e2441_51f9c1b8",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "nit: missing space.",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0ac355a_438e70da",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "This should be localized.",
+      "range": {
+        "startLine": 274,
+        "startChar": 60,
+        "endLine": 274,
+        "endChar": 75
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc4e481f_f7e19f0c",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 275,
+        "startChar": 66,
+        "endLine": 275,
+        "endChar": 82
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be7f8535_23352511",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "This should not be localized, remove the `ls`.\n\nAlso, I think using a template string (``) like this will indent all the lines except the first for the resulting string.\n\nYou can either do something like\n\n    // previous lines of code\n    const pem \u003d `First line\n  ${credential.privateKey}  (no indentation here)\n  Last line`;\n    // more code to follow\n\nOr if that looks too ugly to you,\n\n  const pem \u003d \"First line\\n\"\n            + credential.privateKey\n            + \"\\nLast line\";\n\n(formatted however makes the presubmit happy)",
+      "range": {
+        "startLine": 295,
+        "startChar": 4,
+        "endLine": 297,
+        "endChar": 32
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75ff59a0_0b6f8e48",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "Localize this.",
+      "range": {
+        "startLine": 300,
+        "startChar": 20,
+        "endLine": 300,
+        "endChar": 37
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b287553f_86575885",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "This can potentially lead to a 1 second delay between clicking the button and the credential being actually removed. Perhaps it\u0027s better to also clear the table row here?",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3611f31a_efabd859",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "Same here, is this the variable used for other tables?",
+      "range": {
+        "startLine": 162,
+        "startChar": 24,
+        "endLine": 162,
+        "endChar": 42
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10d3edf9_c1d929a7",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "Question: is this the variable used for other tables? It seems strange to me to use a variable that is for a very different piece of UI. Doing things like this can sometimes lead to bugs [1].\n\n[1] crbug.com/1111350",
+      "range": {
+        "startLine": 203,
+        "startChar": 24,
+        "endLine": 203,
+        "endChar": 47
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e12fab8_67e98a3b",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-07-31T18:57:01Z",
+      "side": 1,
+      "message": "This should not be localized, as -----BEGIN PRIVATE KEY----- \u0026 friends are part of the PEM text boundaries.",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
