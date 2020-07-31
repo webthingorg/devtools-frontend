@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b9ad94e_973009d4",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-07-31T09:15:52Z",
+      "side": 1,
+      "message": "Remove `.only`. Presubmit checks should catch them. Don\u0027t they run for you?",
+      "revId": "0f286fd11067a505669ba718e32b43af2084ff29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
