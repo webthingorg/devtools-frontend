@@ -16,6 +16,24 @@
       "revId": "a02ebe049f68d904f53548e5a53c7e609e630f0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5404e24b_12bb8bc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1443493
+      },
+      "writtenOn": "2020-07-31T17:00:18Z",
+      "side": 1,
+      "message": "Thanks! I\u0027m not a committer yet, feel free to commit this for me.",
+      "parentUuid": "1df736a7_811a5086",
+      "revId": "a02ebe049f68d904f53548e5a53c7e609e630f0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
