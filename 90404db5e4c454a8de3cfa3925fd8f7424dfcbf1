@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eee6aec_9d6ac59b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-31T06:41:39Z",
+      "side": 1,
+      "message": "(Unrelated to this CL itself, but…) It’s weird that the values for `kVideoTracks` and `kAudioTracks` are stringified objects instead of just objects. Is this intentional?",
+      "revId": "90404db5e4c454a8de3cfa3925fd8f7424dfcbf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "505cbfff_a9754c65",
+        "filename": "front_end/media/MainView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-31T06:41:39Z",
+      "side": 1,
+      "message": "Use\n\n    anchor.href \u003d url;",
+      "revId": "90404db5e4c454a8de3cfa3925fd8f7424dfcbf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "256c25cb_94879e37",
+        "filename": "front_end/media/MainView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-07-31T06:41:39Z",
+      "side": 1,
+      "message": "Use\n\n    anchor.download \u003d …",
+      "revId": "90404db5e4c454a8de3cfa3925fd8f7424dfcbf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
