@@ -16,6 +16,46 @@
       "revId": "f0089a4894aaf19bb4249c9fa3a59adb32baf54e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c36654db_d4d48a04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-31T12:48:50Z",
+      "side": 1,
+      "message": "LGTM but would like a test case added please.",
+      "revId": "f0089a4894aaf19bb4249c9fa3a59adb32baf54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b64b271_6d3dfeb0",
+        "filename": "scripts/eslint_rules/lib/check_test_definitions.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-07-31T12:48:50Z",
+      "side": 1,
+      "message": "please could we have a test in `check_test_definitions_test.js` to test this? It also acts as documentation as to why we have this extra check.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 114
+      },
+      "revId": "f0089a4894aaf19bb4249c9fa3a59adb32baf54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
