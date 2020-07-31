@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "766db131_083d4676",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1443493
+      },
+      "writtenOn": "2020-07-31T15:08:24Z",
+      "side": 1,
+      "message": "Thanks for the review! Hopefully addressed the comments, also ran the closure type checker and everything is passing now.",
+      "parentUuid": "e194dfa2_2afb2d8f",
+      "revId": "bd6bf785ff77b30d103b20bfecf84ca68b8b6af7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35656550_4c67729f",
         "filename": "front_end/network/EventSourceMessagesView.js",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "cb0f573c_67c22458",
+        "filename": "front_end/network/EventSourceMessagesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1443493
+      },
+      "writtenOn": "2020-07-31T15:08:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35656550_4c67729f",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "bd6bf785ff77b30d103b20bfecf84ca68b8b6af7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94e61e91_28a96862",
         "filename": "front_end/network/EventSourceMessagesView.js",
         "patchSetId": 1
@@ -62,6 +104,30 @@
       "revId": "bd6bf785ff77b30d103b20bfecf84ca68b8b6af7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61a41f3_ce33e549",
+        "filename": "front_end/network/EventSourceMessagesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1443493
+      },
+      "writtenOn": "2020-07-31T15:08:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e61e91_28a96862",
+      "range": {
+        "startLine": 47,
+        "startChar": 13,
+        "endLine": 47,
+        "endChar": 29
+      },
+      "revId": "bd6bf785ff77b30d103b20bfecf84ca68b8b6af7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
