@@ -16,6 +16,24 @@
       "revId": "1ca77759ea32432080251370d245ab0b0180a7d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1301e048_d849fcef",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-07-31T06:44:16Z",
+      "side": 1,
+      "message": "It can work with any selector that can select a computed property, not just the constant `COMPUTED_PROPERTY_SELECTOR` (e.g. a selector that can select the last computed property). I\u0027ve updated the parameter name to be more clear.\nIn fact it can work with other selectors that can select part of the computed property div, but that\u0027s not what I intend it to be used, so I think the new parameter name is better.",
+      "parentUuid": "834411b5_03b25fd4",
+      "revId": "1ca77759ea32432080251370d245ab0b0180a7d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
