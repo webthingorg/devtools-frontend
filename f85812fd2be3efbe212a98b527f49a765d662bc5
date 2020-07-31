@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64901ace_fd994622",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-07-31T09:15:43Z",
+      "side": 1,
+      "message": "PTAL\n\nIt works!\n\n  1) The Sources Tab\n       Navigation\n         should show a \"search in folder\" option in the context menu of folders:\n     Error: wait for function not happy\n      at Object.exports.waitForFunction (test/shared/helper.ts:287:9)\n      at Object.exports.waitFor (test/shared/helper.ts:251:10)\n      at openSourcesPanel (test/e2e/helpers/sources-helpers.ts:31:9)\n      at runMicrotasks (\u003canonymous\u003e)\n      at processTicksAndRejections (internal/process/task_queues.js:94:5)\n      at openFileInSourcesPanel (test/e2e/helpers/sources-helpers.ts:37:3)\n      at Object.openSourceCodeEditorForFile (test/e2e/helpers/sources-helpers.ts:68:3)\n      at Context.\u003canonymous\u003e (test/e2e/sources/navigation_test.ts:14:7)",
+      "revId": "f85812fd2be3efbe212a98b527f49a765d662bc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
