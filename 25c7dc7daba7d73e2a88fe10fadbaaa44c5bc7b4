@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "44489e35_6921b16b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T09:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dc208e7_ce9d3d0d",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e029f139_d45c1ab7",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 10
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "155c1f70_3953a428",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T09:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a912e9f_053c1b42",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5251ae21_64c7678e",
         "filename": "front_end/sdk/EmulationModel.js",
         "patchSetId": 10
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "0c9e28e2_b217e3a2",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T09:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5251ae21_64c7678e",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "189c3690_dd9aeff1",
         "filename": "front_end/ui/SettingsUI.js",
         "patchSetId": 10
@@ -84,6 +138,24 @@
       "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e76b157_2502bc12",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T09:57:41Z",
+      "side": 1,
+      "message": "Agree. \n\nRemoved `plainEnum`, moved Touch to `SettingsUI` as well to have consistent user interface.",
+      "parentUuid": "189c3690_dd9aeff1",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -119,6 +191,24 @@
       "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f1a4620_b8df7c6c",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T09:57:41Z",
+      "side": 1,
+      "message": "Removed `plainEnum`, moved Touch to `SettingsUI` as well to have consistent user interface.",
+      "parentUuid": "f6fc37d8_408d38e7",
+      "revId": "25c7dc7daba7d73e2a88fe10fadbaaa44c5bc7b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

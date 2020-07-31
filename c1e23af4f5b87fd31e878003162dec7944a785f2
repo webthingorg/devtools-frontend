@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b99094ec_3acbed34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T09:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea9ccee_55388b5b",
+      "revId": "c1e23af4f5b87fd31e878003162dec7944a785f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c13e0e3d_de8bdbda",
         "filename": "front_end/emulation/SensorsView.js",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "c1e23af4f5b87fd31e878003162dec7944a785f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e79d8b0_51db4a81",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-07-31T09:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c13e0e3d_de8bdbda",
+      "revId": "c1e23af4f5b87fd31e878003162dec7944a785f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
