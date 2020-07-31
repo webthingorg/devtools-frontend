@@ -881,6 +881,7 @@ export class HeapSnapshot {
     this._nodeSelfSizeOffset = meta.node_fields.indexOf('self_size');
     this._nodeEdgeCountOffset = meta.node_fields.indexOf('edge_count');
     this._nodeTraceNodeIdOffset = meta.node_fields.indexOf('trace_node_id');
+    this._nodeEmbedderDataOffset = meta.node_fields.indexOf('embedder_data');
     this._nodeFieldCount = meta.node_fields.length;
 
     this._nodeTypes = meta.node_types[this._nodeTypeOffset];
@@ -931,6 +932,8 @@ export class HeapSnapshot {
     this._buildEdgeIndexes();
     this._progress.updateStatus(ls`Building retainers…`);
     this._buildRetainers();
+    this._progress.updateStatus(ls`Propagating DOM state…`);
+    this._propagateDOMState();
     this._progress.updateStatus(ls`Calculating node flags…`);
     this.calculateFlags();
     this._progress.updateStatus(ls`Calculating distances…`);
@@ -1883,6 +1886,152 @@ export class HeapSnapshot {
       dominatedRefIndex += (--dominatedNodes[dominatedRefIndex]);
       dominatedNodes[dominatedRefIndex] = nodeOrdinal * nodeFieldCount;
     }
+  }
+
+  /**
+   * Iterates children of a node.
+   *
+   * @param {number} nodeOrdinal The ordinal number representing the node.
+   * @param {function(number):boolean} edgeFilterCallback Callback that allows for filtering edge types.
+   * @param {function(number)} childCallback Callback invoked with the ordinal number representing the child.
+   */
+  _iterateStronglyReachableChildren(nodeOrdinal, edgeFilterCallback, childCallback) {
+    const beginEdgeIndex = this._firstEdgeIndexes[nodeOrdinal];
+    const endEdgeIndex = this._firstEdgeIndexes[nodeOrdinal + 1];
+    for (let edgeIndex = beginEdgeIndex; edgeIndex < endEdgeIndex; edgeIndex += this._edgeFieldsCount) {
+      const childNodeIndex = this.containmentEdges[edgeIndex + this._edgeToNodeOffset];
+      const childNodeOrdinal = childNodeIndex / this._nodeFieldCount;
+      const type = this.containmentEdges[edgeIndex + this._edgeTypeOffset];
+      if (!edgeFilterCallback(type)) {
+        continue;
+      }
+      childCallback(childNodeOrdinal);
+    }
+  }
+
+  /**
+    * The phase propagates whether a node is attached or detached through the
+    * graph and adjusts the low-level representation of nodes.
+    *
+    * State propagation:
+    * 1. Any object reachable from an attached object is itself attached.
+    * 2. Any object reachable from a detached object that is not already
+    *    attached is considered detached.
+    *
+    * Representation:
+    * - Name of any detached node is changed from "<Name>"" to
+    *   "Detached <Name>".
+    */
+  _propagateDOMState() {
+    if (this._nodeEmbedderDataOffset === undefined) {
+      return;
+    }
+
+    console.time('propagateDOMState');
+
+    // Heap nodes have a DOM state that is either:
+    const State = Object.freeze({
+      /** @type {number} */
+      'Unknown': 0,
+      /** @type {number} */
+      'Attached': 1,
+      /** @type {number} */
+      'Detached': 2
+    });
+
+    /** @type {!Uint8Array} */
+    const visited = new Uint8Array(this.nodeCount);
+    /** @type {!Array<number>} */
+    const attached = [];
+    /** @type {!Array<number>} */
+    const detached = [];
+
+    /** @type {!Map<number, number>} */
+    const string_index_cache = new Map();
+
+    /**
+     * Adds a 'Detached ' prefix to a string field of a node.
+     *
+     * @param {!HeapSnapshot} snapshot The snapshot to work on.
+     * @param {number} nodeIndex The index representing the node.
+     * @param {number} stringFieldOffset The offset of the string field.
+     */
+    const addDetachedPrefixToStringField = function(snapshot, nodeIndex, stringFieldOffset) {
+      const oldStringIndex = snapshot.nodes[nodeIndex + stringFieldOffset];
+      let newStringIndex = string_index_cache.get(oldStringIndex);
+      if (newStringIndex === undefined) {
+        const newFieldValue = 'Detached ' + snapshot.strings[oldStringIndex];
+        snapshot.strings.push(newFieldValue);
+        newStringIndex = snapshot.strings.length - 1;
+        string_index_cache.set(oldStringIndex, newStringIndex);
+      }
+      snapshot.nodes[nodeIndex + stringFieldOffset] = newStringIndex;
+    };
+
+    /**
+     * Processes a node represented by nodeOrdinal:
+     * - Changes its name based on newState.
+     * - Puts it onto working sets for attached or detached nodes.
+     *
+     * @param {!HeapSnapshot} snapshot The snapshot to work on.
+     * @param {number} nodeOrdinal The ordinal number representing the node.
+     * @param {number} newState New detached state for the node.
+     */
+    const processNode = function(snapshot, nodeOrdinal, newState) {
+      if (visited[nodeOrdinal] || newState === State.Unknown) {
+        return;
+      }
+
+      const nodeIndex = nodeOrdinal * snapshot._nodeFieldCount;
+
+      snapshot.nodes[nodeIndex + snapshot._nodeEmbedderDataOffset] = newState;
+
+      if (newState === State.Attached) {
+        attached.push(nodeOrdinal);
+      } else if (newState === State.Detached) {
+        // Detached state: Rewire node name.
+        addDetachedPrefixToStringField(snapshot, nodeIndex, snapshot._nodeNameOffset);
+        detached.push(nodeOrdinal);
+      }
+
+      visited[nodeOrdinal] = 1;
+    };
+
+    for (let nodeOrdinal = 0; nodeOrdinal < this.nodeCount; ++nodeOrdinal) {
+      processNode(this, nodeOrdinal, this.nodes[nodeOrdinal * this._nodeFieldCount + this._nodeEmbedderDataOffset]);
+    }
+
+    /**
+     * @param {!HeapSnapshot} snapshot
+     * @param {number} parentNodeOrdinal
+     * @param {number} newState
+     */
+    const propagateState = function(snapshot, parentNodeOrdinal, newState) {
+      snapshot._iterateStronglyReachableChildren(
+          parentNodeOrdinal,
+          edgeType =>
+              ![snapshot._edgeHiddenType, snapshot._edgeInvisibleType, snapshot._edgeWeakType].includes(edgeType),
+          nodeOrdinal => processNode(snapshot, nodeOrdinal, newState));
+    };
+
+    // 1. If the parent is attached, then the child is also attached.
+    while (attached.length !== 0) {
+      const nodeOrdinal = attached.pop();
+      const nodeState = this.nodes[nodeOrdinal * this._nodeFieldCount + this._nodeEmbedderDataOffset];
+      propagateState(this, nodeOrdinal, nodeState);
+    }
+    // 2. If the parent is not attached, then the child inherits the parent's state.
+    while (detached.length !== 0) {
+      const nodeOrdinal = detached.pop();
+      const nodeState = this.nodes[nodeOrdinal * this._nodeFieldCount + this._nodeEmbedderDataOffset];
+      // Ignore if the node has been found through propagating forward attached state.
+      if (nodeState === State.Attached) {
+        continue;
+      }
+      propagateState(this, nodeOrdinal, nodeState);
+    }
+
+    console.timeEnd('propagateDOMState');
   }
 
   _buildSamples() {
