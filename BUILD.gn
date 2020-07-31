@@ -2,6 +2,8 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import("//build/config/python.gni")
+
 import("//third_party/blink/public/public_features.gni")
 import("./all_devtools_files.gni")
 import("./all_devtools_modules.gni")
@@ -381,7 +383,7 @@ if (!is_debug) {
   build_release_devtools_args += [ "--rollup" ]
 }
 
-action("build_release_devtools") {
+python2_action("build_release_devtools") {
   script = "scripts/build/build_release_applications.py"
 
   helper_scripts = [
