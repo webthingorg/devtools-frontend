@@ -121,6 +121,12 @@ deps = {
 }
 
 hooks = [
+  # Remove the out dir if necessary
+  {
+    'name': 'clobber_out',
+    'pattern': '.',
+    'action': ['python', 'scripts/build/clobber_out.py'],
+  },
   # Pull down Node binaries for WebUI toolchain.
   {
     'name': 'node_linux64',
@@ -263,5 +269,4 @@ hooks = [
     'action': ['python', 'build/linux/sysroot_scripts/install-sysroot.py',
                '--arch=x64'],
   },
-
 ]
