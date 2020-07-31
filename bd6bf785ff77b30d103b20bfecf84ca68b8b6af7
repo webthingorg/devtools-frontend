@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e194dfa2_2afb2d8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-31T13:11:47Z",
+      "side": 1,
+      "message": "Thanks for your contribution Ted! \nI added some small comments to make the closure compiler happy.\nYou can also run it locally with `npm check-type-closure`.\n",
+      "revId": "bd6bf785ff77b30d103b20bfecf84ca68b8b6af7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35656550_4c67729f",
+        "filename": "front_end/network/EventSourceMessagesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-31T13:11:47Z",
+      "side": 1,
+      "message": "You can change this to be !DataGrid.DataGrid.DataGridNode\u003c!EventSourceMessageNode\u003e to get rid of the type casting in the function itself.",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "bd6bf785ff77b30d103b20bfecf84ca68b8b6af7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94e61e91_28a96862",
+        "filename": "front_end/network/EventSourceMessagesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-07-31T13:11:47Z",
+      "side": 1,
+      "message": "Can you change this to be a private function of the class to align it with the existing coding style like `_messageAdded` for example\u003e?",
+      "range": {
+        "startLine": 47,
+        "startChar": 13,
+        "endLine": 47,
+        "endChar": 29
+      },
+      "revId": "bd6bf785ff77b30d103b20bfecf84ca68b8b6af7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
