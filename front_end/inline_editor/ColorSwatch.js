@@ -291,3 +291,57 @@ export class CSSShadowSwatch extends HTMLSpanElement {
     return this._colorSwatch;
   }
 }
+
+/**
+ * @unrestricted
+ */
+export class FontSwatch extends HTMLSpanElement {
+  constructor() {
+    super();
+    const root = UI.Utils.createShadowRootWithCoreStyles(this, 'inline_editor/cssShadowSwatch.css');
+    this._iconElement = UI.Icon.Icon.create('smallicon-text-prompt');
+    root.appendChild(this._iconElement);
+    this._textElement = this.createChild('span');
+    root.createChild('slot');
+  }
+
+  /**
+   * @return {!BezierSwatch}
+   */
+  static create() {
+    if (!FontSwatch._constructor) {
+      FontSwatch._constructor = UI.Utils.registerCustomElement('span', 'font-swatch', FontSwatch);
+    }
+
+
+    return /** @type {!FontSwatch} */ (FontSwatch._constructor());
+  }
+
+  /**
+   * @return {string}
+   */
+  fontText() {
+    return this._textElement.textContent;
+  }
+
+  /**
+   * @param {string} text
+   */
+  setFontText(text) {
+    this._textElement.textContent = text;
+  }
+
+  /**
+   * @param {boolean} hide
+   */
+  hideText(hide) {
+    this._contentElement.hidden = hide;
+  }
+
+  /**
+   * @return {!Element}
+   */
+  iconElement() {
+    return this._iconElement;
+  }
+}
