@@ -19,6 +19,46 @@
     },
     {
       "key": {
+        "uuid": "7ea7460d_f65fd74e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:16:15Z",
+      "side": 1,
+      "message": "Looks good to me with some nits. But I\u0027m not sure if using the already existing DataGrid instead of a custom table might be the better approach here.",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "131664e5_f665831d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:16:15Z",
+      "side": 1,
+      "message": "We also have the very commonly used DataGrid component. Not sure if that would be helpful in this case too.",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 25
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0204fce4_a43ffeff",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -316,6 +356,29 @@
       "writtenOn": "2020-07-31T18:57:01Z",
       "side": 1,
       "message": "This should not be localized, as -----BEGIN PRIVATE KEY----- \u0026 friends are part of the PEM text boundaries.",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07b6790_dbb5ecef",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:16:15Z",
+      "side": 1,
+      "message": "nit: I think this should be credential (without s)",
+      "range": {
+        "startLine": 32,
+        "startChar": 124,
+        "endLine": 32,
+        "endChar": 135
+      },
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
