@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "0ed60fed_55bfe686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T11:32:10Z",
+      "side": 1,
+      "message": "The layout tests are broken due to a missed TypeScript migration, see https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2332814",
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b29fe29_9712253b",
         "filename": "front_end/issues/IssueAggregator.js",
         "patchSetId": 6
