@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "3c1c4120_d51ed9b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T11:31:38Z",
+      "side": 1,
+      "message": "Jan, PTAL at the change in ResourceTreeModel.js. I need this change, otherwise certain OOPIF iframes are not in the frame tree at all (because we discard the error navigation, but since its an OOPIF navigation, we also get a frameDetached event for the old OOPIF frame, which leaves us with no frame at all). I presume this will un-fix chromium:1078822.",
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b29fe29_9712253b",
         "filename": "front_end/issues/IssueAggregator.js",
         "patchSetId": 6

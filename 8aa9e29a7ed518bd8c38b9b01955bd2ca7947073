@@ -22,6 +22,30 @@
       "revId": "8aa9e29a7ed518bd8c38b9b01955bd2ca7947073",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d31dc0f8_53c685fb",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T11:31:38Z",
+      "side": 0,
+      "message": "Possibly. The problem is that for OOPIFs we get a detached event for the old frame, so we are left without any frame information. That breaks issue reporting (and possibly other things), so considered that this is duct-tape only, I figured let\u0027s remove the duct-tape and fix what is broken afterwards in a reliable way.",
+      "parentUuid": "152df28d_c8f4fc71",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1035,
+        "endChar": 5
+      },
+      "revId": "8aa9e29a7ed518bd8c38b9b01955bd2ca7947073",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
