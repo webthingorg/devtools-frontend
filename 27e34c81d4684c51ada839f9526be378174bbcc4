@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e73d4bf1_ce6686b2",
+        "filename": "front_end/sdk/sdk.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T12:19:50Z",
+      "side": 1,
+      "message": "nit: \"no request is\" or \"no requests are\"",
+      "range": {
+        "startLine": 78,
+        "startChar": 66,
+        "endLine": 78,
+        "endChar": 80
+      },
+      "revId": "27e34c81d4684c51ada839f9526be378174bbcc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
