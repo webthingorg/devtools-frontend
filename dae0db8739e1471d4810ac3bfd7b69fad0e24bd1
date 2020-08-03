@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb0e82c1_bfc1ef1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-03T14:02:51Z",
+      "side": 1,
+      "message": "Still want to add that clearing console removes the issues banner, but feel free to take a look already.",
+      "revId": "dae0db8739e1471d4810ac3bfd7b69fad0e24bd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
