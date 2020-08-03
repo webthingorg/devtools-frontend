@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "468ec256_cd1167b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:02:47Z",
+      "side": 1,
+      "message": "Updated to address comments.",
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e021ddf_00f00cef",
         "filename": "front_end/resources/CookieItemsView.js",
         "patchSetId": 6
@@ -39,6 +56,30 @@
       "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edefb5d2_524ec6ac",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e021ddf_00f00cef",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 241,
+        "endChar": 5
+      },
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +106,30 @@
     },
     {
       "key": {
+        "uuid": "81706699_d9725c65",
+        "filename": "front_end/resources/StorageItemsView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:02:47Z",
+      "side": 1,
+      "message": "Yes, that sounds like a good idea.",
+      "parentUuid": "7bc0f4e1_1a33aef5",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 86
+      },
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "656b4ecf_334ba3b7",
         "filename": "test/e2e/helpers/application-helpers.ts",
         "patchSetId": 6
@@ -85,6 +150,30 @@
       "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af475c16_238df95c",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "656b4ecf_334ba3b7",
+      "range": {
+        "startLine": 53,
+        "startChar": 18,
+        "endLine": 53,
+        "endChar": 25
+      },
+      "revId": "d1d55ff0798ea65233443214fe532eb1ac5a6d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

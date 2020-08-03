@@ -22,6 +22,30 @@
       "revId": "4cbb6ef49709470e4b4d4cd91ea656a93d6ecf77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2431234c_6740e05c",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-03T12:02:47Z",
+      "side": 0,
+      "message": "That should not have been in the patch.",
+      "parentUuid": "3e8073bc_0db4e06d",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "4cbb6ef49709470e4b4d4cd91ea656a93d6ecf77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
