@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c698a4f_e5745d66",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T10:42:38Z",
+      "side": 1,
+      "message": "Can we move this inside the conditional?",
+      "range": {
+        "startLine": 922,
+        "startChar": 4,
+        "endLine": 926,
+        "endChar": 5
+      },
+      "revId": "ae9c9d9ef9414ae75afad34cb979d6362a152cfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
