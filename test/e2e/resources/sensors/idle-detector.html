@@ -1,0 +1,21 @@
+<div id="state"></div>
+<script>
+  function setState(msg) {
+    document.getElementById('state').innerText = msg;
+  }
+  async function main() {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    const idleDetector = new IdleDetector({
+      threshold: 60000,
+      signal,
+    });
+    idleDetector.addEventListener('change', (e) => {
+      const userState = idleDetector.userState;
+      const screenState = idleDetector.screenState;
+      setState(`Idle state: ${userState}, ${screenState}.`);
+    });
+    idleDetector.start();
+  }
+  main();
+</script>
