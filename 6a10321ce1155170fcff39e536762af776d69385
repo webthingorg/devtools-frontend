@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "43839e0d_f06699da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-03T08:50:24Z",
+      "side": 1,
+      "message": "Mainly innerHTML helps to reduce the number of lines needed to create the static markup. And I think it\u0027s more readable than using DOM APIs.",
+      "parentUuid": "4c43643d_88e5d443",
+      "revId": "6a10321ce1155170fcff39e536762af776d69385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30f26855_97edf270",
         "filename": "front_end/inspector_overlay/tool_distances_impl.js",
         "patchSetId": 2
