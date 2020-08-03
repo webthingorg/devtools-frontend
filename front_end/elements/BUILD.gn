@@ -17,6 +17,11 @@ devtools_module("elements") {
 
   deps = [
     "../common:bundle",
+    "../color_picker:bundle",
+    "../emulation:bundle",
+    "../event_listeners:bundle",
+    "../extensions:bundle",
+    "../inline_editor:bundle",
     "../platform:bundle",
     "../third_party/lit-html:bundle",
     "../ui:bundle",
