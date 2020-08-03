@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "d96f42d0_0b836e4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-03T10:16:16Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "0037f168d9f8f21846683541d3ce22e7af72e785",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fd01482_9145c520",
         "filename": "test/e2e/sources/script-in-multiple-workers_test.ts",
         "patchSetId": 4
@@ -53,6 +70,29 @@
     },
     {
       "key": {
+        "uuid": "4c7ea66f_23ea5357",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-03T10:16:16Z",
+      "side": 1,
+      "message": "early return / throw if the element isn\u0027t found?",
+      "range": {
+        "startLine": 48,
+        "startChar": 28,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "0037f168d9f8f21846683541d3ce22e7af72e785",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03c88613_4704cb57",
         "filename": "test/shared/helper.ts",
         "patchSetId": 4
@@ -64,6 +104,24 @@
       "writtenOn": "2020-08-03T08:15:25Z",
       "side": 1,
       "message": "There\u0027s a lot happening on this one line. Let\u0027s split this across separate lines for readability?",
+      "revId": "0037f168d9f8f21846683541d3ce22e7af72e785",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "036ba651_b1c55cba",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-03T10:16:16Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "03c88613_4704cb57",
       "revId": "0037f168d9f8f21846683541d3ce22e7af72e785",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
