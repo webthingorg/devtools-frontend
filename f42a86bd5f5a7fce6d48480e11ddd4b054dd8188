@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae8f3810_d360d4c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T11:03:33Z",
+      "side": 1,
+      "message": "Nit: add a link to the design doc",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "f42a86bd5f5a7fce6d48480e11ddd4b054dd8188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "324fa97d_f65ef77f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 12
@@ -30,6 +53,24 @@
       "writtenOn": "2020-08-03T06:29:47Z",
       "side": 1,
       "message": "Sigurd, do you want to take a look as well?",
+      "revId": "f42a86bd5f5a7fce6d48480e11ddd4b054dd8188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f226b05_5517e650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T11:03:33Z",
+      "side": 1,
+      "message": "Thanks, left some questions on the design doc.",
+      "parentUuid": "682acd32_d31aa515",
       "revId": "f42a86bd5f5a7fce6d48480e11ddd4b054dd8188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
