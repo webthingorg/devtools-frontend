@@ -33,6 +33,23 @@
       "revId": "c46f341c9b293222b47b24f2bf222b961b21a2e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "789b3616_983c51b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-03T10:10:21Z",
+      "side": 1,
+      "message": "LGTM but please wait for Paul to +1 as well",
+      "revId": "c46f341c9b293222b47b24f2bf222b961b21a2e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
