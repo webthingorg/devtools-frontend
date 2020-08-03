@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbc30668_d793fc6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-08-03T13:18:47Z",
+      "side": 1,
+      "message": "Hmm, that definition is from https://source.chromium.org/chromium/chromium/src/+/master:build/config/BUILDCONFIG.gn;l\u003d296?q\u003dis_apple - that should be present in devtools as well...",
+      "revId": "d38ef95236626e6d6ce89699dd336e954671e494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
