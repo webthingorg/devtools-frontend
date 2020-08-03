@@ -16,6 +16,23 @@
       "revId": "d38ef95236626e6d6ce89699dd336e954671e494",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b11d035_1ae22047",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-08-03T13:21:54Z",
+      "side": 1,
+      "message": "I have no idea why https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/.gn;l\u003d10?q\u003ddevtools-frontend%2Fsrc%2F.gn is using //build_overrides/BUILDCONFIG.gn while V8 is using //build/config/BUILDCONFIG.gn\n\nThe build config contains some definitions, e.g. the one failing here now.",
+      "revId": "d38ef95236626e6d6ce89699dd336e954671e494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
