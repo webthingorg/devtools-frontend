@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c47b977_08230770",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-08-03T22:45:12Z",
+      "side": 1,
+      "message": "This is the change Patrick pointed out in scrum today (Monday, 8/3). Ptal!",
+      "revId": "d13b767b704538d4768f1d8f70a8752ed7e8c9f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
