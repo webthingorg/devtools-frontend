@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdae57f8_4920168b",
+        "filename": "front_end/inspector_overlay/highlight_common.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-03T21:56:04Z",
+      "side": 1,
+      "message": "The change here just goes back to what the drawRulers function was before I changed it in the parent CL.",
+      "revId": "b55c91447852aba41c2fa955077da7018c34e688",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
