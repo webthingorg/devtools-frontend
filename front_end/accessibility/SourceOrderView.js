@@ -26,42 +26,47 @@ export class SourceOrderPane extends AccessibilitySubPane {
     /** @type {?SDK.DOMModel.DOMNode} */
     this._node = null;
     this._overlayModel = null;
+    this._MAX_CHILD_ELEMENTS_THRESHOLD = 300;
   }
 
   /**
-   * @override
    * @param {?SDK.DOMModel.DOMNode} node
+   * @returns {!Promise<!Array<!SDK.DOMModel.DOMNode>>}
    */
-  setNode(node) {
-    const persistCheckbox = this._checkboxElement.checked;
+  async setNodeAsync(node) {
+    const promise = new Promise((resolve, reject) => []);
+    if (!this._checkboxLabel.classList.contains('hidden')) {
+      this._checked = this._checkboxElement.checked;
+    }
     this._checkboxElement.checked = false;
     this._checkboxClicked();
     super.setNode(node);
     if (!this._node) {
       this._overlayModel = null;
-      return;
+      return promise;
     }
 
     let foundSourceOrder = false;
     const childCount = this._node.childNodeCount();
     if (childCount > 0) {
       if (!this._node.children()) {
-        this._node.getSubtree(1, false);
+        await this._node.getSubtree(1, false);
       }
       const children = /** @type {!Array<!SDK.DOMModel.DOMNode>} */ (this._node.children());
       foundSourceOrder = children.some(child => child.nodeType() === Node.ELEMENT_NODE);
     }
 
     this._noNodeInfo.classList.toggle('hidden', foundSourceOrder);
-    this._warning.classList.toggle('hidden', childCount < 1000);
+    this._warning.classList.toggle('hidden', childCount < this._MAX_CHILD_ELEMENTS_THRESHOLD);
     this._checkboxLabel.classList.toggle('hidden', !foundSourceOrder);
     if (foundSourceOrder) {
       this._overlayModel = this._node.domModel().overlayModel();
-      this._checkboxElement.checked = persistCheckbox;
+      this._checkboxElement.checked = this._checked;
       this._checkboxClicked();
     } else {
       this._overlayModel = null;
     }
+    return promise;
   }
 
   _checkboxClicked() {
