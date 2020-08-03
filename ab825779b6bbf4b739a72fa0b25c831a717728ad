@@ -39,6 +39,30 @@
       "revId": "ab825779b6bbf4b739a72fa0b25c831a717728ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cf76633_5c4e6953",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T10:32:49Z",
+      "side": 1,
+      "message": "Yes, makes sense. Moved into the conditional.",
+      "parentUuid": "60299683_1698d1f4",
+      "range": {
+        "startLine": 922,
+        "startChar": 3,
+        "endLine": 929,
+        "endChar": 5
+      },
+      "revId": "ab825779b6bbf4b739a72fa0b25c831a717728ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

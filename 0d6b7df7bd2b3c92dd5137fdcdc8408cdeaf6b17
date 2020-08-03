@@ -22,6 +22,30 @@
       "revId": "0d6b7df7bd2b3c92dd5137fdcdc8408cdeaf6b17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a9493ce_9314cfd3",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T10:32:49Z",
+      "side": 0,
+      "message": "As discussed offline, mostly reverted the last PS.",
+      "parentUuid": "cd74d0f2_a939b3a8",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "0d6b7df7bd2b3c92dd5137fdcdc8408cdeaf6b17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
