@@ -33,6 +33,23 @@
       "revId": "d38ef95236626e6d6ce89699dd336e954671e494",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f56c4987_bee9ee61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T13:23:13Z",
+      "side": 1,
+      "message": "I\u0027m uploading a fix, this should be fine.",
+      "revId": "d38ef95236626e6d6ce89699dd336e954671e494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
