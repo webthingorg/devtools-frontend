@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "8ac0a9cd_91eedf75",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T07:18:57Z",
+      "side": 1,
+      "message": "Mostly done as suggested. We might still need to split up the \"master\" issues list as it might get unwieldy (we not only map from code -\u003e markdown file, but also have to include meta data like links, categories, etc.)",
+      "parentUuid": "8832cae1_9287644f",
+      "range": {
+        "startLine": 922,
+        "startChar": 4,
+        "endLine": 922,
+        "endChar": 45
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "351b3b75_9328b150",
         "filename": "front_end/issues/MarkdownDescription.js",
         "patchSetId": 5
@@ -79,6 +103,30 @@
       "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d00a134c_76e65f9a",
+        "filename": "front_end/issues/MarkdownDescription.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T07:18:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351b3b75_9328b150",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 46
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "0193ff4c_86340b92",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T07:18:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4a790f8_a9738066",
+      "range": {
+        "startLine": 41,
+        "startChar": 11,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e9a18a6_511a0d14",
         "filename": "front_end/sdk/Issue.js",
         "patchSetId": 5
@@ -125,6 +197,30 @@
       "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6cd8e0e_28bc9691",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T07:18:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e9a18a6_511a0d14",
+      "range": {
+        "startLine": 173,
+        "startChar": 21,
+        "endLine": 173,
+        "endChar": 25
+      },
+      "revId": "1682ad54a8809d1513c593f352e4407aa59325fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

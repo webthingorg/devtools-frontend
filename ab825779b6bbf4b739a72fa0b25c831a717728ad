@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73b25dfb_f98ded7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T07:18:57Z",
+      "side": 1,
+      "message": "PTanotherL, applied your suggestion and all of the new description logic now lives in \u0027issues\u0027, not in \u0027sdk\u0027.\n\n@Vidal: FYI. This is how we will load Markdown issue descriptions. This CL does not yet include any migrated issues.",
+      "revId": "ab825779b6bbf4b739a72fa0b25c831a717728ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
