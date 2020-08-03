@@ -56,7 +56,7 @@ export const parseTypeScriptComponent = (componentSourceFilePath: string) => {
   return writeToDisk(componentSourceFilePath, generatedCode);
 };
 
-const main = (args: string[]) => {
+export const main = (args: string[]) => {
   const bridgeComponentPath = path.resolve(process.cwd(), args[0]);
 
   if (!bridgeComponentPath || !fs.existsSync(bridgeComponentPath)) {
