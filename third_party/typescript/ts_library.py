@@ -97,6 +97,43 @@ def main():
     def get_relative_path_from_output_directory(file_to_resolve):
         return path.relpath(path.join(os.getcwd(), file_to_resolve), tsconfig_output_directory)
 
+    # It is possible that from previous builds that the target output directory
+    # has hardlinks in it. When TypeScript overwrites those files the changes
+    # will then show up in the source tree. Here we check to see if inodes in
+    # the destination directory match those of the equivalent source files, and,
+    # where they do, we copy the file in the destination to a temp file and back
+    # solely to break the hardlink.
+    if not opts.front_end_directory.startswith("gen"):
+        src_path = path.abspath(
+            path.join(os.getcwd(), opts.front_end_directory))
+        for (dest_path, _, filenames) in os.walk(tsconfig_output_directory):
+            for target_file in filenames:
+                to_be_skipped = (target_file.endswith(".d.ts")
+                                 or target_file.endswith(".json")
+                                 or target_file.endswith(".tsbuildinfo")
+                                 or target_file.endswith(".js.map")
+                                 or target_file.startswith("."))
+                if to_be_skipped:
+                    continue
+
+                dest_file = "%s/%s" % (dest_path, target_file)
+                src_file = "%s/%s" % (src_path, target_file)
+                tmp_file = "%s/tmp" % (dest_path)
+                if not os.path.exists(src_file) or not os.path.exists(
+                        dest_file):
+                    continue
+
+                dest_stats = os.stat(dest_file)
+                src_stats = os.stat(src_file)
+
+                # The same inode value means that this is a hardlink, thus it needs converting
+                # to its own file before tsc writes the file contents to it and they get
+                # reflected back to source.
+                if (src_stats.st_ino == dest_stats.st_ino):
+                    shutil.copyfile(dest_file, tmp_file)
+                    os.remove(dest_file)
+                    shutil.move(tmp_file, dest_file)
+
     sources = opts.sources or []
 
     all_ts_files = sources + GLOBAL_TYPESCRIPT_DEFINITION_FILES
