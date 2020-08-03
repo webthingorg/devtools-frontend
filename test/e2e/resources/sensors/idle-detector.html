@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta http-equiv="origin-trial" content="AgHea+2mvpHgeOZY/bUQCUzAA/Mb8M6h0n+US5IAPR5pzaO2ompKdOzgQNbZNS2eJZN3Oc3oVDHysteWltxhbw8AAABReyJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjQzMDU3IiwiZmVhdHVyZSI6IklkbGVEZXRlY3Rpb24iLCJleHBpcnkiOjE2MDAwODM0Mjh9">
+<title>Demo</title>
+<div id="state"></div>
+<script>
+  function setState(msg) {
+    document.getElementById('state').innerText = msg;
+  }
+  async function main() {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    const idleDetector = new IdleDetector({
+      threshold: 60000,
+      signal,
+    });
+    idleDetector.addEventListener('change', (e) => {
+      const userState = idleDetector.userState;
+      const screenState = idleDetector.screenState;
+      setState(`Idle state: ${userState}, ${screenState}.`);
+    });
+    idleDetector.start();
+  }
+  main();
+</script>
