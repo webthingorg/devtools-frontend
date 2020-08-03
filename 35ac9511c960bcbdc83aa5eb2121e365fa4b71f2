@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c78ef4f7_fea90db4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-08-03T19:43:09Z",
+      "side": 1,
+      "message": "LGTM, works great. I did notice that NVDA will say \"blank\" immediately after saying shortcut keys, e.g. \"Start recording events\" \"Ctrl E\" \"blank\" when using arrow keys to navigate.",
+      "revId": "35ac9511c960bcbdc83aa5eb2121e365fa4b71f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
