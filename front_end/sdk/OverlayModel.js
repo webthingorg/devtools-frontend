@@ -487,7 +487,6 @@ export class OverlayModel extends SDKModel {
         break;
     }
     // Add background to help distinguish rows/columns when cell borders are not outlined
-    const addBackgroundsToGaps = !showGridLines;
     let showPositiveLineNumbers = false;
     let showNegativeLineNumbers = false;
     let showLineNames = false;
@@ -526,13 +525,10 @@ export class OverlayModel extends SDKModel {
     }
 
     return {
-      rowGapColor: (showGridRowGaps && addBackgroundsToGaps) ?
-          Common.Color.PageHighlight.GridRowGapBackground.toProtocolRGBA() :
-          undefined,
+      rowGapColor: showGridRowGaps ? Common.Color.PageHighlight.GridRowGapBackground.toProtocolRGBA() : undefined,
       rowHatchColor: showGridRowGaps ? Common.Color.PageHighlight.GridRowGapHatch.toProtocolRGBA() : undefined,
-      columnGapColor: (showGridColumnGaps && addBackgroundsToGaps) ?
-          Common.Color.PageHighlight.GridColumnGapBackground.toProtocolRGBA() :
-          undefined,
+      columnGapColor: showGridColumnGaps ? Common.Color.PageHighlight.GridColumnGapBackground.toProtocolRGBA() :
+                                           undefined,
       columnHatchColor: showGridColumnGaps ? Common.Color.PageHighlight.GridColumnGapHatch.toProtocolRGBA() : undefined,
       gridBorderColor: showGridBorder ? Common.Color.PageHighlight.GridBorder.toProtocolRGBA() : undefined,
       gridBorderDash: gridBorderDashed,
