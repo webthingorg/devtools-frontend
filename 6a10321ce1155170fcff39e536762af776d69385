@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "4c43643d_88e5d443",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-03T08:48:12Z",
+      "side": 1,
+      "message": "I like where this is going. I personally struggled with understanding how things worked when I started working on overlays, and part of it was because of the use of globals.\nI like that debug files would now use what the backend uses too.\nCan you explain the reasoning behind wanting to use innerHTML to produce the markup as opposed to using DOM methods?",
+      "revId": "6a10321ce1155170fcff39e536762af776d69385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30f26855_97edf270",
         "filename": "front_end/inspector_overlay/tool_distances_impl.js",
         "patchSetId": 2
