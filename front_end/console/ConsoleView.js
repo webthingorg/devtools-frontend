@@ -315,7 +315,7 @@ export class ConsoleView extends UI.Widget.VBox {
         _cachedIssueBarHeight: 0
       };
       const issueBarAction = /** @type {!UI.Infobar.InfobarAction} */ ({
-        text: ls`Go to Issues`,
+        text: ls`View issues`,
         highlight: false,
         delegate: () => {
           this._hasInteractedWithInfoBar = true;
@@ -325,9 +325,7 @@ export class ConsoleView extends UI.Widget.VBox {
         dismiss: true,
       });
       const issueBar = new UI.Infobar.Infobar(
-          UI.Infobar.Type.Issue,
-          ls`Issues detected. The new Issues tab displays information about deprecations, breaking changes and other potential problems.`,
-          [issueBarAction]);
+          UI.Infobar.Type.Issue, ls`Some messages have been moved to the Issues panel.`, [issueBarAction]);
       issueBar.setCloseCallback(() => {
         this._hasInteractedWithInfoBar = true;
       });
