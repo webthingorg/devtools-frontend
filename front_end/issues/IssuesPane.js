@@ -266,26 +266,95 @@ class AffectedDirectivesView extends AffectedResourcesView {
   }
 
   /**
+   * @param {!Element} element
+   * @param {!string} directive
+   */
+  _appendViolatedDirective(element, directive) {
+    const violatedDirective = document.createElement('td');
+    violatedDirective.textContent = directive;
+    element.appendChild(violatedDirective);
+  }
+
+  /**
+   * @param {!Element} element
+   * @param {!string} url
+   */
+  _appendBlockedURL(element, url) {
+    const info = document.createElement('td');
+    info.classList.add('affected-resource-directive-info');
+    info.textContent = url;
+    element.appendChild(info);
+  }
+
+  /**
+   * @param {!HTMLTableDataCellElement} violatingNode
+   * @param {!number} nodeId
+   */
+  _appendBlockedNode(violatingNode, nodeId) {
+    const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
+
+    const target = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
+    icon.onclick = async () => {
+      const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
+      Common.Revealer.reveal(deferredDOMNode);
+    };
+
+    UI.Tooltip.Tooltip.install(icon, ls`Click to reveal the violating DOM node in the Elements panel`);
+    violatingNode.appendChild(icon);
+
+    violatingNode.onmouseenter = () => {
+      const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
+      if (deferredDOMNode) {
+        deferredDOMNode.highlight();
+      }
+    };
+    violatingNode.onmouseleave = () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+  }
+
+  /**
+   * @param {!Element} element
+   * @param {!Protocol.Audits.SourceCodeLocation} sourceLocation
+   */
+  _appendSourceLocation(element, sourceLocation) {
+    const maxLengthForDisplayedURLs = 40;  // Same as console messages.
+    const linkifier = new Components.Linkifier.Linkifier(maxLengthForDisplayedURLs);
+    const sourceAnchor = linkifier.linkifyScriptLocation(
+        /* target */ null,
+        /* scriptId */ null, sourceLocation.url, sourceLocation.lineNumber);
+    const sourceCodeLocation = document.createElement('td');
+    sourceCodeLocation.appendChild(sourceAnchor);
+    element.appendChild(sourceCodeLocation);
+  }
+
+  /**
    * @param {!Set<!Protocol.Audits.ContentSecurityPolicyIssueDetails>} cspViolations
    */
-  _appendAffectedDirectives(cspViolations) {
+  _appendAffectedContentSecurityPolicyDetails(cspViolations) {
     const header = document.createElement('tr');
     if (this._issue.code() === SDK.ContentSecurityPolicyIssue.inlineViolationCode) {
       this._appendDirectiveColumnTitle(header);
       this._appendNodeColumnTitle(header);
       this._appendSourceCodeColumnTitle(header);
       this._appendStatusColumnTitle(header);
-    } else {
+    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
       this._appendURLColumnTitle(header);
       this._appendStatusColumnTitle(header);
       this._appendDirectiveColumnTitle(header);
       this._appendSourceCodeColumnTitle(header);
+    } else {
+      console.assert(this._issue.code(), 'Affected resources were tried to be added for an issue without issue code');
+      if (!this._issue.code()) {
+        return;
+      }
+      this._appendSourceCodeColumnTitle(header);
+      this._appendDirectiveColumnTitle(header);
+      this._appendStatusColumnTitle(header);
     }
     this._affectedResources.appendChild(header);
     let count = 0;
     for (const cspViolation of cspViolations) {
       count++;
-      this.appendAffectedDirective(cspViolation);
+      this._appendAffectedContentSecurityPolicyDetail(cspViolation);
     }
     this.updateAffectedResourceCount(count);
   }
@@ -293,60 +362,36 @@ class AffectedDirectivesView extends AffectedResourcesView {
   /**
    * @param {!Protocol.Audits.ContentSecurityPolicyIssueDetails} cspViolation
    */
-  async appendAffectedDirective(cspViolation) {
+  async _appendAffectedContentSecurityPolicyDetail(cspViolation) {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-directive');
+
     if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
-      const info = document.createElement('td');
-      info.classList.add('affected-resource-directive-info');
       const url = cspViolation.blockedURL ? cspViolation.blockedURL : '';
-      info.textContent = url;
-      element.appendChild(info);
+      this._appendBlockedURL(element, url);
       this._appendBlockedStatus(element);
     }
-    const name = document.createElement('td');
-    name.textContent = cspViolation.violatedDirective;
-    element.appendChild(name);
-
+    if (this._issue.code() !== SDK.ContentSecurityPolicyIssue.evalViolationCode) {
+      this._appendViolatedDirective(element, cspViolation.violatedDirective);
+    }
     if (this._issue.code() === SDK.ContentSecurityPolicyIssue.inlineViolationCode) {
       const violatingNode = document.createElement('td');
       violatingNode.classList.add('affected-resource-csp-info-node');
+
       const nodeId = cspViolation.violatingNodeId;
       if (nodeId) {
-        const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
-
-        const target = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
-        icon.onclick = async () => {
-          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
-          Common.Revealer.reveal(deferredDOMNode);
-        };
-
-        UI.Tooltip.Tooltip.install(icon, ls`Click to reveal the violating DOM node in the Elements panel`);
-        violatingNode.appendChild(icon);
-
-        violatingNode.onmouseenter = () => {
-          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
-          if (deferredDOMNode) {
-            deferredDOMNode.highlight();
-          }
-        };
-        violatingNode.onmouseleave = () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+        this._appendBlockedNode(violatingNode, nodeId);
       }
       element.appendChild(violatingNode);
     }
     const sourceCodeLocation = cspViolation.sourceCodeLocation;
     if (sourceCodeLocation) {
-      const maxLengthForDisplayedURLs = 40;  // Same as console messages.
-      const linkifier = new Components.Linkifier.Linkifier(maxLengthForDisplayedURLs);
-      const sourceAnchor = linkifier.linkifyScriptLocation(
-          /* target */ null,
-          /* scriptId */ null, sourceCodeLocation.url, sourceCodeLocation.lineNumber);
-      const sourceLocation = document.createElement('td');
-      sourceLocation.appendChild(sourceAnchor);
-      element.appendChild(sourceLocation);
+      this._appendSourceLocation(element, sourceCodeLocation);
     }
-
-    if (this._issue.code() === SDK.ContentSecurityPolicyIssue.inlineViolationCode) {
+    if (this._issue.code() === SDK.ContentSecurityPolicyIssue.evalViolationCode) {
+      this._appendViolatedDirective(element, cspViolation.violatedDirective);
+    }
+    if (this._issue.code() !== SDK.ContentSecurityPolicyIssue.urlViolationCode) {
       this._appendBlockedStatus(element);
     }
 
@@ -358,7 +403,7 @@ class AffectedDirectivesView extends AffectedResourcesView {
    */
   update() {
     this.clear();
-    this._appendAffectedDirectives(this._issue.cspViolations());
+    this._appendAffectedContentSecurityPolicyDetails(this._issue.cspViolations());
   }
 }
 
