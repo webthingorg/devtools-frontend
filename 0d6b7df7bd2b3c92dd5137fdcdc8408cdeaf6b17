@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd74d0f2_a939b3a8",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T08:41:37Z",
+      "side": 0,
+      "message": "This will make the issue counts wrong.",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "0d6b7df7bd2b3c92dd5137fdcdc8408cdeaf6b17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

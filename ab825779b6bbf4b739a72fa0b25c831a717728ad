@@ -16,6 +16,29 @@
       "revId": "ab825779b6bbf4b739a72fa0b25c831a717728ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60299683_1698d1f4",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T08:41:37Z",
+      "side": 1,
+      "message": "If I understand correctly, this code is somewhat expensive, as it might trigger markdown parsing. What do you think about moving it into the conditional below?",
+      "range": {
+        "startLine": 922,
+        "startChar": 3,
+        "endLine": 929,
+        "endChar": 5
+      },
+      "revId": "ab825779b6bbf4b739a72fa0b25c831a717728ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
