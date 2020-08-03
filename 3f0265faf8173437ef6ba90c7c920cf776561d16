@@ -87,6 +87,24 @@
     },
     {
       "key": {
+        "uuid": "69c8f349_d1ffb5f8",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T12:53:54Z",
+      "side": 1,
+      "message": "I looked at all the property names in BlockedByResponseIssueDetails (recursively) and left out url, as that is optional and I don\u0027t want to have different issues based one having a url in the affected request, and the other one not having one.",
+      "parentUuid": "3b29fe29_9712253b",
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9adc041e_c483842d",
         "filename": "front_end/issues/issuesTree.css",
         "patchSetId": 6
@@ -107,6 +125,30 @@
       "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "402c3168_5c1e5176",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-03T12:53:54Z",
+      "side": 1,
+      "message": "We don\u0027t seem to change the breaking-change-color (which is very similar), either. I\u0027ve checked locally and it looks good to me in dark mode.",
+      "parentUuid": "9adc041e_c483842d",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 27
+      },
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
