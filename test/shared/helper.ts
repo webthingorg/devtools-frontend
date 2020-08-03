@@ -335,6 +335,17 @@ export const goTo = async (url: string) => {
   await target.goto(url);
 };
 
+export const overridePermissions = async (permissions: puppeteer.Permission[]) => {
+  const {browser} = getBrowserAndPages();
+  await browser.defaultBrowserContext().overridePermissions(
+      `http://localhost:${getHostedModeServerPort()}`, permissions);
+};
+
+export const clearPermissionsOverride = async () => {
+  const {browser} = getBrowserAndPages();
+  await browser.defaultBrowserContext().clearPermissionOverrides();
+};
+
 export const goToResource = async (path: string) => {
   await goTo(`${getResourcesPath()}/${path}`);
 };
