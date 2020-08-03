@@ -102,6 +102,23 @@
       "revId": "6a10321ce1155170fcff39e536762af776d69385",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d815103_486eecf4",
+        "filename": "front_end/inspector_overlay/tool_distances_impl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-03T09:14:02Z",
+      "side": 1,
+      "message": "In this case, I don\u0027t understand the benefit of using innerHTML. It feels wasteful to insert the canvas element and then query the DOM for it immediately after.\n\nHow about something like:\n\n    const canvas \u003d document.createElement(\u0027canvas\u0027);\n    canvas.id \u003d \u0027canvas\u0027;\n    canvas.classList.add(\u0027canvas\u0027);\n    this.document.body.append(canvas);\n    this.setCanvas(canvas);",
+      "revId": "6a10321ce1155170fcff39e536762af776d69385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
