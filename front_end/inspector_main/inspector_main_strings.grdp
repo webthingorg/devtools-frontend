@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_651677d5bfc4633d8b5fbb60be03f33c" desc="Subtitle for a select box under the Rendering drawer">
+    Forces CSS forced-colors media feature
+  </message>
   <message name="IDS_DEVTOOLS_79eabc5ef01281e5513568fb4f8674d2" desc="Text in Rendering Options">
     Frame Rendering Stats
   </message>
