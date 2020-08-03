@@ -16,6 +16,24 @@
       "revId": "35ac9511c960bcbdc83aa5eb2121e365fa4b71f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf3ba0f9_2aff6a32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-03T20:32:25Z",
+      "side": 1,
+      "message": "Interesting, I just double checked and I can\u0027t repro in focus or browse mode. Were you doing anything in particular other than arrowing around?",
+      "parentUuid": "c78ef4f7_fea90db4",
+      "revId": "35ac9511c960bcbdc83aa5eb2121e365fa4b71f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
