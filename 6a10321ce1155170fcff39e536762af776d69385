@@ -33,6 +33,40 @@
       "revId": "6a10321ce1155170fcff39e536762af776d69385",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4425f70a_38a5be5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-03T08:38:28Z",
+      "side": 1,
+      "message": "Nice cleanup!\n\nLGTM",
+      "revId": "6a10321ce1155170fcff39e536762af776d69385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30f26855_97edf270",
+        "filename": "front_end/inspector_overlay/tool_distances_impl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-03T08:38:28Z",
+      "side": 1,
+      "message": "`\u003ccanvas /\u003e` isn\u0027t actually correct in HTML. This needs a separate `\u003c/canvas\u003e` closing tag.",
+      "revId": "6a10321ce1155170fcff39e536762af776d69385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
