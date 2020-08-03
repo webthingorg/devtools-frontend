@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a02aae62_844d7454",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T05:58:40Z",
+      "side": 1,
+      "message": "lgtm % some questions. any idea whats causing the layout tests to fail?",
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adc041e_c483842d",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T05:58:40Z",
+      "side": 1,
+      "message": "Same color in dark mode?",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 27
+      },
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

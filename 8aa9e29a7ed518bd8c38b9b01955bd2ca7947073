@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "152df28d_c8f4fc71",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-03T05:58:40Z",
+      "side": 0,
+      "message": "Why is this removed in this CL? Related to the \"onFrameChanged\" event in \"IssuesPane\"? Could this break other things?",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1035,
+        "endChar": 5
+      },
+      "revId": "8aa9e29a7ed518bd8c38b9b01955bd2ca7947073",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
