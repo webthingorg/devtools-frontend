@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "23b078e7_b4003e82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-03T08:15:25Z",
+      "side": 1,
+      "message": "Let\u0027s include a small explanation of the `$` -\u003e `waitFor` replacements as well.",
+      "revId": "0037f168d9f8f21846683541d3ce22e7af72e785",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "668f3a98_d03f5a41",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -30,6 +47,23 @@
       "writtenOn": "2020-07-30T20:55:46Z",
       "side": 1,
       "message": "superfluous bang",
+      "revId": "0037f168d9f8f21846683541d3ce22e7af72e785",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03c88613_4704cb57",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-03T08:15:25Z",
+      "side": 1,
+      "message": "There\u0027s a lot happening on this one line. Let\u0027s split this across separate lines for readability?",
       "revId": "0037f168d9f8f21846683541d3ce22e7af72e785",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
