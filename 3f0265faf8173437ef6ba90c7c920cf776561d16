@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "ac805137_f4ae3a2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-03T09:25:26Z",
+      "side": 1,
+      "message": "LGTM with 1 question",
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b29fe29_9712253b",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-03T09:25:26Z",
+      "side": 1,
+      "message": "How did you get to this list of strings in the replacer array?",
+      "revId": "3f0265faf8173437ef6ba90c7c920cf776561d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9adc041e_c483842d",
         "filename": "front_end/issues/issuesTree.css",
         "patchSetId": 6
