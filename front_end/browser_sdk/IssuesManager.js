@@ -97,10 +97,6 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
   _issueAdded(event) {
     const {issuesModel, issue} =
         /** @type {{issuesModel: !SDK.IssuesModel.IssuesModel, issue: !SDK.Issue.Issue}} */ (event.data);
-    // Ignore issues without proper description; they are invisible to the user and only cause confusion.
-    if (!issue.getDescription()) {
-      return;
-    }
     const primaryKey = issue.primaryKey();
     if (this._issues.has(primaryKey)) {
       return;

@@ -11,6 +11,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {AggregatedIssue, Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';  // eslint-disable-line no-unused-vars
+import {getDescription} from './MarkdownIssueDescription.js';
 
 /**
  * @param {string} path
@@ -918,7 +919,10 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
    * @param {!AggregatedIssue} issue
    */
   _updateIssueView(issue) {
-    const description = issue.getDescription();
+    let description = getDescription(issue.code());
+    if (!description) {
+      description = issue.getDescription();
+    }
     if (!description) {
       console.warn('Could not find description for issue code:', issue.code());
       return;
