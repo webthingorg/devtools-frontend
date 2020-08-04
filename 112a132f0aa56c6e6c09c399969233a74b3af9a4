@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a96fabf7_6e1d3166",
+        "filename": "front_end/inspector_overlay/highlight_common.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T15:11:17Z",
+      "side": 0,
+      "message": "Did we restore this because grid is no longer using it? Makes sense if so, just wanted to double check",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 26
+      },
+      "revId": "112a132f0aa56c6e6c09c399969233a74b3af9a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

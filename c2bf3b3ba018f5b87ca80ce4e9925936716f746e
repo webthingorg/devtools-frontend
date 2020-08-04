@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "923d438e_94b114f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T15:11:17Z",
+      "side": 1,
+      "message": "before/after pictures look great! nice work. I do have a question about if we want to be able to configure the extended line color when multiple grids are active.",
+      "revId": "c2bf3b3ba018f5b87ca80ce4e9925936716f746e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59bd1cb6_cc7e8c43",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T15:11:17Z",
+      "side": 1,
+      "message": "when we get to the point with multiple grid overlays active, would we want the ability to set the color of the extended lines so that we can more easily differentiate if multiple grids have extended lines?",
+      "range": {
+        "startLine": 270,
+        "startChar": 24,
+        "endLine": 270,
+        "endChar": 43
+      },
+      "revId": "c2bf3b3ba018f5b87ca80ce4e9925936716f746e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
