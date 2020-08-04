@@ -50,6 +50,24 @@
       "revId": "15ceefcb972d7e53f497d04856717d55732ebaf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bec9cab0_ceeb976b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-04T08:02:50Z",
+      "side": 1,
+      "message": "Good point! That is what I have done here: https://i.imgur.com/za1Ndad.gif\nin https://crrev.com/c/2332229",
+      "parentUuid": "11eeec54_41dbadeb",
+      "revId": "15ceefcb972d7e53f497d04856717d55732ebaf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
