@@ -28,7 +28,8 @@
  */
 
 import * as Platform from '../platform/platform.js';
-import {blendColors, rgbaToHsla} from './ColorUtils.js';
+
+import {blendColors, luminance, rgbaToHsla} from './ColorUtils.js';
 
 /** @type {?Map<string, string>} */
 let _rgbaToNickname;
@@ -383,6 +384,82 @@ export class Color {
       desiredLuminance = computeLuminance();
     }
     return desiredLuminance;
+  }
+
+  /**
+   *
+   * @param {!Color} fgColor
+   * @param {!Color} bgColor
+   * @param {number} requiredContrast
+   * @return {?Color}
+   */
+  static findFgColorForContrast(fgColor, bgColor, requiredContrast) {
+    const candidateHSVA = fgColor.hsva();
+    const bgRGBA = bgColor.rgba();
+
+    const candidateLuminance = () => {
+      return luminance(blendColors(Color.fromHSVA(candidateHSVA).rgba(), bgRGBA));
+    };
+
+    const bgLuminance = luminance(bgColor.rgba());
+    const fgLuminance = candidateLuminance();
+    const fgIsLighter = fgLuminance > bgLuminance;
+
+    let desiredLuminance = Number(Color.desiredLuminance(bgLuminance, requiredContrast, fgIsLighter).toFixed(2));
+
+    // Move the desired luminance to always guarantee the required contrast.
+    desiredLuminance += fgIsLighter ? 0.005 : -0.005;
+
+    /**
+     * Approach a value of the given component of `candidateHSVA` such that the
+     * calculated luminance of `candidateHSVA` approximates `desiredLuminance`.
+     * @return {?number} The new value for the modified component, or `null` if
+     *     no suitable value exists.
+     * TODO (alexrudenko): extract and reuse approach here and in ContrastOverlay.js
+     */
+    function approach() {
+      const epsilon = 0.0002;
+
+      let x = candidateHSVA[2];
+      let multiplier = 1;
+      let dLuminance = candidateLuminance() - desiredLuminance;
+      let previousSign = Math.sign(dLuminance);
+
+      for (let guard = 100; guard; guard--) {
+        if (Math.abs(dLuminance) < epsilon) {
+          candidateHSVA[2] = x;
+          return x;
+        }
+
+        const sign = Math.sign(dLuminance);
+        if (sign !== previousSign) {
+          // If `x` overshoots the correct value, halve the step size.
+          multiplier /= 2;
+          previousSign = sign;
+        } else if (x < 0 || x > 1) {
+          // If there is no overshoot and `x` is out of bounds, there is no
+          // acceptable value for `x`.
+          return null;
+        }
+
+        // Adjust `x` by a multiple of `dLuminance` to decrease step size as
+        // the computed luminance converges on `desiredLuminance`.
+        x += multiplier * -dLuminance;
+
+        candidateHSVA[2] = x;
+
+        dLuminance = candidateLuminance() - desiredLuminance;
+      }
+      // The loop should always converge or go out of bounds on its own.
+      console.error('Loop exited unexpectedly');
+      return null;
+    }
+
+    if (approach()) {
+      return Color.fromHSVA(candidateHSVA);
+    }
+
+    return null;
   }
 
   /**
