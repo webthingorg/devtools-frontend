@@ -22,6 +22,30 @@
       "revId": "9b0aca91ac07012664f476269e0dca99b7f99938",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c693a828_8e437303",
+        "filename": "scripts/build/ninja/copy.gni",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-04T08:35:28Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "4721932a_7107daa3",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 66
+      },
+      "revId": "9b0aca91ac07012664f476269e0dca99b7f99938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
