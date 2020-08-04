@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cbfe460_fe3cc4d8",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-04T22:10:34Z",
+      "side": 1,
+      "message": "Does this need a \u003cph name\u003d\"LOCKED_1\"\u003e?",
+      "range": {
+        "startLine": 223,
+        "startChar": 31,
+        "endLine": 223,
+        "endChar": 41
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
