@@ -47,7 +47,7 @@ const envChromeBinary = process.env['CHROME_BIN'];
 
 function launchChrome() {
   // Use port 0 to request any free port.
-  const launchArgs = ['--remote-debugging-port=0'];
+  const launchArgs = ['--remote-debugging-port=0'];  // '--enable-experimental-web-platform-features'
   const opts: puppeteer.LaunchOptions = {
     headless,
     executablePath: envChromeBinary,
@@ -78,6 +78,10 @@ function getDebugPort(browser: puppeteer.Browser) {
 
 async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
   browser = await launchChrome();
+
+  // await browser.defaultBrowserContext().overridePermissions(
+  //     `http://localhost:${hostedModeServerPort}`, ['notifications']);
+
   const chromeDebugPort = getDebugPort(browser);
   console.log(`Opened chrome with debug port: ${chromeDebugPort}`);
 
