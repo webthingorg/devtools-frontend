@@ -104,7 +104,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     transportGroup.appendChild(transportSelectTitle);
     this._transportSelect = transportGroup.createChild('select', 'chrome-select');
     UI.ARIAUtils.bindLabelToControl(transportSelectTitle, this._transportSelect);
-    // TODO (crbug.com/1034663): toggle cable as option depending on if cablev2 flag is on.
+    // TODO (crbug.com/1034663): Toggle cable as option depending on if cablev2 flag is on.
     Object.values(Protocol.WebAuthn.AuthenticatorTransport).forEach(option => {
       if (option !== Protocol.WebAuthn.AuthenticatorTransport.Cable) {
         this._transportSelect.appendChild(new Option(option, option));
@@ -146,7 +146,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
    * @param {!Protocol.WebAuthn.AuthenticatorId} authenticatorId
    * @param {!Protocol.WebAuthn.VirtualAuthenticatorOptions} options
    */
-  _addAuthenticatorSection(authenticatorId, options) {
+  async _addAuthenticatorSection(authenticatorId, options) {
     const section = document.createElement('div');
     section.classList.add('authenticator-section');
     section.setAttribute('data-authenticator-id', authenticatorId);
@@ -157,11 +157,11 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     const titleElement = headerElement.createChild('div', 'authenticator-section-title');
     UI.ARIAUtils.markAsHeading(titleElement, 2);
 
-    const removeButton = headerElement.createChild('button', 'remove-authenticator-button');
+    const removeButton = headerElement.createChild('button', 'text-button');
     removeButton.textContent = ls`Remove`;
     removeButton.addEventListener('click', this._removeAuthenticator.bind(this, authenticatorId));
 
-    this._clearActiveAuthenticator();
+    await this._clearActiveAuthenticator();
     const activeButtonContainer = headerElement.createChild('div', 'active-button-container');
     const activeLabel = UI.UIUtils.createRadioLabel('active-authenticator', ls`Active`);
     activeLabel.radioElement.addEventListener('click', this._setActiveAuthenticator.bind(this, authenticatorId));
@@ -199,6 +199,115 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     toolbar.appendToolbarItem(saveName);
 
     this._createAuthenticatorFields(section, authenticatorId, options);
+    this._createCredentialsTable(section);
+    this._updateCredentialTable(authenticatorId);
+  }
+
+  /**
+   * @param {!HTMLDivElement} section
+   */
+  _createCredentialsTable(section) {
+    section.appendChild(UI.UIUtils.createLabel(ls`Credentials`, 'credentials-title'));
+    const wrapper = section.createChild('div', 'credentials-table-wrapper');
+
+    /** @type {!HTMLTableElement} */
+    const credentialTable = wrapper.createChild('table', 'credentials-table');
+    const tableHead = credentialTable.createTHead();
+    const headRow = tableHead.insertRow();
+
+    const columns = [
+      ls`ID`,
+      ls`Is Resident`,
+      ls`RP ID`,
+      ls`User Handle`,
+      ls`Sign Count`,
+      '',
+      '',
+    ];
+
+    columns.forEach(field => {
+      headRow.createChild('th').innerText = field;
+    });
+    headRow.children[0].classList.add('id-cell');
+
+    credentialTable.createTBody();
+  }
+
+  /**
+   * @param {!Protocol.WebAuthn.AuthenticatorId} authenticatorId
+   */
+  async _updateCredentialTable(authenticatorId) {
+    const credentialTableBody = this._authenticatorsView.querySelector(
+        `[data-authenticator-id=${CSS.escape(authenticatorId)}] div table tbody`);
+
+    if (!credentialTableBody) {
+      return;
+    }
+
+    /** @type {Protocol.WebAuthn.Credential[]} */
+    const credentials = await this._model.getCredentials(authenticatorId);
+    credentialTableBody.innerHTML = '';
+    credentials.forEach(credential => this._insertCredentialRow(authenticatorId, credentialTableBody, credential));
+
+    // TODO(crbug.com/1112528): Add back-end events for credential creation and removal to avoid polling.
+    const timeout = 1000;
+    setTimeout(this._updateCredentialTable.bind(this, authenticatorId), timeout);
+  }
+
+  /**
+   * @param {!Protocol.WebAuthn.AuthenticatorId} authenticatorId
+   * @param {!Element} credentialTableBody
+   * @param {!Protocol.WebAuthn.Credential} credential
+   */
+  _insertCredentialRow(authenticatorId, credentialTableBody, credential) {
+    const row = credentialTableBody.createChild('tr');
+    row.setAttribute('data-credential-id', credential.credentialId);
+
+    const idRow = row.createChild('td');
+    idRow.innerHTML = credential.credentialId;
+    idRow.title = credential.credentialId;
+
+    const isResidentCheckbox = row.createChild('td').createChild('input');
+    isResidentCheckbox.setAttribute('type', 'checkbox');
+    isResidentCheckbox.checked = credential.isResidentCredential;
+    isResidentCheckbox.disabled = true;
+
+    row.createChild('td').textContent = credential.rpId || ls`<unknown RP ID>`;
+    row.createChild('td').textContent = credential.userHandle || ls`<no user handle>`;
+    row.createChild('td').textContent = credential.signCount.toString();
+
+    const exportCell = row.createChild('td');
+    const exportCredentialButton = exportCell.createChild('button', 'text-button');
+    exportCredentialButton.textContent = ls`Export`;
+    exportCredentialButton.addEventListener('click', this._exportCredential.bind(this, credential));
+
+    const removeCell = row.createChild('td');
+    const removeCredentialButton = removeCell.createChild('button', 'text-button');
+    removeCredentialButton.textContent = ls`Remove`;
+    removeCredentialButton.addEventListener(
+        'click', this._removeCredential.bind(this, authenticatorId, credential.credentialId));
+  }
+
+  /**
+   * @param {!Protocol.WebAuthn.Credential} credential
+   */
+  _exportCredential(credential) {
+    const pem = '-----BEGIN PRIVATE KEY-----\n' + credential.privateKey + '\n-----END PRIVATE KEY-----';
+
+    /** @type {HTMLLinkElement} */
+    const link = document.createElement('a');
+    link.download = ls`Private key.pem`;
+    link.href = 'data:application/x-pem-file;charset=utf-8,' + encodeURIComponent(pem);
+    link.click();
+  }
+
+  /**
+   * @param {!Protocol.WebAuthn.AuthenticatorId} authenticatorId
+   * @param {string} credentialId
+   */
+  _removeCredential(authenticatorId, credentialId) {
+    this._authenticatorsView.querySelector(`[data-credential-id=${CSS.escape(credentialId)}]`).remove();
+    this._model.removeCredential(authenticatorId, credentialId);
   }
 
   /**
