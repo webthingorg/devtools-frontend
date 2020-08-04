@@ -148,6 +148,30 @@
     },
     {
       "key": {
+        "uuid": "fa4c7051_416d0e60",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-08-04T18:47:37Z",
+      "side": 1,
+      "message": "Yeah, it seems ok if doUpdate isn\u0027t async. We just need to wait for getSubtree in the setNodeAsync function before we go onto the rest of that function.",
+      "parentUuid": "61d3d097_cd472dd7",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 43
+      },
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3164c9d7_7899a155",
         "filename": "front_end/accessibility/SourceOrderView.js",
         "patchSetId": 3
@@ -168,6 +192,30 @@
       "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a54127bf_1623ab54",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-08-04T18:47:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3164c9d7_7899a155",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -279,6 +327,24 @@
       "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acadea79_cc7baf23",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-08-04T18:47:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b51500d6_8192f7f5",
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
