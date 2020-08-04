@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "4fc576d8_f95cd31d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Thank you for the suggestion! I tried the DataGrid but didn\u0027t need much of its functionality and found it easier to match the design in the design doc by creating a table from scratch. Pls LMK if you think it\u0027d be better for reasons other than ease to use the DataGrid and I can implement it :)",
+      "parentUuid": "131664e5_f665831d",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 25
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0204fce4_a43ffeff",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -73,6 +97,24 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85d90498_9f2bddca",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0204fce4_a43ffeff",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -99,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "44a388ea_c752462f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Implemented using the headrows children rather than columns as columns holds the field names rather than the HTML elements.",
+      "parentUuid": "c5d96f8a_ff5f2662",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 7
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58e26a6f_be0032c9",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -116,6 +182,24 @@
     },
     {
       "key": {
+        "uuid": "d6896ce1_231e0d43",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58e26a6f_be0032c9",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "923cefa8_ee44cca6",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -130,6 +214,24 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62c3d454_a81b8f82",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "923cefa8_ee44cca6",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -173,6 +275,48 @@
     },
     {
       "key": {
+        "uuid": "5d0fb5aa_1d628fa8",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98a7bb8d_1d9b0f97",
+      "range": {
+        "startLine": 253,
+        "startChar": 74,
+        "endLine": 253,
+        "endChar": 78
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c117688_f92a88c5",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80eec8ab_6eb416d6",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b56e2441_51f9c1b8",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -187,6 +331,24 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a57ff42_9b443c6a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b56e2441_51f9c1b8",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -213,6 +375,30 @@
     },
     {
       "key": {
+        "uuid": "f5a73b6e_3f96498f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0ac355a_438e70da",
+      "range": {
+        "startLine": 274,
+        "startChar": 60,
+        "endLine": 274,
+        "endChar": 75
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc4e481f_f7e19f0c",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -233,6 +419,30 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9066aa7e_25b899c9",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc4e481f_f7e19f0c",
+      "range": {
+        "startLine": 275,
+        "startChar": 66,
+        "endLine": 275,
+        "endChar": 82
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -259,6 +469,30 @@
     },
     {
       "key": {
+        "uuid": "60c39b12_dc1db42f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be7f8535_23352511",
+      "range": {
+        "startLine": 295,
+        "startChar": 4,
+        "endLine": 297,
+        "endChar": 32
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ff59a0_0b6f8e48",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -282,6 +516,30 @@
     },
     {
       "key": {
+        "uuid": "25b25071_0038b963",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ff59a0_0b6f8e48",
+      "range": {
+        "startLine": 300,
+        "startChar": 20,
+        "endLine": 300,
+        "endChar": 37
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b287553f_86575885",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -296,6 +554,24 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5570e34f_b2d86599",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "TY! Solved by adding credential-id attributes and then using those to remove the credential row.",
+      "parentUuid": "b287553f_86575885",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -322,6 +598,30 @@
     },
     {
       "key": {
+        "uuid": "2f39eda2_b290886d",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3611f31a_efabd859",
+      "range": {
+        "startLine": 162,
+        "startChar": 24,
+        "endLine": 162,
+        "endChar": 42
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10d3edf9_c1d929a7",
         "filename": "front_end/webauthn/webauthnPane.css",
         "patchSetId": 1
@@ -345,6 +645,30 @@
     },
     {
       "key": {
+        "uuid": "376ef273_7e115c16",
+        "filename": "front_end/webauthn/webauthnPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10d3edf9_c1d929a7",
+      "range": {
+        "startLine": 203,
+        "startChar": 24,
+        "endLine": 203,
+        "endChar": 47
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e12fab8_67e98a3b",
         "filename": "front_end/webauthn/webauthn_strings.grdp",
         "patchSetId": 1
@@ -359,6 +683,24 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7993dc_f99edee5",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e12fab8_67e98a3b",
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -382,6 +724,30 @@
       "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "582a6c73_47d0807e",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-04T00:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b07b6790_dbb5ecef",
+      "range": {
+        "startLine": 32,
+        "startChar": 124,
+        "endLine": 32,
+        "endChar": 135
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
