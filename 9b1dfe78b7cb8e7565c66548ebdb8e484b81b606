@@ -124,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "61d3d097_cd472dd7",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T17:59:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure you need to update doUpdate to async if you aren\u0027t awaiting the result.",
+      "parentUuid": "ecc3dec9_f1581570",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 43
+      },
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3164c9d7_7899a155",
         "filename": "front_end/accessibility/SourceOrderView.js",
         "patchSetId": 3
@@ -234,6 +258,24 @@
       "side": 1,
       "message": "Originally the function didn\u0027t return anything, but the typescript closure check said all async functions need to return a promise. So I will see what happens when I just return an array, but if the closure check doesn\u0027t like it, maybe I can have it return something similar to doUpdate (@return {!Promise.\u003c?\u003e})",
       "parentUuid": "a37be4d2_f7ac48f1",
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b51500d6_8192f7f5",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T17:59:35Z",
+      "side": 1,
+      "message": "How about instead, we update the jsdoc to read @return {!Promise.\u003cvoid\u003e} and not return anything. This is a common pattern and it will make closure happy",
+      "parentUuid": "effc178e_4f246434",
       "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
