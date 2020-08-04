@@ -26,6 +26,9 @@ describe('The Application Tab', async () => {
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
 
+    // sadym: experiment if this cause brawser failure
+    await goToResource('sensors/idle-detector.html');
+
     await goToResource('network/unreachable.rawresponse');
 
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);

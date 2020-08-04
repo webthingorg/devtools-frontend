@@ -264,7 +264,18 @@ export const enableExperiment = async (
 
 export const goTo = async (url: string) => {
   const {target} = getBrowserAndPages();
-  await target.goto(url);
+  await target.goto(url, {waitUntil: 'load', timeout: 3000});
+};
+
+export const overridePermissions = async (permissions: puppeteer.Permission[]) => {
+  const {browser} = getBrowserAndPages();
+  await browser.defaultBrowserContext().overridePermissions(
+      `http://localhost:${getHostedModeServerPort()}`, permissions);
+};
+
+export const clearPermissionsOverride = async () => {
+  const {browser} = getBrowserAndPages();
+  await browser.defaultBrowserContext().clearPermissionOverrides();
 };
 
 export const goToResource = async (path: string) => {
@@ -324,6 +335,15 @@ export const enableCDPLogging = async () => {
   await frontend.evaluate(() => {
     globalThis.ProtocolClient.test.dumpProtocol = console.log;  // eslint-disable-line no-console
   });
+};
+
+export const selectOption = async (select: puppeteer.JSHandle<HTMLSelectElement>, value: string) => {
+  await select.evaluate(async (node, _value) => {
+    node.value = _value;
+    const event = document.createEvent('HTMLEvents');
+    event.initEvent('change', false, true);
+    node.dispatchEvent(event);
+  }, value);
 };
 
 export {getBrowserAndPages, getHostedModeServerPort, reloadDevTools};
