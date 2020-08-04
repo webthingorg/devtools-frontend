@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "319878c7_acf70c04",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-04T14:38:27Z",
+      "side": 1,
+      "message": "Does waitForFunction throw an error if the function returns false?",
+      "revId": "0b062f429b49a9e336316b601c45116e304af283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
