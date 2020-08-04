@@ -133,7 +133,7 @@ export const urlViolationCode = [
   Protocol.Audits.ContentSecurityPolicyViolationType.KURLViolation
 ].join('::');
 
-
+/** @type {string} */
 export const inlineViolationCode = [
   Protocol.Audits.InspectorIssueCode.ContentSecurityPolicyIssue,
   Protocol.Audits.ContentSecurityPolicyViolationType.KInlineViolation
