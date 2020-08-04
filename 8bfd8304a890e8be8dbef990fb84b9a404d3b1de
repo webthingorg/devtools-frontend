@@ -16,6 +16,24 @@
       "revId": "8bfd8304a890e8be8dbef990fb84b9a404d3b1de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4327abcb_d82c5ce0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T14:06:36Z",
+      "side": 1,
+      "message": "Rebased and +2\u0027ing now.",
+      "parentUuid": "732cefe3_bde5c4bd",
+      "revId": "8bfd8304a890e8be8dbef990fb84b9a404d3b1de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
