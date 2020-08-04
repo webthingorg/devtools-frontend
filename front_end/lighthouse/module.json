@@ -45,5 +45,6 @@
   "skip_compilation": [
     "../third_party/lighthouse/report-assets/report.js",
     "../third_party/lighthouse/report-assets/report-generator.js"
-  ]
+  ],
+  "skip_rollup": true
 }
