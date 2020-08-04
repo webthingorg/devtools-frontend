@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d017f8e0_d5dba336",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-04T07:17:37Z",
+      "side": 1,
+      "message": "A test needs updating.",
+      "revId": "7ae31581328060a97e10335be849312ce64d24f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e9a9d5b_c7a98ffb",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-04T07:17:37Z",
+      "side": 1,
+      "message": "Is this necessary? I would have assumed that it inherits the correct font anyways.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 0
+      },
+      "revId": "7ae31581328060a97e10335be849312ce64d24f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
