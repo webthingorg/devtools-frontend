@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9dd2262e_f701a96c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-04T12:51:55Z",
+      "side": 1,
+      "message": "mathias@: It looks like all lgtms are in. Would you please +2 this?",
+      "revId": "f8b9ab6e1f4d30e9fa75c434b7fe4a807884d7cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
