@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f35a9b84_01425204",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-08-04T14:28:21Z",
+      "side": 1,
+      "message": "Fix looks reasonable. As discussed in the meeting, give it a try to see if you can fix it on the BreakpointManager level (which seems cleaner to me as well).",
+      "revId": "bda8406a43942b2e7dd9f617299f21beed549d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
