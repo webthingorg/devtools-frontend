@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c597e01e_e6f8aa4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-04T12:50:56Z",
+      "side": 1,
+      "message": "mathias@ I think this one is ready then. Will you please +2? :) ",
+      "revId": "4668bf2247ef57406354efc8c626fcfab0bdd331",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
