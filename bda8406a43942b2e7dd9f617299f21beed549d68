@@ -16,6 +16,24 @@
       "revId": "bda8406a43942b2e7dd9f617299f21beed549d68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97a9f7e3_5c22cd19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-04T16:49:27Z",
+      "side": 1,
+      "message": "The problem is that at the BreakpointManager level they really are different locations as they are on different UISourceCodes.",
+      "parentUuid": "f35a9b84_01425204",
+      "revId": "bda8406a43942b2e7dd9f617299f21beed549d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
