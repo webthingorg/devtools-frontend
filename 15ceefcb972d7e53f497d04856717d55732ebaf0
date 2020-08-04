@@ -33,6 +33,23 @@
       "revId": "15ceefcb972d7e53f497d04856717d55732ebaf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11eeec54_41dbadeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-04T08:00:48Z",
+      "side": 1,
+      "message": "It would be nice if we could come up with a way to nevertheless tell the user somewhere that reloading the page can give more details. Maybe if we can\u0027t populate a link, put something right where the link would be?",
+      "revId": "15ceefcb972d7e53f497d04856717d55732ebaf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
