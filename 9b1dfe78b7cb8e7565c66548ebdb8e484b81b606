@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "6d00880d_af699089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-08-04T17:38:44Z",
+      "side": 1,
+      "message": "A few questions/clarifications about the async part",
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6851163e_30a7ec94",
         "filename": "front_end/accessibility/AccessibilitySidebarView.js",
         "patchSetId": 3
@@ -71,6 +88,30 @@
       "side": 1,
       "message": "Also curious what changing this to an async function allows, as the rest of the subpane setNode() calls are synchronous",
       "parentUuid": "6851163e_30a7ec94",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 43
+      },
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecc3dec9_f1581570",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-08-04T17:38:44Z",
+      "side": 1,
+      "message": "Async allows the source order to be drawn for elements that aren\u0027t expanded in the element tree (so their child nodes aren\u0027t known yet). So in the setNodeAsync function, thats the call to getSubtree.\n\nI will change doUpdate to async, I think I might need to keep the name as setNodeAsync though. Otherwise I got some closure errors about not overriding the setNode function on the parent class, but also not having the return type match to the parent setNode function.",
+      "parentUuid": "885215f3_389833e8",
       "range": {
         "startLine": 100,
         "startChar": 31,
@@ -175,6 +216,24 @@
       "side": 1,
       "message": "+1 here. It looks to me that the only place that calls this doesn\u0027t need to use the results, so I\u0027m for must marking this as async and not explicitly returning anything here?",
       "parentUuid": "fad55260_5b8dcd12",
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "effc178e_4f246434",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1422938
+      },
+      "writtenOn": "2020-08-04T17:38:44Z",
+      "side": 1,
+      "message": "Originally the function didn\u0027t return anything, but the typescript closure check said all async functions need to return a promise. So I will see what happens when I just return an array, but if the closure check doesn\u0027t like it, maybe I can have it return something similar to doUpdate (@return {!Promise.\u003c?\u003e})",
+      "parentUuid": "a37be4d2_f7ac48f1",
       "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
