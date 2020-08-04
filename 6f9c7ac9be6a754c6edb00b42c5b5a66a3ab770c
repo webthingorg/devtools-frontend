@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a71379f_5c29b929",
+        "filename": "test/e2e/resources/sensors/idle-detector.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T05:57:54Z",
+      "side": 1,
+      "message": "Missing:\n\n    \u003c!DOCTYPE html\u003e\n\n(standards mode \u003e quirks mode)",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edc3a7b8_ca08ba43",
+        "filename": "test/e2e/resources/sensors/idle-detector.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T05:57:54Z",
+      "side": 1,
+      "message": "You could do\n\n    const elState \u003d document.querySelector(\u0027#state\u0027);\n\noutside of the function, to avoid repeatedly querying the DOM for the same element.\n\nThen, in the function body, do:\n\n    elState.textContent \u003d msg;\n\n(Note: textContent \u003e innerText)",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba344026_bc165309",
+        "filename": "test/e2e/resources/sensors/idle-detector.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T05:57:54Z",
+      "side": 1,
+      "message": "nit: avoid single-letter var names. e -\u003e event",
+      "range": {
+        "startLine": 13,
+        "startChar": 45,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89cb0ad8_ca320df6",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T05:57:54Z",
+      "side": 1,
+      "message": "This test reads very nicely!",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c653dcf4_958e6d32",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T05:57:54Z",
+      "side": 1,
+      "message": "Should these go in the relevant -helpers file?\n\nIf not, let\u0027s move them to the top of this file so that they are declared before being used (for readability).",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a226854_41be396b",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T05:57:54Z",
+      "side": 1,
+      "message": "e \u003d\u003e event",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbce3b8a_fed775dc",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T05:57:54Z",
+      "side": 1,
+      "message": "getState could be simplified as follows: outside of the function body, get a JSHandle to the state element. Then, in the function bodies you can just do something like:\n\n    element.evaluate(el \u003d\u003e el.textContent);\n\nYou may not even need a helper function at that point.",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
