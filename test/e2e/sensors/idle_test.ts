@@ -5,13 +5,40 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {$} from '../../shared/helper.js';
+import {$, clearPermissionsOverride, getBrowserAndPages, goToResource, overridePermissions, selectOption, step} from '../../shared/helper.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
-describe('Sensors panel', () => {
+describe('Idle Emulation on Sensors panel', () => {
   beforeEach(async () => {
+    await step('override permissions', async () => {
+      await overridePermissions(['notifications']);
+    });
+
     await openPanelViaMoreTools('Sensors');
   });
+  afterEach(async () => {
+    await step('clear permissions override', async () => {
+      await clearPermissionsOverride();
+    });
+  });
+
+  async function getState() {
+    const {target} = getBrowserAndPages();
+    return await target.evaluate(() => {
+      const state = document.getElementById('state');
+      return state ? state.innerText : '';
+    });
+  }
+
+  async function waitForState(state: string) {
+    const {target} = getBrowserAndPages();
+    await step(`Waiting for state \'${state}\'`, async () => {
+      await target.waitForFunction(_state => {
+        const stateEl = document.getElementById('state');
+        return _state === (stateEl ? stateEl.innerText : '');
+      }, {}, state);
+    });
+  }
 
   it('includes UI for emulating an idle state', async () => {
     const select = await $('.idle-section select');
@@ -25,5 +52,30 @@ describe('Sensors panel', () => {
       'User idle, screen locked',
     ].join('');
     assert.deepEqual(actual, expected);
+  });
+
+  it('changing idle state emulation causes change of the IdleDetector state', async () => {
+    await goToResource('sensors/idle-detector.html');
+    const select = await $('.idle-section select');
+
+    // InitialState can be idle as well.
+    const initialState = await getState();
+
+    // Emulate Idle states and verify IdleDetector updates state accordingly.
+    await selectOption(select, '{"isUserActive":false,"isScreenUnlocked":false}');
+    await waitForState('Idle state: idle, locked.');
+
+    await selectOption(select, '{"isUserActive":true,"isScreenUnlocked":false}');
+    await waitForState('Idle state: active, locked.');
+
+    await selectOption(select, '{"isUserActive":true,"isScreenUnlocked":true}');
+    await waitForState('Idle state: active, unlocked.');
+
+    await selectOption(select, '{"isUserActive":false,"isScreenUnlocked":true}');
+    await waitForState('Idle state: idle, unlocked.');
+
+    // Remove Idle emulation and verify IdleDetector is in initial state.
+    await selectOption(select, 'none');
+    await waitForState(initialState);
   });
 });
