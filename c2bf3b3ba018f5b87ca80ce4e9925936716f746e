@@ -63,6 +63,30 @@
       "revId": "c2bf3b3ba018f5b87ca80ce4e9925936716f746e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae89f831_8e34da93",
+        "filename": "front_end/inspector_overlay/highlight_grid_common.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T15:39:22Z",
+      "side": 1,
+      "message": "Makes sense to me! I must have missed that change, so since this is the existing behavior, I\u0027m good with leaving as is. I imagine we would need to make a similar change here as the label background color in the future (basing it somehow around the color \"theme/palate\" that users select in the frontend)",
+      "parentUuid": "b2cf7ec7_63be0447",
+      "range": {
+        "startLine": 270,
+        "startChar": 24,
+        "endLine": 270,
+        "endChar": 43
+      },
+      "revId": "c2bf3b3ba018f5b87ca80ce4e9925936716f746e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
