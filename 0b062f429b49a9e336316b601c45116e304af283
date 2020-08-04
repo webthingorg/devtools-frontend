@@ -16,6 +16,24 @@
       "revId": "0b062f429b49a9e336316b601c45116e304af283",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d366834_79083e3c",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-04T15:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "319878c7_acf70c04",
+      "revId": "0b062f429b49a9e336316b601c45116e304af283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
