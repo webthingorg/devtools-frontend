@@ -33,6 +33,41 @@
       "revId": "acc85422d741bb1b402b7b1315fff2a6feee78ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "842eb429_bea0956c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-04T12:44:55Z",
+      "side": 1,
+      "message": "I just remembered a discussion I was having yesterday with Brandon and Rachel related to the extended grid lines. I think the agreement was to *not* display them in this version, so that the new overlay would be as similar as possible with the old one.\nSo I\u0027ll need to change this.",
+      "revId": "acc85422d741bb1b402b7b1315fff2a6feee78ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26a58ef7_974c9da9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-04T12:44:55Z",
+      "side": 1,
+      "message": "I agree that testing a bunch of test pages makes sense, to ensure we\u0027re not loosing anything important. My intuition, though, is that the new overlay is superior to the legacy one in how it draws lines.",
+      "parentUuid": "03986f4d_85ff0323",
+      "revId": "acc85422d741bb1b402b7b1315fff2a6feee78ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
