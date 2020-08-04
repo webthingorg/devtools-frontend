@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c29064a4_dce9baf1",
+        "filename": "front_end/inspector_main/RenderingOptions.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-04T12:21:04Z",
+      "side": 1,
+      "message": "Simpler feature test: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2276258",
+      "revId": "e7d0d2dc314502571a7bddffe70e78bc990c19fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
