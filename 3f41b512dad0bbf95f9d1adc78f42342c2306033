@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "efd434e4_cfb49df2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1426855
+      },
+      "writtenOn": "2020-08-04T21:21:50Z",
+      "side": 1,
+      "message": "I think seeing that an issue isn\u0027t useful is also valuable. For example, if we see users clicking an issue but *not* clicking on a resource, that may tell us the issue needs to be changed or removed.",
+      "parentUuid": "2c21ba12_317c13a8",
+      "revId": "3f41b512dad0bbf95f9d1adc78f42342c2306033",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d80620d3_712a7444",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 8
