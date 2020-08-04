@@ -22,6 +22,30 @@
       "revId": "c87611c71fff76dae3ebd574272006c4a98a8893",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fff78575_8b36796d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-04T07:56:00Z",
+      "side": 0,
+      "message": "Good point, the COEP issues don\u0027t need the getter, as they will show a prompt when a request cannot be resolved. I am not sure what the best way to go about for cookie issues is, so I\u0027d like to defer removing the getter until we have decided that.",
+      "parentUuid": "3c526d27_80bf5b51",
+      "range": {
+        "startLine": 1141,
+        "startChar": 47,
+        "endLine": 1141,
+        "endChar": 83
+      },
+      "revId": "c87611c71fff76dae3ebd574272006c4a98a8893",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
