@@ -100,10 +100,16 @@ function createIssuesForSameSiteCookieIssue(issuesModel, inspectorDetails) {
 
   // Exclusion reasons have priority. It means a cookie was blocked. Create an issue
   // for every exclusion reason but ignore warning reasons if the cookie was blocked.
+  // Some exclusion reasons are dependent on warning reasons existing in order to produce an issue.
   if (sameSiteDetails.cookieExclusionReasons && sameSiteDetails.cookieExclusionReasons.length > 0) {
     for (const exclusionReason of sameSiteDetails.cookieExclusionReasons) {
       const code = SameSiteCookieIssue.codeForSameSiteDetails(
-          exclusionReason, sameSiteDetails.operation, sameSiteDetails.cookieUrl);
+          exclusionReason, sameSiteDetails.cookieWarningReasons, sameSiteDetails.operation, sameSiteDetails.cookieUrl);
+      // If an exclusion reason (that depends on additional warning reasons) was found without its required warnings then skip it.
+      if (code === '') {
+        continue;
+      }
+
       issues.push(new SameSiteCookieIssue(code, sameSiteDetails));
     }
     return issues;
@@ -111,8 +117,9 @@ function createIssuesForSameSiteCookieIssue(issuesModel, inspectorDetails) {
 
   if (sameSiteDetails.cookieWarningReasons) {
     for (const warningReason of sameSiteDetails.cookieWarningReasons) {
+      // warningReasons should be an empty array here.
       const code = SameSiteCookieIssue.codeForSameSiteDetails(
-          warningReason, sameSiteDetails.operation, sameSiteDetails.cookieUrl);
+          warningReason, [], sameSiteDetails.operation, sameSiteDetails.cookieUrl);
       issues.push(new SameSiteCookieIssue(code, sameSiteDetails));
     }
   }
