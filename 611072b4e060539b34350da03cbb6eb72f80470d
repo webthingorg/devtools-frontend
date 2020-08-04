@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9df87acc_3711d719",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T15:26:38Z",
+      "side": 1,
+      "message": "Overall, I think this brings up a couple of questions/directions for me about how we want to move forward turning this on. The options I can see are\n\n1) This approach: turn on \"parity\" with legacy overlay to get improved hatch highlighting and new colors, hardcode the \"normal/default\" highlight like we do with the rest of the overlays, and settings only apply to new persistent overlay.\n2) Alternate approach: Turn on parity with hardcoded settings, but still let users with the experiment enabled use settings for both the new V2 persistent overlay and the V1 \"normal\" hover overlay.\n\n\nI think this approach (1) is more along the lines of where I think these features are headed, but it might be a bit confusing to users that have been using the experiment already and can no longer see labels/area names/etc from the \"normal\" highlights. If we go with this, maybe we could consider changing the settings section from \"Grid\" to \"Persistent Grid Overlay\" in the settings page. This would be temporary anyway, as these settings would get moved to the Layout Pane in the future.\n\nWith the adorners in place, I\u0027m leaning toward (1) as users could still try out the new features on the persistent overlay while we gather feedback\n\nSorry for the long post. What do folks think?",
+      "revId": "611072b4e060539b34350da03cbb6eb72f80470d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
