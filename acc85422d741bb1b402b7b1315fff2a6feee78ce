@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e0d7d3b_3a3d04a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-04T10:20:46Z",
+      "side": 1,
+      "message": "Hi team, please take a look at the description of this CL and let me know if this plan makes sense for everybody.",
+      "revId": "acc85422d741bb1b402b7b1315fff2a6feee78ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
