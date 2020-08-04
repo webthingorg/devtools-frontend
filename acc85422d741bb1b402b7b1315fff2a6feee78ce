@@ -68,6 +68,24 @@
       "revId": "acc85422d741bb1b402b7b1315fff2a6feee78ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78bb74ef_43080459",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-04T14:09:20Z",
+      "side": 1,
+      "message": "I did some quick testing on a variety of different grid layouts. The legacy and new overlays look very very similar.\n\nThe big difference is that we now show the hatching pattern for grid gaps.\n\nThe legacy overlay used to only draw borders around items, not draw the grid lines themselves, but we had already fixed that in the legacy overlay early on (that is, not behind the experiment flag). So, that means that with the simple configuration of the new overlay, and with the exception of gaps, the old and new overlays are almost identical.",
+      "parentUuid": "26a58ef7_974c9da9",
+      "revId": "acc85422d741bb1b402b7b1315fff2a6feee78ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
