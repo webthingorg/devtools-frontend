@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "362a6cd8_9ddc11c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T16:04:47Z",
+      "side": 1,
+      "message": "+1 to what Patrick has pointed out, but I like the new behavior alot!",
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6851163e_30a7ec94",
         "filename": "front_end/accessibility/AccessibilitySidebarView.js",
         "patchSetId": 3
@@ -30,6 +47,30 @@
       "writtenOn": "2020-08-04T09:07:02Z",
       "side": 1,
       "message": "Do you need to wait for this method call to be done before executing the rest of the function? If so, you\u0027ll need to turn this doUpdate function into an async one too, and use await on this line.\nIf you do this, you can probably just keep the name setNode, since it\u0027ll be obvious that it\u0027s async, from the way we\u0027re calling it.",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 43
+      },
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "885215f3_389833e8",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T16:04:47Z",
+      "side": 1,
+      "message": "Also curious what changing this to an async function allows, as the rest of the subpane setNode() calls are synchronous",
+      "parentUuid": "6851163e_30a7ec94",
       "range": {
         "startLine": 100,
         "startChar": 31,
@@ -116,6 +157,24 @@
       "writtenOn": "2020-08-04T09:07:02Z",
       "side": 1,
       "message": "The jsdoc comment at the top says that this method returns an array of DOMNodes. But it only returns a promise the resolves to an empty array here. Should the jsdoc be fixed? Or this code?\nBy the way, like before, here you can just return the array itself, not a promise.",
+      "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a37be4d2_f7ac48f1",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-04T16:04:47Z",
+      "side": 1,
+      "message": "+1 here. It looks to me that the only place that calls this doesn\u0027t need to use the results, so I\u0027m for must marking this as async and not explicitly returning anything here?",
+      "parentUuid": "fad55260_5b8dcd12",
       "revId": "9b1dfe78b7cb8e7565c66548ebdb8e484b81b606",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
