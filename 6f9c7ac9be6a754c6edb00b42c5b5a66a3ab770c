@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "75ed1311_8b4d8b74",
+        "filename": "test/e2e/resources/sensors/idle-detector.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-08-04T12:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a71379f_5c29b929",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edc3a7b8_ca08ba43",
         "filename": "test/e2e/resources/sensors/idle-detector.html",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80f1101d_458d542d",
+        "filename": "test/e2e/resources/sensors/idle-detector.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-08-04T12:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc3a7b8_ca08ba43",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68513894_c4ece499",
+        "filename": "test/e2e/resources/sensors/idle-detector.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-08-04T12:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba344026_bc165309",
+      "range": {
+        "startLine": 13,
+        "startChar": 45,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +153,24 @@
     },
     {
       "key": {
+        "uuid": "b7f68875_464fbd19",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-08-04T12:17:47Z",
+      "side": 1,
+      "message": "The methods are too specific, so just moved to the beginning of the file.",
+      "parentUuid": "c653dcf4_958e6d32",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a226854_41be396b",
         "filename": "test/e2e/sensors/idle_test.ts",
         "patchSetId": 3
@@ -110,6 +188,24 @@
     },
     {
       "key": {
+        "uuid": "43d5697a_7d82dded",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-08-04T12:17:47Z",
+      "side": 1,
+      "message": "done. \n\nBTW I don\u0027t like that magic with setting value and raising event afterwards, but I didn\u0027t find more elegant way to do it.",
+      "parentUuid": "0a226854_41be396b",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bbce3b8a_fed775dc",
         "filename": "test/e2e/sensors/idle_test.ts",
         "patchSetId": 3
@@ -124,6 +220,24 @@
       "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8ae37cb_4d3be51d",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-08-04T12:17:47Z",
+      "side": 1,
+      "message": "Your suggestion looks more elegant. \nWhat I wanted was to make it as close to `waitForState` as possible. But `waitForState` cannot be done in the same way, as soon as the parameters of lambda in `waitForFunction` has to be serialisable, `element` is not.\n\nAnother ~~problem~~ nuance is that helper is tightly coupled with `{frontend}`, so `$` in helper should be overridden with something like `$_for_page`, which looks ugly.",
+      "parentUuid": "bbce3b8a_fed775dc",
+      "revId": "6f9c7ac9be6a754c6edb00b42c5b5a66a3ab770c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
