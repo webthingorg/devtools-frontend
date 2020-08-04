@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c526d27_80bf5b51",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-04T07:52:39Z",
+      "side": 0,
+      "message": "Is this getter then used by COEP issues to show a prompt for a reload? Otherwise we could remove it.",
+      "range": {
+        "startLine": 1141,
+        "startChar": 47,
+        "endLine": 1141,
+        "endChar": 83
+      },
+      "revId": "c87611c71fff76dae3ebd574272006c4a98a8893",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
