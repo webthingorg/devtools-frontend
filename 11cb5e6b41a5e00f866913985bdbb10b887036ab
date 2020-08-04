@@ -83,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "dc8d77c2_2dc7614e",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-04T08:35:55Z",
+      "side": 1,
+      "message": "I asked the team about their opinion and we came to the conclusion that it might be best to use the DataGrid for consistency reasons. It\u0027s also reasonable to keep the default DataGrid styles to make sure our users have a consistent experience.",
+      "parentUuid": "4fc576d8_f95cd31d",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 25
+      },
+      "revId": "11cb5e6b41a5e00f866913985bdbb10b887036ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0204fce4_a43ffeff",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
