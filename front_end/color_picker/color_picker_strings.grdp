@@ -69,4 +69,7 @@
   <message name="IDS_DEVTOOLS_e1faffb3e614e6c2fba74296962386b7" desc="Label aaa text content in Contrast Details of the Color Picker">
     AAA
   </message>
+  <message name="IDS_DEVTOOLS_2d0dec8d6a8442990847fcffe87c194b" desc="A message on a button in Contrast Details of the Color Picker">
+    Suggest color
+  </message>
 </grit-part>

@@ -7,6 +7,7 @@ import * as Host from '../host/host.js';
 import * as UI from '../ui/ui.js';
 
 import {ContrastInfo, Events as ContrastInfoEvents} from './ContrastInfo.js';  // eslint-disable-line no-unused-vars
+import {ChangeSource, Spectrum} from './Spectrum.js';                          // eslint-disable-line no-unused-vars
 
 export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
   /**
@@ -14,8 +15,9 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Element} contentElement
    * @param {function(boolean=, !Common.EventTarget.EventTargetEvent=):void} toggleMainColorPickerCallback
    * @param {function():void} expandedChangedCallback
+   * @param {!Spectrum} spectrum
    */
-  constructor(contrastInfo, contentElement, toggleMainColorPickerCallback, expandedChangedCallback) {
+  constructor(contrastInfo, contentElement, toggleMainColorPickerCallback, expandedChangedCallback, spectrum) {
     super();
     /** @type {!ContrastInfo} */
     this._contrastInfo = contrastInfo;
@@ -28,6 +30,9 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
 
     /** @type {function():void} */
     this._expandedChangedCallback = expandedChangedCallback;
+
+    /** @type {!Spectrum} */
+    this._spectrum = spectrum;
 
     /** @type {boolean} */
     this._expanded = false;
@@ -49,6 +54,14 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
     this._noContrastInfoAvailable = contentElement.createChild('div', 'no-contrast-info-available');
     this._noContrastInfoAvailable.textContent = ls`No contrast information available`;
     this._noContrastInfoAvailable.classList.add('hidden');
+
+    /** @type {!Element} */
+    this._suggestColor = contentElement.createChild('div', 'suggest-color');
+    const button = document.createElement('button');
+    button.textContent = ls`Suggest color`;
+    button.addEventListener('click', this._onSuggestColor.bind(this), false);
+    this._suggestColor.appendChild(button);
+    this._suggestColor.classList.add('hidden');
 
     const contrastValueRow = this._element.createChild('div');
     contrastValueRow.addEventListener('click', this._topRowClicked.bind(this));
@@ -113,6 +126,24 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
     this._noContrastInfoAvailable.classList.add('hidden');
   }
 
+  _onSuggestColor() {
+    const fgColor = this._contrastInfo.color();
+    const bgColor = this._contrastInfo.bgColor();
+    if (!fgColor || !bgColor) {
+      return;
+    }
+
+    const requiredContrast = this._contrastInfo.contrastRatioThreshold('aaa');
+    if (!requiredContrast) {
+      return;
+    }
+
+    const color = Common.Color.Color.findFgColorForContrast(fgColor, bgColor, requiredContrast);
+    if (color) {
+      this._spectrum.colorSelected(color);
+    }
+  }
+
   _update() {
     if (this._contrastInfo.isNull()) {
       this._showNoContrastInfoAvailableMessage();
@@ -168,6 +199,10 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
       this._contrastPassFailAAA.appendChild(UI.Icon.Icon.create('smallicon-checkmark-square'));
     } else {
       this._contrastPassFailAAA.appendChild(UI.Icon.Icon.create('smallicon-no'));
+    }
+
+    if (!passesAAA || !this._passesAA) {
+      this._suggestColor.classList.remove('hidden');
     }
 
     [labelAA, labelAAA].forEach(
