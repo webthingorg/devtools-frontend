@@ -25,6 +25,7 @@ export const PlayerPropertyKeys = {
   kIsVideoDecryptingDemuxerStream: 'kIsVideoDecryptingDemuxerStream',
   kIsAudioDecryptingDemuxerStream: 'kIsAudioDecryptingDemuxerStream',
   kAudioTracks: 'kAudioTracks',
+  kTextTracks: 'kTextTracks',
   kVideoTracks: 'kVideoTracks',
   kFramerate: 'kFramerate',
   kVideoPlaybackRoughness: 'kVideoPlaybackRoughness',
@@ -187,8 +188,14 @@ export class TrackManager {
     }
   }
 
-  addNewTab(tabs, data, index) {
-    // abstract method!
+  addNewTab(tabs, tabData, tabNumber) {
+    const tabElements = [];
+    for (const [name, data] of Object.entries(tabData)) {
+      tabElements.push(new DefaultPropertyRenderer(name, data));
+    }
+    const newTab = new AttributesView(tabElements);
+
+    tabs.addNewTab(tabNumber, newTab);
   }
 }
 
@@ -196,36 +203,17 @@ export class VideoTrackManager extends TrackManager {
   constructor(propertiesView) {
     super(propertiesView, 'video');
   }
+}
 
-  /**
-   * @override
-   */
-  addNewTab(tabs, tabData, tabNumber) {
-    const tabElements = [];
-    for (const [name, data] of Object.entries(tabData)) {
-      tabElements.push(new DefaultPropertyRenderer(name, data));
-    }
-    const newTab = new AttributesView(tabElements);
-    tabs.addNewTab(tabNumber, newTab);
+export class TextTrackManager extends TrackManager {
+  constructor(propertiesView) {
+    super(propertiesView, 'text');
   }
 }
 
 export class AudioTrackManager extends TrackManager {
   constructor(propertiesView) {
     super(propertiesView, 'audio');
-  }
-
-  /**
-   * @override
-   */
-  addNewTab(tabs, tabData, tabNumber) {
-    const tabElements = [];
-    for (const [name, data] of Object.entries(tabData)) {
-      tabElements.push(new DefaultPropertyRenderer(name, data));
-    }
-    const newTab = new AttributesView(tabElements);
-
-    tabs.addNewTab(tabNumber, newTab);
   }
 }
 
@@ -236,7 +224,22 @@ const TrackTypeLocalized = {
 };
 
 
-class DecoderTrackMenu extends UI.TabbedPane.TabbedPane {
+class GenericTrackMenu extends UI.TabbedPane.TabbedPane {
+  constructor(trackname = Common.UIString.UIString('Track')) {
+    super();
+    this._trackname = trackname;
+  }
+
+  addNewTab(trackNumber, element) {
+    const localizedTrackLower = Common.UIString.UIString('track');
+    this.appendTab(
+        `Track${trackNumber}`,  // No need for localizing, internal ID.
+        `${this._trackname} #${trackNumber}`, element, `${this._decoderName} ${localizedTrackLower} #${trackNumber}`);
+  }
+}
+
+
+class DecoderTrackMenu extends GenericTrackMenu {
   constructor(decoderName, informationalElement) {
     super();
     this._decoderName = decoderName;
@@ -246,14 +249,6 @@ class DecoderTrackMenu extends UI.TabbedPane.TabbedPane {
     const propertiesLocalized = Common.UIString.UIString('Properties');
     const hoverText = `${title} ${propertiesLocalized}`;
     this.appendTab('DecoderProperties', title, informationalElement, hoverText);
-  }
-
-  addNewTab(trackNumber, element) {
-    const localizedTrack = Common.UIString.UIString('Track');
-    const localizedTrackLower = Common.UIString.UIString('track');
-    this.appendTab(
-        `Track${trackNumber}`,  // No need for localizing, internal ID.
-        `${localizedTrack} #${trackNumber}`, element, `${this._decoderName} ${localizedTrackLower} #${trackNumber}`);
   }
 }
 
@@ -275,6 +270,16 @@ export class PlayerPropertiesView extends UI.Widget.VBox {
     this._videoDecoderTabs.show(this.contentElement);
     this._audioDecoderTabs = new DecoderTrackMenu(TrackTypeLocalized.Audio, this._audioDecoderProperties);
     this._audioDecoderTabs.show(this.contentElement);
+
+    this._textTrackTabs = null;
+  }
+
+  _lazyCreateTrackTabs() {
+    if (this._textTrackTabs === null) {
+      this._textTrackTabs = new GenericTrackMenu(Common.UIString.UIString('Text Track'));
+      this._textTrackTabs.show(this.contentElement);
+    }
+    return this._textTrackTabs;
   }
 
   GetTabs(type) {
@@ -283,6 +288,9 @@ export class PlayerPropertiesView extends UI.Widget.VBox {
     }
     if (type === 'video') {
       return this._videoDecoderTabs;
+    }
+    if (type === 'text') {
+      return this._lazyCreateTrackTabs();
     }
     // There should be no other type allowed.
     throw new Error('Unreachable');
@@ -331,6 +339,7 @@ export class PlayerPropertiesView extends UI.Widget.VBox {
     this._mediaElements = [];
     this._videoDecoderElements = [];
     this._audioDecoderElements = [];
+    this._textTrackElements = [];
 
     // Map from incoming change_id => Media.PropertyRenderer
     this._attributeMap = new Map();
@@ -415,5 +424,8 @@ export class PlayerPropertiesView extends UI.Widget.VBox {
 
     const audioTrackManager = new AudioTrackManager(this);
     this._attributeMap.set(PlayerPropertyKeys.kAudioTracks, audioTrackManager);
+
+    const textTrackManager = new TextTrackManager(this);
+    this._attributeMap.set(PlayerPropertyKeys.kTextTracks, textTrackManager);
   }
 }
