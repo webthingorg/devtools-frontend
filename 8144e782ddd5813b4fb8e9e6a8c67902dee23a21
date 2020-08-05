@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "9758173b_f3e061ab",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-08-05T06:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac20e797_61562c03",
+      "range": {
+        "startLine": 228,
+        "startChar": 39,
+        "endLine": 228,
+        "endChar": 72
+      },
+      "revId": "8144e782ddd5813b4fb8e9e6a8c67902dee23a21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "586e19b6_27df039e",
         "filename": "front_end/media/PlayerPropertiesView.js",
         "patchSetId": 3
@@ -62,6 +86,30 @@
       "revId": "8144e782ddd5813b4fb8e9e6a8c67902dee23a21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdbf91e0_d579a370",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-08-05T06:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "586e19b6_27df039e",
+      "range": {
+        "startLine": 279,
+        "startChar": 49,
+        "endLine": 279,
+        "endChar": 73
+      },
+      "revId": "8144e782ddd5813b4fb8e9e6a8c67902dee23a21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
