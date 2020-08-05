@@ -960,6 +960,7 @@
       'emulation.locationOverride',
       'emulation.showDeviceMode',
       'emulation.showRulers',
+      'emulation.usePlatformMultiSegment',
       'enableAsyncStackTraces',
       'eventListenerBreakpoints',
       'fileMappingEntries',

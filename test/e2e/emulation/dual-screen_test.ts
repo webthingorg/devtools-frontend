@@ -33,4 +33,14 @@ describe('Dual screen mode', async () => {
     const isDisabled = await getButtonDisabled(toggleButton);
     assert(isDisabled);
   });
+
+  it('User may not click toggle dual screen button for a non-dual screen device after selecting dual screen device',
+     async () => {
+       await selectDualScreen();
+       await selectNonDualScreenDevice();
+       // toggle button should be disabled.
+       const toggleButton = await selectToggleButton();
+       const isDisabled = await getButtonDisabled(toggleButton);
+       assert(isDisabled);
+     });
 });
