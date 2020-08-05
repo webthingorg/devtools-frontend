@@ -192,6 +192,30 @@
       "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dae6c834_0472d1c4",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T07:56:23Z",
+      "side": 1,
+      "message": "I suspect they are equivalent (but I have not verified by testing) and probably ? is implemented by LitHtml.Directives.ifDefined behind the scenes. I like `?open` because it is shorter.",
+      "parentUuid": "03e8f04c_12ce8cf4",
+      "range": {
+        "startLine": 178,
+        "startChar": 66,
+        "endLine": 178,
+        "endChar": 79
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
