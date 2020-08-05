@@ -1057,6 +1057,20 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     const toolbarContainer = this.contentElement.createChild('div', 'issues-toolbar-container');
     new UI.Toolbar.Toolbar('issues-toolbar-left', toolbarContainer);
     const rightToolbar = new UI.Toolbar.Toolbar('issues-toolbar-right', toolbarContainer);
+
+    // TODO(crbug.com/1080589): Convert this to a small custom element component and re-use it
+    //                          for other checkbox settings.
+    const checkbox = UI.UIUtils.CheckboxLabel.create(
+        ls`Include third-party issues`, SDK.Issue.getShowThirdPartyIssuesSetting().get());
+    checkbox.checkboxElement.onchange = event => {
+      const isChecked = event.target && event.target.checked;
+      SDK.Issue.getShowThirdPartyIssuesSetting().set(isChecked);
+    };
+    checkbox.title = ls`Include Issues caused by third-party sites`;
+
+    const checkboxToolbarItem = new UI.Toolbar.ToolbarItem(checkbox);
+    rightToolbar.appendToolbarItem(checkboxToolbarItem);
+
     rightToolbar.appendSeparator();
     const toolbarWarnings = document.createElement('div');
     toolbarWarnings.classList.add('toolbar-warnings');
