@@ -61,3 +61,7 @@ li.storage-group-list-item::before {
 .resource-tree-item {
   background: rgb(90 90 90 / 70%);
 }
+
+.window-closed .tree-element-title {
+  text-decoration: line-through;
+}

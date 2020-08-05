@@ -47,6 +47,7 @@ devtools_module("sdk") {
     "NetworkLog.js",
     "NetworkManager.js",
     "NetworkRequest.js",
+    "OpenedWindowManager.js",
     "OverlayModel.js",
     "PageResourceLoader.js",
     "PaintProfiler.js",
