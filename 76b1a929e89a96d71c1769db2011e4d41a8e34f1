@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7174aa5d_3e62e21a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-05T17:35:20Z",
+      "side": 1,
+      "message": "Any possibility of a test? It should be possible to make a mouseMove helper similar to the click helper, then wait for the popup to appear.",
+      "revId": "76b1a929e89a96d71c1769db2011e4d41a8e34f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
