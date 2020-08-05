@@ -24,13 +24,16 @@
   <message name="IDS_DEVTOOLS_146bdebb324a64d327b1dde22a07d0bd" desc="Text in Device Mode View of the Device Toolbar">
     Laptop
   </message>
-  <message name="IDS_DEVTOOLS_33485fcae7737ceb110576dc3ef1a316" desc="Description of the Touch select in Sensors tab">
+  <message name="IDS_DEVTOOLS_187feb18359ea72667e304cd5cd622fe" desc="Text in Device Mode Toolbar to indicate that the Experimental Web Platform flag is set">
+    Experimental Web Platform Flag Set
+  </message>
+  <message name="IDS_DEVTOOLS_33485fcae7737ceb110576dc3ef1a316" desc="Text in Sensors View for button that forces using touch">
     Forces touch instead of click
   </message>
   <message name="IDS_DEVTOOLS_391e4e3cd855d914f85f3a4e1b9a00ea" desc="Title of the rotate/screen orientation button">
     Screen orientation options
   </message>
-  <message name="IDS_DEVTOOLS_52089bab86bd75e95090797a7ff551e7" desc="Title of an option in Sensors tab idle emulation select">
+  <message name="IDS_DEVTOOLS_52089bab86bd75e95090797a7ff551e7" desc="Text in idle detector state for the option when screen is unlocked due to user activity">
     User active, screen unlocked
   </message>
   <message name="IDS_DEVTOOLS_5531adbb03e9e9d529dee1cfe6ae9325" desc="Title of an option in Sensors tab idle emulation select">
@@ -389,6 +392,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f4334fdfa1c728eae375fe781e2e2d9d" desc="City name in Locations Settings">
     San Francisco
+  </message>
+  <message name="IDS_DEVTOOLS_f7895bcd9d7efe4c9b55415eed841ac1" desc="Text in Device Mode Toolbar to indicate that the Experimental Web Platform flag is not set">
+    Experimental Web Platform Flag Not Set
   </message>
   <message name="IDS_DEVTOOLS_f819de81247be4a5428dc0e169de28b8" desc="Text in Device Mode Toolbar of the Device Toolbar">
     75%
