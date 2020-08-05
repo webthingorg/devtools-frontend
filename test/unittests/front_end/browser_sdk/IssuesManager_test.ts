@@ -16,7 +16,7 @@ describe('IssuesManager', () => {
     const issue2_1 = new StubIssue('StubIssue2', ['id1', 'id2'], ['id3']);
 
     const mockModel = new MockIssuesModel([issue1]);
-    const issuesManager = new BrowserSDK.IssuesManager.IssuesManager();
+    const issuesManager = new BrowserSDK.IssuesManager.IssuesManager(() => true);
     issuesManager.modelAdded(mockModel as unknown as SDK.IssuesModel.IssuesModel);
 
     const dispatchedIssues: SDK.Issue.Issue[] = [];
@@ -33,5 +33,28 @@ describe('IssuesManager', () => {
     // was instantiated.
     const issueCodes = Array.from(issuesManager.issues()).map(r => r.code());
     assert.deepStrictEqual(issueCodes, ['StubIssue2', 'StubIssue2']);
+  });
+
+  it('filters issues according to the provided filter function', () => {
+    const issues = [
+      new StubIssue('AllowedStubIssue1', [], []),
+      new StubIssue('StubIssue2', [], []),
+      new StubIssue('AllowedStubIssue3', [], []),
+      new StubIssue('StubIssue4', [], []),
+    ];
+    const issuesManager = new BrowserSDK.IssuesManager.IssuesManager(issue => issue.code().startsWith('Allowed'));
+    const mockModel = new MockIssuesModel([]);
+    issuesManager.modelAdded(mockModel as unknown as SDK.IssuesModel.IssuesModel);
+
+    const firedIssueAddedEventCodes: string[] = [];
+    issuesManager.addEventListener(
+        BrowserSDK.IssuesManager.Events.IssueAdded, event => firedIssueAddedEventCodes.push(event.data.issue.code()));
+
+    for (const issue of issues) {
+      mockModel.dispatchEventToListeners(SDK.IssuesModel.Events.IssueAdded, {issuesModel: mockModel, issue: issue});
+    }
+
+    assert.deepStrictEqual(issuesManager.issues().map(i => i.code()), ['AllowedStubIssue1', 'AllowedStubIssue3']);
+    assert.deepStrictEqual(firedIssueAddedEventCodes, ['AllowedStubIssue1', 'AllowedStubIssue3']);
   });
 });
