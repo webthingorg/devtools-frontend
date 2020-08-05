@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a57e3a71_dc4b3a34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-05T15:48:47Z",
+      "side": 1,
+      "message": "Still going through the comments and code, but have two functionality questions:\n\n1) Looks like we have the ability to change the grid settings from this new pane and the existing point in settings. Should we remove the settings page as part of this? or do a follow up?\n2) When changing the options with a persistent overlay active, nothing happens. I feel like we should update the persistent overlay to resend the command every time the settings change. wdyt?",
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a67063_5aab7a28",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 16
