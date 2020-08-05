@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24e7a235_85cdd7ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2020-08-05T18:45:26Z",
+      "side": 1,
+      "message": "\u003e We\u0027ve found that files missed from the GRD cause issues in Chromium,\n\u003e since it looks to the GRD/pak in order to serve the DevTools frontend.\n\nPaul@ can you elaborate on the kinds of issues you encountered that this CR helps us to avoid? I assume this was resulting in bugs caused by missing files.\n\nMy understanding is this is like double-entry bookkeeping for GN\u0027s dependency checking, giving devs a sanity check that their inputs generated the expected output- is that correct?",
+      "revId": "6c0b15e0dc4084a80679968d823ad88650c96a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
