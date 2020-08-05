@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e6dd3b9_db242a80",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T06:18:53Z",
+      "side": 1,
+      "message": "Does this need :focus styles as well? (Could be the same styles)",
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "260fb226_33e9a793",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T06:18:53Z",
+      "side": 1,
+      "message": "same here w.r.t. :focus",
+      "range": {
+        "startLine": 129,
+        "startChar": 80,
+        "endLine": 129,
+        "endChar": 86
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5a26404_b4fb44d4",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T06:18:53Z",
+      "side": 1,
+      "message": "and here",
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c6695d9_5f326ed7",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T06:18:53Z",
+      "side": 1,
+      "message": "Do we need the `|| undefined`?",
+      "range": {
+        "startLine": 178,
+        "startChar": 66,
+        "endLine": 178,
+        "endChar": 79
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
