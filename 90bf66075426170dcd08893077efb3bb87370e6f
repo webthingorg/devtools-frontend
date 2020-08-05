@@ -22,6 +22,30 @@
       "revId": "90bf66075426170dcd08893077efb3bb87370e6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d01518a3_fa05f5b2",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-05T13:07:54Z",
+      "side": 0,
+      "message": "It should probably have been done in crrev.com/c/2327710 instead.\nIf it throws it breaks `waitForElementWithTextContent` on line 206 since it expects a falsy return value when no element is found. This bug did not affect any tests because the 100 ms delay made sure that an element was found in the first iteration of the loop.",
+      "parentUuid": "e5d87290_f06c2908",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 3
+      },
+      "revId": "90bf66075426170dcd08893077efb3bb87370e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
