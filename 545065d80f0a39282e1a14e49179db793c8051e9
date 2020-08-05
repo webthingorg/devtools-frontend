@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "970fd256_085d4398",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T12:15:53Z",
+      "side": 1,
+      "message": "I have imported the global styles and the theming support they already provide. PTAL",
+      "parentUuid": "162a294c_fe68a05a",
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b07c0d60_6d28dbca",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 14
@@ -118,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "e997c5a0_710196e9",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T12:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ced56301_7ff0fa02",
+      "range": {
+        "startLine": 38,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 9
+      },
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "499b1163_6d991a42",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 14
@@ -138,6 +180,30 @@
       "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed57102d_7ace6c8c",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T12:15:53Z",
+      "side": 1,
+      "message": "I have imported the global styles now but I am not sure if it\u0027s the good approach. PTAL.",
+      "parentUuid": "499b1163_6d991a42",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 15
+      },
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -188,6 +254,30 @@
     },
     {
       "key": {
+        "uuid": "9ee3bbba_24e075e2",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T12:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e117331_6a362937",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 42
+      },
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b4c37b0_fb399c1e",
         "filename": "front_end/elements/LayoutSidebarPane.js",
         "patchSetId": 14
@@ -208,6 +298,30 @@
       "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1f8163e_94b17de8",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T12:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b4c37b0_fb399c1e",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
