@@ -10,6 +10,10 @@ import("../../third_party/typescript/typescript.gni")
 devtools_module("elements") {
   sources = [
     "Adorner.js",
+    "ComputedStyleProperty.ts",
+    "ComputedStyleProperty_bridge.js",
+    "ComputedStyleTrace.ts",
+    "ComputedStyleTrace_bridge.js",
     "ElementsBreadcrumbs.ts",
     "ElementsBreadcrumbsUtils.ts",
     "ElementsBreadcrumbs_bridge.js",
