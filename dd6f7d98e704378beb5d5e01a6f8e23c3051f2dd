@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2fbee11_5033f75f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-05T06:39:44Z",
+      "side": 1,
+      "message": "Rolling CDP for skipList, ptal!",
+      "revId": "dd6f7d98e704378beb5d5e01a6f8e23c3051f2dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
