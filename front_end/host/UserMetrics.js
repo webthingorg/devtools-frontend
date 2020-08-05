@@ -154,6 +154,39 @@ export class UserMetrics {
   }
 
   /**
+   * @param {string | undefined} issueExpandedCategory
+   */
+  issuesPanelIssueExpanded(issueExpandedCategory) {
+    const nonEmptyCategory = issueExpandedCategory || 'Other';
+    const size = Object.keys(IssueExpanded).length + 1;
+    let issueExpanded = IssueExpanded[nonEmptyCategory];
+
+    if (issueExpandedCategory === undefined) {
+      issueExpanded = IssueExpanded.Other;
+    }
+
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.IssuesPanelIssueExpanded, issueExpanded, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.IssuesPanelIssueExpanded, {value: issueExpanded});
+  }
+
+  /**
+   * @param {string} issueResourceOpened
+   */
+  issuesPanelResourceOpened(issueResourceOpened) {
+    const size = Object.keys(IssueResourceOpened).length + 1;
+
+    let value = IssueResourceOpened[issueResourceOpened];
+
+    if (value === undefined) {
+      value = IssueResourceOpened.Other;
+    }
+
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.IssuesPanelResourceOpened, value, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.IssuesPanelIssueExpanded, {value});
+  }
+
+  /**
    * @param {!DualScreenDeviceEmulated} emulationAction
    */
   dualScreenDeviceEmulated(emulationAction) {
@@ -414,4 +447,30 @@ export const CSSGridSettings = {
   'showGridLineNumbers.names': 18,
   'showGridTrackSizes.false': 19,
   'showGridTrackSizes.true': 20,
+};
+
+/** @type {!Object<string, number>} */
+export const IssueExpanded = {
+  CrossOriginEmbedderPolicy: 0,
+  MixedContent: 1,
+  SameSiteCookie: 2,
+  HeavyAd: 3,
+  ContentSecurityPolicy: 4,
+  // If a new Issue Category is added without updating this
+  // object, the Category will fall to Other.
+  Other: 5
+};
+
+/** @type {!Object<string, number>} */
+export const IssueResourceOpened = {
+  CrossOriginEmbedderPolicyRequest: 0,
+  CrossOriginEmbedderPolicyElement: 1,
+  MixedContentRequest: 2,
+  SameSiteCookieCookie: 3,
+  SameSiteCookieRequest: 4,
+  HeavyAdElement: 5,
+  ContentSecurityPolicyDirective: 6,
+  // If any Category add a new type of resource (cookie, request, element, etc.)
+  // and this object is not updated, it will fall to Other.
+  Other: 7
 };
