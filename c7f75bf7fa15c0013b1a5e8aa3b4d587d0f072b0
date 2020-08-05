@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "90a67063_5aab7a28",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-05T12:53:03Z",
+      "side": 1,
+      "message": "I think we\u0027d like to keep these two worlds separate and not use the legacy core styles injection. Could we use adoptedStylesheets to achieve this? As that\u0027s likely a big part of the longer term solution.",
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5829b3b_253ebd50",
         "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
         "patchSetId": 16

@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "3102ca30_d07b4b12",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-05T12:53:03Z",
+      "side": 1,
+      "message": "My hunch here is we end up defining (or using existing) variables that have dark \u0026 light mode variants, and then by using those through our components we don\u0027t have to do lots of work on a per-component basis to toggle between light \u0026 dark.\n\nI don\u0027t think we should hook into the legacy styling stuff here as we\u0027d like to keep the worlds very separate. I\u0027m happy to do largely whatever works now and perhaps LON should prioritise the work on figuring out CSS higher so we can come to a good solution for components going forwards, but I suspect CSS variables will play a part.",
+      "parentUuid": "c7593523_9e31fc0e",
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b07c0d60_6d28dbca",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 14
