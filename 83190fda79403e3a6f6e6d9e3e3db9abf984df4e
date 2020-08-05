@@ -39,6 +39,30 @@
       "revId": "83190fda79403e3a6f6e6d9e3e3db9abf984df4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb981ce2_aeb177bc",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T12:16:38Z",
+      "side": 1,
+      "message": "Sorry, I have already removed that. Please take a look at the latest version.",
+      "parentUuid": "c8f86187_aaef073a",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 52
+      },
+      "revId": "83190fda79403e3a6f6e6d9e3e3db9abf984df4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
