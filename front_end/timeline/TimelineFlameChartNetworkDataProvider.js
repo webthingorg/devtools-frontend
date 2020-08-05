@@ -36,7 +36,10 @@ export class TimelineFlameChartNetworkDataProvider {
       useDecoratorsForOverview: true,
       shareHeaderLine: false
     };
-    this._group = {startLevel: 0, name: Common.UIString.UIString('Network'), expanded: false, style: this._style};
+    this._networkGroup =
+        {startLevel: 1, name: Common.UIString.UIString('Network'), expanded: false, style: this._style};
+    this._webvitalsGroup =
+        {startLevel: 0, name: Common.UIString.UIString('Webvitals'), expanded: false, style: this._style};
     this._minimumBoundary = 0;
     this._maximumBoundary = 0;
     this._timeSpan = 0;
@@ -404,7 +407,7 @@ export class TimelineFlameChartNetworkDataProvider {
     }
     this._timelineData = new PerfUI.FlameChart.TimelineData(
         this._timelineData.entryLevels, this._timelineData.entryTotalTimes, this._timelineData.entryStartTimes,
-        [this._group]);
+        [this._webvitalsGroup, this._networkGroup]);
     this._maxLevel = maxLevel;
   }
 
@@ -423,14 +426,15 @@ export class TimelineFlameChartNetworkDataProvider {
    * @return {number}
    */
   preferredHeight() {
-    return this._style.height * (this._group.expanded ? Platform.NumberUtilities.clamp(this._maxLevel + 1, 4, 8.5) : 1);
+    return this._style.height *
+        (this._networkGroup.expanded ? Platform.NumberUtilities.clamp(this._maxLevel + 1, 4, 8.5) : 1);
   }
 
   /**
    * @return {boolean}
    */
   isExpanded() {
-    return this._group.expanded;
+    return this._networkGroup.expanded;
   }
 
   /**
