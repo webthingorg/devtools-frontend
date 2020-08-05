@@ -33,6 +33,24 @@
       "revId": "0df663714f5a9414e4f8e9eabdf516b1bda8c839",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a3549fb_e1dfb5a5",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/expected/complex-types-imported_bridge-expected.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T06:17:53Z",
+      "side": 1,
+      "message": "Also it does not seem to be valid. Does closure support literals in union types?",
+      "parentUuid": "139b0a89_ace7b573",
+      "revId": "0df663714f5a9414e4f8e9eabdf516b1bda8c839",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
