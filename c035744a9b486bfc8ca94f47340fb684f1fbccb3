@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "44373d08_943eedfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T12:43:39Z",
+      "side": 1,
+      "message": "Creating a settings object at the time of IssuesManager.instance is not possible since at that point the settings storage is not yet set up.\n\nI have some ideas, will upload a PS either today or tomorrow.",
+      "parentUuid": "448c6907_b68a5c30",
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0ef5074_55bfa962",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 3
