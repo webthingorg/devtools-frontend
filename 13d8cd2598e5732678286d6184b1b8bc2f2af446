@@ -33,6 +33,23 @@
       "revId": "13d8cd2598e5732678286d6184b1b8bc2f2af446",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52d4d738_548ba86c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-05T12:58:50Z",
+      "side": 1,
+      "message": "Looks good. Tiny visual correction: Space left to the vertical line should be as large as to the right, so it looks centered.",
+      "revId": "13d8cd2598e5732678286d6184b1b8bc2f2af446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
