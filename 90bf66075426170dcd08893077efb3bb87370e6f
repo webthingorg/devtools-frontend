@@ -46,6 +46,30 @@
       "revId": "90bf66075426170dcd08893077efb3bb87370e6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6622917_f3f5566a",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-05T13:41:16Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "d01518a3_fa05f5b2",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 3
+      },
+      "revId": "90bf66075426170dcd08893077efb3bb87370e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
