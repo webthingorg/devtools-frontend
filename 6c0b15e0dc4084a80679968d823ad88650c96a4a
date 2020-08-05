@@ -16,6 +16,24 @@
       "revId": "6c0b15e0dc4084a80679968d823ad88650c96a4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69217768_8883848c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-05T22:55:49Z",
+      "side": 1,
+      "message": "Hi John,\n\nWe have a fair amount of internal build steps and sources of files for the DevTools frontend, some of which are coming from newer gn actions, and some of which come from legacy python scripts. (We would prefer everything to come from the gn actions in the longer term, and not the python scripts.) We found that a source of bugs (and sometimes build errors) was files being missed from the GRD file, which in turn manifested itself as – say – 404s in the DevTools front end when some part of DevTools was dynamically loaded: a file would be requested by the front end and, because it wasn\u0027t in the GRD, it wasn\u0027t available. These issues would typically only present themselves in release builds (is_debug\u003dfalse) of Chromium, and often only show up after DevTools had been rolled in as a DEP.\n\nThis CL ensures, no matter where we source our files from in the various build processes, that we end up providing no more (and no less) than the files we expected to provide to the GRD.\n\nHope that clarifies things!\n\nThanks,\nPaul",
+      "parentUuid": "24e7a235_85cdd7ea",
+      "revId": "6c0b15e0dc4084a80679968d823ad88650c96a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
