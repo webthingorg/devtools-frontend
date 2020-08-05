@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "b97eceaf_2d277085",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T06:49:58Z",
+      "side": 1,
+      "message": "Do we have a way to test this without a Win machine?",
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "260fb226_33e9a793",
         "filename": "front_end/elements/ComputedStyleProperty.ts",
         "patchSetId": 3
@@ -70,6 +87,30 @@
       "writtenOn": "2020-08-05T06:18:53Z",
       "side": 1,
       "message": "Do we need the `|| undefined`?",
+      "range": {
+        "startLine": 178,
+        "startChar": 66,
+        "endLine": 178,
+        "endChar": 79
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86ad23c2_9acf15c1",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T06:49:58Z",
+      "side": 1,
+      "message": "Would `?open\u003d${this.expanded}` work?",
+      "parentUuid": "3c6695d9_5f326ed7",
       "range": {
         "startLine": 178,
         "startChar": 66,
