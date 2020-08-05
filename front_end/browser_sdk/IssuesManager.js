@@ -22,17 +22,15 @@ let issuesManagerInstance = null;
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.IssuesModel.IssuesModel>}
  */
 export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @param {function(!SDK.Issue.Issue):boolean} issueFilter
-   */
-  constructor(issueFilter) {
+  constructor() {
     super();
     /** @type {!WeakMap<!SDK.IssuesModel.IssuesModel, !Common.EventTarget.EventDescriptor>} */
     this._eventListeners = new WeakMap();
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.IssuesModel.IssuesModel, this);
     /** @type {!Map<string, !SDK.Issue.Issue>} */
     this._issues = new Map();
-    this._issueFilter = issueFilter;
+    /** @type {!Map<string, !SDK.Issue.Issue>} */
+    this._filteredIssues = new Map();
     this._hasSeenTopFrameNavigated = false;
     SDK.FrameManager.FrameManager.instance().addEventListener(
         SDK.FrameManager.Events.TopFrameNavigated, this._onTopFrameNavigated, this);
@@ -42,12 +40,12 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {{forceNew: boolean, issueFilter: function(!SDK.Issue.Issue):boolean}} opts
+   * @param {{forceNew: boolean}} opts
    * @return {!IssuesManager}
    */
-  static instance({forceNew, issueFilter} = {forceNew: false, issueFilter: defaultIssueFilter}) {
+  static instance({forceNew} = {forceNew: false}) {
     if (!issuesManagerInstance || forceNew) {
-      issuesManagerInstance = new IssuesManager(issueFilter);
+      issuesManagerInstance = new IssuesManager();
     }
 
     return issuesManagerInstance;
@@ -77,6 +75,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
       }
     }
     this._issues = keptIssues;
+    this._updateFilteredIssues();
     this._hasSeenTopFrameNavigated = true;
     this.dispatchEventToListeners(Events.FullUpdateRequired);
     this.dispatchEventToListeners(Events.IssuesCountUpdated);
@@ -95,6 +94,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
       // a full update when the setting changes to get an up-to-date issues list.
       const showThirdPartyIssuesSetting = SDK.Issue.getShowThirdPartyIssuesSetting();
       this._showThirdPartySettingsChangeListener = showThirdPartyIssuesSetting.addChangeListener(() => {
+        this._updateFilteredIssues();
         this.dispatchEventToListeners(Events.FullUpdateRequired);
         this.dispatchEventToListeners(Events.IssuesCountUpdated);
       });
@@ -129,33 +129,43 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     this._issues.set(primaryKey, issue);
 
     if (this._issueFilter(issue)) {
+      this._filteredIssues.set(primaryKey, issue);
       this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
       this.dispatchEventToListeners(Events.IssuesCountUpdated);
     }
   }
 
   /**
-   * @return {!Array<!SDK.Issue.Issue>}
+   * @return {!Iterable<!SDK.Issue.Issue>}
    */
   issues() {
-    return [...this._issues.values()].filter(this._issueFilter);
+    return this._filteredIssues.values();
   }
 
   /**
    * @return {number}
    */
   numberOfIssues() {
-    return this.issues().length;
+    return this._filteredIssues.size;
   }
-}
 
-/**
- * @param {!SDK.Issue.Issue} issue
- * @return {boolean}
- */
-function defaultIssueFilter(issue) {
-  const showThirdPartyIssuesSetting = SDK.Issue.getShowThirdPartyIssuesSetting();
-  return showThirdPartyIssuesSetting.get() || !issue.isCausedByThirdParty();
+  /**
+   * @param {!SDK.Issue.Issue} issue
+   * @return {boolean}
+   */
+  _issueFilter(issue) {
+    const showThirdPartyIssuesSetting = SDK.Issue.getShowThirdPartyIssuesSetting();
+    return showThirdPartyIssuesSetting.get() || !issue.isCausedByThirdParty();
+  }
+
+  _updateFilteredIssues() {
+    this._filteredIssues.clear();
+    for (const [key, issue] of this._issues.entries()) {
+      if (this._issueFilter(issue)) {
+        this._filteredIssues.set(key, issue);
+      }
+    }
+  }
 }
 
 /** @enum {symbol} */
