@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91eeb9fe_fc95f309",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T11:49:53Z",
+      "side": 1,
+      "message": "PTAL\n\nPeter, couple of UX questions (see screenshots):\n* Should we remove the issues count in the toolbar? The count is already shown in the \"global\" DevTools toolbar and always visible.\n* Instead of having the checkbox directly in the toolbar we could build a similar UX as the console tab. Where there is a \"gear\" icon for settings, clicking it will fold up some console tab specific settings.",
+      "revId": "13d8cd2598e5732678286d6184b1b8bc2f2af446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
