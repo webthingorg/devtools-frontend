@@ -55,6 +55,29 @@
     },
     {
       "key": {
+        "uuid": "0ae01bb4_666fafbc",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-05T13:08:19Z",
+      "side": 1,
+      "message": "I don\u0027t know where it would be best to do this, but the latest design spec shows custom controls for configuring dashed vs. solid vs. transparent lines. It has nice little icons that really do help visually.\nPassing in the setting type here means we can\u0027t do that. I think it would be good to introduce another level here between getting the settings and send them to the view layer. This level would take care of constructing the right types so we can then display those icons in the ui layer.\n\nDoing this as a separate CL is better though. This first foundational CL is great to get a panel going and then we can build on it iteratively.",
+      "range": {
+        "startLine": 46,
+        "startChar": 24,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5829b3b_253ebd50",
         "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
         "patchSetId": 16
