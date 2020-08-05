@@ -78,6 +78,30 @@
     },
     {
       "key": {
+        "uuid": "37b3eb96_1908fa1e",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T15:45:16Z",
+      "side": 1,
+      "message": "Right, I think we adding icons we should also consider if we define them on the settings level so that we can surface them in other places, e.g. in the Ctrl + P search box. Also, I didn\u0027t start building custom UI because I don\u0027t think we have a final set of settings already and building a generic component with icons would require more efforts.",
+      "parentUuid": "0ae01bb4_666fafbc",
+      "range": {
+        "startLine": 46,
+        "startChar": 24,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5829b3b_253ebd50",
         "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
         "patchSetId": 16
