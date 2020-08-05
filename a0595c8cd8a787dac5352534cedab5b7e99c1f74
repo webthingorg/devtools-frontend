@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90774b1a_8a6b7711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-08-05T22:38:31Z",
+      "side": 1,
+      "message": "Hello Connor,\n\nPlease take a look when you get the chance.\n\nFor the bug #?\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1101644\u0026q\u003dcomponent%3APlatform%3ELighthouseAudits\u0026can\u003d2#makechanges\n\nWill this need an updated web test?",
+      "revId": "a0595c8cd8a787dac5352534cedab5b7e99c1f74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
