@@ -16,6 +16,23 @@
       "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d2f0f9c_f01d4cb7",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T06:32:43Z",
+      "side": 1,
+      "message": "Instead of needing this for every component, could we re-use some more global theme setting? Not necessarily in JS, I mean. Imagine the devtools-frontend\u0027s \u003chtml\u003e gets `class\u003d\"dark-theme\"` or `class\u003d\"light-theme\"` depending on the selected theme. Could we not re-use that in our styles, without the need for any additional JS at the component level?\n\nOr, even better: the component should not care about the global class name, but instead just re-use globally defined CSS variables that are changed when the theme changes. (I understand this would be a larger change that might warrant a separate CL.)",
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
