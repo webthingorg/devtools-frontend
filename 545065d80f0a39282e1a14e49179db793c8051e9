@@ -33,6 +33,24 @@
       "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "162a294c_fe68a05a",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T08:31:39Z",
+      "side": 1,
+      "message": "I am not sure if we can write CSS rules in the component that rely on top-level html attributes? I personally prefer the components to be self-contained and explicit, so that one can test the dark mode for a single component. With global CSS variables it becomes problematic to make sure the right styles are provided to the component. Also, if the global variables will be shared between multiple components it requires a more careful design around variable names and their composition. But I am pretty open to it (and implemented this in the past) if it is the way everyone thinks we should go.",
+      "parentUuid": "1d2f0f9c_f01d4cb7",
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
