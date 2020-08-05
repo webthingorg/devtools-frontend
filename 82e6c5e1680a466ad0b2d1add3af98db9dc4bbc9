@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a5a0f625_d1202361",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-05T12:04:47Z",
+      "side": 1,
+      "message": "This is a very good suggestion! Earlier I was trying to find a natural way to highlight the focus state while keyboard-navigating and at the same time remove the default blue outline while it\u0027s being focused (because it would regress the style). And the solution is right under my nose.",
+      "parentUuid": "0e6dd3b9_db242a80",
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b97eceaf_2d277085",
         "filename": "front_end/elements/ComputedStyleProperty.ts",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-08-05T06:49:58Z",
       "side": 1,
       "message": "Do we have a way to test this without a Win machine?",
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5b3612d_a447277d",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-05T12:04:47Z",
+      "side": 1,
+      "message": "I didn\u0027t find a way to simulate the exact `@media (forced-color: active)` query in a short amount of time, but I used `@media (min-width: 1px)` to test this and it seems to produce all the high contrast renderings.",
+      "parentUuid": "b97eceaf_2d277085",
       "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "1de7e75d_a262a43f",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-05T12:04:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "260fb226_33e9a793",
+      "range": {
+        "startLine": 129,
+        "startChar": 80,
+        "endLine": 129,
+        "endChar": 86
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5a26404_b4fb44d4",
         "filename": "front_end/elements/ComputedStyleProperty.ts",
         "patchSetId": 3
@@ -73,6 +133,24 @@
       "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da443732_36bfda16",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-05T12:04:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d5a26404_b4fb44d4",
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -240,6 +318,30 @@
       "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0503f08c_39070e49",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-05T12:04:47Z",
+      "side": 1,
+      "message": "Yes `?open` would work too. I found `ifDefined` first and since it solved my problem, I didn\u0027t think otherwise. Thanks!\n\nBTW, for the `ifDefined` directive, it has to explicitly return `undefined` to make the attribute removed. Returning `false` wouldn\u0027t work, hence the extra (annoying) `|| undefined`.",
+      "parentUuid": "4a9ad750_be722589",
+      "range": {
+        "startLine": 178,
+        "startChar": 66,
+        "endLine": 178,
+        "endChar": 79
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
