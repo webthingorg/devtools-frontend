@@ -168,6 +168,30 @@
       "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03e8f04c_12ce8cf4",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T07:50:59Z",
+      "side": 1,
+      "message": "Thanks! So if I understand correctly,\n\n    \u003cdetails ?open\u003d${this.expanded}\u003e\n\nis equivalent to \n\n    \u003cdetails open\u003d${LitHtml.Directives.ifDefined(this.expanded)}\u003e\n\nI like the two options. Any preference?",
+      "parentUuid": "b5759728_cdd8f677",
+      "range": {
+        "startLine": 178,
+        "startChar": 66,
+        "endLine": 178,
+        "endChar": 79
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
