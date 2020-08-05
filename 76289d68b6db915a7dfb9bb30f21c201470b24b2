@@ -77,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "60603d29_3f16508d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-05T23:45:24Z",
+      "side": 1,
+      "message": "Thanks for the review. Everything should be address 😊",
+      "parentUuid": "06808efb_dabf4bc3",
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95e948f2_94aa78c3",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 10
@@ -100,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "618ed47e_11763885",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-05T23:45:24Z",
+      "side": 1,
+      "message": "We can do nothing, but what I had in mind was that we can use \"Other\" to catch when a new category is added but the telemetry enum is not updated.\n\nSimilar to what we are doing in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2303882/10/front_end/host/UserMetrics.js#168.\n\nThat sounds good?",
+      "parentUuid": "95e948f2_94aa78c3",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b5a43b5_bd01b8de",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 10
@@ -111,6 +153,30 @@
       "writtenOn": "2020-08-05T10:48:19Z",
       "side": 1,
       "message": "Please add a tracking bug. Is it not possible to add an onclick handler?",
+      "range": {
+        "startLine": 276,
+        "startChar": 9,
+        "endLine": 276,
+        "endChar": 13
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "820b6f68_b0edce71",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-05T23:45:24Z",
+      "side": 1,
+      "message": "I have just double checked it, and no (only works if you click quickly a lot of times hehehe). Also, the linkfier in particular needs something else, because they have a context menu and we should be able to track when they open the resource through the context menu.",
+      "parentUuid": "7b5a43b5_bd01b8de",
       "range": {
         "startLine": 276,
         "startChar": 9,
