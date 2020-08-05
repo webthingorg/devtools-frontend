@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "219f4380_a57e3ab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-05T05:27:42Z",
+      "side": 1,
+      "message": "I added the emscripten license mentioning the files as discussed yesterday in the sync. PTAL Michael!",
+      "revId": "0b7030393983014e55b73494d8e1f7ad7fc1217b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
