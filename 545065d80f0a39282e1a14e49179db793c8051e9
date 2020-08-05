@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "7d356bfd_26da51bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-05T09:34:44Z",
+      "side": 1,
+      "message": "I\u0027ve only got questions at this stage of the review. I need to familiarize myself with this part of the codebase, that\u0027s why. I think others in the reviewers list will have better comments for you :)\nThanks for the chance to learn about this.",
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d2f0f9c_f01d4cb7",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 14
@@ -48,6 +65,98 @@
       "side": 1,
       "message": "I am not sure if we can write CSS rules in the component that rely on top-level html attributes? I personally prefer the components to be self-contained and explicit, so that one can test the dark mode for a single component. With global CSS variables it becomes problematic to make sure the right styles are provided to the component. Also, if the global variables will be shared between multiple components it requires a more careful design around variable names and their composition. But I am pretty open to it (and implemented this in the past) if it is the way everyone thinks we should go.",
       "parentUuid": "1d2f0f9c_f01d4cb7",
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07c0d60_6d28dbca",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-05T09:34:44Z",
+      "side": 1,
+      "message": "It\u0027s odd that we don\u0027t already have a reusable component (or at least css class) for these headers. I\u0027m fairly sure there\u0027s already a bunch of them elsewhere in the UI. Is there a css class we could be applying to the header element to avoid having to repeat these styles?",
+      "range": {
+        "startLine": 38,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 9
+      },
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "499b1163_6d991a42",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-05T09:34:44Z",
+      "side": 1,
+      "message": "Should you use the chrome-select shared class from inspectorCommon.css instead?\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/inspectorCommon.css;l\u003d248?q\u003dImages%2FchromeSelect.png\n\nI thought there\u0027d be a central common CSS file that contains all sorts of shared styles for these things.",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 15
+      },
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f22cccd_dc41c3eb",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-05T09:34:44Z",
+      "side": 1,
+      "message": "I\u0027m surprised we have to hard-code colors in both themes. Is there a list of css variables we could use for these?",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 42
+      },
+      "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b4c37b0_fb399c1e",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-05T09:34:44Z",
+      "side": 1,
+      "message": "Fine to keep this in for now as this is the premise of the UI. But just a heads up that in recent discussions it was sort of agreed that we\u0027d probably not let users set a grid border.",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 21
+      },
       "revId": "545065d80f0a39282e1a14e49179db793c8051e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
