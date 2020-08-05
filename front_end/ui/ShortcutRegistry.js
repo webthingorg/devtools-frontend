@@ -35,6 +35,8 @@ export class ShortcutRegistry {
     this._consumePrefix = null;
     /** @type {!Set.<string>} */
     this._devToolsDefaultShortcutActions = new Set();
+    /** @type {!Platform.Multimap.<string, !KeyboardShortcut>} */
+    this._disabledDefaultShortcutsForAction = new Platform.Multimap();
     const keybindSetSetting = self.Common.settings.moduleSetting('activeKeybindSet');
     if (!Root.Runtime.experiments.isEnabled('customKeyboardShortcuts') &&
         keybindSetSetting.get() !== DefaultShortcutSetting) {
@@ -44,6 +46,8 @@ export class ShortcutRegistry {
       Host.userMetrics.keybindSetSettingChanged(event.data);
       this._registerBindings();
     });
+    this._userShortcutsSetting = self.Common.settings.moduleSetting('userShortcuts');
+    this._userShortcutsSetting.addChangeListener(this._registerBindings, this);
 
     this._registerBindings();
   }
@@ -298,6 +302,53 @@ export class ShortcutRegistry {
   /**
    * @param {!KeyboardShortcut} shortcut
    */
+  registerUserShortcut(shortcut) {
+    for (const otherShortcut of this._actionToShortcut.get(shortcut.action)) {
+      // don't allow duplicate shortcuts regardless of type
+      if (otherShortcut.descriptorsMatch(shortcut.descriptors)) {
+        return;
+      }
+    }
+    this._addShortcutToSetting(shortcut);
+  }
+
+  /**
+    * @param {!KeyboardShortcut} shortcut
+    */
+  removeShortcut(shortcut) {
+    if (shortcut.type === Type.DefaultShortcut) {
+      this._addShortcutToSetting(shortcut.changeType(Type.DisabledDefault));
+    } else {
+      this._removeShortcutFromSetting(shortcut);
+    }
+  }
+
+  /**
+   * @param {!KeyboardShortcut} shortcut
+   */
+  _addShortcutToSetting(shortcut) {
+    const userShortcuts = this._userShortcutsSetting.get();
+    // if (userShortcuts.findIndex(otherShortcut =>  shortcut.action === otherShortcut.action && shortcut.hasSameKeys(otherShortcut) +== -1)) {
+    userShortcuts.push(shortcut);
+    this._userShortcutsSetting.set(userShortcuts);
+    // }
+  }
+
+  /**
+   * @param {!KeyboardShortcut} shortcut
+   */
+  _removeShortcutFromSetting(shortcut) {
+    const userShortcuts = this._userShortcutsSetting.get();
+    const index = userShortcuts.findIndex(shortcut.equals, shortcut);
+    if (index !== -1) {
+      userShortcuts.splice(index, 1);
+      this._userShortcutsSetting.set(userShortcuts);
+    }
+  }
+
+  /**
+   * @param {!KeyboardShortcut} shortcut
+   */
   _registerShortcut(shortcut) {
     this._actionToShortcut.set(shortcut.action, shortcut);
     this._keyMap.addKeyMapping(shortcut.descriptors.map(descriptor => descriptor.key), shortcut.action);
@@ -307,9 +358,24 @@ export class ShortcutRegistry {
     this._keyToShortcut.clear();
     this._actionToShortcut.clear();
     this._keyMap.clear();
+    const forwardedKeys = [];
+    if (Root.Runtime.experiments.isEnabled('keyboardShortcutEditor')) {
+      const userShortcuts = this._userShortcutsSetting.get();
+      userShortcuts.forEach(userShortcut => {
+        const shortcut = KeyboardShortcut.createShortcutFromSettingObject(userShortcut);
+        if (shortcut.type === Type.DisabledDefault) {
+          this._disabledDefaultShortcutsForAction.set(shortcut.action, shortcut);
+        } else {
+          if (ForwardedActions.has(shortcut.action)) {
+            forwardedKeys.push(
+                shortcut.descriptors.map(descriptor => KeyboardShortcut.keyCodeAndModifiersFromKey(descriptor.key)));
+          }
+          this._registerShortcut(shortcut);
+        }
+      }, this);
+    }
     const keybindSet = self.Common.settings.moduleSetting('activeKeybindSet').get();
     const extensions = self.runtime.extensions('action');
-    const forwardedKeys = [];
     extensions.forEach(registerExtension, this);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.setWhitelistedShortcuts(JSON.stringify(forwardedKeys));
 
@@ -329,6 +395,12 @@ export class ShortcutRegistry {
         const shortcutDescriptors = keys.map(KeyboardShortcut.makeDescriptorFromBindingShortcut);
         if (shortcutDescriptors.length > 0) {
           const actionId = /** @type {string} */ (descriptor.actionId);
+
+          if (this._isDisabledDefault(shortcutDescriptors, actionId)) {
+            this._devToolsDefaultShortcutActions.add(actionId);
+            continue;
+          }
+
           if (ForwardedActions.has(actionId)) {
             forwardedKeys.push(
                 ...shortcutDescriptors.map(shortcut => KeyboardShortcut.keyCodeAndModifiersFromKey(shortcut.key)));
@@ -373,6 +445,16 @@ export class ShortcutRegistry {
       }
       return keybindSets.includes(keybindSet);
     }
+  }
+
+  _isDisabledDefault(shortcutDescriptors, action) {
+    const disabledDefaults = this._disabledDefaultShortcutsForAction.get(action);
+    for (const disabledDefault of disabledDefaults) {
+      if (disabledDefault.descriptorsMatch(shortcutDescriptors)) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 
