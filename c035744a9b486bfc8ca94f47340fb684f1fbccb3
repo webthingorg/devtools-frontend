@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "e0ef5074_55bfa962",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T11:44:34Z",
+      "side": 1,
+      "message": "Would things be simpler if \n Common.Settings.Settings.instance().createSetting(\u0027showThirdPartyIssues\u0027, false);\nwas a member of IssuesManager?\n\nI don\u0027t see a reason why it shouldn\u0027t be, do you?",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549922d6_1aa97e9b",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T11:44:34Z",
+      "side": 1,
+      "message": "This is used in various places, and should return the number of issues after filtering.",
+      "range": {
+        "startLine": 148,
+        "startChar": 16,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63c83d83_314f9bde",
         "filename": "test/unittests/front_end/browser_sdk/IssuesManager_test.ts",
         "patchSetId": 3
