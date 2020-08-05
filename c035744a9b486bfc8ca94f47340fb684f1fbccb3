@@ -71,6 +71,23 @@
     },
     {
       "key": {
+        "uuid": "a80589fa_51fd834a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T13:23:21Z",
+      "side": 1,
+      "message": "PT(another)L",
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0ef5074_55bfa962",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 3
@@ -166,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "ee633cd8_4dabd717",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T13:23:21Z",
+      "side": 1,
+      "message": "Removed the argument and added an inline function instead after fixing up the unit test.",
+      "parentUuid": "981a55b2_caeb9107",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "549922d6_1aa97e9b",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 3
@@ -249,6 +290,30 @@
       "side": 1,
       "message": "I\u0027d prefer not to do that unless we get performance problems. Having the list separate runs the risk of them getting out of sync. This way that can\u0027t happen.",
       "parentUuid": "d06d2124_f85106bc",
+      "range": {
+        "startLine": 148,
+        "startChar": 16,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a16fadf2_0198c895",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T13:23:21Z",
+      "side": 1,
+      "message": "Done, future changes to this class need to be reviewed carefully now.",
+      "parentUuid": "bd209079_a31dc3d3",
       "range": {
         "startLine": 148,
         "startChar": 16,
