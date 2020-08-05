@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "981a55b2_caeb9107",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T12:04:19Z",
+      "side": 1,
+      "message": "The constructor argument is a filter function so we can unit test this without the Settings dependency. (I just realized now that adding the listener in \"moddelAdded\" re-introduced this dependency, thus breaking the unit test).\n\nI\u0027ll see if I can initialize the Settings infrastructure in the unittest, and then simply inline the filter directly so its not configurable anymore.",
+      "parentUuid": "27678e30_c77912b6",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "549922d6_1aa97e9b",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 3
@@ -166,6 +190,30 @@
       "side": 1,
       "message": "Oh I missed that. I\u0027d like it better if we just stored a second map _filteredIssues instead of filtering on the fly, WDYT?",
       "parentUuid": "3485f496_30547793",
+      "range": {
+        "startLine": 148,
+        "startChar": 16,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd209079_a31dc3d3",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T12:04:19Z",
+      "side": 1,
+      "message": "I\u0027d prefer not to do that unless we get performance problems. Having the list separate runs the risk of them getting out of sync. This way that can\u0027t happen.",
+      "parentUuid": "d06d2124_f85106bc",
       "range": {
         "startLine": 148,
         "startChar": 16,
