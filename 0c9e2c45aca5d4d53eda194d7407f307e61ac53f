@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c5a1194_9166a5db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-05T06:09:03Z",
+      "side": 1,
+      "message": "Please take an early look; I\u0027ll add component doc and unit test for these two components soon (in the same CL).",
+      "revId": "0c9e2c45aca5d4d53eda194d7407f307e61ac53f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
