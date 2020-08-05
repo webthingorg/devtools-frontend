@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6972f0d5_87a649f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T10:48:19Z",
+      "side": 1,
+      "message": "Please add the design doc and summarize the discussion we had on this CL there.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0163ace7_0226bbed",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 10
@@ -31,6 +54,115 @@
       "side": 1,
       "message": "We can reduce the complexity of the metrics to just resources clicked with an enum of the issue type and drop the resource type all together.\n\nThe histogram enum would be something like:\n```\n\u003cenum name\u003d\"DevToolsIssuesPanelResourceOpened\"\u003e\n  \u003cint value\u003d\"0\" label\u003d\"CrossOriginEmbedderPolicy\"/\u003e\n  \u003cint value\u003d\"1\" label\u003d\"MixedContent\"/\u003e\n  \u003cint value\u003d\"2\" label\u003d\"SameSiteCookie\"/\u003e\n  \u003cint value\u003d\"3\" label\u003d\"HeavyAd\"/\u003e\n  \u003cint value\u003d\"4\" label\u003d\"ContentSecurityPolicy\"/\u003e\n  \u003cint value\u003d\"5\" label\u003d\"Other\"/\u003e\n\u003c/enum\u003e\n```\n\nThis should still help us answer the question \"Which issues are useful to developers?\".\n\nSigurd@, does that address the number of histogram keys concern or did I misunderstand?",
       "parentUuid": "0163ace7_0226bbed",
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06808efb_dabf4bc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T10:48:19Z",
+      "side": 1,
+      "message": "Almost LGTM, some minor nits.",
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95e948f2_94aa78c3",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T10:48:19Z",
+      "side": 1,
+      "message": "Does this make sense, or should we just not record anything in this case?",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b5a43b5_bd01b8de",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T10:48:19Z",
+      "side": 1,
+      "message": "Please add a tracking bug. Is it not possible to add an onclick handler?",
+      "range": {
+        "startLine": 276,
+        "startChar": 9,
+        "endLine": 276,
+        "endChar": 13
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "656556ab_b4713c51",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T10:48:19Z",
+      "side": 1,
+      "message": "Please add a tacking bug.",
+      "range": {
+        "startLine": 474,
+        "startChar": 7,
+        "endLine": 474,
+        "endChar": 11
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33ab385c_7db3ae99",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T10:48:19Z",
+      "side": 1,
+      "message": "Please add a tracking bug.",
+      "range": {
+        "startLine": 850,
+        "startChar": 9,
+        "endLine": 850,
+        "endChar": 13
+      },
       "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
