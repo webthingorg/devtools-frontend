@@ -16,6 +16,29 @@
       "revId": "83190fda79403e3a6f6e6d9e3e3db9abf984df4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8f86187_aaef073a",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-05T12:15:46Z",
+      "side": 1,
+      "message": "Could we use `border-color` shorthand in thie case?",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 52
+      },
+      "revId": "83190fda79403e3a6f6e6d9e3e3db9abf984df4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
