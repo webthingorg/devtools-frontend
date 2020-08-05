@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "007ca2cf_172cc8fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T05:20:11Z",
+      "side": 1,
+      "message": "lgtm, already giving +1 in case a fix in the BreakpointManager is not feasible.",
+      "revId": "6b20ba56705141171f0a0055b86224804a42b57c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
