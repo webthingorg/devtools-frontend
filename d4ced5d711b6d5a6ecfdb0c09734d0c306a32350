@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88f010b1_51956038",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-05T15:20:51Z",
+      "side": 1,
+      "message": "A first peek into the WebVitals Toollane. I changed the implementation to use canvas because it did not scroll smoothly when connected to the rest of the performance panel.\nIt\u0027s still WIP",
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
