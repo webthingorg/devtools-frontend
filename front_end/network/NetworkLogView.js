@@ -1914,7 +1914,7 @@ export class NetworkLogView extends UI.Widget.VBox {
     }
 
     const options = JSON.stringify(fetchOptions, null, 2);
-    return `fetch(${url}, ${options});`;
+    return `await fetch(${url}, ${options});`;
   }
 
   /**
