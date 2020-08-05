@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51ea13c2_9650b12a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T11:35:14Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63c83d83_314f9bde",
+        "filename": "test/unittests/front_end/browser_sdk/IssuesManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T11:35:14Z",
+      "side": 1,
+      "message": "I wanted to add an additional test that exercises the default filter. That would be more of an integration test though and would require the whole \"Setting\" infrastructure to be properly initialized. Maybe we can do that as a follow-up after talking to LON folks whether we need to introduce \"integration tests\" or we can initialize the Settings stuff somewhere?",
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
