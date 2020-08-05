@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "8b59ec7d_2db18cf3",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-05T00:36:00Z",
+      "side": 1,
+      "message": "KeybindsItem is defined as Action|string at the end of this file, so it fits here",
+      "parentUuid": "1ae4dd11_043e3cfe",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "460616ee_4201f3b2",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 3
@@ -62,6 +86,30 @@
       "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3100246_49b84dc0",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-05T00:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "460616ee_4201f3b2",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 75
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "6cab648e_68767c53",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-05T00:36:00Z",
+      "side": 1,
+      "message": "Fair, I\u0027ll move createShortcutRow out of this method",
+      "parentUuid": "cc0a6667_ed36e4e7",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 49
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c5ee62_f845d5e7",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 3
@@ -102,6 +174,24 @@
       "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d56730c3_c2fa7cc8",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-05T00:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c5ee62_f845d5e7",
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "6df43597_f0dc0b27",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-05T00:36:00Z",
+      "side": 1,
+      "message": "Oops, I thought I already had. Thanks for flagging",
+      "parentUuid": "a06bc3b8_d060da70",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 1
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba6edf3_980c3459",
         "filename": "front_end/ui/KeyboardShortcut.js",
         "patchSetId": 3
@@ -162,6 +276,30 @@
       "writtenOn": "2020-07-07T08:02:41Z",
       "side": 1,
       "message": "Can you explain the reasoning behind instantiating a new object here instead of doing something like:\n\n  this.type \u003d\u003d\u003d type;\n  return this;",
+      "range": {
+        "startLine": 71,
+        "startChar": 11,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9742bc89_7af815fb",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-05T00:36:00Z",
+      "side": 1,
+      "message": "My thinking here was essentially that we should treat KeyboardShortcuts as immutable, to avoid changing a shortcut that was already being used in ShortcutRegistry or KeybindsSettingsTab. Since we\u0027re rebuilding the list every time the shortcuts change, I don\u0027t think that\u0027s actually a problem anymore--I\u0027ll take another look at this",
+      "parentUuid": "4ba6edf3_980c3459",
       "range": {
         "startLine": 71,
         "startChar": 11,

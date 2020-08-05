@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "515d15d2_b71ede93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-05T00:36:00Z",
+      "side": 1,
+      "message": "Thanks Patrick! I\u0027ve addressed some of your comments, and in the process of doing so I came across a few more issues that I want to iron out. I\u0027ve got some other higher-priority work that came up, so I\u0027m going to temporarily move this back to WIP while I take care of that.",
+      "revId": "e4a57c3367de72861dae35cbca6361ffdf357cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
