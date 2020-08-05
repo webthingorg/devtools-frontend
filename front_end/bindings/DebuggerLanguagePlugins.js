@@ -242,7 +242,7 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
  * @unrestricted
  * TODO rename Scope to RawScope and add a common interface
  */
-class SourceScope {
+export class SourceScope {
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
    * @param {string} type
@@ -258,6 +258,27 @@ class SourceScope {
     this._startLocation = null;
     /** @type {?Location} */
     this._endLocation = null;
+  }
+
+  /**
+   * @param {string} name
+   * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
+   */
+  async getVariableValue(name) {
+    for (let v = 0; v < this._object.variables.length; ++v) {
+      if (this._object.variables[v].name === name) {
+        const properties = await this._object.getAllProperties(false, false);
+        if (properties.properties) {
+          const {value} = properties.properties[v];
+          const valueProperties = await value.getAllProperties(false, false);
+          if (valueProperties && valueProperties.properties.length > 0 &&
+              valueProperties.properties[0].name === 'value') {
+            return valueProperties.properties[0].value;
+          }
+        }
+      }
+    }
+    return null;
   }
 
   /**
