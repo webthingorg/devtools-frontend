@@ -16,6 +16,57 @@
       "revId": "87707342b25243a083ec5c080ed9ad5097f6a47f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a765813e_f6828ec0",
+        "filename": "test/e2e/cross_tool_integration/browser_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T05:50:08Z",
+      "side": 1,
+      "message": "nit: good TODOs/FIXMEs explain what needs to be done to resolve it. In this case, how about something like:\n\n    FIXME(crbug/...): Refactor test to remove the timeout.",
+      "revId": "87707342b25243a083ec5c080ed9ad5097f6a47f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e69abaa5_ae5000b6",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T05:50:08Z",
+      "side": 1,
+      "message": "For readability, I\u0027d suggest splitting this up so that each line only does one thing:\n\n    await waitForFunction(async () \u003d\u003e {\n      const elements \u003d await $$(SOURCES_LINES_SELECTOR);\n      return elements.length \u003e\u003d lineNumber;\n    });",
+      "revId": "87707342b25243a083ec5c080ed9ad5097f6a47f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "202e399e_fd194107",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-05T05:50:08Z",
+      "side": 1,
+      "message": "readability:\n\n    if (...) return elements; // note: use `elements` instead of `elems`, matching surrounding code\n    return undefined;\n\n(We could technically even omit that last line altogether, but having the `return undefined` there explicitly seems better.)",
+      "revId": "87707342b25243a083ec5c080ed9ad5097f6a47f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
