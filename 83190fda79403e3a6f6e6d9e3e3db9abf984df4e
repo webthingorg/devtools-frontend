@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32cfdbe7_02568aa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T12:14:25Z",
+      "side": 1,
+      "message": "I have removed the explicit theme param and injected core styles using `UI.Utils.injectCoreStyles`. PTAL and let me know if this version is preferable.",
+      "revId": "83190fda79403e3a6f6e6d9e3e3db9abf984df4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
