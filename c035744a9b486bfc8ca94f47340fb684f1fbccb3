@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "b48a2de7_9ae03984",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T11:54:47Z",
+      "side": 1,
+      "message": "Thanks for the very fast comments, just some follow up questions.",
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0ef5074_55bfa962",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 3
@@ -42,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "4ed0d4bf_bd2134bb",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T11:54:47Z",
+      "side": 1,
+      "message": "Do you mean moving the \"getShowThirdPartyIssuesSetting()\" onto the \"IssuesManager\" type?\n\nIt would probably fit better here, yes, but it wouldn\u0027t make things easier since both are globals. (either calling directly or via IssuesManager.instance())",
+      "parentUuid": "e0ef5074_55bfa962",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "549922d6_1aa97e9b",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 3
@@ -53,6 +94,30 @@
       "writtenOn": "2020-08-05T11:44:34Z",
       "side": 1,
       "message": "This is used in various places, and should return the number of issues after filtering.",
+      "range": {
+        "startLine": 148,
+        "startChar": 16,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3485f496_30547793",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-05T11:54:47Z",
+      "side": 1,
+      "message": "It does? We call the issues() method, which filters. The reason we changed the Type on it so we don\u0027t have to spread a second time and create an additional copy of the array just for accessing the length attribute.",
+      "parentUuid": "549922d6_1aa97e9b",
       "range": {
         "startLine": 148,
         "startChar": 16,
