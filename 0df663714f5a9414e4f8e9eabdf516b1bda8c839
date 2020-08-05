@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "ac2bf51a_59f5c45b",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/expected/complex-types-imported_bridge-expected.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-05T07:54:18Z",
+      "side": 1,
+      "message": "how does it complain? Can you give error messages please?",
+      "parentUuid": "a39e4770_43a23d19",
+      "revId": "0df663714f5a9414e4f8e9eabdf516b1bda8c839",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "139b0a89_ace7b573",
         "filename": "test/unittests/scripts/component_bridges/fixtures/expected/complex-types-imported_bridge-expected.js",
         "patchSetId": 2
