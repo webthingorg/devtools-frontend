@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29320ac7_11876033",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T13:40:01Z",
+      "side": 1,
+      "message": "LGTM with a nit, thanks!",
+      "revId": "22ae15c29f6b93dbe360304e12d7bd8722c79a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b77a0c_dca71172",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T13:40:01Z",
+      "side": 1,
+      "message": "Could you please add a comment that this lazy init is is a work-around for the fact that getShowThirdPartyIssuesSetting cannot be called in the constructor because the settings storage hasn\u0027t been initialized yet?\n\nCould you also move this to _issueFilter, so we have all the setting related logic in one place?",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 54
+      },
+      "revId": "22ae15c29f6b93dbe360304e12d7bd8722c79a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
