@@ -83,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "27678e30_c77912b6",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T11:59:32Z",
+      "side": 1,
+      "message": "The thought was that we wouldn\u0027t need a constructor argument then? Basically, third-party filtering on/off could be controlled by a setter on IssueManager, and the setting was just an implementation detail.",
+      "parentUuid": "4ed0d4bf_bd2134bb",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "549922d6_1aa97e9b",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 3
@@ -118,6 +142,30 @@
       "side": 1,
       "message": "It does? We call the issues() method, which filters. The reason we changed the Type on it so we don\u0027t have to spread a second time and create an additional copy of the array just for accessing the length attribute.",
       "parentUuid": "549922d6_1aa97e9b",
+      "range": {
+        "startLine": 148,
+        "startChar": 16,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "c035744a9b486bfc8ca94f47340fb684f1fbccb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d06d2124_f85106bc",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-05T11:59:32Z",
+      "side": 1,
+      "message": "Oh I missed that. I\u0027d like it better if we just stored a second map _filteredIssues instead of filtering on the fly, WDYT?",
+      "parentUuid": "3485f496_30547793",
       "range": {
         "startLine": 148,
         "startChar": 16,
