@@ -144,6 +144,30 @@
       "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5759728_cdd8f677",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-05T07:45:41Z",
+      "side": 1,
+      "message": "The `?` prefix is explained here https://lit-html.polymer-project.org/guide/writing-templates#bind-to-attributes \n\n\u003e Use the ? prefix for a boolean attribute binding. The attribute is added if the expression evaluates to a truthy value, removed if it evaluates to a falsy value:",
+      "parentUuid": "8d4bf36a_b4a4f757",
+      "range": {
+        "startLine": 178,
+        "startChar": 66,
+        "endLine": 178,
+        "endChar": 79
+      },
+      "revId": "82e6c5e1680a466ad0b2d1add3af98db9dc4bbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
