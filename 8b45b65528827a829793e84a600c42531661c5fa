@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c42b1fee_6918dc80",
+        "filename": "front_end/accessibility/SourceOrderView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-05T07:21:45Z",
+      "side": 1,
+      "message": "My only (minor) comment is that I think we can probably drop the `Async` part of this method name. So far I haven\u0027t seen this used as a pattern in other parts of the codebase, but I don\u0027t know much of it yet. Up to you if you want to keep this in, I\u0027m fine with it too.\nThe reason I\u0027m not a big fan is that the async nature of this function can already be determined by the `async` keyword in front of it.",
+      "range": {
+        "startLine": 37,
+        "startChar": 15,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "8b45b65528827a829793e84a600c42531661c5fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
