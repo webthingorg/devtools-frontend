@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dae95002_51ae2bdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-06T23:32:35Z",
+      "side": 1,
+      "message": "One comment to future proof this a little. LGTM otherwise!",
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e99d04fc_6b7c6445",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-06T23:32:35Z",
+      "side": 1,
+      "message": "Might be a good idea to toss an error if this script can\u0027t find this line or `export const DevToolsExperiments \u003d {` in UserMetrics.js. That way if we refactor code the author would be aware they\u0027re breaking this script.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
