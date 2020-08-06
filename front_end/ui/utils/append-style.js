@@ -11,18 +11,27 @@
  * @suppressGlobalPropertiesCheck
  */
 export function appendStyle(node, cssFile) {
+  for (const style of getStylesForFile(cssFile)) {
+    const styleElement = createElement('style');
+    styleElement.textContent = style;
+    node.appendChild(styleElement);
+  }
+}
+
+/**
+ * @param {string} cssFile
+ * @suppressGlobalPropertiesCheck
+ */
+export function getStylesForFile(cssFile) {
+  const result = [];
   const content = self.Runtime.cachedResources[cssFile] || '';
   if (!content) {
     console.error(cssFile + ' not preloaded. Check module.json');
   }
-  let styleElement = createElement('style');
-  styleElement.textContent = content;
-  node.appendChild(styleElement);
-
+  result.push(content);
   const themeStyleSheet = self.UI.themeSupport.themeStyleSheet(cssFile, content);
   if (themeStyleSheet) {
-    styleElement = createElement('style');
-    styleElement.textContent = themeStyleSheet + '\n' + Root.Runtime.resolveSourceURL(cssFile + '.theme');
-    node.appendChild(styleElement);
+    result.push(themeStyleSheet + '\n' + Root.Runtime.resolveSourceURL(cssFile + '.theme'));
   }
+  return result;
 }
