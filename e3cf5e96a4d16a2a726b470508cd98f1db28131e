@@ -46,6 +46,30 @@
       "revId": "e3cf5e96a4d16a2a726b470508cd98f1db28131e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52368edf_8ef7ad4f",
+        "filename": "test/unittests/front_end/browser_sdk/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-06T08:23:25Z",
+      "side": 1,
+      "message": "👍",
+      "parentUuid": "6bb71066_2443f27f",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "e3cf5e96a4d16a2a726b470508cd98f1db28131e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
