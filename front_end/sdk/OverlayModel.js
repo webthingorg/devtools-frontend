@@ -111,6 +111,9 @@ export class OverlayModel extends SDKModel {
           this._persistentGridHighlighter.hideInOverlay(nodeId);
         }
       });
+      this._domModel.addEventListener(DOMModelEvents.DocumentUpdated, () => {
+        this._persistentGridHighlighter.hideAllInOverlay();
+      });
     }
     if (this._sourceOrderViewerExperimentEnabled) {
       this._sourceOrderHighlighter = new SourceOrderHighlighter(this);
@@ -824,10 +827,6 @@ class DefaultPersistentGridHighlighter {
    * @param {!Protocol.Overlay.GridHighlightConfig} config
    */
   highlightInOverlay(nodeId, config) {
-    if (this._gridHighlights.size === 0) {
-      this._model.setPersistentGridMode(true);
-      this._model.setShowViewportSizeOnResize(false);
-    }
     this._gridHighlights.set(nodeId, config);
     this._updateHighlightsInOverlay();
   }
@@ -839,10 +838,6 @@ class DefaultPersistentGridHighlighter {
   hideInOverlay(nodeId) {
     if (this._gridHighlights.has(nodeId)) {
       this._gridHighlights.delete(nodeId);
-      if (this._gridHighlights.size === 0) {
-        this._model.setPersistentGridMode(false);
-        this._model.setShowViewportSizeOnResize(true);
-      }
       this._updateHighlightsInOverlay();
     }
   }
@@ -852,12 +847,13 @@ class DefaultPersistentGridHighlighter {
    */
   hideAllInOverlay() {
     this._gridHighlights.clear();
-    this._model.setPersistentGridMode(false);
-    this._model.setShowViewportSizeOnResize(true);
     this._updateHighlightsInOverlay();
   }
 
   _updateHighlightsInOverlay() {
+    const hasGridNodesToHighlight = this._gridHighlights.size > 0;
+    this._model.setPersistentGridMode(hasGridNodesToHighlight);
+    this._model.setShowViewportSizeOnResize(!hasGridNodesToHighlight);
     const overlayModel = this._model;
     const gridNodeHighlightConfigs = [];
     for (const [nodeId, gridHighlightConfig] of this._gridHighlights.entries()) {
