@@ -34,6 +34,24 @@
       "revId": "be5a760a10a453b02ceeb25eb6c90a403b5580c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "102dc556_2fbe927d",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-06T11:48:36Z",
+      "side": 1,
+      "message": "Perhaps we could replace the path with x1,y1,x2,y2 coordinates for the areas? Not sure, if having the path is beneficial. WDYT?",
+      "parentUuid": "bbfe049b_2f2d320b",
+      "revId": "be5a760a10a453b02ceeb25eb6c90a403b5580c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
