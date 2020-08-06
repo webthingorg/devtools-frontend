@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, getHostedModeServerPort, goToResource, pressKey, step, typeText, waitFor} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, getHostedModeServerPort, goToResource, pressKey, step, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
 export const PAUSE_BUTTON = '[aria-label="Pause script execution"]';
@@ -310,7 +310,7 @@ export async function getScopeNames() {
   return scopeNames;
 }
 
-export async function getValuesForScope(scope: string, expandCount = 0) {
+export async function getValuesForScope(scope: string, expandCount = 0, expectedNodes = 0) {
   const scopeSelector = `[aria-label="${scope}"]`;
   await waitFor(scopeSelector);
   for (let i = 0; i < expandCount; i++) {
@@ -319,7 +319,11 @@ export async function getValuesForScope(scope: string, expandCount = 0) {
     await click(unexpandedSelector);
   }
   const valueSelector = `${scopeSelector} + ol .name-and-value`;
+  if (expectedNodes > 0) {
+    await waitForFunction(async () => (await $$(valueSelector)).length >= expectedNodes);
+  }
   const valueSelectorElements = await $$(valueSelector);
+
   const values = await Promise.all(valueSelectorElements.map(elem => elem.evaluate(n => n.textContent as string)));
   return values;
 }
