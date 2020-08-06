@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3dcbc31e_9d137ac2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-06T14:57:11Z",
+      "side": 1,
+      "message": "Yes, an icon makes sense imo. https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Icon.js;l\u003d184?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20icon.js mediumicon-frame-opened would fit I think. But I\u0027m not sure whether we should show \"hasAccessToOpener\" in the icon somehow already.",
+      "parentUuid": "cfc5b4f2_7360d5ae",
+      "revId": "994448fa58c674bbd6baeabe3fb36cde9281d5fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "771d757b_f164512c",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 12
