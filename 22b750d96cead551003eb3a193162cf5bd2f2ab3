@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24d5d47c_ec8f8881",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T06:57:08Z",
+      "side": 1,
+      "message": "I found an already existing UI component that does exactly this (settings bound checkbox in a toolbar). Using the component also fixes the spacing issue that Peter mentioned.",
+      "revId": "22b750d96cead551003eb3a193162cf5bd2f2ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
