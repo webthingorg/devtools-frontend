@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0003422b_0a798001",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-06T08:29:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c7e95b3_682439a8",
+      "revId": "7a559879959d4a8699b26d0844601640ec5279a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75efb908_e9609349",
         "filename": "front_end/common/Color.js",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "7a559879959d4a8699b26d0844601640ec5279a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f27a482_53b3297d",
+        "filename": "front_end/common/Color.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-06T08:29:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75efb908_e9609349",
+      "range": {
+        "startLine": 418,
+        "startChar": 11,
+        "endLine": 418,
+        "endChar": 12
+      },
+      "revId": "7a559879959d4a8699b26d0844601640ec5279a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
