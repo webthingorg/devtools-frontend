@@ -16,6 +16,115 @@
       "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9596ce0a_80857797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T09:19:56Z",
+      "side": 1,
+      "message": "Thanks, some more comments!",
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9d35da3_b06d4191",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T09:19:56Z",
+      "side": 1,
+      "message": "nit: maybe \"is opened after navigation has completed, issues may be received before the top frame is available.\"",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 93,
+        "endChar": 47
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c3f8f9b_7c9317fe",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T09:19:56Z",
+      "side": 1,
+      "message": "nit: I\u0027d prefer a proper getter, I think the \u0027get\u0027-style getters are only here because it was the only way to be backwards compatible (previously those were just public fields).",
+      "range": {
+        "startLine": 699,
+        "startChar": 2,
+        "endLine": 699,
+        "endChar": 27
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0be5ec93_ca9e3e17",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T09:19:56Z",
+      "side": 1,
+      "message": "Should we return true in case topFrame is unavailable? Returning false could lead to an issue flashing up and then being removed because once we have the topFrame it is classified as third party. Returning true if !topFrame gives us some continuity (and it will look as if the issue was detected a little bit later).",
+      "range": {
+        "startLine": 103,
+        "startChar": 13,
+        "endLine": 103,
+        "endChar": 18
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6c2c75c_7a6ffe5f",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T09:19:56Z",
+      "side": 1,
+      "message": "Would endsWith be more appropriate? I\u0027m thinking of \"foo.co.uk\".includes(\"foo.co\") being true.",
+      "range": {
+        "startLine": 123,
+        "startChar": 37,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
