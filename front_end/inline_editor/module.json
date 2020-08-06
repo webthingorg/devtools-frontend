@@ -9,6 +9,7 @@
     "BezierUI.js",
     "ColorSwatch.js",
     "CSSShadowEditor.js",
+    "FontEditor.js",
     "SwatchPopoverHelper.js",
     "CSSShadowModel.js"
   ],
@@ -18,6 +19,7 @@
     "bezierSwatch.css",
     "cssShadowSwatch.css",
     "cssShadowEditor.css",
+    "fontEditor.css",
     "swatchPopover.css"
   ]
 }

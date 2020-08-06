@@ -224,6 +224,10 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
     return this._cssAgent.getComputedStyleForNode(nodeId);
   }
 
+  getPlatformFontsForNode(nodeId) {
+    return this._cssAgent.getPlatformFontsForNode(nodeId);
+  }
+
   async getMediaQueries() {
     const queries = await this._cssAgent.getMediaQueries();
     const queryMap = new Map();
