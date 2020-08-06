@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "fcc5c939_2447153d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-06T07:46:10Z",
+      "side": 1,
+      "message": "Agreed 100% in keeping this CL small. It\u0027s great foundational work, and we can add to the panel in follow-ups. This is all behind the experiment.\n\nRegarding the global settings vs. the new ones: I think it\u0027s fairly obvious that the new layout panel is going to be way more discoverable than the global settings. I think we added them as a way for to surface our work in progress more easily, and make it possible to do user testing with. But they were never going to stay there anyway. So, I think we could remove them straight away, and just keep the new settings in the layout panel. But again, this could be a follow-up.",
+      "parentUuid": "143a9387_eb98c057",
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a67063_5aab7a28",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 16
@@ -161,6 +179,30 @@
       "side": 1,
       "message": "Right, I think we adding icons we should also consider if we define them on the settings level so that we can surface them in other places, e.g. in the Ctrl + P search box. Also, I didn\u0027t start building custom UI because I don\u0027t think we have a final set of settings already and building a generic component with icons would require more efforts.",
       "parentUuid": "0ae01bb4_666fafbc",
+      "range": {
+        "startLine": 46,
+        "startChar": 24,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19b5cf8a_64cb911e",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-06T07:46:10Z",
+      "side": 1,
+      "message": "Sure, let\u0027s make sure we have the final set of settings and implement this later. Just something to keep in mind.\nIn terms of where to do this, I think this makes probably more sense in the component itself. As far as its concerned, the setting is still just an enum, it shouldn\u0027t really care whether it\u0027s being displayed as a drop-down or toggle icons, or something else. wdyt?",
+      "parentUuid": "37b3eb96_1908fa1e",
       "range": {
         "startLine": 46,
         "startChar": 24,
