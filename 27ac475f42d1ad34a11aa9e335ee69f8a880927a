@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a29732ae_c944b9c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-06T21:27:38Z",
+      "side": 1,
+      "message": "Follow up CL to enable a presubmit to ensure experiments have telemetry",
+      "revId": "27ac475f42d1ad34a11aa9e335ee69f8a880927a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
