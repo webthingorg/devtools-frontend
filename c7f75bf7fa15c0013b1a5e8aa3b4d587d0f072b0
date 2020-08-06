@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "5ac12b82_e4800423",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-06T07:57:40Z",
+      "side": 1,
+      "message": "That makes sense. I\u0027d probably implement it as a separate generic component for this kind of select but it could be done in the Layout pane initially.",
+      "parentUuid": "19b5cf8a_64cb911e",
+      "range": {
+        "startLine": 46,
+        "startChar": 24,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5829b3b_253ebd50",
         "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
         "patchSetId": 16
