@@ -658,6 +658,7 @@
     "ServiceWorkerManager.js",
     "TracingManager.js",
     "TracingModel.js",
+    "OpenedWindowManager.js",
     "OverlayModel.js",
     "RuntimeModel.js",
     "IsolateManager.js",
