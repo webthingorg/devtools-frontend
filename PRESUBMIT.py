@@ -100,6 +100,23 @@ def _CheckBuildGN(input_api, output_api):
     return results
 
 
+def _CheckExperimentTelemetry(input_api, output_api):
+    results = [
+        output_api.PresubmitNotifyResult('Running Experiment Telemetry check:')
+    ]
+    main_folder_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                              'front_end', 'main')
+    affected_main_files = _getAffectedFiles(input_api, [main_folder_path], [],
+                                            ['.js'])
+    if len(affected_main_files) == 0:
+        return results
+
+    script_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                         'scripts', 'check_experiments.js')
+    results.extend(_checkWithNodeScript(input_api, output_api, script_path))
+    return results
+
+
 def _CheckJSON(input_api, output_api):
     results = [output_api.PresubmitNotifyResult('Running JSON Validator:')]
     script_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'json_validator', 'validate_module_json.js')
@@ -356,6 +373,7 @@ def _CommonChecks(input_api, output_api):
     results.extend(input_api.canned_checks.CheckChangeHasNoStrayWhitespace(input_api, output_api))
     results.extend(input_api.canned_checks.CheckGenderNeutral(input_api, output_api))
     results.extend(_CheckBuildGN(input_api, output_api))
+    results.extend(_CheckExperimentTelemetry(input_api, output_api))
     results.extend(_CheckGeneratedFiles(input_api, output_api))
     results.extend(_CheckJSON(input_api, output_api))
     results.extend(_CheckDevToolsStyleJS(input_api, output_api))
