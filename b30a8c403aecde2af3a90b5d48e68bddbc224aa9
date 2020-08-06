@@ -16,6 +16,46 @@
       "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34d944c0_d44a215a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-06T21:55:22Z",
+      "side": 1,
+      "message": "lgtm % nit\n\nThere\u0027s no way to turn on experiments other than via Settings (or at launch), right?",
+      "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e27f16ac_97fbe805",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-06T21:55:22Z",
+      "side": 1,
+      "message": "nit: there\u0027s an `openSettingsTab` helper in settings-helpers.ts that will do this part for you",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 0
+      },
+      "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
