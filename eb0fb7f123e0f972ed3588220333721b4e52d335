@@ -16,6 +16,97 @@
       "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49698aaf_03f9c3da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-06T23:03:25Z",
+      "side": 1,
+      "message": "Glad we\u0027re getting telemetry around experiments! I\u0027ll +1 after my two questions are answered.",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de08466e_bd7a3acd",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-06T23:03:25Z",
+      "side": 1,
+      "message": "nit: `experimentId` isn\u0027t used after this check. Either move this to line 183 or do:\n\n```\nif (!experiment) {\n  return;\n}\n```",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cf818e7_f4e8f718",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-06T23:03:25Z",
+      "side": 1,
+      "message": "See my comment on line 185.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 5
+      },
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfdeed2e_e9915e5d",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-06T23:03:25Z",
+      "side": 1,
+      "message": "Out of curiosity, do we intend to remove experiments from this dict once they\u0027ve been verified or invalidated? I know we can\u0027t for the entries in enums.xml, but I can see this list getting very long after a few milestones.",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "205ee9b7_0c22eeae",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-06T23:03:25Z",
+      "side": 1,
+      "message": "This will pick up experiments from ECS - is this intentional?",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
