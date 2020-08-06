@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "8c883ce3_67e5626b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-06T15:27:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb9bdfd_ffc4a52b",
+      "range": {
+        "startLine": 234,
+        "startChar": 34,
+        "endLine": 234,
+        "endChar": 38
+      },
+      "revId": "2f478747d5f7072eead2f11fa63ec7355bcc21b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b456fbd_eec0e80e",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 7
