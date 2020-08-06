@@ -933,6 +933,7 @@ grd_files_debug_sources = [
   "front_end/ui/utils/append-style.js",
   "front_end/ui/utils/create-shadow-root-with-core-styles.js",
   "front_end/ui/utils/focus-changed.js",
+  "front_end/ui/utils/get-stylesheet.js",
   "front_end/ui/utils/inject-core-styles.js",
   "front_end/ui/utils/measured-scrollbar-width.js",
   "front_end/ui/utils/register-custom-element.js",
