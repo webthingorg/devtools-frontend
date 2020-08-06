@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "56399b67_a9833700",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-06T21:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34d12d8e_01c282a0",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 66
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1cdcfe8_ca869531",
         "filename": "front_end/sdk/IssuesModel.js",
         "patchSetId": 2
@@ -62,6 +86,30 @@
       "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4301feb2_4d044654",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-06T21:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1cdcfe8_ca869531",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "b55ca53f_9510771c",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-06T21:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7da6cff2_9736e4b0",
+      "range": {
+        "startLine": 66,
+        "startChar": 13,
+        "endLine": 66,
+        "endChar": 15
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3517649_eaf76e50",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 2
@@ -108,6 +180,30 @@
       "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4469556_aaa12e26",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-06T21:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3517649_eaf76e50",
+      "range": {
+        "startLine": 421,
+        "startChar": 109,
+        "endLine": 421,
+        "endChar": 113
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +251,30 @@
       "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b767e76_103ad5d5",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-06T21:56:24Z",
+      "side": 1,
+      "message": "Correct. SameSite in its current state will protect against cross-domain CSRFs but doesn\u0027t defend against those where a network attacker has control over the insecure version of site. This new change will protect against that situation.\n\nIf you\u0027re curious please see https://github.com/sbingler/schemeful-same-site#example-attacks-and-mitigations.\n\nI reworded the sentence a bit to avoid turning \"SameSite\" possessive.",
+      "parentUuid": "2ad2ea30_3285b25d",
+      "range": {
+        "startLine": 223,
+        "startChar": 31,
+        "endLine": 223,
+        "endChar": 41
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
