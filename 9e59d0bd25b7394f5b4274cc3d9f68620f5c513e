@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "f7ccf12b_23d71788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T11:46:17Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "9e59d0bd25b7394f5b4274cc3d9f68620f5c513e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e5f7bf8_5b5638f9",
         "filename": "front_end/sdk/CSSStyleSheetHeader.js",
         "patchSetId": 1
@@ -56,6 +73,30 @@
       "revId": "9e59d0bd25b7394f5b4274cc3d9f68620f5c513e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bc3c5ac_5671357d",
+        "filename": "front_end/sdk/CSSStyleSheetHeader.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T11:46:17Z",
+      "side": 1,
+      "message": "We only trust the sourceURL if it isn\u0027t coming from a comment. So it seems backward, but the intention is to have it only work for files that don\u0027t rename themselves via a sourceURL comment.",
+      "parentUuid": "6e5f7bf8_5b5638f9",
+      "range": {
+        "startLine": 206,
+        "startChar": 63,
+        "endLine": 206,
+        "endChar": 85
+      },
+      "revId": "9e59d0bd25b7394f5b4274cc3d9f68620f5c513e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
