@@ -56,6 +56,30 @@
       "revId": "60f8fd9168e1a662bda161c16e4eeb5c64af2d90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8805e269_e2122cab",
+        "filename": "test/unittests/front_end/common/SettingsHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T07:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6303ea63_ae58833c",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "60f8fd9168e1a662bda161c16e4eeb5c64af2d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
