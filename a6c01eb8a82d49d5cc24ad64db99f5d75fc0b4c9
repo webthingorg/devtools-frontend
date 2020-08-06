@@ -175,6 +175,30 @@
       "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "053f7dc0_647bbb4b",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-06T12:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ecb756_69960f4d",
+      "range": {
+        "startLine": 771,
+        "startChar": 6,
+        "endLine": 771,
+        "endChar": 52
+      },
+      "revId": "a6c01eb8a82d49d5cc24ad64db99f5d75fc0b4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
