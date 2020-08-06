@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf9b101a_7cc76b4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-08-06T18:37:13Z",
+      "side": 1,
+      "message": "The code looks mostly fine, but I\u0027m not sure I\u0027m understanding the intention here.\n\nThese warnings only show up for third-party resources (if it were first-party then SameSite wouldn\u0027t block it). So hiding third-party SameSite issues would basically hide all of them. Is that the intention?\n\n\nI understand the desire to make issues more directly actionable, but:\n\n1. The third-party content might still be relevant to the behavior of the first-party site that is being debugged. Even if the developer can\u0027t directly fix the third-party cookie, they might still want to know about the issue as it may be the cause of the problem on the first-party site.\n\n2. We can\u0027t assume that the developer looking at the issues is working on the first-party site. If a developer is trying to debug e.g. some social widget that is only ever embedded as third-party content, they would have to be looking at DevTools on a different site and would presumably want to see these issues pertaining to their content (even though it is considered third-party in this context).\n\n3. We can make the issues more actionable by improving the messages, rather than hiding certain issues. The developer of the first-party site is the one who chose to embed the third-party resources, so they do have control over the issue to some extent. I think there is room to massage the messages so that they are more directly actionable for developers of both the first-party and third-party content.\n\n\nAdditional question: If the issues are hidden by default behind a setting, will this be discoverable? Do you have a UX mock by any chance?\n\nHappy to discuss offline if desired.",
+      "revId": "57ae23298455b380cc8985d8ec76562ec254248a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4634365_02b7a2b9",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-08-06T18:37:13Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 91,
+        "startChar": 59,
+        "endLine": 91,
+        "endChar": 68
+      },
+      "revId": "57ae23298455b380cc8985d8ec76562ec254248a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c8ab97d_d324e878",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-08-06T18:37:13Z",
+      "side": 1,
+      "message": "nit: duplicated word",
+      "range": {
+        "startLine": 92,
+        "startChar": 21,
+        "endLine": 92,
+        "endChar": 26
+      },
+      "revId": "57ae23298455b380cc8985d8ec76562ec254248a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bd7c5fd_0e564029",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-08-06T18:37:13Z",
+      "side": 1,
+      "message": "I\u0027m curious, when does this ever happen?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 19
+      },
+      "revId": "57ae23298455b380cc8985d8ec76562ec254248a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e357220_c5f102c3",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-08-06T18:37:13Z",
+      "side": 1,
+      "message": "Does this do a string comparison, or does it compare URL labels?\n\nThe way we do this comparison in //net is to check if they\u0027re equal, or if one of them ends in the other and the previous character is a \".\" character. https://source.chromium.org/chromium/chromium/src/+/master:net/base/url_util.cc;l\u003d269;drc\u003d401940330dd51089a4b0b9f3562104e3c1c66f3c\n\ne.g. if parsedCookieUrl.domain() is \"sub.foo.com\" then this should match if topFrame.domainAndRegistry() is \"foo.com\", but NOT if it\u0027s \"oo.com\".",
+      "range": {
+        "startLine": 143,
+        "startChar": 35,
+        "endLine": 143,
+        "endChar": 43
+      },
+      "revId": "57ae23298455b380cc8985d8ec76562ec254248a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
