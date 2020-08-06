@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "4aec2334_58168197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-06T22:33:09Z",
+      "side": 1,
+      "message": "As far as I know, there is not. I can\u0027t access from help or the command menu, and can\u0027t find any other references to enable settings in the codebase.",
+      "parentUuid": "34d944c0_d44a215a",
+      "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caef4ec6_53ec15ab",
         "filename": "front_end/externs.js",
         "patchSetId": 3
@@ -50,6 +68,24 @@
       "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "861dbfdc_538c5f97",
+        "filename": "front_end/externs.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1471,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-06T22:33:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caef4ec6_53ec15ab",
+      "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -73,6 +109,30 @@
       "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "348c5d39_4425b41a",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-06T22:33:09Z",
+      "side": 1,
+      "message": "Good call. Done",
+      "parentUuid": "e27f16ac_97fbe805",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 0
+      },
+      "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
