@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "257b0562_daccdba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T08:28:46Z",
+      "side": 1,
+      "message": "Marked as WIP again. It seems \u0027topFrame\u0027 is not available when issues are initially loaded. We need to wait for the topFrame to be available, or, use \u0027siteForCookie\u0027 as a fallback.",
+      "revId": "5d86124d7c2ea7349f2750ba7bcfb36fd43bda2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
