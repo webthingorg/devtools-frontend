@@ -148,3 +148,15 @@
   box-shadow: none;
   background-color: hsl(214deg 48% 95%);
 }
+
+:host-context(.-theme-with-dark-background) .infobar.infobar-issue:focus {
+  background-color: hsl(214deg 19% 20%);
+}
+
+.infobar.infobar-issue:focus .infobar-button {
+  background-color: hsl(214deg 48% 95%);
+}
+
+:host-context(.-theme-with-dark-background) .infobar.infobar-issue:focus .infobar-button {
+  background-color: hsl(214deg 19% 20%);
+}
