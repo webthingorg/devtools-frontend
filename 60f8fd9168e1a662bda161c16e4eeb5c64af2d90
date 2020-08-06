@@ -16,6 +16,46 @@
       "revId": "60f8fd9168e1a662bda161c16e4eeb5c64af2d90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb43e252_70e439d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T07:53:09Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "60f8fd9168e1a662bda161c16e4eeb5c64af2d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6303ea63_ae58833c",
+        "filename": "test/unittests/front_end/common/SettingsHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T07:53:09Z",
+      "side": 1,
+      "message": "We could consider an || here, just to avoid the unlikely but possible case of overwriting self.runtime, i.e. self.runtime \u003d self.runtime || {extensions: () \u003d\u003e []};",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "60f8fd9168e1a662bda161c16e4eeb5c64af2d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
