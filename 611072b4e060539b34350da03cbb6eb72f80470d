@@ -34,6 +34,23 @@
       "revId": "611072b4e060539b34350da03cbb6eb72f80470d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8821e7a6_ad930a22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-06T21:06:46Z",
+      "side": 1,
+      "message": "lgtm assuming merge conflict is resolved\n\nContext from discussion in grid sync today:\n-Agreed that this change should be to just add the improved row/column highlighting sections of V1 to replace the legacy overlay. We will defer any additonal settings/features to the persistent overlay, where we will still default to extended lines and both row/column line labels.\n\nSettings will now only apply to persistent overlay",
+      "revId": "611072b4e060539b34350da03cbb6eb72f80470d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
