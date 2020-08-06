@@ -51,6 +51,7 @@ module.exports = function(config) {
       ...TEST_FILES_SOURCE_MAPS.map(pattern => ({pattern, served: true, included: false})),
       {pattern: TEST_SOURCES, served: true, included: false},
       {pattern: path.join(GEN_DIRECTORY, 'front_end/Images/*.{svg,png}'), served: true, included: false},
+      {pattern: path.join(GEN_DIRECTORY, 'front_end/**/*.css'), served: true, included: false},
       {pattern: path.join(GEN_DIRECTORY, 'front_end/**/*.js'), served: true, included: false},
       {pattern: path.join(GEN_DIRECTORY, 'front_end/**/*.js.map'), served: true, included: false},
       {pattern: path.join(GEN_DIRECTORY, 'front_end/**/*.mjs'), served: true, included: false},

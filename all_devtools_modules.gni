@@ -650,6 +650,7 @@ all_typescript_module_sources = [
   "ui/XLink.js",
   "ui/XWidget.js",
   "ui/ZoomManager.js",
+  "ui/utils/adopt-style.js",
   "ui/utils/append-style.js",
   "ui/utils/create-shadow-root-with-core-styles.js",
   "ui/utils/focus-changed.js",

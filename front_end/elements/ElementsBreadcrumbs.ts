@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
+import * as UI from '../ui/ui.js';
 
 import {crumbsToRender, CrumbTitle, DOMNode, NodeSelectedEvent, UserScrollPosition} from './ElementsBreadcrumbsUtils.js';
 
@@ -25,6 +26,12 @@ export class ElementsBreadcrumbs extends HTMLElement {
   disconnectedCallback() {
     this.isObservingResize = false;
     this.resizeObserver.disconnect();
+  }
+
+  connectedCallback() {
+    // TODO JACK remove this before landing, just here as an example
+    const stylesheet = UI.Utils.adoptStyle('ui/inspectorCommon.css');
+    this.shadow.adoptedStyleSheets = [stylesheet];
   }
 
   private onCrumbClick(node: DOMNode) {

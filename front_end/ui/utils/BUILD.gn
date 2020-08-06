@@ -7,6 +7,7 @@ import("../../../scripts/build/ninja/devtools_module.gni")
 
 devtools_module("ui_utils") {
   sources = [
+    "adopt-style.ts",
     "append-style.js",
     "create-shadow-root-with-core-styles.js",
     "focus-changed.js",
