@@ -16,6 +16,299 @@
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9c93e2e_05203218",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "Really great to see this coming together - quite a few questions and comments for you 😊\n\nAlso adding Jack as a reviewer, just to get his take on the component in particular.",
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df28a35_f6271230",
+        "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "We should be able to replace this and the above with ls, I think?",
+      "range": {
+        "startLine": 42,
+        "startChar": 30,
+        "endLine": 42,
+        "endChar": 68
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2995137e_22d822c5",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "nit: collapse to a Timing enum?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1484b85_d5c90d6e",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "Can these be set to readonly?",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eedddbaa_fd16f858",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "nit: no need to provide type data for primitive types",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 29
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6be9781c_bac0a4aa",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "Wonder if we want an enum here?",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 4
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44564a39_6d8b26f2",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "Can you annotate these with some comments so it\u0027s clearer what the blocks are doing?",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 24
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af81f1a_6e0905a8",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "Shall we make this a top level const as well?",
+      "range": {
+        "startLine": 171,
+        "startChar": 25,
+        "endLine": 171,
+        "endChar": 27
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5263e3d_fe6c0e18",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "Remove 😊",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 6
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3af6b85_efbb49a8",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "IIRC there\u0027s a setting in DevTools where you can control what the mousewheel does. We need to confirm that it behaves correctly with your patch.",
+      "range": {
+        "startLine": 246,
+        "startChar": 9,
+        "endLine": 246,
+        "endChar": 43
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdc1d64b_140eaa6a",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this is based on its name. Is there a clearer name for this and tD below?",
+      "range": {
+        "startLine": 250,
+        "startChar": 10,
+        "endLine": 250,
+        "endChar": 12
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfa93f8e_5e338ed2",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "Why the ignore here?",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 17
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05483d4_237ed469",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T14:26:35Z",
+      "side": 1,
+      "message": "I guess the plan is to add more tests here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 3
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
