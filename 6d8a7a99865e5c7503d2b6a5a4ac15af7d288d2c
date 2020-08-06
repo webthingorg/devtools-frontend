@@ -16,6 +16,46 @@
       "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07b4fbae_3a41f115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:10:25Z",
+      "side": 1,
+      "message": "The View issues link doesn\u0027t completely look like the console links if it is focused (only its font is a little bit darker), maybe it makes sense to fix that as well.\n\nThe relevant style seems to be\n\n.devtools-link[data-keyboard-focus\u003d\"true\"]:focus {\n  outline-width: unset;\n}",
+      "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cb1cf83_f711209a",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:10:25Z",
+      "side": 1,
+      "message": "inherit;\n\nthen the next rule can be omitted.",
+      "range": {
+        "startLine": 157,
+        "startChar": 20,
+        "endLine": 157,
+        "endChar": 40
+      },
+      "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
