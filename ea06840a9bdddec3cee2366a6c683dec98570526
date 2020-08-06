@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "621fc0b0_499b9d52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1123977
+      },
+      "writtenOn": "2020-08-06T09:20:16Z",
+      "side": 1,
+      "message": "lgtm on the format of the LICENSE. Please note that only 3 files are mentioned in he LICENSE file, is this fine?",
+      "revId": "ea06840a9bdddec3cee2366a6c683dec98570526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
