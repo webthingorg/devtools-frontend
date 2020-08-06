@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0f0402f7_34dcedf9",
+        "filename": "front_end/ui/utils/adopt-style.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T13:46:52Z",
+      "side": 1,
+      "message": "I think the name here is a little unclear. I wonder if getStyleSheet would be clearer?",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "4a71010ba292430e6adb470669a5774565e2b7c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c87d433_678aef8b",
         "filename": "test/unittests/front_end/test_setup/test_setup.ts",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2020-08-06T13:42:13Z",
       "side": 1,
       "message": "can\u0027t hardcode this part in in case people don\u0027t use Default, not sure how to fix this. Can\u0027t work out how to load the resources whilst knowing what the full path is.",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 46
+      },
+      "revId": "4a71010ba292430e6adb470669a5774565e2b7c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaaeb70f_b1573ed7",
+        "filename": "test/unittests/front_end/test_setup/test_setup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-06T13:46:52Z",
+      "side": 1,
+      "message": "What\u0027s the base URL of the page?",
+      "parentUuid": "7c87d433_678aef8b",
       "range": {
         "startLine": 82,
         "startChar": 18,
