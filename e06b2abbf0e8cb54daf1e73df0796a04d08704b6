@@ -2,6 +2,115 @@
   "comments": [
     {
       "key": {
+        "uuid": "55e8c498_c8eb6667",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:36:37Z",
+      "side": 1,
+      "message": "Thanks for sending this, some comments!\n",
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34d12d8e_01c282a0",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:36:37Z",
+      "side": 1,
+      "message": "nit:\nif (code) {\n  issues.push(new SameSiteCookieIssue(code, sameSiteDetails));\n}",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 66
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1cdcfe8_ca869531",
+        "filename": "front_end/sdk/IssuesModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:36:37Z",
+      "side": 1,
+      "message": "could you please move this into a new static method on SameSiteCookieIssue?",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da6cff2_9736e4b0",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:36:37Z",
+      "side": 1,
+      "message": "Let\u0027s return null here and add a @returns {?string} annotation. This way callers will know they have to deal with null.",
+      "range": {
+        "startLine": 66,
+        "startChar": 13,
+        "endLine": 66,
+        "endChar": 15
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3517649_eaf76e50",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:36:37Z",
+      "side": 1,
+      "message": "This boolean looks wrong. It controls whether the it is from secure -\u003e insecure or the other way around. Could you double check? \n\nAlso PTAL at the boolean in L423.",
+      "range": {
+        "startLine": 421,
+        "startChar": 109,
+        "endLine": 421,
+        "endChar": 113
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1cbfe460_fe3cc4d8",
         "filename": "front_end/sdk/sdk_strings.grdp",
         "patchSetId": 2
@@ -13,6 +122,30 @@
       "writtenOn": "2020-08-04T22:10:34Z",
       "side": 1,
       "message": "Does this need a \u003cph name\u003d\"LOCKED_1\"\u003e?",
+      "range": {
+        "startLine": 223,
+        "startChar": 31,
+        "endLine": 223,
+        "endChar": 41
+      },
+      "revId": "e06b2abbf0e8cb54daf1e73df0796a04d08704b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ad2ea30_3285b25d",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T15:36:37Z",
+      "side": 1,
+      "message": "I am having difficulty reading this sentence. Is it trying to say the the |SameSite| attribute offers some protection from request forgery that is enhanced by suppressing cross-scheme cookies?\n\nIn any case I can imagine that the phrase \"|SameSite|\u0026apos;s\" is a nightmare for translators. Locking it doesn\u0027t make that better. Can we find a way to not use a \"\u0027s\" here?",
+      "parentUuid": "1cbfe460_fe3cc4d8",
       "range": {
         "startLine": 223,
         "startChar": 31,
