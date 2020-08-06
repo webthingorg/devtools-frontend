@@ -33,6 +33,24 @@
       "revId": "0e118eefb1e8893b96365346f22230ede374ff50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e3d67d2_cf36d399",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-06T11:49:33Z",
+      "side": 1,
+      "message": "As discussed offline, this functionality seems different enough from what is currently in `TargetManager`, so that `TargetManager` does not feel like a great fit either. I therefore refactored it into the new `OpenedWindowManager`.",
+      "parentUuid": "2d1c614a_ade8ae9e",
+      "revId": "0e118eefb1e8893b96365346f22230ede374ff50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
