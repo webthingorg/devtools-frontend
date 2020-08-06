@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "5261e8ed_aa665867",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-06T07:36:04Z",
+      "side": 1,
+      "message": "I feel like it would be beneficial to include a separate API just for setting (adopting if we use adoptedStyleSheet) stylesheets on the element. This way we can set the common stylesheets separately, and we don\u0027t have to keep a reference to the stylesheet from the component\u0027s call site each time we want to set its data to re-render. And I feel like the component\u0027s stylesheet may not traditionally be a component\u0027s `data`. The fact that it is something we have to render from the component\u0027s `data` is incidental and mostly due to our legacy world. So maybe something like:\n```\nadoptStylesheets(stylesheets: CSSStyleSheet[])\n```\ncould be useful?",
+      "parentUuid": "e1695b4e_7dfef999",
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ae01bb4_666fafbc",
         "filename": "front_end/elements/LayoutSidebarPane.js",
         "patchSetId": 16
