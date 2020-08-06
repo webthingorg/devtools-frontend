@@ -1467,6 +1467,9 @@ InspectorFrontendHostAPI.EnumeratedHistogram = {
   KeybindSetSettingChanged: 'DevTools.KeybindSetSettingChanged',
   DualScreenDeviceEmulated: 'DevTools.DualScreenDeviceEmulated',
   CSSGridSettings: 'DevTools.CSSGridSettings',
+  ExperimentsAtLaunch: 'DevTools.ExperimentsAtLaunch',
+  ExperimentEnabled: 'DevTools.ExperimentEnabled',
+  ExperimentDisabled: 'DevTools.ExperimentDisabled',
 };
 
 /**
