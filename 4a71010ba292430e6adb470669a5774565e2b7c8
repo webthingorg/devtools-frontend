@@ -69,6 +69,30 @@
       "revId": "4a71010ba292430e6adb470669a5774565e2b7c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b516435_9652d1ac",
+        "filename": "test/unittests/front_end/test_setup/test_setup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-06T13:48:22Z",
+      "side": 1,
+      "message": "the base url that karma has is `/out/Default/gen/front_end` and it prepends that base for all the files we ask it to import (e.g. JS files) but here we need to get at the full URL for the CSS file and I don\u0027t think we could get at it.\n\nUnless we have a file that exposes the base as a URL and we import it?",
+      "parentUuid": "aaaeb70f_b1573ed7",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 46
+      },
+      "revId": "4a71010ba292430e6adb470669a5774565e2b7c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
