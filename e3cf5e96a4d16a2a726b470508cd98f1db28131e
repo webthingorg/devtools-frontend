@@ -22,6 +22,30 @@
       "revId": "e3cf5e96a4d16a2a726b470508cd98f1db28131e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb71066_2443f27f",
+        "filename": "test/unittests/front_end/browser_sdk/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T08:21:38Z",
+      "side": 1,
+      "message": "Because the `SettingsHelper.ts` lives in test/unittests/front_end/common and is a \"testonly\" class.",
+      "parentUuid": "42adfe7b_0e7203c7",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "e3cf5e96a4d16a2a726b470508cd98f1db28131e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
