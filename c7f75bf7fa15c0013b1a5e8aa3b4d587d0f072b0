@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "143a9387_eb98c057",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-06T06:26:00Z",
+      "side": 1,
+      "message": "I\u0027d keep the global settings as well to see what people use more. I\u0027d do the overlay specific integration as a follow-up (CL is already too big).",
+      "parentUuid": "a57e3a71_dc4b3a34",
+      "revId": "c7f75bf7fa15c0013b1a5e8aa3b4d587d0f072b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a67063_5aab7a28",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 16
