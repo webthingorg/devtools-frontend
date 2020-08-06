@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30ca0620_a85fd1cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T08:27:55Z",
+      "side": 1,
+      "message": "To make your change more incremental, have you considered introducing a temporary version of waitForFunction (let\u0027s call it waitForFunctionImproved) and the incrementally replacing the occurences? This way you wouldn\u0027t have to fix everything in one go, and could have smaller CLs.",
+      "revId": "3be2087f9d9ed107f4e46d5cdcda51f9fea9214d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
