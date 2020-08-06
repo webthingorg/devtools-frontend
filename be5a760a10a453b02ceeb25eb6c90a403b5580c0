@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "125a2d91_038b094b",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-06T10:13:51Z",
+      "side": 1,
+      "message": "I didn\u0027t follow the previous work closely: why do we take 0 point? Do we assume that the path starts from the left-top corner?",
+      "revId": "be5a760a10a453b02ceeb25eb6c90a403b5580c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
