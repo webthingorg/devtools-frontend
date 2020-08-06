@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "caef4ec6_53ec15ab",
+        "filename": "front_end/externs.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1471,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-08-06T21:56:33Z",
+      "side": 1,
+      "message": "Maybe should just be \"ExperimentAtLaunch\" or \"ExperimentEnabledAtLaunch\" since they are reported individually.",
+      "revId": "b30a8c403aecde2af3a90b5d48e68bddbc224aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e27f16ac_97fbe805",
         "filename": "test/e2e/host/user-metrics_test.ts",
         "patchSetId": 3
