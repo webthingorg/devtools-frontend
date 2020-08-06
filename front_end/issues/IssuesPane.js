@@ -1057,6 +1057,12 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     const toolbarContainer = this.contentElement.createChild('div', 'issues-toolbar-container');
     new UI.Toolbar.Toolbar('issues-toolbar-left', toolbarContainer);
     const rightToolbar = new UI.Toolbar.Toolbar('issues-toolbar-right', toolbarContainer);
+
+    const showThirdPartyCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
+        SDK.Issue.getShowThirdPartyIssuesSetting(), ls`Include Issues caused by third-party sites`,
+        ls`Include third-party issues`);
+    rightToolbar.appendToolbarItem(showThirdPartyCheckbox);
+
     rightToolbar.appendSeparator();
     const toolbarWarnings = document.createElement('div');
     toolbarWarnings.classList.add('toolbar-warnings');
