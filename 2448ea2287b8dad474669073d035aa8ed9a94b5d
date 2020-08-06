@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "21e0f8aa_01538222",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9d35da3_b06d4191",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 93,
+        "endChar": 47
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c3f8f9b_7c9317fe",
         "filename": "front_end/sdk/ResourceTreeModel.js",
         "patchSetId": 4
@@ -79,6 +103,30 @@
       "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfa2dd32_9e894052",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c3f8f9b_7c9317fe",
+      "range": {
+        "startLine": 699,
+        "startChar": 2,
+        "endLine": 699,
+        "endChar": 27
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "5c702589_da505fc7",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be5ec93_ca9e3e17",
+      "range": {
+        "startLine": 103,
+        "startChar": 13,
+        "endLine": 103,
+        "endChar": 18
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6c2c75c_7a6ffe5f",
         "filename": "front_end/sdk/SameSiteCookieIssue.js",
         "patchSetId": 4
@@ -125,6 +197,30 @@
       "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2425643_833ba8d6",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6c2c75c_7a6ffe5f",
+      "range": {
+        "startLine": 123,
+        "startChar": 37,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "2448ea2287b8dad474669073d035aa8ed9a94b5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
