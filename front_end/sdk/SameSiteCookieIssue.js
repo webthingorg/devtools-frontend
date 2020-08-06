@@ -3,8 +3,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../common/common.js';
 import {ls} from '../platform/platform.js';
 
+import {FrameManager} from './FrameManager.js';
 import {Issue, IssueCategory, IssueDescription, IssueKind} from './Issue.js';  // eslint-disable-line no-unused-vars
 
 export class SameSiteCookieIssue extends Issue {
@@ -89,6 +91,43 @@ export class SameSiteCookieIssue extends Issue {
       return null;
     }
     return description;
+  }
+
+  /**
+   * @override
+   * @return {boolean}
+   */
+  isCausedByThirdParty() {
+    const topFrame = FrameManager.instance().getTopFrame();
+    if (!topFrame) {
+      // The top frame is not yet available. Consider this issue as a third-party issue
+      // until the top frame is available. This will prevent the issue from being visible
+      // for only just a split second.
+      return true;
+    }
+
+    if (!this._issueDetails.cookieUrl) {
+      return false;
+    }
+
+    const parsedCookieUrl = Common.ParsedURL.ParsedURL.fromString(this._issueDetails.cookieUrl);
+    if (!parsedCookieUrl) {
+      return false;
+    }
+
+    // For both operation types we compare the cookieUrl's domain  with the top frames
+    // registered domain to determine first-party vs third-party. If they don't match
+    // then we consider this issue a third-party issue.
+    //
+    // For a Set operation: The Set-Cookie response is part of a request to a third-party.
+    //
+    // For a Read operation: The cookie was included in a request to a third-party
+    //     site. Only cookies that have their domain also set to this third-party
+    //     are included in the request. We assume that the cookie was set by the same
+    //     third-party at some point, so we treat this as a third-party issue.
+    //
+    // TODO(crbug.com/1080589): Use "First-Party sets" instead of the sites registered domain.
+    return !parsedCookieUrl.domain().endsWith(topFrame.domainAndRegistry());
   }
 }
 
