@@ -16,6 +16,46 @@
       "revId": "994448fa58c674bbd6baeabe3fb36cde9281d5fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfc5b4f2_7360d5ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T11:59:29Z",
+      "side": 1,
+      "message": "Awesome! Would it be possible to use one of Peter\u0027s new icons to already indicate with an icon whether the opener is accessible or not in the sidebar tree view?\n\nDoing a detailed review later today.",
+      "revId": "994448fa58c674bbd6baeabe3fb36cde9281d5fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "771d757b_f164512c",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 2229,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-06T11:59:29Z",
+      "side": 1,
+      "message": "Removing technical dept with every CL, very nice!",
+      "range": {
+        "startLine": 2229,
+        "startChar": 29,
+        "endLine": 2229,
+        "endChar": 38
+      },
+      "revId": "994448fa58c674bbd6baeabe3fb36cde9281d5fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
