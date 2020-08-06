@@ -39,6 +39,30 @@
       "revId": "22ae15c29f6b93dbe360304e12d7bd8722c79a24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0e222b9_0e65ea0c",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-06T05:56:57Z",
+      "side": 1,
+      "message": "Done both.",
+      "parentUuid": "84b77a0c_dca71172",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 54
+      },
+      "revId": "22ae15c29f6b93dbe360304e12d7bd8722c79a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
