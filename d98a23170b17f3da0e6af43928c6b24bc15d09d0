@@ -177,6 +177,30 @@
       "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f7dce30_c087cb54",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T13:01:31Z",
+      "side": 1,
+      "message": "After offline discussion: Please add a comment why this is necessary, or remove it if it turns out to be unnecessary.",
+      "parentUuid": "8b928b48_65c75b2b",
+      "range": {
+        "startLine": 79,
+        "startChar": 37,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
