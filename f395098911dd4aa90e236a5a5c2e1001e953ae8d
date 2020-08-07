@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c4bb19a_1ea74e5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T15:57:46Z",
+      "side": 1,
+      "message": "Thanks for the reviews everyone! I\u0027ve updated the enum in userMetrics to allow for possible deletion of experiments. Let me know what you think of the approach",
+      "revId": "f395098911dd4aa90e236a5a5c2e1001e953ae8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

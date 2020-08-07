@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "b0b6fdde_56b1da0f",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T15:57:46Z",
+      "side": 1,
+      "message": "d\u0027oh, good catch. This was a typo, meant to do the line of code you have written. Need to explicitly check undefined though, as 0 is a possible value",
+      "parentUuid": "de08466e_bd7a3acd",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cf818e7_f4e8f718",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 5
@@ -93,6 +111,30 @@
     },
     {
       "key": {
+        "uuid": "d1c02140_ca1389a1",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T15:57:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cf818e7_f4e8f718",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 5
+      },
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfdeed2e_e9915e5d",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 5
@@ -104,6 +146,24 @@
       "writtenOn": "2020-08-06T23:03:25Z",
       "side": 1,
       "message": "Out of curiosity, do we intend to remove experiments from this dict once they\u0027ve been verified or invalidated? I know we can\u0027t for the entries in enums.xml, but I can see this list getting very long after a few milestones.",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78b9c75b_a92060dc",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T15:57:46Z",
+      "side": 1,
+      "message": "That is a good question. I think it might be good to keep this enum to only the \u0027active\u0027 frontend experiments. I\u0027ve added some logic and comments to help keep things in sync.\n\n1. added comments on how to add/remove experiments\n2. added an entry to the enum that should always be set to the index of the last entry in the enums.xml file.\n\nLmk what you think of this approach.",
+      "parentUuid": "cfdeed2e_e9915e5d",
       "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -139,6 +199,24 @@
       "side": 1,
       "message": "I commented on the wrong file. The above comment was intended for `front_end/root/Runtime.js`@896.",
       "parentUuid": "205ee9b7_0c22eeae",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8afdb0e4_b29543ee",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T15:57:46Z",
+      "side": 1,
+      "message": "This was intentional based on a conversation I had with Leo. I figure it shouldn\u0027t hurt to collect this data, and it might give us insight into potential issues with ECS (i.e. if we expect an experiment to be set for every session, but it isn\u0027t, we would be able to see that in this histogram).\n\nI am open to change if folks disagree on this approach though.",
+      "parentUuid": "c8a1a719_b1356b43",
       "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
