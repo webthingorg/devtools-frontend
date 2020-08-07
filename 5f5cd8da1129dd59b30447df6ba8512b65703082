@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9cc82ad_8f4f57a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-08-07T20:02:24Z",
+      "side": 1,
+      "message": "BIG disclaimer: I didn\u0027t write this CL and I don\u0027t vouch for it. ;)\n\nThe original author gave us the PR on github. https://github.com/ChromeDevTools/devtools-frontend/pull/119\n\nLooking at it, it makes total sense to me, so I figured I\u0027d help ferry it over into gerrit.\n\nI\u0027m happy to make trivial changes, but I wont be able to help if you want anything more than that. :p  ",
+      "revId": "5f5cd8da1129dd59b30447df6ba8512b65703082",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
