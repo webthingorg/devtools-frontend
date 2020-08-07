@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ffae06e_dc7eb592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T14:01:29Z",
+      "side": 1,
+      "message": "Please test the final version for all three issue types by hand. Other than that, LGTM, thanks!",
+      "revId": "43e7f5d59f85cecc34439eb17a5e410984a37007",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
