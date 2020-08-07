@@ -16,6 +16,23 @@
       "revId": "517645b1a97f0ee056282c7871872132ec525f1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60ab3632_9cb1d619",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T15:01:55Z",
+      "side": 1,
+      "message": "lgtm if the merge conflicts get resolved. Should probably double check that Patrick\u0027s latest change doesn\u0027t cause any issues",
+      "revId": "517645b1a97f0ee056282c7871872132ec525f1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
