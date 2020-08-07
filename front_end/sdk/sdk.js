@@ -51,6 +51,7 @@ import * as MixedContentIssue from './MixedContentIssue.js';
 import * as NetworkLog from './NetworkLog.js';
 import * as NetworkManager from './NetworkManager.js';
 import * as NetworkRequest from './NetworkRequest.js';
+import * as OpenedWindowManager from './OpenedWindowManager.js';
 import * as OverlayModel from './OverlayModel.js';
 import * as PageResourceLoader from './PageResourceLoader.js';
 import * as PaintProfiler from './PaintProfiler.js';
@@ -117,6 +118,7 @@ export {
   NetworkLog,
   NetworkManager,
   NetworkRequest,
+  OpenedWindowManager,
   OverlayModel,
   PageResourceLoader,
   PaintProfiler,
