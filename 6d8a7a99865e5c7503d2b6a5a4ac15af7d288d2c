@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "1b662824_bb6a3875",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-07T07:40:07Z",
+      "side": 1,
+      "message": "Ah, didn\u0027t know about the arrow keys! Now it all makes more sense: tab-selected banner link should have an outline to match arrow-key-selected console message link. Will fix.",
+      "parentUuid": "ea65c3b9_7c0c4f49",
+      "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cb1cf83_f711209a",
         "filename": "front_end/ui/infobar.css",
         "patchSetId": 3
