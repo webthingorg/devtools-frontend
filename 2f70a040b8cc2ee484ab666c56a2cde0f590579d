@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "96fcfca4_e567be49",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-07T13:04:16Z",
+      "side": 1,
+      "message": "I\u0027ve put it into legacy defs but define `themeSupport` as unknown because if I try to import from UI in this file autoninja and TS are not happy.",
+      "parentUuid": "65b2cb69_6d3178c4",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 1
+      },
+      "revId": "2f70a040b8cc2ee484ab666c56a2cde0f590579d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43d674ca_a2cdced8",
         "filename": "front_end/component_helpers/get-stylesheet.ts",
         "patchSetId": 6
@@ -53,6 +77,24 @@
       "writtenOn": "2020-08-07T12:02:47Z",
       "side": 1,
       "message": "Should not it include the original sheet too? I think `appendStyle` would insert two style tags  if I am reading it correctly. Not sure, if it makes a different though.",
+      "revId": "2f70a040b8cc2ee484ab666c56a2cde0f590579d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94781539_285b1794",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-07T13:04:16Z",
+      "side": 1,
+      "message": "Good point - I\u0027ve updated this function to return an array of sheets, so if we patch we can return the original and the patched, and then the component can adopt both of them.",
+      "parentUuid": "43d674ca_a2cdced8",
       "revId": "2f70a040b8cc2ee484ab666c56a2cde0f590579d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
