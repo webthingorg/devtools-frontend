@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d1e81f1_c40e898c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-08-07T19:41:02Z",
+      "side": 1,
+      "message": "followup from https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/1874672\nand https://github.com/ChromeDevTools/devtools-frontend/pull/160",
+      "revId": "f3cadc1876f0393743c91f462ddeb463d5e54072",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
