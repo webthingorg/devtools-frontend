@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ea65c3b9_7c0c4f49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T07:35:01Z",
+      "side": 1,
+      "message": "Note that the links in normal console message can be selected with the arrow keys. The issues banner can\u0027t be selected with arrow keys, and I suspect making that work is a bigger change (so let\u0027s defer that to M87). However, the button in the issues banner can be focused with tab - in that case, it wasn\u0027t visually indicating in a good way that it was focused, which I pointed out in my initial comment.",
+      "parentUuid": "bd92e769_8adc9ee5",
+      "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cb1cf83_f711209a",
         "filename": "front_end/ui/infobar.css",
         "patchSetId": 3
