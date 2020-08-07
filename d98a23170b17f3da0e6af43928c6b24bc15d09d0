@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "1acfb048_60ec4925",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T12:17:40Z",
+      "side": 1,
+      "message": "Should this reset _treeElementForTargetId as well?",
+      "range": {
+        "startLine": 2212,
+        "startChar": 2,
+        "endLine": 2212,
+        "endChar": 7
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91d2332c_2ad15ba4",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 15
@@ -35,6 +58,75 @@
         "startChar": 4,
         "endLine": 2544,
         "endChar": 33
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf0fec9_5e26d9da",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T12:17:40Z",
+      "side": 1,
+      "message": "So the design seems to be that this mananger doesn\u0027t store the opened windows, is that correct?",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a134599_fd8781ae",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T12:17:40Z",
+      "side": 1,
+      "message": "Couldn\u0027t there be multiple targets? Then this will overwrite this._registeredListeners.",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b928b48_65c75b2b",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T12:17:40Z",
+      "side": 1,
+      "message": "What is the significance of this?",
+      "range": {
+        "startLine": 79,
+        "startChar": 37,
+        "endLine": 79,
+        "endChar": 58
       },
       "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
