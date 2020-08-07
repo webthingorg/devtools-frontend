@@ -22,6 +22,30 @@
       "revId": "10c0460955b43519e8860f302cac7d4430c9adae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e07a3cf_9f61cc53",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T14:04:29Z",
+      "side": 1,
+      "message": "On a second thought, leave it it.",
+      "parentUuid": "080f0b16_5eccc95b",
+      "range": {
+        "startLine": 472,
+        "startChar": 6,
+        "endLine": 474,
+        "endChar": 7
+      },
+      "revId": "10c0460955b43519e8860f302cac7d4430c9adae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
