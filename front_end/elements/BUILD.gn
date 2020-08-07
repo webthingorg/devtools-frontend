@@ -13,6 +13,9 @@ devtools_module("elements") {
     "ElementsBreadcrumbs.ts",
     "ElementsBreadcrumbsUtils.ts",
     "ElementsBreadcrumbs_bridge.js",
+    "LayoutPane.ts",
+    "LayoutPaneUtils.ts",
+    "LayoutPane_bridge.js",
   ]
 
   deps = [
@@ -24,6 +27,7 @@ devtools_module("elements") {
 
   visibility = [
     "../component_docs/elements_breadcrumbs",
+    "../component_docs/layout_pane",
     "../../test/unittests/front_end/elements",
   ]
 }
@@ -45,6 +49,7 @@ devtools_pre_built("elements-pre-built") {
     "EventListenersWidget.js",
     "ImagePreviewPopover.js",
     "InspectElementModeController.js",
+    "LayoutSidebarPane.js",
     "MarkerDecorator.js",
     "MetricsSidebarPane.js",
     "NodeStackTraceWidget.js",
