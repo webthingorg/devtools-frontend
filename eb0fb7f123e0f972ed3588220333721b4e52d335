@@ -188,6 +188,24 @@
     },
     {
       "key": {
+        "uuid": "0cac4d2a_dba0a09d",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T18:35:21Z",
+      "side": 1,
+      "message": "Makes sense. validating that last position completely might be a bit tricky assuming a DT-FE only checkout, but I\u0027ll see what I can do",
+      "parentUuid": "efecd008_c8bbd590",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "205ee9b7_0c22eeae",
         "filename": "front_end/main/MainImpl.js",
         "patchSetId": 5
