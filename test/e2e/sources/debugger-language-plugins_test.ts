@@ -3,8 +3,9 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import {describe, it} from 'mocha';
+import {describe} from 'mocha';
 
+import {it} from '../../shared/async-tracing.js';
 import {click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, waitFor} from '../../shared/helper.js';
 import {addBreakpointForLine, getValuesForScope, listenForSourceFilesAdded, openFileInEditor, openFileInSourcesPanel, openSourcesPanel, PAUSE_ON_EXCEPTION_BUTTON, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
@@ -263,5 +264,66 @@ describe('The Debugger Language Plugins', async () => {
     assert.deepEqual(locals, ['localX: int']);
     const globals = await getValuesForScope('GLOBAL', 2);
     assert.deepEqual(globals, ['n1: namespace', 'n2: namespace', 'globalY: float']);
+  });
+
+  it('shows constant variable value', async () => {
+    const {frontend} = getBrowserAndPages();
+    await frontend.evaluateHandle(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        () => globalThis.installExtensionPlugin((extensionServerClient: any, extensionAPI: any) => {
+          class VariableListingPlugin {
+            _modules: Map<string, string>;
+            evaluatedVariables: Array<string>;
+            constructor() {
+              this._modules = new Map();
+              this.evaluatedVariables = [];
+            }
+
+            async addRawModule(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                rawModuleId: any, symbols: any,  // eslint-disable-line @typescript-eslint/no-unused-vars
+                rawModule: any) {                // eslint-disable-line @typescript-eslint/no-explicit-any
+              this._modules.set(rawModuleId.url, rawModule.url);
+              const fileUrl = new URL('unreachable.ll', rawModule.url);
+              return [fileUrl.href];
+            }
+
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            async rawLocationToSourceLocation(rawLocation: any) {
+              if (rawLocation.codeOffset === 6) {
+                const moduleUrl = this._modules.get(rawLocation.rawModuleId);
+                const sourceFile = new URL('unreachable.ll', moduleUrl);
+                return [{sourceFileURL: sourceFile.href, lineNumber: 5, columnNumber: 2}];
+              }
+              return null;
+            }
+
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            async listVariablesInScope(rawLocation: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
+              return [{scope: 'LOCAL', name: 'local', type: 'int'}];
+            }
+
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            async evaluateVariable(name: any, location: any) {  // eslint-disable-line @typescript-eslint/no-unused-vars
+              if (name === 'local') {
+                return {constantValue: {value: '23', js_type: 'number', type: 'int', name: 'local'}};
+              }
+              return null;
+            }
+          }
+
+          RegisterExtension(
+              extensionAPI, new VariableListingPlugin(), 'Location Mapping',
+              {language: 'WebAssembly', symbol_types: ['None']});
+        }));
+
+    await openSourcesPanel();
+    await click(PAUSE_ON_EXCEPTION_BUTTON);
+    await goToResource('sources/wasm/unreachable.html');
+    await waitFor(RESUME_BUTTON);
+
+
+    const locals = await getValuesForScope('LOCAL', 1, 2);
+    assert.deepEqual(locals, ['local: int', 'value: 23']);
   });
 });
