@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "579f79c4_568e2820",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T10:37:49Z",
+      "side": 1,
+      "message": "Much better!\n\nI would have expected the if-cascade to look exactly like the one in _appendAffectedContentSecurityPolicyDetails (even is that introduces slight code duplication).",
+      "range": {
+        "startLine": 488,
+        "startChar": 4,
+        "endLine": 488,
+        "endChar": 81
+      },
+      "revId": "96f6522be852b414e70e5a14c630182f085ef920",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b221400_0bc67d81",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T10:37:49Z",
+      "side": 1,
+      "message": "Please lock this item an all other ones appropriately (if they should not be translated).",
+      "range": {
+        "startLine": 50,
+        "startChar": 37,
+        "endLine": 50,
+        "endChar": 45
+      },
+      "revId": "96f6522be852b414e70e5a14c630182f085ef920",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
