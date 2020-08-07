@@ -17,9 +17,9 @@ devtools_module("elements") {
 
   deps = [
     "../common:bundle",
+    "../component_helpers:bundle",
     "../platform:bundle",
     "../third_party/lit-html:bundle",
-    "../ui:bundle",
   ]
 
   visibility = [
