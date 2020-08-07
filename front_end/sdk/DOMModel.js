@@ -1511,6 +1511,8 @@ export class DOMModel extends SDKModel {
 
     const parent = this._idToDOMNode[parentId];
     parent._setChildrenPayload(payloads);
+    this.dispatchEventToListeners(Events.NodeInserted, parent);
+    this._scheduleMutationEvent(parent);
   }
 
   /**
