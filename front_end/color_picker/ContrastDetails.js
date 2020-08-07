@@ -14,8 +14,10 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Element} contentElement
    * @param {function(boolean=, !Common.EventTarget.EventTargetEvent=):void} toggleMainColorPickerCallback
    * @param {function():void} expandedChangedCallback
+   * @param {function(!Common.Color.Color):void} colorSelectedCallback
    */
-  constructor(contrastInfo, contentElement, toggleMainColorPickerCallback, expandedChangedCallback) {
+  constructor(
+      contrastInfo, contentElement, toggleMainColorPickerCallback, expandedChangedCallback, colorSelectedCallback) {
     super();
     /** @type {!ContrastInfo} */
     this._contrastInfo = contrastInfo;
@@ -28,6 +30,9 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
 
     /** @type {function():void} */
     this._expandedChangedCallback = expandedChangedCallback;
+
+    /** @type {function(!Common.Color.Color):void} */
+    this._colorSelectedCallback = colorSelectedCallback;
 
     /** @type {boolean} */
     this._expanded = false;
@@ -113,6 +118,27 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
     this._noContrastInfoAvailable.classList.add('hidden');
   }
 
+  /**
+   * @param {string} threshold
+   */
+  _onSuggestColor(threshold) {
+    const fgColor = this._contrastInfo.color();
+    const bgColor = this._contrastInfo.bgColor();
+    if (!fgColor || !bgColor) {
+      return;
+    }
+
+    const requiredContrast = this._contrastInfo.contrastRatioThreshold(threshold);
+    if (!requiredContrast) {
+      return;
+    }
+
+    const color = Common.Color.Color.findFgColorForContrast(fgColor, bgColor, requiredContrast);
+    if (color) {
+      this._colorSelectedCallback(color);
+    }
+  }
+
   _update() {
     if (this._contrastInfo.isNull()) {
       this._showNoContrastInfoAvailableMessage();
@@ -155,6 +181,9 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
       this._contrastPassFailAA.appendChild(UI.Icon.Icon.create('smallicon-checkmark-square'));
     } else {
       this._contrastPassFailAA.appendChild(UI.Icon.Icon.create('smallicon-no'));
+      const fixAA = this._contrastPassFailAA.createChild('button', 'contrast-fix-button devtools-link');
+      fixAA.textContent = Common.UIString.UIString('fix');
+      fixAA.addEventListener('click', () => this._onSuggestColor('aa'));
     }
 
     // In greater then comparisons we can substite null with 0.
@@ -168,6 +197,9 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
       this._contrastPassFailAAA.appendChild(UI.Icon.Icon.create('smallicon-checkmark-square'));
     } else {
       this._contrastPassFailAAA.appendChild(UI.Icon.Icon.create('smallicon-no'));
+      const fixAAA = this._contrastPassFailAAA.createChild('button', 'contrast-fix-button devtools-link');
+      fixAAA.textContent = Common.UIString.UIString('fix');
+      fixAAA.addEventListener('click', () => this._onSuggestColor('aaa'));
     }
 
     [labelAA, labelAAA].forEach(
