@@ -59,6 +59,184 @@
     },
     {
       "key": {
+        "uuid": "744bc636_f2165d95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "couple more comments",
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e77db05_96667192",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "not sure if this is causing the problem I mentioned in my last round of comments",
+      "range": {
+        "startLine": 711,
+        "startChar": 6,
+        "endLine": 716,
+        "endChar": 7
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e027be_e81c37ee",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused why we keep falsy checking this? wouldn\u0027t this be the same as writing\ndeviceMetrics.displayFeature \u003d this._getDisplayFeature();\n\nsame for most places",
+      "range": {
+        "startLine": 807,
+        "startChar": 6,
+        "endLine": 810,
+        "endChar": 7
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf657663_c516d4e1",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "nit: can do \ncase Horizontal:\ndefault\n  return Protocol.Emulation.DisplayFeatureOrientation.Horizontal;",
+      "range": {
+        "startLine": 881,
+        "startChar": 7,
+        "endLine": 883,
+        "endChar": 13
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fee7b907_c4ab5eeb",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "this can just be `function getOffset()`",
+      "range": {
+        "startLine": 891,
+        "startChar": 5,
+        "endLine": 891,
+        "endChar": 30
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c69a3e32_1427a924",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "I think you don\u0027t need these functions. Below you ensure that the orientation is either VerticalSpanned or HorizontalSpanned, so you would never return 0 here;\n\nI would remove and write your return object as:\nreturn {\n      orientation: this._getDisplayFeatureOrientation(),\n      offset: this._mode.orientation \u003d\u003d\u003d VerticalSpanned ? orientation.hinge.x : orientation.hinge.y\n      maskLength: \u003csame kind of thing here\u003e\n    };",
+      "range": {
+        "startLine": 892,
+        "startChar": 6,
+        "endLine": 909,
+        "endChar": 6
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9f0ede1_6fa0ca6c",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "nit: maybe we should wrap Experimental Web Platform in quotes so users know it is the name of the flag instead of a generic description",
+      "range": {
+        "startLine": 242,
+        "startChar": 34,
+        "endLine": 242,
+        "endChar": 68
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17ffa6cd_c67a1d2c",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T19:11:23Z",
+      "side": 1,
+      "message": "nit: same here",
+      "range": {
+        "startLine": 670,
+        "startChar": 38,
+        "endLine": 670,
+        "endChar": 66
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd214a78_b9980f96",
         "filename": "front_end/emulation/module.json",
         "patchSetId": 14
