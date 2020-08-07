@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "629adc1c_51d44049",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-07T17:40:55Z",
+      "side": 1,
+      "message": "These two screenshots need to be updated, as the toggle button is gone.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbbe3422_c44ababb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 14
