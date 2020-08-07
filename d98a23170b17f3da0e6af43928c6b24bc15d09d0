@@ -16,6 +16,29 @@
       "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91d2332c_2ad15ba4",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 2544,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T11:54:52Z",
+      "side": 1,
+      "message": "Let\u0027s use mediumicon-frame if the opener is not accessible. It isn\u0027t a perfect icon, but it is a /different/ icon, so it gives a quick overview over which have openers and which ones have not. I think this is important.",
+      "range": {
+        "startLine": 2543,
+        "startChar": 4,
+        "endLine": 2544,
+        "endChar": 33
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
