@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "648557e3_b5384d2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-07T17:10:01Z",
+      "side": 1,
+      "message": "Resetting my vote since a new approach is being taken.",
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f51c0d37_0a030849",
         "filename": "scripts/check_experiments.js",
         "patchSetId": 3
