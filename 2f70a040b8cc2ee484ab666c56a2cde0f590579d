@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ae42e81_599b315d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-07T11:54:16Z",
+      "side": 1,
+      "message": "LGTM with nits. We should update the name of the CL and maybe give it a little description.",
+      "revId": "2f70a040b8cc2ee484ab666c56a2cde0f590579d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65b2cb69_6d3178c4",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-07T11:54:16Z",
+      "side": 1,
+      "message": "I think we should put this in the legacy defs, because eventually this will go.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 1
+      },
+      "revId": "2f70a040b8cc2ee484ab666c56a2cde0f590579d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21eb3fd7_7fcb8c30",
+        "filename": "test/unittests/front_end/test_setup/test_setup.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-07T11:54:16Z",
+      "side": 1,
+      "message": "Do we know that this works okay?",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 90
+      },
+      "revId": "2f70a040b8cc2ee484ab666c56a2cde0f590579d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
