@@ -170,6 +170,24 @@
     },
     {
       "key": {
+        "uuid": "efecd008_c8bbd590",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-07T18:33:20Z",
+      "side": 1,
+      "message": "The process outlined in the comment makes sense. I\u0027d advise you expand presubmit coverage to include reporting for:\n  - Lingering enum entries\n  - `__lastValidEnumPosition` matching the largest experiment id value",
+      "parentUuid": "78b9c75b_a92060dc",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "205ee9b7_0c22eeae",
         "filename": "front_end/main/MainImpl.js",
         "patchSetId": 5
@@ -220,6 +238,24 @@
       "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86a0efe6_af487642",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-07T18:33:20Z",
+      "side": 1,
+      "message": "Works for me. Just wanted to make sure we were considering the implications, which we are.",
+      "parentUuid": "8afdb0e4_b29543ee",
+      "revId": "eb0fb7f123e0f972ed3588220333721b4e52d335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
