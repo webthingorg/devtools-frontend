@@ -197,6 +197,30 @@
     },
     {
       "key": {
+        "uuid": "4013561d_b930c4fe",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-07T09:35:55Z",
+      "side": 1,
+      "message": "Agreed there are other presubmit checks using parsers e.g. localization scripts do this to find certain data structures in the code. I\u0027d prefer this approach too",
+      "parentUuid": "ac5247c3_2890efc4",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 64
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5f1ab6c_77cf5b21",
         "filename": "scripts/check_experiments.js",
         "patchSetId": 3
