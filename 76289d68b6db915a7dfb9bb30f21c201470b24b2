@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "b63097ef_981794be",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T11:37:13Z",
+      "side": 1,
+      "message": "If we are missing an enum value, we should not record anything, as we do in the other handlers as well.",
+      "parentUuid": "618ed47e_11763885",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b5a43b5_bd01b8de",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 10
@@ -186,6 +210,30 @@
       "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d0a062_4164879c",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-07T11:37:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "820b6f68_b0edce71",
+      "range": {
+        "startLine": 276,
+        "startChar": 9,
+        "endLine": 276,
+        "endChar": 13
+      },
+      "revId": "76289d68b6db915a7dfb9bb30f21c201470b24b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
