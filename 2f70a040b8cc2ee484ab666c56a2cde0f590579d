@@ -42,6 +42,23 @@
     },
     {
       "key": {
+        "uuid": "43d674ca_a2cdced8",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-07T12:02:47Z",
+      "side": 1,
+      "message": "Should not it include the original sheet too? I think `appendStyle` would insert two style tags  if I am reading it correctly. Not sure, if it makes a different though.",
+      "revId": "2f70a040b8cc2ee484ab666c56a2cde0f590579d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21eb3fd7_7fcb8c30",
         "filename": "test/unittests/front_end/test_setup/test_setup.ts",
         "patchSetId": 6
