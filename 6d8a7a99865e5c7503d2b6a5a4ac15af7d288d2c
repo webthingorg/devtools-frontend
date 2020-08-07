@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "bd92e769_8adc9ee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-07T07:31:36Z",
+      "side": 1,
+      "message": "Good catch, ideally the link, which is a re-styled button element, should not be focusable at all to match regular console messages. But I don\u0027t think this can be done via CSS (I only know HTML\u0027s \u0027tabindex\u0027), which would cause a less-backmergeable CL, so I elected to just fix the font style as you suggested.",
+      "parentUuid": "07b4fbae_3a41f115",
+      "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cb1cf83_f711209a",
         "filename": "front_end/ui/infobar.css",
         "patchSetId": 3
@@ -56,6 +74,30 @@
       "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0abde41_b064486d",
+        "filename": "front_end/ui/infobar.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-07T07:31:36Z",
+      "side": 1,
+      "message": "Yes, that\u0027s better, thanks!",
+      "parentUuid": "7cb1cf83_f711209a",
+      "range": {
+        "startLine": 157,
+        "startChar": 20,
+        "endLine": 157,
+        "endChar": 40
+      },
+      "revId": "6d8a7a99865e5c7503d2b6a5a4ac15af7d288d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
