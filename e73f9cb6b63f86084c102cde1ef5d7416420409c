@@ -16,6 +16,29 @@
       "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bd609e7_0d77f8d1",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-07T12:25:45Z",
+      "side": 1,
+      "message": "Might be worth having a helper function to create this fake plugin rather than duplicating the code.",
+      "range": {
+        "startLine": 274,
+        "startChar": 16,
+        "endLine": 274,
+        "endChar": 37
+      },
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
