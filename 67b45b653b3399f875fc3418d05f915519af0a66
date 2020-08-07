@@ -19,6 +19,92 @@
     },
     {
       "key": {
+        "uuid": "662d6fab_3a214842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "Looks good, and I really like the fact that we will check this automatically in presubmit!\nI just have a few concerns with long-term stability of this. I\u0027d be almost inclined to use a Js parser here. See my comments below. Let me know what you think.",
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f51c0d37_0a030849",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "nit: typo here, should be findExperimentInLine",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f495379_b804fbf9",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "This might report false positives if there are comments in the code like:\n\n  \u0027some.experiment.name\u0027: 4,\n  // here is a line of comment with \u0027single quotes\u0027 in it\n  \u0027other.experiment\u0027: 5,\n\nSee my other comment about using a parser, this would make it possible to avoid this for free.\nI know adding a comment in these enums is something we don\u0027t currently do, and it might never happen. But if one day it does, it might be really hard for the person to figure out what\u0027s going on.\nOne way would be to make the regexp a bit more specific, so it includes the colon, number and comma. So there\u0027s less chances of it matching a comment.\n\nThat said, if one day we did this for some reason:\n\n  \u0027showGridLineNumbers.names\u0027: 18,\n  // \u0027showGridTrackSizes.false\u0027: 19,\n  \u0027showGridTrackSizes.true\u0027: 20,\n\nthen we\u0027d have a problem.\nSo maybe we need to check if the line doesn\u0027t start with /* or //",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b0407a2_a6587e03",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "nit: typo here, should be insideExperimentRegistrationCall",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 39
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e99d04fc_6b7c6445",
         "filename": "scripts/check_experiments.js",
         "patchSetId": 3
@@ -35,6 +121,98 @@
         "startChar": 0,
         "endLine": 26,
         "endChar": 61
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ed9c843_6ae2ec42",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "Setting this to false here means we assume that the experiment name has to be on the second line, it can\u0027t be any further.\nThis is the case today, but there may be ways that this isn\u0027t true in the future (adding a line comment, skipping a line (although the js formatter would prevent this)).\n\nCould we perhaps, instead, match on \u0027);\u0027 as a signal for when an registration call ends. And this way, after we\u0027ve seen it start, and before it ends, we just iterate on all lines until we find the first \u0027.*\u0027 match.",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f820b6b1_d890f46b",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "nit: typo here, should be insideExperimentEnum",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac5247c3_2890efc4",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "Agreed with Kalon on this, we need to error out if these lines can\u0027t be found at all, to avoid this checker from becoming silent after a refactoring.\nMaybe this is a bit too much, but we could also add a simple js parser as a dependency, and use it to parse the content of the file, and get the DevToolsExperiments object more easily, and its list of values.\nI see other presubmit checks do some kind of parsing (eslint, json validation, etc.) so maybe we already have what we need. \nIn fact, we might already have the typescript parser available from here.\nBut, again, maybe this is too much for this simple checker?",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 64
+      },
+      "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5f1ab6c_77cf5b21",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-07T08:35:57Z",
+      "side": 1,
+      "message": "nit: typo here, should be experiment",
+      "range": {
+        "startLine": 71,
+        "startChar": 51,
+        "endLine": 71,
+        "endChar": 62
       },
       "revId": "67b45b653b3399f875fc3418d05f915519af0a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
