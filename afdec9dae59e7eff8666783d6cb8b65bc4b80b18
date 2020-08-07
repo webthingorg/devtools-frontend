@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1276e8c4_d4f62371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T15:14:34Z",
+      "side": 1,
+      "message": "lgtm with regard to CSS Grid functionality. I\u0027m not an expert on the new web components, but I don\u0027t see anything that sticks out as an issue other than the themes discussion already in progress. I\u0027ll let the infra team sign off on that 😊",
+      "revId": "afdec9dae59e7eff8666783d6cb8b65bc4b80b18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
