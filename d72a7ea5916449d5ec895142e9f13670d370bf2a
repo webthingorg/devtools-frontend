@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4fd0a493_3d200ccd",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-07T13:34:47Z",
+      "side": 1,
+      "message": "Is the cached value correct if someone flips the patchThemeSupport for the same path?",
+      "revId": "d72a7ea5916449d5ec895142e9f13670d370bf2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28d2f1be_9e97e308",
         "filename": "front_end/component_helpers/get-stylesheet.ts",
         "patchSetId": 8
