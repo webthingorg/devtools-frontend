@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "69a3294a_98895089",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-07T13:42:35Z",
+      "side": 1,
+      "message": "Good point - I would hope that doesn\u0027t happen but I\u0027ve updated the cache to check that the value of `patchThemeSupport` from the cache matches the value for the call.",
+      "parentUuid": "4fd0a493_3d200ccd",
+      "revId": "d72a7ea5916449d5ec895142e9f13670d370bf2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28d2f1be_9e97e308",
         "filename": "front_end/component_helpers/get-stylesheet.ts",
         "patchSetId": 8
