@@ -39,6 +39,46 @@
       "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cede05b_f765597c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T18:55:40Z",
+      "side": 1,
+      "message": "Still going through the code, but It looks like there is some sort of issue with the \"scale\" parameter that gets passed through the Emulation Params when returning to single screen mode. If you set the scale to 80% and toggle back to single screen, the window segment that gets created takes up only 80% of the viewport:\n\nhttps://imgur.com/W4q9GTU\n\nThis is the code I was using to test:\n\n  \u003cdiv id\u003d\"app\"\u003e\u003cdiv\u003e\n  \u003cscript\u003e\n    function createLayoutSegments () {\n      app.innerHTML \u003d \u0027\u0027;\n      if (window.getWindowSegments) {\n        window.getWindowSegments().forEach(segment \u003d\u003e {\n        let element \u003d document.createElement(\u0027div\u0027);\n        element.style.background \u003d \"#\" + Math.floor(Math.random()*16777215).toString(16);\n        element.style.position \u003d \u0027absolute\u0027\n        element.style.top \u003d segment.top + \u0027px\u0027;\n        element.style.left \u003d segment.left + \u0027px\u0027;\n        element.style.width \u003d segment.width + 1  + \u0027px\u0027;\n        element.style.height \u003d segment.height + 1  + \u0027px\u0027;\n        app.appendChild(element);\n      });\n      }\n    }\n    setInterval(createLayoutSegments, 2000);\n  \u003c/script\u003e",
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd214a78_b9980f96",
+        "filename": "front_end/emulation/module.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-07T18:55:40Z",
+      "side": 1,
+      "message": "nit: was this done by presubmit?",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 1
+      },
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
