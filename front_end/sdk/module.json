@@ -506,6 +506,31 @@
     },
     {
       "type": "setting",
+      "settingName": "emulatedCSSMediaFeatureForcedColors",
+      "settingType": "enum",
+      "storageType": "session",
+      "defaultValue": "",
+      "options": [
+        {
+          "title": "Do not emulate CSS forced-colors",
+          "text": "No emulation",
+          "value": ""
+        },
+        {
+          "title": "Emulate CSS forced-colors: none",
+          "text": "forced-colors: none",
+          "value": "none"
+        },
+        {
+          "title": "Emulate CSS forced-colors: active",
+          "text": "forced-colors: active",
+          "value": "active"
+        }
+      ],
+      "title": "Emulate CSS media feature forced-colors"
+    },
+    {
+      "type": "setting",
       "category": "Rendering",
       "settingName": "emulatedVisionDeficiency",
       "settingType": "enum",

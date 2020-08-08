@@ -73,6 +73,9 @@
   <message name="IDS_DEVTOOLS_130c5b3473c57faa76e2a1c54e26f88e" desc="Option for CSS Grid tooling">
     Both
   </message>
+  <message name="IDS_DEVTOOLS_1417c4a001fd28de0393265dfd381ef0" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
+    Emulate CSS forced-colors: none
+  </message>
   <message name="IDS_DEVTOOLS_1629102ff8f1fee3f79d199758cab928" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Do not emulate any vision deficiency
   </message>
@@ -134,6 +137,9 @@
   </message>
   <message name="IDS_DEVTOOLS_242dd6b02f1ff7db7cbba7f7226abb4a" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Do not emulate CSS prefers-color-scheme
+  </message>
+  <message name="IDS_DEVTOOLS_27717127402f526f802b8d10acffbbeb" desc="Title of a setting under the Rendering drawer">
+    Emulate CSS forced-colors: active
   </message>
   <message name="IDS_DEVTOOLS_28d877f94dad332daec6ef71087d4b94" desc="Description of a SameSiteCookie issue">
     A cookie is being sent from <ph name="ORIGIN">$1s<ex>a secure</ex></ph> context to <ph name="DESTINATION">$2s<ex>an insecure</ex></ph> origin on a navigation and is specified with <ph name="LOCKED_1">|SameSite=Strict|</ph>.
@@ -242,6 +248,9 @@
   </message>
   <message name="IDS_DEVTOOLS_83551c20aa46bf996b5f9a989ad44948" desc="Part of issue message for CSP issues of url type">
     Content Security Policy of your site blockes some resources because their origin is not included in the content security policy header
+  </message>
+  <message name="IDS_DEVTOOLS_85f66e5b2a78e440b2d690c7fce23f40" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
+    Do not emulate CSS forced-colors
   </message>
   <message name="IDS_DEVTOOLS_9485d0acccd869b51a96f2b35fd0b620" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Do not emulate CSS prefers-reduced-data
@@ -641,6 +650,9 @@
     The Content Security Policy (CSP) prevents cross-site scripting attacks by blocking inline execution of scripts
      and style sheets.
   </message>
+  <message name="IDS_DEVTOOLS_c0b6422cf3496c2fae94890100ec1f82" desc="Title of a media query that can be emulated via the Rendering drawer">
+    forced-colors: none
+  </message>
   <message name="IDS_DEVTOOLS_c112e1b21767d13578eec90eb52998f3" desc="Section of CSS Grid tooling options for showing grid areas">
     Grid Areas
   </message>
@@ -735,11 +747,17 @@
   <message name="IDS_DEVTOOLS_dcd9c13c4f8ae68ea7ae92edf9191264" desc="Text in Server Timing">
     Deprecated syntax found. Please use: &lt;name&gt;;dur=&lt;duration&gt;;desc=&lt;description&gt;
   </message>
+  <message name="IDS_DEVTOOLS_deb2445ce20e1860132194d820ed22ba" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
+    forced-colors: active
+  </message>
   <message name="IDS_DEVTOOLS_df9f4292c1d025cbada13b25744d34e5" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Do not emulate CSS media type
   </message>
   <message name="IDS_DEVTOOLS_dfac8599aa1a20968a973065801167fe" desc="Title of a setting under the Grid category that turns CSS Grid Area highlighting off">
     Do not show grid named areas
+  </message>
+  <message name="IDS_DEVTOOLS_e05fa728e3352b5d3a7cf434295b32cf" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
+    Emulate CSS media feature forced-colors
   </message>
   <message name="IDS_DEVTOOLS_e0ced940105749256af3e9b91792a78e" desc="Option for CSS Grid tooling">
     Row Gaps
