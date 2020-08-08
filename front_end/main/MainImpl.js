@@ -192,6 +192,9 @@ export class MainImpl {
     // Layout personalization
     Root.Runtime.experiments.register('movableTabs', 'Enable support to move tabs between panels');
 
+    // Rendering
+    Root.Runtime.experiments.register('forced-colors', 'Enabled `forced-colors` emulation');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
