@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ffc41a58_3646f718",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T15:07:29Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "dc2f57c06a95f076bf25e35f8bab9a6e28105199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fdd7c7b_61d56e08",
         "filename": "scripts/component_bridges/generate_closure.ts",
         "patchSetId": 1
