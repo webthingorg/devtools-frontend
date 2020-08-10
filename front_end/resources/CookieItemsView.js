@@ -96,6 +96,8 @@ export class CookieItemsView extends StorageItemsView {
 
     /** @type {!Array<!SDK.Cookie.Cookie>} */
     this._allCookies = [];
+    /** @type {!Array<!SDK.Cookie.Cookie>} */
+    this._shownCookies = [];
 
     this.setCookiesDomain(model, cookieDomain);
   }
@@ -203,8 +205,13 @@ export class CookieItemsView extends StorageItemsView {
     const host = parsedURL ? parsedURL.host : '';
     this._cookiesTable.setCookieDomain(host);
 
-    const shownCookies = this.filter(allCookies, cookie => `${cookie.name()} ${cookie.value()} ${cookie.domain()}`);
-    this._cookiesTable.setCookies(shownCookies, this._model.getCookieToBlockedReasonsMap());
+    this._shownCookies = this.filter(allCookies, cookie => `${cookie.name()} ${cookie.value()} ${cookie.domain()}`);
+    if (this._allCookies.length !== this._shownCookies.length) {
+      this.setDeleteAllTitle(ls`Delete cookies (filtered results only)`);
+    } else {
+      this.setDeleteAllTitle(ls`Delete all cookies`);
+    }
+    this._cookiesTable.setCookies(this._shownCookies, this._model.getCookieToBlockedReasonsMap());
     this.setCanFilter(true);
     this.setCanDeleteAll(true);
     this.setCanDeleteSelected(!!this._cookiesTable.selectedCookie());
@@ -233,11 +240,13 @@ export class CookieItemsView extends StorageItemsView {
   }
 
   /**
+   * This will only delete the currently visible cookies.
+   *
    * @override
    */
   deleteAllItems() {
     this._showPreview(null, null);
-    this._model.clear(this._cookieDomain).then(() => this.refreshItems());
+    this._model.deleteCookies(this._shownCookies).then(() => this.refreshItems());
   }
 
   /**
