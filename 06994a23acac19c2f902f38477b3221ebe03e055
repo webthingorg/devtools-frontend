@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d861f5a2_4cdb75db",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-10T10:31:27Z",
+      "side": 0,
+      "message": "I removed this e2e test because this logic can be tested in the unit tests.",
+      "revId": "06994a23acac19c2f902f38477b3221ebe03e055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

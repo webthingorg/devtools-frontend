@@ -104,6 +104,24 @@
       "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c965f93_877096eb",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-10T10:31:27Z",
+      "side": 1,
+      "message": "Updated the `open` attribute part to be controlled by the component.",
+      "parentUuid": "2a862e98_4ae66695",
+      "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
