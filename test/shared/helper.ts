@@ -40,13 +40,9 @@ export const getElementPosition =
     async (selector: string|puppeteer.JSHandle, root?: puppeteer.JSHandle, maxPixelsFromLeft?: number) => {
   let element;
   if (typeof selector === 'string') {
-    element = await $(selector, root);
+    element = await waitFor(selector, root);
   } else {
     element = selector;
-  }
-
-  if (!element) {
-    throw new Error(`Unable to find element with selector "${selector}"`);
   }
 
   const rect = await element.evaluate(element => {
@@ -75,7 +71,7 @@ export const getElementPosition =
 
 export const click = async (
     selector: string|puppeteer.JSHandle,
-    options?: {root?: puppeteer.JSHandle, clickOptions?: puppeteer.ClickOptions, maxPixelsFromLeft?: number}) => {
+    options?: {root?: puppeteer.JSHandle; clickOptions?: puppeteer.ClickOptions; maxPixelsFromLeft?: number;}) => {
   const {frontend} = getBrowserAndPages();
   const clickableElement =
       await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
@@ -93,8 +89,8 @@ export const click = async (
 };
 
 export const doubleClick =
-    async (selector: string, options?: {root?: puppeteer.JSHandle, clickOptions?: puppeteer.ClickOptions}) => {
-  const passedClickOptions = options && options.clickOptions || {};
+    async (selector: string, options?: {root?: puppeteer.JSHandle; clickOptions?: puppeteer.ClickOptions}) => {
+  const passedClickOptions = (options && options.clickOptions) || {};
   const clickOptionsWithDoubleClick: puppeteer.ClickOptions = {
     ...passedClickOptions,
     clickCount: 2,
@@ -110,7 +106,7 @@ export const typeText = async (text: string) => {
   await frontend.keyboard.type(text);
 };
 
-export const pressKey = async (key: string, modifiers?: {control?: boolean, alt?: boolean, shift?: boolean}) => {
+export const pressKey = async (key: string, modifiers?: {control?: boolean; alt?: boolean; shift?: boolean}) => {
   const {frontend} = getBrowserAndPages();
   if (modifiers) {
     if (modifiers.control) {
@@ -155,7 +151,7 @@ export const pasteText = async (text: string) => {
 // Get a single element handle, across Shadow DOM boundaries.
 export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
   const {frontend} = getBrowserAndPages();
-  const rootElement = root ? root as puppeteer.ElementHandle : frontend;
+  const rootElement = root ? (root as puppeteer.ElementHandle) : frontend;
   const element = await rootElement.$('pierceShadow/' + selector);
   return element;
 };
@@ -176,11 +172,8 @@ export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
  */
 export const $textContent = async (textContent: string, root?: puppeteer.JSHandle) => {
   const {frontend} = getBrowserAndPages();
-  const rootElement = root ? root as puppeteer.ElementHandle : frontend;
+  const rootElement = root ? (root as puppeteer.ElementHandle) : frontend;
   const element = await rootElement.$('pierceShadowText/' + textContent);
-  if (!element) {
-    throw new Error(`Unable to find element with textContent ${textContent}`);
-  }
   return element;
 };
 
@@ -189,7 +182,7 @@ export const timeout = (duration: number) => new Promise(resolve => setTimeout(r
 export const waitFor = async (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
   return await asyncScope.exec(() => waitForFunction(async () => {
                                  const element = await $(selector, root);
-                                 return (element || undefined);
+                                 return element || undefined;
                                }, asyncScope));
 };
 
@@ -206,18 +199,19 @@ export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, a
 export const waitForElementWithTextContent =
     (textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
       return asyncScope.exec(() => waitForFunction(async () => {
-                               return await $textContent(textContent, root);
+                               const elem = await $textContent(textContent, root);
+                               return elem || undefined;
                              }, asyncScope));
     };
 
 export const waitForFunction = async<T>(fn: () => Promise<T|undefined>, asyncScope = new AsyncScope()): Promise<T> => {
   return await asyncScope.exec(async () => {
     while (true) {
-      await timeout(100);
       const result = await fn();
       if (result) {
         return result;
       }
+      await timeout(100);
     }
   });
 };
@@ -252,7 +246,7 @@ export const logFailure = () => {
 };
 
 export const enableExperiment = async (
-    experiment: string, options: {selectedPanel?: {name: string, selector?: string}, canDock?: boolean} = {}) => {
+    experiment: string, options: {selectedPanel?: {name: string; selector?: string}; canDock?: boolean;} = {}) => {
   const {frontend} = getBrowserAndPages();
   await frontend.evaluate(experiment => {
     // @ts-ignore
