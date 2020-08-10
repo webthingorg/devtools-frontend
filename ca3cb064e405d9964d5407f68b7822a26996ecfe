@@ -86,6 +86,24 @@
       "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a862e98_4ae66695",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-10T09:01:32Z",
+      "side": 1,
+      "message": "Without looking into the implementation details from the backend, I suspect the \"open\" attribute is calculated then updated after one layout-render cycle, which happens after the click callback?",
+      "parentUuid": "ec767f38_4c506e36",
+      "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
