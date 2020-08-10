@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8daac30c_b6cf1a20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T15:24:42Z",
+      "side": 1,
+      "message": "LGTM but with nits.",
+      "revId": "60d2707efa98c543e3df112af6061c536e207dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "036d2d04_08063603",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 25
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T15:24:42Z",
+      "side": 1,
+      "message": "We already have this.shadow, we should use that here. If it doesn\u0027t exist for some reason, throw an error rather than hiding it with a !",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "60d2707efa98c543e3df112af6061c536e207dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e74e0430_601450ad",
+        "filename": "front_end/elements/LayoutPaneUtils.ts",
+        "patchSetId": 25
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T15:24:42Z",
+      "side": 1,
+      "message": "Traditional enums capitalize their values, i.e.\n\nSettingType {\n  BOOLEAN \u003d \u0027boolean\u0027,\n  ENUM \u003d \u0027enum\n}\n\nI think we should do that here.",
+      "range": {
+        "startLine": 6,
+        "startChar": 2,
+        "endLine": 6,
+        "endChar": 9
+      },
+      "revId": "60d2707efa98c543e3df112af6061c536e207dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
