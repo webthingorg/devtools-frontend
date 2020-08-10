@@ -16,6 +16,23 @@
       "revId": "d0e5373e2240abeff6c4bfd1f2fc79e95c1da050",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a989771_e46efecd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-10T15:27:57Z",
+      "side": 1,
+      "message": "This is causing a test failure due to an exception in ElementsTreeOutline, which listens to this event. Simon may be more familiar with this code.",
+      "revId": "d0e5373e2240abeff6c4bfd1f2fc79e95c1da050",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
