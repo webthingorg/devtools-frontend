@@ -110,6 +110,30 @@
       "revId": "b2cd0dfa8c93a1f689f47fb2d3a64007bb6ccc00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2d956c7_5edd413a",
+        "filename": "front_end/ui/Infobar.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-10T11:08:13Z",
+      "side": 1,
+      "message": "Should we explicitly set it to \"-1\" then in the issues case?",
+      "parentUuid": "85cb3419_3797bad7",
+      "range": {
+        "startLine": 85,
+        "startChar": 6,
+        "endLine": 85,
+        "endChar": 40
+      },
+      "revId": "b2cd0dfa8c93a1f689f47fb2d3a64007bb6ccc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
