@@ -407,6 +407,30 @@
       "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16d39ec2_f09dd270",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T13:43:12Z",
+      "side": 1,
+      "message": "FWIW I quite like the style of defining event handlers like this, but sounds like we should chat and land on an agreed style.",
+      "parentUuid": "ba3e48c9_5914eeff",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 3
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
