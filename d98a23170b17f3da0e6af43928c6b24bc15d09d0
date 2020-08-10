@@ -88,6 +88,30 @@
     },
     {
       "key": {
+        "uuid": "9ff7fa6f_3db4cea0",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T07:44:16Z",
+      "side": 1,
+      "message": "If this is the case, please don\u0027t add this class, but use\n\nSDKModel.addModelListener\n\nin the only component that uses this manager.",
+      "parentUuid": "7cf0fec9_5e26d9da",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2a134599_fd8781ae",
         "filename": "front_end/sdk/OpenedWindowManager.js",
         "patchSetId": 15
