@@ -68,6 +68,24 @@
       "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec767f38_4c506e36",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T08:59:07Z",
+      "side": 1,
+      "message": "why does it have to be async?",
+      "parentUuid": "05763a49_06101521",
+      "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
