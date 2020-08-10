@@ -67,7 +67,6 @@ describe('The Console Tab', async () => {
       'Array(2)',
     ]);
   });
-
   it('shows built-in objects', async () => {
     const messages = await getConsoleMessages('built-ins');
 
