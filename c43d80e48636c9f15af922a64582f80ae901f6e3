@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3942d452_ad1e9d70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-10T06:18:34Z",
+      "side": 1,
+      "message": "please add a screenshot/video",
+      "revId": "c43d80e48636c9f15af922a64582f80ae901f6e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23cd7b39_9f0b3cbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-10T06:18:34Z",
+      "side": 1,
+      "message": "LGTM on the technical side. Not sure about the UI, but we can always change that later.",
+      "revId": "c43d80e48636c9f15af922a64582f80ae901f6e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
