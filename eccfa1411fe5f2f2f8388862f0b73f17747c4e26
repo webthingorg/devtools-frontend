@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f09999b5_d8266aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-10T04:46:17Z",
+      "side": 1,
+      "message": "Hi Eric and Benedikt,\n\nhere\u0027s a change in the front-end to use the skip list feature for wasm stepping.\nHere\u0027s the design doc: https://docs.google.com/document/d/1GLzRZu-JPrNejZM-Pha6_82V8AO9MHhzsPCBYxtfvMs/edit?usp\u003dsharing\n\nThe back-end CL is out for review here: crrev.com/c/2339458/\n\nPTAL!",
+      "revId": "eccfa1411fe5f2f2f8388862f0b73f17747c4e26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
