@@ -50,6 +50,24 @@
       "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05763a49_06101521",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-10T08:57:45Z",
+      "side": 1,
+      "message": "The \"open\" attribute is updated asynchronously, after the click listener has been called back.",
+      "parentUuid": "e67a4025_490e183c",
+      "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
