@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "5d4bfc85_93275195",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T14:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1acfb048_60ec4925",
+      "range": {
+        "startLine": 2212,
+        "startChar": 2,
+        "endLine": 2212,
+        "endChar": 7
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d2332c_2ad15ba4",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 15
@@ -62,6 +86,30 @@
       "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a12e853_2b534383",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 2544,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T14:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91d2332c_2ad15ba4",
+      "range": {
+        "startLine": 2543,
+        "startChar": 4,
+        "endLine": 2544,
+        "endChar": 33
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -112,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "819e120f_41de0728",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T14:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ff7fa6f_3db4cea0",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a134599_fd8781ae",
         "filename": "front_end/sdk/OpenedWindowManager.js",
         "patchSetId": 15
@@ -132,6 +204,30 @@
       "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a686010e_d432dba6",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T14:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a134599_fd8781ae",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -158,6 +254,30 @@
     },
     {
       "key": {
+        "uuid": "d5de07ea_711f6912",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T14:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a23f5a8f_f004a2e3",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 97
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae512cd7_e851753c",
         "filename": "front_end/sdk/OpenedWindowManager.js",
         "patchSetId": 15
@@ -178,6 +298,30 @@
       "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "754dbfef_7712d01d",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T14:42:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae512cd7_e851753c",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 30
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -225,6 +369,30 @@
       "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36de950c_af6b0db3",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T14:42:33Z",
+      "side": 1,
+      "message": "Removed, because the same check is performed in ApplicationPanelSidebar. It\u0027s used to exclude events emitted by DevTools windows opening/changing and which do not have an openerId.",
+      "parentUuid": "8f7dce30_c087cb54",
+      "range": {
+        "startLine": 79,
+        "startChar": 37,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
