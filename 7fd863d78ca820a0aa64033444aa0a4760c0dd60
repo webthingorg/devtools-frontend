@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "74f7ea8b_b1f44000",
+        "filename": "test/e2e/elements/classes-pane_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-08-10T15:54:23Z",
+      "side": 1,
+      "message": "I know not all the element tests are currently doing this, but we should probably import `beforeEach` from mocha here as well. \n\nThe general intent appears to be to avoid using implicit globals from mocha so I think this was just missed in some of these tests. For example, the test e2e/console/console-autocomplete_test.ts does explicitly import `beforeEach`.\n\nThe other element tests using `beforeEach` should probably be updated to explicitly import it too, but I\u0027m with that being done in a separate CL.",
+      "revId": "7fd863d78ca820a0aa64033444aa0a4760c0dd60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63313055_fadbcaa7",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 2
