@@ -46,6 +46,30 @@
       "revId": "22aa300b7ad29c7cd226d2e39e1e26328b02c36f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "096212dc_fc7c462d",
+        "filename": "docs/contributer-journeys/frontend_feature.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T14:17:06Z",
+      "side": 1,
+      "message": "Thanks for checking! My second questions still stands: What do we need to export here? Only things that will be needed by layout tests?",
+      "parentUuid": "51b7c542_9d9e54df",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "22aa300b7ad29c7cd226d2e39e1e26328b02c36f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
