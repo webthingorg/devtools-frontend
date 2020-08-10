@@ -45,6 +45,9 @@
   <message name="IDS_DEVTOOLS_6bc90532b96243fd3deae4514bbb5dc4" desc="Title for a link to a request in the network panel">
     Click to show request in the network panel
   </message>
+  <message name="IDS_DEVTOOLS_6eb90412c880646fe440b3a818029522" desc="Label on the issues tab">
+    third-party issues detected
+  </message>
   <message name="IDS_DEVTOOLS_712e023413c1a2069cb68c5cb4a914a0" desc="Title for an unavailable link a request in the network panel">
     Request unavailable in the network panel, try reloading the inspected page
   </message>
@@ -104,5 +107,8 @@
   </message>
   <message name="IDS_DEVTOOLS_fae3520ad615b90014c2f2991ff32edf" desc="Reason for a Heavy Ad being flagged in issue view">
     CPU total limit
+  </message>
+  <message name="IDS_DEVTOOLS_ff63407b64997ade3f674cc29f02dc7e" desc="Label on the issues tab">
+    No issues detected
   </message>
 </grit-part>

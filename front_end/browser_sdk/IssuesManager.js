@@ -138,8 +138,10 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     if (this._issueFilter(issue)) {
       this._filteredIssues.set(primaryKey, issue);
       this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
-      this.dispatchEventToListeners(Events.IssuesCountUpdated);
     }
+    // Always fire the "count" event even if the issue was filtered out.
+    // The result of `hasOnlyThirdPartyIssues` could still change.
+    this.dispatchEventToListeners(Events.IssuesCountUpdated);
   }
 
   /**
@@ -154,6 +156,13 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
    */
   numberOfIssues() {
     return this._filteredIssues.size;
+  }
+
+  /**
+   * @return {boolean} Returns true iff there are issues, but they are all filtered out.
+   */
+  hasOnlyThirdPartyIssues() {
+    return this._filteredIssues.size === 0 && this._issues.size > 0;
   }
 
   /**
