@@ -1183,6 +1183,7 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     for (const issue of this._aggregator.aggregatedIssues()) {
       this._updateIssueView(issue);
     }
+    this._issuesManager.addEventListener(BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._updateCounts, this);
     this._updateCounts();
   }
 
@@ -1293,6 +1294,8 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
       this._noIssuesMessageDiv.style.display = 'none';
     } else {
       this._issuesTree.element.hidden = true;
+      this._noIssuesMessageDiv.textContent =
+          this._issuesManager.hasOnlyThirdPartyIssues() ? ls`third-party issues detected` : ls`No issues detected`;
       this._noIssuesMessageDiv.style.display = 'flex';
     }
   }
