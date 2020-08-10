@@ -16,6 +16,207 @@
       "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa8d593a_97cbd82b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "Really nice start! Left some thoughts but overall this is looking great 👍",
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfedb45a_ef83618a",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "I would have thought this did work - do the other usages of `var` in your styles work OK?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfa1fb32_deb3847b",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "could we more explicitly check for a formatter and error loudly if it doesn\u0027t exist?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 62
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3202c41f_acda7527",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "nit but the indentation isn\u0027t quite right",
+      "range": {
+        "startLine": 159,
+        "startChar": 12,
+        "endLine": 161,
+        "endChar": 37
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c453311a_81f18640",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer `this.sliceSelected +1` to avoid mutating it (as `selectSlice` does that work). Same for the focus previous function below",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 45
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b079118f_47c2d382",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "I\u0027ll take your word for it that this is correct :D",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 112
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f537c8c_b69a74f3",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1845,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "can be removed",
+      "range": {
+        "startLine": 1838,
+        "startChar": 2,
+        "endLine": 1845,
+        "endChar": 43
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aa68f24_47823f5a",
+        "filename": "test/unittests/front_end/perf_ui/PieChart2_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "could you also assert that `shadowRoot.querySelectorAll(\u0027.selected\u0027).length` is 1? Or is it best to be more explicit here? I\u0027m not sure what\u0027s best, so up to you!",
+      "range": {
+        "startLine": 109,
+        "startChar": 5,
+        "endLine": 114,
+        "endChar": 67
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fee8b42c_9b17a5ec",
+        "filename": "test/unittests/front_end/perf_ui/PieChart2_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:56:29Z",
+      "side": 1,
+      "message": "you can do `shadowRoot.querySelector\u003cHTMLDivElement\u003e(\u0027.pie-chart-total\u0027)` to avoid the `as X`",
+      "range": {
+        "startLine": 153,
+        "startChar": 5,
+        "endLine": 153,
+        "endChar": 89
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
