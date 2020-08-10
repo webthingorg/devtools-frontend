@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37c493fa_84aae7b9",
+        "filename": "docs/contributer-journeys/frontend_feature.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T13:41:42Z",
+      "side": 1,
+      "message": "My understanding was that this is only necessary if the feature needs to be accessible from a layout test. Is that correct? Can this file be omitted? In any case, I think only the parts that need to be accessed from a layout test need to be exported here. Tim might have more background.",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "22aa300b7ad29c7cd226d2e39e1e26328b02c36f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
