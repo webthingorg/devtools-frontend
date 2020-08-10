@@ -619,8 +619,10 @@ function hideFromLayout(element) {
   element.style.overflow = 'hidden';
 }
 
-const AlertElementSymbol = Symbol('AlertElementSybmol');
-const MessageElementSymbol = Symbol('MessageElementSymbol');
+/**
+ * @type {!WeakMap<!Document, !{alertElement: !HTMLElement, messageElement: !HTMLElement}>}
+ */
+const alertsMap = new WeakMap();
 
 /**
  * This function is used to announce a message with the screen reader.
@@ -633,21 +635,25 @@ const MessageElementSymbol = Symbol('MessageElementSymbol');
  * @param {!Element} element
  */
 export function alert(message, element) {
-  const document = element.ownerDocument;
-  const messageElementId = 'ariaLiveMessageElement';
-  if (!document[MessageElementSymbol]) {
-    const messageElement = document.body.createChild('div');
+  const document = /** @type {!Document} */ (element.ownerDocument);
+
+  if (!alertsMap.has(document)) {
+    const messageElement = /** @type {!HTMLElement} */ (document.body.createChild('div'));
+    const messageElementId = 'ariaLiveMessageElement';
     messageElement.id = messageElementId;
     hideFromLayout(messageElement);
-    document[MessageElementSymbol] = messageElement;
-  }
-  if (!document[AlertElementSymbol]) {
-    const alertElement = document.body.createChild('div');
+
+    const alertElement = /** @type {!HTMLElement} */ (document.body.createChild('div'));
     hideFromLayout(alertElement);
     alertElement.setAttribute('role', 'alert');
     alertElement.setAttribute('aria-atomic', 'true');
     alertElement.setAttribute('aria-describedby', messageElementId);
-    document[AlertElementSymbol] = alertElement;
+
+    alertsMap.set(document, {messageElement, alertElement});
   }
-  setAccessibleName(document[MessageElementSymbol], message.trimEndWithMaxLength(10000));
+
+  const alertElements = alertsMap.get(document);
+  if (alertElements) {
+    setAccessibleName(alertElements.messageElement, message.trimEndWithMaxLength(10000));
+  }
 }
