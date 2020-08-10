@@ -184,6 +184,30 @@
     },
     {
       "key": {
+        "uuid": "986e8e92_e3b47df6",
+        "filename": "front_end/sdk/OpenedWindowManager.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-10T15:25:14Z",
+      "side": 1,
+      "message": "I misunderstood this comment earlier. Yes, since we don\u0027t use the \u0027OpenedWindowManager\u0027 anywhere else, we can use \u0027addModelListener\u0027 instead which means we don\u0027t need the \u0027OpenedWindowManger\u0027 at all.",
+      "parentUuid": "819e120f_41de0728",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "d98a23170b17f3da0e6af43928c6b24bc15d09d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a134599_fd8781ae",
         "filename": "front_end/sdk/OpenedWindowManager.js",
         "patchSetId": 15
