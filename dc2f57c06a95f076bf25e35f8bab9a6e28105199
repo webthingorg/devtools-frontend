@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fdd7c7b_61d56e08",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T14:55:48Z",
+      "side": 1,
+      "message": "this is what\u0027s deferred to a follow up CL",
+      "range": {
+        "startLine": 432,
+        "startChar": 11,
+        "endLine": 432,
+        "endChar": 36
+      },
+      "revId": "dc2f57c06a95f076bf25e35f8bab9a6e28105199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
