@@ -22,6 +22,30 @@
       "revId": "22aa300b7ad29c7cd226d2e39e1e26328b02c36f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b7c542_9d9e54df",
+        "filename": "docs/contributer-journeys/frontend_feature.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-08-10T13:49:54Z",
+      "side": 1,
+      "message": "I tried running autoninja without it and rollup complained. That\u0027s why we kept it in there for now. But maybe I was just holding it wrong ^^",
+      "parentUuid": "37c493fa_84aae7b9",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "22aa300b7ad29c7cd226d2e39e1e26328b02c36f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
