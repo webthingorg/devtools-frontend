@@ -16,6 +16,46 @@
       "revId": "22ee1ae1b7a21ad1a4d85fe62a9396134f4e02a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "223194da_915cffc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T11:39:26Z",
+      "side": 1,
+      "message": "LGTM generally, but I\u0027d like to switch out the document-level map stuff before landing if possible.",
+      "revId": "22ee1ae1b7a21ad1a4d85fe62a9396134f4e02a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "221bd008_243f054e",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T11:39:26Z",
+      "side": 1,
+      "message": "I think it\u0027d be good to fix this one. We can introduce a Map\u003cstring, HTMLElement\u003e, or perhaps a WeakSet with the element in it. I\u0027d prefer that to leaving this as another TODO.",
+      "range": {
+        "startLine": 643,
+        "startChar": 3,
+        "endLine": 644,
+        "endChar": 60
+      },
+      "revId": "22ee1ae1b7a21ad1a4d85fe62a9396134f4e02a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
