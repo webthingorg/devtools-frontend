@@ -16,6 +16,23 @@
       "revId": "839e3bfa056d08741ed97d4a3bd1ba2b5df64283",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4838faa5_80489e69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T12:53:00Z",
+      "side": 1,
+      "message": "LGTM\n\nAnother way to do this is to do:\n\nlet thing \u003d map.get(key);\nif (!thing) {\n  thing \u003d new Thing();\n  map.set(key, thing);\n}\n\nreturn thing;\n\nIt\u0027s a shame TypeScript doesn\u0027t understand that `has` on a map is an existence check, but calling `get` does at least get you the item or undefined.",
+      "revId": "839e3bfa056d08741ed97d4a3bd1ba2b5df64283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
