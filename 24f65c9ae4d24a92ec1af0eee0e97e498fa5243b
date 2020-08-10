@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0489bbf7_1a857856",
+        "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-10T11:25:17Z",
+      "side": 1,
+      "message": "I had to do a double-take here 😂\n\nI guess clang-format adds the space here? That\u0027s unfortunate.",
+      "revId": "24f65c9ae4d24a92ec1af0eee0e97e498fa5243b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
