@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "bba0dcf6_c83cf6b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T12:35:25Z",
+      "side": 1,
+      "message": "There are some things I\u0027d like us to work out prior to this landing, so marking as -1 for now.",
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a65df89_d6bea164",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 23
@@ -18,6 +35,122 @@
         "startChar": 10,
         "endLine": 30,
         "endChar": 109
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c14911d_85d2bcbc",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T12:35:25Z",
+      "side": 1,
+      "message": "It\u0027s fine to do it here, but we don\u0027t need to check this.shadowRoot if we have an internal shadow property.",
+      "parentUuid": "3a65df89_d6bea164",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 109
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1f0f967_a989d8fc",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T12:35:25Z",
+      "side": 1,
+      "message": "Why have this if we redirect to render?",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ecafa8_40fda0a3",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T12:35:25Z",
+      "side": 1,
+      "message": "I feel like we should destructure these at the top for consistency with other components.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33beeaed_507f72da",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T12:35:25Z",
+      "side": 1,
+      "message": "These are a bit challenging to read. Can you break them down a bit?",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 112
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a68bd53_f1b07cd2",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T12:35:25Z",
+      "side": 1,
+      "message": "I think we should avoid a couple of things here. Firstly, functions returning other functions makes it harder to read because of the indirection. In this case, I\u0027m not sure it\u0027s even necessary as you could take in a setting and cast the event and dispatch the appropriate outer event. Secondly, casting as you\u0027ve had it with \u0026{target: HTMLInputElement} is unusual. We could take event and cast it as a SettingsChangeEvent, defining the interface for that above.",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 3
       },
       "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
