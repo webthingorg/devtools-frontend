@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2f52391_732d5e41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-08-10T21:28:33Z",
+      "side": 1,
+      "message": "Making the drawer header work as a resizer as well, this still keeps the top border as resizer as well.",
+      "revId": "4efbd24da9c73bbbae4a552b16cd89d0cbf2dc83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
