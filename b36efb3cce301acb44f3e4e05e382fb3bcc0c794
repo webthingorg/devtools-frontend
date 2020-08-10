@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9502aae_dc78d4ce",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-08-10T18:36:19Z",
+      "side": 1,
+      "message": "nit: remove these spaces",
+      "revId": "b36efb3cce301acb44f3e4e05e382fb3bcc0c794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3d8da8_0b9ddbe1",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-08-10T18:36:19Z",
+      "side": 1,
+      "message": "Instead you can do\n\n  ...this._insertCredentialRow(authenticatorId, /** @type {!Element} */(credentialTableBody));",
+      "revId": "b36efb3cce301acb44f3e4e05e382fb3bcc0c794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
