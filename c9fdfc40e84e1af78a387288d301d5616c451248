@@ -431,6 +431,30 @@
       "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48c57743_ba3b4984",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-10T13:46:52Z",
+      "side": 1,
+      "message": "I think I mostly dislike the dynamic extension of the event type. If we can move that to an interface atop the file then I\u0027d be okay with it if the consensus view is that this is a reasonable level of indirection",
+      "parentUuid": "16d39ec2_f09dd270",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 3
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
