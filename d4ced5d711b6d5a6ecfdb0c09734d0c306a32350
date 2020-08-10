@@ -36,6 +36,46 @@
     },
     {
       "key": {
+        "uuid": "be327b4e_2a8cec87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T08:35:06Z",
+      "side": 1,
+      "message": "Minor nits but LGTM!",
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "993a1aac_626921b4",
+        "filename": "front_end/component_docs/webvitals/webvitals.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T08:35:06Z",
+      "side": 1,
+      "message": "does this work? I thought we only defined the `set data` and therefore I can\u0027t see what this will return? \n\nOr does it work as you\u0027ve passed it to the setter, in which case TIL that that\u0027s a thing :D",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9df28a35_f6271230",
         "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
         "patchSetId": 1
@@ -105,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "010dba53_83d19de4",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T08:35:06Z",
+      "side": 1,
+      "message": "Yeah worth wrapping these as `ReadOnlyArray\u003cnumber\u003e`",
+      "parentUuid": "f1484b85_d5c90d6e",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eedddbaa_fd16f858",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 1
@@ -139,6 +203,30 @@
       "writtenOn": "2020-08-06T14:26:35Z",
       "side": 1,
       "message": "Wonder if we want an enum here?",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 4
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3847f22f_ba839b85",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T08:35:06Z",
+      "side": 1,
+      "message": "note that right now the bridges code doesn\u0027t support TypeScript enums. It will soon (it\u0027s my main focus this week) so I\u0027d be happy to land this and then help migrate once they\u0027ve landed.",
+      "parentUuid": "6be9781c_bac0a4aa",
       "range": {
         "startLine": 63,
         "startChar": 2,
