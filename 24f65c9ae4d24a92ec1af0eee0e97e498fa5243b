@@ -34,6 +34,24 @@
       "revId": "24f65c9ae4d24a92ec1af0eee0e97e498fa5243b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc06d14e_972c1fd3",
+        "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-10T11:52:34Z",
+      "side": 1,
+      "message": "Wow I won\u0027t let clang-format take the blame -- that extra space is my fault. But also I\u0027m surprised VSCode didn\u0027t catch this. I\u0027ve removed this and also adopted Jack\u0027s suggestion.",
+      "parentUuid": "0e7a13e6_50938aa9",
+      "revId": "24f65c9ae4d24a92ec1af0eee0e97e498fa5243b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
