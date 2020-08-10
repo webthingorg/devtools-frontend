@@ -56,6 +56,30 @@
       "revId": "7fd863d78ca820a0aa64033444aa0a4760c0dd60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f22d96c6_e9698580",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-10T17:10:47Z",
+      "side": 1,
+      "message": "Sorry, you\u0027re right, it\u0027s not super clear.\nEnter commits the new classes, and therefore changes the value of the class attribute on the selected node, hence when Enter is pressed, we do want to run waitForSelectedNodeChange.\nIf Escape is pressed, it\u0027s like nothing happened, so the selected node\u0027s class attribute isn\u0027t updated, which is why in that case we shouldn\u0027t wait for a change.\n\nI\u0027ll try to rewrite that part of the code to make it more self-explanatory.",
+      "parentUuid": "63313055_fadbcaa7",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 3
+      },
+      "revId": "7fd863d78ca820a0aa64033444aa0a4760c0dd60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
