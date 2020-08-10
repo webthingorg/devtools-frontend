@@ -36,6 +36,47 @@
     },
     {
       "key": {
+        "uuid": "820e72a0_c728c82d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-10T05:54:23Z",
+      "side": 1,
+      "message": "\u003e Deferring to Mathias on whether it makes sense to put an Aria label on a tooltip, otherwise looks fine.\n\nThanks for looping me in, Eric. Philip and I talked about a similar scenario before. My take on it is still the same and applies here as well: does explicitly setting the accessible name alter and improve the computed accessible name (as visible in the inspector popover)?\n\nIf so, then adding the label is a net improvement and we should do it regardless of this change.\n\nIf not, we shouldn\u0027t add the attribute, and instead find some other way to select this element. (We could add any other attribute that doesn\u0027t otherwise impact the DOM or AOM instead, e.g. `data-something-to-select-in-tests\u003d\"foo\"`).",
+      "parentUuid": "8ddc301a_98988f7e",
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8338069_1c7356ac",
+        "filename": "front_end/object_ui/ObjectPopoverHelper.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-10T05:54:23Z",
+      "side": 1,
+      "message": "nit (non-blocking): we don\u0027t do this consistently in the DevTools UI right now, but we should use sentence case for all UI elements (including accessible names) per go/punctuation-standards",
+      "range": {
+        "startLine": 93,
+        "startChar": 68,
+        "endLine": 93,
+        "endChar": 75
+      },
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1bd609e7_0d77f8d1",
         "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
         "patchSetId": 3
