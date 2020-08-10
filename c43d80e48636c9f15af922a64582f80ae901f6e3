@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "67ca1839_f082426e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T08:05:46Z",
+      "side": 1,
+      "message": "I have added a video but I still have not synced with Peter on the UX. He had a few ideas that maybe we should have a list of suggested colors instead of a button. I still have to follow up on that.",
+      "parentUuid": "3942d452_ad1e9d70",
+      "revId": "c43d80e48636c9f15af922a64582f80ae901f6e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23cd7b39_9f0b3cbe",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
