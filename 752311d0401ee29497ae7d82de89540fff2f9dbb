@@ -16,6 +16,69 @@
       "revId": "752311d0401ee29497ae7d82de89540fff2f9dbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fbb4836_2343fc0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T07:29:33Z",
+      "side": 1,
+      "message": "LGTM, thanks.\n\nPlease also add tests in test/e2e/host/user-metrics_test.ts for these new metrics.",
+      "revId": "752311d0401ee29497ae7d82de89540fff2f9dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f819429_79be1a2e",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T07:29:33Z",
+      "side": 1,
+      "message": "This comment is out-dated.",
+      "range": {
+        "startLine": 459,
+        "startChar": 2,
+        "endLine": 460,
+        "endChar": 45
+      },
+      "revId": "752311d0401ee29497ae7d82de89540fff2f9dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "113c9566_76bd3b68",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T07:29:33Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 473,
+        "startChar": 2,
+        "endLine": 474,
+        "endChar": 59
+      },
+      "revId": "752311d0401ee29497ae7d82de89540fff2f9dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
