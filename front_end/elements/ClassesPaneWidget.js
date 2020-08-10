@@ -84,6 +84,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
 
     const classNames = this._splitTextIntoClasses(text);
     if (!classNames.length) {
+      this._installNodeClasses(node);
       return;
     }
 
