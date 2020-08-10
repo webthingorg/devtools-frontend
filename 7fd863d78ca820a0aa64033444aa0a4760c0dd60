@@ -16,6 +16,29 @@
       "revId": "7fd863d78ca820a0aa64033444aa0a4760c0dd60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63313055_fadbcaa7",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:42:33Z",
+      "side": 1,
+      "message": "what is this conditional for? I\u0027m struggling to understand the logic and the conditional checks for `Enter` but the comment references `Escape`",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 3
+      },
+      "revId": "7fd863d78ca820a0aa64033444aa0a4760c0dd60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
