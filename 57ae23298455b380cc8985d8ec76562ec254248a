@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0b335e99_4c1c463a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306177
+      },
+      "writtenOn": "2020-08-10T15:42:40Z",
+      "side": 1,
+      "message": "\u003e We received feedback that most of the cookie issues currently reported are caused by including third-parties (mostly ad networks) that are outside developers control.\n\u003e \n\u003e The UX for this will be (hopefully) rather clear: https://imgur.com/a/weQBIRd\n\u003e In addition, we plan to change the \"No issues detected so far\" message shown in the issues panel to \"Only third-party issues detected\", if there are only third-party issues but they are currently not shown. In the future, we plan to utilize first-party sets to improve what we consider \"third-party\".\n\nThat looks great. I think it should be discoverable enough.\n\n\u003e \n\u003e The approach this CL takes doesn\u0027t prohibit (1) and (2) and is probably a good compromise. Developers working on third-party things on their site and developers which are interested can still get easily to the issues.\n\nYep, seeing the UX mock resolves my concerns here.\n\n\u003e \n\u003e W.r.t (3), improving the messages is (imo) orthogonal to this problem.\n\nThat is very true. I think we could have done better here, in hindsight. A lot of the messaging has focused on how to change the cookies, rather than how the developer who\u0027s seeing their site generate these messages can resolve them. (Leading to lots of confusion and angst e.g. in this thread: https://github.com/google/google-api-javascript-client/issues/561#issuecomment-669647566) IMO probably not worth re-working these at this point, though.\n\n\u003e \n\u003e As a side note: The issues caused by the samesite-sandbox example page are still considered \"first-party\" and will show up regardless (So not all SameSite issues are included by default).\n\nAh, right. I forgot about that case. (First-party cookies that have SameSite\u003dNone without Secure will trigger an issue.)\n\n\u003e \n\u003e I hope I could alleviate some of the concerns for this change.\n\nThank you for explaining! This sgtm.",
+      "parentUuid": "eaf114a6_d9fc7033",
+      "revId": "57ae23298455b380cc8985d8ec76562ec254248a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4634365_02b7a2b9",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 6
