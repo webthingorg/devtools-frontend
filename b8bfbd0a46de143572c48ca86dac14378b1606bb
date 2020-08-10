@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbccb644_99b02685",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 2046,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T14:52:57Z",
+      "side": 1,
+      "message": "Let\u0027s listen to ChildTargetManagerEvents.TargetCreated directly here. This was what I meant with the comment.",
+      "range": {
+        "startLine": 2046,
+        "startChar": 8,
+        "endLine": 2046,
+        "endChar": 96
+      },
+      "revId": "b8bfbd0a46de143572c48ca86dac14378b1606bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
