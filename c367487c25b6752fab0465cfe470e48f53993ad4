@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3986df6c_aee4d497",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:08:58Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "c367487c25b6752fab0465cfe470e48f53993ad4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bd1c049_f69e7a2b",
+        "filename": "front_end/theme_support/theme_support_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-10T15:08:58Z",
+      "side": 1,
+      "message": "nit, but could tidy these up to 0, 1, 2 while we\u0027re here?",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 2
+      },
+      "revId": "c367487c25b6752fab0465cfe470e48f53993ad4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
