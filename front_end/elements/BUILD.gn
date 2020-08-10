@@ -9,6 +9,32 @@ import("../../third_party/typescript/typescript.gni")
 devtools_module("elements") {
   sources = [
     "Adorner.js",
+    "ComputedStyleProperty.ts",
+    "ComputedStyleProperty_bridge.js",
+    "ComputedStyleTrace.ts",
+    "ComputedStyleTrace_bridge.js",
+    "ElementsBreadcrumbs.ts",
+    "ElementsBreadcrumbsUtils.ts",
+    "ElementsBreadcrumbs_bridge.js",
+  ]
+
+  deps = [
+    "../common:bundle",
+    "../platform:bundle",
+    "../third_party/lit-html:bundle",
+    "../ui:bundle",
+  ]
+
+  visibility = [
+    "../component_docs/computed_style_property",
+    "../component_docs/computed_style_trace",
+    "../component_docs/elements_breadcrumbs",
+    "../../test/unittests/front_end/elements",
+  ]
+}
+
+devtools_pre_built("elements-pre-built") {
+  sources = [
     "ClassesPaneWidget.js",
     "ColorSwatchPopoverIcon.js",
     "ComputedStyleModel.js",
