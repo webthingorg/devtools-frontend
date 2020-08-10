@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "99a763a9_5b89caa4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-10T18:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9502aae_dc78d4ce",
+      "revId": "b36efb3cce301acb44f3e4e05e382fb3bcc0c794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf3d8da8_0b9ddbe1",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "b36efb3cce301acb44f3e4e05e382fb3bcc0c794",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52b21e41_12bff73a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-10T18:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf3d8da8_0b9ddbe1",
+      "revId": "b36efb3cce301acb44f3e4e05e382fb3bcc0c794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
