@@ -134,6 +134,30 @@
       "revId": "b2cd0dfa8c93a1f689f47fb2d3a64007bb6ccc00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e01f9723_65f16cf5",
+        "filename": "front_end/ui/Infobar.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-10T11:18:05Z",
+      "side": 1,
+      "message": "That would also be wrong, because that would allow the element to be focused by a click, resulting in no selection color being shown when the banner is clicked (because the parent must be focused for the right styles to apply).",
+      "parentUuid": "c2d956c7_5edd413a",
+      "range": {
+        "startLine": 85,
+        "startChar": 6,
+        "endLine": 85,
+        "endChar": 40
+      },
+      "revId": "b2cd0dfa8c93a1f689f47fb2d3a64007bb6ccc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
