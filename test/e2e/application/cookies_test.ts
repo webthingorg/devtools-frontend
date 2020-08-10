@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
 import {click, getBrowserAndPages, getHostedModeServerPort, goToResource, waitFor} from '../../shared/helper.js';
-import {doubleClickSourceTreeItem, getDataGridData, navigateToApplicationTab} from '../helpers/application-helpers.js';
+import {clearStorageItems, clearStorageItemsFilter, doubleClickSourceTreeItem, filterStorageItems, getStorageItemsData, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
 const COOKIES_SELECTOR = '[aria-label="Cookies"]';
 let DOMAIN_SELECTOR: string;
@@ -18,7 +18,8 @@ describe('The Application Tab', async () => {
 
   afterEach(async () => {
     const {target} = getBrowserAndPages();
-    await target.deleteCookie({name: 'foo'});
+    const cookies = await target.cookies();
+    await target.deleteCookie(...cookies);
   });
 
   it('[crbug.com/1047348] shows cookies even when navigating to an unreachable page', async () => {
@@ -31,8 +32,12 @@ describe('The Application Tab', async () => {
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);
     await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
 
-    const dataGridRowValues = await getDataGridData('.storage-view table', ['name', 'value']);
+    const dataGridRowValues = await getStorageItemsData(['name', 'value']);
     assert.deepEqual(dataGridRowValues, [
+      {
+        name: 'foo2',
+        value: 'bar',
+      },
       {
         name: 'foo',
         value: 'bar',
@@ -78,14 +83,49 @@ describe('The Application Tab', async () => {
 
     assert.deepEqual(previewValue1, 'bar');
 
-    // Clear all cookies
-    await waitFor('button[aria-label="Clear All"]');
-    await click('button[aria-label="Clear All"]');
+    await clearStorageItems();
 
     // Make sure that the preview resets
     const previewValueNode2 = await waitFor('.cookie-value');
     const previewValue2 = await previewValueNode2.evaluate(e => e.textContent as string);
 
     assert.match(previewValue2, /Select a cookie to preview its value/);
+  });
+
+  it('[crbug.com/978059] only clear currently visible cookies', async () => {
+    const {target} = getBrowserAndPages();
+    // This sets a new cookie foo=bar
+    await navigateToApplicationTab(target, 'cookies');
+
+    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
+    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+
+    const dataGridRowValues1 = await getStorageItemsData(['name']);
+    assert.deepEqual(dataGridRowValues1, [
+      {
+        name: 'foo2',
+      },
+      {
+        name: 'foo',
+      },
+      {
+        name: '',
+      },
+    ]);
+
+
+    await filterStorageItems('foo2');
+    await clearStorageItems();
+    await clearStorageItemsFilter();
+
+    const dataGridRowValues2 = await getStorageItemsData(['name']);
+    assert.deepEqual(dataGridRowValues2, [
+      {
+        name: 'foo',
+      },
+      {
+        name: '',
+      },
+    ]);
   });
 });

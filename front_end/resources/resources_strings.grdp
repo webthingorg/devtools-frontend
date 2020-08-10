@@ -142,6 +142,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_45e035baf33a8e403766a606457f8b10" desc="Text in App Manifest View of the Application panel">
     Theme color
   </message>
+  <message name="IDS_DEVTOOLS_478141993d08ee42d52f4857861d531a" desc="Label for button to delete all cookies">
+    Delete all cookies
+  </message>
   <message name="IDS_DEVTOOLS_4e2c9304fbfcf372640326c445711323" desc="Title for filter in the Cookies View of the Application panel">
     Only show cookies which have an associated issue
   </message>
@@ -413,6 +416,9 @@ as used by Chrome
   </message>
   <message name="IDS_DEVTOOLS_cc0041e1d664fd87ad1cfaae4265893f" desc="Title of bypass service worker setting in service workers view of the application panel">
     Bypass for network
+  </message>
+  <message name="IDS_DEVTOOLS_cc1eaa7fc9581768a1bb071dbbd243ab" desc="Label for button to delete only the cookies visible after filtering">
+    Delete cookies (filtered results only)
   </message>
   <message name="IDS_DEVTOOLS_cc8763e24276418641ca188290e3334c" desc="Tooltip text that appears on the setting when hovering over it in Service Workers View of the Application panel">
     On page reload, force the <ph name="LOCKED_TERM">service worker</ph> to update, and activate it
