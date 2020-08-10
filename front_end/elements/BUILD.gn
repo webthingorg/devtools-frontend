@@ -10,6 +10,10 @@ import("../../third_party/typescript/typescript.gni")
 devtools_module("elements") {
   sources = [
     "Adorner.js",
+    "ComputedStyleProperty.ts",
+    "ComputedStyleProperty_bridge.js",
+    "ComputedStyleTrace.ts",
+    "ComputedStyleTrace_bridge.js",
     "ElementsBreadcrumbs.ts",
     "ElementsBreadcrumbsUtils.ts",
     "ElementsBreadcrumbs_bridge.js",
@@ -23,6 +27,8 @@ devtools_module("elements") {
   ]
 
   visibility = [
+    "../component_docs/computed_style_property",
+    "../component_docs/computed_style_trace",
     "../component_docs/elements_breadcrumbs",
     "../../test/unittests/front_end/elements",
   ]
