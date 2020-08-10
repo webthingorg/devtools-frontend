@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5756cbe3_b68434a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T13:32:40Z",
+      "side": 1,
+      "message": "Address the feedback. Please take another look.",
+      "parentUuid": "bba0dcf6_c83cf6b5",
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a65df89_d6bea164",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 23
@@ -90,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "806d8fbb_5aa8c7ae",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T13:32:40Z",
+      "side": 1,
+      "message": "Added the `!`. Not sure how to fix the type. Looks like a bug in built-in types?",
+      "parentUuid": "66c0cad6_4df1d04d",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 109
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1f0f967_a989d8fc",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 23
@@ -134,6 +176,30 @@
       "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06f8af59_636b13c3",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T13:32:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98770d01_1c85c982",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -184,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "5c8f1a97_614ff701",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T13:32:40Z",
+      "side": 1,
+      "message": "Destructured LitHtml into html \u0026 render at the top.",
+      "parentUuid": "3d52cb6b_010475b9",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33beeaed_507f72da",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 23
@@ -204,6 +294,30 @@
       "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf4b2ec_e0ae2b0c",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T13:32:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33beeaed_507f72da",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 112
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -251,6 +365,30 @@
       "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba3e48c9_5914eeff",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-10T13:32:40Z",
+      "side": 1,
+      "message": "Implemented it differently. PTAL",
+      "parentUuid": "a327b66f_389eac71",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 3
+      },
+      "revId": "c9fdfc40e84e1af78a387288d301d5616c451248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
