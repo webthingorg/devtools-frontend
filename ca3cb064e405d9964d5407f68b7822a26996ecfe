@@ -16,6 +16,23 @@
       "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66ba26cf_9eb2cb61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-10T08:45:19Z",
+      "side": 1,
+      "message": "BTW currently this is not blocked by Jack\u0027s adopted style helper.",
+      "revId": "ca3cb064e405d9964d5407f68b7822a26996ecfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
