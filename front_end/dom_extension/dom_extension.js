@@ -29,3 +29,12 @@
  */
 
 import './DOMExtension.js';
+
+import {originalAppendChild, originalInsertBefore, originalRemoveChild, originalRemoveChildren,} from './DOMExtension.js';
+
+export {
+  originalAppendChild,
+  originalInsertBefore,
+  originalRemoveChild,
+  originalRemoveChildren,
+}
