@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5917d212_199b9576",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-11T07:05:00Z",
+      "side": 1,
+      "message": "Probably, we will have to listen for setting changes globally so that it does not matter how the setting is changed.",
+      "revId": "54b1fcfdcbb6d22e54edce5cf98aa7dd58f593f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
