@@ -214,8 +214,7 @@ export class GenericSettingsTab extends SettingsTab {
 
     // Sections only available if their corresponding experiment is enabled
     /** @type {!Array<{name: string, experiment: string}>} */
-    const experimentalSections = [{name: 'Grid', experiment: 'cssGridFeatures'}];
-
+    const experimentalSections = [];
 
     /** @type {!Map<string, !Element>} */
     this._nameToSection = new Map();
