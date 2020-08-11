@@ -18,10 +18,12 @@ const COMPUTED_STYLE_TRACES_SELECTOR = '.expanded .property-trace';
 const ELEMENTS_PANEL_SELECTOR = '.panel[aria-label="elements"]';
 const SECTION_SUBTITLE_SELECTOR = '.styles-section-subtitle';
 
-export const assertContentOfSelectedElementsNode = async (expectedTextContent: string) => {
-  const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
-  const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
-  assert.strictEqual(selectedTextContent, expectedTextContent);
+export const waitForContentOfSelectedElementsNode = async (expectedTextContent: string) => {
+  await waitForFunction(async () => {
+    const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
+    const selectedTextContent = await selectedNode.evaluate(node => node.textContent);
+    return selectedTextContent === expectedTextContent;
+  });
 };
 
 /**
@@ -138,7 +140,8 @@ export const forcePseudoState = async (pseudoState: string) => {
   // Open element state pane and wait for it to be loaded asynchronously
   await click('[aria-label="Toggle Element State"]');
   await waitFor(`[aria-label="${pseudoState}"]`);
-
+  // FIXME(crbug/1112692): Refactor test to remove the timeout.
+  await timeout(100);
   await click(`[aria-label="${pseudoState}"]`);
 };
 
