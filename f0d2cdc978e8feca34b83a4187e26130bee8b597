@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac17fea5_349b1f26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-08-11T16:06:13Z",
+      "side": 1,
+      "message": "LGTM. Thanks for updating that helper based on Jack\u0027s feedback. I found the new version much easier to follow.",
+      "revId": "f0d2cdc978e8feca34b83a4187e26130bee8b597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
