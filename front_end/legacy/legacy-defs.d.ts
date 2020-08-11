@@ -88,6 +88,10 @@ declare namespace Adb {
   type NetworkDiscoveryConfig = string[];
 }
 
+interface Document {
+  deepActiveElement(): Element | null;
+}
+
 interface HTMLElement {
   createChild(tagName: string, className?: string, content?: string): HTMLElement;
   createSVGChild(childType: string, className?: string): HTMLElement;
@@ -96,7 +100,11 @@ interface HTMLElement {
 interface Element {
   createChild(tagName: string, className?: string, content?: string): Element;
   createTextChild(text: string): Text;
+  hasFocus(): boolean;
   removeChildren(): void;
+
+  _scrollLeft: number;
+  _scrollTop: number;
 }
 
 interface Event {
@@ -106,6 +114,8 @@ interface Event {
 interface Node {
   getComponentSelection(): Selection|null;
   hasSameShadowRoot(other: Node): boolean;
+  parentElementOrShadowHost(): Element|null;
+  traverseNextNode(stayWithin?: Node): Node|null;
 }
 
 declare function isEnterKey(event: Event): boolean;
