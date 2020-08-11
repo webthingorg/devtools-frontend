@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "6c463fc4_f985a842",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-11T08:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42951b2d_17468122",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9ecc605_69f193c8",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 2
@@ -158,6 +182,30 @@
       "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5adf5ffd_0d516c1f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-11T08:14:40Z",
+      "side": 1,
+      "message": "We do call this._updateCounts() in the constructor so this is safe to remove.",
+      "parentUuid": "790fee8b_4638e317",
+      "range": {
+        "startLine": 1174,
+        "startChar": 4,
+        "endLine": 1174,
+        "endChar": 73
+      },
+      "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
