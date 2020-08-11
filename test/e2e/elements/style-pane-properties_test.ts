@@ -7,7 +7,7 @@ import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
 import {click, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
-import {assertContentOfSelectedElementsNode, getAriaLabelSelectorFromPropertiesSelector, getComputedStylesForDomNode, getCSSPropertySwatchStyle, getDisplayedCSSPropertyNames, getDisplayedStyleRules, getStyleSectionSubtitles, waitForElementsStyleSection, waitForStyleRule} from '../helpers/elements-helpers.js';
+import {getAriaLabelSelectorFromPropertiesSelector, getComputedStylesForDomNode, getCSSPropertySwatchStyle, getDisplayedCSSPropertyNames, getDisplayedStyleRules, getStyleSectionSubtitles, waitForContentOfSelectedElementsNode, waitForElementsStyleSection, waitForStyleRule} from '../helpers/elements-helpers.js';
 
 const PROPERTIES_TO_DELETE_SELECTOR = '#properties-to-delete';
 const PROPERTIES_TO_INSPECT_SELECTOR = '#properties-to-inspect';
@@ -34,6 +34,10 @@ describe('The Styles pane', async () => {
 
     // Select the H1 element by pressing down, since <body> is the default selected element.
     const onH1RuleAppeared = waitForStyleRule('h1');
+
+    // Sanity check to make sure we have the correct node selected after opening a file
+    await waitForContentOfSelectedElementsNode('<body>\u200B');
+
     await frontend.keyboard.press('ArrowDown');
     await onH1RuleAppeared;
 
@@ -60,11 +64,11 @@ describe('The Styles pane', async () => {
     await waitForElementsStyleSection();
 
     // Sanity check to make sure we have the correct node selected after opening a file
-    await assertContentOfSelectedElementsNode('<body>\u200B');
+    await waitForContentOfSelectedElementsNode('<body>\u200B');
 
     // Select div that we will inspect the CSS variables for
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
+    await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
 
     const propertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(PROPERTIES_TO_INSPECT_SELECTOR));
     const swatchStyle = await getCSSPropertySwatchStyle(propertiesSection);
@@ -78,22 +82,16 @@ describe('The Styles pane', async () => {
     await waitForElementsStyleSection();
 
     // Sanity check to make sure we have the correct node selected after opening a file
-    await assertContentOfSelectedElementsNode('<body>\u200B');
+    await waitForContentOfSelectedElementsNode('<body>\u200B');
 
     // Select div that we will remove the CSS properties from
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"properties-to-delete">\u200B</div>\u200B');
+    await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-delete">\u200B</div>\u200B');
 
     const propertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(PROPERTIES_TO_DELETE_SELECTOR));
     {
       const displayedNames = await getDisplayedCSSPropertyNames(propertiesSection);
-      assert.deepEqual(
-          displayedNames,
-          [
-            'height',
-            'width',
-          ],
-          'incorrectly displayed style after initialization');
+      assert.deepEqual(displayedNames, ['height', 'width'], 'incorrectly displayed style after initialization');
     }
 
     // select second property's name and delete
@@ -103,11 +101,7 @@ describe('The Styles pane', async () => {
     {
       const displayedNames = await getDisplayedCSSPropertyNames(propertiesSection);
       assert.deepEqual(
-          displayedNames,
-          [
-            'height',
-          ],
-          'incorrectly displayed style after removing second property\'s value');
+          displayedNames, ['height'], 'incorrectly displayed style after removing second property\'s value');
     }
 
     // select first property's name and delete
@@ -128,12 +122,23 @@ describe('The Styles pane', async () => {
 
     // Select the div element by pressing down, since <body> is the default selected element.
     const onDivRuleAppeared = waitForStyleRule('div');
+
+    // Sanity check to make sure we have the correct node selected after opening a file
+    await waitForContentOfSelectedElementsNode('<body>\u200B');
+
     await frontend.keyboard.press('ArrowDown');
     await onDivRuleAppeared;
 
     const subtitles = await getStyleSectionSubtitles();
     assert.deepEqual(
-        subtitles, ['', 'constructed stylesheet', 'stylesheets…ces.html:10', '<style>', 'user agent stylesheet'],
+        subtitles,
+        [
+          '',
+          'constructed stylesheet',
+          'stylesheets…ces.html:10',
+          '<style>',
+          'user agent stylesheet',
+        ],
         'incorrectly displayed style sources');
 
     const divRules = await getDisplayedStyleRules();
@@ -142,7 +147,10 @@ describe('The Styles pane', async () => {
         [
           {selectorText: 'element.style', propertyNames: []},
           {selectorText: '#properties-to-inspect', propertyNames: ['color']},
-          {selectorText: '#properties-to-inspect', propertyNames: ['text-align']},
+          {
+            selectorText: '#properties-to-inspect',
+            propertyNames: ['text-align'],
+          },
           {selectorText: '#properties-to-inspect', propertyNames: ['width']},
           {selectorText: 'div', propertyNames: ['display']},
         ],
@@ -156,33 +164,23 @@ describe('The Styles pane', async () => {
     await waitForElementsStyleSection();
 
     // Sanity check to make sure we have the correct node selected after opening a file.
-    await assertContentOfSelectedElementsNode('<body>\u200B');
+    await waitForContentOfSelectedElementsNode('<body>\u200B');
 
     // Select div that we will remove a CSS property from.
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
+    await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
 
     // Verify that initial CSS properties correspond to the ones in the test file.
     const rule1PropertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(RULE1_SELECTOR));
     const rule2PropertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(RULE2_SELECTOR));
     {
       const displayedNames = await getDisplayedCSSPropertyNames(rule1PropertiesSection);
-      assert.deepEqual(
-          displayedNames,
-          [
-            'background-color',
-          ],
-          'incorrectly displayed style after initialization');
+      assert.deepEqual(displayedNames, ['background-color'], 'incorrectly displayed style after initialization');
     }
     {
       const displayedNames = await getDisplayedCSSPropertyNames(rule2PropertiesSection);
       assert.deepEqual(
-          displayedNames,
-          [
-            'background-color',
-            'color',
-          ],
-          'incorrectly displayed style after initialization');
+          displayedNames, ['background-color', 'color'], 'incorrectly displayed style after initialization');
     }
 
     // Select the first property's name of .rule2 (background-color) and delete.
@@ -191,23 +189,13 @@ describe('The Styles pane', async () => {
     // Verify that .rule1 has background-color.
     {
       const displayedNames = await getDisplayedCSSPropertyNames(rule1PropertiesSection);
-      assert.deepEqual(
-          displayedNames,
-          [
-            'background-color',
-          ],
-          'incorrectly displayed style after property removal');
+      assert.deepEqual(displayedNames, ['background-color'], 'incorrectly displayed style after property removal');
     }
 
     // Verify that .rule2 has background-color removed and only color remains.
     {
       const displayedNames = await getDisplayedCSSPropertyNames(rule2PropertiesSection);
-      assert.deepEqual(
-          displayedNames,
-          [
-            'color',
-          ],
-          'incorrectly displayed style after property removal');
+      assert.deepEqual(displayedNames, ['color'], 'incorrectly displayed style after property removal');
     }
 
     // Verify that computed styles correspond to the changes made.
