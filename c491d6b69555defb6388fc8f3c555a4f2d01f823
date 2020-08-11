@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1667451f_3eecafce",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-11T07:12:38Z",
+      "side": 1,
+      "message": "This was added specifically for grid settings a couple months ago in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2239112\nIf we remove all entries from this array now, maybe the logic to deal with experimentalSections isn\u0027t needed anymore at all.\nI\u0027d prefer Brandon to take a look at this change though. I feel like there\u0027s something I\u0027m missing.",
+      "range": {
+        "startLine": 217,
+        "startChar": 10,
+        "endLine": 217,
+        "endChar": 31
+      },
+      "revId": "c491d6b69555defb6388fc8f3c555a4f2d01f823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
