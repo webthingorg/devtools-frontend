@@ -169,6 +169,30 @@
       "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "509bd9ce_2b83864d",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-11T18:58:22Z",
+      "side": 1,
+      "message": "that makes sense to me. I also think this is the correct approach. it allows the frontend to tell all of the possible overlay agents that exist in the different target render processes to update. Just wanted to make sure I wasn\u0027t missing something",
+      "parentUuid": "29cd9f93_d86cfb45",
+      "range": {
+        "startLine": 682,
+        "startChar": 4,
+        "endLine": 682,
+        "endChar": 79
+      },
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
