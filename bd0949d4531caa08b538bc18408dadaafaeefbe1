@@ -16,6 +16,24 @@
       "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9578d46_b411c6ba",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-11T08:50:34Z",
+      "side": 1,
+      "message": "I wonder why none of these strings seem to be localized. Is the policy \"we don\u0027t care about localizing experiments\"? Looping in Peter who probably knows the answer.",
+      "parentUuid": "f384e35d_cae82700",
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
