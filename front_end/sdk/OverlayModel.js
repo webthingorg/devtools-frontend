@@ -339,6 +339,10 @@ export class OverlayModel extends SDKModel {
     this._persistentGridHighlighter.hideInOverlay(nodeId);
   }
 
+  resetGridInPersistentOverlay() {
+    this._persistentGridHighlighter.resetOverlay();
+  }
+
   /**
    * @param {!DOMNode} node
    */
@@ -664,6 +668,9 @@ export class PersistentGridHighlighter {
 
   refreshHighlights() {
   }
+
+  resetOverlay() {
+  }
 }
 
 /**
@@ -679,16 +686,22 @@ class DefaultPersistentGridHighlighter {
 
     /** @type {?Common.Settings.Setting<*>} */
     this._showGridBorderSetting = Common.Settings.Settings.instance().moduleSetting('showGridBorder');
+    this._showGridBorderSetting.addChangeListener(this._onSettingChange, this);
     /** @type {?Common.Settings.Setting<*>} */
     this._showGridLinesSetting = Common.Settings.Settings.instance().moduleSetting('showGridLines');
+    this._showGridLinesSetting.addChangeListener(this._onSettingChange, this);
     /** @type {?Common.Settings.Setting<*>} */
     this._showGridLineNumbersSetting = Common.Settings.Settings.instance().moduleSetting('showGridLineNumbers');
+    this._showGridLineNumbersSetting.addChangeListener(this._onSettingChange, this);
     /** @type {?Common.Settings.Setting<*>} */
     this._showGridGapsSetting = Common.Settings.Settings.instance().moduleSetting('showGridGaps');
+    this._showGridGapsSetting.addChangeListener(this._onSettingChange, this);
     /** @type {?Common.Settings.Setting<*>} */
     this._showGridAreasSetting = Common.Settings.Settings.instance().moduleSetting('showGridAreas');
+    this._showGridAreasSetting.addChangeListener(this._onSettingChange, this);
     /** @type {?Common.Settings.Setting<*>} */
     this._showGridTrackSizesSetting = Common.Settings.Settings.instance().moduleSetting('showGridTrackSizes');
+    this._showGridTrackSizesSetting.addChangeListener(this._onSettingChange, this);
 
     this._logCurrentGridSettings();
   }
@@ -705,6 +718,10 @@ class DefaultPersistentGridHighlighter {
    */
   static setGridTelemetryLogged(isLogged) {
     DefaultPersistentGridHighlighter.gridTelemetryLogged = isLogged;
+  }
+
+  _onSettingChange() {
+    this.resetOverlay();
   }
 
   _logCurrentGridSettings() {
@@ -871,6 +888,16 @@ class DefaultPersistentGridHighlighter {
     if (needsUpdate) {
       this._updateHighlightsInOverlay();
     }
+  }
+
+  /**
+   * @override
+   */
+  resetOverlay() {
+    for (const nodeId of this._gridHighlights.keys()) {
+      this._gridHighlights.set(nodeId, this._buildGridHighlightConfig());
+    }
+    this._updateHighlightsInOverlay();
   }
 
   _updateHighlightsInOverlay() {
