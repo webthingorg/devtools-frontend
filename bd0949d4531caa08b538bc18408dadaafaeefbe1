@@ -52,6 +52,24 @@
       "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edd42d68_11ce3b82",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-11T10:56:41Z",
+      "side": 1,
+      "message": "Created it https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1115040",
+      "parentUuid": "1284bf82_641914d1",
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
