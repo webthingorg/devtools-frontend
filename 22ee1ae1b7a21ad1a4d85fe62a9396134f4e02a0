@@ -56,6 +56,30 @@
       "revId": "22ee1ae1b7a21ad1a4d85fe62a9396134f4e02a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cff9a0e0_07f72dd6",
+        "filename": "front_end/ui/ARIAUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-11T06:06:18Z",
+      "side": 1,
+      "message": "Done in https://crrev.com/c/2346367",
+      "parentUuid": "221bd008_243f054e",
+      "range": {
+        "startLine": 643,
+        "startChar": 3,
+        "endLine": 644,
+        "endChar": 60
+      },
+      "revId": "22ee1ae1b7a21ad1a4d85fe62a9396134f4e02a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
