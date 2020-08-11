@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "38e25d62_bf454ab6",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T13:13:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "231367a3_e48a07f3",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 3
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e1800db_ec346a5f",
         "filename": "front_end/elements/ComputedStyleTrace.ts",
         "patchSetId": 14
@@ -53,6 +77,30 @@
       "writtenOn": "2020-08-11T12:32:45Z",
       "side": 1,
       "message": "Do we want this implementation to throw if it hasn\u0027t been set in the data?",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f6067d2_ed5caf73",
+        "filename": "front_end/elements/ComputedStyleTrace.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T13:13:47Z",
+      "side": 1,
+      "message": "I don\u0027t think I\u0027d want to explicitly throw in this case, since it won\u0027t make this component behave in a wrong way, and type checking guard should be enough for me.",
+      "parentUuid": "1e1800db_ec346a5f",
       "range": {
         "startLine": 20,
         "startChar": 10,
@@ -79,6 +127,24 @@
       "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdf08519_6af62458",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T13:13:47Z",
+      "side": 1,
+      "message": "Ack (I like this nit); since `git cl format --js` will reset any manual wrappings, I have resorted to renaming the variables. It\u0027s actually more succinct now.",
+      "parentUuid": "32ef647a_854f7173",
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +194,30 @@
     },
     {
       "key": {
+        "uuid": "3821c1f4_b15e31bf",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T13:13:47Z",
+      "side": 1,
+      "message": "The reason I was typing this is because `querySelector(\u0027.goto\u0027)` defaults to `querySelector\u003cElement\u003e(selector: string): Element | null` instead of `querySelector\u003cHTMLElement\u003e(selector: string): HTMLElement | null` (because the selector is a class name not an HTMLElement tag name). I\u0027ve updated this to be explicit on the function instead.",
+      "parentUuid": "60a3cb90_c6d96d7b",
+      "range": {
+        "startLine": 130,
+        "startChar": 16,
+        "endLine": 130,
+        "endChar": 32
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a34756a_a8445e95",
         "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
         "patchSetId": 14
@@ -148,6 +238,30 @@
       "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "304cec57_a6c007a2",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T13:13:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8a34756a_a8445e95",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -174,6 +288,30 @@
     },
     {
       "key": {
+        "uuid": "71966e93_a8ed5833",
+        "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T13:13:47Z",
+      "side": 1,
+      "message": "Same update as before, thanks :)",
+      "parentUuid": "0464bc30_77b6bfa4",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ba41c84_6f7285ea",
         "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
         "patchSetId": 14
@@ -185,6 +323,30 @@
       "writtenOn": "2020-08-11T12:32:45Z",
       "side": 1,
       "message": "Here too 😊",
+      "range": {
+        "startLine": 53,
+        "startChar": 22,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebe1c6ef_feb07193",
+        "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T13:13:47Z",
+      "side": 1,
+      "message": "Ack, thanks!",
+      "parentUuid": "0ba41c84_6f7285ea",
       "range": {
         "startLine": 53,
         "startChar": 22,
