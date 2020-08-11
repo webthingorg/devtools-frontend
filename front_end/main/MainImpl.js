@@ -188,9 +188,6 @@ export class MainImpl {
         'cssGridFeatures',
         'Enable new CSS Grid debugging features (configuration options available in Settings after restart)');
 
-    // Layout personalization
-    Root.Runtime.experiments.register('movableTabs', 'Enable support to move tabs between panels');
-
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
