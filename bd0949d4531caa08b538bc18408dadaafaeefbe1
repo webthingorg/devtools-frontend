@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "2a53296e_2912ad54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-11T18:48:49Z",
+      "side": 1,
+      "message": "LGTM!\n\nThe nit is more just a discussion to make sure this is the correct behavior for CDP and multiple targets, but I\u0027m pretty sure it is.",
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f384e35d_cae82700",
         "filename": "front_end/main/MainImpl.js",
         "patchSetId": 5
@@ -105,6 +122,29 @@
       "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cf61d9e_326fbf77",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-11T18:48:49Z",
+      "side": 1,
+      "message": "nit: if these change listeners are registered like this, we will be adding an update listener for every target OverlayModel. This results in sending the CDP command once per target. this does match the current behavior of the other overlay settings updates such as setShowAddHighlights, so I think this is correct. Just wanted to make sure we think about it.",
+      "range": {
+        "startLine": 682,
+        "startChar": 4,
+        "endLine": 682,
+        "endChar": 79
+      },
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

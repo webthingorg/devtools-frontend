@@ -94,6 +94,30 @@
       "revId": "c491d6b69555defb6388fc8f3c555a4f2d01f823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24dd8f20_b56e3e91",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-11T18:48:49Z",
+      "side": 1,
+      "message": "I am ok with removing this. We did add this generic functionality to support this one use case, but if we are no longer using it, I\u0027m ok removing. It is fairly simple to re-add if we find another use case",
+      "parentUuid": "d43fc9cb_eb96ae90",
+      "range": {
+        "startLine": 217,
+        "startChar": 10,
+        "endLine": 217,
+        "endChar": 31
+      },
+      "revId": "c491d6b69555defb6388fc8f3c555a4f2d01f823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
