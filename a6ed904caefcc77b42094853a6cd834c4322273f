@@ -22,6 +22,30 @@
       "revId": "a6ed904caefcc77b42094853a6cd834c4322273f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5044b5b3_2b67c224",
+        "filename": "test/unittests/scripts/component_bridges/fixtures/expected/enums_bridge-expected.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T11:24:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00c1f27f_72a29dac",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "a6ed904caefcc77b42094853a6cd834c4322273f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
