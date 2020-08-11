@@ -16,6 +16,63 @@
       "revId": "2249474581d0bf81305a5d74f9f77d18c3471921",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36eaad15_6c37fe47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-11T07:07:13Z",
+      "side": 1,
+      "message": "Thanks for using the parser approach, this is awesome!\nI have just one comment about the logic to find the MainImpl stuff. See my comment below.",
+      "revId": "2249474581d0bf81305a5d74f9f77d18c3471921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f24e99_29e5abf2",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-11T07:07:13Z",
+      "side": 1,
+      "message": "nit: for the sake of have consistent returns, maybe add `return null;` at the end of this function",
+      "revId": "2249474581d0bf81305a5d74f9f77d18c3471921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61bd354f_3d4af533",
+        "filename": "scripts/check_experiments.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-11T07:07:13Z",
+      "side": 1,
+      "message": "I don\u0027t really understand this. We know node is the MainImpl class. So now we\u0027re looking inside the node to find the _initializeExperiments function. If it\u0027s not there at all, then I guess the script should return an error. Here instead, we continue to the next AST node, which will be the thing that comes after the MainImpl class (presumably the ZoomActionDelegate class).\n\nI think after we\u0027ve found the MainImpl node, we should go out of the main for loop. Something like this:\n\n  let mainImplClassNode;\n  for (const node of mainAST.body) {\n    if (isClassNameDeclaration(node, \u0027MainImpl\u0027)) {\n      mainImplClassNode \u003d node;\n      break;\n    }\n  }\n\n  if (!mainImplClassNode) {\n    // error\n  }\n\n  const initializeExperimentNode \u003d findFunctionInClass(mainImplClassNode, \u0027_initializeExperiments\u0027);\n  if (!initializeExperimentNode) {\n    // error\n  }\n\n  ... etc ...\n\n\nBut maybe I\u0027m missing something about how the AST is traversed.",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "2249474581d0bf81305a5d74f9f77d18c3471921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
