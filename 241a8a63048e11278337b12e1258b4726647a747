@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "b20b3971_7d81441a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-11T11:48:01Z",
+      "side": 1,
+      "message": "What do you think about showing the suggested colors right away, so the user knows what to expect. A keyboard focus/hover provides a preview, so the user can directly see how the suggestion will look like on the canvas.\n\nhttps://imgur.com/a/Ms24dpv\n\nI think it\u0027s enough explanation to switch the icons next to AA and AAA if the user hovers a suggestion - it should become clear that this is a suggestion related to contrast. A tooltip on longhover can we \"Replace with suggested color\"",
+      "revId": "241a8a63048e11278337b12e1258b4726647a747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a59b4ef_9bb3e196",
         "filename": "front_end/color_picker/ContrastDetails.js",
         "patchSetId": 5
