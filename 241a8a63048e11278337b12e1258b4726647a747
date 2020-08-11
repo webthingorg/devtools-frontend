@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "7602a62e_02125eca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-11T12:18:32Z",
+      "side": 1,
+      "message": "Looks good to me. I am not sure about the meaning of the icon though: is it a refresh or redo? I am not sure it\u0027s clear that you can use it to fix the colors until you hover over it.",
+      "parentUuid": "b20b3971_7d81441a",
+      "revId": "241a8a63048e11278337b12e1258b4726647a747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a59b4ef_9bb3e196",
         "filename": "front_end/color_picker/ContrastDetails.js",
         "patchSetId": 5
