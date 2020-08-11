@@ -33,6 +33,24 @@
       "revId": "839e3bfa056d08741ed97d4a3bd1ba2b5df64283",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e6ad9a4_79367b50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-11T05:08:04Z",
+      "side": 1,
+      "message": "Re-written using this suggestion.\n\nUnfortunately, I am rather sure that TS can\u0027t actually statically guarantee that between the `has` and `get` call, the map won\u0027t get modified.",
+      "parentUuid": "4838faa5_80489e69",
+      "revId": "839e3bfa056d08741ed97d4a3bd1ba2b5df64283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
