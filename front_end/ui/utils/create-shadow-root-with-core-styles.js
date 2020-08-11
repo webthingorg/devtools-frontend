@@ -24,3 +24,9 @@ export function createShadowRootWithCoreStyles(element, cssFile, delegatesFocus)
   shadowRoot.addEventListener('focus', focusChanged.bind(UI), true);
   return shadowRoot;
 }
+
+export function createShadowRootWithKeyboardFocusShenanigans(element) {
+  const shadowRoot = element.attachShadow({mode: 'open'});
+  shadowRoot.addEventListener('focus', focusChanged.bind(UI), true);
+  return shadowRoot;
+}
