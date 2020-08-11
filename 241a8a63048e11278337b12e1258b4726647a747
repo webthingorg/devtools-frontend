@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "10b2abe3_e065acda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-11T14:04:06Z",
+      "side": 1,
+      "message": "Let\u0027s keep the current icon although I\u0027d probably expect a checkmark icon. Is it an existing one?",
+      "parentUuid": "481dec06_b4eadb8d",
+      "revId": "241a8a63048e11278337b12e1258b4726647a747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a59b4ef_9bb3e196",
         "filename": "front_end/color_picker/ContrastDetails.js",
         "patchSetId": 5
