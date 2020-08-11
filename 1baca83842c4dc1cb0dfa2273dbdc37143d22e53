@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b39629d8_cf8070ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231367a3_e48a07f3",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "Since this is private and just introduces indirection, I think we can remove it.",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 3
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e1800db_ec346a5f",
+        "filename": "front_end/elements/ComputedStyleTrace.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "Do we want this implementation to throw if it hasn\u0027t been set in the data?",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32ef647a_854f7173",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "ultra-nit: can you wrap lines of this length or shorten them in some other way?",
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c63a2c0f_e5f1deb0",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "I feel like we should make it clearer that the onNavigateToSource is expected to update to true and that\u0027s what we using to infer that everything is WAI.",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 6
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60a3cb90_c6d96d7b",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "nit: we shouldn\u0027t need to type this",
+      "range": {
+        "startLine": 130,
+        "startChar": 16,
+        "endLine": 130,
+        "endChar": 32
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a34756a_a8445e95",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "Can you throw rather than assuming it resolves to some non-null value?",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0464bc30_77b6bfa4",
+        "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "Same nit as before, the querySelector should be enough for TS to infer.",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ba41c84_6f7285ea",
+        "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T12:32:45Z",
+      "side": 1,
+      "message": "Here too 😊",
+      "range": {
+        "startLine": 53,
+        "startChar": 22,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "1baca83842c4dc1cb0dfa2273dbdc37143d22e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
