@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f654d52_6aa59ba3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T09:29:38Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "95ecd2f334b5b8acd2f89bd4d167842f98df1099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d075430c_7a59dc80",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T09:29:38Z",
+      "side": 1,
+      "message": "I feel a bit uncomfortable with this one. Apparently action can return null, so we should probably account for that here rather than casting?",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "95ecd2f334b5b8acd2f89bd4d167842f98df1099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
