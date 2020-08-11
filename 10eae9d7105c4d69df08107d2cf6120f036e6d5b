@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebe8a742_cc8767ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-11T10:29:23Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "10eae9d7105c4d69df08107d2cf6120f036e6d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55a74e5f_ebbce242",
+        "filename": "front_end/console/ConsoleViewport.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-11T10:29:23Z",
+      "side": 1,
+      "message": "Isn\u0027t this just\n\n    i \u003c\u003d this._headSelection.item\n\n?",
+      "range": {
+        "startLine": 475,
+        "startChar": 45,
+        "endLine": 475,
+        "endChar": 77
+      },
+      "revId": "10eae9d7105c4d69df08107d2cf6120f036e6d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
