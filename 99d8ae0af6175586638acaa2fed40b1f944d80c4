@@ -16,6 +16,75 @@
       "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75a9a112_7dc74095",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-11T07:21:21Z",
+      "side": 1,
+      "message": "How about exposing the numberOfThirdPartyIssues and doing the check below? This is would be better for re-usability.",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9ecc605_69f193c8",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-11T07:21:21Z",
+      "side": 1,
+      "message": "You seem to be overwriting this below.",
+      "range": {
+        "startLine": 1174,
+        "startChar": 4,
+        "endLine": 1174,
+        "endChar": 73
+      },
+      "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9fd7077_ba1eb11f",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-11T07:21:21Z",
+      "side": 1,
+      "message": "Please maintain the message we previously had, and use\n\"Only third-party issues detected so far\" in the other case.",
+      "range": {
+        "startLine": 1298,
+        "startChar": 58,
+        "endLine": 1298,
+        "endChar": 114
+      },
+      "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
