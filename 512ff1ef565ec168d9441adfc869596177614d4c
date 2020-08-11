@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6dcd2466_1fd51363",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T09:41:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26f25d5b_f0073fa9",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 12
+      },
+      "revId": "512ff1ef565ec168d9441adfc869596177614d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c2a5f5_ffee0761",
         "filename": "front_end/elements/ComputedStyleProperty.ts",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2020-08-11T08:39:56Z",
       "side": 1,
       "message": "is this now done?",
+      "range": {
+        "startLine": 184,
+        "startChar": 26,
+        "endLine": 184,
+        "endChar": 61
+      },
+      "revId": "512ff1ef565ec168d9441adfc869596177614d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a4b5d36_d1fb9df4",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T09:41:16Z",
+      "side": 1,
+      "message": "Not yet. I\u0027ll address this in a separate CL because it involves renaming/shuffling a bunch of legacy world\u0027s logic that\u0027s unrelated to the components. But it seems like this TODO is not explicitly suggesting an action item. I\u0027ll update the wording.",
+      "parentUuid": "f0c2a5f5_ffee0761",
       "range": {
         "startLine": 184,
         "startChar": 26,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1b576f6b_5535be58",
+        "filename": "front_end/elements/ComputedStyleTrace_bridge.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T09:41:16Z",
+      "side": 1,
+      "message": "Yes I think so. The same thing happens for ComputedStyleProperty_bridge as well.",
+      "parentUuid": "9ee46019_6309bd7b",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 43
+      },
+      "revId": "512ff1ef565ec168d9441adfc869596177614d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4009cac0_3033a99a",
         "filename": "scripts/component_server/server.js",
         "patchSetId": 12
@@ -91,6 +163,30 @@
       "revId": "512ff1ef565ec168d9441adfc869596177614d4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "918a3bb9_00505e0d",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T09:41:16Z",
+      "side": 1,
+      "message": "No problem :) I\u0027m glad that I have a component name with more than two words to catch this.",
+      "parentUuid": "4009cac0_3033a99a",
+      "range": {
+        "startLine": 28,
+        "startChar": 64,
+        "endLine": 28,
+        "endChar": 65
+      },
+      "revId": "512ff1ef565ec168d9441adfc869596177614d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "eed5cbb8_ba2c8cd3",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T09:41:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a27304f0_8795ff23",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 5
+      },
+      "revId": "512ff1ef565ec168d9441adfc869596177614d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77144867_57ebfeeb",
         "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
         "patchSetId": 12
@@ -128,6 +248,30 @@
       "writtenOn": "2020-08-11T08:39:56Z",
       "side": 1,
       "message": "I don\u0027t think you need the explicit type here, TS should know what it is (same for all of the cases in this file)",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 101
+      },
+      "revId": "512ff1ef565ec168d9441adfc869596177614d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c6fe7b4_24e8ee07",
+        "filename": "test/unittests/front_end/elements/ComputedStyleTrace_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T09:41:16Z",
+      "side": 1,
+      "message": "Yes I\u0027ve removed the explicit typing here. But the other cases could not be removed because I need to `click()` them, and `click` does not exist on `Element`, only on `HTMLElement`.",
+      "parentUuid": "77144867_57ebfeeb",
       "range": {
         "startLine": 23,
         "startChar": 0,
