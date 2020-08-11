@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "d916983f_016c5b79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-11T13:06:20Z",
+      "side": 1,
+      "message": "Do you have any concrete icon in mind?",
+      "parentUuid": "7602a62e_02125eca",
+      "revId": "241a8a63048e11278337b12e1258b4726647a747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a59b4ef_9bb3e196",
         "filename": "front_end/color_picker/ContrastDetails.js",
         "patchSetId": 5
