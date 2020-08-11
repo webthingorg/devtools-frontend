@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f384e35d_cae82700",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-11T08:39:33Z",
+      "side": 1,
+      "message": "nit question: do you think there is an easy way to i18n these setting strings?",
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
