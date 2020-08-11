@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1666edbf_8df764a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-11T08:04:27Z",
+      "side": 1,
+      "message": "I think we would need to check for the type \u0027page\u0027, but I can do that as a follow up, so we can get this in ASAP.",
+      "revId": "663157f955e007aaa98ae069535bc8f477beb9f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
