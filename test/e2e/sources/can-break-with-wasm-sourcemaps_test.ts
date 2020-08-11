@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {getBrowserAndPages, step, waitFor} from '../../shared/helper.js';
+import {getBrowserAndPages, step, timeout, waitFor} from '../../shared/helper.js';
 import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, openFileInEditor, openSourceCodeEditorForFile, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, sourceLineNumberSelector} from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
@@ -82,5 +82,29 @@ describe('The Sources Tab', async () => {
       const scriptLocation = await retrieveTopCallFrameWithoutResuming();
       assert.deepEqual(scriptLocation, 'with-sourcemap.ll:6');
     });
+  });
+
+  it.only('is able to step in original source with state', async function() {
+    const {target, frontend} = getBrowserAndPages();
+
+    await step('navigate to a page with original source and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile('stepping-with-state.c', 'wasm/emscripten/stepping-with-state-sourcemaps.html');
+    });
+
+    await step('add a breakpoint to line No.11', async () => {
+      await addBreakpointForLine(frontend, 11);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitFor(await sourceLineNumberSelector(11));
+    });
+
+    await checkBreakpointIsActive(11);
+
+    await timeout(999999);
   });
 });

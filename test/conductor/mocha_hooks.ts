@@ -49,7 +49,7 @@ export const mochaHooks = {
   },
   async beforeEach(this: Mocha.Suite) {
     // Sets the timeout higher for this hook only.
-    this.timeout(3000);
+    // this.timeout(3000);
     await resetPages();
   },
 };
