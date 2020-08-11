@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe937967_d62a584e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T08:21:48Z",
+      "side": 1,
+      "message": "Some thoughts, but since this is a drive-by review please do feel free to ignore any and all! 😊",
+      "revId": "c4fb58acea0dc15c31303f35a269987c64553581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "199d5957_2a3071bd",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T08:21:48Z",
+      "side": 1,
+      "message": "You could make this readonly if it\u0027s not going to change. For clarity you might want to just call toString(), I guess.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "c4fb58acea0dc15c31303f35a269987c64553581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67606f30_2df4cda4",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T08:21:48Z",
+      "side": 1,
+      "message": "Can this be readonly?",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "c4fb58acea0dc15c31303f35a269987c64553581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c268ae_d291e97a",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T08:21:48Z",
+      "side": 1,
+      "message": "nit: no need to type primitives",
+      "range": {
+        "startLine": 24,
+        "startChar": 25,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "c4fb58acea0dc15c31303f35a269987c64553581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07e59bb2_5438f372",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T08:21:48Z",
+      "side": 1,
+      "message": "You can probably destructure the LitHtml render and html higher up",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 11
+      },
+      "revId": "c4fb58acea0dc15c31303f35a269987c64553581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba2ee6eb_bf25c756",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T08:21:48Z",
+      "side": 1,
+      "message": "I think we probably want the slightly stricter Number.isFinite here",
+      "range": {
+        "startLine": 235,
+        "startChar": 9,
+        "endLine": 235,
+        "endChar": 17
+      },
+      "revId": "c4fb58acea0dc15c31303f35a269987c64553581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa3ec171_a11decc9",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-11T08:21:48Z",
+      "side": 1,
+      "message": "I feel like this could take some comments",
+      "range": {
+        "startLine": 239,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 50
+      },
+      "revId": "c4fb58acea0dc15c31303f35a269987c64553581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
