@@ -339,6 +339,10 @@ export class OverlayModel extends SDKModel {
     this._persistentGridHighlighter.hideInOverlay(nodeId);
   }
 
+  resetGridInPersistentOverlay() {
+    this._persistentGridHighlighter.resetOverlay();
+  }
+
   /**
    * @param {!DOMNode} node
    */
@@ -664,6 +668,9 @@ export class PersistentGridHighlighter {
 
   refreshHighlights() {
   }
+
+  resetOverlay() {
+  }
 }
 
 /**
@@ -871,6 +878,16 @@ class DefaultPersistentGridHighlighter {
     if (needsUpdate) {
       this._updateHighlightsInOverlay();
     }
+  }
+
+  /**
+   * @override
+   */
+  resetOverlay() {
+    for (const nodeId of this._gridHighlights.keys()) {
+      this._gridHighlights.set(nodeId, this._buildGridHighlightConfig());
+    }
+    this._updateHighlightsInOverlay();
   }
 
   _updateHighlightsInOverlay() {

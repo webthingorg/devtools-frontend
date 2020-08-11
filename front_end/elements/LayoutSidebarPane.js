@@ -24,10 +24,14 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     ];
     this._layoutPane.addEventListener('setting-changed', event => {
       Common.Settings.Settings.instance().moduleSetting(event.data.setting).set(event.data.value);
+      if (this._node) {
+        this._node.domModel().overlayModel().resetGridInPersistentOverlay();
+      }
     });
     this._settings.forEach(setting => {
       Common.Settings.Settings.instance().moduleSetting(setting).addChangeListener(this.update, this);
     });
+    this._node = self.UI.context.flavor(SDK.DOMModel.DOMNode);
   }
 
   /**
