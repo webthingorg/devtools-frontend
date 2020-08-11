@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "8d943126_c5d1f336",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "Ah it does work. Just not in the component docs server. I\u0027ll remove the comment and leave it with you to think about importing a bunch of stuff by default there?",
+      "parentUuid": "cfedb45a_ef83618a",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dfa1fb32_deb3847b",
         "filename": "front_end/perf_ui/PieChart2.ts",
         "patchSetId": 6
@@ -79,6 +103,30 @@
       "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0217d29f_73354ab6",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "I gave it a default impl as it\u0027s always provided via data, all callers give one",
+      "parentUuid": "dfa1fb32_deb3847b",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 62
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "c8eec2a2_0c32fdb3",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3202c41f_acda7527",
+      "range": {
+        "startLine": 159,
+        "startChar": 12,
+        "endLine": 161,
+        "endChar": 37
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c453311a_81f18640",
         "filename": "front_end/perf_ui/PieChart2.ts",
         "patchSetId": 6
@@ -125,6 +197,30 @@
       "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb755202_07663a53",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "oh yeah ... no idea why I did this",
+      "parentUuid": "c453311a_81f18640",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 45
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "20f83ed5_c96b7aad",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "Does it make you .... sus-pie-cious?",
+      "parentUuid": "b079118f_47c2d382",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 112
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f537c8c_b69a74f3",
         "filename": "front_end/timeline/TimelineUIUtils.js",
         "patchSetId": 6
@@ -171,6 +291,30 @@
       "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1140d7f_1671488a",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1845,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f537c8c_b69a74f3",
+      "range": {
+        "startLine": 1838,
+        "startChar": 2,
+        "endLine": 1845,
+        "endChar": 43
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "753a067f_bcc6ab92",
+        "filename": "test/unittests/front_end/perf_ui/PieChart2_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "There should be two selected - one in the chart and the one in the legend (below). I would like to check which ones are selected so I\u0027ll leave as is",
+      "parentUuid": "4aa68f24_47823f5a",
+      "range": {
+        "startLine": 109,
+        "startChar": 5,
+        "endLine": 114,
+        "endChar": 67
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fee8b42c_9b17a5ec",
         "filename": "test/unittests/front_end/perf_ui/PieChart2_test.ts",
         "patchSetId": 6
@@ -217,6 +385,30 @@
       "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6786e0a_8282f5bc",
+        "filename": "test/unittests/front_end/perf_ui/PieChart2_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T08:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fee8b42c_9b17a5ec",
+      "range": {
+        "startLine": 153,
+        "startChar": 5,
+        "endLine": 153,
+        "endChar": 89
+      },
+      "revId": "a18a45ee7845ceba7820dab6889de2fb7fb6a5ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
