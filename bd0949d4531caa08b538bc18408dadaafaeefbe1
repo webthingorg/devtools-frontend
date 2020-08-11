@@ -145,6 +145,30 @@
       "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29cd9f93_d86cfb45",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-11T18:55:12Z",
+      "side": 1,
+      "message": "Thanks, I didn\u0027t think of it. But it appears to be correct for me: any instance DefaultPersistentGridHighlighter that exist should update if the settings are changed because I assume the settings are global, right?",
+      "parentUuid": "9cf61d9e_326fbf77",
+      "range": {
+        "startLine": 682,
+        "startChar": 4,
+        "endLine": 682,
+        "endChar": 79
+      },
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
