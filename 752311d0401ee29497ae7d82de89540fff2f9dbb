@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "76d8e35f_21948df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-11T04:32:23Z",
+      "side": 1,
+      "message": "I was able to create a test for the \"expand and issue\" metric, but for the click in a resource I can\u0027t reproduce any with a clickable resource.\n\nThe problem I have is that I don\u0027t know how to reproduce an issue with an associated network request/element. Do you know how can I create one?\n\nThanks.",
+      "parentUuid": "3fbb4836_2343fc0b",
+      "revId": "752311d0401ee29497ae7d82de89540fff2f9dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f819429_79be1a2e",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 16
@@ -70,6 +88,30 @@
       "writtenOn": "2020-08-10T07:29:33Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 473,
+        "startChar": 2,
+        "endLine": 474,
+        "endChar": 59
+      },
+      "revId": "752311d0401ee29497ae7d82de89540fff2f9dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92669785_55c37a2c",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-11T04:32:23Z",
+      "side": 1,
+      "message": "I have also removed the \"other\" property. It is not needed anymore.",
+      "parentUuid": "113c9566_76bd3b68",
       "range": {
         "startLine": 473,
         "startChar": 2,
