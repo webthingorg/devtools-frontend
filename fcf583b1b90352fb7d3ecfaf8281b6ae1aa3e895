@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0ad3bcf_e8379f2a",
+        "filename": "test/unittests/front_end/perf_ui/PieChart2_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-11T13:38:25Z",
+      "side": 1,
+      "message": "Problem running this test: \n\nError: Uncaught TypeError: Cannot read property \u0027_keyboardFocus\u0027 of undefined (front_end/ui/utils/focus-changed.js:54:3 \u003c- out/Default/gen/front_end/ui/utils/focus-changed.js:49)\n            at HTMLElement.selectAndFocusSlice (front_end/perf_ui/PieChart2.ts:219:21 \u003c- out/Default/gen/front_end/perf_ui/PieChart2.js:206:24)\n            at HTMLElement.focusPreviousElement (front_end/perf_ui/PieChart2.ts:234:12 \u003c- out/Default/gen/front_end/perf_ui/PieChart2.js:221:18)\n            at HTMLElement.onKeyDown (front_end/perf_ui/PieChart2.ts:248:12 \u003c- out/Default/gen/front_end/perf_ui/PieChart2.js:237:18)\n            at EventPart.handleEvent (out/Default/gen/front_end/third_party/lit-html/package/src/lib/parts.ts:505:18 \u003c- out/Default/gen/front_end/third_party/lit-html/package/lib/parts.js:434:24)\n            at HTMLDivElement.EventPart.__boundHandleEvent (out/Default/gen/front_end/third_party/lit-html/package/src/lib/parts.ts:463:43 \u003c- out/Default/gen/front_end/third_party/lit-html/package/lib/parts.js:400:47)\n            at Context.\u003canonymous\u003e (test/unittests/front_end/perf_ui/PieChart2_test.ts:204:13 \u003c- out/Default/gen/test/unittests/front_end/perf_ui/PieChart2_test.js:155:18)\n\nWe call into focus-changed.js which relies on UI being present globally but it isn\u0027t. Can we get this to work at all when it relies on global UI?\nShould I just not write tests for these parts that rely on it ATM? It works in devtools, and the other tests which don\u0027t trigger it work fine too.",
+      "range": {
+        "startLine": 204,
+        "startChar": 6,
+        "endLine": 204,
+        "endChar": 74
+      },
+      "revId": "fcf583b1b90352fb7d3ecfaf8281b6ae1aa3e895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
