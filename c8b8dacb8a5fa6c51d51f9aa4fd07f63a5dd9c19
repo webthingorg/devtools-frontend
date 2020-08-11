@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45dec611_8f9aa120",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-11T05:48:38Z",
+      "side": 1,
+      "message": "Hi Eric!\n\nhere\u0027s the CL to gate the extension API behind the wasmDWARFDebugging flag by preventing the extension from creating an endpoint on the server side.\n\nPTAL!",
+      "revId": "c8b8dacb8a5fa6c51d51f9aa4fd07f63a5dd9c19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
