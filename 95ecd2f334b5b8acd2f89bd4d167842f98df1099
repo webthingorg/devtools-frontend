@@ -39,6 +39,30 @@
       "revId": "95ecd2f334b5b8acd2f89bd4d167842f98df1099",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbaeb07d_0ec58022",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-11T09:36:00Z",
+      "side": 1,
+      "message": "This is \"safe\", in that this is only used inside \"applicableActions\", which gets a list of \"actionIds\" and then does the lookup plus null check.\n\n\"extensionToAction\" simply does the reverse, but since we looked up the extension itself via the action it\u0027s (kind of) guaranteed that the action is non-null.\n\nI can add a null check and throw an error if you prefer?",
+      "parentUuid": "d075430c_7a59dc80",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "95ecd2f334b5b8acd2f89bd4d167842f98df1099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
