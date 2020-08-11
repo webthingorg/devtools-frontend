@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7740ee14_7582ee5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-11T05:07:20Z",
+      "side": 1,
+      "message": "I apologize Sigurd, I saw too late that your +1 is still missing. I\u0027ll follow up on any comments you have in a separate CL.",
+      "revId": "c5d9d48d50ac07ccfa332118ae961a0afbb6aea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
