@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {$$, click, getBrowserAndPages, pasteText, step} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, pasteText, step, timeout} from '../../shared/helper.js';
 import {focusConsolePrompt, unifyLogVM} from '../helpers/console-helpers.js';
 import {CONSOLE_SELECTOR, CONSOLE_TAB_SELECTOR, STACK_PREVIEW_CONTAINER} from '../helpers/console-helpers.js';
 
@@ -18,6 +18,9 @@ describe('The Console Tab', async () => {
       await click(CONSOLE_TAB_SELECTOR);
       await focusConsolePrompt();
     });
+
+    // FIXME(crbug/1112692): Refactor test to remove the timeout.
+    await timeout(50);
 
     await step('enter code into the console that produces two stack traces, one short and and one long', async () => {
       await pasteText(`

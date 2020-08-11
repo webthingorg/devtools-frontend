@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
-import {click, getBrowserAndPages, pasteText, step} from '../../shared/helper.js';
+import {click, getBrowserAndPages, pasteText, step, timeout} from '../../shared/helper.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpers.js';
 import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 
@@ -17,6 +17,9 @@ describe('The Console Tab', async () => {
       await click(CONSOLE_TAB_SELECTOR);
       await focusConsolePrompt();
     });
+
+    // FIXME(crbug/1112692): Refactor test to remove the timeout.
+    await timeout(50);
 
     await step('enter code that implicitly creates global properties', async () => {
       await pasteText(`
