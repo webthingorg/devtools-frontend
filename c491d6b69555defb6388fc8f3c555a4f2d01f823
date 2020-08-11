@@ -70,6 +70,30 @@
       "revId": "c491d6b69555defb6388fc8f3c555a4f2d01f823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d43fc9cb_eb96ae90",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-11T07:22:05Z",
+      "side": 1,
+      "message": "ok, I have removed it.",
+      "parentUuid": "8497e653_05e7118d",
+      "range": {
+        "startLine": 217,
+        "startChar": 10,
+        "endLine": 217,
+        "endChar": 31
+      },
+      "revId": "c491d6b69555defb6388fc8f3c555a4f2d01f823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
