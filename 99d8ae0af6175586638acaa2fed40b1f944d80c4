@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "42951b2d_17468122",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-11T08:03:24Z",
+      "side": 1,
+      "message": "Sorry, this is not acceptable run-time wise. Let\u0027s return the this._issues.size here. We can then check whether there are only third party issues by checking if numberOfIssues() is zero and this is greater than zero.\n\nPlease rename accordingly.",
+      "parentUuid": "1eb109ab_bb078dd3",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9ecc605_69f193c8",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 2
@@ -110,6 +134,30 @@
       "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "790fee8b_4638e317",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-11T08:03:24Z",
+      "side": 1,
+      "message": "Let me ask a more pointed question: Can we get rid of this in favor of only setting the text content in _showIssuesTreeOrNoIssuesDetectedMessage?",
+      "parentUuid": "1965be99_929bc3b9",
+      "range": {
+        "startLine": 1174,
+        "startChar": 4,
+        "endLine": 1174,
+        "endChar": 73
+      },
+      "revId": "99d8ae0af6175586638acaa2fed40b1f944d80c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
       "key": {
