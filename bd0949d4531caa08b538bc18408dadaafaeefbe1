@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6b3a73e1_04effa99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-11T15:16:35Z",
+      "side": 1,
+      "message": "CCing @vidal who might be able to better explain the thinking around non-localizable experiments. Added my understanding to the comment. I\u0027ll also go through the rest of the review 😊",
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f384e35d_cae82700",
         "filename": "front_end/main/MainImpl.js",
         "patchSetId": 5
@@ -67,6 +84,24 @@
       "side": 1,
       "message": "Created it https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1115040",
       "parentUuid": "1284bf82_641914d1",
+      "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "410f0d6a_2be84b22",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-11T15:16:35Z",
+      "side": 1,
+      "message": "We actually had a discussion about this recently with Vidal and the loc crew. My understanding is this matches the current chromium approach to experiments. In chrome://flags, none of the experiments are Localizable (while some of the UI is). The thinking is that these experiments are temporary in nature and it doesn\u0027t make a ton of sense to go through the translation process for something that will be removed. \n\nCC @Vidal who might be able to explain better.",
+      "parentUuid": "edd42d68_11ce3b82",
       "revId": "bd0949d4531caa08b538bc18408dadaafaeefbe1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
