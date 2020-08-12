@@ -3,5 +3,7 @@
 // found in the LICENSE file.
 
 import * as ClientVariationsParser from '../third_party/chromium/client-variations/ClientVariationsParser.js';
+import * as ClientVariationsFormatter from './format_client_variations.js';
 
 export const parseClientVariations = ClientVariationsParser.parseClientVariations;
+export const formatClientVariations = ClientVariationsFormatter.formatClientVariations;
