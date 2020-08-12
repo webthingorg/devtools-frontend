@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "045139a2_12f99335",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-12T21:12:41Z",
+      "side": 1,
+      "message": "Small CL to add a user action for the source order viewer experiment. PTAL!",
+      "revId": "7a159074bf7dc59db8e66bfb6fff033212e01b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a61d83_a3f7eb11",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-12T21:12:41Z",
+      "side": 1,
+      "message": "Note: this is still in an experiemnt, so I\u0027m not 100% sure this is the best way to add this telemetry point. Let me know if you would prefer a separate histogram",
+      "range": {
+        "startLine": 258,
+        "startChar": 2,
+        "endLine": 258,
+        "endChar": 31
+      },
+      "revId": "7a159074bf7dc59db8e66bfb6fff033212e01b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
