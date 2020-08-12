@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "762541a1_57d07d54",
+        "filename": "docs/contributer-journeys/build_system_templates.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:52:21Z",
+      "side": 1,
+      "message": "is this file lifted from the `scripts/build/ninja/README.md` file? Why move it here?\n\nIt might be best to reference this file from your docs rather than a copy/paste. We should definitely not duplicate this content.",
+      "revId": "cf812ffbfb4969003eef3d58852aceb070e982b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a191c20_7a57274b",
+        "filename": "docs/contributer-journeys/frontend_feature.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:52:21Z",
+      "side": 1,
+      "message": "splitted \u003d\u003e split",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "cf812ffbfb4969003eef3d58852aceb070e982b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "244f9ce3_4d50b287",
+        "filename": "docs/contributer-journeys/frontend_feature.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:52:21Z",
+      "side": 1,
+      "message": "I\u0027d go stronger here; it\u0027s explicitly forbidden by the build system / linting rules.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 107
+      },
+      "revId": "cf812ffbfb4969003eef3d58852aceb070e982b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
