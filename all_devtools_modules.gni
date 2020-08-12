@@ -217,6 +217,7 @@ all_typescript_module_sources = [
   "extensions/ExtensionTraceProvider.js",
   "extensions/ExtensionView.js",
   "extensions/LanguageExtensionEndpoint.js",
+  "feature/FeaturePanel.js",
   "formatter/FormatterWorkerPool.js",
   "formatter/ScriptFormatter.js",
   "formatter/SourceFormatter.js",

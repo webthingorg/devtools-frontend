@@ -34,6 +34,7 @@ group("front_end") {
     "emulation:bundle",
     "event_listeners:bundle",
     "extensions:bundle",
+    "feature:bundle",
     "formatter:bundle",
     "formatter_worker:bundle",
     "har_importer:bundle",

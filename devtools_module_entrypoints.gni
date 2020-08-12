@@ -123,6 +123,7 @@ generated_typescript_entrypoint_sources = [
   "$resources_out_dir/emulation/emulation.js",
   "$resources_out_dir/event_listeners/event_listeners.js",
   "$resources_out_dir/extensions/extensions.js",
+  "$resources_out_dir/feature/feature.js",
   "$resources_out_dir/formatter/formatter.js",
   "$resources_out_dir/formatter_worker/formatter_worker.js",
   "$resources_out_dir/har_importer/har_importer.js",

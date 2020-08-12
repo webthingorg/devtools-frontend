@@ -156,6 +156,7 @@ generated_applications_js = [
 ]
 
 generated_non_autostart_non_remote_modules = [
+  "$resources_out_dir/feature/feature_module.js",
   "$resources_out_dir/accessibility/accessibility_module.js",
   "$resources_out_dir/animation/animation_module.js",
   "$resources_out_dir/browser_debugger/browser_debugger_module.js",

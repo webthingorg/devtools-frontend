@@ -1,0 +1,24 @@
+{
+  "extensions": [
+    {
+      "type": "view",
+      "location": "drawer-view",
+      "id": "feature-view", 
+      "title": "Feature", 
+      "order": 100,
+      "persistence": "closeable",
+      "className": "Feature.FeaturePanel",
+      "experiment": "featurePanel"
+    }
+  ],
+  "dependencies": [
+    "ui"
+  ],
+  "modules": [
+    "feature.js",
+    "FeaturePanel.js"
+  ],
+  "resources": [
+    "featurePanel.css"
+  ]
+}

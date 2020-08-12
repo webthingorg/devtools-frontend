@@ -191,6 +191,10 @@ export class MainImpl {
     // Layout personalization
     Root.Runtime.experiments.register('movableTabs', 'Enable support to move tabs between panels');
 
+
+    // The id 'featurePanel' has to match the one in the module.json file
+    Root.Runtime.experiments.register('featurePanel', 'Short feature description');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
