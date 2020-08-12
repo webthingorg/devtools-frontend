@@ -1971,6 +1971,18 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       node.domModel().overlayModel().addEventListener(SDK.OverlayModel.Events.PersistentGridOverlayCleared, () => {
         gridAdorner.toggle(false /* force inactive state */);
       });
+      node.domModel().overlayModel().addEventListener(SDK.OverlayModel.Events.PersistentGridOverlayEnabled, event => {
+        if (event.data !== nodeId) {
+          return;
+        }
+        gridAdorner.toggle(true /* force active state */);
+      });
+      node.domModel().overlayModel().addEventListener(SDK.OverlayModel.Events.PersistentGridOverlayDisabled, event => {
+        if (event.data !== nodeId) {
+          return;
+        }
+        gridAdorner.toggle(false /* force inactive state */);
+      });
     }
   }
 }
