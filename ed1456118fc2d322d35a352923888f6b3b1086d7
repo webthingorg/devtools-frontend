@@ -16,6 +16,29 @@
       "revId": "ed1456118fc2d322d35a352923888f6b3b1086d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "942d7633_933ff890",
+        "filename": "front_end/client_variations/client_variations.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:32:30Z",
+      "side": 1,
+      "message": "Normally we would do:\n\n```\nexport {\n  ClientVariationsParser,\n  ClientVariationsFormatter\n}\n```\n\nAnd then you call it via `ClientVariations.ClientVariationsFormatter.formatClientVariations`\n\nThat feels very long winded but if you imported the files as `Parser` and `Formatter` that would make it a bit nicer?\n\nWDYT?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 87
+      },
+      "revId": "ed1456118fc2d322d35a352923888f6b3b1086d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
