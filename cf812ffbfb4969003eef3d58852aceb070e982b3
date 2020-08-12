@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "e8cbd55a_d6cac426",
+        "filename": "docs/contributer-journeys/frontend_feature.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T11:40:44Z",
+      "side": 1,
+      "message": "I chatted with Paul L and the legacy is only needed if you want to have layout tests for your new feature. So ideally we shouldn\u0027t be doing this (because we can unit test components + run e2e tests). We should explicitly lay that out in this doc.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "cf812ffbfb4969003eef3d58852aceb070e982b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a191c20_7a57274b",
         "filename": "docs/contributer-journeys/frontend_feature.md",
         "patchSetId": 7
@@ -58,6 +81,29 @@
         "startChar": 0,
         "endLine": 41,
         "endChar": 107
+      },
+      "revId": "cf812ffbfb4969003eef3d58852aceb070e982b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "020ffa93_b770ab4c",
+        "filename": "docs/contributer-journeys/frontend_feature.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T11:40:44Z",
+      "side": 1,
+      "message": "did you consider the new components system in this doc? I\u0027d like us to try to push people towards that system when possible rather than have them land on using the UI system that we want to remove long term. \n\nMy worry is with this doc currently not mentioning that newcomers will dive into the legacy system without deciding which is best (right now components aren\u0027t fit for every feature, but we\u0027re working on it).\n\nIt might be worth some text at the start of this doc explaining the current state of affairs.",
+      "range": {
+        "startLine": 249,
+        "startChar": 1,
+        "endLine": 251,
+        "endChar": 0
       },
       "revId": "cf812ffbfb4969003eef3d58852aceb070e982b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
