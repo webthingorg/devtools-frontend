@@ -76,6 +76,24 @@
     },
     {
       "key": {
+        "uuid": "45351e24_2f68cd87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-12T21:00:07Z",
+      "side": 1,
+      "message": "The issue can be reproduced without my change on canary: set scale factor to like 75%, and in the console window, call window.getWindowSegments(). We shall see it report scaled values. Platform team is working on a fix. So I will proceed to address your other comments here.",
+      "parentUuid": "9cede05b_f765597c",
+      "revId": "d1b229aefd1aa83692c9a00759ac997033ef4fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e77db05_96667192",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 14
