@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef998722_330cb68d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-12T13:38:56Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "e76608d1095d215aa2898d270263ead15ad268de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c357437c_409fd136",
+        "filename": "front_end/ui/HistoryInput.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-12T13:38:56Z",
+      "side": 1,
+      "message": "nit: can we move this to the top of the file? I thought we didn\u0027t have it initially 😊",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 0
+      },
+      "revId": "e76608d1095d215aa2898d270263ead15ad268de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
