@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7f93772_500a3916",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-12T12:17:32Z",
+      "side": 1,
+      "message": "This looks good to me, but please also ask somebody who\u0027s worked on this to review, just in case I\u0027m missing something.",
+      "revId": "8d83410934de3607c01ed4238fd0b86df19b46d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
