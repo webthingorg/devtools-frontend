@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "41ceaea9_15595500",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-12T15:22:17Z",
+      "side": 1,
+      "message": "\u003e LGTM, Thanks!\n\u003e \n\u003e I this this is great for M86, but I also wonder if longer term whether the full formatting logic should live in Chromium w/ the code to parse the proto? Though it may be a bit more involved since right now this code creates different html tags \u0026 does translation.\n\nI like this idea. As a follow-up, the upstream ClientVariationsParser.js could be changed to ClientVariations.js which would include both the parser and the formatter, and then we could just consume that in DevTools. The logic to create the text output is separate from the creation of the HTML elements (it already is, even in this current CL) so that is not a problem. Is this something your team wants to take on? cc Ilya",
+      "parentUuid": "f3c0616f_5bf3f6b6",
+      "revId": "2f9c6e4fa3c1927df49e222c6bf9e2785a4f09de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9eb4b82_ed0ffeae",
         "filename": "front_end/network/network_strings.grdp",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2020-08-12T12:57:04Z",
       "side": 1,
       "message": "Nit: Let\u0027s use the exact same comment strings as in Chromium source for the proto:\n// A list of client experiment variation IDs that are active.\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:components/variations/proto/client_variations.proto;drc\u003de8a7d2dbe912fef313df574d9124cc4072cc68fe;l\u003d17\n\nSame for the trigger comment.\n\n(Rationale: If we\u0027re describing the same thing, let\u0027s avoid the extra complexity of two different ways to describe it.)\n\nSeparately, I do wonder - if these are in GRD, I guess they\u0027ll be translated. Does it make sense to translate these technical terms? Do other highly technical string in dev tools get translated well?",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 43
+      },
+      "revId": "2f9c6e4fa3c1927df49e222c6bf9e2785a4f09de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d420046d_894c9511",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-12T15:22:17Z",
+      "side": 1,
+      "message": "That\u0027s a good point. I fully agree with your rationale.\n\nSince these strings are user-visible, we should use active voice and try to keep them short per the Chrome UX guidelines (https://carbon.googleplex.com/chrome-ux/pages/introduction), however, so I\u0027d rather update the upstream strings to match instead of vice versa. In case you\u0027re open to that, I\u0027ve prepared a CL: https://chromium-review.googlesource.com/c/chromium/src/+/2351928 PTAL.",
+      "parentUuid": "d9eb4b82_ed0ffeae",
       "range": {
         "startLine": 439,
         "startChar": 0,
