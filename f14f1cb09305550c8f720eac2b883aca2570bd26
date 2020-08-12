@@ -16,6 +16,23 @@
       "revId": "f14f1cb09305550c8f720eac2b883aca2570bd26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9d25868_e95164da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T15:44:04Z",
+      "side": 1,
+      "message": "This is great. I think if we have regressions we should fix forward - being able to remove this code and rely on the native CSS feature is a big win. Nice find!",
+      "revId": "f14f1cb09305550c8f720eac2b883aca2570bd26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
