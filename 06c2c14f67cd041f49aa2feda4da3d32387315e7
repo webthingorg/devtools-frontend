@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ce86707_292104a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-12T16:13:59Z",
+      "side": 1,
+      "message": "LGTM! Tested on NVDA and narrator and this seems to fix the issue.",
+      "revId": "06c2c14f67cd041f49aa2feda4da3d32387315e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bb1a69a_082917f4",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-12T16:13:59Z",
+      "side": 1,
+      "message": "nit: this actually fixes issues with SR not putting any pause between attributes (they all run together, but the quotes general break things up). I might modify this to say \"cause screen readers to pause between tags and attributes\", or similar",
+      "range": {
+        "startLine": 1553,
+        "startChar": 10,
+        "endLine": 1553,
+        "endChar": 134
+      },
+      "revId": "06c2c14f67cd041f49aa2feda4da3d32387315e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
