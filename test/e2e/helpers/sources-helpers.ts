@@ -5,8 +5,9 @@
 import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, getHostedModeServerPort, goToResource, pressKey, step, typeText, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, getHostedModeServerPort, goToResource, pressKey, step, typeText, waitFor} from '../../shared/helper.js';
 
+export const ACTIVE_LINE = '.CodeMirror-activeline .CodeMirror-linenumber';
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
 export const PAUSE_BUTTON = '[aria-label="Pause script execution"]';
 export const RESUME_BUTTON = '[aria-label="Resume script execution"]';
@@ -69,6 +70,14 @@ export async function openSourceCodeEditorForFile(sourceFile: string, testInput:
   await openFileInEditor(sourceFile);
 }
 
+export async function goToLine(frontend: puppeteer.Page, lineNumber: number) {
+  await frontend.keyboard.down('Control');
+  await frontend.keyboard.press('KeyG');
+  await frontend.keyboard.up('Control');
+  await frontend.keyboard.type(lineNumber.toString());
+  await frontend.keyboard.press('Enter');
+}
+
 export async function getOpenSources() {
   const sourceTabPane = await waitFor('#sources-panel-sources-view .tabbed-pane');
   const sourceTabs = await waitFor('.tabbed-pane-header-tabs', sourceTabPane);
@@ -107,8 +116,25 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
   }, undefined, currentBreakpointCount);
 }
 
+export async function sourceLineSelector(lineNumber: number) {
+  return `div.CodeMirror-code > div:nth-child(${lineNumber})`;
+}
+
 export async function sourceLineNumberSelector(lineNumber: number) {
-  return `div.CodeMirror-code > div:nth-child(${lineNumber}) div.CodeMirror-linenumber.CodeMirror-gutter-elt`;
+  return await sourceLineSelector(lineNumber) + ' div.CodeMirror-linenumber.CodeMirror-gutter-elt';
+}
+
+export async function sourceLineCodeSelector(lineNumber: number) {
+  return await sourceLineSelector(lineNumber) + ' pre.CodeMirror-line';
+}
+
+export async function checkLineIsHighlighted(lineNumber: number) {
+  await waitFor(PAUSE_INDICATOR_SELECTOR);
+  const activeLineNumber = await (await $('.CodeMirror-activeline .CodeMirror-linenumber'))!.evaluate(element => {
+    return element.innerHTML;
+  });
+  assert.strictEqual(
+      +activeLineNumber, lineNumber, `line No.${activeLineNumber} is active instead of line No.${lineNumber}`);
 }
 
 export async function checkBreakpointIsActive(lineNumber: number) {
@@ -120,6 +146,16 @@ export async function checkBreakpointIsActive(lineNumber: number) {
     assert.deepInclude(codeLineNums[lineNumber - 1], 'cm-breakpoint');
     assert.notDeepInclude(codeLineNums[lineNumber - 1], 'cm-breakpoint-disabled');
     assert.notDeepInclude(codeLineNums[lineNumber - 1], 'cm-breakpoint-unbound');
+  });
+}
+
+export async function checkInlinePause(inlineText: string, lineNumber: number) {
+  await step(`check that the run has paused on "${inlineText}" on line No.${lineNumber}`, async () => {
+    const sourceLineText = await (await $(
+        (await sourceLineCodeSelector(lineNumber)) + ' .cm-variable.cm-execution-line-tail'))!.evaluate(element => {
+      return element.innerHTML;
+    });
+    assert.strictEqual(sourceLineText, inlineText, 'line paused at is not correct');
   });
 }
 
