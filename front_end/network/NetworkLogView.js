@@ -248,12 +248,12 @@ export class NetworkLogView extends UI.Widget.VBox {
    * @param {!SDK.NetworkRequest.NetworkRequest} request
    * @return {boolean}
    */
-  static _requestPathFilter(regex, request) {
+  static _requestUrlFilter(regex, request) {
     if (!regex) {
       return false;
     }
 
-    return regex.test(request.path() + '/' + request.name());
+    return regex.test(request.url());
   }
 
   /**
@@ -473,6 +473,15 @@ export class NetworkLogView extends UI.Widget.VBox {
    */
   static _statusCodeFilter(value, request) {
     return ('' + request.statusCode) === value;
+  }
+
+  /**
+   * @param {string} value
+   * @param {!SDK.NetworkRequest.NetworkRequest} request
+   */
+  static _requestPathFilter(value, request) {
+    const regex = new RegExp(value.escapeForRegExp(), 'i');
+    return regex.test(request.path() + '/' + request.name());
   }
 
   /**
@@ -1643,11 +1652,11 @@ export class NetworkLogView extends UI.Widget.VBox {
       if (key) {
         const defaultText = (key + ':' + text).escapeForRegExp();
         filter = this._createSpecialFilter(/** @type {!FilterType} */ (key), text) ||
-            NetworkLogView._requestPathFilter.bind(null, new RegExp(defaultText, 'i'));
+            NetworkLogView._requestUrlFilter.bind(null, new RegExp(defaultText, 'i'));
       } else if (descriptor.regex) {
-        filter = NetworkLogView._requestPathFilter.bind(null, /** @type {!RegExp} */ (regex));
+        filter = NetworkLogView._requestUrlFilter.bind(null, /** @type {!RegExp} */ (regex));
       } else {
-        filter = NetworkLogView._requestPathFilter.bind(null, new RegExp(text.escapeForRegExp(), 'i'));
+        filter = NetworkLogView._requestUrlFilter.bind(null, new RegExp(text.escapeForRegExp(), 'i'));
       }
       return descriptor.negative ? NetworkLogView._negativeFilter.bind(null, filter) : filter;
     });
@@ -1723,6 +1732,9 @@ export class NetworkLogView extends UI.Widget.VBox {
 
       case FilterType.StatusCode:
         return NetworkLogView._statusCodeFilter.bind(null, value);
+
+      case FilterType.Path:
+        return NetworkLogView._requestPathFilter.bind(null, value);
     }
     return null;
   }
@@ -2182,7 +2194,8 @@ export const FilterType = {
   CookieName: 'cookie-name',
   CookiePath: 'cookie-path',
   CookieValue: 'cookie-value',
-  StatusCode: 'status-code'
+  StatusCode: 'status-code',
+  Path: 'path'
 };
 
 /** @enum {string} */
