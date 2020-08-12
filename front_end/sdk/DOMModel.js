@@ -1659,6 +1659,18 @@ export class DOMModel extends SDKModel {
   }
 
   /**
+   * @return {!Promise<!Array<number>>}
+   */
+  async getNodesByStyle() {
+    const response = await this._agent.invoke_getNodesForSubtreeByStyle(
+        {nodeId: this._document.id, computedStyles: [{name: 'display', value: 'grid'}], pierce: true});
+    if (response.getError()) {
+      throw response.getError();
+    }
+    return response.nodeIds;
+  }
+
+  /**
    * @param {string} query
    * @param {boolean} includeUserAgentShadowDOM
    * @return {!Promise<number>}
