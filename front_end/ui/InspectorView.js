@@ -32,6 +32,7 @@
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Common from '../common/common.js';
+import {reload} from '../components/Reload.js';
 import * as Host from '../host/host.js';
 
 import {ActionDelegate as ActionDelegateInterface} from './ActionDelegate.js';  // eslint-disable-line no-unused-vars
@@ -407,7 +408,7 @@ export class InspectorView extends VBox {
           text: ls`Reload DevTools`,
           highlight: true,
           delegate: () => {
-            Host.InspectorFrontendHost.InspectorFrontendHostInstance.reattach(() => window.location.reload());
+            reload();
           },
           dismiss: false
         },
