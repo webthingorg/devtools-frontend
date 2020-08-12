@@ -16,6 +16,161 @@
       "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f573e8d7_966911ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:29:06Z",
+      "side": 1,
+      "message": "Still a little uncomfortable with this global focus tracker stuff - wouldn\u0027t mind thinking about that a bit more. I\u0027d like to be very sure we need it before \"polluting\" the new components with this legacy hook.\n\n@Paul @Peter M WDYT?",
+      "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11bbbbc7_e9f90746",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:29:06Z",
+      "side": 1,
+      "message": "WDYT to naming these prefixed with `on` ? `onSelectSlice` ? I quite like the `on` prefix to denote event handlers.",
+      "range": {
+        "startLine": 183,
+        "startChar": 10,
+        "endLine": 183,
+        "endChar": 28
+      },
+      "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3be991f2_298b5de5",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:29:06Z",
+      "side": 1,
+      "message": "If we use `this.shadow` here we don\u0027t need the !",
+      "range": {
+        "startLine": 211,
+        "startChar": 36,
+        "endLine": 211,
+        "endChar": 44
+      },
+      "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12b66c18_5fe0c072",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:29:06Z",
+      "side": 1,
+      "message": "could we put this after the constructor? I prefer the public API first I think, bit easier to spot quickly.",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 18
+      },
+      "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23db7ab6_c30e8f6d",
+        "filename": "front_end/ui/utils/create-shadow-root-with-core-styles.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:29:06Z",
+      "side": 1,
+      "message": "@Paul have you ever come across this focus changed global state stuff? \n\nI\u0027m happy to leave this be if it\u0027s a blocker but I\u0027m also wondering if we really need it? Might be worth a quick chat to explain the situation (Peter \u0026 I chatted about it on VC already).",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc8b5533_b7973b93",
+        "filename": "test/unittests/front_end/perf_ui/BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:29:06Z",
+      "side": 1,
+      "message": "Could we depend on the `:bundle` version here?\n\nAnd then update your test to import * as PerfUI from \u0027../../..`",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 36
+      },
+      "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83e4a07c_28a6131c",
+        "filename": "test/unittests/front_end/perf_ui/PieChart2_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-12T09:29:06Z",
+      "side": 1,
+      "message": "I think if you use `assertNotNull` (from `DOMHelpers`) you can lose the `?.`:\n\n```\nassertNotNull(root)\nassert.isTrue(root.classList...)\n```",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "092039e75b44e8ba4ce7e78ec1de977a67c8adfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
