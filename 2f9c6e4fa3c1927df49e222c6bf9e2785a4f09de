@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3c0616f_5bf3f6b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1103654
+      },
+      "writtenOn": "2020-08-12T12:57:04Z",
+      "side": 1,
+      "message": "LGTM, Thanks!\n\nI this this is great for M86, but I also wonder if longer term whether the full formatting logic should live in Chromium w/ the code to parse the proto? Though it may be a bit more involved since right now this code creates different html tags \u0026 does translation.",
+      "revId": "2f9c6e4fa3c1927df49e222c6bf9e2785a4f09de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9eb4b82_ed0ffeae",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1103654
+      },
+      "writtenOn": "2020-08-12T12:57:04Z",
+      "side": 1,
+      "message": "Nit: Let\u0027s use the exact same comment strings as in Chromium source for the proto:\n// A list of client experiment variation IDs that are active.\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:components/variations/proto/client_variations.proto;drc\u003de8a7d2dbe912fef313df574d9124cc4072cc68fe;l\u003d17\n\nSame for the trigger comment.\n\n(Rationale: If we\u0027re describing the same thing, let\u0027s avoid the extra complexity of two different ways to describe it.)\n\nSeparately, I do wonder - if these are in GRD, I guess they\u0027ll be translated. Does it make sense to translate these technical terms? Do other highly technical string in dev tools get translated well?",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 43
+      },
+      "revId": "2f9c6e4fa3c1927df49e222c6bf9e2785a4f09de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
