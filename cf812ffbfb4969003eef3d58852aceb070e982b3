@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f13923a_ee41f78c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-12T12:14:44Z",
+      "side": 1,
+      "message": "I will remove me for now, as Jan and Jack should be good for reviews; I don\u0027t think I\u0027ll be able to look at this properly soon, and I don\u0027t want to hold things up.",
+      "revId": "cf812ffbfb4969003eef3d58852aceb070e982b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "762541a1_57d07d54",
         "filename": "docs/contributer-journeys/build_system_templates.md",
         "patchSetId": 7
