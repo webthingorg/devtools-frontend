@@ -42,17 +42,6 @@ export class EventListenersView extends UI.Widget.VBox {
   }
 
   /**
-   * @override
-   */
-  focus() {
-    if (!this._emptyHolder.parentNode) {
-      this._treeOutline.forceSelect();
-    } else {
-      this._emptyHolder.focus();
-    }
-  }
-
-  /**
    * @param {!Array<?SDK.RemoteObject.RemoteObject>} objects
    * @return {!Promise<undefined>}
    */
