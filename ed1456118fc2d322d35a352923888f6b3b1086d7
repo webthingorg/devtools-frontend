@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd4d2c3d_40dc41de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-12T09:28:52Z",
+      "side": 1,
+      "message": "Adding Jack who helped me with the TypeScript/Closure/build stuff (thanks!).",
+      "revId": "ed1456118fc2d322d35a352923888f6b3b1086d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
