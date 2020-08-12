@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d6c7d6b_97853ac8",
+        "filename": "scripts/build/ninja/copy-files.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1137849
+      },
+      "writtenOn": "2020-08-12T06:29:44Z",
+      "side": 1,
+      "message": "This return appears to be an error -- it will abort the entire copy if a file exists already, rather than continuing to copy the remaining files. I\u0027ve created a CL that changes it to a continue in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2351521",
+      "revId": "7e3e7bb35184b4be3834a864d8d3059ae1d9079e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
