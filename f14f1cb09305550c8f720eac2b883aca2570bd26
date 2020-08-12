@@ -103,6 +103,41 @@
       "revId": "f14f1cb09305550c8f720eac2b883aca2570bd26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b454fd94_3aec6f9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-12T22:12:20Z",
+      "side": 1,
+      "message": "+1 for using a native feature for this functionality. LGTM.",
+      "revId": "f14f1cb09305550c8f720eac2b883aca2570bd26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d377b105_b34c8a38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-12T22:12:20Z",
+      "side": 1,
+      "message": "Thanks for waiting. Gives me time to prep the Edge themes for this change.",
+      "parentUuid": "9ac6e650_8b0886ee",
+      "revId": "f14f1cb09305550c8f720eac2b883aca2570bd26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
