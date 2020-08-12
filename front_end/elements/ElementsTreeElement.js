@@ -151,12 +151,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
    * @suppressGlobalPropertiesCheck
    */
   static populateForcedPseudoStateItems(contextMenu, node) {
-    const pseudoClasses = ['active', 'hover', 'focus', 'visited', 'focus-within'];
-    try {
-      document.querySelector(':focus-visible');  // Will throw if not supported
-      pseudoClasses.push('focus-visible');
-    } catch (e) {
-    }
+    const pseudoClasses = ['active', 'hover', 'focus', 'visited', 'focus-within', 'focus-visible'];
     const forcedPseudoState = node.domModel().cssModel().pseudoState(node);
     const stateMenu = contextMenu.debugSection().appendSubMenuItem(Common.UIString.UIString('Force state'));
     for (let i = 0; i < pseudoClasses.length; ++i) {
