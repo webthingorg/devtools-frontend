@@ -290,6 +290,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   <message name="IDS_DEVTOOLS_99ccbbe2741019f0bbc87f4eb83dbc1d" desc="Screen reader title for a section of the Service Workers view of the Application panel">
     <ph name="LOCKED_TERM">Service worker</ph> for <ph name="TITLE"><ex>https://example.com</ex>$1s</ph>
   </message>
+  <message name="IDS_DEVTOOLS_9a55171def54bde4f01ce585812aa96e" desc="Text for a link that applies a filter to the network panel">
+    Show all requests with this unreachable Url
+  </message>
   <message name="IDS_DEVTOOLS_9b2a7456cec10d8b5ab8ce656598320b" desc="Text in Indexed DBViews of the Application panel">
     Key path: '''
   </message>
@@ -404,6 +407,9 @@ as used by Chrome
   </message>
   <message name="IDS_DEVTOOLS_ca72bcf0fbdc4c621360d906f930a956" desc="Warning message for icons from the manifest">
     Actual height (<ph name="IMAGE_NATURALHEIGHT">$1s<ex>100</ex></ph>px) of icon <ph name="ICONURL">$2s<ex>https://example.com/icon.png</ex></ph> does not match specified height (<ph name="HEIGHT">$3s<ex>100</ex></ph>px)
+  </message>
+  <message name="IDS_DEVTOOLS_caf1bc6193bddb09f022758b3610ff1a" desc="Title for a link that applies a filter to the network panel">
+    Requires network log, try reloading the inspected page if unavailable
   </message>
   <message name="IDS_DEVTOOLS_cbd71dc96b9c7d3a0663a5546f3798b5" desc="Text wrapping a link pointing to more information on maskable icons in App Manifest view of the Application panel">
     Need help? Read our <ph name="DOCUMENTATIONLINK">$1s<ex>https://example.com/</ex></ph>.
