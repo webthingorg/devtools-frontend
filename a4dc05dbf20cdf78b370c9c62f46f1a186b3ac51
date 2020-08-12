@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "656b610b_90a8663f",
+        "filename": "front_end/event_listeners/EventListenersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-12T22:04:46Z",
+      "side": 0,
+      "message": "Could we explore making this conditional and giving the owner of this object a way to enable the focus behavior? This override was added in the first place to allow users to navigate from the \"Global Listeners\" header in Sources to the tree view there by hitting the right arrow key.",
+      "revId": "a4dc05dbf20cdf78b370c9c62f46f1a186b3ac51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

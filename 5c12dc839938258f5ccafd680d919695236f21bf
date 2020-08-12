@@ -16,6 +16,23 @@
       "revId": "5c12dc839938258f5ccafd680d919695236f21bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b3ea959_07a46aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-12T22:04:46Z",
+      "side": 1,
+      "message": "Works great, but this code is also used in the Sources sidebar, which has different expectations around focus. It should be possible to make it work for both",
+      "revId": "5c12dc839938258f5ccafd680d919695236f21bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
