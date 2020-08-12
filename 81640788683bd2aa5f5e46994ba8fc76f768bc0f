@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "240e85fa_c0452483",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-12T11:41:28Z",
+      "side": 1,
+      "message": "lgtm % some optional suggestions",
+      "revId": "81640788683bd2aa5f5e46994ba8fc76f768bc0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22fedb18_60f0623e",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-12T11:41:28Z",
+      "side": 1,
+      "message": "Should we change the type of filterType to `?FilterType` and pass `null` explicitly?\n\nI realize that the behavior will still be the same when passing an empty string due to the falsy nature.",
+      "range": {
+        "startLine": 194,
+        "startChar": 33,
+        "endLine": 194,
+        "endChar": 44
+      },
+      "revId": "81640788683bd2aa5f5e46994ba8fc76f768bc0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "397fc5de_cc4b9de0",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-12T11:41:28Z",
+      "side": 1,
+      "message": "This method is getting hard to read, we could extract this into a \"_appendNetworkPanelLinkForUnreachableUrl\" helper (or similar).",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 39
+      },
+      "revId": "81640788683bd2aa5f5e46994ba8fc76f768bc0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fb74537_3bbbeab0",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-12T11:41:28Z",
+      "side": 1,
+      "message": "wdyt about \"Show all requests with this unreachable Url\"?",
+      "range": {
+        "startLine": 69,
+        "startChar": 39,
+        "endLine": 69,
+        "endChar": 74
+      },
+      "revId": "81640788683bd2aa5f5e46994ba8fc76f768bc0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
