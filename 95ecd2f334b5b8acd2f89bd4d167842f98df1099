@@ -63,6 +63,30 @@
       "revId": "95ecd2f334b5b8acd2f89bd4d167842f98df1099",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3392e2e6_8425f830",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-12T04:52:27Z",
+      "side": 1,
+      "message": "Landing as-is for now after above analysis and the old code also doesn\u0027t have the checks.",
+      "parentUuid": "bbaeb07d_0ec58022",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "95ecd2f334b5b8acd2f89bd4d167842f98df1099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
