@@ -34,6 +34,24 @@
       "revId": "a4dc05dbf20cdf78b370c9c62f46f1a186b3ac51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eb4e35e_e9d3b100",
+        "filename": "front_end/event_listeners/EventListenersView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-12T22:34:10Z",
+      "side": 0,
+      "message": "Updated to have an optional parameter that defaults to early return. This preserves the expected behavior in Sources. I\u0027m not super attached to the name. LMK what you think!",
+      "parentUuid": "a6592ee3_1b754827",
+      "revId": "a4dc05dbf20cdf78b370c9c62f46f1a186b3ac51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
