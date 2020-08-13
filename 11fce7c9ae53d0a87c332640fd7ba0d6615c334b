@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5105acaa_e01be406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-13T11:46:43Z",
+      "side": 1,
+      "message": "Hi Almothana!\n\nThanks a lot for these tests! Some comments below :).",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e629566a_eb6914d8",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-13T11:46:43Z",
+      "side": 1,
+      "message": "Why do we need the goToLine? Is this related to the bug that appeared when reloading?",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0983cdb_8447833f",
+        "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-13T11:46:43Z",
+      "side": 1,
+      "message": "We\u0027ll need the license in the html files (the chromium one)",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef21f6ad_f3f6212d",
+        "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-13T11:46:43Z",
+      "side": 1,
+      "message": "For the generated files we\u0027ll need to mention them in the LICENSE that we added to the emscripten folder in your other CL. This applies to all the generated files, i.e.\n*.js, *.wasm, *.map",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "805e671f_2d32a604",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/stepping-with-state-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-13T11:46:43Z",
+      "side": 1,
+      "message": "same here (Chromium license)",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a4adf28_9391ce7a",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-13T11:46:43Z",
+      "side": 1,
+      "message": "These scopes are pretty big when it comes to source maps. It\u0027s even difficult to understand exactly what is happening in wasm code, so we won\u0027t be able to check manually whether this is correct or not. For test cases with source maps I\u0027d suggest to just check if variables are listed; i.e. check: \n\n`local_scope_values.length !\u003d 0`,\n\nand if all variables contain data: \n`local_scope_values.every(variableContainsValidValue)`\n\n with something like:\n`const variableContainsValidValue \u003d (var) \u003d\u003e !isNaN(var.split(\u0027:\u0027)[1].trim());`",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
