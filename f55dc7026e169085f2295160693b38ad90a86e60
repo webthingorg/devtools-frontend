@@ -46,6 +46,30 @@
       "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89f900c2_13d579c5",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T11:29:17Z",
+      "side": 1,
+      "message": "Would not it walk the imports first?",
+      "parentUuid": "a0059377_1a61ef4e",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 118
+      },
+      "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
