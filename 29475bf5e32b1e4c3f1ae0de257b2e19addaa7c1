@@ -22,6 +22,30 @@
       "revId": "29475bf5e32b1e4c3f1ae0de257b2e19addaa7c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5259f3c2_ac117c1c",
+        "filename": "front_end/ui/Infobar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T12:39:43Z",
+      "side": 1,
+      "message": "No, but the type def for this is slightly wrong in legacy-defs.d.ts. It takes an optional boolean. So you can leave this like this or update the defs and then the code stays exactly the same.",
+      "parentUuid": "f907de69_bc635529",
+      "range": {
+        "startLine": 93,
+        "startChar": 22,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "29475bf5e32b1e4c3f1ae0de257b2e19addaa7c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
