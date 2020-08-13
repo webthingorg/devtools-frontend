@@ -80,6 +80,30 @@
       "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26faa151_8f93546d",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-13T08:10:57Z",
+      "side": 1,
+      "message": "We kind of have, we just ignored the problem for now. This is a solution Paul and I came up with after brainstorming yesterday.\n\nThe problem is, that we mark optional fields as \"fooOptional: (string|undefined)\". For closure, thats enough, but TS expects the field to be explicitly present, and either a string or undefined.\n\nIn the case of \"Suggestion\" above, to make typescript happy with initializing, we would have to specify all the fields and set them to undefined.\n\nThere is another way in JSDoc to do @typedefs. Using @property it would be possible to mark fields that are optional that TypeScript understands, unfortunately, Closure doesn\u0027t support that way of doing @typedefs.\n\nIf we do not wrangle the types (either with this oder via explicit .d.ts files), then we would have to re-write a lot of client code that use these data structures just to make TS happy. I see that as a major draw-back, since we actually have to re-write a lot of \"production\" code (i.e. not just casts and type annotations).",
+      "parentUuid": "4ff6517a_1f40e185",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 37
+      },
+      "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
