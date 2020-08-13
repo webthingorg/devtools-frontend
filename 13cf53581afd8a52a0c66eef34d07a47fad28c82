@@ -16,6 +16,24 @@
       "revId": "13cf53581afd8a52a0c66eef34d07a47fad28c82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "420f90b6_0466d6e9",
+        "filename": "test/unittests/scripts/component_bridges/walk_tree_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T14:54:16Z",
+      "side": 0,
+      "message": "I think this is actually fine; what the code is doing now is seeing `Interfaces.Person` and deciding to hunt for `Interfaces` which it won\u0027t fine. We don\u0027t check `import * as ` imports because we don\u0027t support nested references. So although we won\u0027t provide such a good error I think it\u0027s an edge case that means we\u0027re OK to leave this test behind and land this CL.",
+      "parentUuid": "197c7e3b_14a4d5f5",
+      "revId": "13cf53581afd8a52a0c66eef34d07a47fad28c82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

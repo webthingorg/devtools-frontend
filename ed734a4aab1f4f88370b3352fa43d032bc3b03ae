@@ -16,6 +16,46 @@
       "revId": "ed734a4aab1f4f88370b3352fa43d032bc3b03ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb11fc5c_91e56d12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T14:54:16Z",
+      "side": 1,
+      "message": "LGTM with nits. Nice one!",
+      "revId": "ed734a4aab1f4f88370b3352fa43d032bc3b03ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bd0f447_0dcd1131",
+        "filename": "scripts/component_bridges/generate_closure.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T14:54:16Z",
+      "side": 1,
+      "message": "I think we should just log a generic `Invalid member \"foo\" of interface \"blah\"` found. I think because of how the tree walker works I\u0027m not 100% if anyone will actually hit this, so let\u0027s not worry about a detailed error. If people start hitting this problem then we can look at why and improve the error messages.",
+      "range": {
+        "startLine": 387,
+        "startChar": 12,
+        "endLine": 389,
+        "endChar": 13
+      },
+      "revId": "ed734a4aab1f4f88370b3352fa43d032bc3b03ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
