@@ -129,6 +129,8 @@ export class ElementsPanel extends UI.Panel.Panel {
     this._treeOutlines = new Set();
     /** @type {!Map<!ElementsTreeOutline, !Element>} */
     this._treeOutlineHeaders = new Map();
+    /** @type {!Map<!SDK.DOMModel.DOMModel, number>} */
+    this._styleTrackingIdByDOMModel = new Map();
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.DOMModel.DOMModel, this);
     SDK.SDKModel.TargetManager.instance().addEventListener(
         SDK.SDKModel.Events.NameChanged,
@@ -205,6 +207,8 @@ export class ElementsPanel extends UI.Panel.Panel {
     }
     treeOutline.wireToDOMModel(domModel);
 
+    this._setupStyleTracking(domModel);
+
     // Perform attach if necessary.
     if (this.isShowing()) {
       this.wasShown();
@@ -228,6 +232,8 @@ export class ElementsPanel extends UI.Panel.Panel {
     }
     this._treeOutlineHeaders.delete(treeOutline);
     treeOutline.element.remove();
+
+    this._stopStyleTracking(domModel);
   }
 
   /**
@@ -405,6 +411,8 @@ export class ElementsPanel extends UI.Panel.Panel {
   _documentUpdatedEvent(event) {
     const domModel = /** @type {!SDK.DOMModel.DOMModel} */ (event.data);
     this._documentUpdated(domModel);
+    this._stopStyleTracking(domModel);
+    this._setupStyleTracking(domModel);
   }
 
   /**
@@ -980,6 +988,57 @@ export class ElementsPanel extends UI.Panel.Panel {
       this.sidebarPaneView.appendView(pane);
     }
   }
+
+  /**
+   * @param {!SDK.DOMModel.DOMModel} domModel
+   */
+  _setupStyleTracking(domModel) {
+    if (Root.Runtime.experiments.isEnabled('cssGridFeatures')) {
+      // Style tracking is conditional on enabling experimental Grid features
+      // because it's the only use case for now.
+      const styleTrackingClientId = domModel.cssModel().startCSSPropertyTracking(TrackedCSSProperties);
+      if (!styleTrackingClientId) {
+        return;
+      }
+      this._styleTrackingIdByDOMModel.set(domModel, styleTrackingClientId);
+      domModel.cssModel().addEventListener(
+          SDK.CSSModel.Events.TrackedCSSPropertiesUpdated, this._trackedCSSPropertiesUpdated, this);
+    }
+  }
+
+  /**
+   * @param {!SDK.DOMModel.DOMModel} domModel
+   */
+  _stopStyleTracking(domModel) {
+    const styleTrackingClientId = this._styleTrackingIdByDOMModel.get(domModel);
+    if (!styleTrackingClientId) {
+      return;
+    }
+    domModel.cssModel().stopCSSPropertyTracking(styleTrackingClientId);
+    this._styleTrackingIdByDOMModel.delete(domModel);
+    domModel.cssModel().removeEventListener(
+        SDK.CSSModel.Events.TrackedCSSPropertiesUpdated, this._trackedCSSPropertiesUpdated, this);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _trackedCSSPropertiesUpdated(event) {
+    const domNodes = /** @type {!Array<?SDK.DOMModel.DOMNode>} */ (event.data.domNodes);
+    if (!domNodes || domNodes.length === 0) {
+      return;
+    }
+
+    for (const domNode of domNodes) {
+      if (!domNode) {
+        continue;
+      }
+      const treeElement = this._treeElementForNode(domNode);
+      if (treeElement) {
+        treeElement.updateStyleAdorners();
+      }
+    }
+  }
 }
 
 ElementsPanel._firstInspectElementCompletedForTest = function() {};
@@ -989,6 +1048,17 @@ export const _splitMode = {
   Vertical: Symbol('Vertical'),
   Horizontal: Symbol('Horizontal'),
 };
+
+const TrackedCSSProperties = [
+  {
+    name: 'display',
+    value: 'grid',
+  },
+  {
+    name: 'display',
+    value: 'inline-grid',
+  },
+];
 
 /**
  * @implements {UI.ContextMenu.Provider}
