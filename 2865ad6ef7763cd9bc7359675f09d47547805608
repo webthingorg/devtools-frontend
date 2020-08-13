@@ -228,6 +228,24 @@
       "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88ce935b_37e3589c",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T11:29:25Z",
+      "side": 1,
+      "message": "PTAL per our discussion on using a dedicated Tracker class.",
+      "parentUuid": "8180e8df_5c9e9e39",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
