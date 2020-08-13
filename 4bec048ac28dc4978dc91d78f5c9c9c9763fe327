@@ -16,6 +16,23 @@
       "revId": "4bec048ac28dc4978dc91d78f5c9c9c9763fe327",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc1e2dcb_d8a9d4ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-13T16:11:38Z",
+      "side": 1,
+      "message": "Ah, this is unfortunate. looks like we have several blink tests that are failing due to this as well. The workflow to update those would be to put up a CL to disable them in TestExpectations (in src). land this, then reenable them with updated expected values.",
+      "revId": "4bec048ac28dc4978dc91d78f5c9c9c9763fe327",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
