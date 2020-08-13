@@ -86,6 +86,30 @@
       "revId": "10eae9d7105c4d69df08107d2cf6120f036e6d5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a81125d4_8453b621",
+        "filename": "front_end/console/ConsoleViewport.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T08:07:40Z",
+      "side": 1,
+      "message": "Good question, yes it is lowercase now. It comes from the MessageType enum in front_end\\sdk\\ConsoleModel.js",
+      "parentUuid": "b22175e2_3d1fa376",
+      "range": {
+        "startLine": 476,
+        "startChar": 4,
+        "endLine": 476,
+        "endChar": 69
+      },
+      "revId": "10eae9d7105c4d69df08107d2cf6120f036e6d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
