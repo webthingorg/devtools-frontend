@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f86d069a_ee3d1e41",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T06:25:22Z",
+      "side": 1,
+      "message": "I believe this should be:\n\n    CSS.escape(element.domId)\n\nOtherwise things like `id\u003d\"404\"` would render a non-working selector. https://mathiasbynens.be/notes/css-escapes",
+      "revId": "9e16aab543991464304c8f66fe912c867578499d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7e2c1a9_896876f4",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T06:25:22Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "9e16aab543991464304c8f66fe912c867578499d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea307345_00608ca6",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T06:25:22Z",
+      "side": 1,
+      "message": "adorner",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 47
+      },
+      "revId": "9e16aab543991464304c8f66fe912c867578499d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d1f9583_9c1fc937",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T06:25:22Z",
+      "side": 1,
+      "message": "adorner",
+      "range": {
+        "startLine": 60,
+        "startChar": 39,
+        "endLine": 60,
+        "endChar": 47
+      },
+      "revId": "9e16aab543991464304c8f66fe912c867578499d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf56bbb8_da625134",
+        "filename": "test/e2e/resources/elements/css-grid.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T06:25:22Z",
+      "side": 1,
+      "message": "nit: weird indentation",
+      "revId": "9e16aab543991464304c8f66fe912c867578499d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
