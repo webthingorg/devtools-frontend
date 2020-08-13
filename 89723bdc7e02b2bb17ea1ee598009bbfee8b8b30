@@ -45,6 +45,30 @@
       "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f55dc1_ab332a0f",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T08:38:22Z",
+      "side": 1,
+      "message": "There\u0027s many examples, but the simplest is something like `class\u003d\"404\"`. See my earlier comments for a link with more details.",
+      "parentUuid": "a75e73c7_cebb9428",
+      "range": {
+        "startLine": 87,
+        "startChar": 48,
+        "endLine": 87,
+        "endChar": 68
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
