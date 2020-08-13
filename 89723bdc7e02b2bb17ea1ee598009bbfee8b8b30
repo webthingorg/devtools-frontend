@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0626ac81_89e61000",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T09:06:35Z",
+      "side": 1,
+      "message": "Yes, it\u0027s to work around the component server not having the Runtime.",
+      "parentUuid": "478205f4_67415588",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 3
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a75e73c7_cebb9428",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 12
