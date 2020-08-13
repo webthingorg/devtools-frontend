@@ -46,6 +46,30 @@
       "revId": "c7b955b4bfe20cc787e1719ed64d21f7d18da050",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab47afc_9f9a917c",
+        "filename": "front_end/ui/utils/focus-changed.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-13T08:39:48Z",
+      "side": 0,
+      "message": "Yeah my understanding is that the two \u0027manual\u0027 callers still work because they call .focus().\n\nI\u0027m not sure how we would implement markAsFocusVisible()? Is there a way to force :focus-visible?",
+      "parentUuid": "5f844d9c_8bff0872",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "c7b955b4bfe20cc787e1719ed64d21f7d18da050",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
