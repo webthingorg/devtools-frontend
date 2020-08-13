@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "478205f4_67415588",
+        "filename": "front_end/component_helpers/get-stylesheet.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T08:12:55Z",
+      "side": 1,
+      "message": "is this to not break the component server? I don\u0027t think we should have code like this in because if we\u0027re in prod and `self.Runtime` isn\u0027t a thing something has gone really wrong.\n\nI can work on fixing the behaviour in the component docs today so that we don\u0027t need this.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 3
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a75e73c7_cebb9428",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T08:12:55Z",
+      "side": 1,
+      "message": "TIL! What input was breaking it, out of interest?",
+      "range": {
+        "startLine": 87,
+        "startChar": 48,
+        "endLine": 87,
+        "endChar": 68
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
