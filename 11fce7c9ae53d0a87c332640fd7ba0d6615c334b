@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "cf0b9c1b_b5df9c96",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-13T22:15:53Z",
+      "side": 1,
+      "message": "no, this is needed when the line we want is not visible in the code window (i.e. we need to scroll down/up to bring it to view). In this case I found the easiest way is to use the go to line shortcut in DevTools.",
+      "parentUuid": "e629566a_eb6914d8",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0983cdb_8447833f",
         "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads-sourcemaps.html",
         "patchSetId": 4
@@ -47,6 +65,24 @@
       "writtenOn": "2020-08-13T11:46:43Z",
       "side": 1,
       "message": "We\u0027ll need the license in the html files (the chromium one)",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d80e93f_e30ff4b1",
+        "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-13T22:15:53Z",
+      "side": 1,
+      "message": "can you please provide me with a link to a file that has an example of this license?",
+      "parentUuid": "a0983cdb_8447833f",
       "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "94e11362_5fe85065",
+        "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-13T22:15:53Z",
+      "side": 1,
+      "message": "how do I generate the LICENSE file?",
+      "parentUuid": "ef21f6ad_f3f6212d",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "805e671f_2d32a604",
         "filename": "test/e2e/resources/sources/wasm/emscripten/stepping-with-state-sourcemaps.html",
         "patchSetId": 4
@@ -81,6 +135,24 @@
       "writtenOn": "2020-08-13T11:46:43Z",
       "side": 1,
       "message": "same here (Chromium license)",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c086e27_8f73a2bf",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/stepping-with-state-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-13T22:15:53Z",
+      "side": 1,
+      "message": "same here (can you please provide an example?)",
+      "parentUuid": "805e671f_2d32a604",
       "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -101,6 +173,24 @@
       "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9422bb40_bb9ff5a4",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-13T22:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4adf28_9391ce7a",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
