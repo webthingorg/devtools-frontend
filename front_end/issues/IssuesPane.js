@@ -410,8 +410,9 @@ class AffectedDirectivesView extends AffectedResourcesView {
   /**
    * @param {!Element} element
    * @param {number | undefined} nodeId
+   * @param {string} primaryKey
    */
-  _appendBlockedElement(element, nodeId) {
+  _appendBlockedElement(element, nodeId, primaryKey) {
     const violatingNode = document.createElement('td');
     violatingNode.classList.add('affected-resource-csp-info-node');
 
@@ -419,19 +420,25 @@ class AffectedDirectivesView extends AffectedResourcesView {
       const violatingNodeId = nodeId;
       const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
 
-      const target = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
+      const target = BrowserSDK.IssuesManager.IssuesManager.instance().getTargetForIssueKey(primaryKey);
       icon.onclick = () => {
-        const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
-        Common.Revealer.reveal(deferredDOMNode);
+        if (target) {
+          const issueTarget = target;
+          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(issueTarget, violatingNodeId);
+          Common.Revealer.reveal(deferredDOMNode);
+        }
       };
 
       UI.Tooltip.Tooltip.install(icon, ls`Click to reveal the violating DOM node in the Elements panel`);
       violatingNode.appendChild(icon);
 
       violatingNode.onmouseenter = () => {
-        const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
-        if (deferredDOMNode) {
-          deferredDOMNode.highlight();
+        if (target) {
+          const issueTarget = target;
+          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(issueTarget, violatingNodeId);
+          if (deferredDOMNode) {
+            deferredDOMNode.highlight();
+          }
         }
       };
       violatingNode.onmouseleave = () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
@@ -497,7 +504,9 @@ class AffectedDirectivesView extends AffectedResourcesView {
 
     if (this._issue.code() === SDK.ContentSecurityPolicyIssue.inlineViolationCode) {
       this._appendViolatedDirective(element, cspViolation.violatedDirective);
-      this._appendBlockedElement(element, cspViolation.violatingNodeId);
+      this._appendBlockedElement(
+          element, cspViolation.violatingNodeId,
+          SDK.ContentSecurityPolicyIssue.getPrimaryKeyFromIssueDetails(cspViolation));
       this._appendSourceLocation(element, cspViolation.sourceCodeLocation);
       this._appendBlockedStatus(element);
     } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
