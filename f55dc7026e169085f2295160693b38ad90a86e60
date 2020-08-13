@@ -118,6 +118,30 @@
       "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c925525_b276c7f7",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T13:09:36Z",
+      "side": 1,
+      "message": "Given that we have state.foundEnums, I think we\u0027re OK?\n\nWe can walk the members of an interface, find `MyEnum.MEMBER_FOO`, check if `MyEnum` is an enum that we have (using the findNodeForTypeReferenceName), and if it is, output `MyEnum` in the typedef. And if `findNodeForTypeReferenceName` returns something that isn\u0027t an enum, we error loudly.",
+      "parentUuid": "23632c06_128ad251",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 118
+      },
+      "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
