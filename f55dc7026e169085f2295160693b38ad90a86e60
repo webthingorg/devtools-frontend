@@ -94,6 +94,30 @@
       "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23632c06_128ad251",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T13:03:04Z",
+      "side": 1,
+      "message": "Sounds better. How would we provide the qualified name to the generate_closure.ts? I think we cannot put the qualified name into foundInterfaces? Should we create something like foundQualifiedNames in walk_tree?",
+      "parentUuid": "debdf74a_ef52d6fc",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 118
+      },
+      "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
