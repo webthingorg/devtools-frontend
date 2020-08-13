@@ -70,6 +70,30 @@
       "revId": "c7b955b4bfe20cc787e1719ed64d21f7d18da050",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3c04a24_b5204a8c",
+        "filename": "front_end/ui/utils/focus-changed.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-13T19:34:17Z",
+      "side": 0,
+      "message": "Ahh, that is a good point. I don\u0027t think there is a way to set focus visible. But you are right, as long as those manual cases still work, I don\u0027t think we will need to worry about it",
+      "parentUuid": "fab47afc_9f9a917c",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "c7b955b4bfe20cc787e1719ed64d21f7d18da050",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
