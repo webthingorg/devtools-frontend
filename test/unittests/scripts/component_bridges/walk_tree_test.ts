@@ -488,6 +488,26 @@ describe('walkTree', () => {
       assert.deepEqual(Array.from(result.typeReferencesToConvert), ['Person', 'Name']);
     });
 
+    it('correctly finds enum members within an interface', () => {
+      const code = `const enum Name {
+        alice = 'alice',
+        bob = 'bob'
+      }
+
+      interface Person {
+        name: Name.bob;
+      }
+
+      class Breadcrumbs extends HTMLElement {
+        public set data(data: {x: Person}) {
+        }
+      }`;
+
+      const source = createTypeScriptSourceFile(code);
+      const result = walkTree(source, 'test.ts');
+      assert.deepEqual(Array.from(result.typeReferencesToConvert), ['Person', 'Name']);
+    });
+
     it('correctly finds enums deeply nested within types and interfaces', () => {
       const code = `const enum Name {
         alice = 'alice',
