@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0c89058_2c80885b",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:29:17Z",
+      "side": 1,
+      "message": "should we create a factory function on a cssModel to create a tracker for us?",
+      "revId": "8ddafa31921c66ab23b251cef0cbdb54216dd771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
