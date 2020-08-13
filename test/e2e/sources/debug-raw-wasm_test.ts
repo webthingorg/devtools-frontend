@@ -7,7 +7,7 @@ import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
 import {$, click, getBrowserAndPages, goToResource, step, waitFor} from '../../shared/helper.js';
-import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, SCOPE_LOCAL_VALUES_SELECTOR, SELECTED_THREAD_SELECTOR, sourceLineNumberSelector, stepThroughTheCode, TURNED_OFF_PAUSE_BUTTON_SELECTOR, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, clearSourceFilesAdded, getBreakpointDecorators, getNonBreakableLines, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, SCOPE_LOCAL_VALUES_SELECTOR, SELECTED_THREAD_SELECTOR, sourceLineNumberSelector, stepThroughTheCode, TURNED_OFF_PAUSE_BUTTON_SELECTOR, waitForAdditionalSourceFiles, waitForSourceCodeLines} from '../helpers/sources-helpers.js';
 
 describe('Sources Tab', async function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
@@ -51,6 +51,11 @@ describe('Sources Tab', async function() {
       await openSourceCodeEditorForFile('add.wasm', 'wasm/call-to-add-wasm.html');
     });
 
+    const numberOfLines = 7;
+
+    await step('wait for all the source code to appear', async () => {
+      await waitForSourceCodeLines(numberOfLines);
+    });
     await step('add a breakpoint to line No.5', async () => {
       await addBreakpointForLine(frontend, 5);
     });
@@ -60,7 +65,7 @@ describe('Sources Tab', async function() {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitFor(await sourceLineNumberSelector(5));
+      await waitForSourceCodeLines(numberOfLines);
     });
 
     await checkBreakpointIsActive(5);
@@ -71,7 +76,7 @@ describe('Sources Tab', async function() {
     });
 
     await step('remove the breakpoint from the fifth line', async () => {
-      await frontend.click(await sourceLineNumberSelector(5));
+      await frontend.click(sourceLineNumberSelector(5));
     });
 
     await step('reload the page', async () => {
@@ -79,7 +84,7 @@ describe('Sources Tab', async function() {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitFor(await sourceLineNumberSelector(5));
+      await waitForSourceCodeLines(numberOfLines);
     });
 
     await checkBreakpointIsNotActive(5);
@@ -94,7 +99,7 @@ describe('Sources Tab', async function() {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitFor(await sourceLineNumberSelector(6));
+      await waitForSourceCodeLines(numberOfLines);
     });
 
     await checkBreakpointIsActive(6);
