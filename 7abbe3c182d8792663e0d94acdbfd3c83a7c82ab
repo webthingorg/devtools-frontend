@@ -128,6 +128,30 @@
       "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdd102d2_2079d4e6",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-13T08:28:20Z",
+      "side": 1,
+      "message": "I updated the comment to include a bit more information.\n\nI think we should document this in the TypeScript migration document. And encourage the usage of this pattern only when \"number of optional fields \u003e \"some threshold\".",
+      "parentUuid": "023de86b_f5fc3611",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 37
+      },
+      "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
