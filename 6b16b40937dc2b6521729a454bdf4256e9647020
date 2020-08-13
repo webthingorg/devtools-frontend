@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dc9be9a_2aa1e50c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1426797
+      },
+      "writtenOn": "2020-08-13T13:40:21Z",
+      "side": 1,
+      "message": "Moved workflows back and removed build_system_templates",
+      "revId": "6b16b40937dc2b6521729a454bdf4256e9647020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
