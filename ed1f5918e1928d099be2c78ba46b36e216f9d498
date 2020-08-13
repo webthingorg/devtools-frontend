@@ -51,6 +51,24 @@
       "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "752caae5_a1e97804",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T14:18:03Z",
+      "side": 1,
+      "message": "Fair point, I agree on the ergonomics 👍\n\nIf we enforce imports, we could enforce that:\n\n1. `describe`, `beforeEach`, etc, is imported from `mocha`\n2. `it` is imported from `async-tracing.js`\n3. And then we can add `it.repeats` to that, and avoid polluting mocha in anyway.\n\nWDYT?",
+      "parentUuid": "57d836b7_67479658",
+      "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
