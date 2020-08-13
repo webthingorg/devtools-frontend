@@ -16,6 +16,29 @@
       "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ff6517a_1f40e185",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T07:53:59Z",
+      "side": 1,
+      "message": "Could you expand a bit more on what you\u0027re doing here please? I don\u0027t think I follow. I\u0027m also surprised that we have to do anything beyond define the typedef as usual as we haven\u0027t hit this before.",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 37
+      },
+      "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
