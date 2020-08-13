@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a40e1afe_dc5123c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-13T09:02:08Z",
+      "side": 1,
+      "message": "Hey Paul and Jack,\n\nI want to add a .repeat() helper to Mocha\u0027s it(). The problem I have is how to do this globally. Is there any way to \u0027intercept\u0027 mocha and add this function so that callers who import from \u0027mocha\u0027 get it straight away? Or would I have to put an intermediate module in like mocha-extensions and then have every test import from there instead?\n\nI\u0027d also like to add the it() wrapper from async-tracing as a default which I think is kind of the same problem. We have a few things like this where we want to extend/override mocha. What do you think is a good approach?",
+      "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
