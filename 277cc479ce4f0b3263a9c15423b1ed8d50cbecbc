@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a82a254_47df9a84",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T06:59:37Z",
+      "side": 1,
+      "message": "Do you think we can combine these two events into one `PersistentGridOverlay{State}Changed` or something like that, and send a boolean `enabled / disabled` via the event? This way we could save some code both here and in the adorner part.",
+      "range": {
+        "startLine": 578,
+        "startChar": 2,
+        "endLine": 579,
+        "endChar": 73
+      },
+      "revId": "277cc479ce4f0b3263a9c15423b1ed8d50cbecbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "378477c8_3d0dcb07",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T06:59:37Z",
+      "side": 1,
+      "message": "typo nit: `Prepate` -\u003e `Prepare`?",
+      "revId": "277cc479ce4f0b3263a9c15423b1ed8d50cbecbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d9d1131_501d0f27",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T06:59:37Z",
+      "side": 1,
+      "message": "nit: Do you think it\u0027s beneficial to put these Grid adorner checks into a helper, since the same checks can be also found in adornment_test? I\u0027m 50%-50% on this but I\u0027d love to hear what you think.",
+      "revId": "277cc479ce4f0b3263a9c15423b1ed8d50cbecbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
