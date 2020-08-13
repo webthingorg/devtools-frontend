@@ -16,6 +16,23 @@
       "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14066bae_171836e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T13:25:03Z",
+      "side": 1,
+      "message": "What\u0027s the reason for wanting to add this onto `it` rather than say, exposing a `itRepeat` helper? That means if you want to use it you just import it directly and we don\u0027t have to change any Mocha stuff.\n\nOne change I\u0027d like to make which would help here is force people to import `describe`, `it`, etc from `Mocha` explicitly rather than relying on globals, which we could do via ESLint. We could even then enforce that people import `it` from the async-tracing rather than from Mocha (like how we lint import rules in the main front_end directory).",
+      "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
