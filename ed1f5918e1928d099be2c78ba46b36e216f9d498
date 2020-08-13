@@ -33,6 +33,24 @@
       "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57d836b7_67479658",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-13T14:09:58Z",
+      "side": 1,
+      "message": "Ergonomically it would be nice to have something you don\u0027t have to add an import for given you will just want to use this temporarily and then remove it again before you submit. e.g. it would be annoying to need to add an import for it.only().\n\nI didn\u0027t realise it was possible to rely on globals for describe, it etc. so yeah I agree that would be good to enforce imports.",
+      "parentUuid": "14066bae_171836e2",
+      "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
