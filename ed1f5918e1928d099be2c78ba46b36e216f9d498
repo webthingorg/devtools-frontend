@@ -87,6 +87,24 @@
       "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6548ac8a_b0c8185c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-13T14:38:25Z",
+      "side": 1,
+      "message": "I uploaded that to show you what I mean. We\u0027d ban everyone except mocha-extensions from importing from mocha directly and send everyone through mocha-extensions",
+      "parentUuid": "72ac5fe6_92aade2c",
+      "revId": "ed1f5918e1928d099be2c78ba46b36e216f9d498",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
