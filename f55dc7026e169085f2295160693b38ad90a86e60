@@ -70,6 +70,30 @@
       "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "debdf74a_ef52d6fc",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T12:51:25Z",
+      "side": 1,
+      "message": "Not at the moment, the order is:\n\n1. Get initialized with the path to the component.\n2. Walk the tree of the component source file.\n3. If any type references are missing, check the imports to find them.\n4. If a missing interface is found in an import, parse that file and walk its tree.\n\nI think it might be best to do this checking in generate_closure.ts when we output members of an interface. We can then have an if(enumMemberReference) {} conditional that decides exactly what to output, and leave most of walk_tree.ts left alone without any changes. \n\nWDYT?",
+      "parentUuid": "89f900c2_13d579c5",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 118
+      },
+      "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
