@@ -42,6 +42,7 @@ import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
+import * as ThemeSupport from '../theme_support/theme_support.js';
 import * as UI from '../ui/ui.js';
 
 import {HARWriter} from './HARWriter.js';
@@ -2140,7 +2141,7 @@ export class NetworkLogView extends UI.Widget.VBox {
    * @return {string}
    */
   static getDCLEventColor() {
-    if (self.UI.themeSupport.themeName() === 'dark') {
+    if (ThemeSupport.ThemeSupport.instance().themeName() === 'dark') {
       return '#03A9F4';
     }
     return '#0867CB';
@@ -2150,7 +2151,8 @@ export class NetworkLogView extends UI.Widget.VBox {
    * @return {string}
    */
   static getLoadEventColor() {
-    return self.UI.themeSupport.patchColorText('#B31412', UI.UIUtils.ThemeSupport.ColorUsage.Foreground);
+    return ThemeSupport.ThemeSupport.instance().patchColorText(
+        '#B31412', ThemeSupport.ThemeSupport.ColorUsage.Foreground);
   }
 }
 
