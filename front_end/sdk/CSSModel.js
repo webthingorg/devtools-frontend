@@ -84,6 +84,13 @@ export class CSSModel extends SDKModel {
     /** @type {!Map<string, !CSSFontFace>} */
     this._fontFaces = new Map();
 
+    this._isCSSPropertyTrackingEnabled = false;
+    this._isTrackingRequestPending = false;
+    this._nextPropertyTrackingClientId = 1;
+    /** @type {!Map<number, !Array<!Protocol.CSS.CSSComputedStyleProperty>>} */
+    this._trackedCSSProperties = new Map();
+    this._styleTrackingThrottler = new Common.Throttler.Throttler(1000);
+
     this._sourceMapManager.setEnabled(Common.Settings.Settings.instance().moduleSetting('cssSourceMapsEnabled').get());
     Common.Settings.Settings.instance()
         .moduleSetting('cssSourceMapsEnabled')
@@ -771,9 +778,70 @@ export class CSSModel extends SDKModel {
   }
 
   /**
+   * @param {!Array.<!Protocol.CSS.CSSComputedStyleProperty>} propertiesToTrack
+   * @return {number|undefined}
+   */
+  startCSSPropertyTracking(propertiesToTrack) {
+    if (propertiesToTrack.length === 0) {
+      return;
+    }
+
+    const clientId = this._nextPropertyTrackingClientId;
+    this._nextPropertyTrackingClientId++;
+    this._trackedCSSProperties.set(clientId, propertiesToTrack);
+    this._updateTrackedCSSProperties();
+    return clientId;
+  }
+
+  stopCSSPropertyTracking(clientId) {
+    this._trackedCSSProperties.delete(clientId);
+    this._updateTrackedCSSProperties();
+  }
+
+  stopAllCSSPropertyTrackings() {
+    this._trackedCSSProperties.clear();
+    this._updateTrackedCSSProperties();
+  }
+
+  _updateTrackedCSSProperties() {
+    const propertiesToTrack = [...this._trackedCSSProperties.values()].flat();
+    this._agent.invoke_trackComputedStyleUpdates({propertiesToTrack});
+
+    if (propertiesToTrack.length === 0) {
+      this._isCSSPropertyTrackingEnabled = false;
+    } else if (!this._isCSSPropertyTrackingEnabled) {
+      this._isCSSPropertyTrackingEnabled = true;
+      this._startTrackingComputedStyleUpdates();
+    }
+  }
+
+  async _startTrackingComputedStyleUpdates() {
+    if (this._isTrackingRequestPending) {
+      return;
+    }
+    if (this._isCSSPropertyTrackingEnabled) {
+      this._isTrackingRequestPending = true;
+      const result = await this._agent.invoke_takeComputedStyleUpdates();
+      this._isTrackingRequestPending = false;
+      if (result.getError() || !result.nodeIds) {
+        return;
+      }
+
+      this.dispatchEventToListeners(Events.TrackedCSSPropertiesUpdated, {
+        domNodes: result.nodeIds.map(nodeId => this._domModel.nodeForId(nodeId)),
+      });
+    }
+
+    if (this._isCSSPropertyTrackingEnabled) {
+      this._styleTrackingThrottler.schedule(this._startTrackingComputedStyleUpdates.bind(this));
+    }
+  }
+
+  /**
    * @override
    */
   dispose() {
+    this.stopAllCSSPropertyTrackings();
     super.dispose();
     this._sourceMapManager.dispose();
   }
@@ -787,7 +855,8 @@ export const Events = {
   PseudoStateForced: Symbol('PseudoStateForced'),
   StyleSheetAdded: Symbol('StyleSheetAdded'),
   StyleSheetChanged: Symbol('StyleSheetChanged'),
-  StyleSheetRemoved: Symbol('StyleSheetRemoved')
+  StyleSheetRemoved: Symbol('StyleSheetRemoved'),
+  TrackedCSSPropertiesUpdated: Symbol('TrackedCSSPropertiesUpdated'),
 };
 
 const PseudoStateMarker = 'pseudo-state-marker';
