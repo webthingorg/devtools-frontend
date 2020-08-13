@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "09ed6fe6_e713ce70",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T07:10:34Z",
+      "side": 1,
+      "message": "Hmm, I still see this in the latest patchset:\n\n    parts.push(...element.domClasses.map(cls \u003d\u003e `.${cls}`));\n\nIf parts is meant to be joined into what looks like a CSS selector, then I think it should be `CSS.escape(cls)`.",
+      "parentUuid": "f38ef538_adea1003",
+      "revId": "9e16aab543991464304c8f66fe912c867578499d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea307345_00608ca6",
         "filename": "test/e2e/elements/layout-pane_test.ts",
         "patchSetId": 8
