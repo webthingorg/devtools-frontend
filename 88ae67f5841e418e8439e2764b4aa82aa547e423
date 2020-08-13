@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4b0bd7f_abdf4897",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T09:45:05Z",
+      "side": 1,
+      "message": "PTAL - this is an experimental CL to share a potential direction, not ready to land yet. Happy to take thoughts on alternative approaches.",
+      "revId": "88ae67f5841e418e8439e2764b4aa82aa547e423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
