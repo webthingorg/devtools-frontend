@@ -116,6 +116,24 @@
       "revId": "277cc479ce4f0b3263a9c15423b1ed8d50cbecbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56b3f1af_c208fa54",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T07:56:28Z",
+      "side": 1,
+      "message": "I feel like the elements helper is fine. It already contains some domain-specific helper functions (like Computed Style related, BreadCrumbs related). But I\u0027d like to hear what @Jack thinks.",
+      "parentUuid": "2a16ac6d_cf3a0c2b",
+      "revId": "277cc479ce4f0b3263a9c15423b1ed8d50cbecbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
