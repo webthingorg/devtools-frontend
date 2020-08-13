@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "15f65555_f8cd348d",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T07:08:03Z",
+      "side": 1,
+      "message": "Oh, nice catch — if the intention of the breadcrumb UI is to always render valid CSS selectors, then we should fix it there too! cc Jack",
+      "parentUuid": "5e5d8560_10af6148",
+      "revId": "9e16aab543991464304c8f66fe912c867578499d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7e2c1a9_896876f4",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 8
