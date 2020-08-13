@@ -104,6 +104,30 @@
       "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "023de86b_f5fc3611",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T08:17:51Z",
+      "side": 1,
+      "message": "Makes perfect sense. Thanks for the explanation! Is this worth documenting somewhere? \n\nOr should the component bridges generator take this into account?",
+      "parentUuid": "26faa151_8f93546d",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 37
+      },
+      "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
