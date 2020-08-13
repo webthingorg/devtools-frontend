@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "88a2b45b_0f9de261",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T05:56:26Z",
+      "side": 1,
+      "message": "I forgot: will it also return an update if a grid layout has been removed from a node?",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04f14995_77e5ba29",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
@@ -13,6 +30,23 @@
       "writtenOn": "2020-08-13T05:53:46Z",
       "side": 1,
       "message": "Should we check here if the tracking as been disabled while the request was running?",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4042a90f_ee8688fa",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T05:56:26Z",
+      "side": 1,
+      "message": "Do we know what property caused the update?",
       "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
