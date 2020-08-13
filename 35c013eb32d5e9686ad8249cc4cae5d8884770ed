@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fd495b7_8e231ce7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-13T15:53:02Z",
+      "side": 1,
+      "message": "Thanks for the reviews! updated the presubmit to also look for UserMetrics.js, and took Peter\u0027s comments about importing espree",
+      "revId": "35c013eb32d5e9686ad8249cc4cae5d8884770ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
