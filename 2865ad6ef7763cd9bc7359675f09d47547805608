@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79737cb5_cf56408f",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T07:22:37Z",
+      "side": 1,
+      "message": "Good point. This was null-checked because previouly the upstream event dispatcher didn\u0027t do a good job guarding against request failures (which result in no nodes returned). It\u0027s not needed anymore, and yes the `.length \u003d 0` is also unnecessary anymore.",
+      "parentUuid": "16790bc5_2d20d000",
+      "range": {
+        "startLine": 1028,
+        "startChar": 9,
+        "endLine": 1028,
+        "endChar": 17
+      },
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf6edad0_cbabcb14",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
@@ -65,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "76f465e2_992df679",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T07:22:37Z",
+      "side": 1,
+      "message": "If you mean if a previously `display: grid` node becomes `display: block` or something non-grid, then yes.",
+      "parentUuid": "88a2b45b_0f9de261",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04f14995_77e5ba29",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
@@ -82,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "3dbb741c_89035cff",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T07:22:37Z",
+      "side": 1,
+      "message": "Good question. I\u0027m thinking of a edge case here. While the backend buffer is empty and the frontend request is pending, we close the tracking by sending an empty list to the backend. During this window between sending the request and the backend processing this request, there\u0027s a tiny chance that some nodes get updated and buffered, and when the backend processes the closing request, it\u0027s going to send these newly added nodes to the frontend. I think the frontend would like to know in this case that which nodes are updated.",
+      "parentUuid": "04f14995_77e5ba29",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4042a90f_ee8688fa",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
@@ -93,6 +153,24 @@
       "writtenOn": "2020-08-13T05:56:26Z",
       "side": 1,
       "message": "Do we know what property caused the update?",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da7b8b71_3482c393",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-13T07:22:37Z",
+      "side": 1,
+      "message": "Sadly no. I think having the backend remember what caused the update would be a bit complicated for V1 because it requires a more delicate design for tracked computed style updates, how/if we invalidate previously buffered nodes, etc.",
+      "parentUuid": "4042a90f_ee8688fa",
       "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
