@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58b772fa_c0838335",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T08:44:05Z",
+      "side": 1,
+      "message": "nit: it might be better to move this number to a const near the top of the file, this way we can give it a self-explanatory name and preceed it with a comment that explain how changing the number would influence the feature.",
+      "range": {
+        "startLine": 92,
+        "startChar": 66,
+        "endLine": 92,
+        "endChar": 70
+      },
+      "revId": "bce30805b2eadb2987774bd4df5fb052d5ae47d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83df0824_c72a8e4e",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T08:44:05Z",
+      "side": 1,
+      "message": "It might be nice to add a comment around these lines that says that when the trackedCSSProperties map is empty, then that means we send an empty array to trackComputeddStyleUpdates, which stops the tracking.\nBecause the backend does not have 2 separate start and stop methods, it\u0027s a little hidden that we\u0027re actually starting and stopping here based on what properties are in the array. So a comment would make that clearer.",
+      "revId": "bce30805b2eadb2987774bd4df5fb052d5ae47d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a55ce98_e6687ac1",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T08:44:05Z",
+      "side": 1,
+      "message": "I feel a bit on the fence with this method name. It does not start the tracking, in reality the _updateTrackedCSSProperties method does this. \nThis method here does the polling. Could we find a name that conveys that meaning better?",
+      "range": {
+        "startLine": 818,
+        "startChar": 8,
+        "endLine": 818,
+        "endChar": 42
+      },
+      "revId": "bce30805b2eadb2987774bd4df5fb052d5ae47d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9a762e1_d92ccba7",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T08:44:05Z",
+      "side": 1,
+      "message": "The same `if` block with the same condition is repeated twice here. You could just have one.",
+      "range": {
+        "startLine": 833,
+        "startChar": 0,
+        "endLine": 835,
+        "endChar": 45
+      },
+      "revId": "bce30805b2eadb2987774bd4df5fb052d5ae47d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
