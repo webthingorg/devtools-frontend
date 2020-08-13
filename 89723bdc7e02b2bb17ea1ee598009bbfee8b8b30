@@ -229,6 +229,30 @@
     },
     {
       "key": {
+        "uuid": "bc4d8b5d_552c3705",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T09:33:43Z",
+      "side": 1,
+      "message": "Thanks, I am going to extract it into helpers based on your and Changhao comments as well.",
+      "parentUuid": "f0f7414d_5ef5164c",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c77da2fa_34286cac",
         "filename": "test/e2e/elements/layout-pane_test.ts",
         "patchSetId": 12
