@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "197c7e3b_14a4d5f5",
+        "filename": "test/unittests/scripts/component_bridges/walk_tree_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T14:14:26Z",
+      "side": 0,
+      "message": "I could not replicate this test with the new version. Any ideas?",
+      "revId": "13cf53581afd8a52a0c66eef34d07a47fad28c82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
