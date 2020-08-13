@@ -28,14 +28,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as ARIAUtils from './ARIAUtils.js';
 import {GlassPane, PointerEventsBehavior} from './GlassPane.js';
+import {InspectorView} from './InspectorView.js';
 import {KeyboardShortcut, Keys} from './KeyboardShortcut.js';
 import {SplitWidget} from './SplitWidget.js';  // eslint-disable-line no-unused-vars
 import {WidgetFocusRestorer} from './Widget.js';
+
+/** @type {?Dialog} */
+let _instance = null;
 
 export class Dialog extends GlassPane {
   constructor() {
@@ -66,7 +67,7 @@ export class Dialog extends GlassPane {
    * @return {boolean}
    */
   static hasInstance() {
-    return !!Dialog._instance;
+    return !!_instance;
   }
 
   /**
@@ -75,14 +76,14 @@ export class Dialog extends GlassPane {
    */
   show(where) {
     const document = /** @type {!Document} */ (
-        where instanceof Document ? where : (where || self.UI.inspectorView.element).ownerDocument);
+        where instanceof Document ? where : (where || InspectorView.instance().element).ownerDocument);
     this._targetDocument = document;
     this._targetDocument.addEventListener('keydown', this._targetDocumentKeyDownHandler, true);
 
-    if (Dialog._instance) {
-      Dialog._instance.hide();
+    if (_instance) {
+      _instance.hide();
     }
-    Dialog._instance = this;
+    _instance = this;
     this._disableTabIndexOnElements(document);
     super.show(document);
     this._focusRestorer = new WidgetFocusRestorer(this.widget());
@@ -92,7 +93,9 @@ export class Dialog extends GlassPane {
    * @override
    */
   hide() {
-    this._focusRestorer.restore();
+    if (this._focusRestorer) {
+      this._focusRestorer.restore();
+    }
     super.hide();
 
     if (this._targetDocument) {
@@ -100,7 +103,7 @@ export class Dialog extends GlassPane {
     }
     this._restoreTabIndexOnElements();
     this.dispatchEventToListeners('hidden');
-    delete Dialog._instance;
+    _instance = null;
   }
 
   /**
@@ -112,6 +115,8 @@ export class Dialog extends GlassPane {
 
   addCloseButton() {
     const closeButton = this.contentElement.createChild('div', 'dialog-close-button', 'dt-close-button');
+    // @ts-ignore: This creates a custom element that actually has a 'grey' setter. TS doesn't know about
+    //             the custom element though.
     closeButton.gray = true;
     closeButton.addEventListener('click', () => this.hide(), false);
   }
@@ -133,11 +138,11 @@ export class Dialog extends GlassPane {
 
     let exclusionSet = /** @type {?Set.<!HTMLElement>} */ (null);
     if (this._tabIndexBehavior === OutsideTabIndexBehavior.PreserveMainViewTabIndex) {
-      exclusionSet = this._getMainWidgetTabIndexElements(self.UI.inspectorView.ownerSplit());
+      exclusionSet = this._getMainWidgetTabIndexElements(InspectorView.instance().ownerSplit());
     }
 
     this._tabIndexMap.clear();
-    for (let node = document; node; node = node.traverseNextNode(document)) {
+    for (let node = /** @type {?Node} */ (document); node; node = node.traverseNextNode(document)) {
       if (node instanceof HTMLElement) {
         const element = /** @type {!HTMLElement} */ (node);
         const tabIndex = element.tabIndex;
@@ -164,7 +169,7 @@ export class Dialog extends GlassPane {
       return elementSet;
     }
 
-    for (let node = mainWidget.element; node; node = node.traverseNextNode(mainWidget.element)) {
+    for (let node = /** @type {?Node} */ (mainWidget.element); node; node = node.traverseNextNode(mainWidget.element)) {
       if (!(node instanceof HTMLElement)) {
         continue;
       }
@@ -189,9 +194,10 @@ export class Dialog extends GlassPane {
   }
 
   /**
-   * @param {!Event} event
+   * @param {!Event} ev
    */
-  _onKeyDown(event) {
+  _onKeyDown(ev) {
+    const event = /** @type {!KeyboardEvent} */ (ev);
     if (this._closeOnEscape && event.keyCode === Keys.Esc.code && KeyboardShortcut.hasNoModifiers(event)) {
       event.consume(true);
       this.hide();
