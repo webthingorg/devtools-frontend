@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59d87d07_f2382b71",
+        "filename": "scripts/component_bridges/value_for_type_node.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T11:24:15Z",
+      "side": 1,
+      "message": "in the actual codebase we don\u0027t leave the spaces, so I removed them here. This isn\u0027t a breaking change, just stylistic to bring us inline with most of our closure types.\n\nNote that this means I need to regenerate all existing bridges, but I\u0027ll do that in another CL (I\u0027m working on a CL that adds a PRESUBMIT + regeneration checks).",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 48
+      },
+      "revId": "1009afcc70270c08beee0cafd6888ce275dc16c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
