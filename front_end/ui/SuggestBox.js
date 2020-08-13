@@ -409,6 +409,12 @@ export class SuggestBox {
   *      hideGhostText: (boolean|undefined)
   * }}
   */
+let SuggestionComplete;  // eslint-disable-line no-unused-vars
+
+// Two typedefs, one for TypeScript, one for Closure.
+// TODO(crbug.com/1011811): Replace with TS `type` when closure is removed.
+/** @typedef {!Partial<SuggestionComplete>} Suggestion */
+/** @typedef {!SuggestionComplete} */
 export let Suggestion;
 
 /**
