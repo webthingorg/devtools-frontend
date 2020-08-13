@@ -21,11 +21,11 @@ describe('The Elements Tab', async () => {
     await assertContentOfSelectedElementsNode('<body>\u200B');
 
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"host">\u200B…\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode('<div\u00A0id=\u200B"host">\u200B…\u200B</div>\u200B');
 
     // Open the div (shows new nodes, but does not alter the selected node)
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"host">\u200B');
+    await assertContentOfSelectedElementsNode('<div\u00A0id=\u200B"host">\u200B');
 
     await frontend.keyboard.press('ArrowRight');
     await assertContentOfSelectedElementsNode('#shadow-root (open)');
@@ -39,7 +39,8 @@ describe('The Elements Tab', async () => {
     await assertContentOfSelectedElementsNode('<style>\u200B .red { color: red; } \u200B</style>\u200B');
 
     await frontend.keyboard.press('ArrowDown');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"inner" class=\u200B"red">\u200Bhi!\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode(
+        '<div\u00A0id=\u200B"inner"\u00A0class=\u200B"red">\u200Bhi!\u200B</div>\u200B');
 
     await waitForFunction(async () => {
       const styleSections = await $$('.styles-section');

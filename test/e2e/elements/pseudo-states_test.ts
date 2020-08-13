@@ -24,7 +24,7 @@ describe('The Elements tab', async () => {
 
     // Select div that we can hover on
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"hover">\u200B…\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode('<div\u00A0id=\u200B"hover">\u200B…\u200B</div>\u200B');
 
     await forcePseudoState(':hover');
     await assertGutterDecorationForDomNodeExists();
@@ -46,7 +46,8 @@ describe('The Elements tab', async () => {
 
     // Select div that we can focus
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"focus" tabindex=\u200B"0">\u200B…\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode(
+        '<div\u00A0id=\u200B"focus"\u00A0tabindex=\u200B"0">\u200B…\u200B</div>\u200B');
 
     await forcePseudoState(':focus');
     await assertGutterDecorationForDomNodeExists();
@@ -71,7 +72,8 @@ describe('The Elements tab', async () => {
 
     // Select div that we can focus
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"focus" tabindex=\u200B"0">\u200B…\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode(
+        '<div\u00A0id=\u200B"focus"\u00A0tabindex=\u200B"0">\u200B…\u200B</div>\u200B');
 
     await forcePseudoState(':focus');
     await assertGutterDecorationForDomNodeExists();

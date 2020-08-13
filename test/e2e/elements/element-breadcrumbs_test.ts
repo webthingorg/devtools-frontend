@@ -8,7 +8,7 @@ import {describe, it} from 'mocha';
 import {click, goToResource, waitForElementWithTextContent} from '../../shared/helper.js';
 import {assertContentOfSelectedElementsNode, assertSelectedElementsNodeTextIncludes, expandSelectedNodeRecursively, getBreadcrumbsTextContent, getSelectedBreadcrumbTextContent, waitForElementsStyleSection, waitForSelectedTreeElementSelectorWithTextcontent} from '../helpers/elements-helpers.js';
 
-const EXPECTED_TEXT_CONTENT = `<div class=\u200B"div2">\u200B
+const EXPECTED_TEXT_CONTENT = `<div\u00A0class=\u200B"div2">\u200B
           last child
         \u200B</div>\u200B`;
 

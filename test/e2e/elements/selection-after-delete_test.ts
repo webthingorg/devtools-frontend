@@ -26,10 +26,10 @@ describe('The Elements tab', async () => {
     await click(child);
 
     const expected = [
-      '<div class=​"child3">\u200B</div>\u200B',
-      '<div class=​"child1">\u200B</div>\u200B',
-      '<div class=​"left">\u200B</div>\u200B',
-      '<div id=​"testTreeContainer">\u200B</div>\u200B',
+      '<div\u00A0class=​"child3">\u200B</div>\u200B',
+      '<div\u00A0class=​"child1">\u200B</div>\u200B',
+      '<div\u00A0class=​"left">\u200B</div>\u200B',
+      '<div\u00A0id=​"testTreeContainer">\u200B</div>\u200B',
       '<body>\u200B</body>\u200B',
     ];
 

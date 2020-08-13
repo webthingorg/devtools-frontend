@@ -16,7 +16,8 @@ export const loadEventListenersAndSelectButtonNode = async () => {
 
   // Select the button that has the events and make sure it's selected
   await frontend.keyboard.press('ArrowRight');
-  await assertContentOfSelectedElementsNode('<button id=\u200B"test-button">\u200Bhello world\u200B</button>\u200B');
+  await assertContentOfSelectedElementsNode(
+      '<button\u00A0id=\u200B"test-button">\u200Bhello world\u200B</button>\u200B');
 };
 
 const EVENT_LISTENERS_PANEL_LINK = '[aria-label="Event Listeners"]';

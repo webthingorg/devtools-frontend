@@ -1550,7 +1550,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         const attributes = node.attributes();
         for (let i = 0; i < attributes.length; ++i) {
           const attr = attributes[i];
-          tagElement.createTextChild(' ');
+          // Force screen readers to pause after the tag name and between attributes (i.e. avoid reading <div id> as one word "divid").
+          tagElement.createTextChild('\u00A0');
           this._buildAttributeDOM(tagElement, attr.name, attr.value, updateRecord, false, node);
         }
       }

@@ -64,7 +64,7 @@ describe('The Styles pane', async () => {
 
     // Select div that we will inspect the CSS variables for
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode('<div\u00A0id=\u200B"properties-to-inspect">\u200B</div>\u200B');
 
     const propertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(PROPERTIES_TO_INSPECT_SELECTOR));
     const swatchStyle = await getCSSPropertySwatchStyle(propertiesSection);
@@ -82,7 +82,7 @@ describe('The Styles pane', async () => {
 
     // Select div that we will remove the CSS properties from
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div id=\u200B"properties-to-delete">\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode('<div\u00A0id=\u200B"properties-to-delete">\u200B</div>\u200B');
 
     const propertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(PROPERTIES_TO_DELETE_SELECTOR));
     {
@@ -160,7 +160,7 @@ describe('The Styles pane', async () => {
 
     // Select div that we will remove a CSS property from.
     await frontend.keyboard.press('ArrowRight');
-    await assertContentOfSelectedElementsNode('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
+    await assertContentOfSelectedElementsNode('<div\u00A0class=\u200B"rule1 rule2">\u200B</div>\u200B');
 
     // Verify that initial CSS properties correspond to the ones in the test file.
     const rule1PropertiesSection = await waitFor(getAriaLabelSelectorFromPropertiesSelector(RULE1_SELECTOR));
