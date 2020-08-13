@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d74eff56_45c3b862",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-13T19:23:35Z",
+      "side": 1,
+      "message": "tested new approach with NVDA and narrator. LGTM!",
+      "revId": "5479fd46d16a507a13bb5c8ae9e8161423f8fbb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
