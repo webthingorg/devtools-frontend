@@ -54,6 +54,23 @@
     },
     {
       "key": {
+        "uuid": "cb64fb77_9ddac34d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-08-13T06:23:21Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8338069_1c7356ac",
         "filename": "front_end/object_ui/ObjectPopoverHelper.js",
         "patchSetId": 3
