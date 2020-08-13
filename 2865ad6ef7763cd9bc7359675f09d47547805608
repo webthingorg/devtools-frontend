@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "16790bc5_2d20d000",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T06:18:30Z",
+      "side": 1,
+      "message": "Can `domNodes` be nullish? In which scenarios? I noticed the other checks in this file only do `.length \u003d\u003d\u003d 0`, so I\u0027m wondering if we could do the same here. (Note that we don\u0027t strictly need the .length \u003d\u003d\u003d 0 check here since the loop below simply won\u0027t have any effect for empty arrays)",
+      "range": {
+        "startLine": 1028,
+        "startChar": 9,
+        "endLine": 1028,
+        "endChar": 17
+      },
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf6edad0_cbabcb14",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T06:18:30Z",
+      "side": 1,
+      "message": "Nice usage of `flat` here!",
+      "range": {
+        "startLine": 807,
+        "startChar": 71,
+        "endLine": 807,
+        "endChar": 77
+      },
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88a2b45b_0f9de261",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
