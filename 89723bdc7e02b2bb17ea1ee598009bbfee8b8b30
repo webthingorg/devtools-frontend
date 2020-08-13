@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9e8348e_2ffceeb6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "Beautiful!!! It\u0027s starting to all come together. I love it.",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 43
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9102a27d_60220bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "Thanks Alex, I love to see this come to life.\nI have comments about cleaning up the new e2e test. And one question about the possibility to reuse a shared component. See below.",
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "478205f4_67415588",
         "filename": "front_end/component_helpers/get-stylesheet.ts",
         "patchSetId": 12
@@ -93,6 +133,144 @@
       "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de736c6a_4e62036a",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "Can we not import a component that already handles this? DOM nodes are displayed all over devtools, in many different places. It\u0027s too bad to have to write another piece of code to do this.",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 199,
+        "endChar": 26
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12d1f90b_35f77d1d",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "This doesn\u0027t really need to be a method of this class.\nWhy not just having it as a helper function at the end of the file, like:\n\n  const gridNodesToElements \u003d nodes \u003d\u003e nodes.map(node \u003d\u003e ({...});",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f7414d_5ef5164c",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "As described in this README: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/README.md\nthe principle we want to keep in mind for e2e tests is to separate as much as possible the \"user journey\" from the implementation details.\nBased on this, I believe a lot of code from this test should move to the relevant helper file, in order to make the user steps more easily readable (you did use the step function here, which helps, but hiding the implementation details somewhere else would be even better).\n\nThis step in particular could all be wrapped into a function like assertInactiveAdorners([\u0027grid\u0027]).",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c77da2fa_34286cac",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "Same thing here, there should be a helper function in the elements-helper.ts file to open the layout pane. There are already functions there to open the Styles and Computed pane.\nThis way, this whole step would just be one line in this test.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "138e75b5_aeadec3d",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "Similarly here, I\u0027d create a helper function in elements-helper.ts like toggleGridCheckboxInLayoutPane()",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cbfab03_72c3093a",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:21:24Z",
+      "side": 1,
+      "message": "And here, you would be able to reuse the assertAdorner helper created before (maybe we could make it take a parameter to target either active or inactive adorners, or maybe it can check both at the same time).",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
