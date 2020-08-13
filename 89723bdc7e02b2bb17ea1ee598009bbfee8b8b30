@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "145e09a2_68e09a51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:25:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b9e8348e_2ffceeb6",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 43
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9102a27d_60220bbe",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 12
@@ -207,6 +231,30 @@
     },
     {
       "key": {
+        "uuid": "a23283d8_b495d4ef",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:25:19Z",
+      "side": 1,
+      "message": "No, we cannot import existing components (maybe it\u0027s possible but we will probably run into the issues). Also, I am not sure how reusable is the on-hover highlighting. It often relies on global variables and singletons which we want to clean up. I would extract it as a separate component in the follow-up CLs when I start to implement highlighting.",
+      "parentUuid": "aee07458_98a82cf7",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 199,
+        "endChar": 26
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12d1f90b_35f77d1d",
         "filename": "front_end/elements/LayoutSidebarPane.js",
         "patchSetId": 12
@@ -227,6 +275,30 @@
       "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5bfc6eb_f8c4b308",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12d1f90b_35f77d1d",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -277,6 +349,30 @@
     },
     {
       "key": {
+        "uuid": "c02c77cf_ea17b838",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc4d8b5d_552c3705",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c77da2fa_34286cac",
         "filename": "test/e2e/elements/layout-pane_test.ts",
         "patchSetId": 12
@@ -297,6 +393,30 @@
       "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "776e058a_112c8681",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c77da2fa_34286cac",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -323,6 +443,30 @@
     },
     {
       "key": {
+        "uuid": "0fd06c3e_75be661a",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "138e75b5_aeadec3d",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cbfab03_72c3093a",
         "filename": "test/e2e/elements/layout-pane_test.ts",
         "patchSetId": 12
@@ -343,6 +487,30 @@
       "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a939bd74_8db72d5d",
+        "filename": "test/e2e/elements/layout-pane_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T12:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cbfab03_72c3093a",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 7
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
