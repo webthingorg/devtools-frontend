@@ -81,6 +81,30 @@
       "revId": "2f9c6e4fa3c1927df49e222c6bf9e2785a4f09de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da844d5_6eea8f91",
+        "filename": "front_end/network/network_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-13T05:08:36Z",
+      "side": 1,
+      "message": "Since Alexei LGTM\u0027d the upstream CL, I\u0027m marking this as resolved.",
+      "parentUuid": "d420046d_894c9511",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 43
+      },
+      "revId": "2f9c6e4fa3c1927df49e222c6bf9e2785a4f09de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
