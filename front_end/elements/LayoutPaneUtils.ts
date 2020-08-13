@@ -27,3 +27,11 @@ export interface BaseSetting {
 export type BooleanSetting = BaseSetting&{type: SettingType.BOOLEAN, options: BooleanSettingOption[], value: boolean};
 export type EnumSetting = BaseSetting&{type: SettingType.ENUM, options: EnumSettingOption[], value: string};
 export type Setting = EnumSetting|BooleanSetting;
+
+export interface Element {
+  id: number;
+  name: string;
+  domId?: string;
+  domClasses?: string[];
+  enabled: boolean;
+}
