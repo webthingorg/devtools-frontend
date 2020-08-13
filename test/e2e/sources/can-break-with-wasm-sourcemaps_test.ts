@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
 import {getBrowserAndPages, step, waitFor} from '../../shared/helper.js';
-import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, openFileInEditor, openSourceCodeEditorForFile, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, sourceLineNumberSelector} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, openFileInEditor, openSourceCodeEditorForFile, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, sourceLineNumberSelector, waitForSourceCodeLines} from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
   it('can add breakpoint for a sourcemapped wasm module', async () => {
@@ -25,6 +25,11 @@ describe('The Sources Tab', async () => {
     await step('navigate to a page and open the Sources tab', async () => {
       await openSourceCodeEditorForFile('with-sourcemap.ll', 'wasm/wasm-with-sourcemap.html');
     });
+    const numberOfLines = 11;
+
+    await step('wait for all the source code to appear', async () => {
+      await waitForSourceCodeLines(numberOfLines);
+    });
 
     await step('add a breakpoint to line No.5', async () => {
       await addBreakpointForLine(frontend, 5);
@@ -35,7 +40,7 @@ describe('The Sources Tab', async () => {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitFor(await sourceLineNumberSelector(5));
+      await waitForSourceCodeLines(numberOfLines);
     });
 
     await checkBreakpointIsActive(5);
@@ -46,7 +51,7 @@ describe('The Sources Tab', async () => {
     });
 
     await step('remove the breakpoint from the fifth line', async () => {
-      await frontend.click(await sourceLineNumberSelector(5));
+      await frontend.click(sourceLineNumberSelector(5));
     });
 
     await step('reload the page', async () => {
@@ -58,7 +63,7 @@ describe('The Sources Tab', async () => {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitFor(await sourceLineNumberSelector(5));
+      await waitForSourceCodeLines(numberOfLines);
     });
 
     await checkBreakpointIsNotActive(5);
@@ -73,7 +78,7 @@ describe('The Sources Tab', async () => {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitFor(await sourceLineNumberSelector(6));
+      await waitForSourceCodeLines(numberOfLines);
     });
 
     await checkBreakpointIsActive(6);
