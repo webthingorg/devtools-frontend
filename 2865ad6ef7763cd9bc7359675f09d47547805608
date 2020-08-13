@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "eb588e87_c8f6a074",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T07:26:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76f465e2_992df679",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f14995_77e5ba29",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
@@ -142,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "13b80c20_c4bdb81c",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T07:26:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3dbb741c_89035cff",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4042a90f_ee8688fa",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
@@ -174,6 +210,24 @@
       "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8180e8df_5c9e9e39",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-13T07:26:04Z",
+      "side": 1,
+      "message": "I am just thinking how we can re-use the tracking for the Layout pane. So if you\u0027d need a separate set of tracked properties you\u0027d need to re-implement what\u0027s in the CL? Would it make sense to make it more reusable? like a separate tracker class which gets the list of styles to monitor? Oh, the backend support the single set of rules for the client, right?",
+      "parentUuid": "da7b8b71_3482c393",
+      "revId": "2865ad6ef7763cd9bc7359675f09d47547805608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
