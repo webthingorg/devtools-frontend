@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "856bf646_95358b93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-13T05:34:25Z",
+      "side": 1,
+      "message": "PTAL\n\nJack, FYI, this is a solution to our \"TypeScript doesn\u0027t think properties are optional in @typedefs\" problem. (This is the only way Closure supports @typedefs).",
+      "revId": "7abbe3c182d8792663e0d94acdbfd3c83a7c82ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
