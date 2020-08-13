@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "7f7c4574_b9855354",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-13T12:10:22Z",
+      "side": 1,
+      "message": "Because it is a tooltip I\u0027m not sure if it\u0027s even straightforward to make it appear in an accessibility tool?",
+      "parentUuid": "820e72a0_c728c82d",
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8338069_1c7356ac",
         "filename": "front_end/object_ui/ObjectPopoverHelper.js",
         "patchSetId": 3
