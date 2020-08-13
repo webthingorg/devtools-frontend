@@ -183,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "aee07458_98a82cf7",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-13T09:43:29Z",
+      "side": 1,
+      "message": "I\u0027m too new to the Chrome DevTools UI to answer this question. I just know that printing out previews of DOM nodes is super common in the UI (you can have them in the console, in the debugger (when paused), in the Styles pane (in inherited sections), and more places). So when I see that we\u0027re writing code to do one of these print outs again by hand, it usually makes me uncomfortable 😊\nThe other thing is, reusing a shared component would allow us to benefit from existing features (like highlighting on hover, which works in other panels).\nFrom what I understand, because this is a new way to do components, using TS, we can\u0027t really import existing components? It\u0027d be great if we had a way to wrap legacy components so we can still use them in new style components. But if that\u0027s not an option, I guess we\u0027ll have to create a new TS-based on for DOM node previews.",
+      "parentUuid": "953b462e_d1389cb5",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 199,
+        "endChar": 26
+      },
+      "revId": "89723bdc7e02b2bb17ea1ee598009bbfee8b8b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12d1f90b_35f77d1d",
         "filename": "front_end/elements/LayoutSidebarPane.js",
         "patchSetId": 12
