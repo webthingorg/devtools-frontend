@@ -13,6 +13,7 @@ import * as Context from './Context.js';
 import * as ContextFlavorListener from './ContextFlavorListener.js';
 import * as ContextMenu from './ContextMenu.js';
 import * as Dialog from './Dialog.js';
+import * as DockController from './DockController.js';
 import * as DropTarget from './DropTarget.js';
 import * as EmptyWidget from './EmptyWidget.js';
 import * as FilterBar from './FilterBar.js';
@@ -78,6 +79,7 @@ export {
   ContextMenu,
   Dialog,
   DropTarget,
+  DockController,
   EmptyWidget,
   FilterBar,
   FilterSuggestionBuilder,
