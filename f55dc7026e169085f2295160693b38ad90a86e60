@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbf9a230_8fc7b2d3",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-13T10:45:44Z",
+      "side": 1,
+      "message": "does this make the parsing order dependent?\n\ne.g. if we define the interface first, and it references MyEnum.FOO, the code is going to search for the MyEnum reference but we might not have found it yet as we\u0027re still walking the tree.\n\nIf it does, this causes problems if the enum is defined in another file and imported and we might need to rethink.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 118
+      },
+      "revId": "f55dc7026e169085f2295160693b38ad90a86e60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
