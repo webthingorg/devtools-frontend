@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c511a9d_47d62ce7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-14T05:27:58Z",
+      "side": 1,
+      "message": "Sorry for being unclear, below is more info! Thanks a lot for the changes!\n\nLGTM modulo the LICENSE issues mentioned :). ",
+      "revId": "55cbadd014a417458a942b41e6cfea88cc8a74f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

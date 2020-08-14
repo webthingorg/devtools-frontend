@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ca095025_b8f939a4",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-14T05:27:58Z",
+      "side": 1,
+      "message": "Aha! Ok, thanks :).",
+      "parentUuid": "cf0b9c1b_b5df9c96",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0983cdb_8447833f",
         "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads-sourcemaps.html",
         "patchSetId": 4
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "can you please provide me with a link to a file that has an example of this license?",
       "parentUuid": "a0983cdb_8447833f",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de1a328c_2d1d72f2",
+        "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-14T05:27:58Z",
+      "side": 1,
+      "message": "Like this:\n\n\u003c!--\n  Copyright 2020 The Chromium Authors. All rights reserved.\n  Use of this source code is governed by a BSD-style license that can be\n  found in the LICENSE file.\n--\u003e",
+      "parentUuid": "8d80e93f_e30ff4b1",
       "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -124,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "dc3f8c92_f9735da4",
+        "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-14T05:27:58Z",
+      "side": 1,
+      "message": "Sorry for not being clear enough! Here\u0027s more info:\n\nWe already have the LICENSE in your other CL (crrev.com/2318259, test/e2e/resources/sources/wasm/emscripten/LICENSE). If you look at the beginning of the file we listed a number of files at the top where this LICENSE applies to, i.e. all generated emscripten files. As soon as the other CL is merged (or adapted to whatever thirdparty licensing says after the review) we need to name the generated files in this CL in the LICENSE too, i.e. we need to list:\n\nstepping-with-state.js\nstepping-with-state.wasm\nstepping-with-state.wasm.map\n\nstepping-with-state-and-threads.js\nstepping-with-state-and-threads.wasm\nstepping-with-state-and-threads.wasm.map\nstepping-with-state-and-threads.worker.js",
+      "parentUuid": "94e11362_5fe85065",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "805e671f_2d32a604",
         "filename": "test/e2e/resources/sources/wasm/emscripten/stepping-with-state-sourcemaps.html",
         "patchSetId": 4
@@ -153,6 +207,24 @@
       "side": 1,
       "message": "same here (can you please provide an example?)",
       "parentUuid": "805e671f_2d32a604",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40db42e9_44611470",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/stepping-with-state-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-14T05:27:58Z",
+      "side": 1,
+      "message": "Like this:\n\n\u003c!--\n  Copyright 2020 The Chromium Authors. All rights reserved.\n  Use of this source code is governed by a BSD-style license that can be\n  found in the LICENSE file.\n--\u003e",
+      "parentUuid": "5c086e27_8f73a2bf",
       "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
