@@ -244,6 +244,9 @@
   <message name="IDS_DEVTOOLS_52ebc26c2921d5b84fc670dff9891821" desc="Text in the Shortcuts page to explain a keyboard shortcut (zoom out)">
     Zoom out
   </message>
+  <message name="IDS_DEVTOOLS_535236850b0286b586c8bc7ca796f0fa" desc="Title of an animation keyframe group">
+    <ph name="THIS__ANIMATION_NAME__">$1s<ex>anilogo</ex></ph> slider
+  </message>
   <message name="IDS_DEVTOOLS_539dddc574d3cd85ba73df93df7a76d0" desc="Text for the execution stack trace">
     Stack Trace
   </message>
