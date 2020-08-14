@@ -263,6 +263,30 @@
       "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "921492a3_09bc6394",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-14T17:57:49Z",
+      "side": 1,
+      "message": "Confirmed, :). Brandon pretty much covered everything but for future reference this can be found in here:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/localization/locked_terms.md?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "parentUuid": "d104d357_0ed0bf11",
+      "range": {
+        "startLine": 64,
+        "startChar": 110,
+        "endLine": 64,
+        "endChar": 182
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
