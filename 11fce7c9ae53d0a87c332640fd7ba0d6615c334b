@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "529a75a7_6b165982",
+        "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-14T09:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de1a328c_2d1d72f2",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef21f6ad_f3f6212d",
         "filename": "test/e2e/resources/sources/wasm/emscripten-with-threads/stepping-with-state-and-threads.js",
         "patchSetId": 4
@@ -228,6 +246,24 @@
       "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b19403af_0352c591",
+        "filename": "test/e2e/resources/sources/wasm/emscripten/stepping-with-state-sourcemaps.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-14T09:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40db42e9_44611470",
+      "revId": "11fce7c9ae53d0a87c332640fd7ba0d6615c334b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
