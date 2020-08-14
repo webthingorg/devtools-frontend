@@ -79,7 +79,6 @@ devtools_module("ui") {
 
 devtools_entrypoint("bundle") {
   entrypoint = "ui.js"
-  is_legacy_javascript_entrypoint = [ "crbug.com/1011811" ]
 
   deps = [ ":ui" ]
 }
