@@ -16,6 +16,23 @@
       "revId": "4c229970114b4906b1cb677f411f3e774b3f999c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95d6e21a_b45d6af1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-08-14T18:57:57Z",
+      "side": 1,
+      "message": "Can you add before and after screenshots or screen captures to the CL description? Also feel free to take this out of \"Work in Progress\" if you\u0027re ready for a review. Thanks!",
+      "revId": "4c229970114b4906b1cb677f411f3e774b3f999c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
