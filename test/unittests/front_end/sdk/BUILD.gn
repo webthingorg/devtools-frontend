@@ -8,6 +8,7 @@ ts_library("sdk") {
     "Cookie_test.ts",
     "FrameManager_test.ts",
     "Issue_test.ts",
+    "LocationRanges_test.ts",
     "MockIssuesModel.ts",
     "NetworkManager_test.ts",
     "PageResourceLoader_test.ts",
