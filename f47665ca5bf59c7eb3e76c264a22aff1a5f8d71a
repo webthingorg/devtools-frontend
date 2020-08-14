@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "80ec8155_15bfe731",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-14T15:55:58Z",
+      "side": 1,
+      "message": "nit: should end with .md",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fcefeed_8e737e79",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -19,6 +42,23 @@
     },
     {
       "key": {
+        "uuid": "3243de15_c3852a63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-14T15:55:58Z",
+      "side": 1,
+      "message": "I think this change LGTM. It would be nice to add e2e tests, but I\u0027m not sure we support using chrome launch flags in the e2e test system at the moment. I\u0027ll look into that and comment back here.\n\nAlso had a question about how to test the manifest-location-changed addition to make sure that we don\u0027t unexpectedly show that error after the re-fetch Daniel mentioned",
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f870185c_15f53720",
         "filename": "front_end/resources/AppManifestView.js",
         "patchSetId": 2
@@ -30,6 +70,30 @@
       "writtenOn": "2020-08-14T15:46:35Z",
       "side": 1,
       "message": "Technically this should just cause DevTools to re-fetch the errors, but not a big deal to start by printing the error string here.",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 41
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea5afef2_a314672d",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-14T15:55:58Z",
+      "side": 1,
+      "message": "Hmm, is there an easy way to go about testing this? It would be unfortunate if the error was printed in the UI but then didn\u0027t update after the refetch.",
+      "parentUuid": "f870185c_15f53720",
       "range": {
         "startLine": 380,
         "startChar": 0,
