@@ -6,6 +6,7 @@
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Common from '../common/common.js';
+import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Platform from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as SDK from '../sdk/sdk.js';
@@ -55,11 +56,11 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
         ls`Learn more`);
     learnMoreRow.appendChild(learnMore);
     this._quotaUsage = null;
-    this._pieChart = new PerfUI.PieChart(
-        {chartName: ls`Storage Usage`, size: 110, formatter: Platform.NumberUtilities.bytesToString, showLegend: true});
+    this._pieChart = PerfUI.PieChart2.createPieChart2();
+
     const usageBreakdownRow = quota.appendRow();
     usageBreakdownRow.classList.add('usage-breakdown-row');
-    usageBreakdownRow.appendChild(this._pieChart.element);
+    usageBreakdownRow.appendChild(this._pieChart);
 
     const clearButtonSection = this._reportView.appendSection('', 'clear-storage-button').appendRow();
     this._clearButton = UI.UIUtils.createTextButton(ls`Clear site data`, this._clear.bind(this));
@@ -243,8 +244,7 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
     const response = await this._target.storageAgent().invoke_getUsageAndQuota({origin: securityOrigin});
     if (response[ProtocolClient.InspectorBackend.ProtocolError]) {
       this._quotaRow.textContet = '';
-      this._resetPieChart(0);
-      return;
+      this._populatePieChart(0, []);
     }
     this._quotaRow.textContent = Common.UIString.UIString(
         '%s used out of %s storage quota.\xA0', Platform.NumberUtilities.bytesToString(response.usage),
@@ -256,7 +256,8 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
 
     if (this._quotaUsage === null || this._quotaUsage !== response.usage) {
       this._quotaUsage = response.usage;
-      this._resetPieChart(response.usage);
+      /** @type {!Array<!PerfUI.PieChart2.Slice>} */
+      const slices = [];
       for (const usageForType of response.usageBreakdown.sort((a, b) => b.usage - a.usage)) {
         const value = usageForType.usage;
         if (!value) {
@@ -264,8 +265,9 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
         }
         const title = this._getStorageTypeName(usageForType.storageType);
         const color = this._pieColors.get(usageForType.storageType) || '#ccc';
-        this._pieChart.addSlice(value, color, title);
+        slices.push({value, color, title});
       }
+      this._populatePieChart(response.usage, slices);
     }
 
     this._usageUpdatedForTest(response.usage, response.quota, response.usageBreakdown);
@@ -274,9 +276,17 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
 
   /**
    * @param {number} total
+   * @param {!Array<!PerfUI.PieChart2.Slice>} slices
    */
-  _resetPieChart(total) {
-    this._pieChart.initializeWithTotal(total);
+  _populatePieChart(total, slices) {
+    this._pieChart.data = {
+      chartName: ls`Storage Usage`,
+      size: 110,
+      formatter: Platform.NumberUtilities.bytesToString,
+      showLegend: true,
+      total,
+      slices
+    };
   }
 
   /**
