@@ -143,6 +143,30 @@
       "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb7a8f9_7cb83a40",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-14T16:31:55Z",
+      "side": 1,
+      "message": "That\u0027s fair - happy for me to fix IDS_DEVTOOLS_dce1121d5ec5434e70d2d809fd7828e1 while I\u0027m at it?",
+      "parentUuid": "43299df8_8825ac49",
+      "range": {
+        "startLine": 64,
+        "startChar": 110,
+        "endLine": 64,
+        "endChar": 182
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
