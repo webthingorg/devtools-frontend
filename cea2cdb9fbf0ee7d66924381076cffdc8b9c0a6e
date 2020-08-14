@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "978bed4a_6732c016",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-14T12:52:39Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Eric,\n\nthe last missing piece in stepping: passing sorted and maximally merged\nranges to the back-end.\n\nI also did some small refactoring of the previous ancestor CL.\n\nPTAL!",
+      "revId": "cea2cdb9fbf0ee7d66924381076cffdc8b9c0a6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
