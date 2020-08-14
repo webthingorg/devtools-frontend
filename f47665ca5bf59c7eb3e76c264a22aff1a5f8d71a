@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e454717_572532b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-14T17:07:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ec8155_15bfe731",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fcefeed_8e737e79",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -120,6 +144,30 @@
       "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e9f36df_419253cb",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-14T17:07:16Z",
+      "side": 1,
+      "message": "Since this is unrelated to the change I want to make, and there is some concern around adding it, I\u0027ll remove this and open a crbug for further investigation.",
+      "parentUuid": "ea5afef2_a314672d",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 41
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
