@@ -167,6 +167,30 @@
       "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c8de103_a5f518d2",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-14T16:35:33Z",
+      "side": 1,
+      "message": "good catch, that would be great!",
+      "parentUuid": "dbb7a8f9_7cb83a40",
+      "range": {
+        "startLine": 64,
+        "startChar": 110,
+        "endLine": 64,
+        "endChar": 182
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
