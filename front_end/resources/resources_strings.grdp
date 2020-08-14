@@ -60,6 +60,9 @@
   <message name="IDS_DEVTOOLS_1bea0f12b50db07ee7f2265b790417ff" desc="Text in App Manifest View of the Application panel">
     Installability
   </message>
+  <message name="IDS_DEVTOOLS_1dacfb77b471afe19dc1b591c8c9f0a3" desc="Manifest installability error in the Application panel">
+    Manifest contains &apos;display_override&apos; field, and the first supported display mode must be one of &apos;standalone&apos;, &apos;fullscreen&apos;, or &apos;minimal-ui&apos;
+  </message>
   <message name="IDS_DEVTOOLS_1e9cf6d18aa0124e44d013131c79b0c1" desc="Tooltip in Application Panel Sidebar of the Application panel">
     Version: <ph name="THIS__DATABASE_VERSION">$1s<ex>1.0</ex></ph> (empty)
   </message>
@@ -271,6 +274,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_8a6bd58d43215a9efccc3753ab42b347" desc="Manifest installability error in the Application panel">
     Manifest does not contain a suitable icon - PNG, SVG or WebP format of at least <ph name="MINIMUM_ICON_SIZE">$1s<ex>100</ex></ph>px is required, the sizes attribute must be set, and the purpose attribute, if set, must include &quot;any&quot; or &quot;maskable&quot;.
   </message>
+  <message name="IDS_DEVTOOLS_8a76f6186ddd8d61a1ec034839f55c49" desc="Manifest installability error in the Application panel">
+    Manifest location changed during fetch
+  </message>
   <message name="IDS_DEVTOOLS_8c4aa541ee911e8d80451ef8cc304806" desc="Text in Application Panel Sidebar of the Application panel">
     Storage
   </message>
@@ -326,6 +332,9 @@ as used by Chrome
   </message>
   <message name="IDS_DEVTOOLS_a274f4d4670213a9045ce258c6c56b80" desc="Text in Background Service View of the Application panel">
     Notifications
+  </message>
+  <message name="IDS_DEVTOOLS_a355b60c9b21eeba5dbbf8c3dc767257" desc="Manifest installability error in the Application panel">
+    prefer_related_applications is only supported on Chrome Beta and Stable channels on Android.
   </message>
   <message name="IDS_DEVTOOLS_a7d5ee58baead2f3bc229d3d9c047875" desc="Text in Service Workers View of the Application panel">
     Unregister <ph name="LOCKED_TERM">service worker</ph>
