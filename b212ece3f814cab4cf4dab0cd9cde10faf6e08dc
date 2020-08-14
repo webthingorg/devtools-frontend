@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "8823d316_01c8e049",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-14T21:09:55Z",
+      "side": 1,
+      "message": "We have to first dock it.",
+      "parentUuid": "8cbcf293_8b010802",
+      "range": {
+        "startLine": 413,
+        "startChar": 12,
+        "endLine": 413,
+        "endChar": 99
+      },
+      "revId": "b212ece3f814cab4cf4dab0cd9cde10faf6e08dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd762187_3d3ae607",
         "filename": "front_end/ui/module.json",
         "patchSetId": 3
@@ -76,6 +100,30 @@
       "writtenOn": "2020-08-14T05:39:52Z",
       "side": 1,
       "message": "these *.json files have an extra new line, was this done by presubmit?",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "b212ece3f814cab4cf4dab0cd9cde10faf6e08dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faa45b82_1c8e13ef",
+        "filename": "front_end/ui/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-14T21:09:55Z",
+      "side": 1,
+      "message": "seems so.",
+      "parentUuid": "dd762187_3d3ae607",
       "range": {
         "startLine": 120,
         "startChar": 0,
