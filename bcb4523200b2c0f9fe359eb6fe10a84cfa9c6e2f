@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3219e518_26b57322",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-14T09:36:41Z",
+      "side": 1,
+      "message": "Hey Peter, I\u0027d love your sign off on this since this is a UI change. I recall the group agreeing on removing the grid border setting, but want to double check.",
+      "revId": "bcb4523200b2c0f9fe359eb6fe10a84cfa9c6e2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
