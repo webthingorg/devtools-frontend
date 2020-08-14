@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8109e1_c42d73ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-14T21:02:01Z",
+      "side": 1,
+      "message": "This works with a fix from the platform team: https://chromium-review.googlesource.com/c/chromium/src/+/2350763. Also, per PM request, the experimental api status is now reflected on the color of the experimental api button (the flask icon). The button also will open a tab for one to change the flag.",
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
