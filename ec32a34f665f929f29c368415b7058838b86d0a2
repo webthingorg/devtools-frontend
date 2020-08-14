@@ -68,6 +68,46 @@
       "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90002efb_0bea35af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-14T08:36:36Z",
+      "side": 1,
+      "message": "Hey, so I think mostly this implementation LGTM. What I\u0027m less comfortable with is the build-time dependency on transpiling via Rollup, which is inconsistent with the rest of our infrastructure. With any other third party dep we check in the compiled/transpiled assets and don\u0027t change them at build (in fact we copy them via devtools_pre_built over to gen or resources/inspector). \nI think we should remove the Rollup pass that converts from CJS to import statements, and have that as part of rolling the dependency in.",
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80389815_cdfe8f1e",
+        "filename": "front_end/i18n/i18n.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-14T08:36:36Z",
+      "side": 1,
+      "message": "I\u0027m a little confused as to the indirection here. There\u0027s this import that goes to impl, but then impl goes to i18n-lh-bundle, which then goes to third_party/i18n/i18n-bundle. Can we simplify that at all?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
