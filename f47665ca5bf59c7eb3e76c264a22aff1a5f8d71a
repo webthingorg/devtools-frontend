@@ -59,6 +59,23 @@
     },
     {
       "key": {
+        "uuid": "d5ece057_15f26f58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-14T16:12:49Z",
+      "side": 1,
+      "message": "Looks like the ability to run e2e Tests with chrome features is possible and was added with: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2125249\n\nMore info is available in test\\e2e\\README.md\n\nLooks like the best practice would be to write the tests so it early returns if the feature is not enabled when launching the browser as done for the Media tests in the CL above.",
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f870185c_15f53720",
         "filename": "front_end/resources/AppManifestView.js",
         "patchSetId": 2
