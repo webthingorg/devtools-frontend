@@ -309,6 +309,10 @@ select.toolbar-item[data-keyboard-focus="true"]:focus > * {
   background-color: rgb(163 163 163);
 }
 
+.toolbar-glyph.emulate-enabled {
+  background-color: var(--accent-color);
+}
+
 .toolbar-button[data-keyboard-focus="true"]:focus::after {
   position: absolute;
   top: 2px;

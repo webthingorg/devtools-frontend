@@ -24,13 +24,19 @@
   <message name="IDS_DEVTOOLS_146bdebb324a64d327b1dde22a07d0bd" desc="Text in Device Mode View of the Device Toolbar">
     Laptop
   </message>
-  <message name="IDS_DEVTOOLS_33485fcae7737ceb110576dc3ef1a316" desc="Description of the Touch select in Sensors tab">
+  <message name="IDS_DEVTOOLS_fca8edb4a0871d81211511efc6a7d95a" desc="Text for experimental api button when the api is disabled">
+    &quot;Experimental Web Platform Feature&quot; flag is disabled. Click to enable it.
+  </message>
+  <message name="IDS_DEVTOOLS_7c4e6c518a502500856e59e1a1481260" desc="Text for experimental api button when the api is enabled">
+    &quot;Experimental Web Platform Feature&quot; flag is enabled. Click to disable it.
+  </message>
+  <message name="IDS_DEVTOOLS_33485fcae7737ceb110576dc3ef1a316" desc="Text in Sensors View for button that forces using touch">
     Forces touch instead of click
   </message>
   <message name="IDS_DEVTOOLS_391e4e3cd855d914f85f3a4e1b9a00ea" desc="Title of the rotate/screen orientation button">
     Screen orientation options
   </message>
-  <message name="IDS_DEVTOOLS_52089bab86bd75e95090797a7ff551e7" desc="Title of an option in Sensors tab idle emulation select">
+  <message name="IDS_DEVTOOLS_52089bab86bd75e95090797a7ff551e7" desc="Text in idle detector state for the option when screen is unlocked due to user activity">
     User active, screen unlocked
   </message>
   <message name="IDS_DEVTOOLS_5531adbb03e9e9d529dee1cfe6ae9325" desc="Title of an option in Sensors tab idle emulation select">

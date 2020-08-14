@@ -586,6 +586,13 @@ export class ToolbarButton extends ToolbarItem {
   }
 
   /**
+   * @param {boolean=} glyph
+   */
+  showIconEnabled(enabled = true) {
+    this._glyphElement.classList.toggle('emulate-enabled', !!enabled);
+  }
+
+  /**
    * @param {string} iconURL
    */
   setBackgroundImage(iconURL) {
