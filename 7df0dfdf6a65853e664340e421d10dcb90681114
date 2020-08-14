@@ -63,6 +63,30 @@
       "revId": "7df0dfdf6a65853e664340e421d10dcb90681114",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "240232bc_0bf0fb68",
+        "filename": "front_end/theme_support/theme_support_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-14T08:47:28Z",
+      "side": 1,
+      "message": "I\u0027d agree with appendStyles coming into the theme support module.",
+      "parentUuid": "4ee1425c_52291381",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 75
+      },
+      "revId": "7df0dfdf6a65853e664340e421d10dcb90681114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
