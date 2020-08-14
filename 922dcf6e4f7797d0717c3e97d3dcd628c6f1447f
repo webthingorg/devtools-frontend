@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ba544b3_49e25540",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-14T14:22:00Z",
+      "side": 1,
+      "message": "You both already reviewed this change here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2346775/\n\nIt was reverted (hence the new CL) because the test was flaky.\nMy understanding of it is that the way we were simulating keypress events (with no delay) wasn\u0027t playing well with the throttler that\u0027s used in the .cls panel to apply classes as you type.\nI\u0027ve added a delay now, and after a bunch of tryjob retries, the test seems stable.\n\nI also added steps in the helper functions in order to have more logs (helps a lot investigate what happened when tests fail).",
+      "revId": "922dcf6e4f7797d0717c3e97d3dcd628c6f1447f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
