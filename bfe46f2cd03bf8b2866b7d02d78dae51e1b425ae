@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f7b4527_833662b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-14T19:21:00Z",
+      "side": 1,
+      "message": "There are a couple more that need to be locked. LGTM aside from that.",
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1787c15e_595348ce",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-14T19:21:00Z",
+      "side": 1,
+      "message": "probably this one too.",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 32
+      },
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1f6c59b_3fd8228d",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-14T19:21:00Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 334,
+        "startChar": 88,
+        "endLine": 334,
+        "endChar": 95
+      },
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "659b0884_a2dca31c",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-14T19:21:00Z",
+      "side": 1,
+      "message": "Branding should be locked too",
+      "range": {
+        "startLine": 334,
+        "startChar": 53,
+        "endLine": 334,
+        "endChar": 64
+      },
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
