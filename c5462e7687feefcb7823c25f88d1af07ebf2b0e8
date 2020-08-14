@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fa61466_49764e80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-14T12:56:18Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "c5462e7687feefcb7823c25f88d1af07ebf2b0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100b35b1_e6546657",
+        "filename": "front_end/ui/XWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-08-14T12:56:18Z",
+      "side": 1,
+      "message": "In ui/utils/focus-changed we could call customElements.get(\u0027x-widget\u0027) to get a reference to XWidget, and thereby avoid the need to drop XWidget on self?",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 23
+      },
+      "revId": "c5462e7687feefcb7823c25f88d1af07ebf2b0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
