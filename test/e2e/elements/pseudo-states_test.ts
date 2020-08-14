@@ -3,9 +3,9 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import {describe, it} from 'mocha';
 
 import {debuggerStatement, getBrowserAndPages, goToResource} from '../../shared/helper.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
 import {assertContentOfSelectedElementsNode, assertGutterDecorationForDomNodeExists, forcePseudoState, getComputedStylesForDomNode, removePseudoState, waitForDomNodeToBeHidden, waitForDomNodeToBeVisible, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
 
 const TARGET_SHOWN_ON_HOVER_SELECTOR = '.show-on-hover';

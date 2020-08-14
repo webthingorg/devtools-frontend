@@ -3,9 +3,9 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import {describe, it} from 'mocha';
 
 import {click, goToResource, waitForElementWithTextContent} from '../../shared/helper.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
 import {assertContentOfSelectedElementsNode, assertSelectedElementsNodeTextIncludes, expandSelectedNodeRecursively, getBreadcrumbsTextContent, getSelectedBreadcrumbTextContent, waitForElementsStyleSection, waitForSelectedTreeElementSelectorWithTextcontent} from '../helpers/elements-helpers.js';
 
 const EXPECTED_TEXT_CONTENT = `<div class=\u200B"div2">\u200B

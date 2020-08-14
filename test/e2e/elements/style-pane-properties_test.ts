@@ -3,10 +3,10 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import {describe, it} from 'mocha';
 import * as puppeteer from 'puppeteer';
 
 import {click, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
 import {assertContentOfSelectedElementsNode, getAriaLabelSelectorFromPropertiesSelector, getComputedStylesForDomNode, getCSSPropertySwatchStyle, getDisplayedCSSPropertyNames, getDisplayedStyleRules, getStyleSectionSubtitles, waitForElementsStyleSection, waitForStyleRule} from '../helpers/elements-helpers.js';
 
 const PROPERTIES_TO_DELETE_SELECTOR = '#properties-to-delete';
