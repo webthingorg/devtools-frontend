@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e14aeb5_259bff66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-14T09:40:08Z",
+      "side": 1,
+      "message": "Updated the button appearance. I\u0027d leave the hover preview for later because it\u0027d require some refactoring in multiple places.",
+      "revId": "7d15cabfc96822f45e540b64d73d8080deb16b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
