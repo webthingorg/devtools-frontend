@@ -283,7 +283,7 @@ export class TimelineTreeView extends UI.Widget.VBox {
     }
     const rootNode = this._dataGrid.rootNode();
     if (rootNode.children.length > 0) {
-      rootNode.children[0].select();
+      rootNode.children[0].select(/* supressSelectedEvent */ true);
     }
   }
 
