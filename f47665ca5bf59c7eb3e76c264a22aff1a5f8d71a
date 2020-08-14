@@ -120,6 +120,29 @@
       "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43299df8_8825ac49",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-14T16:25:03Z",
+      "side": 1,
+      "message": "just realized these modes should probably be locked so they aren\u0027t translated. this would read something like \u0027display mode must be one of \u0026apos;\u003cph name\u003d\"LOCKED_1\"\u003estandalone\u003c/ph\u003e\u0026apos; ...\u0027",
+      "range": {
+        "startLine": 64,
+        "startChar": 110,
+        "endLine": 64,
+        "endChar": 182
+      },
+      "revId": "f47665ca5bf59c7eb3e76c264a22aff1a5f8d71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
