@@ -16,6 +16,23 @@
       "revId": "6726924e9c6915f8054a6233ae90493403341fa2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d233b45_dc58a946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-14T18:55:18Z",
+      "side": 1,
+      "message": "I\u0027ve updated the GRDP file to lock other manifest terms - using LOCKED_1, LOCKED_2, etc as the ids. Thanks for clarifying the expected behavior there. @Vidal - can you review and sign off if these look good to you?\n\nI\u0027m still working on the test, but I\u0027m uploading the basic infra.  @Brandon - you should wait to +1 until I have that completed and passing. ",
+      "revId": "6726924e9c6915f8054a6233ae90493403341fa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
