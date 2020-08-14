@@ -8,6 +8,7 @@
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
+import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {defaultMobileScaleFactor, DeviceModeModel, Type, UA} from './DeviceModeModel.js';
@@ -228,6 +229,38 @@ export class DeviceModeToolbar {
       this._spanButton = new UI.Toolbar.ToolbarButton('', 'largeicon-dual-screen');
       this._spanButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._spanClicked, this);
       toolbar.appendToolbarItem(this._spanButton);
+
+      this._createExperimentalButton(toolbar);
+    }
+  }
+
+  /**
+   * @param {!UI.Toolbar.Toolbar} toolbar
+   */
+  _createExperimentalButton(toolbar) {
+    toolbar.appendToolbarItem(new UI.Toolbar.ToolbarSeparator(true));
+
+    if (this._model.webPlatformExperimentalFeaturesEnabled()) {
+      const title = Common.UIString.UIString('\"Experimental Web Platform\" Flag Set');
+      this._experimentalButton = new UI.Toolbar.ToolbarButton(title, null, title);
+    } else {
+      const toChange = Common.UIString.UIString('Go to chrome://flags to set flag');
+      const title = Common.UIString.UIString('\"Experimental Web Platform\" Flag Not Set');
+      this._experimentalButton = new UI.Toolbar.ToolbarButton(toChange, null, title);
+      this._experimentalButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._experimentalClicked, this);
+    }
+    this._experimentalButton.setRightAligned(true);
+    toolbar.appendToolbarItem(this._experimentalButton);
+  }
+
+  _experimentalClicked() {
+    // SDK.SDKModel.TargetManager.instance().mainTarget().pageAgent().navigate('chrome://flags');
+    const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
+    if (mainTarget) {
+      const resourceModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      if (resourceModel) {
+        resourceModel.navigate('chrome://flags');
+      }
     }
   }
 
@@ -509,6 +542,7 @@ export class DeviceModeToolbar {
       return;
     }
     this._model.emulate(this._model.type(), device, newMode, scale);
+    this._model.reloadPage();
     return;
   }
 
@@ -535,6 +569,7 @@ export class DeviceModeToolbar {
         device.modes[0].orientation !== device.modes[1].orientation) {
       const scale = autoAdjustScaleSetting.get() ? undefined : model.scaleSetting().get();
       model.emulate(model.type(), model.device(), device.getRotationPartner(model.mode()), scale);
+      this._model.reloadPage();
       return;
     }
 
@@ -595,9 +630,6 @@ export class DeviceModeToolbar {
       this._deviceScaleItem.setEnabled(this._model.type() === Type.Responsive);
       this._uaItem.setEnabled(this._model.type() === Type.Responsive);
 
-      if (this._experimentDualScreenSupport) {
-        this._spanButton.setEnabled(false);
-      }
       if (this._model.type() === Type.Responsive) {
         this._modeButton.setEnabled(true);
         this._modeButton.setTitle(ls`Rotate`);
@@ -646,14 +678,20 @@ export class DeviceModeToolbar {
         this._modeButton.setTitle(
             modeCount === 2 ? Common.UIString.UIString('Rotate') :
                               Common.UIString.UIString('Screen orientation options'));
-        if (this._experimentDualScreenSupport) {
-          if (device.isDualScreen) {
-            this._spanButton.setEnabled(true);
-          }
-          this._spanButton.setTitle(Common.UIString.UIString('Toggle dual-screen mode'));
-        }
       }
       this._cachedModelDevice = device;
+    }
+
+    if (this._experimentDualScreenSupport) {
+      const device = this._model.device();
+      if (device && device.isDualScreen) {
+        this._spanButton.setEnabled(true);
+        this._experimentalButton.setVisible(true);
+      } else {
+        this._spanButton.setEnabled(false);
+        this._experimentalButton.setVisible(false);
+      }
+      this._spanButton.setTitle(Common.UIString.UIString('Toggle dual-screen mode'));
     }
 
     if (this._model.type() === Type.Device) {
