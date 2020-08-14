@@ -31,10 +31,7 @@ export class ContentSecurityPolicyIssue extends Issue {
    * @return {string}
    */
   primaryKey() {
-    return JSON.stringify(this._issueDetails, [
-      'blockedURL', 'contentSecurityPolicyViolationType', 'violatedDirective', 'sourceCodeLocation', 'url',
-      'lineNumber', 'columnNumber', 'violatingNodeId'
-    ]);
+    return getPrimaryKeyFromIssueDetails(this._issueDetails);
   }
 
   /**
@@ -56,6 +53,18 @@ export class ContentSecurityPolicyIssue extends Issue {
   cspViolations() {
     return [this._issueDetails];
   }
+}
+
+/**
+ *
+ * @param {!Protocol.Audits.ContentSecurityPolicyIssueDetails} issueDetails
+ * @return {string}
+ */
+export function getPrimaryKeyFromIssueDetails(issueDetails) {
+  return JSON.stringify(issueDetails, [
+    'blockedURL', 'contentSecurityPolicyViolationType', 'violatedDirective', 'sourceCodeLocation', 'url', 'lineNumber',
+    'columnNumber', 'violatingNodeId'
+  ]);
 }
 
 /**

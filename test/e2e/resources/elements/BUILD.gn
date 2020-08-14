@@ -9,6 +9,7 @@ copy_to_gen("elements") {
     "adornment.html",
     "css-variables.html",
     "element-breadcrumbs.html",
+    "element-reveal-oopf-inline-issue.html",
     "focus.html",
     "hover.html",
     "multiple-constructed-stylesheets.html",
