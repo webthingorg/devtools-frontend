@@ -16,6 +16,23 @@
       "revId": "922dcf6e4f7797d0717c3e97d3dcd628c6f1447f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0888364_413b5b58",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-08-14T16:59:07Z",
+      "side": 1,
+      "message": "The empty step function feels a bit odd here, though I get the debug info you\u0027re trying to output. I\u0027m not familiar with why the linting rules currently discourage console.log in tests, but perhaps using that or a new helper here would be more appropriate (if we think this log is important enough to keep). Curious if Jack has any thoughts.",
+      "revId": "922dcf6e4f7797d0717c3e97d3dcd628c6f1447f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
