@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cc23c88_6ae248d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-08-14T05:39:52Z",
+      "side": 1,
+      "message": "nit: \n\nDevTools has some settings that require a reload of the tools after changing them. \n\nThere are some problems if the tools are undocked and the user clicks on the \"Reload DevTools\" button:\n1) Device mode button stops working\n2) ???",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "b212ece3f814cab4cf4dab0cd9cde10faf6e08dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee0047dd_4570ee76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-08-14T05:39:52Z",
+      "side": 1,
+      "message": "The overall architecture of moving DockController to ui makes sense if it is needed inside InspectorView, i don\u0027t understand the use of setIsDocked, perhaps you can explain a bit more how that works.",
+      "revId": "b212ece3f814cab4cf4dab0cd9cde10faf6e08dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8cbcf293_8b010802",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-08-14T05:39:52Z",
+      "side": 1,
+      "message": "I don\u0027t understand this part of the code. If the DevTools are undocked and the user reloads them why do you set the .setIsDocked to true?",
+      "range": {
+        "startLine": 413,
+        "startChar": 12,
+        "endLine": 413,
+        "endChar": 99
+      },
+      "revId": "b212ece3f814cab4cf4dab0cd9cde10faf6e08dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd762187_3d3ae607",
+        "filename": "front_end/ui/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-08-14T05:39:52Z",
+      "side": 1,
+      "message": "these *.json files have an extra new line, was this done by presubmit?",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "b212ece3f814cab4cf4dab0cd9cde10faf6e08dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
