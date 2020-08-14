@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88e931c7_df2cd109",
+        "filename": "front_end/timeline/TimelineTreeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1334870
+      },
+      "writtenOn": "2020-08-14T23:51:01Z",
+      "side": 1,
+      "message": "we probably want to do the same here as well.",
+      "range": {
+        "startLine": 718,
+        "startChar": 6,
+        "endLine": 718,
+        "endChar": 36
+      },
+      "revId": "ce0d32c14298641a856af7a31617400aeb238cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
