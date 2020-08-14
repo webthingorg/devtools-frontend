@@ -157,6 +157,30 @@
       "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d1a81a4_7209e53b",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-14T19:33:30Z",
+      "side": 1,
+      "message": "thanks Mike",
+      "parentUuid": "5790b82c_d9b2e6e4",
+      "range": {
+        "startLine": 334,
+        "startChar": 88,
+        "endLine": 334,
+        "endChar": 95
+      },
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
