@@ -85,6 +85,78 @@
       "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "496e877c_a4b013f4",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-14T19:27:55Z",
+      "side": 1,
+      "message": "Done - and in other places as well.",
+      "parentUuid": "1787c15e_595348ce",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 32
+      },
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bb1da52_74aac854",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-14T19:27:55Z",
+      "side": 1,
+      "message": "I locked Chrome, but left Beta and Stable as localizable.",
+      "parentUuid": "659b0884_a2dca31c",
+      "range": {
+        "startLine": 334,
+        "startChar": 53,
+        "endLine": 334,
+        "endChar": 64
+      },
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5790b82c_d9b2e6e4",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-14T19:27:55Z",
+      "side": 1,
+      "message": "Done - and in other places as well",
+      "parentUuid": "b1f6c59b_3fd8228d",
+      "range": {
+        "startLine": 334,
+        "startChar": 88,
+        "endLine": 334,
+        "endChar": 95
+      },
+      "revId": "bfe46f2cd03bf8b2866b7d02d78dae51e1b425ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
