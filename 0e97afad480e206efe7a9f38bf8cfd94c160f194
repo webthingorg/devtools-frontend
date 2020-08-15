@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b28527d_a4635f1d",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-15T09:12:02Z",
+      "side": 0,
+      "message": "On very rare occasions (only seen on the windows try-bots), this selector will complete but the textContent of the found node will be stale and still contain the \"Empty Widget\" placeholder text. See run:\nhttps://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8871968707953330656/+/steps/E2E_tests/0/stdout\nThe tests now instead wait for the text content to be updated. While the readability of the tests is slightly worse, I think this will make them more stable.",
+      "revId": "0e97afad480e206efe7a9f38bf8cfd94c160f194",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
