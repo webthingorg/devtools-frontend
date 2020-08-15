@@ -7,6 +7,9 @@ import("../../../../scripts/build/ninja/copy.gni")
 copy_to_gen("application") {
   sources = [
     "cookies.html",
+    "manifest_display_override_contains_browser.html",
+    "manifest_display_override_contains_browser.json",
+    "service-worker.js",
     "session-storage.html",
     "websql-database.html",
   ]

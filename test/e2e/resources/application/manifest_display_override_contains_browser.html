@@ -1,0 +1,15 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<html>
+  <head>
+    <title>Web app banner test page</title>
+    <link rel="manifest" href="manifest_display_override_contains_browser.json">
+  </head>
+  <body onload="navigator.serviceWorker.register('service-worker.js')">
+    Service worker returns a response object if it's offline, so the page
+    supports the offline environment.
+  </body>
+</html>
