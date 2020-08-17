@@ -16,6 +16,230 @@
       "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00689e6b_7eeb8a34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "couple more comments on the latest icon change. I haven\u0027t tested with the platform fix yet, but glad to hear there is one.",
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2107a8c0_e2032636",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "nit: can combine default with above to remove duplicate line",
+      "range": {
+        "startLine": 539,
+        "startChar": 8,
+        "endLine": 541,
+        "endChar": 73
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c370ca60_c24c00e4",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "why do we need to OR with _webPlatformExperimentalFeaturesEnabled? won\u0027t all of the relevant force overrides require dual screen support enabled? or is this about emulating a generic device and setting multiple window segments?",
+      "range": {
+        "startLine": 570,
+        "startChar": 15,
+        "endLine": 570,
+        "endChar": 55
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "056b9877_299f028a",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "nit: replace trailing comma unless presubmit gets mad 😊",
+      "range": {
+        "startLine": 805,
+        "startChar": 28,
+        "endLine": 805,
+        "endChar": 32
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a50fe9a_31451373",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "(same comment here for reference) This can be replaced with ToolbarToggle to avoid adding a new emulation specific function to toolbarbutton",
+      "range": {
+        "startLine": 245,
+        "startChar": 46,
+        "endLine": 245,
+        "endChar": 59
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1c64b9c_d8c86d8f",
+        "filename": "front_end/emulation/emulation_strings.grdp",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "since the experiment names don\u0027t change, we should lock this. this would be\n\u0026quot;\u003cph name\u003d\"LOCKED_1\"\u003eExperimental Web Platform Feature\u003c/ph\u003e\u0026quot; flag is disabled. Click to enable it.\n\nsame in the below addition",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "980f8941_fe0b6d01",
+        "filename": "front_end/emulation/emulation_strings.grdp",
+        "patchSetId": 16
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "I don\u0027t think these changes are part of your CL? consider rebasing? if they are needed by loc, thats fine",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "302d9a46_a2e65d1a",
+        "filename": "front_end/emulation/module.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "is this from presubmit? if not, consider removing",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 0
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d53d84b_af5e14a5",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "Toolbar.js is an abstract class that can\u0027t have emulation specific class names/properties applied to it. Based on what you are trying to do, consider using ToolbarToggle instead, and use setToggled() to change the icon.",
+      "range": {
+        "startLine": 591,
+        "startChar": 0,
+        "endLine": 594,
+        "endChar": 0
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db624362_b50b4481",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 16
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-17T19:48:47Z",
+      "side": 1,
+      "message": "same comment here, remove and use toolbar toggle class instead (shouldn\u0027t need to add any additional CSS)",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 1
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
