@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e0d164e5_60564bf3",
+        "filename": "test/e2e/console/console-eval-blocked-by-CSP_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-17T06:04:07Z",
+      "side": 1,
+      "message": "Mark resolved",
+      "parentUuid": "466060f3_2bab8e3b",
+      "revId": "db4d1913b2f04016e1d26f6f44f1a4317547005f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd408b39_98f45c9e",
         "filename": "test/e2e/elements/pseudo-states_test.ts",
         "patchSetId": 23
@@ -68,6 +86,24 @@
       "revId": "db4d1913b2f04016e1d26f6f44f1a4317547005f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d92e1563_fd7c6188",
+        "filename": "test/e2e/elements/pseudo-states_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-17T06:04:07Z",
+      "side": 1,
+      "message": "Mark resolved",
+      "parentUuid": "fd408b39_98f45c9e",
+      "revId": "db4d1913b2f04016e1d26f6f44f1a4317547005f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "547f0e77_2118bd87",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-17T06:04:07Z",
+      "side": 1,
+      "message": "Mark resolved",
+      "parentUuid": "c1ddf08e_70550001",
+      "revId": "db4d1913b2f04016e1d26f6f44f1a4317547005f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fb540b1_fc04946c",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 23
@@ -105,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "11ec179d_9a29667e",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-17T06:04:07Z",
+      "side": 1,
+      "message": "Mark resolved",
+      "parentUuid": "7fb540b1_fc04946c",
+      "revId": "db4d1913b2f04016e1d26f6f44f1a4317547005f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61445b44_d317b8b8",
         "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
         "patchSetId": 23
@@ -119,6 +191,24 @@
       "revId": "db4d1913b2f04016e1d26f6f44f1a4317547005f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "707bf520_a019aba8",
+        "filename": "test/e2e/sources/can-break-with-wasm-sourcemaps_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-17T06:04:07Z",
+      "side": 1,
+      "message": "Mark resolved",
+      "parentUuid": "61445b44_d317b8b8",
+      "revId": "db4d1913b2f04016e1d26f6f44f1a4317547005f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
