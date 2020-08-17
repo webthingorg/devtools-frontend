@@ -43,7 +43,7 @@ async function testMessageFilter(filter: string, expectedMessageFilter: MessageC
   const showMessagesWithAnchor = true;
 
   await step('navigate to console-filter.html and get console messages', async () => {
-    unfilteredMessages = await getConsoleMessages('console-filter', showMessagesWithAnchor);
+    unfilteredMessages = await getConsoleMessages(11, 'console-filter', showMessagesWithAnchor);
   });
 
   await step(`filter to only show messages containing '${filter}'`, async () => {
@@ -63,7 +63,7 @@ describe('The Console Tab', async () => {
     let messages: string[];
     const withAnchor = true;
     await step('navigate to console-filter.html and get console messages', async () => {
-      messages = await getConsoleMessages('console-filter', withAnchor);
+      messages = await getConsoleMessages(11, 'console-filter', withAnchor);
     });
 
     await step('check that all console messages appear', async () => {
@@ -88,7 +88,7 @@ describe('The Console Tab', async () => {
     let messages: string[];
     const withAnchor = true;
     await step('navigate to console-filter.html and get console messages', async () => {
-      messages = await getConsoleMessages('console-filter', withAnchor, showVerboseMessages);
+      messages = await getConsoleMessages(11, 'console-filter', withAnchor, showVerboseMessages);
     });
 
     await step('ensure that all levels are logged', async () => {
@@ -121,7 +121,7 @@ describe('The Console Tab', async () => {
     let uniqueUrls: Set<string>;
 
     await step('navigate to console-filter.html and wait for console messages', async () => {
-      await getConsoleMessages('console-filter');
+      await getConsoleMessages(11, 'console-filter');
     });
 
     await step('collect source urls from all messages', async () => {
@@ -152,7 +152,7 @@ describe('The Console Tab', async () => {
     let uniqueUrls: Set<string>;
 
     await step('navigate to console-filter.html and wait for console messages', async () => {
-      await getConsoleMessages('console-filter');
+      await getConsoleMessages(11, 'console-filter');
     });
 
     await step('collect source urls from all messages', async () => {
@@ -230,7 +230,7 @@ describe('The Console Tab', async () => {
     let unfilteredMessages: string[];
 
     await step('get unfiltered messages', async () => {
-      unfilteredMessages = await getConsoleMessages('console-filter');
+      unfilteredMessages = await getConsoleMessages(11, 'console-filter');
     });
 
     await step('apply message filter', async () => {

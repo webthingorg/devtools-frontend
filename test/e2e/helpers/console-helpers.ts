@@ -4,7 +4,7 @@
 
 import * as puppeteer from 'puppeteer';
 
-import {$, click, getBrowserAndPages, goToResource, pasteText, timeout, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, goToResource, pasteText, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
 
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
@@ -42,13 +42,27 @@ export async function filterConsoleMessages(frontend: puppeteer.Page, filter: st
   await frontend.keyboard.press('Enter');
 }
 
+export async function waitForConsoleMessages(numberOfMessages: number) {
+  await waitForFunction(async () => {
+    const messages = await $$(CONSOLE_FIRST_MESSAGES_SELECTOR);
+    if (messages.length < numberOfMessages) {
+      return false;
+    }
+    const childLengths =
+        await Promise.all(messages.map(message => message.evaluate(message => message.childNodes.length)));
+    return childLengths.every(length => length > 0);
+  });
+}
+
 export async function getConsoleMessages(
-    testName: string, withAnchor = false, callback?: (page: puppeteer.Page) => Promise<void>) {
+    numberOfMessages: number, testName: string, withAnchor = false,
+    callback?: (page: puppeteer.Page) => Promise<void>) {
   // Ensure Console is loaded before the page is loaded to avoid a race condition.
   await getCurrentConsoleMessages();
 
   // Have the target load the page.
   await goToResource(`console/${testName}.html`);
+  await waitForConsoleMessages(numberOfMessages);
 
   return getCurrentConsoleMessages(withAnchor, callback);
 }
