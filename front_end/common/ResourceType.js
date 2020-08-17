@@ -251,6 +251,7 @@ export const resourceCategories = {
   Document: new ResourceCategory(ls`Documents`, ls`Doc`),
   WebSocket: new ResourceCategory(ls`WebSockets`, ls`WS`),
   Manifest: new ResourceCategory(ls`Manifest`, ls`Manifest`),
+  Beacon: new ResourceCategory(ls`Beacon`, ls`Beacon`),
   Other: new ResourceCategory(ls`Other`, ls`Other`),
 };
 
@@ -274,6 +275,7 @@ export const resourceTypes = {
   SignedExchange: new ResourceType('signed-exchange', ls`SignedExchange`, resourceCategories.Other, false),
   Ping: new ResourceType('ping', ls`Ping`, resourceCategories.Other, false),
   CSPViolationReport: new ResourceType('csp-violation-report', ls`CSPViolationReport`, resourceCategories.Other, false),
+  Beacon: new ResourceType('beacon', ls`Beacon`, resourceCategories.Beacon, true),
   Other: new ResourceType('other', ls`Other`, resourceCategories.Other, false),
   SourceMapScript: new ResourceType('sm-script', ls`Script`, resourceCategories.Script, true),
   SourceMapStyleSheet: new ResourceType('sm-stylesheet', ls`Stylesheet`, resourceCategories.Stylesheet, true),

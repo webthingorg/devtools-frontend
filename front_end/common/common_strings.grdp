@@ -6,6 +6,9 @@
   <message name="IDS_DEVTOOLS_375c9558f2166cab6515a7ab774c1735" desc="Name of a network resource type">
     TextTrack
   </message>
+  <message name="IDS_DEVTOOLS_3bd5571b2db43ea584bf8e7438434515" desc="Name of a network resource type">
+    Beacon
+  </message>
   <message name="IDS_DEVTOOLS_441d3aea2e55865603a26ca972779831" desc="Text that appears in a tooltip the xhr and fetch resource types filter.">
     XHR and Fetch
   </message>
