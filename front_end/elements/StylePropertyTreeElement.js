@@ -225,6 +225,15 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   /**
+   * @param {string} text
+   * @return {!Node}
+   */
+  _processFont(text) {
+    this.section().registerFontProperty(this);
+    return document.createTextNode(text);
+  }
+
+  /**
    * @param {string} propertyValue
    * @param {string} propertyName
    * @return {!Node}
@@ -470,6 +479,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       propertyRenderer.setVarHandler(this._processVar.bind(this));
       propertyRenderer.setColorHandler(this._processColor.bind(this));
       propertyRenderer.setBezierHandler(this._processBezier.bind(this));
+      propertyRenderer.setFontHandler(this._processFont.bind(this));
       propertyRenderer.setShadowHandler(this._processShadow.bind(this));
       propertyRenderer.setGridHandler(this._processGrid.bind(this));
     }
