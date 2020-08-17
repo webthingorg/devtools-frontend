@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ccb61e4_aedb17c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-17T14:49:26Z",
+      "side": 1,
+      "message": "One nit; otherwise LGTM!",
+      "revId": "dbf45f653ffaf3acf6f3d480ef1058e037285417",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "503f377b_e2df3d46",
+        "filename": "front_end/perf_ui/PieChart2.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-17T14:49:26Z",
+      "side": 1,
+      "message": "I understand this comment, but what\u0027s TODO about it? I can\u0027t see what the TODO is referring to.",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 224,
+        "endChar": 27
+      },
+      "revId": "dbf45f653ffaf3acf6f3d480ef1058e037285417",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
