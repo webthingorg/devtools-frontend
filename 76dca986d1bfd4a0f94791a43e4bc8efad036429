@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fc909cc_a192121a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-17T14:22:22Z",
+      "side": 1,
+      "message": "Landing now. Looking at the latest mockups shared by Peter, it\u0027s clear we don\u0027t need this option anymore.",
+      "revId": "76dca986d1bfd4a0f94791a43e4bc8efad036429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
