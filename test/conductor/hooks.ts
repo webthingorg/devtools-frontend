@@ -63,6 +63,8 @@ function launchChrome() {
     launchArgs.push(`--window-size=${width},${height}`);
   }
 
+  launchArgs.push('--enable-features=WebAppManifestDisplayOverride');
+
   opts.args = launchArgs;
   return puppeteer.launch(opts);
 }
