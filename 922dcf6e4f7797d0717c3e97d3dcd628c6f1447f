@@ -51,6 +51,24 @@
       "revId": "922dcf6e4f7797d0717c3e97d3dcd628c6f1447f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb4d511b_b11746c1",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-08-17T15:54:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2c4ea121_2ca95e49",
+      "revId": "922dcf6e4f7797d0717c3e97d3dcd628c6f1447f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
