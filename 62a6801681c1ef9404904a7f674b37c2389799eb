@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f10bed60_30a68d28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1328357
+      },
+      "writtenOn": "2020-08-17T19:50:37Z",
+      "side": 1,
+      "message": "After discussion with Brandon - there is some missing test infra:\n\n - There isn\u0027t a way to run this test with the command line flag\n - If there were - the enabled feature is passed through to chrome\n - Finally - installablity checks are not evaluated when running in headless mode.\n\nThe plan is to submit the change as-is without tests - and once the above issues are addressed,\nre-evaluate the need to add this specific testcase. ",
+      "revId": "62a6801681c1ef9404904a7f674b37c2389799eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
