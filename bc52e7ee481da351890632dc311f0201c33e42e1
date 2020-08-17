@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6195ea0d_d43d39b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-17T09:42:01Z",
+      "side": 1,
+      "message": "What do you think about the following design:\n  - Modify the ContentSecurityPolicyIssue to take the IssuesModel as additional argument and expose it on that class only via a getter called \u0027model()\u0027.\n  - remove all cspViolations() definitions from classes Issue, ContentSecurityPolicyIssue, and AggregatedIssue\n  - In the IssuesAggregator, instead of calling issue.cspViolations(), do a check\n    issue instanceof SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue\n    and then add it to a set _cspIssues (removing the old _cspViolations member) and expose \n    the new Set\u003cSDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue\u003e via a getter cspIssues().\n  - Modify AffectedDirectivesView to use the cspIssues() getter. From a \n    ContentSecurityPolicyIssue you can get the target by calling issue.model().target().\n  - note that ContentSecurityPolicyIssue needs a getter for the details.\n  ",
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b24997e_6fe42760",
+        "filename": "test/e2e/resources/elements/element-reveal-oopf-inline-issue.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-17T09:42:01Z",
+      "side": 1,
+      "message": "nit: oopif",
+      "range": {
+        "startLine": 6,
+        "startChar": 28,
+        "endLine": 6,
+        "endChar": 33
+      },
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
