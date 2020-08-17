@@ -19,7 +19,7 @@ export const loadEventListenersAndSelectButtonNode = async () => {
   await assertContentOfSelectedElementsNode('<button id=\u200B"test-button">\u200Bhello world\u200B</button>\u200B');
 };
 
-const EVENT_LISTENERS_PANEL_LINK = '[aria-label="Event Listeners"]';
+const EVENT_LISTENERS_PANEL_LINK = 'aria/Event Listeners';
 /* We add :not(.hidden) here as if you create an event listener + remove it via the UI
  * it gets the class of .hidden rather than being removed
  */
@@ -32,29 +32,25 @@ export const openEventListenersPaneAndWaitForListeners = async () => {
 
 export const getDisplayedEventListenerNames = async () => {
   const eventListeners = await $$(EVENT_LISTENERS_SELECTOR);
-  const eventListenerNames = await eventListeners.evaluate(nodes => {
-    return nodes.map((listener: HTMLElement) => listener.textContent);
-  });
+  const eventListenerNames = await Promise.all(eventListeners.map(listener => listener.evaluate(l => l.textContent)));
   return eventListenerNames as string[];
 };
 
 export const getEventListenerProperties = async (selector: string) => {
   const clickEventProperties = await $$(selector);
 
-  const propertiesOutput = await clickEventProperties.evaluate(nodes => {
-    return nodes.map((node: HTMLElement) => {
-      const nameNode = node.querySelector('.name');
-      const valueNode = node.querySelector('.value');
+  const propertiesOutput = await Promise.all(clickEventProperties.map(async n => await n.evaluate(node => {
+    const nameNode = node.querySelector('.name');
+    const valueNode = node.querySelector('.value');
 
-      if (!nameNode || !valueNode) {
-        throw new Error('Could not find a name and value node for event listener properties.');
-      }
+    if (!nameNode || !valueNode) {
+      throw new Error('Could not find a name and value node for event listener properties.');
+    }
 
-      const key = nameNode.textContent;
-      const value = valueNode.textContent;
-      return [key, value];
-    });
-  });
+    const key = nameNode.textContent;
+    const value = valueNode.textContent;
+    return [key, value];
+  })));
 
   return propertiesOutput as Array<string[]>;
 };
@@ -64,7 +60,7 @@ export const getFirstNodeForEventListener = async (listenerTypeSelector: string)
 
   const listenerNodesSelector = `${listenerTypeSelector} + ol>li`;
   const firstListenerNode = await $(listenerNodesSelector);
-  const firstListenerText = await firstListenerNode.evaluate((node: HTMLElement) => {
+  const firstListenerText = await firstListenerNode!.evaluate(node => {
     return node.textContent || '';
   });
 

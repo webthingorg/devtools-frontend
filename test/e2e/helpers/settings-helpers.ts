@@ -7,7 +7,7 @@ import {click, getBrowserAndPages, getElementPosition, waitFor} from '../../shar
 export const openPanelViaMoreTools = async (panelTitle: string) => {
   const {frontend} = getBrowserAndPages();
 
-  const moreToolsSelector = '[aria-label="More tools"]';
+  const moreToolsSelector = 'aria/More tools';
   const contextMenuItemSelector = `.soft-context-menu-item[aria-label="${panelTitle}"]`;
   const panelSelector = `.view-container[aria-label="${panelTitle} panel"]`;
 
@@ -28,7 +28,7 @@ export const openPanelViaMoreTools = async (panelTitle: string) => {
 export const openSettingsTab = async (tabTitle: string) => {
   const {frontend} = getBrowserAndPages();
 
-  const moreToolsSelector = '[aria-label="More tools"]';
+  const moreToolsSelector = 'aria/More tools';
   const contextMenuItemSelector = '.soft-context-menu-item[aria-label="Settings"]';
   const settingsMenuSelector = `.tabbed-pane-header-tab[aria-label="${tabTitle}"]`;
   const panelSelector = `.view-container[aria-label="${tabTitle} panel"]`;

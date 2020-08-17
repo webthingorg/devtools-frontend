@@ -52,7 +52,7 @@ describe('Source Tab', async () => {
     });
 
     await step('expand the stack scope', async () => {
-      await click('[aria-label="Stack"]');
+      await click('aria/Stack');
     });
 
     await step('check that the stack scope content is as expected', async () => {

@@ -111,7 +111,7 @@ describe('Multi-Workers', async function() {
         await addBreakpointForLine(frontend, 6);
         // Disable first breakpoint
         const bpEntry = await waitFor('.breakpoint-entry');
-        const bpCheckbox = await waitFor('input', bpEntry);
+        const bpCheckbox = await waitFor('input', bpEntry!);
         if (!bpCheckbox) {
           assert.fail('Could not find checkbox to disable breakpoint');
           return;

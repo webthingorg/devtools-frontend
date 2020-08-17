@@ -271,7 +271,7 @@ describe('User Metrics', () => {
         break;
     }
 
-    await waitFor('[aria-label="Activate breakpoints"]');
+    await waitFor('aria/Activate breakpoints');
 
     await assertCapturedEvents([
       {
@@ -293,7 +293,7 @@ describe('User Metrics', () => {
 
     await frontend.keyboard.press('F1');
     await waitFor('.settings-window-main');
-    await click('[aria-label="Shortcuts"]');
+    await click('aria/Shortcuts');
     await waitFor('.keybinds-set-select');
 
     const keybindSetSelect = await $('.keybinds-set-select select') as puppeteer.ElementHandle<HTMLSelectElement>;

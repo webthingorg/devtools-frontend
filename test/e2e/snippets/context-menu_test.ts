@@ -20,21 +20,15 @@ describe('Snippets subpane', () => {
     await openCommandMenu();
     await showSnippetsAutocompletion();
 
-    assert.deepEqual(await getAvailableSnippets(), [
-      'New snippet\u200B',
-    ]);
+    assert.deepEqual(await getAvailableSnippets(), ['New snippet\u200B']);
 
     await typeText('New ');
-    assert.deepEqual(await getAvailableSnippets(), [
-      'New snippet\u200B',
-    ]);
+    assert.deepEqual(await getAvailableSnippets(), ['New snippet\u200B']);
 
     await typeText('w');
     assert.deepEqual(await getAvailableSnippets(), []);
 
     await frontend.keyboard.press('Backspace');
-    assert.deepEqual(await getAvailableSnippets(), [
-      'New snippet\u200B',
-    ]);
+    assert.deepEqual(await getAvailableSnippets(), ['New snippet\u200B']);
   });
 });

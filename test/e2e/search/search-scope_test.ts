@@ -10,7 +10,7 @@ import {triggerFindDialog} from '../helpers/search-helpers.js';
 describe('The Search Panel', async () => {
   it('provides results across scopes', async () => {
     const {frontend} = getBrowserAndPages();
-    const SEARCH_QUERY = '[aria-label="Search Query"]';
+    const SEARCH_QUERY = 'aria/Search Query';
     const SEARCH_RESULTS = '.search-results';
     const SEARCH_FILE_RESULT = '.search-result';
     const SEARCH_CHILDREN_RESULT = '.search-match-link';
@@ -21,11 +21,9 @@ describe('The Search Panel', async () => {
     // Launch the search panel.
     await triggerFindDialog(frontend);
     await waitFor(SEARCH_QUERY);
-    const query = await $(SEARCH_QUERY);
-    const inputElement = query.asElement();
+    const inputElement = await $(SEARCH_QUERY);
     if (!inputElement) {
       assert.fail('Unable to find search input field');
-      return;
     }
 
     // Go ahead and search.
@@ -36,26 +34,26 @@ describe('The Search Panel', async () => {
     // Wait for results.
     await waitFor(SEARCH_RESULTS);
     const resultsContainer = await $(SEARCH_RESULTS);
-    await waitFor(SEARCH_FILE_RESULT, resultsContainer);
+    await waitFor(SEARCH_FILE_RESULT, resultsContainer!);
 
     // Process the results into something manageable.
-    const fileResults = await $$(SEARCH_FILE_RESULT, resultsContainer);
+    const fileResults = await $$(SEARCH_FILE_RESULT, resultsContainer!);
 
     interface FileSearchResult {
       matchesCount: number;
       fileName: string;
     }
 
-    const files: FileSearchResult[] = await fileResults.evaluate(result => result.map((value: Element) => {
+    const files: FileSearchResult[] = await Promise.all(fileResults.map(result => result.evaluate((value: Element) => {
       const SEARCH_RESULT_FILE_NAME = '.search-result-file-name';
       const SEARCH_RESULT_MATCHES_COUNT = '.search-result-matches-count';
 
       // Wrap the entries with the file details.
       return {
-        fileName: value.querySelector(SEARCH_RESULT_FILE_NAME)!.firstChild!.textContent,
+        fileName: value.querySelector(SEARCH_RESULT_FILE_NAME)!.firstChild!.textContent as string,
         matchesCount: parseInt(value.querySelector(SEARCH_RESULT_MATCHES_COUNT)!.textContent!, 10),
       };
-    }));
+    })));
 
     files.sort((a, b) => {
       return a.matchesCount - b.matchesCount;
@@ -68,8 +66,8 @@ describe('The Search Panel', async () => {
     ]);
 
     // Now step through the actual entries of the search result.
-    const entryResults = await $$(SEARCH_CHILDREN_RESULT, resultsContainer);
-    const entries = await entryResults.evaluate(result => result.map((value: Element) => {
+    const entryResults = await $$(SEARCH_CHILDREN_RESULT, resultsContainer!);
+    const entries = await Promise.all(entryResults.map(result => result.evaluate((value: Element) => {
       const SEARCH_MATCH_LINE_NUMBER = '.search-match-line-number';
       const SEARCH_MATCH_CONTENT = '.search-match-content';
 
@@ -77,7 +75,7 @@ describe('The Search Panel', async () => {
         line: value.querySelector(SEARCH_MATCH_LINE_NUMBER)!.textContent,
         content: value.querySelector(SEARCH_MATCH_CONTENT)!.textContent,
       };
-    }));
+    })));
 
     assert.deepEqual(entries, [
       {line: '7', content: 'div.searchTestUniqueString {'},

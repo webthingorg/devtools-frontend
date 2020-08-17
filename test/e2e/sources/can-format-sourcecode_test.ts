@@ -9,7 +9,7 @@ import * as puppeteer from 'puppeteer';
 import {click, getBrowserAndPages, waitFor} from '../../shared/helper.js';
 import {addBreakpointForLine, openSourceCodeEditorForFile, retrieveTopCallFrameScriptLocation} from '../helpers/sources-helpers.js';
 
-const PRETTY_PRINT_BUTTON = '[aria-label="Pretty print minified-sourcecode.js"]';
+const PRETTY_PRINT_BUTTON = 'aria/Pretty print minified-sourcecode.js';
 
 function retrieveCodeMirrorEditorContent() {
   return document.querySelector('.CodeMirror-code')!.textContent;

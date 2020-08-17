@@ -4,7 +4,7 @@
 
 import {$, $$, getBrowserAndPages, platform, typeText, waitFor} from '../../shared/helper.js';
 
-const QUICK_OPEN_SELECTOR = '[aria-label="Quick open"]';
+const QUICK_OPEN_SELECTOR = 'aria/Quick open';
 
 export const openCommandMenu = async () => {
   const {frontend} = getBrowserAndPages();
@@ -50,7 +50,8 @@ export const showSnippetsAutocompletion = async () => {
 };
 
 export async function getAvailableSnippets() {
-  const snippetsDOMElements = await $$('.filtered-list-widget-item', await $(QUICK_OPEN_SELECTOR));
-
-  return snippetsDOMElements.evaluate(elements => elements.map((element: HTMLElement) => element.textContent));
+  const quickOpenElement = await $(QUICK_OPEN_SELECTOR);
+  const snippetsDOMElements = await $$('.filtered-list-widget-item', quickOpenElement!);
+  const snippets = await Promise.all(snippetsDOMElements.map(elem => elem.evaluate(elem => elem.textContent)));
+  return snippets;
 }

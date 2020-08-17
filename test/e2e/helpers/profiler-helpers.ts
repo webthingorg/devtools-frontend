@@ -11,7 +11,7 @@ const STOP_PROFILING_BUTTON = 'button[aria-label="Stop CPU profiling"]';
 export async function navigateToProfilerTab() {
   await goToResource('profiler/default.html');
   await openPanelViaMoreTools('JavaScript Profiler');
-  await waitFor('[aria-label="JavaScript Profiler panel"]');
+  await waitFor('aria/JavaScript Profiler panel');
   await waitFor('.profile-launcher-view');
 }
 

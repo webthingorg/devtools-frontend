@@ -8,12 +8,12 @@ import {describe, it} from 'mocha';
 import {$, click, getBrowserAndPages, getHostedModeServerPort, goToResource, waitFor} from '../../shared/helper.js';
 import {doubleClickSourceTreeItem, getDataGridData, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
-const COOKIES_SELECTOR = '[aria-label="Cookies"]';
+const COOKIES_SELECTOR = 'aria/Cookies';
 let DOMAIN_SELECTOR: string;
 
 describe('The Application Tab', async () => {
   before(async () => {
-    DOMAIN_SELECTOR = `${COOKIES_SELECTOR} + ol > [aria-label="http://localhost:${getHostedModeServerPort()}"]`;
+    DOMAIN_SELECTOR = `[aria-label="Cookies"] + ol > [aria-label="http://localhost:${getHostedModeServerPort()}"]`;
   });
 
   afterEach(async () => {
@@ -27,11 +27,13 @@ describe('The Application Tab', async () => {
     await navigateToApplicationTab(target, 'cookies');
 
     await goToResource('network/unreachable.rawresponse');
-
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);
     await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
 
-    const dataGridRowValues = await getDataGridData('.storage-view table', ['name', 'value']);
+    const dataGridRowValues = await getDataGridData('.storage-view table', [
+      'name',
+      'value',
+    ]);
     assert.deepEqual(dataGridRowValues, [
       {
         name: 'foo',
@@ -56,7 +58,7 @@ describe('The Application Tab', async () => {
     await click('.cookies-table .data-grid-data-grid-node');
 
     const previewValueNode = await $('.cookie-value');
-    const previewValue = await previewValueNode.evaluate(e => e.textContent);
+    const previewValue = await previewValueNode!.evaluate(e => e.textContent);
 
     assert.deepEqual(previewValue, 'bar');
   });
@@ -74,7 +76,7 @@ describe('The Application Tab', async () => {
 
     // Select a cookie first
     const previewValueNode1 = await $('.cookie-value');
-    const previewValue1 = await previewValueNode1.evaluate(e => e.textContent);
+    const previewValue1 = await previewValueNode1!.evaluate(e => e.textContent);
 
     assert.deepEqual(previewValue1, 'bar');
 
@@ -84,8 +86,8 @@ describe('The Application Tab', async () => {
 
     // Make sure that the preview resets
     const previewValueNode2 = await $('.cookie-value');
-    const previewValue2 = await previewValueNode2.evaluate(e => e.textContent);
+    const previewValue2 = await previewValueNode2!.evaluate(e => e.textContent as string);
 
-    assert.match(previewValue2, /Select a cookie to preview its value/);
+    assert.match(previewValue2!, /Select a cookie to preview its value/);
   });
 });

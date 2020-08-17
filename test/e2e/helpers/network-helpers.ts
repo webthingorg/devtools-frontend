@@ -30,24 +30,25 @@ export async function waitForSomeRequestsToAppear(numberOfRequests: number) {
 
 export async function getAllRequestNames() {
   const requests = await $$(REQUEST_LIST_SELECTOR + ' .name-column');
-  return await requests.evaluate((nodes: Element[]) => {
-    return nodes.map(request => request.childNodes[1].textContent);
-  });
+  return await Promise.all(requests.map(request => request.evaluate(r => r.childNodes[1].textContent)));
 }
 
 export async function getSelectedRequestName() {
   const request = await $(REQUEST_LIST_SELECTOR + ' tr.selected .name-column');
-  return await request.evaluate((node: Element) => {
+  return await request!.evaluate((node: Element) => {
     return node && node.childNodes[1].textContent;
   });
 }
 
 export async function selectRequestByName(name: string) {
   const requests = await $$(REQUEST_LIST_SELECTOR + ' .name-column');
-  const request = await requests.evaluateHandle((nodes: Element[], name: string) => {
-    return nodes.find(node => node.childNodes[1].textContent === name);
-  }, name);
-  await click(request);
+  for (const request of requests) {
+    const hasSoughtName = await request.evaluate((node, name) => node.childNodes[1].textContent === name, name);
+    if (hasSoughtName) {
+      await click(request);
+      return;
+    }
+  }
 }
 
 export async function waitForSelectedRequestChange(initialRequestName: string|null) {
@@ -58,5 +59,5 @@ export async function waitForSelectedRequestChange(initialRequestName: string|nu
 }
 
 export async function togglePersistLog() {
-  await click('[aria-label="Preserve log"]');
+  await click('aria/Preserve log');
 }

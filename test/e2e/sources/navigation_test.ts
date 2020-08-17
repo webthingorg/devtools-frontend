@@ -13,9 +13,9 @@ describe('The Sources Tab', async () => {
     it('should show a "search in folder" option in the context menu of folders', async () => {
       await openSourceCodeEditorForFile('index.html', 'navigation/index.html');
 
-      await clickOnContextMenu('[aria-label="test/e2e/resources/sources/navigation, nw-folder"]', 'Search in folder');
-      const element = await waitFor('[aria-label="Search Query"]');
-      const value = await element.evaluate(input => input.value);
+      await clickOnContextMenu('aria/test/e2e/resources/sources/navigation, nw-folder', 'Search in folder');
+      const element = await waitFor('aria/Search Query');
+      const value = await element!.evaluate(input => (input as HTMLInputElement).value);
 
       assert.strictEqual(value, 'file:test/e2e/resources/sources/navigation');
     });

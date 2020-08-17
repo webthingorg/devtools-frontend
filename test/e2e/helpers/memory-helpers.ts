@@ -34,6 +34,6 @@ export async function waitForHeapSnapshotData() {
 export async function getCountOfDataGridRows(selector: string) {
   // The grid in Memory Tab contains a tree
   const grid = await waitFor(selector);
-  const dataGridNodes = await $$('.data-grid-data-grid-node', grid);
-  return await dataGridNodes.evaluate(nodes => nodes.length);
+  const dataGridNodes = await $$('.data-grid-data-grid-node', grid!);
+  return dataGridNodes.length;
 }

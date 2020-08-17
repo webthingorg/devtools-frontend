@@ -35,7 +35,7 @@ describe('A user can navigate across', async function() {
     await click('li.issue.parent');
 
     // Expand the affected resources
-    await click('li.parent', {root: await waitFor('ol.affected-resources')});
+    await click('li.parent', {root: await waitFor('ol.affected-resources') || undefined});
   });
 
   it('Elements -> Sources', async () => {
@@ -57,8 +57,8 @@ describe('A user can navigate across', async function() {
   });
 });
 
-const MOVE_TO_DRAWER_SELECTOR = '[aria-label="Move to bottom"]';
-const MOVE_TO_MAIN_PANEL_SELECTOR = '[aria-label="Move to top"]';
+const MOVE_TO_DRAWER_SELECTOR = 'aria/Move to bottom';
+const MOVE_TO_MAIN_PANEL_SELECTOR = 'aria/Move to top';
 
 describe('A user can move tabs', async function() {
   this.timeout(10000);

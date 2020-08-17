@@ -9,8 +9,8 @@ import {$, debuggerStatement, getBrowserAndPages, waitFor} from '../../shared/he
 
 import {doubleClickSourceTreeItem, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
-const WEB_SQL_SELECTOR = '[aria-label="Web SQL"]';
-const DATABASES_SELECTOR = `${WEB_SQL_SELECTOR} + ol`;
+const WEB_SQL_SELECTOR = 'aria/Web SQL';
+const DATABASES_SELECTOR = '[aria-label="Web SQL"] + ol';
 
 describe('The Application Tab', async () => {
   it('shows WebSQL database', async () => {
@@ -23,7 +23,7 @@ describe('The Application Tab', async () => {
     await waitFor(DATABASES_SELECTOR);
     const databaseList = await $(DATABASES_SELECTOR);
 
-    const databaseNames = await databaseList.evaluate((list: Element) => {
+    const databaseNames = await databaseList!.evaluate((list: Element) => {
       return Array.from(list.querySelectorAll('li')).map(node => node.textContent);
     });
     assert.deepEqual(databaseNames, ['InspectorDatabaseTest', 'InspectorDatabaseTest2']);

@@ -14,8 +14,8 @@ describe('Watch Expression Pane', async () => {
     await openSourcesPanel();
 
     // Create watch expression "Text"
-    await click('[aria-label="Watch"]');
-    await click('[aria-label="Add watch expression"]');
+    await click('aria/Watch');
+    await click('aria/Add watch expression');
     await typeText('Text');
     await frontend.keyboard.press('Enter');
 
@@ -24,12 +24,12 @@ describe('Watch Expression Pane', async () => {
 
     // Retrieve watch element and ensure that it is expanded
     const element = await waitFor('.object-properties-section-root-element');
-    const initialExpandCheck = await element.evaluate(e => e.classList.contains('expanded'));
+    const initialExpandCheck = await element!.evaluate(e => e.classList.contains('expanded'));
     assert.strictEqual(initialExpandCheck, true);
 
     // Begin editing and check that element is now collapsed.
     await frontend.keyboard.press('Enter');
-    const editingExpandCheck = await element.evaluate(e => e.classList.contains('expanded'));
+    const editingExpandCheck = await element!.evaluate(e => e.classList.contains('expanded'));
     assert.strictEqual(editingExpandCheck, false);
   });
 });

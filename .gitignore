@@ -37,3 +37,4 @@ test/perf/.generated
 test/unittests/scripts/component_bridges/gen/*
 test/unittests/scripts/component_bridges/fixtures/*_bridge.js
 scripts/component_bridges/gen/*.js
+node_modules/*

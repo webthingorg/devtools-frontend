@@ -16,7 +16,7 @@ describe('The Network Tab', async () => {
     await click('[aria-label="Disable cache"] + label');
 
     const checkbox = await $('[aria-label="Disable cache"]');
-    const checked = await checkbox.evaluate(box => box.checked);
+    const checked = await checkbox!.evaluate(box => (box as HTMLInputElement).checked);
 
     assert.strictEqual(checked, true, 'The disable cache checkbox should be checked');
   });
@@ -30,8 +30,8 @@ describe('The Network Tab', async () => {
     await click('.name-column', {clickOptions: {button: 'right'}});
 
     // Enable the Last-Modified column in the network datagrid
-    await click('[aria-label="Response Headers"]');
-    await click('[aria-label="Last-Modified, unchecked"]');
+    await click('aria/Response Headers');
+    await click('aria/Last-Modified, unchecked');
 
     // Wait for the column to show up and populate its values
     await waitForSomeRequestsToAppear(3);
@@ -57,14 +57,14 @@ describe('The Network Tab', async () => {
     // Open the HTML file that was loaded
     await click('td.name-column');
     // Wait for the detailed network information pane to show up
-    await waitFor('[aria-label="Response"]');
+    await waitFor('aria/Response');
     // Open the raw response HTML
-    await click('[aria-label="Response"]');
+    await click('aria/Response');
     // Wait for the raw response editor to show up
     await waitFor('.CodeMirror-code');
 
     const codeMirrorEditor = await $('.CodeMirror-code');
-    const htmlRawResponse = await codeMirrorEditor.evaluate(editor => editor.textContent);
+    const htmlRawResponse = await codeMirrorEditor!.evaluate(editor => editor.textContent);
 
     assert.strictEqual(
         htmlRawResponse,
@@ -81,7 +81,7 @@ describe('The Network Tab', async () => {
     await waitForSomeRequestsToAppear(3);
 
     // Reload the page without a cache, to force a fresh load of the network resources
-    await click('[aria-label="Disable cache"]');
+    await click('aria/Disable cache');
     await target.reload({waitUntil: 'networkidle2'});
 
     // Get the size of the first two network request responses (excluding header and favicon.ico).
@@ -105,7 +105,7 @@ describe('The Network Tab', async () => {
     ]);
 
     // Allow resources from the cache again and reload the page to load from cache
-    await click('[aria-label="Disable cache"]');
+    await click('aria/Disable cache');
     await target.reload({waitUntil: 'networkidle2'});
 
     assert.deepEqual(await getNetworkRequestSize(), [

@@ -15,7 +15,7 @@ describe('Sensors panel', () => {
 
   it('includes UI for emulating a location', async () => {
     const select = await $('.geo-fields select');
-    const actual = await select.evaluate(node => node.textContent);
+    const actual = await select!.evaluate(node => node.textContent);
     const expected = [
       'No override',
       'Berlin',

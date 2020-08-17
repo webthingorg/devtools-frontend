@@ -30,53 +30,21 @@ switch (os.platform()) {
 const globalThis: any = global;
 
 /**
- * Because querySelector is unable to go through shadow roots, we take the opportunity
- * to collect all elements from everywhere in the page, optionally starting at a given
- * root node. This means that when we attempt to locate elements for the purposes of
- * interactions, we can use this flattened list rather than attempting querySelector
- * dances.
- */
-const collectAllElementsFromPage = async (root?: puppeteer.JSHandle) => {
-  const {frontend} = getBrowserAndPages();
-  await frontend.evaluate(root => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const container = (self as any);
-    container.__elements = [];
-    const collect = (root: HTMLElement|ShadowRoot) => {
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
-      do {
-        const currentNode = walker.currentNode as HTMLElement;
-        if (currentNode.shadowRoot) {
-          collect(currentNode.shadowRoot);
-        }
-        // We're only interested in actual elements that we can later use for selector
-        // matching, so skip shadow roots.
-        if (!(currentNode instanceof ShadowRoot)) {
-          container.__elements.push(currentNode);
-        }
-      } while (walker.nextNode());
-    };
-    collect(root || document.documentElement);
-  }, root || '');
-};
-
-/**
  * Returns an {x, y} position within the element identified by the selector within the root.
  * By default the position is the center of the bounding box. If the element's bounding box
  * extends beyond that of a containing element, this position may not correspond to the element.
- * In this case, specifying maxPixelsFromLeft will constrain the returned point to be close to
+ * In this ase, specifying maxPixelsFromLeft will constrain the returned point to be close to
  * the left edge of the bounding box.
  */
 export const getElementPosition =
     async (selector: string|puppeteer.JSHandle, root?: puppeteer.JSHandle, maxPixelsFromLeft?: number) => {
-  let element: puppeteer.JSHandle;
+  let element;
   if (typeof selector === 'string') {
     element = await $(selector, root);
   } else {
     element = selector;
   }
-
-  const rect = await element.evaluate(element => {
+  const rect = await element!.evaluate(element => {
     if (!element) {
       return {};
     }
@@ -102,11 +70,8 @@ export const getElementPosition =
 
 export const click = async (
     selector: string|puppeteer.JSHandle,
-    options?: {root?: puppeteer.JSHandle, clickOptions?: puppeteer.ClickOptions, maxPixelsFromLeft?: number}) => {
+    options?: {root?: puppeteer.JSHandle; clickOptions?: puppeteer.ClickOptions; maxPixelsFromLeft?: number;}) => {
   const {frontend} = getBrowserAndPages();
-  if (!frontend) {
-    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
-  }
   const clickableElement =
       await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
 
@@ -123,8 +88,8 @@ export const click = async (
 };
 
 export const doubleClick =
-    async (selector: string, options?: {root?: puppeteer.JSHandle, clickOptions?: puppeteer.ClickOptions}) => {
-  const passedClickOptions = options && options.clickOptions || {};
+    async (selector: string, options?: {root?: puppeteer.JSHandle; clickOptions?: puppeteer.ClickOptions}) => {
+  const passedClickOptions = (options && options.clickOptions) || {};
   const clickOptionsWithDoubleClick: puppeteer.ClickOptions = {
     ...passedClickOptions,
     clickCount: 2,
@@ -137,14 +102,10 @@ export const doubleClick =
 
 export const typeText = async (text: string) => {
   const {frontend} = getBrowserAndPages();
-  if (!frontend) {
-    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
-  }
-
   await frontend.keyboard.type(text);
 };
 
-export const pressKey = async (key: string, modifiers?: {control?: boolean, alt?: boolean, shift?: boolean}) => {
+export const pressKey = async (key: string, modifiers?: {control?: boolean; alt?: boolean; shift?: boolean}) => {
   const {frontend} = getBrowserAndPages();
   if (modifiers) {
     if (modifiers.control) {
@@ -183,42 +144,29 @@ export const pressKey = async (key: string, modifiers?: {control?: boolean, alt?
 
 export const pasteText = async (text: string) => {
   const {frontend} = getBrowserAndPages();
-  if (!frontend) {
-    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
-  }
-
   await frontend.keyboard.sendCharacter(text);
 };
 
 // Get a single element handle, across Shadow DOM boundaries.
 export const $ = async (selector: string, root?: puppeteer.JSHandle) => {
   const {frontend} = getBrowserAndPages();
-  if (!frontend) {
-    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
-  }
-  await collectAllElementsFromPage(root);
-  try {
-    const element = await frontend.evaluateHandle(selector => {
-      const elements: Element[] = globalThis.__elements;
-      return elements.find(element => element.matches(selector));
-    }, selector);
+  const rootElement = root ? (root as puppeteer.ElementHandle) : frontend;
+  if (selector.startsWith('aria/')) {
+    const element = await rootElement.$(selector);
     return element;
-  } catch (error) {
-    throw new Error(`Unable to find element for selector "${selector}": ${error.stack}`);
   }
+  const element = await rootElement.$('pierceShadow/' + selector);
+  return element;
 };
 
 // Get multiple element handles, across Shadow DOM boundaries.
 export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
   const {frontend} = getBrowserAndPages();
-  if (!frontend) {
-    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
+  const rootElement = root ? root.asElement() || frontend : frontend;
+  if (selector.startsWith('aria/')) {
+    return await rootElement.$$(selector);
   }
-  await collectAllElementsFromPage(root);
-  const elements = await frontend.evaluateHandle(selector => {
-    const elements: Element[] = globalThis.__elements;
-    return elements.filter(element => element.matches(selector));
-  }, selector);
+  const elements = await rootElement.$$('pierceShadow/' + selector);
   return elements;
 };
 
@@ -230,37 +178,26 @@ export const $$ = async (selector: string, root?: puppeteer.JSHandle) => {
  */
 export const $textContent = async (textContent: string, root?: puppeteer.JSHandle) => {
   const {frontend} = getBrowserAndPages();
-  if (!frontend) {
-    throw new Error('Unable to locate DevTools frontend page. Was it stored first?');
+  const rootElement = root ? (root as puppeteer.ElementHandle) : frontend;
+  const element = await rootElement.$('pierceShadowText/' + textContent);
+  if (!element) {
+    throw new Error(`Unable to find element with textContent ${textContent}`);
   }
-  await collectAllElementsFromPage(root);
-  try {
-    const element = await frontend.evaluateHandle((textContent: string) => {
-      const elements: Element[] = globalThis.__elements;
-      return elements.find(element => ('textContent' in element && element.textContent === textContent));
-    }, textContent);
-    return element;
-  } catch (error) {
-    throw new Error(`Unable to find element with textContent "${textContent}": ${error.stack}`);
-  }
+  return element;
 };
 
 export const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
 export const waitFor = async (selector: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
   return waitForFunction(async () => {
-    const element = await $(selector, root);
-    if (element.asElement()) {
-      return element;
-    }
-    return undefined;
+    return (await $(selector, root)) || undefined;
   }, `Unable to find element with selector ${selector}`, maxTotalTimeout);
 };
 
 export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
   return waitForFunction(async () => {
     const elements = await $$(selector, root);
-    if (elements.evaluate(list => list.length === 0)) {
+    if (elements.length === 0) {
       return true;
     }
     return false;
@@ -270,11 +207,7 @@ export const waitForNone = async (selector: string, root?: puppeteer.JSHandle, m
 export const waitForElementWithTextContent =
     (textContent: string, root?: puppeteer.JSHandle, maxTotalTimeout = 3000) => {
       return waitForFunction(async () => {
-        const element = await $textContent(textContent, root);
-        if (element.asElement()) {
-          return element;
-        }
-        return undefined;
+        return await $textContent(textContent, root);
       }, `No element with content ${textContent} exists`, maxTotalTimeout);
     };
 
@@ -326,7 +259,7 @@ export const logFailure = () => {
 };
 
 export const enableExperiment = async (
-    experiment: string, options: {selectedPanel?: {name: string, selector?: string}, canDock?: boolean} = {}) => {
+    experiment: string, options: {selectedPanel?: {name: string; selector?: string}; canDock?: boolean;} = {}) => {
   const {frontend} = getBrowserAndPages();
   await frontend.evaluate(experiment => {
     // @ts-ignore
@@ -380,9 +313,9 @@ export const closeAllCloseableTabs = async () => {
   const allCloseButtons = await $$(selector);
 
   // Get all panel ids
-  const panelTabIds = await allCloseButtons.evaluate((buttons: HTMLElement[]) => {
-    return buttons.map(button => button.parentElement ? button.parentElement.id : '');
-  });
+  const panelTabIds = await Promise.all(allCloseButtons.map(button => {
+    return button.evaluate(button => button.parentElement ? button.parentElement.id : '');
+  }));
 
   // Close each tab
   for (const tabId of panelTabIds) {
