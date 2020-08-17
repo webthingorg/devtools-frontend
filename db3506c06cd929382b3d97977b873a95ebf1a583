@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b2405fe_6d7b1389",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-08-17T19:37:06Z",
+      "side": 1,
+      "message": "PTAL when you get the chance",
+      "revId": "db3506c06cd929382b3d97977b873a95ebf1a583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
