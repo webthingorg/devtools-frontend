@@ -312,6 +312,12 @@ export class InspectorFrontendHostAPI {
   }
 
   /**
+   * @param {function(!APIKeyResult):void} callback
+   */
+  getSurveyAPIKey(callback) {
+  }
+
+  /**
    * @return {number}
    */
   zoomFactor() {
@@ -400,6 +406,13 @@ export let LoadNetworkResourceResult;
 }} */
 // @ts-ignore typedef
 export let ExtensionDescriptor;
+
+/** @typedef
+{{
+  apiKey: string
+}} */
+// @ts-ignore typedef
+export let APIKeyResult;
 
 /**
  * Enum for recordPerformanceHistogram
