@@ -46,6 +46,30 @@
       "revId": "78fa1f578a2c3d19bdbfa8bcd88e45485662aaa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75bb89cc_f13f800d",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-18T09:30:42Z",
+      "side": 0,
+      "message": "Oh, I should have left a note here. I inadvertently introduced this. I converted the checks from asserts to wait for\u0027s in an earlier CL, but forgot to remove this second assert in this test. I thought we might as well clean this up in this CL as well.",
+      "parentUuid": "c1ffe01d_29b67ebd",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 228,
+        "endChar": 0
+      },
+      "revId": "78fa1f578a2c3d19bdbfa8bcd88e45485662aaa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
