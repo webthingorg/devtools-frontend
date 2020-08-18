@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a60614d3_f7e35e71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T13:05:32Z",
+      "side": 1,
+      "message": "Can we be sure that Inkscape didn\u0027t perform any unintended changes?\n\nPeter, is there some Inkscape magic we should know about?",
+      "revId": "7a4dc2677f5967fc0b75744c4eb6e4117575643e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
