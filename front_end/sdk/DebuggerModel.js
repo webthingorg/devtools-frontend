@@ -368,6 +368,10 @@ export class DebuggerModel extends SDKModel {
     if (this.target().type() === Type.Node) {
       const platformPath = Common.ParsedURL.ParsedURL.urlToPlatformPath(url, Host.Platform.isWin());
       urlRegex = `${platformPath.escapeForRegExp()}|${url.escapeForRegExp()}`;
+      if (Host.Platform.isWin() && platformPath.match(/^.:\\/)) {
+        // Match upper or lower case drive letter
+        urlRegex = `[${platformPath[0].toUpperCase()}${platformPath[0].toLowerCase()}]` + urlRegex.substr(1);
+      }
     }
     // Adjust column if needed.
     let minColumnNumber = 0;
