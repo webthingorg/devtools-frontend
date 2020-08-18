@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "77950ebf_8106f896",
+        "filename": "front_end/elements/PropertyNameCategories.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-18T09:04:08Z",
+      "side": 1,
+      "message": "This is a good question. I couldn\u0027t find an good source to refer to in terms of categorizing CSS properties, so I think we\u0027ll have to manually keep this list for now, and update them via people\u0027s suggestions over time. Let me comment this first.\nThere are some smart things to do in the future, for example, if we detect some keywords in the property name, we auto-categorize them. Properties containing \"margin\" can go into \"layout\", and properties containing \"color\" can go into \"appearance\". But this requires careful design and a lot of testing to make sure we don\u0027t auto-categorize something very wrong. If people don\u0027t hate the grouping feature in general, I\u0027ll invest time into this: https://crbug.com/1117405",
+      "parentUuid": "7f549094_5d2284b7",
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "62358b55_a67d2da1",
         "filename": "front_end/elements/PropertyNameCategories.ts",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aacd4d6_dca74743",
+        "filename": "front_end/elements/PropertyNameCategories.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-18T09:04:08Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "62358b55_a67d2da1",
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -90,6 +126,30 @@
       "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f16324d_ffb56d98",
+        "filename": "front_end/elements/PropertyNameCategories.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-18T09:04:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fb583d4_ade62c27",
+      "range": {
+        "startLine": 159,
+        "startChar": 58,
+        "endLine": 159,
+        "endChar": 68
+      },
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
