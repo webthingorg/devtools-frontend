@@ -46,6 +46,30 @@
       "revId": "29475bf5e32b1e4c3f1ae0de257b2e19addaa7c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e35d2e8b_864e2e71",
+        "filename": "front_end/ui/Infobar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-18T06:37:28Z",
+      "side": 1,
+      "message": "Updated legacy-defs.d.ts and used consume().",
+      "parentUuid": "5259f3c2_ac117c1c",
+      "range": {
+        "startLine": 93,
+        "startChar": 22,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "29475bf5e32b1e4c3f1ae0de257b2e19addaa7c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
