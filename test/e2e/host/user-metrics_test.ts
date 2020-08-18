@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
-import {$, click, enableExperiment, getBrowserAndPages, platform, reloadDevTools, waitFor} from '../../shared/helper.js';
+import {$, click, enableExperiment, getBrowserAndPages, goToResource, platform, reloadDevTools, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToCssOverviewTab} from '../helpers/css-overview-helpers.js';
 import {clickToggleButton, selectDualScreen, startEmulationWithDualScreenFlag} from '../helpers/emulation-helpers.js';
@@ -41,6 +41,8 @@ declare global {
     __dualScreenDeviceEmulated: (evt: Event) => void;
     __experimentDisabled: (evt: Event) => void;
     __experimentEnabled: (evt: Event) => void;
+    __issuesPanelIssueExpanded: (evt: Event) => void;
+    __issuesPanelResourceOpened: (evt: Event) => void;
     Host: {UserMetrics: UserMetrics; userMetrics: {actionTaken(name: number): void;}};
   }
 }
@@ -97,6 +99,16 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.__caughtEvents.push({name: 'DevTools.ExperimentEnabled', value: customEvt.detail.value});
     };
 
+    window.__issuesPanelIssueExpanded = (evt: Event) => {
+      const customEvt = evt as CustomEvent;
+      window.__caughtEvents.push({name: 'DevTools.IssuesPanelIssueExpanded', value: customEvt.detail.value});
+    };
+
+    window.__issuesPanelResourceOpened = (evt: Event) => {
+      const customEvt = evt as CustomEvent;
+      window.__caughtEvents.push({name: 'DevTools.IssuesPanelResourceOpened', value: customEvt.detail.value});
+    };
+
     window.__caughtEvents = [];
     window.__beginCatchEvents = () => {
       window.addEventListener('DevTools.PanelShown', window.__panelShown);
@@ -109,6 +121,8 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.addEventListener('DevTools.DualScreenDeviceEmulated', window.__dualScreenDeviceEmulated);
       window.addEventListener('DevTools.ExperimentDisabled', window.__experimentDisabled);
       window.addEventListener('DevTools.ExperimentEnabled', window.__experimentEnabled);
+      window.addEventListener('DevTools.IssuesPanelIssueExpanded', window.__issuesPanelIssueExpanded);
+      window.addEventListener('DevTools.IssuesPanelResourceOpened', window.__issuesPanelResourceOpened);
     };
 
     window.__endCatchEvents = () => {
@@ -122,6 +136,8 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.removeEventListener('DevTools.DualScreenDeviceEmulated', window.__dualScreenDeviceEmulated);
       window.removeEventListener('DevTools.ExperimentDisabled', window.__experimentDisabled);
       window.removeEventListener('DevTools.ExperimentEnabled', window.__experimentEnabled);
+      window.removeEventListener('DevTools.IssuesPanelIssueExpanded', window.__issuesPanelIssueExpanded);
+      window.removeEventListener('DevTools.IssuesPanelResourceOpened', window.__issuesPanelResourceOpened);
     };
 
     window.__beginCatchEvents();
@@ -472,6 +488,33 @@ describe('User Metrics for CSS Overview', () => {
       {
         name: 'DevTools.ActionTaken',
         value: 41,  // CaptureCssOverviewClicked
+      },
+    ]);
+  });
+
+  afterEach(async () => {
+    const {frontend} = getBrowserAndPages();
+    await endCatchEvents(frontend);
+  });
+});
+
+describe('User Metrics for Issue Panel', () => {
+  beforeEach(async () => {
+    await openPanelViaMoreTools('Issues');
+    const {frontend} = getBrowserAndPages();
+    await beginCatchEvents(frontend);
+  });
+
+  it('dispatch events when expand an issue', async () => {
+    await goToResource('host/cookie-issue.html');
+    await waitFor('.issue');
+
+    await click('.issue');
+
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.IssuesPanelIssueExpanded',
+        value: 2,  // SameSiteCookie
       },
     ]);
   });
