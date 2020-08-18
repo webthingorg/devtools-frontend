@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "de2e247f_01f71015",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-18T09:11:06Z",
+      "side": 1,
+      "message": "Understood; could we perhaps leave a comment saying that in there? Thanks :)",
+      "parentUuid": "f1fc589d_8935e794",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "eb290e98f7e835cafc36c9feace2c175b2edb9ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "729769d7_14786d6d",
         "filename": "front_end/elements/ComputedStyleProperty.ts",
         "patchSetId": 2
