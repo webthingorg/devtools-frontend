@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc3f3b07_e8cedf66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-18T06:59:42Z",
+      "side": 1,
+      "message": "Thanks for the reviews!\n\nThanks for catching that bug, Eric! Updated the tests. PTAL!",
+      "revId": "182758cd4be11876f2ca90fa84f3060bd4e68f23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

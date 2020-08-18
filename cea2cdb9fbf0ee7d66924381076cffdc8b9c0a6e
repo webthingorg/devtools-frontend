@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "bb01bdaa_a2dc0fcd",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-18T06:59:42Z",
+      "side": 1,
+      "message": "Ohh, yes! Thanks for catching this!",
+      "parentUuid": "e6245ef8_b54c7c98",
+      "range": {
+        "startLine": 1442,
+        "startChar": 6,
+        "endLine": 1442,
+        "endChar": 49
+      },
+      "revId": "cea2cdb9fbf0ee7d66924381076cffdc8b9c0a6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e1ad8ae_c391683c",
         "filename": "test/unittests/front_end/sdk/LocationRanges_test.ts",
         "patchSetId": 2
@@ -82,6 +106,30 @@
     },
     {
       "key": {
+        "uuid": "9a1f0441_e1018abd",
+        "filename": "test/unittests/front_end/sdk/LocationRanges_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-18T06:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e1ad8ae_c391683c",
+      "range": {
+        "startLine": 119,
+        "startChar": 42,
+        "endLine": 119,
+        "endChar": 50
+      },
+      "revId": "cea2cdb9fbf0ee7d66924381076cffdc8b9c0a6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25f9591d_e97fc8e4",
         "filename": "test/unittests/front_end/sdk/LocationRanges_test.ts",
         "patchSetId": 2
@@ -102,6 +150,30 @@
       "revId": "cea2cdb9fbf0ee7d66924381076cffdc8b9c0a6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "648833db_0ed41e22",
+        "filename": "test/unittests/front_end/sdk/LocationRanges_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-18T06:59:42Z",
+      "side": 1,
+      "message": "I added the mentioned test cases and a bit more to better cover the case you caught.",
+      "parentUuid": "25f9591d_e97fc8e4",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 35
+      },
+      "revId": "cea2cdb9fbf0ee7d66924381076cffdc8b9c0a6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
