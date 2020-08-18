@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "877de0c9_23d5bdcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-18T07:42:05Z",
+      "side": 1,
+      "message": "Yes, I propose to store the ContentSecurityPolicyIssue in the AggregatedIssue.\n\nI think the current design in the issues manager is brittle involves communication that isn\u0027t logical: It is reasonable that an issue knows its model, we didn\u0027t do this from the start because closure doesn\u0027t support mutually recursive modules. However, there is no cyclic dependency if we just add the model to ContentSecurityPolicyIssue, and that is easily possible. I see that the goal was to not keep the model alive, but I don\u0027t think that is very important.\n\nModifying the ContentSecurityPolicyIssue in this way doesn\u0027t involve back-end changes. If you look for calls to the constructor of ContentSecurityPolicyIssue (just search for \"new ContentSecurityPolicyIssue\") you will see that the issuesModel is already available there.",
+      "parentUuid": "2d5c951b_04dcdb8c",
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e28cdf1c_97108da1",
         "filename": "test/e2e/elements/reveal-correct-node_test.ts",
         "patchSetId": 4
