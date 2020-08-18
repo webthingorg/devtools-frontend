@@ -19,6 +19,70 @@
     },
     {
       "key": {
+        "uuid": "5f209d6d_3ad42807",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-18T07:02:56Z",
+      "side": 1,
+      "message": "Just for clarification, you would change `AggregatedIssue` to store the `ContentSecurityPolicyIssue` instead of the Protocol details struct?\n\nWe have two design problems to solve:\n1) How to associate an issue with its originating model\n2) How to get the model of an affected resource after it was aggregated\n\nFor 1), I like your idea of storing the model on the issue. This comes with the downside of keeping the IssuesModel and Audits target alive, even though the model is removed. (Unless the IssuesManager has a pass that handles CSP issues correctly and removes the association).\n\nFor 2), I am fine with both solutions. Either we re-calculate the primary key and retrieve the issue from the IssuesManager that way, or we, as Sigurd proposed, directly store the CSP issues in the AggregatedIssue.",
+      "parentUuid": "6195ea0d_d43d39b3",
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e28cdf1c_97108da1",
+        "filename": "test/e2e/elements/reveal-correct-node_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-18T07:02:56Z",
+      "side": 1,
+      "message": "Peter introduced new mocha wrappers for async stack traces and `it.repeat`, please use the correct import now :)",
+      "range": {
+        "startLine": 5,
+        "startChar": 28,
+        "endLine": 5,
+        "endChar": 33
+      },
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "979ed9cc_f9508d00",
+        "filename": "test/e2e/elements/reveal-correct-node_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-18T07:02:56Z",
+      "side": 1,
+      "message": "nit:\n\n describe(\u0027The Issues tab\u0027, async () \u003d\u003e {\n   it(\u0027should reveal an element in the Elements panel when the node icon is clicked\u0027,",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 92
+      },
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b24997e_6fe42760",
         "filename": "test/e2e/resources/elements/element-reveal-oopf-inline-issue.html",
         "patchSetId": 4
