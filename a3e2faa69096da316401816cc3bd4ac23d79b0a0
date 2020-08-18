@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "038ddac3_5259f9fe",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T14:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d4d5bee_f10a9cad",
+      "range": {
+        "startLine": 30,
+        "startChar": 5,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50699590_f5c468d5",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 5
@@ -62,6 +86,30 @@
       "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a86a49a_e3c5a1b2",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T14:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50699590_f5c468d5",
+      "range": {
+        "startLine": 426,
+        "startChar": 10,
+        "endLine": 426,
+        "endChar": 37
+      },
+      "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "a259e6b0_199a27f4",
+        "filename": "front_end/sdk/ContentSecurityPolicyIssue.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T14:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b240320b_6cc66f58",
+      "range": {
+        "startLine": 72,
+        "startChar": 16,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbfd0209_36641a24",
         "filename": "test/e2e/resources/elements/BUILD.gn",
         "patchSetId": 5
@@ -108,6 +180,30 @@
       "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19a36b02_5aa1ecf7",
+        "filename": "test/e2e/resources/elements/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T14:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbfd0209_36641a24",
+      "range": {
+        "startLine": 13,
+        "startChar": 20,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
