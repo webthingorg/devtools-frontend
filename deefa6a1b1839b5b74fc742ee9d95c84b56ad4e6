@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "227b3f5c_0682d754",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-08-18T05:51:31Z",
+      "side": 1,
+      "message": "Mathias, a few questions for you:\n\n* Could you double-check that I didn\u0027t mess anything up in terms of wiring up the actual front-end changes? The unit tests pass, but I\u0027m not sure how to build DevTools to do an end-to-end test.\n\n* It\u0027s not totally obvious to me how we want to land these CLs. I think we can (1) disable auto-rolling, (2) land the Chromium side, and then (3) land this side. Does that sound right? If so, could you put together a CL for (1)? It\u0027s hopefully pretty straightforward, but I\u0027m not sure what exactly that would take.\n\n* I\u0027m not sure whether this CL keeps the GRD translation bits correctly wired up – I don\u0027t really know how those get substituted. Could you please pay extra attention to whether there is anything needed to keep translations working as expected?",
+      "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
