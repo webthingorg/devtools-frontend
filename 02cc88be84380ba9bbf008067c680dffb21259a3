@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ef27d5e_cab55ed5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-08-18T22:02:02Z",
+      "side": 1,
+      "message": "The Chromium side has landed, so I think this CL is ready to land if it looks good to you :)",
+      "revId": "02cc88be84380ba9bbf008067c680dffb21259a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
