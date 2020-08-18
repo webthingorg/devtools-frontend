@@ -16,6 +16,24 @@
       "revId": "c298799c308164473a50dba6e948f1dee499c4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80f79a8c_1d238a95",
+        "filename": "front_end/client_variations/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-08-18T06:15:09Z",
+      "side": 0,
+      "message": "Good catch! Done, + 1 more instance found via \"git grep\"",
+      "parentUuid": "feeb83a6_15f1bc6a",
+      "revId": "c298799c308164473a50dba6e948f1dee499c4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
