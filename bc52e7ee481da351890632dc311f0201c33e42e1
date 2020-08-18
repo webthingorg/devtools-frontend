@@ -37,6 +37,41 @@
     },
     {
       "key": {
+        "uuid": "8dff64ed_470456e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T07:27:30Z",
+      "side": 1,
+      "message": "Should I do the changes in the follow-up CL or in this one?",
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d5c951b_04dcdb8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T07:27:30Z",
+      "side": 1,
+      "message": "Modifying the CSPIssue would also involve protocol changes in the back-end, right?\n\nAt which point would it be possible to add IssuesModel to an issue? Should that happen for instance in issueAdded() of IssuesModel?",
+      "parentUuid": "5f209d6d_3ad42807",
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e28cdf1c_97108da1",
         "filename": "test/e2e/elements/reveal-correct-node_test.ts",
         "patchSetId": 4
