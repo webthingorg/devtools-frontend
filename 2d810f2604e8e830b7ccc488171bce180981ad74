@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "aa69ee13_b2877f09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-18T08:59:59Z",
+      "side": 1,
+      "message": "Don\u0027t you have a tracking bug?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "491b6727_d2c748c3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -16,6 +39,92 @@
       "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9123e709_f6cb27d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-18T08:59:59Z",
+      "side": 1,
+      "message": "Does it make sense to change the icons in general to the new medium icons that Peter created?\n\nPlease consider rebasing on https://crrev.com/c/2361685, which contains an icon for a blocked window.\n\nThen consider choosing the right icons for each occasion.",
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeee7202_e99ec414",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-18T08:59:59Z",
+      "side": 1,
+      "message": "Is this the only class that needs changing? there are several other usages of class \u0027navigator-tree-item\u0027",
+      "range": {
+        "startLine": 2226,
+        "startChar": 13,
+        "endLine": 2226,
+        "endChar": 30
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2d8120f_f58ae8f1",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2251,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-18T08:59:59Z",
+      "side": 1,
+      "message": "nit: could this be merged into an additional argument of the create call?",
+      "range": {
+        "startLine": 2250,
+        "startChar": 17,
+        "endLine": 2251,
+        "endChar": 47
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d64f331_4ed4a0ec",
+        "filename": "front_end/resources/resourcesSidebar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-18T08:59:59Z",
+      "side": 1,
+      "message": "Are these the right offsets? It looked too spacey for me..",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
