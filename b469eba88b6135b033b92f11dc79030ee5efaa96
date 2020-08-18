@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "349fcc75_4a4a470b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-08-18T08:53:10Z",
+      "side": 1,
+      "message": "This is supposed to fix the flake seen here:\nhttps://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8871708123919940448/+/steps/E2E_tests/0/stdout\nWDYT?",
+      "revId": "b469eba88b6135b033b92f11dc79030ee5efaa96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
