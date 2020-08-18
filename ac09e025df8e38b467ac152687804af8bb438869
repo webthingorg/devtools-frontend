@@ -16,6 +16,40 @@
       "revId": "ac09e025df8e38b467ac152687804af8bb438869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b0ccf8_1bdc790a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T14:32:09Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ac09e025df8e38b467ac152687804af8bb438869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51fd1fbc_79884b79",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T14:32:09Z",
+      "side": 1,
+      "message": "cool, this is more informative too!",
+      "revId": "ac09e025df8e38b467ac152687804af8bb438869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
