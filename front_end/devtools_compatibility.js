@@ -454,6 +454,14 @@
     }
 
     /**
+     * @override
+     * @param {function(!InspectorFrontendHostAPI.APIKeyResult): void} callback
+     */
+    getSurveyAPIKey(callback) {
+      DevToolsAPI.sendMessageToEmbedder('getSurveyAPIKey', [], /** @type {function(?Object)} */ (callback));
+    }
+
+    /**
      * Requests inspected page to be placed atop of the inspector frontend with specified bounds.
      * @override
      * @param {{x: number, y: number, width: number, height: number}} bounds
@@ -474,7 +482,7 @@
      * @param {string} url
      * @param {string} headers
      * @param {number} streamId
-     * @param {function(!InspectorFrontendHostAPI.LoadNetworkResourceResult)} callback
+     * @param {function(!InspectorFrontendHostAPI.LoadNetworkResourceResult): void} callback
      */
     loadNetworkResource(url, headers, streamId, callback) {
       DevToolsAPI.sendMessageToEmbedder(
