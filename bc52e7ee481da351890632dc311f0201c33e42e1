@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "b6dfaee2_2591273c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T11:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3300db29_0b1d7590",
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e28cdf1c_97108da1",
         "filename": "test/e2e/elements/reveal-correct-node_test.ts",
         "patchSetId": 4
@@ -119,6 +137,30 @@
       "writtenOn": "2020-08-18T07:02:56Z",
       "side": 1,
       "message": "Peter introduced new mocha wrappers for async stack traces and `it.repeat`, please use the correct import now :)",
+      "range": {
+        "startLine": 5,
+        "startChar": 28,
+        "endLine": 5,
+        "endChar": 33
+      },
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5fd6262_8da8e723",
+        "filename": "test/e2e/elements/reveal-correct-node_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T11:17:55Z",
+      "side": 1,
+      "message": "Please check if I understood you correctly and did what you expected me to",
+      "parentUuid": "e28cdf1c_97108da1",
       "range": {
         "startLine": 5,
         "startChar": 28,
@@ -154,6 +196,30 @@
     },
     {
       "key": {
+        "uuid": "f37cf59e_dda420bd",
+        "filename": "test/e2e/elements/reveal-correct-node_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T11:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "979ed9cc_f9508d00",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 92
+      },
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b24997e_6fe42760",
         "filename": "test/e2e/resources/elements/element-reveal-oopf-inline-issue.html",
         "patchSetId": 4
@@ -174,6 +240,30 @@
       "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8d73473_6606bd6d",
+        "filename": "test/e2e/resources/elements/element-reveal-oopf-inline-issue.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-08-18T11:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b24997e_6fe42760",
+      "range": {
+        "startLine": 6,
+        "startChar": 28,
+        "endLine": 6,
+        "endChar": 33
+      },
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
