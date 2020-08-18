@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a591fe7_c56ef8de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-18T16:55:14Z",
+      "side": 1,
+      "message": "Visual design wise it looks great on dark as well on light mode 😊\n\nSome properties might be mis-categorized:\n- text-size-adjust | \"Other\" -\u003e \"Text\"\n- font-smoothing | \"Other\" -\u003e \"Text\"\n- min-width | \"Other\" -\u003e \"Layout\"\n- tap-highlight-color | \"Other\" -\u003e \"Appearance\"\n\nI know we already talked about it and you probably decided against it. But I would really recommend show the groups initially opened instead of closed. I think the length of the properties panel is still totally manageable. What makes it a little bit frustrating is that the groups are all closed again after DevTools is reopened or the developer switches to a new tab. As a result you are greeted by an essentially empty panel.\n\nI remember we talked about that the developer might want to only open specific groups. That might work if they are remembered across DevTools sessions. Right now I have the feeling that I need to open all of them to understand whats inside (especially with the \"Other\" category).\n\nJust my 2 cents 😊 Else it\u0027s really really cool.",
+      "revId": "acd64c4956d16a1dcf4557c7818c604b73c29634",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
