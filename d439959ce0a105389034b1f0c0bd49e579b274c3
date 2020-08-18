@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "13e2b5f3_2f6008b8",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 2246,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-18T11:17:13Z",
+      "side": 1,
+      "message": "What if the top frame is an error page?",
+      "range": {
+        "startLine": 2246,
+        "startChar": 21,
+        "endLine": 2246,
+        "endChar": 39
+      },
+      "revId": "d439959ce0a105389034b1f0c0bd49e579b274c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc80ca6b_157d5556",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 4
