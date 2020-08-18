@@ -22,6 +22,30 @@
       "revId": "ce0d32c14298641a856af7a31617400aeb238cd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ecee4d9_e1f4fa88",
+        "filename": "front_end/timeline/TimelineTreeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-18T15:51:09Z",
+      "side": 1,
+      "message": "Done. I went and tested the times that this is called. It isn\u0027t on the code path that causes the delay in the bug, but changing it does not affect current selection behavior, and I agree it\u0027s probably smart to add in case there are other cases where selection events cause massive recursive loops",
+      "parentUuid": "88e931c7_df2cd109",
+      "range": {
+        "startLine": 718,
+        "startChar": 6,
+        "endLine": 718,
+        "endChar": 36
+      },
+      "revId": "ce0d32c14298641a856af7a31617400aeb238cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
