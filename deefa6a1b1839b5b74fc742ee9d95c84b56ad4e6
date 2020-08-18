@@ -88,6 +88,24 @@
       "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9866e5e8_b75c3372",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-18T07:09:47Z",
+      "side": 1,
+      "message": "After doing the release and debug builds, you can test manually, using a command like: https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#running-from-file-system\n\nYou can use https://mathiasbynens.be/demo/x-client-data as a test page. (It includes the header as a Response header instead of a Request header, but that\u0027s sufficient to test the functionality.) Open the Network tab and verify the human-readable message shows up.",
+      "parentUuid": "c1a0c159_53f2a49f",
+      "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
