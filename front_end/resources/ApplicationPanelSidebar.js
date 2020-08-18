@@ -1939,8 +1939,7 @@ export class ApplicationCacheFrameTreeElement extends BaseStorageTreeElement {
     this._manifestURL = manifestURL;
     this._refreshTitles(frame);
 
-    const icon = UI.Icon.Icon.create('largeicon-navigator-folder', 'navigator-tree-item');
-    icon.classList.add('navigator-folder-tree-item');
+    const icon = UI.Icon.Icon.create('mediumicon-frame-top', 'navigator-folder-tree-item');
     this.setLeadingIcons([icon]);
   }
 
@@ -2244,8 +2243,13 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     /** @type {?FrameDetailsView} */
     this._view = null;
 
-    const icon = UI.Icon.Icon.create('largeicon-navigator-frame', 'navigator-tree-item');
-    icon.classList.add('navigator-frame-tree-item');
+    const iconType = frame.isTopFrame() ?
+        'mediumicon-frame-top' :
+        frame.unreachableUrl() ? 'mediumicon-frame-embedded-blocked' : 'mediumicon-frame-embedded';
+    const icon = UI.Icon.Icon.create(iconType);
+    if (frame.unreachableUrl()) {
+      icon.classList.add('red-icon');
+    }
     this.setLeadingIcons([icon]);
   }
 
@@ -2443,8 +2447,7 @@ export class FrameResourceTreeElement extends BaseStorageTreeElement {
     this.tooltip = resource.url;
     this._resource[FrameResourceTreeElement._symbol] = this;
 
-    const icon = UI.Icon.Icon.create('largeicon-navigator-file', 'navigator-tree-item');
-    icon.classList.add('navigator-file-tree-item');
+    const icon = UI.Icon.Icon.create('mediumicon-manifest', 'navigator-file-tree-item');
     icon.classList.add('navigator-' + resource.resourceType().name() + '-tree-item');
     this.setLeadingIcons([icon]);
   }
@@ -2556,7 +2559,7 @@ class FrameWindowTreeElement extends BaseStorageTreeElement {
    */
   updateIcon(canAccessOpener) {
     const iconType = canAccessOpener ? 'mediumicon-frame-opened' : 'mediumicon-frame';
-    const icon = UI.Icon.Icon.create(iconType, 'window-tree-item');
+    const icon = UI.Icon.Icon.create(iconType);
     this.setLeadingIcons([icon]);
   }
 
