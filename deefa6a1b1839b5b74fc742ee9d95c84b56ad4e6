@@ -34,6 +34,24 @@
       "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75596c55_bf1a3703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-08-18T06:23:27Z",
+      "side": 1,
+      "message": "Thanks! I\u0027m able to run `npm run e2etest`... but do we have a programmatic end-to-end test for this?\n\n(It\u0027s hard to tell based on the output of e2etest – most tests pass, but a few seemingly unrelated ones fail, which I\u0027d intuitively expect to be an indication of flakiness... though maybe this CL is actually breaking seemingly unrelated things?)",
+      "parentUuid": "f3406dd9_5df2e3db",
+      "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
