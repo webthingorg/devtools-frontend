@@ -27,7 +27,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {!WeakMap<!SDK.IssuesModel.IssuesModel, !Common.EventTarget.EventDescriptor>} */
     this._eventListeners = new WeakMap();
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.IssuesModel.IssuesModel, this);
-    /** @type {!Map<string, !SDK.Issue.Issue>} */
+    /** @type {!Map<string, {issue: !SDK.Issue.Issue, issuesModel: !SDK.IssuesModel.IssuesModel}>} */
     this._issues = new Map();
     /** @type {!Map<string, !SDK.Issue.Issue>} */
     this._filteredIssues = new Map();
@@ -71,9 +71,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
   _onTopFrameNavigated(event) {
     const {frame} = /** @type {!{frame:!SDK.ResourceTreeModel.ResourceTreeFrame}} */ (event.data);
     const keptIssues = new Map();
-    for (const [key, issue] of this._issues.entries()) {
-      if (issue.isAssociatedWithRequestId(frame.loaderId)) {
-        keptIssues.set(key, issue);
+    for (const [key, issueInfo] of this._issues.entries()) {
+      if (issueInfo.issue.isAssociatedWithRequestId(frame.loaderId)) {
+        keptIssues.set(key, {issue: issueInfo.issue, issueModel: issueInfo.issuesModel});
       }
     }
     this._issues = keptIssues;
@@ -129,7 +129,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     if (this._issues.has(primaryKey)) {
       return;
     }
-    this._issues.set(primaryKey, issue);
+    this._issues.set(primaryKey, {issue: issue, issuesModel: issuesModel});
 
     if (this._issueFilter(issue)) {
       this._filteredIssues.set(primaryKey, issue);
@@ -185,9 +185,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
   _updateFilteredIssues() {
     this._filteredIssues.clear();
     // TODO(crbug.com/1011811): Replace with for .. of loop once Closure is gone.
-    this._issues.forEach((issue, key) => {
-      if (this._issueFilter(issue)) {
-        this._filteredIssues.set(key, issue);
+    this._issues.forEach((issueInfo, key) => {
+      if (this._issueFilter(issueInfo.issue)) {
+        this._filteredIssues.set(key, issueInfo.issue);
       }
     });
 

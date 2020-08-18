@@ -3,19 +3,22 @@
 // found in the LICENSE file.
 
 import {ls} from '../platform/platform.js';
-
 import {Issue, IssueCategory, IssueDescription, IssueKind} from './Issue.js';  // eslint-disable-line no-unused-vars
+import {IssuesModel} from './IssuesModel.js';                                  // eslint-disable-line no-unused-vars
+
 
 export class ContentSecurityPolicyIssue extends Issue {
   /**
    * @param {!Protocol.Audits.ContentSecurityPolicyIssueDetails} issueDetails
+   * @param {!IssuesModel} issuesModel
    */
-  constructor(issueDetails) {
+  constructor(issueDetails, issuesModel) {
     const issue_code = [
       Protocol.Audits.InspectorIssueCode.ContentSecurityPolicyIssue, issueDetails.contentSecurityPolicyViolationType
     ].join('::');
     super(issue_code);
     this._issueDetails = issueDetails;
+    this._issuesModel = issuesModel;
   }
 
   /**
@@ -31,10 +34,7 @@ export class ContentSecurityPolicyIssue extends Issue {
    * @return {string}
    */
   primaryKey() {
-    return JSON.stringify(this._issueDetails, [
-      'blockedURL', 'contentSecurityPolicyViolationType', 'violatedDirective', 'sourceCodeLocation', 'url',
-      'lineNumber', 'columnNumber', 'violatingNodeId'
-    ]);
+    return getPrimaryKeyFromIssueDetails(this._issueDetails);
   }
 
   /**
@@ -50,12 +50,30 @@ export class ContentSecurityPolicyIssue extends Issue {
   }
 
   /**
-   * @override
-   * @returns {!Iterable<!Protocol.Audits.ContentSecurityPolicyIssueDetails>}
+   * @returns {!IssuesModel}
    */
-  cspViolations() {
-    return [this._issueDetails];
+  model() {
+    return this._issuesModel;
   }
+
+  /**
+   * @returns {!Protocol.Audits.ContentSecurityPolicyIssueDetails}
+   */
+  details() {
+    return this._issueDetails;
+  }
+}
+
+/**
+ *
+ * @param {!Protocol.Audits.ContentSecurityPolicyIssueDetails} issueDetails
+ * @return {string}
+ */
+export function getPrimaryKeyFromIssueDetails(issueDetails) {
+  return JSON.stringify(issueDetails, [
+    'blockedURL', 'contentSecurityPolicyViolationType', 'violatedDirective', 'sourceCodeLocation', 'url', 'lineNumber',
+    'columnNumber', 'violatingNodeId'
+  ]);
 }
 
 /**
