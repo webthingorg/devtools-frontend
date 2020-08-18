@@ -16,6 +16,80 @@
       "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "000c9b7b_09ac04c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-18T05:34:08Z",
+      "side": 1,
+      "message": "Looking great! Thanks for working on this 👍",
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f549094_5d2284b7",
+        "filename": "front_end/elements/PropertyNameCategories.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-18T05:34:08Z",
+      "side": 1,
+      "message": "How were these lists generated? If there is a better way than doing it manually, let\u0027s leave a comment describing the process.",
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62358b55_a67d2da1",
+        "filename": "front_end/elements/PropertyNameCategories.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-18T05:34:08Z",
+      "side": 1,
+      "message": "Should logical properties be added here? E.g. `inline-size` in addition to `width`. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Sizing",
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fb583d4_ade62c27",
+        "filename": "front_end/elements/PropertyNameCategories.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-18T05:34:08Z",
+      "side": 1,
+      "message": ".entries() is the implicit default, so it can be dropped in this case",
+      "range": {
+        "startLine": 159,
+        "startChar": 58,
+        "endLine": 159,
+        "endChar": 68
+      },
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
