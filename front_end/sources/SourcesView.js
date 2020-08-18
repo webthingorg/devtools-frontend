@@ -6,6 +6,7 @@
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';
 import * as Persistence from '../persistence/persistence.js';
 import * as Platform from '../platform/platform.js';
 import * as QuickOpen from '../quick_open/quick_open.js';
@@ -113,6 +114,11 @@ export class SourcesView extends UI.Widget.VBox {
 
     this._shortcuts = {};
     this.element.addEventListener('keydown', this._handleKeyDown.bind(this), false);
+
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.getSurveyAPIKey(response => {
+      /* eslint-disable no-console */
+      console.log('Got API Key!', response);
+    });
   }
 
   /**
