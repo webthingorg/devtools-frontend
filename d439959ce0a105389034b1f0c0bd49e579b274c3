@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cea74b6_0310e7df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T10:58:51Z",
+      "side": 1,
+      "message": "Peter, is \u0027rgb(235 57 65)\u0027 the correct red for the blocked-frame-icon?",
+      "revId": "d439959ce0a105389034b1f0c0bd49e579b274c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
