@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9b8d3fad_2c0a079f",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-18T11:37:03Z",
+      "side": 1,
+      "message": "Yes no problem. I added a TODO item here, in the latest patch.",
+      "parentUuid": "de2e247f_01f71015",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "eb290e98f7e835cafc36c9feace2c175b2edb9ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "729769d7_14786d6d",
         "filename": "front_end/elements/ComputedStyleProperty.ts",
         "patchSetId": 2
