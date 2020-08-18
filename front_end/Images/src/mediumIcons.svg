@@ -8,11 +8,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="96"
-   height="96"
+   viewBox="0 -16 112 112"
+   width="112"
+   height="112"
    id="svg4775"
    version="1.1"
-   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   inkscape:version="1.0rc1 (09960d6f05, 2020-04-09)"
    sodipodi:docname="mediumIcons.svg"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -24,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -86,6 +87,11 @@
        y2="104" />
   </defs>
   <sodipodi:namedview
+     viewbox-y="-16"
+     viewbox-x="0"
+     lock-margins="true"
+     fit-margin-top="-16"
+     showborder="true"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1"
@@ -95,18 +101,18 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="2480"
-     inkscape:window-height="1395"
+     inkscape:window-height="1387"
      id="namedview4913"
      showgrid="true"
-     inkscape:zoom="15"
-     inkscape:cx="77.161373"
-     inkscape:cy="90.233633"
-     inkscape:window-x="80"
-     inkscape:window-y="23"
+     inkscape:zoom="7.5"
+     inkscape:cx="19.421002"
+     inkscape:cy="48.34913"
+     inkscape:window-x="76"
+     inkscape:window-y="2"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g237"
+     inkscape:current-layer="svg4775"
      inkscape:document-rotation="0"
-     showguides="false"
+     showguides="true"
      inkscape:snap-grids="true"
      inkscape:snap-page="false">
     <inkscape:grid
@@ -489,7 +495,7 @@
      id="g6346"
      transform="translate(32.000002,80)">
     <polygon
-       points="16,16 0,16 0,0 16,0 "
+       points="0,0 16,0 16,16 0,16 "
        id="polygon6348" />
     <path
        style="fill:#000000"
@@ -813,11 +819,11 @@
            id="rect4301"
            style="fill:#000000" />
         <polygon
-           points="7.5,1 2,7 6.125,7 8.875,7 13,7 "
+           points="2,7 6.125,7 8.875,7 13,7 7.5,1 "
            id="Path"
            style="fill:#000000;fill-rule:nonzero" />
         <polygon
-           points="16.5,17 11,23 15.125,23 17.875,23 22,23 "
+           points="11,23 15.125,23 17.875,23 22,23 16.5,17 "
            transform="rotate(180,16.5,20)"
            id="polygon4304"
            style="fill:#000000;fill-rule:nonzero" />
@@ -915,7 +921,8 @@
        fill="#000000"
        d="M 5,2.5 C 5,1.67157 5.67157,1 6.5,1 h 7 C 14.3284,1 15,1.67157 15,2.5 v 6 C 15,9.32843 14.3284,10 13.5,10 h -1 v 2.5 C 12.5,13.3284 11.8284,14 11,14 H 2.5 C 1.67157,14 1,13.3284 1,12.5 v -8 C 1,3.67157 1.67157,3 2.5,3 H 5 Z m 1.5,0 h 7 v 6 h -7 z M 5,6 H 2.5 v 6.5 H 11 V 10 H 6.5 C 5.67157,10 5,9.32843 5,8.5 Z"
        clip-rule="evenodd"
-       fill-rule="evenodd" />
+       fill-rule="evenodd"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      style="fill:none"
@@ -926,15 +933,18 @@
        fill="#000000"
        d="m 10.35,14 0.9882,1.8529 1.3236,-0.7058 L 4.66176,0.147059 3.33824,0.852941 3.95,2 H 2.5 C 1.67157,2 1,2.67157 1,3.5 v 9 C 1,13.3284 1.67157,14 2.5,14 Z M 9.55,12.5 8.75,11 H 5 V 6 H 6.08333 L 5.55,5 H 2.5 v 7.5 z M 6.61667,7 H 6 v 3 h 2.21667 z"
        clip-rule="evenodd"
-       fill-rule="evenodd" />
+       fill-rule="evenodd"
+       inkscape:connector-curvature="0" />
     <path
        id="path1859"
        fill="#000000"
-       d="m 14.5,12.5 c 0,0.5627 -0.3098,1.053 -0.7682,1.3097 L 13,12.4375 V 5 H 9.03333 l -1.6,-3 H 13 c 0.8284,0 1.5,0.67157 1.5,1.5 z" />
+       d="m 14.5,12.5 c 0,0.5627 -0.3098,1.053 -0.7682,1.3097 L 13,12.4375 V 5 H 9.03333 l -1.6,-3 H 13 c 0.8284,0 1.5,0.67157 1.5,1.5 z"
+       inkscape:connector-curvature="0" />
     <path
        id="path1861"
        fill="#000000"
-       d="M 12,10.5625 11,8.6875 V 7 H 10.1 L 9.56667,6 H 12 Z" />
+       d="M 12,10.5625 11,8.6875 V 7 H 10.1 L 9.56667,6 H 12 Z"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      style="fill:none"
@@ -945,13 +955,15 @@
        fill="#000000"
        d="m 5,6 h 7 v 5 H 5 Z m 1,1 h 5 v 3 H 6 Z"
        clip-rule="evenodd"
-       fill-rule="evenodd" />
+       fill-rule="evenodd"
+       inkscape:connector-curvature="0" />
     <path
        id="path1840"
        fill="#000000"
        d="M 2.5,2 C 1.67157,2 1,2.67157 1,3.5 v 9 C 1,13.3284 1.67157,14 2.5,14 H 13 c 0.8284,0 1.5,-0.6716 1.5,-1.5 v -9 C 14.5,2.67157 13.8284,2 13,2 Z m 0,10.5 V 5 H 13 v 7.5 z"
        clip-rule="evenodd"
-       fill-rule="evenodd" />
+       fill-rule="evenodd"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      style="fill:none"
@@ -962,7 +974,8 @@
        fill="#000000"
        d="M 1,3.5 C 1,2.67157 1.67157,2 2.5,2 H 13 c 0.8284,0 1.5,0.67157 1.5,1.5 v 9 C 14.5,13.3284 13.8284,14 13,14 H 2.5 C 1.67157,14 1,13.3284 1,12.5 Z M 2.5,5 v 7.5 H 13 V 5 Z"
        clip-rule="evenodd"
-       fill-rule="evenodd" />
+       fill-rule="evenodd"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      style="fill:none"
@@ -971,21 +984,25 @@
     <path
        id="path341"
        fill="#000000"
-       d="M 5.14645,5.64645 2.79289,8 5.14645,10.3536 5.85355,9.64645 4.20711,8 5.85355,6.35355 Z" />
+       d="M 5.14645,5.64645 2.79289,8 5.14645,10.3536 5.85355,9.64645 4.20711,8 5.85355,6.35355 Z"
+       inkscape:connector-curvature="0" />
     <path
        id="path343"
        fill="#000000"
-       d="m 9.48507,4.12127 -2,8.00003 -0.97014,-0.2426 2,-7.99997 z" />
+       d="m 9.48507,4.12127 -2,8.00003 -0.97014,-0.2426 2,-7.99997 z"
+       inkscape:connector-curvature="0" />
     <path
        id="path345"
        fill="#000000"
-       d="M 10.8536,5.64645 13.2071,8 10.8536,10.3536 10.1464,9.64645 11.7929,8 10.1464,6.35355 Z" />
+       d="M 10.8536,5.64645 13.2071,8 10.8536,10.3536 10.1464,9.64645 11.7929,8 10.1464,6.35355 Z"
+       inkscape:connector-curvature="0" />
     <path
        id="path347"
        fill="#000000"
        d="m 15,8 c 0,3.866 -3.134,7 -7,7 C 4.13401,15 1,11.866 1,8 1,4.13401 4.13401,1 8,1 c 3.866,0 7,3.13401 7,7 z m -1,0 c 0,3.3137 -2.6863,6 -6,6 C 4.68629,14 2,11.3137 2,8 2,4.68629 4.68629,2 8,2 c 3.3137,0 6,2.68629 6,6 z"
        clip-rule="evenodd"
-       fill-rule="evenodd" />
+       fill-rule="evenodd"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      style="fill:none"
@@ -996,7 +1013,8 @@
        fill="#000000"
        d="m 15,8 c 0,3.866 -3.134,7 -7,7 C 4.13401,15 1,11.866 1,8 1,4.13401 4.13401,1 8,1 c 3.866,0 7,3.13401 7,7 z m -5,5.6586 C 9.37444,13.8797 8.70127,14 8,14 4.68629,14 2,11.3137 2,8 2,5.77915 3.2066,3.84012 5,2.80269 v 6.4902 L 3.85355,8.14645 3.14645,8.85355 5.5,11.2071 7.85355,8.85355 7.14645,8.14645 6,9.29289 V 2.34141 C 6.62556,2.12031 7.29873,2 8,2 c 3.3137,0 6,2.68629 6,6 0,2.2208 -1.2066,4.1599 -3,5.1973 V 6.70711 L 12.1464,7.85355 12.8536,7.14645 10.5,4.79289 8.14645,7.14645 8.85355,7.85355 10,6.70711 Z"
        clip-rule="evenodd"
-       fill-rule="evenodd" />
+       fill-rule="evenodd"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      transform="translate(80,80)"
@@ -1007,6 +1025,36 @@
        clip-rule="evenodd"
        d="M 12.875,12.4796 V 5.47959 C 9.41663,5.47959 5.95833,5.47835 2.5,5.5 v 6.9796 z M 2,2 C 1.44772,2 1,2.44772 1,3 v 9.4796 c 0,0.8284 0.67157,1.5 1.5,1.5 h 10.375 c 0.8284,0 1.5,-0.6716 1.5,-1.5 V 5.47959 c 0,-0.82843 -0.6716,-1.5 -1.5,-1.5 H 7.9898 C 7.44315,3.97959 7,3.53644 7,2.9898 7,2.44315 6.55685,2 6.0102,2 Z"
        fill="#000000"
-       id="path225" />
+       id="path225"
+       inkscape:connector-curvature="0" />
   </g>
+  <g
+     transform="translate(96.25,31.852941)"
+     id="g1875-3"
+     style="fill:none">
+    <path
+       fill-rule="evenodd"
+       clip-rule="evenodd"
+       d="m 10.35,14 0.9882,1.8529 1.3236,-0.7058 L 4.66176,0.147059 3.33824,0.852941 3.95,2 H 2.5 C 1.67157,2 1,2.67157 1,3.5 v 9 C 1,13.3284 1.67157,14 2.5,14 Z m -0.8,-1.5 c -4,-7.5 0,0 -4,-7.5 H 2.5 v 7.5 z"
+       fill="#000000"
+       id="path1857-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccsssscccccc" />
+    <path
+       d="m 14.5,12.5 c 0,0.5627 -0.3098,1.053 -0.7682,1.3097 L 13,12.4375 V 5 H 9.03333 l -1.6,-3 H 13 c 0.8284,0 1.5,0.67157 1.5,1.5 z"
+       fill="#000000"
+       id="path1859-7"
+       inkscape:connector-curvature="0" />
+  </g>
+  <text
+     id="text5862-7-3"
+     y="107.70163"
+     x="101.22978"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:Sans;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.351111;stroke:none"
+     xml:space="preserve"><tspan
+       style="font-size:10px;line-height:1.25;font-family:sans-serif"
+       y="107.70163"
+       x="101.22978"
+       id="tspan5864-5-5"
+       sodipodi:role="line">g</tspan></text>
 </svg>
