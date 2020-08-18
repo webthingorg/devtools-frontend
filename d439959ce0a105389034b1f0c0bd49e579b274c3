@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "557a4039_bba226d4",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 2246,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T14:10:01Z",
+      "side": 1,
+      "message": "My reasoning for this decision is that even if the top frame is erroneous, the \u0027frame-embedded-blocked\u0027-icon would not be a good choice since it shows a child frame and not the main frame.\n\nThe icon you are adding in https://crrev.com/c/2361685 is a better fit. I\u0027ll add it in a follow-up CL once it has landed.",
+      "parentUuid": "13e2b5f3_2f6008b8",
+      "range": {
+        "startLine": 2246,
+        "startChar": 21,
+        "endLine": 2246,
+        "endChar": 39
+      },
+      "revId": "d439959ce0a105389034b1f0c0bd49e579b274c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc80ca6b_157d5556",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 4
@@ -62,6 +86,30 @@
       "revId": "d439959ce0a105389034b1f0c0bd49e579b274c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4896a30f_2f6763d5",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 2252,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T14:10:01Z",
+      "side": 1,
+      "message": "yes indeed, thanks.",
+      "parentUuid": "fc80ca6b_157d5556",
+      "range": {
+        "startLine": 2246,
+        "startChar": 4,
+        "endLine": 2252,
+        "endChar": 5
+      },
+      "revId": "d439959ce0a105389034b1f0c0bd49e579b274c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
