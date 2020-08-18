@@ -85,6 +85,29 @@
       "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbfd0209_36641a24",
+        "filename": "test/e2e/resources/elements/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-08-18T11:46:33Z",
+      "side": 1,
+      "message": "oopif",
+      "range": {
+        "startLine": 13,
+        "startChar": 20,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "a3e2faa69096da316401816cc3bd4ac23d79b0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
