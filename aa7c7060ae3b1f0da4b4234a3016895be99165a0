@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7a6a8ee_9e840adc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-18T04:35:37Z",
+      "side": 1,
+      "message": "PTAL. This won\u0027t be submitted until M86 branches.",
+      "revId": "aa7c7060ae3b1f0da4b4234a3016895be99165a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
