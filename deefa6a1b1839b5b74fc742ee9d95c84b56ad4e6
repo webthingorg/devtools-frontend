@@ -16,6 +16,24 @@
       "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3406dd9_5df2e3db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-18T06:16:06Z",
+      "side": 1,
+      "message": "- After building DevTools per https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md, it should be possible to run the end-to-end tests via `npm run e2etest`. More details here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/README.md\n\n- I don\u0027t think we need to disable any auto-rollers. (The roll_deps.py is only run manually when needed.) We can 1) land the Chromium CL, then 2) land this CL.\n\n- Looks fine. In general, PRESUBMIT should complain if something is missing in terms of localization.",
+      "parentUuid": "227b3f5c_0682d754",
+      "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
