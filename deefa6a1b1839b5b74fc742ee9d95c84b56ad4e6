@@ -52,6 +52,24 @@
       "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04fac393_be15780b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-18T06:28:29Z",
+      "side": 1,
+      "message": "Apologies, I should have clarified. There indeed is no e2e test specifically for this feature. We prefer unit tests in general (and we have them for this feature, yay!), and tend to write e2e tests for things that are historically not suitable for unit tests.\n\nYes, we currently have some flakiness issues with some of the e2e tests. I don\u0027t think it\u0027s related to your CL. I\u0027d say the things to watch out for before landing this CL are:\n\n- Ensure `autoninja -C out/Default` works (a debug build)\n- Ensure `autoninja -C out/Release` works (a build with is_debug\u003dfalse in gn args)\n- Ensure Closure is happy: `npm run check-type-closure`",
+      "parentUuid": "75596c55_bf1a3703",
+      "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
