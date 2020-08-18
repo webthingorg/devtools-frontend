@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "3300db29_0b1d7590",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-18T07:48:03Z",
+      "side": 1,
+      "message": "Ack, if keeping the IssuesModel alive is not a concern then I am fine with the solution outlined by Sigurd in the initial comment. Feel free to ping either one of us for quick VCs should anything be unclear.",
+      "parentUuid": "877de0c9_23d5bdcb",
+      "revId": "bc52e7ee481da351890632dc311f0201c33e42e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e28cdf1c_97108da1",
         "filename": "test/e2e/elements/reveal-correct-node_test.ts",
         "patchSetId": 4
