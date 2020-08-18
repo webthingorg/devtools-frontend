@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce917a48_a01bac05",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-18T08:23:09Z",
+      "side": 1,
+      "message": "can you add a type annotation here so the bridges get property generated?\n\nAlso, is it worth considering if there\u0027s a way to do this without adding public getters to the components? Normally I\u0027d try to steer away from public methods on components like this unless there\u0027s no other way.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "eb290e98f7e835cafc36c9feace2c175b2edb9ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "729769d7_14786d6d",
+        "filename": "front_end/elements/ComputedStyleProperty.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-18T08:23:09Z",
+      "side": 1,
+      "message": "think you might need to disable clang in this method",
+      "range": {
+        "startLine": 202,
+        "startChar": 3,
+        "endLine": 204,
+        "endChar": 3
+      },
+      "revId": "eb290e98f7e835cafc36c9feace2c175b2edb9ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
