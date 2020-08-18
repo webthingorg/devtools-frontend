@@ -184,7 +184,14 @@ export class BackgroundServiceView extends UI.Widget.VBox {
     }
 
     this._recordButton.setToggled(state.isRecording);
+    this._updateRecordButtonTooltip();
     this._showPreview(this._selectedEventNode);
+  }
+
+  _updateRecordButtonTooltip() {
+    const recordKeyText = self.UI.shortcutRegistry.shortcutsForAction('background-service.toggle-recording')[0].title();
+    const buttonTooltip = this._recordButton.toggled() ? ls`Stop recording events` : ls`Start recording events`;
+    this._recordButton.setTitle(`${buttonTooltip}  ${recordKeyText}`);
   }
 
   /**
