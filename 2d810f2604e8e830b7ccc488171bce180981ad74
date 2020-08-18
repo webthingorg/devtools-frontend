@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "220f7370_e64b2d32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T10:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa69ee13_b2877f09",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "491b6727_d2c748c3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -59,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "bd7a4e1c_5981a00c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T10:56:53Z",
+      "side": 1,
+      "message": "I replaced the remaining largeicons with matching mediumicons.",
+      "parentUuid": "9123e709_f6cb27d6",
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeee7202_e99ec414",
         "filename": "front_end/resources/ApplicationPanelSidebar.js",
         "patchSetId": 2
@@ -70,6 +112,30 @@
       "writtenOn": "2020-08-18T08:59:59Z",
       "side": 1,
       "message": "Is this the only class that needs changing? there are several other usages of class \u0027navigator-tree-item\u0027",
+      "range": {
+        "startLine": 2226,
+        "startChar": 13,
+        "endLine": 2226,
+        "endChar": 30
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d8ccfc9_a9b25a75",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T10:56:53Z",
+      "side": 1,
+      "message": "Not sure what you mean, my intention was to just rename the class.\n\nIn the latest patchset the class is removed.",
+      "parentUuid": "eeee7202_e99ec414",
       "range": {
         "startLine": 2226,
         "startChar": 13,
@@ -105,6 +171,30 @@
     },
     {
       "key": {
+        "uuid": "9861967c_73267df4",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2251,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T10:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2d8120f_f58ae8f1",
+      "range": {
+        "startLine": 2250,
+        "startChar": 17,
+        "endLine": 2251,
+        "endChar": 47
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d64f331_4ed4a0ec",
         "filename": "front_end/resources/resourcesSidebar.css",
         "patchSetId": 2
@@ -125,6 +215,30 @@
       "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96a3a134_b9358315",
+        "filename": "front_end/resources/resourcesSidebar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-18T10:56:53Z",
+      "side": 1,
+      "message": "Removed, because the other items in the application panel do not have any margin.",
+      "parentUuid": "7d64f331_4ed4a0ec",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "2d810f2604e8e830b7ccc488171bce180981ad74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
