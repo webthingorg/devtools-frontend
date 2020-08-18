@@ -12,7 +12,10 @@
 import './ComputedStyleProperty.js';
 /**
 * @typedef {{
+* propertyName:string,
+* propertyValue:string,
 * inherited:boolean,
+* traceable:boolean,
 * expanded:boolean,
 * onNavigateToSource:function(Event):void,
 * }}
@@ -21,6 +24,19 @@ import './ComputedStyleProperty.js';
 export let ComputedStylePropertyData;
 // eslint-disable-next-line no-unused-vars
 export class ComputedStylePropertyClosureInterface extends HTMLElement {
+  /**
+  */
+  getPropertyName() {
+  }
+  /**
+  */
+  getPropertyValue() {
+  }
+  /**
+  * @param {!function(Event):void} OnNavigateToSource
+  */
+  setOnNavigateToSource(OnNavigateToSource) {
+  }
   /**
   */
   isExpanded() {
