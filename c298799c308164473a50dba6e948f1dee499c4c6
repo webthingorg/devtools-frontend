@@ -34,6 +34,24 @@
       "revId": "c298799c308164473a50dba6e948f1dee499c4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9c887b4_b9b1f9af",
+        "filename": "front_end/client_variations/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-08-18T06:46:15Z",
+      "side": 0,
+      "message": "(meant to mark as resolved with my previous reply)",
+      "parentUuid": "80f79a8c_1d238a95",
+      "revId": "c298799c308164473a50dba6e948f1dee499c4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -70,6 +70,24 @@
       "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1a0c159_53f2a49f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2020-08-18T06:46:15Z",
+      "side": 1,
+      "message": "Aha, Closure was unhappy but is now appeased. Both a Debug and a Release build seem happy as well. Great success!\n\nIt still feels a bit uncomfortable not testing this manually at all – is there anything validating that my changes to RequestHeadersView.js are bug-free?\n\nI guess we can just land the two CLs and then double-check that Chrome Canary builds don\u0027t show a regression...",
+      "parentUuid": "04fac393_be15780b",
+      "revId": "deefa6a1b1839b5b74fc742ee9d95c84b56ad4e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
