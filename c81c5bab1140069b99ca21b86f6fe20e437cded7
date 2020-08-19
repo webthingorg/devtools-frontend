@@ -16,6 +16,52 @@
       "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8c51546_9a0c1772",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-19T17:06:41Z",
+      "side": 1,
+      "message": "Rather than going via `npm` (which is machine-dependent), we should call the Node script directly. You should be able to use `_checkWithNodeScript` which should do most of the heavy lifting for you.",
+      "range": {
+        "startLine": 373,
+        "startChar": 9,
+        "endLine": 373,
+        "endChar": 57
+      },
+      "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f35fa0b_558afd8e",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-19T17:06:41Z",
+      "side": 1,
+      "message": "The `_CheckNoUncheckedFiles` already does this. Therefore, we can simply ignore it for now. Any change that could have been made will be later caught. See `_CheckFormat` as an example.",
+      "range": {
+        "startLine": 378,
+        "startChar": 6,
+        "endLine": 378,
+        "endChar": 50
+      },
+      "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
