@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58bd7f1d_f03171ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-19T14:56:27Z",
+      "side": 1,
+      "message": "Let me know what you think about this one.\n\nThis is the most naive approach: regen all the bridges (regardless of what changed) and compare them. This definitely will not scale effectively but I suspect is fine until we hit 20+ components.\n\nI was also thinking that a smarter take would be:\n\n- look at all the files changed in the CL\n- see if any of them have an _bridge.js version\n- if so, regenerate all bridges affected by the CL\n\nThat would mean less work regenerating, but more work to figure out what files to check. WDYT? ",
+      "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
