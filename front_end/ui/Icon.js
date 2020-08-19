@@ -186,6 +186,7 @@ export const Descriptors = {
   'mediumicon-frame-blocked': {position: 'g4', spritesheet: 'mediumicons', isMask: true},
   'mediumicon-elements-panel': {position: 'f3', spritesheet: 'mediumicons', isMask: true},
   'mediumicon-network-panel': {position: 'f2', spritesheet: 'mediumicons', isMask: true},
+  'mediumicon-sources-panel': {position: 'g1', spritesheet: 'mediumicons', isMask: true},
   'mediumicon-frame-top': {position: 'f1', spritesheet: 'mediumicons', isMask: true},
 
   'badge-navigator-file-sync': {position: 'a9', spritesheet: 'largeicons'},
