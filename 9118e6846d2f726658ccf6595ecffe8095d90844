@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "f555d40d_bff259be",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2107a8c0_e2032636",
+      "range": {
+        "startLine": 539,
+        "startChar": 8,
+        "endLine": 541,
+        "endChar": 73
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c370ca60_c24c00e4",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 16
@@ -70,6 +94,30 @@
       "writtenOn": "2020-08-17T19:48:47Z",
       "side": 1,
       "message": "why do we need to OR with _webPlatformExperimentalFeaturesEnabled? won\u0027t all of the relevant force overrides require dual screen support enabled? or is this about emulating a generic device and setting multiple window segments?",
+      "range": {
+        "startLine": 570,
+        "startChar": 15,
+        "endLine": 570,
+        "endChar": 55
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b54fe90_74f62de5",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Good catch, if we have dual screen support but not using web platform feature, then we don\u0027t have to force override (i.e., the old 0 width optimization can still work).",
+      "parentUuid": "c370ca60_c24c00e4",
       "range": {
         "startLine": 570,
         "startChar": 15,
@@ -105,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "995d4d52_a2300679",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "056b9877_299f028a",
+      "range": {
+        "startLine": 805,
+        "startChar": 28,
+        "endLine": 805,
+        "endChar": 32
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a50fe9a_31451373",
         "filename": "front_end/emulation/DeviceModeToolbar.js",
         "patchSetId": 16
@@ -125,6 +197,30 @@
       "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "822068dd_98405739",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3a50fe9a_31451373",
+      "range": {
+        "startLine": 245,
+        "startChar": 46,
+        "endLine": 245,
+        "endChar": 59
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "b1d82712_1dfc30a4",
+        "filename": "front_end/emulation/emulation_strings.grdp",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1c64b9c_d8c86d8f",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "980f8941_fe0b6d01",
         "filename": "front_end/emulation/emulation_strings.grdp",
         "patchSetId": 16
@@ -171,6 +291,30 @@
       "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39c5483b_17be3f33",
+        "filename": "front_end/emulation/emulation_strings.grdp",
+        "patchSetId": 16
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "980f8941_fe0b6d01",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "f39a66fd_15add9c7",
+        "filename": "front_end/emulation/module.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "302d9a46_a2e65d1a",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 0
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d53d84b_af5e14a5",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 16
@@ -220,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "07525cb0_14ff66a6",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6d53d84b_af5e14a5",
+      "range": {
+        "startLine": 591,
+        "startChar": 0,
+        "endLine": 594,
+        "endChar": 0
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db624362_b50b4481",
         "filename": "front_end/ui/toolbar.css",
         "patchSetId": 16
@@ -240,6 +432,30 @@
       "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b10ce4_ad091dce",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 16
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T00:53:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "db624362_b50b4481",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 1
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
