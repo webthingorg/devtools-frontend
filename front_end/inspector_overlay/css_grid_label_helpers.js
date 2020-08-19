@@ -6,6 +6,7 @@
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import {AreaBounds, Bounds, Position} from './common.js';  // eslint-disable-line no-unused-vars
+import {applyMatrixToPoint} from './highlight_common.js';
 
 /**
  * There are 12 different types of arrows for labels.
@@ -72,6 +73,7 @@ let TrackSize;  // eslint-disable-line no-unused-vars
 
 /** @typedef {!{
  * rotationAngle?: number,
+ * writingMode?: string,
  * columnTrackSizes?: TrackSize[],
  * rowTrackSizes?: TrackSize[],
  * positiveRowLineNumberPositions?: Position[],
@@ -91,8 +93,9 @@ let GridHighlightConfig;  // eslint-disable-line no-unused-vars
  * @param {GridHighlightConfig} config The grid highlight configuration.
  * @param {Bounds} gridBounds The grid container bounds.
  * @param {AreaBounds[]} areaBounds The list of named grid areas with their bounds.
+ * @param {DOMMatrix} writingModeMatrix The transformation matrix in case a vertical writing-mode is applied, to map label positions
  */
-export function drawGridLabels(config, gridBounds, areaBounds) {
+export function drawGridLabels(config, gridBounds, areaBounds, writingModeMatrix = new DOMMatrix()) {
   // Find and clear the layer for the node specified in the config, or the default layer:
   // Each node has a layer for grid labels in order to draw multiple grid highlights
   // at once.
@@ -112,23 +115,23 @@ export function drawGridLabels(config, gridBounds, areaBounds) {
   const trackSizesContainer = labelContainerForNode.createChild('div', 'track-sizes');
 
   // Draw line numbers and names.
-  const normalizedData = _normalizePositionData(config, gridBounds);
+  const normalizedData = _normalizePositionData(config, gridBounds, writingModeMatrix);
   if (config.gridHighlightConfig.showLineNames) {
-    drawGridLineNames(lineNameContainer, normalizedData);
+    drawGridLineNames(lineNameContainer, normalizedData, writingModeMatrix, config.writingMode);
   } else {
-    drawGridLineNumbers(lineNumberContainer, normalizedData);
+    drawGridLineNumbers(lineNumberContainer, normalizedData, writingModeMatrix, config.writingMode);
   }
 
   // Draw area names.
-  drawGridAreaNames(areaNameContainer, areaBounds);
+  drawGridAreaNames(areaNameContainer, areaBounds, writingModeMatrix, config.writingMode);
 
   if (config.columnTrackSizes) {
     // Draw column sizes.
-    drawGridTrackSizes(trackSizesContainer, config.rotationAngle, config.columnTrackSizes, 'column');
+    drawGridTrackSizes(trackSizesContainer, config.columnTrackSizes, 'column', writingModeMatrix, config.writingMode);
   }
   if (config.rowTrackSizes) {
     // Draw row sizes.
-    drawGridTrackSizes(trackSizesContainer, config.rotationAngle, config.rowTrackSizes, 'row');
+    drawGridTrackSizes(trackSizesContainer, config.rowTrackSizes, 'row', writingModeMatrix, config.writingMode);
   }
 }
 
@@ -288,57 +291,67 @@ export function _normalizePositionData(config, bounds) {
 /**
  * Places the grid row and column number labels on the overlay.
  *
- * @param {HTMLElement} container
- * @param {GridPositionNormalizedData} data
+ * @param {HTMLElement} container Where to append the labels
+ * @param {GridPositionNormalizedData} data The grid line number data
+ * @param {DOMMatrix} writingModeMatrix The transformation matrix in case a vertical writing-mode is applied, to map label positions
+ * @param {string} writingMode The current writing-mode value
  */
-export function drawGridLineNumbers(container, data) {
+export function drawGridLineNumbers(
+    container, data, writingModeMatrix = new DOMMatrix(), writingMode = 'horizontal-tb') {
   if (!data.columns.positive.names) {
     for (const [i, pos] of positionIterator(data.columns.positive.positions, 'x')) {
       const element = _createLabelElement(container, (i + 1).toString());
-      _placePositiveColumnLabel(element, pos, data);
+      _placePositiveColumnLabel(element, applyMatrixToPoint(pos, writingModeMatrix), data, writingMode);
     }
   }
 
   if (!data.rows.positive.names) {
     for (const [i, pos] of positionIterator(data.rows.positive.positions, 'y')) {
       const element = _createLabelElement(container, (i + 1).toString());
-      _placePositiveRowLabel(element, pos, data);
+      _placePositiveRowLabel(element, applyMatrixToPoint(pos, writingModeMatrix), data, writingMode);
     }
   }
 
   for (const [i, pos] of positionIterator(data.columns.negative.positions, 'x')) {
     // Negative positions are sorted such that the first position corresponds to the line closest to start edge of the grid.
     const element = _createLabelElement(container, (data.columns.negative.positions.length * -1 + i).toString());
-    _placeNegativeColumnLabel(element, pos, data);
+    _placeNegativeColumnLabel(element, applyMatrixToPoint(pos, writingModeMatrix), data, writingMode);
   }
 
   for (const [i, pos] of positionIterator(data.rows.negative.positions, 'y')) {
     // Negative positions are sorted such that the first position corresponds to the line closest to start edge of the grid.
     const element = _createLabelElement(container, (data.rows.negative.positions.length * -1 + i).toString());
-    _placeNegativeRowLabel(element, pos, data);
+    _placeNegativeRowLabel(element, applyMatrixToPoint(pos, writingModeMatrix), data, writingMode);
   }
 }
 
 /**
  * Places the grid track size labels on the overlay.
  *
- * @param {HTMLElement} container
- * @param {number} rotationAngle
- * @param {!Array<TrackSize>} trackSizes
- * @param {string} direction
+ * @param {HTMLElement} container Where to append the labels
+ * @param {!Array<TrackSize>} trackSizes The list of sizes to draw
+ * @param {string} direction Either 'column' or 'row'
+ * @param {DOMMatrix} writingModeMatrix The transformation matrix in case a vertical writing-mode is applied, to map label positions
+ * @param {string} writingMode The current writing-mode value
  */
-export function drawGridTrackSizes(container, rotationAngle, trackSizes, direction) {
+export function drawGridTrackSizes(
+    container, trackSizes, direction, writingModeMatrix = new DOMMatrix(), writingMode = 'horizontal-tb') {
   for (const {x, y, computedSize, authoredSize} of trackSizes) {
+    const point = applyMatrixToPoint({x, y}, writingModeMatrix);
+
     const size = computedSize.toFixed(2);
     const formattedComputed = `${size.endsWith('.00') ? size.slice(0, -3) : size}px`;
     const element = _createLabelElement(container, `${authoredSize ? authoredSize + '·' : ''}${formattedComputed}`);
     const labelWidth = _getAdjustedLabelWidth(element);
     const labelHeight = element.getBoundingClientRect().height;
 
-    const flipIn = direction === 'column' ? y < gridPageMargin : x - labelWidth < gridPageMargin;
-    const arrowType =
-        _flipArrowTypeIfNeeded(direction === 'column' ? GridArrowTypes.bottomMid : GridArrowTypes.rightMid, flipIn);
-    const {contentLeft, contentTop} = _getLabelPositionByArrowType(arrowType, x, y, labelWidth, labelHeight);
+    const flipIn = direction === 'column' ? point.y < gridPageMargin : point.x - labelWidth < gridPageMargin;
+    let arrowType = _adaptArrowTypeForWritingMode(
+        direction === 'column' ? GridArrowTypes.bottomMid : GridArrowTypes.rightMid, writingMode);
+    arrowType = _flipArrowTypeIfNeeded(arrowType, flipIn);
+
+    const {contentLeft, contentTop} =
+        _getLabelPositionByArrowType(arrowType, point.x, point.y, labelWidth, labelHeight);
     element.classList.add(arrowType);
     element.style.left = contentLeft + 'px';
     element.style.top = contentTop + 'px';
@@ -350,18 +363,20 @@ export function drawGridTrackSizes(container, rotationAngle, trackSizes, directi
  *
  * @param {HTMLElement} container
  * @param {GridPositionNormalizedData} data
+ * @param {DOMMatrix} writingModeMatrix The transformation matrix in case a vertical writing-mode is applied, to map label positions
+ * @param {string} writingMode The current writing-mode value
  */
-export function drawGridLineNames(container, data) {
+export function drawGridLineNames(container, data, writingModeMatrix = new DOMMatrix(), writingMode = 'horizontal-tb') {
   for (const [i, pos] of data.columns.positive.positions.entries()) {
     const names = data.columns.positive.names[i];
     const element = _createLabelElement(container, _makeLineNameLabelContent(names));
-    _placePositiveColumnLabel(element, pos, data);
+    _placePositiveColumnLabel(element, applyMatrixToPoint(pos, writingModeMatrix), data, writingMode);
   }
 
   for (const [i, pos] of data.rows.positive.positions.entries()) {
     const names = data.rows.positive.names[i];
     const element = _createLabelElement(container, _makeLineNameLabelContent(names));
-    _placePositiveRowLabel(element, pos, data);
+    _placePositiveRowLabel(element, applyMatrixToPoint(pos, writingModeMatrix), data, writingMode);
   }
 }
 
@@ -387,17 +402,21 @@ function _makeLineNameLabelContent(names) {
  *
  * @param {HTMLElement} container
  * @param {AreaBounds[]} areaBounds
+ * @param {DOMMatrix} writingModeMatrix The transformation matrix in case a vertical writing-mode is applied, to map label positions
+ * @param {string} writingMode The current writing mode
  */
-export function drawGridAreaNames(container, areaBounds) {
+export function drawGridAreaNames(
+    container, areaBounds, writingModeMatrix = new DOMMatrix(), writingMode = 'horizontal-tb') {
   for (const {name, bounds} of areaBounds) {
     const element = _createLabelElement(container, name);
 
-    // The list of all points comes from the path created by the backend. This
-    // path is a rectangle with its starting point being the top left corner.
-    const topLeftCorner = bounds.allPoints[0];
+    // The list of all points comes from the path created by the backend. This path is a rectangle with its starting point being
+    // the top left corner, which is where we want to place the label (except for vertical-rl writing-mode).
+    const point = writingMode === 'vertical-rl' ? bounds.allPoints[3] : bounds.allPoints[0];
+    const corner = applyMatrixToPoint(point, writingModeMatrix);
 
-    element.style.left = topLeftCorner.x + 'px';
-    element.style.top = topLeftCorner.y + 'px';
+    element.style.top = corner.y + 'px';
+    element.style.left = corner.x + 'px';
   }
 }
 
@@ -427,8 +446,9 @@ function _createLabelElement(container, textContent) {
  * @param {HTMLElement} element The label DOM element
  * @param {Position} pos The corresponding grid line position
  * @param {GridPositionNormalizedData} data The normalized position data
+ * @param {string} writingMode The current writing mode
  */
-function _placePositiveRowLabel(element, pos, data) {
+function _placePositiveRowLabel(element, pos, data, writingMode) {
   const x = pos.x;
   const y = pos.y;
   const isAtSharedStartCorner = y === data.bounds.minY && data.columns && data.columns.positive.hasFirst;
@@ -441,11 +461,11 @@ function _placePositiveRowLabel(element, pos, data) {
     element.classList.add('inner-shared-corner');
   }
 
-  let arrowType = GridArrowTypes.rightMid;
+  let arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.rightMid, writingMode);
   if (isTooCloseToViewportStart || isAtSharedStartCorner) {
-    arrowType = GridArrowTypes.rightTop;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.rightTop, writingMode);
   } else if (isTooCloseToViewportEnd || isAtSharedEndCorner) {
-    arrowType = GridArrowTypes.rightBottom;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.rightBottom, writingMode);
   }
   arrowType = _flipArrowTypeIfNeeded(arrowType, flipIn);
 
@@ -458,8 +478,9 @@ function _placePositiveRowLabel(element, pos, data) {
  * @param {HTMLElement} element The label DOM element
  * @param {Position} pos The corresponding grid line position
  * @param {GridPositionNormalizedData} data The normalized position data
+ * @param {string} writingMode The current writing mode
  */
-function _placeNegativeRowLabel(element, pos, data) {
+function _placeNegativeRowLabel(element, pos, data, writingMode) {
   const x = pos.x;
   const y = pos.y;
   const isAtSharedStartCorner = y === data.bounds.minY && data.columns && data.columns.positive.hasLast;
@@ -472,11 +493,11 @@ function _placeNegativeRowLabel(element, pos, data) {
     element.classList.add('inner-shared-corner');
   }
 
-  let arrowType = GridArrowTypes.leftMid;
+  let arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.leftMid, writingMode);
   if (isTooCloseToViewportStart || isAtSharedStartCorner) {
-    arrowType = GridArrowTypes.leftTop;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.leftTop, writingMode);
   } else if (isTooCloseToViewportEnd || isAtSharedEndCorner) {
-    arrowType = GridArrowTypes.leftBottom;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.leftBottom, writingMode);
   }
   arrowType = _flipArrowTypeIfNeeded(arrowType, flipIn);
 
@@ -489,8 +510,9 @@ function _placeNegativeRowLabel(element, pos, data) {
  * @param {HTMLElement} element The label DOM element
  * @param {Position} pos The corresponding grid line position
  * @param {GridPositionNormalizedData} data The normalized position data
+ * @param {string} writingMode The current writing mode
  */
-function _placePositiveColumnLabel(element, pos, data) {
+function _placePositiveColumnLabel(element, pos, data, writingMode) {
   const x = pos.x;
   const y = pos.y;
   const isAtSharedStartCorner = x === data.bounds.minX && data.rows && data.rows.positive.hasFirst;
@@ -503,12 +525,13 @@ function _placePositiveColumnLabel(element, pos, data) {
     element.classList.add('inner-shared-corner');
   }
 
-  let arrowType = GridArrowTypes.bottomMid;
+  let arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.bottomMid, writingMode);
   if (isTooCloseToViewportStart) {
-    arrowType = GridArrowTypes.bottomLeft;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.bottomLeft, writingMode);
   } else if (isTooCloseToViewportEnd) {
-    arrowType = GridArrowTypes.bottomRight;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.bottomRight, writingMode);
   }
+
   arrowType = _flipArrowTypeIfNeeded(arrowType, flipIn);
 
   _placeLineNumberLabel(element, arrowType, x, y);
@@ -520,8 +543,9 @@ function _placePositiveColumnLabel(element, pos, data) {
  * @param {HTMLElement} element The label DOM element
  * @param {Position} pos The corresponding grid line position
  * @param {GridPositionNormalizedData} data The normalized position data
+ * @param {string} writingMode The current writing mode
  */
-function _placeNegativeColumnLabel(element, pos, data) {
+function _placeNegativeColumnLabel(element, pos, data, writingMode) {
   const x = pos.x;
   const y = pos.y;
   const isAtSharedStartCorner = x === data.bounds.minX && data.rows && data.rows.positive.hasLast;
@@ -534,11 +558,11 @@ function _placeNegativeColumnLabel(element, pos, data) {
     element.classList.add('inner-shared-corner');
   }
 
-  let arrowType = GridArrowTypes.topMid;
+  let arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.topMid, writingMode);
   if (isTooCloseToViewportStart) {
-    arrowType = GridArrowTypes.topLeft;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.topLeft, writingMode);
   } else if (isTooCloseToViewportEnd) {
-    arrowType = GridArrowTypes.topRight;
+    arrowType = _adaptArrowTypeForWritingMode(GridArrowTypes.topRight, writingMode);
   }
   arrowType = _flipArrowTypeIfNeeded(arrowType, flipIn);
 
@@ -641,6 +665,79 @@ function _flipArrowTypeIfNeeded(arrowType, flipIn) {
       return GridArrowTypes.topMid;
     case GridArrowTypes.bottomRight:
       return GridArrowTypes.topRight;
+  }
+}
+
+
+/**
+ * Given an arrow type for the standard horizontal-tb writing-mode, return the corresponding type for a differnet
+ * writing-mode.
+ *
+ * @param {string} arrowType
+ * @param {string} writingMode
+ * @return {string} the new arrow type
+ */
+function _adaptArrowTypeForWritingMode(arrowType, writingMode) {
+  if (writingMode !== 'vertical-rl' && writingMode !== 'vertical-lr') {
+    return arrowType;
+  }
+
+  if (writingMode === 'vertical-lr') {
+    switch (arrowType) {
+      case GridArrowTypes.leftTop:
+        return GridArrowTypes.topLeft;
+      case GridArrowTypes.leftMid:
+        return GridArrowTypes.topMid;
+      case GridArrowTypes.leftBottom:
+        return GridArrowTypes.topRight;
+      case GridArrowTypes.topLeft:
+        return GridArrowTypes.leftTop;
+      case GridArrowTypes.topMid:
+        return GridArrowTypes.leftMid;
+      case GridArrowTypes.topRight:
+        return GridArrowTypes.leftBottom;
+      case GridArrowTypes.rightTop:
+        return GridArrowTypes.bottomRight;
+      case GridArrowTypes.rightMid:
+        return GridArrowTypes.bottomMid;
+      case GridArrowTypes.rightBottom:
+        return GridArrowTypes.bottomLeft;
+      case GridArrowTypes.bottomLeft:
+        return GridArrowTypes.rightTop;
+      case GridArrowTypes.bottomMid:
+        return GridArrowTypes.rightMid;
+      case GridArrowTypes.bottomRight:
+        return GridArrowTypes.rightBottom;
+    }
+  }
+
+  if (writingMode === 'vertical-rl') {
+    switch (arrowType) {
+      case GridArrowTypes.leftTop:
+        return GridArrowTypes.topRight;
+      case GridArrowTypes.leftMid:
+        return GridArrowTypes.topMid;
+      case GridArrowTypes.leftBottom:
+        return GridArrowTypes.topLeft;
+      case GridArrowTypes.topLeft:
+        return GridArrowTypes.rightTop;
+      case GridArrowTypes.topMid:
+        return GridArrowTypes.rightMid;
+      case GridArrowTypes.topRight:
+        return GridArrowTypes.rightBottom;
+      case GridArrowTypes.rightTop:
+        return GridArrowTypes.bottomRight;
+      case GridArrowTypes.rightMid:
+        return GridArrowTypes.bottomMid;
+      case GridArrowTypes.rightBottom:
+        return GridArrowTypes.bottomLeft;
+      case GridArrowTypes.bottomLeft:
+        return GridArrowTypes.leftTop;
+      case GridArrowTypes.bottomMid:
+        return GridArrowTypes.leftMid;
+      case GridArrowTypes.bottomRight:
+        return GridArrowTypes.leftBottom;
+    }
   }
 }
 
