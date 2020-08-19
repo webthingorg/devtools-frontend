@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "f7fb58b2_23f56768",
+        "filename": "front_end/ui/Icon.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T11:28:44Z",
+      "side": 1,
+      "message": "Happy to do this differently, we just need a way to tell TS that this._spriteSheet is not falsy afterwards.",
+      "parentUuid": "ee4470cf_70616e44",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 31
+      },
+      "revId": "d9e949dedb09406af9af2e9ec4daaee0886bd788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc9b0413_c3547c9e",
         "filename": "front_end/ui/Icon.js",
         "patchSetId": 3
@@ -53,6 +77,30 @@
       "writtenOn": "2020-08-19T11:19:33Z",
       "side": 1,
       "message": "Nit: This should be a `!Descriptor` right? Or is that not possible?",
+      "range": {
+        "startLine": 115,
+        "startChar": 24,
+        "endLine": 115,
+        "endChar": 25
+      },
+      "revId": "d9e949dedb09406af9af2e9ec4daaee0886bd788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "639b841c_24fe09f6",
+        "filename": "front_end/ui/Icon.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T11:28:44Z",
+      "side": 1,
+      "message": "See comment below, we immediately re-assgin this to a variable with the proper type. (Casting doesn\u0027t work).",
+      "parentUuid": "cc9b0413_c3547c9e",
       "range": {
         "startLine": 115,
         "startChar": 24,
@@ -100,6 +148,30 @@
       "side": 1,
       "message": "JSDoc doesn\u0027t have a concept of optional fields. Instead, you have to make it an explicit union of `(Type|undefined)` (sadly). It is my biggest pet peeve with JSDoc support in Closure.\n\nI would prefer to not introduce TypeScript-specific Typedef syntax, as it could get confusing. Could we mark the optional fields as `|undefined`? Yes that is more verbose (sadly), but it seems like the most maintainable solution forward.",
       "parentUuid": "02d507b5_858519d9",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 278,
+        "endChar": 32
+      },
+      "revId": "d9e949dedb09406af9af2e9ec4daaee0886bd788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65eb398_87287fb9",
+        "filename": "front_end/ui/Icon.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T11:28:44Z",
+      "side": 1,
+      "message": "Yes, this is a duplicated @typedef. The \"export let\" @typedef below uses \"|undefined\" for optional fields, but then TS (rightfully so) expects these fields to be explicitly set to \u0027undefined\u0027.\n\nI removed this @typedef again. Instead, we first set the type of the Map to \u003cstring, *\u003e, that way, TS doesn\u0027t complain about the missing optional \u0027cooridnates\u0027 and \u0027invert\u0027 fields.\n\nThen we cast the Map to Map\u003cstring, !Descriptor\u003e, so the use-sites of the Map are properly checked.",
+      "parentUuid": "98101a38_8f982eaf",
       "range": {
         "startLine": 278,
         "startChar": 4,
