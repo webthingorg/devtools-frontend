@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b062534_e4c14d5f",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-19T22:45:13Z",
+      "side": 1,
+      "message": "There is a possibility this link changes, but everything else should be set.",
+      "range": {
+        "startLine": 398,
+        "startChar": 43,
+        "endLine": 398,
+        "endChar": 65
+      },
+      "revId": "0b50af17ecfaed81a28fb80570c015b84ac34317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
