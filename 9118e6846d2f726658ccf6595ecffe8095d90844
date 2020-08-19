@@ -130,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "6c54850d_c0a19da0",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-19T15:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b54fe90_74f62de5",
+      "range": {
+        "startLine": 570,
+        "startChar": 15,
+        "endLine": 570,
+        "endChar": 55
+      },
+      "revId": "9118e6846d2f726658ccf6595ecffe8095d90844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "056b9877_299f028a",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 16

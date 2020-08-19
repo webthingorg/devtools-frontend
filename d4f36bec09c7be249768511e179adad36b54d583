@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f90ee0e_abc52df1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-19T15:47:35Z",
+      "side": 1,
+      "message": "Thanks for addressing all of those things! I was able to test with the new platform fix for scale as well, and that seems to fix the issue. I\u0027m wondering if we should wait to land this until after that is fixed? It might be confusing for users to see the new feature enabled in a broken state?\n\nI also left a comment about follow up work to try to get spanning working without reloading. LMK what you think",
+      "revId": "d4f36bec09c7be249768511e179adad36b54d583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a259efe2_c0abec97",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-19T15:47:35Z",
+      "side": 1,
+      "message": "hmmm, might be for follow up: I realize it might be good to see if we can do this without reloading. I imagine devs might be developing and want to test the case where users take their page and span across the full screen and see if the UI updates accordingly without reload.\n\nthis reload will make testing that case confusing or impossible for devs.",
+      "range": {
+        "startLine": 536,
+        "startChar": 4,
+        "endLine": 536,
+        "endChar": 29
+      },
+      "revId": "d4f36bec09c7be249768511e179adad36b54d583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
