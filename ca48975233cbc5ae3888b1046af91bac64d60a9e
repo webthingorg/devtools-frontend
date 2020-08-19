@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "750f53fd_26b2a115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-19T13:45:54Z",
+      "side": 1,
+      "message": "[Observation] we are using slightly different versions of Inkscape, that\u0027s why properties in the SVG are rearranged.\n\nMy version: inkscape:version\u003d\"1.0 (4035a4fb49, 2020-05-01)\"\nVersion of other committer: inkscape:version\u003d\"1.0rc1 (09960d6f05, 2020-04-09)\"\n\nTried on both my Mac and Linux machine. Maybe we use the official one?",
+      "revId": "ca48975233cbc5ae3888b1046af91bac64d60a9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
