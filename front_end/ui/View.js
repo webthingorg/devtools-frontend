@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
+import * as Root from '../root/root.js';
 
 import {TabbedPane} from './TabbedPane.js';  // eslint-disable-line no-unused-vars
 import {ItemsProvider, Toolbar, ToolbarItem, ToolbarMenuButton} from './Toolbar.js';  // eslint-disable-line no-unused-vars
@@ -18,36 +17,42 @@ export class View {
    * @return {string}
    */
   viewId() {
+    throw new Error('not implemented');
   }
 
   /**
    * @return {string}
    */
   title() {
+    throw new Error('not implemented');
   }
 
   /**
    * @return {boolean}
    */
   isCloseable() {
+    throw new Error('not implemented');
   }
 
   /**
    * @return {boolean}
    */
   isTransient() {
+    throw new Error('not implemented');
   }
 
   /**
    * @return {!Promise<!Array<!ToolbarItem>>}
    */
   toolbarItems() {
+    throw new Error('not implemented');
   }
 
   /**
    * @return {!Promise<!Widget>}
    */
   widget() {
+    throw new Error('not implemented');
   }
 
   /**
@@ -141,6 +146,25 @@ export class SimpleView extends VBox {
   }
 }
 
+class ProvidedViewExtensionDescriptor  // eslint-disable-line no-unused-vars
+    extends Root.Runtime.RuntimeExtensionDescriptor {
+  constructor() {
+    super();
+
+    /** @type {string} */
+    this.id;
+
+    /** @type {?string} */
+    this.persistence;
+
+    /** @type {?string} */
+    this.actionIds;
+
+    /** @type {?boolean} */
+    this.hasToolbar;
+  }
+}
+
 /**
  * @implements {View}
  * @unrestricted
@@ -158,7 +182,7 @@ export class ProvidedView {
    * @return {string}
    */
   viewId() {
-    return this._extension.descriptor()['id'];
+    return this._descriptor().id;
   }
 
   /**
@@ -174,7 +198,7 @@ export class ProvidedView {
    * @return {boolean}
    */
   isCloseable() {
-    return this._extension.descriptor()['persistence'] === 'closeable';
+    return this._descriptor().persistence === 'closeable';
   }
 
   /**
@@ -182,7 +206,7 @@ export class ProvidedView {
    * @return {boolean}
    */
   isTransient() {
-    return this._extension.descriptor()['persistence'] === 'transient';
+    return this._descriptor().persistence === 'transient';
   }
 
   /**
@@ -190,14 +214,14 @@ export class ProvidedView {
    * @return {!Promise<!Array<!ToolbarItem>>}
    */
   toolbarItems() {
-    const actionIds = this._extension.descriptor()['actionIds'];
+    const actionIds = this._descriptor().actionIds;
     if (actionIds) {
       const result = actionIds.split(',').map(id => Toolbar.createActionButtonForId(id.trim()));
       return Promise.resolve(result);
     }
 
-    if (this._extension.descriptor()['hasToolbar']) {
-      return this.widget().then(widget => /** @type {!ItemsProvider} */ (widget).toolbarItems());
+    if (this._descriptor().hasToolbar) {
+      return this.widget().then(widget => /** @type {!ItemsProvider} */ (/** @type {*} */ (widget)).toolbarItems());
     }
     return Promise.resolve([]);
   }
@@ -212,6 +236,8 @@ export class ProvidedView {
     if (!(widget instanceof Widget)) {
       throw new Error('view className should point to a UI.Widget');
     }
+    // @ts-ignore
+    // TODO(crbug.com/1011811): Replace with WeakMap or a proper private field.
     widget[_symbol] = this;
     return (
         /** @type {!Widget} */ (widget));
@@ -226,6 +252,13 @@ export class ProvidedView {
     }
     const widget = await this.widget();
     widget.ownerViewDisposed();
+  }
+
+  /**
+   * @return {!ProvidedViewExtensionDescriptor}
+   */
+  _descriptor() {
+    return /** @type {!ProvidedViewExtensionDescriptor} */ (this._extension.descriptor());
   }
 }
 
@@ -253,6 +286,7 @@ export class ViewLocation {
    * @return {!Promise<*>}
    */
   showView(view, insertBefore, userGesture) {
+    throw new Error('not implemented');
   }
 
   /**
@@ -265,6 +299,7 @@ export class ViewLocation {
    * @return {!Widget}
    */
   widget() {
+    throw new Error('not implemented');
   }
 }
 
@@ -276,12 +311,14 @@ export class TabbedViewLocation extends ViewLocation {
    * @return {!TabbedPane}
    */
   tabbedPane() {
+    throw new Error('not implemented');
   }
 
   /**
    * @return {!ToolbarMenuButton}
    */
   enableMoreTabsButton() {
+    throw new Error('not implemented');
   }
 }
 
@@ -294,5 +331,6 @@ export class ViewLocationResolver {
    * @return {?ViewLocation}
    */
   resolveLocation(location) {
+    throw new Error('not implemented');
   }
 }
