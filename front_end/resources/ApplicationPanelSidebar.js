@@ -2248,9 +2248,12 @@ export class FrameTreeElement extends BaseStorageTreeElement {
    * @param {!SDK.ResourceTreeModel.ResourceTreeFrame} frame
    */
   frameNavigated(frame) {
-    const iconType = frame.isTopFrame() ?
-        'mediumicon-frame' :
-        frame.unreachableUrl() ? 'mediumicon-frame-embedded-blocked' : 'mediumicon-frame-embedded';
+    let iconType = '';
+    if (frame.isTopFrame()) {
+      iconType = frame.unreachableUrl() ? 'mediumicon-frame-blocked' : 'mediumicon-frame';
+    } else {
+      iconType = frame.unreachableUrl() ? 'mediumicon-frame-embedded-blocked' : 'mediumicon-frame-embedded';
+    }
     const icon = UI.Icon.Icon.create(iconType);
     if (frame.unreachableUrl()) {
       icon.classList.add('red-icon');
