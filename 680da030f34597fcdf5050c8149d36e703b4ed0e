@@ -16,6 +16,24 @@
       "revId": "680da030f34597fcdf5050c8149d36e703b4ed0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5237437_079ef63b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-19T07:51:20Z",
+      "side": 1,
+      "message": "Usually you click Reland on the original CL, and then upload the modified commit to that change, then the diff becomes visible here.\n\nDo you feel confident landing this 1d before branch point? I would suggest waiting until M87 is here.",
+      "parentUuid": "701d3825_5de22a53",
+      "revId": "680da030f34597fcdf5050c8149d36e703b4ed0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
