@@ -367,6 +367,32 @@ def _CheckForTooLargeFiles(input_api, output_api):
         return []
 
 
+def _CheckComponentBridgesUpToDate(input_api, output_api):
+    # Regenerate all bridge files
+    regen_process = input_api.subprocess.Popen(
+        ['npm', 'run', 'regenerate-all-component-bridges'],
+        stdout=input_api.subprocess.PIPE,
+        stderr=input_api.subprocess.STDOUT)
+    regen_process.communicate()
+
+    # Now do a git diff, find all _bridge.js files
+    files_changed_process = input_api.subprocess.Popen(
+        ['git', 'diff', '--name-only'],
+        stdout=input_api.subprocess.PIPE,
+        stderr=input_api.subprocess.STDOUT)
+    files_changed, _ = files_changed_process.communicate()
+
+    results = []
+
+    if len(files_changed) > 0:
+        results.append(
+            output_api.PresubmitError(
+                'You have component bridge files that are not up to date:'))
+        results.append(output_api.PresubmitPromptWarning(files_changed))
+
+    return results
+
+
 def _CommonChecks(input_api, output_api):
     """Checks common to both upload and commit."""
     results = []
@@ -387,6 +413,7 @@ def _CommonChecks(input_api, output_api):
     results.extend(_CheckFormat(input_api, output_api))
     results.extend(_CheckOptimizeSVGHashes(input_api, output_api))
     results.extend(_CheckChangesAreExclusiveToDirectory(input_api, output_api))
+    results.extend(_CheckComponentBridgesUpToDate(input_api, output_api))
     results.extend(_CheckNoUncheckedFiles(input_api, output_api))
     results.extend(_CheckForTooLargeFiles(input_api, output_api))
     return results

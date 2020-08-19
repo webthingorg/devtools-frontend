@@ -22,6 +22,7 @@ export let ComputedStylePropertyData;
 // eslint-disable-next-line no-unused-vars
 export class ComputedStylePropertyClosureInterface extends HTMLElement {
   /**
+  * @return {boolean}
   */
   isExpanded() {
   }
