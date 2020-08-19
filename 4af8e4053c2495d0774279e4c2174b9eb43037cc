@@ -33,6 +33,24 @@
       "revId": "4af8e4053c2495d0774279e4c2174b9eb43037cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dad9603_0db06052",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-19T10:32:59Z",
+      "side": 1,
+      "message": "I think all things considered, this is still the most straight-forward way to do it.",
+      "parentUuid": "9f46c29d_89de0be4",
+      "revId": "4af8e4053c2495d0774279e4c2174b9eb43037cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
