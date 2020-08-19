@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "450fd914_34388017",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T10:20:41Z",
+      "side": 1,
+      "message": "I would prefer the declarative way (i.e., `\u003cdevtools-node-text .data\u003d${data} /\u003e`). In this case, it works because there is no need to obtain a reference. lit-html does not support DOM references by default as far as I know. One drawback is that using declarative style relies on the side effects of importing the module (e.g., \u0027import \u0027./NodeTest.js\u0027; // provides devtools-node-text\u0027).\n\nSo I\u0027d be for using `\u003cdevtools-node-text .data\u003d${data} /\u003e` when there is no reference needed and the constructor when the parent needs a reference.",
+      "parentUuid": "93b82906_c32d2cf2",
+      "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2058af0_44505d2d",
         "filename": "front_end/elements/NodeText.ts",
         "patchSetId": 3
@@ -50,6 +68,24 @@
       "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ce8867c_8861f426",
+        "filename": "front_end/elements/NodeText.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T10:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2058af0_44505d2d",
+      "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
