@@ -50,6 +50,24 @@
       "revId": "6934acba0145e40b9f1bdad8932a1a35027802ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf0f8500_c43e10d7",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-19T16:51:00Z",
+      "side": 1,
+      "message": "I didn\u0027t want to add another category, and this doesn\u0027t have any influence besides sorting order.",
+      "parentUuid": "5e53ab42_4c27e5c7",
+      "revId": "6934acba0145e40b9f1bdad8932a1a35027802ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

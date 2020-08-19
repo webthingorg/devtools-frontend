@@ -186,6 +186,30 @@
       "revId": "157e23863e39683c2774aa374983883afa347a1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "480625c5_bf370975",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-19T16:51:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce6a1a1_e875aa01",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "157e23863e39683c2774aa374983883afa347a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
