@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "3f8d778d_ebb84c29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-19T12:38:10Z",
+      "side": 1,
+      "message": "I\u0027m not sure regarding TypeScript, could you try deliberately passing invalid data? I would be surprised if it can typecheck that correctly. In which case that\u0027d be a vote for new X().\n\nI dislike side-effect imports too so I think that\u0027s another reason for new X().\n\nI don\u0027t feel strongly enough to block this CL landing but just to be clear this is high on my list to solve once I\u0027m back from holiday (if I wasn\u0027t going away I\u0027d probably say to hold this CL off for now) so it might be that we have to update this in time.",
+      "parentUuid": "629cc4cf_31f6e719",
+      "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2058af0_44505d2d",
         "filename": "front_end/elements/NodeText.ts",
         "patchSetId": 3
