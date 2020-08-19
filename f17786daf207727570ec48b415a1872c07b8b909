@@ -16,6 +16,46 @@
       "revId": "f17786daf207727570ec48b415a1872c07b8b909",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aad7610_3937fd81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-19T13:26:12Z",
+      "side": 1,
+      "message": "Would be good if we can indeed remove that one line. If that breaks tests/DevTools, then we can keep it in.",
+      "revId": "f17786daf207727570ec48b415a1872c07b8b909",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69b41577_1ab61707",
+        "filename": "front_end/ui/View.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-19T13:26:12Z",
+      "side": 1,
+      "message": "I coincidentally did some work in this class during my `module.json` work. Iiuc, this is unused and the `_symbol` can be removed altogether. Could you verify that is indeed the case?",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 27
+      },
+      "revId": "f17786daf207727570ec48b415a1872c07b8b909",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
