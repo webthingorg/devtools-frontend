@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00a218c6_8142df3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-08-19T16:52:16Z",
+      "side": 1,
+      "message": "LGTM. Thanks for providing the additional context on why we couldn\u0027t toggle the action in the description - that was helpful!",
+      "revId": "de375b604529b875c9cfe1742cb3169f4da9ab44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
