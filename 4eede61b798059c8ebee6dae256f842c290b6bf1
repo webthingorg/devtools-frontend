@@ -39,6 +39,30 @@
       "revId": "4eede61b798059c8ebee6dae256f842c290b6bf1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2debb75a_bf47808e",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T11:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8f3ca7b_ab00ec17",
+      "range": {
+        "startLine": 234,
+        "startChar": 3,
+        "endLine": 235,
+        "endChar": 5
+      },
+      "revId": "4eede61b798059c8ebee6dae256f842c290b6bf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
