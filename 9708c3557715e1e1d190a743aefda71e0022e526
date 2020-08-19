@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "93b82906_c32d2cf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-19T08:30:23Z",
+      "side": 1,
+      "message": "This needs some thought purely because we haven\u0027t really discussed how best to do components that render other children.\n\nI suspect we want to go down this root (`new X()`) because it means the parent has to get a reference to the child, but it does make the templating less nice because it\u0027s a bit more work.\n\nIt would be nice if you could get a reference to the tag name and render it directly in a template but I\u0027m not quite sure yet what works best.",
+      "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2058af0_44505d2d",
         "filename": "front_end/elements/NodeText.ts",
         "patchSetId": 3
