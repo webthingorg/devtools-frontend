@@ -96,6 +96,12 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
     const frameData = this._frames.get(frame.id);
     // If the frame is already in the map, increase its count, otherwise add it to the map.
     if (frameData) {
+      // Skip if we receive a frameAdded event for the same model twice (should not happen)
+      const previousMainFrame = frameData.frame.resourceTreeModel().mainFrame;
+      const currentMainFrame = frame.resourceTreeModel().mainFrame;
+      if (previousMainFrame && currentMainFrame && previousMainFrame.id === currentMainFrame.id) {
+        return;
+      }
       this._frames.set(frame.id, {frame, count: frameData.count + 1});
     } else {
       this._frames.set(frame.id, {frame, count: 1});
