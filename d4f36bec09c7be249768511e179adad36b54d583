@@ -19,6 +19,41 @@
     },
     {
       "key": {
+        "uuid": "89b7c214_a1171f17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T16:58:51Z",
+      "side": 1,
+      "message": "Based on communication with platform, they say our check-in doesn\u0027t need to wait for their fix. I am reviewing a newer fix, which they made today. Much appreciated for testing this with their fix. I will check in after I test their new fix.",
+      "parentUuid": "0f90ee0e_abc52df1",
+      "revId": "d4f36bec09c7be249768511e179adad36b54d583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1584cb3e_a7050f40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T16:58:51Z",
+      "side": 1,
+      "message": "Thanks. I will create an item to track the reloading issue.",
+      "revId": "d4f36bec09c7be249768511e179adad36b54d583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a259efe2_c0abec97",
         "filename": "front_end/emulation/DeviceModeToolbar.js",
         "patchSetId": 19
@@ -30,6 +65,30 @@
       "writtenOn": "2020-08-19T15:47:35Z",
       "side": 1,
       "message": "hmmm, might be for follow up: I realize it might be good to see if we can do this without reloading. I imagine devs might be developing and want to test the case where users take their page and span across the full screen and see if the UI updates accordingly without reload.\n\nthis reload will make testing that case confusing or impossible for devs.",
+      "range": {
+        "startLine": 536,
+        "startChar": 4,
+        "endLine": 536,
+        "endChar": 29
+      },
+      "revId": "d4f36bec09c7be249768511e179adad36b54d583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece20019_7719a272",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-08-19T16:58:51Z",
+      "side": 1,
+      "message": "Totally. I have been thinking the same thing too.",
+      "parentUuid": "a259efe2_c0abec97",
       "range": {
         "startLine": 536,
         "startChar": 4,
