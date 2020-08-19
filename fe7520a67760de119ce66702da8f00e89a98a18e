@@ -16,6 +16,41 @@
       "revId": "fe7520a67760de119ce66702da8f00e89a98a18e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37871759_17b4d104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2020-08-19T07:24:24Z",
+      "side": 1,
+      "message": "Tested with css { background: lightblue; color: white; }\n\n1. Open color picker on color prop.\n2. Select another unaccessible colour frm the palette\n3. Expand contrast section, select a suggested color\n4. The contrast checker show ticked now but the suggested color doesn\u0027t really apply [NOT OK]\n\nExpected: The suggested color should be applied accordingly. Video recording as pm-ed.",
+      "parentUuid": "5e5346d7_1416fa79",
+      "revId": "fe7520a67760de119ce66702da8f00e89a98a18e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "862e4c06_d91b87d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2020-08-19T07:24:24Z",
+      "side": 1,
+      "message": "See comments on an use case.",
+      "revId": "fe7520a67760de119ce66702da8f00e89a98a18e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
