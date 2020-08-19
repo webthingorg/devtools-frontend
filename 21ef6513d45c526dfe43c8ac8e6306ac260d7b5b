@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "7ab2d8be_221f1b6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T16:32:45Z",
+      "side": 1,
+      "message": "lgtm % nits and a comment.",
+      "revId": "21ef6513d45c526dfe43c8ac8e6306ac260d7b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55616aaf_75f56489",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T16:32:45Z",
+      "side": 1,
+      "message": "nit: I think this is unused now and can be removed?",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 52
+      },
+      "revId": "21ef6513d45c526dfe43c8ac8e6306ac260d7b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea924f25_09cb478a",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T16:32:45Z",
+      "side": 1,
+      "message": "I like these a lot!",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 627,
+        "endChar": 86
+      },
+      "revId": "21ef6513d45c526dfe43c8ac8e6306ac260d7b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a765d86_90dfffcd",
         "filename": "front_end/console/ConsoleView.js",
         "patchSetId": 2
@@ -22,6 +85,53 @@
       "revId": "21ef6513d45c526dfe43c8ac8e6306ac260d7b5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2485e07a_0dbd95ec",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T16:32:45Z",
+      "side": 1,
+      "message": "This is kind of weird. It seems that VSCode is getting it, but TS we run locally confuses the type for the constructor. So TypeScript we run via autoninja says \"yes, this is a type, but I don\u0027t know anything about a class constructor by this name\".\n\nI patched it in locally, and at least with a cast\n /** @type {!function(new:Object, ...?):void} */ (SDK.RuntimeModel.ExecutionContext)\n\nit works.\n\nSorry about the constructor signature. I changed that when porting `ui/Context.js` and tried to make both Closure and TS happy.",
+      "parentUuid": "2a765d86_90dfffcd",
+      "range": {
+        "startLine": 1401,
+        "startChar": 34,
+        "endLine": 1401,
+        "endChar": 57
+      },
+      "revId": "21ef6513d45c526dfe43c8ac8e6306ac260d7b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de8695ab_b4d54f60",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T16:32:45Z",
+      "side": 1,
+      "message": "I\u0027d either add the cast, or update the comment that TS confuses the type with its constructor.",
+      "range": {
+        "startLine": 1475,
+        "startChar": 22,
+        "endLine": 1475,
+        "endChar": 83
+      },
+      "revId": "21ef6513d45c526dfe43c8ac8e6306ac260d7b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
