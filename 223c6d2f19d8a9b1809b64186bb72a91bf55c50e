@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abd36f4c_442877b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "Thanks! Pointed out some small nits, PTAL.\n\nHigh-level comment: this is a pretty long list. Keep in mind that it’s supposed to be a short list of highlights — it’s fine (and in fact, encouraged) to exclude smaller changes and bugfixes here. Your WNID post has the full list anyway.\nPlease go over the list and remove a few things. For example, I’m not sure if things like “Show coverage summary for filtered items” and “Clear buttons for filter and search inputs” need to be in there.",
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccd55c4d_81c49f51",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "remove \"players\"?",
+      "range": {
+        "startLine": 28,
+        "startChar": 43,
+        "endLine": 28,
+        "endChar": 51
+      },
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca010acc_e3e479b2",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "The Issues warning bar [...]",
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4fdd1d_c1fa97a2",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "missing closing `",
+      "range": {
+        "startLine": 39,
+        "startChar": 41,
+        "endLine": 39,
+        "endChar": 44
+      },
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e7390a_5a064c92",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "open? But I think it’s even better to just remove this word",
+      "range": {
+        "startLine": 75,
+        "startChar": 58,
+        "endLine": 75,
+        "endChar": 65
+      },
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a6de637_01f69eb2",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "This reminds me, this still needs the small refactoring that Yang requested… Is that still on your radar?",
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6268998d_83408dea",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "How about:\n\n    The Network tab now displays `X-Client-Data` header values in decoded form.",
+      "range": {
+        "startLine": 91,
+        "startChar": 56,
+        "endLine": 91,
+        "endChar": 66
+      },
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5178b38_1e1e87ed",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "applicable",
+      "range": {
+        "startLine": 97,
+        "startChar": 111,
+        "endLine": 97,
+        "endChar": 130
+      },
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4492ac9f_478bda5a",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-19T05:10:59Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 97,
+        "startChar": 100,
+        "endLine": 97,
+        "endChar": 102
+      },
+      "revId": "223c6d2f19d8a9b1809b64186bb72a91bf55c50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
