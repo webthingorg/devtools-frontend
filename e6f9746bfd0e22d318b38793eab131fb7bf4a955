@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c0a072a_742a7c14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-19T11:50:30Z",
+      "side": 1,
+      "message": "@petermueller I\u0027ve made it to expand by default. PTAL at the screencast or the patch locally again to see if there are other things you want to discuss. Thanks!",
+      "revId": "e6f9746bfd0e22d318b38793eab131fb7bf4a955",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
