@@ -16,6 +16,40 @@
       "revId": "6934acba0145e40b9f1bdad8932a1a35027802ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee4dc2fc_a46625c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2020-08-19T16:31:10Z",
+      "side": 1,
+      "message": "LGTM, this will be great to have!\n\n(looks like the rebase clobbered your commit message from PS6)",
+      "revId": "6934acba0145e40b9f1bdad8932a1a35027802ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e53ab42_4c27e5c7",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2020-08-19T16:31:10Z",
+      "side": 1,
+      "message": "Is the `Default` category meant to be used? Labeling as `Security` wasn\u0027t super intuitive to me, but it\u0027s probably fine as is.",
+      "revId": "6934acba0145e40b9f1bdad8932a1a35027802ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
