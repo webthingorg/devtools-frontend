@@ -346,6 +346,136 @@ describe('drawGridLineNumbers label skipping logic', () => {
   });
 });
 
+describe('drawGridLineNumbers label placement with vertical writing mode', () => {
+  beforeEach(initFrameForGridLabels);
+
+  const bounds = {
+    minX: 100,
+    maxX: 300,
+    minY: 100,
+    maxY: 300,
+  };
+
+  const TESTS = [
+    {
+      description: 'vertical-lr positive row labels should be displayed at the top of the grid',
+      config: {
+        writingMode: 'vertical-lr',
+        gridHighlightConfig: {
+          showPositiveLineNumbers: true,
+        },
+        positiveRowLineNumberPositions: [{x: 100, y: 140}, {x: 100, y: 180}, {x: 100, y: 220}, {x: 100, y: 260}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'bottom-mid', count: 4},
+      ],
+    },
+    {
+      description: 'vertical-lr positive column labels should be displayed left of the grid',
+      config: {
+        writingMode: 'vertical-lr',
+        gridHighlightConfig: {
+          showPositiveLineNumbers: true,
+        },
+        positiveColumnLineNumberPositions: [{x: 140, y: 100}, {x: 180, y: 100}, {x: 220, y: 100}, {x: 260, y: 100}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'right-mid', count: 4},
+      ],
+    },
+    {
+      description: 'vertical-lr negative row labels should be displayed at the bottom of the grid',
+      config: {
+        writingMode: 'vertical-lr',
+        gridHighlightConfig: {
+          showNegativeLineNumbers: true,
+        },
+        negativeRowLineNumberPositions: [{x: 300, y: 140}, {x: 300, y: 180}, {x: 300, y: 220}, {x: 300, y: 260}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'top-mid', count: 4},
+      ],
+    },
+    {
+      description: 'vertical-lr negative column labels should be displayed right of the grid',
+      config: {
+        writingMode: 'vertical-lr',
+        gridHighlightConfig: {
+          showNegativeLineNumbers: true,
+        },
+        negativeColumnLineNumberPositions: [{x: 140, y: 300}, {x: 180, y: 300}, {x: 220, y: 300}, {x: 260, y: 300}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'left-mid', count: 4},
+      ],
+    },
+    {
+      description: 'vertical-rl positive row labels should be displayed at the top of the grid',
+      config: {
+        writingMode: 'vertical-rl',
+        gridHighlightConfig: {
+          showPositiveLineNumbers: true,
+        },
+        positiveRowLineNumberPositions: [{x: 100, y: 140}, {x: 100, y: 180}, {x: 100, y: 220}, {x: 100, y: 260}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'bottom-mid', count: 4},
+      ],
+    },
+    {
+      description: 'vertical-rl positive column labels should be displayed right of the grid',
+      config: {
+        writingMode: 'vertical-rl',
+        gridHighlightConfig: {
+          showPositiveLineNumbers: true,
+        },
+        positiveColumnLineNumberPositions: [{x: 140, y: 100}, {x: 180, y: 100}, {x: 220, y: 100}, {x: 260, y: 100}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'left-mid', count: 4},
+      ],
+    },
+    {
+      description: 'vertical-rl negative row labels should be displayed at the bottom of the grid',
+      config: {
+        writingMode: 'vertical-rl',
+        gridHighlightConfig: {
+          showNegativeLineNumbers: true,
+        },
+        negativeRowLineNumberPositions: [{x: 300, y: 140}, {x: 300, y: 180}, {x: 300, y: 220}, {x: 300, y: 260}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'top-mid', count: 4},
+      ],
+    },
+    {
+      description: 'vertical-rl negative column labels should be displayed left of the grid',
+      config: {
+        writingMode: 'vertical-rl',
+        gridHighlightConfig: {
+          showNegativeLineNumbers: true,
+        },
+        negativeColumnLineNumberPositions: [{x: 140, y: 300}, {x: 180, y: 300}, {x: 220, y: 300}, {x: 260, y: 300}],
+      },
+      bounds,
+      expectedLabels: [
+        {className: 'right-mid', count: 4},
+      ],
+    },
+  ];
+
+  for (const {description, config, bounds, expectedLabels} of TESTS) {
+    it(description, () => drawGridLineNumbersAndAssertLabels(config, bounds, expectedLabels));
+  }
+});
+
 describe('_normalizePositionData', () => {
   it('returns an object with default values', () => {
     const data = _normalizePositionData({gridHighlightConfig: {}}, {minX: 0, maxX: 100, minY: 0, maxY: 100});
@@ -512,7 +642,34 @@ describe('drawGridAreaNames', () => {
   ];
 
   for (const {description, areaBounds, expectedLabels} of TESTS) {
-    it(description, () => drawGridAreaNamesAndAssertLabels(areaBounds, expectedLabels));
+    it(description, () => drawGridAreaNamesAndAssertLabels(areaBounds, undefined, undefined, expectedLabels));
+  }
+});
+
+describe('drawGridAreaNames  label placement with vertical writing mode', () => {
+  beforeEach(initFrameForGridLabels);
+
+  const areaBounds =
+      [{name: 'foo', bounds: {allPoints: [{x: 20, y: 30}, {x: 100, y: 30}, {x: 100, y: 50}, {x: 20, y: 50}]}}];
+  const TESTS = [
+    {
+      description: 'positions area labels correctly in vertical-lr writing-mode',
+      writingMode: 'vertical-lr',
+      areaBounds,
+      expectedLabels: [{textContent: 'foo', top: '30px', left: '20px'}],
+    },
+    {
+      description: 'positions area labels correctly in vertical-rl writing-mode',
+      writingMode: 'vertical-rl',
+      areaBounds,
+      expectedLabels: [{textContent: 'foo', top: '50px', left: '20px'}],
+    },
+  ];
+
+  for (const {description, writingMode, areaBounds, expectedLabels} of TESTS) {
+    // The way points are transformed using the writingMode matrix isn't what we're interested in testing here, so we
+    // just pass the identity matrix to make our life easier.
+    it(description, () => drawGridAreaNamesAndAssertLabels(areaBounds, new DOMMatrix(), writingMode, expectedLabels));
   }
 });
 
@@ -580,8 +737,8 @@ describe('drawGridTrackSizes label creation', () => {
   for (const {description, config, expectedLabels} of TESTS) {
     it(description, () => {
       const el = getGridTrackSizesLabelContainer();
-      drawGridTrackSizes(el, config.rotationAngle, config.rowTrackSizes, 'row');
-      drawGridTrackSizes(el, config.rotationAngle, config.columnTrackSizes, 'column');
+      drawGridTrackSizes(el, config.rowTrackSizes, 'row');
+      drawGridTrackSizes(el, config.columnTrackSizes, 'column');
       assert.strictEqual(el.children.length, expectedLabels.length, 'The right number of labels got created');
       assert.strictEqual(el.textContent, expectedLabels.join(''), 'The labels text is correct');
     });
