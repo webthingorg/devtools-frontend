@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "80658e41_84fbdd93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T12:47:29Z",
+      "side": 1,
+      "message": "I have tried and it does not validate types in this case. I will revert it back to `new X()` then, seems like a better way to do this.",
+      "parentUuid": "3f8d778d_ebb84c29",
+      "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2058af0_44505d2d",
         "filename": "front_end/elements/NodeText.ts",
         "patchSetId": 3
