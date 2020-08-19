@@ -447,13 +447,13 @@ export class ToolbarItem extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} title
    */
-  setTitle(title) {
+  setTitle(title, actionId = undefined) {
     if (this._title === title) {
       return;
     }
     this._title = title;
     ARIAUtils.setAccessibleName(this.element, title);
-    Tooltip.install(this.element, title, undefined, {
+    Tooltip.install(this.element, title, actionId, {
       anchorTooltipAtElement: true,
     });
   }
