@@ -16,6 +16,24 @@
       "revId": "acd64c4956d16a1dcf4557c7818c604b73c29634",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c468a70_d45a9b30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-19T09:43:06Z",
+      "side": 1,
+      "message": "I\u0027m not feeling strongly about collapsing by default, and I think you have a good point about them \"need to open all of them to understand whats inside\", which would have negative effects for developers adopting this feature.\n\nFor now Let me expand them by default. We can also iterate more on the designs during the M86 canary coverage, e.g. finding a way to collapse/expand all the groups at once.\n\nThanks for the feedback! I\u0027ll also add the properties you mentioned to their respective categories.",
+      "parentUuid": "9a591fe7_c56ef8de",
+      "revId": "acd64c4956d16a1dcf4557c7818c604b73c29634",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
