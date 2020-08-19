@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cbf094d_9eddad2c",
+        "filename": "scripts/build/ninja/devtools_entrypoint.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-19T10:29:43Z",
+      "side": 1,
+      "message": "Post-commit review I discovered while rebasing: This is a new target, but nothing depends on it. I am a bit surprised that this works tbh, which means we might be missing a detail about Ninja works. We can keep this for now, but it would be good to know why Ninja decides to build this target, even though nothing depends on it.",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 42
+      },
+      "revId": "a6a4ad6fdfc189e5dccd97d4ab748378a853a788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
