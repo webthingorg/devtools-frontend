@@ -88,6 +88,41 @@
     },
     {
       "key": {
+        "uuid": "0c2dc755_3ca7cb96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-19T19:02:52Z",
+      "side": 1,
+      "message": "Hi Paul,\n\nI\u0027m not sure I understand the ask, could you elaborate more? If it helps:\nI based most of the work on these guides:\n\nTypescriptified modules (e.g. TypeScript + Closure Compiler)\nsrc/scripts/build/ninja/README.md\n\ndevtools_pre_built seems to be suggested for \"Closure Compiler only\"\n\nFor:\naction(\"bundle_i18n\")\n\nthe code is already checked in, I\u0027m just moving it to a place where (IMO) makes more sense as it is part of the third_party/i18n library.",
+      "parentUuid": "90002efb_0bea35af",
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6252733_78c10d40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-19T19:02:52Z",
+      "side": 1,
+      "message": "Hi Paul and Tim,\n\n@tvanderlippe As Paul seems to be on vacation could you resume reviewing this CL?",
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80389815_cdfe8f1e",
         "filename": "front_end/i18n/i18n.js",
         "patchSetId": 11
@@ -108,6 +143,30 @@
       "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daf7b517_cd78159d",
+        "filename": "front_end/i18n/i18n.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-19T19:02:52Z",
+      "side": 1,
+      "message": "for front_end/i18n/i18n.js\nI got this on some previous feedback from Simon:\n\"I\u0027d prefer to stick with the convention and let the \u003cmodule name\u003e/\u003cmodule name\u003e.js be only a thin file that re-exports all things from a module.\"\n\nfor front_end/i18n/i18nImpl.js:\nAlthough we consume most of Lighthouse i18n \"as is\", we also require some customizations for Devtools, this module implements these customizations. It also re-export the functions from the bundle (i18n-bundle) that we just consume with no modifications.\n\nI\u0027m sorry that most of the context on this work got lost when the original CL was deleted (deleted linked CLs resulted in the base being deleted too), but fortunately I have it on my email and I\u0027ll be happy to provide it as needed.",
+      "parentUuid": "80389815_cdfe8f1e",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
