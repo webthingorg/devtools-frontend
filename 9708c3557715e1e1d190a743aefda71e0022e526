@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "629cc4cf_31f6e719",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T11:01:30Z",
+      "side": 1,
+      "message": "Added a declarative version in the meantime to see how it works. PTAL",
+      "parentUuid": "caf16026_81af9bcb",
+      "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2058af0_44505d2d",
         "filename": "front_end/elements/NodeText.ts",
         "patchSetId": 3
