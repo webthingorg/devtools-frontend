@@ -6,6 +6,7 @@ import * as ComponentHelpers from '../component_helpers/component_helpers.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 import {crumbsToRender, CrumbTitle, DOMNode, NodeSelectedEvent, UserScrollPosition} from './ElementsBreadcrumbsUtils.js';
+import {NodeText} from './NodeText.js';
 
 export class ElementsBreadcrumbs extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
@@ -75,20 +76,13 @@ export class ElementsBreadcrumbs extends HTMLElement {
   }
 
   private renderCrumbText(title: CrumbTitle) {
-    const parts = [
-      LitHtml.html`<span class="node-label-name">${title.main}</span>`,
-    ];
-
-    if (title.extras.id) {
-      parts.push(LitHtml.html`<span class="node-label-id">#${title.extras.id}</span>`);
-    }
-
-    if (title.extras.classes && title.extras.classes.length > 0) {
-      const text = title.extras.classes.map(c => `.${CSS.escape(c)}`).join('');
-      parts.push(LitHtml.html`<span class="extra node-label-class">${text}</span>`);
-    }
-
-    return parts;
+    const text = new NodeText();
+    text.data = {
+      nodeTitle: title.main,
+      nodeId: title.extras.id,
+      nodeClasses: title.extras.classes,
+    };
+    return text;
   }
 
   /**
@@ -258,14 +252,6 @@ export class ElementsBreadcrumbs extends HTMLElement {
         .overflow:not(:disabled):hover {
           background-color: var(--toolbar-hover-bg-color);
           cursor: pointer;
-        }
-
-        .crumb:not(.selected) .node-label-name {
-          color: var(--dom-tag-name-color);
-        }
-
-        .crumb:not(.selected) .node-label-class {
-          color: var(--dom-attribute-name-color);
         }
 
         .crumb-link {
