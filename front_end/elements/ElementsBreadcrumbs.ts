@@ -2,10 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import './NodeText.js';
+
 import * as ComponentHelpers from '../component_helpers/component_helpers.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
-import {crumbsToRender, CrumbTitle, DOMNode, NodeSelectedEvent, UserScrollPosition} from './ElementsBreadcrumbsUtils.js';
+import {crumbsToRender, DOMNode, NodeSelectedEvent, UserScrollPosition} from './ElementsBreadcrumbsUtils.js';
 
 export class ElementsBreadcrumbs extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
@@ -72,23 +74,6 @@ export class ElementsBreadcrumbs extends HTMLElement {
 
     this.resizeObserver.observe(crumbs);
     this.isObservingResize = true;
-  }
-
-  private renderCrumbText(title: CrumbTitle) {
-    const parts = [
-      LitHtml.html`<span class="node-label-name">${title.main}</span>`,
-    ];
-
-    if (title.extras.id) {
-      parts.push(LitHtml.html`<span class="node-label-id">#${title.extras.id}</span>`);
-    }
-
-    if (title.extras.classes && title.extras.classes.length > 0) {
-      const text = title.extras.classes.map(c => `.${CSS.escape(c)}`).join('');
-      parts.push(LitHtml.html`<span class="extra node-label-class">${text}</span>`);
-    }
-
-    return parts;
   }
 
   /**
@@ -260,14 +245,6 @@ export class ElementsBreadcrumbs extends HTMLElement {
           cursor: pointer;
         }
 
-        .crumb:not(.selected) .node-label-name {
-          color: var(--dom-tag-name-color);
-        }
-
-        .crumb:not(.selected) .node-label-class {
-          color: var(--dom-attribute-name-color);
-        }
-
         .crumb-link {
           text-decoration: none;
           color: inherit;
@@ -288,8 +265,6 @@ export class ElementsBreadcrumbs extends HTMLElement {
                 crumb: true,
                 selected: crumb.selected,
               };
-              const crumbText = this.renderCrumbText(crumb.title);
-
               return LitHtml.html`
                 <li class=${LitHtml.Directives.classMap(crumbClasses)}
                   data-node-id=${crumb.node.id}
@@ -302,7 +277,13 @@ export class ElementsBreadcrumbs extends HTMLElement {
                     @mouseleave=${this.onCrumbMouseLeave(crumb.node)}
                     @focus=${this.onCrumbFocus(crumb.node)}
                     @blur=${this.onCrumbBlur(crumb.node)}
-                  >${crumbText}</a>
+                  >
+                    <devtools-node-text .data=${{
+                      nodeTitle: crumb.title.main,
+                      nodeId: crumb.title.extras.id,
+                      nodeClasses: crumb.title.extras.classes,
+                    }} />
+                  </a>
                 </li>`;
             })}
           </ul>

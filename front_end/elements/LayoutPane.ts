@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import './NodeText.js';
+
 import * as Common from '../common/common.js';
 import * as ComponentHelpers from '../component_helpers/component_helpers.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
@@ -221,28 +223,21 @@ export class LayoutPane extends HTMLElement {
   }
 
   private renderElement(element: LayoutElement) {
-    const name = this.buildElementName(element);
     const onElementToggle = this.onElementToggle.bind(this, element);
     const onElementClick = this.onElementClick.bind(this, element);
     return html`<div class="element">
-      <label data-element="true" class="checkbox-label" title=${name}>
+      <label data-element="true" class="checkbox-label" title=${element.name}>
         <input data-input="true" type="checkbox" .checked=${element.enabled} @change=${onElementToggle} />
-        <span data-label="true">${name}</span>
+        <span data-label="true">
+          <devtools-node-text .data=${{
+      nodeId: element.domId, nodeTitle: element.name, nodeClasses: element.domClasses,
+    }
+    } />
+        </span>
       </label>
       <button @click=${onElementClick} title=${showElementButtonTitle} class="show-element">
       </button>
   </div>`;
-  }
-
-  private buildElementName(element: LayoutElement) {
-    const parts = [element.name];
-    if (element.domId) {
-      parts.push(`#${CSS.escape(element.domId)}`);
-    }
-    if (element.domClasses) {
-      parts.push(...element.domClasses.map(cls => `.${CSS.escape(cls)}`));
-    }
-    return parts.join('');
   }
 
   private renderBooleanSetting(setting: BooleanSetting) {
