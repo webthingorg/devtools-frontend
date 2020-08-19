@@ -33,6 +33,24 @@
       "revId": "ca48975233cbc5ae3888b1046af91bac64d60a9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76857fa5_5dfe8e0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-19T14:21:53Z",
+      "side": 1,
+      "message": "We should get rid of the sprite files altogether.",
+      "parentUuid": "eb976be8_c8cc70c6",
+      "revId": "ca48975233cbc5ae3888b1046af91bac64d60a9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
