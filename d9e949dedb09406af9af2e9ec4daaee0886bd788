@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22374aaf_f549c748",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T11:13:41Z",
+      "side": 1,
+      "message": "PTAL, I am a bit unsure about this CL, let me know what you think.",
+      "revId": "d9e949dedb09406af9af2e9ec4daaee0886bd788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02d507b5_858519d9",
+        "filename": "front_end/ui/Icon.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-19T11:13:41Z",
+      "side": 1,
+      "message": "Using @typdef {optionalFieldFoo?: string} causes a parse error in Closure. This was the only way to make both (Closure/TS) happy at the same time.",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 278,
+        "endChar": 32
+      },
+      "revId": "d9e949dedb09406af9af2e9ec4daaee0886bd788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
