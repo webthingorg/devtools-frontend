@@ -7,6 +7,7 @@ import * as ComponentHelpers from '../component_helpers/component_helpers.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 import {BooleanSetting, EnumSetting, LayoutElement, Setting, SettingType} from './LayoutPaneUtils.js';
+import {NodeText} from './NodeText.js';
 
 const {render, html} = LitHtml;
 const ls = Common.ls;
@@ -221,7 +222,12 @@ export class LayoutPane extends HTMLElement {
   }
 
   private renderElement(element: LayoutElement) {
-    const name = this.buildElementName(element);
+    const name = new NodeText();
+    name.data = {
+      nodeId: element.domId,
+      nodeTitle: element.name,
+      nodeClasses: element.domClasses,
+    };
     const onElementToggle = this.onElementToggle.bind(this, element);
     const onElementClick = this.onElementClick.bind(this, element);
     return html`<div class="element">
@@ -232,17 +238,6 @@ export class LayoutPane extends HTMLElement {
       <button @click=${onElementClick} title=${showElementButtonTitle} class="show-element">
       </button>
   </div>`;
-  }
-
-  private buildElementName(element: LayoutElement) {
-    const parts = [element.name];
-    if (element.domId) {
-      parts.push(`#${CSS.escape(element.domId)}`);
-    }
-    if (element.domClasses) {
-      parts.push(...element.domClasses.map(cls => `.${CSS.escape(cls)}`));
-    }
-    return parts.join('');
   }
 
   private renderBooleanSetting(setting: BooleanSetting) {
