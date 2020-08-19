@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a765d86_90dfffcd",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-19T16:07:12Z",
+      "side": 1,
+      "message": "I have tried a lot, but I could not define a type for this function that would work both in Closure and TypeScript. In general, the function wants (as first argument) any class constructor. However, that is typed as `function(new:Whatever, ...?)`. Now, TypeScript dislikes the `?` (which is `unknown`), but if you remove it or change it to `*`, then Closure starts shouting. Would be great to fix it, but I don\u0027t think it is possible unless we refactor this function as a whole.",
+      "range": {
+        "startLine": 1401,
+        "startChar": 34,
+        "endLine": 1401,
+        "endChar": 57
+      },
+      "revId": "21ef6513d45c526dfe43c8ac8e6306ac260d7b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
