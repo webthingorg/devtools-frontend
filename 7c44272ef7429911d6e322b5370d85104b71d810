@@ -16,6 +16,69 @@
       "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2f04b33_34acf2f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-19T16:47:01Z",
+      "side": 1,
+      "message": "LGTM with nit.\n\nI do have a comment about follow up work to account for margins/flipping labels when we are in vertical mode, but since this is already fairly large, I\u0027m leaning towards a follow up change",
+      "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e04456_95d0562e",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-19T16:47:01Z",
+      "side": 1,
+      "message": "nit, I think optional primitives are marked with \u003d signs at the end: `{string\u003d}`",
+      "range": {
+        "startLine": 335,
+        "startChar": 11,
+        "endLine": 335,
+        "endChar": 17
+      },
+      "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f9e4eea_786e63bb",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-19T16:47:01Z",
+      "side": 1,
+      "message": "I realize this logic (and in other label placement functions) will need to be updated to account for columns becoming \"rows\" and vice versa when checking margins. From your vertical example:\n\nhttps://imgur.com/k5uXjus\n\nNot sure if how complicated it would be to tackle this in this CL. I\u0027d be ok with a follow up as long as a TODO/crbug is listed somewhere",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 109
+      },
+      "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
