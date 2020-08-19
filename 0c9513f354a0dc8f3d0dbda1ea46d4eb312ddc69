@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "527e090f_eae52495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-19T13:20:24Z",
+      "side": 1,
+      "message": "Please take a look.\nOne option I have in mind that might make this a little less verbose is having the current writingMode and matrix stored somewhere global so we don\u0027t have to pass them as parameters to many functions. However I think this would not work when multiple grids are highlighted, and it might make it harder to test.",
+      "revId": "0c9513f354a0dc8f3d0dbda1ea46d4eb312ddc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
