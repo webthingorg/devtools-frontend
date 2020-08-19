@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "caf16026_81af9bcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T10:25:35Z",
+      "side": 1,
+      "message": "Another thought: does TypeScript type-check the declarative construction via lit-html? (`\u003cdevtools-node-text .data\u003d${data} /\u003e`)",
+      "parentUuid": "450fd914_34388017",
+      "revId": "9708c3557715e1e1d190a743aefda71e0022e526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2058af0_44505d2d",
         "filename": "front_end/elements/NodeText.ts",
         "patchSetId": 3
