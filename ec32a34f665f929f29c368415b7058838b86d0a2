@@ -167,6 +167,30 @@
       "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34fedf06_ba6134fc",
+        "filename": "front_end/i18n/i18n.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-08-19T19:31:55Z",
+      "side": 1,
+      "message": "Btw: Paul is now on vacation and Tim is back.\n\nMaybe Tim can take a look, but there is probably going to be some missed context/continuation.",
+      "parentUuid": "daf7b517_cd78159d",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
