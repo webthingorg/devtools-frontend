@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64475a61_8bd16bd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T07:47:15Z",
+      "side": 1,
+      "message": "PTAL One thing I am not sure about is if it\u0027s critical that syntax highlighting is removed when the element is selected in Breadcrumbs? ",
+      "revId": "88900c5ee48158a2e94946de856f54b7b23a0797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
