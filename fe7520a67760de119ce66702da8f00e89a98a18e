@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e5346d7_1416fa79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T06:09:06Z",
+      "side": 1,
+      "message": "This is mostly a reland of the previous CL with a few important fixes:\n- positioning of the buttons should be fixed\n- dark mode is better supported (edited the icon and the styles)\n- fixed the color suggestion logic and added unit tests to capture it\nPTAL ",
+      "revId": "fe7520a67760de119ce66702da8f00e89a98a18e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
