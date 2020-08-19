@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "215eb75b_ec5e213e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-19T11:12:43Z",
+      "side": 1,
+      "message": "Generally LGTM. I think I can see both the `new NodeText()` and the declarative version existing in the codebase. They both have their own merits, and neither has major downsides. But of course I\u0027d defer this to Jack\u0027s opinion.",
+      "revId": "4eede61b798059c8ebee6dae256f842c290b6bf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f3ca7b_ab00ec17",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-19T11:12:43Z",
+      "side": 1,
+      "message": "Do we want to disable clang-format around here?",
+      "range": {
+        "startLine": 234,
+        "startChar": 3,
+        "endLine": 235,
+        "endChar": 5
+      },
+      "revId": "4eede61b798059c8ebee6dae256f842c290b6bf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
