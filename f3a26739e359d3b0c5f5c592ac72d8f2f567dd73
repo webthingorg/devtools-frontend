@@ -16,6 +16,24 @@
       "revId": "f3a26739e359d3b0c5f5c592ac72d8f2f567dd73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0512e71c_3e789947",
+        "filename": "front_end/elements/layoutPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-19T11:54:47Z",
+      "side": 1,
+      "message": "The linter said I should include both.. Perhaps it was VSCode? I think we don\u0027t really need mask-image since it\u0027s Chrome only.",
+      "parentUuid": "c4b58a0b_be481218",
+      "revId": "f3a26739e359d3b0c5f5c592ac72d8f2f567dd73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
