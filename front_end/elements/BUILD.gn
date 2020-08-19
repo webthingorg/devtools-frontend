@@ -24,6 +24,8 @@ devtools_module("elements") {
     "ElementsBreadcrumbsUtils.ts",
     "ElementsBreadcrumbs_bridge.js",
     "ElementsPanel.js",
+    "ElementsPanelLink.ts",
+    "ElementsPanelLink_bridge.js",
     "ElementsSidebarPane.js",
     "ElementsTreeElement.js",
     "ElementsTreeElementHighlighter.js",
