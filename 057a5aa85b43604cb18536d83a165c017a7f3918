@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06257067_721aeb26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-20T15:29:52Z",
+      "side": 1,
+      "message": "Couple of comments around updating the histogram and the default grid settings :)",
+      "revId": "057a5aa85b43604cb18536d83a165c017a7f3918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcd43c33_d225f5b8",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-20T15:29:52Z",
+      "side": 1,
+      "message": "I think this should default to false? this I think is redundant with showing row/column below (it just adds a rectangle that starts at the top left of the first cell and ends around the bottom right of the last cell. I don\u0027t think this would be needed with showGridLines \u003d\u003d true",
+      "range": {
+        "startLine": 757,
+        "startChar": 10,
+        "endLine": 757,
+        "endChar": 32
+      },
+      "revId": "057a5aa85b43604cb18536d83a165c017a7f3918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
