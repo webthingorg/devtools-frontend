@@ -22,6 +22,30 @@
       "revId": "a6a4ad6fdfc189e5dccd97d4ab748378a853a788",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d62d511_a98d76b5",
+        "filename": "scripts/build/ninja/devtools_entrypoint.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-20T10:07:02Z",
+      "side": 1,
+      "message": "I thought about this a bit more, and the same is true (I think) of the ts_library call above. I\u0027m not sure if anything depends on that?\n\nI think this might be how Ninja templates work, when they are depended on by a target all the things inside them are implicitly executed?",
+      "parentUuid": "5cbf094d_9eddad2c",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 42
+      },
+      "revId": "a6a4ad6fdfc189e5dccd97d4ab748378a853a788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
