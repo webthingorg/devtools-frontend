@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4caa4c24_fbf38d8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-20T07:01:57Z",
+      "side": 1,
+      "message": "PTAL, i think this is as best as it gets w.r.t to types in this class (and it\u0027s only slightly better as `any` everywhere).",
+      "revId": "e3b47fd8cd7d19ee7d8ae80fd989b6ec32997e13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b7ca1a3_89d4393a",
+        "filename": "front_end/ui/Context.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-20T07:01:57Z",
+      "side": 1,
+      "message": "Please note that @typedef doesn\u0027t allow for @template T. Otherwise we could have typed the generic versions as `ConstructorFn\u003cT\u003e`, while the map keys would be `ConstructorFn\u003cObject\u003e`.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 57
+      },
+      "revId": "e3b47fd8cd7d19ee7d8ae80fd989b6ec32997e13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
