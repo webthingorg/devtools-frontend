@@ -337,6 +337,7 @@
     "elementsTreeOutline.css",
     "metricsSidebarPane.css",
     "platformFontsWidget.css",
+    "propertiesWidget.css",
     "nodeStackTraceWidget.css",
     "stylesSectionTree.css",
     "stylesSidebarPane.css"
