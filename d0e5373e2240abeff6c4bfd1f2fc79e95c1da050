@@ -50,6 +50,24 @@
       "revId": "d0e5373e2240abeff6c4bfd1f2fc79e95c1da050",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c996cc4_5e8c315d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-08-20T21:26:04Z",
+      "side": 1,
+      "message": "Cool. \n\n\u003e There is no reasoning in the CL description why we need to dispatch the event here and, more importantly, why it is safe to do so.\n\nYeah i also am not getting much from that. :)  Wish they described the observable effect instead.\n\nAnyway.. I intended to share this hoping that you\u0027d just see it and be like \"OH SHOOT! GOOD CALL!\"  but given that\u0027s not the case, I\u0027ll happily close it.\n\nThanks for taking the time!",
+      "parentUuid": "273cfa83_2200d43a",
+      "revId": "d0e5373e2240abeff6c4bfd1f2fc79e95c1da050",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
