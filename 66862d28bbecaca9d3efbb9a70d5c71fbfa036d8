@@ -51,6 +51,24 @@
       "revId": "66862d28bbecaca9d3efbb9a70d5c71fbfa036d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "911035c8_86030d43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-20T08:56:16Z",
+      "side": 1,
+      "message": "Moving the panel to the 3rd position is totally fine 😊\n\nRelated but non-blocking question: we should probably make those tabs draggable, like all the other tabs are in the main navigation. Is this planned? If not, I\u0027ll file an issue. I know you Microsoft folks have been working on this a lot.",
+      "parentUuid": "bfcbedf6_027c2fbb",
+      "revId": "66862d28bbecaca9d3efbb9a70d5c71fbfa036d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
