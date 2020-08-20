@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a71382ec_544814b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-20T23:59:26Z",
+      "side": 1,
+      "message": "Adding Benedikt to PTAL to:\nfront_end/devtools_compatibility.js\nfront_end/externs.js\n\nThanks!",
+      "revId": "1b89900ee4c76facdd8b29f0b6dcaf76be41d4b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
