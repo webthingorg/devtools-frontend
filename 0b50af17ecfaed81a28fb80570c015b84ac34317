@@ -46,6 +46,30 @@
       "revId": "0b50af17ecfaed81a28fb80570c015b84ac34317",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3e153f9_05c63fe0",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1123977
+      },
+      "writtenOn": "2020-08-20T16:39:31Z",
+      "side": 1,
+      "message": "+1. Please only link directly to our own web properties. An URL change can be easily done later.",
+      "parentUuid": "f0e44220_239adfc1",
+      "range": {
+        "startLine": 398,
+        "startChar": 43,
+        "endLine": 398,
+        "endChar": 65
+      },
+      "revId": "0b50af17ecfaed81a28fb80570c015b84ac34317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
