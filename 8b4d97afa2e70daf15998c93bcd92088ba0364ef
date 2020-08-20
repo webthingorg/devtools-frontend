@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33055458_5f4e6ec3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-20T11:15:30Z",
+      "side": 1,
+      "message": "Mixed emotions, predominantly confusion, anger, sadness. How does programming work and why are types like they are? Nonetheless, awesome find. Let\u0027s try to forget we implemented these fixes and move on 😋",
+      "revId": "8b4d97afa2e70daf15998c93bcd92088ba0364ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
