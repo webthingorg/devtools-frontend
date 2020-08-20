@@ -103,6 +103,30 @@
       "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cb984c3_9022b9a4",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-20T13:13:23Z",
+      "side": 1,
+      "message": "I ended up fixing all remaining cases in the last patchset. I started abstracting away most of the distance comparisons we are doing in the codebase, and that allowed to fix the remaining issues easily.\n\nIn this patchset, I\u0027m reusing the CSS grid/flex vocabulary for naming the direction in which content flows \"logically\": I\u0027m using the words cross and main. This avoids having to refer to the x and y axis or the canvas width and height. Instead we now refer to the logical main and cross direction and axes,.\n\nFor example: in standard mode, the main axis is x, and goes from left to right. And the cross axis is vertical, from top to bottom.\nIn vertical-rl, the cross axis is horizontal, and goes from right to left, whereis it goes from left to right in vertical-lr mode.",
+      "parentUuid": "2b42f30d_33cabd7d",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 109
+      },
+      "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
