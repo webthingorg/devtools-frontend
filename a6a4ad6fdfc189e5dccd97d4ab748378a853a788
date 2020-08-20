@@ -46,6 +46,30 @@
       "revId": "a6a4ad6fdfc189e5dccd97d4ab748378a853a788",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e38846eb_c3c76161",
+        "filename": "scripts/build/ninja/devtools_entrypoint.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-20T11:41:19Z",
+      "side": 1,
+      "message": "Hm, I am not sure. Iiuc, Ninja templates are macros. E.g. they generate a lot of targets dynamically, but other than that it doesn\u0027t do anything fancy. But maybe it does, who knows? 😐",
+      "parentUuid": "4d62d511_a98d76b5",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 42
+      },
+      "revId": "a6a4ad6fdfc189e5dccd97d4ab748378a853a788",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
