@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dade939_433dcb75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-20T07:22:02Z",
+      "side": 1,
+      "message": "1 small comment.\nAnd could you please add a screenshot of the changes?",
+      "revId": "66654b38804daba14b1feae2aded1ffd9fd60113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd91e5f8_23807be2",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-20T07:22:02Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be named \u0027this._crossOriginIsolatedContextType\u0027 since \u0027this._is...\u0027 implies a boolean?",
+      "revId": "66654b38804daba14b1feae2aded1ffd9fd60113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
