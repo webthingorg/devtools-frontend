@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "373147db_24495b23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-20T07:35:00Z",
+      "side": 1,
+      "message": "oops, we forgot to update the commit description here :(",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 131
+      },
+      "revId": "314d6b7155ca554c64b95bbc2ea2bb68f41f0a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d43ce19_0d302f8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-20T07:35:00Z",
+      "side": 1,
+      "message": "lgtm, sorry for the late review",
+      "revId": "314d6b7155ca554c64b95bbc2ea2bb68f41f0a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e414ee3f_abc16b0d",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-20T07:35:00Z",
+      "side": 1,
+      "message": "nit: I would not even install the click handlers here if target is null. As they result in a no-op and the target won\u0027t change over time.\n\nCould we move this up in a followup?\n\n if (target) {\n    icon.onclick \u003d () \u003d\u003e ....\n\nSame goes for the highlight mouse handlers.",
+      "range": {
+        "startLine": 425,
+        "startChar": 8,
+        "endLine": 425,
+        "endChar": 21
+      },
+      "revId": "314d6b7155ca554c64b95bbc2ea2bb68f41f0a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
