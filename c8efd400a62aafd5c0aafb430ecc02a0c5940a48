@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "307a58c8_79f5f83a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-08-20T21:59:43Z",
+      "side": 1,
+      "message": "Hi!\n\nFawaz\u0027s term as an intern has ended. Jan and I will maintain this part of the codebase moving forward.\n\nPlease take a look, thanks! ^_^",
+      "revId": "c8efd400a62aafd5c0aafb430ecc02a0c5940a48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
