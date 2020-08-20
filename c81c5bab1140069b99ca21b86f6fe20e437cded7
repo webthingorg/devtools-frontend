@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "ed21a29d_408f4db2",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-20T10:36:22Z",
+      "side": 1,
+      "message": "We could add a `_checkWithTypeScript` function that implements `tsc` + `_checkWithNodeScript`. That LGTM.",
+      "parentUuid": "fc02e497_c0a0013b",
+      "range": {
+        "startLine": 373,
+        "startChar": 9,
+        "endLine": 373,
+        "endChar": 57
+      },
+      "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f35fa0b_558afd8e",
         "filename": "PRESUBMIT.py",
         "patchSetId": 2
