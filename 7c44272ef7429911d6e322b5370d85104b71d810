@@ -79,6 +79,30 @@
       "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b42f30d_33cabd7d",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-20T12:00:36Z",
+      "side": 1,
+      "message": "I\u0027m doing a few changes to the code to make this work better in this CL.\nHowever, while most cases should be handled, there will still be one remaining issue where line name labels may not flip to the inside of the grid when they should.\nI\u0027m going to do this in another CL because this is an issue that already exists today. We only compare if the label x/y is not within the page margin area (20px). We did this because for line numbers it was enough as those labels are never wider than some maximum value.\nFor line names, we should update this to also take into account the label width and height, but we should do this whether or not a vertical writing mode is in effect.",
+      "parentUuid": "0f9e4eea_786e63bb",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 109
+      },
+      "revId": "7c44272ef7429911d6e322b5370d85104b71d810",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
