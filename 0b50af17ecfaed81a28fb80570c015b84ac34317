@@ -22,6 +22,30 @@
       "revId": "0b50af17ecfaed81a28fb80570c015b84ac34317",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0e44220_239adfc1",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-20T14:14:12Z",
+      "side": 1,
+      "message": "Why not link to https://sites.google.com/a/chromium.org/dev/updates/schemeful-same-site/schemeful-same-site-devtools-issues directly, and be safe?\n\nOnce a better article is available we can back-merge a CL.",
+      "parentUuid": "1b062534_e4c14d5f",
+      "range": {
+        "startLine": 398,
+        "startChar": 43,
+        "endLine": 398,
+        "endChar": 65
+      },
+      "revId": "0b50af17ecfaed81a28fb80570c015b84ac34317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
