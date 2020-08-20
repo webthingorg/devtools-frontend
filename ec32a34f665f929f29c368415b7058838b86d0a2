@@ -123,6 +123,47 @@
     },
     {
       "key": {
+        "uuid": "0966ba2a_b2129dd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-20T11:24:31Z",
+      "side": 1,
+      "message": "I think the confusion/disagreement largely stems from the fact that the bundle-as-downloaded is not usable for DevTools. E.g. we need to perform (subjectively invasive) transformations to make it consumable for DevTools.\n\nIn other projects (like the Acorn extensions), we have upstreamed ES modules compatible distributions (based on Rollup). We then wait for upstream to land these changes and then we consume it from NPM as normal.\n\nAt this point, I think we have 2 options:\n1. Create an ES modules distribution upstream so that our consumption here in DevTools is as easy as all other dependencies (this is what Paul was getting at I think)\n2. Keep the current transformation for now and perform step 1 later.\n\nI would personally be okay with choosing option 2, to prevent this CL from dragging on much longer. However, we should work with upstream to create an ES modules bundle. But, I remember that there was some disagreement in upstream about that? (I kinda lost track of these discussions)",
+      "parentUuid": "0c2dc755_3ca7cb96",
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9d3374_c38319f7",
+        "filename": "front_end/i18n/i18n-lh-bundle.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-20T11:24:31Z",
+      "side": 1,
+      "message": "I think what Paul was getting at is that`i18n-lh-bundle.js` isn\u0027t necessary per se. You can move this import into `i18nImpl.js` and it should still work. Can you try that out?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 41
+      },
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80389815_cdfe8f1e",
         "filename": "front_end/i18n/i18n.js",
         "patchSetId": 11
@@ -191,6 +232,30 @@
       "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e2a0282_54562511",
+        "filename": "front_end/i18n/i18n.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-20T11:24:31Z",
+      "side": 1,
+      "message": "I replied on the `i18n-lh-bundle.js` file",
+      "parentUuid": "34fedf06_ba6134fc",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
