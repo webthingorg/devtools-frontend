@@ -33,6 +33,24 @@
       "revId": "66654b38804daba14b1feae2aded1ffd9fd60113",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e2dede1_bdcadd7e",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-20T14:03:45Z",
+      "side": 1,
+      "message": "Great catch!",
+      "parentUuid": "cd91e5f8_23807be2",
+      "revId": "66654b38804daba14b1feae2aded1ffd9fd60113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
