@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "fc02e497_c0a0013b",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-20T08:13:19Z",
+      "side": 1,
+      "message": "This is more fiddly than I\u0027d like because we first have to compile TS via tsc and then execute the command.\n\nI guess we could have a subprocess Popen to run `tsc path-to-script.ts` and then use `_checkWithNodeScript` to execute the resulting JS? WDYT?",
+      "parentUuid": "e8c51546_9a0c1772",
+      "range": {
+        "startLine": 373,
+        "startChar": 9,
+        "endLine": 373,
+        "endChar": 57
+      },
+      "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f35fa0b_558afd8e",
         "filename": "PRESUBMIT.py",
         "patchSetId": 2
@@ -62,6 +86,30 @@
       "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77a3d59e_d3a81ab1",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-08-20T08:13:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f35fa0b_558afd8e",
+      "range": {
+        "startLine": 378,
+        "startChar": 6,
+        "endLine": 378,
+        "endChar": 50
+      },
+      "revId": "c81c5bab1140069b99ca21b86f6fe20e437cded7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
