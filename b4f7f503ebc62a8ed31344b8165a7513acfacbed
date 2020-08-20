@@ -39,6 +39,30 @@
       "revId": "b4f7f503ebc62a8ed31344b8165a7513acfacbed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6194e7ce_de23ba3d",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-08-20T20:32:17Z",
+      "side": 1,
+      "message": "Good to know. We didn\u0027t lock it for the enterprise policies translation so I think it makes sense to leave it unlocked here too.",
+      "parentUuid": "38a2fe32_241a433b",
+      "range": {
+        "startLine": 301,
+        "startChar": 18,
+        "endLine": 301,
+        "endChar": 50
+      },
+      "revId": "b4f7f503ebc62a8ed31344b8165a7513acfacbed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
