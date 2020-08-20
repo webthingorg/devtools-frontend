@@ -51,6 +51,24 @@
       "revId": "a30a67694612edfaf6a7f7e2615555ce8c3c401b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0487f01_e816224b",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-20T07:57:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "533c10dc_e3a02847",
+      "revId": "a30a67694612edfaf6a7f7e2615555ce8c3c401b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
