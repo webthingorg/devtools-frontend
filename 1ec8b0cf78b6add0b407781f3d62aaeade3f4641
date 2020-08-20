@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0827bc9_c9bb0590",
+        "filename": "front_end/lighthouse/LighthouseStatusView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1176943
+      },
+      "writtenOn": "2020-08-20T14:35:53Z",
+      "side": 1,
+      "message": "Lighthouse sets `friendlyMessage` on certain important errors such as PROTOCOL_TIMEOUT\n\nmaybe?",
+      "revId": "1ec8b0cf78b6add0b407781f3d62aaeade3f4641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
