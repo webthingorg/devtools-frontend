@@ -9,12 +9,17 @@ import {ContextFlavorListener} from './ContextFlavorListener.js';
 /** @type {!Context} */
 let contextInstance;
 
+/** @typedef {(function(new:Object, ...?):void|function(new:Object, ...*):void)} */
+let ConstructorFn;  // eslint-disable-line no-unused-vars
+
 export class Context {
   /**
    * @private
    */
   constructor() {
+    /** @type {!Map<!ConstructorFn, !Object>} */
     this._flavors = new Map();
+    /** @type {!Map<!ConstructorFn, !Common.ObjectWrapper.ObjectWrapper>} */
     this._eventDispatchers = new Map();
   }
 
@@ -31,7 +36,7 @@ export class Context {
   }
 
   /**
-   * @param {function(new:T, ...?):void} flavorType
+   * @param {(function(new:T, ...?):void|function(new:T, ...*):void)} flavorType
    * @param {?T} flavorValue
    * @template T
    */
@@ -50,7 +55,7 @@ export class Context {
   }
 
   /**
-   * @param {function(new:T, ...?):void} flavorType
+   * @param {(function(new:T, ...?):void|function(new:T, ...*):void)} flavorType
    * @param {?T} flavorValue
    * @template T
    */
@@ -72,9 +77,10 @@ export class Context {
   }
 
   /**
-   * @param {function(new:Object, ...?):void} flavorType
-   * @param {function(!Common.EventTarget.EventTargetEvent):*} listener
+   * @param {(function(new:T, ...?):void|function(new:T, ...*):void)} flavorType
+   * @param {function(!Common.EventTarget.EventTargetEvent):void} listener
    * @param {!Object=} thisObject
+   * @template T
    */
   addFlavorChangeListener(flavorType, listener, thisObject) {
     let dispatcher = this._eventDispatchers.get(flavorType);
@@ -86,9 +92,10 @@ export class Context {
   }
 
   /**
-   * @param {function(new:Object, ...?):void} flavorType
-   * @param {function(!Common.EventTarget.EventTargetEvent):*} listener
+   * @param {(function(new:T, ...?):void|function(new:T, ...*):void)} flavorType
+   * @param {function(!Common.EventTarget.EventTargetEvent):void} listener
    * @param {!Object=} thisObject
+   * @template T
    */
   removeFlavorChangeListener(flavorType, listener, thisObject) {
     const dispatcher = this._eventDispatchers.get(flavorType);
@@ -102,16 +109,16 @@ export class Context {
   }
 
   /**
-   * @param {function(new:T, ...?):void} flavorType
+   * @param {(function(new:T, ...?):void|function(new:T, ...*):void)} flavorType
    * @return {?T}
    * @template T
    */
   flavor(flavorType) {
-    return this._flavors.get(flavorType) || null;
+    return /** @type {?T} */ (this._flavors.get(flavorType)) || null;
   }
 
   /**
-   * @return {!Set.<function(new:Object):void>}
+   * @return {!Set.<(function(new:Object, ...?):void|function(new:Object, ...*):void)>}
    */
   flavors() {
     return new Set(this._flavors.keys());
