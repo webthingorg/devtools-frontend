@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "555d3072_f5f4d863",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-20T15:00:49Z",
+      "side": 1,
+      "message": "Nice! Latest patch set also LGTM. Thanks for working to simplify all those cases!",
+      "revId": "5ca6ee1d3e6c6a37c03490db95703eb03bbbe892",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
