@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37fc7cfd_0fed353d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-20T20:29:06Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "b4f7f503ebc62a8ed31344b8165a7513acfacbed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38a2fe32_241a433b",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-20T20:29:06Z",
+      "side": 1,
+      "message": "nit: If you don\u0027t want this to be translated, use LOCKED_TERM. I would recommend not locking it, but up to you.",
+      "range": {
+        "startLine": 301,
+        "startChar": 18,
+        "endLine": 301,
+        "endChar": 50
+      },
+      "revId": "b4f7f503ebc62a8ed31344b8165a7513acfacbed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
