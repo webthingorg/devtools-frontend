@@ -281,8 +281,10 @@ export class StatusView {
    * @param {string} auditURL
    */
   _renderBugReportBody(err, auditURL) {
+    // @ts-ignore Lighthouse sets `friendlyMessage`.
+    const errorMessage = err.friendlyMessage || err.message;
     const issueBody = `
-${err.message}
+${errorMessage}
 \`\`\`
 Channel: DevTools
 Initial URL: ${auditURL}
