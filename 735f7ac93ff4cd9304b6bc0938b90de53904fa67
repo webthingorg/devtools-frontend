@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ed15480f_84858388",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2020-08-21T11:53:13Z",
+      "side": 1,
+      "message": "https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8871359453511776960/+/steps/presubmit/0/stdout has the example output",
+      "revId": "735f7ac93ff4cd9304b6bc0938b90de53904fa67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c1121b6_bcd3c481",
         "filename": "PRESUBMIT.py",
         "patchSetId": 1
