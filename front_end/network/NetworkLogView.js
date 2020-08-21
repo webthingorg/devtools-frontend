@@ -74,7 +74,7 @@ export class NetworkLogView extends UI.Widget.VBox {
     this._networkOnlyBlockedRequestsSetting =
         Common.Settings.Settings.instance().createSetting('networkOnlyBlockedRequests', false);
     this._networkResourceTypeFiltersSetting =
-        Common.Settings.Settings.instance().createSetting('networkResourceTypeFilters', {});
+        Common.Settings.Settings.instance().createSetting('networkResourceTypeFilters', new Set());
 
     this._rawRowHeight = 0;
     this._progressBarContainer = progressBarContainer;
