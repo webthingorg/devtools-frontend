@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "1b222677_64546b9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T14:34:04Z",
+      "side": 1,
+      "message": "Typo: style",
+      "range": {
+        "startLine": 9,
+        "startChar": 129,
+        "endLine": 9,
+        "endChar": 135
+      },
+      "revId": "1994b21cd4e9372d8a7fc18f8d4252ce7c3e69e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "750a51f9_1a4c22e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T14:34:04Z",
+      "side": 1,
+      "message": "Nit: Since you fixed this bug, you can also do `Fixed: 1112681`, but that is up to your preference. If you are not planning on doing anything else with that bug, Fixed would be better.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "1994b21cd4e9372d8a7fc18f8d4252ce7c3e69e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "adbde017_1651c3f6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -13,6 +59,23 @@
       "writtenOn": "2020-08-20T16:58:52Z",
       "side": 1,
       "message": "Hello, this CL tries to fix 1112681 by changing the css of the styles pane to make the scrollbar show all the time. Could you please review it?",
+      "revId": "1994b21cd4e9372d8a7fc18f8d4252ce7c3e69e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea62d523_8e0e8efe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T14:34:04Z",
+      "side": 1,
+      "message": "CL structure looks good. Deferring implementation review to Changhao.",
       "revId": "1994b21cd4e9372d8a7fc18f8d4252ce7c3e69e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
