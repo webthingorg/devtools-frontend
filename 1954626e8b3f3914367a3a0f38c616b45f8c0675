@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddf96123_0bf1c976",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-21T09:42:42Z",
+      "side": 1,
+      "message": "Nit: leftover commented out code to be removed",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "1954626e8b3f3914367a3a0f38c616b45f8c0675",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06a62282_94e9f6d6",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-21T09:42:42Z",
+      "side": 1,
+      "message": "Does this need to become CSSGridSettings2?",
+      "range": {
+        "startLine": 445,
+        "startChar": 13,
+        "endLine": 445,
+        "endChar": 29
+      },
+      "revId": "1954626e8b3f3914367a3a0f38c616b45f8c0675",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a90fba24_d968aa60",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-21T09:42:42Z",
+      "side": 1,
+      "message": "Since these are all now known values, we can get rid of the these consts and remove the ternary operators below in the returned object.",
+      "range": {
+        "startLine": 757,
+        "startChar": 2,
+        "endLine": 762,
+        "endChar": 36
+      },
+      "revId": "1954626e8b3f3914367a3a0f38c616b45f8c0675",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
