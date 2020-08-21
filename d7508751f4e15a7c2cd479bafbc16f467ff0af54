@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "077b0e4b_970b5b7e",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-21T12:19:55Z",
+      "side": 0,
+      "message": "What\u0027s up with this? Maybe it\u0027s broken on windows?",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 22
+      },
+      "revId": "d7508751f4e15a7c2cd479bafbc16f467ff0af54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
