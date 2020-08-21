@@ -39,6 +39,76 @@
       "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07a48f26_0dbdd6cc",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T13:20:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "262a7ea4_58dd133d",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 34
+      },
+      "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "199cdb68_f8128c7f",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T13:20:28Z",
+      "side": 1,
+      "message": "Ultra-nit: technically the `instanceof` check also checks for truthiness.",
+      "range": {
+        "startLine": 342,
+        "startChar": 11,
+        "endLine": 342,
+        "endChar": 19
+      },
+      "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0125dbf4_f47044af",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T13:20:28Z",
+      "side": 1,
+      "message": "Should we maybe type `_currentTab` differently? For an `indexOf` I think this is fine, but if we need to cast it everywhere, that gets quite cumbersome. I am okay with keeping this as-is if that is the easiest.",
+      "range": {
+        "startLine": 392,
+        "startChar": 73,
+        "endLine": 392,
+        "endChar": 84
+      },
+      "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
