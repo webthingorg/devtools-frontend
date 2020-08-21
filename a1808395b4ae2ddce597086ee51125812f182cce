@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24ca54ec_0e272fac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-21T07:55:40Z",
+      "side": 1,
+      "message": "PTAL. The CL is on the larger side. I can split it up by either JS class or \"topic\" of refactoring if you prefer.",
+      "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "262a7ea4_58dd133d",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-21T07:55:40Z",
+      "side": 1,
+      "message": "Note that we call \"SetDefaultFocusedElement\" with \"this.contentElement as its argument in the constructor. The value will stay the same over the whole life time (AFAICT), so there is actually no need to directly access a private field of the base class.",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 34
+      },
+      "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
