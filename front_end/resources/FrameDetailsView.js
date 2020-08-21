@@ -42,6 +42,7 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     this._adStatus = this._generalSection.appendField(ls`Ad Status`);
     this._isolationSection = this._reportView.appendSection(ls`Security & Isolation`);
     this._secureContext = this._isolationSection.appendField(ls`Secure Context`);
+    this._crossOriginIsolatedContext = this._isolationSection.appendField(ls`Cross-Origin Isolated`);
     this._coepPolicy = this._isolationSection.appendField(ls`Cross-Origin Embedder Policy`);
     this._coopPolicy = this._isolationSection.appendField(ls`Cross-Origin Opener Policy`);
     this.update();
@@ -105,17 +106,44 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     return null;
   }
 
+  /**
+   * @param {?Protocol.Page.CrossOriginIsolatedContextType} type
+   * @returns {?string}
+   */
+  _explanationFromCrossOriginIsolatedContextType(type) {
+    switch (type) {
+      case Protocol.Page.CrossOriginIsolatedContextType.Isolated:
+        return null;
+      case Protocol.Page.CrossOriginIsolatedContextType.NotIsolated:
+        return null;
+      case Protocol.Page.CrossOriginIsolatedContextType.NotIsolatedFeatureDisabled:
+        return ls`The feature is disabled`;
+    }
+    return null;
+  }
+
   _updateContextStatus() {
     if (this._frame.unreachableUrl()) {
       this._isolationSection.setFieldVisible(ls`Secure Context`, false);
+      this._isolationSection.setFieldVisible(ls`Cross-Origin Isolated`, false);
       return;
     }
     this._isolationSection.setFieldVisible(ls`Secure Context`, true);
+    this._isolationSection.setFieldVisible(ls`Cross-Origin Isolated`, true);
+
     this._secureContext.textContent = booleanToYesNo(this._frame.isSecureContext());
     const secureContextExplanation = this._explanationFromSecureContextType(this._frame.getSecureContextType());
     if (secureContextExplanation) {
       const secureContextType = this._secureContext.createChild('span', 'report-field-value-part more-info');
       secureContextType.textContent = secureContextExplanation;
+    }
+    this._crossOriginIsolatedContext.textContent = booleanToYesNo(this._frame.isCrossOriginIsolated());
+    const originIsolatedExplanation =
+        this._explanationFromCrossOriginIsolatedContextType(this._frame.getCrossOriginIsolatedContextType());
+    if (originIsolatedExplanation) {
+      const originIsolatedContextType =
+          this._crossOriginIsolatedContext.createChild('span', 'report-field-value-part more-info');
+      originIsolatedContextType.textContent = originIsolatedExplanation;
     }
   }
 

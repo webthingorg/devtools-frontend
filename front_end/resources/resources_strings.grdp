@@ -57,6 +57,9 @@
   <message name="IDS_DEVTOOLS_1818d506396d77b3d035f719885c4cd1" desc="Text in Service Workers View of the Application panel">
     focus
   </message>
+  <message name="IDS_DEVTOOLS_1a1742beb87e2db42857b2c5c5d6a72d" desc="Explanatory text in the Frame Details view">
+    The feature is disabled
+  </message>
   <message name="IDS_DEVTOOLS_1b7d5726533ab525a8760351e9b5e415" desc="Value for ad frame type">
     child
   </message>
@@ -410,6 +413,9 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_bd0c1dbb1b437cd840dbc57852fb8ec6" desc="Link text for more information on maskable icons in App Manifest view of the Application panel">
     documentation on maskable icons
+  </message>
+  <message name="IDS_DEVTOOLS_bde29cba351697b187057928a827ffe5" desc="Row title for in the Frame Details view">
+    Cross-Origin Isolated
   </message>
   <message name="IDS_DEVTOOLS_bebc9b50966d8d2bd1913a3c25b707d4" desc="Text in Indexed DBViews of the Application panel">
     Data may be stale
