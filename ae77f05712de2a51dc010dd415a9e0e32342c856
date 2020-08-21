@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "80ab97ab_70038f3b",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T13:15:09Z",
+      "side": 1,
+      "message": "Ultra-nit: rename to allowedTypesFromSetting. Otherwise it is easy to confuse it with the field `_allowedTypes`.",
+      "range": {
+        "startLine": 370,
+        "startChar": 10,
+        "endLine": 370,
+        "endChar": 22
+      },
+      "revId": "ae77f05712de2a51dc010dd415a9e0e32342c856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f35e7012_a77ce719",
         "filename": "front_end/ui/FilterBar.js",
         "patchSetId": 4
@@ -30,6 +53,30 @@
       "writtenOn": "2020-08-21T07:04:37Z",
       "side": 1,
       "message": "Alternatively, we could just type \"this._allowedTypes\" as \u0027*\", then we can leave all of the code as is.\n\nI prefer the Set though and don\u0027t mind the conversion code. Wdyt?\n\nSide-note: Ideally we\u0027d just support Sets and Maps as Settings and add one more settings migration that converts from the map-like object to the Set.",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 40
+      },
+      "revId": "ae77f05712de2a51dc010dd415a9e0e32342c856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc24023f_68619f46",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-21T13:15:09Z",
+      "side": 1,
+      "message": "Yeah this is fine imo. Let\u0027s try to not touch any existing settings, with the risk of accidentally breaking users. For new settings, yes I think that would make sense.",
+      "parentUuid": "f35e7012_a77ce719",
       "range": {
         "startLine": 488,
         "startChar": 0,
