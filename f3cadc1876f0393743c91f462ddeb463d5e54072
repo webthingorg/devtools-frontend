@@ -33,6 +33,23 @@
       "revId": "f3cadc1876f0393743c91f462ddeb463d5e54072",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71aa3c05_ee3cf3a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-21T05:36:49Z",
+      "side": 1,
+      "message": "Apologies for the delay, not sure how I missed this one!",
+      "revId": "f3cadc1876f0393743c91f462ddeb463d5e54072",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
