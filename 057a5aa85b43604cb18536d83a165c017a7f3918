@@ -39,6 +39,30 @@
       "revId": "057a5aa85b43604cb18536d83a165c017a7f3918",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fcccd0c_90ddc8dd",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-21T07:20:56Z",
+      "side": 1,
+      "message": "Changed it.",
+      "parentUuid": "bcd43c33_d225f5b8",
+      "range": {
+        "startLine": 757,
+        "startChar": 10,
+        "endLine": 757,
+        "endChar": 32
+      },
+      "revId": "057a5aa85b43604cb18536d83a165c017a7f3918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
