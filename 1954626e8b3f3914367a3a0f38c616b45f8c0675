@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "bd572d37_17d9902a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-21T15:32:38Z",
+      "side": 1,
+      "message": "LGTM with one nit and a +1 to Patrick\u0027s open comments. I\u0027m going to move myself to CC since I\u0027ll be out starting next week and don\u0027t want to hold this up 😊",
+      "revId": "1954626e8b3f3914367a3a0f38c616b45f8c0675",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddf96123_0bf1c976",
         "filename": "front_end/elements/LayoutSidebarPane.js",
         "patchSetId": 5
@@ -65,6 +82,29 @@
         "startChar": 13,
         "endLine": 445,
         "endChar": 29
+      },
+      "revId": "1954626e8b3f3914367a3a0f38c616b45f8c0675",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d99679b_55f6b358",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-08-21T15:32:38Z",
+      "side": 1,
+      "message": "this was commented on the backend cl, just want to make sure it makes it here too. Consider swapping the order for consistency with the other settings.",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 28
       },
       "revId": "1954626e8b3f3914367a3a0f38c616b45f8c0675",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
