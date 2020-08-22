@@ -12,8 +12,7 @@
 // In this case, add it to the excluded errors at the top of the script.
 
 const fs = require('fs');
-const {promisify} = require('util');
-const readFileAsync = promisify(fs.readFile);
+const readFileAsync = fs.promises.readFile;
 const path = require('path');
 const localizationUtils = require('./utils/localization_utils');
 const espreeTypes = localizationUtils.espreeTypes;
