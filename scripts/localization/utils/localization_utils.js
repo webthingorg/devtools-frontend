@@ -4,12 +4,11 @@
 
 const fs = require('fs');
 const md5 = require('./md5');
-const {promisify} = require('util');
 const path = require('path');
-const readFileAsync = promisify(fs.readFile);
-const readDirAsync = promisify(fs.readdir);
-const statAsync = promisify(fs.stat);
-const writeFileAsync = promisify(fs.writeFile);
+const readFileAsync = fs.promises.readFile;
+const readDirAsync = fs.promises.readdir;
+const statAsync = fs.promises.stat;
+const writeFileAsync = fs.promises.writeFile;
 
 const espreeTypes = {
   BI_EXPR: 'BinaryExpression',
@@ -52,7 +51,7 @@ function getRelativeFilePathFromSrc(filePath) {
 }
 
 function shouldParseDirectory(directoryName) {
-  return !excludeDirs.some(dir => directoryName.includes(dir));
+  return !excludeDirs.some(dir => path.normalize(directoryName).includes(path.normalize(dir)));
 }
 
 /**
@@ -237,7 +236,7 @@ async function getChildDirectoriesFromDirectory(directoryPath) {
   for (const itemName of itemNames) {
     const itemPath = path.resolve(directoryPath, itemName);
     const stat = await statAsync(itemPath);
-    if (stat.isDirectory() && shouldParseDirectory(itemName)) {
+    if (stat.isDirectory() && shouldParseDirectory(itemPath)) {
       dirPaths.push(itemPath);
     }
   }
