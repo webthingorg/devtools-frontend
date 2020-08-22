@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fa1f4e1_d2678297",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-22T01:14:38Z",
+      "side": 1,
+      "message": "This CL addresses some issues found while doing a perf analysis on check_localizable_resources (Localization Check 1), I plan to do something similar for Localization Check 2 and follow up with another CL if needed.",
+      "revId": "b2e8ea723ac7ade7f38d2b3d21a2cbd0a81dcc86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
