@@ -10,9 +10,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const {promisify} = require('util');
-const writeFileAsync = promisify(fs.writeFile);
-const renameFileAsync = promisify(fs.rename);
+const writeFileAsync = fs.promises.writeFile;
+const renameFileAsync = fs.promises.rename;
 const localizationUtils = require('./localization_utils');
 const escodegen = localizationUtils.escodegen;
 const espreeTypes = localizationUtils.espreeTypes;

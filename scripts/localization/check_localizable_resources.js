@@ -12,9 +12,8 @@
  */
 
 const fs = require('fs');
-const {promisify} = require('util');
-const writeFileAsync = promisify(fs.writeFile);
-const appendFileAsync = promisify(fs.appendFile);
+const writeFileAsync = fs.promises.writeFile;
+const appendFileAsync = fs.promises.appendFile;
 const checkLocalizedStrings = require('./utils/check_localized_strings');
 const localizationUtils = require('./utils/localization_utils');
 
