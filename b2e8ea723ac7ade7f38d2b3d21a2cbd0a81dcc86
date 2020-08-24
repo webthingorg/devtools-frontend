@@ -33,6 +33,23 @@
       "revId": "b2e8ea723ac7ade7f38d2b3d21a2cbd0a81dcc86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1bbefa8_ebd293de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-24T10:27:39Z",
+      "side": 1,
+      "message": "Thanks for working on this, the changes make sense.\n\nSadly I saw minimal performance improvement on `git cl presubmit --upload --force`: from 19 seconds to 17 seconds. It seems like the other bottlenecks are more severe. However, it might be that your filesystem access is slower by default and therefore these changes have a higher impact on your machine? Therefore it would still make sense to make the changes in this CL, but I think more work is needed 😭",
+      "revId": "b2e8ea723ac7ade7f38d2b3d21a2cbd0a81dcc86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
