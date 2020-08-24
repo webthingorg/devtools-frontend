@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddf4c94a_e914685b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-24T08:53:51Z",
+      "side": 1,
+      "message": "As discussed, I will define manual selected colors for the perf monitor so the original CL doesn\u0027t break dark mode colors in other places.",
+      "revId": "2663666f5369b6f79ff2a3bc0c4ed6c256306950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
