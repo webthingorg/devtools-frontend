@@ -22,6 +22,29 @@
       "revId": "e1d82c925f055d4fafd16a103e3c62aab9e72a23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c552a71b_bc93c05e",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-24T11:39:26Z",
+      "side": 1,
+      "message": "We already have ping here, relating to Andrey\u0027s comment on the other CL: Can we just use that?",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 6
+      },
+      "revId": "e1d82c925f055d4fafd16a103e3c62aab9e72a23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
