@@ -292,7 +292,7 @@ export const sprintf = function(format, var_arg) {
 };
 
 
- /**
+/**
  * @param {string} inputString
  * @return {string}
  */

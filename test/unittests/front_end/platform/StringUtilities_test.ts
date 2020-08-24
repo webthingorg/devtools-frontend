@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import {StringUtilities} from '../../../../front_end/platform/platform.js';
-import {FORMATTER_TOKEN} from '../../../../front_end/platform/string-utilities.js';
 
 const {assert} = chai;
 
@@ -204,7 +203,7 @@ describe('StringUtilities', () => {
 
       const tokens = StringUtilities.tokenizeFormatString(colors.map(c => `\u001b[${c}m`).join(''), {c: () => {}});
 
-      const expectedTokens: FORMATTER_TOKEN[] = [
+      const expectedTokens: StringUtilities.FORMATTER_TOKEN[] = [
         {
           precision: undefined,
           substitutionIndex: undefined,

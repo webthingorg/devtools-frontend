@@ -403,7 +403,7 @@ Object.defineProperty(Array.prototype, 'peekLast', {
 });
 
 (function() {
-  /**
+/**
    * @param {!Array.<T>} array1
    * @param {!Array.<T>} array2
    * @param {function(T,T):number} comparator
@@ -411,60 +411,60 @@ Object.defineProperty(Array.prototype, 'peekLast', {
    * @return {!Array.<T>}
    * @template T
    */
-  function mergeOrIntersect(array1, array2, comparator, mergeNotIntersect) {
-    const result = [];
-    let i = 0;
-    let j = 0;
-    while (i < array1.length && j < array2.length) {
-      const compareValue = comparator(array1[i], array2[j]);
-      if (mergeNotIntersect || !compareValue) {
-        result.push(compareValue <= 0 ? array1[i] : array2[j]);
-      }
-      if (compareValue <= 0) {
-        i++;
-      }
-      if (compareValue >= 0) {
-        j++;
-      }
+function mergeOrIntersect(array1, array2, comparator, mergeNotIntersect) {
+  const result = [];
+  let i = 0;
+  let j = 0;
+  while (i < array1.length && j < array2.length) {
+    const compareValue = comparator(array1[i], array2[j]);
+    if (mergeNotIntersect || !compareValue) {
+      result.push(compareValue <= 0 ? array1[i] : array2[j]);
     }
-    if (mergeNotIntersect) {
-      while (i < array1.length) {
-        result.push(array1[i++]);
-      }
-      while (j < array2.length) {
-        result.push(array2[j++]);
-      }
+    if (compareValue <= 0) {
+      i++;
     }
-    return result;
+    if (compareValue >= 0) {
+      j++;
+    }
   }
+  if (mergeNotIntersect) {
+    while (i < array1.length) {
+      result.push(array1[i++]);
+    }
+    while (j < array2.length) {
+      result.push(array2[j++]);
+    }
+  }
+  return result;
+}
 
-  Object.defineProperty(Array.prototype, 'intersectOrdered', {
-    /**
+Object.defineProperty(Array.prototype, 'intersectOrdered', {
+  /**
      * @param {!Array.<T>} array
      * @param {function(T,T):number} comparator
      * @return {!Array.<T>}
      * @this {!Array.<T>}
      * @template T
      */
-    value: function(array, comparator) {
-      return mergeOrIntersect(this, array, comparator, false);
-    },
-    configurable: true
-  });
+  value: function(array, comparator) {
+    return mergeOrIntersect(this, array, comparator, false);
+  },
+  configurable: true
+});
 
-  Object.defineProperty(Array.prototype, 'mergeOrdered', {
-    /**
+Object.defineProperty(Array.prototype, 'mergeOrdered', {
+  /**
      * @param {!Array.<T>} array
      * @param {function(T,T):number} comparator
      * @return {!Array.<T>}
      * @this {!Array.<T>}
      * @template T
      */
-    value: function(array, comparator) {
-      return mergeOrIntersect(this, array, comparator, true);
-    },
-    configurable: true
-  });
+  value: function(array, comparator) {
+    return mergeOrIntersect(this, array, comparator, true);
+  },
+  configurable: true
+});
 })();
 
 /**

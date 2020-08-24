@@ -1,14 +1,9 @@
 {
-  "dependencies": [],
+  "dependencies": [
+    "core"
+  ],
   "modules": [
-    "platform.js",
-    "utilities.js",
-    "date-utilities.js",
-    "set-utilities.js",
-    "string-utilities.js",
-    "number-utilities.js",
-    "array-utilities.js",
-    "UIString.js"
+    "platform.js"
   ],
 
   "skip_rollup": true

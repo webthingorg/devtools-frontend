@@ -668,6 +668,12 @@ export class Module {
     const legacyFileName = `${this._name}-legacy.js`;
     const fileName = this._descriptor.modules.includes(legacyFileName) ? legacyFileName : `${this._name}.js`;
 
+    // Some modules are wrapper modules (e.g. `core/`). These don't include the respective
+    // `front_end/core/core.js` entrypoint, as the entrypoints are defined in subfolders.
+    if (!this._descriptor.modules.includes(fileName)) {
+      return Promise.resolve();
+    }
+
     // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
     return eval(`import('../${this._name}/${fileName}')`);
   }

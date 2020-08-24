@@ -5,6 +5,7 @@
     { "name": "common", "type": "autostart" },
     { "name": "components", "type": "autostart"},
     { "name": "console_counters", "type": "autostart" },
+    { "name": "core", "type": "autostart" },
     { "name": "dom_extension", "type": "autostart" },
     { "name": "extensions", "type": "autostart" },
     { "name": "host", "type": "autostart" },

@@ -3,26 +3,11 @@
 # found in the LICENSE file.
 
 import("../../scripts/build/ninja/devtools_entrypoint.gni")
-import("../../scripts/build/ninja/devtools_module.gni")
-
-devtools_module("platform") {
-  sources = [
-    "UIString.js",
-    "array-utilities.js",
-    "date-utilities.js",
-    "number-utilities.js",
-    "set-utilities.js",
-    "string-utilities.js",
-    "utilities.js",
-  ]
-
-  deps = []
-}
 
 devtools_entrypoint("bundle") {
   entrypoint = "platform.js"
 
   is_legacy_javascript_entrypoint = [ "crbug.com/1011811" ]
 
-  deps = [ ":platform" ]
+  deps = [ "../core/platform:bundle" ]
 }

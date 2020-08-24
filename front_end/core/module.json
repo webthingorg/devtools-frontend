@@ -1,0 +1,13 @@
+{
+  "modules": [
+    "platform/platform.js",
+    "platform/utilities.js",
+    "platform/date-utilities.js",
+    "platform/set-utilities.js",
+    "platform/string-utilities.js",
+    "platform/number-utilities.js",
+    "platform/array-utilities.js",
+    "platform/UIString.js"
+  ],
+  "skip_rollup": true
+}
