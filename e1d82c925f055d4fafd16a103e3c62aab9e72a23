@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "576931f3_bfeb0957",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-24T12:22:43Z",
+      "side": 1,
+      "message": "Let\u0027s use the \u0027Other\u0027 category below for beacon and not have this here.",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 254,
+        "endChar": 55
+      },
+      "revId": "e1d82c925f055d4fafd16a103e3c62aab9e72a23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c552a71b_bc93c05e",
         "filename": "front_end/common/ResourceType.js",
         "patchSetId": 1
@@ -36,6 +59,30 @@
       "writtenOn": "2020-08-24T11:39:26Z",
       "side": 1,
       "message": "We already have ping here, relating to Andrey\u0027s comment on the other CL: Can we just use that?",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 6
+      },
+      "revId": "e1d82c925f055d4fafd16a103e3c62aab9e72a23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf08936_c3d843f1",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-24T12:22:43Z",
+      "side": 1,
+      "message": "I\u0027ve been looking into the back-end CL some more, and pings and beacons seem to be rather distinct based on what their purpose is.\n\nIf you think it would be useful to be able to filter by beacons (without pings from keep alives of websockets) then I\u0027m OK with adding beacon here.",
+      "parentUuid": "c552a71b_bc93c05e",
       "range": {
         "startLine": 276,
         "startChar": 2,
