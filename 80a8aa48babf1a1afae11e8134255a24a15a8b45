@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5af24078_01e863ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-24T10:23:01Z",
+      "side": 1,
+      "message": "FYI Andres this might fix the issue you were debugging as well.",
+      "revId": "80a8aa48babf1a1afae11e8134255a24a15a8b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
