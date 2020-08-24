@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52ddb8ce_6e5843f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-24T14:26:08Z",
+      "side": 1,
+      "message": "Hi Peter, please take a look at the description and example screenshots and let me know your thoughts about this change.\nWe can change the shading if we need to. Right now, the label color is just slightly brighter than the line color (blended with a 0.2 opacity white color).",
+      "revId": "93a599f3a1e1cddcb1d575768de069e39a346080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
