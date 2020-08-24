@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a05e20d_4d011b11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-08-24T19:16:41Z",
+      "side": 1,
+      "message": "I used a build with this patch over the weekend to do some debugging. I like the feel of this solution 😊",
+      "revId": "4904416907e57018454bd568258626829e778a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
