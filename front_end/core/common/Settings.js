@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Root from '../root/root.js';
+import * as Root from '../../root/root.js';
 
 import {Color, Format} from './Color.js';  // eslint-disable-line no-unused-vars
 import {Console} from './Console.js';
@@ -794,8 +794,7 @@ export class VersionController {
             typeof preset.value.throughput === 'number' && typeof preset.value.latency === 'number') {
           newValue.push({
             title: preset.title,
-            value:
-                {download: preset.value.throughput, upload: preset.value.throughput, latency: preset.value.latency}
+            value: {download: preset.value.throughput, upload: preset.value.throughput, latency: preset.value.latency}
           });
         }
       }

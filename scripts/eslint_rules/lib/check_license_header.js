@@ -63,9 +63,9 @@ const EXCLUDED_FILES = [
 const OTHER_LICENSE_HEADERS = [
   // Apple
   'bindings/ResourceUtils.js',
-  'common/Color.js',
-  'common/Object.js',
-  'common/ResourceType.js',
+  'core/common/Color.js',
+  'core/common/Object.js',
+  'core/common/ResourceType.js',
   'data_grid/DataGrid.js',
   'dom_extension/DOMExtension.js',
   'elements/MetricsSidebarPane.js',
