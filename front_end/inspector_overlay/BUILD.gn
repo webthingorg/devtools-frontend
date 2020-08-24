@@ -29,6 +29,7 @@ action("build_inspector_overlay") {
     "$target_gen_dir/tool_distances.js",
     "$target_gen_dir/tool_source_order_impl.js",
     "$target_gen_dir/tool_source_order.js",
+    "$target_gen_dir/all.js",
   ]
 
   outputs = [
@@ -40,13 +41,14 @@ action("build_inspector_overlay") {
     "$resources_out_dir/tool_screenshot.js",
     "$resources_out_dir/tool_viewport_size.js",
     "$resources_out_dir/tool_source_order.js",
+    "$resources_out_dir/all.js",
   ]
 
   args = [
     "common.css",
     "1200",  # max_size in bytes
     "tool_highlight.js",
-    "54000",  # max_size in bytes
+    "55000",  # max_size in bytes
     "tool_highlight_grid.js",
     "34000",  # max_size in bytes
     "tool_distances.js",
@@ -59,6 +61,8 @@ action("build_inspector_overlay") {
     "5000",  # max_size in bytes
     "tool_source_order.js",
     "10000",  # max_size in bytes
+    "all.js",
+    "330000",  # max_size in bytes
     "--input_path",
     rebase_path(".", root_build_dir),
     "--output_path",
@@ -78,6 +82,7 @@ copy("copy_resources") {
 
 ts_library("inspector_overlay") {
   sources = [
+    "all.js",
     "common.js",
     "css_grid_label_helpers.js",
     "highlight_common.js",
