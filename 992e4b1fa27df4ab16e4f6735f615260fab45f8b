@@ -22,6 +22,30 @@
       "revId": "992e4b1fa27df4ab16e4f6735f615260fab45f8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c8a27a_fb5c1f0a",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-24T14:17:26Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "9e5a3f92_55d21541",
+      "range": {
+        "startLine": 94,
+        "startChar": 8,
+        "endLine": 94,
+        "endChar": 48
+      },
+      "revId": "992e4b1fa27df4ab16e4f6735f615260fab45f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
