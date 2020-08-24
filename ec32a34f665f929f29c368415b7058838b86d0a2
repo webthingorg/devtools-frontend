@@ -141,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "74b6647b_6dffb1fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-24T23:34:48Z",
+      "side": 1,
+      "message": "Thanks for the clarification, I agree that at this point out best route is #2. IIRC last discussion we had with Lighthouse team everybody was onboard with #1 but changes were larger than anticipated and the work was on a pause for the moment. We can definitely resume discussion on this but I feel that lands outside of the scope of this CL.",
+      "parentUuid": "0966ba2a_b2129dd8",
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f9d3374_c38319f7",
         "filename": "front_end/i18n/i18n-lh-bundle.js",
         "patchSetId": 11
@@ -161,6 +179,30 @@
       "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3618dc66_a2896dc2",
+        "filename": "front_end/i18n/i18n-lh-bundle.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-24T23:34:48Z",
+      "side": 1,
+      "message": "thanks for clarifying :), this makes sense. I\u0027ll do the change.",
+      "parentUuid": "9f9d3374_c38319f7",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 41
+      },
+      "revId": "ec32a34f665f929f29c368415b7058838b86d0a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
