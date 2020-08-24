@@ -3,6 +3,7 @@
     "composite": true
   },
   "files": [
-    "locales/en-US.json"
+    "locales/en-US.json",
+    "locales/en-XL.json"
   ]
 }

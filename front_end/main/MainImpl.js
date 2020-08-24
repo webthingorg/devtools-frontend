@@ -92,7 +92,7 @@ export class MainImpl {
   }
 
   async requestAndRegisterLocaleData() {
-    const hostLocale = Root.Runtime.queryParam('locale') || 'en-US';
+    const hostLocale = 'en-XL';
     i18n.i18n.registerLocale(hostLocale);
     const locale = i18n.i18n.registeredLocale;
     if (locale && locale.toLowerCase() !== 'en-us') {
