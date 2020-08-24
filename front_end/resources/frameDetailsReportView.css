@@ -8,10 +8,19 @@
   padding-left: 1ex;
 }
 
+.report-field-value-link {
+  display: inline-block;
+}
+
 .report-field-name {
   flex: 0 0 200px;
 }
 
 .report-field .more-info {
   color: #555;
+}
+
+.devtools-link .icon {
+  background-color: rgb(17 85 204);
+  margin-right: 0.5ex;
 }

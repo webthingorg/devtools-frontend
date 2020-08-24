@@ -29,12 +29,12 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     this._unreachableURL = this._generalSection.appendField(ls`Unreachable URL`);
     this._originFieldValue = this._generalSection.appendField(ls`Origin`);
 
-    this._ownerElementFieldValue = this._generalSection.appendField(ls`Owner Element`);
-    this._ownerElementFieldValue.classList.add('devtools-link');
-    this._ownerElementFieldValue.title = ls`Click to reveal in Elements panel`;
+    const ownerElementLinkContainer = this._generalSection.appendField(ls`Owner Element`);
+    this._ownerElementLink = ownerElementLinkContainer.createChild('div', 'report-field-value-link devtools-link');
+    this._ownerElementLink.title = ls`Click to reveal in Elements panel`;
     /** @type {?SDK.DOMModel.DOMNode} */
     this._ownerDomNode = null;
-    this._ownerElementFieldValue.addEventListener('click', () => {
+    this._ownerElementLink.addEventListener('click', () => {
       if (this._ownerDomNode) {
         Common.Revealer.reveal(this._ownerDomNode);
       }
@@ -48,20 +48,35 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
+   * @param {!Element} parent
+   * @param {string} iconType
+   * @param {string} linkText
+   * @returns {!Element}
+   */
+  _addLinkWithIcon(parent, iconType, linkText) {
+    const linkContainer = parent.createChild('div');
+    const linkElement = linkContainer.createChild('div', 'report-field-value-link devtools-link');
+    const icon = UI.Icon.Icon.create(iconType, 'icon');
+    linkElement.appendChild(icon);
+    linkElement.createChild('span').textContent = linkText;
+    return linkElement;
+  }
+
+  /**
    * @override
    * @return {!Promise<?>}
    */
   async doUpdate() {
     this._urlFieldValue.textContent = this._frame.url;
     if (!this._frame.unreachableUrl()) {
-      const revealSources = this._urlFieldValue.createChild('span', 'report-field-value-part devtools-link');
-      revealSources.textContent = ls`View Source`;
+      const revealSources = this._addLinkWithIcon(this._urlFieldValue, 'mediumicon-sources-panel', ls`View Source`);
+      revealSources.title = ls`Click to reveal in Sources panel`;
       revealSources.addEventListener('click', () => {
         const sourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(this._frame.url);
         Common.Revealer.reveal(sourceCode);
       });
     }
-    FrameDetailsView.maybeAppendLinkToRequest(this._urlFieldValue, this._frame.resourceForURL(this._frame.url));
+    this._maybeAppendLinkToRequest();
     this._maybeAppendLinkForUnreachableUrl();
     if (this._frame.securityOrigin && this._frame.securityOrigin !== '://') {
       this._originFieldValue.textContent = this._frame.securityOrigin;
@@ -71,8 +86,11 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     }
     this._ownerDomNode = await this._frame.getOwnerDOMNodeOrDocument();
     this._updateAdStatus();
+    this._ownerElementLink.removeChildren();
     if (this._ownerDomNode) {
-      this._ownerElementFieldValue.textContent = `<${this._ownerDomNode.nodeName().toLocaleLowerCase()}>`;
+      const icon = UI.Icon.Icon.create('mediumicon-elements-panel', 'icon');
+      this._ownerElementLink.appendChild(icon);
+      this._ownerElementLink.createChild('span').textContent = `<${this._ownerDomNode.nodeName().toLocaleLowerCase()}>`;
     }
     await this._updateCoopCoepStatus();
     this._updateContextStatus();
@@ -119,16 +137,12 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     }
   }
 
-  /**
-   * @param {!Element} element
-   * @param {?SDK.Resource.Resource} resource
-   */
-  static maybeAppendLinkToRequest(element, resource) {
+  _maybeAppendLinkToRequest() {
+    const resource = this._frame.resourceForURL(this._frame.url);
     if (resource && resource.request) {
       const request = resource.request;
-      const revealRequest = element.createChild('span', 'report-field-value-part');
-      revealRequest.textContent = ls`View Request`;
-      revealRequest.classList.add('devtools-link');
+      const revealRequest = this._addLinkWithIcon(this._urlFieldValue, 'mediumicon-network-panel', ls`View Request`);
+      revealRequest.title = ls`Click to reveal in Network panel`;
       revealRequest.addEventListener('click', () => {
         Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, Network.NetworkItemView.Tabs.Headers);
       });
@@ -146,8 +160,8 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     if (!unreachableUrl) {
       return;
     }
-    const revealRequest = this._unreachableURL.createChild('span', 'report-field-value-part devtools-link');
-    revealRequest.textContent = ls`Show matching requests`;
+    const revealRequest =
+        this._addLinkWithIcon(this._unreachableURL, 'mediumicon-network-panel', ls`Show matching requests`);
     revealRequest.title = ls`Requires network log, try reloading the inspected page if unavailable`;
     revealRequest.addEventListener('click', () => {
       Network.NetworkPanel.NetworkPanel.revealAndFilter([
