@@ -5,7 +5,32 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import * as i18n from '../i18n/i18n.js';
 import * as UI from '../ui/ui.js';
+
+export const UIStrings = {
+  /**
+  *@description Text for keyboard shortcuts
+  */
+  shortcuts: 'Shortcuts',
+  /**
+  *@description Text appearing before a select control offering users their choice of keyboard shortcut presets.
+  */
+  matchShortcutsFromPreset: 'Match shortcuts from preset',
+  /**
+  *@description Screen reader label for list of keyboard shortcuts in settings
+  */
+  keyboardShortcutsList: 'Keyboard shortcuts list',
+  /**
+  *@description Screen-reader accessible label for an icon denoting a non-default/common shortcut.
+  */
+  shortcutProvidedByPreset: 'Shortcut provided by preset',
+  /**
+  *@description Screen reader label for an empty shortcut cell in custom shortcuts settings tab
+  */
+  noShortcutForAction: 'No shortcut for action',
+};
+const str_ = i18n.i18n.registerUIStrings('settings/KeybindsSettingsTab.js', UIStrings);
 
 /**
  * @implements {UI.ListControl.ListDelegate<!KeybindsItem>}
@@ -16,11 +41,11 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     this.registerRequiredCSS('settings/keybindsSettingsTab.css');
 
     const header = this.contentElement.createChild('header');
-    header.createChild('h1').textContent = ls`Shortcuts`;
+    header.createChild('h1').textContent = i18n.i18n.getLocalizedString(str_, UIStrings.shortcuts);
     const keybindsSetSetting = self.Common.settings.moduleSetting('activeKeybindSet');
     keybindsSetSetting.addChangeListener(this.update, this);
-    const keybindsSetSelect =
-        UI.SettingsUI.createControlForSetting(keybindsSetSetting, ls`Match shortcuts from preset`);
+    const keybindsSetSelect = UI.SettingsUI.createControlForSetting(
+        keybindsSetSetting, i18n.i18n.getLocalizedString(str_, UIStrings.matchShortcutsFromPreset));
     keybindsSetSelect.classList.add('keybinds-set-select');
     this.contentElement.appendChild(keybindsSetSelect);
 
@@ -31,7 +56,8 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     UI.ARIAUtils.markAsList(this._list.element);
     this.registerRequiredCSS('settings/keybindsSettingsTab.css');
     this.contentElement.appendChild(this._list.element);
-    UI.ARIAUtils.setAccessibleName(this._list.element, ls`Keyboard shortcuts list`);
+    UI.ARIAUtils.setAccessibleName(
+        this._list.element, i18n.i18n.getLocalizedString(str_, UIStrings.keyboardShortcutsList));
     this.update();
   }
 
@@ -57,7 +83,7 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
       shortcuts.forEach((shortcut, index) => {
         if (!shortcut.isDefault()) {
           const icon = UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified');
-          UI.ARIAUtils.setAccessibleName(icon, ls`Shortcut provided by preset`);
+          UI.ARIAUtils.setAccessibleName(icon, i18n.i18n.getLocalizedString(str_, UIStrings.shortcutProvidedByPreset));
           itemElement.appendChild(icon);
         }
         const shortcutElement = itemElement.createChild('div', 'keybinds-shortcut keybinds-list-text');
@@ -69,11 +95,11 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
       if (shortcuts.length === 0) {
         if (self.UI.shortcutRegistry.actionHasDefaultShortcut(item.id())) {
           const icon = UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified');
-          UI.ARIAUtils.setAccessibleName(icon, ls`Shortcut provided by preset`);
+          UI.ARIAUtils.setAccessibleName(icon, i18n.i18n.getLocalizedString(str_, UIStrings.shortcutProvidedByPreset));
           itemElement.appendChild(icon);
         }
         const emptyElement = itemElement.createChild('div', 'keybinds-shortcut keybinds-list-text');
-        UI.ARIAUtils.setAccessibleName(emptyElement, ls`No shortcut for action`);
+        UI.ARIAUtils.setAccessibleName(emptyElement, i18n.i18n.getLocalizedString(str_, UIStrings.noShortcutForAction));
       }
     }
 
