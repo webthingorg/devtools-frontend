@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e85bee9a_6b9af6a2",
+        "filename": "front_end/elements/ColorSwatchPopoverIcon.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-24T11:59:29Z",
+      "side": 0,
+      "message": "A question: was reposition not working as expected in this case? Perhaps there is some issue with the reposition() impl.?",
+      "revId": "4b644f76915b1dd9f7a039b0c6c7811198776cc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
