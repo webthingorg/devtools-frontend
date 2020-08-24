@@ -2653,6 +2653,8 @@ export class StylesSidebarPropertyRenderer {
     this._gridHandler = null;
     /** @type {?function(string):!Node} */
     this._varHandler = createTextNode;
+    /** @type {?function(string):!Node} */
+    this._angleHandler = null;
   }
 
   /**
@@ -2691,6 +2693,13 @@ export class StylesSidebarPropertyRenderer {
   }
 
   /**
+   * @param {function(string):!Node} handler
+   */
+  setAngleHandler(handler) {
+    this._angleHandler = handler;
+  }
+
+  /**
    * @return {!Element}
    */
   renderName() {
@@ -2722,6 +2731,12 @@ export class StylesSidebarPropertyRenderer {
 
     if (this._gridHandler && metadata.isGridAreaDefiningProperty(this._propertyName)) {
       valueElement.appendChild(this._gridHandler(this._propertyValue, this._propertyName));
+      valueElement.normalize();
+      return valueElement;
+    }
+
+    if (this._angleHandler && metadata.isAngleAwareProperty(this._propertyName)) {
+      valueElement.appendChild(this._angleHandler(this._propertyValue));
       valueElement.normalize();
       return valueElement;
     }
