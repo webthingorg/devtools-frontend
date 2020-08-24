@@ -33,6 +33,46 @@
       "revId": "e0680abf7c0f1d9fd8cc4f86eab00154dbe68a1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb7b0e3b_14b32b65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-24T18:37:37Z",
+      "side": 1,
+      "message": "LGTM minus the lock comment.",
+      "revId": "e0680abf7c0f1d9fd8cc4f86eab00154dbe68a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8c32f31_efcac999",
+        "filename": "front_end/browser_debugger/browser_debugger_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-24T18:37:37Z",
+      "side": 1,
+      "message": "this should be locked. Here is a doc that shows how to lock it\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/localization/locked_terms.md?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 8
+      },
+      "revId": "e0680abf7c0f1d9fd8cc4f86eab00154dbe68a1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
