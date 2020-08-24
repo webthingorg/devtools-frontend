@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ResourceType} from '../../../../front_end/common/ResourceType.js';
+import * as Common from '../../../../front_end/common/common.js';
 import {StaticContentProvider} from '../../../../front_end/text_utils/StaticContentProvider.js';
 
 const {assert} = chai;
 
 describe('StaticContentProvider', () => {
-  const jsonResource = ResourceType.fromMimeType('application/json');
+  const jsonResource = Common.ResourceType.ResourceType.fromMimeType('application/json');
 
   it('can be created from a string source', () => {
     const provider = StaticContentProvider.fromString('www.testurl.com', jsonResource, '{ "hello": "world" }');

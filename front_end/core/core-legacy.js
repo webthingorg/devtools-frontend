@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as CommonModule from './common.js';
+import * as CommonModule from './common/common.js';
 
 self.Common = self.Common || {};
 Common = Common || {};

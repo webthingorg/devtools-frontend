@@ -5,7 +5,7 @@
 import './RuntimeInstantiator.js';
 import './platform/platform.js';
 import './dom_extension/dom_extension.js';
-import './common/common-legacy.js';
+import './core/core-legacy.js';
 import './host/host-legacy.js';
 import './protocol_client/protocol_client-legacy.js';
 import './sdk/sdk-legacy.js';
