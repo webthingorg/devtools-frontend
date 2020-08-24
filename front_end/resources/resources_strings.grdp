@@ -79,6 +79,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_22554c2f3f431fa4243965df392b9ea9" desc="Text in Application Cache Items View of the Application panel">
     AppCache
   </message>
+  <message name="IDS_DEVTOOLS_285fab11101a84ace7c3b14e5d0a3c1c" desc="Title for a link to the Network panel">
+    Click to reveal in Network panel
+  </message>
   <message name="IDS_DEVTOOLS_29104d3ede0231043a4b92a90b9c2873" desc="Title of needs refresh in indexed dbviews of the application panel">
     Some entries may have been modified
   </message>
@@ -521,6 +524,9 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_dce1121d5ec5434e70d2d809fd7828e1" desc="Manifest installability error in the Application panel">
     Manifest &apos;<ph name="LOCKED_1">display</ph>&apos; property must be one of &apos;<ph name="LOCKED_2">standalone</ph>&apos;, &apos;<ph name="LOCKED_3">fullscreen</ph>&apos;, or &apos;<ph name="LOCKED_3">minimal-ui</ph>&apos;
+  </message>
+  <message name="IDS_DEVTOOLS_dd860f47538dbbd789203089078e33c5" desc="Title for a link to the Sources panel">
+    Click to reveal in Sources panel
   </message>
   <message name="IDS_DEVTOOLS_e00a7ac13697ba51e098449fd644935b" desc="Text in Background Service View of the Application panel">
     Show events from other domains
