@@ -16,6 +16,74 @@
       "revId": "465f97148697e77ec0525c1060d9c74689af26eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f153a7ef_99adbd9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-24T14:44:34Z",
+      "side": 1,
+      "message": "LGTM with some non-blocking nits, thanks!\n\nI hope we call the next version PieChart3.14 so we can refer to it as PieChartPi",
+      "revId": "465f97148697e77ec0525c1060d9c74689af26eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43aae8ee_3da2340a",
+        "filename": "front_end/layer_viewer/PaintProfilerView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-24T14:44:34Z",
+      "side": 1,
+      "message": "superminor nit: this should be sentence case per go/punctuation-standards. I know we currently mix and match in the DevTools UI, but since this is new code we might as well follow the guidance. WDYT?",
+      "revId": "465f97148697e77ec0525c1060d9c74689af26eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f424343_e901c100",
+        "filename": "front_end/profiler/HeapSnapshotView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-24T14:44:34Z",
+      "side": 1,
+      "message": "We could also choose to update these strings accordingly, now that we’re here anyway.",
+      "revId": "465f97148697e77ec0525c1060d9c74689af26eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec9da3fa_5610d1ba",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-24T14:44:34Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "465f97148697e77ec0525c1060d9c74689af26eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
