@@ -16,6 +16,23 @@
       "revId": "92ee2f8a7b9d9f1bbbbbe3e655765b38b706dc1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2219f5_86269ea5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-24T15:33:19Z",
+      "side": 1,
+      "message": "This looks fine to me, but I defer to Sigurd.",
+      "revId": "92ee2f8a7b9d9f1bbbbbe3e655765b38b706dc1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
