@@ -332,7 +332,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           const group = this._appendHeader(ls`Timings`, style, true /* selectable */);
           group._track = track;
           this._appendPageMetrics();
-          this._appendAsyncEventsGroup(track, null, track.asyncEvents, style, eventEntryType, true /* selectable */);
+          this._appendSyncEvents(track, track.events, null, null, eventEntryType, true /* selectable */);
+          this._appendAsyncEventsGroup(track, null, track.asyncEvents, null, eventEntryType, true /* selectable */);
           break;
         }
 
@@ -493,6 +494,55 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         }
       }
 
+      if (this._performanceModel && this._performanceModel.timelineModel().isUserTimingEvent(e)) {
+        // TODO(mmocny): This filtration should happen beforehand, at the moment it gets extracted?
+        const ResourceTimingNames = [
+          'workerStart',
+          'redirectStart',
+          'redirectEnd',
+          'fetchStart',
+          'domainLookupStart',
+          'domainLookupEnd',
+          'connectStart',
+          'connectEnd',
+          'secureConnectionStart',
+          'requestStart',
+          'responseStart',
+          'responseEnd',
+        ];
+        const NavTimingNames = [
+          'navigationStart',
+          'unloadEventStart',
+          'unloadEventEnd',
+          'redirectStart',
+          'redirectEnd',
+          'fetchStart',
+          'domainLookupStart',
+          'domainLookupEnd',
+          'connectStart',
+          'connectEnd',
+          'secureConnectionStart',
+          'requestStart',
+          'responseStart',
+          'responseEnd',
+          'domLoading',
+          'domInteractive',
+          'domContentLoadedEventStart',
+          'domContentLoadedEventEnd',
+          'domComplete',
+          'loadEventStart',
+          'loadEventEnd',
+        ];
+        const IgnoreNames = [...ResourceTimingNames, ...NavTimingNames];
+        if (IgnoreNames.includes(e.name)) {
+          continue;
+        }
+        // TODO(mmocny): Why isn't R defined in TracingModel.Phase?
+        if (e.phase === 'R') {
+          e.setEndTime(e.startTime);
+        }
+      }
+
       if (this._performanceModel && this._performanceModel.timelineModel().isLayoutShiftEvent(e)) {
         // Expand layout shift events to the size of the frame in which it is situated.
         for (const frame of this._performanceModel.frames()) {
@@ -540,7 +590,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         }
         e._blackboxRoot = true;
       }
-      if (!group) {
+      if (!group && title) {
         group = this._appendHeader(title, style, selectable);
         if (selectable) {
           group._track = track;
@@ -592,14 +642,14 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   /**
    * @param {?TimelineModel.TimelineModel.Track} track
-   * @param {?string} header
+   * @param {?string} title
    * @param {!Array<!SDK.TracingModel.AsyncEvent>} events
    * @param {!PerfUI.FlameChart.GroupStyle} style
    * @param {!EntryType} entryType
    * @param {boolean} selectable
    * @return {?PerfUI.FlameChart.Group}
    */
-  _appendAsyncEventsGroup(track, header, events, style, entryType, selectable) {
+  _appendAsyncEventsGroup(track, title, events, style, entryType, selectable) {
     if (!events.length) {
       return null;
     }
@@ -610,8 +660,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (!this._performanceModel.isVisible(asyncEvent)) {
         continue;
       }
-      if (!group && header) {
-        group = this._appendHeader(header, style, selectable);
+      if (!group && title) {
+        group = this._appendHeader(title, style, selectable);
         if (selectable) {
           group._track = track;
         }
@@ -621,6 +671,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       for (level = 0; level < lastUsedTimeByLevel.length && lastUsedTimeByLevel[level] > startTime; ++level) {
       }
       this._appendAsyncEvent(asyncEvent, this._currentLevel + level);
+
       lastUsedTimeByLevel[level] = asyncEvent.endTime;
     }
     this._entryTypeByLevel.length = this._currentLevel + lastUsedTimeByLevel.length;
