@@ -320,6 +320,7 @@ export class TimelineUIUtils {
         return TimelineUIUtils.colorForId(frame.url);
       }
     }
+
     const color = TimelineUIUtils.eventStyle(event).category.color;
 
     // This event is considered idle time but still rendered as a scripting event here
