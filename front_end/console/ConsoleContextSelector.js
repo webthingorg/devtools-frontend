@@ -276,7 +276,7 @@ export class ConsoleContextSelector {
       if (callFrame) {
         return new Common.ParsedURL.ParsedURL(callFrame.url).domain();
       }
-      return Common.UIString.UIString('IFrame');
+      return 'IFrame';
     }
     return '';
   }

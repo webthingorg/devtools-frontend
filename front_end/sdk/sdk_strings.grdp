@@ -640,9 +640,6 @@
     Because a cookie&apos;s <ph name="LOCKED_1">|SameSite|</ph> attribute was not set or is invalid, it defaults to <ph name="LOCKED_1">|SameSite=Lax|</ph>, which will prevents the cookie from being set in a cross-site context in a future version of the browser.
        This behavior protects user data from accidentally leaking to third parties and cross-site request forgery.
   </message>
-  <message name="IDS_DEVTOOLS_b28354b543375bfa94dabaeda722927f" desc="Text in Resource Tree Model">
-    top
-  </message>
   <message name="IDS_DEVTOOLS_b43356cdb7bdec437e117bb1ed5625bc" desc="Title of a setting under the Debugger category that can be invoked through the Command Menu">
     Capture async stack traces
   </message>
@@ -797,9 +794,6 @@
   </message>
   <message name="IDS_DEVTOOLS_e1e4c8c9ccd9fc39c391da4bcd093fb2" desc="Noun that represents a section or block of code in the Debugger Model. Shown in the Sources tab, while paused on a breakpoint.">
     Block
-  </message>
-  <message name="IDS_DEVTOOLS_e2b60c37530e144372a7943df0f6017d" desc="Text in Resource Tree Model">
-    &lt;iframe&gt;
   </message>
   <message name="IDS_DEVTOOLS_e3f19fc256ab121cc63e22eb3a891b1a" desc="Error message when failing to load a script source text via the network">
     Could not parse content for <ph name="SOURCEMAPURL"><ex>https://example.com</ex>$1s</ph>: <ph name="E_MESSAGE"><ex>Unexpected token</ex>$2s</ph>
