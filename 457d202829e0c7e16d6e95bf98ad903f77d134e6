@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc0270f6_cace36ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-08-25T08:03:49Z",
+      "side": 1,
+      "message": "Small fixes for javascript contexts, PTAL, thanks!",
+      "revId": "457d202829e0c7e16d6e95bf98ad903f77d134e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
