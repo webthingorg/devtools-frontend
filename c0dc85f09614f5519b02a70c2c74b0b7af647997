@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a755f62_bad44772",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-08-25T12:34:12Z",
+      "side": 1,
+      "message": "@Eric: Does the refactoring make sense?\n@Tim: Did I type-script correctly?",
+      "revId": "c0dc85f09614f5519b02a70c2c74b0b7af647997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
