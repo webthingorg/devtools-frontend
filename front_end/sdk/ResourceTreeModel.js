@@ -952,7 +952,7 @@ export class ResourceTreeFrame {
    */
   displayName() {
     if (this.isTopFrame()) {
-      return Common.UIString.UIString('top');
+      return 'top';
     }
     const subtitle = new Common.ParsedURL.ParsedURL(this._url).displayName;
     if (subtitle) {
@@ -961,7 +961,7 @@ export class ResourceTreeFrame {
       }
       return this._name + ' (' + subtitle + ')';
     }
-    return Common.UIString.UIString('<iframe>');
+    return '<iframe>';
   }
 
   /**
