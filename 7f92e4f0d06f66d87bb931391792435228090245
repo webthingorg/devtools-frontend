@@ -56,6 +56,29 @@
       "revId": "7f92e4f0d06f66d87bb931391792435228090245",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b162c488_9eec2afb",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-25T10:56:29Z",
+      "side": 1,
+      "message": "If this gets called from dispose() this will cause another error, because when dispose is called the target is already closed.\n\nThe other problem is that this function should probably do the following:\n\n  async disableCSSPropertyTracker() {\n      // Sending an empty list to the backend signals the close of style tracking\n      await this._agent.invoke_trackComputedStyleUpdates({propertiesToTrack: []});\n      this._isCSSPropertyTrackingEnabled \u003d false;\n      this._cssPropertyTracker \u003d null;\n  }\n\nSo as to give the last update a chance to get processed.",
+      "range": {
+        "startLine": 809,
+        "startChar": 16,
+        "endLine": 809,
+        "endChar": 48
+      },
+      "revId": "7f92e4f0d06f66d87bb931391792435228090245",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
