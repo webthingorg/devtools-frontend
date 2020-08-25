@@ -64,4 +64,5 @@
 .timeline-grid-header {
   height: 20px;
   pointer-events: none;
+  background-color: yellow;
 }

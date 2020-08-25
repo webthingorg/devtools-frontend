@@ -255,6 +255,7 @@ export class TracingModel {
     if (TracingModel.isAsyncPhase(payload.ph)) {
       this._asyncEvents.push(/** @type {!AsyncEvent} */ (event));
     }
+
     event._setBackingStorage(backingStorage);
     if (event.hasCategory(DevToolsMetadataEventCategory)) {
       this._devToolsMetadataEvents.push(event);
@@ -374,6 +375,21 @@ export class TracingModel {
     }
 
     return thread.removeEventsByName(eventName);
+  }
+
+  /**
+   * @param {string} processName
+   * @param {string} threadName
+   * @param {string} eventCategory
+   * @return {!Array<!Event>}
+   */
+  extractEventsFromThreadByCategory(processName, threadName, eventCategory) {
+    const thread = this.threadByName(processName, threadName);
+    if (!thread) {
+      return [];
+    }
+
+    return thread.removeEventsByCategory(eventCategory);
   }
 
   _processPendingAsyncEvents() {
@@ -851,6 +867,34 @@ export class AsyncEvent extends Event {
   }
 }
 
+/* / TODO(raphaellucena@) - Implement SyncEvent class to distinguish from AsyncEvent
+/**
+ * @unrestricted
+ */
+export class SyncEvent extends Event {
+  /**
+   * @param {!Event} startEvent
+   */
+  constructor(startEvent) {
+    super(startEvent.categoriesString, startEvent.name, startEvent.phase, startEvent.startTime, startEvent.thread);
+    this.addArgs(startEvent.args);
+    this.steps = [startEvent];
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _addStep(event) {
+    this.steps.push(event);
+    if (event.phase === Phase.AsyncEnd || event.phase === Phase.NestableAsyncEnd) {
+      this.setEndTime(event.startTime);
+      // FIXME: ideally, we shouldn't do this, but this makes the logic of converting
+      // async console events to sync ones much simpler.
+      this.steps[0].setEndTime(event.startTime);
+    }
+  }
+}
+
 
 class ProfileEventsGroup {
   /**
@@ -1136,6 +1180,30 @@ export class Thread extends NamedObject {
       }
 
       if (e.name !== name) {
+        return true;
+      }
+
+      extracted.push(e);
+      return false;
+    });
+
+    return extracted;
+  }
+
+  /**
+   * @param {string} category
+   */
+  removeEventsByCategory(category) {
+    /**
+     * @type {!Array<!Event>}
+     */
+    const extracted = [];
+    this._events = this._events.filter(e => {
+      if (!e) {
+        return false;
+      }
+
+      if (e.categoriesString !== category) {
         return true;
       }
 

@@ -328,11 +328,16 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         }
 
         case TimelineModel.TimelineModel.TrackType.Timings: {
+          // TODO(mmocny): Problem 1: Why aren't performance.marks in this `track`?
+          // raphaellucena@: Answer 1: The marks are under track.events
           const style = track.asyncEvents.length > 0 ? this._collapsibleTimingsHeader : this._timingsHeader;
+
           const group = this._appendHeader(ls`Timings`, style, true /* selectable */);
           group._track = track;
+
           this._appendPageMetrics();
-          this._appendAsyncEventsGroup(track, null, track.asyncEvents, style, eventEntryType, true /* selectable */);
+          this._appendSyncEvents(track, track.events, null, null, eventEntryType, true /* selectable */);
+          this._appendAsyncEventsGroup(track, null, track.asyncEvents, null, eventEntryType, true /* selectable */);
           break;
         }
 
@@ -476,12 +481,20 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const blackboxingEnabled = !isExtension && Root.Runtime.experiments.isEnabled('blackboxJSFramesOnTimeline');
     let maxStackDepth = 0;
     let group = null;
+
     if (track && track.type === TimelineModel.TimelineModel.TrackType.MainThread) {
       group = this._appendHeader(title, style, selectable);
       group._track = track;
     }
+
+    if (group === null) {
+      group = group;
+    }
+
     for (let i = 0; i < events.length; ++i) {
       const e = events[i];
+
+
       // Skip Layout Shifts and TTI events when dealing with the main thread.
       if (this._performanceModel) {
         const isInteractiveTime = this._performanceModel.timelineModel().isInteractiveTimeEvent(e);
@@ -490,6 +503,55 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
         if (track && track.type === TimelineModel.TimelineModel.TrackType.MainThread && skippableEvent) {
           continue;
+        }
+      }
+
+      if (this._performanceModel && this._performanceModel.timelineModel().isUserTimingEvent(e)) {
+        // TODO(mmocny): This filtration should happen beforehand, at the moment it gets extracted?
+        const ResourceTimingNames = [
+          'workerStart',
+          'redirectStart',
+          'redirectEnd',
+          'fetchStart',
+          'domainLookupStart',
+          'domainLookupEnd',
+          'connectStart',
+          'connectEnd',
+          'secureConnectionStart',
+          'requestStart',
+          'responseStart',
+          'responseEnd',
+        ];
+        const NavTimingNames = [
+          'navigationStart',
+          'unloadEventStart',
+          'unloadEventEnd',
+          'redirectStart',
+          'redirectEnd',
+          'fetchStart',
+          'domainLookupStart',
+          'domainLookupEnd',
+          'connectStart',
+          'connectEnd',
+          'secureConnectionStart',
+          'requestStart',
+          'responseStart',
+          'responseEnd',
+          'domLoading',
+          'domInteractive',
+          'domContentLoadedEventStart',
+          'domContentLoadedEventEnd',
+          'domComplete',
+          'loadEventStart',
+          'loadEventEnd',
+        ];
+        const IgnoreNames = [...ResourceTimingNames, ...NavTimingNames];
+        if (IgnoreNames.includes(e.name)) {
+          continue;
+        }
+        // TODO(mmocny): Why isn't R defined in TracingModel.Phase?
+        if (e.phase === 'R') {
+          e.setEndTime(e.startTime);
         }
       }
 
@@ -540,7 +602,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         }
         e._blackboxRoot = true;
       }
-      if (!group) {
+      if (!group && title) {
         group = this._appendHeader(title, style, selectable);
         if (selectable) {
           group._track = track;
@@ -592,17 +654,18 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   /**
    * @param {?TimelineModel.TimelineModel.Track} track
-   * @param {?string} header
+   * @param {?string} title
    * @param {!Array<!SDK.TracingModel.AsyncEvent>} events
    * @param {!PerfUI.FlameChart.GroupStyle} style
    * @param {!EntryType} entryType
    * @param {boolean} selectable
    * @return {?PerfUI.FlameChart.Group}
    */
-  _appendAsyncEventsGroup(track, header, events, style, entryType, selectable) {
+  _appendAsyncEventsGroup(track, title, events, style, entryType, selectable) {
     if (!events.length) {
       return null;
     }
+
     const lastUsedTimeByLevel = [];
     let group = null;
     for (let i = 0; i < events.length; ++i) {
@@ -610,8 +673,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (!this._performanceModel.isVisible(asyncEvent)) {
         continue;
       }
-      if (!group && header) {
-        group = this._appendHeader(header, style, selectable);
+      if (!group && title) {
+        group = this._appendHeader(title, style, selectable);
         if (selectable) {
           group._track = track;
         }
@@ -621,11 +684,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       for (level = 0; level < lastUsedTimeByLevel.length && lastUsedTimeByLevel[level] > startTime; ++level) {
       }
       this._appendAsyncEvent(asyncEvent, this._currentLevel + level);
-      lastUsedTimeByLevel[level] = asyncEvent.endTime;
+
+      lastUsedTimeByLevel[level] = asyncEvent.startTime;
     }
     this._entryTypeByLevel.length = this._currentLevel + lastUsedTimeByLevel.length;
     this._entryTypeByLevel.fill(entryType, this._currentLevel);
     this._currentLevel += lastUsedTimeByLevel.length;
+
     return group;
   }
 
@@ -837,6 +902,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         return TimelineUIUtils.markerStyleForEvent(event).color;
       }
       if (!SDK.TracingModel.TracingModel.isAsyncPhase(event.phase)) {
+        // raphaellucena@ - Marks pass this test
         return this._colorForEvent(event);
       }
       if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console) ||
