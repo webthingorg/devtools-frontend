@@ -22,6 +22,30 @@
       "revId": "418e6932412e1c899f15c01e473cde382470d823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f7d8ff0_0e220102",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-08-25T16:26:43Z",
+      "side": 1,
+      "message": "Just to clarify again, and please correct me if i\u0027m wrong, what you are suggesting is:\n* `path:` would perform a test on `\u003cpath\u003e/\u003cname\u003e` (old default filtering)\n* default would test on `\u003chost\u003e/\u003cpath\u003e/\u003cname\u003e\u003c...\u003e`, so basically the whole url without the scheme\n\nI think this would improve the current filtering, but it would still not work correctly when users include the scheme in the query string. Looking at the comments in the bug-ticket, it looks like Peter Müller agreed though, that filtering should work even when including the scheme?",
+      "parentUuid": "afa5cf35_c348ccad",
+      "range": {
+        "startLine": 256,
+        "startChar": 22,
+        "endLine": 256,
+        "endChar": 35
+      },
+      "revId": "418e6932412e1c899f15c01e473cde382470d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
