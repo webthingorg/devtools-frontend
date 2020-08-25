@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bccc6464_4b91fbee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-25T15:00:36Z",
+      "side": 1,
+      "message": "Some performance concerns with this CL.",
+      "revId": "c68b52cefe9753918e7991975f7a3e9a1514211e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fac0754c_7bbf978f",
+        "filename": "front_end/bindings/CompilerScriptMapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-25T15:00:36Z",
+      "side": 1,
+      "message": "I\u0027d imagine that this map could potentially get rather big. E.g. we would retrieve all possible breakpoint locations which are a lot of UISourceCode instances. Would it make more sense to hold a reference on each UISourceCode directly? (But make it a proper field instead of this symbol non-sense).\n\nIf we keep the map: Small-nit, as we usually keep these lower-case.",
+      "range": {
+        "startLine": 339,
+        "startChar": 6,
+        "endLine": 339,
+        "endChar": 29
+      },
+      "revId": "c68b52cefe9753918e7991975f7a3e9a1514211e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
