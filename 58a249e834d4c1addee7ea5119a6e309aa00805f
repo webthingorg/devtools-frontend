@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7255b04d_480ec6d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-08-25T14:53:09Z",
+      "side": 1,
+      "message": "Updated the icons for you any. Saved some bytes 😊",
+      "revId": "58a249e834d4c1addee7ea5119a6e309aa00805f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
