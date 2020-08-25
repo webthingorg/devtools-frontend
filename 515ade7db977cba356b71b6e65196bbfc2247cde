@@ -16,6 +16,23 @@
       "revId": "515ade7db977cba356b71b6e65196bbfc2247cde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "402bbeb7_738e2f20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-25T13:06:20Z",
+      "side": 1,
+      "message": "INFRA LGTM. Can you file a bug for updating upstream to have an ES modules compatible bundle?",
+      "revId": "515ade7db977cba356b71b6e65196bbfc2247cde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
