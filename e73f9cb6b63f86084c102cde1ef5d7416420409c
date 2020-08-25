@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fc47f86a_71045da5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-08-25T09:37:48Z",
+      "side": 1,
+      "message": "So what\u0027s the sentiment here? Should I keep the accessible name or set a data attribute? Do we have a precedent for adding a data tag like that for the sole purpose of automation/testing?",
+      "parentUuid": "7f7c4574_b9855354",
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8338069_1c7356ac",
         "filename": "front_end/object_ui/ObjectPopoverHelper.js",
         "patchSetId": 3
@@ -112,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "e4251ab1_05652201",
+        "filename": "front_end/object_ui/ObjectPopoverHelper.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-08-25T09:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8338069_1c7356ac",
+      "range": {
+        "startLine": 93,
+        "startChar": 68,
+        "endLine": 93,
+        "endChar": 75
+      },
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bd609e7_0d77f8d1",
         "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
         "patchSetId": 3
@@ -132,6 +174,30 @@
       "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "970867c7_fb7d4ef2",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-08-25T09:37:48Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll send out a followup CL!",
+      "parentUuid": "1bd609e7_0d77f8d1",
+      "range": {
+        "startLine": 274,
+        "startChar": 16,
+        "endLine": 274,
+        "endChar": 37
+      },
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
