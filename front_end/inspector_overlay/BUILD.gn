@@ -46,7 +46,7 @@ action("build_inspector_overlay") {
     "common.css",
     "1200",  # max_size in bytes
     "tool_highlight.js",
-    "54000",  # max_size in bytes
+    "55000",  # max_size in bytes
     "tool_highlight_grid.js",
     "34000",  # max_size in bytes
     "tool_distances.js",
