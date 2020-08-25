@@ -16,6 +16,23 @@
       "revId": "76902f3d52b08d4f8715f64ffae6a302c620bc6a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64f8cd28_c7436df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-08-25T20:58:08Z",
+      "side": 1,
+      "message": "LGTM, tested it out locally and it works great",
+      "revId": "76902f3d52b08d4f8715f64ffae6a302c620bc6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
